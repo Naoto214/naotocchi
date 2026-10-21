@@ -1,0 +1,14 @@
+E
+======================================================================
+ERROR: test_actual_normal_and_response_entries_carry_source_audits (test_proxy_population_source_inventory.ConnectedSourceTests.test_actual_normal_and_response_entries_carry_source_audits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_source_inventory.py", line 59, in test_actual_normal_and_response_entries_carry_source_audits
+    audits=[step['decision_source_inventory'] for step in record['runtime']['steps'] if step['decision'] is not None]
+            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'decision_source_inventory'
+
+----------------------------------------------------------------------
+Ran 1 test in 7.882s
+
+FAILED (errors=1)

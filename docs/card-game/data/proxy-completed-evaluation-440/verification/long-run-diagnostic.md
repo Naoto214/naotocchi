@@ -1,0 +1,9 @@
+# 全回帰の進行診断
+
+worker3のテキストログ末尾がworldの最初のテスト名に長く留まったため、単独・import順・直前モジュール順を切り分けた。単独1件0.45s、worker3全module import後1件0.22s、直前3moduleと同テスト25件1.02sでPASS。
+
+134を含む先行module全体の追加診断では、30秒ごとのfaulthandlerを有効にした別プロセスが、134 setUpClassの歴史検証中にexit139となった。対象worldテストの再現に達していない。この診断は未完了であり、全proxy gateやゲームのPASS件数へ加算しない。原因は未確定で、既存ソースの修正根拠には使わない。
+
+その後、全回帰本体worker3の子プロセスがproxy_new_seed_mixed_audit_correction_368.py --checkを実行中であることを確認した。したがって、ログ末尾だけからworldテストで停止したという推定は誤りだった。全回帰の終了・成功判定には、最終worker JSONの全planned/start/finish IDとstatus、exitを使う。テキストログ行数を完了件数へ読み替えない。
+
+ゲームruntime、policy、source/testを変更しない。全回帰本体は中断・再起動していない。

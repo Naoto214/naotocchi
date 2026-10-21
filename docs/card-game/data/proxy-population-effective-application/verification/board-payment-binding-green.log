@@ -1,0 +1,42 @@
+test_comparison_joins_board_proof_and_rejects_balanced_tampering (test_proxy_population_board_payment_binding.BoardPaymentBindingTests.test_comparison_joins_board_proof_and_rejects_balanced_tampering) ... ERROR
+test_source_costs_are_explicit_without_valuing_physical_payment (test_proxy_population_board_payment_binding.BoardPaymentBindingTests.test_source_costs_are_explicit_without_valuing_physical_payment) ... ok
+
+======================================================================
+ERROR: test_comparison_joins_board_proof_and_rejects_balanced_tampering (test_proxy_population_board_payment_binding.BoardPaymentBindingTests.test_comparison_joins_board_proof_and_rejects_balanced_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_board_payment_binding.py", line 81, in test_comparison_joins_board_proof_and_rejects_balanced_tampering
+    self.run_scoped(run)
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_board_payment_binding.py", line 27, in run_scoped
+    with connected.contract_scope(): runtime.operation(initial(), run)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 124, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 123, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_board_payment_binding.py", line 25, in run
+    with paid.scope(), recovery.scope(): callback()
+                                         ^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_board_payment_binding.py", line 67, in run
+    proof=operands.audit_normal(e,events,d)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_payment_operands.py", line 54, in audit_normal
+    verified_candidates=verified,unproved_candidates=unproved,source_sha256=dict(core.SOURCES,**hand.SOURCES,**board.SOURCES),
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'data/proxy-normal-decision-candidate-table-114-20260918.json'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.094s
+
+FAILED (errors=1)

@@ -1,0 +1,14 @@
+test_group_order_attempt_and_owner_root_are_bound (test_proxy_population_material_protocol.BindingTests.test_group_order_attempt_and_owner_root_are_bound) ... FAIL
+
+======================================================================
+FAIL: test_group_order_attempt_and_owner_root_are_bound (test_proxy_population_material_protocol.BindingTests.test_group_order_attempt_and_owner_root_are_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_material_protocol.py", line 33, in test_group_order_attempt_and_owner_root_are_bound
+    self.assertTrue(hasattr(api,'binding_errors'))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

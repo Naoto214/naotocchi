@@ -1,0 +1,6 @@
+PASS standard start/save compatibility: empty
+PASS standard start/save compatibility: old
+PASS standard start/save compatibility: both2
+PASS standard start/save compatibility: both8
+PASS standard start/save compatibility: corruptOld
+PASS standard start/save compatibility: corruptNew

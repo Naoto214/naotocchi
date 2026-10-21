@@ -1,0 +1,3 @@
+# 269 混合再生計画
+
+268監査のraw/canonicalと267保存state/hashを照合。終了2経路は既存の終了遷移＋次プレイヤードローを適用し、配置後responseと連鎖中responseはそれぞれ一般のresponse契約の唯一passで進める。コインの公開・効果解決は連鎖が閉じるまで行わない。RED→GREEN、専用回帰とcanonical bytes、GitHub保存後のremote HEAD/tree・PR状態を確認する。

@@ -1,0 +1,41 @@
+{
+  "schema": "naotocchi.card_game.proxy_reentry_pilot_plan.v1",
+  "date": "2026-09-18",
+  "design": {
+    "rules_commit": "e1c616d25a3d349d6dd7b430da1aced2a4c9ba6a",
+    "rules_tree": "8c217b52534f26103a3505f6032450c2a894db77",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "cluster": "P97-05",
+  "focus_card_id": "G-animal-shogi",
+  "reentry_card_id": "C-bat",
+  "focus_controller": "A",
+  "input_derivation": {
+    "method": "swap_existing_card_positions",
+    "player": "A",
+    "swaps": [
+      ["A-002#1", "A-011#1"],
+      ["A-003#1", "A-012#1"],
+      ["A-004#1", "A-013#1"],
+      ["A-005#1", "A-014#1"]
+    ],
+    "reason": "Preserve all 40 physical cards and IDs while placing Animal Shogi plus four existing companions in A's initial hand. This makes a legal full-slot replacement, recovery and later normal replay possible."
+  },
+  "record_output_directory": "proxy-pilots-105",
+  "trace_output_directory": "proxy-pilot-traces-105",
+  "pairs": [
+    {
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-05-single.json",
+      "record_match_id": "completed-105-p97-05-single-a-first-reentry",
+      "trace_id": "trace-105-p97-05-single-a-first-reentry",
+      "seat_stratum": "a-first"
+    },
+    {
+      "source_fixture": "proxy-fixtures-102/fixture-102-p97-05-single-a-second.json",
+      "record_match_id": "completed-105-p97-05-single-a-second-reentry",
+      "trace_id": "trace-105-p97-05-single-a-second-reentry",
+      "seat_stratum": "a-second"
+    }
+  ]
+}

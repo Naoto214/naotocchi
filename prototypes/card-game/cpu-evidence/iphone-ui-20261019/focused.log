@@ -1,0 +1,22 @@
+✔ CPU refresh leaves the visible notice and its ancestor continuously connected (3.272538ms)
+✔ initial render attaches the feedback host once (0.30004ms)
+✔ finished or hidden CPU view keeps human A/B upright without granting a private viewer (4.223043ms)
+✔ both human seats reverse opponent positions only, preserving slot IDs and card taps (3.366675ms)
+✔ opponent management faces the human in either orientation without rotating content (0.612496ms)
+✔ notification frame has no opacity entrance animation to restart between results (0.809079ms)
+✔ CPU bursts and automatic-pass history keep the active notice and one four-second timer (1.854712ms)
+✔ re-render after collapse keeps the result reopen control available (0.392637ms)
+✔ same batch plays in revision order without waiting for a game action or duplicating on render (0.288766ms)
+✔ background/handoff drops queued private notices and stale callbacks cannot resurrect them (0.199054ms)
+✔ restore history stays in history; a new command replaces outdated pending notices (0.141447ms)
+✔ notices use four-second timers; manual collapse and replay preserve order without game input (0.251769ms)
+✔ replay icon and retained private payload are erased on handoff/background/reset (0.134066ms)
+✔ default browser timers retain Window receiver for schedule and cancellation (0.231572ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 180.80337

@@ -1,0 +1,367 @@
+diff --git a/docs/card-game/plans/2026-10-14-instance-history-entry.md b/docs/card-game/plans/2026-10-14-instance-history-entry.md
+new file mode 100644
+index 0000000..9e5754a
+--- /dev/null
++++ b/docs/card-game/plans/2026-10-14-instance-history-entry.md
+@@ -0,0 +1,37 @@
++# Envelope-bound field-entry history implementation plan
++
++> **For agentic workers:** Use superpowers:executing-plans for inline TDD, then an independent review.
++
++**Goal:** Pass the current envelope and its reconstructed lifecycle explicitly through the shared six-family instance boundary.
++**Architecture:** Reuse 100/105, life.observe and Connection.capture/finish. Bind each cached lifecycle to its complete conditional event path; compare that path against the caller's actual public history before entry. A candidate cache is never evidence of selection. Keep source authentication and full selected-transcript audits separate.
++**Tech Stack:** Python unittest, existing source-bound validation and Git edition binding.
++**Spec:** User approval 2026-10-14; canonical starting commit d755a14694d148d12ae9bead3a7c9a13d9db5ed4.
++
++## Global constraints
++- Six entry families; no card, match, seed or fallback-policy exceptions.
++- Never change existing data, numbered rules, input packages, old editions, approval consumption or stop artifacts.
++- No production execution, retry or resume. New launch needs separate owner approval.
++- PR259 stays Draft/open/unmerged on design/card-pool-master-20260914.
++
++## Review focus
++- A hypothetical branch with identical metadata must not prove a selected history.
++- Missing, reordered, truncated or tampered event/hash paths fail closed.
++- Retired instances and foreign full envelopes fail closed.
++- Reentry must allocate exactly one new incarnation and preserve only new arrival obligations.
++- Old targets, usage and reservations must never migrate to the successor.
++
++### Task 1: Shared entry proof
++Files: tools/proxy_population_instance_boundary.py, tools/proxy_population_incarnation_runtime.py, tools/proxy_population_departure.py; new tools/test_proxy_population_entry_history.py.
++Interface: require_initial_entry(action, history, envelope=None); Connection requires matching full envelope and captured event suffix, never a scope-order-dependent stack.
++- [ ] Write six-family native reentry tests with production outer guard, observe RED.
++- [ ] Add missing/wrong history, hypothetical cache, retired identity and hash mutation tests; observe RED.
++- [ ] Implement smallest shared proof connection; run dedicated/related tests GREEN.
++- [ ] Non-production saved-history fold and boundary diagnostic; original remains immutable.
++
++### Task 2: Verification and publication
++Files: new verification evidence and current-preflight report selector; no old evidence overwrites.
++- [ ] Run full current population/mandatory suite, complete synthetic diagnostic, design checker; bind exact source fingerprints.
++- [ ] Independent read-only review; resolve material findings with RED/GREEN.
++- [ ] Save source and evidence to existing branch; verify remote/local HEAD/tree and clean state.
++- [ ] Capture new edition, use existing binding builder and historical package audit, append binding/manifest only.
++- [ ] Audit published binding and present new owner launch request without consuming it or starting games.
+diff --git a/docs/card-game/tools/proxy_population_current_preflight.py b/docs/card-game/tools/proxy_population_current_preflight.py
+index 158e073..e83414f 100644
+--- a/docs/card-game/tools/proxy_population_current_preflight.py
++++ b/docs/card-game/tools/proxy_population_current_preflight.py
+@@ -12,7 +12,7 @@ from proxy_population_contract import _pairs,_nonfinite
+ from proxy_mandatory_policy_contract import ROOT,canonical
+ 
+ VERIFY='data/proxy-population-effective-application/verification/'
+-REPORT=VERIFY+'execution-rebinding-preflight.json'
++REPORT=VERIFY+'entry-history-preflight.json'
+ PROGRESS={'plans/card-game-resume.md','plans/2026-10-08-preflight-remaining-work.md','data/proxy-population-effective-application/status.md'}
+ COMPONENTS={
+  'P01':['tools/proxy_population_challenge_lifetime.py','tools/proxy_population_challenge_operands.py'],
+diff --git a/docs/card-game/tools/proxy_population_departure.py b/docs/card-game/tools/proxy_population_departure.py
+index 8807bcb..c593f1a 100644
+--- a/docs/card-game/tools/proxy_population_departure.py
++++ b/docs/card-game/tools/proxy_population_departure.py
+@@ -8,7 +8,7 @@ import proxy_continuation_actions as actions
+ 
+ def replace_companion(envelope,action,history):
+  from proxy_population_instance_boundary import require_initial_entry
+- require_initial_entry(action,history or [])
++ require_initial_entry(action,history or [],envelope)
+  # Reuse current complete legality and source classification, not card/copy patches.
+  proof=batch.outcome(envelope,action,history)
+  game,owner=batch.ready(envelope,action,history);actor=game['turn_player'];board=owner['board'];targets=action['target_instance_ids']
+diff --git a/docs/card-game/tools/proxy_population_incarnation_runtime.py b/docs/card-game/tools/proxy_population_incarnation_runtime.py
+index fb7c1f2..f57ab24 100644
+--- a/docs/card-game/tools/proxy_population_incarnation_runtime.py
++++ b/docs/card-game/tools/proxy_population_incarnation_runtime.py
+@@ -44,7 +44,30 @@ def verify_hashes(before,after,events):
+  if gh!=old.start.opening._stop_state_sha256(after['game_state']) or ch!=old.start._hash(after):raise ValueError('incarnation actual terminal hash differs')
+ 
+ class Connection:
+- def __init__(self,envelope):self.records={life.digest(envelope):life.create(envelope)}
++ def __init__(self,envelope,history=None):
++  self.root=life.digest(envelope);self.root_seq=envelope['event_seq']
++  self.root_history=copy.deepcopy(history)
++  self.records={self.root:life.create(envelope)};self.paths={}
++ def require_history(self,envelope,history,source):
++  # Conditional candidate caches prove transitions, never selection. The caller
++  # supplies the selected public prefix; every cached edge must match that prefix.
++  key=life.digest(envelope);record=self.records.get(key)
++  if record is None or record['current_envelope_sha256']!=key:raise ValueError('field-entry envelope history unproved')
++  life.check(record,envelope)
++  if source not in record['active'].values():raise ValueError('field-entry retired or inactive instance')
++  if type(history) is not list:raise ValueError('field-entry history absent')
++  seqs=[event.get('seq') for event in history]
++  if any(type(n) is not int for n in seqs) or seqs!=sorted(set(seqs)):raise ValueError('field-entry history order differs')
++  prefix=[event for event in history if event['seq']<=self.root_seq]
++  raw=lambda event:{k:v for k,v in event.items() if k not in end.BIND_KEYS}
++  if self.root_history is not None and life.digest([raw(e) for e in prefix])!=life.digest([raw(e) for e in self.root_history]):raise ValueError('field-entry root history differs')
++  suffix=[event for event in history if event['seq']>self.root_seq]
++  for event in reversed(suffix):
++   edge=self.paths.get(key)
++   if edge is None or edge[1]!=life.digest(raw(event)):raise ValueError('field-entry selected history chain differs')
++   key=edge[0]
++  if key!=self.root:raise ValueError('field-entry selected history incomplete')
++  return record
+  def registry(self,game):
+   found=[r for r in self.records.values() if life.digest(r['metadata'])==life.digest(game['cards'])]
+   if not found or any(r['active']!=found[0]['active'] for r in found):raise ValueError('incarnation metadata registry absent or ambiguous')
+@@ -56,7 +79,9 @@ class Connection:
+   verify_hashes(state.current(before),state.current(after),[event])
+   r=life.observe(self.records[key],before,after,event.get('instance_transitions',[]));dest=life.digest(after)
+   if dest in self.records and life.digest(self.records[dest])!=life.digest(r):raise ValueError('same full state has different incarnation history')
+-  self.records[dest]=r
++  edge=(key,life.digest({k:v for k,v in event.items() if k not in end.BIND_KEYS}))
++  if dest in self.paths and self.paths[dest]!=edge:raise ValueError('same full state has different event history')
++  self.records[dest]=r;self.paths[dest]=edge
+  def finish(self,before,result,source):
+   after,events=result
+   if source not in life.field(life.game(after)):return result
+@@ -132,19 +157,15 @@ class Connection:
+    if record['active'].get(card['card_copy_id'])!=source:raise ValueError('retired instance cannot enter current information view')
+    private=dict(g,cards=dict(g['cards']));private['cards'][source]=dict(card,initial_instance_id=source)
+    return prior_detail(private,source)
+-  entry_records=[]
+-  def native(e,callback):
+-   entry_records.append(self.records.get(life.digest(e)))
+-   try:return callback()
+-   finally:entry_records.pop()
+-  def require(action,history):
+-   source=action.get('source_instance_id')
+-   prior_entry=action.get('action_type') in guard.ENTRY_ACTIONS and any(e.get('action_type') in guard.ENTRY_EVENTS and e.get('source_instance_id')==source for e in history)
++  def require(action,history,envelope=None):
++   if action.get('action_type') not in guard.ENTRY_ACTIONS:return prior_guard(action,history,envelope)
++   if envelope is None:raise ValueError('field-entry envelope history absent')
++   source=action.get('source_instance_id');record=self.require_history(envelope,history,source)
++   prior_entry=any(e.get('action_type') in guard.ENTRY_EVENTS and e.get('source_instance_id')==source for e in history)
+    if prior_entry:
+-    record=entry_records[-1] if entry_records else None
+-    if record is None or source not in record['active'].values() or record['metadata'][source]['card_copy_id'] not in record['seen_field']:raise ValueError('prior field-entry history not captured by conditional root')
++    if record['metadata'][source]['card_copy_id'] not in record['seen_field']:raise ValueError('prior field-entry history not captured by conditional root')
+     return
+-   return prior_guard(action,history)
++   return prior_guard(action,history,envelope)
+   def bind(before,after,event):
+    result=prior_bind(before,after,event);key=life.digest(before)
+    if key in self.records:
+@@ -155,14 +176,14 @@ class Connection:
+     if not pending:self.capture(before,after,result)
+    return result
+   def replaced(e,a,h):
+-   result=native(e,lambda:prior_departure(e,a,h));after,events=self.finish(e,(result['envelope'],result['events']),a['source_instance_id']);return dict(result,envelope=after,events=events)
++   result=prior_departure(e,a,h);after,events=self.finish(e,(result['envelope'],result['events']),a['source_instance_id']);return dict(result,envelope=after,events=events)
+   def transition(e,a,h=None):
+-   result=native(e,lambda:prior_transition(e,a,h))
++   result=prior_transition(e,a,h)
+    return self.finish(e,result,a['source_instance_id']) if a.get('action_type') in guard.ENTRY_ACTIONS and a['source_instance_id'] in life.field(life.game(result[0])) else result
+-  def set_card(e,a,h=None):return self.finish(e,native(e,lambda:prior_set(e,a,h)),a['source_instance_id'])
+-  def attach(e,a,h=None):return self.finish(e,native(e,lambda:prior_attach(e,a,h)),a['source_instance_id'])
++  def set_card(e,a,h=None):return self.finish(e,prior_set(e,a,h),a['source_instance_id'])
++  def attach(e,a,h=None):return self.finish(e,prior_attach(e,a,h),a['source_instance_id'])
+   def apply(e,r,i):
+-   result=native(e,lambda:prior_apply(e,r,i));a=r.get('selected_action',{})
++   result=prior_apply(e,r,i);a=r.get('selected_action',{})
+    return self.finish(e,result,a['source_instance_id']) if a.get('action_type') in guard.ENTRY_ACTIONS and a['source_instance_id'] in life.field(life.game(result[0])) else result
+   def verify(before,after,events):
+    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_verify(before,after,events)
+diff --git a/docs/card-game/tools/proxy_population_incarnation_window.py b/docs/card-game/tools/proxy_population_incarnation_window.py
+index 8518cd5..4aa459a 100644
+--- a/docs/card-game/tools/proxy_population_incarnation_window.py
++++ b/docs/card-game/tools/proxy_population_incarnation_window.py
+@@ -24,7 +24,7 @@ def segment(envelope,initial,events,shots,envelopes,limit,proof,session=None,con
+ 
+ def _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection):
+  old_recovery=window.recovery.scope;old_handler=bridge.handler_scope
+- connection=connection if connection is not None else runtime.Connection(envelope)
++ connection=connection if connection is not None else runtime.Connection(envelope,events)
+  original_record=copy.deepcopy(connection.records[life.digest(envelope)])
+  converted=None
+  if session is not None:
+diff --git a/docs/card-game/tools/proxy_population_instance_boundary.py b/docs/card-game/tools/proxy_population_instance_boundary.py
+index 0c259e9..e2aaf57 100644
+--- a/docs/card-game/tools/proxy_population_instance_boundary.py
++++ b/docs/card-game/tools/proxy_population_instance_boundary.py
+@@ -11,7 +11,7 @@ import proxy_continuation_batch as batch
+ ENTRY_ACTIONS={'place_companion','place_partner','play_main','place_world','attach_item','set_item'}
+ ENTRY_EVENTS=ENTRY_ACTIONS|{'person_placement','main_movement','play_main_birth','relationship_start'}
+ 
+-def require_initial_entry(action,history):
++def require_initial_entry(action,history,envelope=None):
+  if action.get('action_type') not in ENTRY_ACTIONS:return
+  source=action['source_instance_id']
+  if any(e.get('action_type') in ENTRY_EVENTS and e.get('source_instance_id')==source for e in history):
+@@ -21,10 +21,10 @@ def require_initial_entry(action,history):
+ def scope():
+  prior_apply=actions.apply;prior_transition=batch.transition
+  def apply(envelope,record,inputs):
+-  require_initial_entry(record.get('selected_action',{}),inputs.get('public_events',[]))
++  require_initial_entry(record.get('selected_action',{}),inputs.get('public_events',[]),envelope)
+   return prior_apply(envelope,record,inputs)
+  def transition(envelope,action,history=None):
+-  require_initial_entry(action,history or [])
++  require_initial_entry(action,history or [],envelope)
+   return prior_transition(envelope,action,history)
+  try:
+   actions.apply=apply;batch.transition=transition
+diff --git a/docs/card-game/tools/test_proxy_population_entry_history.py b/docs/card-game/tools/test_proxy_population_entry_history.py
+new file mode 100644
+index 0000000..934123a
+--- /dev/null
++++ b/docs/card-game/tools/test_proxy_population_entry_history.py
+@@ -0,0 +1,159 @@
++"""Conditional synthetic reentry through the production outer instance guard.
++
++Recovery is an explicitly supplied unit transition, not a new game ruling.
++No population execution, input generation or modification of saved artifacts.
++"""
++import copy,unittest
++from contextlib import ExitStack
++from test_proxy_population_first_response import game_with
++from test_proxy_population_runtime import initial
++from proxy_population_start_window import _context
++import proxy_population_runtime as base
++import proxy_population_incarnation_runtime as api
++import proxy_population_instance_boundary as guard
++import proxy_population_departure as departure
++import proxy_population_discard_recovery as recovery
++import proxy_population_activation_reference as references
++import proxy_continuation_state as state
++import proxy_continuation_payments as payments
++import proxy_continuation_candidates as candidates
++import proxy_continuation_actions as actions
++import proxy_continuation_preparation as preparation
++import proxy_population_comparison_evidence as comparison
++
++CASES=(('C-box','place_companion'),('P-cat_ceo','place_partner'),('M-beetle-01','play_main'),('W-city','place_world'),('I-sleepboost1','attach_item'),('I-poop1','set_item'))
++
++def fixture(card,kind):
++ g,actor,source=game_with(card);g['phase']='normal_action';p=g['players'][actor];p['time']=20;p['person_placed']=False
++ if kind in ('attach_item','place_partner'):
++  target=next(s for s in p['hand']+p['deck'] if g['cards'][s]['card_id']=='M-beetle-01')
++  (p['hand'] if target in p['hand'] else p['deck']).remove(target);p['board']['main']=target
++ p['deck'].extend(s for s in p['hand'] if s!=source);p['hand']=[source]
++ e=payments.upgrade(state.create(dict(game_state=g,response_context=_context(actor,actor),activation_zone=[],pending_triggers=[],return_target='normal_action_opportunity'),2))
++ return e,actor,source
++
++def recover(connection,e,source,actor):
++ after=copy.deepcopy(e);p=api.life.game(after)['players'][actor];b=p['board']
++ for slot in ('main','partner','world'):
++  if b[slot]==source:b[slot]=None
++ if b['partner'] is None:b['partner_stage']=None
++ for slot in ('companions','prepared'):
++  if source in b[slot]:b[slot].remove(source)
++ p['hand'].append(source);p['person_placed']=False
++ for key in ('attachments','public_prepared'):after['runtime'][key].pop(source,None)
++ after['legacy_continuation']['pending_triggers']=[]
++ api.life.game(after)['phase']='normal_action';after['legacy_continuation']['response_context']=_context(actor,actor)
++ after['event_seq']+=1
++ event=payments.transition_event(e,after,'unit_recovery',actor);connection.capture(e,after,event)
++ return after,event
++
++def native(e,action,history):
++ # The exact production entry wrappers are outside Connection.scope.
++ # Attach/set use the same outer apply guard, with a real rebuilt decision.
++ if action['action_type'] in ('attach_item','set_item'):
++  inv=candidates.audit(e,history);g=api.life.game(e)
++  context=dict(contract_version=base.engine.base.old.shadow.fallback.CONTRACT_VERSION,order_id=('reentry' if action['action_type']=='attach_item' else 'test-1A'),actor=g['turn_player'],actor_turn_index=g['round'],round=g['round'],phase='normal_action',decision_kind='normal_action',choice_kind='normal_action_resource_frontier')
++  decision=candidates.select(e,inv,context,base.POLICY,None)
++  if decision['selected_action']['action_type']!=action['action_type']:raise AssertionError('synthetic selector did not select entry: '+decision['selected_candidate'])
++  return actions.apply(e,decision,dict(public_events=history))
++ return base.engine.batch.transition(e,action,history)
++
++class EntryHistoryTests(unittest.TestCase):
++ def run_case(self,callback):return base.operation(initial(),lambda forced:callback())
++ def test_all_six_native_entries_reenter_through_outer_guard(self):
++  for card,kind in CASES:
++   def run():
++    e,actor,source=fixture(card,kind);connection=api.Connection(e);history=[dict(seq=0,action_type='turn_start_and_normal_draw',actor=actor)]
++    with departure.scope(),recovery.scope(),connection.scope(),guard.scope(),references.scope(),comparison.scope():
++     action=next(a for a in candidates.audit(e,history)['legal_candidate_details'] if a['action_type']==kind)
++     entered,events=native(e,action,history);history+=events
++     self.assertEqual(events[0].get('instance_transitions',[]),[])
++     recovered,event=recover(connection,entered,source,actor);history.append(event)
++     action=next(a for a in candidates.audit(recovered,history)['legal_candidate_details'] if a['action_type']==kind)
++     after,events=native(recovered,action,history);successor=source.split('#')[0]+'#2'
++     self.assertEqual(events[0]['instance_transitions'][0]['to_instance_id'],successor)
++     self.assertIn(successor,api.life.field(api.life.game(after)));self.assertNotIn(source,api.life.located(after))
++     self.assertEqual(events[0]['envelope_after_sha256'],state.canonical_sha256(after))
++     if kind in ('place_partner','play_main'):
++      from proxy_population_trigger_existing import ExistingAdapter
++      found=ExistingAdapter(history+events).collect(after)['occurrences']
++      self.assertIn(successor,[r['source_instance_id'] for r in found])
++     return {}
++   with self.subTest(kind=kind):self.run_case(run)
++
++ def test_wrong_or_missing_history_cannot_borrow_a_cached_state(self):
++  def run():
++   e,actor,source=fixture('C-box','place_companion');connection=api.Connection(e);history=[]
++   with departure.scope(),recovery.scope(),connection.scope(),guard.scope():
++    action=next(a for a in candidates.audit(e,history)['legal_candidate_details'] if a['action_type']=='place_companion')
++    entered,events=native(e,action,history);history+=events
++    recovered,event=recover(connection,entered,source,actor);history.append(event)
++    guard.require_initial_entry(action,history,recovered)
++    bad_event=copy.deepcopy(history);bad_event[-1]['actor']='B'
++    bad_hash=copy.deepcopy(history);bad_hash[-1]['continuation_state_before_sha256']='0'*64
++    for label,bad in [('missing',[]),('truncated',history[:-1]),('reordered',history[::-1]),('duplicate',history+history[-1:]),('event',bad_event),('hash',bad_hash)]:
++     with self.subTest(case=label),self.assertRaisesRegex(ValueError,'history|chain'):
++      guard.require_initial_entry(action,bad,recovered)
++    foreign=copy.deepcopy(recovered);api.life.game(foreign)['players'][actor]['time']+=1
++    with self.assertRaisesRegex(ValueError,'history|envelope'):
++     guard.require_initial_entry(action,history,foreign)
++    with self.assertRaisesRegex(ValueError,'history|envelope'):
++     guard.require_initial_entry(action,history)
++   return {}
++  self.run_case(run)
++
++ def test_hypothetical_branch_is_not_selected_history_and_retired_source_stops(self):
++  def run():
++   e,actor,source=fixture('C-box','place_companion');connection=api.Connection(e)
++   with departure.scope(),recovery.scope(),connection.scope(),guard.scope():
++    action=next(a for a in candidates.audit(e,[])['legal_candidate_details'] if a['action_type']=='place_companion')
++    hypothetical,events=native(e,action,[])
++    trial,event=recover(connection,hypothetical,source,actor);trial_history=events+[event]
++    # Cached candidate transitions exist, but the selected public prefix is empty.
++    with self.assertRaisesRegex(ValueError,'history'):
++     guard.require_initial_entry(action,[],trial)
++    # Root remains usable; evaluating a candidate did not mark it selected.
++    guard.require_initial_entry(action,[],e)
++    after,generated=native(trial,action,trial_history);successor=source.split('#')[0]+'#2'
++    again,event=recover(connection,after,successor,actor);actual=trial_history+generated+[event]
++    with self.assertRaisesRegex(ValueError,'retired|active'):
++     guard.require_initial_entry(action,actual,again)
++   return {}
++  self.run_case(run)
++
++ def test_root_prefix_and_record_state_binding_are_required(self):
++  def run():
++   e,actor,source=fixture('C-box','place_companion');history=[dict(seq=2,action_type='unit_root',actor=actor)]
++   connection=api.Connection(e,history);action=dict(action_type='place_companion',source_instance_id=source)
++   with connection.scope():
++    guard.require_initial_entry(action,history,e)
++    with self.assertRaisesRegex(ValueError,'root history'):guard.require_initial_entry(action,[],e)
++    connection.records[api.life.digest(e)]['current_envelope_sha256']='0'*64
++    with self.assertRaisesRegex(ValueError,'envelope history'):guard.require_initial_entry(action,history,e)
++   return {}
++  self.run_case(run)
++
++ def test_saved_stop_history_proves_guard_without_resuming_attempt(self):
++  import gzip,json,hashlib
++  from pathlib import Path
++  path=Path(__file__).resolve().parents[1]/'data/proxy-population-400-rebound-run-20261013/attempt-0001/record.json.gz'
++  compressed=path.read_bytes();raw=gzip.decompress(compressed)
++  self.assertEqual(hashlib.sha256(raw).hexdigest(),'59cc47da428c90700466db3c7421311709f09e7b4e6669c4ae278a98518f0d95')
++  record=json.loads(raw);runtime=record['runtime']
++  def run():
++   before=runtime['source_envelope'];history=copy.deepcopy(record['opening']['events']);connection=api.Connection(before,history)
++   self.assertEqual(connection.records[api.life.digest(before)],runtime['physical_lifecycle_root'])
++   count=0
++   for step in runtime['steps']:
++    for event,after in zip(step['events'],step['envelopes']):
++     connection.capture(before,after,event);history.append(event);before=after;count+=1
++   self.assertEqual(count,275)
++   self.assertEqual(connection.records[api.life.digest(before)],runtime['physical_lifecycle_final'])
++   action=dict(action_type='attach_item',source_instance_id='A-035#1')
++   with connection.scope(),guard.scope():guard.require_initial_entry(action,history,before)
++   self.assertFalse(record['completed']);self.assertEqual(runtime['stop']['detail'],'prior field-entry history not captured by conditional root')
++   self.assertEqual(path.read_bytes(),compressed)
++   return {}
++  self.run_case(run)
++
++if __name__=='__main__':unittest.main()

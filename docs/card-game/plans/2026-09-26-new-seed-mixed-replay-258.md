@@ -1,0 +1,3 @@
+# 258 response適用計画
+
+257選択・256完全候補・255保存state/hashを照合し、01-Aのseedで選ばれたpassと残り3件の唯一passを適用する。開始時responseと終了時responseの遷移を既存正本で分けて検証する。各event/snapshot/hash、canonical bytesを確認して保存し、次優先者responseとターン終了履歴を監査する。

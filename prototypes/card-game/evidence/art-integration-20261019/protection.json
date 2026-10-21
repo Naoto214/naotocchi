@@ -1,0 +1,19 @@
+{
+  "base": "fe6fd8a308df5ff0147d00bc0b6abd2ff0fceca7",
+  "base_tree": "00f8ce47b39c76e25440c54d349a0e83d483dd76",
+  "original_main_files": 25287,
+  "unchanged_main_files": 25283,
+  "changed_existing_files": [
+    "prototypes/card-game/app.mjs",
+    "prototypes/card-game/style.css",
+    "prototypes/card-game/ui-art.mjs",
+    "prototypes/card-game/ui-presentation.mjs"
+  ],
+  "deleted": [],
+  "added_files_at_check": 3758,
+  "art_subtree": "77590177c4ebb6855d036f67c380b22438f2b17b",
+  "art_subtree_unchanged": true,
+  "core_rules_and_saves_unchanged": true,
+  "fixed_400_match_assets_unchanged": true,
+  "other_games_unchanged": true
+}

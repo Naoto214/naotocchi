@@ -16,7 +16,7 @@ require('./visual-qa.cjs')().configureServer({ middlewares: { use(_path, handler
 const qaScript = qaHtml.match(/<script>([\s\S]*?)<\/script>/)[1];
 const fixtures = vm.runInNewContext(qaScript.slice(0, qaScript.indexOf('const mount=')) + '\nfixtures');
 
-const TYPES = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json', '.png':'image/png', '.svg':'image/svg+xml' };
+const TYPES = { '.mjs': 'text/javascript; charset=utf-8', '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json', '.png':'image/png', '.svg':'image/svg+xml' };
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://127.0.0.1').pathname);
   const target = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));

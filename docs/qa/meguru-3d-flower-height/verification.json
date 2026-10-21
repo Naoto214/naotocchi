@@ -1,0 +1,84 @@
+{
+  "baseline": "04c2a82db1c06e5d8e45f7f2717990cfc8100a05",
+  "product": "5f240973eaa7365b069df126db867de4347c2c01",
+  "tree": "d9fb9c3f6ec2efab662e91fc15e10d0753fc4ca4",
+  "targeted": {
+    "pass": 82,
+    "fail": 0,
+    "exit": 0
+  },
+  "canonicalRegionsUnchanged": 13,
+  "addedObjects": 0,
+  "addedParts": 24,
+  "geometry": {
+    "float": 4,
+    "bury": 18
+  },
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minor": [
+      "VQ12 could guard countertop presence and horizontal canopy coverage"
+    ]
+  },
+  "browserRun": 37208884653,
+  "browserEvidence": "all five CI artifacts verified and saved",
+  "fullNpm": {
+    "pass": [
+      2869,
+      80
+    ],
+    "fail": 0,
+    "exit": 0,
+    "command": "npm test",
+    "sourceHashesVerified": true
+  },
+  "ciRegression": {
+    "pass": [
+      2869,
+      80
+    ],
+    "fail": 0,
+    "exit": 0,
+    "nodeTestConcurrency": 4
+  },
+  "summaries": {
+    "smoke": {
+      "kind": "smoke",
+      "coverage": 13,
+      "issues": [],
+      "samples": 0,
+      "hidden": 0,
+      "partial": 0,
+      "maxPartyObstacleOverlap": 4.263256414560601e-14,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    "corridor": {
+      "kind": "corridor",
+      "coverage": 8,
+      "issues": [],
+      "samples": 0,
+      "hidden": 0,
+      "partial": 0,
+      "maxPartyObstacleOverlap": 0,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    "visibility": {
+      "kind": "visibility",
+      "coverage": 13,
+      "issues": [],
+      "samples": 2832,
+      "hidden": 0,
+      "partial": 1,
+      "maxPartyObstacleOverlap": 0,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    }
+  },
+  "imagePairs": {
+    "world": 31,
+    "entrance": 4,
+    "gallery": 20
+  },
+  "mountainSeasonSameCamera": true,
+  "allZipDigestsVerified": true
+}

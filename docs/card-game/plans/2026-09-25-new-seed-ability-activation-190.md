@@ -1,0 +1,3 @@
+# 190 新seed盤上能力起動と次優先者pass TDD計画
+
+189監査と188保存state/hashをraw SHAで固定する。専用テストを先にREDにする。3経路の次優先者は完全候補から唯一passを適用。01-Bの選択済み盤上能力は119のchain priority遷移を再利用し、一般response IDと盤上sourceの一致を検証して時0のlinkを追加する。盤上札を動かさず、山札上の公開・効果解決は双方のpass後に行う。event/snapshot/hash・canonical JSON・設計データを検証してGitHubへ保存する。

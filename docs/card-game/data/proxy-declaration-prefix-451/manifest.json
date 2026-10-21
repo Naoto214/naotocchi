@@ -1,0 +1,16 @@
+{
+  "compressed_sha256": "15e1b0a62a63964be6aaa5dfb88315a87044121e6c9a4dc532b28f9111eba1e4",
+  "raw_sha256": "1ed2209263f275e13490775649a7be0c436518ca66f8a0c87049c9d8c69fe86d",
+  "sources_sha256": {
+    "65-challenge-participants-and-resolution.md": "65a8dfef2f97aa982173f1e767215a9da557e29e5adedbc4173250a4de1441a0",
+    "data/proxy-declaration-prefix-451/reproduce.py": "38a5a96164265cd4cffc2703bc2a8123a9807809be2a5d1cfb88418ec393ac34",
+    "data/proxy-equivalence-pilot-447/manifest.json": "efae80ba2263e0b3a24a489de082c7c5d17d8b3f7a9f6d5da8ca2dae36f552ea",
+    "tools/proxy_continuation_batch.py": "c019f1615b7b870403568154ee2467727816ad5c4c45b0d7cb3a4e215f8d2c77",
+    "tools/proxy_continuation_challenge.py": "7e159776ecd814c1d8fde56fbe117d9468b1324e2f5404c6dbe8b9848508af52",
+    "tools/proxy_continuation_payments.py": "762118081e5de277e5628d89c7c7a015aa5c59eb5e766bc43d92cd74b5673fcb",
+    "tools/proxy_continuation_state.py": "c5935a5184038d315ebf190ba7939b7ff4935e198e4f9d53cf995959b991f6c9",
+    "tools/proxy_public_declaration_prefix.py": "f39191d0dfd73ad25af9a0c015d688287a546669a0932fbe81ee7a73d090fc7f",
+    "tools/proxy_public_main_prefix.py": "8633c5170132e9fa85aaa9ca843d0ad4c811707851e75d43477ec29afe7c9c41",
+    "tools/proxy_public_relationship_prefix.py": "d43b4e6cc8e17630b5bb2ec7a28ba177c73f997f8e105ff12bef822f15f6a79e"
+  }
+}

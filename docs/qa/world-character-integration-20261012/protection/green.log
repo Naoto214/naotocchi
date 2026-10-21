@@ -1,0 +1,12 @@
+✔ presentation flag=false: discovered ordinary spots remain recorded with mode-specific map display (325.443896ms)
+✔ presentation flag=false: ordinary, landmark and zone notifications preserve their mode (1901.966049ms)
+✔ presentation flag=true: discovered ordinary spots remain recorded with mode-specific map display (953.595611ms)
+✔ presentation flag=true: ordinary, landmark and zone notifications preserve their mode (1829.595819ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5143.400423

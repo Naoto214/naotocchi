@@ -1,0 +1,145 @@
+[
+  {
+    "label": "縦390",
+    "root": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "cards": [
+      {
+        "signature": "NAOTOCCHI",
+        "values": [
+          {
+            "height": 0.90625,
+            "text": "2",
+            "top": 421.734375,
+            "width": 1.140625
+          },
+          {
+            "height": 0.90625,
+            "text": "2",
+            "top": 421.734375,
+            "width": 1.140625
+          }
+        ],
+        "width": 10.484375
+      },
+      {
+        "signature": "NAOTOCCHI",
+        "values": [
+          {
+            "height": 3.171875,
+            "text": "10",
+            "top": 541.15625,
+            "width": 3.96875
+          },
+          {
+            "height": 3.171875,
+            "text": "4",
+            "top": 541.15625,
+            "width": 3.96875
+          }
+        ],
+        "width": 30.953125
+      }
+    ]
+  },
+  {
+    "label": "小型320",
+    "root": {
+      "scrollWidth": 320,
+      "width": 320
+    },
+    "cards": [
+      {
+        "signature": "NAOTOCCHI",
+        "values": [
+          {
+            "height": 0.90625,
+            "text": "2",
+            "top": 435.734375,
+            "width": 1.140625
+          },
+          {
+            "height": 0.90625,
+            "text": "2",
+            "top": 435.734375,
+            "width": 1.140625
+          }
+        ],
+        "width": 10.484375
+      },
+      {
+        "signature": "NAOTOCCHI",
+        "values": [
+          {
+            "height": 3.171875,
+            "text": "10",
+            "top": 555.15625,
+            "width": 3.96875
+          },
+          {
+            "height": 3.171875,
+            "text": "4",
+            "top": 555.15625,
+            "width": 3.96875
+          }
+        ],
+        "width": 30.953125
+      }
+    ]
+  },
+  {
+    "label": "横844",
+    "root": {
+      "scrollWidth": 844,
+      "width": 844
+    },
+    "cards": []
+  },
+  {
+    "label": "バー表示相当700",
+    "root": {
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "cards": [
+      {
+        "signature": "NAOTOCCHI",
+        "values": [
+          {
+            "height": 0.90625,
+            "text": "2",
+            "top": 421.734375,
+            "width": 1.140625
+          },
+          {
+            "height": 0.90625,
+            "text": "2",
+            "top": 421.734375,
+            "width": 1.140625
+          }
+        ],
+        "width": 10.484375
+      },
+      {
+        "signature": "NAOTOCCHI",
+        "values": [
+          {
+            "height": 3.171875,
+            "text": "10",
+            "top": 541.15625,
+            "width": 3.96875
+          },
+          {
+            "height": 3.171875,
+            "text": "4",
+            "top": 541.15625,
+            "width": 3.96875
+          }
+        ],
+        "width": 30.953125
+      }
+    ]
+  }
+]

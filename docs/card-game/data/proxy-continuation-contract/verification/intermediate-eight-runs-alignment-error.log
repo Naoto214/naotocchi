@@ -1,0 +1,18 @@
+continuation_contract_v1:legacy_107_114_116:probe-01-a-first 31 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-beetle-02'}
+continuation_contract_v1:resource_value_pilot_v1:probe-01-a-first 22 {'code': 'unsupported_contract_boundary', 'stage': 'turn_end', 'detail': "fresh six-stage end proof incomplete: {'codes': ['missing_turn_end_source_classification', 'unresolved_end_trigger', 'unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}"}
+continuation_contract_v1:legacy_107_114_116:probe-01-b-first 24 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-beetle-02'}
+continuation_contract_v1:resource_value_pilot_v1:probe-01-b-first 12 {'code': 'unsupported_contract_boundary', 'stage': 'turn_end', 'detail': "fresh six-stage end proof incomplete: {'codes': ['missing_turn_end_source_classification', 'unresolved_end_trigger', 'unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}"}
+continuation_contract_v1:legacy_107_114_116:probe-02-a-first 51 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'certain-result proof unavailable: place_world'}
+continuation_contract_v1:resource_value_pilot_v1:probe-02-a-first 30 {'code': 'unsupported_contract_boundary', 'stage': 'turn_end', 'detail': 'runtime-aware forced boundary adapter unavailable: turn_end'}
+continuation_contract_v1:legacy_107_114_116:probe-02-b-first 79 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-beetle-02'}
+continuation_contract_v1:resource_value_pilot_v1:probe-02-b-first 33 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'certain-result proof unavailable: relationship'}
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_continuation_runner.py", line 214, in <module>
+    run_paired(parser.parse_args().output)
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_continuation_runner.py", line 201, in run_paired
+    comparison=compare_results(results,saved.load_saved()['paired']['results']))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_continuation_runner.py", line 153, in compare_results
+    old_decisions={d['event_seq']:d for d in old_row['decisions'] if d.get('decision_kind')=='normal_action'}
+                   ~^^^^^^^^^^^^^
+KeyError: 'event_seq'

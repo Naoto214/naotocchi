@@ -1,0 +1,95 @@
+======================================================================
+ERROR: test_antlion01_birth_and_transform_use_existing_batch_handler (test_proxy_population_main_routes.MainRoutesTests.test_antlion01_birth_and_transform_use_existing_batch_handler)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_main_routes.py", line 24, in test_antlion01_birth_and_transform_use_existing_batch_handler
+    self.run_case(run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 109, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 108, in connected
+    with arithmetic.scope(),growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                    ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                                                                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_main_routes.py", line 19, in run
+    after,events=batch.transition(e,action,[]);proof=api.audit(e,after,events[0])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch.py", line 187, in transition
+    proof=outcome(envelope,action,history);g,p=ready(envelope,action,history);actor=proof['actor'];kind=action['action_type']
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch.py", line 72, in outcome
+    cap=classification(action['card_id']);cost=action['evidence']['payment_time'];source=action['source_instance_id'];ref=cap['reference'];digest=cap['source_raw_sha256']
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch.py", line 30, in classification
+    if card not in CAPABILITIES:raise ValueError('batch capability unproved: '+card)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: batch capability unproved: M-antlion-01
+
+======================================================================
+FAIL: test_existing_legacy_birth_receipt_is_also_bound (test_proxy_population_main_routes.MainRoutesTests.test_existing_legacy_birth_receipt_is_also_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_main_routes.py", line 35, in test_existing_legacy_birth_receipt_is_also_bound
+    self.run_case(run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 109, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 108, in connected
+    with arithmetic.scope(),growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                    ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                                                                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_main_routes.py", line 31, in run
+    self.assertEqual(event['action_type'],'play_main_birth');self.assertTrue(proof.get('movement_payment_verified'),proof)
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : {'schema': 'typed_payment_consumption.v2', 'applicable': False, 'payment_consumption_verified': False, 'errors': [], 'consumed_effect_count': 0, 'movement_target_expiry_verified': False, 'movement_instance_binding_verified': False, 'incarnation_history_proven': False, 'relationship_payment_verified': False, 'expired_target_effect_count': 0, 'source_reference': '91-event-21-card-text-draft.md#E-fateful-transform', 'before_envelope_sha256': '76148ec81e2af7c51f2d47e6b6b65afd37a91aed413cde602c7cd9da3030c86e', 'after_envelope_sha256': '7ba60b234a5851abe8c5dc9fe69c9e7313e68ccdbc285e211a20e9adf9801b07', 'movement_payment_verified': False, 'movement_payment': None, 'payment_amount_proven': False, 'effect_creation_proven': False, 'legacy_reservation_closure_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_positive_discount_and_insufficient_or_malformed_time (test_proxy_population_main_routes.MainRoutesTests.test_positive_discount_and_insufficient_or_malformed_time) (owner='A', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_main_routes.py", line 45, in run
+    with self.subTest(owner=owner,value=value):self.assertTrue(api.audit(b,a,events[0])['errors'])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_positive_discount_and_insufficient_or_malformed_time (test_proxy_population_main_routes.MainRoutesTests.test_positive_discount_and_insufficient_or_malformed_time) (owner='A', value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_main_routes.py", line 45, in run
+    with self.subTest(owner=owner,value=value):self.assertTrue(api.audit(b,a,events[0])['errors'])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.530s
+
+FAILED (failures=3, errors=1)

@@ -1,0 +1,20 @@
+test_every_event_binds_complete_runtime_and_contiguous_snapshots (test_proxy_continuation_runner.RunnerTests.test_every_event_binds_complete_runtime_and_contiguous_snapshots) ... ok
+test_four_same_inputs_two_policies_and_no_balance_promotion (test_proxy_continuation_runner.RunnerTests.test_four_same_inputs_two_policies_and_no_balance_promotion) ... ok
+test_independent_replay_rejects_event_or_relation_tampering (test_proxy_continuation_runner.RunnerTests.test_independent_replay_rejects_event_or_relation_tampering) ... ok
+test_legacy_scope_difference_is_not_policy_effect (test_proxy_continuation_runner.RunnerTests.test_legacy_scope_difference_is_not_policy_effect) ... ok
+test_main_and_attachment_boundaries_progress_without_overwriting_old_runs (test_proxy_continuation_runner.RunnerTests.test_main_and_attachment_boundaries_progress_without_overwriting_old_runs) ... 
+  test_main_and_attachment_boundaries_progress_without_overwriting_old_runs (test_proxy_continuation_runner.RunnerTests.test_main_and_attachment_boundaries_progress_without_overwriting_old_runs) (path='probe-02-b-first') ... FAIL
+
+======================================================================
+FAIL: test_main_and_attachment_boundaries_progress_without_overwriting_old_runs (test_proxy_continuation_runner.RunnerTests.test_main_and_attachment_boundaries_progress_without_overwriting_old_runs) (path='probe-02-b-first')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_runner.py", line 36, in test_main_and_attachment_boundaries_progress_without_overwriting_old_runs
+    with self.subTest(path=r['path_id']):self.assertGreater(r['last_valid_event_seq'],limits[r['path_id']])
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 4 not greater than 30
+
+----------------------------------------------------------------------
+Ran 5 tests in 21.620s
+
+FAILED (failures=1)

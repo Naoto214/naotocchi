@@ -1,0 +1,148 @@
+[
+  {
+    "id": "M-man-01",
+    "scene": "Brownhaired baby in exact blueonesie crawling left across soft cotton picnicmat beside sunlitgarden. Low closeview of tinyhands and knees, curious smile, softflowers behind. No addedaccessories.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage1: preserve face,bodyproportions,colors,markings and transformationstate. Preserve exact canonical age, face, hairstyle, clothing palette and accessories at each stage. Human male chibi character, not realistic human. Anatomically coherent twoarms twolegs, natural mittenlike simplehands; never add duplicatehands or backpacks. Scene:Brownhaired baby in exact blueonesie crawling left across soft cotton picnicmat beside sunlitgarden. Low closeview of tinyhands and knees, curious smile, softflowers behind. No addedaccessories. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical man stage1 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/man/01.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-e220dfbb-3304-447b-94d8-e09f86a01c89.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/man/01.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9e67bf4141ac493d4b963ca1e805d225d965fc72"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-man-02",
+    "scene": "Brownhaired toddler in bluebearmotifTshirt denimshorts redsneakers crouches to push his redtoycar along smooth gardenpath, facingright, joyful daylight. Entirechild clear.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage2: preserve face,bodyproportions,colors,markings and transformationstate. Preserve exact canonical age, face, hairstyle, clothing palette and accessories at each stage. Human male chibi character, not realistic human. Anatomically coherent twoarms twolegs, natural mittenlike simplehands; never add duplicatehands or backpacks. Scene:Brownhaired toddler in bluebearmotifTshirt denimshorts redsneakers crouches to push his redtoycar along smooth gardenpath, facingright, joyful daylight. Entirechild clear. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical man stage2 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/man/02.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-1d3fba5f-da8a-426e-aa9c-1a64fa4f73e5.png",
+    "first_generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-84b07f3f-3a85-46b7-abed-4349094ba4c5.png",
+    "revision_prompt": "Repair only lowerbody anatomy in this watercolor scene. Toddler crouches to push red toycar, but currently there are THREE red shoes. Show exactly TWO legs and TWO red shoes, one for each foot, natural coherent crouching pose. Remove the extra rear-most red shoe on viewer LEFT (around x520 y740), replacing it with gardenpath and a natural softshadow. Retain large foreground redshoe around x600 y790 and partiallyoccluded rightshoe behind bentrightknee around x680 y800. Keep face, outfit, arms, car, background untouched. 1536x1024 PNG no text.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/man/02.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "e7bb9fd1f7309cf75f99ac1b41e2f5ccee6035bd"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-man-03",
+    "scene": "Child in exact yellowhat whiteshirt blueshorts backpack walking diagonally towardviewer past flowering hedge on his first outing, earlymorning, lookingup at butterfly. Preserve chibichild age.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage3: preserve face,bodyproportions,colors,markings and transformationstate. Preserve exact canonical age, face, hairstyle, clothing palette and accessories at each stage. Human male chibi character, not realistic human. Anatomically coherent twoarms twolegs, natural mittenlike simplehands; never add duplicatehands or backpacks. Scene:Child in exact yellowhat whiteshirt blueshorts backpack walking diagonally towardviewer past flowering hedge on his first outing, earlymorning, lookingup at butterfly. Preserve chibichild age. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical man stage3 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/man/03.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-abe56f6b-153b-46bd-973e-c28efa4f50c4.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/man/03.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "7695d83ae15fb08eafbf87ba9b86c7fbda5f2c97"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-man-04",
+    "scene": "Schoolboy in exact navyuniform backpack stands beside low riverside railing, turns left to watch floatingleaves on wayhome. Warm afternoon, slightlyhighangle, age and uniform exact.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage4: preserve face,bodyproportions,colors,markings and transformationstate. Preserve exact canonical age, face, hairstyle, clothing palette and accessories at each stage. Human male chibi character, not realistic human. Anatomically coherent twoarms twolegs, natural mittenlike simplehands; never add duplicatehands or backpacks. Scene:Schoolboy in exact navyuniform backpack stands beside low riverside railing, turns left to watch floatingleaves on wayhome. Warm afternoon, slightlyhighangle, age and uniform exact. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical man stage4 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/man/04.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-2d4f82e2-ee93-4d78-bcb9-e156b983e1b8.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/man/04.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "324a17d49112913b5d320ee7e8a7e5e5160a0812"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-man-05",
+    "scene": "Youngman in whitelongsleeve darkpants brownbag pauses at sunny stationcourtyard, facingrightthreequarter, holds bagstrap with onehand, relaxed hopeful expression. No writing or signs.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage5: preserve face,bodyproportions,colors,markings and transformationstate. Preserve exact canonical age, face, hairstyle, clothing palette and accessories at each stage. Human male chibi character, not realistic human. Anatomically coherent twoarms twolegs, natural mittenlike simplehands; never add duplicatehands or backpacks. Scene:Youngman in whitelongsleeve darkpants brownbag pauses at sunny stationcourtyard, facingrightthreequarter, holds bagstrap with onehand, relaxed hopeful expression. No writing or signs. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical man stage5 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/man/05.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-21b4f922-ce8a-4c9a-8aba-a3163e20cbff.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/man/05.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "f39f799af9b9ce389debb52110b15e754a1b6ef2"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-man-06",
+    "scene": "Adult in navysuit redtie brownbriefcase walks left across leafy town square in morning, exact closedeyes happyface, fullbody centered, mature but chibi proportions. No signage.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage6: preserve face,bodyproportions,colors,markings and transformationstate. Preserve exact canonical age, face, hairstyle, clothing palette and accessories at each stage. Human male chibi character, not realistic human. Anatomically coherent twoarms twolegs, natural mittenlike simplehands; never add duplicatehands or backpacks. Scene:Adult in navysuit redtie brownbriefcase walks left across leafy town square in morning, exact closedeyes happyface, fullbody centered, mature but chibi proportions. No signage. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical man stage6 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/man/06.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-a20f50df-8d1d-48e8-85b8-bed454e39a67.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/man/06.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "b4458d72b396c136bff9450d186de26c59f964ea"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-man-07",
+    "scene": "Middleagedman in exact olivebrownoutfit greenbackpack hiking gently up woodlandpath, threequarterright sideview, looks toward distant hill, warm dappledlight, preservehair and face.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage7: preserve face,bodyproportions,colors,markings and transformationstate. Preserve exact canonical age, face, hairstyle, clothing palette and accessories at each stage. Human male chibi character, not realistic human. Anatomically coherent twoarms twolegs, natural mittenlike simplehands; never add duplicatehands or backpacks. Scene:Middleagedman in exact olivebrownoutfit greenbackpack hiking gently up woodlandpath, threequarterright sideview, looks toward distant hill, warm dappledlight, preservehair and face. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical man stage7 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/man/07.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-5d629a08-38b6-4828-a74c-2620d34094d1.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/man/07.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "512b6c5b6c66757672b79750b60ad865706277a6"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "M-man-08",
+    "scene": "Grayhaired elderlyman tanjacket brownpants cane resting on parkbench at goldenhour, exact gentle closedeyes, twofeetgrounded and onehand oncane, wholebody clear, distantpond. Quiet lived-in story.",
+    "prompt": "Create ONE dedicated Naotocchi card illustration1536x1024 PNG landscape3:2, no text,numbers,cardframe,watermark. Delicate cute watercolor/gouache picturebook, fine painterlytexture, natural softlight, gentlecolor. Input is exactauthoritative2D character for growthstage8: preserve face,bodyproportions,colors,markings and transformationstate. Preserve exact canonical age, face, hairstyle, clothing palette and accessories at each stage. Human male chibi character, not realistic human. Anatomically coherent twoarms twolegs, natural mittenlike simplehands; never add duplicatehands or backpacks. Scene:Grayhaired elderlyman tanjacket brownpants cane resting on parkbench at goldenhour, exact gentle closedeyes, twofeetgrounded and onehand oncane, wholebody clear, distantpond. Quiet lived-in story. Main subject occupies substantial central area with clear silhouette readable at tinycardsize, beautiful background never hidescharacter. Anatomically coherent, no extra limbs.",
+    "identity": "Canonical man stage8 exact face,body,color and stage-specific form.",
+    "sources": [
+      "assets/characters/man/08.png"
+    ],
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-cb43ade5-89b7-43ee-9082-9cfa91527b7a.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/man/08.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "82a1ce06f9d3063ef6dea8d3f5e5237c021cd316"
+      }
+    ],
+    "qa_status": "complete_qa"
+  }
+]

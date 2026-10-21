@@ -1,0 +1,10 @@
+test_cli_nonexecution_and_error_exit_codes (test_proxy_mandatory_policy_audit.AuditTests.test_cli_nonexecution_and_error_exit_codes) ... ok
+test_contract_change_or_incomplete_candidates_cannot_be_hidden (test_proxy_mandatory_policy_audit.AuditTests.test_contract_change_or_incomplete_candidates_cannot_be_hidden) ... ok
+test_forged_verified_or_legacy_record_cannot_grant_admission (test_proxy_mandatory_policy_audit.AuditTests.test_forged_verified_or_legacy_record_cannot_grant_admission) ... ok
+test_normal_response_unregistered_malformed_and_wrong_root (test_proxy_mandatory_policy_audit.AuditTests.test_normal_response_unregistered_malformed_and_wrong_root) ... ok
+test_valid_arithmetic_retains_unproven_gates (test_proxy_mandatory_policy_audit.AuditTests.test_valid_arithmetic_retains_unproven_gates) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.212s
+
+OK

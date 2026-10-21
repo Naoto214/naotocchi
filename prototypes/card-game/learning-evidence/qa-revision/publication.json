@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-20",
+  "project_id": "appgprj_6ad6fa1914c88191aa80d1bf654d9cb9",
+  "deployment_id": "appgdep_6ad718c294d48191991efa89a66883ae",
+  "version_id": "appgprj_6ad6fa1914c88191aa80d1bf654d9cb9~appgver_8a35902806d48191ba1e9fd17d7be219",
+  "status": "succeeded",
+  "url": "https://naotocchi-learn-20261020.kerzion214.chatgpt.site",
+  "audience": "owner-private",
+  "site_source_commit": "51ab968953cce7a310172597de7b70fea63e5bdd",
+  "verified_github_runtime_commit": "a71b006d7282f0eeca75fc8f1f1449cece3f3527",
+  "verified_github_runtime_tree": "92fb1ea27f08431bfddefeac9e8b6d9f38c9f37c",
+  "runtime_files": 960,
+  "runtime_bytes": 141516799,
+  "source_and_asset_files": 959,
+  "exact_source_and_asset_match": true,
+  "main_head": "db9ea8e8d86c632a68ed8ab4880968803f78a243",
+  "main_tree": "b24d11f8af167b57bcc5da674f07bcdec6db6e1d",
+  "draft_pr": "https://github.com/Naoto214/naotocchi/pull/403",
+  "main_merged": false,
+  "production_pages_updated": false
+}

@@ -1,0 +1,21 @@
+{
+  "audits": {
+    "decision_projection_audit": [],
+    "mandatory_opportunity_audit": [],
+    "mandatory_origin_audit": [],
+    "mandatory_policy_entry_audit": [],
+    "nonresolution_semantics_audit": [],
+    "resolution_semantics_audit": [],
+    "source_conservation_audit": []
+  },
+  "base_head": "c9bbaf2453e4222db0cc2e554fb497f518d43f6d",
+  "completed": true,
+  "events": 181,
+  "new_matches": 0,
+  "production_generation": false,
+  "record_sha256": "6a77b3a99f948f2f5c5ef70e642d233a509da25d68c0986d02bf829d0b4dfcbc",
+  "seconds": 116.37776815899997,
+  "source_unchanged": true,
+  "steps": 143,
+  "stop": null
+}

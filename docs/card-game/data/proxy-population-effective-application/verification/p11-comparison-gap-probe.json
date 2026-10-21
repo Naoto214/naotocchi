@@ -1,0 +1,38 @@
+{
+  "source_card": "I-poop1",
+  "actor": "A",
+  "phase": "normal_action",
+  "legal_candidate_ids": [
+    "candidate-set_item-A-034#1",
+    "pass"
+  ],
+  "selected_candidate": "pass",
+  "mode": "priority_unique",
+  "comparison_rows": [
+    {
+      "candidate_id": "candidate-set_item-A-034#1",
+      "avoid_loss_or_abort": 0,
+      "maintain_or_prevent_100": 0,
+      "certain_growth_difference": 0,
+      "time_after_certain_resolution": 1,
+      "payment_time": 1,
+      "consumed_card_count": 0,
+      "card_copy_id": "A-034"
+    },
+    {
+      "candidate_id": "pass",
+      "avoid_loss_or_abort": 0,
+      "maintain_or_prevent_100": 0,
+      "certain_growth_difference": 0,
+      "time_after_certain_resolution": 2,
+      "payment_time": 0,
+      "consumed_card_count": 0,
+      "card_copy_id": ""
+    }
+  ],
+  "payment_operands_verified": true,
+  "selection_computation_verified": true,
+  "operand_provenance_verified": false,
+  "production_input_generation": 0,
+  "new_matches": 0
+}

@@ -1,0 +1,8 @@
+test_both_start_and_end_need_a_fresh_response_after_last_link (test_proxy_population_boundary_response.BoundaryTests.test_both_start_and_end_need_a_fresh_response_after_last_link) ... ok
+test_boundary_is_typed_and_does_not_claim_origin_authentication (test_proxy_population_boundary_response.BoundaryTests.test_boundary_is_typed_and_does_not_claim_origin_authentication) ... ok
+test_live_outer_link_is_never_projected_away_or_restarted (test_proxy_population_boundary_response.BoundaryTests.test_live_outer_link_is_never_projected_away_or_restarted) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.083s
+
+OK

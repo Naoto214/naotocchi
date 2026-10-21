@@ -1,0 +1,3 @@
+# 182 新seed現行終了境界監査 TDD計画
+
+181履歴証拠と180最終stateをraw SHAで固定し、各pathのphase・round・event/hashを直接照合する。先に専用テストをREDにする。`turn_end`の2経路は123の六段階監査を履歴出所つきで再適用し、`turn_end_response`の2経路は119の手札・盤上を含む候補完全性を監査する。C-chickenとP-cliff_goatは既存本文の誘発条件を確認し、通常passでは能力を起動しない。新eventなしの監査JSON、専用テスト・canonical一致・設計データ検査を保存する。過去の保存物の不正確なround表現は変更せず182報告で訂正する。

@@ -1,0 +1,94 @@
+FFFFFFFFFF
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='initial_card')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='initial_location')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='prefix_card')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='prefix_sequence')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='source_prefix')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='journal_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='journal_hash')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='journal_event')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='journal_duplicate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 29, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_existing_trace_binds_initial_eighty_and_actual_lifecycle (test_proxy_population_source_root.SourceRootTests.test_existing_trace_binds_initial_eighty_and_actual_lifecycle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 13, in test_existing_trace_binds_initial_eighty_and_actual_lifecycle
+    self.assertTrue(proof.get('physical_source_root_and_journal_verified',False))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.756s
+
+FAILED (failures=10)

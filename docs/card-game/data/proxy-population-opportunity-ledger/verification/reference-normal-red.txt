@@ -1,0 +1,25 @@
+F..
+======================================================================
+FAIL: test_normal_source_cost_uses_same_origin_receipt (test_proxy_population_activation_reference.ReferenceTests.test_normal_source_cost_uses_same_origin_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_activation_reference.py", line 44, in test_normal_source_cost_uses_same_origin_receipt
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_activation_reference.py", line 42, in run
+    self.assertIn('activation_receipt',after['legacy_continuation']['activation_zone'][-1]);state.validate(after)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'activation_receipt' not found in {'link_id': 'response-link-4-A-013#1', 'action_type': 'activate_board_ability', 'source_zone': 'board', 'actor': 'A', 'card_id': 'C-cat_friend', 'card_copy_id': 'A-013', 'source_instance_id': 'A-013#1', 'target_instance_ids': ['A-012#1'], 'candidate_variant': None, 'payment': {'time': 0, 'source_to_deck_bottom': 'A-013#1'}, 'source_references': ['72-companion-26-card-text-draft.md#C-cat_friend'], 'source_cost_receipt': {'contract': 'discard_recovery_source_cost_470', 'paid_event_seq': 4, 'actor': 'A', 'source_instance_id': 'A-013#1', 'card_copy_id': 'A-013'}}
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.107s
+
+FAILED (failures=1)

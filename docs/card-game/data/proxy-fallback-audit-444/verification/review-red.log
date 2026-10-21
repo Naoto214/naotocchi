@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_outer_selection_and_selected_action_bind_to_verified_choice (test_proxy_fallback_audit.FallbackAuditTests.test_outer_selection_and_selected_action_bind_to_verified_choice) (policy='resource_value_pilot_v1', field='selected_candidate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 65, in test_outer_selection_and_selected_action_bind_to_verified_choice
+    with self.assertRaises(ValueError):self.run_audit(p,bad,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_outer_selection_and_selected_action_bind_to_verified_choice (test_proxy_fallback_audit.FallbackAuditTests.test_outer_selection_and_selected_action_bind_to_verified_choice) (policy='resource_value_pilot_v1', field='selected_action')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 65, in test_outer_selection_and_selected_action_bind_to_verified_choice
+    with self.assertRaises(ValueError):self.run_audit(p,bad,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_outer_selection_and_selected_action_bind_to_verified_choice (test_proxy_fallback_audit.FallbackAuditTests.test_outer_selection_and_selected_action_bind_to_verified_choice) (policy='legacy_107_114_116', field='selected_action')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 65, in test_outer_selection_and_selected_action_bind_to_verified_choice
+    with self.assertRaises(ValueError):self.run_audit(p,bad,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_source_decision_rejected (test_proxy_fallback_audit.FallbackAuditTests.test_duplicate_source_decision_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 71, in test_duplicate_source_decision_rejected
+    with self.assertRaises(ValueError):self.run_audit(p,s,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 7.208s
+
+FAILED (failures=4)

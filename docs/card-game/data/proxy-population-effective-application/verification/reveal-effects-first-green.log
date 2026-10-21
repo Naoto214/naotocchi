@@ -1,0 +1,25 @@
+.F.
+======================================================================
+FAIL: test_coverage_rejects_rebound_false_reveal (test_proxy_population_reveal_effects.RevealEffectsTests.test_coverage_rejects_rebound_false_reveal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_reveal_effects.py", line 69, in test_coverage_rejects_rebound_false_reveal
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_reveal_effects.py", line 68, in run
+    self.assertIn('reveal effect semantics differ',message);return {}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'reveal effect semantics differ' not found in "'final_envelope'"
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.416s
+
+FAILED (failures=1)

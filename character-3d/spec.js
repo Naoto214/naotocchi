@@ -19,18 +19,18 @@
   'use strict';
   const freeze = (o) => { if (o && typeof o === 'object' && !Object.isFrozen(o)) { Object.freeze(o); for (const v of Object.values(o)) freeze(v); } return o; };
 
-  // ================= canonical emotion(#368 の 語彙と おなじ。ここでは ふやさない) =================
+  // ================= canonical emotion(resident-expression.js と共通の12状態) =================
   // #368 resident-expression.js の EMOTIONS と 1 語も ちがわない こと(tests/character-3d-test.cjs が 写しで しばる)
-  const CANONICAL_EMOTIONS = freeze(['normal', 'positive', 'dislike', 'tired', 'sleeping', 'strained', 'wantsPlay', 'sick']);
+  const CANONICAL_EMOTIONS = freeze(['normal', 'positive', 'dislike', 'tired', 'sleeping', 'strained', 'wantsPlay', 'sick', 'hungry', 'weak', 'critical', 'lonely']);
   // pilot で 人が 見て たしかめる 5 つ
   const PILOT_EMOTIONS = freeze(['normal', 'positive', 'dislike', 'tired', 'sick']);
   // QA で ならべる 2D の Expression PNG(Home の 正本 asset 名)。#368 の EXPRESSION_FOR.stage と おなじ 対応
-  const REFERENCE_EXPRESSION = freeze({ normal: 'normal', positive: 'happy', dislike: 'sulky', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', sick: 'sick' });
+  const REFERENCE_EXPRESSION = freeze({ normal: 'normal', positive: 'happy', dislike: 'sulky', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', sick: 'sick', hungry: 'hungry', weak: 'weak', critical: 'critical', lonely: 'sulky' });
 
   // #368 が まだ main に ない あいだ だけの つなぎ(住民の 生活の きもち → canonical)。
   // #368 が merge されたら window.NaotocchiResidentExpression.canonicalEmotion を つかい、これは けす。
   // 中身は #368 の LIFE_EMOTION の 写し(ふやさない・かえない)
-  const PRE368_LIFE_EMOTION = freeze({ normal: 'normal', happy: 'positive', unhappy: 'dislike', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', positive: 'positive', dislike: 'dislike', sick: 'sick' });
+  const PRE368_LIFE_EMOTION = freeze({ normal: 'normal', happy: 'positive', unhappy: 'dislike', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', positive: 'positive', dislike: 'dislike', sick: 'sick', hungry: 'hungry', weak: 'weak', critical: 'critical', lonely: 'lonely' });
   function canonicalEmotion(input, resident368) {
     if (resident368 && typeof resident368.canonicalEmotion === 'function') return resident368.canonicalEmotion(input);
     return Object.hasOwn(PRE368_LIFE_EMOTION, input) ? PRE368_LIFE_EMOTION[input] : 'normal';
@@ -46,6 +46,10 @@
   //   accent: あたまの うえの しるし(2D Home の accent と おなじ 意味)
   //   reaction: いっときの うごき(イベントで 1 かい)
   const EXPRESSION_3D = freeze({
+    hungry: {"eye": {"shape": "round", "open": 0.8, "lid": 0.2}, "brow": {"show": true, "angle": -0.2}, "mouth": "small", "blush": 0.15, "marks": [], "body": {"bounce": 0, "droop": 0.25, "lean": 0, "turn": 0, "shiver": 0, "tempo": 0.9, "squash": 0.015}, "accent": null, "reaction": null},
+    weak: {"eye": {"shape": "droop", "open": 0.4, "lid": 0.6}, "brow": {"show": true, "angle": -0.45}, "mouth": "frown", "blush": 0.05, "marks": [], "body": {"bounce": 0, "droop": 0.55, "lean": 0, "turn": 0, "shiver": 0, "tempo": 0.6, "squash": 0.04}, "accent": null, "reaction": null},
+    critical: {"eye": {"shape": "flat", "open": 0.1, "lid": 0.9}, "brow": {"show": true, "angle": -0.7}, "mouth": "wavy", "blush": 0, "marks": ["gloom"], "body": {"bounce": 0, "droop": 0.95, "lean": 0, "turn": 0, "shiver": 0, "tempo": 0.35, "squash": 0.09}, "accent": null, "reaction": null},
+    lonely: {"eye": {"shape": "round", "open": 0.7, "lid": 0.3}, "brow": {"show": true, "angle": -0.6}, "mouth": "frown", "blush": 0.12, "marks": [], "body": {"bounce": 0, "droop": 0.3, "lean": 0, "turn": 0, "shiver": 0, "tempo": 0.85, "squash": 0.015}, "accent": null, "reaction": null},
     normal: { eye: { shape: 'round', open: 1, lid: 0 }, brow: { show: false, angle: 0 }, mouth: 'smile', blush: 0.35, marks: [], body: { bounce: 0, droop: 0, lean: 0, turn: 0, shiver: 0, tempo: 1, squash: 0 }, accent: null, reaction: null },
     positive: { eye: { shape: 'happy', open: 1, lid: 0 }, brow: { show: false, angle: 0 }, mouth: 'open', blush: 0.85, marks: [], body: { bounce: 1, droop: -0.15, lean: 0.05, turn: 0, shiver: 0, tempo: 1.35, squash: 0 }, accent: 'sparkle', reaction: 'hop' },
     dislike: { eye: { shape: 'round', open: 0.72, lid: 0.32 }, brow: { show: true, angle: 0.5 }, mouth: 'pout', blush: 0, marks: [], body: { bounce: 0, droop: 0.25, lean: -0.12, turn: 0.38, shiver: 0, tempo: 0.8, squash: 0 }, accent: 'cloud', reaction: 'huff' },

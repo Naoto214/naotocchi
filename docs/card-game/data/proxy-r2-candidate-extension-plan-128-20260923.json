@@ -1,0 +1,178 @@
+{
+  "schema": "naotocchi.card_game.proxy_r2_candidate_extension_plan.v2",
+  "checkpoint": 128,
+  "protected_127_stop_raw_sha256": {
+    "order-01-a-first": "76aba7d092ab2382c9e5a30a62000d402ab10b559797e5089d5dc19d3998048d",
+    "order-01-b-first": "2527a1aa7b44631adca909dad2b96f9e5207fa43871c5138330ee3b8fea54d49",
+    "order-02-a-first": "4f54e7c49d99640d39fc551ef9a72e7a60ec1b4e19eb2a1ff44776e38b96bbc5",
+    "order-02-b-first": "ce76c740862b877b1de887e88b0f3fcfce2b7b4d0bc2747edf12919ac3dc0b36"
+  },
+  "source_contracts": [
+    107,
+    114,
+    116,
+    117,
+    121,
+    123,
+    126,
+    127
+  ],
+  "targetless_id_grammar": "candidate-{action_type}-{source_instance_id}",
+  "multiple_admitted_variant_id_grammar": "candidate-{action_type}-{source_instance_id}-{candidate_variant}",
+  "single_target_id_grammar": "candidate-{action_type}-{source_instance_id}-target-{target_instance_id}",
+  "board_classification": {
+    "C-chameleon": {
+      "kind": "continuous",
+      "source_text_reference": "72-companion-26-card-text-draft.md#C-chameleon"
+    },
+    "P-cat_ceo": {
+      "kind": "past_trigger",
+      "source_text_reference": "74-partner-18-card-text-draft.md#P-cat_ceo"
+    },
+    "C-box": {
+      "kind": "none",
+      "source_text_reference": "72-companion-26-card-text-draft.md#C-box",
+      "placement_action": "place_companion",
+      "placement_growth_delta": 0,
+      "placement_duration": "none"
+    }
+  },
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "76aba7d092ab2382c9e5a30a62000d402ab10b559797e5089d5dc19d3998048d",
+      "source_game_state_sha256": "0a1ed29d80142a1877e1a37f5816b286772d8ae1ad07853c384f6f643ad16830",
+      "source_continuation_state_sha256": "5784cb04ac90cca29da4c4fac3fd449c1d5c15cf5b0a797916b4d5a5cd6687b8",
+      "last_valid_event_seq": 33,
+      "game_state_sha256": "64fb6747a9e264b9d8904d880f2863cb6f4ce68f023ade9a4733a6d77ccfc339",
+      "continuation_state_sha256": "d11643b32a30f189fbabf088942805efe762f9a2da5c1368afc6714a70871dec",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "unclassified conditional growth or card resolution",
+          "action_type": "use_play",
+          "source_card_id": "G-hit-blow",
+          "candidate_ids": [
+            "candidate-play-main-A-009#1-birth",
+            "candidate-use_play-A-001#1-companion",
+            "candidate-use_play-A-001#1-event",
+            "candidate-use_play-A-001#1-item",
+            "candidate-use_play-A-001#1-main",
+            "candidate-use_play-A-001#1-partner",
+            "candidate-use_play-A-001#1-play",
+            "candidate-use_play-A-001#1-world",
+            "pass"
+          ],
+          "source_reference": "87-play-batch-5-card-text-draft.md#G-hit-blow"
+        }
+      },
+      "decision_count": 3,
+      "event_count": 5,
+      "snapshot_count": 6,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-r2-candidate-stops-128/stop-128-order-01-a-first.json"
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "2527a1aa7b44631adca909dad2b96f9e5207fa43871c5138330ee3b8fea54d49",
+      "source_game_state_sha256": "d716a456175b0e1477aa5039ea54e6fda51ef9d9a5b9aa0fa6af9cc2479d6c8d",
+      "source_continuation_state_sha256": "8d0c545ad3232e1175ee242474dfb6868b36af267bc072568bdab43a95503bd2",
+      "last_valid_event_seq": 38,
+      "game_state_sha256": "9696a55406816c095b9598e13745d32c9dda76bfba455e89b98430b4f5691a8f",
+      "continuation_state_sha256": "3f79183cb20a5fea3336781b7f0fdd768e4c16cbed050eb21fe39d0ac4e20e6a",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "unclassified conditional growth or card resolution",
+          "action_type": "use_play",
+          "source_card_id": "G-hit-blow",
+          "candidate_ids": [
+            "candidate-play-main-A-009#1-birth",
+            "candidate-use_play-A-001#1-companion",
+            "candidate-use_play-A-001#1-event",
+            "candidate-use_play-A-001#1-item",
+            "candidate-use_play-A-001#1-main",
+            "candidate-use_play-A-001#1-partner",
+            "candidate-use_play-A-001#1-play",
+            "candidate-use_play-A-001#1-world",
+            "pass"
+          ],
+          "source_reference": "87-play-batch-5-card-text-draft.md#G-hit-blow"
+        }
+      },
+      "decision_count": 9,
+      "event_count": 15,
+      "snapshot_count": 16,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-r2-candidate-stops-128/stop-128-order-01-b-first.json"
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_sha256": "4f54e7c49d99640d39fc551ef9a72e7a60ec1b4e19eb2a1ff44776e38b96bbc5",
+      "source_game_state_sha256": "c69976e87762798f291eebf8510f03dfcd8e66fbd0b6448af95b8af54bae083f",
+      "source_continuation_state_sha256": "84a415e5750dc6fda5fbac25f510d0ec8861de5757aee726b205f5300912be7f",
+      "last_valid_event_seq": 26,
+      "game_state_sha256": "e2a5ed796f5fdf95fbb124d5739f15b4d8029e5c697b457dd26590526f43a682",
+      "continuation_state_sha256": "aed00c5447c3d25e806451aea80cededa8ffd7e1c8bfd78106e23f749029144e",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "unclassified conditional growth or card resolution",
+          "action_type": "use_event",
+          "source_card_id": "E-first-date",
+          "candidate_ids": [
+            "candidate-attach_item-B-032#1-target-B-014#1",
+            "candidate-attach_item-B-032#1-target-B-017#1",
+            "candidate-play-main-B-001#1-birth",
+            "candidate-use_event-B-040#1-target-B-017#1",
+            "pass"
+          ],
+          "source_reference": "91-event-21-card-text-draft.md#E-first-date"
+        }
+      },
+      "decision_count": 6,
+      "event_count": 8,
+      "snapshot_count": 9,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-r2-candidate-stops-128/stop-128-order-02-a-first.json"
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_sha256": "ce76c740862b877b1de887e88b0f3fcfce2b7b4d0bc2747edf12919ac3dc0b36",
+      "source_game_state_sha256": "eb891c632a765a4ca80cf7e0a6f5510c567d572e8e6f024392b075dca5aa4480",
+      "source_continuation_state_sha256": "b95aa164665087111740bffdffb3f35b2e3d6e9d1c238946aae253cda16659f1",
+      "last_valid_event_seq": 21,
+      "game_state_sha256": "662b7c3a0572fedbc9308934cc5a664b1939f1d26eaad7f866b079effe937ea7",
+      "continuation_state_sha256": "e663d9ed00591841176962f6106053fa1bdbb6a432d56a7eaa0201dc39e44a71",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "unclassified conditional growth or card resolution",
+          "action_type": "use_event",
+          "source_card_id": "E-first-date",
+          "candidate_ids": [
+            "candidate-attach_item-B-032#1-target-B-014#1",
+            "candidate-attach_item-B-032#1-target-B-017#1",
+            "candidate-play-main-B-001#1-birth",
+            "candidate-use_event-B-040#1-target-B-017#1",
+            "pass"
+          ],
+          "source_reference": "91-event-21-card-text-draft.md#E-first-date"
+        }
+      },
+      "decision_count": 3,
+      "event_count": 3,
+      "snapshot_count": 4,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-r2-candidate-stops-128/stop-128-order-02-b-first.json"
+    }
+  ]
+}

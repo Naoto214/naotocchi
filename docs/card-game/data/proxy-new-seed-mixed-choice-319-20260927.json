@@ -1,0 +1,89 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "mandatory_proved_end",
+      "selected_candidate": "turn_end",
+      "six_stage_checks": {
+        "closed_response_window_valid": true,
+        "enumeration_ids_unique": true,
+        "expiration_boundary_resolved": true,
+        "expiration_trigger_inventory_complete": true,
+        "reservation_order_resolved": true,
+        "six_stage_inventory_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_dispositions_explained": true,
+        "source_projection_exact": true,
+        "transition_handlers_proven": true,
+        "trigger_information_boundary_valid": true,
+        "victory_history_sufficient": true
+      },
+      "source_continuation_state_sha256": "4ba17e2fc7d0ec9fc3431b93e12d815a4dc980b95dd830de87d8a3ad8a34a8d1",
+      "source_game_state_sha256": "7f9ba22db49189124b69f074a82b057c3bcf050a5a11f85c0e0b7d7049f66868",
+      "source_last_valid_event_seq": 81
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "4f0b3b5671468d2ee2c32346de1b3f8e277d484aac2bbb395b88fc9e47288e57",
+      "source_game_state_sha256": "b8c2b29bd518420f456a1e803b15ed4d23e8cf944fa4be709a7d576ca18ebdd3",
+      "source_last_valid_event_seq": 84
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "180f44732632c9361b797f25d89924c5cfb3e967856f3ef84fe749fb730d7f90",
+      "source_game_state_sha256": "6427752cf93af7e8011a849da27f02a7a0c6e77837fd8cae91258b024bbba917",
+      "source_last_valid_event_seq": 85
+    },
+    {
+      "balance_sample_count": 0,
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "mandatory_proved_end",
+      "selected_candidate": "turn_end",
+      "six_stage_checks": {
+        "closed_response_window_valid": true,
+        "enumeration_ids_unique": true,
+        "expiration_boundary_resolved": true,
+        "expiration_trigger_inventory_complete": true,
+        "reservation_order_resolved": true,
+        "six_stage_inventory_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_dispositions_explained": true,
+        "source_projection_exact": true,
+        "transition_handlers_proven": true,
+        "trigger_information_boundary_valid": true,
+        "victory_history_sufficient": true
+      },
+      "source_continuation_state_sha256": "8f4dc7cb8b541d6c67adfe3aae6df8b7bcad0f8d9ad61177cb58e35e167eb334",
+      "source_game_state_sha256": "e4d9edb864ac9492d7bd8fbf3ff313d24f4e6ddb1a919b9e36c1665f748a5bb2",
+      "source_last_valid_event_seq": 72
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_mixed_choice_319.v1",
+  "source_raw_sha256": "96af93f52209c8062e90dbab1dbfaee684bb832b4453af861f0bbbbf23a313af",
+  "state_raw_sha256": "cff8e4cfabdb065c0b43c5fa5e9fbb61eda3dc8c63cda8b9abd74da4bf6e47e0"
+}

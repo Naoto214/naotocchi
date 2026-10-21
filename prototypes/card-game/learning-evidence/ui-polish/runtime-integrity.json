@@ -1,0 +1,17 @@
+{
+  "base_head": "8ca59fc6ad598ba99420a925200f307b2a6a9b3b",
+  "changed_existing_files": [
+    "prototypes/card-game/collection-ui.mjs",
+    "prototypes/card-game/collection.css",
+    "prototypes/card-game/learning.css",
+    "prototypes/card-game/style.css",
+    "prototypes/card-game/ui-presentation.mjs"
+  ],
+  "all_other_tracked_files_unchanged": true,
+  "runtime": {
+    "files": 960,
+    "github_matching_files": 959,
+    "unchanged_root_redirect": true,
+    "bytes": 141520412
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "seconds": 6.830578758992488,
+  "python_file_count": 1090,
+  "fingerprints_equal": true,
+  "scope": "remaining assertions on saved real 4ab6dea complete record; reconstruct patched; not fresh GREEN",
+  "new_matches": 0,
+  "tail": "test_existing_unit_trace_binds_all_turns_and_designated_choice_entries (test_proxy_population_policy_journal.BoundPolicyJournalTests.test_existing_unit_trace_binds_all_turns_and_designated_choice_entries) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 5.938s\n\nOK\nexisting_unit_source_predicates response_source_predicate_coverage 181 covered\nexisting_unit_source_predicates normal_unit_predicate_coverage 55 covered\nexisting_unit_end_dispatch 22 verified\nScope: remaining assertions using the saved real 4ab6dea record; no fresh reconstruction\n"
+}

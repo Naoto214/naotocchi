@@ -1,0 +1,16 @@
+test_rehashed_outer_mutations_and_physical_corruption_are_refused (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_rehashed_outer_mutations_and_physical_corruption_are_refused) ...
+  test_rehashed_outer_mutations_and_physical_corruption_are_refused (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_rehashed_outer_mutations_and_physical_corruption_are_refused) (mode='all_omitted') ... FAIL
+
+======================================================================
+FAIL: test_rehashed_outer_mutations_and_physical_corruption_are_refused (test_proxy_population_final_time_outer.FinalTimeOuterTests.test_rehashed_outer_mutations_and_physical_corruption_are_refused) (mode='all_omitted')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_final_time_outer.py", line 66, in run
+    with self.subTest(mode=mode),self.assertRaises(ValueError):quick.final_time.verify_transition(row,after,ev)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.133s
+
+FAILED (failures=1)

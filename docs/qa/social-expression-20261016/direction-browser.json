@@ -1,0 +1,312 @@
+{
+  "fixture": true,
+  "environment": "Chromium software WebGL; not iPhone",
+  "records": [
+    {
+      "mode": "baseline",
+      "actors": [
+        {
+          "key": "shiba",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "partner:cat_ceo",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "clownfish",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "dandelion",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "mushroom",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "starfish",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "dog",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        }
+      ]
+    },
+    {
+      "mode": "greeting",
+      "actors": [
+        {
+          "key": "shiba",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "partner:cat_ceo",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "clownfish",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "dandelion",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "mushroom",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "starfish",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "dog",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        }
+      ]
+    },
+    {
+      "mode": "farewell",
+      "actors": [
+        {
+          "key": "shiba",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "partner:cat_ceo",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "clownfish",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "dandelion",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "mushroom",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "starfish",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        },
+        {
+          "key": "dog",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 2.093643434839793,
+          "head": -0.20416568531475698,
+          "heading": 0
+        }
+      ]
+    },
+    {
+      "mode": "expired",
+      "actors": [
+        {
+          "key": "shiba",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.1415926535897927,
+          "head": -6.693620799803733e-70,
+          "heading": 0
+        },
+        {
+          "key": "partner:cat_ceo",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.1415926535897927,
+          "head": -6.693620799803733e-70,
+          "heading": 0
+        },
+        {
+          "key": "clownfish",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.1415926535897927,
+          "head": -6.693620799803733e-70,
+          "heading": 0
+        },
+        {
+          "key": "dandelion",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.1415926535897927,
+          "head": -6.693620799803733e-70,
+          "heading": 0
+        },
+        {
+          "key": "mushroom",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.1415926535897927,
+          "head": -6.693620799803733e-70,
+          "heading": 0
+        },
+        {
+          "key": "starfish",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.1415926535897927,
+          "head": -6.693620799803733e-70,
+          "heading": 0
+        },
+        {
+          "key": "dog",
+          "emotion": "lonely",
+          "attention": false,
+          "yaw": 3.1415926535897927,
+          "head": -6.693620799803733e-70,
+          "heading": 0
+        }
+      ]
+    },
+    {
+      "mode": "reduced",
+      "actors": [
+        {
+          "key": "shiba",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "partner:cat_ceo",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "clownfish",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "dandelion",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "mushroom",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "starfish",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        },
+        {
+          "key": "dog",
+          "emotion": "positive",
+          "attention": true,
+          "yaw": 3.141592653589793,
+          "head": 0,
+          "heading": 0
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

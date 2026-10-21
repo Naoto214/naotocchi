@@ -1,0 +1,291 @@
+{
+  "results": [
+    {
+      "classification": "historical_projected_board_target_scope_difference",
+      "continuation_state_sha256": "b1258bfc795a838dbef6768140e850a22af185e8f9b509f2f01bf639f313b135",
+      "event_seq": 131,
+      "extra_fresh_details": [
+        {
+          "action_type": "attach_item",
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-012#1",
+          "candidate_variant": "each_legal_own_person",
+          "card_id": "I-bowtie",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-032#1\",\"attach_item\",\"each_legal_own_person\",[\"A-012#1\"]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-032#1",
+          "source_instance_id": "A-032#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bowtie"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": [
+            "A-012#1"
+          ]
+        },
+        {
+          "action_type": "attach_item",
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-015#1",
+          "candidate_variant": "each_legal_own_person",
+          "card_id": "I-bowtie",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-032#1\",\"attach_item\",\"each_legal_own_person\",[\"A-015#1\"]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-032#1",
+          "source_instance_id": "A-032#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bowtie"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": [
+            "A-015#1"
+          ]
+        }
+      ],
+      "fresh_candidate_ids": [
+        "candidate-attach_item-A-032#1-target-A-012#1",
+        "candidate-attach_item-A-032#1-target-A-015#1",
+        "candidate-attach_item-A-032#1-target-A-017#1",
+        "candidate-place_world-A-021#1",
+        "candidate-play-main-A-009#1-birth",
+        "candidate-set_item-A-034#1",
+        "pass"
+      ],
+      "game_state_sha256": "837a754ab77651013617357fd060544f60fca2356c9be081445ee93fc891ad80",
+      "historical_candidate_ids": [
+        "candidate-attach_item-A-032#1-target-A-017#1",
+        "candidate-place_world-A-021#1",
+        "candidate-play-main-A-009#1-birth",
+        "candidate-set_item-A-034#1",
+        "pass"
+      ],
+      "path_id": "probe-01-a-first",
+      "policy_effect_counted": false,
+      "source_raw_sha256": {
+        "docs/card-game/data/proxy-new-seed-mixed-audit-402-20260930.json": "68961372f3d1e7cf9ed39926e2e0e412b1b5c734cd8d4ca2292c3616f4877508",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-402-20260930.json": "c9ab8f8515a1baa4823e088d488b35835809bbd619673e6ed268044f0f21ec2e"
+      },
+      "source_refs": [
+        "docs/card-game/data/proxy-new-seed-mixed-audit-402-20260930.json",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-402-20260930.json"
+      ]
+    },
+    {
+      "classification": "historical_projected_board_target_scope_difference",
+      "continuation_state_sha256": "f3d2f1c1d386c17c31dae3aeec813df48af3040b49386ac17bb6d708f6cede0e",
+      "event_seq": 140,
+      "extra_fresh_details": [
+        {
+          "action_type": "attach_item",
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-012#1",
+          "candidate_variant": "each_legal_own_person",
+          "card_id": "I-bowtie",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-032#1\",\"attach_item\",\"each_legal_own_person\",[\"A-012#1\"]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-032#1",
+          "source_instance_id": "A-032#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bowtie"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": [
+            "A-012#1"
+          ]
+        },
+        {
+          "action_type": "attach_item",
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-015#1",
+          "candidate_variant": "each_legal_own_person",
+          "card_id": "I-bowtie",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-032#1\",\"attach_item\",\"each_legal_own_person\",[\"A-015#1\"]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-032#1",
+          "source_instance_id": "A-032#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bowtie"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": [
+            "A-015#1"
+          ]
+        }
+      ],
+      "fresh_candidate_ids": [
+        "candidate-attach_item-A-032#1-target-A-012#1",
+        "candidate-attach_item-A-032#1-target-A-015#1",
+        "candidate-attach_item-A-032#1-target-A-017#1",
+        "candidate-place_world-A-021#1",
+        "candidate-play-main-A-009#1-birth",
+        "candidate-set_item-A-034#1",
+        "pass"
+      ],
+      "game_state_sha256": "4c45caa6c5db2d662bc5f685e5778cf683f2c435b9ad685c789fcf620aa59853",
+      "historical_candidate_ids": [
+        "candidate-attach_item-A-032#1-target-A-017#1",
+        "candidate-place_world-A-021#1",
+        "candidate-play-main-A-009#1-birth",
+        "candidate-set_item-A-034#1",
+        "pass"
+      ],
+      "path_id": "probe-01-b-first",
+      "policy_effect_counted": false,
+      "source_raw_sha256": {
+        "docs/card-game/data/proxy-new-seed-mixed-audit-402-20260930.json": "68961372f3d1e7cf9ed39926e2e0e412b1b5c734cd8d4ca2292c3616f4877508",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-402-20260930.json": "c9ab8f8515a1baa4823e088d488b35835809bbd619673e6ed268044f0f21ec2e"
+      },
+      "source_refs": [
+        "docs/card-game/data/proxy-new-seed-mixed-audit-402-20260930.json",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-402-20260930.json"
+      ]
+    },
+    {
+      "classification": "historical_projected_board_target_scope_difference",
+      "continuation_state_sha256": "00632da1ccbe2577527666a25a2dfe1d283cbef4abce0b0bfc9b1b96c14fb855",
+      "event_seq": 77,
+      "extra_fresh_details": [
+        {
+          "action_type": "attach_item",
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-016#1",
+          "candidate_variant": "each_legal_own_person",
+          "card_id": "I-bowtie",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-032#1\",\"attach_item\",\"each_legal_own_person\",[\"A-016#1\"]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-032#1",
+          "source_instance_id": "A-032#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bowtie"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": [
+            "A-016#1"
+          ]
+        }
+      ],
+      "fresh_candidate_ids": [
+        "candidate-attach_item-A-032#1-target-A-016#1",
+        "candidate-play-main-A-009#1-birth",
+        "pass"
+      ],
+      "game_state_sha256": "7ec9889cd224a4a0d4870a1e60125ff54332130223f67816a3f08cbe1dddb903",
+      "historical_candidate_ids": [
+        "candidate-play-main-A-009#1-birth",
+        "pass"
+      ],
+      "path_id": "probe-02-a-first",
+      "policy_effect_counted": false,
+      "source_raw_sha256": {
+        "docs/card-game/data/proxy-new-seed-mixed-choice-332-20260928.json": "2cabff893a6abb7988982d255760d1fbf405fe04f82b73c4d7621fe39a80f9ab",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-329-20260928.json": "0c112898b62def59cfba06cb93e40cafb48d94c8b755876561f2f64303b40cd5",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-333-20260928.json": "a32e9d5f279ce1da64b3fcd7e0ea8498b31ed25f44482dc7fc7b75b7b0e70023"
+      },
+      "source_refs": [
+        "docs/card-game/data/proxy-new-seed-mixed-choice-332-20260928.json",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-329-20260928.json",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-333-20260928.json"
+      ]
+    },
+    {
+      "classification": "historical_projected_board_target_scope_difference",
+      "continuation_state_sha256": "5f6295f37aa0cad38a515cad9d6ffbc7daa7116516fc5233c953784765ad2e99",
+      "event_seq": 103,
+      "extra_fresh_details": [
+        {
+          "action_type": "attach_item",
+          "candidate_id": "candidate-attach_item-A-031#1-target-A-012#1",
+          "candidate_variant": "each_legal_own_companion",
+          "card_id": "I-bond1",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-031#1\",\"attach_item\",\"each_legal_own_companion\",[\"A-012#1\"]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-031#1",
+          "source_instance_id": "A-031#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bond1"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": [
+            "A-012#1"
+          ]
+        },
+        {
+          "action_type": "attach_item",
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-012#1",
+          "candidate_variant": "each_legal_own_person",
+          "card_id": "I-bowtie",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-032#1\",\"attach_item\",\"each_legal_own_person\",[\"A-012#1\"]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-032#1",
+          "source_instance_id": "A-032#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bowtie"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": [
+            "A-012#1"
+          ]
+        },
+        {
+          "action_type": "attach_item",
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-018#1",
+          "candidate_variant": "each_legal_own_person",
+          "card_id": "I-bowtie",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"A-032#1\",\"attach_item\",\"each_legal_own_person\",[\"A-018#1\"]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "A-032#1",
+          "source_instance_id": "A-032#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-bowtie"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": [
+            "A-018#1"
+          ]
+        }
+      ],
+      "fresh_candidate_ids": [
+        "candidate-attach_item-A-031#1-target-A-012#1",
+        "candidate-attach_item-A-032#1-target-A-012#1",
+        "candidate-attach_item-A-032#1-target-A-018#1",
+        "pass"
+      ],
+      "game_state_sha256": "5d2290121a9a1ca64f3c8b8c39ec9ab2895030b5e23cf43a41362d68e6fa6a13",
+      "historical_candidate_ids": [
+        "pass"
+      ],
+      "path_id": "probe-02-b-first",
+      "policy_effect_counted": false,
+      "source_raw_sha256": {
+        "docs/card-game/data/proxy-new-seed-mixed-choice-369-20260929.json": "b886dbe495790f56e40df87e59240d86894e7b784eeb2cbeda13ee6854f7e273",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-366-20260929.json": "4e34c2df05979c9625720f22eb031003cc3d0db30e6d43cd1e4ee51f394ce2fc",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-370-20260929.json": "60d17436aa5f9ab6165a427fffd32ac33230dde6247ae59468f53bbb50446656"
+      },
+      "source_refs": [
+        "docs/card-game/data/proxy-new-seed-mixed-choice-369-20260929.json",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-366-20260929.json",
+        "docs/card-game/data/proxy-new-seed-mixed-replay-370-20260929.json"
+      ]
+    }
+  ],
+  "schema": "naotocchi.card_game.resource_value_scope_investigation.v1"
+}

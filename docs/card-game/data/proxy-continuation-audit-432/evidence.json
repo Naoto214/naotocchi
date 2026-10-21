@@ -1,0 +1,311 @@
+{
+  "caveat": "isolated predicate probes do not certify a complete legal inventory",
+  "changed_source_files": [],
+  "completed": 0,
+  "exact_saved_matches": 8,
+  "fixtures_112_executed": 0,
+  "independent_balance_sample_count": 0,
+  "independently_replayed": 8,
+  "new_continued_runs": 0,
+  "planned": 8,
+  "purpose": "read-only reproduction and design scope; no new continued run",
+  "results": [
+    {
+      "actor": "A",
+      "board": {
+        "companions": [
+          "A-015#1",
+          "A-012#1"
+        ],
+        "main": null,
+        "partner": "A-017#1",
+        "partner_stage": 0,
+        "prepared": [],
+        "world": null
+      },
+      "completed": false,
+      "final_continuation_state_sha256": "b1258bfc795a838dbef6768140e850a22af185e8f9b509f2f01bf639f313b135",
+      "final_game_state_sha256": "837a754ab77651013617357fd060544f60fca2356c9be081445ee93fc891ad80",
+      "independent_balance_sample_count": 0,
+      "isolated_lineage_predicate_probe": [],
+      "last_valid_event_seq": 131,
+      "main_card_id": null,
+      "path_id": "probe-01-a-first",
+      "policy_id": "legacy_107_114_116",
+      "run_id": "legacy_107_114_116:probe-01-a-first",
+      "saved_431_exact_replay": true,
+      "stop_evidence": {
+        "detail": "historical scoped inventory differs from fresh adapter; comparison held",
+        "stage": "normal_candidate_or_comparison_proof"
+      },
+      "stop_reason_code": "legality_not_confirmed",
+      "winner": null
+    },
+    {
+      "actor": "B",
+      "board": {
+        "companions": [
+          "B-011#1"
+        ],
+        "main": "B-001#1",
+        "partner": null,
+        "partner_stage": null,
+        "prepared": [],
+        "world": null
+      },
+      "completed": false,
+      "final_continuation_state_sha256": "c5aca58bc733976396a659a70b6bdc36be3ad3b13984aa6187f6d564efa78522",
+      "final_game_state_sha256": "1fe053d5dcb810d2d77ac9bbb5ccd8dfe38d23bea86eea5899c52f7986bdb5e4",
+      "independent_balance_sample_count": 0,
+      "isolated_lineage_predicate_probe": [
+        {
+          "card_id": "M-beetle-02",
+          "observed": "unresolved_canonical_predicate: main transition requires lineage proof",
+          "source_instance_id": "B-010#1",
+          "variant": "time_skip"
+        },
+        {
+          "card_id": "M-beetle-02",
+          "observed": "unresolved_canonical_predicate: main transition requires lineage proof",
+          "source_instance_id": "B-010#1",
+          "variant": "transform"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "observed": "unresolved_canonical_predicate: main transition requires lineage proof",
+          "source_instance_id": "B-006#1",
+          "variant": "time_skip"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "observed": "unresolved_canonical_predicate: main transition requires lineage proof",
+          "source_instance_id": "B-006#1",
+          "variant": "transform"
+        }
+      ],
+      "last_valid_event_seq": 20,
+      "main_card_id": "M-antlion-01",
+      "path_id": "probe-01-a-first",
+      "policy_id": "resource_value_pilot_v1",
+      "run_id": "resource_value_pilot_v1:probe-01-a-first",
+      "saved_431_exact_replay": true,
+      "stop_evidence": {
+        "detail": "unresolved_canonical_predicate: board ability classification",
+        "stage": "normal_candidate_or_comparison_proof"
+      },
+      "stop_reason_code": "legality_not_confirmed",
+      "winner": null
+    },
+    {
+      "actor": "A",
+      "board": {
+        "companions": [
+          "A-015#1",
+          "A-012#1"
+        ],
+        "main": null,
+        "partner": "A-017#1",
+        "partner_stage": 0,
+        "prepared": [],
+        "world": null
+      },
+      "completed": false,
+      "final_continuation_state_sha256": "f3d2f1c1d386c17c31dae3aeec813df48af3040b49386ac17bb6d708f6cede0e",
+      "final_game_state_sha256": "4c45caa6c5db2d662bc5f685e5778cf683f2c435b9ad685c789fcf620aa59853",
+      "independent_balance_sample_count": 0,
+      "isolated_lineage_predicate_probe": [],
+      "last_valid_event_seq": 140,
+      "main_card_id": null,
+      "path_id": "probe-01-b-first",
+      "policy_id": "legacy_107_114_116",
+      "run_id": "legacy_107_114_116:probe-01-b-first",
+      "saved_431_exact_replay": true,
+      "stop_evidence": {
+        "detail": "historical scoped inventory differs from fresh adapter; comparison held",
+        "stage": "normal_candidate_or_comparison_proof"
+      },
+      "stop_reason_code": "legality_not_confirmed",
+      "winner": null
+    },
+    {
+      "actor": "B",
+      "board": {
+        "companions": [
+          "B-011#1"
+        ],
+        "main": "B-001#1",
+        "partner": null,
+        "partner_stage": null,
+        "prepared": [],
+        "world": null
+      },
+      "completed": false,
+      "final_continuation_state_sha256": "1b6ed55115edff288c0f14f498a30b2be9022d65c82f9369a5f38c81689371de",
+      "final_game_state_sha256": "c0e41d5c8d96e1dfd6a8f62df7e75326c67a6ff1f455f0755e13d2cfec009844",
+      "independent_balance_sample_count": 0,
+      "isolated_lineage_predicate_probe": [
+        {
+          "card_id": "M-beetle-02",
+          "observed": "unresolved_canonical_predicate: main transition requires lineage proof",
+          "source_instance_id": "B-010#1",
+          "variant": "time_skip"
+        },
+        {
+          "card_id": "M-beetle-02",
+          "observed": "unresolved_canonical_predicate: main transition requires lineage proof",
+          "source_instance_id": "B-010#1",
+          "variant": "transform"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "observed": "unresolved_canonical_predicate: main transition requires lineage proof",
+          "source_instance_id": "B-006#1",
+          "variant": "time_skip"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "observed": "unresolved_canonical_predicate: main transition requires lineage proof",
+          "source_instance_id": "B-006#1",
+          "variant": "transform"
+        }
+      ],
+      "last_valid_event_seq": 10,
+      "main_card_id": "M-antlion-01",
+      "path_id": "probe-01-b-first",
+      "policy_id": "resource_value_pilot_v1",
+      "run_id": "resource_value_pilot_v1:probe-01-b-first",
+      "saved_431_exact_replay": true,
+      "stop_evidence": {
+        "detail": "unresolved_canonical_predicate: board ability classification",
+        "stage": "normal_candidate_or_comparison_proof"
+      },
+      "stop_reason_code": "legality_not_confirmed",
+      "winner": null
+    },
+    {
+      "actor": "A",
+      "board": {
+        "companions": [],
+        "main": null,
+        "partner": "A-016#1",
+        "partner_stage": 0,
+        "prepared": [],
+        "world": null
+      },
+      "completed": false,
+      "final_continuation_state_sha256": "00632da1ccbe2577527666a25a2dfe1d283cbef4abce0b0bfc9b1b96c14fb855",
+      "final_game_state_sha256": "7ec9889cd224a4a0d4870a1e60125ff54332130223f67816a3f08cbe1dddb903",
+      "independent_balance_sample_count": 0,
+      "isolated_lineage_predicate_probe": [],
+      "last_valid_event_seq": 77,
+      "main_card_id": null,
+      "path_id": "probe-02-a-first",
+      "policy_id": "legacy_107_114_116",
+      "run_id": "legacy_107_114_116:probe-02-a-first",
+      "saved_431_exact_replay": true,
+      "stop_evidence": {
+        "detail": "historical scoped inventory differs from fresh adapter; comparison held",
+        "stage": "normal_candidate_or_comparison_proof"
+      },
+      "stop_reason_code": "legality_not_confirmed",
+      "winner": null
+    },
+    {
+      "actor": "A",
+      "board": {
+        "companions": [],
+        "main": null,
+        "partner": "A-019#1",
+        "partner_stage": 0,
+        "prepared": [],
+        "world": null
+      },
+      "completed": false,
+      "final_continuation_state_sha256": "876a136e81ba2388d98afc43ec2e027099ae0b6df3e17dbc7843d7ef22a79a0c",
+      "final_game_state_sha256": "84633d8d14de120f100b784b257a69b46a302b66bcbd84814faad3a60ec2d797",
+      "independent_balance_sample_count": 0,
+      "isolated_lineage_predicate_probe": [],
+      "last_valid_event_seq": 25,
+      "main_card_id": null,
+      "path_id": "probe-02-a-first",
+      "policy_id": "resource_value_pilot_v1",
+      "run_id": "resource_value_pilot_v1:probe-02-a-first",
+      "saved_431_exact_replay": true,
+      "stop_evidence": {
+        "action_type": "attach_item",
+        "source_references": [
+          "77-current-items-card-text-draft.md#I-bowtie"
+        ]
+      },
+      "stop_reason_code": "unsupported_resolution_adapter",
+      "winner": null
+    },
+    {
+      "actor": "A",
+      "board": {
+        "companions": [
+          "A-012#1"
+        ],
+        "main": null,
+        "partner": "A-018#1",
+        "partner_stage": 0,
+        "prepared": [],
+        "world": null
+      },
+      "completed": false,
+      "final_continuation_state_sha256": "5f6295f37aa0cad38a515cad9d6ffbc7daa7116516fc5233c953784765ad2e99",
+      "final_game_state_sha256": "5d2290121a9a1ca64f3c8b8c39ec9ab2895030b5e23cf43a41362d68e6fa6a13",
+      "independent_balance_sample_count": 0,
+      "isolated_lineage_predicate_probe": [],
+      "last_valid_event_seq": 103,
+      "main_card_id": null,
+      "path_id": "probe-02-b-first",
+      "policy_id": "legacy_107_114_116",
+      "run_id": "legacy_107_114_116:probe-02-b-first",
+      "saved_431_exact_replay": true,
+      "stop_evidence": {
+        "detail": "historical scoped inventory differs from fresh adapter; comparison held",
+        "stage": "normal_candidate_or_comparison_proof"
+      },
+      "stop_reason_code": "legality_not_confirmed",
+      "winner": null
+    },
+    {
+      "actor": "B",
+      "board": {
+        "companions": [],
+        "main": "B-001#1",
+        "partner": null,
+        "partner_stage": null,
+        "prepared": [],
+        "world": null
+      },
+      "completed": false,
+      "final_continuation_state_sha256": "df49b18368b2e2d4fe10f9964e3526080202ace505a4f2638d6c29ce84fe51d9",
+      "final_game_state_sha256": "2fb4f82021f039b3fedee4242ef0c73986fdaedfbab23ba09248cec93e35a9d9",
+      "independent_balance_sample_count": 0,
+      "isolated_lineage_predicate_probe": [],
+      "last_valid_event_seq": 30,
+      "main_card_id": "M-antlion-01",
+      "path_id": "probe-02-b-first",
+      "policy_id": "resource_value_pilot_v1",
+      "run_id": "resource_value_pilot_v1:probe-02-b-first",
+      "saved_431_exact_replay": true,
+      "stop_evidence": {
+        "detail": "unresolved_canonical_predicate: board ability classification",
+        "stage": "normal_candidate_or_comparison_proof"
+      },
+      "stop_reason_code": "legality_not_confirmed",
+      "winner": null
+    }
+  ],
+  "schema": "naotocchi.card_game.continuation_scope_audit.v1",
+  "source_commit": "741c2518b39a6f859e2ba7dacb365bd140897524",
+  "source_file_count": 2434,
+  "source_raw_sha256": {
+    "docs/card-game/data/proxy-resource-value-pilot/shadow-checkpoint-428/shadow.json": "79cf443a32f9ffc643aa7742472decdcc9d6739d7ca91206834abd2c133d3222",
+    "docs/card-game/data/proxy-resource-value-pilot/trajectory-checkpoint-427/paired.json": "da96502819911c579bd5895116192524398a6b7b5db4a673b29319d3dee39d71"
+  },
+  "source_tree": "be395b755579c7a93543ff4cea10ed03fa9c1710",
+  "stopped": 8
+}

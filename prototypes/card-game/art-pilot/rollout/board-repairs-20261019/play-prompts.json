@@ -1,0 +1,86 @@
+[
+  {
+    "id": "G-gomoku-9",
+    "scene": "Panda and rabbit enjoy gomoku in sunny bamboo garden. The complete square board fills LEFT two-thirds of illustration, directly OVERHEAD almost flat with all edges visible, EXACT geometrical pattern from first reference (NINE horizontal and NINE vertical lines, five black stones on same middle horizontal line and four white stones at exact shown intersections). On RIGHT third, two small reference characters sitting beside board, pleased with the five-stone line. Do not add/remove/reposition any gridline or stone. No paws covering board.",
+    "prompt": "Create ONE revised dedicated Naotocchi card illustration1536x1024PNG landscape3:2, delicate warm watercolor picturebook. FIRST input is exact board geometry: preserve every gridline, tile and piece position faithfully; translate colors/material into painterly wood only. Remaining inputs are exact2D character identities. Panda and rabbit enjoy gomoku in sunny bamboo garden. The complete square board fills LEFT two-thirds of illustration, directly OVERHEAD almost flat with all edges visible, EXACT geometrical pattern from first reference (NINE horizontal and NINE vertical lines, five black stones on same middle horizontal line and four white stones at exact shown intersections). On RIGHT third, two small reference characters sitting beside board, pleased with the five-stone line. Do not add/remove/reposition any gridline or stone. No paws covering board. Character face,body,colors faithful, coherent paws. Board must be preciselycountable, no perspectivecompression or croppededge. No text,numbers,frame,watermark.",
+    "revision_prompt": "Create ONE revised dedicated Naotocchi card illustration1536x1024PNG landscape3:2, delicate warm watercolor picturebook. FIRST input is exact board geometry: preserve every gridline, tile and piece position faithfully; translate colors/material into painterly wood only. Remaining inputs are exact2D character identities. Panda and rabbit enjoy gomoku in sunny bamboo garden. The complete square board fills LEFT two-thirds of illustration, directly OVERHEAD almost flat with all edges visible, EXACT geometrical pattern from first reference (NINE horizontal and NINE vertical lines, five black stones on same middle horizontal line and four white stones at exact shown intersections). On RIGHT third, two small reference characters sitting beside board, pleased with the five-stone line. Do not add/remove/reposition any gridline or stone. No paws covering board. Character face,body,colors faithful, coherent paws. Board must be preciselycountable, no perspectivecompression or croppededge. No text,numbers,frame,watermark.",
+    "identity": "Canonical companion identities and exact separately drawn board geometry. Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/panda.png",
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "geometry_source": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/gomoku-geometry.png",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-191461c4-450d-4208-9721-246eedfbeeda.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      },
+      {
+        "path": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/gomoku-geometry.png",
+        "ref": "this_art_commit",
+        "blob": "f83eb7603a40a5cd032c720bc5f72af9ebe9971c",
+        "purpose": "exact geometric diagram, not character artwork"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "G-minesweeper-8",
+    "scene": "Tanuki thoughtfully considers a toy mine-finding puzzle in bright wooden study. Complete board fills LEFT two-thirds, directly overhead almost flat with all edgesvisible, EXACTLY EIGHT rows by EIGHT columns =64 uniform square raised covered tiles, four small red flags on fourcorner tiles exactly as firstreference. ALL other tiles are closed and blank, no hint digits or dots. Tanuki sits onRIGHT third besideboard with thoughtful paw on cheek, small greenleaf. Do not obscure board or alter64tilegeometry. No explosions.",
+    "prompt": "Create ONE revised dedicated Naotocchi card illustration1536x1024PNG landscape3:2, delicate warm watercolor picturebook. FIRST input is exact board geometry: preserve every gridline, tile and piece position faithfully; translate colors/material into painterly wood only. Remaining inputs are exact2D character identities. Tanuki thoughtfully considers a toy mine-finding puzzle in bright wooden study. Complete board fills LEFT two-thirds, directly overhead almost flat with all edgesvisible, EXACTLY EIGHT rows by EIGHT columns =64 uniform square raised covered tiles, four small red flags on fourcorner tiles exactly as firstreference. ALL other tiles are closed and blank, no hint digits or dots. Tanuki sits onRIGHT third besideboard with thoughtful paw on cheek, small greenleaf. Do not obscure board or alter64tilegeometry. No explosions. Character face,body,colors faithful, coherent paws. Board must be preciselycountable, no perspectivecompression or croppededge. No text,numbers,frame,watermark.",
+    "revision_prompt": "Create ONE revised dedicated Naotocchi card illustration1536x1024PNG landscape3:2, delicate warm watercolor picturebook. FIRST input is exact board geometry: preserve every gridline, tile and piece position faithfully; translate colors/material into painterly wood only. Remaining inputs are exact2D character identities. Tanuki thoughtfully considers a toy mine-finding puzzle in bright wooden study. Complete board fills LEFT two-thirds, directly overhead almost flat with all edgesvisible, EXACTLY EIGHT rows by EIGHT columns =64 uniform square raised covered tiles, four small red flags on fourcorner tiles exactly as firstreference. ALL other tiles are closed and blank, no hint digits or dots. Tanuki sits onRIGHT third besideboard with thoughtful paw on cheek, small greenleaf. Do not obscure board or alter64tilegeometry. No explosions. Character face,body,colors faithful, coherent paws. Board must be preciselycountable, no perspectivecompression or croppededge. No text,numbers,frame,watermark.",
+    "identity": "Canonical companion identities and exact separately drawn board geometry. Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+    "sources": [
+      "assets/characters/companions/tanuki.png"
+    ],
+    "geometry_source": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/minesweeper-geometry.png",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-f6e0a375-51bd-4523-ae83-ccb4db9521eb.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      },
+      {
+        "path": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/minesweeper-geometry.png",
+        "ref": "this_art_commit",
+        "blob": "e1b9397f2471df2843e0369b05dc0d2c288d19ee",
+        "purpose": "exact geometric diagram, not character artwork"
+      }
+    ],
+    "qa_status": "complete_qa"
+  },
+  {
+    "id": "G-puzzle-2048",
+    "scene": "Panda thoughtfully plays merge-equal-tile puzzle on wooden table in sunnystudy. Complete board fills LEFT two-thirds, directly overhead almostflat with all edgesvisible. Exactlayout fromfirstreference: FOUR rows and FOUR columns =16 squarecells, two adjacent identicalgold-diamond tiles in row2 columns2and3, one blue-diamondtile at bottomleft; othercells blank. Panda atRIGHT third with one paw gesturing toward matching pair, hint of warm glow between them. No paws overgrid. Do not add/remove cells or tiles. No numerals anywhere; symbols only.",
+    "prompt": "Create ONE revised dedicated Naotocchi card illustration1536x1024PNG landscape3:2, delicate warm watercolor picturebook. FIRST input is exact board geometry: preserve every gridline, tile and piece position faithfully; translate colors/material into painterly wood only. Remaining inputs are exact2D character identities. Panda thoughtfully plays merge-equal-tile puzzle on wooden table in sunnystudy. Complete board fills LEFT two-thirds, directly overhead almostflat with all edgesvisible. Exactlayout fromfirstreference: FOUR rows and FOUR columns =16 squarecells, two adjacent identicalgold-diamond tiles in row2 columns2and3, one blue-diamondtile at bottomleft; othercells blank. Panda atRIGHT third with one paw gesturing toward matching pair, hint of warm glow between them. No paws overgrid. Do not add/remove cells or tiles. No numerals anywhere; symbols only. Character face,body,colors faithful, coherent paws. Board must be preciselycountable, no perspectivecompression or croppededge. No text,numbers,frame,watermark.",
+    "revision_prompt": "Create ONE revised dedicated Naotocchi card illustration1536x1024PNG landscape3:2, delicate warm watercolor picturebook. FIRST input is exact board geometry: preserve every gridline, tile and piece position faithfully; translate colors/material into painterly wood only. Remaining inputs are exact2D character identities. Panda thoughtfully plays merge-equal-tile puzzle on wooden table in sunnystudy. Complete board fills LEFT two-thirds, directly overhead almostflat with all edgesvisible. Exactlayout fromfirstreference: FOUR rows and FOUR columns =16 squarecells, two adjacent identicalgold-diamond tiles in row2 columns2and3, one blue-diamondtile at bottomleft; othercells blank. Panda atRIGHT third with one paw gesturing toward matching pair, hint of warm glow between them. No paws overgrid. Do not add/remove cells or tiles. No numerals anywhere; symbols only. Character face,body,colors faithful, coherent paws. Board must be preciselycountable, no perspectivecompression or croppededge. No text,numbers,frame,watermark.",
+    "identity": "Canonical companion identities and exact separately drawn board geometry. Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+    "sources": [
+      "assets/characters/companions/panda.png"
+    ],
+    "geometry_source": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/2048-geometry.png",
+    "generated_path": "/workspace/scratch/d3bf4c22f05d/generated_images/exec-b2bdf45d-148b-46df-83e8-78e53c9d10f1.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "prototypes/card-game/art-pilot/rollout/board-repairs-20261019/2048-geometry.png",
+        "ref": "this_art_commit",
+        "blob": "97eb76ef7fb7a672100d81d3588a3ad2f0b9cef4",
+        "purpose": "exact geometric diagram, not character artwork"
+      }
+    ],
+    "qa_status": "complete_qa"
+  }
+]

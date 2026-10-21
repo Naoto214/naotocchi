@@ -1,0 +1,549 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_decision_first_choice_audit.v1",
+  "checkpoint": 115,
+  "status": "stopped_at_first_choice_no_match_artifacts",
+  "stop_required": true,
+  "stop_rule": "107.stop_conditions.rules_adjudication_unresolved",
+  "plan": "proxy-normal-decision-first-choice-plan-115-20260918.json",
+  "hardening_contract": "proxy-normal-decision-hardening-114-20260918.json",
+  "hardening_checkpoint": 114,
+  "orders": [
+    {
+      "order_id": "order-01",
+      "players": [
+        {
+          "player_id": "A",
+          "seed": 50,
+          "order_sha256": "42eae32bda4c2675dca5ef9978977b53a62d85bbcfc8d15d4a120d2e074209fc",
+          "top_seven": [
+            {
+              "card_copy_id": "A-023",
+              "initial_instance_id": "A-023#1",
+              "card_id": "G-air-hockey"
+            },
+            {
+              "card_copy_id": "A-017",
+              "initial_instance_id": "A-017#1",
+              "card_id": "P-cat_ceo"
+            },
+            {
+              "card_copy_id": "A-009",
+              "initial_instance_id": "A-009#1",
+              "card_id": "M-beetle-01"
+            },
+            {
+              "card_copy_id": "A-002",
+              "initial_instance_id": "A-002#1",
+              "card_id": "M-antlion-02"
+            },
+            {
+              "card_copy_id": "A-040",
+              "initial_instance_id": "A-040#1",
+              "card_id": "E-first-date"
+            },
+            {
+              "card_copy_id": "A-010",
+              "initial_instance_id": "A-010#1",
+              "card_id": "M-beetle-02"
+            },
+            {
+              "card_copy_id": "A-019",
+              "initial_instance_id": "A-019#1",
+              "card_id": "P-desert_scorpion"
+            }
+          ]
+        },
+        {
+          "player_id": "B",
+          "seed": 100050,
+          "order_sha256": "d8ace1a8b17ee4cadca017928042a8dc1d0fe1dac0456ea446894b267aba445e",
+          "top_seven": [
+            {
+              "card_copy_id": "B-011",
+              "initial_instance_id": "B-011#1",
+              "card_id": "C-bat"
+            },
+            {
+              "card_copy_id": "B-010",
+              "initial_instance_id": "B-010#1",
+              "card_id": "M-beetle-02"
+            },
+            {
+              "card_copy_id": "B-037",
+              "initial_instance_id": "B-037#1",
+              "card_id": "E-boss"
+            },
+            {
+              "card_copy_id": "B-012",
+              "initial_instance_id": "B-012#1",
+              "card_id": "C-box"
+            },
+            {
+              "card_copy_id": "B-001",
+              "initial_instance_id": "B-001#1",
+              "card_id": "M-antlion-01"
+            },
+            {
+              "card_copy_id": "B-022",
+              "initial_instance_id": "B-022#1",
+              "card_id": "W-deepsea"
+            },
+            {
+              "card_copy_id": "B-017",
+              "initial_instance_id": "B-017#1",
+              "card_id": "P-cat_ceo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_id": "order-02",
+      "players": [
+        {
+          "player_id": "A",
+          "seed": 51,
+          "order_sha256": "a6e47b6b40d47560ec4ecc77d58185e67bc86f115a14458a92149abf1410c6c2",
+          "top_seven": [
+            {
+              "card_copy_id": "A-032",
+              "initial_instance_id": "A-032#1",
+              "card_id": "I-bowtie"
+            },
+            {
+              "card_copy_id": "A-007",
+              "initial_instance_id": "A-007#1",
+              "card_id": "M-antlion-07"
+            },
+            {
+              "card_copy_id": "A-038",
+              "initial_instance_id": "A-038#1",
+              "card_id": "E-fateful-transform"
+            },
+            {
+              "card_copy_id": "A-035",
+              "initial_instance_id": "A-035#1",
+              "card_id": "I-sleepboost1"
+            },
+            {
+              "card_copy_id": "A-002",
+              "initial_instance_id": "A-002#1",
+              "card_id": "M-antlion-02"
+            },
+            {
+              "card_copy_id": "A-014",
+              "initial_instance_id": "A-014#1",
+              "card_id": "C-chameleon"
+            },
+            {
+              "card_copy_id": "A-029",
+              "initial_instance_id": "A-029#1",
+              "card_id": "G-basketball-3d"
+            }
+          ]
+        },
+        {
+          "player_id": "B",
+          "seed": 100051,
+          "order_sha256": "14e4c7e41104baaadc32869befc7c9667cfcae16e31a97ee225ba5e4e931931e",
+          "top_seven": [
+            {
+              "card_copy_id": "B-009",
+              "initial_instance_id": "B-009#1",
+              "card_id": "M-beetle-01"
+            },
+            {
+              "card_copy_id": "B-034",
+              "initial_instance_id": "B-034#1",
+              "card_id": "I-poop1"
+            },
+            {
+              "card_copy_id": "B-001",
+              "initial_instance_id": "B-001#1",
+              "card_id": "M-antlion-01"
+            },
+            {
+              "card_copy_id": "B-014",
+              "initial_instance_id": "B-014#1",
+              "card_id": "C-chameleon"
+            },
+            {
+              "card_copy_id": "B-032",
+              "initial_instance_id": "B-032#1",
+              "card_id": "I-bowtie"
+            },
+            {
+              "card_copy_id": "B-017",
+              "initial_instance_id": "B-017#1",
+              "card_id": "P-cat_ceo"
+            },
+            {
+              "card_copy_id": "B-029",
+              "initial_instance_id": "B-029#1",
+              "card_id": "G-basketball-3d"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "path_id": "order-01-a-first",
+      "order_id": "order-01",
+      "first_player": "A",
+      "uses_same_order_manifest_for_seat_mirror": true,
+      "hand_before_choice": [
+        {
+          "card_copy_id": "A-023",
+          "initial_instance_id": "A-023#1",
+          "card_id": "G-air-hockey"
+        },
+        {
+          "card_copy_id": "A-017",
+          "initial_instance_id": "A-017#1",
+          "card_id": "P-cat_ceo"
+        },
+        {
+          "card_copy_id": "A-009",
+          "initial_instance_id": "A-009#1",
+          "card_id": "M-beetle-01"
+        },
+        {
+          "card_copy_id": "A-002",
+          "initial_instance_id": "A-002#1",
+          "card_id": "M-antlion-02"
+        },
+        {
+          "card_copy_id": "A-040",
+          "initial_instance_id": "A-040#1",
+          "card_id": "E-first-date"
+        },
+        {
+          "card_copy_id": "A-010",
+          "initial_instance_id": "A-010#1",
+          "card_id": "M-beetle-02"
+        },
+        {
+          "card_copy_id": "A-019",
+          "initial_instance_id": "A-019#1",
+          "card_id": "P-desert_scorpion"
+        }
+      ],
+      "bottom_candidate_copy_ids": [
+        "A-023",
+        "A-017",
+        "A-009",
+        "A-002",
+        "A-040",
+        "A-010",
+        "A-019"
+      ],
+      "stop": {
+        "round": 1,
+        "phase": "egg_exchange_choice",
+        "actor": "A",
+        "reason": "egg_exchange_choice_unresolved"
+      }
+    },
+    {
+      "path_id": "order-01-b-first",
+      "order_id": "order-01",
+      "first_player": "B",
+      "uses_same_order_manifest_for_seat_mirror": true,
+      "hand_before_choice": [
+        {
+          "card_copy_id": "B-011",
+          "initial_instance_id": "B-011#1",
+          "card_id": "C-bat"
+        },
+        {
+          "card_copy_id": "B-010",
+          "initial_instance_id": "B-010#1",
+          "card_id": "M-beetle-02"
+        },
+        {
+          "card_copy_id": "B-037",
+          "initial_instance_id": "B-037#1",
+          "card_id": "E-boss"
+        },
+        {
+          "card_copy_id": "B-012",
+          "initial_instance_id": "B-012#1",
+          "card_id": "C-box"
+        },
+        {
+          "card_copy_id": "B-001",
+          "initial_instance_id": "B-001#1",
+          "card_id": "M-antlion-01"
+        },
+        {
+          "card_copy_id": "B-022",
+          "initial_instance_id": "B-022#1",
+          "card_id": "W-deepsea"
+        },
+        {
+          "card_copy_id": "B-017",
+          "initial_instance_id": "B-017#1",
+          "card_id": "P-cat_ceo"
+        }
+      ],
+      "bottom_candidate_copy_ids": [
+        "B-011",
+        "B-010",
+        "B-037",
+        "B-012",
+        "B-001",
+        "B-022",
+        "B-017"
+      ],
+      "stop": {
+        "round": 1,
+        "phase": "egg_exchange_choice",
+        "actor": "B",
+        "reason": "egg_exchange_choice_unresolved"
+      }
+    },
+    {
+      "path_id": "order-02-a-first",
+      "order_id": "order-02",
+      "first_player": "A",
+      "uses_same_order_manifest_for_seat_mirror": true,
+      "hand_before_choice": [
+        {
+          "card_copy_id": "A-032",
+          "initial_instance_id": "A-032#1",
+          "card_id": "I-bowtie"
+        },
+        {
+          "card_copy_id": "A-007",
+          "initial_instance_id": "A-007#1",
+          "card_id": "M-antlion-07"
+        },
+        {
+          "card_copy_id": "A-038",
+          "initial_instance_id": "A-038#1",
+          "card_id": "E-fateful-transform"
+        },
+        {
+          "card_copy_id": "A-035",
+          "initial_instance_id": "A-035#1",
+          "card_id": "I-sleepboost1"
+        },
+        {
+          "card_copy_id": "A-002",
+          "initial_instance_id": "A-002#1",
+          "card_id": "M-antlion-02"
+        },
+        {
+          "card_copy_id": "A-014",
+          "initial_instance_id": "A-014#1",
+          "card_id": "C-chameleon"
+        },
+        {
+          "card_copy_id": "A-029",
+          "initial_instance_id": "A-029#1",
+          "card_id": "G-basketball-3d"
+        }
+      ],
+      "bottom_candidate_copy_ids": [
+        "A-032",
+        "A-007",
+        "A-038",
+        "A-035",
+        "A-002",
+        "A-014",
+        "A-029"
+      ],
+      "stop": {
+        "round": 1,
+        "phase": "egg_exchange_choice",
+        "actor": "A",
+        "reason": "egg_exchange_choice_unresolved"
+      }
+    },
+    {
+      "path_id": "order-02-b-first",
+      "order_id": "order-02",
+      "first_player": "B",
+      "uses_same_order_manifest_for_seat_mirror": true,
+      "hand_before_choice": [
+        {
+          "card_copy_id": "B-009",
+          "initial_instance_id": "B-009#1",
+          "card_id": "M-beetle-01"
+        },
+        {
+          "card_copy_id": "B-034",
+          "initial_instance_id": "B-034#1",
+          "card_id": "I-poop1"
+        },
+        {
+          "card_copy_id": "B-001",
+          "initial_instance_id": "B-001#1",
+          "card_id": "M-antlion-01"
+        },
+        {
+          "card_copy_id": "B-014",
+          "initial_instance_id": "B-014#1",
+          "card_id": "C-chameleon"
+        },
+        {
+          "card_copy_id": "B-032",
+          "initial_instance_id": "B-032#1",
+          "card_id": "I-bowtie"
+        },
+        {
+          "card_copy_id": "B-017",
+          "initial_instance_id": "B-017#1",
+          "card_id": "P-cat_ceo"
+        },
+        {
+          "card_copy_id": "B-029",
+          "initial_instance_id": "B-029#1",
+          "card_id": "G-basketball-3d"
+        }
+      ],
+      "bottom_candidate_copy_ids": [
+        "B-009",
+        "B-034",
+        "B-001",
+        "B-014",
+        "B-032",
+        "B-017",
+        "B-029"
+      ],
+      "stop": {
+        "round": 1,
+        "phase": "egg_exchange_choice",
+        "actor": "B",
+        "reason": "egg_exchange_choice_unresolved"
+      }
+    }
+  ],
+  "downstream_evidence": [
+    {
+      "path_id": "order-01-a-first",
+      "zero_cost_person_card_ids": [
+        "P-cat_ceo",
+        "P-desert_scorpion"
+      ],
+      "zero_cost_person_copy_ids": [
+        "A-017",
+        "A-019"
+      ],
+      "minimum_remaining_after_one_bottom": 1,
+      "classification": "unavoidable_zero_cost_person_vs_pass",
+      "value_relation": {
+        "hand": "worse",
+        "board": "better",
+        "reservations": "equal"
+      },
+      "comparison_result": {
+        "winner": "unresolved",
+        "decided_at": "hand_board_reservation_value",
+        "reason": "unresolved_canonical_text"
+      },
+      "counts_as_played_action": false,
+      "counts_as_match_result": false
+    },
+    {
+      "path_id": "order-01-b-first",
+      "zero_cost_person_card_ids": [
+        "C-bat",
+        "C-box",
+        "P-cat_ceo"
+      ],
+      "zero_cost_person_copy_ids": [
+        "B-011",
+        "B-012",
+        "B-017"
+      ],
+      "minimum_remaining_after_one_bottom": 2,
+      "classification": "unavoidable_zero_cost_person_vs_pass",
+      "value_relation": {
+        "hand": "worse",
+        "board": "better",
+        "reservations": "equal"
+      },
+      "comparison_result": {
+        "winner": "unresolved",
+        "decided_at": "hand_board_reservation_value",
+        "reason": "unresolved_canonical_text"
+      },
+      "counts_as_played_action": false,
+      "counts_as_match_result": false
+    },
+    {
+      "path_id": "order-02-a-first",
+      "zero_cost_person_card_ids": [
+        "C-chameleon"
+      ],
+      "zero_cost_person_copy_ids": [
+        "A-014"
+      ],
+      "minimum_remaining_after_one_bottom": 0,
+      "classification": "avoidable_only_by_unresolved_egg_choice",
+      "value_relation": {
+        "hand": "worse",
+        "board": "better",
+        "reservations": "equal"
+      },
+      "comparison_result": {
+        "winner": "unresolved",
+        "decided_at": "hand_board_reservation_value",
+        "reason": "unresolved_canonical_text"
+      },
+      "counts_as_played_action": false,
+      "counts_as_match_result": false
+    },
+    {
+      "path_id": "order-02-b-first",
+      "zero_cost_person_card_ids": [
+        "C-chameleon",
+        "P-cat_ceo"
+      ],
+      "zero_cost_person_copy_ids": [
+        "B-014",
+        "B-017"
+      ],
+      "minimum_remaining_after_one_bottom": 1,
+      "classification": "unavoidable_zero_cost_person_vs_pass",
+      "value_relation": {
+        "hand": "worse",
+        "board": "better",
+        "reservations": "equal"
+      },
+      "comparison_result": {
+        "winner": "unresolved",
+        "decided_at": "hand_board_reservation_value",
+        "reason": "unresolved_canonical_text"
+      },
+      "counts_as_played_action": false,
+      "counts_as_match_result": false
+    }
+  ],
+  "scope": {
+    "fixture_count": 0,
+    "completed_match_count": 0,
+    "trace_count": 0,
+    "winner_count": 0,
+    "independent_balance_sample_count": 0
+  },
+  "checkpoint_112": {
+    "targeted_fixture_count": 6,
+    "completed_in_115": 0,
+    "status": "unchanged_unplayed"
+  },
+  "population": {
+    "current_catalog": 452,
+    "registered_candidates": 477,
+    "changed_card_text_numeric_or_registration_ids": 0
+  },
+  "interpretation": {
+    "counts_as_match": false,
+    "counts_as_activation_zero": false,
+    "counts_as_strength_evidence": false,
+    "changes_card_pool": false
+  }
+}

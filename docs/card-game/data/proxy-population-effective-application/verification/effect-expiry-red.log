@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_partial_duplicate_or_wrong_expired_receipt_fails (test_proxy_population_effect_expiry.ExpiryTests.test_partial_duplicate_or_wrong_expired_receipt_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_expiry.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(api,'typed effect expiry audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : typed effect expiry audit missing
+
+======================================================================
+FAIL: test_real_expiration_at_growth100_preserves_game_and_clears_all_three_families (test_proxy_population_effect_expiry.ExpiryTests.test_real_expiration_at_growth100_preserves_game_and_clears_all_three_families)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_expiry.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(api,'typed effect expiry audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : typed effect expiry audit missing
+
+======================================================================
+FAIL: test_turn_change_cannot_bypass_expiration_and_unrelated_step_does_not_certify_it (test_proxy_population_effect_expiry.ExpiryTests.test_turn_change_cannot_bypass_expiration_and_unrelated_step_does_not_certify_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_expiry.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(api,'typed effect expiry audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : typed effect expiry audit missing
+
+======================================================================
+FAIL: test_wrong_boundary_or_collateral_game_change_fails (test_proxy_population_effect_expiry.ExpiryTests.test_wrong_boundary_or_collateral_game_change_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_expiry.py", line 21, in setUp
+    def setUp(self):self.assertIsNotNone(api,'typed effect expiry audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : typed effect expiry audit missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

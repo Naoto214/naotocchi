@@ -1,0 +1,23 @@
+{
+  "id": "appgdep_6ad6a1bb343481919dc9df018ed3a3d7",
+  "project_id": "appgprj_6ad69fdbf608819184881f3f053708ac",
+  "title": "なおとっち CARD GAME — マイデッキ試遊",
+  "version_id": "appgprj_6ad69fdbf608819184881f3f053708ac~appgver_332146bba78081918c472d11076806cc",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://naotocchi-my-decks-20261020.kerzion214.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "site---6ad69fdbf608819184881f3f053708ac",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-10-19T23:04:05.902678+00:00",
+  "siteSourceCommit": "a2d8d4b59404e25fe0b5ae62827324f3381ea418",
+  "runtimeGithubHead": "69ca77d05887337f7ff34c935f62e9dd3a4e59dd",
+  "runtimeGithubTree": "2624312f149ffa416ffb79ff9e30e0b100974c90",
+  "pr": 402,
+  "audience": "owner-private",
+  "runtimeFiles": 950,
+  "browserQA": "Unverified: managed preview proc mount failed",
+  "mainUnchanged": "2a73e91526f85263580d8fab9a8fd0d502676ee3"
+}

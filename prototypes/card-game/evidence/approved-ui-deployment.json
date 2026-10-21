@@ -1,0 +1,27 @@
+{
+  "github_base_head": "3a987044513fdb6d5e69b52b8af40add5a45ccd4",
+  "github_runtime_head": "e4839229d23c70aff57aa8b5cdf4992810311376",
+  "github_runtime_tree": "686216e288a78ff339f5380b9784670de55bb720",
+  "pr": 384,
+  "branch": "feat/card-game-approved-ui-20261015",
+  "project_id": "appgprj_6ad05a8e0f148191bb93835227ddf2b9",
+  "site_source_commit": "520d6e51f18dba97444860fe0dca8f1120fca77e",
+  "version_id": "appgprj_6ad05a8e0f148191bb93835227ddf2b9~appgver_cb78899165bc8191bf47eb6afb6ce2b0",
+  "deployment_id": "appgdep_6ad05ce8b2dc8191854408275c3cf8c9",
+  "status": "succeeded",
+  "url": "https://naotocchi-card-ui-trial.kerzion214.chatgpt.site",
+  "audience": "owner-only",
+  "existing_trial_unchanged": "https://naotocchi-card-trial.kerzion214.chatgpt.site/",
+  "verification": {
+    "node_tests_passed": 169,
+    "excluded_test": "regeneration is deterministic and read-only in check mode — repository-wide audit dependencies unavailable in isolated snapshot",
+    "browser_qa": "not run — required control-browser capability unavailable",
+    "real_iphone_qa": "pending",
+    "engine_catalog_rules_changed": false,
+    "card_count": 452,
+    "canonical_source_hashes": "passed",
+    "art_mapping_count": 289,
+    "placeholder_count": 163
+  },
+  "deferred_minor": "Confirmation cancel does not restore keyboard focus to the originating control."
+}

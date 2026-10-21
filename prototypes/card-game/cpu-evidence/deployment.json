@@ -1,0 +1,56 @@
+{
+  "id": "appgdep_6ad59e99dbb8819183366aa640f20b7c",
+  "project_id": "appgprj_6ad59d0af478819190a03552d586bbeb",
+  "title": "なおとっち CARD GAME CPU試遊版",
+  "version_id": "appgprj_6ad59d0af478819190a03552d586bbeb~appgver_d212c812589c8191a2cb47cd04a3235d",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://naotocchi-card-cpu-20261019.kerzion214.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "site---6ad59d0af478819190a03552d586bbeb",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-10-19T04:38:05.016141+00:00",
+  "sourceCommit": "8f0e8208f2caf864f0d4f81ea130aa44e9fc2e7e",
+  "runtimeGitHubCommit": "9a220856b5d9d1ac86eb9c529034883a0ca3a0cc",
+  "runtimeGitHubTree": "a93f54b0c34ee2684d5a23ea8b791d8b77851e7b",
+  "access": "owner-private",
+  "browserVerified": false,
+  "iphoneSafariVerified": false,
+  "githubProtection": [
+    {
+      "name": "main",
+      "head": "fe6fd8a308df5ff0147d00bc0b6abd2ff0fceca7",
+      "tree": "00f8ce47b39c76e25440c54d349a0e83d483dd76"
+    },
+    {
+      "number": 393,
+      "state": "open",
+      "draft": true,
+      "merged": null,
+      "head": "a6ad1a9689335f0379d5c6795d1da8652f02ac0d"
+    },
+    {
+      "number": 396,
+      "state": "open",
+      "draft": true,
+      "merged": null,
+      "head": "0446b5620b2e2503e818b279f530bf44b1c98d5e"
+    },
+    {
+      "number": 397,
+      "state": "open",
+      "draft": true,
+      "merged": null,
+      "head": "747a520261d443b7f995ee3cf17f88358ff4efe9"
+    },
+    {
+      "number": 398,
+      "state": "open",
+      "draft": true,
+      "merged": null,
+      "head": "9a220856b5d9d1ac86eb9c529034883a0ca3a0cc"
+    }
+  ]
+}

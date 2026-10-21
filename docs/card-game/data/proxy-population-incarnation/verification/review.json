@@ -1,0 +1,25 @@
+{
+  "scope": "conditional incarnation runtime/policy/window and pure116 frontier",
+  "cycles": 1,
+  "critical": 0,
+  "important": 2,
+  "minor": 0,
+  "findings": [
+    {
+      "id": "arrival_identity",
+      "status": "author_fixed_red_green",
+      "change": "Only current entry event source and newly created same-sequence mandatory obligation use successor identity; historical references retained.",
+      "tests": [
+        "native P-cat_ceo reentry remains forced arrival",
+        "native M-beetle-01 reentry remains optional arrival"
+      ]
+    },
+    {
+      "id": "full_envelope_binding",
+      "status": "author_fixed_red_green",
+      "change": "Validate contract and exact full before/after envelope hashes before lifecycle capture; failure leaves cache unchanged."
+    }
+  ],
+  "independent_rereview": false,
+  "ruling_assessment": "Existing cited sources do not uniquely decide sole positive growth effect capped to zero at100."
+}

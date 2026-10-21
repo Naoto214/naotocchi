@@ -1,0 +1,50 @@
+{
+  "reason": "adaptive follow-up after first cohort: reserve bulk gauge plus 2-action lookahead",
+  "seeds": [
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103
+  ],
+  "units": [
+    8,
+    12
+  ],
+  "initialOrdinaryEggs": [
+    0,
+    1
+  ],
+  "limit": 1000,
+  "actionLimit": 10000,
+  "toolStreakCap": 8,
+  "policy": "life2-v1",
+  "hash": "957bef43de820402e4bc1238e9173a8e496675ec95cdf4e29dfafd25350c72c9"
+}

@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_normal_declaration_observes_partner_and_continues_comparison (__main__.ChallengeWindowTests.test_normal_declaration_observes_partner_and_continues_comparison)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_challenge_window.py", line 29, in test_normal_declaration_observes_partner_and_continues_comparison
+    self.assertIsNone(r['stop'],r['stop']);self.assertEqual(r['events'][0]['action_type'],'challenge_declared')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'code': 'unsupported_contract_boundary', 'detail': 'end history event/snapshot coverage differs', 'phase': 'turn_end'} is not None : {'code': 'unsupported_contract_boundary', 'detail': 'end history event/snapshot coverage differs', 'phase': 'turn_end'}
+
+----------------------------------------------------------------------
+Ran 1 test in 2.182s
+
+FAILED (failures=1)

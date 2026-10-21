@@ -1,0 +1,37 @@
+{
+  "completed": 108,
+  "remaining": 344,
+  "categories": {
+    "main": {
+      "complete": 32,
+      "remaining": 216
+    },
+    "companion": {
+      "complete": 26,
+      "remaining": 0
+    },
+    "partner": {
+      "complete": 18,
+      "remaining": 0
+    },
+    "world": {
+      "complete": 13,
+      "remaining": 0
+    },
+    "play": {
+      "complete": 3,
+      "remaining": 97
+    },
+    "item": {
+      "complete": 14,
+      "remaining": 12
+    },
+    "event": {
+      "complete": 2,
+      "remaining": 19
+    }
+  },
+  "all452_complete": false,
+  "protected46": true,
+  "new_png_count": 48
+}

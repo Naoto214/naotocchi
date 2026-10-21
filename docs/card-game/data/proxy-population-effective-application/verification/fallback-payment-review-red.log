@@ -1,0 +1,16 @@
+test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) ... 
+  test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='foreign_route') ... FAIL
+
+======================================================================
+FAIL: test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='foreign_route')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 28, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit_normal(e,h,bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.078s
+
+FAILED (failures=1)

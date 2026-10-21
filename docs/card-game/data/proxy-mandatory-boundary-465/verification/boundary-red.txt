@@ -1,0 +1,86 @@
+test_bad_scope_identity_and_duplicate_locations_fail_closed (test_proxy_mandatory_choice_boundary.BoundaryTests.test_bad_scope_identity_and_duplicate_locations_fail_closed) ... FAIL
+test_draw_two_uses_actual_intermediate_state_and_partial_draw (test_proxy_mandatory_choice_boundary.BoundaryTests.test_draw_two_uses_actual_intermediate_state_and_partial_draw) ... FAIL
+test_egg_draw_precedes_complete_physical_hand (test_proxy_mandatory_choice_boundary.BoundaryTests.test_egg_draw_precedes_complete_physical_hand) ... FAIL
+test_final_time_rechecks_target_before_conditional_draw (test_proxy_mandatory_choice_boundary.BoundaryTests.test_final_time_rechecks_target_before_conditional_draw) ... FAIL
+test_information_view_excludes_opponent_and_unseen_deck (test_proxy_mandatory_choice_boundary.BoundaryTests.test_information_view_excludes_opponent_and_unseen_deck) ... FAIL
+test_partner_egg_suppression_and_no_choice_are_not_seeded (test_proxy_mandatory_choice_boundary.BoundaryTests.test_partner_egg_suppression_and_no_choice_are_not_seeded) ... FAIL
+test_pinned_sources_cannot_be_overridden (test_proxy_mandatory_choice_boundary.BoundaryTests.test_pinned_sources_cannot_be_overridden) ... FAIL
+test_return_then_draw_does_not_include_future_draw_in_choices (test_proxy_mandatory_choice_boundary.BoundaryTests.test_return_then_draw_does_not_include_future_draw_in_choices) ... FAIL
+test_top_bottom_remain_two_options_even_with_single_card (test_proxy_mandatory_choice_boundary.BoundaryTests.test_top_bottom_remain_two_options_even_with_single_card) ... FAIL
+
+======================================================================
+FAIL: test_bad_scope_identity_and_duplicate_locations_fail_closed (test_proxy_mandatory_choice_boundary.BoundaryTests.test_bad_scope_identity_and_duplicate_locations_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+======================================================================
+FAIL: test_draw_two_uses_actual_intermediate_state_and_partial_draw (test_proxy_mandatory_choice_boundary.BoundaryTests.test_draw_two_uses_actual_intermediate_state_and_partial_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+======================================================================
+FAIL: test_egg_draw_precedes_complete_physical_hand (test_proxy_mandatory_choice_boundary.BoundaryTests.test_egg_draw_precedes_complete_physical_hand)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+======================================================================
+FAIL: test_final_time_rechecks_target_before_conditional_draw (test_proxy_mandatory_choice_boundary.BoundaryTests.test_final_time_rechecks_target_before_conditional_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+======================================================================
+FAIL: test_information_view_excludes_opponent_and_unseen_deck (test_proxy_mandatory_choice_boundary.BoundaryTests.test_information_view_excludes_opponent_and_unseen_deck)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+======================================================================
+FAIL: test_partner_egg_suppression_and_no_choice_are_not_seeded (test_proxy_mandatory_choice_boundary.BoundaryTests.test_partner_egg_suppression_and_no_choice_are_not_seeded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+======================================================================
+FAIL: test_pinned_sources_cannot_be_overridden (test_proxy_mandatory_choice_boundary.BoundaryTests.test_pinned_sources_cannot_be_overridden)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+======================================================================
+FAIL: test_return_then_draw_does_not_include_future_draw_in_choices (test_proxy_mandatory_choice_boundary.BoundaryTests.test_return_then_draw_does_not_include_future_draw_in_choices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+======================================================================
+FAIL: test_top_bottom_remain_two_options_even_with_single_card (test_proxy_mandatory_choice_boundary.BoundaryTests.test_top_bottom_remain_two_options_even_with_single_card)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 31, in setUp
+    self.assertIsNotNone(api, 'source-bound mandatory boundary adapter missing')
+AssertionError: unexpectedly None : source-bound mandatory boundary adapter missing
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+FAILED (failures=9)

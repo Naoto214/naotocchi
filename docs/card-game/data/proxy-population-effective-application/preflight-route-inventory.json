@@ -1,0 +1,676 @@
+{
+  "schema": "preflight_route_inventory_observation.v1",
+  "base_commit": "aeeca7f0f21e583355401467269d12738f73cd0e",
+  "scope": "107 unique card types; native contract observation supplemented by existing recovery/positive/hand scopes; no execution or completeness proof",
+  "physical_copies": 80,
+  "unique_card_types": 41,
+  "cards": [
+    {
+      "card_id": "C-bat",
+      "capability_kind": "triggered",
+      "timing": "after_own_quick_on_opponent_turn",
+      "source_reference": "72-companion-26-card-text-draft.md#C-bat",
+      "native_trigger": false,
+      "latched_trigger": true,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_population_trigger_effects.resolve:fixed_activation_target_or_modifier"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "C-box",
+      "capability_kind": "none",
+      "timing": "none",
+      "source_reference": "72-companion-26-card-text-draft.md#C-box",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "C-cat_friend",
+      "capability_kind": "activated",
+      "timing": "own_turn",
+      "source_reference": "72-companion-26-card-text-draft.md#C-cat_friend",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_population_discard_recovery.resolve:fixed_activation_target"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false,
+      "legacy_resolution_choice": false
+    },
+    {
+      "card_id": "C-chameleon",
+      "capability_kind": "continuous",
+      "timing": "world_conditional",
+      "source_reference": "72-companion-26-card-text-draft.md#C-chameleon",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "C-chicken",
+      "capability_kind": "triggered",
+      "timing": "own_turn_start",
+      "source_reference": "72-companion-26-card-text-draft.md#C-chicken",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_population_start_effects.resolve_chicken:deterministic_reveal"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "E-big-illness",
+      "capability_kind": "stat_modifier",
+      "timing": "targeted_main_this_turn",
+      "source_reference": "91-event-21-card-text-draft.md#E-big-illness",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve:activation_parameter_and_target"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "E-boss",
+      "capability_kind": "symmetric_draw_growth",
+      "timing": "after_own_main_loss_this_turn",
+      "source_reference": "91-event-21-card-text-draft.md#E-boss",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "E-fateful-transform",
+      "capability_kind": "payment_modifier",
+      "timing": "next_transform_this_turn",
+      "source_reference": "91-event-21-card-text-draft.md#E-fateful-transform",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "E-final-time",
+      "capability_kind": "quick",
+      "timing": "targeted_draw_cycle",
+      "source_reference": "91-event-21-card-text-draft.md#E-final-time",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [
+        "final_time_hand_bottom"
+      ],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "E-first-date",
+      "capability_kind": "quick",
+      "timing": "targeted_relationship_growth",
+      "source_reference": "91-event-21-card-text-draft.md#E-first-date",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_population_chain_resolution.resolve_top"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "G-air-hockey",
+      "capability_kind": "stat_modifier",
+      "timing": "challenge_stat",
+      "source_reference": "83-play-batch-3-card-text-draft.md#G-air-hockey",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": true,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve:activation_parameter_and_target"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "G-animal-shogi",
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false,
+      "capability_kind": "targeted_zone_move",
+      "timing": "discard_companion_recovery",
+      "source_reference": "83-play-batch-3-card-text-draft.md#G-animal-shogi",
+      "handler": "proxy_population_discard_recovery.resolve_quick",
+      "legacy_resolution_choice": true
+    },
+    {
+      "card_id": "G-archery-3d",
+      "capability_kind": "targeted_zone_move",
+      "timing": "public_equipment_removal",
+      "source_reference": "79-play-batch-1-card-text-draft.md#G-archery-3d",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve:fixed_activation_target"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "G-area-claim",
+      "capability_kind": "board_count_growth",
+      "timing": "board_count_growth",
+      "source_reference": "85-play-batch-4-card-text-draft.md#G-area-claim",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "G-asteroids-classic",
+      "capability_kind": "targeted_zone_move",
+      "timing": "own_equipment_revealed_search",
+      "source_reference": "83-play-batch-3-card-text-draft.md#G-asteroids-classic",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "G-baseball-batting",
+      "capability_kind": "stat_modifier",
+      "timing": "challenge_stat",
+      "source_reference": "81-play-batch-2-card-text-draft.md#G-baseball-batting",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve:activation_parameter_and_target"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "G-basketball-3d",
+      "capability_kind": "conditional_reward",
+      "timing": "next_main_win_this_turn",
+      "source_reference": "81-play-batch-2-card-text-draft.md#G-basketball-3d",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "G-beach-volley",
+      "capability_kind": "stat_modifier",
+      "timing": "targeted_main_this_turn",
+      "source_reference": "85-play-batch-4-card-text-draft.md#G-beach-volley",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_continuation_payments.resolve:activation_parameter_and_target"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "G-hit-blow",
+      "capability_kind": "quick",
+      "timing": "declared_top_reveal",
+      "source_reference": "87-play-batch-5-card-text-draft.md#G-hit-blow",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_population_chain_resolution.resolve_top"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "I-bond1",
+      "capability_kind": "replacement",
+      "timing": "companion_departure",
+      "source_reference": "77-current-items-card-text-draft.md#I-bond1",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "I-bowtie",
+      "capability_kind": "triggered",
+      "timing": "own_turn_start",
+      "source_reference": "77-current-items-card-text-draft.md#I-bowtie",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "I-c_coin2",
+      "capability_kind": "quick",
+      "timing": "quick_draw",
+      "source_reference": "77-current-items-card-text-draft.md#I-c_coin2",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "hand",
+          "handler": "proxy_population_chain_resolution.resolve_top"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "I-poop1",
+      "capability_kind": "triggered",
+      "timing": "opponent_main_removal_activation",
+      "source_reference": "77-current-items-card-text-draft.md#I-poop1",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "I-sleepboost1",
+      "capability_kind": "triggered",
+      "timing": "own_turn_end",
+      "source_reference": "77-current-items-card-text-draft.md#I-sleepboost1",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [
+        "ability_draw_then_hand_bottom"
+      ],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-antlion-01",
+      "capability_kind": "cost_modifier",
+      "timing": "set_item_payment",
+      "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-01",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-antlion-02",
+      "capability_kind": "activated",
+      "timing": "own_turn",
+      "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-02",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-antlion-03",
+      "capability_kind": "triggered",
+      "timing": "after_opponent_quick_play",
+      "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-03",
+      "native_trigger": false,
+      "latched_trigger": true,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-antlion-04",
+      "capability_kind": "triggered",
+      "timing": "main_arrival",
+      "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-04",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_continuation_triggers.resolve:fixed_target_or_growth"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-antlion-05",
+      "capability_kind": "triggered",
+      "timing": "time_skip_arrival",
+      "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-05",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_continuation_triggers.resolve:draw_only"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-antlion-06",
+      "capability_kind": "triggered",
+      "timing": "after_own_quick_effect_applied",
+      "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-06",
+      "native_trigger": false,
+      "latched_trigger": true,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_population_trigger_effects.resolve:fixed_activation_target_or_modifier"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-antlion-07",
+      "capability_kind": "triggered",
+      "timing": "own_challenge",
+      "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-07",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_continuation_payments.resolve_board_stat:activation_parameter"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-antlion-08",
+      "capability_kind": "activated",
+      "timing": "own_turn",
+      "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-08",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-beetle-01",
+      "capability_kind": "triggered",
+      "timing": "birth_arrival",
+      "source_reference": "31-beetle-stagbeetle-card-master-migration.md#M-beetle-01",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [
+        "ability_hand_bottom"
+      ],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "M-beetle-02",
+      "capability_kind": "triggered",
+      "timing": "own_turn_end",
+      "source_reference": "31-beetle-stagbeetle-card-master-migration.md#M-beetle-02",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [
+        "ability_topdeck_order"
+      ],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "P-anglerfish",
+      "capability_kind": "triggered",
+      "timing": "own_challenge",
+      "source_reference": "74-partner-18-card-text-draft.md#P-anglerfish",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_continuation_payments.resolve_board_stat:activation_parameter"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "P-cat_ceo",
+      "capability_kind": "triggered",
+      "timing": "relationship_start",
+      "source_reference": "74-partner-18-card-text-draft.md#P-cat_ceo",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [
+        "ability_hand_bottom"
+      ],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "P-cliff_goat",
+      "capability_kind": "triggered",
+      "timing": "different_name_world_change",
+      "source_reference": "74-partner-18-card-text-draft.md#P-cliff_goat",
+      "native_trigger": false,
+      "latched_trigger": true,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_population_trigger_effects.resolve:fixed_activation_target_or_modifier"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "P-desert_scorpion",
+      "capability_kind": "triggered",
+      "timing": "own_turn_end",
+      "source_reference": "74-partner-18-card-text-draft.md#P-desert_scorpion",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_continuation_triggers.resolve:draw_only"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "W-city",
+      "capability_kind": "triggered",
+      "timing": "second_own_card",
+      "source_reference": "89-world-13-card-text-draft.md#W-city",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [
+        "ability_topdeck_order"
+      ],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "W-countryside",
+      "capability_kind": "triggered",
+      "timing": "own_turn_end",
+      "source_reference": "89-world-13-card-text-draft.md#W-countryside",
+      "native_trigger": true,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [
+        {
+          "zone": "board",
+          "handler": "proxy_continuation_triggers.resolve:fixed_target_or_growth"
+        }
+      ],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    },
+    {
+      "card_id": "W-deepsea",
+      "capability_kind": "continuous",
+      "timing": "continuous",
+      "source_reference": "89-world-13-card-text-draft.md#W-deepsea",
+      "native_trigger": false,
+      "latched_trigger": false,
+      "hand_trigger": false,
+      "designated_choices": [],
+      "registered_no_choice_routes": [],
+      "whole_effect_semantics_proven": false,
+      "all_opportunities_proven": false
+    }
+  ],
+  "production_seeds_generated": 0,
+  "ready_for_input_generation": false,
+  "ready_for_execution": false,
+  "inventory_notes": [
+    "41 unique types / 80 physical copies.",
+    "G-animal-shogi initial narrow-scope lookup lacked recovery.scope; the existing recovery scope registers its handler. This is not a missing-handler discovery.",
+    "Empty no-choice route list does not mean missing handler; placement, designated/legacy choices and non-batch routes are separate.",
+    "Whole-effect and all-opportunity false fields mean not established by this inventory."
+  ]
+}

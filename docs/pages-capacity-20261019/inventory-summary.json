@@ -1,0 +1,42 @@
+{
+  "groups": {
+    "assets": {
+      "files": 2974,
+      "bytes": 66103994
+    },
+    "root-runtime": {
+      "files": 45,
+      "bytes": 4234193
+    },
+    "character-3d": {
+      "files": 30,
+      "bytes": 455836
+    },
+    "card-game": {
+      "files": 42,
+      "bytes": 3418259
+    },
+    "card-delivery": {
+      "files": 904,
+      "bytes": 137575124
+    },
+    "naopoyo-and-legacy": {
+      "files": 100,
+      "bytes": 819270
+    },
+    "vendor": {
+      "files": 2,
+      "bytes": 692729
+    }
+  },
+  "baseline_tracked_files": 29140,
+  "baseline_files_excluded": 25043,
+  "runtime_reviewed_sources": 165,
+  "runtime_exceptions": 52,
+  "original_art_tree": "77590177c4ebb6855d036f67c380b22438f2b17b",
+  "original_art_files": 2844,
+  "original_art_bytes": 2097269741,
+  "previous_main_pages_artifact_zip_bytes": 1622902025,
+  "previous_main_pages_run": 39121756569,
+  "previous_main_pages_artifact_id": 12133833949
+}

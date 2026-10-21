@@ -1,0 +1,13 @@
+# Independent review brief
+
+Workspace /tmp/card-game-active, branch design/card-pool-master-20260914; current committed safety ffa7dfc6 plus untracked new modules. DO NOT edit or generate game input. No external sources needed.
+
+Review only these responsibilities: proxy_population_incarnation.py (saved ffa7dfc6), new proxy_population_incarnation_policy.py, proxy_population_incarnation_runtime.py, proxy_population_incarnation_window.py, proxy_population_normal_frontier.py; their five test modules. Read plans/2026-10-06-population-incarnation-integration.md. Earlier positive bundle had a separate independent review; do not repeat that whole review. Relevant source/interface checks are appropriate.
+
+Expected: conditional roots explicitly unauthenticated, not a full400 executor. Retain original100/105 ID lifetime and old references; full actual hash/conservation despite private validation/info projections; native entry effects not reimplemented; actual lifecycle evidence distinct from hypothetical cache. Reuse465 allowlist/1-N/roots/address and keep strategic unproven.116 always excluded. Pure normal fallback only derives existing114/116 predicates, no new values or adoption. Existing tracked files before472 unchanged. No main/PR merge or other work.
+
+Focus on concrete integrity/legality/callback restoration bugs, stale/forged IDs/hashes, hidden information leaks, candidate/replay mismatches, and any unapproved semantic extension. Dedicated incarnation11 and normal1 PASS; original baseline1498 full regression is currently running (do not repeat it; do not edit test files in its manifest). New modules/tests were added after that baseline run started.
+
+Also assess a prospective blocking game ambiguity, without assuming the author is correct:01-core-rules.md defines effect application (lines66-67), caps growth0..100 (122), and partial effects (79 onward).55 M-antlion-06/07 and56 A6/A7 require actual quick effect application. A quick G-area-claim under its satisfied board-count condition, with actor already100, has only positive growth which is capped to0 actual increase. Is 'effect applied' uniquely true or false from existing canonical sources? Search relevant01/06/07/55/56/85/86/67/71 definitions. If existing sources decide it, say so precisely so we avoid unnecessary confirmation. Otherwise identify the smallest true semantic choice and its effect on mandatory trigger opportunities. No ruling or implementation is to be introduced just to let400 games run.
+
+Report Critical/Important/Minor with file/function and repro where possible, plus this source-grounded ruling assessment. One cycle; author will fix Important/Critical with TDD, no rereview.

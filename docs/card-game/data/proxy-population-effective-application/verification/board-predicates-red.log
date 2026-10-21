@@ -1,0 +1,29 @@
+FFF
+======================================================================
+FAIL: test_actual_entry_exports_distinct_board_predicate_evidence (test_proxy_population_board_predicates.BoardPredicateTests.test_actual_entry_exports_distinct_board_predicate_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_board_predicates.py", line 54, in test_actual_entry_exports_distinct_board_predicate_evidence
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_paid_costs_usage_and_forged_passive_exclusion (test_proxy_population_board_predicates.BoardPredicateTests.test_paid_costs_usage_and_forged_passive_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_board_predicates.py", line 16, in test_paid_costs_usage_and_forged_passive_exclusion
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_recovery_other_name_target_and_current_incarnation_limit (test_proxy_population_board_predicates.BoardPredicateTests.test_recovery_other_name_target_and_current_incarnation_limit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_board_predicates.py", line 38, in test_recovery_other_name_target_and_current_incarnation_limit
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

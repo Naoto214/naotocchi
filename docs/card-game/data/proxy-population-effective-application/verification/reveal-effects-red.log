@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_all_outcomes_and_outer_chain (test_proxy_population_reveal_effects.RevealEffectsTests.test_all_outcomes_and_outer_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_reveal_effects.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'reveal semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : reveal semantic audit absent
+
+======================================================================
+FAIL: test_coverage_rejects_rebound_false_reveal (test_proxy_population_reveal_effects.RevealEffectsTests.test_coverage_rejects_rebound_false_reveal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_reveal_effects.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'reveal semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : reveal semantic audit absent
+
+======================================================================
+FAIL: test_forged_reveal_movement_and_unrelated_state_rejected (test_proxy_population_reveal_effects.RevealEffectsTests.test_forged_reveal_movement_and_unrelated_state_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_reveal_effects.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'reveal semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : reveal semantic audit absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

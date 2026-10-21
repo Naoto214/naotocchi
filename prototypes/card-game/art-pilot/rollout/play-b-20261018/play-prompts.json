@@ -1,0 +1,406 @@
+[
+  {
+    "id": "G-connect-four",
+    "keys": [
+      "panda",
+      "monkey"
+    ],
+    "scene": "Panda drops one RED counter into a blue upright Connect Four rack while monkey watches from the other side of a round table. Rack front nearly face-on, EXACTLY 7 columns and6rows of round holes (42), some red and yellow discs in lower holes, upper holes empty, four red discs line up on bottom row. Cozy library with fern and rainy window, no ocean. Rack large and countable.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for panda, monkey",
+    "sources": [
+      "assets/characters/companions/panda.png",
+      "assets/characters/companions/monkey.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/monkey.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration, 1536x1024 PNG landscape 3:2. First reference(s) are CANONICAL 2D characters: preserve their distinctive face, proportions, bodycolors, marks, tail andlimbs; final reference is approved storybook PAINTING STYLE ONLY, do not copy its beach setting or composition. Cute delicate painterly watercolor, soft natural light, rich but calm colors, visible handmade brush textures, main characters clearly readable on tinycards. Exact scene: Panda drops one RED counter into a blue upright Connect Four rack while monkey watches from the other side of a round table. Rack front nearly face-on, EXACTLY 7 columns and6rows of round holes (42), some red and yellow discs in lower holes, upper holes empty, four red discs line up on bottom row. Cozy library with fern and rainy window, no ocean. Rack large and countable. Maintain coherent anatomy, every limb connected naturally. No text, letters, numbers, logo, watermark, card border or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for panda, monkey",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-2c2a0c54-3998-4b6a-8f8e-8e3de784616e.png",
+    "first_candidate": "prototypes/card-game/art-pilot/rollout/play-b-20261018/G-connect-four-first_candidate.png",
+    "revision_prompt": "Correct only blue game rack: currently five horizontal rows; it must contain EXACTLY SIX horizontal rows with SEVEN circular holes per row, total42holes. Add ONE empty row above current top row by extending rack upward, so there are THREE empty rows above the row containing one yellow disc, then the row containing yellow/red/yellow, then the bottomrow containing fourred. All holes aligned in7columns. Keepcharacters,table,setting,painterlystyle. No letters/numbers.1536x1024.",
+    "second_candidate": "prototypes/card-game/art-pilot/rollout/play-b-20261018/G-connect-four-second_candidate.png",
+    "second_revision_prompt": "Make exactly ONE small edit to this illustration. In blue 7-column 6-row rack, RIGHTMOST column, SECOND hole from BOTTOM contains a floating yellow disc above an empty bottom hole. Remove this ONE yellow disc, revealing empty hole/background. Keep entire rightmost column empty. Preserve all other discs, holes, seven columns/sixrows, characters and surroundings unchanged. 1536x1024, no text.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      }
+    ]
+  },
+  {
+    "id": "G-crane-game-3d",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden hamster operates joystick of a glass claw machine at a pastel indoor amusement arcade. One three-pronged metal claw hanging from cable securely grips one tiny star-shaped cushion above a pile of colorful plush prizes. Hamster face reflected subtly, paws one on joystick one on blank button, no signs or labels. Side composition with face and prize visible.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for hamster",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/hamster.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration, 1536x1024 PNG landscape 3:2. First reference(s) are CANONICAL 2D characters: preserve their distinctive face, proportions, bodycolors, marks, tail andlimbs; final reference is approved storybook PAINTING STYLE ONLY, do not copy its beach setting or composition. Cute delicate painterly watercolor, soft natural light, rich but calm colors, visible handmade brush textures, main characters clearly readable on tinycards. Exact scene: Golden hamster operates joystick of a glass claw machine at a pastel indoor amusement arcade. One three-pronged metal claw hanging from cable securely grips one tiny star-shaped cushion above a pile of colorful plush prizes. Hamster face reflected subtly, paws one on joystick one on blank button, no signs or labels. Side composition with face and prize visible. Maintain coherent anatomy, every limb connected naturally. No text, letters, numbers, logo, watermark, card border or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for hamster",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-b0de7084-30f5-49e3-9c9d-930f9e8a37cd.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-curling-ice",
+    "keys": [
+      "penguin_friend"
+    ],
+    "scene": "Navy white penguin low beside a released granite curling stone with red handle, gliding toward red blue concentric target rings on a glassy frozen lake. Low camera behind stone, penguin smiling in side profile, snowless distant pine shore and blue winter daylight, simple quiet solo practice; orange beak feet, twoflippers.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for penguin_friend",
+    "sources": [
+      "assets/characters/companions/penguin_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/penguin_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration, 1536x1024 PNG landscape 3:2. First reference(s) are CANONICAL 2D characters: preserve their distinctive face, proportions, bodycolors, marks, tail andlimbs; final reference is approved storybook PAINTING STYLE ONLY, do not copy its beach setting or composition. Cute delicate painterly watercolor, soft natural light, rich but calm colors, visible handmade brush textures, main characters clearly readable on tinycards. Exact scene: Navy white penguin low beside a released granite curling stone with red handle, gliding toward red blue concentric target rings on a glassy frozen lake. Low camera behind stone, penguin smiling in side profile, snowless distant pine shore and blue winter daylight, simple quiet solo practice; orange beak feet, twoflippers. Maintain coherent anatomy, every limb connected naturally. No text, letters, numbers, logo, watermark, card border or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for penguin_friend",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-640acf2f-8461-4c8a-85dd-54c568f8fe91.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/penguin_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+      }
+    ]
+  },
+  {
+    "id": "G-curling-winter",
+    "keys": [
+      "seal",
+      "rabbit_friend"
+    ],
+    "scene": "White round seal and white rabbit competing at a festive outdoor winter curling event with snowy firs and triangular unmarked bunting. Rabbit carefully sweeps ice ahead of a yellow-handled stone while seal watches beside a red-handled stone. High diagonal view includes blue-red target circle and a few well-spaced granite stones. Rabbit twoforepaws on one brush, seal twoflippers, faces distinct.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for seal, rabbit_friend",
+    "sources": [
+      "assets/characters/companions/seal.png",
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/seal.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration, 1536x1024 PNG landscape 3:2. First reference(s) are CANONICAL 2D characters: preserve their distinctive face, proportions, bodycolors, marks, tail andlimbs; final reference is approved storybook PAINTING STYLE ONLY, do not copy its beach setting or composition. Cute delicate painterly watercolor, soft natural light, rich but calm colors, visible handmade brush textures, main characters clearly readable on tinycards. Exact scene: White round seal and white rabbit competing at a festive outdoor winter curling event with snowy firs and triangular unmarked bunting. Rabbit carefully sweeps ice ahead of a yellow-handled stone while seal watches beside a red-handled stone. High diagonal view includes blue-red target circle and a few well-spaced granite stones. Rabbit twoforepaws on one brush, seal twoflippers, faces distinct. Maintain coherent anatomy, every limb connected naturally. No text, letters, numbers, logo, watermark, card border or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for seal, rabbit_friend",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-457b828b-58d6-4e7d-9435-bccc31efaf37.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/seal.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "97b79e21a27fdbd798da66362af20f3e1ed1f68c"
+      },
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-darts-board",
+    "keys": [
+      "monkey"
+    ],
+    "scene": "Brown cream monkey throws a soft dart toward circular segmented dartboard fixed to a tree in a sunny orchard. Exactly two arms, one just released dart, other holds spare safely downward, two feet and curling tail. One dart in air toward bullseye, clear sport pose, side view. Board has contrasting radial wedges and red green rings but absolutely NO digits labels lettering.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for monkey",
+    "sources": [
+      "assets/characters/companions/monkey.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/monkey.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration, 1536x1024 PNG landscape 3:2. First reference(s) are CANONICAL 2D characters: preserve their distinctive face, proportions, bodycolors, marks, tail andlimbs; final reference is approved storybook PAINTING STYLE ONLY, do not copy its beach setting or composition. Cute delicate painterly watercolor, soft natural light, rich but calm colors, visible handmade brush textures, main characters clearly readable on tinycards. Exact scene: Brown cream monkey throws a soft dart toward circular segmented dartboard fixed to a tree in a sunny orchard. Exactly two arms, one just released dart, other holds spare safely downward, two feet and curling tail. One dart in air toward bullseye, clear sport pose, side view. Board has contrasting radial wedges and red green rings but absolutely NO digits labels lettering. Maintain coherent anatomy, every limb connected naturally. No text, letters, numbers, logo, watermark, card border or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for monkey",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-190b2932-ec53-4306-b8d2-f95cad8ffe58.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      }
+    ]
+  },
+  {
+    "id": "G-domino-run",
+    "keys": [
+      "squirrel"
+    ],
+    "scene": "Orange squirrel carefully fills one gap in a winding row of upright colorful wooden domino blocks on a woodland cabin floor. At far end a final block will tap a small brass bell. Some first blocks tilted in a clear chain reaction, remaining upright, plain blocks with no spots or numerals. Close low floor viewpoint, squirrel delighted with twoforepaws clearly placed, largefluffytail.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for squirrel",
+    "sources": [
+      "assets/characters/companions/squirrel.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/squirrel.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration, 1536x1024 PNG landscape 3:2. First reference(s) are CANONICAL 2D characters: preserve their distinctive face, proportions, bodycolors, marks, tail andlimbs; final reference is approved storybook PAINTING STYLE ONLY, do not copy its beach setting or composition. Cute delicate painterly watercolor, soft natural light, rich but calm colors, visible handmade brush textures, main characters clearly readable on tinycards. Exact scene: Orange squirrel carefully fills one gap in a winding row of upright colorful wooden domino blocks on a woodland cabin floor. At far end a final block will tap a small brass bell. Some first blocks tilted in a clear chain reaction, remaining upright, plain blocks with no spots or numerals. Close low floor viewpoint, squirrel delighted with twoforepaws clearly placed, largefluffytail. Maintain coherent anatomy, every limb connected naturally. No text, letters, numbers, logo, watermark, card border or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for squirrel",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-402433f3-c4ee-4bfb-9e1a-3511fff932c1.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/squirrel.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+      }
+    ]
+  },
+  {
+    "id": "G-doodle-jump",
+    "keys": [
+      "rabbit_friend"
+    ],
+    "scene": "White rabbit joyfully bounds upward between small floating grassy platforms, body stretched in midjump from lowerleft toward upperright, two long ears, twoforepaws and twohindfeet distinct. Soft pink morning clouds and distant hilltops, platforms at different heights with flowers, one springy mushroom on lower platform, friendly magical playground. Full silhouette and vertical movement within landscape composition.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for rabbit_friend",
+    "sources": [
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters: preserve face,proportions,colors,marks,tail,limbs. Last reference approved painting STYLE ONLY; use NEW scene and setting below. Cute delicate picturebook watercolor, naturalsoftlight, handmade brushtexture. Clear focal characters for small cards. Scene: White rabbit joyfully bounds upward between small floating grassy platforms, body stretched in midjump from lowerleft toward upperright, two long ears, twoforepaws and twohindfeet distinct. Soft pink morning clouds and distant hilltops, platforms at different heights with flowers, one springy mushroom on lower platform, friendly magical playground. Full silhouette and vertical movement within landscape composition. Coherent anatomy no extra/missing limbs. No text,letters,numbers,logos,cardframe,watermark or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for rabbit_friend",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-da1b8e41-9e27-4e50-abdf-2c00b90a2118.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-dot-eater",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden hamster runs through a bright low hedge maze collecting a dotted trail of small golden round snacks, cheeks full and happy. One friendly translucent lilac ghost follows several turns behind, clearly separated. High three-quarter viewpoint shows maze lanes and trail ending at hamster mouth; no iconic branded character, no text. Dappled woodland light, clear chunky maze shapes.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for hamster",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/hamster.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters: preserve face,proportions,colors,marks,tail,limbs. Last reference approved painting STYLE ONLY; use NEW scene and setting below. Cute delicate picturebook watercolor, naturalsoftlight, handmade brushtexture. Clear focal characters for small cards. Scene: Golden hamster runs through a bright low hedge maze collecting a dotted trail of small golden round snacks, cheeks full and happy. One friendly translucent lilac ghost follows several turns behind, clearly separated. High three-quarter viewpoint shows maze lanes and trail ending at hamster mouth; no iconic branded character, no text. Dappled woodland light, clear chunky maze shapes. Coherent anatomy no extra/missing limbs. No text,letters,numbers,logos,cardframe,watermark or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for hamster",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-a96cd265-45a2-4070-9153-5bc2c4c198c4.png",
+    "first_candidate": "prototypes/card-game/art-pilot/rollout/play-b-20261018/G-dot-eater-first_candidate.png",
+    "revision_prompt": "Correct hamster identity to canonical reference2. REMOVE ENTIRE long fluffy tail behind it; hamster has only a tiny pink nub tail, barely visible. Change fur to orange-golden, enormously puffy cream cheeks, round cream belly, TINY pink hands and feet (not large brown padded paws). Preserve running direction and maze snackcollection, ghost andbackground; charming storybook style. Exact2arms2legs. No text orframe.1536x1024.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-downhill-mountain",
+    "keys": [
+      "monkey"
+    ],
+    "scene": "Brown cream monkey climbing a sunlit natural gray rocky hillside, onehand reaches next secure rockhold while other hand grips lowerhold, twofeet rest on separate ledges, curledtail behind. Upward view to grassy mountain summit and pale clouds, wildflowers in cracks, concentration and hope, no snow, full fourlimbs anatomically clear, mountainclimbing not skiing.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for monkey",
+    "sources": [
+      "assets/characters/companions/monkey.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/monkey.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters: preserve face,proportions,colors,marks,tail,limbs. Last reference approved painting STYLE ONLY; use NEW scene and setting below. Cute delicate picturebook watercolor, naturalsoftlight, handmade brushtexture. Clear focal characters for small cards. Scene: Brown cream monkey climbing a sunlit natural gray rocky hillside, onehand reaches next secure rockhold while other hand grips lowerhold, twofeet rest on separate ledges, curledtail behind. Upward view to grassy mountain summit and pale clouds, wildflowers in cracks, concentration and hope, no snow, full fourlimbs anatomically clear, mountainclimbing not skiing. Coherent anatomy no extra/missing limbs. No text,letters,numbers,logos,cardframe,watermark or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for monkey",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-a06d973e-b8c6-4c67-8d6a-5d034b96f65b.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      }
+    ]
+  },
+  {
+    "id": "G-downhill-snow",
+    "keys": [
+      "shiba"
+    ],
+    "scene": "Orange cream shiba rides one ochre snowboard downhill through fresh powder, twohindpaws planted on board, twoforepaws extended for balance, curledtail and face preserved, small plain dark protective helmet leaves earsvisible. Curving path around soft pine shadows, snow spray behind, bright alpine sky, low side camera dynamic diagonal. No lettering/clothinglogos.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for shiba",
+    "sources": [
+      "assets/characters/companions/shiba.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/shiba.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters: preserve face,proportions,colors,marks,tail,limbs. Last reference approved painting STYLE ONLY; use NEW scene and setting below. Cute delicate picturebook watercolor, naturalsoftlight, handmade brushtexture. Clear focal characters for small cards. Scene: Orange cream shiba rides one ochre snowboard downhill through fresh powder, twohindpaws planted on board, twoforepaws extended for balance, curledtail and face preserved, small plain dark protective helmet leaves earsvisible. Curving path around soft pine shadows, snow spray behind, bright alpine sky, low side camera dynamic diagonal. No lettering/clothinglogos. Coherent anatomy no extra/missing limbs. No text,letters,numbers,logos,cardframe,watermark or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for shiba",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-63b227a5-a54f-467c-93b1-2de2195cd826.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/shiba.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+      }
+    ]
+  },
+  {
+    "id": "G-dragDecorate-bento",
+    "keys": [
+      "panda"
+    ],
+    "scene": "Round panda prepares a Japanese bento box on a sunny home kitchen table, onepaw placing a broccoli floret into a compartment beside onigiri rice triangles, yellow rolled omelet, red cherry tomatoes and carrots. Otherpaw steadies the open box. Close threequarter overhead view, simple picture-only sample bento beside it, no text, warm domestic apron optional but no identity changes, no ocean.",
+    "identity": "Preserve exact canonical 2D faces, body proportions, fur colors and markings for panda; calico cat with white chest, orange and brown patches, thick striped upright tail, compared to cat_friend 2D after generation",
+    "sources": [
+      "assets/characters/companions/panda.png",
+      "assets/characters/companions/cat_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters: preserve face,proportions,colors,marks,tail,limbs. Last reference approved painting STYLE ONLY; use NEW scene and setting below. Cute delicate picturebook watercolor, naturalsoftlight, handmade brushtexture. Clear focal characters for small cards. Scene: Round panda prepares a Japanese bento box on a sunny home kitchen table, onepaw placing a broccoli floret into a compartment beside onigiri rice triangles, yellow rolled omelet, red cherry tomatoes and carrots. Otherpaw steadies the open box. Close threequarter overhead view, simple picture-only sample bento beside it, no text, warm domestic apron optional but no identity changes, no ocean. Coherent anatomy no extra/missing limbs. No text,letters,numbers,logos,cardframe,watermark or UI. Preserve exact canonical 2D faces, body proportions, fur colors and markings for panda",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-81efddc6-ce69-4beb-b41e-df2c3c848948.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      },
+      {
+        "path": "assets/characters/companions/cat_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "cbcce102528758906cc523951d47e0b06d9b0f1e"
+      }
+    ]
+  },
+  {
+    "id": "G-falling-block-puzzle",
+    "keys": [
+      "tanuki"
+    ],
+    "scene": "Brown masked tanuki fits a blue L-shaped four-square block into a gap in a vertical transparent falling-block puzzle tray, colorful tetromino pieces neatly stacked below. One completed horizontal bottom row softly dissolves into sparkles, hand dropping new piece from above. Cozy indoor playroom, front threequarter view, rectangular tray geometry readable, no numbers orUI.",
+    "identity": "Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+    "sources": [
+      "assets/characters/companions/tanuki.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/tanuki.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters, exact identity: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.. Hamsters have tiny pink hands and feet and SHORT nub tail, never a long tail. Last reference approved painting STYLE ONLY, do not copy characters or setting from style image. Cute delicate picturebook watercolor,naturalsoftlight, handmade brushtexture,clear focalcharacters for smallcards. Scene: Brown masked tanuki fits a blue L-shaped four-square block into a gap in a vertical transparent falling-block puzzle tray, colorful tetromino pieces neatly stacked below. One completed horizontal bottom row softly dissolves into sparkles, hand dropping new piece from above. Cozy indoor playroom, front threequarter view, rectangular tray geometry readable, no numbers orUI. Coherent anatomy. No text,letters,numbers,logos,cardframe,watermark orUI.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-6de80502-d832-4cf2-9ddf-ec140610c27b.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      }
+    ]
+  },
+  {
+    "id": "G-fishing-deepsea",
+    "keys": [
+      "otter"
+    ],
+    "scene": "Brown cream otter aboard a small sturdy boat at twilight uses a fishing rod and reel with line descending deep under dark blue water. Split waterline composition: otter and boat prominent in upperleft, beneath them vast luminous indigo depths with a small unusual deep-sea fish approaching lure and distant bioluminescent specks. Fish simple original non-character wildlife, no injury, gentle adventurous wonder, no shallow coral or bright seabed.",
+    "identity": "Brown otter with cream muzzle throat belly, round ears and long smooth tapered tail, rounded paws and whiskers.",
+    "sources": [
+      "assets/characters/companions/otter.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters, exact identity: Brown otter with cream muzzle throat belly, round ears and long smooth tapered tail, rounded paws and whiskers.. Hamsters have tiny pink hands and feet and SHORT nub tail, never a long tail. Last reference approved painting STYLE ONLY, do not copy characters or setting from style image. Cute delicate picturebook watercolor,naturalsoftlight, handmade brushtexture,clear focalcharacters for smallcards. Scene: Brown cream otter aboard a small sturdy boat at twilight uses a fishing rod and reel with line descending deep under dark blue water. Split waterline composition: otter and boat prominent in upperleft, beneath them vast luminous indigo depths with a small unusual deep-sea fish approaching lure and distant bioluminescent specks. Fish simple original non-character wildlife, no injury, gentle adventurous wonder, no shallow coral or bright seabed. Coherent anatomy. No text,letters,numbers,logos,cardframe,watermark orUI.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-f4338a4b-6e59-4788-9da9-468ea3ae0d62.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "G-fishing-sea",
+    "keys": [
+      "shiba"
+    ],
+    "scene": "Orange cream shiba sitting on a sunny wooden seaside pier reels in a small silver-blue fish just above sparkling turquoise water, curved fishingrod and taut line clearly connected, twoforepaws on rod/reel, hindpaws planted and curledtail beside. Wider airy coastal view with gulls, low shore rocks and warm morning light; fish lively without injury, no oceanbottomcutaway.",
+    "identity": "Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+    "sources": [
+      "assets/characters/companions/shiba.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/shiba.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters, exact identity: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.. Hamsters have tiny pink hands and feet and SHORT nub tail, never a long tail. Last reference approved painting STYLE ONLY, do not copy characters or setting from style image. Cute delicate picturebook watercolor,naturalsoftlight, handmade brushtexture,clear focalcharacters for smallcards. Scene: Orange cream shiba sitting on a sunny wooden seaside pier reels in a small silver-blue fish just above sparkling turquoise water, curved fishingrod and taut line clearly connected, twoforepaws on rod/reel, hindpaws planted and curledtail beside. Wider airy coastal view with gulls, low shore rocks and warm morning light; fish lively without injury, no oceanbottomcutaway. Coherent anatomy. No text,letters,numbers,logos,cardframe,watermark orUI.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-a86a5363-52ca-4fa8-a3d1-48d3f89c5314.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/shiba.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+      }
+    ]
+  },
+  {
+    "id": "G-fp-dungeon",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden hamster explores a welcoming ancient stone dungeon corridor and discovers an open small wooden treasure chest glowing softly with colorful gems. Low eye-level camera past a mossy arch, hamster onepaw holding warm lantern otherpaw touches chestlid, face visible with delight. Sunbeam through small opening, no horror or enemies, winding corridor visible beyond and friendly adventure.",
+    "identity": "Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/hamster.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters, exact identity: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.. Hamsters have tiny pink hands and feet and SHORT nub tail, never a long tail. Last reference approved painting STYLE ONLY, do not copy characters or setting from style image. Cute delicate picturebook watercolor,naturalsoftlight, handmade brushtexture,clear focalcharacters for smallcards. Scene: Golden hamster explores a welcoming ancient stone dungeon corridor and discovers an open small wooden treasure chest glowing softly with colorful gems. Low eye-level camera past a mossy arch, hamster onepaw holding warm lantern otherpaw touches chestlid, face visible with delight. Sunbeam through small opening, no horror or enemies, winding corridor visible beyond and friendly adventure. Coherent anatomy. No text,letters,numbers,logos,cardframe,watermark orUI.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-b19ede59-0176-451c-ae6f-6212b380a965.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-free-kick-3d",
+    "keys": [
+      "rabbit_friend",
+      "panda"
+    ],
+    "scene": "White rabbit takes a soccer free kick on a green park field, onehindleg planted and other follows through after striking black-white ball; twoforepaws balanced, ears sweptback. Ball curves toward a white goal beyond two plain wooden training dummy silhouettes. Panda goalkeeper in distance reaches with twoforepaws, full rounded body, no uniformdigits. Side diagonal action view, afternoon sun, clear ball trajectory.",
+    "identity": "Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail. / Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+    "sources": [
+      "assets/characters/companions/rabbit_friend.png",
+      "assets/characters/companions/panda.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024 PNG landscape3:2. First references canonical2D characters, exact identity: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail. / Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.. Hamsters have tiny pink hands and feet and SHORT nub tail, never a long tail. Last reference approved painting STYLE ONLY, do not copy characters or setting from style image. Cute delicate picturebook watercolor,naturalsoftlight, handmade brushtexture,clear focalcharacters for smallcards. Scene: White rabbit takes a soccer free kick on a green park field, onehindleg planted and other follows through after striking black-white ball; twoforepaws balanced, ears sweptback. Ball curves toward a white goal beyond two plain wooden training dummy silhouettes. Panda goalkeeper in distance reaches with twoforepaws, full rounded body, no uniformdigits. Side diagonal action view, afternoon sun, clear ball trajectory. Coherent anatomy. No text,letters,numbers,logos,cardframe,watermark orUI.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-a853c035-bd33-4192-9d7e-012b684ce29d.png",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      },
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      }
+    ]
+  }
+]

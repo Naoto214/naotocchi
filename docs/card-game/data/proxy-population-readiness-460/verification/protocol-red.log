@@ -1,0 +1,50 @@
+test_approved_protocol_is_non_executable_and_nonmutating (test_proxy_population_contract.ProtocolTests.test_approved_protocol_is_non_executable_and_nonmutating) ... FAIL
+test_duplicate_keys_and_nonfinite_json_are_rejected (test_proxy_population_contract.ProtocolTests.test_duplicate_keys_and_nonfinite_json_are_rejected) ... FAIL
+test_protocol_mutations_cannot_self_authorize (test_proxy_population_contract.ProtocolTests.test_protocol_mutations_cannot_self_authorize) ... FAIL
+test_source_paths_cannot_escape_root (test_proxy_population_contract.ProtocolTests.test_source_paths_cannot_escape_root) ... FAIL
+test_untrusted_anchor_and_missing_source_fail_closed (test_proxy_population_contract.ProtocolTests.test_untrusted_anchor_and_missing_source_fail_closed) ... FAIL
+
+======================================================================
+FAIL: test_approved_protocol_is_non_executable_and_nonmutating (test_proxy_population_contract.ProtocolTests.test_approved_protocol_is_non_executable_and_nonmutating)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 18, in setUp
+    self.assertIsNotNone(subject, 'population contract validator absent')
+AssertionError: unexpectedly None : population contract validator absent
+
+======================================================================
+FAIL: test_duplicate_keys_and_nonfinite_json_are_rejected (test_proxy_population_contract.ProtocolTests.test_duplicate_keys_and_nonfinite_json_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 18, in setUp
+    self.assertIsNotNone(subject, 'population contract validator absent')
+AssertionError: unexpectedly None : population contract validator absent
+
+======================================================================
+FAIL: test_protocol_mutations_cannot_self_authorize (test_proxy_population_contract.ProtocolTests.test_protocol_mutations_cannot_self_authorize)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 18, in setUp
+    self.assertIsNotNone(subject, 'population contract validator absent')
+AssertionError: unexpectedly None : population contract validator absent
+
+======================================================================
+FAIL: test_source_paths_cannot_escape_root (test_proxy_population_contract.ProtocolTests.test_source_paths_cannot_escape_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 18, in setUp
+    self.assertIsNotNone(subject, 'population contract validator absent')
+AssertionError: unexpectedly None : population contract validator absent
+
+======================================================================
+FAIL: test_untrusted_anchor_and_missing_source_fail_closed (test_proxy_population_contract.ProtocolTests.test_untrusted_anchor_and_missing_source_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 18, in setUp
+    self.assertIsNotNone(subject, 'population contract validator absent')
+AssertionError: unexpectedly None : population contract validator absent
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+FAILED (failures=5)

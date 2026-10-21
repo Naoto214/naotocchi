@@ -1,0 +1,158 @@
+{
+  "schema": "naotocchi.card_game.role_density_efficiency_audit.v1",
+  "date": "2026-09-17",
+  "head": "3f062c9d5876a562cfac2d581a7007d511f8de58",
+  "tree": "60ccaf32835c58d8ca5de8436c76d103b111bc08",
+  "main_head": "f23398e43eed952d49d5a2b805789a4c87b2b1bd",
+  "scope": {
+    "current_catalog": 452,
+    "ability_text": 445,
+    "vanilla": 7,
+    "registered_candidates": 477,
+    "registered_card": 463,
+    "hold": 14,
+    "changed_card_ids": [],
+    "manual_cases": 32
+  },
+  "method": {
+    "surface_counts": "Each tag counts card records whose current text matches the stored regular-expression definition. Tags overlap.",
+    "manual_review": "Priority clusters were read card by card against 01, 02, 06, 07 and their current canonical text.",
+    "not_measured": [
+      "draw probability in a 40-card deck",
+      "activation rate",
+      "turn-by-turn choice frequency",
+      "win rate",
+      "physical handling time",
+      "balance threshold"
+    ]
+  },
+  "catalog_by_type": {
+    "main": 248,
+    "companion": 26,
+    "partner": 18,
+    "world": 13,
+    "play": 100,
+    "item": 26,
+    "event": 21
+  },
+  "action_time_distribution": {
+    "world": {"2": 11, "3": 2},
+    "play": {"1": 51, "2": 45, "3": 4},
+    "item": {"1": 3, "2": 12, "3": 10, "4": 1},
+    "event": {"1": 9, "2": 10, "3": 2}
+  },
+  "surface_tags": {
+    "deck_reference": {"pattern": "山札", "by_type": {"main": 108, "companion": 9, "partner": 5, "world": 4, "play": 35, "item": 10, "event": 12}, "total": 183},
+    "top_look_or_reveal": {"pattern": "top-card look or reveal expression", "by_type": {"main": 43, "companion": 3, "partner": 3, "world": 4, "play": 23, "item": 9, "event": 9}, "total": 94},
+    "deck_bottom_move": {"pattern": "山札の一番下 or 山札下", "by_type": {"main": 81, "companion": 5, "partner": 4, "world": 3, "play": 32, "item": 10, "event": 10}, "total": 145},
+    "direct_draw": {"pattern": "number + 枚引", "by_type": {"main": 55, "companion": 5, "partner": 4, "world": 0, "play": 33, "item": 3, "event": 8}, "total": 108},
+    "selective_hand_add": {"pattern": "手札に加え", "by_type": {"main": 16, "companion": 1, "partner": 2, "world": 2, "play": 21, "item": 8, "event": 6}, "total": 56},
+    "discard_to_hand": {"pattern": "捨て札 ... 手札に戻 within one sentence", "by_type": {"main": 2, "companion": 0, "partner": 0, "world": 0, "play": 5, "item": 0, "event": 0}, "total": 7},
+    "growth_gain": {"pattern": "そだち+number", "by_type": {"main": 12, "companion": 2, "partner": 0, "world": 2, "play": 30, "item": 6, "event": 8}, "total": 60},
+    "time_discount": {"pattern": "時をnumber少なく", "by_type": {"main": 31, "companion": 2, "partner": 2, "world": 1, "play": 1, "item": 2, "event": 3}, "total": 42},
+    "next_own_start": {"pattern": "next own turn start", "by_type": {"main": 11, "companion": 1, "partner": 0, "world": 2, "play": 6, "item": 0, "event": 2}, "total": 22},
+    "next_own_end": {"pattern": "next own turn end", "by_type": {"main": 6, "companion": 0, "partner": 0, "world": 0, "play": 0, "item": 0, "event": 0}, "total": 6},
+    "turn_end_timing": {"pattern": "turn or challenge end timing", "by_type": {"main": 34, "companion": 3, "partner": 2, "world": 3, "play": 6, "item": 3, "event": 0}, "total": 51},
+    "next_event_reservation": {"pattern": "次に", "by_type": {"main": 32, "companion": 3, "partner": 2, "world": 0, "play": 9, "item": 1, "event": 3}, "total": 50},
+    "once_per_turn": {"pattern": "1ターンに1回", "by_type": {"main": 179, "companion": 19, "partner": 11, "world": 10, "play": 1, "item": 9, "event": 2}, "total": 231},
+    "once_per_round": {"pattern": "1ラウンドに1回", "by_type": {"main": 16, "companion": 3, "partner": 3, "world": 0, "play": 0, "item": 3, "event": 0}, "total": 25},
+    "name_wide_limit": {"pattern": "explicit same-name once-per-turn expression", "by_type": {"main": 9, "companion": 1, "partner": 0, "world": 0, "play": 1, "item": 1, "event": 2}, "total": 14}
+  },
+  "derived_groups": {
+    "reservation_like_surface_union": {"by_type": {"main": 65, "companion": 6, "partner": 4, "world": 3, "play": 20, "item": 4, "event": 5}, "total": 107},
+    "time_1_card_gain_surface": {"by_type": {"play": 32, "item": 2, "event": 6}, "total": 40},
+    "time_1_growth_surface": {"by_type": {"play": 20, "item": 1, "event": 3}, "total": 24},
+    "time_1_card_gain_and_growth_surface": {"by_type": {"play": 14, "item": 1, "event": 1}, "total": 16},
+    "note": "These are overlapping text signals. Branch-exclusive rewards, opponent growth and paid exchanges are included until manual review separates them."
+  },
+  "priority_clusters": [
+    {
+      "id": "P97-01",
+      "name": "same-name growth stacking",
+      "card_ids": ["E-first-date", "E-wedding-anniversary", "E-midlife-flower", "G-curling-ice", "G-domino-run", "G-takoyaki-grill"],
+      "finding": "Current text has no shared same-name cap for these cards. Legal stacking exists under their individual conditions, but frequency and payoff are unmeasured.",
+      "action": "Proxy-test one, two and three-copy hands before adding any cap."
+    },
+    {
+      "id": "P97-02",
+      "name": "repeatable board growth engines",
+      "card_ids": ["W-countryside", "W-jungle", "C-otter", "I-star", "I-naoto_lantern", "G-mini-golf-physics"],
+      "finding": "Separate once-per-turn or once-per-round engines can reward the same action or victory. This is legal under the current no-global-+10-cap rule.",
+      "action": "Measure turns-to-100 and setup cost by engine count."
+    },
+    {
+      "id": "P97-03",
+      "name": "time-1 replacement-plus-growth",
+      "card_ids": ["G-bubble-shooter", "G-curling-ice", "G-domino-run", "G-doodle-jump", "G-hit-blow", "G-jump-quest", "G-line-trace", "G-lunar-lander", "G-mini-golf-physics", "G-rhythm-highway-3d", "G-ring-flight-summer", "G-takoyaki-grill", "E-first-date"],
+      "finding": "Thirteen cards can yield both a replacement card or recovery and growth in the same successful route. Their setup costs differ materially.",
+      "action": "Record paid time, cards committed, delayed turns and failure outcome separately."
+    },
+    {
+      "id": "P97-04",
+      "name": "cheap selection density",
+      "card_ids": ["G-road-city", "G-road-desert", "G-road-themed", "G-sushi-belt", "G-slide-puzzle", "G-picross-5", "G-real-fishing", "E-lamp", "E-midlife-travel-plan", "E-mirror", "E-new-encounter", "I-c_egg_normal"],
+      "finding": "Many time-1 routes inspect two to five cards or select a typed card. Conditions differ, but physical search time and deck smoothing can converge.",
+      "action": "Measure average cards handled and decision time, not only hand advantage."
+    },
+    {
+      "id": "P97-05",
+      "name": "discard recovery and replay",
+      "card_ids": ["G-animal-shogi", "G-chain-puzzle", "G-fishing-river", "G-jump-quest", "G-shanghai-tiles", "M-mushroom-06", "M-sakura-05", "M-dragon-08"],
+      "finding": "Recovery spans companions, items, worlds, low-stage mains, traps and people. No infinite loop is established, but repeated value depends on surrounding discounts and discard costs.",
+      "action": "Track object identity, replay count and net hand/time change in proxy logs."
+    },
+    {
+      "id": "P97-06",
+      "name": "reservation tracking load",
+      "card_ids": ["M-penguin-07", "M-god-07", "M-god-08", "G-breakout-classic", "G-dragDecorate-bento", "G-stack-harvest", "G-stack-snowman", "G-takoyaki-grill", "E-midlife-flower", "E-stairs"],
+      "finding": "The pool mixes deadlines, tracked objects, next-event consumption and source-independent applied effects. A surface union finds 107 texts, not 107 simultaneous reservations.",
+      "action": "Proxy logs must assign reservation IDs, source IDs, target object IDs and expiry points."
+    }
+  ],
+  "manual_cases": [
+    {"id": "R01", "input": "Two First Date copies target the same stage-0 partner in one turn", "expected": "Both are currently legal if time is paid; the first does not advance the relationship. Mark as stacking test, not an automatic text error."},
+    {"id": "R02", "input": "Three Midlife Flower copies are played before the next own start", "expected": "Three separate +5 reservations are created. Do not merge them or impose an unstated same-name cap."},
+    {"id": "R03", "input": "Two prepared Curling copies see one completed draw", "expected": "Each copy may activate under current text; verify preparation cost and total reward in proxy play."},
+    {"id": "R04", "input": "Two prepared Domino copies activate from one face-up item", "expected": "Each can create its own next-play reservation. Resolve and log each reservation separately."},
+    {"id": "R05", "input": "Two Takoyaki copies target one third prepared card", "expected": "Both can later succeed if the tracked object remains. New copies do not satisfy the old target identity."},
+    {"id": "R06", "input": "Countryside and Mini Golf share a turn with exactly one action", "expected": "Mini Golf can give +5 and draw; Countryside can separately give +5. The legal +10 total is not capped."},
+    {"id": "R07", "input": "Otter and Jungle are active before one face-up play and one own victory", "expected": "Normal victory +5, Otter +5 and Jungle +5 can coexist if all conditions hold."},
+    {"id": "R08", "input": "Lantern is attached during a turn with another growth reward", "expected": "Lantern may add its own end-step +5 once. Rare same-one construction remains unchanged."},
+    {"id": "D01", "input": "Count all current texts containing deck wording", "expected": "183 records. This is a lexical count, not 183 deck operations per game."},
+    {"id": "D02", "input": "Count top-look or top-reveal wording", "expected": "94 records under the frozen regular expression."},
+    {"id": "D03", "input": "Count deck-bottom movement wording", "expected": "145 records; bottom placement is the dominant cleanup vocabulary and a physical-load target."},
+    {"id": "D04", "input": "Compare direct draw and selective hand-add tags", "expected": "108 direct-draw and 56 selective-add records; overlaps remain and must not be summed as unique cards."},
+    {"id": "D05", "input": "City Run succeeds after two prior face-up actions", "expected": "It may add up to two different card types for time1, but its prior-action setup is part of the efficiency cost."},
+    {"id": "D06", "input": "Night Light is used from a hand of two including itself", "expected": "After paying the card, inspect three and add at most one; classify as selection, not a free two-card gain."},
+    {"id": "D07", "input": "Hit & Blow guesses correctly versus incorrectly", "expected": "Correct route adds the revealed card and +5; incorrect route bottoms it and draws one. The branches are not simultaneous."},
+    {"id": "D08", "input": "Lucky Coin reveals a main versus a non-main", "expected": "Growth and draw are mutually exclusive branches, so its surface membership in both groups does not mean both rewards."},
+    {"id": "Q01", "input": "Count explicit next-own-start wording", "expected": "22 records; some expire at that start while others execute at that start."},
+    {"id": "Q02", "input": "Count explicit next-own-end wording", "expected": "6 records, all in main texts under the frozen expression."},
+    {"id": "Q03", "input": "Count end-timing wording", "expected": "51 records; triggered abilities and already-applied delayed effects are mixed."},
+    {"id": "Q04", "input": "Count the word 次に as a next-event signal", "expected": "50 records; not every hit creates a persistent reservation."},
+    {"id": "Q05", "input": "Union the four reservation-like surface groups", "expected": "107 unique records. Do not sum their individual totals."},
+    {"id": "Q06", "input": "Penguin 7 protection and God 8 replacement coexist on one companion", "expected": "The affected player chooses applicable replacement/prevention order under 07; each applied effect keeps its own expiry and use count."},
+    {"id": "Q07", "input": "A tracked prepared card leaves and the same paper is replayed", "expected": "It is a new object and does not satisfy Harvest, Snowman Tower, Takoyaki or Breakout tracking."},
+    {"id": "Q08", "input": "A next-start reward is created during R10 without another own start", "expected": "No new turn is created and the unexecuted reward is not converted into score."},
+    {"id": "E01", "input": "Count time-1 action cards with direct draw, selective add or discard recovery wording", "expected": "40 records across play 32, item 2 and event 6; paid exchanges and conditional misses are included."},
+    {"id": "E02", "input": "Count time-1 action cards with growth wording", "expected": "24 records across play 20, item 1 and event 3; opponent growth is included in the surface count."},
+    {"id": "E03", "input": "Count time-1 action cards in both surface groups", "expected": "16 records; manual review narrows simultaneous own replacement-or-recovery plus growth to 13 priority cards."},
+    {"id": "E04", "input": "Dot Eater resolves", "expected": "The player draws two after spending the card while the opponent gains +5. Treat the opponent reward as a real efficiency cost."},
+    {"id": "E05", "input": "Bubble Shooter resolves after bottoming three same-type cards", "expected": "Three draws and +5 do not mean net +3 cards; include the played card and three-card payment in hand accounting."},
+    {"id": "E06", "input": "Jump Quest resolves after two time skips", "expected": "The recovered low-stage main replaces the played card in hand and +5 is gained; the two skips are setup, not free."},
+    {"id": "E07", "input": "Multiple time discounts reduce one legal payment below zero", "expected": "Apply all legal reductions, floor at zero, consume their reservations and gain no time from overflow."},
+    {"id": "E08", "input": "A recovered card is replayed and recovered again later", "expected": "Log each new object, paid time, recovery source and cycle count; no infinite loop is asserted without a complete legal route."}
+  ],
+  "conclusions": [
+    "No card text changes are justified by surface density alone.",
+    "Deck-bottom handling and reservation tracking are the largest physical-play burdens to measure.",
+    "Same-name stacking and time-1 replacement-plus-growth routes are the first balance proxy strata.",
+    "The next artifact should preserve version, deck order, choices, payments, chains, reservations and object IDs."
+  ],
+  "validation": {
+    "catalog_errors": 0,
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "surface_tag_count": 15,
+    "manual_case_count": 32
+  }
+}

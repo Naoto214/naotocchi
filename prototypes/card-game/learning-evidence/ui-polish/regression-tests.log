@@ -1,0 +1,42 @@
+✔ hidden hand, deck order, seed and trap identity do not change CPU observation or decision (36.097394ms)
+✔ CPU preserves affordable birth card during egg return and chooses birth before spending time (3.905818ms)
+✔ CPU avoids losing public-stat challenge and prefers higher winning parameter (2.251791ms)
+✔ all 452 definitions use the same bounded legal candidate interface (554.02219ms)
+✔ policy rejects unknown difficulty and empty inventory instead of making up commands (3.321455ms)
+✔ growth reduction values denial at cap and does not waste increases at100 (1.94529ms)
+✔ removal selection prefers valuable opponent target and discards expendable own cards (1.23864ms)
+✔ CPU and human both seats complete ten rounds using real commands and hidden opponent hand (1276.969642ms)
+✔ save during CPU choice resumes identically without duplicate and preserves history (1298.7337ms)
+✔ hidden background session cannot execute and resume retains human viewpoint (0.856804ms)
+✔ old hotseat save loads as unchanged hotseat and bad CPU envelope is rejected (1.517725ms)
+✔ unknown policy command stops safely and persisted diagnostic does not restart on restore (1.625485ms)
+✔ scheduler cancels stale callbacks, pauses in background, and performs one committed step per tick (2.290993ms)
+✔ long-press hand gesture pauses CPU from pointerdown through release (1.454511ms)
+✔ repeated cancelled activation stops at a bounded safe boundary without silent pass (15.373362ms)
+✔ current rulings cover every chapter with precise source headings (0.988298ms)
+✔ search finds detailed rulings, respects chapter scope, normalizes width, and excludes obsolete policy (24.005874ms)
+✔ current collection policy and shared person placement are explicit and separate from relationship progress (0.642234ms)
+✔ detailed order and exceptions remain searchable in the appropriate chapters (2.39584ms)
+✔ each provenance heading exists in its untouched source document (41.520252ms)
+✔ history retains the whole match and restore reproduces it beyond forty results (943.174568ms)
+✔ trace-only operations enter history without generating extra result notices (0.962279ms)
+✔ history renders an event once, omits mass pass diagnostics, and escapes text (0.236752ms)
+✔ private identities stay out of public and opposing history projections (0.981388ms)
+✔ hand responses use the hand only; off-hand legal sources keep a reachable shortcut (36.082017ms)
+✔ CPU read-only inspection does not highlight cards that cannot respond (10.08183ms)
+✔ CPU bursts and automatic-pass history keep the active notice and one four-second timer (3.153496ms)
+✔ re-render after collapse keeps the result reopen control available (0.345153ms)
+✔ same batch plays in revision order without waiting for a game action or duplicating on render (0.334827ms)
+✔ background/handoff drops queued private notices and stale callbacks cannot resurrect them (1.685645ms)
+✔ restore history stays in history; a new command replaces outdated pending notices (0.262771ms)
+✔ notices use four-second timers; manual collapse and replay preserve order without game input (0.209362ms)
+✔ replay icon and retained private payload are erased on handoff/background/reset (0.272225ms)
+✔ default browser timers retain Window receiver for schedule and cancellation (0.2421ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2906.881458

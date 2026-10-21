@@ -1,0 +1,39 @@
+test_actual_r10_resolution_restart_keeps_own_start_sources_negative (test_proxy_population_response_start_negative.ResponseStartNegativeTests.test_actual_r10_resolution_restart_keeps_own_start_sources_negative) ... ok
+test_placement_and_opponent_start_are_negative_but_own_start_stays_unproved (test_proxy_population_response_start_negative.ResponseStartNegativeTests.test_placement_and_opponent_start_are_negative_but_own_start_stays_unproved) ... ok
+test_supplied_nonstart_driver_exports_both_start_sources_as_negative (test_proxy_population_response_start_negative.ResponseStartNegativeTests.test_supplied_nonstart_driver_exports_both_start_sources_as_negative) ... ok
+test_actual_start_with_three_cards_does_not_block_ordinary_response (test_proxy_population_start_condition_history.StartConditionHistoryTests.test_actual_start_with_three_cards_does_not_block_ordinary_response) ... ok
+test_missing_or_changed_origin_evidence_never_certifies_a_negative (test_proxy_population_start_condition_history.StartConditionHistoryTests.test_missing_or_changed_origin_evidence_never_certifies_a_negative) ... ok
+test_original_start_count_not_current_count_controls_the_negative (test_proxy_population_start_condition_history.StartConditionHistoryTests.test_original_start_count_not_current_count_controls_the_negative) ... ok
+test_actual_entry_exports_narrow_board_predicate_scope (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_actual_entry_exports_narrow_board_predicate_scope) ... ok
+test_all_person_world_sources_are_verified_or_explicitly_unproved (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_all_person_world_sources_are_verified_or_explicitly_unproved) ... ok
+test_paid_sources_costs_usage_and_turn_owner (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_paid_sources_costs_usage_and_turn_owner) ... ok
+test_prepared_source_stays_unproved_without_capability_lookup (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_prepared_source_stays_unproved_without_capability_lookup) ... ok
+test_recovery_current_source_targets_and_response_use (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_recovery_current_source_targets_and_response_use) ... ok
+test_proxy_population_response_predicate_coverage (unittest.loader._FailedTest.test_proxy_population_response_predicate_coverage) ... ERROR
+test_common_gate_propagates_false_readiness_even_without_errors (test_proxy_population_current_preflight.CurrentPreflightTests.test_common_gate_propagates_false_readiness_even_without_errors) ... ok
+test_component_references_exist_in_current_source (test_proxy_population_current_preflight.CurrentPreflightTests.test_component_references_exist_in_current_source) ... ok
+test_every_operation_passes_actual_edition_to_common_gate_before_effects (test_proxy_population_current_preflight.CurrentPreflightTests.test_every_operation_passes_actual_edition_to_common_gate_before_effects) ... ok
+test_evidence_partition_and_failed_component_never_pass (test_proxy_population_current_preflight.CurrentPreflightTests.test_evidence_partition_and_failed_component_never_pass) ... ok
+test_generated_package_reads_exact_immutable_preparation_and_requires_package_gate (test_proxy_population_current_preflight.CurrentPreflightTests.test_generated_package_reads_exact_immutable_preparation_and_requires_package_gate) ... ok
+test_incomplete_or_old_connection_cannot_certify_current_preparation (test_proxy_population_current_preflight.CurrentPreflightTests.test_incomplete_or_old_connection_cannot_certify_current_preparation) ... ok
+test_missing_current_report_and_caller_bool_cannot_open_gate (test_proxy_population_current_preflight.CurrentPreflightTests.test_missing_current_report_and_caller_bool_cannot_open_gate) ... ok
+test_recorded_generation_preparation_must_match_current_edition (test_proxy_population_current_preflight.CurrentPreflightTests.test_recorded_generation_preparation_must_match_current_edition) ... ok
+test_review_requires_fixed_edition_and_resolution_of_findings (test_proxy_population_current_preflight.CurrentPreflightTests.test_review_requires_fixed_edition_and_resolution_of_findings) ... ok
+test_saved_source_delta_allows_only_evidence_and_progress (test_proxy_population_current_preflight.CurrentPreflightTests.test_saved_source_delta_allows_only_evidence_and_progress) ... ok
+test_test_log_requires_real_completion_and_exact_frozen_python (test_proxy_population_current_preflight.CurrentPreflightTests.test_test_log_requires_real_completion_and_exact_frozen_python) ... ok
+
+======================================================================
+ERROR: test_proxy_population_response_predicate_coverage (unittest.loader._FailedTest.test_proxy_population_response_predicate_coverage)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_proxy_population_response_predicate_coverage
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'test_proxy_population_response_predicate_coverage'
+
+
+----------------------------------------------------------------------
+Ran 23 tests in 7.166s
+
+FAILED (errors=1)

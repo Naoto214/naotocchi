@@ -1,0 +1,15 @@
+{
+  "independent_process_generations": 2,
+  "byte_equal": true,
+  "files": [
+    "manifest.json",
+    "shadow.json.gz",
+    "summary.json",
+    "trajectories/manifest.json",
+    "trajectories/probe-01-a-first.json.gz",
+    "trajectories/probe-01-b-first.json.gz",
+    "trajectories/probe-02-a-first.json.gz",
+    "trajectories/probe-02-b-first.json.gz",
+    "trajectories/summary.json"
+  ]
+}

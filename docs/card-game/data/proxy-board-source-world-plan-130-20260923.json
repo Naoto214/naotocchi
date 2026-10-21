@@ -1,0 +1,119 @@
+{
+  "schema": "naotocchi.card_game.proxy_board_source_world_plan.v1",
+  "checkpoint": 130,
+  "protected_129_stop_raw_sha256": {
+    "order-01-a-first": "06821078600dedddd59a18cb5bfc837d7dd813927c0ca0baa571fc2342bbc32d",
+    "order-01-b-first": "11f03476e73528190892694bf2c270a399faeb4dbe41ea36f3ebec6e69c00fa8",
+    "order-02-a-first": "8b7d6b86558085b41f46cba846d202030e0d730bfa63275ee47ec64e96b514ff",
+    "order-02-b-first": "eea065d25b0c802a3d0f0906952f491c75761e44671a4589610638f19c1acdc1"
+  },
+  "source_contracts": [
+    107,
+    114,
+    116,
+    117,
+    121,
+    123,
+    126,
+    127,
+    128,
+    129
+  ],
+  "board_source_reason": "source_not_on_required_board",
+  "continuous_world_effect": {
+    "immediate_growth_delta": 0,
+    "immediate_time_delta": 0,
+    "reference": "89-world-13-card-text-draft.md#W-deepsea",
+    "deferred_condition": "自分の手札が2枚以下の間"
+  },
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "06821078600dedddd59a18cb5bfc837d7dd813927c0ca0baa571fc2342bbc32d",
+      "source_game_state_sha256": "78af9c44a181d9c9f8d8acd8223af6996586621d78716b87fdb04fcd3c100f87",
+      "source_continuation_state_sha256": "aff9636aa818736a0692b7515642e6f83f5bdf14a7c2e39f785709b9e655c547",
+      "last_valid_event_seq": 56,
+      "game_state_sha256": "78af9c44a181d9c9f8d8acd8223af6996586621d78716b87fdb04fcd3c100f87",
+      "continuation_state_sha256": "aff9636aa818736a0692b7515642e6f83f5bdf14a7c2e39f785709b9e655c547",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "116 safety"
+        }
+      },
+      "decision_count": 0,
+      "event_count": 0,
+      "snapshot_count": 1,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-board-source-world-stops-130/stop-130-order-01-a-first.json"
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "11f03476e73528190892694bf2c270a399faeb4dbe41ea36f3ebec6e69c00fa8",
+      "source_game_state_sha256": "2b926d185f379021675e370399a071c3743323465634d164c9fbb6fa05e5649d",
+      "source_continuation_state_sha256": "16d34cc1a66b4a9910acb256514dbad346189eb539f28855fa45c7f58033d565",
+      "last_valid_event_seq": 61,
+      "game_state_sha256": "2b926d185f379021675e370399a071c3743323465634d164c9fbb6fa05e5649d",
+      "continuation_state_sha256": "16d34cc1a66b4a9910acb256514dbad346189eb539f28855fa45c7f58033d565",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "116 safety"
+        }
+      },
+      "decision_count": 0,
+      "event_count": 0,
+      "snapshot_count": 1,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-board-source-world-stops-130/stop-130-order-01-b-first.json"
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_sha256": "8b7d6b86558085b41f46cba846d202030e0d730bfa63275ee47ec64e96b514ff",
+      "source_game_state_sha256": "92e046028865567aeead32f6e993bdd05e2c994af4b3d043d12e27ad00f1e13b",
+      "source_continuation_state_sha256": "8d7ba3f2fef32a6cceda343a793628559b75bb5719a26798d558ea622c231962",
+      "last_valid_event_seq": 89,
+      "game_state_sha256": "5211a7dca618d0652609f90637320e571be6e504618c88490c3292518bfb6349",
+      "continuation_state_sha256": "4b27dde0346ec07f7a2e3e25b2ca9b64a9b533d91e4c57495e9cf3fa7a28a29b",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "116 safety"
+        }
+      },
+      "decision_count": 18,
+      "event_count": 30,
+      "snapshot_count": 31,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-board-source-world-stops-130/stop-130-order-02-a-first.json"
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_sha256": "eea065d25b0c802a3d0f0906952f491c75761e44671a4589610638f19c1acdc1",
+      "source_game_state_sha256": "af8c686819e38845954bc7b9865c4b8c1e4034d1409ced5fc4d0ad7490e709ed",
+      "source_continuation_state_sha256": "ec144f76886822ec5b6efc7ed8a08bcd47dc1968e3c231383a259a2d669b99a2",
+      "last_valid_event_seq": 84,
+      "game_state_sha256": "84812ac63463b9666a2d282d412fe1ec32d856f6e74f6b384fa76d4ea43e3ffe",
+      "continuation_state_sha256": "8cfc4abaf3e78b99b3f4a823b625aceefcbbca2a5d7271cb0284cb31b8d781c2",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "116 safety"
+        }
+      },
+      "decision_count": 18,
+      "event_count": 30,
+      "snapshot_count": 31,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-board-source-world-stops-130/stop-130-order-02-b-first.json"
+    }
+  ]
+}

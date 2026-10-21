@@ -1,0 +1,15 @@
+test_challenge_reward_is_bounded_in_state_result_and_hashes (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_challenge_reward_is_bounded_in_state_result_and_hashes) ... FAIL
+
+======================================================================
+FAIL: test_challenge_reward_is_bounded_in_state_result_and_hashes (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_challenge_reward_is_bounded_in_state_result_and_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_growth_runtime.py", line 13, in test_challenge_reward_is_bounded_in_state_result_and_hashes
+    self.assertIsNotNone(api,'shared runtime upper bound missing');h=fixtures.ChallengeTests();h.setUp()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : shared runtime upper bound missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

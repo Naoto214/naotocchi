@@ -1,0 +1,6 @@
+actual selected pass
+normal entry binding errors []
+core candidate predicates errors []
+hand candidate predicates errors []
+selection computation verified True operand provenance verified False errors []
+Existing computation audit correctly retains operand_provenance_verified=false; this is an unjoined operand gap, not evidence that execution charged the wrong amount.

@@ -1,0 +1,9 @@
+import {readFileSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url),sharp=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/sharp');
+const root=new URL('../',import.meta.url).pathname;
+const {CARD_ART}=await import(root+'ui-art.mjs'),{CATALOG}=await import(root+'full-catalog.mjs');
+const manifest=JSON.parse(readFileSync(root+'art-delivery/manifest.json'));const original=JSON.parse(readFileSync(root+'art-pilot/rollout/final-452-20261019/deck-manifest.json'));const counts={},hashes={small:new Set(),large:new Set()};let total=0;
+assert.equal(manifest.cards.length,452);assert.equal(Object.keys(CATALOG).length,452);
+for(const entry of manifest.cards){assert.equal(entry.source,original.cards.find(c=>c.id===entry.id).illustration);counts[CATALOG[entry.id].type]=(counts[CATALOG[entry.id].type]??0)+1;
+for(const size of ['small','large']){const a=entry[size],b=readFileSync(root+a.path);assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256);assert.equal(b.length,a.bytes);assert.equal(CARD_ART[entry.id][size],a.path);assert.ok(!hashes[size].has(a.sha256));hashes[size].add(a.sha256);const {info}=await sharp(b).raw().toBuffer({resolveWithObject:true});assert.equal(info.width,a.width);assert.equal(info.height,a.height);total+=b.length;}}
+const result={cards:452,counts,derivatives:904,uniqueSmall:hashes.small.size,uniqueLarge:hashes.large.size,bytes:total,totals:manifest.totals,smallDecodedRGBA:384*256*4,largeDecodedRGBA:1152*768*4,browserMeasured:false,iphoneMeasured:false,originalsRegenerated:false};writeFileSync(root+'integration-evidence/art-verification.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

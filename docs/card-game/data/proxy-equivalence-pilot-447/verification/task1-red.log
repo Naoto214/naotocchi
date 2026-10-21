@@ -1,0 +1,50 @@
+test_build_binds_complete_inventory (test_proxy_equivalence_inputs.InputsTests.test_build_binds_complete_inventory) ... FAIL
+test_discard_egg_runtime_control_preserved (test_proxy_equivalence_inputs.InputsTests.test_discard_egg_runtime_control_preserved) ... FAIL
+test_hidden_permutation_invariant (test_proxy_equivalence_inputs.InputsTests.test_hidden_permutation_invariant) ... FAIL
+test_hidden_preparation_identity_not_copied (test_proxy_equivalence_inputs.InputsTests.test_hidden_preparation_identity_not_copied) ... FAIL
+test_invalid_schema_and_bool_resource_rejected (test_proxy_equivalence_inputs.InputsTests.test_invalid_schema_and_bool_resource_rejected) ... FAIL
+
+======================================================================
+FAIL: test_build_binds_complete_inventory (test_proxy_equivalence_inputs.InputsTests.test_build_binds_complete_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_inputs.py", line 24, in setUp
+    self.assertIsNotNone(subject,'public equivalence input implementation absent')
+AssertionError: unexpectedly None : public equivalence input implementation absent
+
+======================================================================
+FAIL: test_discard_egg_runtime_control_preserved (test_proxy_equivalence_inputs.InputsTests.test_discard_egg_runtime_control_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_inputs.py", line 24, in setUp
+    self.assertIsNotNone(subject,'public equivalence input implementation absent')
+AssertionError: unexpectedly None : public equivalence input implementation absent
+
+======================================================================
+FAIL: test_hidden_permutation_invariant (test_proxy_equivalence_inputs.InputsTests.test_hidden_permutation_invariant)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_inputs.py", line 24, in setUp
+    self.assertIsNotNone(subject,'public equivalence input implementation absent')
+AssertionError: unexpectedly None : public equivalence input implementation absent
+
+======================================================================
+FAIL: test_hidden_preparation_identity_not_copied (test_proxy_equivalence_inputs.InputsTests.test_hidden_preparation_identity_not_copied)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_inputs.py", line 24, in setUp
+    self.assertIsNotNone(subject,'public equivalence input implementation absent')
+AssertionError: unexpectedly None : public equivalence input implementation absent
+
+======================================================================
+FAIL: test_invalid_schema_and_bool_resource_rejected (test_proxy_equivalence_inputs.InputsTests.test_invalid_schema_and_bool_resource_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_inputs.py", line 24, in setUp
+    self.assertIsNotNone(subject,'public equivalence input implementation absent')
+AssertionError: unexpectedly None : public equivalence input implementation absent
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)

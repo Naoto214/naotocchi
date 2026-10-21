@@ -1,0 +1,35 @@
+{
+  "ratio": "2:3",
+  "canonicalEgg": "assets/characters/egg/intact.png",
+  "approvedBack": "prototypes/card-game/ui-assets/card-back-approved.png",
+  "files": [
+    {
+      "path": "original.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1853701,
+      "sha256": "f5ec6e8f6d5b2a3cb86ca0c60d0ce30d49e4a33cb59c098c391ae9a155965129"
+    },
+    {
+      "path": "egg-card-print.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1854224,
+      "sha256": "6dd9ec8d20dcf203d8372d95965503cdefb5da0ecdfd5ba130272950b88d5d25"
+    },
+    {
+      "path": "../ui-assets/egg-card-small.webp",
+      "width": 320,
+      "height": 480,
+      "bytes": 32824,
+      "sha256": "70882bf3cb6352fdedeabe6f656087d3b265202179653f6e3392f23d1a439541"
+    },
+    {
+      "path": "../ui-assets/egg-card-large.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 158320,
+      "sha256": "467ec87b64eb85ad5022abc5c2842a5d8437e9c34b35b69717ff07a778b52028"
+    }
+  ]
+}

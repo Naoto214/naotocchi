@@ -1,0 +1,38 @@
+{
+  "baseline": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+  "total": 452,
+  "categories": {
+    "companion": 26,
+    "event": 21,
+    "play": 100,
+    "item": 26,
+    "main": 248,
+    "partner": 18,
+    "world": 13
+  },
+  "confirmed": 452,
+  "inferred": 0,
+  "unknown": 0,
+  "source_kind_card_counts": {
+    "character": 293,
+    "event": 20,
+    "play": 100,
+    "item": 26,
+    "achievement": 4,
+    "place": 13
+  },
+  "direct_badge_origin_cards": 0,
+  "goal_reward_origin_cards": 4,
+  "findings": 34,
+  "findings_by_type": {
+    "source_name_change": 5,
+    "play_display_name_difference": 10,
+    "stage_label_difference": 19
+  },
+  "art_links": 452,
+  "source_document_hash_mismatches": 0
+}
+
+PASS: all JSON parsed; CSV452 rows/16 fields; nested JSON valid; existing tracked files unchanged.
+PASS: focused independent read-only source review found no material errors.
+Not run: game full suite, iPhone reachability, all452 visual re-review (research-only scope).

@@ -1,0 +1,12 @@
+{
+  "base_commit": "8286fbc639c3a12fdb6434a71504cc39b35a2a6b",
+  "changed_source_sha256": {
+    "docs/card-game/tools/proxy_population_challenge_window.py": "bcae6eb0b6023fb35d0d9a7cb784cb8277f19167c64e26af779eb2d501877c51",
+    "docs/card-game/tools/proxy_population_payment_operands.py": "5e501a629a9f56ec8822128ada85ee2349a12ec13f473094f46faabd2dc03d5d",
+    "docs/card-game/tools/test_proxy_population_payment_operands.py": "ac2f3be952f3e2d73a657b65053715c16655ffc56cd18fedcb4667f793ec4fd8"
+  },
+  "file_count": 1046,
+  "map_format": "UTF-8 JSON of repository-relative Python path to SHA256; sorted keys; separators comma/colon; no newline",
+  "map_sha256": "683e67322ac1304d51ceec111b4abd4de0a71ab4cb65192bd75901c5e4571fa8",
+  "schema": "frozen_card_python_fingerprint.v1"
+}

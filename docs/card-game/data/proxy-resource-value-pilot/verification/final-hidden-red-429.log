@@ -1,0 +1,34 @@
+test_end_to_end_normal_selection_ignores_hidden_deck_and_hand_order (test_proxy_resource_value_public_proof.PublicProofTests.test_end_to_end_normal_selection_ignores_hidden_deck_and_hand_order) ... ERROR
+test_public_flags_and_history_are_bound_before_evidence_reuse (test_proxy_resource_value_public_proof.PublicProofTests.test_public_flags_and_history_are_bound_before_evidence_reuse) ... ERROR
+
+======================================================================
+ERROR: test_end_to_end_normal_selection_ignores_hidden_deck_and_hand_order (test_proxy_resource_value_public_proof.PublicProofTests.test_end_to_end_normal_selection_ignores_hidden_deck_and_hand_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_public_proof.py", line 21, in test_end_to_end_normal_selection_ignores_hidden_deck_and_hand_order
+    selected=t._normal_selection(changed,initial,t.POLICIES[1],b['public_history'])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_trajectory.py", line 235, in _normal_selection
+    problem=shadow._inputs(boundary)[0]
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_shadow.py", line 199, in _inputs
+    cost,ref=paid_source.cost_and_effect(dict(final_continuation_state=boundary['continuation']),action)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_new_seed_normal_choice_229.py", line 87, in cost_and_effect
+    else:raise ValueError('229 paid permanent effect unclassified')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: 229 paid permanent effect unclassified
+
+======================================================================
+ERROR: test_public_flags_and_history_are_bound_before_evidence_reuse (test_proxy_resource_value_public_proof.PublicProofTests.test_public_flags_and_history_are_bound_before_evidence_reuse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_public_proof.py", line 29, in test_public_flags_and_history_are_bound_before_evidence_reuse
+    self.assertNotEqual(t._public_proof_key(state,'B',b['public_history']),t._public_proof_key(bad,'B',b['public_history']))
+                        ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_resource_value_trajectory' has no attribute '_public_proof_key'
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.730s
+
+FAILED (errors=2)

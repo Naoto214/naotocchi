@@ -1,0 +1,22 @@
+{
+  "implementation_changes": 0,
+  "independent_balance_sample_count": 0,
+  "new_decisions": 0,
+  "new_events": 0,
+  "new_matches": 0,
+  "pending_human_ruling": "whether a separately versioned pilot may compare time and hand/board/reservation value at the same tier after existing top three priorities, instead of always comparing time first",
+  "source_head": "a28d00adad5de7bfc7c36b9d3c93e249fd3de4ce",
+  "source_raw_sha256": {
+    "docs/card-game/01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "docs/card-game/02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+    "docs/card-game/107-normal-decision-match-protocol.md": "32f40f9edaadd5aead8d424eac3c33618ccc1ec212837a9672a30ff22e62f2e9",
+    "docs/card-game/114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "docs/card-game/116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "docs/card-game/412-completed-batch-evaluation.md": "d069895b4e7cf8606971e041248f2375b2aefc11190a4ecf87fe6acf27daa4d5",
+    "docs/card-game/data/proxy-completed-batch-observation-412-20261001.json": "8c85dfdc8a21348810a1a120f6b5a3a6b1fb3a9b69781e61755c89f21096cfb4",
+    "docs/card-game/tools/proxy_new_seed_choice_replay_212.py": "14db16d2713c9d931b5b36a1f316e0760e64e3b5fb9b91e04fab174cae003191",
+    "docs/card-game/tools/proxy_normal_decision_hardening.py": "e00ee5c6358724ef81740a43af26617f6a830e1a87888a8cda7f9efe6e505089"
+  },
+  "source_tree": "15c0f2457d8f738406ee43bdb6fd429d823bc262",
+  "status": "investigation_and_unapproved_options_only"
+}

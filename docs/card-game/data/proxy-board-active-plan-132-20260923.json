@@ -1,0 +1,132 @@
+{
+  "schema": "naotocchi.card_game.proxy_board_active_plan.v1",
+  "checkpoint": 132,
+  "protected_131_stop_raw_sha256": {
+    "order-01-a-first": "dcc87bd2e1613389be4ee037c71a729ffad6bd0a7c2da286e9339964fbc458d2",
+    "order-01-b-first": "466235e9c0e7e05a70bf609a11e0da238a22351fff04b4206377ef19eed79ad7",
+    "order-02-a-first": "cf88b721e68f6255d4e5b0ff6c89f4f34b54ac7bf4dcd9c2acdb2024a4c95e9a",
+    "order-02-b-first": "5e21a34314b70608bd3da95d61f3833608adbda4ae19fe2a527eb2eded2d2f60"
+  },
+  "source_contracts": [
+    107,
+    114,
+    116,
+    117,
+    121,
+    123,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131
+  ],
+  "active_board_registry": {
+    "C-cat_friend": {
+      "kind": "activated_normal_action",
+      "source_text_reference": "72-companion-26-card-text-draft.md#C-cat_friend",
+      "placement_action": "place_companion",
+      "placement_growth_delta": 0,
+      "placement_duration": "none"
+    }
+  },
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "dcc87bd2e1613389be4ee037c71a729ffad6bd0a7c2da286e9339964fbc458d2",
+      "source_game_state_sha256": "b5f0d492498564f7b2e41c43cc9c3b907e1a1461fc5305a538b8d04cb6f18f2a",
+      "source_continuation_state_sha256": "e353456af5906b3064e97c4f12f261e082f2f0c75add858b6f02076409c838d1",
+      "last_valid_event_seq": 74,
+      "game_state_sha256": "f0807211b5592cdda0625dd43d086723d804b043d12aa66bb5a7c7590efd71c8",
+      "continuation_state_sha256": "87f1b9144a61a27f6d971dfe004243595780f066c16cc4d3bbc19888e9067fd0",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "unclassified paid action",
+          "card_id": "I-poop1",
+          "action_type": "set_item"
+        }
+      },
+      "decision_count": 9,
+      "event_count": 15,
+      "snapshot_count": 16,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-board-active-stops-132/stop-132-order-01-a-first.json"
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "466235e9c0e7e05a70bf609a11e0da238a22351fff04b4206377ef19eed79ad7",
+      "source_game_state_sha256": "2799d26ddc9d59b559ab5db8f90e9792b39842ddd4f22af3bb7533a803bc81f4",
+      "source_continuation_state_sha256": "b3e399735a6a4b12e828324dd7de4476814aa844de847f851f9ace2994dcd37f",
+      "last_valid_event_seq": 69,
+      "game_state_sha256": "808f69f4f64ccaebeb67cabc02bfa5cf1b37853b691c74049dd2ca4d4c3c2673",
+      "continuation_state_sha256": "f6e0d663a47e077aea02000ef259f6a610896b1127ad8cbf694a09d50b744105",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "unclassified paid action",
+          "card_id": "I-poop1",
+          "action_type": "set_item"
+        }
+      },
+      "decision_count": 3,
+      "event_count": 5,
+      "snapshot_count": 6,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-board-active-stops-132/stop-132-order-01-b-first.json"
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_sha256": "cf88b721e68f6255d4e5b0ff6c89f4f34b54ac7bf4dcd9c2acdb2024a4c95e9a",
+      "source_game_state_sha256": "ea4b6e13f27f8e43a28939aff95cfec013a305f6a2a0a6e445d3d934fed79eec",
+      "source_continuation_state_sha256": "5f2a5e9a5967fe5ba393dd1b5de5c30d66ae4221149b081892dd495f5afe4c6d",
+      "last_valid_event_seq": 113,
+      "game_state_sha256": "3aea61f5143f8f90c2d71ca7ffca0265a9f71d34288bd656a153f8e6221921b7",
+      "continuation_state_sha256": "3a45bbfa5c79fd223c23b79a718bd0902ee637a5bc56be2e8d380cc4f2578e68",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "unresolved_canonical_predicate"
+          ]
+        },
+        "contract_stop_codes": [
+          "unresolved_canonical_predicate"
+        ]
+      },
+      "decision_count": 15,
+      "event_count": 21,
+      "snapshot_count": 22,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-board-active-stops-132/stop-132-order-02-a-first.json"
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_sha256": "5e21a34314b70608bd3da95d61f3833608adbda4ae19fe2a527eb2eded2d2f60",
+      "source_game_state_sha256": "d8207fc7671ba61eabbed0877578b2d1340a750e0a717df4fbf169632714f863",
+      "source_continuation_state_sha256": "5dab1897049af1bc895059842405f935f8ad96ca4207f7d718fbe9ce2d7a007f",
+      "last_valid_event_seq": 112,
+      "game_state_sha256": "aa7c83e0eb5732c7bcc5a9aa3c2eee5472e6c9e99af131dd378c3706736d0708",
+      "continuation_state_sha256": "728d1b5db932d6c97666400eb4241fce6d00fe2b9301f3b361269a23189a6dc4",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_turn_end_sources",
+        "evidence": {
+          "contract_stop_codes": []
+        }
+      },
+      "decision_count": 17,
+      "event_count": 25,
+      "snapshot_count": 26,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-board-active-stops-132/stop-132-order-02-b-first.json"
+    }
+  ]
+}

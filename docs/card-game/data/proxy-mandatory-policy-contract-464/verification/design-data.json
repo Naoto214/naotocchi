@@ -1,0 +1,234 @@
+{
+  "proxy_test_count": 263,
+  "current_proxy_test_count": 1268,
+  "historical_proxy_test_counts": {
+    "117": 190,
+    "119": 221,
+    "120": 263
+  },
+  "checkpoint_121": {
+    "dedicated_test_count": 38,
+    "canonical_bytes_valid": true
+  },
+  "boundary_cross_audit": {
+    "current_catalog_counts": {
+      "main": 248,
+      "companion": 26,
+      "partner": 18,
+      "world": 13,
+      "play": 100,
+      "current_item": 26,
+      "event": 21
+    },
+    "current_catalog_total": 452,
+    "vanilla_entries": 7,
+    "manual_case_entries": 32,
+    "scope": "Current catalog, not registered-population completion; manual cases are not simulated games."
+  },
+  "registered": {
+    "CARD": 463,
+    "HOLD": 14,
+    "total": 477
+  },
+  "games": {
+    "general": 86,
+    "region": 10,
+    "season": 4
+  },
+  "main_curves": 31,
+  "value_10_cards": 12,
+  "stage_7_to_8": {
+    "down": 14,
+    "same": 11,
+    "up": 6
+  },
+  "indexed_main_body_entries": 224,
+  "legacy_main_body_entries": 24,
+  "total_main_body_entries": 248,
+  "vanilla_entries": [
+    "M-cat-03",
+    "M-turtle-01",
+    "M-starfish-01",
+    "M-star-04",
+    "M-unknown-06",
+    "M-beetle-07"
+  ],
+  "identical_ability_groups": [],
+  "companion_body_entries": 26,
+  "companion_rarity_counts": {
+    "normal": 18,
+    "rare": 8
+  },
+  "companion_vanilla_entries": [
+    "C-box"
+  ],
+  "main_companion_identical_ability_groups": [],
+  "partner_body_entries": 18,
+  "partner_rarity_counts": {
+    "normal": 18
+  },
+  "partner_vanilla_entries": [],
+  "all_character_identical_ability_groups": [],
+  "current_item_source_followup": {
+    "main_commit": "4ed128d31405267e4ee032fe36fbb589b4bc634b",
+    "core_source_entries": 26,
+    "source_groups": {
+      "equipment": 10,
+      "consumable": 12,
+      "goal": 4
+    },
+    "registered_current": 14,
+    "retired_source": 24,
+    "unregistered_core": 12,
+    "unregistered_collection_sources": 2,
+    "body_entries": 26,
+    "method_counts": {
+      "しかける": 1,
+      "みにつける": 14,
+      "すぐつかう": 11
+    },
+    "rarity_counts": {
+      "normal": 22,
+      "rare": 4
+    },
+    "identical_body_groups": [],
+    "manual_cases": 40,
+    "actual_source_verified": false,
+    "errors": []
+  },
+  "character_item_identical_ability_groups": [],
+  "play_draft_followup": {
+    "main_commit": "5d39eea915d09be3900d92fa879a9e9f1ecf6091",
+    "registered_games": 100,
+    "new_body_entries": 99,
+    "existing_linked_bodies": 1,
+    "total_body_entries": 100,
+    "unexpanded_entries": 0,
+    "body_source_counts": {
+      "general": 86,
+      "region": 10,
+      "season": 4
+    },
+    "method_counts_new": {
+      "すぐつかう": 87,
+      "しかける": 12
+    },
+    "time_counts_new": {
+      "2": 45,
+      "1": 50,
+      "3": 4
+    },
+    "max_new_body_length": 130,
+    "batches": [
+      {
+        "batch": 1,
+        "bodies": 20,
+        "methods": {
+          "すぐつかう": 18,
+          "しかける": 2
+        },
+        "times": {
+          "2": 12,
+          "1": 7,
+          "3": 1
+        },
+        "manual_case_entries": 40
+      },
+      {
+        "batch": 2,
+        "bodies": 20,
+        "methods": {
+          "すぐつかう": 17,
+          "しかける": 3
+        },
+        "times": {
+          "1": 11,
+          "2": 8,
+          "3": 1
+        },
+        "manual_case_entries": 40
+      },
+      {
+        "batch": 3,
+        "bodies": 20,
+        "methods": {
+          "すぐつかう": 18,
+          "しかける": 2
+        },
+        "times": {
+          "2": 10,
+          "3": 1,
+          "1": 9
+        },
+        "manual_case_entries": 40
+      },
+      {
+        "batch": 4,
+        "bodies": 20,
+        "methods": {
+          "すぐつかう": 17,
+          "しかける": 3
+        },
+        "times": {
+          "1": 12,
+          "2": 7,
+          "3": 1
+        },
+        "manual_case_entries": 40
+      },
+      {
+        "batch": 5,
+        "bodies": 20,
+        "methods": {
+          "すぐつかう": 18,
+          "しかける": 2
+        },
+        "times": {
+          "1": 12,
+          "2": 8
+        },
+        "manual_case_entries": 40
+      }
+    ],
+    "manual_case_entries": 200,
+    "identical_body_groups": [],
+    "actual_source_verified": false
+  },
+  "world_draft_followup": {
+    "main_commit": "5d39eea915d09be3900d92fa879a9e9f1ecf6091",
+    "body_entries": 13,
+    "latest_main_checked": "c77587b7488670d27af1e7f0fdb8a477a386e1c2",
+    "rarity_counts": {
+      "normal": 13
+    },
+    "source_group_counts": {
+      "home": 1,
+      "normal": 10,
+      "special": 2
+    },
+    "time_counts": {
+      "2": 11,
+      "3": 2
+    },
+    "manual_case_entries": 40,
+    "max_body_length": 141,
+    "identical_body_groups": [],
+    "actual_source_verified": false
+  },
+  "event_draft_followup": {
+    "main_commit": "c77587b7488670d27af1e7f0fdb8a477a386e1c2",
+    "body_entries": 21,
+    "hold_entries": 13,
+    "unexpanded_CARD_entries": 0,
+    "time_counts": {
+      "2": 10,
+      "1": 9,
+      "3": 2
+    },
+    "manual_case_entries": 40,
+    "identical_body_groups": [],
+    "actual_source_verified": false
+  },
+  "errors": [],
+  "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."
+}

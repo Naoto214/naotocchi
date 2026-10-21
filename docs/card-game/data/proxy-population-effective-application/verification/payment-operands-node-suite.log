@@ -1,0 +1,2518 @@
+TAP version 13
+# [naotocchi] test Error: probe failure
+#     at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/card-audit/tests/album-test.cjs:46:28)
+#     at Test.runInAsyncScope (node:async_hooks:227:14)
+#     at Test.run (node:internal/test_runner/test:1382:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+#     at Test.postRun (node:internal/test_runner/test:1522:19)
+#     at Test.run (node:internal/test_runner/test:1447:12)
+#     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+# Subtest: the life timeline groups log entries by age and the data screen shows it
+ok 1 - the life timeline groups log entries by age and the data screen shows it
+  ---
+  duration_ms: 87.801324
+  type: 'test'
+  ...
+# Subtest: a life card code round-trips and past lives keep their timeline and code
+ok 2 - a life card code round-trips and past lives keep their timeline and code
+  ---
+  duration_ms: 16.985692
+  type: 'test'
+  ...
+# Subtest: the life card lists the whole timeline and a code button
+ok 3 - the life card lists the whole timeline and a code button
+  ---
+  duration_ms: 19.12507
+  type: 'test'
+  ...
+# Subtest: recorded runtime errors appear in the data screen
+ok 4 - recorded runtime errors appear in the data screen
+  ---
+  duration_ms: 19.400586
+  type: 'test'
+  ...
+# Subtest: index.html asset references exist and carry cache tokens
+ok 5 - index.html asset references exist and carry cache tokens
+  ---
+  duration_ms: 1.809811
+  type: 'test'
+  ...
+# Subtest: the bump tool rewrites only cache tokens
+ok 6 - the bump tool rewrites only cache tokens
+  ---
+  duration_ms: 1.027982
+  type: 'test'
+  ...
+# Subtest: all eight BGM scenes request valid waveforms and schedule two complete loops
+ok 7 - all eight BGM scenes request valid waveforms and schedule two complete loops
+  ---
+  duration_ms: 86.699736
+  type: 'test'
+  ...
+# Subtest: ordinary text keeps native arguments and receiver with no illustration state changes
+ok 8 - ordinary text keeps native arguments and receiver with no illustration state changes
+  ---
+  duration_ms: 6.023138
+  type: 'test'
+  ...
+# Subtest: mixed text draws art in the original glyph advance and keeps center/baseline/state
+ok 9 - mixed text draws art in the original glyph advance and keeps center/baseline/state
+  ---
+  duration_ms: 2.287512
+  type: 'test'
+  ...
+# Subtest: maxWidth compresses the whole decorated run and RTL start alignment keeps the right edge
+ok 10 - maxWidth compresses the whole decorated run and RTL start alignment keeps the right edge
+  ---
+  duration_ms: 1.454034
+  type: 'test'
+  ...
+# Subtest: pending, missing and failed images never draw an emoji and settle without scheduling a canvas redraw
+ok 11 - pending, missing and failed images never draw an emoji and settle without scheduling a canvas redraw
+  ---
+  duration_ms: 2.321332
+  type: 'test'
+  ...
+# Subtest: loaded image replaces a pending placeholder on the next caller frame and draw errors stay contained
+ok 12 - loaded image replaces a pending placeholder on the next caller frame and draw errors stay contained
+  ---
+  duration_ms: 1.330237
+  type: 'test'
+  ...
+# Subtest: atlas crops reuse supplied images and actor markers remain separate from bonus symbols
+ok 13 - atlas crops reuse supplied images and actor markers remain separate from bonus symbols
+  ---
+  duration_ms: 1.141422
+  type: 'test'
+  ...
+# Subtest: a malformed atlas cannot sample neighboring or absent artwork
+ok 14 - a malformed atlas cannot sample neighboring or absent artwork
+  ---
+  duration_ms: 1.537791
+  type: 'test'
+  ...
+# Subtest: scenery clip bounds preserve the original frame scale and transparent margins
+ok 15 - scenery clip bounds preserve the original frame scale and transparent margins
+  ---
+  duration_ms: 1.023484
+  type: 'test'
+  ...
+# Subtest: out-of-frame clip bounds cannot expose neighboring atlas illustrations
+ok 16 - out-of-frame clip bounds cannot expose neighboring atlas illustrations
+  ---
+  duration_ms: 1.360322
+  type: 'test'
+  ...
+# Subtest: ordinary copyright and registered marks keep native text while explicit emoji variants use art
+ok 17 - ordinary copyright and registered marks keep native text while explicit emoji variants use art
+  ---
+  duration_ms: 1.539323
+  type: 'test'
+  ...
+# Subtest: joined emoji, flags and keycaps are replaced as whole symbols
+ok 18 - joined emoji, flags and keycaps are replaced as whole symbols
+  ---
+  duration_ms: 2.417809
+  type: 'test'
+  ...
+# Subtest: tagged flags stay one complete symbol in live text and preloading
+ok 19 - tagged flags stay one complete symbol in live text and preloading
+  ---
+  duration_ms: 7.144682
+  type: 'test'
+  ...
+# Subtest: slide puzzle refreshes cached art on its normal frame after loading and never after retirement
+ok 20 - slide puzzle refreshes cached art on its normal frame after loading and never after retirement
+  ---
+  duration_ms: 99.841312
+  type: 'test'
+  ...
+# Subtest: road offscreen sprite caches replace placeholders after loading without drawing raw emoji
+ok 21 - road offscreen sprite caches replace placeholders after loading without drawing raw emoji
+  ---
+  duration_ms: 50.770484
+  type: 'test'
+  ...
+# Subtest: illustrated road play retains input results, rewards and completion timing
+ok 22 - illustrated road play retains input results, rewards and completion timing
+  ---
+  duration_ms: 2132.134763
+  type: 'test'
+  ...
+# Subtest: health danger is visible before dying and survives unrelated messages and expiry
+ok 23 - health danger is visible before dying and survives unrelated messages and expiry
+  ---
+  duration_ms: 88.830867
+  type: 'test'
+  ...
+# Subtest: illness remains recognizable alongside low life, and medicine clears only the illness effects
+ok 24 - illness remains recognizable alongside low life, and medicine clears only the illness effects
+  ---
+  duration_ms: 23.696318
+  type: 'test'
+  ...
+# Subtest: illness names the condition above the character instead of generic care wording
+ok 25 - illness names the condition above the character instead of generic care wording
+  ---
+  duration_ms: 16.867263
+  type: 'test'
+  ...
+# Subtest: attention effects stop for menus, games, stories and hidden tabs, then reconstruct at home
+ok 26 - attention effects stop for menus, games, stories and hidden tabs, then reconstruct at home
+  ---
+  duration_ms: 57.393007
+  type: 'test'
+  ...
+# Subtest: lightweight mode retains the alert but requests still effects
+ok 27 - lightweight mode retains the alert but requests still effects
+  ---
+  duration_ms: 29.103728
+  type: 'test'
+  ...
+# Subtest: sweat stays beside the painted young fish instead of its transparent upper frame
+ok 28 - sweat stays beside the painted young fish instead of its transparent upper frame
+  ---
+  duration_ms: 13.568475
+  type: 'test'
+  ...
+# Subtest: critical care advice follows the real sequence without medicine for a healthy pet
+ok 29 - critical care advice follows the real sequence without medicine for a healthy pet
+  ---
+  duration_ms: 11.316818
+  type: 'test'
+  ...
+# Subtest: six-tick health death remains unchanged while every living tick has a notice
+ok 30 - six-tick health death remains unchanged while every living tick has a notice
+  ---
+  duration_ms: 64.133148
+  type: 'test'
+  ...
+# Subtest: reloaded illness reconstructs a notice and medicine resolves it
+ok 31 - reloaded illness reconstructs a notice and medicine resolves it
+  ---
+  duration_ms: 30.060031
+  type: 'test'
+  ...
+# Subtest: explicit care displays changes once; ordinary natural ticks stay quiet
+ok 32 - explicit care displays changes once; ordinary natural ticks stay quiet
+  ---
+  duration_ms: 20.765496
+  type: 'test'
+  ...
+# Subtest: danger presentation clears behind overlays and returns with the same state
+ok 33 - danger presentation clears behind overlays and returns with the same state
+  ---
+  duration_ms: 25.340228
+  type: 'test'
+  ...
+# Subtest: egg, farewell and immortal states do not inherit death warnings
+ok 34 - egg, farewell and immortal states do not inherit death warnings
+  ---
+  duration_ms: 14.166327
+  type: 'test'
+  ...
+# Subtest: reduced motion and lightweight mode retain static warning text
+ok 35 - reduced motion and lightweight mode retain static warning text
+  ---
+  duration_ms: 29.536692
+  type: 'test'
+  ...
+# Subtest: numeric feedback keeps the explanation of a mistaken medicine visible
+ok 36 - numeric feedback keeps the explanation of a mistaken medicine visible
+  ---
+  duration_ms: 16.033635
+  type: 'test'
+  ...
+# Subtest: a growth milestone waits for action feedback instead of being forgotten
+ok 37 - a growth milestone waits for action feedback instead of being forgotten
+  ---
+  duration_ms: 30.053721
+  type: 'test'
+  ...
+# Subtest: a recovery milestone waits while a higher priority warning remains
+ok 38 - a recovery milestone waits while a higher priority warning remains
+  ---
+  duration_ms: 13.959796
+  type: 'test'
+  ...
+# Subtest: a delayed sleep recovery never tells an already awake pet to wake
+ok 39 - a delayed sleep recovery never tells an already awake pet to wake
+  ---
+  duration_ms: 73.904433
+  type: 'test'
+  ...
+# Subtest: illness care is readable before an arbitrarily long saved disease name
+ok 40 - illness care is readable before an arbitrarily long saved disease name
+  ---
+  duration_ms: 20.583571
+  type: 'test'
+  ...
+# Subtest: static script exposes the pure assessment interface on window
+ok 41 - static script exposes the pure assessment interface on window
+  ---
+  duration_ms: 6.722725
+  type: 'test'
+  ...
+# Subtest: assess leaves healthy and non-playable life stages quiet without mutating state
+ok 42 - assess leaves healthy and non-playable life stages quiet without mutating state
+  ---
+  duration_ms: 0.747158
+  type: 'test'
+  ...
+# Subtest: assess treats each real mortal life-risk signal as critical
+ok 43 - assess treats each real mortal life-risk signal as critical
+  ---
+  duration_ms: 0.565553
+  type: 'test'
+  ...
+# Subtest: low life gives recovery advice before the critical threshold and clears after recovery
+ok 44 - low life gives recovery advice before the critical threshold and clears after recovery
+  ---
+  duration_ms: 0.332632
+  type: 'test'
+  ...
+# Subtest: life and health notices choose one useful action from the actual cause
+ok 45 - life and health notices choose one useful action from the actual cause
+  ---
+  duration_ms: 0.514716
+  type: 'test'
+  ...
+# Subtest: health advice never prescribes harmful care and falls back from unavailable affection
+ok 46 - health advice never prescribes harmful care and falls back from unavailable affection
+  ---
+  duration_ms: 0.329718
+  type: 'test'
+  ...
+# Subtest: high life risk restores every stat to the 60-point recovery threshold
+ok 47 - high life risk restores every stat to the 60-point recovery threshold
+  ---
+  duration_ms: 0.233122
+  type: 'test'
+  ...
+# Subtest: unavailable affection uses sleep when exhausted and play when energy is adequate
+ok 48 - unavailable affection uses sleep when exhausted and play when energy is adequate
+  ---
+  duration_ms: 0.210147
+  type: 'test'
+  ...
+# Subtest: assess reports ordinary care needs in priority order
+ok 49 - assess reports ordinary care needs in priority order
+  ---
+  duration_ms: 0.3979
+  type: 'test'
+  ...
+# Subtest: sickness labels remain plain text data for the textContent renderer
+ok 50 - sickness labels remain plain text data for the textContent renderer
+  ---
+  duration_ms: 0.362266
+  type: 'test'
+  ...
+# Subtest: sleep notices distinguish ongoing recovery from a completed rest
+ok 51 - sleep notices distinguish ongoing recovery from a completed rest
+  ---
+  duration_ms: 0.269336
+  type: 'test'
+  ...
+# Subtest: fixed-slot status copy stays compact and has no Japanese word spacing
+ok 52 - fixed-slot status copy stays compact and has no Japanese word spacing
+  ---
+  duration_ms: 0.316707
+  type: 'test'
+  ...
+# Subtest: immortality defaults from state and suppresses death wording while retaining care advice
+ok 53 - immortality defaults from state and suppresses death wording while retaining care advice
+  ---
+  duration_ms: 0.217318
+  type: 'test'
+  ...
+# Subtest: snapshot copies only fields used by explicit action summaries
+ok 54 - snapshot copies only fields used by explicit action summaries
+  ---
+  duration_ms: 0.243678
+  type: 'test'
+  ...
+# Subtest: changes reports at most two meaningful deltas in care priority order
+ok 55 - changes reports at most two meaningful deltas in care priority order
+  ---
+  duration_ms: 0.41049
+  type: 'test'
+  ...
+# Subtest: changes derives life from risk and keeps decline improvement negative
+ok 56 - changes derives life from risk and keeps decline improvement negative
+  ---
+  duration_ms: 0.287534
+  type: 'test'
+  ...
+# Subtest: changes ignores sub-point drift and does not mutate either snapshot
+ok 57 - changes ignores sub-point drift and does not mutate either snapshot
+  ---
+  duration_ms: 0.31124
+  type: 'test'
+  ...
+# Subtest: the poop row keeps the same lower-right anchor above speech across party sizes and art changes
+ok 58 - the poop row keeps the same lower-right anchor above speech across party sizes and art changes
+  ---
+  duration_ms: 743.696372
+  type: 'test'
+  ...
+# Subtest: home wings balance the painted gaps around the main body, including different PNG padding
+ok 59 - home wings balance the painted gaps around the main body, including different PNG padding
+  ---
+  duration_ms: 159.695649
+  type: 'test'
+  ...
+# Subtest: every intermediate party size fits the minimum fixed home, with partner/item independently present
+ok 60 - every intermediate party size fits the minimum fixed home, with partner/item independently present
+  ---
+  duration_ms: 429.58095
+  type: 'test'
+  ...
+# Subtest: mixed failed and padded friend images keep every stress-count actor and poop slot in a fixed home
+ok 61 - mixed failed and padded friend images keep every stress-count actor and poop slot in a fixed home
+  ---
+  duration_ms: 16.733791
+  type: 'test'
+  ...
+# Subtest: a mixed 31-friend wing fits the minimum height without moving the permanent poop strip
+ok 62 - a mixed 31-friend wing fits the minimum height without moving the permanent poop strip
+  ---
+  duration_ms: 7.126154
+  type: 'test'
+  ...
+# Subtest: poop follows the applied field scale rather than the companion count, with a readable floor
+ok 63 - poop follows the applied field scale rather than the companion count, with a readable floor
+  ---
+  duration_ms: 10.403034
+  type: 'test'
+  ...
+# Subtest: failed companion images keep the balanced cast and the poop row inside the smallest home
+ok 64 - failed companion images keep the balanced cast and the poop row inside the smallest home
+  ---
+  duration_ms: 9.791696
+  type: 'test'
+  ...
+# Subtest: home conversation stays centered below the permanent poop strip without covering the completed cast
+ok 65 - home conversation stays centered below the permanent poop strip without covering the completed cast
+  ---
+  duration_ms: 1894.694921
+  type: 'test'
+  ...
+# Subtest: a home cast stays in view during its larger hop and sway and leaves the floor clear
+ok 66 - a home cast stays in view during its larger hop and sway and leaves the floor clear
+  ---
+  duration_ms: 288.853175
+  type: 'test'
+  ...
+# Subtest: whole cast fits with room for sway and four-pixel companion gaps
+ok 67 - whole cast fits with room for sway and four-pixel companion gaps
+  ---
+  duration_ms: 1367.594226
+  type: 'test'
+  ...
+# Subtest: unknown or failed art retains complete frames without overlapping the core
+ok 68 - unknown or failed art retains complete frames without overlapping the core
+  ---
+  duration_ms: 42.446272
+  type: 'test'
+  ...
+# Subtest: independent reactions retain full frames and four-pixel friend gaps throughout the sway
+ok 69 - independent reactions retain full frames and four-pixel friend gaps throughout the sway
+  ---
+  duration_ms: 1297.902064
+  type: 'test'
+  ...
+# Subtest: a ticklish line moves the pet and equipment together, then the speaking friend answers
+ok 70 - a ticklish line moves the pet and equipment together, then the speaking friend answers
+  ---
+  duration_ms: 78.900192
+  type: 'test'
+  ...
+# Subtest: courtship follows the actual partner, while a failed courtship never celebrates
+ok 71 - courtship follows the actual partner, while a failed courtship never celebrates
+  ---
+  duration_ms: 28.550934
+  type: 'test'
+  ...
+# Subtest: play and courtship visibly lift a crowded cast, while negative outcomes settle once
+ok 72 - play and courtship visibly lift a crowded cast, while negative outcomes settle once
+  ---
+  duration_ms: 51.471001
+  type: 'test'
+  ...
+# Subtest: poop updates preserve every placed actor and do not interrupt a reaction
+ok 73 - poop updates preserve every placed actor and do not interrupt a reaction
+  ---
+  duration_ms: 19.291015
+  type: 'test'
+  ...
+# Subtest: care moods follow the line and outcome instead of always bouncing happily
+ok 74 - care moods follow the line and outcome instead of always bouncing happily
+  ---
+  duration_ms: 8.253354
+  type: 'test'
+  ...
+# Subtest: a comforting reply cannot make the disappointed or unwell pet celebrate
+ok 75 - a comforting reply cannot make the disappointed or unwell pet celebrate
+  ---
+  duration_ms: 17.23654
+  type: 'test'
+  ...
+# Subtest: a new action cancels old replies and an old animation cannot clear a new one
+ok 76 - a new action cancels old replies and an old animation cannot clear a new one
+  ---
+  duration_ms: 43.653774
+  type: 'test'
+  ...
+# Subtest: menus and hidden pages stop reactions, and reduced motion still identifies the speaker
+ok 77 - menus and hidden pages stop reactions, and reduced motion still identifies the speaker
+  ---
+  duration_ms: 27.102508
+  type: 'test'
+  ...
+# Subtest: a companion who left before their turn cannot speak or animate a different companion
+ok 78 - a companion who left before their turn cannot speak or animate a different companion
+  ---
+  duration_ms: 74.190956
+  type: 'test'
+  ...
+# Subtest: enabling reduced motion mid-speech stops movement but preserves the current speaker
+ok 79 - enabling reduced motion mid-speech stops movement but preserves the current speaker
+  ---
+  duration_ms: 12.274362
+  type: 'test'
+  ...
+# Subtest: every motion and its interpolation stay inside the reserved one- or three-pixel envelope
+ok 80 - every motion and its interpolation stay inside the reserved one- or three-pixel envelope
+  ---
+  duration_ms: 217.58824
+  type: 'test'
+  ...
+# Subtest: clownfish gay keeps its targets through stages 7 and 8
+ok 81 - clownfish gay keeps its targets through stages 7 and 8
+  ---
+  duration_ms: 142.879798
+  type: 'test'
+  ...
+# Subtest: clownfish straight keeps its targets through stages 7 and 8
+ok 82 - clownfish straight keeps its targets through stages 7 and 8
+  ---
+  duration_ms: 44.323535
+  type: 'test'
+  ...
+# Subtest: new clownfish follow the pictured body stage while NB and other species keep their rules
+ok 83 - new clownfish follow the pictured body stage while NB and other species keep their rules
+  ---
+  duration_ms: 10.996213
+  type: 'test'
+  ...
+# Subtest: bi male/nonbinary survives sex change and reload without re-selection
+ok 84 - bi male/nonbinary survives sex change and reload without re-selection
+  ---
+  duration_ms: 30.379823
+  type: 'test'
+  ...
+# Subtest: bi female/nonbinary survives sex change and reload without re-selection
+ok 85 - bi female/nonbinary survives sex change and reload without re-selection
+  ---
+  duration_ms: 29.419245
+  type: 'test'
+  ...
+# Subtest: bi male/female survives sex change and reload without re-selection
+ok 86 - bi male/female survives sex change and reload without re-selection
+  ---
+  duration_ms: 63.680655
+  type: 'test'
+  ...
+# Subtest: bi male/female/nonbinary survives sex change and reload without re-selection
+ok 87 - bi male/female/nonbinary survives sex change and reload without re-selection
+  ---
+  duration_ms: 29.505535
+  type: 'test'
+  ...
+# Subtest: pan male/female/nonbinary survives sex change and reload without re-selection
+ok 88 - pan male/female/nonbinary survives sex change and reload without re-selection
+  ---
+  duration_ms: 26.937258
+  type: 'test'
+  ...
+# Subtest: aro  survives sex change and reload without re-selection
+ok 89 - aro  survives sex change and reload without re-selection
+  ---
+  duration_ms: 16.503734
+  type: 'test'
+  ...
+# Subtest: questioning male/female/nonbinary survives sex change and reload without re-selection
+ok 90 - questioning male/female/nonbinary survives sex change and reload without re-selection
+  ---
+  duration_ms: 29.071759
+  type: 'test'
+  ...
+# Subtest: NB identity remains NB while its clownfish body completes the transition
+ok 91 - NB identity remains NB while its clownfish body completes the transition
+  ---
+  duration_ms: 10.09242
+  type: 'test'
+  ...
+# Subtest: NB body-only change does not reopen an already reconciled relationship
+ok 92 - NB body-only change does not reopen an already reconciled relationship
+  ---
+  duration_ms: 21.266522
+  type: 'test'
+  ...
+# Subtest: a legacy sex-change notice cannot overwrite a primary save recovered from backup
+ok 93 - a legacy sex-change notice cannot overwrite a primary save recovered from backup
+  ---
+  duration_ms: 39.083498
+  type: 'test'
+  ...
+# Subtest: a partner whose targets no longer include us is retained as mismatched, including marriage
+ok 94 - a partner whose targets no longer include us is retained as mismatched, including marriage
+  ---
+  duration_ms: 149.757842
+  type: 'test'
+  ...
+# Subtest: compatible partners keep affection and a newly matching partner leaves mismatch
+ok 95 - compatible partners keep affection and a newly matching partner leaves mismatch
+  ---
+  duration_ms: 21.938225
+  type: 'test'
+  ...
+# Subtest: valid saved attraction overrides stale labels for self, partner, and guest
+ok 96 - valid saved attraction overrides stale labels for self, partner, and guest
+  ---
+  duration_ms: 31.997204
+  type: 'test'
+  ...
+# Subtest: legacy late-stage saves migrate once after age conversion; existing females never revert
+ok 97 - legacy late-stage saves migrate once after age conversion; existing females never revert
+  ---
+  duration_ms: 45.710338
+  type: 'test'
+  ...
+# Subtest: normal and infinite transformations use the selected form; returning restores the original life
+ok 98 - normal and infinite transformations use the selected form; returning restores the original life
+  ---
+  duration_ms: 25.559921
+  type: 'test'
+  ...
+# Subtest: guest codes preserve individual bi targets and canonical labels; old codes still load
+ok 99 - guest codes preserve individual bi targets and canonical labels; old codes still load
+  ---
+  duration_ms: 7.385455
+  type: 'test'
+  ...
+# Subtest: shared early-female clownfish keep a female stage name in profile and court
+ok 100 - shared early-female clownfish keep a female stage name in profile and court
+  ---
+  duration_ms: 10.984005
+  type: 'test'
+  ...
+# Subtest: a migrated infinite return snapshot gets the same identity repair before resuming
+ok 101 - a migrated infinite return snapshot gets the same identity repair before resuming
+  ---
+  duration_ms: 21.814659
+  type: 'test'
+  ...
+# Subtest: real court regression: male/straight against 18 identities
+ok 102 - real court regression: male/straight against 18 identities
+  ---
+  duration_ms: 145.647625
+  type: 'test'
+  ...
+# Subtest: real court regression: male/gay against 18 identities
+ok 103 - real court regression: male/gay against 18 identities
+  ---
+  duration_ms: 73.826536
+  type: 'test'
+  ...
+# Subtest: real court regression: male/bi against 18 identities
+ok 104 - real court regression: male/bi against 18 identities
+  ---
+  duration_ms: 127.983915
+  type: 'test'
+  ...
+# Subtest: real court regression: male/pan against 18 identities
+ok 105 - real court regression: male/pan against 18 identities
+  ---
+  duration_ms: 155.518801
+  type: 'test'
+  ...
+# Subtest: real court regression: male/aro against 18 identities
+ok 106 - real court regression: male/aro against 18 identities
+  ---
+  duration_ms: 21.023014
+  type: 'test'
+  ...
+# Subtest: real court regression: male/questioning against 18 identities
+ok 107 - real court regression: male/questioning against 18 identities
+  ---
+  duration_ms: 152.718095
+  type: 'test'
+  ...
+# Subtest: real court regression: female/straight against 18 identities
+ok 108 - real court regression: female/straight against 18 identities
+  ---
+  duration_ms: 64.921879
+  type: 'test'
+  ...
+# Subtest: real court regression: female/gay against 18 identities
+ok 109 - real court regression: female/gay against 18 identities
+  ---
+  duration_ms: 63.024785
+  type: 'test'
+  ...
+# Subtest: real court regression: female/bi against 18 identities
+ok 110 - real court regression: female/bi against 18 identities
+  ---
+  duration_ms: 163.438852
+  type: 'test'
+  ...
+# Subtest: real court regression: female/pan against 18 identities
+ok 111 - real court regression: female/pan against 18 identities
+  ---
+  duration_ms: 143.402707
+  type: 'test'
+  ...
+# Subtest: real court regression: female/aro against 18 identities
+ok 112 - real court regression: female/aro against 18 identities
+  ---
+  duration_ms: 16.520329
+  type: 'test'
+  ...
+# Subtest: real court regression: female/questioning against 18 identities
+ok 113 - real court regression: female/questioning against 18 identities
+  ---
+  duration_ms: 181.898939
+  type: 'test'
+  ...
+# Subtest: real court regression: nonbinary/straight against 18 identities
+ok 114 - real court regression: nonbinary/straight against 18 identities
+  ---
+  duration_ms: 89.033123
+  type: 'test'
+  ...
+# Subtest: real court regression: nonbinary/gay against 18 identities
+ok 115 - real court regression: nonbinary/gay against 18 identities
+  ---
+  duration_ms: 64.891413
+  type: 'test'
+  ...
+# Subtest: real court regression: nonbinary/bi against 18 identities
+ok 116 - real court regression: nonbinary/bi against 18 identities
+  ---
+  duration_ms: 83.383687
+  type: 'test'
+  ...
+# Subtest: real court regression: nonbinary/pan against 18 identities
+ok 117 - real court regression: nonbinary/pan against 18 identities
+  ---
+  duration_ms: 137.059316
+  type: 'test'
+  ...
+# Subtest: real court regression: nonbinary/aro against 18 identities
+ok 118 - real court regression: nonbinary/aro against 18 identities
+  ---
+  duration_ms: 21.574537
+  type: 'test'
+  ...
+# Subtest: real court regression: nonbinary/questioning against 18 identities
+ok 119 - real court regression: nonbinary/questioning against 18 identities
+  ---
+  duration_ms: 118.107667
+  type: 'test'
+  ...
+# Subtest: new court after a gay male becomes female uses both participants current genders
+ok 120 - new court after a gay male becomes female uses both participants current genders
+  ---
+  duration_ms: 28.167285
+  type: 'test'
+  ...
+# Subtest: completed relationships can reconcile and stay reconciled after save/load without changing targets
+ok 121 - completed relationships can reconcile and stay reconciled after save/load without changing targets
+  ---
+  duration_ms: 42.351971
+  type: 'test'
+  ...
+# Subtest: a normal tick crossing stage 8 completes once and a non-clownfish never changes gender
+ok 122 - a normal tick crossing stage 8 completes once and a non-clownfish never changes gender
+  ---
+  duration_ms: 28.222629
+  type: 'test'
+  ...
+# Subtest: finished lives retain the recorded identity when an old save is loaded
+ok 123 - finished lives retain the recorded identity when an old save is loaded
+  ---
+  duration_ms: 36.445928
+  type: 'test'
+  ...
+# Subtest: old compatibility cleanup cannot delete a partner before the clownfish migration makes them compatible
+ok 124 - old compatibility cleanup cannot delete a partner before the clownfish migration makes them compatible
+  ---
+  duration_ms: 24.98936
+  type: 'test'
+  ...
+# Subtest: sex change during a minigame is announced after returning to the home screen
+ok 125 - sex change during a minigame is announced after returning to the home screen
+  ---
+  duration_ms: 19.935092
+  type: 'test'
+  ...
+# Subtest: a same-tick elder achievement cannot replace the completed sex-change notice
+ok 126 - a same-tick elder achievement cannot replace the completed sex-change notice
+  ---
+  duration_ms: 14.968378
+  type: 'test'
+  ...
+# Subtest: stage-7 notice waits until finished minigame results have been readable
+ok 127 - stage-7 notice waits until finished minigame results have been readable
+  ---
+  duration_ms: 19.86043
+  type: 'test'
+  ...
+# Subtest: newborn clownfish hatch male for a binary roll and save that identity
+ok 128 - newborn clownfish hatch male for a binary roll and save that identity
+  ---
+  duration_ms: 15.006655
+  type: 'test'
+  ...
+# Subtest: a transition notice waits behind transformation choices and survives choosing to stay
+ok 129 - a transition notice waits behind transformation choices and survives choosing to stay
+  ---
+  duration_ms: 45.302282
+  type: 'test'
+  ...
+# Subtest: pre-v2 compatibility migration leaves finished clownfish relationships and logs unchanged
+ok 130 - pre-v2 compatibility migration leaves finished clownfish relationships and logs unchanged
+  ---
+  duration_ms: 52.616919
+  type: 'test'
+  ...
+# Subtest: pre-v2 infinite return relationship migration is complete before the first return
+ok 131 - pre-v2 infinite return relationship migration is complete before the first return
+  ---
+  duration_ms: 136.278968
+  type: 'test'
+  ...
+# Subtest: a same-tick marriage anniversary leaves the transition notice for after the movie
+ok 132 - a same-tick marriage anniversary leaves the transition notice for after the movie
+  ---
+  duration_ms: 36.085604
+  type: 'test'
+  ...
+# Subtest: comment text reuses matching illustrations and escapes arbitrary text
+ok 133 - comment text reuses matching illustrations and escapes arbitrary text
+  ---
+  duration_ms: 113.976112
+  type: 'test'
+  ...
+# Subtest: whole emoji sequences stay intact and unrelated food keeps its meaning
+ok 134 - whole emoji sequences stay intact and unrelated food keeps its meaning
+  ---
+  duration_ms: 16.741814
+  type: 'test'
+  ...
+# Subtest: speech shows the current actor illustration and leaves conversation and saves unchanged
+ok 135 - speech shows the current actor illustration and leaves conversation and saves unchanged
+  ---
+  duration_ms: 16.966983
+  type: 'test'
+  ...
+# Subtest: notices retain their scroll position until the actual message changes
+ok 136 - notices retain their scroll position until the actual message changes
+  ---
+  duration_ms: 27.644961
+  type: 'test'
+  ...
+# Subtest: event text, captions and birthday notices use the same inline presentation
+ok 137 - event text, captions and birthday notices use the same inline presentation
+  ---
+  duration_ms: 23.607454
+  type: 'test'
+  ...
+# Subtest: birthday and milestone symbols depict their own objects without unrelated atlas substitutes
+ok 138 - birthday and milestone symbols depict their own objects without unrelated atlas substitutes
+  ---
+  duration_ms: 12.417438
+  type: 'test'
+  ...
+# Subtest: all 26 companions and 18 partners keep their own speech portraits
+ok 139 - all 26 companions and 18 partners keep their own speech portraits
+  ---
+  duration_ms: 224.110543
+  type: 'test'
+  ...
+# Subtest: comment image failure stays local and works for newly inserted pictures
+ok 140 - comment image failure stays local and works for newly inserted pictures
+  ---
+  duration_ms: 25.45317
+  type: 'test'
+  ...
+# Subtest: pet reaction notices keep their words and identify the actual pet with its PNG
+ok 141 - pet reaction notices keep their words and identify the actual pet with its PNG
+  ---
+  duration_ms: 12.636249
+  type: 'test'
+  ...
+# Subtest: initial decoration preserves all text, existing elements and listeners
+ok 142 - initial decoration preserves all text, existing elements and listeners
+  ---
+  duration_ms: 6.837928
+  type: 'test'
+  ...
+# Subtest: token auditing keeps joined, modified, flag and keycap glyphs whole
+ok 143 - token auditing keeps joined, modified, flag and keycap glyphs whole
+  ---
+  duration_ms: 1.828229
+  type: 'test'
+  ...
+# Subtest: unknown whole sequences remain unchanged even when a component is known
+ok 144 - unknown whole sequences remain unchanged even when a component is known
+  ---
+  duration_ms: 1.217056
+  type: 'test'
+  ...
+# Subtest: editing controls and existing illustration subtrees remain untouched
+ok 145 - editing controls and existing illustration subtrees remain untouched
+  ---
+  duration_ms: 1.659344
+  type: 'test'
+  ...
+# Subtest: later added subtrees and character edits are decorated without rescanning unaffected text
+ok 146 - later added subtrees and character edits are decorated without rescanning unaffected text
+  ---
+  duration_ms: 8.685787
+  type: 'test'
+  ...
+# Subtest: nodes removed before observer delivery are ignored
+ok 147 - nodes removed before observer delivery are ignored
+  ---
+  duration_ms: 1.233872
+  type: 'test'
+  ...
+# Subtest: the current actor marker passes through the same display resolver
+ok 148 - the current actor marker passes through the same display resolver
+  ---
+  duration_ms: 0.982162
+  type: 'test'
+  ...
+# Subtest: consumables are priced, buyable once per effect, and set the boost they promise
+ok 149 - consumables are priced, buyable once per effect, and set the boost they promise
+  ---
+  duration_ms: 158.015654
+  type: 'test'
+  ...
+# Subtest: a lucky coin doubles the coins of the next great minigame and is consumed
+ok 150 - a lucky coin doubles the coins of the next great minigame and is consumed
+  ---
+  duration_ms: 43.204457
+  type: 'test'
+  ...
+# Subtest: daily streak rewards grow and pay milestone bonuses
+ok 151 - daily streak rewards grow and pay milestone bonuses
+  ---
+  duration_ms: 38.061966
+  type: 'test'
+  ...
+# Subtest: five warming taps show progressive egg art and hatch once at the existing boundary
+ok 152 - five warming taps show progressive egg art and hatch once at the existing boundary
+  ---
+  duration_ms: 68.999342
+  type: 'test'
+  ...
+# Subtest: each saved egg resumes its crack stage without replaying a touch reaction
+ok 153 - each saved egg resumes its crack stage without replaying a touch reaction
+  ---
+  duration_ms: 200.588111
+  type: 'test'
+  ...
+# Subtest: reload immediately after the fifth tap keeps the same newborn and one birth record
+ok 154 - reload immediately after the fifth tap keeps the same newborn and one birth record
+  ---
+  duration_ms: 51.51016
+  type: 'test'
+  ...
+# Subtest: reset during the hatch effect cannot alter or decorate the replacement egg
+ok 155 - reset during the hatch effect cannot alter or decorate the replacement egg
+  ---
+  duration_ms: 15.575955
+  type: 'test'
+  ...
+# Subtest: the egg itself can be warmed and newborn care remains available immediately
+ok 156 - the egg itself can be warmed and newborn care remains available immediately
+  ---
+  duration_ms: 16.143701
+  type: 'test'
+  ...
+# Subtest: all 31 next-egg species keep their stable identity and first-form artwork
+ok 157 - all 31 next-egg species keep their stable identity and first-form artwork
+  ---
+  duration_ms: 561.13867
+  type: 'test'
+  ...
+# Subtest: a failed egg image uses the existing emoji fallback and can still hatch
+ok 158 - a failed egg image uses the existing emoji fallback and can still hatch
+  ---
+  duration_ms: 13.442084
+  type: 'test'
+  ...
+# Subtest: finished reactions are removed and cannot replay when returning from a minigame
+ok 159 - finished reactions are removed and cannot replay when returning from a minigame
+  ---
+  duration_ms: 59.558115
+  type: 'test'
+  ...
+# Subtest: cancelled hatch animation is cleaned before an immediate minigame return
+ok 160 - cancelled hatch animation is cleaned before an immediate minigame return
+  ---
+  duration_ms: 18.607099
+  type: 'test'
+  ...
+# Subtest: reduced motion shows the correct egg and newborn without a pending reveal
+ok 161 - reduced motion shows the correct egg and newborn without a pending reveal
+  ---
+  duration_ms: 12.813496
+  type: 'test'
+  ...
+# Subtest: sodachi 20 to 100 costs 1,500-1,800 growth and 20 to 70 costs under 800
+ok 162 - sodachi 20 to 100 costs 1,500-1,800 growth and 20 to 70 costs under 800
+  ---
+  duration_ms: 77.263512
+  type: 'test'
+  ...
+# Subtest: sleeping from empty takes roughly 3-12 seconds of recovery steps
+ok 163 - sleeping from empty takes roughly 3-12 seconds of recovery steps
+  ---
+  duration_ms: 38.128226
+  type: 'test'
+  ...
+# Subtest: an S-rank result grants a growth boost that doubles growth and decays per tick
+ok 164 - an S-rank result grants a growth boost that doubles growth and decays per tick
+  ---
+  duration_ms: 22.933037
+  type: 'test'
+  ...
+# Subtest: game length: normal difficulty runs at face value, easy adds 20%, short mode trims games of 20s or more
+ok 165 - game length: normal difficulty runs at face value, easy adds 20%, short mode trims games of 20s or more
+  ---
+  duration_ms: 22.435235
+  type: 'test'
+  ...
+# Subtest: life recovers during ordinary care and faster when everything is above 60
+ok 166 - life recovers during ordinary care and faster when everything is above 60
+  ---
+  duration_ms: 14.072166
+  type: 'test'
+  ...
+# Subtest: a full transform meter opens the transform choice right after the game, with no lottery
+ok 167 - a full transform meter opens the transform choice right after the game, with no lottery
+  ---
+  duration_ms: 20.91404
+  type: 'test'
+  ...
+# Subtest: one-finger drags cannot pan the home, including a drag starting on a care button
+ok 168 - one-finger drags cannot pan the home, including a drag starting on a care button
+  ---
+  duration_ms: 68.712048
+  type: 'test'
+  ...
+# Subtest: long text can scroll in both directions but cannot drag the home past its edges
+ok 169 - long text can scroll in both directions but cannot drag the home past its edges
+  ---
+  duration_ms: 9.083347
+  type: 'test'
+  ...
+# Subtest: pinch zoom and panning an enlarged view remain available
+ok 170 - pinch zoom and panning an enlarged view remain available
+  ---
+  duration_ms: 15.549014
+  type: 'test'
+  ...
+# Subtest: menus, minigames and life records keep their gestures and returning home restores the lock
+ok 171 - menus, minigames and life records keep their gestures and returning home restores the lock
+  ---
+  duration_ms: 30.856353
+  type: 'test'
+  ...
+# Subtest: every shipped UI/game emoji has an illustrated display definition
+ok 172 - every shipped UI/game emoji has an illustrated display definition
+  ---
+  duration_ms: 198.838942
+  type: 'test'
+  ...
+# Subtest: the exact actor and generic game props are separate, and saves stay untouched
+ok 173 - the exact actor and generic game props are separate, and saves stay untouched
+  ---
+  duration_ms: 27.164472
+  type: 'test'
+  ...
+# Subtest: every minigame maps to one of the intro demo kinds, and the kinds are varied
+ok 174 - every minigame maps to one of the intro demo kinds, and the kinds are varied
+  ---
+  duration_ms: 140.702963
+  type: 'test'
+  ...
+# Subtest: the intro card carries a demo canvas tagged with the demo kind
+ok 175 - the intro card carries a demo canvas tagged with the demo kind
+  ---
+  duration_ms: 13.899084
+  type: 'test'
+  ...
+# Subtest: swipe thresholds are unified through MG_SWIPE_MIN and hold timing through MG_HOLD_PROFILES
+ok 176 - swipe thresholds are unified through MG_SWIPE_MIN and hold timing through MG_HOLD_PROFILES
+  ---
+  duration_ms: 28.419375
+  type: 'test'
+  ...
+# Subtest: the result toast offers a retry button that restarts the same game
+ok 177 - the result toast offers a retry button that restarts the same game
+  ---
+  duration_ms: 25.34744
+  type: 'test'
+  ...
+# Subtest: the result toast has no retry button before any game was played
+ok 178 - the result toast has no retry button before any game was played
+  ---
+  duration_ms: 8.507147
+  type: 'test'
+  ...
+# Subtest: the intro card shows for the first three plays and the help overlay works any time
+ok 179 - the intro card shows for the first three plays and the help overlay works any time
+  ---
+  duration_ms: 15.193747
+  type: 'test'
+  ...
+# Subtest: steps pad fires the moment a direction is clear, once per flick, without waiting for release
+ok 180 - steps pad fires the moment a direction is clear, once per flick, without waiting for release
+  ---
+  duration_ms: 11.807437
+  type: 'test'
+  ...
+# Subtest: turn-based steps pad needs a longer drag for the second cell in the same direction
+ok 181 - turn-based steps pad needs a longer drag for the second cell in the same direction
+  ---
+  duration_ms: 23.030884
+  type: 'test'
+  ...
+# Subtest: delta pad glides at the pad edge while pushing outward and stops when the finger comes back
+ok 182 - delta pad glides at the pad edge while pushing outward and stops when the finger comes back
+  ---
+  duration_ms: 39.676973
+  type: 'test'
+  ...
+# Subtest: vector pad keeps the direction of the real movement, not the wobble when the finger stops
+ok 183 - vector pad keeps the direction of the real movement, not the wobble when the finger stops
+  ---
+  duration_ms: 9.464923
+  type: 'test'
+  ...
+# Subtest: life card and received life code show the recorded woman, not a system emoji
+ok 184 - life card and received life code show the recorded woman, not a system emoji
+  ---
+  duration_ms: 73.339491
+  type: 'test'
+  ...
+# Subtest: overlapping stage names and chosen infinite forms retain their recorded portraits
+ok 185 - overlapping stage names and chosen infinite forms retain their recorded portraits
+  ---
+  duration_ms: 10.010205
+  type: 'test'
+  ...
+# Subtest: leaving current location restores the home-region label after presentation caching
+ok 186 - leaving current location restores the home-region label after presentation caching
+  ---
+  duration_ms: 19.350882
+  type: 'test'
+  ...
+# Subtest: legacy life timeline resolves stage labels and keeps unrelated log strings escaped
+ok 187 - legacy life timeline resolves stage labels and keeps unrelated log strings escaped
+  ---
+  duration_ms: 25.349372
+  type: 'test'
+  ...
+# Subtest: static script exposes the locality resolver on window
+ok 188 - static script exposes the locality resolver on window
+  ---
+  duration_ms: 8.037489
+  type: 'test'
+  ...
+# Subtest: known municipalities resolve to their curated scenery profiles
+ok 189 - known municipalities resolve to their curated scenery profiles
+  ---
+  duration_ms: 3.947347
+  type: 'test'
+  ...
+# Subtest: prefecture-aware matching does not confuse same-named wards or conflicting cities
+ok 190 - prefecture-aware matching does not confuse same-named wards or conflicting cities
+  ---
+  duration_ms: 0.193192
+  type: 'test'
+  ...
+# Subtest: explicit Osaka city wards are metropolitan without capturing other cities or bare wards
+ok 191 - explicit Osaka city wards are metropolitan without capturing other cities or bare wards
+  ---
+  duration_ms: 0.160552
+  type: 'test'
+  ...
+# Subtest: unknown municipalities use a general town image without claiming local geography
+ok 192 - unknown municipalities use a general town image without claiming local geography
+  ---
+  duration_ms: 0.293814
+  type: 'test'
+  ...
+# Subtest: sanitizeLocality rejects malformed values and removes unapproved saved fields
+ok 193 - sanitizeLocality rejects malformed values and removes unapproved saved fields
+  ---
+  duration_ms: 0.219441
+  type: 'test'
+  ...
+# Subtest: reload restores saved municipal scenery without requesting GPS
+ok 194 - reload restores saved municipal scenery without requesting GPS
+  ---
+  duration_ms: 79.394297
+  type: 'test'
+  ...
+# Subtest: unknown saved municipalities describe the neutral generated town image
+ok 195 - unknown saved municipalities describe the neutral generated town image
+  ---
+  duration_ms: 13.307641
+  type: 'test'
+  ...
+# Subtest: malformed saved locality is discarded and cannot activate current-location scenery
+ok 196 - malformed saved locality is discarded and cannot activate current-location scenery
+  ---
+  duration_ms: 18.480258
+  type: 'test'
+  ...
+# Subtest: a successful selection saves only display-safe locality fields
+ok 197 - a successful selection saves only display-safe locality fields
+  ---
+  duration_ms: 37.611357
+  type: 'test'
+  ...
+# Subtest: failed refresh keeps saved scenery selected and a later explicit retry can replace it
+ok 198 - failed refresh keeps saved scenery selected and a later explicit retry can replace it
+  ---
+  duration_ms: 49.930967
+  type: 'test'
+  ...
+# Subtest: an observed municipality is offered for selection when another region remains displayed
+ok 199 - an observed municipality is offered for selection when another region remains displayed
+  ---
+  duration_ms: 15.428302
+  type: 'test'
+  ...
+# Subtest: an invalid live municipality falls back to the sanitized saved selection
+ok 200 - an invalid live municipality falls back to the sanitized saved selection
+  ---
+  duration_ms: 15.917269
+  type: 'test'
+  ...
+# Subtest: manual refresh of a selected locality persists and reloads the new municipality
+ok 201 - manual refresh of a selected locality persists and reloads the new municipality
+  ---
+  duration_ms: 30.143687
+  type: 'test'
+  ...
+# Subtest: a canceled manual refresh cannot replace or render over the selected locality
+ok 202 - a canceled manual refresh cannot replace or render over the selected locality
+  ---
+  duration_ms: 27.89246
+  type: 'test'
+  ...
+# Subtest: explicit home selection clears only the current-location presentation
+ok 203 - explicit home selection clears only the current-location presentation
+  ---
+  duration_ms: 16.9911
+  type: 'test'
+  ...
+# Subtest: pending current-location selection cannot override a later travel choice
+ok 204 - pending current-location selection cannot override a later travel choice
+  ---
+  duration_ms: 19.901462
+  type: 'test'
+  ...
+# Subtest: story pools exist for everyday care, travel, courtship and waking
+ok 205 - story pools exist for everyday care, travel, courtship and waking
+  ---
+  duration_ms: 99.570254
+  type: 'test'
+  ...
+# Subtest: each midlife event fires once at its age and records a life-log line
+ok 206 - each midlife event fires once at its age and records a life-log line
+  ---
+  duration_ms: 15.863337
+  type: 'test'
+  ...
+# Subtest: a birthday at a midlife age triggers the event through onAgeChanged
+ok 207 - a birthday at a midlife age triggers the event through onAgeChanged
+  ---
+  duration_ms: 22.143475
+  type: 'test'
+  ...
+# Subtest: a fresh save is schemaVersion 5 and survives a save/load round trip unchanged
+ok 208 - a fresh save is schemaVersion 5 and survives a save/load round trip unchanged
+  ---
+  duration_ms: 143.934244
+  type: 'test'
+  ...
+# Subtest: a schemaVersion 3 save keeps its displayed age (18 -> 20 ticks per year)
+ok 209 - a schemaVersion 3 save keeps its displayed age (18 -> 20 ticks per year)
+  ---
+  duration_ms: 19.771766
+  type: 'test'
+  ...
+# Subtest: a pre-schema save converts the old age scale, stage names, and freePlay
+ok 210 - a pre-schema save converts the old age scale, stage names, and freePlay
+  ---
+  duration_ms: 11.876762
+  type: 'test'
+  ...
+# Subtest: schemaVersion 5 heals wrong shapes without touching valid values
+ok 211 - schemaVersion 5 heals wrong shapes without touching valid values
+  ---
+  duration_ms: 40.930766
+  type: 'test'
+  ...
+# Subtest: normalizeStateShape is idempotent on a fresh state
+ok 212 - normalizeStateShape is idempotent on a fresh state
+  ---
+  duration_ms: 13.716219
+  type: 'test'
+  ...
+# Subtest: the infinite-world return snapshot is normalized with the save
+ok 213 - the infinite-world return snapshot is normalized with the save
+  ---
+  duration_ms: 27.693731
+  type: 'test'
+  ...
+# Subtest: stack-harvest uses the existing atlas crop within the original block decoration box
+ok 214 - stack-harvest uses the existing atlas crop within the original block decoration box
+  ---
+  duration_ms: 76.158604
+  type: 'test'
+  ...
+# Subtest: stack-sakura uses the existing atlas crop within the original block decoration box
+ok 215 - stack-sakura uses the existing atlas crop within the original block decoration box
+  ---
+  duration_ms: 12.345019
+  type: 'test'
+  ...
+# Subtest: stack-leaves uses the existing atlas crop within the original block decoration box
+ok 216 - stack-leaves uses the existing atlas crop within the original block decoration box
+  ---
+  duration_ms: 21.638343
+  type: 'test'
+  ...
+# Subtest: pending, failed, wrong-size and drawing-error atlases retain the original emoji and recover on load
+ok 217 - pending, failed, wrong-size and drawing-error atlases retain the original emoji and recover on load
+  ---
+  duration_ms: 22.13345
+  type: 'test'
+  ...
+# Subtest: unmapped stack themes keep their own symbols instead of a different illustration
+ok 218 - unmapped stack themes keep their own symbols instead of a different illustration
+  ---
+  duration_ms: 34.446856
+  type: 'test'
+  ...
+# Subtest: illustrated play keeps all other Canvas commands, score, rewards and timing identical to emoji fallback
+ok 219 - illustrated play keeps all other Canvas commands, score, rewards and timing identical to emoji fallback
+  ---
+  duration_ms: 807.553925
+  type: 'test'
+  ...
+# Subtest: reduced motion and lightweight mode retain the motif; retirement prevents late image work
+ok 220 - reduced motion and lightweight mode retain the motif; retirement prevents late image work
+  ---
+  duration_ms: 32.696349
+  type: 'test'
+  ...
+# [naotocchi] minigame Error: boom
+#     at frame (/workspace/scratch/dfba51ced877/card-audit/tests/minigame-lifecycle-test.cjs:220:60)
+#     at mgRunTagged (evalmachine.<anonymous>:25211:17)
+#     at evalmachine.<anonymous>:25256:9
+#     at /workspace/scratch/dfba51ced877/card-audit/tests/helpers/runtime-harness.cjs:138:49
+#     at Object.fn (/workspace/scratch/dfba51ced877/card-audit/tests/helpers/runtime-harness.cjs:116:82)
+#     at Object.advance (/workspace/scratch/dfba51ced877/card-audit/tests/helpers/runtime-harness.cjs:193:57)
+#     at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/card-audit/tests/minigame-lifecycle-test.cjs:224:5)
+#     at Test.runInAsyncScope (node:async_hooks:227:14)
+#     at Test.run (node:internal/test_runner/test:1382:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+# [naotocchi] minigame Error: start boom
+#     at Object.start (/workspace/scratch/dfba51ced877/card-audit/tests/minigame-lifecycle-test.cjs:237:59)
+#     at evalmachine.<anonymous>:25591:39
+#     at mgRunTagged (evalmachine.<anonymous>:25211:17)
+#     at launch (evalmachine.<anonymous>:25591:7)
+#     at Object.startMinigame (evalmachine.<anonymous>:25596:10)
+#     at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/card-audit/tests/minigame-lifecycle-test.cjs:237:9)
+#     at Test.runInAsyncScope (node:async_hooks:227:14)
+#     at Test.run (node:internal/test_runner/test:1382:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+#     at Test.postRun (node:internal/test_runner/test:1522:19)
+# Subtest: score 10 keeps results readable before the reaction begins
+ok 221 - score 10 keeps results readable before the reaction begins
+  ---
+  duration_ms: 91.05261
+  type: 'test'
+  ...
+# Subtest: score 90 keeps results readable before the reaction begins
+ok 222 - score 90 keeps results readable before the reaction begins
+  ---
+  duration_ms: 12.697981
+  type: 'test'
+  ...
+# Subtest: a new care conversation replaces results and cancels the delayed game reaction
+ok 223 - a new care conversation replaces results and cancels the delayed game reaction
+  ---
+  duration_ms: 23.295673
+  type: 'test'
+  ...
+# Subtest: replaying cancels the delayed reaction and old result controls
+ok 224 - replaying cancels the delayed reaction and old result controls
+  ---
+  duration_ms: 26.875275
+  type: 'test'
+  ...
+# Subtest: retire clears a held key before the next game
+ok 225 - retire clears a held key before the next game
+  ---
+  duration_ms: 25.933865
+  type: 'test'
+  ...
+# Subtest: complete clears a held key before the next game
+ok 226 - complete clears a held key before the next game
+  ---
+  duration_ms: 12.19327
+  type: 'test'
+  ...
+# Subtest: blur releases keyboard steering and allows a new press
+ok 227 - blur releases keyboard steering and allows a new press
+  ---
+  duration_ms: 20.374976
+  type: 'test'
+  ...
+# Subtest: hidden releases keyboard steering and allows a new press
+ok 228 - hidden releases keyboard steering and allows a new press
+  ---
+  duration_ms: 16.470525
+  type: 'test'
+  ...
+# Subtest: a background switch stops repeating button input without ending the game
+ok 229 - a background switch stops repeating button input without ending the game
+  ---
+  duration_ms: 18.199684
+  type: 'test'
+  ...
+# Subtest: a background switch releases a touch-held control without a pointerup
+ok 230 - a background switch releases a touch-held control without a pointerup
+  ---
+  duration_ms: 32.141563
+  type: 'test'
+  ...
+# Subtest: input scope is restored when an event never bubbles to window
+ok 231 - input scope is restored when an event never bubbles to window
+  ---
+  duration_ms: 12.458175
+  type: 'test'
+  ...
+# Subtest: all 100 registered games can retire without delayed rewards or repopulating the screen
+ok 232 - all 100 registered games can retire without delayed rewards or repopulating the screen
+  ---
+  duration_ms: 226.518791
+  type: 'test'
+  ...
+# Subtest: first-play instructions include each dynamic goal needed to finish the game
+    # Subtest: tilt-maze-3d
+    ok 1 - tilt-maze-3d
+      ---
+      duration_ms: 3.743789
+      type: 'test'
+      ...
+    # Subtest: pingpong-3d
+    ok 2 - pingpong-3d
+      ---
+      duration_ms: 0.943814
+      type: 'test'
+      ...
+    # Subtest: sudoku-mini
+    ok 3 - sudoku-mini
+      ---
+      duration_ms: 1.90834
+      type: 'test'
+      ...
+    # Subtest: area-claim
+    ok 4 - area-claim
+      ---
+      duration_ms: 1.038668
+      type: 'test'
+      ...
+    # Subtest: beach-volley
+    ok 5 - beach-volley
+      ---
+      duration_ms: 0.803102
+      type: 'test'
+      ...
+    1..5
+ok 233 - first-play instructions include each dynamic goal needed to finish the game
+  ---
+  duration_ms: 20.480285
+  type: 'test'
+  ...
+# Subtest: Sudoku instructions follow the actual 4×4 board
+ok 234 - Sudoku instructions follow the actual 4×4 board
+  ---
+  duration_ms: 18.631175
+  type: 'test'
+  ...
+# Subtest: Sudoku instructions follow the actual 6×6 board
+ok 235 - Sudoku instructions follow the actual 6×6 board
+  ---
+  duration_ms: 8.786389
+  type: 'test'
+  ...
+# Subtest: Mancala explains sowing toward the right-hand own store and follows that path
+ok 236 - Mancala explains sowing toward the right-hand own store and follows that path
+  ---
+  duration_ms: 13.766505
+  type: 'test'
+  ...
+# Subtest: a game whose frame loop throws is closed without rewards and the next game works
+ok 237 - a game whose frame loop throws is closed without rewards and the next game works
+  ---
+  duration_ms: 27.128287
+  type: 'test'
+  ...
+# Subtest: a game that throws while starting is closed cleanly
+ok 238 - a game that throws while starting is closed cleanly
+  ---
+  duration_ms: 19.848983
+  type: 'test'
+  ...
+# Subtest: every achievement has an illustration without changing its definition or saved state
+ok 239 - every achievement has an illustration without changing its definition or saved state
+  ---
+  duration_ms: 130.577734
+  type: 'test'
+  ...
+# Subtest: achievement grid, recent list, goals and unlock flash share artwork and preserve locks
+ok 240 - achievement grid, recent list, goals and unlock flash share artwork and preserve locks
+  ---
+  duration_ms: 13.573724
+  type: 'test'
+  ...
+# Subtest: environment notices use matching whole animal PNGs and keep unknown birds intact
+ok 241 - environment notices use matching whole animal PNGs and keep unknown birds intact
+  ---
+  duration_ms: 16.477966
+  type: 'test'
+  ...
+# Subtest: form-change notices and generic butterfly comments do not assume an adult growth stage
+ok 242 - form-change notices and generic butterfly comments do not assume an adult growth stage
+  ---
+  duration_ms: 21.482908
+  type: 'test'
+  ...
+# Subtest: food illustrations distinguish onigiri and cooked egg from care rice and hatching egg
+ok 243 - food illustrations distinguish onigiri and cooked egg from care rice and hatching egg
+  ---
+  duration_ms: 8.977097
+  type: 'test'
+  ...
+# Subtest: cake preserves order, retry and completion while the placed item keeps its illustration
+ok 244 - cake preserves order, retry and completion while the placed item keeps its illustration
+  ---
+  duration_ms: 28.220405
+  type: 'test'
+  ...
+# Subtest: bento retains its preview interval and shows the actual food even in a wrong slot
+ok 245 - bento retains its preview interval and shows the actual food even in a wrong slot
+  ---
+  duration_ms: 11.989602
+  type: 'test'
+  ...
+# Subtest: food decoration keeps timeout scoring and retires without late score changes
+ok 246 - food decoration keeps timeout scoring and retires without late score changes
+  ---
+  duration_ms: 90.88655
+  type: 'test'
+  ...
+# Subtest: bento completion retains all food and text in normal, reduced-motion, low and fallback modes
+ok 247 - bento completion retains all food and text in normal, reduced-motion, low and fallback modes
+  ---
+  duration_ms: 92.070265
+  type: 'test'
+  ...
+# Subtest: a short absence changes nothing
+ok 248 - a short absence changes nothing
+  ---
+  duration_ms: 94.978614
+  type: 'test'
+  ...
+# Subtest: ten minutes away lowers stats gently and leaves coins
+ok 249 - ten minutes away lowers stats gently and leaves coins
+  ---
+  duration_ms: 14.760264
+  type: 'test'
+  ...
+# Subtest: stats never drop below the floor even when the drift exceeds them
+ok 250 - stats never drop below the floor even when the drift exceeds them
+  ---
+  duration_ms: 20.486665
+  type: 'test'
+  ...
+# Subtest: a long absence is capped at thirty minutes of drift and cannot endanger a low pet
+ok 251 - a long absence is capped at thirty minutes of drift and cannot endanger a low pet
+  ---
+  duration_ms: 18.975234
+  type: 'test'
+  ...
+# Subtest: sleeping while away recovers energy instead of draining it
+ok 252 - sleeping while away recovers energy instead of draining it
+  ---
+  duration_ms: 7.805008
+  type: 'test'
+  ...
+# Subtest: only one main overlay is open at a time
+ok 253 - only one main overlay is open at a time
+  ---
+  duration_ms: 76.330985
+  type: 'test'
+  ...
+# Subtest: an unknown kind opens nothing and close buttons only close their own overlay
+ok 254 - an unknown kind opens nothing and close buttons only close their own overlay
+  ---
+  duration_ms: 14.458078
+  type: 'test'
+  ...
+# Subtest: every overlay kind renders its own panel
+ok 255 - every overlay kind renders its own panel
+  ---
+  duration_ms: 25.27497
+  type: 'test'
+  ...
+# Subtest: performance tiers step up on slow frames and back down after sustained fast frames
+ok 256 - performance tiers step up on slow frames and back down after sustained fast frames
+  ---
+  duration_ms: 15.792551
+  type: 'test'
+  ...
+# Subtest: a correct Sudoku cell keeps the incomplete board; only the last cell advances once
+ok 257 - a correct Sudoku cell keeps the incomplete board; only the last cell advances once
+  ---
+  duration_ms: 89.344933
+  type: 'test'
+  ...
+# Subtest: weather follows motion preferences immediately in both directions
+ok 258 - weather follows motion preferences immediately in both directions
+  ---
+  duration_ms: 8.965048
+  type: 'test'
+  ...
+# Subtest: returning home after a slow minigame rebuilds the unchanged rain in lightweight mode
+ok 259 - returning home after a slow minigame rebuilds the unchanged rain in lightweight mode
+  ---
+  duration_ms: 13.525159
+  type: 'test'
+  ...
+# Subtest: life records suppress weather and seasonal foreground effects until returning home
+ok 260 - life records suppress weather and seasonal foreground effects until returning home
+  ---
+  duration_ms: 18.540708
+  type: 'test'
+  ...
+# Subtest: landscape notices gain pictures while generic birds and growth stages stay untouched
+ok 261 - landscape notices gain pictures while generic birds and growth stages stay untouched
+  ---
+  duration_ms: 76.312187
+  type: 'test'
+  ...
+# Subtest: road and space props use pictures, keep the player glyph, and fall back on failed images
+ok 262 - road and space props use pictures, keep the player glyph, and fall back on failed images
+  ---
+  duration_ms: 1002.128741
+  type: 'test'
+  ...
+# Subtest: memory cards retain hidden backs and reveal the illustration only after flipping
+ok 263 - memory cards retain hidden backs and reveal the illustration only after flipping
+  ---
+  duration_ms: 28.873355
+  type: 'test'
+  ...
+# Subtest: late loading, malformed atlases and decode errors keep the original prop with no Canvas state leak
+ok 264 - late loading, malformed atlases and decode errors keep the original prop with no Canvas state leak
+  ---
+  duration_ms: 17.502191
+  type: 'test'
+  ...
+# Subtest: illustrated roads keep input, timing, score and saved rewards identical in normal, reduced and low modes
+ok 265 - illustrated roads keep input, timing, score and saved rewards identical in normal, reduced and low modes
+  ---
+  duration_ms: 5548.74349
+  type: 'test'
+  ...
+# Subtest: all memory-card faces stay distinct and full completion keeps the same pairs, score and rewards
+ok 266 - all memory-card faces stay distinct and full completion keeps the same pairs, score and rewards
+  ---
+  duration_ms: 306.696431
+  type: 'test'
+  ...
+# Subtest: other pseudo-road games keep their previous renderers and retirement cancels illustrated frames
+ok 267 - other pseudo-road games keep their previous renderers and retirement cancels illustrated frames
+  ---
+  duration_ms: 248.485455
+  type: 'test'
+  ...
+# Subtest: missing prop module keeps the complete original game and safe text fallback
+ok 268 - missing prop module keeps the complete original game and safe text fallback
+  ---
+  duration_ms: 263.796132
+  type: 'test'
+  ...
+# Subtest: same-season travel renders the destination scenery, including return trips
+ok 269 - same-season travel renders the destination scenery, including return trips
+  ---
+  duration_ms: 74.936711
+  type: 'test'
+  ...
+# Subtest: jungle does not acquire snowy forecasts from the global winter rule
+ok 270 - jungle does not acquire snowy forecasts from the global winter rule
+  ---
+  duration_ms: 0.785625
+  type: 'test'
+  ...
+# Subtest: desert does not acquire snowy forecasts from the global winter rule
+ok 271 - desert does not acquire snowy forecasts from the global winter rule
+  ---
+  duration_ms: 0.871595
+  type: 'test'
+  ...
+# Subtest: deepsea and the star stop do not invent surface weather forecasts
+ok 272 - deepsea and the star stop do not invent surface weather forecasts
+  ---
+  duration_ms: 0.163997
+  type: 'test'
+  ...
+# Subtest: observed hometown weather is not used as the weather of a distant destination
+ok 273 - observed hometown weather is not used as the weather of a distant destination
+  ---
+  duration_ms: 15.566841
+  type: 'test'
+  ...
+# Subtest: surface seasons do not introduce heat or cold penalties to underwater and starry places
+ok 274 - surface seasons do not introduce heat or cold penalties to underwater and starry places
+  ---
+  duration_ms: 11.582729
+  type: 'test'
+  ...
+# Subtest: underwater rendering and effects ignore surface weather without overwriting the chosen setting
+ok 275 - underwater rendering and effects ignore surface weather without overwriting the chosen setting
+  ---
+  duration_ms: 17.393898
+  type: 'test'
+  ...
+# Subtest: moving between surface, underwater and the star stop refreshes effects with unchanged settings
+ok 276 - moving between surface, underwater and the star stop refreshes effects with unchanged settings
+  ---
+  duration_ms: 9.341647
+  type: 'test'
+  ...
+# Subtest: the renamed waterside keeps its saved region identity, visits and historical text
+ok 277 - the renamed waterside keeps its saved region identity, visits and historical text
+  ---
+  duration_ms: 26.296662
+  type: 'test'
+  ...
+# Subtest: regional game preference does not leak into a former visual base
+ok 278 - regional game preference does not leak into a former visual base
+  ---
+  duration_ms: 38.299344
+  type: 'test'
+  ...
+# Subtest: snow country, desert and jungle offer a distinct benefit after combined modifiers
+ok 279 - snow country, desert and jungle offer a distinct benefit after combined modifiers
+  ---
+  duration_ms: 30.190649
+  type: 'test'
+  ...
+# Subtest: deepsea schedules its own event in daytime snow
+ok 280 - deepsea schedules its own event in daytime snow
+  ---
+  duration_ms: 11.076064
+  type: 'test'
+  ...
+# Subtest: star_stop schedules its own event in daytime snow
+ok 281 - star_stop schedules its own event in daytime snow
+  ---
+  duration_ms: 11.138698
+  type: 'test'
+  ...
+# Subtest: memory_lake schedules its own event in daytime snow
+ok 282 - memory_lake schedules its own event in daytime snow
+  ---
+  duration_ms: 9.196768
+  type: 'test'
+  ...
+# Subtest: a regional moment waits while asleep or a menu is open
+ok 283 - a regional moment waits while asleep or a menu is open
+  ---
+  duration_ms: 21.860318
+  type: 'test'
+  ...
+# Subtest: legend affinity is a soft preference and never overrides unseen priority
+ok 284 - legend affinity is a soft preference and never overrides unseen priority
+  ---
+  duration_ms: 103.157036
+  type: 'test'
+  ...
+# Subtest: mountain climbing responds to grip timing, reaches the summit and awards once
+ok 285 - mountain climbing responds to grip timing, reaches the summit and awards once
+  ---
+  duration_ms: 21.928745
+  type: 'test'
+  ...
+# Subtest: climbing misses and retirement do not award a completed game
+ok 286 - climbing misses and retirement do not award a completed game
+  ---
+  duration_ms: 15.033415
+  type: 'test'
+  ...
+# Subtest: climbing draws finite coordinates, accepts keyboard rock selection and times out once
+ok 287 - climbing draws finite coordinates, accepts keyboard rock selection and times out once
+  ---
+  duration_ms: 54.113969
+  type: 'test'
+  ...
+# Subtest: saved climbing records, ordinary region count and total games remain intact
+ok 288 - saved climbing records, ordinary region count and total games remain intact
+  ---
+  duration_ms: 27.778544
+  type: 'test'
+  ...
+# [naotocchi] storage Error: localStorage quota exceeded
+#     at noteStorageWarning (evalmachine.<anonymous>:12948:24)
+#     at Object.saveState (evalmachine.<anonymous>:12987:9)
+#     at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/card-audit/tests/save-recovery-test.cjs:52:9)
+#     at Test.runInAsyncScope (node:async_hooks:227:14)
+#     at Test.run (node:internal/test_runner/test:1382:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+#     at Test.postRun (node:internal/test_runner/test:1522:19)
+#     at Test.run (node:internal/test_runner/test:1447:12)
+#     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+# [naotocchi] storage Error: localStorage quota exceeded
+#     at noteStorageWarning (evalmachine.<anonymous>:12948:24)
+#     at Object.saveState (evalmachine.<anonymous>:12987:9)
+#     at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/card-audit/tests/save-recovery-test.cjs:63:9)
+#     at Test.runInAsyncScope (node:async_hooks:227:14)
+#     at Test.run (node:internal/test_runner/test:1382:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+#     at Test.postRun (node:internal/test_runner/test:1522:19)
+#     at Test.run (node:internal/test_runner/test:1447:12)
+#     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+# [naotocchi] storage Error: localStorage quota exceeded
+#     at noteStorageWarning (evalmachine.<anonymous>:12948:24)
+#     at saveState (evalmachine.<anonymous>:12987:9)
+#     at Object.fn (evalmachine.<anonymous>:27408:7)
+#     at dispatch (/workspace/scratch/dfba51ced877/card-audit/tests/helpers/runtime-harness.cjs:105:75)
+#     at Object.dispatch (/workspace/scratch/dfba51ced877/card-audit/tests/helpers/runtime-harness.cjs:197:92)
+#     at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/card-audit/tests/save-recovery-test.cjs:240:5)
+#     at Test.runInAsyncScope (node:async_hooks:227:14)
+#     at Test.run (node:internal/test_runner/test:1382:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+#     at Test.postRun (node:internal/test_runner/test:1522:19)
+# [naotocchi] storage Error: localStorage quota exceeded
+#     at noteStorageWarning (evalmachine.<anonymous>:12948:24)
+#     at Object.saveState (evalmachine.<anonymous>:12987:9)
+#     at TestContext.<anonymous> (/workspace/scratch/dfba51ced877/card-audit/tests/save-recovery-test.cjs:282:9)
+#     at Test.runInAsyncScope (node:async_hooks:227:14)
+#     at Test.run (node:internal/test_runner/test:1382:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+#     at Test.postRun (node:internal/test_runner/test:1522:19)
+#     at Test.run (node:internal/test_runner/test:1447:12)
+#     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+# Subtest: backup write failure does not stop a writable primary save
+ok 289 - backup write failure does not stop a writable primary save
+  ---
+  duration_ms: 88.815745
+  type: 'test'
+  ...
+# Subtest: failed primary migration cannot replace a working backup
+ok 290 - failed primary migration cannot replace a working backup
+  ---
+  duration_ms: 24.701846
+  type: 'test'
+  ...
+# Subtest: a failed save after recovery leaves a usable backup for the next reload
+ok 291 - a failed save after recovery leaves a usable backup for the next reload
+  ---
+  duration_ms: 36.216051
+  type: 'test'
+  ...
+# Subtest: backup advances to the latest successful save and survives the next write failure
+ok 292 - backup advances to the latest successful save and survives the next write failure
+  ---
+  duration_ms: 69.768622
+  type: 'test'
+  ...
+# Subtest: a missing primary resumes the backup instead of creating a new life
+ok 293 - a missing primary resumes the backup instead of creating a new life
+  ---
+  duration_ms: 35.657898
+  type: 'test'
+  ...
+# Subtest: backup recovery applies legacy migrations once and preserves old characters
+ok 294 - backup recovery applies legacy migrations once and preserves old characters
+  ---
+  duration_ms: 36.426459
+  type: 'test'
+  ...
+# Subtest: invalid top-level payloads fall back without replacing the backup
+ok 295 - invalid top-level payloads fall back without replacing the backup
+  ---
+  duration_ms: 107.096415
+  type: 'test'
+  ...
+# Subtest: confirmed full reset cannot later resurrect the removed life from backup
+ok 296 - confirmed full reset cannot later resurrect the removed life from backup
+  ---
+  duration_ms: 57.982177
+  type: 'test'
+  ...
+# Subtest: unrecoverable saves remain intact through hidden, unload and repeated saves until explicit reset
+ok 297 - unrecoverable saves remain intact through hidden, unload and repeated saves until explicit reset
+  ---
+  duration_ms: 60.808651
+  type: 'test'
+  ...
+# Subtest: unreadable storage still permits boot and gameplay without throwing
+ok 298 - unreadable storage still permits boot and gameplay without throwing
+  ---
+  duration_ms: 17.381809
+  type: 'test'
+  ...
+# Subtest: import retains a newer primary saved by another tab before replacement
+ok 299 - import retains a newer primary saved by another tab before replacement
+  ---
+  duration_ms: 77.151043
+  type: 'test'
+  ...
+# Subtest: import failure cannot poison a recovered backup with the broken primary
+ok 300 - import failure cannot poison a recovered backup with the broken primary
+  ---
+  duration_ms: 42.873307
+  type: 'test'
+  ...
+# Subtest: import stops before replacing a save if its safety snapshot cannot be written
+ok 301 - import stops before replacing a save if its safety snapshot cannot be written
+  ---
+  duration_ms: 110.977467
+  type: 'test'
+  ...
+# Subtest: import retains the prior life across replacement, reload and undo, including duplicate snapshots
+ok 302 - import retains the prior life across replacement, reload and undo, including duplicate snapshots
+  ---
+  duration_ms: 59.832889
+  type: 'test'
+  ...
+# Subtest: restore retains a newer primary saved by another tab before replacement
+ok 303 - restore retains a newer primary saved by another tab before replacement
+  ---
+  duration_ms: 99.942049
+  type: 'test'
+  ...
+# Subtest: restore failure cannot poison a recovered backup with the broken primary
+ok 304 - restore failure cannot poison a recovered backup with the broken primary
+  ---
+  duration_ms: 27.457204
+  type: 'test'
+  ...
+# Subtest: restore stops before replacing a save if its safety snapshot cannot be written
+ok 305 - restore stops before replacing a save if its safety snapshot cannot be written
+  ---
+  duration_ms: 29.561058
+  type: 'test'
+  ...
+# Subtest: restore retains the prior life across replacement, reload and undo, including duplicate snapshots
+ok 306 - restore retains the prior life across replacement, reload and undo, including duplicate snapshots
+  ---
+  duration_ms: 47.808214
+  type: 'test'
+  ...
+# Subtest: export uses the recoverable save when a broken primary cannot be repaired
+ok 307 - export uses the recoverable save when a broken primary cannot be repaired
+  ---
+  duration_ms: 18.112402
+  type: 'test'
+  ...
+# Subtest: explicit import can recover unreadable saves while retaining both originals for inspection
+ok 308 - explicit import can recover unreadable saves while retaining both originals for inspection
+  ---
+  duration_ms: 58.948785
+  type: 'test'
+  ...
+# Subtest: import from backup recovery with no primary retains the former life after reload
+ok 309 - import from backup recovery with no primary retains the former life after reload
+  ---
+  duration_ms: 34.774445
+  type: 'test'
+  ...
+# Subtest: a full storage drops the automatic snapshots and still writes the primary save
+ok 310 - a full storage drops the automatic snapshots and still writes the primary save
+  ---
+  duration_ms: 15.090302
+  type: 'test'
+  ...
+# Subtest: a permanently full storage warns instead of failing silently
+ok 311 - a permanently full storage warns instead of failing silently
+  ---
+  duration_ms: 19.35715
+  type: 'test'
+  ...
+# Subtest: retired companions migrate once with the strongest bond and collection intact
+ok 312 - retired companions migrate once with the strongest bond and collection intact
+  ---
+  duration_ms: 38.035036
+  type: 'test'
+  ...
+# Subtest: minigame ranks follow the S90/A75/B55/C35 thresholds and records keep best and last
+ok 313 - minigame ranks follow the S90/A75/B55/C35 thresholds and records keep best and last
+  ---
+  duration_ms: 71.200402
+  type: 'test'
+  ...
+# Subtest: shop items are bought once, equipped, and toggled off
+ok 314 - shop items are bought once, equipped, and toggled off
+  ---
+  duration_ms: 42.955441
+  type: 'test'
+  ...
+# Subtest: achievement unlocks record their time and do not repeat
+ok 315 - achievement unlocks record their time and do not repeat
+  ---
+  duration_ms: 16.959341
+  type: 'test'
+  ...
+# Subtest: the dex shows a summary and one progress head per species line
+ok 316 - the dex shows a summary and one progress head per species line
+  ---
+  duration_ms: 72.085859
+  type: 'test'
+  ...
+# Subtest: travel shows region cards with effects and marks the current region
+ok 317 - travel shows region cards with effects and marks the current region
+  ---
+  duration_ms: 11.487034
+  type: 'test'
+  ...
+# Subtest: care meters are hidden while the pet is an egg
+ok 318 - care meters are hidden while the pet is an egg
+  ---
+  duration_ms: 13.639522
+  type: 'test'
+  ...
+# Subtest: the sticker catalog is built from existing art with unique ids and valid rarities
+ok 319 - the sticker catalog is built from existing art with unique ids and valid rarities
+  ---
+  duration_ms: 89.358309
+  type: 'test'
+  ...
+# Subtest: granting stickers records copies and turns duplicates into kakera by rarity
+ok 320 - granting stickers records copies and turns duplicates into kakera by rarity
+  ---
+  duration_ms: 13.669097
+  type: 'test'
+  ...
+# Subtest: packs cost coins, hand out three stickers, and the kakera pack guarantees something new
+ok 321 - packs cost coins, hand out three stickers, and the kakera pack guarantees something new
+  ---
+  duration_ms: 21.186932
+  type: 'test'
+  ...
+# Subtest: stickers can be placed only when owned, moved within the page, and removed
+ok 322 - stickers can be placed only when owned, moved within the page, and removed
+  ---
+  duration_ms: 23.168772
+  type: 'test'
+  ...
+# Subtest: page tasks pay out once and count toward the sticker achievements
+ok 323 - page tasks pay out once and count toward the sticker achievements
+  ---
+  duration_ms: 15.79116
+  type: 'test'
+  ...
+# Subtest: a first discovery grants that form as a sticker and the screen lists it
+ok 324 - a first discovery grants that form as a sticker and the screen lists it
+  ---
+  duration_ms: 29.889905
+  type: 'test'
+  ...
+# Subtest: sticker data survives a save and reload, and old saves get an empty book
+ok 325 - sticker data survives a save and reload, and old saves get an empty book
+  ---
+  duration_ms: 64.97576
+  type: 'test'
+  ...
+# Subtest: page export resolves to null without a real canvas
+ok 326 - page export resolves to null without a real canvas
+  ---
+  duration_ms: 8.687349
+  type: 'test'
+  ...
+# Subtest: the shop connects each current item to its illustration and keeps its label
+ok 327 - the shop connects each current item to its illustration and keeps its label
+  ---
+  duration_ms: 70.935013
+  type: 'test'
+  ...
+# Subtest: equipment uses the matching illustration without modifying the saved item or actor frame
+ok 328 - equipment uses the matching illustration without modifying the saved item or actor frame
+  ---
+  duration_ms: 12.094701
+  type: 'test'
+  ...
+# Subtest: manual weather and time retain their labels beside the right illustration
+ok 329 - manual weather and time retain their labels beside the right illustration
+  ---
+  duration_ms: 13.387101
+  type: 'test'
+  ...
+# Subtest: a saved fun item displays its prop and consumes the same single item
+ok 330 - a saved fun item displays its prop and consumes the same single item
+  ---
+  duration_ms: 38.83676
+  type: 'test'
+  ...
+# Subtest: an atlas error exposes the original inventory emoji without changing counts or equipment
+ok 331 - an atlas error exposes the original inventory emoji without changing counts or equipment
+  ---
+  duration_ms: 23.149863
+  type: 'test'
+  ...
+# Subtest: cloud, snow and moon use illustrated scenery while retaining weather particle counts
+ok 332 - cloud, snow and moon use illustrated scenery while retaining weather particle counts
+  ---
+  duration_ms: 9.308036
+  type: 'test'
+  ...
+# Subtest: lightweight weather keeps its smaller particle sets and unchanged choices
+ok 333 - lightweight weather keeps its smaller particle sets and unchanged choices
+  ---
+  duration_ms: 11.071348
+  type: 'test'
+  ...
+# Subtest: winter decor and season controls reuse matching art without replacing region identity
+ok 334 - winter decor and season controls reuse matching art without replacing region identity
+  ---
+  duration_ms: 34.522625
+  type: 'test'
+  ...
+# Subtest: reduced motion keeps world labels and illustrated choices without falling rain or snow
+ok 335 - reduced motion keeps world labels and illustrated choices without falling rain or snow
+  ---
+  duration_ms: 43.086278
+  type: 'test'
+  ...
+# Subtest: earned header badges use illustrations in tier order without granting an unearned clear
+ok 336 - earned header badges use illustrations in tier order without granting an unearned clear
+  ---
+  duration_ms: 12.800065
+  type: 'test'
+  ...
+# Subtest: spring summer and autumn labels and regional scenery share art while preserving their choices
+ok 337 - spring summer and autumn labels and regional scenery share art while preserving their choices
+  ---
+  duration_ms: 16.366547
+  type: 'test'
+  ...
+# Subtest: the scenery atlas can fail independently and keeps a visible fallback for header badges
+ok 338 - the scenery atlas can fail independently and keeps a visible fallback for header badges
+  ---
+  duration_ms: 10.233052
+  type: 'test'
+  ...
+# Subtest: current mountain jungle and memory-lake IDs reach their existing art in world and travel views
+ok 339 - current mountain jungle and memory-lake IDs reach their existing art in world and travel views
+  ---
+  duration_ms: 22.992356
+  type: 'test'
+  ...
+# Subtest: forest decor reuses whole PNGs without adding companions or changing the scene count
+ok 340 - forest decor reuses whole PNGs without adding companions or changing the scene count
+  ---
+  duration_ms: 20.017978
+  type: 'test'
+  ...
+# Subtest: a scenery PNG failure only reveals that decoration fallback without relaying out the cast
+ok 341 - a scenery PNG failure only reveals that decoration fallback without relaying out the cast
+  ---
+  duration_ms: 18.865789
+  type: 'test'
+  ...
+# Subtest: dying treatment stays on home content without containing viewport overlays
+ok 342 - dying treatment stays on home content without containing viewport overlays
+  ---
+  duration_ms: 9.040482
+  type: 'test'
+  ...
+# Subtest: travel opens destinations directly, then closes back to care
+ok 343 - travel opens destinations directly, then closes back to care
+  ---
+  duration_ms: 93.052854
+  type: 'test'
+  ...
+# Subtest: the menu stops aging and an exclusive page replaces it
+ok 344 - the menu stops aging and an exclusive page replaces it
+  ---
+  duration_ms: 26.934875
+  type: 'test'
+  ...
+# Subtest: court rapid taps still count individually
+ok 345 - court rapid taps still count individually
+  ---
+  duration_ms: 130.171326
+  type: 'test'
+  ...
+# Subtest: medicine while healthy still changes the care state and reacts immediately
+ok 346 - medicine while healthy still changes the care state and reacts immediately
+  ---
+  duration_ms: 13.708937
+  type: 'test'
+  ...
+# Subtest: play starts a random game with no chooser
+ok 347 - play starts a random game with no chooser
+  ---
+  duration_ms: 18.367437
+  type: 'test'
+  ...
+# Subtest: home header and menu cannot interrupt an active minigame
+ok 348 - home header and menu cannot interrupt an active minigame
+  ---
+  duration_ms: 8.921053
+  type: 'test'
+  ...
+# Subtest: game selection and achievements each open their own destination
+ok 349 - game selection and achievements each open their own destination
+  ---
+  duration_ms: 13.914547
+  type: 'test'
+  ...
+# Subtest: late weather does not override manual settings or write a location into a save
+ok 350 - late weather does not override manual settings or write a location into a save
+  ---
+  duration_ms: 15.317485
+  type: 'test'
+  ...
+# Subtest: late current-location result cannot pull a player out of another menu
+ok 351 - late current-location result cannot pull a player out of another menu
+  ---
+  duration_ms: 40.658324
+  type: 'test'
+  ...
+# Subtest: Escape cancels the first reset prompt and leaves Data paused
+ok 352 - Escape cancels the first reset prompt and leaves Data paused
+  ---
+  duration_ms: 8.810656
+  type: 'test'
+  ...
+# Subtest: Escape cancels a held final reset without wiping or resuming age
+ok 353 - Escape cancels a held final reset without wiping or resuming age
+  ---
+  duration_ms: 12.570754
+  type: 'test'
+  ...
+# Subtest: failed location permission waits for explicit retry while successful snapshots auto-refresh
+ok 354 - failed location permission waits for explicit retry while successful snapshots auto-refresh
+  ---
+  duration_ms: 10.907951
+  type: 'test'
+  ...
+# Subtest: blocked sleeping travel preserves the active current-city selection
+ok 355 - blocked sleeping travel preserves the active current-city selection
+  ---
+  duration_ms: 13.053958
+  type: 'test'
+  ...
+# Subtest: a small newborn uses spare space and stays near the speech below it
+ok 356 - a small newborn uses spare space and stays near the speech below it
+  ---
+  duration_ms: 8.870235
+  type: 'test'
+  ...
+# Subtest: bottom transparency cannot leave a fish far above its speech
+ok 357 - bottom transparency cannot leave a fish far above its speech
+  ---
+  duration_ms: 91.729552
+  type: 'test'
+  ...
+# Subtest: closer core actors retain the readable size of both full companion arcs
+ok 358 - closer core actors retain the readable size of both full companion arcs
+  ---
+  duration_ms: 10.905998
+  type: 'test'
+  ...
+# Subtest: equipment and the partner sit near the visible body instead of the transparent image top
+ok 359 - equipment and the partner sit near the visible body instead of the transparent image top
+  ---
+  duration_ms: 30.515589
+  type: 'test'
+  ...
+# Subtest: height-constrained companions keep curved wings instead of straight columns
+ok 360 - height-constrained companions keep curved wings instead of straight columns
+  ---
+  duration_ms: 61.094873
+  type: 'test'
+  ...
+# Subtest: height-constrained cast keeps all frames, two sides and motion gaps
+ok 361 - height-constrained cast keeps all frames, two sides and motion gaps
+  ---
+  duration_ms: 1308.772473
+  type: 'test'
+  ...
+# Subtest: more vertical room grows the cast instead of leaving a fixed small scene
+ok 362 - more vertical room grows the cast instead of leaving a fixed small scene
+  ---
+  duration_ms: 1.607987
+  type: 'test'
+  ...
+# Subtest: legacy colors and earned designs survive as a noninteractive collection
+ok 363 - legacy colors and earned designs survive as a noninteractive collection
+  ---
+  duration_ms: 20.214875
+  type: 'test'
+  ...
+# Subtest: glass inputs preview immediately, save on change, and reset only readability settings
+ok 364 - glass inputs preview immediately, save on change, and reset only readability settings
+  ---
+  duration_ms: 24.271195
+  type: 'test'
+  ...
+# Subtest: viewport changes follow browser chrome height while pinch zoom remains usable
+ok 365 - viewport changes follow browser chrome height while pinch zoom remains usable
+  ---
+  duration_ms: 22.692543
+  type: 'test'
+  ...
+# Subtest: glass migration clamps unsafe values and respects an explicit transparency choice
+ok 366 - glass migration clamps unsafe values and respects an explicit transparency choice
+  ---
+  duration_ms: 86.47944
+  type: 'test'
+  ...
+# Subtest: short visible viewports switch meter arrangement and recover without undoing pinch zoom
+ok 367 - short visible viewports switch meter arrangement and recover without undoing pinch zoom
+  ---
+  duration_ms: 16.491757
+  type: 'test'
+  ...
+# Subtest: a viewport resize lays out before the next reaction and does not cancel it on render
+ok 368 - a viewport resize lays out before the next reaction and does not cancel it on render
+  ---
+  duration_ms: 8.900981
+  type: 'test'
+  ...
+# Subtest: a new narration starts at the top while normal renders preserve the reading position
+ok 369 - a new narration starts at the top while normal renders preserve the reading position
+  ---
+  duration_ms: 21.421956
+  type: 'test'
+  ...
+# Subtest: a new speech starts at its first line without truncating a long message
+ok 370 - a new speech starts at its first line without truncating a long message
+  ---
+  duration_ms: 7.316311
+  type: 'test'
+  ...
+# Subtest: locked or invalid legacy designs cannot override the game palette
+ok 371 - locked or invalid legacy designs cannot override the game palette
+  ---
+  duration_ms: 7.588771
+  type: 'test'
+  ...
+# Subtest: every saved color and pattern has one shared preview definition and independent paint layers
+ok 372 - every saved color and pattern has one shared preview definition and independent paint layers
+  ---
+  duration_ms: 7.898319
+  type: 'test'
+  ...
+# Subtest: screen palette samples retain at least 4.5 contrast with white and colored motifs
+ok 373 - screen palette samples retain at least 4.5 contrast with white and colored motifs
+  ---
+  duration_ms: 14.979484
+  type: 'test'
+  ...
+# Subtest: static script exposes the same interface on window
+ok 374 - static script exposes the same interface on window
+  ---
+  duration_ms: 3.617539
+  type: 'test'
+  ...
+# Subtest: simulated weather is deterministic per 3-hour block and region
+ok 375 - simulated weather is deterministic per 3-hour block and region
+  ---
+  duration_ms: 1.825515
+  type: 'test'
+  ...
+# Subtest: simulated weather follows the region climate and the season
+ok 376 - simulated weather follows the region climate and the season
+  ---
+  duration_ms: 4.093858
+  type: 'test'
+  ...
+# Subtest: timeOfDay honors manual modes and uses the local hour for auto/invalid modes
+ok 377 - timeOfDay honors manual modes and uses the local hour for auto/invalid modes
+  ---
+  duration_ms: 0.229226
+  type: 'test'
+  ...
+# Subtest: weatherFromResponse maps official codes and rejects unknown or stale readings
+ok 378 - weatherFromResponse maps official codes and rejects unknown or stale readings
+  ---
+  duration_ms: 0.716712
+  type: 'test'
+  ...
+# Subtest: municipalityFromResponse selects only the nearest municipality within 25km
+ok 379 - municipalityFromResponse selects only the nearest municipality within 25km
+  ---
+  duration_ms: 0.498552
+  type: 'test'
+  ...
+# Subtest: municipalityFromResponse preserves a valid provider prefecture without changing the legacy shape when absent
+ok 380 - municipalityFromResponse preserves a valid provider prefecture without changing the legacy shape when absent
+  ---
+  duration_ms: 0.26506
+  type: 'test'
+  ...
+# Subtest: tracker preserves municipality precision, rounds only weather, and exposes no coordinates
+ok 381 - tracker preserves municipality precision, rounds only weather, and exposes no coordinates
+  ---
+  duration_ms: 2.898995
+  type: 'test'
+  ...
+# Subtest: tracker tolerates independent provider failure and identifies the missing result
+ok 382 - tracker tolerates independent provider failure and identifies the missing result
+  ---
+  duration_ms: 0.950044
+  type: 'test'
+  ...
+# Subtest: tracker coalesces overlap and permits a retry after a provider failure
+ok 383 - tracker coalesces overlap and permits a retry after a provider failure
+  ---
+  duration_ms: 11.571902
+  type: 'test'
+  ...
+# Subtest: location failures are distinct, clear stale results, and malformed coordinates never fetch
+ok 384 - location failures are distinct, clear stale results, and malformed coordinates never fetch
+  ---
+  duration_ms: 1.562609
+  type: 'test'
+  ...
+# Subtest: missing geolocation returns an error without prompting or throwing
+ok 385 - missing geolocation returns an error without prompting or throwing
+  ---
+  duration_ms: 0.264299
+  type: 'test'
+  ...
+# Subtest: missing fetch support reports municipality and weather unavailable separately
+ok 386 - missing fetch support reports municipality and weather unavailable separately
+  ---
+  duration_ms: 0.319062
+  type: 'test'
+  ...
+# Subtest: a submerged sea interprets rain and snow as weaker surface light
+ok 387 - a submerged sea interprets rain and snow as weaker surface light
+  ---
+  duration_ms: 1.227342
+  type: 'test'
+  ...
+# Subtest: the sea has four light states and seasonal water without terrestrial particles
+ok 388 - the sea has four light states and seasonal water without terrestrial particles
+  ---
+  duration_ms: 3.855037
+  type: 'test'
+  ...
+# Subtest: care progresses through four stages and respects the actual health danger
+ok 389 - care progresses through four stages and respects the actual health danger
+  ---
+  duration_ms: 0.188925
+  type: 'test'
+  ...
+# Subtest: environment markup is stable and uses bounded, non-interactive particles
+ok 390 - environment markup is stable and uses bounded, non-interactive particles
+  ---
+  duration_ms: 1.088643
+  type: 'test'
+  ...
+# Subtest: every actual region has its own landscape and climate-correct weather across 832 combinations
+ok 391 - every actual region has its own landscape and climate-correct weather across 832 combinations
+  ---
+  duration_ms: 76.629645
+  type: 'test'
+  ...
+# Subtest: presentation uses current environment without changing saved choices or game effects
+ok 392 - presentation uses current environment without changing saved choices or game effects
+  ---
+  duration_ms: 19.022945
+  type: 'test'
+  ...
+# Subtest: normal ticks keep scenery nodes; overlays, visibility, reduced motion and performance tiers are respected
+ok 393 - normal ticks keep scenery nodes; overlays, visibility, reduced motion and performance tiers are respected
+  ---
+  duration_ms: 27.292415
+  type: 'test'
+  ...
+# Subtest: environment controls update the visible world while the menu remains open
+ok 394 - environment controls update the visible world while the menu remains open
+  ---
+  duration_ms: 29.535008
+  type: 'test'
+  ...
+# Subtest: health danger, explicit care changes, partner affinity and recovery remain legible in the world
+ok 395 - health danger, explicit care changes, partner affinity and recovery remain legible in the world
+  ---
+  duration_ms: 95.448694
+  type: 'test'
+  ...
+# Subtest: games pause the world immediately and story expiry cannot resume it behind a game
+ok 396 - games pause the world immediately and story expiry cannot resume it behind a game
+  ---
+  duration_ms: 71.972098
+  type: 'test'
+  ...
+# Subtest: home stays indoors in every season and weather, with warm light at night
+ok 397 - home stays indoors in every season and weather, with warm light at night
+  ---
+  duration_ms: 0.818486
+  type: 'test'
+  ...
+# Subtest: city switches to actual neon artwork at night without returning to old seasonal streets
+ok 398 - city switches to actual neon artwork at night without returning to old seasonal streets
+  ---
+  duration_ms: 0.360814
+  type: 'test'
+  ...
+# Subtest: current location has outdoor municipal profiles without adding gameplay regions
+ok 399 - current location has outdoor municipal profiles without adding gameplay regions
+  ---
+  duration_ms: 0.465693
+  type: 'test'
+  ...
+# Subtest: shared temperate branches do not turn a jungle or farm back into the same clearing
+ok 400 - shared temperate branches do not turn a jungle or farm back into the same clearing
+  ---
+  duration_ms: 0.429879
+  type: 'test'
+  ...
+# Subtest: renderer updates the scenery when the municipality changes on the same gameplay region
+ok 401 - renderer updates the scenery when the municipality changes on the same gameplay region
+  ---
+  duration_ms: 14.924802
+  type: 'test'
+  ...
+1..401
+# tests 406
+# suites 0
+# pass 406
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10107.691932

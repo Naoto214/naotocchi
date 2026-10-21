@@ -1,0 +1,18 @@
+test_historical_binding_retains_redirect_refusal_without_retry (test_proxy_population_approval_read_retry.TransportTests.test_historical_binding_retains_redirect_refusal_without_retry) ... ERROR
+
+======================================================================
+ERROR: test_historical_binding_retains_redirect_refusal_without_retry (test_proxy_population_approval_read_retry.TransportTests.test_historical_binding_retains_redirect_refusal_without_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 123, in test_historical_binding_retains_redirect_refusal_without_retry
+    self.assertEqual(binding.read_remote_commit('a'*40),{'sha':'synthetic'})
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_execution_binding.py", line 57, in read_remote_commit
+    with build_opener(approval._NoRedirect()).open(Request(url,headers={'Accept':'application/vnd.github+json','User-Agent':'naotocchi-rebinding','Cache-Control':'no-cache'}),timeout=30) as response:
+                      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_external_approval' has no attribute '_NoRedirect'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (errors=1)

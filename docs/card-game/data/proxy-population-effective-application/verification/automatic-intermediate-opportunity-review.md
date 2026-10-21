@@ -1,0 +1,9 @@
+# 自動バッチ内の通常・反応機会の引渡し
+
+基準4fc9571。既存旧115/零rootの16step入口から、実終了バッチと直後の実response stepを結合。native new_events/snapshots/envelopes/final hashesを同時に更新し、response判断を記録しない自動出力へすると、automatic_bindingと実_step wrapperが双方受理する2REDを再現した。producer/replay一致だけでは機会の欠落を防げない。
+
+06の反応機会・パスと通常復帰の既存順序に従い、自動step内の各event直前が通常判断/通常反応/完了の境界でないことを検査。最後のevent後に制御を返す境界は許可する。終了→次手番→draw→指定たまご選択の正規バッチを保持。06 source hashを照合。handler・既存mandatory policy・歴史正本は変更しない。
+
+新単体1RED、その後実入口を含む2RED、関連13PASS10.324s。独立review一回C0/I0/Minor0、別6PASS9.497s。最終固定21PASS10.672s/exit0、docs再帰Python1072前後一致。原本automatic-intermediate-opportunity-final.log/summary/fingerprints。実条件付き16step入口を含み、本番入力生成/新規標本0。
+
+ordinary_opportunity_handoffs_verifiedはこの引渡し境界のみ。他のdispatch predicate、全source機会、効果意味、入力起点、標本適格をこのチェックから認定しない。供給済みledgerの機会順/各event全差分監査とは別責務として接続。preflight-ready=false。次は直近複数bundleの固定版結合とP09全責務/P10許可read/P11残operand、P14–18の合成。

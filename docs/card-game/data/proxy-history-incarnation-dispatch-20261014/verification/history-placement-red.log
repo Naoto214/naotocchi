@@ -1,0 +1,83 @@
+test_applicable_missing_source_still_fails_closed (test_proxy_population_history_incarnation_dispatch.HistoryIncarnationDispatchTests.test_applicable_missing_source_still_fails_closed) ... ok
+test_native_preparation_replay_rejects_forged_receipt_and_snapshot (test_proxy_population_history_incarnation_dispatch.HistoryIncarnationDispatchTests.test_native_preparation_replay_rejects_forged_receipt_and_snapshot) ... ok
+test_unrelated_classifiers_do_not_dereference_after_only_source (test_proxy_population_history_incarnation_dispatch.HistoryIncarnationDispatchTests.test_unrelated_classifiers_do_not_dereference_after_only_source) ... ok
+test_legacy_person_placement_history_replays_successor_and_first_generation (test_proxy_population_history_incarnation_dispatch.LegacyPlacementHistoryTests.test_legacy_person_placement_history_replays_successor_and_first_generation) ... 
+  test_legacy_person_placement_history_replays_successor_and_first_generation (test_proxy_population_history_incarnation_dispatch.LegacyPlacementHistoryTests.test_legacy_person_placement_history_replays_successor_and_first_generation) (card='C-box', reentry=True) ... FAIL
+  test_legacy_person_placement_history_replays_successor_and_first_generation (test_proxy_population_history_incarnation_dispatch.LegacyPlacementHistoryTests.test_legacy_person_placement_history_replays_successor_and_first_generation) (card='P-cliff_goat', reentry=True) ... FAIL
+
+======================================================================
+FAIL: test_legacy_person_placement_history_replays_successor_and_first_generation (test_proxy_population_history_incarnation_dispatch.LegacyPlacementHistoryTests.test_legacy_person_placement_history_replays_successor_and_first_generation) (card='C-box', reentry=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 105, in check
+    try:proofs=end.verify_new_events([event],[],[before,after])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/proxy_continuation_triggers.py", line 238, in verify
+    g=prior['legacy_continuation']['game_state'];card=g['cards'][source]['card_id']
+                                                      ~~~~~~~~~~^^^^^^^^
+KeyError: 'A-012#2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 108, in test_legacy_person_placement_history_replays_successor_and_first_generation
+    with self.subTest(card=card,reentry=reentry):self.exercise(card,slot,kind,reentry,check)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 98, in exercise
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 96, in run
+    check(before,after,event,history)
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 106, in check
+    except (KeyError,ValueError) as error:self.fail('native placement history differs: '+str(error))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: native placement history differs: 'A-012#2'
+
+======================================================================
+FAIL: test_legacy_person_placement_history_replays_successor_and_first_generation (test_proxy_population_history_incarnation_dispatch.LegacyPlacementHistoryTests.test_legacy_person_placement_history_replays_successor_and_first_generation) (card='P-cliff_goat', reentry=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 105, in check
+    try:proofs=end.verify_new_events([event],[],[before,after])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/proxy_continuation_triggers.py", line 238, in verify
+    g=prior['legacy_continuation']['game_state'];card=g['cards'][source]['card_id']
+                                                      ~~~~~~~~~~^^^^^^^^
+KeyError: 'A-018#2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 108, in test_legacy_person_placement_history_replays_successor_and_first_generation
+    with self.subTest(card=card,reentry=reentry):self.exercise(card,slot,kind,reentry,check)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 98, in exercise
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 96, in run
+    check(before,after,event,history)
+  File "/workspace/scratch/4cc1eee1ca09/naotocchi-verification/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 106, in check
+    except (KeyError,ValueError) as error:self.fail('native placement history differs: '+str(error))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: native placement history differs: 'A-018#2'
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.028s
+
+FAILED (failures=2)

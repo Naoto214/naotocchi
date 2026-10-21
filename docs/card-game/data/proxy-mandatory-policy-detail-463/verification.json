@@ -1,0 +1,17 @@
+{
+  "base_head": "c38d1fa75a14d21d2068195b8f82f91a1e7a20d1",
+  "design_authorization_and_null_invariants_verified": true,
+  "design_data_errors": [],
+  "existing_blobs_unchanged_except_readme": 3624,
+  "new_initial_orders": 0,
+  "new_matches": 0,
+  "new_policy_roots": 0,
+  "new_replays": 0,
+  "new_seed_values": 0,
+  "npm_tests_run": false,
+  "registry_entries": 5,
+  "runtime_tests_run": false,
+  "scope": "Document/data consistency and source preservation only. No RNG/seed generation, executable validator, gameplay, admission or statistical-independence proof.",
+  "source_hashes_verified": 24,
+  "status": "passed"
+}

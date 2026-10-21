@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_fallback_payment",
+    "test_proxy_population_payment_operands",
+    "test_proxy_population_departure",
+    "test_proxy_population_paid_draw",
+    "test_proxy_population_discard_recovery",
+    "test_proxy_population_connected_entry",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 33.44824790999701,
+  "base_head": "07ab4496637074170730f323fcabde52488e9c7f",
+  "python_file_count": 1070,
+  "source_unchanged": true,
+  "fingerprints_raw_sha256": "567ae39fb4d60cd971514279425b1b660cc5ed1e691820feb590ee895f4c9d60",
+  "tests_passed": 32
+}

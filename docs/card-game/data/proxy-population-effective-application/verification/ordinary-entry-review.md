@@ -1,0 +1,20 @@
+# 通常・responseの照合停止と比較監査の実入口接続
+
+基準 75b8c06bc1ec2c2aa51b0ff954f6217e9afecd1c。現行ordinary入口のみ。過去正本・結果・native defaultは変更しない。
+
+- normal/response合成predicateはerrors空だけで通さず、schema、covered=true、未証明unit/sourceなしを要求。記録返却前に検査し、失敗時は既存ledger/record/boundary rollbackを再利用。
+- M-antlion-03/06・C-bat・P-cliff_goatは当該窓の連続イベントと実前後境界、既存captureと独立timing監査を結合。発生集合とjournalを一致させ、全該当receiptの既存全差分検査へ通す。新しい窓での発生なしと以前の見送りを分離。境界不足・pending/deferred・再提示は成功にしない。
+- 非fallbackの114/116 safe-free/119計算を既存selection_basisへ通す。通常比較には全候補の支払・残り時の既存監査、response priorityには既存比較前提の監査を要求。
+- 旧116 fallback除外を維持。唯一候補・非fallback・算術一致を全合法性・全情報利用・他operand・過去起点・全機会・適格性へ昇格しない。新しい値・順位なし。本番gate閉鎖。
+
+## 検証と復旧
+
+環境整理前にpredicate2RED、比較/支払3REDを確認し修正。各変更bundleの独立reviewはCritical0/Important0。最初の未保存変更は自動workspace整理で消失し、最後の検証プロセス結果は回収不能のため完了扱いしなかった。remote75b8c06から会話記録で復元した。
+
+復元時初回15件は2ERROR（test-only self.response誤記、実行中修正によるsource fingerprint拒否）。修正後はPythonを固定して再検証。復元コードのread-only整合確認でも重大相違なし。照合blobはdecision_binding 8f6b869c79051e1d40e7215e102399a5af7e7b94、response_group_closure 1d6f62a30bb68c7ee2fc93b2338129e3947e2bf5、trigger_window affc0815c49f1bc33c6723989e9f63644d6eb5e6。復元前後のbyte同一性は主張しない。
+
+復元後の固定検証はunit exit0、続く旧115/零rootの完全connected入口が143step/181eventで完走、stop=null。ordinary118判断中108件の選択計算監査、接続された7監査errors=[]。計128.96791964099975秒/exit0、再帰Python1068ファイル前後hash一致をrunner出力で確認。原recordをordinary-entry-restored-record.json.gzへ保存した。
+
+unitの保存logは24個の進捗文字だけに切れていたため、そのlogを41PASSの原本とは扱わない。同じ10moduleを単独再実行し、ツール出力で41件/24.465秒/OK/exit0を直接確認した。再度の自動workspace整理でローカルlog・個別fingerprint表は失われたため、復元した要約を原本logと呼ばない。コード5blobと完全recordは整理前にGitHubへ退避済みで、今回それらをそのまま保存ブランチへ結合する。検証結果の要約はordinary-entry-verification-summary.jsonを参照。
+
+設計検査errors=[]、番号付きtop-level正本477件は基準HEADとbyte一致。最新全proxy回帰完了ではない。seed生成/本番入力固定/400戦は0、preflight-ready=false、policy promotion=false、独立balance標本0、全体結論null。全source機会・全read・他operandの由来と最終gate合成の残件を維持。

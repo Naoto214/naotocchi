@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_actual_current_public_continuous_application_is_retained (test_proxy_population_public_application.ActualApplicationTests.test_actual_current_public_continuous_application_is_retained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/test_proxy_population_public_application.py", line 36, in test_actual_current_public_continuous_application_is_retained
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_removed_continuous_source_cannot_be_invented_by_later_worlds (test_proxy_population_public_application.ActualApplicationTests.test_removed_continuous_source_cannot_be_invented_by_later_worlds)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/test_proxy_population_public_application.py", line 27, in test_removed_continuous_source_cannot_be_invented_by_later_worlds
+    self.assertIsNotNone(api,'actual-public-state application audit absent')
+AssertionError: unexpectedly None : actual-public-state application audit absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

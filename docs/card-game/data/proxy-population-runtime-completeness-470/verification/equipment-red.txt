@@ -1,0 +1,32 @@
+test_departure_discards_start_trigger_equipment_without_firing_it (test_proxy_population_departure.DepartureTests.test_departure_discards_start_trigger_equipment_without_firing_it) ... ERROR
+
+======================================================================
+ERROR: test_departure_discards_start_trigger_equipment_without_firing_it (test_proxy_population_departure.DepartureTests.test_departure_discards_start_trigger_equipment_without_firing_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 44, in test_departure_discards_start_trigger_equipment_without_firing_it
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 43, in run
+    result=api.replace_companion(current,action,[]);self.assertEqual(len(result['events'][0]['discarded_equipment_instance_ids']),1);self.assertEqual(result['envelope']['legacy_continuation']['pending_triggers'],[]);return {}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_departure.py", line 28, in replace_companion
+    cap=batch.classification(game['cards'][item]['card_id'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch.py", line 30, in classification
+    if card not in CAPABILITIES:raise ValueError('batch capability unproved: '+card)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: batch capability unproved: I-bowtie
+
+----------------------------------------------------------------------
+Ran 1 test in 0.037s
+
+FAILED (errors=1)

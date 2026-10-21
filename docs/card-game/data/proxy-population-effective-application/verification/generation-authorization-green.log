@@ -1,0 +1,57 @@
+EEEE
+======================================================================
+ERROR: test_changed_edition_registry_destination_reject_before_creation (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_changed_edition_registry_destination_reject_before_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 25, in setUp
+    with patch.object(approval,'ROOT',self.root),patch.object(approval,'_get',side_effect=get):self.record=approval.consume_live(self.request,17)
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_external_approval.py", line 184, in consume_live
+    directory.mkdir(exist_ok=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpbuttqwtx/docs/card-game/data/proxy-population-approval-consumption'
+
+======================================================================
+ERROR: test_current_edition_registry_destination_and_live_claim_join (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_current_edition_registry_destination_and_live_claim_join)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 25, in setUp
+    with patch.object(approval,'ROOT',self.root),patch.object(approval,'_get',side_effect=get):self.record=approval.consume_live(self.request,17)
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_external_approval.py", line 184, in consume_live
+    directory.mkdir(exist_ok=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpkwo4rvvo/docs/card-game/data/proxy-population-approval-consumption'
+
+======================================================================
+ERROR: test_existing_destination_and_symlink_alias_reject (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_existing_destination_and_symlink_alias_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 25, in setUp
+    with patch.object(approval,'ROOT',self.root),patch.object(approval,'_get',side_effect=get):self.record=approval.consume_live(self.request,17)
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_external_approval.py", line 184, in consume_live
+    directory.mkdir(exist_ok=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmp6ncl6p7t/docs/card-game/data/proxy-population-approval-consumption'
+
+======================================================================
+ERROR: test_unverified_registry_and_wrong_repository_reject (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_unverified_registry_and_wrong_repository_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 25, in setUp
+    with patch.object(approval,'ROOT',self.root),patch.object(approval,'_get',side_effect=get):self.record=approval.consume_live(self.request,17)
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_external_approval.py", line 184, in consume_live
+    directory.mkdir(exist_ok=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpn1klh5bw/docs/card-game/data/proxy-population-approval-consumption'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.202s
+
+FAILED (errors=4)

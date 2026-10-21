@@ -1,0 +1,138 @@
+test_boolean_and_missing_proofs_are_not_numeric_equality (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_boolean_and_missing_proofs_are_not_numeric_equality) ... FAIL
+test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) ... 
+  test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='I-poop1') ... FAIL
+  test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='M-antlion-02') ... FAIL
+  test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='C-box') ... FAIL
+  test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='P-anglerfish') ... FAIL
+  test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='W-city') ... FAIL
+  test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='E-boss') ... FAIL
+  test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='G-hit-blow') ... FAIL
+  test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='I-c_coin2') ... FAIL
+test_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion) ... FAIL
+test_hidden_order_and_opponent_hand_do_not_change_proof_or_selection (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_hidden_order_and_opponent_hand_do_not_change_proof_or_selection) ... FAIL
+test_proved_upper_equalities_allow_time_order_without_replacing_unknown (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_proved_upper_equalities_allow_time_order_without_replacing_unknown) ... FAIL
+test_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins) ... FAIL
+
+======================================================================
+FAIL: test_boolean_and_missing_proofs_are_not_numeric_equality (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_boolean_and_missing_proofs_are_not_numeric_equality)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 52, in test_boolean_and_missing_proofs_are_not_numeric_equality
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='I-poop1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 15, in run
+    self.assertEqual(d['choice']['resolution_mode'],'seeded_fallback')
+AssertionError: 'priority_unique' != 'seeded_fallback'
+- priority_unique
++ seeded_fallback
+
+
+======================================================================
+FAIL: test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='M-antlion-02')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 15, in run
+    self.assertEqual(d['choice']['resolution_mode'],'seeded_fallback')
+AssertionError: 'priority_unique' != 'seeded_fallback'
+- priority_unique
++ seeded_fallback
+
+
+======================================================================
+FAIL: test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='C-box')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 15, in run
+    self.assertEqual(d['choice']['resolution_mode'],'seeded_fallback')
+AssertionError: 'safe_free_development' != 'seeded_fallback'
+- safe_free_development
++ seeded_fallback
+
+
+======================================================================
+FAIL: test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='P-anglerfish')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 15, in run
+    self.assertEqual(d['choice']['resolution_mode'],'seeded_fallback')
+AssertionError: 'safe_free_development' != 'seeded_fallback'
+- safe_free_development
++ seeded_fallback
+
+
+======================================================================
+FAIL: test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='W-city')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 15, in run
+    self.assertEqual(d['choice']['resolution_mode'],'seeded_fallback')
+AssertionError: 'priority_unique' != 'seeded_fallback'
+- priority_unique
++ seeded_fallback
+
+
+======================================================================
+FAIL: test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='E-boss')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 18, in run
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='G-hit-blow')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 18, in run
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) (card='I-c_coin2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 18, in run
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 59, in test_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_hidden_order_and_opponent_hand_do_not_change_proof_or_selection (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_hidden_order_and_opponent_hand_do_not_change_proof_or_selection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 79, in test_hidden_order_and_opponent_hand_do_not_change_proof_or_selection
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_proved_upper_equalities_allow_time_order_without_replacing_unknown (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_proved_upper_equalities_allow_time_order_without_replacing_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 43, in test_proved_upper_equalities_allow_time_order_without_replacing_unknown
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_comparison_evidence.py", line 31, in test_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.486s
+
+FAILED (failures=13)

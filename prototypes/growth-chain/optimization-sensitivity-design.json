@@ -1,0 +1,9 @@
+{
+  "reason": "Exploratory policy sensitivity at gauge2, plus intermediate gauge3. Reuses exploration seeds200..207, never counted as independent confirmation. No standard rule changes.",
+  "conditions": [
+    {"id":"g2-death","policy":"death","gauge":2},
+    {"id":"g2-bulk","policy":"bulk","gauge":2},
+    {"id":"g3-legacy","policy":"legacy","gauge":3}
+  ],
+  "seeds": [200,201,202,203,204,205,206,207]
+}

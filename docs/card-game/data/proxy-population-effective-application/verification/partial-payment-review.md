@@ -1,0 +1,7 @@
+# 部分未証明比較の費用結合
+
+基準a9cfd359494c10ec3ac3665a49312d10b678243b。既存unproved_priorityが計算して保存するproved_scoresをpayment_operandsが無視していた。初期REDは2test/6FAIL。現行契約識別とproved/unprovedのexact partitionを要求し、証明済み行を既存source predicateに結合する。値・選択方式・unknown候補は変更しない。
+
+独立review C0/I1/Minor0、既存7tests独立PASS。I1は費用根拠なしのproved rowをunprovedへ逃がすと実入口が通る点。I-c_coin2とI-poop1の実入口、core set_itemの費用Noneで1FAILを確認し、partial proved cost未知なら拒否へ修正。再レビューなし。最終23PASS36.921s/exit0、source前後一致。review前22PASSは別原本、途中不完全ログも保持。
+
+責務: proved payment/timeの照合であって、他の上位値・成長・pair比較計算・戦略適格性の証明ではない。genuinely unknown行の理由と候補を保持し、旧116除外を解除しない。共有helperの別fallback枝には未接続が残る。生成/固定/400戦0、preflight-ready=false。

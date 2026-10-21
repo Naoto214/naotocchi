@@ -1,0 +1,13 @@
+test_attachment_targets_use_full_actual_board (test_proxy_continuation_rules.RulesTests.test_attachment_targets_use_full_actual_board) ... ok
+test_classification_binds_text_and_does_not_invent_unknown_effects (test_proxy_continuation_rules.RulesTests.test_classification_binds_text_and_does_not_invent_unknown_effects) ... ok
+test_cost_modifier_is_optional_per_instance_per_turn (test_proxy_continuation_rules.RulesTests.test_cost_modifier_is_optional_per_instance_per_turn) ... ok
+test_hidden_order_does_not_change_inventory_or_comparison (test_proxy_continuation_rules.RulesTests.test_hidden_order_does_not_change_inventory_or_comparison) ... ok
+test_inventory_tampering_rejected_before_scoring (test_proxy_continuation_rules.RulesTests.test_inventory_tampering_rejected_before_scoring) ... ok
+test_lineage_forward_same_species_and_transform_cost (test_proxy_continuation_rules.RulesTests.test_lineage_forward_same_species_and_transform_cost) ... ok
+test_main_present_time_zero_proves_pass_without_lineage_stop (test_proxy_continuation_rules.RulesTests.test_main_present_time_zero_proves_pass_without_lineage_stop) ... ok
+test_unknown_certain_effect_is_not_zero_scored (test_proxy_continuation_rules.RulesTests.test_unknown_certain_effect_is_not_zero_scored) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.091s
+
+OK

@@ -1,0 +1,52 @@
+name: World statue face inspection (Draft branch)
+on:
+  push:
+    branches: [feat/meguru-3d-geometry-terrain-v1]
+    paths:
+      - '.github/workflows/world-statue-inspection.yml'
+      - 'docs/qa/meguru-3d-statue-face/gallery.json'
+      - 'docs/qa/meguru-3d-statue-face/play.json'
+permissions:
+  contents: read
+jobs:
+  captures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: f817ad49ce4ecd715bcc0cdeb678987d98c56a8c
+          path: before
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser QA dependencies
+        run: |
+          npm ci
+          npm install --no-save --package-lock=false playwright@1.51.1
+          npx playwright install --with-deps chromium
+          echo "PLAYWRIGHT_CHROMIUM=$(node -p 'require("playwright").chromium.executablePath()')" >> "$GITHUB_ENV"
+          echo "NODE_PATH=$PWD/node_modules" >> "$GITHUB_ENV"
+      - name: Capture statue front, side, oblique and normal gameplay
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts
+          git rev-parse HEAD > qa-artifacts/commit.txt
+          git -C before rev-parse HEAD > qa-artifacts/before-commit.txt
+          sha256sum meguru.js meguru-3d.mjs index.html > qa-artifacts/source-sha256.txt
+          (cd before; sha256sum meguru.js meguru-3d.mjs index.html) > qa-artifacts/before-source-sha256.txt
+          root="$PWD"
+          for side in before after; do
+            source="$root"; if [ "$side" = before ]; then source="$root/before"; fi
+            (cd "$source"; node "$root/tools/meguru-3d-qa/object-gallery.cjs" "$source" "$root/qa-artifacts/$side" "$root/docs/qa/meguru-3d-statue-face/gallery.json") 2>&1 | tee "qa-artifacts/$side-gallery.log"
+            (cd "$source"; node "$root/tools/meguru-3d-qa/shot.cjs" "$source" "$root/qa-artifacts/$side" "$(cat "$root/docs/qa/meguru-3d-statue-face/play.json")") 2>&1 | tee "qa-artifacts/$side-play.log"
+          done
+          printf '0\n' > qa-artifacts/runner-exit-code.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: statue-face-inspection-${{ github.sha }}
+          path: qa-artifacts
+          retention-days: 30

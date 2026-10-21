@@ -1,0 +1,21 @@
+{
+  "base_head": "ee4fff12239ce8fd101e8bf7497a8ad046e0092f",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_payment_gate",
+    "test_proxy_population_payment_operands",
+    "test_proxy_population_fallback_payment",
+    "test_proxy_population_predicate_gate",
+    "test_proxy_population_selection_basis",
+    "test_proxy_population_unproved_priority",
+    "test_proxy_population_pass_end_unknown"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 29.290515129003325,
+  "python_file_count": 1081,
+  "python_fingerprints_unchanged": true,
+  "production_input_generation": 0,
+  "new_matches": 0
+}

@@ -1,0 +1,631 @@
+{
+ "schema": "card-balance-manifest.v1",
+ "experiment": "pilot",
+ "master": "naotocchi-card-balance-20261020",
+ "engine": "hotseat-2",
+ "policyVersion": "heuristic-1",
+ "difficulty": {
+  "X": "intermediate",
+  "Y": "intermediate"
+ },
+ "groupsPerPairing": 1,
+ "decks": {
+  "D0_standard": {
+   "label": "標準デッキ（初期15種）",
+   "theme": "reference",
+   "cards": [
+    "M-beetle-01",
+    "M-beetle-01",
+    "M-beetle-01",
+    "M-antlion-01",
+    "M-antlion-01",
+    "M-antlion-01",
+    "C-box",
+    "C-cat_friend",
+    "C-cat_friend",
+    "C-cat_friend",
+    "C-chameleon",
+    "P-cliff_goat",
+    "P-cliff_goat",
+    "P-cliff_goat",
+    "W-deepsea",
+    "W-deepsea",
+    "W-deepsea",
+    "I-c_coin2",
+    "I-c_coin2",
+    "I-c_coin2",
+    "I-sleepboost1",
+    "I-sleepboost1",
+    "I-sleepboost1",
+    "I-bowtie",
+    "I-bowtie",
+    "I-bowtie",
+    "G-hit-blow",
+    "G-hit-blow",
+    "G-hit-blow",
+    "G-animal-shogi",
+    "G-animal-shogi",
+    "G-animal-shogi",
+    "G-archery-3d",
+    "G-archery-3d",
+    "G-archery-3d",
+    "G-area-claim",
+    "G-area-claim",
+    "E-first-date",
+    "E-first-date",
+    "E-first-date"
+   ],
+   "sha256": "c3ae8c6be1b13f5e4e3f3a226a1feb7a9f814053bd8c0a9af6181461964359d0"
+  },
+  "D1_main_growth": {
+   "label": "メイン成長重視",
+   "theme": "main",
+   "cards": [
+    "M-dog-01",
+    "M-dog-01",
+    "M-dog-01",
+    "M-dog-02",
+    "M-dog-02",
+    "M-dog-03",
+    "M-dog-03",
+    "M-dog-04",
+    "M-dog-04",
+    "M-dog-05",
+    "M-dog-05",
+    "M-dog-06",
+    "M-beetle-01",
+    "M-beetle-01",
+    "M-beetle-03",
+    "M-beetle-06",
+    "M-beetle-07",
+    "E-mirror",
+    "E-mirror",
+    "E-mirror",
+    "E-fateful-transform",
+    "E-fateful-transform",
+    "G-doodle-jump",
+    "G-doodle-jump",
+    "G-jump-quest",
+    "C-shiba",
+    "C-shiba",
+    "W-snow",
+    "W-snow",
+    "P-snow_spirit",
+    "P-snow_spirit",
+    "I-c_egg_normal",
+    "I-c_egg_normal",
+    "G-picross-5",
+    "G-picross-5",
+    "I-c_time_forward",
+    "G-race-3d",
+    "G-race-3d",
+    "C-rabbit_friend",
+    "C-rabbit_friend"
+   ],
+   "sha256": "197fffc24390f4bb6b6b7845ca363292a5cf7293351dfa0778223dd6d8b1508a"
+  },
+  "D2_companions": {
+   "label": "なかま重視",
+   "theme": "companion",
+   "cards": [
+    "M-mushroom-01",
+    "M-mushroom-01",
+    "M-mushroom-01",
+    "M-mushroom-02",
+    "M-mushroom-02",
+    "M-mushroom-03",
+    "M-mushroom-03",
+    "M-mushroom-04",
+    "M-mushroom-05",
+    "C-owl",
+    "C-owl",
+    "C-owl",
+    "C-chicken",
+    "C-chicken",
+    "C-chicken",
+    "C-hamster",
+    "C-hamster",
+    "C-sheep",
+    "C-sheep",
+    "C-cat_friend",
+    "C-cat_friend",
+    "C-otter",
+    "C-otter",
+    "C-punyu",
+    "C-many_tail_fox",
+    "W-forest",
+    "W-forest",
+    "W-forest",
+    "I-c_friend",
+    "I-c_friend",
+    "G-stack-acorn",
+    "G-stack-acorn",
+    "G-animal-shogi",
+    "G-animal-shogi",
+    "E-new-encounter",
+    "E-new-encounter",
+    "I-bond1",
+    "I-bond1",
+    "G-beach-volley",
+    "G-beach-volley"
+   ],
+   "sha256": "1575100eebc06951e74ccb429894c69335dbb52b258fdea407b9a900d4aa4b35"
+  },
+  "D3_partner": {
+   "label": "こいびと・交際重視",
+   "theme": "partner",
+   "cards": [
+    "M-cat-01",
+    "M-cat-01",
+    "M-cat-01",
+    "M-cat-02",
+    "M-cat-02",
+    "M-cat-03",
+    "M-cat-03",
+    "M-cat-04",
+    "M-cat-04",
+    "M-cat-05",
+    "P-grove_deer",
+    "P-grove_deer",
+    "P-grove_deer",
+    "P-high_eagle",
+    "P-high_eagle",
+    "P-high_eagle",
+    "P-robot_neighbor",
+    "P-robot_neighbor",
+    "P-cat_ceo",
+    "P-cat_ceo",
+    "E-first-date",
+    "E-first-date",
+    "E-first-date",
+    "E-wedding-anniversary",
+    "E-wedding-anniversary",
+    "E-wedding-anniversary",
+    "E-reconciliation",
+    "E-reconciliation",
+    "I-c_match",
+    "I-c_match",
+    "I-partner1",
+    "I-partner1",
+    "E-new-encounter",
+    "E-new-encounter",
+    "W-home",
+    "W-home",
+    "C-chicken",
+    "C-chicken",
+    "C-seal",
+    "C-seal"
+   ],
+   "sha256": "dd5962c75991c468d4fb22c2e9036561f2f5aa07051efbcb193337f626bade4c"
+  },
+  "D4_challenge": {
+   "label": "ちょうせん重視",
+   "theme": "challenge",
+   "cards": [
+    "M-beetle-01",
+    "M-beetle-01",
+    "M-beetle-01",
+    "M-beetle-02",
+    "M-beetle-02",
+    "M-beetle-03",
+    "M-beetle-03",
+    "M-beetle-05",
+    "M-beetle-05",
+    "M-beetle-06",
+    "M-beetle-07",
+    "M-phoenix-01",
+    "M-phoenix-02",
+    "C-rabbit_friend",
+    "C-rabbit_friend",
+    "C-rabbit_friend",
+    "C-otter",
+    "C-otter",
+    "P-gentle_gorilla",
+    "P-gentle_gorilla",
+    "P-gentle_gorilla",
+    "W-jungle",
+    "W-jungle",
+    "W-mountain",
+    "G-ski-jump",
+    "G-ski-jump",
+    "G-ski-jump",
+    "G-baseball-batting",
+    "G-baseball-batting",
+    "G-baseball-batting",
+    "G-basketball-3d",
+    "G-basketball-3d",
+    "G-race-3d",
+    "G-race-3d",
+    "G-grand-prix-3d",
+    "G-grand-prix-3d",
+    "E-boss",
+    "E-boss",
+    "G-downhill-mountain",
+    "G-downhill-mountain"
+   ],
+   "sha256": "c78cd13ca231931e8b21f42571331c69c55e42acb08f702966c0affd5d8a8290"
+  },
+  "D5_growth_gain": {
+   "label": "そだち獲得重視",
+   "theme": "growth",
+   "cards": [
+    "M-turtle-01",
+    "M-turtle-01",
+    "M-turtle-01",
+    "M-turtle-02",
+    "M-turtle-02",
+    "M-turtle-03",
+    "M-turtle-03",
+    "M-turtle-04",
+    "M-turtle-04",
+    "W-countryside",
+    "W-countryside",
+    "W-countryside",
+    "C-panda",
+    "C-panda",
+    "C-panda",
+    "P-field_cow",
+    "P-field_cow",
+    "G-connect-four",
+    "G-connect-four",
+    "I-c_coin2",
+    "I-c_coin2",
+    "I-c_coin2",
+    "G-sugoroku-race",
+    "G-sugoroku-race",
+    "G-sugoroku-race",
+    "G-lunar-lander",
+    "G-lunar-lander",
+    "G-plane-landing",
+    "G-plane-landing",
+    "E-midlife-flower",
+    "E-midlife-flower",
+    "E-midlife-flower",
+    "I-naoto_lantern",
+    "G-mini-golf-physics",
+    "G-mini-golf-physics",
+    "G-mini-golf-physics",
+    "E-midlife-50th",
+    "E-midlife-50th",
+    "G-area-claim",
+    "G-area-claim"
+   ],
+   "sha256": "d2be867a671ff4391e1dcaecca1785e2afa34eac78ea1296c0963e006e1820d7"
+  },
+  "D6_item_response": {
+   "label": "アイテム・応答重視",
+   "theme": "item_response",
+   "cards": [
+    "M-hermit_crab-01",
+    "M-hermit_crab-01",
+    "M-hermit_crab-01",
+    "M-hermit_crab-02",
+    "M-hermit_crab-02",
+    "M-hermit_crab-03",
+    "M-hermit_crab-03",
+    "M-hermit_crab-04",
+    "M-hermit_crab-04",
+    "W-home",
+    "W-home",
+    "C-parrot",
+    "C-parrot",
+    "C-watcher",
+    "I-sleepboost1",
+    "I-sleepboost1",
+    "I-bowtie",
+    "I-bowtie",
+    "I-c_life_charm",
+    "I-c_life_charm",
+    "I-poop1",
+    "I-poop1",
+    "I-star",
+    "I-star",
+    "G-missile-command",
+    "G-missile-command",
+    "G-space-gunner-3d",
+    "G-space-gunner-3d",
+    "G-air-hockey",
+    "G-air-hockey",
+    "G-pingpong-3d",
+    "G-pingpong-3d",
+    "G-tower-defense",
+    "G-tower-defense",
+    "G-tank-battle",
+    "G-tank-battle",
+    "G-archery-3d",
+    "G-archery-3d",
+    "G-domino-run",
+    "G-domino-run"
+   ],
+   "sha256": "f04a49267805cf76e03a1c80ccb359bc802aacdfbd96adeffb0350aa146713fd"
+  }
+ },
+ "groups": [
+  {
+   "group": "pilot:D0_standard~D0_standard:001",
+   "X": "D0_standard",
+   "Y": "D0_standard",
+   "orderSeed": 4199331528,
+   "orderSha": {
+    "X": "d56f69eb06a28e7103099785fb426560ae83d22595f5c51cefd2244e8dfc744e",
+    "Y": "f00ec7a56e51350baeee53f3c1238122d3b987f11a916cb9fcfcc00ad5e5d1b1"
+   }
+  },
+  {
+   "group": "pilot:D1_main_growth~D1_main_growth:001",
+   "X": "D1_main_growth",
+   "Y": "D1_main_growth",
+   "orderSeed": 1072944259,
+   "orderSha": {
+    "X": "4175268894909a0a351438e3caf2cdbafeeb47c274e09e1660e57cb5e1dbaac9",
+    "Y": "bb974b9c58e24a2436d8e9f9e9d71f860f8ac6d3aea1db52d3b041fb475c8e20"
+   }
+  },
+  {
+   "group": "pilot:D2_companions~D2_companions:001",
+   "X": "D2_companions",
+   "Y": "D2_companions",
+   "orderSeed": 695812803,
+   "orderSha": {
+    "X": "0666477a19021ce4104dc01fc24572cf5a5309ed6648c1cfa3d230dea1d6beac",
+    "Y": "fd23c4a59114f83e02d70748b155273988ca31346f15f0181b714e5e70d984ae"
+   }
+  },
+  {
+   "group": "pilot:D3_partner~D3_partner:001",
+   "X": "D3_partner",
+   "Y": "D3_partner",
+   "orderSeed": 2912022173,
+   "orderSha": {
+    "X": "d551947d40eba140fed87ada5b925e59bf655ab8f86d7f43f3f300b529da9232",
+    "Y": "8e30f3c65fc5de5abfc01b6e1e03d12c5bbd6fa5af0cde3ff1c6425d50cfd2f8"
+   }
+  },
+  {
+   "group": "pilot:D4_challenge~D4_challenge:001",
+   "X": "D4_challenge",
+   "Y": "D4_challenge",
+   "orderSeed": 1159028766,
+   "orderSha": {
+    "X": "31a023e51f86baa835518421816dd82de858c6bdd2e3098eeaf8b9ffd6fc8f1c",
+    "Y": "44ef392c1b9e53d13afd88d870ef42345336b466135eda6338f7313fc007672b"
+   }
+  },
+  {
+   "group": "pilot:D5_growth_gain~D5_growth_gain:001",
+   "X": "D5_growth_gain",
+   "Y": "D5_growth_gain",
+   "orderSeed": 2377923038,
+   "orderSha": {
+    "X": "87afbe9284b758591efe2de5a4660201fa42f31f4a9610ab951d5be3d7c8de2a",
+    "Y": "e9c7531ccf854b8711cca5732ad79b7447b79d5e26c719394e1bb0ce56e2f62a"
+   }
+  },
+  {
+   "group": "pilot:D6_item_response~D6_item_response:001",
+   "X": "D6_item_response",
+   "Y": "D6_item_response",
+   "orderSeed": 1573812082,
+   "orderSha": {
+    "X": "7c1048d3d345b9904e4a111c7a9f577262231f1aac194275e528b8a9ace397be",
+    "Y": "a2b3650dc1ad894a08d92675bc491cbe4d764df559ee63655d741e111aac53b3"
+   }
+  }
+ ],
+ "matches": [
+  {
+   "match": "pilot:D0_standard~D0_standard:001:X-first",
+   "group": "pilot:D0_standard~D0_standard:001",
+   "first": "X",
+   "deckA": "D0_standard",
+   "deckB": "D0_standard",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4131966049,
+    "B": 896538055
+   }
+  },
+  {
+   "match": "pilot:D0_standard~D0_standard:001:Y-first",
+   "group": "pilot:D0_standard~D0_standard:001",
+   "first": "Y",
+   "deckA": "D0_standard",
+   "deckB": "D0_standard",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4284448558,
+    "B": 1080234772
+   }
+  },
+  {
+   "match": "pilot:D1_main_growth~D1_main_growth:001:X-first",
+   "group": "pilot:D1_main_growth~D1_main_growth:001",
+   "first": "X",
+   "deckA": "D1_main_growth",
+   "deckB": "D1_main_growth",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2985925980,
+    "B": 2103750573
+   }
+  },
+  {
+   "match": "pilot:D1_main_growth~D1_main_growth:001:Y-first",
+   "group": "pilot:D1_main_growth~D1_main_growth:001",
+   "first": "Y",
+   "deckA": "D1_main_growth",
+   "deckB": "D1_main_growth",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4145070683,
+    "B": 3485635667
+   }
+  },
+  {
+   "match": "pilot:D2_companions~D2_companions:001:X-first",
+   "group": "pilot:D2_companions~D2_companions:001",
+   "first": "X",
+   "deckA": "D2_companions",
+   "deckB": "D2_companions",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1234286937,
+    "B": 2459409699
+   }
+  },
+  {
+   "match": "pilot:D2_companions~D2_companions:001:Y-first",
+   "group": "pilot:D2_companions~D2_companions:001",
+   "first": "Y",
+   "deckA": "D2_companions",
+   "deckB": "D2_companions",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1466623023,
+    "B": 1969371450
+   }
+  },
+  {
+   "match": "pilot:D3_partner~D3_partner:001:X-first",
+   "group": "pilot:D3_partner~D3_partner:001",
+   "first": "X",
+   "deckA": "D3_partner",
+   "deckB": "D3_partner",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2136287938,
+    "B": 3233073123
+   }
+  },
+  {
+   "match": "pilot:D3_partner~D3_partner:001:Y-first",
+   "group": "pilot:D3_partner~D3_partner:001",
+   "first": "Y",
+   "deckA": "D3_partner",
+   "deckB": "D3_partner",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2475317447,
+    "B": 1263846113
+   }
+  },
+  {
+   "match": "pilot:D4_challenge~D4_challenge:001:X-first",
+   "group": "pilot:D4_challenge~D4_challenge:001",
+   "first": "X",
+   "deckA": "D4_challenge",
+   "deckB": "D4_challenge",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1285603080,
+    "B": 3108810681
+   }
+  },
+  {
+   "match": "pilot:D4_challenge~D4_challenge:001:Y-first",
+   "group": "pilot:D4_challenge~D4_challenge:001",
+   "first": "Y",
+   "deckA": "D4_challenge",
+   "deckB": "D4_challenge",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1094770434,
+    "B": 3749521087
+   }
+  },
+  {
+   "match": "pilot:D5_growth_gain~D5_growth_gain:001:X-first",
+   "group": "pilot:D5_growth_gain~D5_growth_gain:001",
+   "first": "X",
+   "deckA": "D5_growth_gain",
+   "deckB": "D5_growth_gain",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1323999802,
+    "B": 3670462393
+   }
+  },
+  {
+   "match": "pilot:D5_growth_gain~D5_growth_gain:001:Y-first",
+   "group": "pilot:D5_growth_gain~D5_growth_gain:001",
+   "first": "Y",
+   "deckA": "D5_growth_gain",
+   "deckB": "D5_growth_gain",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2492560118,
+    "B": 1660051677
+   }
+  },
+  {
+   "match": "pilot:D6_item_response~D6_item_response:001:X-first",
+   "group": "pilot:D6_item_response~D6_item_response:001",
+   "first": "X",
+   "deckA": "D6_item_response",
+   "deckB": "D6_item_response",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4019097296,
+    "B": 4234994949
+   }
+  },
+  {
+   "match": "pilot:D6_item_response~D6_item_response:001:Y-first",
+   "group": "pilot:D6_item_response~D6_item_response:001",
+   "first": "Y",
+   "deckA": "D6_item_response",
+   "deckB": "D6_item_response",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 938239457,
+    "B": 2875865643
+   }
+  }
+ ],
+ "counts": {
+  "groups": 7,
+  "matches": 14
+ }
+}

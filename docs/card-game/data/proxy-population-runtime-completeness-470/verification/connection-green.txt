@@ -1,0 +1,8 @@
+test_scope_connects_current_selector_apply_and_runtime_replay (test_proxy_population_departure.ConnectionTests.test_scope_connects_current_selector_apply_and_runtime_replay) ... ok
+test_full_board_replacement_is_atomic_and_preserves_all_three_targets (test_proxy_population_departure.DepartureTests.test_full_board_replacement_is_atomic_and_preserves_all_three_targets) ... ok
+test_invalid_or_unbound_action_cannot_move_any_card (test_proxy_population_departure.DepartureTests.test_invalid_or_unbound_action_cannot_move_any_card) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.191s
+
+OK

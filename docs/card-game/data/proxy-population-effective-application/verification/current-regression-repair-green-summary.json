@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_response_start_negative",
+    "test_proxy_population_automatic_binding",
+    "test_proxy_population_board_payment_binding",
+    "test_proxy_population_candidate_expansions",
+    "test_proxy_population_selection_entry",
+    "test_proxy_population_trigger_multiturn"
+  ],
+  "exit_code": 1,
+  "seconds": 44.76879377299338,
+  "python_file_count": 1090,
+  "fingerprints_equal": true,
+  "tests": "26",
+  "tail": "ast):\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_board_payment_binding.py\", line 81, in test_comparison_joins_board_proof_and_rejects_balanced_tampering\n    self.run_scoped(run)\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_board_payment_binding.py\", line 27, in run_scoped\n    with connected.contract_scope(): runtime.operation(initial(), run)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py\", line 134, in operation\n    return prior_operation(initial,connected)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py\", line 48, in operation\n    return engine.run_route(initial,POLICY)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py\", line 43, in run_route\n    result=base.run_route(initial,policy,forced)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py\", line 43, in driver\n    return callback(forced)\n           ^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py\", line 133, in connected\n    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)\n                                                                                                                                                                         ^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_board_payment_binding.py\", line 25, in run\n    with paid.scope(), recovery.scope(): callback()\n                                         ^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_board_payment_binding.py\", line 59, in run\n    dict(candidate_id=r['candidate_id'],card_copy_id=r['card_copy_id'],payment_time=0,time_after_certain_resolution=time)\n                                                     ~^^^^^^^^^^^^^^^^\nKeyError: 'card_copy_id'\n\n======================================================================\nERROR: test_shared_target_expander_cannot_hide_an_attachment_alternative (test_proxy_population_candidate_expansions.ExpansionTests.test_shared_target_expander_cannot_hide_an_attachment_alternative) (boundary='actual_entry')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py\", line 70, in run\n    expected='candidate expansions' if card=='M-antlion-01' else 'normal payment operands differ: source predicates'\n                                       ^^^^\nNameError: name 'card' is not defined\n\n======================================================================\nFAIL: test_actual_next_start_captures_pre_draw_sources_across_turns (test_proxy_population_trigger_multiturn.MultiTurnTests.test_actual_next_start_captures_pre_draw_sources_across_turns)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trigger_multiturn.py\", line 19, in test_actual_next_start_captures_pre_draw_sources_across_turns\n    self.assertEqual(len(result['closed_turn_trigger_ledgers']),len(result['start_occurrence_proofs'])-1)\nAssertionError: 3 != 2\n\n----------------------------------------------------------------------\nRan 26 tests in 44.589s\n\nFAILED (failures=1, errors=2)\n",
+  "base_commit": "7872feaf00e8c8e9c6b86a30243b529c9911c6c1",
+  "preflight_ready": false,
+  "new_matches": 0
+}

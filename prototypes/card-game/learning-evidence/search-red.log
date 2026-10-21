@@ -1,0 +1,30 @@
+✖ 15 searchable chapters retain canonical examples, glossary and exact official sources (11.729984ms)
+✔ all nine lessons execute canonical legal commands and validate every checkpoint (43.195112ms)
+✔ fixed lessons demonstrate cost, person limit, preparation, challenge and reverse chain (22.631077ms)
+✔ progress is independently persisted, reconstructable and invalid data safe (1.733396ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 256.931075
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/learning.test.mjs:6:1
+✖ 15 searchable chapters retain canonical examples, glossary and exact official sources (11.729984ms)
+  AssertionError [ERR_ASSERTION]: chapter search must not match every chapter via shared source text
+      at TestContext.<anonymous> (file:///workspace/scratch/aa15ef583f7d/naotocchi/prototypes/card-game/tests/learning.test.mjs:9:65)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

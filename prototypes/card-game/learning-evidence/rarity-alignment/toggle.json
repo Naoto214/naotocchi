@@ -1,0 +1,27 @@
+{
+  "officialDefinitionsUnchanged": true,
+  "cases": [
+    {
+      "id": "M-starfish-01",
+      "from": "通常 · 同名3枚まで",
+      "to": "レア · 同名1枚まで",
+      "sameImage": true,
+      "sameSignature": true,
+      "markers": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "M-star-07",
+      "from": "レア · 同名1枚まで",
+      "to": "通常 · 同名3枚まで",
+      "sameImage": true,
+      "sameSignature": true,
+      "markers": [
+        true,
+        false
+      ]
+    }
+  ]
+}

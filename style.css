@@ -4603,6 +4603,9 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
    見きれる。ここで はっきり ぎょうの たかさを あたえる */
 .mgr-spot { position: absolute; left: 8px; top: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(0, 0, 0, 0.42); color: #fff; font-size: 11px; line-height: 1.45; font-weight: bold; pointer-events: none; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mgr-spot.hidden { display: none; }
+/* 3D v2(2026-10-01): ランドマークを はじめて 見つけた とき、toast の かわりに 左上の 名まえを 1.6 秒 だけ 静かに 強調 */
+.mgr-spot.mgr-spot-found { animation: mgr-spot-found 1.6s ease-out 1; }
+@keyframes mgr-spot-found { 0% { background: rgba(255, 236, 160, 0.78); color: #3a2a10; } 100% { background: rgba(0, 0, 0, 0.42); color: #fff; } }
 
 /* ===== めぐる: みつけた しらせ(はっけん つうち) =====
    おび(.mgr-banner)は 地域の おしらせ せんよう。ばしょの はっけんは ここ。
@@ -4651,6 +4654,35 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 @media (max-height: 700px) {
   .meguru-overlay .mg-pad { min-height: 96px; }
   .meguru-overlay .mg-pad-actions .mg-tap-btn { min-height: 30px; font-size: 12px; }
+}
+
+/* Short landscape: keep the existing 220px world and put input beside it.
+   Scope to active exploration; other games and portrait keep their layout. */
+@media (min-width: 560px) and (max-height: 500px) and (orientation: landscape) {
+  .world-mode .device.ui-game-active:has(#meguruOverlay:not(.hidden) #mgrCanvas) {
+    width: min(100%, 960px); max-width: 960px; grid-template-rows: minmax(0, 1fr); gap: 0;
+  }
+  .world-mode .device.ui-game-active:has(#meguruOverlay:not(.hidden) #mgrCanvas) > .device-header { display: none; }
+  .world-mode .device.ui-game-active:has(#meguruOverlay:not(.hidden) #mgrCanvas) .screen { padding: 4px; }
+  #meguruOverlay.meguru-overlay:not(.hidden):has(#mgrCanvas) {
+    display: grid; grid-template-columns: minmax(0, 1fr) 184px;
+    grid-template-rows: auto 1fr; column-gap: 8px; align-content: start;
+  }
+  #meguruOverlay > .mg-meguru-header { grid-column: 1; grid-row: 1; }
+  #meguruOverlay > .mgr-wrap { grid-column: 1; grid-row: 2; align-self: start; }
+  #meguruOverlay > .mgr-hint {
+    grid-column: 2; grid-row: 1; margin: 0; padding: 0; min-height: 0;
+  }
+  #meguruOverlay > .mg-pad-row {
+    grid-column: 2; grid-row: 2; flex-direction: column; margin: 0; padding: 4px 0 0;
+    align-self: start; gap: 6px;
+  }
+  /* Keep the old row's measured height: canvas sizing subtracts offsetHeight.
+     Grow the real hit element into the free space below, then move actions by
+     the same 20px. Their visible 6px gap remains; world dimensions stay fixed. */
+  #meguruOverlay .mg-pad { flex: none; width: 100%; min-height: 120px; margin-bottom: -20px; }
+  #meguruOverlay .mg-pad-actions { flex-direction: row; flex-wrap: wrap; width: 100%; gap: 4px; position: relative; top: 20px; }
+  #meguruOverlay .mg-pad-actions .mg-tap-btn { min-height: 44px; min-width: 56px; }
 }
 
 /* ===== めぐるの ちず(あるいた きろく) ===== */

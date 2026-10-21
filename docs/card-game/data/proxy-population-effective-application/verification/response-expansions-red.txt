@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_paid_order_omission_and_mutation_are_rejected (test_proxy_population_response_expansions.ResponseExpansionTests.test_paid_order_omission_and_mutation_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_response_expansions.py", line 22, in test_paid_order_omission_and_mutation_are_rejected
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_seven_declarations_survive_empty_deck_and_source_coverage (test_proxy_population_response_expansions.ResponseExpansionTests.test_seven_declarations_survive_empty_deck_and_source_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_response_expansions.py", line 35, in test_seven_declarations_survive_empty_deck_and_source_coverage
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

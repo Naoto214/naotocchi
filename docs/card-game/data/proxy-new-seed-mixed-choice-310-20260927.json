@@ -1,0 +1,77 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "chain_link_id": "response-link-76-A-015#1",
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "mandatory_proved_resolution",
+      "selected_candidate": "resolve_board_ability",
+      "source_continuation_state_sha256": "baa03f5e717409ba1257e720104190a1d2fe91ad5e47e218a9dffc497c557d6f",
+      "source_game_state_sha256": "3bcbde1207a98d7e87720dd2992d63518d255415e5935953b0545f25183ff309",
+      "source_last_valid_event_seq": 78,
+      "source_reference": "72-companion-26-card-text-draft.md#C-chicken"
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "24ce9cd4ade09e2414119aa4235c5688775e49ad5645d0c2e593b10e5c11e7a1",
+      "source_game_state_sha256": "534216c4c9577a61cd2af90bf881a3616fe6e9b60c14d262b3841cea40cd7eb5",
+      "source_last_valid_event_seq": 80
+    },
+    {
+      "balance_sample_count": 0,
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-b-first",
+      "resolution_mode": "mandatory_proved_end",
+      "selected_candidate": "turn_end",
+      "six_stage_checks": {
+        "closed_response_window_valid": true,
+        "enumeration_ids_unique": true,
+        "expiration_boundary_resolved": true,
+        "expiration_trigger_inventory_complete": true,
+        "reservation_order_resolved": true,
+        "six_stage_inventory_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_dispositions_explained": true,
+        "source_projection_exact": true,
+        "transition_handlers_proven": true,
+        "trigger_information_boundary_valid": true,
+        "victory_history_sufficient": true
+      },
+      "source_continuation_state_sha256": "f4a93c22c7093c7a0363ebb4c24d29745b58ff4c1f35c874313daf6bdc4c9451",
+      "source_game_state_sha256": "1231238a30278673ec9de82c8c747d2ee695bef282e8b94263939e5f7a1d8aae",
+      "source_last_valid_event_seq": 81
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "0a1f0c53950b658932d18dd3784e298e4dfc85af61d8862f5b322cf0c1afc6d5",
+      "source_game_state_sha256": "0acda0753bbaa3c9a3564f746c169d5146f27540ee2ddbed010927d186b05a3c",
+      "source_last_valid_event_seq": 69
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_mixed_choice_310.v1",
+  "source_raw_sha256": "eae350f58992bc2018c1b182194fe80b7591a18345f35da6a652ed3c7e9de13f",
+  "state_raw_sha256": "faf7896c672ea3b70131740f1596063a2c3c376f5e43c3c5c2ce4dafc91eb193"
+}

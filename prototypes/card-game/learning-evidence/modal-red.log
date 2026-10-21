@@ -1,0 +1,20 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'learning-card-dialog'
+- 'rulebook-dialog'
+
+    at file:///workspace/scratch/aa15ef583f7d/naotocchi/prototypes/card-game/tests/learning.dom.mjs:28:80 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'learning-card-dialog',
+  expected: 'rulebook-dialog',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

@@ -2,3 +2,5 @@ node_modules/
 
 .superpowers/
 test-results/
+.worktrees/
+__pycache__/

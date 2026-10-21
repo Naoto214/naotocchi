@@ -1,0 +1,20 @@
+{
+  "baseline_count": 1498,
+  "current_count": 1509,
+  "added_test_ids": [
+    "test_proxy_population_incarnation_policy.IncarnationPolicyTests.test_existing_board_handler_keeps_full_state_and_scopes_restore",
+    "test_proxy_population_incarnation_policy.IncarnationPolicyTests.test_full_local_application_and_rng_match_active_projection",
+    "test_proxy_population_incarnation_policy.IncarnationPolicyTests.test_retired_metadata_changes_and_retired_physical_locations_rejected",
+    "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_capture_rejects_runtime_only_tampering_and_missing_full_hash",
+    "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_incomplete_root_cannot_bypass_prior_entry_guard_and_scope_is_nonreentrant",
+    "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_native_partner_and_main_reentry_keep_new_arrival_obligations",
+    "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_native_replacement_then_response_preserve_generations_and_hashes",
+    "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_world_and_preparation_use_same_native_entry_finisher",
+    "test_proxy_population_incarnation_window.WindowTests.test_bad_initial_connection_does_not_leave_shared_lock",
+    "test_proxy_population_incarnation_window.WindowTests.test_existing_segment_continues_after_real_native_reentry",
+    "test_proxy_population_normal_frontier.NormalFrontierTests.test_pure_challenge_pass_frontier_preserves_116_exclusion_and_real_step"
+  ],
+  "removed_test_ids": [],
+  "added_covered_by": "population-final.txt: test_proxy_population*.py,171PASS",
+  "scope": "baseline fixed manifest plus separate final supplemental tests; not one full current-source invocation"
+}

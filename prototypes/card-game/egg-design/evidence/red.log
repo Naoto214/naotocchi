@@ -1,0 +1,58 @@
+✖ egg is a tappable state card only in the empty main slot, in both orientations (57.253222ms)
+✖ egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions (27.710646ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2378.286599
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/ui-egg-stack.test.mjs:6:1
+✖ egg is a tappable state card only in the empty main slot, in both orientations (57.253222ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /data-slot="1"[^]*data-egg-detail=/. Input:
+  
+  '<section data-player="A" class="player-board own" data-depth="near"><header class="player-heading"><strong>手前 · あなた · A</strong><span>そだち <b>20</b> / 時 <b>1</b></span></header>\n' +
+    ' <div class="board-layout"><div class="board-field"><div class="egg-parking" data-egg-location="main"><span>たまご置き場</span><span class="egg-empty">―</span></div>\n' +
+    ' <div class="slots"><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="egg-main"><img class="egg-image" src="../../assets/characters/egg/intact.png" alt="たまご" draggable="false"></div></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div></div></div>\n' +
+    ' <aside class="management"><button type="button" data-zone="discard" data-seat="A" aria-label="Aの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="A" aria-label="Aの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="A" aria-label="Aの山札 残り33枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>33</b></button></aside></div>\n' +
+    ' <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 7</span></footer></section>'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/6402aa54035b/egg-work/prototypes/card-game/tests/ui-egg-stack.test.mjs:11:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<section data-player="A" class="player-board own" data-depth="near"><header class="player-heading"><strong>手前 · あなた · A</strong><span>そだち <b>20</b> / 時 <b>1</b></span></header>\n <div class="board-layout"><div class="board-field"><div class="egg-parking" data-egg-location="main"><span>たまご置き場</span><span class="egg-empty">―</span></div>\n <div class="slots"><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="egg-main"><img class="egg-image" src="../../assets/characters/egg/intact.png" alt="たまご" draggable="false"></div></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div></div></div>\n <aside class="management"><button type="button" data-zone="discard" data-seat="A" aria-label="Aの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="A" aria-label="Aの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="A" aria-label="Aの山札 残り33枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>33</b></button></aside></div>\n <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 7</span></footer></section>',
+    expected: /data-slot="1"[^]*data-egg-detail=/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-egg-stack.test.mjs:23:1
+✖ egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions (27.710646ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/6402aa54035b/egg-work/prototypes/card-game/tests/ui-egg-stack.test.mjs:24:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

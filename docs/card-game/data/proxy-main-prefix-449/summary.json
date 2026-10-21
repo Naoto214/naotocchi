@@ -1,0 +1,67 @@
+{
+  "choice_changes": 0,
+  "decision_record_changes": 0,
+  "diagnostic_only": true,
+  "frontier_changes": 0,
+  "groups": {
+    "already_seeded": {
+      "fallback": 8,
+      "frontier_refined_candidates": 0,
+      "inputs": 8,
+      "refined_main_candidates": 0
+    },
+    "control": {
+      "fallback": 0,
+      "frontier_refined_candidates": 0,
+      "inputs": 59,
+      "refined_main_candidates": 2
+    },
+    "legacy_safe_free_unique": {
+      "fallback": 46,
+      "frontier_refined_candidates": 3,
+      "inputs": 46,
+      "refined_main_candidates": 3
+    },
+    "legacy_time_unique": {
+      "fallback": 128,
+      "frontier_refined_candidates": 12,
+      "inputs": 128,
+      "refined_main_candidates": 12
+    },
+    "legacy_unsupported": {
+      "fallback": 72,
+      "frontier_refined_candidates": 42,
+      "inputs": 72,
+      "refined_main_candidates": 42
+    }
+  },
+  "independent_balance_sample_count": 0,
+  "inputs": 313,
+  "main_prefixes": 59,
+  "new_runs": 0,
+  "policy_promoted": false,
+  "proved_equal_pairs": 0,
+  "remaining_by_group_action": [
+    {
+      "action_type": "challenge",
+      "count": 10,
+      "group": "control"
+    },
+    {
+      "action_type": "place_companion",
+      "count": 2,
+      "group": "control"
+    },
+    {
+      "action_type": "challenge",
+      "count": 136,
+      "group": "legacy_unsupported"
+    },
+    {
+      "action_type": "place_partner",
+      "count": 4,
+      "group": "legacy_unsupported"
+    }
+  ],
+  "remaining_generator_unsupported": 152
+}

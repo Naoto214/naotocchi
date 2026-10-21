@@ -1,0 +1,335 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "comparison": {
+        "reason": "only_complete_legal_candidate"
+      },
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "ce45149cb3c3cb532084bbc2260a7e17642885f16048f49d6978f244536bf484",
+      "source_game_state_sha256": "8d4be711f505fe492f0e203c617177a3e572a934f5bbb1d2b3c373d480e5070a",
+      "source_last_valid_event_seq": 65
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "comparison": {
+        "reason": "only_complete_legal_candidate"
+      },
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "a6340a11d91ef832198bcae5cdb038fb6dad8a1d00cf5024e78c750af0388bff",
+      "source_game_state_sha256": "0ea80f75277840e337e363115dc24d443f1a917ed78ac3bf36d623f9ebcbaec3",
+      "source_last_valid_event_seq": 66
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [],
+      "chain_link_id": "response-link-66-A-033#1",
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-b-first",
+      "resolution_mode": "mandatory_chain_resolution",
+      "selected_processing": "resolve_item",
+      "source_continuation_state_sha256": "911bc985b1ac889edc07bdd625a7f92334d9f8e6420cef24a9c6abe5cb2acbc8",
+      "source_game_state_sha256": "cd70356832383f0b169f46defb535e0f46cb879c3a9f4bc31d64e52933ba831d",
+      "source_last_valid_event_seq": 68
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass",
+        "response-use-item-A-033#1"
+      ],
+      "comparison": {
+        "actor": "A",
+        "candidate_set_evidence": {
+          "actor": "A",
+          "candidate_set_complete": true,
+          "excluded_candidates": [
+            {
+              "card_id": "I-bond1",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-031#1",
+              "source_zone": "hand"
+            },
+            {
+              "card_id": "P-desert_scorpion",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-019#1",
+              "source_zone": "hand"
+            },
+            {
+              "card_id": "I-bowtie",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-032#1",
+              "source_zone": "hand"
+            },
+            {
+              "card_id": "M-beetle-01",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-009#1",
+              "source_zone": "hand"
+            },
+            {
+              "card_id": null,
+              "reason_code": "no_prepared_activation_present",
+              "source_instance_id": null,
+              "source_zone": "prepared"
+            }
+          ],
+          "forbidden_information_used": [],
+          "inspected_information": {
+            "opponent_public": {
+              "board": {
+                "companions": [],
+                "main": null,
+                "partner": {
+                  "card_copy_id": "B-018",
+                  "card_id": "P-cliff_goat",
+                  "instance_id": "B-018#1"
+                },
+                "partner_stage": 0,
+                "world": null
+              },
+              "discard": [
+                {
+                  "card_copy_id": "B-033",
+                  "card_id": "I-c_coin2",
+                  "instance_id": "B-033#1"
+                }
+              ],
+              "prepared_public": [],
+              "reservations": [],
+              "time": 3
+            },
+            "owner": {
+              "board": {
+                "companions": [],
+                "main": null,
+                "partner": null,
+                "partner_stage": null,
+                "world": null
+              },
+              "discard": [
+                {
+                  "card_copy_id": "A-001",
+                  "card_id": "G-hit-blow",
+                  "instance_id": "A-001#1"
+                }
+              ],
+              "hand": [
+                {
+                  "card_copy_id": "A-031",
+                  "card_id": "I-bond1",
+                  "instance_id": "A-031#1"
+                },
+                {
+                  "card_copy_id": "A-019",
+                  "card_id": "P-desert_scorpion",
+                  "instance_id": "A-019#1"
+                },
+                {
+                  "card_copy_id": "A-032",
+                  "card_id": "I-bowtie",
+                  "instance_id": "A-032#1"
+                },
+                {
+                  "card_copy_id": "A-009",
+                  "card_id": "M-beetle-01",
+                  "instance_id": "A-009#1"
+                },
+                {
+                  "card_copy_id": "A-033",
+                  "card_id": "I-c_coin2",
+                  "instance_id": "A-033#1"
+                }
+              ],
+              "prepared": [],
+              "reservations": [],
+              "time": 4
+            }
+          },
+          "legal_candidate_details": [
+            {
+              "action_type": "response_pass",
+              "base_time_cost": 0,
+              "candidate_family": "pass",
+              "candidate_id": "response-pass",
+              "card_copy_id": null,
+              "card_id": null,
+              "source_instance_id": null,
+              "source_references": [
+                "01-core-rules.md#通常行動と反応【確定】",
+                "06-action-chain-checkpoint.md#反応機会・パス【確定】"
+              ],
+              "target_instance_ids": []
+            },
+            {
+              "action_type": "use_item",
+              "base_time_cost": 1,
+              "candidate_family": "hand_quick_use",
+              "candidate_id": "response-use-item-A-033#1",
+              "candidate_variant": null,
+              "card_copy_id": "A-033",
+              "card_id": "I-c_coin2",
+              "source_instance_id": "A-033#1",
+              "source_references": [
+                "77-current-items-card-text-draft.md#I-c_coin2"
+              ],
+              "target_instance_ids": []
+            }
+          ],
+          "legal_candidate_ids": [
+            "response-pass",
+            "response-use-item-A-033#1"
+          ],
+          "response_context": {
+            "chain_links": [],
+            "chain_status": "empty",
+            "choice_kind": "reaction_or_pass",
+            "consecutive_passes": 0,
+            "decision_kind": "response_action",
+            "origin_event_seq": 56,
+            "phase": "response_window",
+            "priority_actor": "A",
+            "response_opportunity_index": 1,
+            "source_phase": "response_window",
+            "turn_player": "A",
+            "window_kind": "turn_start"
+          },
+          "source_references": [
+            "01-core-rules.md#通常行動と反応【確定】",
+            "06-action-chain-checkpoint.md#反応機会・パス【確定】",
+            "77-current-items-card-text-draft.md#I-c_coin2"
+          ]
+        },
+        "choice_kind": "reaction_or_pass",
+        "comparison_evidence": null,
+        "decision_kind": "response_action",
+        "legal_candidate_details": [
+          {
+            "action_type": "response_pass",
+            "base_time_cost": 0,
+            "candidate_family": "pass",
+            "candidate_id": "response-pass",
+            "card_copy_id": null,
+            "card_id": null,
+            "source_instance_id": null,
+            "source_references": [
+              "01-core-rules.md#通常行動と反応【確定】",
+              "06-action-chain-checkpoint.md#反応機会・パス【確定】"
+            ],
+            "target_instance_ids": []
+          },
+          {
+            "action_type": "use_item",
+            "base_time_cost": 1,
+            "candidate_family": "hand_quick_use",
+            "candidate_id": "response-use-item-A-033#1",
+            "candidate_variant": null,
+            "card_copy_id": "A-033",
+            "card_id": "I-c_coin2",
+            "source_instance_id": "A-033#1",
+            "source_references": [
+              "77-current-items-card-text-draft.md#I-c_coin2"
+            ],
+            "target_instance_ids": []
+          }
+        ],
+        "legal_candidate_ids": [
+          "response-pass",
+          "response-use-item-A-033#1"
+        ],
+        "phase": "response_window",
+        "reason_code": "strategic_unresolved_response_seeded_fallback",
+        "resolution_mode": "response_seeded_fallback",
+        "response_opportunity_index": 1,
+        "runner_up_candidates": [
+          "response-pass"
+        ],
+        "seed_context": {
+          "actor": "A",
+          "actor_turn_index": 4,
+          "choice_kind": "reaction_or_pass",
+          "contract_version": "naotocchi.card_game.proxy_response_window.v1",
+          "decision_kind": "response_action",
+          "order_id": "probe-02",
+          "origin_event_seq": 56,
+          "phase": "response_window",
+          "response_opportunity_index": 1,
+          "round": 4
+        },
+        "seed_proof": {
+          "algorithm": "sha256_big_endian_unsigned_modulo_n",
+          "candidate_count": 2,
+          "canonical_candidate_ids": [
+            "response-pass",
+            "response-use-item-A-033#1"
+          ],
+          "canonical_serialization": "[\"naotocchi.card_game.proxy_response_window.v1\",\"probe-02\",\"A\",4,4,56,1,\"response_window\",\"response_action\",\"reaction_or_pass\",[\"response-pass\",\"response-use-item-A-033#1\"]]",
+          "seed_material": [
+            "naotocchi.card_game.proxy_response_window.v1",
+            "probe-02",
+            "A",
+            4,
+            4,
+            56,
+            1,
+            "response_window",
+            "response_action",
+            "reaction_or_pass",
+            [
+              "response-pass",
+              "response-use-item-A-033#1"
+            ]
+          ],
+          "selected_candidate": "response-use-item-A-033#1",
+          "selected_index": 1,
+          "sha256": "5bb07e892eab3d426c12e2714090e26743cc053f0539bbc230772682a6afb6ff"
+        },
+        "selected_action": {
+          "action_type": "use_item",
+          "base_time_cost": 1,
+          "candidate_family": "hand_quick_use",
+          "candidate_id": "response-use-item-A-033#1",
+          "candidate_variant": null,
+          "card_copy_id": "A-033",
+          "card_id": "I-c_coin2",
+          "source_instance_id": "A-033#1",
+          "source_references": [
+            "77-current-items-card-text-draft.md#I-c_coin2"
+          ],
+          "target_instance_ids": []
+        },
+        "selected_candidate": "response-use-item-A-033#1"
+      },
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "response_seeded_fallback",
+      "selected_candidate": "response-use-item-A-033#1",
+      "source_continuation_state_sha256": "589b3bf87418847b814472172bde01515641ab7755f1cbdf3a2b2af157204b59",
+      "source_game_state_sha256": "57970ec9342aba9e02107d9995b3cdaefb063819f7f5ba74e84edcf937a7203b",
+      "source_last_valid_event_seq": 56
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_mixed_choice_274.v1",
+  "source_raw_sha256": "2500cf03b288638e79c31ec73c9b2bd06639be84924d43183ac057451487004e"
+}

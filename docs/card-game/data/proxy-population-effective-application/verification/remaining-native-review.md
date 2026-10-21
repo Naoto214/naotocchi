@@ -1,0 +1,13 @@
+# Remaining native predicate review
+
+Base c8b869da0a43664e40f9f5fdc40c09351c28362a. One independent read-only reviewer /root/review_remaining_native: Critical0 / Important1 / Minor0. Reviewed sources67/89/74/55 and current scope/replay/coverage.15 focused tests passed; actual opponent-turn activation replay succeeded and forged receipt replay failed. No reviewer edits or second review.
+
+I1: new duplicate city turn-start helper and audit rejected valid intermediate turn_end_completed (new player/turn_start before next draw). Coverage observes every transition. Actual generated next_turn snapshot reproduced RED. Investigation showed public_turn.boundary already handles this boundary and public_turn.scope already fixes opponent-turn city/count/usage. Initial test had entered contract_scope inside an already-running runtime.operation, missing that established wrapper; its claim of a current runtime bug was wrong. Removed the new city helper/candidate module, reused existing public_turn.boundary, corrected fixture scope order (contract_scope outside runtime.operation). Historical trigger source file and all source pins remain unchanged. Final changes are audits, not a new city rule implementation.
+
+Final related46PASS (6.737s), including generated-boundary RED→GREEN, public_turn, semantic mutations, empty-hand forced activation,474 capped-zero challenge condition, native city activation/effect and restoration. Final integration recorded separately. Earlier40/19PASS precede the fix. Intermediate source-pin and source-fingerprint failures are retained distinctly; none is counted as final success. Design errors=[] and protected476 unchanged before the final narrow fix; final design check recorded separately. No new all-proxy/npm claim.
+
+Ruling: use existing current-turn boundary/candidate machinery. Copying that machinery risks diverging semantics and breaks the user's reuse requirement; the duplicate is removed. Turn-boundary observation does not establish an activation opportunity. Declined-to-judge items remain unproved: historical event authenticity, source presence at origin, exhaustive timing closure, information-use compliance, and policy/balance admission. Shared application/history helpers are reused rather than independently certified. No eligibility promotion, production inputs,400-run, result changes or merge.
+
+Final source design recheck: errors=[]. The final changes touch no numbered canonical files (476 unchanged).
+
+Final post-fix connected19PASS (136.062s), including historical115/test-zero-root full20turn/R10, connected entry and admission. All Python sources remained fixed throughout this run and match final related46. No second review. No population input generation or match execution.

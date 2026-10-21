@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_actual_start_with_three_cards_does_not_block_ordinary_response (test_proxy_population_start_condition_history.StartConditionHistoryTests.test_actual_start_with_three_cards_does_not_block_ordinary_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_start_condition_history.py", line 39, in test_actual_start_with_three_cards_does_not_block_ordinary_response
+    self.assertIsNone(result['stop'],result['stop']);self.assertEqual(len(result['steps']),1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'code': 'unsupported_contract_boundary', 'detail': 'response capability trigger condition unavailable: M-antlion-02', 'phase': 'response_window'} is not None : {'code': 'unsupported_contract_boundary', 'detail': 'response capability trigger condition unavailable: M-antlion-02', 'phase': 'response_window'}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.113s
+
+FAILED (failures=1)

@@ -1,0 +1,2933 @@
+{
+  "death-drop": {
+    "runs": 32,
+    "meanDrops": 89.90625,
+    "meanActions": 89.90625,
+    "reach08": {
+      "count": 0,
+      "n": 32,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.10717919825506533
+      ]
+    },
+    "death": {
+      "count": 0,
+      "n": 32,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.10717919825506533
+      ]
+    },
+    "gameOver": {
+      "count": 32,
+      "n": 32,
+      "rate": 1,
+      "wilson95": [
+        0.8928208017449346,
+        1
+      ]
+    },
+    "censored": 0,
+    "capHits": 0,
+    "earned": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "spent": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "eggAcquisitionRate": [
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      }
+    ],
+    "remaining": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "maxStock": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "causalRewards": 0,
+    "causalRuns": {
+      "count": 0,
+      "n": 32,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.10717919825506533
+      ]
+    },
+    "descendantDeaths": 0,
+    "eggInducedRewards": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "eggGrowth": 0,
+    "gaugeEarned": 3544,
+    "gaugeSpent": 0,
+    "gaugeFromTools": 0,
+    "transforms": 0,
+    "bulks": 0,
+    "positiveGaugeActions": 0,
+    "maxToolStreak": 0,
+    "maxChain": 5,
+    "chains2": 828,
+    "chains3": 156,
+    "chains5": 1,
+    "chain2PerAction": 0.28779979144942647,
+    "firstDeath": [],
+    "firstEgg": [],
+    "paired": [
+      {
+        "seed": 104,
+        "drops": 87,
+        "actions": 87,
+        "score": 1410,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 105,
+        "drops": 89,
+        "actions": 89,
+        "score": 1480,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 106,
+        "drops": 90,
+        "actions": 90,
+        "score": 1580,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 107,
+        "drops": 83,
+        "actions": 83,
+        "score": 1300,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 108,
+        "drops": 88,
+        "actions": 88,
+        "score": 1400,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 109,
+        "drops": 85,
+        "actions": 85,
+        "score": 1360,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 110,
+        "drops": 88,
+        "actions": 88,
+        "score": 1420,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 111,
+        "drops": 91,
+        "actions": 91,
+        "score": 1590,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 112,
+        "drops": 88,
+        "actions": 88,
+        "score": 1460,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 113,
+        "drops": 97,
+        "actions": 97,
+        "score": 1690,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 114,
+        "drops": 89,
+        "actions": 89,
+        "score": 1420,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 115,
+        "drops": 93,
+        "actions": 93,
+        "score": 1540,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 116,
+        "drops": 91,
+        "actions": 91,
+        "score": 1540,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 117,
+        "drops": 84,
+        "actions": 84,
+        "score": 1310,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 118,
+        "drops": 88,
+        "actions": 88,
+        "score": 1500,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 119,
+        "drops": 87,
+        "actions": 87,
+        "score": 1370,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 120,
+        "drops": 88,
+        "actions": 88,
+        "score": 1420,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 121,
+        "drops": 87,
+        "actions": 87,
+        "score": 1450,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 122,
+        "drops": 88,
+        "actions": 88,
+        "score": 1480,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 123,
+        "drops": 94,
+        "actions": 94,
+        "score": 1580,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 124,
+        "drops": 88,
+        "actions": 88,
+        "score": 1410,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 125,
+        "drops": 107,
+        "actions": 107,
+        "score": 2130,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 126,
+        "drops": 94,
+        "actions": 94,
+        "score": 1550,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 127,
+        "drops": 92,
+        "actions": 92,
+        "score": 1620,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 128,
+        "drops": 92,
+        "actions": 92,
+        "score": 1560,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 129,
+        "drops": 93,
+        "actions": 93,
+        "score": 1510,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 130,
+        "drops": 87,
+        "actions": 87,
+        "score": 1400,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 131,
+        "drops": 88,
+        "actions": 88,
+        "score": 1410,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 132,
+        "drops": 82,
+        "actions": 82,
+        "score": 1130,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 133,
+        "drops": 97,
+        "actions": 97,
+        "score": 1720,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 134,
+        "drops": 91,
+        "actions": 91,
+        "score": 1560,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 135,
+        "drops": 91,
+        "actions": 91,
+        "score": 1490,
+        "reach": false,
+        "death": false
+      }
+    ]
+  },
+  "death-active": {
+    "runs": 32,
+    "meanDrops": 231.59375,
+    "meanActions": 250.875,
+    "reach08": {
+      "count": 12,
+      "n": 32,
+      "rate": 0.375,
+      "wilson95": [
+        0.2293388730945454,
+        0.5474559264692209
+      ]
+    },
+    "death": {
+      "count": 1,
+      "n": 32,
+      "rate": 0.03125,
+      "wilson95": [
+        0.005537860164003344,
+        0.15744263820012042
+      ]
+    },
+    "gameOver": {
+      "count": 32,
+      "n": 32,
+      "rate": 1,
+      "wilson95": [
+        0.8928208017449346,
+        1
+      ]
+    },
+    "censored": 0,
+    "capHits": 0,
+    "earned": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "spent": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "eggAcquisitionRate": [
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 1,
+        "n": 32,
+        "rate": 0.03125,
+        "wilson95": [
+          0.005537860164003344,
+          0.15744263820012042
+        ]
+      }
+    ],
+    "remaining": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "maxStock": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "causalRewards": 0,
+    "causalRuns": {
+      "count": 0,
+      "n": 32,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.10717919825506533
+      ]
+    },
+    "descendantDeaths": 0,
+    "eggInducedRewards": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "eggGrowth": 1,
+    "gaugeEarned": 12599,
+    "gaugeSpent": 12016,
+    "gaugeFromTools": 3221,
+    "transforms": 173,
+    "bulks": 443,
+    "positiveGaugeActions": 3,
+    "maxToolStreak": 3,
+    "maxChain": 10,
+    "chains2": 2777,
+    "chains3": 808,
+    "chains5": 56,
+    "chain2PerAction": 0.34591429995017436,
+    "firstDeath": [
+      {
+        "seed": 118,
+        "drop": 242,
+        "action": 261,
+        "wave": 5
+      }
+    ],
+    "firstEgg": [
+      {
+        "seed": 118,
+        "drop": 242,
+        "action": 261,
+        "wave": 5
+      }
+    ],
+    "paired": [
+      {
+        "seed": 104,
+        "drops": 160,
+        "actions": 170,
+        "score": 3610,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 105,
+        "drops": 179,
+        "actions": 194,
+        "score": 4290,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 106,
+        "drops": 292,
+        "actions": 318,
+        "score": 7990,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 107,
+        "drops": 333,
+        "actions": 360,
+        "score": 9210,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 108,
+        "drops": 241,
+        "actions": 259,
+        "score": 6260,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 109,
+        "drops": 142,
+        "actions": 150,
+        "score": 2960,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 110,
+        "drops": 214,
+        "actions": 232,
+        "score": 5640,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 111,
+        "drops": 207,
+        "actions": 222,
+        "score": 5270,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 112,
+        "drops": 197,
+        "actions": 212,
+        "score": 4780,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 113,
+        "drops": 178,
+        "actions": 191,
+        "score": 4230,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 114,
+        "drops": 290,
+        "actions": 313,
+        "score": 8040,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 115,
+        "drops": 201,
+        "actions": 219,
+        "score": 4720,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 116,
+        "drops": 247,
+        "actions": 267,
+        "score": 6930,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 117,
+        "drops": 296,
+        "actions": 326,
+        "score": 7890,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 118,
+        "drops": 292,
+        "actions": 315,
+        "score": 8860,
+        "reach": true,
+        "death": true
+      },
+      {
+        "seed": 119,
+        "drops": 237,
+        "actions": 261,
+        "score": 6090,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 120,
+        "drops": 186,
+        "actions": 200,
+        "score": 4640,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 121,
+        "drops": 170,
+        "actions": 183,
+        "score": 3960,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 122,
+        "drops": 211,
+        "actions": 229,
+        "score": 5680,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 123,
+        "drops": 202,
+        "actions": 218,
+        "score": 5420,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 124,
+        "drops": 246,
+        "actions": 267,
+        "score": 6300,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 125,
+        "drops": 266,
+        "actions": 285,
+        "score": 7000,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 126,
+        "drops": 267,
+        "actions": 287,
+        "score": 6950,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 127,
+        "drops": 245,
+        "actions": 269,
+        "score": 6290,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 128,
+        "drops": 248,
+        "actions": 271,
+        "score": 6440,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 129,
+        "drops": 230,
+        "actions": 250,
+        "score": 5860,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 130,
+        "drops": 233,
+        "actions": 256,
+        "score": 5950,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 131,
+        "drops": 216,
+        "actions": 236,
+        "score": 5360,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 132,
+        "drops": 237,
+        "actions": 255,
+        "score": 6090,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 133,
+        "drops": 317,
+        "actions": 349,
+        "score": 8740,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 134,
+        "drops": 189,
+        "actions": 203,
+        "score": 4710,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 135,
+        "drops": 242,
+        "actions": 261,
+        "score": 6270,
+        "reach": true,
+        "death": false
+      }
+    ]
+  },
+  "death-reserve": {
+    "runs": 32,
+    "meanDrops": 232,
+    "meanActions": 251.28125,
+    "reach08": {
+      "count": 12,
+      "n": 32,
+      "rate": 0.375,
+      "wilson95": [
+        0.2293388730945454,
+        0.5474559264692209
+      ]
+    },
+    "death": {
+      "count": 1,
+      "n": 32,
+      "rate": 0.03125,
+      "wilson95": [
+        0.005537860164003344,
+        0.15744263820012042
+      ]
+    },
+    "gameOver": {
+      "count": 32,
+      "n": 32,
+      "rate": 1,
+      "wilson95": [
+        0.8928208017449346,
+        1
+      ]
+    },
+    "censored": 0,
+    "capHits": 0,
+    "earned": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "spent": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "eggAcquisitionRate": [
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 1,
+        "n": 32,
+        "rate": 0.03125,
+        "wilson95": [
+          0.005537860164003344,
+          0.15744263820012042
+        ]
+      }
+    ],
+    "remaining": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "maxStock": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "causalRewards": 0,
+    "causalRuns": {
+      "count": 0,
+      "n": 32,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.10717919825506533
+      ]
+    },
+    "descendantDeaths": 0,
+    "eggInducedRewards": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "eggGrowth": 0,
+    "gaugeEarned": 12622,
+    "gaugeSpent": 12040,
+    "gaugeFromTools": 3226,
+    "transforms": 173,
+    "bulks": 444,
+    "positiveGaugeActions": 2,
+    "maxToolStreak": 3,
+    "maxChain": 10,
+    "chains2": 2785,
+    "chains3": 808,
+    "chains5": 56,
+    "chain2PerAction": 0.3463499564730755,
+    "firstDeath": [
+      {
+        "seed": 118,
+        "drop": 242,
+        "action": 261,
+        "wave": 5
+      }
+    ],
+    "firstEgg": [
+      {
+        "seed": 118,
+        "drop": 242,
+        "action": 261,
+        "wave": 5
+      }
+    ],
+    "paired": [
+      {
+        "seed": 104,
+        "drops": 160,
+        "actions": 170,
+        "score": 3610,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 105,
+        "drops": 179,
+        "actions": 194,
+        "score": 4290,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 106,
+        "drops": 292,
+        "actions": 318,
+        "score": 7990,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 107,
+        "drops": 333,
+        "actions": 360,
+        "score": 9210,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 108,
+        "drops": 241,
+        "actions": 259,
+        "score": 6260,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 109,
+        "drops": 142,
+        "actions": 150,
+        "score": 2960,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 110,
+        "drops": 214,
+        "actions": 232,
+        "score": 5640,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 111,
+        "drops": 207,
+        "actions": 222,
+        "score": 5270,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 112,
+        "drops": 197,
+        "actions": 212,
+        "score": 4780,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 113,
+        "drops": 178,
+        "actions": 191,
+        "score": 4230,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 114,
+        "drops": 290,
+        "actions": 313,
+        "score": 8040,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 115,
+        "drops": 201,
+        "actions": 219,
+        "score": 4720,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 116,
+        "drops": 247,
+        "actions": 267,
+        "score": 6930,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 117,
+        "drops": 296,
+        "actions": 326,
+        "score": 7890,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 118,
+        "drops": 305,
+        "actions": 328,
+        "score": 9260,
+        "reach": true,
+        "death": true
+      },
+      {
+        "seed": 119,
+        "drops": 237,
+        "actions": 261,
+        "score": 6090,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 120,
+        "drops": 186,
+        "actions": 200,
+        "score": 4640,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 121,
+        "drops": 170,
+        "actions": 183,
+        "score": 3960,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 122,
+        "drops": 211,
+        "actions": 229,
+        "score": 5680,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 123,
+        "drops": 202,
+        "actions": 218,
+        "score": 5420,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 124,
+        "drops": 246,
+        "actions": 267,
+        "score": 6300,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 125,
+        "drops": 266,
+        "actions": 285,
+        "score": 7000,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 126,
+        "drops": 267,
+        "actions": 287,
+        "score": 6950,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 127,
+        "drops": 245,
+        "actions": 269,
+        "score": 6290,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 128,
+        "drops": 248,
+        "actions": 271,
+        "score": 6440,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 129,
+        "drops": 230,
+        "actions": 250,
+        "score": 5860,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 130,
+        "drops": 233,
+        "actions": 256,
+        "score": 5950,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 131,
+        "drops": 216,
+        "actions": 236,
+        "score": 5360,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 132,
+        "drops": 237,
+        "actions": 255,
+        "score": 6090,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 133,
+        "drops": 317,
+        "actions": 349,
+        "score": 8740,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 134,
+        "drops": 189,
+        "actions": 203,
+        "score": 4710,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 135,
+        "drops": 242,
+        "actions": 261,
+        "score": 6270,
+        "reach": true,
+        "death": false
+      }
+    ]
+  },
+  "evolution-drop": {
+    "runs": 32,
+    "meanDrops": 89.90625,
+    "meanActions": 89.90625,
+    "reach08": {
+      "count": 0,
+      "n": 32,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.10717919825506533
+      ]
+    },
+    "death": {
+      "count": 0,
+      "n": 32,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.10717919825506533
+      ]
+    },
+    "gameOver": {
+      "count": 32,
+      "n": 32,
+      "rate": 1,
+      "wilson95": [
+        0.8928208017449346,
+        1
+      ]
+    },
+    "censored": 0,
+    "capHits": 0,
+    "earned": [
+      83,
+      0,
+      0,
+      0
+    ],
+    "spent": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "eggAcquisitionRate": [
+      {
+        "count": 28,
+        "n": 32,
+        "rate": 0.875,
+        "wilson95": [
+          0.7193169451835029,
+          0.950298656125198
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      },
+      {
+        "count": 0,
+        "n": 32,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.10717919825506533
+        ]
+      }
+    ],
+    "remaining": [
+      83,
+      0,
+      0,
+      0
+    ],
+    "maxStock": [
+      6,
+      0,
+      0,
+      0
+    ],
+    "causalRewards": 0,
+    "causalRuns": {
+      "count": 0,
+      "n": 32,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.10717919825506533
+      ]
+    },
+    "descendantDeaths": 0,
+    "eggInducedRewards": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "eggGrowth": 0,
+    "gaugeEarned": 3544,
+    "gaugeSpent": 0,
+    "gaugeFromTools": 0,
+    "transforms": 0,
+    "bulks": 0,
+    "positiveGaugeActions": 0,
+    "maxToolStreak": 0,
+    "maxChain": 5,
+    "chains2": 828,
+    "chains3": 156,
+    "chains5": 1,
+    "chain2PerAction": 0.28779979144942647,
+    "firstDeath": [],
+    "firstEgg": [
+      {
+        "seed": 104,
+        "drop": 27,
+        "action": 27,
+        "wave": 3
+      },
+      {
+        "seed": 105,
+        "drop": 85,
+        "action": 85,
+        "wave": 3
+      },
+      {
+        "seed": 106,
+        "drop": 24,
+        "action": 24,
+        "wave": 3
+      },
+      {
+        "seed": 108,
+        "drop": 80,
+        "action": 80,
+        "wave": 3
+      },
+      {
+        "seed": 109,
+        "drop": 63,
+        "action": 63,
+        "wave": 3
+      },
+      {
+        "seed": 110,
+        "drop": 21,
+        "action": 21,
+        "wave": 2
+      },
+      {
+        "seed": 111,
+        "drop": 50,
+        "action": 50,
+        "wave": 3
+      },
+      {
+        "seed": 112,
+        "drop": 41,
+        "action": 41,
+        "wave": 3
+      },
+      {
+        "seed": 113,
+        "drop": 27,
+        "action": 27,
+        "wave": 3
+      },
+      {
+        "seed": 114,
+        "drop": 14,
+        "action": 14,
+        "wave": 2
+      },
+      {
+        "seed": 115,
+        "drop": 67,
+        "action": 67,
+        "wave": 2
+      },
+      {
+        "seed": 116,
+        "drop": 30,
+        "action": 30,
+        "wave": 3
+      },
+      {
+        "seed": 117,
+        "drop": 52,
+        "action": 52,
+        "wave": 2
+      },
+      {
+        "seed": 118,
+        "drop": 20,
+        "action": 20,
+        "wave": 3
+      },
+      {
+        "seed": 121,
+        "drop": 24,
+        "action": 24,
+        "wave": 2
+      },
+      {
+        "seed": 122,
+        "drop": 39,
+        "action": 39,
+        "wave": 3
+      },
+      {
+        "seed": 124,
+        "drop": 19,
+        "action": 19,
+        "wave": 3
+      },
+      {
+        "seed": 125,
+        "drop": 30,
+        "action": 30,
+        "wave": 3
+      },
+      {
+        "seed": 126,
+        "drop": 20,
+        "action": 20,
+        "wave": 3
+      },
+      {
+        "seed": 127,
+        "drop": 30,
+        "action": 30,
+        "wave": 3
+      },
+      {
+        "seed": 128,
+        "drop": 19,
+        "action": 19,
+        "wave": 3
+      },
+      {
+        "seed": 129,
+        "drop": 17,
+        "action": 17,
+        "wave": 3
+      },
+      {
+        "seed": 130,
+        "drop": 76,
+        "action": 76,
+        "wave": 4
+      },
+      {
+        "seed": 131,
+        "drop": 15,
+        "action": 15,
+        "wave": 3
+      },
+      {
+        "seed": 132,
+        "drop": 15,
+        "action": 15,
+        "wave": 1
+      },
+      {
+        "seed": 133,
+        "drop": 37,
+        "action": 37,
+        "wave": 3
+      },
+      {
+        "seed": 134,
+        "drop": 53,
+        "action": 53,
+        "wave": 3
+      },
+      {
+        "seed": 135,
+        "drop": 24,
+        "action": 24,
+        "wave": 2
+      }
+    ],
+    "paired": [
+      {
+        "seed": 104,
+        "drops": 87,
+        "actions": 87,
+        "score": 1410,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 105,
+        "drops": 89,
+        "actions": 89,
+        "score": 1480,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 106,
+        "drops": 90,
+        "actions": 90,
+        "score": 1580,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 107,
+        "drops": 83,
+        "actions": 83,
+        "score": 1300,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 108,
+        "drops": 88,
+        "actions": 88,
+        "score": 1400,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 109,
+        "drops": 85,
+        "actions": 85,
+        "score": 1360,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 110,
+        "drops": 88,
+        "actions": 88,
+        "score": 1420,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 111,
+        "drops": 91,
+        "actions": 91,
+        "score": 1590,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 112,
+        "drops": 88,
+        "actions": 88,
+        "score": 1460,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 113,
+        "drops": 97,
+        "actions": 97,
+        "score": 1690,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 114,
+        "drops": 89,
+        "actions": 89,
+        "score": 1420,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 115,
+        "drops": 93,
+        "actions": 93,
+        "score": 1540,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 116,
+        "drops": 91,
+        "actions": 91,
+        "score": 1540,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 117,
+        "drops": 84,
+        "actions": 84,
+        "score": 1310,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 118,
+        "drops": 88,
+        "actions": 88,
+        "score": 1500,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 119,
+        "drops": 87,
+        "actions": 87,
+        "score": 1370,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 120,
+        "drops": 88,
+        "actions": 88,
+        "score": 1420,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 121,
+        "drops": 87,
+        "actions": 87,
+        "score": 1450,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 122,
+        "drops": 88,
+        "actions": 88,
+        "score": 1480,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 123,
+        "drops": 94,
+        "actions": 94,
+        "score": 1580,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 124,
+        "drops": 88,
+        "actions": 88,
+        "score": 1410,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 125,
+        "drops": 107,
+        "actions": 107,
+        "score": 2130,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 126,
+        "drops": 94,
+        "actions": 94,
+        "score": 1550,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 127,
+        "drops": 92,
+        "actions": 92,
+        "score": 1620,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 128,
+        "drops": 92,
+        "actions": 92,
+        "score": 1560,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 129,
+        "drops": 93,
+        "actions": 93,
+        "score": 1510,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 130,
+        "drops": 87,
+        "actions": 87,
+        "score": 1400,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 131,
+        "drops": 88,
+        "actions": 88,
+        "score": 1410,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 132,
+        "drops": 82,
+        "actions": 82,
+        "score": 1130,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 133,
+        "drops": 97,
+        "actions": 97,
+        "score": 1720,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 134,
+        "drops": 91,
+        "actions": 91,
+        "score": 1560,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 135,
+        "drops": 91,
+        "actions": 91,
+        "score": 1490,
+        "reach": false,
+        "death": false
+      }
+    ]
+  },
+  "evolution-active": {
+    "runs": 32,
+    "meanDrops": 191.15625,
+    "meanActions": 278.09375,
+    "reach08": {
+      "count": 12,
+      "n": 32,
+      "rate": 0.375,
+      "wilson95": [
+        0.2293388730945454,
+        0.5474559264692209
+      ]
+    },
+    "death": {
+      "count": 1,
+      "n": 32,
+      "rate": 0.03125,
+      "wilson95": [
+        0.005537860164003344,
+        0.15744263820012042
+      ]
+    },
+    "gameOver": {
+      "count": 32,
+      "n": 32,
+      "rate": 1,
+      "wilson95": [
+        0.8928208017449346,
+        1
+      ]
+    },
+    "censored": 0,
+    "capHits": 20,
+    "earned": [
+      1281,
+      599,
+      175,
+      29
+    ],
+    "spent": [
+      1281,
+      599,
+      175,
+      29
+    ],
+    "eggAcquisitionRate": [
+      {
+        "count": 32,
+        "n": 32,
+        "rate": 1,
+        "wilson95": [
+          0.8928208017449346,
+          1
+        ]
+      },
+      {
+        "count": 32,
+        "n": 32,
+        "rate": 1,
+        "wilson95": [
+          0.8928208017449346,
+          1
+        ]
+      },
+      {
+        "count": 31,
+        "n": 32,
+        "rate": 0.96875,
+        "wilson95": [
+          0.8425573617998795,
+          0.9944621398359966
+        ]
+      },
+      {
+        "count": 15,
+        "n": 32,
+        "rate": 0.46875,
+        "wilson95": [
+          0.30869387108069224,
+          0.6355048288102494
+        ]
+      }
+    ],
+    "remaining": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "maxStock": [
+      9,
+      8,
+      4,
+      3
+    ],
+    "causalRewards": 1643,
+    "causalRuns": {
+      "count": 32,
+      "n": 32,
+      "rate": 1,
+      "wilson95": [
+        0.8928208017449346,
+        1
+      ]
+    },
+    "descendantDeaths": 1,
+    "eggInducedRewards": [
+      429,
+      101,
+      10,
+      1
+    ],
+    "eggGrowth": 2882,
+    "gaugeEarned": 12087,
+    "gaugeSpent": 11472,
+    "gaugeFromTools": 5301,
+    "transforms": 330,
+    "bulks": 368,
+    "positiveGaugeActions": 2086,
+    "maxToolStreak": 8,
+    "maxChain": 7,
+    "chains2": 2674,
+    "chains3": 578,
+    "chains5": 37,
+    "chain2PerAction": 0.300483200359591,
+    "firstDeath": [
+      {
+        "seed": 111,
+        "drop": 153,
+        "action": 228,
+        "wave": 2
+      }
+    ],
+    "firstEgg": [
+      {
+        "seed": 104,
+        "drop": 23,
+        "action": 24,
+        "wave": 3
+      },
+      {
+        "seed": 105,
+        "drop": 22,
+        "action": 23,
+        "wave": 2
+      },
+      {
+        "seed": 106,
+        "drop": 26,
+        "action": 27,
+        "wave": 2
+      },
+      {
+        "seed": 107,
+        "drop": 22,
+        "action": 23,
+        "wave": 1
+      },
+      {
+        "seed": 108,
+        "drop": 23,
+        "action": 24,
+        "wave": 2
+      },
+      {
+        "seed": 109,
+        "drop": 24,
+        "action": 25,
+        "wave": 1
+      },
+      {
+        "seed": 110,
+        "drop": 21,
+        "action": 21,
+        "wave": 2
+      },
+      {
+        "seed": 111,
+        "drop": 22,
+        "action": 23,
+        "wave": 2
+      },
+      {
+        "seed": 112,
+        "drop": 20,
+        "action": 21,
+        "wave": 2
+      },
+      {
+        "seed": 113,
+        "drop": 22,
+        "action": 23,
+        "wave": 1
+      },
+      {
+        "seed": 114,
+        "drop": 14,
+        "action": 14,
+        "wave": 2
+      },
+      {
+        "seed": 115,
+        "drop": 26,
+        "action": 28,
+        "wave": 1
+      },
+      {
+        "seed": 116,
+        "drop": 19,
+        "action": 20,
+        "wave": 2
+      },
+      {
+        "seed": 117,
+        "drop": 21,
+        "action": 22,
+        "wave": 2
+      },
+      {
+        "seed": 118,
+        "drop": 20,
+        "action": 20,
+        "wave": 3
+      },
+      {
+        "seed": 119,
+        "drop": 20,
+        "action": 21,
+        "wave": 2
+      },
+      {
+        "seed": 120,
+        "drop": 23,
+        "action": 24,
+        "wave": 1
+      },
+      {
+        "seed": 121,
+        "drop": 24,
+        "action": 24,
+        "wave": 2
+      },
+      {
+        "seed": 122,
+        "drop": 23,
+        "action": 24,
+        "wave": 2
+      },
+      {
+        "seed": 123,
+        "drop": 22,
+        "action": 23,
+        "wave": 3
+      },
+      {
+        "seed": 124,
+        "drop": 19,
+        "action": 19,
+        "wave": 3
+      },
+      {
+        "seed": 125,
+        "drop": 21,
+        "action": 22,
+        "wave": 1
+      },
+      {
+        "seed": 126,
+        "drop": 20,
+        "action": 20,
+        "wave": 3
+      },
+      {
+        "seed": 127,
+        "drop": 19,
+        "action": 20,
+        "wave": 1
+      },
+      {
+        "seed": 128,
+        "drop": 19,
+        "action": 19,
+        "wave": 3
+      },
+      {
+        "seed": 129,
+        "drop": 17,
+        "action": 17,
+        "wave": 3
+      },
+      {
+        "seed": 130,
+        "drop": 20,
+        "action": 21,
+        "wave": 1
+      },
+      {
+        "seed": 131,
+        "drop": 15,
+        "action": 15,
+        "wave": 3
+      },
+      {
+        "seed": 132,
+        "drop": 15,
+        "action": 15,
+        "wave": 1
+      },
+      {
+        "seed": 133,
+        "drop": 22,
+        "action": 23,
+        "wave": 1
+      },
+      {
+        "seed": 134,
+        "drop": 24,
+        "action": 25,
+        "wave": 1
+      },
+      {
+        "seed": 135,
+        "drop": 21,
+        "action": 22,
+        "wave": 2
+      }
+    ],
+    "paired": [
+      {
+        "seed": 104,
+        "drops": 179,
+        "actions": 256,
+        "score": 4790,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 105,
+        "drops": 128,
+        "actions": 167,
+        "score": 2960,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 106,
+        "drops": 170,
+        "actions": 236,
+        "score": 4420,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 107,
+        "drops": 231,
+        "actions": 338,
+        "score": 6700,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 108,
+        "drops": 164,
+        "actions": 221,
+        "score": 4370,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 109,
+        "drops": 277,
+        "actions": 446,
+        "score": 9520,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 110,
+        "drops": 194,
+        "actions": 285,
+        "score": 5440,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 111,
+        "drops": 227,
+        "actions": 340,
+        "score": 6690,
+        "reach": true,
+        "death": true
+      },
+      {
+        "seed": 112,
+        "drops": 187,
+        "actions": 272,
+        "score": 5470,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 113,
+        "drops": 212,
+        "actions": 315,
+        "score": 5830,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 114,
+        "drops": 169,
+        "actions": 244,
+        "score": 4320,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 115,
+        "drops": 149,
+        "actions": 195,
+        "score": 3520,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 116,
+        "drops": 217,
+        "actions": 316,
+        "score": 6200,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 117,
+        "drops": 170,
+        "actions": 238,
+        "score": 4390,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 118,
+        "drops": 181,
+        "actions": 248,
+        "score": 4870,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 119,
+        "drops": 221,
+        "actions": 325,
+        "score": 6310,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 120,
+        "drops": 224,
+        "actions": 349,
+        "score": 6340,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 121,
+        "drops": 204,
+        "actions": 304,
+        "score": 6410,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 122,
+        "drops": 115,
+        "actions": 143,
+        "score": 2490,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 123,
+        "drops": 163,
+        "actions": 223,
+        "score": 4190,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 124,
+        "drops": 198,
+        "actions": 284,
+        "score": 5420,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 125,
+        "drops": 190,
+        "actions": 282,
+        "score": 5280,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 126,
+        "drops": 157,
+        "actions": 213,
+        "score": 3920,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 127,
+        "drops": 213,
+        "actions": 315,
+        "score": 6190,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 128,
+        "drops": 184,
+        "actions": 265,
+        "score": 5160,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 129,
+        "drops": 236,
+        "actions": 377,
+        "score": 7530,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 130,
+        "drops": 246,
+        "actions": 386,
+        "score": 7410,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 131,
+        "drops": 181,
+        "actions": 264,
+        "score": 4860,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 132,
+        "drops": 171,
+        "actions": 245,
+        "score": 4630,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 133,
+        "drops": 230,
+        "actions": 347,
+        "score": 6820,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 134,
+        "drops": 174,
+        "actions": 244,
+        "score": 4500,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 135,
+        "drops": 155,
+        "actions": 216,
+        "score": 3950,
+        "reach": false,
+        "death": false
+      }
+    ]
+  },
+  "evolution-reserve": {
+    "runs": 32,
+    "meanDrops": 208.53125,
+    "meanActions": 311.34375,
+    "reach08": {
+      "count": 6,
+      "n": 32,
+      "rate": 0.1875,
+      "wilson95": [
+        0.08889544689566137,
+        0.3530915520137545
+      ]
+    },
+    "death": {
+      "count": 4,
+      "n": 32,
+      "rate": 0.125,
+      "wilson95": [
+        0.049701343874801934,
+        0.280683054816497
+      ]
+    },
+    "gameOver": {
+      "count": 32,
+      "n": 32,
+      "rate": 1,
+      "wilson95": [
+        0.8928208017449346,
+        1
+      ]
+    },
+    "censored": 0,
+    "capHits": 29,
+    "earned": [
+      1542,
+      728,
+      222,
+      38
+    ],
+    "spent": [
+      1535,
+      720,
+      213,
+      33
+    ],
+    "eggAcquisitionRate": [
+      {
+        "count": 32,
+        "n": 32,
+        "rate": 1,
+        "wilson95": [
+          0.8928208017449346,
+          1
+        ]
+      },
+      {
+        "count": 32,
+        "n": 32,
+        "rate": 1,
+        "wilson95": [
+          0.8928208017449346,
+          1
+        ]
+      },
+      {
+        "count": 32,
+        "n": 32,
+        "rate": 1,
+        "wilson95": [
+          0.8928208017449346,
+          1
+        ]
+      },
+      {
+        "count": 20,
+        "n": 32,
+        "rate": 0.625,
+        "wilson95": [
+          0.4525440735307791,
+          0.7706611269054546
+        ]
+      }
+    ],
+    "remaining": [
+      7,
+      8,
+      9,
+      5
+    ],
+    "maxStock": [
+      11,
+      6,
+      5,
+      2
+    ],
+    "causalRewards": 2048,
+    "causalRuns": {
+      "count": 32,
+      "n": 32,
+      "rate": 1,
+      "wilson95": [
+        0.8928208017449346,
+        1
+      ]
+    },
+    "descendantDeaths": 5,
+    "eggInducedRewards": [
+      740,
+      187,
+      39,
+      4
+    ],
+    "eggGrowth": 4140,
+    "gaugeEarned": 13606,
+    "gaugeSpent": 13016,
+    "gaugeFromTools": 6701,
+    "transforms": 370,
+    "bulks": 419,
+    "positiveGaugeActions": 2501,
+    "maxToolStreak": 8,
+    "maxChain": 9,
+    "chains2": 3345,
+    "chains3": 546,
+    "chains5": 29,
+    "chain2PerAction": 0.335742246311352,
+    "firstDeath": [
+      {
+        "seed": 115,
+        "drop": 173,
+        "action": 261,
+        "wave": 4
+      },
+      {
+        "seed": 117,
+        "drop": 140,
+        "action": 201,
+        "wave": 4
+      },
+      {
+        "seed": 121,
+        "drop": 173,
+        "action": 277,
+        "wave": 6
+      },
+      {
+        "seed": 127,
+        "drop": 215,
+        "action": 330,
+        "wave": 3
+      }
+    ],
+    "firstEgg": [
+      {
+        "seed": 104,
+        "drop": 23,
+        "action": 24,
+        "wave": 3
+      },
+      {
+        "seed": 105,
+        "drop": 22,
+        "action": 23,
+        "wave": 2
+      },
+      {
+        "seed": 106,
+        "drop": 26,
+        "action": 27,
+        "wave": 2
+      },
+      {
+        "seed": 107,
+        "drop": 22,
+        "action": 23,
+        "wave": 1
+      },
+      {
+        "seed": 108,
+        "drop": 23,
+        "action": 24,
+        "wave": 2
+      },
+      {
+        "seed": 109,
+        "drop": 24,
+        "action": 25,
+        "wave": 1
+      },
+      {
+        "seed": 110,
+        "drop": 21,
+        "action": 21,
+        "wave": 2
+      },
+      {
+        "seed": 111,
+        "drop": 22,
+        "action": 23,
+        "wave": 2
+      },
+      {
+        "seed": 112,
+        "drop": 20,
+        "action": 21,
+        "wave": 2
+      },
+      {
+        "seed": 113,
+        "drop": 22,
+        "action": 23,
+        "wave": 1
+      },
+      {
+        "seed": 114,
+        "drop": 14,
+        "action": 14,
+        "wave": 2
+      },
+      {
+        "seed": 115,
+        "drop": 26,
+        "action": 28,
+        "wave": 1
+      },
+      {
+        "seed": 116,
+        "drop": 19,
+        "action": 20,
+        "wave": 2
+      },
+      {
+        "seed": 117,
+        "drop": 21,
+        "action": 22,
+        "wave": 2
+      },
+      {
+        "seed": 118,
+        "drop": 20,
+        "action": 20,
+        "wave": 3
+      },
+      {
+        "seed": 119,
+        "drop": 20,
+        "action": 21,
+        "wave": 2
+      },
+      {
+        "seed": 120,
+        "drop": 23,
+        "action": 24,
+        "wave": 1
+      },
+      {
+        "seed": 121,
+        "drop": 24,
+        "action": 24,
+        "wave": 2
+      },
+      {
+        "seed": 122,
+        "drop": 23,
+        "action": 24,
+        "wave": 2
+      },
+      {
+        "seed": 123,
+        "drop": 22,
+        "action": 23,
+        "wave": 3
+      },
+      {
+        "seed": 124,
+        "drop": 19,
+        "action": 19,
+        "wave": 3
+      },
+      {
+        "seed": 125,
+        "drop": 21,
+        "action": 22,
+        "wave": 1
+      },
+      {
+        "seed": 126,
+        "drop": 20,
+        "action": 20,
+        "wave": 3
+      },
+      {
+        "seed": 127,
+        "drop": 19,
+        "action": 20,
+        "wave": 1
+      },
+      {
+        "seed": 128,
+        "drop": 19,
+        "action": 19,
+        "wave": 3
+      },
+      {
+        "seed": 129,
+        "drop": 17,
+        "action": 17,
+        "wave": 3
+      },
+      {
+        "seed": 130,
+        "drop": 20,
+        "action": 21,
+        "wave": 1
+      },
+      {
+        "seed": 131,
+        "drop": 15,
+        "action": 15,
+        "wave": 3
+      },
+      {
+        "seed": 132,
+        "drop": 15,
+        "action": 15,
+        "wave": 1
+      },
+      {
+        "seed": 133,
+        "drop": 22,
+        "action": 23,
+        "wave": 1
+      },
+      {
+        "seed": 134,
+        "drop": 24,
+        "action": 25,
+        "wave": 1
+      },
+      {
+        "seed": 135,
+        "drop": 21,
+        "action": 22,
+        "wave": 2
+      }
+    ],
+    "paired": [
+      {
+        "seed": 104,
+        "drops": 165,
+        "actions": 220,
+        "score": 4060,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 105,
+        "drops": 168,
+        "actions": 237,
+        "score": 4560,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 106,
+        "drops": 162,
+        "actions": 225,
+        "score": 4100,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 107,
+        "drops": 235,
+        "actions": 349,
+        "score": 6880,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 108,
+        "drops": 222,
+        "actions": 343,
+        "score": 6390,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 109,
+        "drops": 220,
+        "actions": 328,
+        "score": 6480,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 110,
+        "drops": 168,
+        "actions": 234,
+        "score": 4390,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 111,
+        "drops": 223,
+        "actions": 344,
+        "score": 6720,
+        "reach": true,
+        "death": false
+      },
+      {
+        "seed": 112,
+        "drops": 205,
+        "actions": 304,
+        "score": 5910,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 113,
+        "drops": 200,
+        "actions": 302,
+        "score": 5490,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 114,
+        "drops": 173,
+        "actions": 240,
+        "score": 4430,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 115,
+        "drops": 235,
+        "actions": 350,
+        "score": 7390,
+        "reach": true,
+        "death": true
+      },
+      {
+        "seed": 116,
+        "drops": 202,
+        "actions": 300,
+        "score": 5750,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 117,
+        "drops": 299,
+        "actions": 470,
+        "score": 10090,
+        "reach": true,
+        "death": true
+      },
+      {
+        "seed": 118,
+        "drops": 222,
+        "actions": 336,
+        "score": 6460,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 119,
+        "drops": 211,
+        "actions": 323,
+        "score": 6190,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 120,
+        "drops": 182,
+        "actions": 250,
+        "score": 4920,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 121,
+        "drops": 290,
+        "actions": 478,
+        "score": 10250,
+        "reach": true,
+        "death": true
+      },
+      {
+        "seed": 122,
+        "drops": 156,
+        "actions": 214,
+        "score": 4190,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 123,
+        "drops": 179,
+        "actions": 253,
+        "score": 4690,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 124,
+        "drops": 224,
+        "actions": 335,
+        "score": 6510,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 125,
+        "drops": 198,
+        "actions": 291,
+        "score": 5550,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 126,
+        "drops": 191,
+        "actions": 282,
+        "score": 5200,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 127,
+        "drops": 257,
+        "actions": 399,
+        "score": 7910,
+        "reach": true,
+        "death": true
+      },
+      {
+        "seed": 128,
+        "drops": 221,
+        "actions": 335,
+        "score": 6440,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 129,
+        "drops": 217,
+        "actions": 331,
+        "score": 6360,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 130,
+        "drops": 208,
+        "actions": 318,
+        "score": 5860,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 131,
+        "drops": 246,
+        "actions": 385,
+        "score": 7710,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 132,
+        "drops": 212,
+        "actions": 338,
+        "score": 6220,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 133,
+        "drops": 206,
+        "actions": 302,
+        "score": 5660,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 134,
+        "drops": 194,
+        "actions": 282,
+        "score": 5740,
+        "reach": false,
+        "death": false
+      },
+      {
+        "seed": 135,
+        "drops": 182,
+        "actions": 265,
+        "score": 4870,
+        "reach": false,
+        "death": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+# 全通常比較routeのfresh支払監査gate
+
+基準ee4fff12239ce8fd101e8bf7497a8ad046e0092f。既存gateはproblem/upper_priority_problemだけを要求し、partial unknownと共通helperのfallback_priority_problemはerrors=[]の未証明支払監査を通していた。fresh実_step出力からexport gateを呼ぶ2subtest RED（1test、2FAIL0.238s）を再現。
+
+payment_operands.require_actual_comparisonを全通常比較へ接続。normal/upper/helperは全候補、partialはproved_scoresとunprovedの完全分割に対してfresh監査のschema/厳密bool/既知行/未知行と理由を照合。全未知ならverified=[]・supported=falseが正しく、空証明をtrueにしない。支払計算・上位値・選択方式・旧116除外は不変。未知上位値を費用証明から昇格しない。
+
+新規4件PASS20.727s、実manifest34stepのpartial監査falseで行動のexport前停止を確認。欠落/重複/異物/型/未知理由/空証明昇格を拒否、正常全未知は116除外を保持。独立review1回C0/I0/Minor0、短い3PASS0.527s。最終40PASS29.291s/exit0、Python1081前後一致。summary.json/verification.log/fingerprints.json.gzが最終原本。
+
+path-error.logは作成先cwd誤りで有効REDではない。green.logは15dotsだけで終了summaryがなく、その後process不存在を確認。toolのexit0だけで全件PASSへ読み替えない。expandedと最終subprocess PIPE記録が完了証拠。全proxy回帰/完全結合再実行なし。固定2b0b075完全結合はこのgate追加前の別証拠。
+
+全上位/成長/情報/全機会/外部起点/共通本番gateは別責務。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。次は残比較operandの正本根拠と明示unknown、許可read全scope、P14–18の共通合成。

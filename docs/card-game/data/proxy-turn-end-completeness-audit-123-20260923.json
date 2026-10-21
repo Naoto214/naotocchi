@@ -1,0 +1,541 @@
+{
+  "schema": "naotocchi.card_game.proxy_turn_end_completeness_audit.v1",
+  "checkpoint": 123,
+  "status": "protocol_only_no_match_progress",
+  "audits": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "99ec72b8219d30a7db43daddaecd2bb4672cf9b75fc966fa89823d9013cc1150",
+      "last_valid_event_seq": 9,
+      "game_state_sha256": "ad2315174cff32f8be7889720318f61cc3a9d326de5d10efe999fb6bfcb130b0",
+      "continuation_state_sha256": "c7c23c095706c72f6c27216c8929e46f28fd254c9939d6db1e5906d18753bc3f",
+      "stage_inventory": [
+        {
+          "stage": 1,
+          "stage_name": "closed_end_request",
+          "units": [],
+          "empty_reason": "closed_empty_response_window",
+          "state_fields": [
+            "game_state.phase",
+            "continuation_state.response_context",
+            "continuation_state.return_target"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 2,
+          "stage_name": "due_reservations",
+          "units": [],
+          "empty_reason": "both_reservation_lists_empty",
+          "state_fields": [
+            "game_state.players.*.reservations"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 3,
+          "stage_name": "end_triggers_and_responses",
+          "units": [
+            {
+              "enumeration_unit_id": "c9a48a384d116c1143bcc29a1700c8f42d57f1fb969020defbbe3949e02d7806",
+              "source_zone": "A.board.partner",
+              "source_instance_id": "A-017#1",
+              "card_id": "P-cat_ceo",
+              "timing": "past_trigger",
+              "disposition": "excluded",
+              "evidence": {
+                "owner": "A",
+                "card_id": "P-cat_ceo",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_references": [
+                "74-partner-18-card-text-draft.md#P-cat_ceo"
+              ]
+            }
+          ],
+          "empty_reason": "no_due_public_board_trigger",
+          "state_fields": [
+            "game_state.players.*.board",
+            "game_state.cards",
+            "continuation_state.pending_triggers",
+            "continuation_state.activation_zone"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 4,
+          "stage_name": "expiring_effects",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "game_state.players.*.reservations",
+            "public_effect_provenance"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 5,
+          "stage_name": "expiration_triggers",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "expired_effect_trigger_provenance"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 6,
+          "stage_name": "victory_and_next_turn",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "game_state.round",
+            "game_state.players.*.growth",
+            "growth_reach_and_interruption_history"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        }
+      ],
+      "contract_stop_codes": [
+        "unresolved_expiration",
+        "missing_growth_reach_history"
+      ],
+      "completeness_checks": {
+        "source_artifact_integrity_valid": true,
+        "closed_response_window_valid": true,
+        "six_stage_inventory_present": true,
+        "reservation_order_resolved": true,
+        "trigger_information_boundary_valid": false,
+        "expiration_boundary_resolved": false,
+        "expiration_trigger_inventory_complete": false,
+        "victory_history_sufficient": false,
+        "source_dispositions_explained": true,
+        "transition_handlers_proven": false,
+        "enumeration_ids_unique": true,
+        "source_projection_exact": false
+      },
+      "turn_end_set_complete": false
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "c1c4054673fa5ceca6925d40126545f0bd55bd03bbcad18aac7c68e2d03df8d5",
+      "last_valid_event_seq": 7,
+      "game_state_sha256": "fc4b381c74dcd3ac0663e7af2ff17347a4ee4c9e2f3fb282ba254089123ae3a7",
+      "continuation_state_sha256": "1bea15d60ed16cc09305d1c77cd89c82d7807f98c0ae5e020de2ab14461f2317",
+      "stage_inventory": [
+        {
+          "stage": 1,
+          "stage_name": "closed_end_request",
+          "units": [],
+          "empty_reason": "closed_empty_response_window",
+          "state_fields": [
+            "game_state.phase",
+            "continuation_state.response_context",
+            "continuation_state.return_target"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 2,
+          "stage_name": "due_reservations",
+          "units": [],
+          "empty_reason": "both_reservation_lists_empty",
+          "state_fields": [
+            "game_state.players.*.reservations"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 3,
+          "stage_name": "end_triggers_and_responses",
+          "units": [
+            {
+              "enumeration_unit_id": "8c06aff1df9c08d6e28e23c2ed657b277b6ade98ca0f5fb4c35acc3419774e3b",
+              "source_zone": "B.board.partner",
+              "source_instance_id": "B-017#1",
+              "card_id": "P-cat_ceo",
+              "timing": "past_trigger",
+              "disposition": "excluded",
+              "evidence": {
+                "owner": "B",
+                "card_id": "P-cat_ceo",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_references": [
+                "74-partner-18-card-text-draft.md#P-cat_ceo"
+              ]
+            }
+          ],
+          "empty_reason": "no_due_public_board_trigger",
+          "state_fields": [
+            "game_state.players.*.board",
+            "game_state.cards",
+            "continuation_state.pending_triggers",
+            "continuation_state.activation_zone"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 4,
+          "stage_name": "expiring_effects",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "game_state.players.*.reservations",
+            "public_effect_provenance"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 5,
+          "stage_name": "expiration_triggers",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "expired_effect_trigger_provenance"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 6,
+          "stage_name": "victory_and_next_turn",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "game_state.round",
+            "game_state.players.*.growth",
+            "growth_reach_and_interruption_history"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        }
+      ],
+      "contract_stop_codes": [
+        "unresolved_expiration",
+        "missing_growth_reach_history"
+      ],
+      "completeness_checks": {
+        "source_artifact_integrity_valid": true,
+        "closed_response_window_valid": true,
+        "six_stage_inventory_present": true,
+        "reservation_order_resolved": true,
+        "trigger_information_boundary_valid": false,
+        "expiration_boundary_resolved": false,
+        "expiration_trigger_inventory_complete": false,
+        "victory_history_sufficient": false,
+        "source_dispositions_explained": true,
+        "transition_handlers_proven": false,
+        "enumeration_ids_unique": true,
+        "source_projection_exact": false
+      },
+      "turn_end_set_complete": false
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_sha256": "95709ff4b6061beca59738e3d42d9b09ba9f4b26e68dbf78bf987ad81f25649f",
+      "last_valid_event_seq": 7,
+      "game_state_sha256": "748c0c0b3b26c295869a89c13d22723145d2fe1f6432a7eefa5cd93071af50c9",
+      "continuation_state_sha256": "6340eee28cd7f0a90c5e89021b95800439516d0b7d3fd014b36d54277b07483c",
+      "stage_inventory": [
+        {
+          "stage": 1,
+          "stage_name": "closed_end_request",
+          "units": [],
+          "empty_reason": "closed_empty_response_window",
+          "state_fields": [
+            "game_state.phase",
+            "continuation_state.response_context",
+            "continuation_state.return_target"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 2,
+          "stage_name": "due_reservations",
+          "units": [],
+          "empty_reason": "both_reservation_lists_empty",
+          "state_fields": [
+            "game_state.players.*.reservations"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 3,
+          "stage_name": "end_triggers_and_responses",
+          "units": [
+            {
+              "enumeration_unit_id": "22ba73e00befef8aefdcb0c2a673af0ae60f3ef4879252e560d1584180d5a656",
+              "source_zone": "A.board.companions",
+              "source_instance_id": "A-014#1",
+              "card_id": "C-chameleon",
+              "timing": "continuous",
+              "disposition": "excluded",
+              "evidence": {
+                "owner": "A",
+                "card_id": "C-chameleon",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_references": [
+                "72-companion-26-card-text-draft.md#C-chameleon"
+              ]
+            }
+          ],
+          "empty_reason": "no_due_public_board_trigger",
+          "state_fields": [
+            "game_state.players.*.board",
+            "game_state.cards",
+            "continuation_state.pending_triggers",
+            "continuation_state.activation_zone"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 4,
+          "stage_name": "expiring_effects",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "game_state.players.*.reservations",
+            "public_effect_provenance"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 5,
+          "stage_name": "expiration_triggers",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "expired_effect_trigger_provenance"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 6,
+          "stage_name": "victory_and_next_turn",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "game_state.round",
+            "game_state.players.*.growth",
+            "growth_reach_and_interruption_history"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        }
+      ],
+      "contract_stop_codes": [
+        "unresolved_expiration",
+        "missing_growth_reach_history"
+      ],
+      "completeness_checks": {
+        "source_artifact_integrity_valid": true,
+        "closed_response_window_valid": true,
+        "six_stage_inventory_present": true,
+        "reservation_order_resolved": true,
+        "trigger_information_boundary_valid": false,
+        "expiration_boundary_resolved": false,
+        "expiration_trigger_inventory_complete": false,
+        "victory_history_sufficient": false,
+        "source_dispositions_explained": true,
+        "transition_handlers_proven": false,
+        "enumeration_ids_unique": true,
+        "source_projection_exact": false
+      },
+      "turn_end_set_complete": false
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_sha256": "c89273717a1214a36d74de214409badecdcca91a7693df84625389b320218799",
+      "last_valid_event_seq": 7,
+      "game_state_sha256": "105369b03f8f331c9dd1a0ae79e5ba14bf75de974c2ec3874ab28ff8bb935dde",
+      "continuation_state_sha256": "db996776b205cf33e6f445d91066ab5a9aadbc1da2ba02deb9e41e57e2923280",
+      "stage_inventory": [
+        {
+          "stage": 1,
+          "stage_name": "closed_end_request",
+          "units": [],
+          "empty_reason": "closed_empty_response_window",
+          "state_fields": [
+            "game_state.phase",
+            "continuation_state.response_context",
+            "continuation_state.return_target"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 2,
+          "stage_name": "due_reservations",
+          "units": [],
+          "empty_reason": "both_reservation_lists_empty",
+          "state_fields": [
+            "game_state.players.*.reservations"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 3,
+          "stage_name": "end_triggers_and_responses",
+          "units": [
+            {
+              "enumeration_unit_id": "1f209f631b6f7880ce21b2f7ddca8a7c10ebed756894fa05fdbbcba8c6c8f65f",
+              "source_zone": "B.board.companions",
+              "source_instance_id": "B-014#1",
+              "card_id": "C-chameleon",
+              "timing": "continuous",
+              "disposition": "excluded",
+              "evidence": {
+                "owner": "B",
+                "card_id": "C-chameleon",
+                "predicate": "not_an_end_trigger"
+              },
+              "source_references": [
+                "72-companion-26-card-text-draft.md#C-chameleon"
+              ]
+            }
+          ],
+          "empty_reason": "no_due_public_board_trigger",
+          "state_fields": [
+            "game_state.players.*.board",
+            "game_state.cards",
+            "continuation_state.pending_triggers",
+            "continuation_state.activation_zone"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 4,
+          "stage_name": "expiring_effects",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "game_state.players.*.reservations",
+            "public_effect_provenance"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 5,
+          "stage_name": "expiration_triggers",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "expired_effect_trigger_provenance"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        },
+        {
+          "stage": 6,
+          "stage_name": "victory_and_next_turn",
+          "units": [],
+          "empty_reason": "source_provenance_unavailable",
+          "state_fields": [
+            "game_state.round",
+            "game_state.players.*.growth",
+            "growth_reach_and_interruption_history"
+          ],
+          "source_references": [
+            "06-action-chain-checkpoint.md#ターン終了",
+            "64-turn-boundaries-and-victory-timing.md#終了順と期限"
+          ]
+        }
+      ],
+      "contract_stop_codes": [
+        "unresolved_expiration",
+        "missing_growth_reach_history"
+      ],
+      "completeness_checks": {
+        "source_artifact_integrity_valid": true,
+        "closed_response_window_valid": true,
+        "six_stage_inventory_present": true,
+        "reservation_order_resolved": true,
+        "trigger_information_boundary_valid": false,
+        "expiration_boundary_resolved": false,
+        "expiration_trigger_inventory_complete": false,
+        "victory_history_sufficient": false,
+        "source_dispositions_explained": true,
+        "transition_handlers_proven": false,
+        "enumeration_ids_unique": true,
+        "source_projection_exact": false
+      },
+      "turn_end_set_complete": false
+    }
+  ],
+  "scope": {
+    "planned": 0,
+    "completed": 0,
+    "stopped": 0,
+    "decision": 0,
+    "event": 0,
+    "snapshot": 0,
+    "winner": 0,
+    "independent_balance_sample": 0
+  }
+}

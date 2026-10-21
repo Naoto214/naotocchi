@@ -9,7 +9,7 @@
 import { THREE } from './geometry.mjs';
 import { buildRig } from './archetypes.mjs';
 import { attachFace, applyFaceExpression, material, materialCount, atlasCount, stats as rigStats } from './rig.mjs';
-import { createAnimState, animate, setEmotion, react } from './animate.mjs';
+import { createAnimState, animate, setEmotion, react } from './animate.mjs?v=20261016-9f727db2';
 import SPEC from './spec-esm.mjs';
 
 export { SPEC };
@@ -58,7 +58,7 @@ export function actorInfo(a, isPlayer, dt, ctx = {}) {
   if (!specKey) return null;
   const R368 = typeof globalThis !== 'undefined' ? globalThis.NaotocchiResidentExpression : null;
   const emotion = ctx.force || (a.expr && a.expr.emotion) || (isPlayer ? 'normal' : SPEC.canonicalEmotion(a.emotion, R368));
-  return { specKey, emotion, isPlayer, dt, moving: isPlayer ? !!a.moving : undefined };
+  return { specKey, emotion, cue: a.expr && a.expr.cue, isPlayer, dt, moving: isPlayer ? !!a.moving : undefined };
 }
 export function templateCount() { return TEMPLATES.size; }
 export function clearTemplates() { TEMPLATES.clear(); }
@@ -172,11 +172,28 @@ export function createCharacterPresenter(opts = {}) {
       if (hooks.failUpdate && hooks.failUpdate(actor, info)) throw new Error('forced update failure (QA)');
       inst.seen = frame;
       const em = emotionFor(info);
-      if (setEmotion(inst, em)) { setAccent(inst.accent, em); if (info.reactOnChange !== false && inst.anim.expr.reaction) react(inst, inst.anim.expr.reaction); }
+      if ((!info.cue || !info.cue.motion) && inst.anim.reaction?.kind === 'greet') inst.anim.reaction = null;
+      inst.anim.socialCue = !!info.cue;
+      if (setEmotion(inst, em)) { setAccent(inst.accent, em); if (!info.cue && info.reactOnChange !== false && inst.anim.expr.reaction) react(inst, inst.anim.expr.reaction); }
+      if (em === 'sleeping' || em === 'critical') inst.anim.reaction = null;
+      if (info.cue && inst.lastCue !== info.cue.token) {
+        inst.lastCue = info.cue.token;
+        if (info.cue.motion && em !== 'sleeping' && em !== 'critical') react(inst, info.cue.kind);
+      }
       // 位置・むき(actor の まま。表示の むき だけ なめらかに)
-      const target = Math.PI - (actor.heading || 0);
+      const baseHeading = actor.heading || 0, attention = info.cue?.attention;
+      const socialLook = animLv !== 0 && !['sleeping','critical','dislike'].includes(em) && attention && Number.isFinite(attention.heading) && Number.isFinite(attention.weight);
+      const wrap = v => ((v + Math.PI) % TAU + TAU) % TAU - Math.PI;
+      const weight = socialLook ? Math.max(0, Math.min(1, attention.weight)) : 0;
+      const delta = socialLook ? wrap(attention.heading - baseHeading) : 0;
+      const bodyLimit = info.moving ? .35 : 1.05;
+      const bodyTurn = Math.max(-bodyLimit, Math.min(bodyLimit, delta)) * weight;
+      const target = Math.PI - baseHeading - bodyTurn;
       if (inst.yaw == null) inst.yaw = target;
       else { let d = ((target - inst.yaw + Math.PI) % TAU + TAU) % TAU - Math.PI; inst.yaw += d * Math.min(1, (info.dt || 0.016) * 10); }
+      // Head follows the remaining angle after the smoothed body turn. Never mutate actor heading.
+      const look = socialLook ? Math.max(-.45, Math.min(.45, wrap(Math.PI-attention.heading-inst.yaw))) * weight : 0;
+      inst.anim.lookYaw = animLv === 0 ? 0 : (inst.anim.lookYaw || 0) + (look-(inst.anim.lookYaw || 0))*Math.min(1,(info.dt || .016)*12);
       const h = inst.holder;
       // World supplies terrain/bridge height in world units; local hover/animation stays below the holder.
       const groundY = Number.isFinite(info.groundY) ? info.groundY : 0;

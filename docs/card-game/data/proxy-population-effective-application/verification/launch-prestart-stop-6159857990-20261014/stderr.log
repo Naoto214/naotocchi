@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/approved-launch-work/run.py", line 10, in <module>
+    result=supervisor.run_after_external_approval(bundle,receipt,cert,str(r),512,str(r/q['destination']),'https://github.com/Naoto214/naotocchi/pull/259#issuecomment-6159857990',comment_id=6159857990,claim_commit=claim['commit'],claim_tree=claim['tree'],execution_binding=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_batch_supervisor.py", line 50, in run_after_external_approval
+    if not authenticated['launch_authorization_bound']:raise ValueError('launch approval unverified: '+str(authenticated['errors']))
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: launch approval unverified: ['launch approval publication differs: ["current owner approval differs: [\'HTTP Error 502: Bad Gateway\']"]']

@@ -1,0 +1,50 @@
+FFFFF
+======================================================================
+FAIL: test_coverage_rejects_self_consistent_wrong_destination (test_proxy_population_equipment_effects.EquipmentEffectsTests.test_coverage_rejects_self_consistent_wrong_destination)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_equipment_effects.py", line 32, in setUp
+    def setUp(self):self.assertIsNotNone(api,'independent equipment effects absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : independent equipment effects absent
+
+======================================================================
+FAIL: test_current_targets_contexts_and_world_activation_separation (test_proxy_population_equipment_effects.EquipmentEffectsTests.test_current_targets_contexts_and_world_activation_separation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_equipment_effects.py", line 32, in setUp
+    def setUp(self):self.assertIsNotNone(api,'independent equipment effects absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : independent equipment effects absent
+
+======================================================================
+FAIL: test_printed_cost_not_paid_cost_and_current107_no_high_equipment (test_proxy_population_equipment_effects.EquipmentEffectsTests.test_printed_cost_not_paid_cost_and_current107_no_high_equipment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_equipment_effects.py", line 32, in setUp
+    def setUp(self):self.assertIsNotNone(api,'independent equipment effects absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : independent equipment effects absent
+
+======================================================================
+FAIL: test_unknown_public_metadata_and_missing_attachment_are_not_empty_targets (test_proxy_population_equipment_effects.EquipmentEffectsTests.test_unknown_public_metadata_and_missing_attachment_are_not_empty_targets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_equipment_effects.py", line 32, in setUp
+    def setUp(self):self.assertIsNotNone(api,'independent equipment effects absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : independent equipment effects absent
+
+======================================================================
+FAIL: test_wrong_movement_cleanup_refund_and_effect_receipt_rejected (test_proxy_population_equipment_effects.EquipmentEffectsTests.test_wrong_movement_cleanup_refund_and_effect_receipt_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_equipment_effects.py", line 32, in setUp
+    def setUp(self):self.assertIsNotNone(api,'independent equipment effects absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : independent equipment effects absent
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)

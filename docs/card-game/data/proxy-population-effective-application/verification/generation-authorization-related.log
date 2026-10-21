@@ -1,0 +1,34 @@
+.......................F...
+======================================================================
+FAIL: test_entries_reject_unpublished_content_before_any_side_effect (test_proxy_population_remote_publication.RemotePublicationTests.test_entries_reject_unpublished_content_before_any_side_effect) (entry='proxy_population_generation_entry')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_remote_publication.py", line 77, in test_entries_reject_unpublished_content_before_any_side_effect
+    with self.assertRaisesRegex(ValueError,'approval'):gen.generate_after_external_approval(temp,'1'*40,out,'not-approval')
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_generation_entry.py", line 37, in generate_after_external_approval
+    registry=history.build_cutoff_registry()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_input_history.py", line 92, in build_cutoff_registry
+    catalog=catalog_at_cutoff(root);constructor=audit_constructors(catalog,root)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_input_history.py", line 51, in catalog_at_cutoff
+    raw=subprocess.check_output(['git','--no-replace-objects','-C',str(repo),'ls-tree','-r','-z',CUTOFF,'docs/card-game'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: no child
+
+----------------------------------------------------------------------
+Ran 27 tests in 1.946s
+
+FAILED (failures=1)

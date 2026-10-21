@@ -1,0 +1,14 @@
+test_saved_request_or_comment_metadata_cannot_be_replaced (test_proxy_population_approval_publication.ApprovalPublicationTests.test_saved_request_or_comment_metadata_cannot_be_replaced) ... FAIL
+
+======================================================================
+FAIL: test_saved_request_or_comment_metadata_cannot_be_replaced (test_proxy_population_approval_publication.ApprovalPublicationTests.test_saved_request_or_comment_metadata_cannot_be_replaced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_approval_publication.py", line 54, in test_saved_request_or_comment_metadata_cannot_be_replaced
+    self.assertFalse(self.check(commit=self.git('rev-parse','HEAD'),tree=self.git('rev-parse','HEAD^{tree}'))['remote_consumption_bound'],mode)
+AssertionError: True is not false : saved_head
+
+----------------------------------------------------------------------
+Ran 1 test in 0.154s
+
+FAILED (failures=1)

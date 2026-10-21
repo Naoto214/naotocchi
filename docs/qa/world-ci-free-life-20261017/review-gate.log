@@ -1,0 +1,15 @@
+✔ browser gate rejects vanished player, orphan holders, resource leaks, and 2D city (2.380391ms)
+✔ save isolation requires all four independently observed boundaries (0.461044ms)
+✔ browser fixture uses native production player and companion identities (121.52091ms)
+✔ reduced motion checks actual app motion and animation, not only matchMedia (0.351912ms)
+✔ normal startup accepts one visible player while explicit cast still requires three bodies (0.225014ms)
+✔ normal and explicit browser fixtures keep saved relationships intact and cannot pass empty (286.882199ms)
+✔ smoke gate requires separate normal startup and nonempty explicit rendered cast (7.606375ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 542.253652

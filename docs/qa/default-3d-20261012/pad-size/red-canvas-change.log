@@ -1,0 +1,27 @@
+PASS 3d-393x760-normal
+PASS 3d-393x760-💬 はなす
+PASS 3d-393x760-ふねに のる
+PASS 3d-393x760-もぐる
+PASS 3d-960x500-normal
+AssertionError [ERR_ASSERTION]: 960x500 💬 はなす: canvas changed
++ actual - expected
+
+  {
++   bottom: 273.1875,
++   height: 243,
+-   bottom: 255.1875,
+-   height: 225,
+    right: 717,
+    width: 666,
+    x: 51,
+    y: 30.1875
+  }
+
+    at /workspace/scratch/0b3c9b0df346/audit-naotocchi/tests/meguru-pad-size-browser.cjs:55:65 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

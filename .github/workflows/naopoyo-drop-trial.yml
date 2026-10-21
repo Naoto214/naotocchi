@@ -1,0 +1,53 @@
+name: Naopoyo drop trial
+on:
+  pull_request:
+    branches: [main]
+    paths: ['prototypes/growth-clear/**', 'prototypes/growth-chain/**', 'prototypes/naopoyo/**', '.github/workflows/naopoyo-drop-trial.yml']
+  push:
+    branches: [main]
+    paths: ['prototypes/growth-clear/**', 'prototypes/growth-chain/**', 'prototypes/naopoyo/**', '.github/workflows/naopoyo-drop-trial.yml']
+permissions:
+  contents: read
+jobs:
+  drop-trial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm --prefix prototypes/growth-chain install --package-lock=false
+      - run: npx --prefix prototypes/growth-chain playwright install --with-deps chromium
+      - name: Rules, storage, mutations and immutable replay
+        run: |
+          export JSDOM_PATH="$PWD/prototypes/growth-chain/node_modules/jsdom"
+          node --test prototypes/growth-clear/tests/*.test.mjs
+          node prototypes/growth-clear/tests/dom.mjs
+          node prototypes/growth-clear/tests/phone-dom.mjs
+          node prototypes/growth-clear/tests/storage-dom.mjs
+          node prototypes/growth-clear/tests/release-dom.mjs
+          node prototypes/growth-clear/tests/preferences-dom.mjs
+          node prototypes/growth-clear/tests/standard-start-dom.mjs
+          node prototypes/growth-clear/tests/standard-records-dom.mjs
+          node prototypes/growth-clear/tests/mutation.cjs
+          node prototypes/growth-clear/tests/phone-mutation.cjs
+          node prototypes/growth-clear/verify.mjs
+          node --test prototypes/growth-chain/tests/*.test.mjs
+          node --test prototypes/slide08/tests/*.test.mjs
+      - name: Portrait and landscape, old/new save isolation
+        run: |
+          python3 -m http.server 8765 > /tmp/drop-http.log 2>&1 &
+          export PLAYWRIGHT_PATH="$PWD/prototypes/growth-chain/node_modules/playwright"
+          export CHROME_PATH="$(node -e "console.log(require('./prototypes/growth-chain/node_modules/playwright').chromium.executablePath())")"
+          export QA_OUT="$PWD/test-results/drop-trial"
+          node prototypes/growth-clear/tests/release-browser.cjs
+          BROWSER=chromium node prototypes/growth-clear/tests/phone-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drop-trial-browser
+          path: |
+            test-results/drop-trial
+            prototypes/growth-clear/qa/phone
+          retention-days: 14

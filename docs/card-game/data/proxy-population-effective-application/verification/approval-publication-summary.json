@@ -1,0 +1,28 @@
+{
+  "modules": [
+    "test_proxy_population_approval_publication",
+    "test_proxy_population_external_approval",
+    "test_proxy_population_generation_entry",
+    "test_proxy_population_attempt_runner",
+    "test_proxy_population_batch_supervisor",
+    "test_proxy_population_supervisor_interrupt",
+    "test_proxy_population_remote_publication",
+    "test_proxy_population_execution_edition",
+    "test_proxy_population_generation_package",
+    "test_proxy_population_input_lock"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 47.922,
+  "python_count": 1058,
+  "python_unchanged": true,
+  "tests": 37,
+  "result": "PASS",
+  "design_errors": [],
+  "protected_numbered_count": 477,
+  "protected_changed": [],
+  "preflight_ready": false,
+  "production_seed_generation": 0,
+  "production_input_lock": 0,
+  "population_games": 0,
+  "independent_review": "no important findings; 17 PASS"
+}

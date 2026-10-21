@@ -1,0 +1,36 @@
+test_additional_arrival_trigger_cannot_keep_zero_outcome (test_proxy_continuation_worlds.WorldTests.test_additional_arrival_trigger_cannot_keep_zero_outcome) ... 
+  test_additional_arrival_trigger_cannot_keep_zero_outcome (test_proxy_continuation_worlds.WorldTests.test_additional_arrival_trigger_cannot_keep_zero_outcome) (prefix='>') ... FAIL
+  test_additional_arrival_trigger_cannot_keep_zero_outcome (test_proxy_continuation_worlds.WorldTests.test_additional_arrival_trigger_cannot_keep_zero_outcome) (prefix='  > ') ... FAIL
+  test_additional_arrival_trigger_cannot_keep_zero_outcome (test_proxy_continuation_worlds.WorldTests.test_additional_arrival_trigger_cannot_keep_zero_outcome) (prefix='lazy') ... FAIL
+
+======================================================================
+FAIL: test_additional_arrival_trigger_cannot_keep_zero_outcome (test_proxy_continuation_worlds.WorldTests.test_additional_arrival_trigger_cannot_keep_zero_outcome) (prefix='>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 65, in test_additional_arrival_trigger_cannot_keep_zero_outcome
+    with patch.object(rules,'ROOT',root),self.assertRaises(ValueError):worlds.classification('W-deepsea')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_additional_arrival_trigger_cannot_keep_zero_outcome (test_proxy_continuation_worlds.WorldTests.test_additional_arrival_trigger_cannot_keep_zero_outcome) (prefix='  > ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 65, in test_additional_arrival_trigger_cannot_keep_zero_outcome
+    with patch.object(rules,'ROOT',root),self.assertRaises(ValueError):worlds.classification('W-deepsea')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_additional_arrival_trigger_cannot_keep_zero_outcome (test_proxy_continuation_worlds.WorldTests.test_additional_arrival_trigger_cannot_keep_zero_outcome) (prefix='lazy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 65, in test_additional_arrival_trigger_cannot_keep_zero_outcome
+    with patch.object(rules,'ROOT',root),self.assertRaises(ValueError):worlds.classification('W-deepsea')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.326s
+
+FAILED (failures=3)

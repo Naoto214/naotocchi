@@ -1,0 +1,106 @@
+test_common_gate_propagates_false_readiness_even_without_errors (test_proxy_population_current_preflight.CurrentPreflightTests.test_common_gate_propagates_false_readiness_even_without_errors) ... ok
+test_every_operation_passes_actual_edition_to_common_gate_before_effects (test_proxy_population_current_preflight.CurrentPreflightTests.test_every_operation_passes_actual_edition_to_common_gate_before_effects) ... ok
+test_evidence_partition_and_failed_component_never_pass (test_proxy_population_current_preflight.CurrentPreflightTests.test_evidence_partition_and_failed_component_never_pass) ... ok
+test_generated_package_reads_exact_immutable_preparation_and_requires_package_gate (test_proxy_population_current_preflight.CurrentPreflightTests.test_generated_package_reads_exact_immutable_preparation_and_requires_package_gate) ... ok
+test_missing_current_report_and_caller_bool_cannot_open_gate (test_proxy_population_current_preflight.CurrentPreflightTests.test_missing_current_report_and_caller_bool_cannot_open_gate) ... ok
+test_recorded_generation_preparation_must_match_current_edition (test_proxy_population_current_preflight.CurrentPreflightTests.test_recorded_generation_preparation_must_match_current_edition) ... ok
+test_saved_source_delta_allows_only_evidence_and_progress (test_proxy_population_current_preflight.CurrentPreflightTests.test_saved_source_delta_allows_only_evidence_and_progress) ... ok
+test_test_log_requires_real_completion_and_exact_frozen_python (test_proxy_population_current_preflight.CurrentPreflightTests.test_test_log_requires_real_completion_and_exact_frozen_python) ... ok
+test_attempt_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_attempt_rechecks_real_edition_after_authorization_and_storage) ... ok
+test_generation_rechecks_real_edition_after_authorization_and_storage (test_proxy_population_operation_edition.OperationEditionTests.test_generation_rechecks_real_edition_after_authorization_and_storage) ... ok
+test_missing_external_reference_rejects_before_entropy_or_artifact_creation (test_proxy_population_generation_entry.GenerationEntryTests.test_missing_external_reference_rejects_before_entropy_or_artifact_creation) ... ok
+test_new_directory_is_durable_before_first_attempted_read (test_proxy_population_generation_entry.GenerationEntryTests.test_new_directory_is_durable_before_first_attempted_read) ... ok
+test_outside_card_game_destination_is_rejected (test_proxy_population_generation_entry.GenerationEntryTests.test_outside_card_game_destination_is_rejected) ... ok
+test_source_edition_failure_rejects_before_entropy_or_artifact_creation (test_proxy_population_generation_entry.GenerationEntryTests.test_source_edition_failure_rejects_before_entropy_or_artifact_creation) ... ok
+test_bad_local_lock_or_edition_cannot_invoke_the_executor (test_proxy_population_attempt_runner.AttemptRunnerTests.test_bad_local_lock_or_edition_cannot_invoke_the_executor) ... ok
+test_missing_external_reference_cannot_invoke_the_executor (test_proxy_population_attempt_runner.AttemptRunnerTests.test_missing_external_reference_cannot_invoke_the_executor) ... ok
+test_old_fixed_prefix_uses_real_backend_and_keeps_incomplete_record (test_proxy_population_attempt_runner.AttemptRunnerTests.test_old_fixed_prefix_uses_real_backend_and_keeps_incomplete_record) ... ok
+test_invalid_input_cannot_launch_or_create_destination (test_proxy_population_batch_supervisor.SupervisorTests.test_invalid_input_cannot_launch_or_create_destination) ... ok
+test_isolated_transport_runs_only_the_existing_historical_prefix (test_proxy_population_batch_supervisor.SupervisorTests.test_isolated_transport_runs_only_the_existing_historical_prefix) ... ok
+test_next_row_is_never_launched_after_incomplete_or_failed_child (test_proxy_population_batch_supervisor.SupervisorTests.test_next_row_is_never_launched_after_incomplete_or_failed_child) ... ok
+test_source_change_before_child_or_after_return_stops_fixed_schedule (test_proxy_population_batch_supervisor.SupervisorTests.test_source_change_before_child_or_after_return_stops_fixed_schedule) ... ok
+test_control_interrupt_keeps_full_schedule_and_never_retries (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_control_interrupt_keeps_full_schedule_and_never_retries) ... ok
+test_interrupt_after_completed_row_keeps_prior_files_and_status (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_interrupt_after_completed_row_keeps_prior_files_and_status) ... ok
+test_request_and_result_write_interrupts_still_save_fixed_schedule (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_request_and_result_write_interrupts_still_save_fixed_schedule) ... ok
+test_changed_edition_registry_destination_reject_before_creation (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_changed_edition_registry_destination_reject_before_creation) ... ok
+test_current_edition_registry_destination_and_live_claim_join (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_current_edition_registry_destination_and_live_claim_join) ... ok
+test_existing_destination_and_symlink_alias_reject (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_existing_destination_and_symlink_alias_reject) ... ok
+test_generation_entry_records_exact_claim_before_first_entropy_attempt (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_generation_entry_records_exact_claim_before_first_entropy_attempt) ... ok
+test_generation_entry_reference_alone_never_reaches_entropy (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_generation_entry_reference_alone_never_reaches_entropy) ... ok
+test_remote_movement_rejects_generation_binding (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_remote_movement_rejects_generation_binding) ... ok
+test_source_change_during_live_reads_rejects (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_source_change_during_live_reads_rejects) ... ok
+test_unverified_registry_and_wrong_repository_reject (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_unverified_registry_and_wrong_repository_reject) ... ok
+test_changed_metadata_request_and_observation_reject (test_proxy_population_generation_operation.OperationTests.test_changed_metadata_request_and_observation_reject) ... ok
+test_changed_package_parent_or_extra_outputs_reject (test_proxy_population_generation_operation.OperationTests.test_changed_package_parent_or_extra_outputs_reject) ... ok
+test_completion_counts_journal_and_permission_cannot_change (test_proxy_population_generation_operation.OperationTests.test_completion_counts_journal_and_permission_cannot_change) ... ok
+test_nested_observation_identity_and_scope_inflation_reject (test_proxy_population_generation_operation.OperationTests.test_nested_observation_identity_and_scope_inflation_reject) ... ok
+test_saved_claim_operation_completion_join_is_not_os_origin_proof (test_proxy_population_generation_operation.OperationTests.test_saved_claim_operation_completion_join_is_not_os_origin_proof) ... ok
+test_invalid_package_blocks_worker_and_supervisor_before_output (test_proxy_population_generation_package.EntryPackageGateTests.test_invalid_package_blocks_worker_and_supervisor_before_output) ... ok
+test_missing_operation_or_completion_cannot_be_complete_package (test_proxy_population_generation_package.PackageTests.test_missing_operation_or_completion_cannot_be_complete_package) ... ok
+test_mixed_commit_and_missing_or_corrupt_siblings_rejected (test_proxy_population_generation_package.PackageTests.test_mixed_commit_and_missing_or_corrupt_siblings_rejected) ... ok
+test_real_historical_registry_and_edition_gates_are_required (test_proxy_population_generation_package.PackageTests.test_real_historical_registry_and_edition_gates_are_required) ... fatal: not a tree object
+ok
+test_same_commit_package_is_content_evidence_only (test_proxy_population_generation_package.PackageTests.test_same_commit_package_is_content_evidence_only) ... ok
+test_changed_schedule_limit_destination_or_package_reject (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_changed_schedule_limit_destination_or_package_reject) ... ok
+test_entries_reject_reference_only_before_any_execution (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_entries_reject_reference_only_before_any_execution) ... ok
+test_exact_launch_claim_binds_but_does_not_open_preflight (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_exact_launch_claim_binds_but_does_not_open_preflight) ... ok
+test_remote_movement_source_race_and_alias_reject (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_remote_movement_source_race_and_alias_reject) ... ok
+test_supervisor_and_worker_recheck_same_claim_before_execution (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_supervisor_and_worker_recheck_same_claim_before_execution) ... ok
+test_worker_requires_exact_fixed_row_and_saved_supervisor_claim (test_proxy_population_launch_authorization.LaunchAuthorizationTests.test_worker_requires_exact_fixed_row_and_saved_supervisor_claim) ... ok
+test_exact_request_and_live_authority_are_separate_from_readiness (test_proxy_population_external_approval.ExternalApprovalTests.test_exact_request_and_live_authority_are_separate_from_readiness) ... ok
+test_local_claim_is_exclusive_but_not_a_remote_consumption_proof (test_proxy_population_external_approval.ExternalApprovalTests.test_local_claim_is_exclusive_but_not_a_remote_consumption_proof) ... ok
+test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness (test_proxy_population_external_approval.ExternalApprovalTests.test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness) ... FAIL
+test_request_is_frozen_before_network_reads_and_claim_storage (test_proxy_population_external_approval.ExternalApprovalTests.test_request_is_frozen_before_network_reads_and_claim_storage) ... ok
+test_revocation_and_pagination_cannot_be_skipped (test_proxy_population_external_approval.ExternalApprovalTests.test_revocation_and_pagination_cannot_be_skipped) ... ok
+test_stages_and_every_bound_input_have_distinct_digests (test_proxy_population_external_approval.ExternalApprovalTests.test_stages_and_every_bound_input_have_distinct_digests) ... ok
+test_transport_is_pinned_bounded_and_rejects_redirects (test_proxy_population_external_approval.ExternalApprovalTests.test_transport_is_pinned_bounded_and_rejects_redirects) ... ok
+test_wrong_author_target_edited_deleted_or_changed_comment_rejects (test_proxy_population_external_approval.ExternalApprovalTests.test_wrong_author_target_edited_deleted_or_changed_comment_rejects) ... ok
+test_extra_source_change_wrong_parent_and_tree_are_rejected (test_proxy_population_approval_publication.ApprovalPublicationTests.test_extra_source_change_wrong_parent_and_tree_are_rejected) ... ok
+test_later_revocation_remote_movement_and_other_request_reject (test_proxy_population_approval_publication.ApprovalPublicationTests.test_later_revocation_remote_movement_and_other_request_reject) ... ok
+test_local_claim_reader_also_rejects_false_owner_or_body (test_proxy_population_approval_publication.ApprovalPublicationTests.test_local_claim_reader_also_rejects_false_owner_or_body) ... ok
+test_local_claim_saved_scope_cannot_inflate (test_proxy_population_approval_publication.ApprovalPublicationTests.test_local_claim_saved_scope_cannot_inflate) ... ok
+test_noncanonical_claim_and_second_claim_file_cannot_hide_in_commit (test_proxy_population_approval_publication.ApprovalPublicationTests.test_noncanonical_claim_and_second_claim_file_cannot_hide_in_commit) ... ok
+test_only_claim_child_is_bound_to_current_comment_and_remote (test_proxy_population_approval_publication.ApprovalPublicationTests.test_only_claim_child_is_bound_to_current_comment_and_remote) ... ok
+test_saved_request_or_comment_metadata_cannot_be_replaced (test_proxy_population_approval_publication.ApprovalPublicationTests.test_saved_request_or_comment_metadata_cannot_be_replaced) ... ok
+test_git_replacement_cannot_redefine_saved_source (test_proxy_population_execution_edition.EditionBindingTests.test_git_replacement_cannot_redefine_saved_source) ... ok
+test_saved_sources_python_and_tools_are_exact_but_not_authorization (test_proxy_population_execution_edition.EditionTests.test_saved_sources_python_and_tools_are_exact_but_not_authorization) ... ok
+
+======================================================================
+FAIL: test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness (test_proxy_population_external_approval.ExternalApprovalTests.test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_external_approval.py", line 135, in test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness
+    with self.assertRaisesRegex(ValueError,'preflight'):call()
+                                                        ^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_external_approval.py", line 132, in <lambda>
+    for call in (lambda:gen.generate_after_external_approval(gen.ROOT.parents[1],'1'*40,gen.ROOT/'data'/'never-auth-generated','looks-approved'),
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_generation_entry.py", line 32, in generate_after_external_approval
+    preparation=external_approval.require_operation_ready('generation',repository=repository,commit=commit)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_external_approval.py", line 204, in require_operation_ready
+    if stage=='generation':certificate=capture(repository,commit)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_execution_edition.py", line 17, in capture
+    if git('cat-file','-t',commit).strip()!=b'commit':raise ValueError('commit type')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_execution_edition.py", line 16, in git
+    def git(*args):return subprocess.check_output(['git','--no-replace-objects','-C',str(repo),*args],stderr=subprocess.PIPE)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: no child
+
+----------------------------------------------------------------------
+Ran 65 tests in 53.802s
+
+FAILED (failures=1)

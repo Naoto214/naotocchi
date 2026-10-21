@@ -1,0 +1,11 @@
+# 支払選択肢の共有母数からの分離
+
+基準f46d525c56fd55c86b97530dd17eaf3dbdd151b5。rules.cost_options/paid.cost_optionsの省略をproducer/監査が共有し、M01 optional2通り、M02伏せ準備、M08捨て札順序の欠落を受理する8FAILをRED再現。新cost_alternativesは監査だけで利用し、固定55/114から候補集合を独立導出する。M01は任意の非軽減/軽減、M02は自伏せ準備各1枚、M08は異なるset/quick物理2枚の全順序。normal expansion/core、normal/response boardへ接続。現物消費の価値・比較数値・policyは追加しない。
+
+初回fixtureで固定107にない2枚目I-poop1を探したためStopIteration、次はresponse origin不足、その次はcurrent hash不足でERROR。first-fixture-error/response-fixture-error/response-hash-fixture-errorへ保持。既存の1伏せ全欠落と2現物順序欠落へ訂正し、供給history/hashを結合した最終red.logは2テスト8FAIL。実入力の生成やカード追加は行っていない。
+
+新実入口3ケースの拒否、複数quickで6順序、使用済み/前turn使用、source drift、対象なし/optional discount、既存full slots、response predicatesを確認。独立review C0/I0/Minor0、別5PASS0.356s。reviewerはM08広い公開捨て札30順序/M02の1候補もproducerと整合確認。最初の補助probeはscope不足のfixture失敗、scope修正後成功。有限fixtureであり全情報利用/履歴真正性/全ルール証明ではない。
+
+最終固定47PASS19.149s/exit0、再帰Python1073前後一致、design errors=[]。初回finalコマンドの不存在test_proxy_population_response_predicate_composition指定は44件中1ERRORとしてmodule-name-error-*保存。正名response_compositionへ訂正したfinal.log/summary/fingerprintsが最終原本。実装は再実行間で不変。
+
+全proxy回帰/最新版完全512結合ではない。preflight-ready=false、生成/固定/400戦0、116除外/指定5policy/過去結果不変。次は閉じたsource集合と全判断責務を共通gateへ結ぶP09〜11/P14〜18合成。正本由来の全比較値やinput起点はこのcost集合から昇格しない。

@@ -1,0 +1,145 @@
+{
+  "schema": "naotocchi.card_game.proxy_fixture_plan.v1",
+  "date": "2026-09-17",
+  "design": {
+    "rules_commit": "4118aacca706e527c962be28eaa8edd9a426d74f",
+    "rules_tree": "579e3518aa1468de300539c4055e36730b36d2ea",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "base_fixture": "proxy-match-record-example-20260917.json",
+  "output_directory": "proxy-fixtures-101",
+  "profiles": ["single", "same-name-two", "board-combination"],
+  "baseline_replacements": {
+    "I-c_dex": "I-poop1",
+    "I-c_egg_normal": "I-sleepboost1"
+  },
+  "clusters": [
+    {
+      "id": "P97-01",
+      "name": "同名の得点積み重ね",
+      "variants": [
+        {
+          "profile": "single",
+          "focus_sequence": ["E-first-date"],
+          "purpose": "はじめてのデート1枚を初手に固定し、同名積み重ねのない基準入力を作る。"
+        },
+        {
+          "profile": "same-name-two",
+          "focus_sequence": ["E-first-date", "E-first-date"],
+          "purpose": "はじめてのデート2枚を初手に固定し、同一交際段階での2枚経路を再現可能にする。"
+        },
+        {
+          "profile": "board-combination",
+          "focus_sequence": ["G-curling-ice", "G-curling-ice", "C-otter", "W-countryside", "I-star"],
+          "purpose": "カーリング2枚と盤面得点支援を初手に固定し、同名積み重ねと別エンジンの併用入力を作る。"
+        }
+      ]
+    },
+    {
+      "id": "P97-02",
+      "name": "盤面に残る得点エンジン",
+      "variants": [
+        {
+          "profile": "single",
+          "focus_sequence": ["G-mini-golf-physics"],
+          "purpose": "ミニゴルフ1枚を初手に固定し、単独行動報酬の基準入力を作る。"
+        },
+        {
+          "profile": "same-name-two",
+          "focus_sequence": ["C-otter", "C-otter"],
+          "purpose": "カワウソ2枚を初手に固定し、カード個体ごとの盤面得点誘発を比較できる入力を作る。"
+        },
+        {
+          "profile": "board-combination",
+          "focus_sequence": ["W-jungle", "C-otter", "G-mini-golf-physics", "I-star", "I-naoto_lantern"],
+          "purpose": "ジャングル、カワウソ、ミニゴルフ、スターバッジ、ランタンを初手に固定し、構築負担を含む併用入力を作る。"
+        }
+      ]
+    },
+    {
+      "id": "P97-03",
+      "name": "時1の補充＋そだち",
+      "variants": [
+        {
+          "profile": "single",
+          "focus_sequence": ["G-hit-blow"],
+          "purpose": "ヒット&ブロー1枚を初手に固定し、成功／失敗分岐を後続手動記録で比較する基準入力を作る。"
+        },
+        {
+          "profile": "same-name-two",
+          "focus_sequence": ["G-hit-blow", "G-hit-blow"],
+          "purpose": "ヒット&ブロー2枚を初手に固定し、低時アクションを複数引いた時の反復入力を作る。"
+        },
+        {
+          "profile": "board-combination",
+          "focus_sequence": ["G-mini-golf-physics", "W-countryside", "C-otter", "I-star", "G-hit-blow"],
+          "purpose": "補充＋そだち札と盤面得点支援を初手に固定し、時収支と複合成果を分けて記録できる入力を作る。"
+        }
+      ]
+    },
+    {
+      "id": "P97-04",
+      "name": "時1の選択取得",
+      "variants": [
+        {
+          "profile": "single",
+          "focus_sequence": ["G-road-city"],
+          "purpose": "とかいラン1枚を初手に固定し、事前行動を除いた単独基準入力を作る。"
+        },
+        {
+          "profile": "same-name-two",
+          "focus_sequence": ["G-road-city", "G-road-city"],
+          "purpose": "とかいラン2枚を初手に固定し、選択取得を複数引いた時の操作量を測れる入力を作る。"
+        },
+        {
+          "profile": "board-combination",
+          "focus_sequence": ["G-road-city", "G-air-hockey", "G-animal-shogi", "W-city", "I-c_egg_normal"],
+          "purpose": "とかいラン、先行アクション候補、とかい、未登録sourceのふしぎなたまごを初手に固定し、別stratumで選択操作を比較する。"
+        }
+      ]
+    },
+    {
+      "id": "P97-05",
+      "name": "捨て札回収と再使用",
+      "variants": [
+        {
+          "profile": "single",
+          "focus_sequence": ["G-animal-shogi"],
+          "purpose": "どうぶつしょうぎ1枚を初手に固定し、回収前の基準入力を作る。"
+        },
+        {
+          "profile": "same-name-two",
+          "focus_sequence": ["G-animal-shogi", "G-animal-shogi"],
+          "purpose": "どうぶつしょうぎ2枚を初手に固定し、回収札と回収元の個体を区別する入力を作る。"
+        },
+        {
+          "profile": "board-combination",
+          "focus_sequence": ["G-jump-quest", "M-mushroom-06", "M-sakura-05", "M-dragon-08", "G-animal-shogi"],
+          "purpose": "異なる回収先を持つ5枚を初手に固定し、回収対象・再使用・新個体IDを比較する入力を作る。"
+        }
+      ]
+    },
+    {
+      "id": "P97-06",
+      "name": "予約の記憶負荷",
+      "variants": [
+        {
+          "profile": "single",
+          "focus_sequence": ["G-breakout-classic"],
+          "purpose": "ブロックくずし1枚を初手に固定し、対象個体を追う予約の基準入力を作る。"
+        },
+        {
+          "profile": "same-name-two",
+          "focus_sequence": ["G-breakout-classic", "G-breakout-classic"],
+          "purpose": "ブロックくずし2枚を初手に固定し、別々の予約IDと対象個体を必要とする入力を作る。"
+        },
+        {
+          "profile": "board-combination",
+          "focus_sequence": ["M-penguin-07", "M-god-08", "G-stack-harvest", "G-stack-snowman", "G-takoyaki-grill"],
+          "purpose": "期限、置換、対象追跡の異なる予約札を初手に固定し、予約ID・期限・残回数を分離する入力を作る。"
+        }
+      ]
+    }
+  ]
+}

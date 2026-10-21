@@ -1,0 +1,18 @@
+test_prevalidation_gates_consumption_without_starting_workers (test_proxy_population_approval_read_retry.PrevalidationTests.test_prevalidation_gates_consumption_without_starting_workers) ... ERROR
+
+======================================================================
+ERROR: test_prevalidation_gates_consumption_without_starting_workers (test_proxy_population_approval_read_retry.PrevalidationTests.test_prevalidation_gates_consumption_without_starting_workers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 160, in test_prevalidation_gates_consumption_without_starting_workers
+    result=call();self.assertTrue(result['local_consumption_recorded']);self.assertEqual(consume.call_count,1)
+           ^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 158, in <lambda>
+    call=lambda:launch.consume_launch_after_prevalidation(self.repo,self.bundle,self.receipt,self.cert,3,self.destination,17)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_launch_authorization' has no attribute 'consume_launch_after_prevalidation'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.278s
+
+FAILED (errors=1)

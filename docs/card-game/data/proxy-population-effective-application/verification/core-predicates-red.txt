@@ -1,0 +1,33 @@
+test_actual_normal_entries_bind_predicates (test_proxy_population_core_predicates.ConnectedCoreTests.test_actual_normal_entries_bind_predicates) ... ERROR
+test_all_core_variants_and_false_exclusions (test_proxy_population_core_predicates.CorePredicateTests.test_all_core_variants_and_false_exclusions) ... FAIL
+test_cost_and_target_evidence_corruption (test_proxy_population_core_predicates.CorePredicateTests.test_cost_and_target_evidence_corruption) ... FAIL
+
+======================================================================
+ERROR: test_actual_normal_entries_bind_predicates (test_proxy_population_core_predicates.ConnectedCoreTests.test_actual_normal_entries_bind_predicates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 54, in test_actual_normal_entries_bind_predicates
+    rows=[s['normal_core_predicates'] for s in r['runtime']['steps'] if s.get('decision',{} ) is not None and s['decision'].get('context',{}).get('decision_kind')=='normal_action']
+          ~^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'normal_core_predicates'
+
+======================================================================
+FAIL: test_all_core_variants_and_false_exclusions (test_proxy_population_core_predicates.CorePredicateTests.test_all_core_variants_and_false_exclusions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 13, in test_all_core_variants_and_false_exclusions
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_cost_and_target_evidence_corruption (test_proxy_population_core_predicates.CorePredicateTests.test_cost_and_target_evidence_corruption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 34, in test_cost_and_target_evidence_corruption
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.833s
+
+FAILED (failures=2, errors=1)

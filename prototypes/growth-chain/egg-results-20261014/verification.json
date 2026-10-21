@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "trials": 192,
+  "operations": 40685,
+  "raceComparisons": 384,
+  "checks": [
+    "source dependency hashes",
+    "seed initialization",
+    "full legal replay",
+    "final hash",
+    "independent event egg/gauge/score formulas",
+    "per-prefix resource potential and balances",
+    "metric equality",
+    "end versus censoring"
+  ]
+}

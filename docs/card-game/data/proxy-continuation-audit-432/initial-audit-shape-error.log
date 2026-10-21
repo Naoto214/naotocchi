@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/data/proxy-continuation-audit-432/audit.py", line 89, in <module>
+    main()
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/data/proxy-continuation-audit-432/audit.py", line 34, in main
+    raise ValueError('431 independent replay differs: ' + fresh['run_id'])
+ValueError: 431 independent replay differs: legacy_107_114_116:probe-01-a-first

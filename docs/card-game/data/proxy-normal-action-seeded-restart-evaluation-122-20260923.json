@@ -1,0 +1,42 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_action_seeded_restart_evaluation.v1",
+  "checkpoint": 122,
+  "summary": {
+    "planned": 4,
+    "completed": 0,
+    "rules_stop": 4,
+    "integrity_stop": 0,
+    "decision": 8,
+    "event": 8,
+    "snapshot": 12,
+    "winner": 0,
+    "independent_balance_sample": 0
+  },
+  "route_statuses": [
+    {
+      "path_id": "order-01-a-first",
+      "status": "stopped_rules_adjudication",
+      "reason_code": "effect_resolution_not_defined",
+      "last_valid_event_seq": 9
+    },
+    {
+      "path_id": "order-01-b-first",
+      "status": "stopped_rules_adjudication",
+      "reason_code": "effect_resolution_not_defined",
+      "last_valid_event_seq": 7
+    },
+    {
+      "path_id": "order-02-a-first",
+      "status": "stopped_rules_adjudication",
+      "reason_code": "effect_resolution_not_defined",
+      "last_valid_event_seq": 7
+    },
+    {
+      "path_id": "order-02-b-first",
+      "status": "stopped_rules_adjudication",
+      "reason_code": "effect_resolution_not_defined",
+      "last_valid_event_seq": 7
+    }
+  ],
+  "independent_balance_note": "seeded fallback paths are excluded"
+}

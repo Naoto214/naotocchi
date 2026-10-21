@@ -1,0 +1,97 @@
+{
+  "full_proxy_baseline": {
+    "commit": "ffa7dfc6ed3472884a11efcafcf072b40d685137",
+    "tests": 1498,
+    "status": "PASS",
+    "checks": {
+      "all_exit_zero": true,
+      "all_summaries_present": true,
+      "all_workers_successful": true,
+      "exact_started_coverage": true,
+      "exact_finished_coverage": true,
+      "no_duplicates": true,
+      "all_pass_no_skip": true,
+      "source_unchanged": true
+    },
+    "scope": "Fixed baseline manifest; excludes eleven later added tests. Baseline812 tracked tools unchanged."
+  },
+  "population_related": {
+    "tests": 171,
+    "status": "PASS",
+    "log": "population-final.txt"
+  },
+  "incarnation_dedicated_final": {
+    "tests": 13,
+    "status": "PASS",
+    "log": "incarnation-final.txt"
+  },
+  "normal_frontier": {
+    "tests": 1,
+    "status": "PASS",
+    "log": "current-normal.txt"
+  },
+  "npm": {
+    "tests": 406,
+    "fail": 0,
+    "skip": 0,
+    "status": "PASS",
+    "log": "npm.txt"
+  },
+  "design_data": {
+    "errors": [],
+    "log": "design-data.txt"
+  },
+  "source_protection": {
+    "base_commit": "725ac3481df61412ef2e8c75b4947a1a09363309",
+    "checked_files": 3955,
+    "changed_or_missing": [],
+    "success": true
+  },
+  "test_coverage": {
+    "baseline_count": 1498,
+    "current_count": 1509,
+    "added_test_ids": [
+      "test_proxy_population_incarnation_policy.IncarnationPolicyTests.test_existing_board_handler_keeps_full_state_and_scopes_restore",
+      "test_proxy_population_incarnation_policy.IncarnationPolicyTests.test_full_local_application_and_rng_match_active_projection",
+      "test_proxy_population_incarnation_policy.IncarnationPolicyTests.test_retired_metadata_changes_and_retired_physical_locations_rejected",
+      "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_capture_rejects_runtime_only_tampering_and_missing_full_hash",
+      "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_incomplete_root_cannot_bypass_prior_entry_guard_and_scope_is_nonreentrant",
+      "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_native_partner_and_main_reentry_keep_new_arrival_obligations",
+      "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_native_replacement_then_response_preserve_generations_and_hashes",
+      "test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_world_and_preparation_use_same_native_entry_finisher",
+      "test_proxy_population_incarnation_window.WindowTests.test_bad_initial_connection_does_not_leave_shared_lock",
+      "test_proxy_population_incarnation_window.WindowTests.test_existing_segment_continues_after_real_native_reentry",
+      "test_proxy_population_normal_frontier.NormalFrontierTests.test_pure_challenge_pass_frontier_preserves_116_exclusion_and_real_step"
+    ],
+    "removed_test_ids": [],
+    "added_covered_by": "population-final.txt: test_proxy_population*.py,171PASS",
+    "scope": "baseline fixed manifest plus separate final supplemental tests; not one full current-source invocation"
+  },
+  "reviews": {
+    "positive_bundle": {
+      "cycles": 1,
+      "critical": 0,
+      "important": 1,
+      "minor": 0,
+      "author_fixed": 1
+    },
+    "incarnation_normal_bundle": {
+      "cycles": 1,
+      "critical": 0,
+      "important": 2,
+      "minor": 0,
+      "author_fixed": 2,
+      "independent_rereview": false
+    }
+  },
+  "ready_for_execution": false,
+  "origin_authenticated": false,
+  "opportunity_completeness_proven": false,
+  "balance_admitted": null,
+  "independent_balance_samples": 0,
+  "new_experiment_seeds": 0,
+  "new_planned_inputs": 0,
+  "new_games": 0,
+  "policy_promotion": false,
+  "stop_reason": "game_ruling_required: sole growth operation capped to zero application"
+}

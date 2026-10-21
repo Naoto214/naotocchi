@@ -1,0 +1,1255 @@
+{
+ "E1": {
+  "planned": 1680,
+  "recorded": 1680,
+  "completed": 1680,
+  "abnormal": [],
+  "replay_mismatch": [],
+  "not_recorded": 0,
+  "first_second": {
+   "games": 1680,
+   "first_wins": 776,
+   "second_wins": 772,
+   "draws": 132,
+   "first_rate_decisive": 0.501,
+   "ci95": [
+    0.476,
+    0.526
+   ],
+   "sign_test_p": 0.9392
+  },
+  "decision": {
+   "round_hist": {
+    "7": 2,
+    "8": 16,
+    "9": 32,
+    "10": 1630
+   },
+   "reasons": {
+    "R10最終比較": 1630,
+    "100維持": 50
+   },
+   "early_rate": 0.0298,
+   "r10_completion_rate": 0.9702
+  },
+  "mirror_pairs": {
+   "same_order_won_both": 668,
+   "second_won_both": 24,
+   "contains_draw": 115,
+   "first_won_both": 33
+  },
+  "progress": {
+   "reached100_any_rate": 0.069,
+   "final_growth_mean": 59.368,
+   "final_growth_median_winner": 70.0,
+   "growth_stuck_at_20_rate": 0.04,
+   "draw_rate": 0.0786,
+   "abs_growth_gap_mean": 22.408,
+   "challenges_per_game": 9.545,
+   "challenge_draw_share": 0.004,
+   "no_action_turn_rate": 0.0071,
+   "time_left_at_turn_end_mean": 4.012,
+   "time_spent_share": 0.274,
+   "unaffordable_hand_cards_at_turn_end_mean": 1.117,
+   "manual_response_decisions_per_game": 81.467,
+   "responses_used_per_game": 7.274,
+   "auto_pass_per_game": 146.674,
+   "max_chain_hist": {
+    "0": 2,
+    "1": 213,
+    "2": 819,
+    "3": 536,
+    "4": 92,
+    "5": 15,
+    "6": 2,
+    "7": 1
+   },
+   "chain_links_ge2_per_game": 5.158,
+   "decisions_per_game": 164.785,
+   "elapsed_ms_mean": 1032.877,
+   "elapsed_ms_max": 2407,
+   "action_kinds_per_game": {
+    "ability": 0.01,
+    "challenge": 9.55,
+    "choose": 16.19,
+    "pass": 94.1,
+    "place": 15.86,
+    "play": 2.53,
+    "programAbility": 2.66,
+    "programPlay": 4.03,
+    "relationship": 4.63,
+    "skip": 0.82,
+    "trigger": 14.4
+   }
+  },
+  "growth_by_round_mean": [
+   20.54,
+   22.8,
+   25.84,
+   29.66,
+   34.68,
+   40.46,
+   45.98,
+   51.12,
+   55.25,
+   58.9
+  ],
+  "deck_matrix": {
+   "D0_standard|D0_standard": [
+    0.5,
+    120
+   ],
+   "D0_standard|D1_main_growth": [
+    0.275,
+    60
+   ],
+   "D0_standard|D2_companions": [
+    0.292,
+    60
+   ],
+   "D0_standard|D3_partner": [
+    0.025,
+    60
+   ],
+   "D0_standard|D4_challenge": [
+    0.183,
+    60
+   ],
+   "D0_standard|D5_growth_gain": [
+    0.075,
+    60
+   ],
+   "D0_standard|D6_item_response": [
+    0.175,
+    60
+   ],
+   "D1_main_growth|D0_standard": [
+    0.725,
+    60
+   ],
+   "D1_main_growth|D1_main_growth": [
+    0.5,
+    120
+   ],
+   "D1_main_growth|D2_companions": [
+    0.642,
+    60
+   ],
+   "D1_main_growth|D3_partner": [
+    0.475,
+    60
+   ],
+   "D1_main_growth|D4_challenge": [
+    0.725,
+    60
+   ],
+   "D1_main_growth|D5_growth_gain": [
+    0.3,
+    60
+   ],
+   "D1_main_growth|D6_item_response": [
+    0.917,
+    60
+   ],
+   "D2_companions|D0_standard": [
+    0.708,
+    60
+   ],
+   "D2_companions|D1_main_growth": [
+    0.358,
+    60
+   ],
+   "D2_companions|D2_companions": [
+    0.5,
+    120
+   ],
+   "D2_companions|D3_partner": [
+    0.208,
+    60
+   ],
+   "D2_companions|D4_challenge": [
+    0.292,
+    60
+   ],
+   "D2_companions|D5_growth_gain": [
+    0.225,
+    60
+   ],
+   "D2_companions|D6_item_response": [
+    0.85,
+    60
+   ],
+   "D3_partner|D0_standard": [
+    0.975,
+    60
+   ],
+   "D3_partner|D1_main_growth": [
+    0.525,
+    60
+   ],
+   "D3_partner|D2_companions": [
+    0.792,
+    60
+   ],
+   "D3_partner|D3_partner": [
+    0.5,
+    120
+   ],
+   "D3_partner|D4_challenge": [
+    0.975,
+    60
+   ],
+   "D3_partner|D5_growth_gain": [
+    0.65,
+    60
+   ],
+   "D3_partner|D6_item_response": [
+    0.933,
+    60
+   ],
+   "D4_challenge|D0_standard": [
+    0.817,
+    60
+   ],
+   "D4_challenge|D1_main_growth": [
+    0.275,
+    60
+   ],
+   "D4_challenge|D2_companions": [
+    0.708,
+    60
+   ],
+   "D4_challenge|D3_partner": [
+    0.025,
+    60
+   ],
+   "D4_challenge|D4_challenge": [
+    0.5,
+    120
+   ],
+   "D4_challenge|D5_growth_gain": [
+    0.2,
+    60
+   ],
+   "D4_challenge|D6_item_response": [
+    0.817,
+    60
+   ],
+   "D5_growth_gain|D0_standard": [
+    0.925,
+    60
+   ],
+   "D5_growth_gain|D1_main_growth": [
+    0.7,
+    60
+   ],
+   "D5_growth_gain|D2_companions": [
+    0.775,
+    60
+   ],
+   "D5_growth_gain|D3_partner": [
+    0.35,
+    60
+   ],
+   "D5_growth_gain|D4_challenge": [
+    0.8,
+    60
+   ],
+   "D5_growth_gain|D5_growth_gain": [
+    0.5,
+    120
+   ],
+   "D5_growth_gain|D6_item_response": [
+    0.808,
+    60
+   ],
+   "D6_item_response|D0_standard": [
+    0.825,
+    60
+   ],
+   "D6_item_response|D1_main_growth": [
+    0.083,
+    60
+   ],
+   "D6_item_response|D2_companions": [
+    0.15,
+    60
+   ],
+   "D6_item_response|D3_partner": [
+    0.067,
+    60
+   ],
+   "D6_item_response|D4_challenge": [
+    0.183,
+    60
+   ],
+   "D6_item_response|D5_growth_gain": [
+    0.192,
+    60
+   ],
+   "D6_item_response|D6_item_response": [
+    0.5,
+    120
+   ]
+  },
+  "deck_overall_vs_others": {
+   "D0_standard": {
+    "score": 0.171,
+    "n": 360,
+    "ci95": [
+     0.135,
+     0.213
+    ]
+   },
+   "D1_main_growth": {
+    "score": 0.631,
+    "n": 360,
+    "ci95": [
+     0.58,
+     0.679
+    ]
+   },
+   "D2_companions": {
+    "score": 0.44,
+    "n": 360,
+    "ci95": [
+     0.39,
+     0.492
+    ]
+   },
+   "D3_partner": {
+    "score": 0.808,
+    "n": 360,
+    "ci95": [
+     0.765,
+     0.846
+    ]
+   },
+   "D4_challenge": {
+    "score": 0.474,
+    "n": 360,
+    "ci95": [
+     0.423,
+     0.525
+    ]
+   },
+   "D5_growth_gain": {
+    "score": 0.726,
+    "n": 360,
+    "ci95": [
+     0.678,
+     0.77
+    ]
+   },
+   "D6_item_response": {
+    "score": 0.25,
+    "n": 360,
+    "ci95": [
+     0.208,
+     0.297
+    ]
+   }
+  },
+  "deck_behaviour": {
+   "D0_standard": {
+    "n": 480,
+    "growth": 50.646,
+    "time_left": 36.479,
+    "ch_declared": 1.219,
+    "ch_won": 1.217,
+    "responses": 5.979,
+    "decisions": 74.769,
+    "k_choose": 5.746,
+    "k_pass": 45.302,
+    "k_place": 8.517,
+    "k_trigger": 3.969,
+    "k_challenge": 1.219,
+    "k_play": 6.521,
+    "k_relationship": 3.496,
+    "reached100": 0.0
+   },
+   "D1_main_growth": {
+    "n": 480,
+    "growth": 60.615,
+    "time_left": 39.692,
+    "ch_declared": 6.608,
+    "ch_won": 6.608,
+    "responses": 1.408,
+    "decisions": 108.169,
+    "k_choose": 4.89,
+    "k_pass": 76.256,
+    "k_place": 6.617,
+    "k_trigger": 8.794,
+    "k_programAbility": 0.74,
+    "k_challenge": 6.608,
+    "k_relationship": 2.548,
+    "reached100": 0.0,
+    "k_programPlay": 1.717
+   },
+   "D2_companions": {
+    "n": 480,
+    "growth": 56.438,
+    "time_left": 45.185,
+    "ch_declared": 7.029,
+    "ch_won": 7.004,
+    "responses": 5.812,
+    "decisions": 113.325,
+    "k_choose": 22.587,
+    "k_place": 7.044,
+    "k_trigger": 5.44,
+    "k_programAbility": 4.815,
+    "k_challenge": 7.029,
+    "k_pass": 64.494,
+    "reached100": 0.0,
+    "k_programPlay": 1.821,
+    "k_ability": 0.042,
+    "k_play": 0.054
+   },
+   "D3_partner": {
+    "n": 480,
+    "growth": 67.74,
+    "time_left": 39.865,
+    "ch_declared": 5.783,
+    "ch_won": 5.763,
+    "responses": 2.138,
+    "decisions": 121.783,
+    "k_choose": 8.873,
+    "k_place": 11.287,
+    "k_trigger": 14.029,
+    "k_pass": 75.017,
+    "k_play": 0.723,
+    "k_relationship": 3.998,
+    "k_challenge": 5.783,
+    "reached100": 0.0,
+    "k_programPlay": 2.073
+   },
+   "D4_challenge": {
+    "n": 480,
+    "growth": 61.729,
+    "time_left": 40.817,
+    "ch_declared": 5.277,
+    "ch_won": 5.275,
+    "responses": 4.921,
+    "decisions": 47.792,
+    "k_choose": 3.171,
+    "k_place": 7.321,
+    "k_skip": 0.079,
+    "k_challenge": 5.277,
+    "k_pass": 15.233,
+    "k_relationship": 3.312,
+    "k_programPlay": 2.015,
+    "k_trigger": 7.64,
+    "k_programAbility": 3.744,
+    "reached100": 0.023
+   },
+   "D5_growth_gain": {
+    "n": 480,
+    "growth": 77.917,
+    "time_left": 35.706,
+    "ch_declared": 3.406,
+    "ch_won": 3.34,
+    "responses": 4.542,
+    "decisions": 71.779,
+    "k_choose": 6.192,
+    "k_pass": 38.204,
+    "k_place": 6.081,
+    "k_challenge": 3.406,
+    "k_programPlay": 6.098,
+    "k_relationship": 2.854,
+    "k_play": 1.281,
+    "k_trigger": 7.662,
+    "reached100": 0.219
+   },
+   "D6_item_response": {
+    "n": 480,
+    "growth": 40.49,
+    "time_left": 41.785,
+    "ch_declared": 4.085,
+    "ch_won": 4.06,
+    "responses": 0.658,
+    "decisions": 39.129,
+    "k_choose": 5.221,
+    "k_pass": 14.85,
+    "k_place": 8.656,
+    "k_trigger": 2.879,
+    "k_challenge": 4.085,
+    "reached100": 0.0,
+    "k_skip": 2.779,
+    "k_play": 0.271,
+    "k_programPlay": 0.388
+   }
+  }
+ },
+ "E2": {
+  "planned": 840,
+  "recorded": 840,
+  "completed": 840,
+  "abnormal": [],
+  "replay_mismatch": [],
+  "not_recorded": 0,
+  "first_second": {
+   "games": 840,
+   "first_wins": 404,
+   "second_wins": 362,
+   "draws": 74,
+   "first_rate_decisive": 0.527,
+   "ci95": [
+    0.492,
+    0.563
+   ],
+   "sign_test_p": 0.1385
+  },
+  "decision": {
+   "round_hist": {
+    "8": 5,
+    "9": 7,
+    "10": 828
+   },
+   "reasons": {
+    "R10最終比較": 828,
+    "100維持": 12
+   },
+   "early_rate": 0.0143,
+   "r10_completion_rate": 0.9857
+  },
+  "progress": {
+   "reached100_any_rate": 0.033,
+   "final_growth_mean": 51.649,
+   "final_growth_median_winner": 60.0,
+   "growth_stuck_at_20_rate": 0.079,
+   "draw_rate": 0.0881,
+   "abs_growth_gap_mean": 20.869,
+   "challenges_per_game": 6.868,
+   "challenge_draw_share": 0.014,
+   "no_action_turn_rate": 0.0084,
+   "time_left_at_turn_end_mean": 3.997,
+   "time_spent_share": 0.275,
+   "unaffordable_hand_cards_at_turn_end_mean": 1.157,
+   "manual_response_decisions_per_game": 78.052,
+   "responses_used_per_game": 7.692,
+   "auto_pass_per_game": 140.346,
+   "max_chain_hist": {
+    "1": 157,
+    "2": 390,
+    "3": 240,
+    "4": 46,
+    "5": 4,
+    "6": 3
+   },
+   "chain_links_ge2_per_game": 4.473,
+   "decisions_per_game": 157.381,
+   "elapsed_ms_mean": 946.098,
+   "elapsed_ms_max": 2027,
+   "action_kinds_per_game": {
+    "ability": 0.01,
+    "challenge": 6.87,
+    "choose": 16.05,
+    "pass": 90.32,
+    "place": 15.97,
+    "play": 2.6,
+    "programAbility": 2.93,
+    "programPlay": 4.18,
+    "relationship": 4.5,
+    "skip": 0.52,
+    "trigger": 13.42
+   }
+  },
+  "growth_by_round_mean": [
+   20.26,
+   22.15,
+   24.65,
+   27.84,
+   32.03,
+   37.09,
+   41.52,
+   45.61,
+   48.76,
+   51.18
+  ],
+  "deck_matrix": {
+   "D0_standard|D0_standard": [
+    0.5,
+    240
+   ],
+   "D1_main_growth|D1_main_growth": [
+    0.5,
+    240
+   ],
+   "D2_companions|D2_companions": [
+    0.5,
+    240
+   ],
+   "D3_partner|D3_partner": [
+    0.5,
+    240
+   ],
+   "D4_challenge|D4_challenge": [
+    0.5,
+    240
+   ],
+   "D5_growth_gain|D5_growth_gain": [
+    0.5,
+    240
+   ],
+   "D6_item_response|D6_item_response": [
+    0.5,
+    240
+   ]
+  },
+  "deck_overall_vs_others": {},
+  "difficulty_score": {
+   "beginner": {
+    "score": 0.504,
+    "n": 840,
+    "ci95": [
+     0.47,
+     0.537
+    ]
+   },
+   "intermediate": {
+    "score": 0.496,
+    "n": 840,
+    "ci95": [
+     0.463,
+     0.53
+    ]
+   }
+  },
+  "intermediate_score_by_deck": {
+   "D0_standard": [
+    0.479,
+    120
+   ],
+   "D1_main_growth": [
+    0.496,
+    120
+   ],
+   "D2_companions": [
+    0.508,
+    120
+   ],
+   "D3_partner": [
+    0.496,
+    120
+   ],
+   "D4_challenge": [
+    0.5,
+    120
+   ],
+   "D5_growth_gain": [
+    0.496,
+    120
+   ],
+   "D6_item_response": [
+    0.5,
+    120
+   ]
+  },
+  "deck_behaviour": {
+   "D0_standard": {
+    "n": 240,
+    "growth": 49.146,
+    "time_left": 36.888,
+    "ch_declared": 1.817,
+    "ch_won": 1.817,
+    "responses": 5.871,
+    "decisions": 67.054,
+    "k_choose": 4.033,
+    "k_play": 6.388,
+    "k_place": 8.054,
+    "k_pass": 40.933,
+    "k_relationship": 3.658,
+    "k_trigger": 2.171,
+    "reached100": 0.0,
+    "k_challenge": 1.817
+   },
+   "D1_main_growth": {
+    "n": 240,
+    "growth": 47.521,
+    "time_left": 40.15,
+    "ch_declared": 4.279,
+    "ch_won": 4.279,
+    "responses": 1.054,
+    "decisions": 105.025,
+    "k_choose": 5.2,
+    "k_place": 6.529,
+    "k_pass": 77.321,
+    "k_trigger": 7.246,
+    "k_challenge": 4.279,
+    "k_relationship": 2.167,
+    "k_programPlay": 1.783,
+    "reached100": 0.0,
+    "k_programAbility": 0.5
+   },
+   "D2_companions": {
+    "n": 240,
+    "growth": 42.125,
+    "time_left": 45.104,
+    "ch_declared": 4.321,
+    "ch_won": 4.287,
+    "responses": 6.067,
+    "decisions": 103.433,
+    "k_choose": 24.125,
+    "k_pass": 55.725,
+    "k_place": 7.075,
+    "k_programAbility": 5.35,
+    "k_trigger": 5.188,
+    "k_challenge": 4.321,
+    "k_programPlay": 1.55,
+    "reached100": 0.0,
+    "k_ability": 0.05,
+    "k_play": 0.05
+   },
+   "D3_partner": {
+    "n": 240,
+    "growth": 54.792,
+    "time_left": 40.221,
+    "ch_declared": 3.383,
+    "ch_won": 3.383,
+    "responses": 2.0,
+    "decisions": 118.088,
+    "k_choose": 8.296,
+    "k_place": 11.7,
+    "k_trigger": 14.204,
+    "k_pass": 74.017,
+    "k_relationship": 4.0,
+    "k_challenge": 3.383,
+    "k_programPlay": 1.925,
+    "reached100": 0.0,
+    "k_play": 0.562
+   },
+   "D4_challenge": {
+    "n": 240,
+    "growth": 61.021,
+    "time_left": 41.092,
+    "ch_declared": 5.325,
+    "ch_won": 5.325,
+    "responses": 5.408,
+    "decisions": 46.638,
+    "k_choose": 3.163,
+    "k_place": 7.154,
+    "k_pass": 14.729,
+    "k_trigger": 6.608,
+    "k_challenge": 5.325,
+    "k_relationship": 3.35,
+    "reached100": 0.025,
+    "k_programPlay": 1.833,
+    "k_programAbility": 4.408,
+    "k_skip": 0.067
+   },
+   "D5_growth_gain": {
+    "n": 240,
+    "growth": 72.521,
+    "time_left": 35.55,
+    "ch_declared": 2.104,
+    "ch_won": 1.792,
+    "responses": 5.008,
+    "decisions": 71.492,
+    "k_choose": 6.392,
+    "k_pass": 38.379,
+    "k_programPlay": 6.588,
+    "k_place": 6.037,
+    "k_trigger": 7.888,
+    "k_play": 1.529,
+    "k_relationship": 2.575,
+    "reached100": 0.092,
+    "k_challenge": 2.104
+   },
+   "D6_item_response": {
+    "n": 240,
+    "growth": 34.417,
+    "time_left": 40.104,
+    "ch_declared": 2.808,
+    "ch_won": 2.808,
+    "responses": 1.512,
+    "decisions": 39.104,
+    "k_choose": 4.979,
+    "k_place": 9.346,
+    "k_trigger": 3.675,
+    "k_pass": 15.0,
+    "k_challenge": 2.808,
+    "k_programPlay": 0.958,
+    "k_skip": 1.767,
+    "reached100": 0.0,
+    "k_play": 0.571
+   }
+  }
+ },
+ "E3": {
+  "planned": 560,
+  "recorded": 560,
+  "completed": 560,
+  "abnormal": [],
+  "replay_mismatch": [],
+  "not_recorded": 0,
+  "first_second": {
+   "games": 560,
+   "first_wins": 251,
+   "second_wins": 251,
+   "draws": 58,
+   "first_rate_decisive": 0.5,
+   "ci95": [
+    0.456,
+    0.544
+   ],
+   "sign_test_p": 1.0
+  },
+  "decision": {
+   "round_hist": {
+    "8": 6,
+    "9": 7,
+    "10": 547
+   },
+   "reasons": {
+    "R10最終比較": 547,
+    "100維持": 13
+   },
+   "early_rate": 0.0232,
+   "r10_completion_rate": 0.9768
+  },
+  "mirror_pairs": {
+   "same_order_won_both": 216,
+   "contains_draw": 46,
+   "first_won_both": 10,
+   "second_won_both": 8
+  },
+  "progress": {
+   "reached100_any_rate": 0.041,
+   "final_growth_mean": 58.406,
+   "final_growth_median_winner": 70.0,
+   "growth_stuck_at_20_rate": 0.0345,
+   "draw_rate": 0.1036,
+   "abs_growth_gap_mean": 22.455,
+   "challenges_per_game": 9.302,
+   "challenge_draw_share": 0.007,
+   "no_action_turn_rate": 0.0082,
+   "time_left_at_turn_end_mean": 4.009,
+   "time_spent_share": 0.274,
+   "unaffordable_hand_cards_at_turn_end_mean": 1.108,
+   "manual_response_decisions_per_game": 78.946,
+   "responses_used_per_game": 7.08,
+   "auto_pass_per_game": 147.602,
+   "max_chain_hist": {
+    "1": 76,
+    "2": 248,
+    "3": 189,
+    "4": 41,
+    "5": 6
+   },
+   "chain_links_ge2_per_game": 5.493,
+   "decisions_per_game": 162.589,
+   "elapsed_ms_mean": 1057.638,
+   "elapsed_ms_max": 1885,
+   "action_kinds_per_game": {
+    "ability": 0.01,
+    "challenge": 9.3,
+    "choose": 16.39,
+    "pass": 91.79,
+    "place": 16.02,
+    "play": 2.64,
+    "programAbility": 2.42,
+    "programPlay": 3.89,
+    "relationship": 4.49,
+    "skip": 0.98,
+    "trigger": 14.66
+   }
+  },
+  "growth_by_round_mean": [
+   20.6,
+   22.63,
+   25.55,
+   29.34,
+   34.26,
+   40.04,
+   44.99,
+   50.04,
+   54.04,
+   57.95
+  ],
+  "deck_matrix": {
+   "D0_standard|D0_standard": [
+    0.5,
+    40
+   ],
+   "D0_standard|D1_main_growth": [
+    0.2,
+    20
+   ],
+   "D0_standard|D2_companions": [
+    0.275,
+    20
+   ],
+   "D0_standard|D3_partner": [
+    0.0,
+    20
+   ],
+   "D0_standard|D4_challenge": [
+    0.025,
+    20
+   ],
+   "D0_standard|D5_growth_gain": [
+    0.0,
+    20
+   ],
+   "D0_standard|D6_item_response": [
+    0.325,
+    20
+   ],
+   "D1_main_growth|D0_standard": [
+    0.8,
+    20
+   ],
+   "D1_main_growth|D1_main_growth": [
+    0.5,
+    40
+   ],
+   "D1_main_growth|D2_companions": [
+    0.875,
+    20
+   ],
+   "D1_main_growth|D3_partner": [
+    0.325,
+    20
+   ],
+   "D1_main_growth|D4_challenge": [
+    0.7,
+    20
+   ],
+   "D1_main_growth|D5_growth_gain": [
+    0.45,
+    20
+   ],
+   "D1_main_growth|D6_item_response": [
+    0.925,
+    20
+   ],
+   "D2_companions|D0_standard": [
+    0.725,
+    20
+   ],
+   "D2_companions|D1_main_growth": [
+    0.125,
+    20
+   ],
+   "D2_companions|D2_companions": [
+    0.5,
+    40
+   ],
+   "D2_companions|D3_partner": [
+    0.225,
+    20
+   ],
+   "D2_companions|D4_challenge": [
+    0.3,
+    20
+   ],
+   "D2_companions|D5_growth_gain": [
+    0.1,
+    20
+   ],
+   "D2_companions|D6_item_response": [
+    0.725,
+    20
+   ],
+   "D3_partner|D0_standard": [
+    1.0,
+    20
+   ],
+   "D3_partner|D1_main_growth": [
+    0.675,
+    20
+   ],
+   "D3_partner|D2_companions": [
+    0.775,
+    20
+   ],
+   "D3_partner|D3_partner": [
+    0.5,
+    40
+   ],
+   "D3_partner|D4_challenge": [
+    0.775,
+    20
+   ],
+   "D3_partner|D5_growth_gain": [
+    0.5,
+    20
+   ],
+   "D3_partner|D6_item_response": [
+    0.85,
+    20
+   ],
+   "D4_challenge|D0_standard": [
+    0.975,
+    20
+   ],
+   "D4_challenge|D1_main_growth": [
+    0.3,
+    20
+   ],
+   "D4_challenge|D2_companions": [
+    0.7,
+    20
+   ],
+   "D4_challenge|D3_partner": [
+    0.225,
+    20
+   ],
+   "D4_challenge|D4_challenge": [
+    0.5,
+    40
+   ],
+   "D4_challenge|D5_growth_gain": [
+    0.15,
+    20
+   ],
+   "D4_challenge|D6_item_response": [
+    0.75,
+    20
+   ],
+   "D5_growth_gain|D0_standard": [
+    1.0,
+    20
+   ],
+   "D5_growth_gain|D1_main_growth": [
+    0.55,
+    20
+   ],
+   "D5_growth_gain|D2_companions": [
+    0.9,
+    20
+   ],
+   "D5_growth_gain|D3_partner": [
+    0.5,
+    20
+   ],
+   "D5_growth_gain|D4_challenge": [
+    0.85,
+    20
+   ],
+   "D5_growth_gain|D5_growth_gain": [
+    0.5,
+    40
+   ],
+   "D5_growth_gain|D6_item_response": [
+    0.85,
+    20
+   ],
+   "D6_item_response|D0_standard": [
+    0.675,
+    20
+   ],
+   "D6_item_response|D1_main_growth": [
+    0.075,
+    20
+   ],
+   "D6_item_response|D2_companions": [
+    0.275,
+    20
+   ],
+   "D6_item_response|D3_partner": [
+    0.15,
+    20
+   ],
+   "D6_item_response|D4_challenge": [
+    0.25,
+    20
+   ],
+   "D6_item_response|D5_growth_gain": [
+    0.15,
+    20
+   ],
+   "D6_item_response|D6_item_response": [
+    0.5,
+    40
+   ]
+  },
+  "deck_overall_vs_others": {
+   "D0_standard": {
+    "score": 0.138,
+    "n": 120,
+    "ci95": [
+     0.087,
+     0.21
+    ]
+   },
+   "D1_main_growth": {
+    "score": 0.679,
+    "n": 120,
+    "ci95": [
+     0.591,
+     0.756
+    ]
+   },
+   "D2_companions": {
+    "score": 0.367,
+    "n": 120,
+    "ci95": [
+     0.286,
+     0.456
+    ]
+   },
+   "D3_partner": {
+    "score": 0.762,
+    "n": 120,
+    "ci95": [
+     0.679,
+     0.83
+    ]
+   },
+   "D4_challenge": {
+    "score": 0.517,
+    "n": 120,
+    "ci95": [
+     0.428,
+     0.604
+    ]
+   },
+   "D5_growth_gain": {
+    "score": 0.775,
+    "n": 120,
+    "ci95": [
+     0.692,
+     0.841
+    ]
+   },
+   "D6_item_response": {
+    "score": 0.263,
+    "n": 120,
+    "ci95": [
+     0.192,
+     0.348
+    ]
+   }
+  },
+  "deck_behaviour": {
+   "D0_standard": {
+    "n": 160,
+    "growth": 49.906,
+    "time_left": 36.5,
+    "ch_declared": 1.25,
+    "ch_won": 1.244,
+    "responses": 6.075,
+    "decisions": 73.1,
+    "k_choose": 5.787,
+    "k_place": 8.75,
+    "k_pass": 43.3,
+    "k_play": 6.675,
+    "k_relationship": 3.612,
+    "k_trigger": 3.725,
+    "reached100": 0.0,
+    "k_challenge": 1.25
+   },
+   "D1_main_growth": {
+    "n": 160,
+    "growth": 60.031,
+    "time_left": 39.631,
+    "ch_declared": 6.681,
+    "ch_won": 6.681,
+    "responses": 1.194,
+    "decisions": 110.425,
+    "k_choose": 4.894,
+    "k_place": 6.525,
+    "k_pass": 79.65,
+    "k_relationship": 2.075,
+    "k_challenge": 6.681,
+    "k_trigger": 8.456,
+    "reached100": 0.0,
+    "k_programPlay": 1.613,
+    "k_programAbility": 0.531
+   },
+   "D2_companions": {
+    "n": 160,
+    "growth": 54.406,
+    "time_left": 44.694,
+    "ch_declared": 6.631,
+    "ch_won": 6.588,
+    "responses": 5.706,
+    "decisions": 108.7,
+    "k_choose": 22.475,
+    "k_place": 7.125,
+    "k_trigger": 5.875,
+    "k_challenge": 6.631,
+    "k_pass": 60.013,
+    "k_programPlay": 1.719,
+    "reached100": 0.0,
+    "k_programAbility": 4.794,
+    "k_play": 0.037,
+    "k_ability": 0.031
+   },
+   "D3_partner": {
+    "n": 160,
+    "growth": 67.312,
+    "time_left": 39.694,
+    "ch_declared": 5.681,
+    "ch_won": 5.656,
+    "responses": 2.175,
+    "decisions": 118.669,
+    "k_choose": 8.512,
+    "k_place": 11.262,
+    "k_pass": 72.638,
+    "k_trigger": 13.806,
+    "k_play": 0.75,
+    "k_programPlay": 2.025,
+    "k_challenge": 5.681,
+    "k_relationship": 3.994,
+    "reached100": 0.0
+   },
+   "D4_challenge": {
+    "n": 160,
+    "growth": 61.344,
+    "time_left": 40.856,
+    "ch_declared": 5.419,
+    "ch_won": 5.406,
+    "responses": 4.281,
+    "decisions": 46.688,
+    "k_choose": 3.438,
+    "k_place": 7.55,
+    "k_pass": 13.994,
+    "k_challenge": 5.419,
+    "k_relationship": 2.95,
+    "k_trigger": 8.306,
+    "k_programPlay": 1.812,
+    "k_programAbility": 3.156,
+    "reached100": 0.019,
+    "k_skip": 0.062
+   },
+   "D5_growth_gain": {
+    "n": 160,
+    "growth": 75.562,
+    "time_left": 36.156,
+    "ch_declared": 2.881,
+    "ch_won": 2.812,
+    "responses": 4.644,
+    "decisions": 71.487,
+    "k_choose": 6.675,
+    "k_pass": 37.475,
+    "k_play": 1.425,
+    "k_place": 6.075,
+    "k_challenge": 2.881,
+    "k_trigger": 7.775,
+    "k_programPlay": 6.094,
+    "k_relationship": 3.087,
+    "reached100": 0.125
+   },
+   "D6_item_response": {
+    "n": 160,
+    "growth": 40.281,
+    "time_left": 41.994,
+    "ch_declared": 4.013,
+    "ch_won": 3.944,
+    "responses": 0.706,
+    "decisions": 39.994,
+    "k_choose": 5.569,
+    "k_place": 8.794,
+    "k_trigger": 3.35,
+    "k_pass": 14.194,
+    "k_skip": 3.369,
+    "k_challenge": 4.013,
+    "reached100": 0.0,
+    "k_play": 0.338,
+    "k_programPlay": 0.369
+   }
+  }
+ }
+}

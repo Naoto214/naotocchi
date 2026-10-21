@@ -1,0 +1,35 @@
+// DOM integration (not a rendering/WebKit test). npm install --prefix /tmp/mydeck-dom jsdom
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {readFileSync} from 'node:fs';
+import {DEFAULT_DECK,CARDS,createGame,save,restore} from '../engine.mjs';
+import {CpuSession,restoreMatch} from '../cpu-session.mjs';
+import {MY_DECK_KEY,LEGACY_DECK_KEY} from '../my-decks.mjs';
+const require=createRequire(import.meta.url),{JSDOM}=require(process.env.JSDOM_PATH??'/tmp/collection-dom/node_modules/jsdom');
+const dom=new JSDOM(readFileSync(new URL('../index.html',import.meta.url),'utf8'),{url:'https://trial.example/',pretendToBeVisual:true});
+const w=dom.window;for(const k of ['window','document','localStorage','HTMLElement','Element','Node','MutationObserver','AbortController','AbortSignal'])globalThis[k]=k==='window'?w:w[k];
+document.fonts={ready:Promise.resolve()};globalThis.matchMedia=()=>({matches:true});
+w.matchMedia=()=>({matches:true,addEventListener(){},removeEventListener(){}});globalThis.requestAnimationFrame=fn=>setTimeout(fn,0);globalThis.cancelAnimationFrame=clearTimeout;
+const modalStack=[];w.HTMLDialogElement.prototype.showModal=function(){if(!this.open){this.open=true;modalStack.push(this);}};w.HTMLDialogElement.prototype.close=function(){if(!this.open)return;this.open=false;const i=modalStack.indexOf(this);if(i>=0)modalStack.splice(i,1);this.dispatchEvent(new w.Event('close'));};
+const top=()=>modalStack.at(-1)?.id;
+let consent=true;globalThis.confirm=()=>consent;
+const $=id=>document.getElementById(id),click=id=>$(id).click(),input=(id,value,event='input')=>{$(id).value=value;$(id).dispatchEvent(new w.Event(event,{bubbles:true}));},data=()=>JSON.parse(localStorage.getItem(MY_DECK_KEY));
+const legacy={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK].reverse()},legacyRaw=JSON.stringify(legacy),match=save(createGame(29));
+localStorage.setItem(LEGACY_DECK_KEY,legacyRaw);localStorage.setItem('naotocchi-hotseat-v1',match);
+await import('../app.mjs');
+assert.ok($('records-open'),'records menu exists');
+click('records-open');assert.ok($('records-dialog').open);assert.match($('records-dialog').textContent,/引き分け/);
+assert.equal(document.querySelectorAll('[data-record-tab]').length,5);
+click('records-close');assert.equal($('records-dialog').open,false);
+click('new');const saved=JSON.parse(localStorage.getItem('naotocchi-cpu-match-v1'));assert.ok(saved.recordsMeta.id);assert.equal(saved.recordsMeta.decks.A.id,data().selected.A);
+assert.equal(localStorage.getItem('naotocchi-card-records-v1'),null,'unfinished games not counted');
+click('hide');click('restore');click('reveal');assert.equal(JSON.parse(localStorage.getItem('naotocchi-cpu-match-v1')).recordsMeta.id,saved.recordsMeta.id);
+click('menu-tutorial-open');click('tutorial-close');assert.equal(localStorage.getItem('naotocchi-card-records-v1'),null);
+const {act,actor,legalActions}=await import('../engine.mjs');
+const {newMetadata,encodeMatch}=await import('../records-match.mjs');
+let finished=createGame(900);for(let i=0;i<1000&&finished.phase!=='finished';i++){const a=legalActions(finished).find(x=>x.kind==='pass')??legalActions(finished)[0];finished=act(finished,actor(finished),finished.revision,a.id);}
+assert.equal(finished.phase,'finished');const cs=new CpuSession({difficulty:'beginner'});cs.start(finished);const m=newMetadata({mode:'cpu',human:'A',difficulty:'beginner',decks:{A:{id:'saved-A',name:'決着時A',cards:finished.decks.A},B:{id:'saved-B',name:'決着時B',cards:finished.decks.B}}});
+localStorage.setItem('naotocchi-cpu-match-v1',encodeMatch(cs.save(),m));click('restore');await new Promise(r=>setTimeout(r,20));
+const {RecordsStore}=await import('../records.mjs');assert.equal(new RecordsStore(localStorage).records.length,1);click('restore');await new Promise(r=>setTimeout(r,20));assert.equal(new RecordsStore(localStorage).records.length,1);
+click('records-open');document.querySelector('[data-record-tab="4"]').click();assert.equal(document.querySelectorAll('[data-record-card]').length,24);assert.match($('records-body').textContent,/452種類/);click('records-close');
+console.log('records DOM PASS: entry, tabs, unfinished exclusion, stable save metadata, restore, tutorial');w.close();process.exit(0);

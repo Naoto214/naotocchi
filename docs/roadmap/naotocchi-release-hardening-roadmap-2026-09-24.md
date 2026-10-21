@@ -1,5 +1,9 @@
 # なおとっち Release Hardening Roadmap
 
+## 2026-10-13: 3D major-development closeout
+
+World 13 regions and Character 293 models are implemented and integrated through #376/#377. Final default-3D integration and the Human-approved 184×120 landscape pad are tracked in [PR #379](https://github.com/Naoto214/naotocchi/pull/379). See the [bounded completion record](../qa/3d-system-completion-20261013.md) for exact gates and NOT_RUN physical checks. Once merged-main CI is green, major 3D development is complete; minor art is optional Quality Pass. Do not reopen completed architecture or add adaptive pad sizing. Historical “Three.js unnecessary” and URL-flag-only conclusions are superseded by the accepted 3D implementation. Other Release Hardening work remains separately scoped.
+
 日付: 2026-09-24 ／ 種別: **read-only の実行計画**。この文書のほかには、コード・テスト・既存文書を 1 行も変えていません。
 
 基準: GitHub `main` HEAD **`c7705d8`**(Merge PR #339: Phase 4E-4 横断監査)

@@ -1,0 +1,14 @@
+.........F...............
+======================================================================
+FAIL: test_existing_unit_trace_binds_all_turns_and_designated_choice_entries (test_proxy_population_policy_journal.BoundPolicyJournalTests.test_existing_unit_trace_binds_all_turns_and_designated_choice_entries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 70, in test_existing_unit_trace_binds_all_turns_and_designated_choice_entries
+    self.assertTrue(r['completed']);self.assertTrue(r['mandatory_origin_audit']['origin_sequence_verified'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 25 tests in 84.982s
+
+FAILED (failures=1)

@@ -1,0 +1,20 @@
+test_supplied_historical_unit_order_continues_through_next_turn (test_proxy_population_runtime.MultiTurnTests.test_supplied_historical_unit_order_continues_through_next_turn) ... FAIL
+test_all_scope_hooks_restore_after_failure_and_reentry_is_rejected (test_proxy_population_runtime.RuntimeTests.test_all_scope_hooks_restore_after_failure_and_reentry_is_rejected) ... ok
+test_chain_resolution_uses_existing_handler_before_end_history_gate (test_proxy_population_runtime.RuntimeTests.test_chain_resolution_uses_existing_handler_before_end_history_gate) ... ok
+test_existing_normal_candidates_and_selector_are_used_after_window (test_proxy_population_runtime.RuntimeTests.test_existing_normal_candidates_and_selector_are_used_after_window) ... ok
+test_existing_response_fallback_is_executed_but_never_admitted_or_renamed (test_proxy_population_runtime.RuntimeTests.test_existing_response_fallback_is_executed_but_never_admitted_or_renamed) ... ok
+test_step_hashes_and_lookup_are_bound_and_invalid_limit_rejected (test_proxy_population_runtime.RuntimeTests.test_step_hashes_and_lookup_are_bound_and_invalid_limit_rejected) ... ok
+test_unique_responses_continue_together_to_normal_boundary (test_proxy_population_runtime.RuntimeTests.test_unique_responses_continue_together_to_normal_boundary) ... ok
+
+======================================================================
+FAIL: test_supplied_historical_unit_order_continues_through_next_turn (test_proxy_population_runtime.MultiTurnTests.test_supplied_historical_unit_order_continues_through_next_turn)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_runtime.py", line 75, in test_supplied_historical_unit_order_continues_through_next_turn
+    self.assertIn('turn_end_completed',[x['action_type'] for x in r['events']],r['stop'])
+AssertionError: 'turn_end_completed' not found in [] : {'code': 'unsupported_contract_boundary', 'detail': 'affordable quick use requires condition proof: G-air-hockey', 'phase': 'response_window'}
+
+----------------------------------------------------------------------
+Ran 7 tests in 5.717s
+
+FAILED (failures=1)

@@ -1,0 +1,32 @@
+test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass (test_proxy_population_trigger_sequential.SequentialTests.test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass) ... ok
+test_current_state_is_reenumerated_and_no_future_sequence_is_selected (test_proxy_population_trigger_sequential.SequentialTests.test_current_state_is_reenumerated_and_no_future_sequence_is_selected) ... ok
+test_new_state_inapplicability_is_recorded_without_a_fictional_choice (test_proxy_population_trigger_sequential.SequentialTests.test_new_state_inapplicability_is_recorded_without_a_fictional_choice) ... ok
+test_no_remaining_executable_action_closes_without_drawing_policy_randomness (test_proxy_population_trigger_sequential.SequentialTests.test_no_remaining_executable_action_closes_without_drawing_policy_randomness) ... ERROR
+
+======================================================================
+ERROR: test_no_remaining_executable_action_closes_without_drawing_policy_randomness (test_proxy_population_trigger_sequential.SequentialTests.test_no_remaining_executable_action_closes_without_drawing_policy_randomness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_sequential.py", line 64, in test_no_remaining_executable_action_closes_without_drawing_policy_randomness
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_sequential.py", line 63, in run
+    result=api.step(e,initial(),l,api.StartAdapter());self.assertIsNone(result['decision']);self.assertEqual(result['chosen']['action'],'close_ineligible');self.assertIsNone(ledger.offer(result['after_ledger']));self.assertEqual(result['before_envelope']['legacy_continuation']['game_state'],result['after_envelope']['legacy_continuation']['game_state']);self.assertEqual(api.validate(result,initial(),api.StartAdapter()),[]);return {}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_trigger_sequential.py", line 72, in step
+    if not rows:raise ValueError('ineligible group closure requires automatic transition')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: ineligible group closure requires automatic transition
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.521s
+
+FAILED (errors=1)

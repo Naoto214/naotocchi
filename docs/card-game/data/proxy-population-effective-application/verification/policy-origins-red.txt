@@ -1,0 +1,34 @@
+EE..
+======================================================================
+ERROR: test_entry_exports_actual_opening_and_runtime_callbacks (test_proxy_population_policy_journal.BoundPolicyJournalTests.test_entry_exports_actual_opening_and_runtime_callbacks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 58, in test_entry_exports_actual_opening_and_runtime_callbacks
+    self.assertTrue(r['mandatory_origin_audit']['origin_sequence_verified'])
+                    ~^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'mandatory_origin_audit'
+
+======================================================================
+ERROR: test_no_choice_effect_still_consumes_resolution_ordinal (test_proxy_population_policy_journal.OriginSequenceTests.test_no_choice_effect_still_consumes_resolution_ordinal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 45, in test_no_choice_effect_still_consumes_resolution_ordinal
+    runtime.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 41, in run
+    self.assertTrue(api.audit_origins(record)['origin_sequence_verified'])
+                    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_policy_journal' has no attribute 'audit_origins'
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.948s
+
+FAILED (errors=2)

@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_absent_target_cost_and_unregistered_declaration_still_rejected (test_proxy_population_activation_legality.LegalityTests.test_absent_target_cost_and_unregistered_declaration_still_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_activation_legality.py", line 39, in test_absent_target_cost_and_unregistered_declaration_still_rejected
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_nonzero_partner_and_empty_deck_are_not_activation_conditions (test_proxy_population_activation_legality.LegalityTests.test_nonzero_partner_and_empty_deck_are_not_activation_conditions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_activation_legality.py", line 22, in test_nonzero_partner_and_empty_deck_are_not_activation_conditions
+    self.assertIsNotNone(api,'source-bound activation/resolution boundary absent')
+AssertionError: unexpectedly None : source-bound activation/resolution boundary absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

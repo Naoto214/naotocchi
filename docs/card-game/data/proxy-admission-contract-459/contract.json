@@ -1,0 +1,291 @@
+{
+  "actual_generated_group_count": 0,
+  "actual_generated_match_count": 0,
+  "actual_manifest": null,
+  "actual_seeds": null,
+  "approval_scope": "machine_contract_validator_specification_and_TDD_plan_only",
+  "approved_direction": "A_full_preregistered_match_set",
+  "balance_admitted": null,
+  "base_head": "c43f908f8b31c16a6f400495e354a8df3fe7bab5",
+  "decision_gates": [
+    "identity_and_origin",
+    "complete_legal_set_and_allowed_information",
+    "existing_selection_basis",
+    "record_and_continuation_linkage",
+    "verified_116_negative"
+  ],
+  "diagnostic_subset": {
+    "aggregate_116_excluded_outcomes_for_balance": false,
+    "allowed": true,
+    "distinguish_complete_pairs_and_single_sides": true,
+    "generalize_to_planned_set": false,
+    "include_planned_denominator_and_exclusion_counts": true,
+    "label": "diagnostic_subset_only",
+    "zero_denominator_rate": null
+  },
+  "disposition_order": [
+    {
+      "if": "any_authenticated_proven_exclusion",
+      "retain_other_gaps": true,
+      "status": "excluded"
+    },
+    {
+      "if": "no_proven_exclusion_but_any_required_evidence_missing",
+      "status": "unproved"
+    },
+    {
+      "if": "all_required_gates_verified_and_no_exclusion",
+      "status": "eligible_at_this_layer_only"
+    }
+  ],
+  "disqualifiers": [
+    "authenticated_seeded_fallback",
+    "authenticated_strategic_unresolved",
+    "proven_forbidden_information_use",
+    "proven_illegal_action_or_transition",
+    "proven_record_corruption_or_contradiction",
+    "proven_plan_input_or_version_mismatch"
+  ],
+  "evidence_contract": {
+    "all_exclusions_and_gaps_retained": true,
+    "caller_supplied_verified_flags_sufficient": false,
+    "executor_replay_certifies_rules": false,
+    "missing_is_false": false,
+    "opportunity_scope_of_456": "existing_executor_only",
+    "prior_455_456_457_results_upgrade_allowed": false,
+    "raw_record_mutation_allowed": false,
+    "sidecars": "append_only_versioned_source_bound",
+    "source_authentication_required": true
+  },
+  "executable": false,
+  "execution": {
+    "new_fixtures": 0,
+    "new_input_orders": 0,
+    "new_matches": 0,
+    "new_replays": 0,
+    "new_seeds": 0
+  },
+  "execution_authorized": false,
+  "future_manifest_contract": {
+    "canonical_encoding": "UTF8_json_ensure_ascii_false_sort_keys_true_indent_2_allow_nan_false_plus_LF",
+    "generated_now": false,
+    "group_count": 200,
+    "group_fields": [
+      "group_id",
+      "seed_A",
+      "seed_B",
+      "full_order_A",
+      "full_order_B",
+      "generation_attempt_ref"
+    ],
+    "hash_namespaces": "artifact_sha256_distinct_from_existing_game_continuation_hashes_and_git_blob",
+    "lock_receipt_fields": [
+      "manifest_sha256",
+      "immutable_commit",
+      "approval_reference",
+      "before_first_outcome_evidence"
+    ],
+    "manifest_digest": "sha256_of_canonical_bytes_excluding_no_fields_store_digest_in_external_lock_receipt",
+    "match_count": 400,
+    "match_fields": [
+      "match_id",
+      "group_id",
+      "first_player",
+      "input_sha256",
+      "policy_versions"
+    ],
+    "order_entry_fields": [
+      "card_copy_id",
+      "card_id",
+      "initial_instance_id"
+    ],
+    "required_top_fields": [
+      "protocol_sha256",
+      "source_versions",
+      "python_version",
+      "historical_registry_sha256",
+      "generation_provenance",
+      "groups",
+      "matches",
+      "execution_order",
+      "lock_evidence"
+    ],
+    "schema": "planned_population_manifest_future_v1_spec_only",
+    "seed_type": "exact_int_0_to_2_pow_128_minus_1"
+  },
+  "gate_states": [
+    "verified",
+    "contradicted",
+    "unproved"
+  ],
+  "historical_reclassification_allowed": false,
+  "independent_balance_sample_count": 0,
+  "input_generation_authorized": false,
+  "layer_contract": {
+    "judgment": {
+      "required_gates": [
+        "identity_and_origin",
+        "complete_legal_set_and_allowed_information",
+        "existing_selection_basis",
+        "record_and_continuation_linkage",
+        "verified_116_negative"
+      ]
+    },
+    "match": {
+      "execution_states": [
+        "not_executed",
+        "running",
+        "interrupted",
+        "stopped",
+        "completed"
+      ],
+      "required_gates": [
+        "manifest_row_authentic",
+        "input_and_versions_match",
+        "rule_derived_opportunity_coverage",
+        "all_judgments_eligible",
+        "automatic_and_terminal_evidence",
+        "record_integrity",
+        "source_bound_replay",
+        "completed_result"
+      ]
+    },
+    "mirror_group": {
+      "first_players": [
+        "A",
+        "B"
+      ],
+      "owner_relabel_allowed": false,
+      "preserve_child_dispositions": true,
+      "reduce": "any_excluded_else_any_unproved_else_all_eligible",
+      "required_matches": 2,
+      "required_shared_inputs": [
+        "A_full_order",
+        "B_full_order",
+        "policies",
+        "source_versions"
+      ]
+    },
+    "planned_set": {
+      "all_eligible_required": true,
+      "claim_scope": "finite_frozen_set_description_only",
+      "empty_success_allowed": false,
+      "required_groups": 200,
+      "required_matches": 400,
+      "when_blocked": {
+        "subset_label": "diagnostic_subset_only",
+        "whole_set_conclusion": null,
+        "whole_set_rates": null
+      }
+    }
+  },
+  "locks": {
+    "execution_approval": null,
+    "input_manifest": null,
+    "outcome_dependent_membership_change_allowed": false,
+    "protocol": "approved_design_content_pinned_in_this_checkpoint"
+  },
+  "overall_result_requirements": [
+    "approved_positive_N_protocol_and_manifest_locked_before_outcomes",
+    "execution_separately_authorized",
+    "exact_planned_match_id_set_no_duplicates_or_omissions",
+    "every_planned_match_and_mirror_group_eligible",
+    "excluded_count_zero",
+    "unproved_count_zero",
+    "not_executed_count_zero",
+    "rule_based_opportunity_coverage_verified",
+    "all_versions_input_record_and_replay_evidence_valid",
+    "predeclared_metrics_denominators_and_weights_unchanged"
+  ],
+  "plan_approved": true,
+  "planned_group_count": 200,
+  "planned_match_count": 400,
+  "policy_promoted": false,
+  "protocol_design_locked": true,
+  "readiness_required": [
+    "approved_design_package",
+    "static_feasibility_audit_no_proven_unavoidable_116_exclusion",
+    "versioned_rules_and_deck_obligation_inventory",
+    "verified_input_generator_and_generalized_loader",
+    "intermediate_state_and_choice_evidence_adapter",
+    "all_judgment_and_opportunity_validator",
+    "source_bound_replay_and_negative_admission_tests",
+    "complete_input_manifest_lock",
+    "separate_execution_approval"
+  ],
+  "schema": "planned_population_contract_459.v1",
+  "selected_package": {
+    "alternate_policy_use": false,
+    "approval_status": "approved_by_user_2026_10_04",
+    "balance_acceptance_threshold": null,
+    "confidence_interval": null,
+    "cross_new_group_accidental_duplicates": "retain_and_record_provenance_not_intentional_copy",
+    "decks_reference": "data/proxy-admission-design-458/deck-reference.json",
+    "execution_order": "ascending_group_odd_A_then_B_even_B_then_A",
+    "historical_input_registry": null,
+    "independent_input_groups": 200,
+    "mandatory_policy": "existing_contracts_with_116",
+    "matches_per_group": 2,
+    "normal_policy": "114_with_116",
+    "pre_outcome_rejection": [
+      "within_pair_equal_seeds",
+      "fixed_historical_seed_or_order_pair_registry_match"
+    ],
+    "primary_metrics": [
+      "A_win_count_and_fraction",
+      "draw_count_and_fraction",
+      "B_win_count_and_fraction"
+    ],
+    "probability_population_inference": false,
+    "python_version": null,
+    "repeat_attempt": "same_manifest_row_and_version_no_sample_increment_preserve_all_attempts",
+    "response_policy": "119",
+    "sample_size_basis": "first_preregistered_evaluation_set_not_power_or_precision_guarantee",
+    "seat_policy": "same_frozen_policies_for_A_and_B",
+    "secondary_metrics": [
+      "complete_mirror_group_outcomes",
+      "first_player_stratified_outcomes",
+      "eligible_final_growth_difference_distribution"
+    ],
+    "seed_generation": "independent_OS_128bit_seed_pair_per_group",
+    "shuffle": "source_pinned_existing_shuffle_deck_random.Random(seed).shuffle",
+    "side_assignment": "same_decks_owners_orders_A_first_and_B_first",
+    "statistical_claim_scope": "description_of_entire_frozen_planned_set_only",
+    "stopping": "fixed_N_unless_rules_or_integrity_or_infrastructure_block",
+    "total_matches": 400
+  },
+  "sources_sha256": {
+    "111-structural-gap-disposition-and-repetition-scope.md": "47e646900efb8e30714382e179dff42413b92719e603dfe72196baaac0adce26",
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "452-independent-balance-readiness.md": "4735e0568f2b40698e7f4dbdf5c1f25cbbbd0848b13e51d55340d95671cdafd5",
+    "453-experiment-design-decision.md": "6795b2f70171bd82c1a30ab4556e9202514ca058974c71c8f9925754a10f71f5",
+    "454-all-judgment-evaluation-design.md": "37b2441ca93a55a12773b975a6388b8151f08b0ba9bf23022b71e5c57e425220",
+    "455-judgment-evidence-contract.md": "b26a7c117b805d58f3df5a337ea58afdabcf5f78a30af0ec1a23471124254822",
+    "456-saved-replay-evidence.md": "0521ae57c528976f87ac45bd8ce8bdce99b4ddb063e788f0a288393577158e34",
+    "457-record-integrity-and-admission-boundary.md": "a724a5b9a54b69350aa53ae75ec952e516517baf6bbca3664007598973be2932",
+    "458-planned-population-admission-design.md": "604d8a79c613aa5e35045efb3dc5bf876a9cdb4b2865c33c582266cbded3cc30",
+    "98-proxy-pool-layers-and-replay-schema.md": "90036bf6e3caef2e45413ed2d6f84ca56ad9821b37a6fc36e0bc1e5eb0f0480d",
+    "data/proxy-admission-design-458/deck-reference.json": "92cbd5a759fe6f3d19755b52b2c6b301caa159eb35ee32951d107986d14cc4fe",
+    "data/proxy-admission-design-458/design-draft.json": "fd9e8e38d4ca7dcea00785194a8f65487d375e83e566a45781c1d72bbf364e76",
+    "data/proxy-experiment-design-453/plan-draft.json": "2d124581aa996057b84bab4f6191357e9cf4ad1628c8d2d891efaab7eb86f702",
+    "data/proxy-fixtures-107/fixture-107-normal-decision-a-first.json": "e790d17c0555ba4a7d57a0b70291a851b132b416122f7bb340f36d0df601559e",
+    "data/proxy-independent-seed-probe-20260924.json": "1a497209d56f605e474f136777c06a3260b731417ca7940bc361f72850457a6c",
+    "tools/proxy_continuation_choices.py": "e2152db6a78a45b8d145d96b725eda81196ef0481c2f27c1a1415dfd046112e4",
+    "tools/proxy_continuation_runner.py": "b33579d72c905f56711c0e0f008f7a70c6d3ed3aaf5e7111ba18e710c0c64402",
+    "tools/proxy_independent_seed_probe.py": "c0e474874ce73d6b02ce2f0d1b91ee6556b1ad277a7cd8bb215148cd23e64ca9",
+    "tools/proxy_normal_decision_first_choice_audit.py": "6dc165f24bc3d25ab9a175aee955e48debef456aed1144f4539c4d20c97c5f85"
+  },
+  "status": "approved_protocol_design_not_execution_ready",
+  "unproved_examples": [
+    "not_executed",
+    "incomplete",
+    "unknown_ruling",
+    "unverified_opportunity_coverage",
+    "unverified_intermediate_choice_state",
+    "replay_not_verified",
+    "unauthenticated_source"
+  ],
+  "validator_implemented": false
+}

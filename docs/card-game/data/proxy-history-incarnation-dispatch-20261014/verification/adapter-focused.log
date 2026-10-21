@@ -1,0 +1,12 @@
+test_native_birth_reentry_uses_same_finished_historical_boundary (test_proxy_population_history_incarnation_dispatch.BirthHistoryTests.test_native_birth_reentry_uses_same_finished_historical_boundary) ... ok
+test_frozen_sources_and_authenticated_contract_unchanged_in_scope (test_proxy_population_history_incarnation_dispatch.FrozenContractTests.test_frozen_sources_and_authenticated_contract_unchanged_in_scope) ... ok
+test_scope_restoration_on_exception_and_reentry (test_proxy_population_history_incarnation_dispatch.FrozenContractTests.test_scope_restoration_on_exception_and_reentry) ... ok
+test_applicable_missing_source_still_fails_closed (test_proxy_population_history_incarnation_dispatch.HistoryIncarnationDispatchTests.test_applicable_missing_source_still_fails_closed) ... ok
+test_native_preparation_replay_rejects_forged_receipt_and_snapshot (test_proxy_population_history_incarnation_dispatch.HistoryIncarnationDispatchTests.test_native_preparation_replay_rejects_forged_receipt_and_snapshot) ... ok
+test_unrelated_classifiers_do_not_dereference_after_only_source (test_proxy_population_history_incarnation_dispatch.HistoryIncarnationDispatchTests.test_unrelated_classifiers_do_not_dereference_after_only_source) ... ok
+test_legacy_person_placement_history_replays_successor_and_first_generation (test_proxy_population_history_incarnation_dispatch.LegacyPlacementHistoryTests.test_legacy_person_placement_history_replays_successor_and_first_generation) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.271s
+
+OK

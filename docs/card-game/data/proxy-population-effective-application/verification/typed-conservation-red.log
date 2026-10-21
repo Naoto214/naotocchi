@@ -1,0 +1,22 @@
+======================================================================
+FAIL: test_unrelated_events_cannot_change_or_erase_existing_typed_rows (test_proxy_population_effect_creation.CreationTests.test_unrelated_events_cannot_change_or_erase_existing_typed_rows) (mode='erase')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 117, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit(before,bad,event)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_unrelated_events_cannot_change_or_erase_existing_typed_rows (test_proxy_population_effect_creation.CreationTests.test_unrelated_events_cannot_change_or_erase_existing_typed_rows) (mode='edit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 117, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit(before,bad,event)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.031s
+
+FAILED (failures=2)

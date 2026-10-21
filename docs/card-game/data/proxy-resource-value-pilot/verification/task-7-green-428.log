@@ -1,0 +1,11 @@
+test_evaluation_tampering_is_rejected (test_proxy_resource_value_integration.IntegrationTests.test_evaluation_tampering_is_rejected) ... ok
+test_missing_artifact_is_rejected (test_proxy_resource_value_integration.IntegrationTests.test_missing_artifact_is_rejected) ... ok
+test_protected_data_tampering_in_temporary_copy_is_rejected (test_proxy_resource_value_integration.IntegrationTests.test_protected_data_tampering_in_temporary_copy_is_rejected) ... ok
+test_saved_artifacts_and_protected_sources_validate (test_proxy_resource_value_integration.IntegrationTests.test_saved_artifacts_and_protected_sources_validate) ... ok
+test_shadow_id_missing_is_rejected (test_proxy_resource_value_integration.IntegrationTests.test_shadow_id_missing_is_rejected) ... ok
+test_trajectory_id_duplicate_is_rejected (test_proxy_resource_value_integration.IntegrationTests.test_trajectory_id_duplicate_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 4.601s
+
+OK

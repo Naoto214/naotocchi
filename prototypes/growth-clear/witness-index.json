@@ -1,0 +1,35 @@
+{
+  "verifiedRecords": 560,
+  "witnesses": [
+    {
+      "label": "chain3",
+      "source": "results/A-adaptive-4100.json",
+      "action": 66,
+      "chain": 3
+    },
+    {
+      "label": "chain5",
+      "source": "results/A-adaptive-4101.json",
+      "action": 74,
+      "chain": 5
+    },
+    {
+      "label": "high-stage-mixed-loss",
+      "source": "results/A-adaptive-4101.json",
+      "action": 74,
+      "chain": 5
+    },
+    {
+      "label": "chain7plus",
+      "source": "results/A-left-4101.json",
+      "action": 189,
+      "chain": 7
+    },
+    {
+      "label": "lifetime08",
+      "source": "results/A-right-4104.json",
+      "action": 200,
+      "chain": 5
+    }
+  ]
+}

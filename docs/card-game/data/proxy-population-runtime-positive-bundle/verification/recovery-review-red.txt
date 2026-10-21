@@ -1,0 +1,14 @@
+..F.
+======================================================================
+FAIL: test_paid_main_and_cat_share_one_complete_selector_at_choice_and_apply (__main__.PositiveWindowTests.test_paid_main_and_cat_share_one_complete_selector_at_choice_and_apply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_positive_window.py", line 55, in test_paid_main_and_cat_share_one_complete_selector_at_choice_and_apply
+    source=base.operation(initial(),build);e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['events']),1)
+                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'code': 'unsupported_contract_boundary', 'detail': 'certain-result proof unavailable: activate_main_ability', 'phase': 'normal_action'} is not None
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.850s
+
+FAILED (failures=1)

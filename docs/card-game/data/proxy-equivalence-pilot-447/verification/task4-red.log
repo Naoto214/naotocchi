@@ -1,0 +1,75 @@
+test_disabled_proofs_reproduce_414 (test_proxy_equivalence_selection.SelectionTests.test_disabled_proofs_reproduce_414) ... FAIL
+test_input_order_does_not_choose_group (test_proxy_equivalence_selection.SelectionTests.test_input_order_does_not_choose_group) ... FAIL
+test_safe_free_certificate_not_transferred (test_proxy_equivalence_selection.SelectionTests.test_safe_free_certificate_not_transferred) ... FAIL
+test_same_frontier_same_seed (test_proxy_equivalence_selection.SelectionTests.test_same_frontier_same_seed) ... FAIL
+test_unknown_input_not_fallback (test_proxy_equivalence_selection.SelectionTests.test_unknown_input_not_fallback) ... FAIL
+test_unknown_retains_seeded_frontier (test_proxy_equivalence_selection.SelectionTests.test_unknown_retains_seeded_frontier) ... FAIL
+test_wrapper_choice_and_action_binding (test_proxy_equivalence_selection.SelectionTests.test_wrapper_choice_and_action_binding) ... FAIL
+
+======================================================================
+FAIL: test_disabled_proofs_reproduce_414 (test_proxy_equivalence_selection.SelectionTests.test_disabled_proofs_reproduce_414)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_selection.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'selection implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : selection implementation absent
+
+======================================================================
+FAIL: test_input_order_does_not_choose_group (test_proxy_equivalence_selection.SelectionTests.test_input_order_does_not_choose_group)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_selection.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'selection implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : selection implementation absent
+
+======================================================================
+FAIL: test_safe_free_certificate_not_transferred (test_proxy_equivalence_selection.SelectionTests.test_safe_free_certificate_not_transferred)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_selection.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'selection implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : selection implementation absent
+
+======================================================================
+FAIL: test_same_frontier_same_seed (test_proxy_equivalence_selection.SelectionTests.test_same_frontier_same_seed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_selection.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'selection implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : selection implementation absent
+
+======================================================================
+FAIL: test_unknown_input_not_fallback (test_proxy_equivalence_selection.SelectionTests.test_unknown_input_not_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_selection.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'selection implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : selection implementation absent
+
+======================================================================
+FAIL: test_unknown_retains_seeded_frontier (test_proxy_equivalence_selection.SelectionTests.test_unknown_retains_seeded_frontier)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_selection.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'selection implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : selection implementation absent
+
+======================================================================
+FAIL: test_wrapper_choice_and_action_binding (test_proxy_equivalence_selection.SelectionTests.test_wrapper_choice_and_action_binding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_selection.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'selection implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : selection implementation absent
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (failures=7)

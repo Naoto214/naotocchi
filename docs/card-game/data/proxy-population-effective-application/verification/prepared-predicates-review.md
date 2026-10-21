@@ -1,0 +1,11 @@
+# Concealed prepared public-effect route audit
+
+Base0c54b38307fd400aa5803b9b5bc8640f2b08f5fe. One independent read-only reviewer /root/review_prepared_bundle: Critical0 / Important2 / Minor0. Reviewer independently passed six tests and read all15 quick source sections/dispatch paths. No reviewer edits; no second review.
+
+Important1: actual recovery.scope registers G-animal-shogi in QUICK_CARDS, shadowing the recovery elif. Explicit actual-scope regression RED -> recovery override checked before generic payment dispatch -> GREEN. Important2: state.validate reads all card identity fields, violating this audit's no-concealed-access requirement even though results were identity-independent. Tracking dictionary recorded six identity reads RED. Removed full-state traversal from this source-local audit, added public player/chain/metadata/duplicate-source checks, reject public-link sources still concealed before any card identity access. Final tracking regression GREEN. Full state validation remains in existing runtime; new evidence explicitly says full_state_validity_proven=false.
+
+Final related34 PASS (18.011s). Initial connected19 PASS (133.937s) predates review fixes and is not the final integration. Final integration is recorded separately in prepared-predicates-final-integration.log. Source design errors=[]; base numbered top-level476 unchanged. npm406PASS belongs to previous0c54b38 bundle (no frontend changes here), not a new npm or all-proxy run.
+
+Ruling on review limitations: full history/origin authentication, prior trigger closure, full legal sets, runtime-wide information isolation, whole-effect execution and policy/balance admission remain separate unproved gates. The certificate only establishes registered quick-effect negative semantics for currently concealed preparations; board/unknown routes and public equipment are not inferred absent. Every active link is checked, even when root origin is nonactivation. Cost of promoting narrow evidence would be false absence/admission, so no promotion is made. No actual seeds, production lock,400 execution or merge occurred.
+
+Final post-fix connected19 PASS (133.901s), including full20turn/R10, connected entry and admission. Final production source is identical to the source used for related34 and this integration. No latest all-proxy result is claimed.

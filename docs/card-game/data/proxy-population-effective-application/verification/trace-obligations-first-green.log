@@ -1,0 +1,48 @@
+test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) ... 
+  test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='supplied_timing_occurrences_verified') ... FAIL
+  test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='supplied_hand_timing_occurrences_verified') ... FAIL
+  test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='automatic_output_binding_verified') ... FAIL
+
+======================================================================
+FAIL: test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='supplied_timing_occurrences_verified')
+----------------------------------------------------------------------
+ValueError: invalid continuation envelope
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 17, in test_initial_entry_requires_verified_timing_and_automatic_responsibilities
+    with self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "trace obligations" does not match "invalid continuation envelope"
+
+======================================================================
+FAIL: test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='supplied_hand_timing_occurrences_verified')
+----------------------------------------------------------------------
+ValueError: invalid continuation envelope
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 17, in test_initial_entry_requires_verified_timing_and_automatic_responsibilities
+    with self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "trace obligations" does not match "invalid continuation envelope"
+
+======================================================================
+FAIL: test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='automatic_output_binding_verified')
+----------------------------------------------------------------------
+ValueError: invalid continuation envelope
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 17, in test_initial_entry_requires_verified_timing_and_automatic_responsibilities
+    with self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "trace obligations" does not match "invalid continuation envelope"
+
+----------------------------------------------------------------------
+Ran 1 test in 21.295s
+
+FAILED (failures=3)

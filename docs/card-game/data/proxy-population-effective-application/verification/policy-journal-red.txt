@@ -1,0 +1,25 @@
+test_exports_complete_local_entries_without_promoting_origin_or_policy (test_proxy_population_policy_journal.PolicyJournalTests.test_exports_complete_local_entries_without_promoting_origin_or_policy) ... FAIL
+test_missing_duplicate_root_and_origin_changes_are_rejected (test_proxy_population_policy_journal.PolicyJournalTests.test_missing_duplicate_root_and_origin_changes_are_rejected) ... FAIL
+
+======================================================================
+FAIL: test_exports_complete_local_entries_without_promoting_origin_or_policy (test_proxy_population_policy_journal.PolicyJournalTests.test_exports_complete_local_entries_without_promoting_origin_or_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 14, in test_exports_complete_local_entries_without_promoting_origin_or_policy
+    self.assertIsNotNone(api);s,d=self.setup_case();j=api.export(s);r=api.audit(j,[d],s.origins,s.binding,s.roots)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_missing_duplicate_root_and_origin_changes_are_rejected (test_proxy_population_policy_journal.PolicyJournalTests.test_missing_duplicate_root_and_origin_changes_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 20, in test_missing_duplicate_root_and_origin_changes_are_rejected
+    self.assertIsNotNone(api);s,d=self.setup_case();j=api.export(s)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

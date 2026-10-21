@@ -88,7 +88,7 @@ test('1. the resident set comes from the registry (all dex forms, 26 companions,
     if (row.family === 'relationship' && row.expression !== 'normal') assert.match(row.asset, /^assets\/characters\/relationship\//, 'companion/partner faces come from the relationship folder');
   }
   // すがた: normal + 7 表情(positive/dislike/tired/sleeping/strained/wantsPlay/sick)。なかま・こいびと: normal + positive
-  assert.equal(distinct.size, forms.length * 8 + (companions.length + partners.length) * 2);
+  assert.equal(distinct.size, forms.length * 11 + (companions.length + partners.length) * 3);
   assert.doesNotThrow(() => RX.audit(RESIDENTS, { strict: true }));
 });
 
@@ -168,7 +168,7 @@ test('4. an unwanted interaction (waking a sleeper, pestering) gives the dislike
   // mapping の 正本: dislike は sulky(stage)、relationship では normal。lonely は つかわない(将来の ため のこす)
   assert.equal(RX.EXPRESSION_FOR.stage.dislike, 'sulky');
   assert.equal(RX.EXPRESSION_FOR.relationship.dislike, 'normal');
-  assert.ok(!Object.values(RX.EXPRESSION_FOR.relationship).includes('lonely'));
+  assert.equal(RX.EXPRESSION_FOR.relationship.dislike, 'normal', 'dislike never becomes loneliness');
 }));
 
 // ───────────────────────────── 5. sick state → sick expression(資産は ある。生活からは 発火しない)
@@ -477,15 +477,15 @@ test('16. expressions are resolved only when the emotion changes (object identit
 
 // ───────────────────────────── 17. 1 か所の mapping と 契約の 形
 test('17. the canonical mapping lives in one place and keeps the unused states open for the future', () => {
-  assert.deepEqual([...RX.EMOTIONS], ['normal', 'positive', 'dislike', 'tired', 'sleeping', 'strained', 'wantsPlay', 'sick']);
+  assert.deepEqual([...RX.EMOTIONS], ['normal', 'positive', 'dislike', 'tired', 'sleeping', 'strained', 'wantsPlay', 'sick', 'hungry', 'weak', 'critical', 'lonely']);
   for (const em of M.RESIDENT_EMOTIONS) assert.ok(RX.EMOTIONS.includes(RX.canonicalEmotion(em)), `${em} maps to a canonical emotion`);
   assert.deepEqual(RX.LIFE_EMOTION.happy, 'positive'); assert.deepEqual(RX.LIFE_EMOTION.unhappy, 'dislike');
   assert.equal(RX.canonicalEmotion('nope'), 'normal');
   for (const fam of ['stage', 'relationship', 'none']) for (const em of RX.EMOTIONS) assert.ok(typeof RX.expressionFor(fam, em) === 'string');
-  assert.deepEqual(RX.EXPRESSION_FOR.stage, { normal: 'normal', positive: 'happy', dislike: 'sulky', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', sick: 'sick' });
+  assert.deepEqual(RX.EXPRESSION_FOR.stage, { normal: 'normal', positive: 'happy', dislike: 'sulky', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', sick: 'sick', hungry:'hungry', weak:'weak', critical:'critical', lonely:'sulky' });
   // Home の 表情で めぐるが つかわない もの(将来の ため のこす): hungry / weak / critical / lonely
   const used = new Set(Object.values(RX.EXPRESSION_FOR.stage).concat(Object.values(RX.EXPRESSION_FOR.relationship)));
-  for (const unused of ['hungry', 'weak', 'critical', 'lonely']) assert.ok(!used.has(unused), `${unused} stays unused`);
+  for (const unused of ['hungry', 'weak', 'critical', 'lonely']) assert.ok(used.has(unused), `${unused} is now connected`);
   assert.deepEqual(RX.EVENT_REACTION, { talk: 'positive', talk_end: 'positive', gather_end: 'positive', play_end: 'positive', talk_wake: 'dislike', talk_pester: 'dislike' });
   assert.equal(RX.talkEvent({ sleeping: true }), 'talk_wake'); assert.equal(RX.talkEvent({ sinceLastTalk: 3 }), 'talk_pester'); assert.equal(RX.talkEvent({ sinceLastTalk: 60 }), 'talk'); assert.equal(RX.talkEvent(), 'talk');
   assert.equal(RX.reactionFor('nothing'), null);

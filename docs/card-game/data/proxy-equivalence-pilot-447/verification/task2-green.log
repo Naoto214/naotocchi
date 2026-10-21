@@ -1,0 +1,11 @@
+test_discard_and_egg_are_not_deleted (test_proxy_equivalence_outcomes.OutcomeTests.test_discard_and_egg_are_not_deleted) ... ok
+test_empty_requires_coverage (test_proxy_equivalence_outcomes.OutcomeTests.test_empty_requires_coverage) ... ok
+test_pass_keeps_pending_end_response (test_proxy_equivalence_outcomes.OutcomeTests.test_pass_keeps_pending_end_response) ... ok
+test_runtime_effects_not_legacy_reservations_only (test_proxy_equivalence_outcomes.OutcomeTests.test_runtime_effects_not_legacy_reservations_only) ... ok
+test_same_instance_stays_identified (test_proxy_equivalence_outcomes.OutcomeTests.test_same_instance_stays_identified) ... ok
+test_unknown_reveal_stops_prefix (test_proxy_equivalence_outcomes.OutcomeTests.test_unknown_reveal_stops_prefix) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.799s
+
+OK

@@ -1,0 +1,35 @@
+test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats (test_proxy_population_turn_boundary.TurnTests.test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats) ... FAIL
+test_empty_deck_has_no_invented_choice_or_loss (test_proxy_population_turn_boundary.TurnTests.test_empty_deck_has_no_invented_choice_or_loss) ... FAIL
+test_next_turn_has_no_permission_to_skip_r10_comparison (test_proxy_population_turn_boundary.TurnTests.test_next_turn_has_no_permission_to_skip_r10_comparison) ... FAIL
+
+======================================================================
+FAIL: test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats (test_proxy_population_turn_boundary.TurnTests.test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_turn_boundary.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api,'explicit-metadata turn bridge missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : explicit-metadata turn bridge missing
+
+======================================================================
+FAIL: test_empty_deck_has_no_invented_choice_or_loss (test_proxy_population_turn_boundary.TurnTests.test_empty_deck_has_no_invented_choice_or_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_turn_boundary.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api,'explicit-metadata turn bridge missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : explicit-metadata turn bridge missing
+
+======================================================================
+FAIL: test_next_turn_has_no_permission_to_skip_r10_comparison (test_proxy_population_turn_boundary.TurnTests.test_next_turn_has_no_permission_to_skip_r10_comparison)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_turn_boundary.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api,'explicit-metadata turn bridge missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : explicit-metadata turn bridge missing
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

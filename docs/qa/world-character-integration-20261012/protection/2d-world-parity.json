@@ -1,0 +1,72 @@
+{
+  "baseline": "249a954f09f70f124eb5e7243283c0fd4f8a4098",
+  "sameScript": true,
+  "all2DWorldsEqual": true,
+  "regions": [
+    {
+      "id": "home",
+      "baseline": "f86c3d5aab09e7c99b98fcccc3b4efcee10cdf8c76ab7e5d6eccaa5698012192",
+      "candidate": "f86c3d5aab09e7c99b98fcccc3b4efcee10cdf8c76ab7e5d6eccaa5698012192"
+    },
+    {
+      "id": "city",
+      "baseline": "2ebde62eb7f0b88b70041eeea3501c9181b273c919cee84bdc38806ff0f878eb",
+      "candidate": "2ebde62eb7f0b88b70041eeea3501c9181b273c919cee84bdc38806ff0f878eb"
+    },
+    {
+      "id": "countryside",
+      "baseline": "46c144336fbca66ecde632ec0cb56b95e2654709c78ef4812eed84a2f2305fa5",
+      "candidate": "46c144336fbca66ecde632ec0cb56b95e2654709c78ef4812eed84a2f2305fa5"
+    },
+    {
+      "id": "forest",
+      "baseline": "ccb9b4c41a2af77c1f464ead930093a6d78d69efe182f698de388db4f3ccef12",
+      "candidate": "ccb9b4c41a2af77c1f464ead930093a6d78d69efe182f698de388db4f3ccef12"
+    },
+    {
+      "id": "mountain",
+      "baseline": "785f7d3aaa8fcc133c42f0abce1130eb26798f8e9abf4b32c6b622fa4a97e016",
+      "candidate": "785f7d3aaa8fcc133c42f0abce1130eb26798f8e9abf4b32c6b622fa4a97e016"
+    },
+    {
+      "id": "snow",
+      "baseline": "a0ff25df1cec328bac5e5625fb2c5493cdf11ef85e0c7c2b760ba9f63da43d99",
+      "candidate": "a0ff25df1cec328bac5e5625fb2c5493cdf11ef85e0c7c2b760ba9f63da43d99"
+    },
+    {
+      "id": "sea",
+      "baseline": "ef631beb75701b8297b6aac7545a5c97ea17974129320697e5d55d680fa6173d",
+      "candidate": "ef631beb75701b8297b6aac7545a5c97ea17974129320697e5d55d680fa6173d"
+    },
+    {
+      "id": "deepsea",
+      "baseline": "6906a797462cd3b2ca28dafacc406d150340bde0cb82a2e9d43e22fa6263a3a3",
+      "candidate": "6906a797462cd3b2ca28dafacc406d150340bde0cb82a2e9d43e22fa6263a3a3"
+    },
+    {
+      "id": "river_lake",
+      "baseline": "dd76763ec3d0e3bc66670398784a801fa6c7069d4a8a50c3f467b20a31d41b2f",
+      "candidate": "dd76763ec3d0e3bc66670398784a801fa6c7069d4a8a50c3f467b20a31d41b2f"
+    },
+    {
+      "id": "jungle",
+      "baseline": "e911a1665c16d07481954471a9a32cf89a84bf8f2114f5ec9c2be114d455583e",
+      "candidate": "e911a1665c16d07481954471a9a32cf89a84bf8f2114f5ec9c2be114d455583e"
+    },
+    {
+      "id": "desert",
+      "baseline": "30b435111daf8709497a0db66b83b1b2b53332946b30adfda0947fe368b30da8",
+      "candidate": "30b435111daf8709497a0db66b83b1b2b53332946b30adfda0947fe368b30da8"
+    },
+    {
+      "id": "star_stop",
+      "baseline": "ee1ac2ead0e830c07657416fa2f6652edf4996e11b0739f2d324f413222db70c",
+      "candidate": "ee1ac2ead0e830c07657416fa2f6652edf4996e11b0739f2d324f413222db70c"
+    },
+    {
+      "id": "memory_lake",
+      "baseline": "1049bf97a1af727bd19f3390d62c060f745ffabde75cef914f343cbbaa0e1b25",
+      "candidate": "1049bf97a1af727bd19f3390d62c060f745ffabde75cef914f343cbbaa0e1b25"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+FF
+======================================================================
+FAIL: test_actual_paid_board_links_have_no_enemy_person_removal_route (test_proxy_population_prepared_board_routes.PreparedBoardRouteTests.test_actual_paid_board_links_have_no_enemy_person_removal_route)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_prepared_board_routes.py", line 25, in test_actual_paid_board_links_have_no_enemy_person_removal_route
+    self.assertTrue(hasattr(api,'public_effect_route'),'public board route audit absent');self.run_case(run)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : public board route audit absent
+
+======================================================================
+FAIL: test_real_cat_link_survives_own_source_departure_without_enemy_removal (test_proxy_population_prepared_board_routes.PreparedBoardRouteTests.test_real_cat_link_survives_own_source_departure_without_enemy_removal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_prepared_board_routes.py", line 31, in test_real_cat_link_survives_own_source_departure_without_enemy_removal
+    self.assertTrue(hasattr(api,'public_effect_route'),'public board route audit absent');cat.CatActivationEffectTests.run_case(self,run)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : public board route audit absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

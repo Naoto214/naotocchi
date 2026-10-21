@@ -1,0 +1,117 @@
+{
+  "conditions": {
+    "eligible": "100 seeds x 60min; always eligible round-robin kinds; rates per 10min, not spatial encounters",
+    "spatial": "8 seeds x 10min, 10Hz active simulation, full dex, collision-aware cyclic input; CPU on host, not iPhone FPS"
+  },
+  "eligiblePer10min": {
+    "reunion": 1.085,
+    "greeting": 0.5316666666666666,
+    "affection_interaction": 0.4116666666666667,
+    "invitation": 0.20833333333333334
+  },
+  "spatial": [
+    {
+      "seed": 1,
+      "region": "home",
+      "residents": 38,
+      "changed": 30,
+      "count": {
+        "greeting": 1,
+        "reunion": 1
+      },
+      "maxParty": 0,
+      "maxWithin80": 7,
+      "p95ms": 0.6632759999997688,
+      "p99ms": 2.0977570000000014
+    },
+    {
+      "seed": 2,
+      "region": "forest",
+      "residents": 37,
+      "changed": 21,
+      "count": {
+        "reunion": 1
+      },
+      "maxParty": 0,
+      "maxWithin80": 0,
+      "p95ms": 0.3463289999999688,
+      "p99ms": 1.3031379999993078
+    },
+    {
+      "seed": 3,
+      "region": "home",
+      "residents": 38,
+      "changed": 29,
+      "count": {
+        "reunion": 2
+      },
+      "maxParty": 0,
+      "maxWithin80": 4,
+      "p95ms": 0.5425989999994272,
+      "p99ms": 1.5935449999997218
+    },
+    {
+      "seed": 4,
+      "region": "forest",
+      "residents": 37,
+      "changed": 21,
+      "count": {},
+      "maxParty": 0,
+      "maxWithin80": 1,
+      "p95ms": 0.3107380000001285,
+      "p99ms": 1.055553999998665
+    },
+    {
+      "seed": 5,
+      "region": "home",
+      "residents": 38,
+      "changed": 30,
+      "count": {
+        "reunion": 2
+      },
+      "maxParty": 0,
+      "maxWithin80": 7,
+      "p95ms": 0.5456429999994725,
+      "p99ms": 0.7862179999992804
+    },
+    {
+      "seed": 6,
+      "region": "forest",
+      "residents": 37,
+      "changed": 21,
+      "count": {
+        "reunion": 1
+      },
+      "maxParty": 0,
+      "maxWithin80": 2,
+      "p95ms": 0.3361249999998108,
+      "p99ms": 0.5582020000001648
+    },
+    {
+      "seed": 7,
+      "region": "home",
+      "residents": 38,
+      "changed": 30,
+      "count": {
+        "reunion": 2
+      },
+      "maxParty": 0,
+      "maxWithin80": 7,
+      "p95ms": 0.6185810000006313,
+      "p99ms": 1.3570360000012442
+    },
+    {
+      "seed": 8,
+      "region": "forest",
+      "residents": 37,
+      "changed": 21,
+      "count": {
+        "reunion": 1
+      },
+      "maxParty": 0,
+      "maxWithin80": 1,
+      "p95ms": 0.3295460000008461,
+      "p99ms": 0.4729859999988548
+    }
+  ]
+}

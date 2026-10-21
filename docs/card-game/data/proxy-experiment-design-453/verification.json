@@ -1,0 +1,23 @@
+{
+  "base_head": "d4f493c5356d86dd6b4bc12f83760e2ddc205a69",
+  "source_hashes_verified": 13,
+  "non_executable_draft": true,
+  "undecided_fields_null": true,
+  "existing_files": 2684,
+  "changed_existing": [
+    "docs/card-game/README.md"
+  ],
+  "plan_sha256": "2d124581aa996057b84bab4f6191357e9cf4ad1628c8d2d891efaab7eb86f702",
+  "new_matches": 0,
+  "new_replays": 0,
+  "new_shadow_comparisons": 0,
+  "game_test_runs": 0,
+  "design_errors": [],
+  "independent_review": {
+    "count": 1,
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "source_sha_checks": 13
+  }
+}

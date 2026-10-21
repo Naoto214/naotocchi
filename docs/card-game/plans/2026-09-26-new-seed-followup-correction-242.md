@@ -1,0 +1,3 @@
+# 242 response phase訂正計画
+
+241を再点検すると、01-Bの配置後最初のpass後にphaseをresponse_windowへ強制変更していた。既存197ではpost_placement_responseのまま次優先者へ渡す。241のJSONとevent/hashを保持し、239保存stateと240監査から同じ4機会を独立に訂正再生。TDD RED→GREEN。3経路のbyte一致と01-Bのphase/hash差を検査し、以後は242を再開元とする。

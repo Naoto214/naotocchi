@@ -1,0 +1,26 @@
+test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) ... 
+  test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) (case='native_unproved') ... FAIL
+  test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) (case='start_missing') ... FAIL
+
+======================================================================
+FAIL: test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) (case='native_unproved')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 26, in test_initial_entry_requires_fresh_native_and_start_collection_binding
+    with self.subTest(case='native_unproved'),patch.object(existing.ExistingAdapter,'proof',unproved),self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) (case='start_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 30, in test_initial_entry_requires_fresh_native_and_start_collection_binding
+    with self.subTest(case='start_missing'),patch.object(coverage,'audit',missing),self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 13.108s
+
+FAILED (failures=2)

@@ -1,0 +1,114 @@
+✖ seven declarations require an explicit native choice, with no default main action (18.673792ms)
+✔ each declaration survives confirmation, command, chain and exact hit/miss resolution (52.144247ms)
+✔ CPU observes and chooses from the seven legal declarations without seeing deck order (37.725204ms)
+✖ only the turn owner field is marked, independent of human seat and response actor (8.132095ms)
+✖ field glow lasts 400ms once per turn, never per response, rerender, restore or reduced motion (0.610762ms)
+✖ egg history distinguishes normal and extra draws, return order and actual net hand count (1.432992ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 2
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 294.147188
+
+✖ failing tests:
+
+test at repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:15:1
+✖ seven declarations require an explicit native choice, with no default main action (18.673792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   undefined,
+  +   undefined,
+  +   undefined,
+  +   undefined,
+  +   undefined,
+  +   undefined,
+  +   undefined
+  -   'main',
+  -   'companion',
+  -   'partner',
+  -   'world',
+  -   'play',
+  -   'item',
+  -   'event'
+    ]
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a9e1fdfaea1b/repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:17:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ undefined, undefined, undefined, undefined, undefined, undefined, undefined ],
+    expected: [ 'main', 'companion', 'partner', 'world', 'play', 'item', 'event' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:38:1
+✖ only the turn owner field is marked, independent of human seat and response actor (8.132095ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 1
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a9e1fdfaea1b/repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:41:94)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:46:1
+✖ field glow lasts 400ms once per turn, never per response, rerender, restore or reduced motion (0.610762ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  0 !== 1
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a9e1fdfaea1b/repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:49:56)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:52:1
+✖ egg history distinguishes normal and extra draws, return order and actual net hand count (1.432992ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /通常ドロー：1枚/. Input:
+
+  '<details class="result-history"><summary>対戦履歴 · 最新から過去へ（自分だけのカード情報を含む）</summary><section data-result-revision="0"><h3>R1 · Aのターン <small>手順0</small></h3><ul><li>R1 Aのターン開始</li><li>A：開始時の手札 しんかい・どうぶつしょうぎ・はじめてのデート・カブトムシ①・アーチェリー・おべんとうばこ・ヒット&amp;ブロー</li><li>B：開始時の手札 5枚</li><li>A：時 — → 1</li><li>B：時 — → 0</li></ul></section></details>'
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a9e1fdfaea1b/repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:53:69)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<details class="result-history"><summary>対戦履歴 · 最新から過去へ（自分だけのカード情報を含む）</summary><section data-result-revision="0"><h3>R1 · Aのターン <small>手順0</small></h3><ul><li>R1 Aのターン開始</li><li>A：開始時の手札 しんかい・どうぶつしょうぎ・はじめてのデート・カブトムシ①・アーチェリー・おべんとうばこ・ヒット&amp;ブロー</li><li>B：開始時の手札 5枚</li><li>A：時 — → 1</li><li>B：時 — → 0</li></ul></section></details>',
+    expected: /通常ドロー：1枚/,
+    operator: 'match',
+    diff: 'simple'
+  }

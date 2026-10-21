@@ -1,0 +1,3 @@
+stop {'code': 'unsupported_contract_boundary', 'detail': "ordinary entry binding differs: ['normal choice state reference differs']", 'phase': 'normal_action'}
+steps 2
+{}

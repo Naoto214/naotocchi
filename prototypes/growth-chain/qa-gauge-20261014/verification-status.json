@@ -1,0 +1,42 @@
+{
+  "overall": "PARTIAL: full root run has one unreproduced failure",
+  "root": {
+    "tests": 3130,
+    "pass": 3129,
+    "fail": 1,
+    "skip": 0,
+    "failure": "tests/quick-mode-test.cjs: every quick game can be solved from its own target hint and each kind of input is covered; mole Lv5"
+  },
+  "rootAffectedSourceChanged": false,
+  "dedicated": {
+    "pass": 117,
+    "fail": 0
+  },
+  "dom": {
+    "pass": 6,
+    "fail": 0
+  },
+  "mutation": {
+    "new": 9,
+    "core": 12,
+    "balance": 3,
+    "egg": 7,
+    "optimization": 6
+  },
+  "relationship": {
+    "pass": 80,
+    "fail": 0
+  },
+  "quickTargetedRerun": {
+    "pass": 15,
+    "fail": 0
+  },
+  "pristineBaseProbe": {
+    "base": "d5022f6a4a7f96b347eec338021ed8b2dcb57535",
+    "runs": 12,
+    "testsPerRun": 1,
+    "allPassed": true,
+    "interpretation": "Original failure not reproduced; exact cause not established. No full-suite green claim."
+  },
+  "integration": "Independent branch saved; PR380 head update deferred, not main merge."
+}

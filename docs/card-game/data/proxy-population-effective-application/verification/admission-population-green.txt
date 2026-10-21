@@ -1,0 +1,9 @@
+test_all_unexecuted_slots_and_pairs_remain_without_denominator_repair (test_proxy_population_admission.AdmissionTests.test_all_unexecuted_slots_and_pairs_remain_without_denominator_repair) ... ok
+test_manifest_corruption_cannot_define_a_smaller_population (test_proxy_population_admission.AdmissionTests.test_manifest_corruption_cannot_define_a_smaller_population) ... ok
+test_out_of_plan_attempt_is_retained_as_integrity_gap (test_proxy_population_admission.AdmissionTests.test_out_of_plan_attempt_is_retained_as_integrity_gap) ... ok
+test_unknown_or_old_self_reported_eligible_is_unproved_without_replay (test_proxy_population_admission.AdmissionTests.test_unknown_or_old_self_reported_eligible_is_unproved_without_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.516s
+
+OK

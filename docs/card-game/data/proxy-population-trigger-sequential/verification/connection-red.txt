@@ -1,0 +1,25 @@
+test_actual_sources_stack_resolve_reverse_then_both_receive_response (test_proxy_population_trigger_connection.ConnectionTests.test_actual_sources_stack_resolve_reverse_then_both_receive_response) ... FAIL
+test_proof_cannot_rebind_to_different_start_source_or_hash (test_proxy_population_trigger_connection.ConnectionTests.test_proof_cannot_rebind_to_different_start_source_or_hash) ... FAIL
+
+======================================================================
+FAIL: test_actual_sources_stack_resolve_reverse_then_both_receive_response (test_proxy_population_trigger_connection.ConnectionTests.test_actual_sources_stack_resolve_reverse_then_both_receive_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_connection.py", line 22, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_proof_cannot_rebind_to_different_start_source_or_hash (test_proxy_population_trigger_connection.ConnectionTests.test_proof_cannot_rebind_to_different_start_source_or_hash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_connection.py", line 22, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

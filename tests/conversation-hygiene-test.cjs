@@ -19,6 +19,8 @@ function setup() {
   const h = harness();
   const s = h.api.state();
   Object.assign(s, {regionId:'home', isSleeping:false, isSick:false, hunger:90, happiness:90, energy:90});
+  // 自由生活(relationship-life)では こいびと・なかまは「訪問中」だけ Home にいる。会話の経路を確かめるため常にいる状態にする
+  h.api.setPresentCastFixture();
   return {h, s};
 }
 function setRandom(h, value) { vm.runInContext(`Math.random=()=>${value}`, h.sandbox); }
@@ -129,10 +131,12 @@ test('CA-13/14: meguru speech never reads out design hooks, encounter flavor or 
   for (let build = 0; build < 30; build++) {
     const reg = meguruActors(h, s);
     const pick = (key) => reg.find(a => a.key === key);
-    const actors = [pick('partner:rock_octopus'), pick('partner:swamp_croc'), pick('companion:otter'), pick('companion:box'),
+    const base = [pick('partner:rock_octopus'), pick('partner:swamp_croc'), pick('companion:otter'), pick('companion:box')];
+    assert.ok(base.every(Boolean), 'registry contains the partners and companions');
+    assert.equal(base[0].related, true, 'the current partner is the related resident');
+    // 同行(withPlayer)の分岐も、名簿が渡した hook のまま確かめる
+    const actors = [...base, {...base[0], key:'partner:rock_octopus+with', withPlayer:true},
       {kind:'form', key:'form:dandelion', line:'dandelion', stage:2, withPlayer:false, region:'countryside'}];
-    assert.ok(actors.every(Boolean), 'registry contains the partner, companions and form');
-    assert.equal(actors[0].withPlayer, true);
     assert.ok(!hooks.has(actors[0].hook) && !hooks.has(actors[1].hook), 'registry hook is not a design memo');
     for (const a of actors) {
       for (let i = 0; i < 20; i++) {
@@ -178,6 +182,6 @@ test('CA-13/14: the meguru bridge keeps hooks, flavor and dex text in their own 
   assert.equal(master.partners.find(p => p.id === 'cat_ceo').hook, '仕事人なのにデートのため普通にサボる');
   // meguru.js は Character 3D lane の保護対象なので本体は変えない(このブランチでは main と同一)
   const crypto = require('node:crypto');
-  const fx = require('./fixtures/character-3d-protected-hashes.json');
-  assert.equal(crypto.createHash('sha1').update(fs.readFileSync('meguru.js')).digest('hex'), fx.groups['meguru.js'].sha1);
+  const fx = require('./fixtures/world-character-protected-source.json');
+  assert.equal(crypto.createHash('sha1').update(fs.readFileSync('meguru.js')).digest('hex'), fx['meguru.js'].sha1);
 });

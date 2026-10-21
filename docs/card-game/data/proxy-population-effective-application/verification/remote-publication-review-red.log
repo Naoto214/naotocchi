@@ -1,0 +1,28 @@
+F
+======================================================================
+FAIL: test_temp_directory_inside_repository_cannot_inherit_url_rewrites (test_proxy_population_remote_publication.RemotePublicationTests.test_temp_directory_inside_repository_cannot_inherit_url_rewrites)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_remote_publication.py", line 19, in test_temp_directory_inside_repository_cannot_inherit_url_rewrites
+    self.assertEqual(api._query_remote(),b'no-network-probe')
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_population_remote_publication.py", line 23, in _query_remote
+    return subprocess.check_output(['git','-c','protocol.allow=never','-c','protocol.https.allow=always',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_remote_publication.py", line 16, in isolated
+    self.assertNotEqual(probe.returncode,0,'remote query inherited ancestor repository')
+AssertionError: 0 == 0 : remote query inherited ancestor repository
+
+----------------------------------------------------------------------
+Ran 1 test in 0.010s
+
+FAILED (failures=1)

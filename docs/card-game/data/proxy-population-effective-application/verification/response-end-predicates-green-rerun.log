@@ -1,0 +1,119 @@
+.EE....................
+======================================================================
+ERROR: test_four_negative_sources_reoffers_and_incomplete_history (test_proxy_population_response_end_predicates.ResponseEndPredicateTests.test_four_negative_sources_reoffers_and_incomplete_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_end_predicates.py", line 29, in test_four_negative_sources_reoffers_and_incomplete_history
+    with window.contract_scope():runtime.operation(initial(),run)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 115, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 114, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_end_predicates.py", line 23, in run
+    inv=quick.actions.response_inventory(e,initial(),h);out=api.audit_response(e,h,inv)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_challenge.py", line 145, in response
+    if e['legacy_continuation']['game_state'].get('challenge') is None:return original_response(e,i,h)
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_preparation.py", line 110, in prepared_response
+    opportunity=response_inventory(e,i,h,original_response)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_response_context.py", line 27, in inventory
+    return original(envelope,initial,events,preserved)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_preparation.py", line 48, in response_inventory
+    if not any(not r['face_up'] for r in envelope['runtime']['public_prepared'].values()):return delegate(envelope,initial,events)
+                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_response_context.py", line 25, in preserved
+    return delegate(projected,supplied,history)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch.py", line 300, in response
+    if not envelope['runtime']['public_prepared']:return old._generic_response_opportunity(state.current(envelope),initial,events)
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 41, in first_or_general
+    return prior_response(current,supplied,events)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_resource_value_trajectory.py", line 337, in _generic_response_opportunity
+    return reached_response.enumerate_opportunity(state,events)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 143, in enumerate_opportunity
+    return batch.response_enumerator(current,events,capability_classifier=batch.response_capability,hand_classifier=hand_candidates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_resource_value_response.py", line 15, in enumerate_opportunity
+    if not events or (events[-1]['seq'],events[-1]['game_state_after_sha256'],events[-1]['continuation_state_after_sha256'])!=(state['last_event_seq'],start.opening._stop_state_sha256(game),start._hash(state)):
+                                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'game_state_after_sha256'
+
+======================================================================
+ERROR: test_positive_end_absence_or_closed_reason_is_not_negative_proof (test_proxy_population_response_end_predicates.ResponseEndPredicateTests.test_positive_end_absence_or_closed_reason_is_not_negative_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_end_predicates.py", line 44, in test_positive_end_absence_or_closed_reason_is_not_negative_proof
+    with window.contract_scope():runtime.operation(initial(),run)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 115, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 114, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_end_predicates.py", line 37, in run
+    e,h,o=end_fixture(card);source=o['source_instance_id'];inv=quick.actions.response_inventory(e,initial(),h)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_challenge.py", line 145, in response
+    if e['legacy_continuation']['game_state'].get('challenge') is None:return original_response(e,i,h)
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_preparation.py", line 110, in prepared_response
+    opportunity=response_inventory(e,i,h,original_response)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_response_context.py", line 27, in inventory
+    return original(envelope,initial,events,preserved)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_preparation.py", line 48, in response_inventory
+    if not any(not r['face_up'] for r in envelope['runtime']['public_prepared'].values()):return delegate(envelope,initial,events)
+                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_response_context.py", line 25, in preserved
+    return delegate(projected,supplied,history)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch.py", line 300, in response
+    if not envelope['runtime']['public_prepared']:return old._generic_response_opportunity(state.current(envelope),initial,events)
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 41, in first_or_general
+    return prior_response(current,supplied,events)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_resource_value_trajectory.py", line 337, in _generic_response_opportunity
+    return reached_response.enumerate_opportunity(state,events)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_quick.py", line 143, in enumerate_opportunity
+    return batch.response_enumerator(current,events,capability_classifier=batch.response_capability,hand_classifier=hand_candidates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_resource_value_response.py", line 15, in enumerate_opportunity
+    if not events or (events[-1]['seq'],events[-1]['game_state_after_sha256'],events[-1]['continuation_state_after_sha256'])!=(state['last_event_seq'],start.opening._stop_state_sha256(game),start._hash(state)):
+                                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'game_state_after_sha256'
+
+----------------------------------------------------------------------
+Ran 23 tests in 10.604s
+
+FAILED (errors=2)

@@ -1,0 +1,528 @@
+{
+  "planned_ids": [
+    "test_proxy_new_seed_mixed_choice_325.MixedChoice325Tests.test_three_unique_responses_and_paid_normal_comparison",
+    "test_proxy_new_seed_mixed_replay_329.MixedReplay329Tests.test_one_end_draw_and_three_response_passes",
+    "test_proxy_new_seed_next_opportunities_143.NextOpportunity143Tests.test_four_current_boundaries_and_no_progress",
+    "test_proxy_new_seed_next_opportunities_143.NextOpportunity143Tests.test_source_hash_and_no_protected_mutation",
+    "test_proxy_new_seed_turn_end_restart_164.TurnEndRestart164Test.test_all_four_turns_end_and_draw",
+    "test_proxy_new_seed_turn_end_restart_164.TurnEndRestart164Test.test_tampered_event_fails",
+    "test_proxy_new_seed_mixed_choice_347.MixedChoice347Tests.test_four_unique_passes_are_selected_without_events",
+    "test_proxy_new_seed_mixed_replay_351.MixedReplay351Tests.test_four_choices_replay_to_chain_resolution_normal_and_end_responses",
+    "test_proxy_new_seed_normal_audit_198.NormalAudit198Test.test_mutated_candidate_rejected",
+    "test_proxy_new_seed_normal_audit_198.NormalAudit198Test.test_two_complete_normal_opportunities",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_independent_completeness_twelve_checks",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_private_key_and_progress_rejected",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_saved_boolean_units_and_reasons_are_not_trusted",
+    "test_proxy_normal_action_candidate_completeness.EmptySyntheticTests.test_no_partner_and_terminal_partner_explain_family",
+    "test_proxy_normal_action_candidate_completeness.TemplateReferenceTests.test_missing_source_reference_stops",
+    "test_proxy_new_seed_mixed_choice_350.MixedChoice350Tests.test_unique_response_and_paid_normal_choices",
+    "test_proxy_new_seed_mixed_replay_354.MixedReplay354Tests.test_date_growth_draw_and_three_passes_are_replayed",
+    "test_proxy_new_seed_normal_audit_228.NormalAudit228Test.test_four_opportunities_complete",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_builds_two_completed_seat_mirror_matches",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_decisions_do_not_expose_opponent_hidden_information",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_evaluation_matches_decisions_events_and_terminal_state",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_materialized_outputs_equal_builder_output",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_preserves_source_decks_copy_ids_and_initial_instances",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_records_every_normal_action_decision_with_pass_candidate",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_trace_hashes_and_event_choice_links_are_contiguous",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_validator_rejects_hidden_information_and_missing_pass",
+    "test_proxy_new_seed_mixed_choice_353.MixedChoice353Tests.test_mandatory_date_normal_pass_and_unique_responses",
+    "test_proxy_new_seed_mixed_replay_357.MixedReplay357Tests.test_free_placement_pass_and_two_end_draws",
+    "test_proxy_new_seed_normal_choice_199.NormalChoice199Test.test_changed_winner_rejected",
+    "test_proxy_new_seed_normal_choice_199.NormalChoice199Test.test_paid_actions_lose_to_pass_at_current_time",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_bridge_rejects_alias_mix_duplicate_or_unbound_details",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_completed_and_stop_artifacts_are_mutually_exclusive",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_decisions_use_only_owner_known_and_public_information",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_evaluation_matches_route_artifacts_and_excludes_balance",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_initial_state_uses_manifest_top_five_and_unique_instances",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_invalid_selected_action_hash_or_instance_is_validator_error_not_stop",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_materialized_outputs_equal_builder_and_exact_manifest",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_materialized_validator_rejects_missing_extra_and_swapped_artifacts",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_mirror_labels_do_not_change_seed_proof",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_normalize_candidate_id_only_maps_the_114_pass_alias",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_one_route_stop_does_not_cancel_other_routes",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_pass_bridge_binds_ids_details_and_114_source",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_population_and_checkpoint_112_boundaries_remain_unchanged",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_candidates_require_114_actions_open_slots_and_affordable_stage_one_birth",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_mandatory_choice_state_moves_selected_instance_to_deck_bottom",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_mandatory_choices_match_four_known_seed_results",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_safe_placements_match_four_known_results",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_real_batch_contains_exact_four_independent_terminal_outcomes",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_replay_links_each_decision_to_one_event_and_contiguous_snapshots",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_route_skeletons_preserve_exact_manifests_and_mirrors",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_safe_placement_keeps_complete_legal_set_and_excludes_pass_from_lottery",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_seeded_and_strategic_counts_force_independent_balance_zero",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_stop_artifact_binds_hash_and_rejects_corrupt_state_integrity",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_stop_artifact_is_winnerless_resumable_and_not_completed",
+    "test_proxy_new_seed_mixed_choice_375.Choice375Tests.test_egg_resolution_and_two_ends",
+    "test_proxy_new_seed_mixed_replay_378.Replay378Tests.test_four_transitions_and_hashes",
+    "test_proxy_new_seed_normal_restart_160.NewSeedNormalRestart160Tests.test_canonical_hash_chain",
+    "test_proxy_new_seed_normal_restart_160.NewSeedNormalRestart160Tests.test_three_normal_passes_and_held_end",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_builds_three_first_second_pairs_without_changing_physical_cards",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_event_and_snapshot_counts_results_and_schema_validation",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_materialized_files_exactly_match_the_deterministic_builder",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_01_places_stage_zero_partner_then_resolves_first_date",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_02_consumes_same_turn_end_reservation",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_04_builds_city_two_face_up_actions_and_two_type_selection",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_pair_validator_rejects_wrong_selection_and_unconsumed_mini_golf",
+    "test_proxy_new_seed_mixed_choice_266.MixedChoice266Tests.test_three_unique_passes_and_seeded_coin",
+    "test_proxy_new_seed_mixed_replay_272.MixedReplay272Tests.test_four_selected_steps_and_chain_resolution_boundary",
+    "test_proxy_new_seed_mixed_replay_392.Replay392Tests.test_chain_resolution_and_end_response",
+    "test_proxy_new_seed_start_choice_188.StartChoice188Test.test_four_choices_use_complete_response_sets",
+    "test_proxy_new_seed_start_choice_188.StartChoice188Test.test_modified_decision_is_rejected",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_diverged_states_are_not_matched_by_round_only",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_chicken_ability_activation_and_resolution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_end_adapter_advances_to_next_egg_choice",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_response_adapter_continues_after_placement",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_fresh_paired_exact_coverage",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_historical_trigger_scope_difference_is_reenumerated",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_independent_replay_rejects_event_snapshot_hash_tampering",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_known_coin_activation_and_resolution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_known_hit_effect_provenance_continues_turn_end",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_legacy_replay_matches_saved_results",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_response_context_preserved",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_seed_profile_tampering_rejected",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_no_r11_after_terminal",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_pilot_action_bridge_rejects_action_substitution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_same_initial_manifest_two_policies_four_routes",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_unsupported_new_action_is_structural_stop"
+  ],
+  "started_ids": [
+    "test_proxy_new_seed_mixed_choice_325.MixedChoice325Tests.test_three_unique_responses_and_paid_normal_comparison",
+    "test_proxy_new_seed_mixed_replay_329.MixedReplay329Tests.test_one_end_draw_and_three_response_passes",
+    "test_proxy_new_seed_next_opportunities_143.NextOpportunity143Tests.test_four_current_boundaries_and_no_progress",
+    "test_proxy_new_seed_next_opportunities_143.NextOpportunity143Tests.test_source_hash_and_no_protected_mutation",
+    "test_proxy_new_seed_turn_end_restart_164.TurnEndRestart164Test.test_all_four_turns_end_and_draw",
+    "test_proxy_new_seed_turn_end_restart_164.TurnEndRestart164Test.test_tampered_event_fails",
+    "test_proxy_new_seed_mixed_choice_347.MixedChoice347Tests.test_four_unique_passes_are_selected_without_events",
+    "test_proxy_new_seed_mixed_replay_351.MixedReplay351Tests.test_four_choices_replay_to_chain_resolution_normal_and_end_responses",
+    "test_proxy_new_seed_normal_audit_198.NormalAudit198Test.test_mutated_candidate_rejected",
+    "test_proxy_new_seed_normal_audit_198.NormalAudit198Test.test_two_complete_normal_opportunities",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_independent_completeness_twelve_checks",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_private_key_and_progress_rejected",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_saved_boolean_units_and_reasons_are_not_trusted",
+    "test_proxy_normal_action_candidate_completeness.EmptySyntheticTests.test_no_partner_and_terminal_partner_explain_family",
+    "test_proxy_normal_action_candidate_completeness.TemplateReferenceTests.test_missing_source_reference_stops",
+    "test_proxy_new_seed_mixed_choice_350.MixedChoice350Tests.test_unique_response_and_paid_normal_choices",
+    "test_proxy_new_seed_mixed_replay_354.MixedReplay354Tests.test_date_growth_draw_and_three_passes_are_replayed",
+    "test_proxy_new_seed_normal_audit_228.NormalAudit228Test.test_four_opportunities_complete",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_builds_two_completed_seat_mirror_matches",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_decisions_do_not_expose_opponent_hidden_information",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_evaluation_matches_decisions_events_and_terminal_state",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_materialized_outputs_equal_builder_output",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_preserves_source_decks_copy_ids_and_initial_instances",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_records_every_normal_action_decision_with_pass_candidate",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_trace_hashes_and_event_choice_links_are_contiguous",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_validator_rejects_hidden_information_and_missing_pass",
+    "test_proxy_new_seed_mixed_choice_353.MixedChoice353Tests.test_mandatory_date_normal_pass_and_unique_responses",
+    "test_proxy_new_seed_mixed_replay_357.MixedReplay357Tests.test_free_placement_pass_and_two_end_draws",
+    "test_proxy_new_seed_normal_choice_199.NormalChoice199Test.test_changed_winner_rejected",
+    "test_proxy_new_seed_normal_choice_199.NormalChoice199Test.test_paid_actions_lose_to_pass_at_current_time",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_bridge_rejects_alias_mix_duplicate_or_unbound_details",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_completed_and_stop_artifacts_are_mutually_exclusive",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_decisions_use_only_owner_known_and_public_information",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_evaluation_matches_route_artifacts_and_excludes_balance",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_initial_state_uses_manifest_top_five_and_unique_instances",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_invalid_selected_action_hash_or_instance_is_validator_error_not_stop",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_materialized_outputs_equal_builder_and_exact_manifest",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_materialized_validator_rejects_missing_extra_and_swapped_artifacts",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_mirror_labels_do_not_change_seed_proof",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_normalize_candidate_id_only_maps_the_114_pass_alias",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_one_route_stop_does_not_cancel_other_routes",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_pass_bridge_binds_ids_details_and_114_source",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_population_and_checkpoint_112_boundaries_remain_unchanged",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_candidates_require_114_actions_open_slots_and_affordable_stage_one_birth",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_mandatory_choice_state_moves_selected_instance_to_deck_bottom",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_mandatory_choices_match_four_known_seed_results",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_safe_placements_match_four_known_results",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_real_batch_contains_exact_four_independent_terminal_outcomes",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_replay_links_each_decision_to_one_event_and_contiguous_snapshots",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_route_skeletons_preserve_exact_manifests_and_mirrors",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_safe_placement_keeps_complete_legal_set_and_excludes_pass_from_lottery",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_seeded_and_strategic_counts_force_independent_balance_zero",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_stop_artifact_binds_hash_and_rejects_corrupt_state_integrity",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_stop_artifact_is_winnerless_resumable_and_not_completed",
+    "test_proxy_new_seed_mixed_choice_375.Choice375Tests.test_egg_resolution_and_two_ends",
+    "test_proxy_new_seed_mixed_replay_378.Replay378Tests.test_four_transitions_and_hashes",
+    "test_proxy_new_seed_normal_restart_160.NewSeedNormalRestart160Tests.test_canonical_hash_chain",
+    "test_proxy_new_seed_normal_restart_160.NewSeedNormalRestart160Tests.test_three_normal_passes_and_held_end",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_builds_three_first_second_pairs_without_changing_physical_cards",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_event_and_snapshot_counts_results_and_schema_validation",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_materialized_files_exactly_match_the_deterministic_builder",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_01_places_stage_zero_partner_then_resolves_first_date",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_02_consumes_same_turn_end_reservation",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_04_builds_city_two_face_up_actions_and_two_type_selection",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_pair_validator_rejects_wrong_selection_and_unconsumed_mini_golf",
+    "test_proxy_new_seed_mixed_choice_266.MixedChoice266Tests.test_three_unique_passes_and_seeded_coin",
+    "test_proxy_new_seed_mixed_replay_272.MixedReplay272Tests.test_four_selected_steps_and_chain_resolution_boundary",
+    "test_proxy_new_seed_mixed_replay_392.Replay392Tests.test_chain_resolution_and_end_response",
+    "test_proxy_new_seed_start_choice_188.StartChoice188Test.test_four_choices_use_complete_response_sets",
+    "test_proxy_new_seed_start_choice_188.StartChoice188Test.test_modified_decision_is_rejected",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_diverged_states_are_not_matched_by_round_only",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_chicken_ability_activation_and_resolution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_end_adapter_advances_to_next_egg_choice",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_response_adapter_continues_after_placement",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_fresh_paired_exact_coverage",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_historical_trigger_scope_difference_is_reenumerated",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_independent_replay_rejects_event_snapshot_hash_tampering",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_known_coin_activation_and_resolution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_known_hit_effect_provenance_continues_turn_end",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_legacy_replay_matches_saved_results",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_response_context_preserved",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_seed_profile_tampering_rejected",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_no_r11_after_terminal",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_pilot_action_bridge_rejects_action_substitution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_same_initial_manifest_two_policies_four_routes",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_unsupported_new_action_is_structural_stop"
+  ],
+  "finished_ids": [
+    "test_proxy_new_seed_mixed_choice_325.MixedChoice325Tests.test_three_unique_responses_and_paid_normal_comparison",
+    "test_proxy_new_seed_mixed_replay_329.MixedReplay329Tests.test_one_end_draw_and_three_response_passes",
+    "test_proxy_new_seed_next_opportunities_143.NextOpportunity143Tests.test_four_current_boundaries_and_no_progress",
+    "test_proxy_new_seed_next_opportunities_143.NextOpportunity143Tests.test_source_hash_and_no_protected_mutation",
+    "test_proxy_new_seed_turn_end_restart_164.TurnEndRestart164Test.test_all_four_turns_end_and_draw",
+    "test_proxy_new_seed_turn_end_restart_164.TurnEndRestart164Test.test_tampered_event_fails",
+    "test_proxy_new_seed_mixed_choice_347.MixedChoice347Tests.test_four_unique_passes_are_selected_without_events",
+    "test_proxy_new_seed_mixed_replay_351.MixedReplay351Tests.test_four_choices_replay_to_chain_resolution_normal_and_end_responses",
+    "test_proxy_new_seed_normal_audit_198.NormalAudit198Test.test_mutated_candidate_rejected",
+    "test_proxy_new_seed_normal_audit_198.NormalAudit198Test.test_two_complete_normal_opportunities",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_independent_completeness_twelve_checks",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_private_key_and_progress_rejected",
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_saved_boolean_units_and_reasons_are_not_trusted",
+    "test_proxy_normal_action_candidate_completeness.EmptySyntheticTests.test_no_partner_and_terminal_partner_explain_family",
+    "test_proxy_normal_action_candidate_completeness.TemplateReferenceTests.test_missing_source_reference_stops",
+    "test_proxy_new_seed_mixed_choice_350.MixedChoice350Tests.test_unique_response_and_paid_normal_choices",
+    "test_proxy_new_seed_mixed_replay_354.MixedReplay354Tests.test_date_growth_draw_and_three_passes_are_replayed",
+    "test_proxy_new_seed_normal_audit_228.NormalAudit228Test.test_four_opportunities_complete",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_builds_two_completed_seat_mirror_matches",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_decisions_do_not_expose_opponent_hidden_information",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_evaluation_matches_decisions_events_and_terminal_state",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_materialized_outputs_equal_builder_output",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_preserves_source_decks_copy_ids_and_initial_instances",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_records_every_normal_action_decision_with_pass_candidate",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_trace_hashes_and_event_choice_links_are_contiguous",
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_validator_rejects_hidden_information_and_missing_pass",
+    "test_proxy_new_seed_mixed_choice_353.MixedChoice353Tests.test_mandatory_date_normal_pass_and_unique_responses",
+    "test_proxy_new_seed_mixed_replay_357.MixedReplay357Tests.test_free_placement_pass_and_two_end_draws",
+    "test_proxy_new_seed_normal_choice_199.NormalChoice199Test.test_changed_winner_rejected",
+    "test_proxy_new_seed_normal_choice_199.NormalChoice199Test.test_paid_actions_lose_to_pass_at_current_time",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_bridge_rejects_alias_mix_duplicate_or_unbound_details",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_completed_and_stop_artifacts_are_mutually_exclusive",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_decisions_use_only_owner_known_and_public_information",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_evaluation_matches_route_artifacts_and_excludes_balance",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_initial_state_uses_manifest_top_five_and_unique_instances",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_invalid_selected_action_hash_or_instance_is_validator_error_not_stop",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_materialized_outputs_equal_builder_and_exact_manifest",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_materialized_validator_rejects_missing_extra_and_swapped_artifacts",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_mirror_labels_do_not_change_seed_proof",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_normalize_candidate_id_only_maps_the_114_pass_alias",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_one_route_stop_does_not_cancel_other_routes",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_pass_bridge_binds_ids_details_and_114_source",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_population_and_checkpoint_112_boundaries_remain_unchanged",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_candidates_require_114_actions_open_slots_and_affordable_stage_one_birth",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_mandatory_choice_state_moves_selected_instance_to_deck_bottom",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_mandatory_choices_match_four_known_seed_results",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_safe_placements_match_four_known_results",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_real_batch_contains_exact_four_independent_terminal_outcomes",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_replay_links_each_decision_to_one_event_and_contiguous_snapshots",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_route_skeletons_preserve_exact_manifests_and_mirrors",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_safe_placement_keeps_complete_legal_set_and_excludes_pass_from_lottery",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_seeded_and_strategic_counts_force_independent_balance_zero",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_stop_artifact_binds_hash_and_rejects_corrupt_state_integrity",
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_stop_artifact_is_winnerless_resumable_and_not_completed",
+    "test_proxy_new_seed_mixed_choice_375.Choice375Tests.test_egg_resolution_and_two_ends",
+    "test_proxy_new_seed_mixed_replay_378.Replay378Tests.test_four_transitions_and_hashes",
+    "test_proxy_new_seed_normal_restart_160.NewSeedNormalRestart160Tests.test_canonical_hash_chain",
+    "test_proxy_new_seed_normal_restart_160.NewSeedNormalRestart160Tests.test_three_normal_passes_and_held_end",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_builds_three_first_second_pairs_without_changing_physical_cards",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_event_and_snapshot_counts_results_and_schema_validation",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_materialized_files_exactly_match_the_deterministic_builder",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_01_places_stage_zero_partner_then_resolves_first_date",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_02_consumes_same_turn_end_reservation",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_04_builds_city_two_face_up_actions_and_two_type_selection",
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_pair_validator_rejects_wrong_selection_and_unconsumed_mini_golf",
+    "test_proxy_new_seed_mixed_choice_266.MixedChoice266Tests.test_three_unique_passes_and_seeded_coin",
+    "test_proxy_new_seed_mixed_replay_272.MixedReplay272Tests.test_four_selected_steps_and_chain_resolution_boundary",
+    "test_proxy_new_seed_mixed_replay_392.Replay392Tests.test_chain_resolution_and_end_response",
+    "test_proxy_new_seed_start_choice_188.StartChoice188Test.test_four_choices_use_complete_response_sets",
+    "test_proxy_new_seed_start_choice_188.StartChoice188Test.test_modified_decision_is_rejected",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_diverged_states_are_not_matched_by_round_only",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_chicken_ability_activation_and_resolution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_end_adapter_advances_to_next_egg_choice",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_response_adapter_continues_after_placement",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_fresh_paired_exact_coverage",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_historical_trigger_scope_difference_is_reenumerated",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_independent_replay_rejects_event_snapshot_hash_tampering",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_known_coin_activation_and_resolution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_known_hit_effect_provenance_continues_turn_end",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_legacy_replay_matches_saved_results",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_response_context_preserved",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_seed_profile_tampering_rejected",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_no_r11_after_terminal",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_pilot_action_bridge_rejects_action_substitution",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_same_initial_manifest_two_policies_four_routes",
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_unsupported_new_action_is_structural_stop"
+  ],
+  "status": {
+    "test_proxy_new_seed_mixed_choice_325.MixedChoice325Tests.test_three_unique_responses_and_paid_normal_comparison": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_329.MixedReplay329Tests.test_one_end_draw_and_three_response_passes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_next_opportunities_143.NextOpportunity143Tests.test_four_current_boundaries_and_no_progress": [
+      "pass"
+    ],
+    "test_proxy_new_seed_next_opportunities_143.NextOpportunity143Tests.test_source_hash_and_no_protected_mutation": [
+      "pass"
+    ],
+    "test_proxy_new_seed_turn_end_restart_164.TurnEndRestart164Test.test_all_four_turns_end_and_draw": [
+      "pass"
+    ],
+    "test_proxy_new_seed_turn_end_restart_164.TurnEndRestart164Test.test_tampered_event_fails": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_347.MixedChoice347Tests.test_four_unique_passes_are_selected_without_events": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_351.MixedReplay351Tests.test_four_choices_replay_to_chain_resolution_normal_and_end_responses": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_audit_198.NormalAudit198Test.test_mutated_candidate_rejected": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_audit_198.NormalAudit198Test.test_two_complete_normal_opportunities": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_independent_completeness_twelve_checks": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_private_key_and_progress_rejected": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.AuditValidatorTests.test_saved_boolean_units_and_reasons_are_not_trusted": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.EmptySyntheticTests.test_no_partner_and_terminal_partner_explain_family": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.TemplateReferenceTests.test_missing_source_reference_stops": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_350.MixedChoice350Tests.test_unique_response_and_paid_normal_choices": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_354.MixedReplay354Tests.test_date_growth_draw_and_three_passes_are_replayed": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_audit_228.NormalAudit228Test.test_four_opportunities_complete": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_builds_two_completed_seat_mirror_matches": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_decisions_do_not_expose_opponent_hidden_information": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_evaluation_matches_decisions_events_and_terminal_state": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_materialized_outputs_equal_builder_output": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_preserves_source_decks_copy_ids_and_initial_instances": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_records_every_normal_action_decision_with_pass_candidate": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_trace_hashes_and_event_choice_links_are_contiguous": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_pilot.NormalDecisionPilotTests.test_validator_rejects_hidden_information_and_missing_pass": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_353.MixedChoice353Tests.test_mandatory_date_normal_pass_and_unique_responses": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_357.MixedReplay357Tests.test_free_placement_pass_and_two_end_draws": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_choice_199.NormalChoice199Test.test_changed_winner_rejected": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_choice_199.NormalChoice199Test.test_paid_actions_lose_to_pass_at_current_time": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_bridge_rejects_alias_mix_duplicate_or_unbound_details": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_completed_and_stop_artifacts_are_mutually_exclusive": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_decisions_use_only_owner_known_and_public_information": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_evaluation_matches_route_artifacts_and_excludes_balance": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_initial_state_uses_manifest_top_five_and_unique_instances": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_invalid_selected_action_hash_or_instance_is_validator_error_not_stop": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_materialized_outputs_equal_builder_and_exact_manifest": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_materialized_validator_rejects_missing_extra_and_swapped_artifacts": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_mirror_labels_do_not_change_seed_proof": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_normalize_candidate_id_only_maps_the_114_pass_alias": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_one_route_stop_does_not_cancel_other_routes": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_pass_bridge_binds_ids_details_and_114_source": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_population_and_checkpoint_112_boundaries_remain_unchanged": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_candidates_require_114_actions_open_slots_and_affordable_stage_one_birth": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_mandatory_choice_state_moves_selected_instance_to_deck_bottom": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_mandatory_choices_match_four_known_seed_results": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_r1_safe_placements_match_four_known_results": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_real_batch_contains_exact_four_independent_terminal_outcomes": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_replay_links_each_decision_to_one_event_and_contiguous_snapshots": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_route_skeletons_preserve_exact_manifests_and_mirrors": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_safe_placement_keeps_complete_legal_set_and_excludes_pass_from_lottery": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_seeded_and_strategic_counts_force_independent_balance_zero": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_stop_artifact_binds_hash_and_rejects_corrupt_state_integrity": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_seeded_restart.SeededRestartTests.test_stop_artifact_is_winnerless_resumable_and_not_completed": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_375.Choice375Tests.test_egg_resolution_and_two_ends": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_378.Replay378Tests.test_four_transitions_and_hashes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_160.NewSeedNormalRestart160Tests.test_canonical_hash_chain": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_160.NewSeedNormalRestart160Tests.test_three_normal_passes_and_held_end": [
+      "pass"
+    ],
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_builds_three_first_second_pairs_without_changing_physical_cards": [
+      "pass"
+    ],
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_event_and_snapshot_counts_results_and_schema_validation": [
+      "pass"
+    ],
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_materialized_files_exactly_match_the_deterministic_builder": [
+      "pass"
+    ],
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_01_places_stage_zero_partner_then_resolves_first_date": [
+      "pass"
+    ],
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_02_consumes_same_turn_end_reservation": [
+      "pass"
+    ],
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_p97_04_builds_city_two_face_up_actions_and_two_type_selection": [
+      "pass"
+    ],
+    "test_proxy_remaining_single_pilots.ProxyRemainingSinglePilotsTest.test_pair_validator_rejects_wrong_selection_and_unconsumed_mini_golf": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_266.MixedChoice266Tests.test_three_unique_passes_and_seeded_coin": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_272.MixedReplay272Tests.test_four_selected_steps_and_chain_resolution_boundary": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_392.Replay392Tests.test_chain_resolution_and_end_response": [
+      "pass"
+    ],
+    "test_proxy_new_seed_start_choice_188.StartChoice188Test.test_four_choices_use_complete_response_sets": [
+      "pass"
+    ],
+    "test_proxy_new_seed_start_choice_188.StartChoice188Test.test_modified_decision_is_rejected": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_diverged_states_are_not_matched_by_round_only": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_chicken_ability_activation_and_resolution": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_end_adapter_advances_to_next_egg_choice": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_response_adapter_continues_after_placement": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_fresh_paired_exact_coverage": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_historical_trigger_scope_difference_is_reenumerated": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_independent_replay_rejects_event_snapshot_hash_tampering": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_known_coin_activation_and_resolution": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_known_hit_effect_provenance_continues_turn_end": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_legacy_replay_matches_saved_results": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_response_context_preserved": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_seed_profile_tampering_rejected": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_no_r11_after_terminal": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_pilot_action_bridge_rejects_action_substitution": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_same_initial_manifest_two_policies_four_routes": [
+      "pass"
+    ],
+    "test_proxy_resource_value_trajectory.TrajectoryTests.test_unsupported_new_action_is_structural_stop": [
+      "pass"
+    ]
+  },
+  "successful": true,
+  "seconds": 1573.519504992
+}

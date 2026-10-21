@@ -1,0 +1,19 @@
+{
+  "allowed_existing_change": "docs/card-game/README.md",
+  "balance_admitted": null,
+  "base_head": "3ab01fd598e478b502964193f9c91475d7367c24",
+  "dedicated_tests": 18,
+  "design_errors": [],
+  "full_459_implementation_complete": false,
+  "full_proxy_regression_run": false,
+  "independent_balance_sample_count": 0,
+  "new_input_orders": 0,
+  "new_matches": 0,
+  "new_replays": 0,
+  "new_seeds": 0,
+  "npm_tests": 406,
+  "policy_promoted": false,
+  "preflight_regenerated_byte_identical": true,
+  "protected_existing_blobs_unchanged": 3590,
+  "related_tests_including_dedicated": 118
+}

@@ -1,0 +1,160 @@
+"""Compose fresh current-entry responsibilities against the actual trace.
+
+Call only after the connected entry has computed its audits. This structural
+join does not authenticate saved certificates, prove every rule/allowed read,
+or upgrade the historical460 readiness or population admission contracts.
+"""
+import proxy_continuation_state as state
+import proxy_population_decision_binding as decisions
+import proxy_population_start_obligations as starts
+from proxy_mandatory_policy_contract import canonical
+
+ROOT_PROOFS={
+ 'initial_runtime_root_audit':('bound107_initial_runtime_root.v1','initial_runtime_root_verified'),
+ 'initial_obligation_audit':('bound107_initial_obligations.v1','initial_deal_and_first_opportunities_verified'),
+ 'mandatory_policy_entry_audit':('registered_mandatory_policy_entry_audit.v1','local_entries_verified'),
+ 'mandatory_origin_audit':('runtime_policy_origin_sequence.v1','origin_sequence_verified'),
+ 'mandatory_opportunity_audit':('designated_mandatory_opportunity_coverage.v1','designated_opportunities_covered'),
+ 'resolution_semantics_audit':('supplied_resolution_semantics_join.v1','supplied_resolution_semantics_joined'),
+ 'nonresolution_semantics_audit':('supplied_nonresolution_semantics_join.v1','supplied_nonresolution_semantics_joined'),
+ 'decision_projection_audit':('step_decision_projection.v1','decision_projection_verified'),
+ 'source_conservation_audit':('bound107_actual_source_conservation.v1','supplied_source_conservation_verified'),
+ 'end_dispatch_obligation_audit':('actual_trace_end_dispatch_obligations.v1','supplied_end_dispatch_obligations_joined')}
+
+
+def require(proof,schema,flag):
+ if type(proof) is not dict or proof.get('schema')!=schema or proof.get(flag) is not True or proof.get('errors')!=[]:raise ValueError('trace obligations incomplete: '+schema)
+ return proof
+
+
+def same(actual,expected,label):
+ if canonical(actual)!=canonical(expected):raise ValueError('trace obligations binding differs: '+label)
+
+
+def source_collections(runtime,transitions):
+ """Bind existing fresh collection checks to actual scan/start boundaries."""
+ coverage=runtime['supported_trigger_coverage']
+ def native(proof,seq,boundary):
+  if type(proof) is not dict or proof.get('schema')!='existing_trigger_group_input.v1':raise ValueError('trace obligations native collection absent')
+  check=proof.get('current_collection_audit',{})
+  if check.get('schema')!='current_native_source_collection.v1' or check.get('current_source_collection_bound') is not True:raise ValueError('trace obligations native collection unproved')
+  same(proof['origin_event_seq'],seq,'native origin sequence')
+  same(proof['current_envelope_sha256'],boundary,'native scan boundary')
+  same(check['current_envelope_sha256'],boundary,'native predicate boundary')
+  same(check['scope'],'current_public_native_sources_and_early_relationship_negative','native scope')
+  same(check['classified_source_count'],len(proof['classifications']),'native classified denominator')
+  same(check['unproved_source_count'],len(proof['unproved_sources']),'native outside denominator')
+  same(check['public_source_count'],len(proof['classifications'])+len(proof['unproved_sources']),'native public denominator')
+ root=runtime['source_envelope'];native(coverage.get('initial_source_collection'),root['event_seq'],state.canonical_sha256(root))
+ rows=coverage.get('native_source_collections')
+ if type(rows) is not list or len(rows)!=len(transitions):raise ValueError('trace obligations native collection coverage differs')
+ for proof,boundary in zip(rows,transitions):native(proof,boundary['event_seq'],boundary['after_envelope_sha256'])
+ expected=[]
+ for step in runtime['steps']:
+  final=step['final_envelope'];c=final['legacy_continuation']
+  if c['game_state']['phase']=='response_window' and c['response_context']['window_kind']=='turn_start' and any(e['action_type'] in ('turn_start_and_normal_draw','egg_exchange_bottom') for e in step['events']):
+   captures=[e for e in step['envelopes'] if e['legacy_continuation']['game_state']['phase']=='turn_start']
+   if len(captures)!=1:raise ValueError('trace obligations actual start capture differs')
+   expected.append((captures[0],final))
+ rows=coverage.get('start_source_collections')
+ if type(rows) is not list or len(rows)!=len(expected):raise ValueError('trace obligations start collection coverage differs')
+ same(rows,runtime['start_occurrence_proofs'],'recorded and fresh start collections')
+ same(coverage['start_origins'],[f['event_seq'] for _,f in expected],'actual start origins')
+ for proof,(capture,final) in zip(rows,expected):
+  if proof.get('schema')!='current107_start_occurrences.v1' or proof.get('capture',{}).get('schema')!='current107_start_source_capture.v1':raise ValueError('trace obligations start collection schema differs')
+  same(proof['source_catalog_sha256'],starts.CATALOG_SHA,'start catalog')
+  same(proof['current_envelope_sha256'],state.canonical_sha256(final),'start final boundary')
+  same(proof['origin_event_seq'],final['event_seq'],'start final sequence')
+  same(proof['capture']['envelope_sha256'],state.canonical_sha256(capture),'start capture boundary')
+  same(proof['capture']['event_seq'],capture['event_seq'],'start capture sequence')
+  same(proof['capture']['turn_player'],capture['legacy_continuation']['game_state']['turn_player'],'start owner')
+  same(len(proof['classifications']),len(proof['capture']['public_sources']),'start source denominator')
+ evidence={key:coverage[key] for key in ('initial_source_collection','native_source_collections','start_source_collections')}
+ return dict(schema='fresh_actual_source_collection_binding.v1',fresh_source_collections_bound=True,
+  native_scan_count=len(transitions)+1,start_scan_count=len(expected),evidence_sha256=state.canonical_sha256(evidence),
+  saved_proofs_authenticated=False,all_rule_opportunities_proven=False)
+
+
+def require_actual_trace(record):
+ """Require the fresh evidence bundle, while retaining all separate gaps."""
+ for key,(schema,flag) in ROOT_PROOFS.items():require(record.get(key),schema,flag)
+ same(record['initial_obligation_audit']['initial_game_state_sha256'],state.canonical_sha256(record['opening']['initial']['initial_game_state']),'initial deal root')
+ same(record['initial_obligation_audit']['final_envelope_sha256'],state.canonical_sha256(record['opening']['final_envelope']),'initial response root')
+ runtime=record['runtime'];coverage=runtime['supported_trigger_coverage'];steps=runtime['steps']
+ same(record['initial_runtime_root_audit']['opening_envelope_sha256'],state.canonical_sha256(record['opening']['final_envelope']),'initial runtime opening root')
+ same(record['initial_runtime_root_audit']['runtime_envelope_sha256'],state.canonical_sha256(runtime['source_envelope']),'initial runtime source root')
+ if coverage.get('schema')!='supported_trigger_coverage.v1' or coverage.get('covered') is not True or coverage.get('missing_occurrence_ids')!=[] or coverage.get('extra_occurrence_ids')!=[]:raise ValueError('trace obligations trigger coverage incomplete')
+ same(coverage['expected_count'],coverage['recorded_count'],'occurrence denominator')
+ order=coverage['processing_order']
+ if order.get('schema')!='source_obligation_processing_order.v1' or order.get('phase_order_verified') is not True or order.get('supplied_closure_execution_bound') is not True:raise ValueError('trace obligations processing order incomplete')
+ same(order['pending_count'],coverage['pending_count'],'pending obligations')
+ if runtime['completed'] is True:same(coverage['pending_count'],0,'completed pending obligations')
+ trigger_by_seq={r['before_envelope']['event_seq']:r for r in runtime['trigger_records']}
+ if len(trigger_by_seq)!=len(runtime['trigger_records']):raise ValueError('trace obligations duplicate trigger boundary')
+ counts=dict(ordinary_normal_count=0,ordinary_response_count=0,automatic_step_count=0,sequential_trigger_step_count=0)
+ transitions=[];used=set();step_rows=[]
+ for step in steps:
+  before=step['source_envelope'];seq=before['event_seq'];decision=step['decision']
+  if seq in trigger_by_seq:
+   trigger=trigger_by_seq[seq];used.add(seq);kind='sequential_trigger_step_count'
+   for key,target in (('before_envelope','source_envelope'),('after_envelope','final_envelope'),('events','events'),('decision','decision')):same(trigger[key],step[target],'trigger '+key)
+  elif decision is None:
+   kind='automatic_step_count'
+   proof=require(step.get('automatic_output_binding'),'automatic_output_transition_binding.v1','automatic_output_binding_verified')
+   if proof.get('ordinary_opportunity_handoffs_verified') is not True:raise ValueError('trace obligations automatic handoff incomplete')
+   same(proof['identity']['entry_envelope_sha256'],state.canonical_sha256(before),'automatic boundary')
+   same(proof['identity']['event_count'],len(step['events']),'automatic events')
+  else:
+   normal=decision.get('context',{}).get('decision_kind')=='normal_action'
+   response=decision.get('decision_kind')=='response_action'
+   if normal==response:raise ValueError('trace obligations ordinary decision kind differs')
+   kind='ordinary_normal_count' if normal else 'ordinary_response_count'
+   if normal:
+    history=require(step.get('normal_allowed_history'),'current_normal_allowed_history.v1','allowed_history_projection_verified')
+    same(history['entry_envelope_sha256'],state.canonical_sha256(before),'normal history boundary')
+    same(history['projected_history_sha256'],state.canonical_sha256(decision['inventory']['public_history']),'normal history projection')
+    same(history['actor'],decision['context']['actor'],'normal history actor')
+    same(history['event_count'],len(decision['inventory']['public_history']),'normal history count')
+    # Runtime supplies raw history without its three transition-binding fields.
+    prefix=[{k:v for k,v in e.items() if k not in ('execution_contract_id','envelope_before_sha256','envelope_after_sha256')} for e in record['opening']['events']+runtime['events'] if e['seq']<=seq]
+    same(history['raw_history_sha256'],state.canonical_sha256(prefix),'normal actual history prefix')
+   proof=require(step.get('ordinary_entry_binding'),'ordinary_entry_transition_binding.v1','entry_and_transition_binding_verified')
+   same(proof['identity']['entry_envelope_sha256'],state.canonical_sha256(before),'ordinary boundary')
+   same(proof['identity']['decision_sha256'],state.canonical_sha256(decision),'ordinary decision')
+   require(step.get('decision_source_inventory'),'current_normal_source_inventory_coverage.v1' if normal else 'current_response_source_inventory_coverage.v1','source_and_variant_coverage_verified' if normal else 'source_coverage_verified')
+   require(step.get('normal_candidate_expansions' if normal else 'response_candidate_expansions'),'normal_registered_candidate_expansions.v1' if normal else 'registered_response_candidate_expansions.v1','registered_expansions_verified')
+   # The closed sequential-group contribution has already been composed here.
+   # Reuse its predicate/comparison gate; do not invent stronger operand claims.
+   decisions.require_current_predicates(step)
+  counts[kind]+=1;step_rows.append(dict(event_seq=seq,kind=kind,entry_envelope_sha256=state.canonical_sha256(before)))
+  if len(step['events'])!=len(step['envelopes']):raise ValueError('trace obligations transition count differs')
+  for event,after in zip(step['events'],step['envelopes']):
+   raw={k:v for k,v in event.items() if k not in ('execution_contract_id','envelope_before_sha256','envelope_after_sha256')}
+   transitions.append(dict(event_seq=event['seq'],before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),event_sha256=state.canonical_sha256(raw)))
+   before=after
+ same(sorted(used),sorted(trigger_by_seq),'trigger step coverage')
+ for name,count in counts.items():same(order[name],count,name)
+ same(coverage['transitions'],transitions,'transition order')
+ timing=coverage['timing_occurrence_audits']
+ if type(timing) is not list or len(timing)!=len(transitions):raise ValueError('trace obligations timing coverage differs')
+ for proof,boundary in zip(timing,transitions):
+  require(proof,'supplied_four_source_timing_occurrences.v1','supplied_timing_occurrences_verified')
+  hand=require(proof.get('hand_timing_audit'),'supplied_hand_timing_occurrences.v1','supplied_hand_timing_occurrences_verified')
+  for row in (proof,hand):
+   for field in ('before_envelope_sha256','after_envelope_sha256','event_sha256'):same(row[field],boundary[field],'timing '+field)
+   same(row['source_catalog_sha256'],starts.CATALOG_SHA,'timing catalog')
+  same(proof['scope'],['C-bat','M-antlion-03','M-antlion-06','P-cliff_goat'],'four timing sources')
+  same(hand['scope'],['G-air-hockey'],'hand timing source')
+ collections=source_collections(runtime,transitions)
+ events=len(transitions);source=record['source_conservation_audit']
+ same(source['physical_copy_count'],80,'physical source denominator');same(source['card_type_count'],41,'source type denominator')
+ same(source['event_count'],events,'source transitions')
+ same(record['end_dispatch_obligation_audit']['transition_count'],events,'end dispatch transitions')
+ same(record['resolution_semantics_audit']['resolution_count']+record['nonresolution_semantics_audit']['event_count'],events,'full delta partition')
+ same(record['decision_projection_audit']['decision_count'],len(runtime['decisions']),'exported judgments')
+ return dict(schema='fresh_population_trace_obligations.v1',fresh_trace_responsibilities_joined=True,errors=[],
+  step_count=len(steps),transition_count=events,step_counts=counts,steps=step_rows,source_collection_binding=collections,
+  root_evidence_sha256={key:state.canonical_sha256(record[key]) for key in ROOT_PROOFS},
+  scope='fresh_connected_entry_existing_responsibilities_only',saved_proofs_authenticated=False,
+  all_rule_opportunities_proven=False,information_use_proven=False,comparison_operand_provenance_verified=False,
+  generation_provenance_verified=False,preflight_ready=False,policy_eligible=None,balance_admitted=None)

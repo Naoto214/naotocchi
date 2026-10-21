@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_source_responsibilities",
+    "test_proxy_population_trace_obligations",
+    "test_proxy_population_source_conservation"
+  ],
+  "exit_code": 0,
+  "seconds": 77.50623727899801,
+  "python_file_count": 1086,
+  "fingerprints_equal": true,
+  "tests": "10",
+  "tail": "test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss) ... ok\ntest_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles) ... ok\ntest_actual_trace_obligations_bind_every_boundary_and_preserve_gaps (test_proxy_population_trace_obligations.TraceObligationsTests.test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps) ... ok\ntest_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) ... ok\ntest_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) ... ok\ntest_entry_rejects_failed_conservation_gate (test_proxy_population_source_conservation.SourceConservationTests.test_entry_rejects_failed_conservation_gate) ... ok\ntest_forged_source_metadata_and_journal_are_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_forged_source_metadata_and_journal_are_rejected) ... ok\ntest_initial_and_every_actual_transition_are_bound (test_proxy_population_source_conservation.SourceConservationTests.test_initial_and_every_actual_transition_are_bound) ... ok\ntest_missing_duplicate_step_and_final_changes_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_missing_duplicate_step_and_final_changes_rejected) ... ok\ntest_unknown_activation_actor_is_not_ignored_by_owner_check (test_proxy_population_source_conservation.SourceConservationTests.test_unknown_activation_actor_is_not_ignored_by_owner_check) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 77.352s\n\nOK\n",
+  "base_commit": "923883123678fe174e2a8815b56a7dc6dddec766",
+  "preflight_ready": false,
+  "new_matches": 0
+}

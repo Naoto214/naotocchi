@@ -1,0 +1,45 @@
+test_every_operation_passes_actual_edition_to_common_gate_before_effects (test_proxy_population_current_preflight.CurrentPreflightTests.test_every_operation_passes_actual_edition_to_common_gate_before_effects) ... FAIL
+test_evidence_partition_and_failed_component_never_pass (test_proxy_population_current_preflight.CurrentPreflightTests.test_evidence_partition_and_failed_component_never_pass) ... FAIL
+test_missing_current_report_and_caller_bool_cannot_open_gate (test_proxy_population_current_preflight.CurrentPreflightTests.test_missing_current_report_and_caller_bool_cannot_open_gate) ... FAIL
+test_test_log_requires_real_completion_and_exact_frozen_python (test_proxy_population_current_preflight.CurrentPreflightTests.test_test_log_requires_real_completion_and_exact_frozen_python) ... FAIL
+
+======================================================================
+FAIL: test_every_operation_passes_actual_edition_to_common_gate_before_effects (test_proxy_population_current_preflight.CurrentPreflightTests.test_every_operation_passes_actual_edition_to_common_gate_before_effects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_current_preflight.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current edition preparation gate absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current edition preparation gate absent
+
+======================================================================
+FAIL: test_evidence_partition_and_failed_component_never_pass (test_proxy_population_current_preflight.CurrentPreflightTests.test_evidence_partition_and_failed_component_never_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_current_preflight.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current edition preparation gate absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current edition preparation gate absent
+
+======================================================================
+FAIL: test_missing_current_report_and_caller_bool_cannot_open_gate (test_proxy_population_current_preflight.CurrentPreflightTests.test_missing_current_report_and_caller_bool_cannot_open_gate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_current_preflight.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current edition preparation gate absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current edition preparation gate absent
+
+======================================================================
+FAIL: test_test_log_requires_real_completion_and_exact_frozen_python (test_proxy_population_current_preflight.CurrentPreflightTests.test_test_log_requires_real_completion_and_exact_frozen_python)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_current_preflight.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current edition preparation gate absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current edition preparation gate absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

@@ -1,0 +1,77 @@
+{
+  "sourceHead": "9047ec55896127ec53507be76cd402a2a55c8ae0",
+  "analyzerSha256": "c1acd9dc4fd9b378a8ce56c511ffcd86d33b3c60a905011d29b77ed7a72af94d",
+  "trials": 488,
+  "uniqueExperimentTrials": 480,
+  "duplicateDefinition": "screen legacy and legacy legacy are identical8 trials; other policy outcome coincidences are not independent evidence either",
+  "operations": 170590,
+  "editions": {
+    "screen": {
+      "status": "PASS",
+      "trials": 168,
+      "operations": 39904,
+      "checks": [
+        "source hashes",
+        "seed and initial resources",
+        "common replay legality and final hash",
+        "all metrics and economy prefix invariants",
+        "win versus gameover versus censoring"
+      ]
+    },
+    "legacy": {
+      "status": "PASS",
+      "trials": 88,
+      "operations": 28016,
+      "checks": [
+        "source hashes",
+        "seed and initial resources",
+        "common replay legality and final hash",
+        "all metrics and economy prefix invariants",
+        "win versus gameover versus censoring"
+      ]
+    },
+    "combo": {
+      "status": "PASS",
+      "trials": 48,
+      "operations": 21114,
+      "checks": [
+        "source hashes",
+        "seed and initial resources",
+        "common replay legality and final hash",
+        "all metrics and economy prefix invariants",
+        "win versus gameover versus censoring"
+      ]
+    },
+    "confirm": {
+      "status": "PASS",
+      "trials": 160,
+      "operations": 70553,
+      "checks": [
+        "source hashes",
+        "seed and initial resources",
+        "common replay legality and final hash",
+        "all metrics and economy prefix invariants",
+        "win versus gameover versus censoring"
+      ]
+    },
+    "sensitivity": {
+      "status": "PASS",
+      "trials": 24,
+      "operations": 11003,
+      "checks": [
+        "source hashes",
+        "seed and initial resources",
+        "common replay legality and final hash",
+        "all metrics and economy prefix invariants",
+        "win versus gameover versus censoring"
+      ]
+    }
+  },
+  "archives": {
+    "optimization-sensitivity-raw-v2-20261014.tar.gz": "34cf3518db2cd77c46d912034b71892b8628a859c083c49b02545cf6b0857da9",
+    "optimization-combo-raw-v2-20261014.tar.gz": "bc8d16a69e56a033049596865fcf1c257fd91a56c66dffd449f37e577a7efd77",
+    "optimization-screen-raw-v2-20261014.tar.gz": "4e2c608979fde0bef1b0faf20a5ed641aedcad24e331814dc8c1a76e5aff158d",
+    "optimization-legacy-raw-v2-20261014.tar.gz": "103077963c49f48d7d33fbcfd2ebe3ff212ee36ce4f8c5412d139e9d7325b754",
+    "optimization-confirm-raw-v2-20261014.tar.gz": "2a61c2ffa6656e0e4d10718818ecdbba571cf0c8b164ebbc04cd13f94a6df33a"
+  }
+}

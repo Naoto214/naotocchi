@@ -1,0 +1,53 @@
+{
+  "balance_admitted": null,
+  "events": 3129,
+  "explicit_anchor_counts": {
+    "missing_event_seq": 56,
+    "sequence_only": 518,
+    "state_hash_checked": 1804
+  },
+  "files_sha256": {
+    "probe-01-a-first.json": "0d19450a85745dc72b5386c89bcfdd8bd5323309c4a8524603a5f5bdba0b6482",
+    "probe-01-b-first.json": "295c2f4319cb19bbb4dd85de4a848a21af68dd763510074e03e7e459f9839b1e",
+    "probe-02-a-first.json": "4d4aff386bb2e6badd4c1e4a82969dd72c9ef3de8446cb47117e2eca232362a1",
+    "probe-02-b-first.json": "296600a54067c356197fba80c8f819e6294cc75415519aa3fcc7563f17e499fb"
+  },
+  "independent_balance_sample_count": 0,
+  "missing_top_level_event_seq_by_choice_kind": {
+    "ability_draw_then_hand_bottom": 2,
+    "ability_hand_bottom": 6,
+    "ability_topdeck_order": 28,
+    "final_time_hand_bottom": 20
+  },
+  "new_matches": 0,
+  "new_replays": 0,
+  "opportunity_coverage": "not_certified",
+  "opportunity_scope": "existing_executor_only",
+  "policy_promoted": false,
+  "recorded_decisions": 2378,
+  "rule_transition_legality": "not_certified",
+  "saved_runs": 12,
+  "schema": "record_integrity_summary_457.v1",
+  "snapshots": 3141,
+  "sources_sha256": {
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "452-independent-balance-readiness.md": "4735e0568f2b40698e7f4dbdf5c1f25cbbbd0848b13e51d55340d95671cdafd5",
+    "453-experiment-design-decision.md": "6795b2f70171bd82c1a30ab4556e9202514ca058974c71c8f9925754a10f71f5",
+    "454-all-judgment-evaluation-design.md": "37b2441ca93a55a12773b975a6388b8151f08b0ba9bf23022b71e5c57e425220",
+    "455-judgment-evidence-contract.md": "b26a7c117b805d58f3df5a337ea58afdabcf5f78a30af0ec1a23471124254822",
+    "456-saved-replay-evidence.md": "0521ae57c528976f87ac45bd8ce8bdce99b4ddb063e788f0a288393577158e34",
+    "data/proxy-experiment-design-453/plan-draft.json": "2d124581aa996057b84bab4f6191357e9cf4ad1628c8d2d891efaab7eb86f702",
+    "data/proxy-record-integrity-457/reproduce.py": "704f82447a9e731fa30bebb8759ac6f556b546fdb008d52a60463bd68481fb26",
+    "tools/proxy_continuation_actions.py": "542ad5e036dd072374c2a46f2332af10269c198d82e40176defcd8d61c92b0f0",
+    "tools/proxy_continuation_choices.py": "e2152db6a78a45b8d145d96b725eda81196ef0481c2f27c1a1415dfd046112e4",
+    "tools/proxy_continuation_runner.py": "b33579d72c905f56711c0e0f008f7a70c6d3ed3aaf5e7111ba18e710c0c64402",
+    "tools/proxy_judgment_evidence_audit.py": "c097863f75f80477bc75927185b2d8235a7009ff61d4d1044f1560b301bb22fd",
+    "tools/proxy_normal_decision_seeded_restart.py": "57a43474658ea99f1dc362882ad291fae77116762ce567a26ec21835b9977c3d",
+    "tools/proxy_record_integrity_audit.py": "3ae99dd001c0c9133ab5c7f61fc941cecf4a6b28494820218f251ecb54971a82",
+    "tools/proxy_replay_evidence_audit.py": "a412f0af8fa0235e771162daf0384096e60963927be125f78c8fcd56424c02a7",
+    "tools/proxy_resource_value_selection.py": "aafd7c7c27371e7ac0fceee8b79749323a32d226afe394abfb1509adfb601050"
+  },
+  "state_schema_semantics": "not_certified"
+}

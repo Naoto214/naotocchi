@@ -1,0 +1,51 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_decision_plan.v1",
+  "checkpoint": 108,
+  "protocol": "proxy-decision-protocol-107-20260918.json",
+  "record_output_directory": "proxy-matches-108",
+  "trace_output_directory": "proxy-decision-traces-108",
+  "evaluation_output": "proxy-normal-decision-evaluation-108-20260918.json",
+  "design": {
+    "rules_commit": "05db30e3b2d25ed2209021070e9bd3f3bfbac878",
+    "rules_tree": "6adadca1a1ea5453c517fef277a7a0bc6cff6f59",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b"
+  },
+  "policy": {
+    "first_seat_stage_by_round": {"2": 2, "3": 3, "4": 5, "5": 7, "6": 8},
+    "second_seat_stage_by_round": {"2": 2, "3": 4, "4": 6, "5": 8},
+    "challenge_rounds": [3, 4, 5],
+    "a_first_extra_challenge_round": 2,
+    "people_priority": ["companion", "partner"],
+    "activate_antlion_05_draw": true,
+    "normal_action_order": ["main_progression", "certain_win_challenge", "person_placement", "pass"]
+  },
+  "matches": [
+    {
+      "source_fixture": "proxy-fixtures-107/fixture-107-normal-decision-a-first.json",
+      "record_match_id": "completed-108-normal-decision-a-first",
+      "trace_id": "trace-108-normal-decision-a-first",
+      "seat_stratum": "a-first",
+      "egg_bottom": {"A": {"1": "A-004#1", "2": "A-006#1"}, "B": {"1": "B-003#1"}},
+      "expected_final_growth": {"A": 45, "B": 35},
+      "expected_winner": "A",
+      "expected_decision_count": 46
+    },
+    {
+      "source_fixture": "proxy-fixtures-107/fixture-107-normal-decision-a-second.json",
+      "record_match_id": "completed-108-normal-decision-a-second",
+      "trace_id": "trace-108-normal-decision-a-second",
+      "seat_stratum": "a-second",
+      "egg_bottom": {"A": {"1": "A-003#1", "2": "A-005#1"}, "B": {"1": "B-004#1"}},
+      "expected_final_growth": {"A": 40, "B": 35},
+      "expected_winner": "A",
+      "expected_decision_count": 45
+    }
+  ],
+  "scope": {
+    "completed_match_count": 2,
+    "automated_game_engine": false,
+    "complete_legality_engine": false,
+    "changes_card_text_numbers_or_registration": false,
+    "may_count_as_independent_balance_sample": false
+  }
+}

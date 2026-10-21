@@ -1,0 +1,8 @@
+test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps (test_proxy_population_trace_obligations.TraceObligationsTests.test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps) ... ok
+test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) ... ok
+test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 40.169s
+
+OK

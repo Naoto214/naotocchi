@@ -1,0 +1,20 @@
+{
+  "name": "naotocchi-growth-chain-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:dom": "node tests/ui-dom.cjs && node tests/mobile-ui.cjs && node tests/standalone.cjs && node tests/final-ui.cjs && node tests/final-roster-ui.cjs && node tests/evolution-eggs-ui.cjs",
+    "test:browser": "node tests/browser.cjs",
+    "build:standalone": "node build-standalone.cjs",
+    "measure": "python3 run-all.py",
+    "verify:results": "node verify-results.mjs",
+    "test:mutation": "node tests/mutation.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "jsdom": "30.1.2",
+    "playwright": "1.62.1",
+    "prettier": "3.9.10"
+  }
+}

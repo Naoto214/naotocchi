@@ -1,0 +1,37 @@
+.....FFFF
+======================================================================
+FAIL: test_changed_edition_registry_destination_reject_before_creation (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_changed_edition_registry_destination_reject_before_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 15, in setUp
+    self.assertIsNotNone(api,'generation authorization integration missing')
+AssertionError: unexpectedly None : generation authorization integration missing
+
+======================================================================
+FAIL: test_current_edition_registry_destination_and_live_claim_join (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_current_edition_registry_destination_and_live_claim_join)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 15, in setUp
+    self.assertIsNotNone(api,'generation authorization integration missing')
+AssertionError: unexpectedly None : generation authorization integration missing
+
+======================================================================
+FAIL: test_existing_destination_and_symlink_alias_reject (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_existing_destination_and_symlink_alias_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 15, in setUp
+    self.assertIsNotNone(api,'generation authorization integration missing')
+AssertionError: unexpectedly None : generation authorization integration missing
+
+======================================================================
+FAIL: test_unverified_registry_and_wrong_repository_reject (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_unverified_registry_and_wrong_repository_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 15, in setUp
+    self.assertIsNotNone(api,'generation authorization integration missing')
+AssertionError: unexpectedly None : generation authorization integration missing
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.569s
+
+FAILED (failures=4)

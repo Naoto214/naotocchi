@@ -1,0 +1,22 @@
+continuation_world_immediate_outcomes_v1:legacy_107_114_116:probe-01-a-first 60 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-antlion-04'}
+continuation_world_immediate_outcomes_v1:resource_value_pilot_v1:probe-01-a-first 27 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'normal resolution adapter unavailable: place_world'}
+continuation_world_immediate_outcomes_v1:legacy_107_114_116:probe-01-b-first 72 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-antlion-04'}
+continuation_world_immediate_outcomes_v1:resource_value_pilot_v1:probe-01-b-first 26 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'placement trigger requires non-egg resolution adapter'}
+continuation_world_immediate_outcomes_v1:legacy_107_114_116:probe-02-a-first 51 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-antlion-03'}
+continuation_world_immediate_outcomes_v1:resource_value_pilot_v1:probe-02-a-first 41 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'certain-result proof unavailable: relationship'}
+continuation_world_immediate_outcomes_v1:legacy_107_114_116:probe-02-b-first 103 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-antlion-05'}
+continuation_world_immediate_outcomes_v1:resource_value_pilot_v1:probe-02-b-first 33 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'certain-result proof unavailable: relationship'}
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/proxy_continuation_world_runner.py", line 60, in <module>
+    run_paired(parser.parse_args().output)
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/proxy_continuation_world_runner.py", line 45, in run_paired
+    previous_436_execution_differences=base.compare_results(results,[historical.historical_shape(r) for r in before['results']])['historical_execution_differences'],
+                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/proxy_continuation_end_runner.py", line 26, in historical_shape
+    result=dict(run,snapshots=[old._snapshot(base.state.current(s)) for s in run['snapshots']],decisions=[])
+                                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/proxy_continuation_state.py", line 92, in current
+    validate(envelope)
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/proxy_continuation_state.py", line 54, in validate
+    raise ValueError('duplicate or missing card location')
+ValueError: duplicate or missing card location

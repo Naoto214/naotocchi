@@ -1,0 +1,46 @@
+test_exact_membership_accepts_only_mirrored_metadata (test_proxy_population_contract.ManifestTests.test_exact_membership_accepts_only_mirrored_metadata) ... FAIL
+test_manifest_cannot_be_approved_by_receipt_booleans (test_proxy_population_contract.ManifestTests.test_manifest_cannot_be_approved_by_receipt_booleans) ... FAIL
+test_missing_real_inputs_remains_unproved_after_topology_passes (test_proxy_population_contract.ManifestTests.test_missing_real_inputs_remains_unproved_after_topology_passes) ... FAIL
+test_saved_order_validation_preserves_physical_multiplicity (test_proxy_population_contract.ManifestTests.test_saved_order_validation_preserves_physical_multiplicity) ... FAIL
+test_approved_protocol_is_non_executable_and_nonmutating (test_proxy_population_contract.ProtocolTests.test_approved_protocol_is_non_executable_and_nonmutating) ... ok
+test_duplicate_keys_and_nonfinite_json_are_rejected (test_proxy_population_contract.ProtocolTests.test_duplicate_keys_and_nonfinite_json_are_rejected) ... ok
+test_protocol_mutations_cannot_self_authorize (test_proxy_population_contract.ProtocolTests.test_protocol_mutations_cannot_self_authorize) ... ok
+test_source_paths_cannot_escape_root (test_proxy_population_contract.ProtocolTests.test_source_paths_cannot_escape_root) ... ok
+test_untrusted_anchor_and_missing_source_fail_closed (test_proxy_population_contract.ProtocolTests.test_untrusted_anchor_and_missing_source_fail_closed) ... ok
+
+======================================================================
+FAIL: test_exact_membership_accepts_only_mirrored_metadata (test_proxy_population_contract.ManifestTests.test_exact_membership_accepts_only_mirrored_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 74, in setUp
+    self.assertTrue(hasattr(subject, 'validate_manifest'), 'manifest validator absent')
+AssertionError: False is not true : manifest validator absent
+
+======================================================================
+FAIL: test_manifest_cannot_be_approved_by_receipt_booleans (test_proxy_population_contract.ManifestTests.test_manifest_cannot_be_approved_by_receipt_booleans)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 74, in setUp
+    self.assertTrue(hasattr(subject, 'validate_manifest'), 'manifest validator absent')
+AssertionError: False is not true : manifest validator absent
+
+======================================================================
+FAIL: test_missing_real_inputs_remains_unproved_after_topology_passes (test_proxy_population_contract.ManifestTests.test_missing_real_inputs_remains_unproved_after_topology_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 74, in setUp
+    self.assertTrue(hasattr(subject, 'validate_manifest'), 'manifest validator absent')
+AssertionError: False is not true : manifest validator absent
+
+======================================================================
+FAIL: test_saved_order_validation_preserves_physical_multiplicity (test_proxy_population_contract.ManifestTests.test_saved_order_validation_preserves_physical_multiplicity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 74, in setUp
+    self.assertTrue(hasattr(subject, 'validate_manifest'), 'manifest validator absent')
+AssertionError: False is not true : manifest validator absent
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.057s
+
+FAILED (failures=4)

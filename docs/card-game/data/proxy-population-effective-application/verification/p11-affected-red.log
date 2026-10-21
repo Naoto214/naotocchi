@@ -1,0 +1,648 @@
+test_boolean_and_missing_proofs_are_not_numeric_equality (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_boolean_and_missing_proofs_are_not_numeric_equality) ... ok
+test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_current_general_contract_keeps_paid_and_free_candidates_with_unknown_upper) ... ok
+test_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_fresh_entry_and_export_reject_forged_operands_partition_or_exclusion) ... ok
+test_hidden_order_and_opponent_hand_do_not_change_proof_or_selection (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_hidden_order_and_opponent_hand_do_not_change_proof_or_selection) ... ok
+test_proved_upper_equalities_allow_time_order_without_replacing_unknown (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_proved_upper_equalities_allow_time_order_without_replacing_unknown) ... ok
+test_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins (test_proxy_population_comparison_evidence.ComparisonEvidenceTests.test_unknown_at_each_rank_blocks_lower_difference_but_known_earlier_order_wins) ... ok
+test_actual_comparisons_reject_self_consistent_payment_and_time_tampering (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_comparisons_reject_self_consistent_payment_and_time_tampering) ... ERROR
+test_actual_entry_rejects_forged_comparison_copy_identity (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_forged_comparison_copy_identity) ... ERROR
+test_actual_entry_rejects_partial_frontier_conflicting_route (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_partial_frontier_conflicting_route) ... ok
+test_actual_entry_rejects_partial_frontier_payment_tampering (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_partial_frontier_payment_tampering) ... ERROR
+test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates) ... ERROR
+test_comparison_copy_identity_is_bound_to_the_actual_candidate (test_proxy_population_payment_operands.PaymentOperandTests.test_comparison_copy_identity_is_bound_to_the_actual_candidate) ... ERROR
+test_duplicate_missing_and_unbound_comparison_rows_are_not_certified (test_proxy_population_payment_operands.PaymentOperandTests.test_duplicate_missing_and_unbound_comparison_rows_are_not_certified) ... ERROR
+test_normal_problem_cannot_claim_an_upper_only_copy_exception (test_proxy_population_payment_operands.PaymentOperandTests.test_normal_problem_cannot_claim_an_upper_only_copy_exception) ... ERROR
+test_partial_proved_row_requires_a_certified_payment_at_actual_entry (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_proved_row_requires_a_certified_payment_at_actual_entry) ... ok
+test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) ... ERROR
+test_source_pins_and_other_priority_limits_remain_explicit (test_proxy_population_payment_operands.PaymentOperandTests.test_source_pins_and_other_priority_limits_remain_explicit) ... ERROR
+test_unknown_route_cannot_alias_a_verified_enumeration_unit (test_proxy_population_payment_operands.PaymentOperandTests.test_unknown_route_cannot_alias_a_verified_enumeration_unit) ... ERROR
+test_declaration_delta_does_not_certify_challenge_comparison_values (test_proxy_population_unproved_priority.ChallengeOperandTests.test_declaration_delta_does_not_certify_challenge_comparison_values) ... ok
+test_public_growth_mechanisms_keep_unknown_candidates_in116_frontier (test_proxy_population_unproved_priority.DirectGrowthFamiliesTests.test_public_growth_mechanisms_keep_unknown_candidates_in116_frontier) ... ok
+test_direct_growth_default_zero_is_not_a_normal_comparison_proof (test_proxy_population_unproved_priority.DirectGrowthOperandTests.test_direct_growth_default_zero_is_not_a_normal_comparison_proof) ... ok
+test_unrevealed_growth_is_not_zero_or_dominated_by_pass (test_proxy_population_unproved_priority.RevealGrowthOperandTests.test_unrevealed_growth_is_not_zero_or_dominated_by_pass) ... ERROR
+test100_keeps_unknown_priorities_and_uses_existing_excluded116 (test_proxy_population_unproved_priority.UnprovedPriorityTests.test100_keeps_unknown_priorities_and_uses_existing_excluded116) ... ok
+test_marriage_native_transition_uses_actual_bounded_increase (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_marriage_native_transition_uses_actual_bounded_increase) ... ok
+test_mixed_frontier_keeps_unknown_but_excludes_proven_dominated_pass (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_mixed_frontier_keeps_unknown_but_excludes_proven_dominated_pass) ... ok
+test_paid_handler_revalidates_current_excluded_policy_at100 (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_paid_handler_revalidates_current_excluded_policy_at100) ... ok
+test_recovery_handler_revalidates_current_excluded_policy_at100 (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_recovery_handler_revalidates_current_excluded_policy_at100) ... ok
+test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions (test_proxy_population_information_use.InformationUseTests.test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions) ... ok
+test_public_loss_history_changes_choice_with_same_current_visible_state (test_proxy_population_information_use.InformationUseTests.test_public_loss_history_changes_choice_with_same_current_visible_state) ... ok
+test_public_time_changes_actual_candidate_and_choice (test_proxy_population_information_use.InformationUseTests.test_public_time_changes_actual_candidate_and_choice) ... ok
+test_pure_challenge_pass_frontier_preserves_116_exclusion_and_real_step (test_proxy_population_normal_frontier.NormalFrontierTests.test_pure_challenge_pass_frontier_preserves_116_exclusion_and_real_step) ... ok
+test_normal_requires_actual_existing114_comparison_not_unique_label (test_proxy_population_selection_basis.SelectionBasisTests.test_normal_requires_actual_existing114_comparison_not_unique_label) ... ok
+test_response_requires_existing119_computation_and_complete_record (test_proxy_population_selection_basis.SelectionBasisTests.test_response_requires_existing119_computation_and_complete_record) ... ok
+test_safe_placement_needs_certificate_and_paid_exclusion (test_proxy_population_selection_basis.SelectionBasisTests.test_safe_placement_needs_certificate_and_paid_exclusion) ... ok
+setUpClass (test_proxy_population_decision_binding.BindingTests) ... ERROR
+test_existing114_upper_priorities_exclude_paid_action_before_pure116 (test_proxy_population_departure.ConnectionTests.test_existing114_upper_priorities_exclude_paid_action_before_pure116) ... ok
+test_known_upper_priority_unique_winner_is_not_stopped_by_replacement (test_proxy_population_departure.ConnectionTests.test_known_upper_priority_unique_winner_is_not_stopped_by_replacement) ... FAIL
+test_scope_connects_current_selector_apply_and_runtime_replay (test_proxy_population_departure.ConnectionTests.test_scope_connects_current_selector_apply_and_runtime_replay) ... ok
+test_departure_discards_start_trigger_equipment_without_firing_it (test_proxy_population_departure.DepartureTests.test_departure_discards_start_trigger_equipment_without_firing_it) ... ok
+test_full_board_replacement_is_atomic_and_preserves_all_three_targets (test_proxy_population_departure.DepartureTests.test_full_board_replacement_is_atomic_and_preserves_all_three_targets) ... ok
+test_invalid_or_unbound_action_cannot_move_any_card (test_proxy_population_departure.DepartureTests.test_invalid_or_unbound_action_cannot_move_any_card) ... ok
+test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution) ... ok
+test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice (test_proxy_population_paid_draw.PaidDrawTests.test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice) ... ok
+test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response (test_proxy_population_paid_draw.PaidDrawTests.test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response) ... ok
+test_original_normal_loop_applies_existing116_without_valuing_unknown_draw (test_proxy_population_paid_draw.PaidDrawTests.test_original_normal_loop_applies_existing116_without_valuing_unknown_draw) ... ok
+test_normal_activation_uses_same_cost_effect_and_usage_contract (test_proxy_population_discard_recovery.NormalRecoveryTests.test_normal_activation_uses_same_cost_effect_and_usage_contract) ... ok
+test_quick_recovery_uses_legacy_mandatory_policy_and_existing_chain (test_proxy_population_discard_recovery.QuickRecoveryTests.test_quick_recovery_uses_legacy_mandatory_policy_and_existing_chain) ... ok
+test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain (test_proxy_population_discard_recovery.RecoveryExecutionTests.test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain) ... ok
+test_disappeared_target_is_not_replaced_at_resolution (test_proxy_population_discard_recovery.RecoveryIntegrityTests.test_disappeared_target_is_not_replaced_at_resolution) ... ok
+test_paid_reference_and_runtime_replay_reject_forgery (test_proxy_population_discard_recovery.RecoveryIntegrityTests.test_paid_reference_and_runtime_replay_reject_forgery) ... ok
+test_actual_response_inventory_includes_target_and_pass_without_policy_extension (test_proxy_population_discard_recovery.RecoveryTests.test_actual_response_inventory_includes_target_and_pass_without_policy_extension) ... ok
+test_public_target_inventory_distinguishes_own_turn_and_same_name (test_proxy_population_discard_recovery.RecoveryTests.test_public_target_inventory_distinguishes_own_turn_and_same_name) ... ok
+test_normal_declaration_observes_partner_and_continues_comparison (test_proxy_population_challenge_window.ChallengeWindowTests.test_normal_declaration_observes_partner_and_continues_comparison) ... ok
+test_existing_unit_prefix_crosses_multiple_turns_with_all_histories (test_proxy_population_challenge_window.MultiTurnConnectionTests.test_existing_unit_prefix_crosses_multiple_turns_with_all_histories) ... FAIL
+test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps (test_proxy_population_trace_obligations.TraceObligationsTests.test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps) ... ERROR
+test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) ... 
+  test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) (case='native_unproved') ... FAIL
+  test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) (case='start_missing') ... FAIL
+test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) ... 
+  test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='supplied_timing_occurrences_verified') ... FAIL
+  test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='supplied_hand_timing_occurrences_verified') ... FAIL
+  test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='automatic_output_binding_verified') ... FAIL
+test_all_latched_cards_check_full_alternatives_and_reject_mutations (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_all_latched_cards_check_full_alternatives_and_reject_mutations) ... ok
+test_current_usage_turn_departure_and_no_cost_are_negative_not_unknown (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_current_usage_turn_departure_and_no_cost_are_negative_not_unknown) ... ok
+test_scope_is_connected_and_rejects_corrupt_native_inventory (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_scope_is_connected_and_rejects_corrupt_native_inventory) ... ok
+test_start_adapter_audit_is_connected_to_real_inventory (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_start_adapter_audit_is_connected_to_real_inventory) ... ok
+test_start_collection_checks_negative_sources_identity_and_restores_scope (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_start_collection_checks_negative_sources_identity_and_restores_scope) ... ok
+test_start_producer_and_replay_cannot_agree_on_missing_occurrence (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_start_producer_and_replay_cannot_agree_on_missing_occurrence) ... ok
+test_start_threshold_empty_deck_and_occurrence_identity (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_start_threshold_empty_deck_and_occurrence_identity) ... ok
+test_wrong_turn_hidden_visibility_and_egg_suppress_current_actions (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_wrong_turn_hidden_visibility_and_egg_suppress_current_actions) ... ok
+test_actual_normal_and_response_entries_carry_source_audits (test_proxy_population_source_inventory.ConnectedSourceTests.test_actual_normal_and_response_entries_carry_source_audits) ... ERROR
+test_concealed_preparation_is_retained_as_an_explicit_exclusion (test_proxy_population_source_inventory.ResponseSourceTests.test_concealed_preparation_is_retained_as_an_explicit_exclusion) ... ok
+test_response_sources_cannot_be_removed_with_their_candidate (test_proxy_population_source_inventory.ResponseSourceTests.test_response_sources_cannot_be_removed_with_their_candidate) ... ok
+test_projection_layers_cannot_shrink_owner_families_or_counts (test_proxy_population_source_inventory.SourceInventoryTests.test_projection_layers_cannot_shrink_owner_families_or_counts) ... ok
+test_shared_normal_projection_cannot_omit_an_owned_hand_source (test_proxy_population_source_inventory.SourceInventoryTests.test_shared_normal_projection_cannot_omit_an_owned_hand_source) ... ok
+test_source_and_variant_omissions_do_not_disappear_with_legal_projection (test_proxy_population_source_inventory.SourceInventoryTests.test_source_and_variant_omissions_do_not_disappear_with_legal_projection) ... ok
+test_actual_normal_projection_and_permitted_fields_are_bound (test_proxy_population_history_projection.HistoryProjectionTests.test_actual_normal_projection_and_permitted_fields_are_bound) ... ERROR
+test_owner_private_memory_and_public_reveals_are_kept (test_proxy_population_history_projection.HistoryProjectionTests.test_owner_private_memory_and_public_reveals_are_kept) ... ok
+test_return_identity_requires_actual_public_preparation (test_proxy_population_history_projection.HistoryProjectionTests.test_return_identity_requires_actual_public_preparation) ... ok
+test_shared_projector_cannot_add_private_fields_to_actual_inventory (test_proxy_population_history_projection.HistoryProjectionTests.test_shared_projector_cannot_add_private_fields_to_actual_inventory) ... ok
+
+======================================================================
+ERROR: test_actual_comparisons_reject_self_consistent_payment_and_time_tampering (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_comparisons_reject_self_consistent_payment_and_time_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 107, in test_actual_comparisons_reject_self_consistent_payment_and_time_tampering
+    self.run_scoped(run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 11, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 87, in run
+    evidence=d['execution_evidence']['candidate_comparison_evidence']
+             ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'candidate_comparison_evidence'
+
+======================================================================
+ERROR: test_actual_entry_rejects_forged_comparison_copy_identity (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_forged_comparison_copy_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 136, in test_actual_entry_rejects_forged_comparison_copy_identity
+    with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 134, in run
+    with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+                                                                             ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_information_use.py", line 35, in execute
+    return runtime._step(e,supplied_input,history,[],[e],forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 52, in step
+    result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 130, in tampered
+    for row in step['decision']['problem']['candidates']:row['card_copy_id']='foreign-copy'
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_actual_entry_rejects_partial_frontier_payment_tampering (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_partial_frontier_payment_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 61, in test_actual_entry_rejects_partial_frontier_payment_tampering
+    with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 59, in run
+    with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+                                                                             ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_information_use.py", line 35, in execute
+    return runtime._step(e,supplied_input,history,[],[e],forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 52, in step
+    result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 54, in tampered
+    row=step['decision']['execution_evidence']['candidate_comparison_evidence']['proved_scores']['pass']
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'candidate_comparison_evidence'
+
+======================================================================
+ERROR: test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 195, in test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates
+    with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 193, in run
+    with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+                                                                             ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_information_use.py", line 35, in execute
+    return runtime._step(e,supplied_input,history,[],[e],forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 52, in step
+    result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 189, in tampered
+    for row in step['decision']['problem']['candidates']:row['payment_time']+=1;row['time_after_certain_resolution']-=1
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_comparison_copy_identity_is_bound_to_the_actual_candidate (test_proxy_population_payment_operands.PaymentOperandTests.test_comparison_copy_identity_is_bound_to_the_actual_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 124, in test_comparison_copy_identity_is_bound_to_the_actual_candidate
+    self.run_scoped(run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 11, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 115, in run
+    self.assertTrue(rows(d));self.assertEqual(api.audit_normal(e,h,d)['errors'],[])
+                    ^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 114, in rows
+    return value['problem']['candidates'] if value.get('problem') is not None else list(value['execution_evidence']['candidate_comparison_evidence']['proved_scores'].values())
+                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'candidate_comparison_evidence'
+
+======================================================================
+ERROR: test_duplicate_missing_and_unbound_comparison_rows_are_not_certified (test_proxy_population_payment_operands.PaymentOperandTests.test_duplicate_missing_and_unbound_comparison_rows_are_not_certified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 213, in test_duplicate_missing_and_unbound_comparison_rows_are_not_certified
+    self.run_scoped(run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 11, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 203, in run
+    if mode=='duplicate':bad['problem']['candidates'].append(copy.deepcopy(bad['problem']['candidates'][0]))
+                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_normal_problem_cannot_claim_an_upper_only_copy_exception (test_proxy_population_payment_operands.PaymentOperandTests.test_normal_problem_cannot_claim_an_upper_only_copy_exception)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 149, in test_normal_problem_cannot_claim_an_upper_only_copy_exception
+    with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 147, in run
+    with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+                                                                             ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_information_use.py", line 35, in execute
+    return runtime._step(e,supplied_input,history,[],[e],forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 52, in step
+    result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 143, in tampered
+    for row in d['problem']['candidates']:row.pop('card_copy_id')
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 36, in test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns
+    self.run_scoped(run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 11, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 16, in run
+    evidence=d['execution_evidence']['candidate_comparison_evidence']
+             ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'candidate_comparison_evidence'
+
+======================================================================
+ERROR: test_source_pins_and_other_priority_limits_remain_explicit (test_proxy_population_payment_operands.PaymentOperandTests.test_source_pins_and_other_priority_limits_remain_explicit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 162, in test_source_pins_and_other_priority_limits_remain_explicit
+    self.run_scoped(run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 11, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 158, in run
+    for row in bad['problem']['candidates']:row['certain_growth_difference']+=8
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_unknown_route_cannot_alias_a_verified_enumeration_unit (test_proxy_population_payment_operands.PaymentOperandTests.test_unknown_route_cannot_alias_a_verified_enumeration_unit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 183, in test_unknown_route_cannot_alias_a_verified_enumeration_unit
+    self.run_scoped(run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 11, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 172, in run
+    d['problem']['legal_candidate_ids']=copy.deepcopy(d['inventory']['legal_candidate_ids'])
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+
+======================================================================
+ERROR: test_unrevealed_growth_is_not_zero_or_dominated_by_pass (test_proxy_population_unproved_priority.RevealGrowthOperandTests.test_unrevealed_growth_is_not_zero_or_dominated_by_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 144, in test_unrevealed_growth_is_not_zero_or_dominated_by_pass
+    with window.contract_scope():runtime.operation(initial(),run)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 136, in run
+    proof=decision['execution_evidence']['candidate_comparison_evidence']
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'candidate_comparison_evidence'
+
+======================================================================
+ERROR: setUpClass (test_proxy_population_decision_binding.BindingTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_decision_binding.py", line 15, in setUpClass
+    cls.record=connected.reconstruct(bundle(),'test-1A',4)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_connected_entry.py", line 81, in reconstruct
+    result['trace_obligations_audit']=trace_obligations.require_actual_trace(result)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_trace_obligations.py", line 128, in require_actual_trace
+    decisions.require_current_predicates(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_decision_binding.py", line 124, in require_current_predicates
+    require_current_comparison(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_decision_binding.py", line 145, in require_current_comparison
+    require_actual(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_comparison_evidence.py", line 96, in require_actual
+    proof=audit(step['source_envelope'],step['decision'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_comparison_evidence.py", line 92, in audit
+    return dict(schema=CONTRACT,comparison_evidence_verified=not errors,errors=errors,decision_sha256=hashlib.sha256(canonical(decision)).hexdigest(),entry_envelope_sha256=state.state_hash(envelope),strategic_proof=False,policy_eligible=False,balance_admitted=None)
+                                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 87, in state_hash
+    validate(envelope)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 29, in validate
+    raise ValueError('invalid continuation envelope')
+ValueError: invalid continuation envelope
+
+======================================================================
+ERROR: test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps (test_proxy_population_trace_obligations.TraceObligationsTests.test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 34, in test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps
+    record=entry.reconstruct(bundle(),'test-1A',10)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_connected_entry.py", line 81, in reconstruct
+    result['trace_obligations_audit']=trace_obligations.require_actual_trace(result)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_trace_obligations.py", line 128, in require_actual_trace
+    decisions.require_current_predicates(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_decision_binding.py", line 124, in require_current_predicates
+    require_current_comparison(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_decision_binding.py", line 145, in require_current_comparison
+    require_actual(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_comparison_evidence.py", line 96, in require_actual
+    proof=audit(step['source_envelope'],step['decision'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_comparison_evidence.py", line 92, in audit
+    return dict(schema=CONTRACT,comparison_evidence_verified=not errors,errors=errors,decision_sha256=hashlib.sha256(canonical(decision)).hexdigest(),entry_envelope_sha256=state.state_hash(envelope),strategic_proof=False,policy_eligible=False,balance_admitted=None)
+                                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 87, in state_hash
+    validate(envelope)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 29, in validate
+    raise ValueError('invalid continuation envelope')
+ValueError: invalid continuation envelope
+
+======================================================================
+ERROR: test_actual_normal_and_response_entries_carry_source_audits (test_proxy_population_source_inventory.ConnectedSourceTests.test_actual_normal_and_response_entries_carry_source_audits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_source_inventory.py", line 129, in test_actual_normal_and_response_entries_carry_source_audits
+    record=connected.reconstruct(bundle(),'test-1A',4)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_connected_entry.py", line 81, in reconstruct
+    result['trace_obligations_audit']=trace_obligations.require_actual_trace(result)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_trace_obligations.py", line 128, in require_actual_trace
+    decisions.require_current_predicates(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_decision_binding.py", line 124, in require_current_predicates
+    require_current_comparison(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_decision_binding.py", line 145, in require_current_comparison
+    require_actual(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_comparison_evidence.py", line 96, in require_actual
+    proof=audit(step['source_envelope'],step['decision'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_comparison_evidence.py", line 92, in audit
+    return dict(schema=CONTRACT,comparison_evidence_verified=not errors,errors=errors,decision_sha256=hashlib.sha256(canonical(decision)).hexdigest(),entry_envelope_sha256=state.state_hash(envelope),strategic_proof=False,policy_eligible=False,balance_admitted=None)
+                                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 87, in state_hash
+    validate(envelope)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 29, in validate
+    raise ValueError('invalid continuation envelope')
+ValueError: invalid continuation envelope
+
+======================================================================
+ERROR: test_actual_normal_projection_and_permitted_fields_are_bound (test_proxy_population_history_projection.HistoryProjectionTests.test_actual_normal_projection_and_permitted_fields_are_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_history_projection.py", line 25, in test_actual_normal_projection_and_permitted_fields_are_bound
+    record=entry.reconstruct(bundle(),'test-1A',3);r=record['runtime'];step=next(s for s in r['steps'] if s.get('normal_allowed_history'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_connected_entry.py", line 81, in reconstruct
+    result['trace_obligations_audit']=trace_obligations.require_actual_trace(result)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_trace_obligations.py", line 128, in require_actual_trace
+    decisions.require_current_predicates(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_decision_binding.py", line 124, in require_current_predicates
+    require_current_comparison(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_decision_binding.py", line 145, in require_current_comparison
+    require_actual(step)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_comparison_evidence.py", line 96, in require_actual
+    proof=audit(step['source_envelope'],step['decision'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_comparison_evidence.py", line 92, in audit
+    return dict(schema=CONTRACT,comparison_evidence_verified=not errors,errors=errors,decision_sha256=hashlib.sha256(canonical(decision)).hexdigest(),entry_envelope_sha256=state.state_hash(envelope),strategic_proof=False,policy_eligible=False,balance_admitted=None)
+                                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 87, in state_hash
+    validate(envelope)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 29, in validate
+    raise ValueError('invalid continuation envelope')
+ValueError: invalid continuation envelope
+
+======================================================================
+FAIL: test_known_upper_priority_unique_winner_is_not_stopped_by_replacement (test_proxy_population_departure.ConnectionTests.test_known_upper_priority_unique_winner_is_not_stopped_by_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_departure.py", line 106, in test_known_upper_priority_unique_winner_is_not_stopped_by_replacement
+    with current_window.contract_scope():runtime.operation(initial(),current_entry)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 132, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 131, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_departure.py", line 101, in current_entry
+    self.assertEqual(step['decision']['selected_action']['action_type'],'relationship')
+AssertionError: 'place_companion' != 'relationship'
+- place_companion
++ relationship
+
+
+======================================================================
+FAIL: test_existing_unit_prefix_crosses_multiple_turns_with_all_histories (test_proxy_population_challenge_window.MultiTurnConnectionTests.test_existing_unit_prefix_crosses_multiple_turns_with_all_histories)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_challenge_window.py", line 59, in test_existing_unit_prefix_crosses_multiple_turns_with_all_histories
+    self.assertIsNone(r['stop']);self.assertTrue(r['completed']);self.assertEqual(r['events'][-1]['action_type'],'r10_final_comparison')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'code': 'unsupported_contract_boundary', 'detail': 'current predicate coverage incomplete: normal_unit_predicate_coverage: [\'["board_card_action","board","B-031#1","board_passive","replacement",[]]\']', 'phase': 'normal_action'} is not None
+
+======================================================================
+FAIL: test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) (case='native_unproved')
+----------------------------------------------------------------------
+ValueError: invalid continuation envelope
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 26, in test_initial_entry_requires_fresh_native_and_start_collection_binding
+    with self.subTest(case='native_unproved'),patch.object(existing.ExistingAdapter,'proof',unproved),self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "trace obligations" does not match "invalid continuation envelope"
+
+======================================================================
+FAIL: test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) (case='start_missing')
+----------------------------------------------------------------------
+ValueError: invalid continuation envelope
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 30, in test_initial_entry_requires_fresh_native_and_start_collection_binding
+    with self.subTest(case='start_missing'),patch.object(coverage,'audit',missing),self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "trace obligations" does not match "invalid continuation envelope"
+
+======================================================================
+FAIL: test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='supplied_timing_occurrences_verified')
+----------------------------------------------------------------------
+ValueError: invalid continuation envelope
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 17, in test_initial_entry_requires_verified_timing_and_automatic_responsibilities
+    with self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "trace obligations" does not match "invalid continuation envelope"
+
+======================================================================
+FAIL: test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='supplied_hand_timing_occurrences_verified')
+----------------------------------------------------------------------
+ValueError: invalid continuation envelope
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 17, in test_initial_entry_requires_verified_timing_and_automatic_responsibilities
+    with self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "trace obligations" does not match "invalid continuation envelope"
+
+======================================================================
+FAIL: test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) (flag='automatic_output_binding_verified')
+----------------------------------------------------------------------
+ValueError: invalid continuation envelope
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_trace_obligations.py", line 17, in test_initial_entry_requires_verified_timing_and_automatic_responsibilities
+    with self.assertRaisesRegex(ValueError,'trace obligations'):entry.reconstruct(bundle(),'test-1A',10)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "trace obligations" does not match "invalid continuation envelope"
+
+----------------------------------------------------------------------
+Ran 74 tests in 121.609s
+
+FAILED (failures=7, errors=15)

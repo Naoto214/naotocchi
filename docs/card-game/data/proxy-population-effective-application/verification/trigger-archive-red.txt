@@ -1,0 +1,14 @@
+E
+======================================================================
+ERROR: test_actual_next_start_captures_pre_draw_sources_across_turns (test_proxy_population_trigger_multiturn.MultiTurnTests.test_actual_next_start_captures_pre_draw_sources_across_turns)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_multiturn.py", line 22, in test_actual_next_start_captures_pre_draw_sources_across_turns
+    self.assertEqual(len(result['closed_turn_trigger_ledgers']),len(result['start_occurrence_proofs'])-1)
+                         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'closed_turn_trigger_ledgers'
+
+----------------------------------------------------------------------
+Ran 1 test in 5.300s
+
+FAILED (errors=1)

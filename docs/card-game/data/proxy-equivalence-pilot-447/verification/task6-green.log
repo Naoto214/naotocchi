@@ -1,0 +1,9 @@
+test_default_two_policies_unchanged (test_proxy_equivalence_trajectory.TrajectoryTests.test_default_two_policies_unchanged) ... ok
+test_new_policy_requires_explicit_selector (test_proxy_equivalence_trajectory.TrajectoryTests.test_new_policy_requires_explicit_selector) ... ok
+test_new_route_preserves_end_and_effects (test_proxy_equivalence_trajectory.TrajectoryTests.test_new_route_preserves_end_and_effects) ... ok
+test_validation_replays_same_selector (test_proxy_equivalence_trajectory.TrajectoryTests.test_validation_replays_same_selector) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.970s
+
+OK

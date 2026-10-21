@@ -1,0 +1,13 @@
+......F......
+======================================================================
+FAIL: test_legacy_replay_matches_saved_results (test_proxy_resource_value_trajectory.TrajectoryTests.test_legacy_replay_matches_saved_results)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_trajectory.py", line 21, in test_legacy_replay_matches_saved_results
+    self.assertFalse(trajectory.compare_legacy_prefix(result,initial))
+AssertionError: ['historical event differs: 33', 'historical event differs: 34', 'historical event differs: 45', 'historical event differs: 46', 'historical snapshot differs: 33', 'historical snapshot differs: 45'] is not false
+
+----------------------------------------------------------------------
+Ran 13 tests in 22.694s
+
+FAILED (failures=1)

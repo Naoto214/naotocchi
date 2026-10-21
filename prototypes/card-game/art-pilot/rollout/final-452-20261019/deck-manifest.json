@@ -1,0 +1,4527 @@
+{
+  "count": 452,
+  "path_base": "prototypes/card-game/art-pilot/",
+  "legacy46_previews_preserved": true,
+  "cards": [
+    {
+      "id": "C-bat",
+      "name": "よふかしコウモリ",
+      "category": "companion",
+      "illustration": "illustrations/C-bat.png",
+      "preview": "previews/C-bat.png",
+      "small80": "previews/C-bat-80.png",
+      "small110": "previews/C-bat-110.png",
+      "sha256": "21563282173fa9ef707786df49eb59f921dc3dc286cd2eac189d995be0865bf0"
+    },
+    {
+      "id": "C-box",
+      "name": "ただのはこ",
+      "category": "companion",
+      "illustration": "illustrations/C-box.png",
+      "preview": "previews/C-box.png",
+      "small80": "previews/C-box-80.png",
+      "small110": "previews/C-box-110.png",
+      "sha256": "9be9e6b99b2d979ff726cb3705c2c5fe4cd5fca44021d9d14249723b687ad0e5"
+    },
+    {
+      "id": "C-cat_friend",
+      "name": "きまぐれなねこ",
+      "category": "companion",
+      "illustration": "illustrations/C-cat_friend.png",
+      "preview": "exports-approved/C-cat_friend.png",
+      "small80": "exports-approved/C-cat_friend-80.png",
+      "small110": "exports-approved/C-cat_friend-110.png",
+      "sha256": "786a5e8d2ab1a5b309f0b24a45b43b84e5ad6e07591aa64633aa8e363a83a23e"
+    },
+    {
+      "id": "C-chameleon",
+      "name": "サングラスのカメレオン",
+      "category": "companion",
+      "illustration": "illustrations/C-chameleon.png",
+      "preview": "previews/C-chameleon.png",
+      "small80": "previews/C-chameleon-80.png",
+      "small110": "previews/C-chameleon-110.png",
+      "sha256": "1c7728ffc1a4e9086c822d93d9b86a72242f1d656aa3ff87c9031bb27f9754c7"
+    },
+    {
+      "id": "C-chicken",
+      "name": "はやおきニワトリ",
+      "category": "companion",
+      "illustration": "illustrations/C-chicken.png",
+      "preview": "previews/C-chicken.png",
+      "small80": "previews/C-chicken-80.png",
+      "small110": "previews/C-chicken-110.png",
+      "sha256": "1890a6caea531d2ad15a97ca816acc3ebefea8569462fe38702236eb04ec111c"
+    },
+    {
+      "id": "C-clock",
+      "name": "じかんにルーズなとけい",
+      "category": "companion",
+      "illustration": "illustrations/C-clock.png",
+      "preview": "previews/C-clock.png",
+      "small80": "previews/C-clock-80.png",
+      "small110": "previews/C-clock-110.png",
+      "sha256": "a089eb1a1178ff725defac04ec2186d66a2744b9f4e8c634c988082ba9c78d45"
+    },
+    {
+      "id": "C-hamster",
+      "name": "ほおぶくろハムスター",
+      "category": "companion",
+      "illustration": "illustrations/C-hamster.png",
+      "preview": "previews/C-hamster.png",
+      "small80": "previews/C-hamster-80.png",
+      "small110": "previews/C-hamster-110.png",
+      "sha256": "bb1145ca011c8894ee1e135494c93788431f985757ff8531bf47a15ea37c955a"
+    },
+    {
+      "id": "C-hedgehog",
+      "name": "びっくりハリネズミ",
+      "category": "companion",
+      "illustration": "illustrations/C-hedgehog.png",
+      "preview": "previews/C-hedgehog.png",
+      "small80": "previews/C-hedgehog-80.png",
+      "small110": "previews/C-hedgehog-110.png",
+      "sha256": "2e1518a8f09327cd9f93c6a2b3f556484d0c9bc3d8473a729f9c7230b391dc23"
+    },
+    {
+      "id": "C-many_tail_fox",
+      "name": "しっぽのおおいきつね",
+      "category": "companion",
+      "illustration": "illustrations/C-many_tail_fox.png",
+      "preview": "previews/C-many_tail_fox.png",
+      "small80": "previews/C-many_tail_fox-80.png",
+      "small110": "previews/C-many_tail_fox-110.png",
+      "sha256": "78240b07ed39c0ab944031d77b105885c4a0642c73451503a39aa001d0af1927"
+    },
+    {
+      "id": "C-monkey",
+      "name": "まねっこサル",
+      "category": "companion",
+      "illustration": "illustrations/C-monkey.png",
+      "preview": "previews/C-monkey.png",
+      "small80": "previews/C-monkey-80.png",
+      "small110": "previews/C-monkey-110.png",
+      "sha256": "3f63c2980f9b3b45edc9104af09380d752eab4224e40dbc216724e74e5c9704e"
+    },
+    {
+      "id": "C-otter",
+      "name": "あそびずきカワウソ",
+      "category": "companion",
+      "illustration": "illustrations/C-otter.png",
+      "preview": "exports-approved/C-otter.png",
+      "small80": "exports-approved/C-otter-80.png",
+      "small110": "exports-approved/C-otter-110.png",
+      "sha256": "18c7dc50cfdfe39104ff9ea429537f17844ab07dab65dcfb1003693738c91470"
+    },
+    {
+      "id": "C-owl",
+      "name": "ものしりふくろう",
+      "category": "companion",
+      "illustration": "illustrations/C-owl.png",
+      "preview": "exports-approved/C-owl.png",
+      "small80": "exports-approved/C-owl-80.png",
+      "small110": "exports-approved/C-owl-110.png",
+      "sha256": "81d9f2a28bad6d26a053f72480bdbc955b1535bf75916da9173b6284a117f93b"
+    },
+    {
+      "id": "C-panda",
+      "name": "ぐうたらパンダ",
+      "category": "companion",
+      "illustration": "illustrations/C-panda.png",
+      "preview": "previews/C-panda.png",
+      "small80": "previews/C-panda-80.png",
+      "small110": "previews/C-panda-110.png",
+      "sha256": "ca27868eab3f16d6e2f0410f7e4a1e85c4a54181f53ed013578d8c57e25f4108"
+    },
+    {
+      "id": "C-parrot",
+      "name": "おしゃべりオウム",
+      "category": "companion",
+      "illustration": "illustrations/C-parrot.png",
+      "preview": "previews/C-parrot.png",
+      "small80": "previews/C-parrot-80.png",
+      "small110": "previews/C-parrot-110.png",
+      "sha256": "afc06922a84d20c14289dc6933fedd3792f0a3be8b477de0e1db90a379e6be4b"
+    },
+    {
+      "id": "C-penguin_friend",
+      "name": "すべりたがりペンギン",
+      "category": "companion",
+      "illustration": "illustrations/C-penguin_friend.png",
+      "preview": "previews/C-penguin_friend.png",
+      "small80": "previews/C-penguin_friend-80.png",
+      "small110": "previews/C-penguin_friend-110.png",
+      "sha256": "30b7225448a767d9002e6cfdca9779179b11a784907b15526d3f3721aa98c45b"
+    },
+    {
+      "id": "C-punyu",
+      "name": "とけかけのぷにゅ",
+      "category": "companion",
+      "illustration": "illustrations/C-punyu.png",
+      "preview": "previews/C-punyu.png",
+      "small80": "previews/C-punyu-80.png",
+      "small110": "previews/C-punyu-110.png",
+      "sha256": "d08df52e6cda28bd39a124e5f16fcb270553601a4fb3408ccdc875c3a9a4f966"
+    },
+    {
+      "id": "C-rabbit_friend",
+      "name": "すばしっこいうさぎ",
+      "category": "companion",
+      "illustration": "illustrations/C-rabbit_friend.png",
+      "preview": "previews/C-rabbit_friend.png",
+      "small80": "previews/C-rabbit_friend-80.png",
+      "small110": "previews/C-rabbit_friend-110.png",
+      "sha256": "a33a4989c5f6ba3155498b5fa88ce9e7bee5f6b4361ec3518184b97e2a9e208d"
+    },
+    {
+      "id": "C-seal",
+      "name": "ごろごろアザラシ",
+      "category": "companion",
+      "illustration": "illustrations/C-seal.png",
+      "preview": "previews/C-seal.png",
+      "small80": "previews/C-seal-80.png",
+      "small110": "previews/C-seal-110.png",
+      "sha256": "b0f12b38d5d100c2f2052ce1954c09b579d3cf95584ad939e2b56e3da93f1c6a"
+    },
+    {
+      "id": "C-sekizou",
+      "name": "むひょうじょうのせきぞう",
+      "category": "companion",
+      "illustration": "illustrations/C-sekizou.png",
+      "preview": "previews/C-sekizou.png",
+      "small80": "previews/C-sekizou-80.png",
+      "small110": "previews/C-sekizou-110.png",
+      "sha256": "35a391d42a994b7c526f5d85b2df9e7b10917dc0db73390d6e4c794a57ab7b84"
+    },
+    {
+      "id": "C-sheep",
+      "name": "ふわふわヒツジ",
+      "category": "companion",
+      "illustration": "illustrations/C-sheep.png",
+      "preview": "previews/C-sheep.png",
+      "small80": "previews/C-sheep-80.png",
+      "small110": "previews/C-sheep-110.png",
+      "sha256": "d5ee568c566c803fe3a8bca7a68bf7d047b453dbe7495ba3772d4ddf322ca922"
+    },
+    {
+      "id": "C-shiba",
+      "name": "ひとなつっこいしばいぬ",
+      "category": "companion",
+      "illustration": "illustrations/C-shiba.png",
+      "preview": "previews/C-shiba.png",
+      "small80": "previews/C-shiba-80.png",
+      "small110": "previews/C-shiba-110.png",
+      "sha256": "4e70cc84166786d53fb5267f6d926a5c61d2232ff9b247344aeb05f35417d33a"
+    },
+    {
+      "id": "C-snail",
+      "name": "せっかちなカタツムリ",
+      "category": "companion",
+      "illustration": "illustrations/C-snail.png",
+      "preview": "previews/C-snail.png",
+      "small80": "previews/C-snail-80.png",
+      "small110": "previews/C-snail-110.png",
+      "sha256": "f32ef4b12a807af59addcc97f9095045d8b0db52c7f4bd254a55a1fcc6b4f332"
+    },
+    {
+      "id": "C-squirrel",
+      "name": "おっちょこちょいリス",
+      "category": "companion",
+      "illustration": "illustrations/C-squirrel.png",
+      "preview": "previews/C-squirrel.png",
+      "small80": "previews/C-squirrel-80.png",
+      "small110": "previews/C-squirrel-110.png",
+      "sha256": "86c6c39a88093a3c16f7fda2f6f23d8c651a69133b261aeb98b75ea070dcbf73"
+    },
+    {
+      "id": "C-tanuki",
+      "name": "いたずらたぬき",
+      "category": "companion",
+      "illustration": "illustrations/C-tanuki.png",
+      "preview": "previews/C-tanuki.png",
+      "small80": "previews/C-tanuki-80.png",
+      "small110": "previews/C-tanuki-110.png",
+      "sha256": "fb7ee873d2bc9032b465259e821c0e113a4448289410be3430d444791d9479dd"
+    },
+    {
+      "id": "C-unicorn",
+      "name": "まよいこんだユニコーン",
+      "category": "companion",
+      "illustration": "illustrations/C-unicorn.png",
+      "preview": "previews/C-unicorn.png",
+      "small80": "previews/C-unicorn-80.png",
+      "small110": "previews/C-unicorn-110.png",
+      "sha256": "206ff1465db0fef8a9cd15752f5b4aeb96f250f7908e196e600d77bbe01a2f6c"
+    },
+    {
+      "id": "C-watcher",
+      "name": "みているなにか",
+      "category": "companion",
+      "illustration": "illustrations/C-watcher.png",
+      "preview": "previews/C-watcher.png",
+      "small80": "previews/C-watcher-80.png",
+      "small110": "previews/C-watcher-110.png",
+      "sha256": "d1f5dc6c96b929d357881b5839f9bb556efcaf0e578990f6dd62f966d79f5f23"
+    },
+    {
+      "id": "E-big-illness",
+      "name": "おおきなびょうき",
+      "category": "event",
+      "illustration": "illustrations/E-big-illness.png",
+      "preview": "previews/E-big-illness.png",
+      "small80": "previews/E-big-illness-80.png",
+      "small110": "previews/E-big-illness-110.png",
+      "sha256": "7e92e13c3b9add9fe45f44b08325bb9ca29419d0f2b577f47ad5071e148d8de9"
+    },
+    {
+      "id": "E-boss",
+      "name": "あやまりにきただいおういか",
+      "category": "event",
+      "illustration": "illustrations/E-boss.png",
+      "preview": "previews/E-boss.png",
+      "small80": "previews/E-boss-80.png",
+      "small110": "previews/E-boss-110.png",
+      "sha256": "ad0df242637e53d807a1381a21abb8ad4cf6fe7853d7edf4cfc9125ff00cc924"
+    },
+    {
+      "id": "E-fateful-transform",
+      "name": "うんめいのへんしん",
+      "category": "event",
+      "illustration": "illustrations/E-fateful-transform.png",
+      "preview": "previews/E-fateful-transform.png",
+      "small80": "previews/E-fateful-transform-80.png",
+      "small110": "previews/E-fateful-transform-110.png",
+      "sha256": "dec3863d2839526c2898546461c9245bd75ab86b4d2f157df4c433386c835f27"
+    },
+    {
+      "id": "E-final-time",
+      "name": "さいごのじかん",
+      "category": "event",
+      "illustration": "illustrations/E-final-time.png",
+      "preview": "previews/E-final-time.png",
+      "small80": "previews/E-final-time-80.png",
+      "small110": "previews/E-final-time-110.png",
+      "sha256": "a72ac6612f5e5819208fe4066ed582a1aba8704b118f83a4728b6ae25fe2cb93"
+    },
+    {
+      "id": "E-first-date",
+      "name": "はじめてのデート",
+      "category": "event",
+      "illustration": "illustrations/E-first-date.png",
+      "preview": "previews/E-first-date.png",
+      "small80": "previews/E-first-date-80.png",
+      "small110": "previews/E-first-date-110.png",
+      "sha256": "c93631343329baca3f702a3f1fca473de11aade2db9790af82309e9dcb34037d"
+    },
+    {
+      "id": "E-gate",
+      "name": "そらにうかぶとりい",
+      "category": "event",
+      "illustration": "illustrations/E-gate.png",
+      "preview": "previews/E-gate.png",
+      "small80": "previews/E-gate-80.png",
+      "small110": "previews/E-gate-110.png",
+      "sha256": "694ca0419ca62199b1e6ce0bfb9445894c8a5f818970e57cf7fef420b5c0e74a"
+    },
+    {
+      "id": "E-lamp",
+      "name": "よなかのあかり",
+      "category": "event",
+      "illustration": "illustrations/E-lamp.png",
+      "preview": "previews/E-lamp.png",
+      "small80": "previews/E-lamp-80.png",
+      "small110": "previews/E-lamp-110.png",
+      "sha256": "166027d1a356b160c88bb2663fccdf6b92e0bacb98397f37bf60f69593134f89"
+    },
+    {
+      "id": "E-midlife-50th",
+      "name": "50さいのお祝い",
+      "category": "event",
+      "illustration": "illustrations/E-midlife-50th.png",
+      "preview": "previews/E-midlife-50th.png",
+      "small80": "previews/E-midlife-50th-80.png",
+      "small110": "previews/E-midlife-50th-110.png",
+      "sha256": "469bd900f8ededefd1df10c72051410bddd20b606369a5aa956a69101ec51e3f"
+    },
+    {
+      "id": "E-midlife-album",
+      "name": "昔のアルバム",
+      "category": "event",
+      "illustration": "illustrations/E-midlife-album.png",
+      "preview": "previews/E-midlife-album.png",
+      "small80": "previews/E-midlife-album-80.png",
+      "small110": "previews/E-midlife-album-110.png",
+      "sha256": "63387026cb808907af64cb353306512b61f97b656d64e18ade02904f47808a52"
+    },
+    {
+      "id": "E-midlife-flower",
+      "name": "庭に小さな花を植えた",
+      "category": "event",
+      "illustration": "illustrations/E-midlife-flower.png",
+      "preview": "exports-approved/E-midlife-flower.png",
+      "small80": "exports-approved/E-midlife-flower-80.png",
+      "small110": "exports-approved/E-midlife-flower-110.png",
+      "sha256": "ee478dd299af16464ea243ea24e52957a59d2f5d4417857ab98c61ed9322ae89"
+    },
+    {
+      "id": "E-midlife-hobby",
+      "name": "趣味を見つけた",
+      "category": "event",
+      "illustration": "illustrations/E-midlife-hobby.png",
+      "preview": "previews/E-midlife-hobby.png",
+      "small80": "previews/E-midlife-hobby-80.png",
+      "small110": "previews/E-midlife-hobby-110.png",
+      "sha256": "bd8834e623de87daa58745a289a1bd57e30cbbb0810918eccf3ddeb1cadd77f9"
+    },
+    {
+      "id": "E-midlife-travel-plan",
+      "name": "小さな旅の計画",
+      "category": "event",
+      "illustration": "illustrations/E-midlife-travel-plan.png",
+      "preview": "previews/E-midlife-travel-plan.png",
+      "small80": "previews/E-midlife-travel-plan-80.png",
+      "small110": "previews/E-midlife-travel-plan-110.png",
+      "sha256": "24057349fcd372ee5954abfaff4d92c70625550c5f54382c5082ab5bc76a7263"
+    },
+    {
+      "id": "E-mirror",
+      "name": "としをとったじぶん",
+      "category": "event",
+      "illustration": "illustrations/E-mirror.png",
+      "preview": "previews/E-mirror.png",
+      "small80": "previews/E-mirror-80.png",
+      "small110": "previews/E-mirror-110.png",
+      "sha256": "ea005c5ab45a70c9c45b4c9e8c418f086479eb369c04cb29989f988acf51ddbb"
+    },
+    {
+      "id": "E-misunderstanding",
+      "name": "すれちがい",
+      "category": "event",
+      "illustration": "illustrations/E-misunderstanding.png",
+      "preview": "previews/E-misunderstanding.png",
+      "small80": "previews/E-misunderstanding-80.png",
+      "small110": "previews/E-misunderstanding-110.png",
+      "sha256": "8f4c7509dd3ef63f5ae31ae0f79c6331400f66681f09fe35b5877b655817e46c"
+    },
+    {
+      "id": "E-naoto",
+      "name": "なおと",
+      "category": "event",
+      "illustration": "illustrations/E-naoto.png",
+      "preview": "previews/E-naoto.png",
+      "small80": "previews/E-naoto-80.png",
+      "small110": "previews/E-naoto-110.png",
+      "sha256": "f8f3a9f5b2e6b52dbc25e1c6c573082de6ad833e549c94dcfa01c1a7ca0b3521"
+    },
+    {
+      "id": "E-new-encounter",
+      "name": "あたらしいであい",
+      "category": "event",
+      "illustration": "illustrations/E-new-encounter.png",
+      "preview": "exports-approved/E-new-encounter.png",
+      "small80": "exports-approved/E-new-encounter-80.png",
+      "small110": "exports-approved/E-new-encounter-110.png",
+      "sha256": "db7430004a351f90fc26b0376f34d2d21b0b4a9d9764f88c0808fcd9af87c9ec"
+    },
+    {
+      "id": "E-reconciliation",
+      "name": "なかなおり",
+      "category": "event",
+      "illustration": "illustrations/E-reconciliation.png",
+      "preview": "previews/E-reconciliation.png",
+      "small80": "previews/E-reconciliation-80.png",
+      "small110": "previews/E-reconciliation-110.png",
+      "sha256": "40e48de1d817cecc3a025ee37b2fa8c2d1eda9da2d4daf64513923453a681e04"
+    },
+    {
+      "id": "E-special-trip-memory",
+      "name": "とくべつなたびのおもいで",
+      "category": "event",
+      "illustration": "illustrations/E-special-trip-memory.png",
+      "preview": "previews/E-special-trip-memory.png",
+      "small80": "previews/E-special-trip-memory-80.png",
+      "small110": "previews/E-special-trip-memory-110.png",
+      "sha256": "852511e863d60ce0c45341bf0b2d330ccd8f78f20627d3445fbd5fed086dd6a1"
+    },
+    {
+      "id": "E-stairs",
+      "name": "どこにもつながらないかいだん",
+      "category": "event",
+      "illustration": "illustrations/E-stairs.png",
+      "preview": "previews/E-stairs.png",
+      "small80": "previews/E-stairs-80.png",
+      "small110": "previews/E-stairs-110.png",
+      "sha256": "3b9aaefbb0c723f4440066d883e693aac17ceead53cc01e4529a4fe65717d1e5"
+    },
+    {
+      "id": "E-sudden-trip",
+      "name": "とつぜんのたび",
+      "category": "event",
+      "illustration": "illustrations/E-sudden-trip.png",
+      "preview": "previews/E-sudden-trip.png",
+      "small80": "previews/E-sudden-trip-80.png",
+      "small110": "previews/E-sudden-trip-110.png",
+      "sha256": "a960ca6adb4dad445356b21a44f5add3ecd5c8114b9ad6fdbef5f27d5c189615"
+    },
+    {
+      "id": "E-wedding-anniversary",
+      "name": "けっこんきねんび",
+      "category": "event",
+      "illustration": "illustrations/E-wedding-anniversary.png",
+      "preview": "previews/E-wedding-anniversary.png",
+      "small80": "previews/E-wedding-anniversary-80.png",
+      "small110": "previews/E-wedding-anniversary-110.png",
+      "sha256": "31270e4bd5b6c077c241ad32494ead073ddc76e63fbcab066d0729fee104452e"
+    },
+    {
+      "id": "G-air-hockey",
+      "name": "エアホッケー",
+      "category": "play",
+      "illustration": "illustrations/G-air-hockey.png",
+      "preview": "previews/G-air-hockey.png",
+      "small80": "previews/G-air-hockey-80.png",
+      "small110": "previews/G-air-hockey-110.png",
+      "sha256": "b56a412e92e45e3288fe6e4c13dfd667f9b5fd4763b9b6f4e4fc63bc6a6828dd"
+    },
+    {
+      "id": "G-animal-shogi",
+      "name": "どうぶつしょうぎ",
+      "category": "play",
+      "illustration": "illustrations/G-animal-shogi.png",
+      "preview": "previews/G-animal-shogi.png",
+      "small80": "previews/G-animal-shogi-80.png",
+      "small110": "previews/G-animal-shogi-110.png",
+      "sha256": "f2da7a5d377a06b08ed7f50e9f3ff5b3030b67dd6e3ad7d8a1e061dd35f6b330"
+    },
+    {
+      "id": "G-archery-3d",
+      "name": "アーチェリー",
+      "category": "play",
+      "illustration": "illustrations/G-archery-3d.png",
+      "preview": "previews/G-archery-3d.png",
+      "small80": "previews/G-archery-3d-80.png",
+      "small110": "previews/G-archery-3d-110.png",
+      "sha256": "5398a8dae626bfceb9c9ba88d62846db1b23e8fef03ca0066e5fc89a6ab7b053"
+    },
+    {
+      "id": "G-area-claim",
+      "name": "じんとり",
+      "category": "play",
+      "illustration": "illustrations/G-area-claim.png",
+      "preview": "previews/G-area-claim.png",
+      "small80": "previews/G-area-claim-80.png",
+      "small110": "previews/G-area-claim-110.png",
+      "sha256": "818a1a554a7e97f2a414d91a1d08872ec5bb5d5a16182ed7dcda075e1cc6b83e"
+    },
+    {
+      "id": "G-asteroids-classic",
+      "name": "アステロイド",
+      "category": "play",
+      "illustration": "illustrations/G-asteroids-classic.png",
+      "preview": "previews/G-asteroids-classic.png",
+      "small80": "previews/G-asteroids-classic-80.png",
+      "small110": "previews/G-asteroids-classic-110.png",
+      "sha256": "b083645a71982175d935a79cdb20a563378648ef8d8d0c111fff64b0e208f218"
+    },
+    {
+      "id": "G-baseball-batting",
+      "name": "やきゅう",
+      "category": "play",
+      "illustration": "illustrations/G-baseball-batting.png",
+      "preview": "previews/G-baseball-batting.png",
+      "small80": "previews/G-baseball-batting-80.png",
+      "small110": "previews/G-baseball-batting-110.png",
+      "sha256": "e2d2463541fde71f2b064d7bffdabcaa1b4a5d89ef42050a713a78ae512a28ea"
+    },
+    {
+      "id": "G-basketball-3d",
+      "name": "バスケ3D",
+      "category": "play",
+      "illustration": "illustrations/G-basketball-3d.png",
+      "preview": "previews/G-basketball-3d.png",
+      "small80": "previews/G-basketball-3d-80.png",
+      "small110": "previews/G-basketball-3d-110.png",
+      "sha256": "20f5fde0f6f5636cb3b2d47ad06be7c018c56386a78b23b5bee2c34694e910ea"
+    },
+    {
+      "id": "G-beach-volley",
+      "name": "ビーチバレー",
+      "category": "play",
+      "illustration": "illustrations/G-beach-volley.png",
+      "preview": "exports-approved/G-beach-volley.png",
+      "small80": "exports-approved/G-beach-volley-80.png",
+      "small110": "exports-approved/G-beach-volley-110.png",
+      "sha256": "461ba51e7a1e91e8767a301a88fe1663a7dc9e7992e7a2e94a87224957093f89"
+    },
+    {
+      "id": "G-billiards-6",
+      "name": "ビリヤード",
+      "category": "play",
+      "illustration": "illustrations/G-billiards-6.png",
+      "preview": "previews/G-billiards-6.png",
+      "small80": "previews/G-billiards-6-80.png",
+      "small110": "previews/G-billiards-6-110.png",
+      "sha256": "6f464f8aa931a324f19c3ad91f3b8e33e94b035aee675e58d38933ac66e3e6b8"
+    },
+    {
+      "id": "G-blackjack-21",
+      "name": "ブラックジャック",
+      "category": "play",
+      "illustration": "illustrations/G-blackjack-21.png",
+      "preview": "previews/G-blackjack-21.png",
+      "small80": "previews/G-blackjack-21-80.png",
+      "small110": "previews/G-blackjack-21-110.png",
+      "sha256": "2c6a7fadb94814a068d69a117153693072288cca3d6f23bd55df529181d4b64d"
+    },
+    {
+      "id": "G-bomber-maze",
+      "name": "ボンバー",
+      "category": "play",
+      "illustration": "illustrations/G-bomber-maze.png",
+      "preview": "previews/G-bomber-maze.png",
+      "small80": "previews/G-bomber-maze-80.png",
+      "small110": "previews/G-bomber-maze-110.png",
+      "sha256": "307f09bd922777f3f94e35607d8ccdb1f33bbb3cf017dbe417e9835d07c12ae4"
+    },
+    {
+      "id": "G-bowling-3d",
+      "name": "ボウリング",
+      "category": "play",
+      "illustration": "illustrations/G-bowling-3d.png",
+      "preview": "previews/G-bowling-3d.png",
+      "small80": "previews/G-bowling-3d-80.png",
+      "small110": "previews/G-bowling-3d-110.png",
+      "sha256": "514467a7b5e74ecef076209a60ad91012c7ad315411a14470d3d03bce55c9bd1"
+    },
+    {
+      "id": "G-breakout-classic",
+      "name": "ブロックくずし",
+      "category": "play",
+      "illustration": "illustrations/G-breakout-classic.png",
+      "preview": "previews/G-breakout-classic.png",
+      "small80": "previews/G-breakout-classic-80.png",
+      "small110": "previews/G-breakout-classic-110.png",
+      "sha256": "6abc446872805e2d089dfaf7bbc26393658436b49571ddb1ac4e87f1abc71213"
+    },
+    {
+      "id": "G-bubble-shooter",
+      "name": "バブルシューター",
+      "category": "play",
+      "illustration": "illustrations/G-bubble-shooter.png",
+      "preview": "previews/G-bubble-shooter.png",
+      "small80": "previews/G-bubble-shooter-80.png",
+      "small110": "previews/G-bubble-shooter-110.png",
+      "sha256": "7520bf1887278e56c99fd34b203318382211bfcdd1def50f57bd4c6248238b72"
+    },
+    {
+      "id": "G-catapult-castle",
+      "name": "カタパルト",
+      "category": "play",
+      "illustration": "illustrations/G-catapult-castle.png",
+      "preview": "previews/G-catapult-castle.png",
+      "small80": "previews/G-catapult-castle-80.png",
+      "small110": "previews/G-catapult-castle-110.png",
+      "sha256": "7d9bfd724e5247fdfca980668c5ab27cd155605360dfb0ca9197870c4fcc4168"
+    },
+    {
+      "id": "G-chain-puzzle",
+      "name": "れんさパズル",
+      "category": "play",
+      "illustration": "illustrations/G-chain-puzzle.png",
+      "preview": "previews/G-chain-puzzle.png",
+      "small80": "previews/G-chain-puzzle-80.png",
+      "small110": "previews/G-chain-puzzle-110.png",
+      "sha256": "7ff8c2f8e66cf40375a85a1a453006d53a7c0e30b4608d9b9594bdde711794e7"
+    },
+    {
+      "id": "G-checkers-6",
+      "name": "チェッカー",
+      "category": "play",
+      "illustration": "illustrations/G-checkers-6.png",
+      "preview": "previews/G-checkers-6.png",
+      "small80": "previews/G-checkers-6-80.png",
+      "small110": "previews/G-checkers-6-110.png",
+      "sha256": "0702a14a998bc84b0268ab85cca066448c8e1b20e29dabf99e60222136b07794"
+    },
+    {
+      "id": "G-connect-four",
+      "name": "コネクトフォー",
+      "category": "play",
+      "illustration": "illustrations/G-connect-four.png",
+      "preview": "previews/G-connect-four.png",
+      "small80": "previews/G-connect-four-80.png",
+      "small110": "previews/G-connect-four-110.png",
+      "sha256": "6bade1285fcdbd9b37613a286b547f045871a317b20ad40f03bc5c9aa0310c7e"
+    },
+    {
+      "id": "G-crane-game-3d",
+      "name": "クレーンゲーム",
+      "category": "play",
+      "illustration": "illustrations/G-crane-game-3d.png",
+      "preview": "previews/G-crane-game-3d.png",
+      "small80": "previews/G-crane-game-3d-80.png",
+      "small110": "previews/G-crane-game-3d-110.png",
+      "sha256": "64ab3628d0a8b8fc5d828e58ccdf9fc495040a9df912c662cdf3c0cc629ac5a0"
+    },
+    {
+      "id": "G-curling-ice",
+      "name": "カーリング",
+      "category": "play",
+      "illustration": "illustrations/G-curling-ice.png",
+      "preview": "previews/G-curling-ice.png",
+      "small80": "previews/G-curling-ice-80.png",
+      "small110": "previews/G-curling-ice-110.png",
+      "sha256": "17e1c72255e99bf521348cbda32f3e7979ce9815934240a1ae27515bd3c8a975"
+    },
+    {
+      "id": "G-curling-winter",
+      "name": "ふゆのカーリング大会",
+      "category": "play",
+      "illustration": "illustrations/G-curling-winter.png",
+      "preview": "previews/G-curling-winter.png",
+      "small80": "previews/G-curling-winter-80.png",
+      "small110": "previews/G-curling-winter-110.png",
+      "sha256": "2d35a6e8cbcd012026785385a13be03eb5324497f02b53f3540431c374cbda16"
+    },
+    {
+      "id": "G-darts-board",
+      "name": "ダーツ",
+      "category": "play",
+      "illustration": "illustrations/G-darts-board.png",
+      "preview": "previews/G-darts-board.png",
+      "small80": "previews/G-darts-board-80.png",
+      "small110": "previews/G-darts-board-110.png",
+      "sha256": "257bc8e909ff83768d93099918801d5f18d05d85f95f3095faf552ec1313922b"
+    },
+    {
+      "id": "G-domino-run",
+      "name": "ドミノたおし",
+      "category": "play",
+      "illustration": "illustrations/G-domino-run.png",
+      "preview": "previews/G-domino-run.png",
+      "small80": "previews/G-domino-run-80.png",
+      "small110": "previews/G-domino-run-110.png",
+      "sha256": "97f126fb62c883d37e59c22571c2a3841a886f3ffd516a056a0ac8a4c0e98def"
+    },
+    {
+      "id": "G-doodle-jump",
+      "name": "ぴょんぴょんジャンプ",
+      "category": "play",
+      "illustration": "illustrations/G-doodle-jump.png",
+      "preview": "previews/G-doodle-jump.png",
+      "small80": "previews/G-doodle-jump-80.png",
+      "small110": "previews/G-doodle-jump-110.png",
+      "sha256": "7768c623f6dcf6b8db07c21a432c168658c663fc18521c27c2aef9c813d186fd"
+    },
+    {
+      "id": "G-dot-eater",
+      "name": "ドットイーター",
+      "category": "play",
+      "illustration": "illustrations/G-dot-eater.png",
+      "preview": "previews/G-dot-eater.png",
+      "small80": "previews/G-dot-eater-80.png",
+      "small110": "previews/G-dot-eater-110.png",
+      "sha256": "da3ad41d32daa4d3c6ec4bffeaec71d46778fc8e0ac0b44662397550ea7f219d"
+    },
+    {
+      "id": "G-downhill-mountain",
+      "name": "やまの岩場のぼり",
+      "category": "play",
+      "illustration": "illustrations/G-downhill-mountain.png",
+      "preview": "previews/G-downhill-mountain.png",
+      "small80": "previews/G-downhill-mountain-80.png",
+      "small110": "previews/G-downhill-mountain-110.png",
+      "sha256": "000dd264c20ffb44e14b863bbd064a55ab56a22a2f102aefb8d9d54f952c7f9b"
+    },
+    {
+      "id": "G-downhill-snow",
+      "name": "ゆきのゲレンデ",
+      "category": "play",
+      "illustration": "illustrations/G-downhill-snow.png",
+      "preview": "previews/G-downhill-snow.png",
+      "small80": "previews/G-downhill-snow-80.png",
+      "small110": "previews/G-downhill-snow-110.png",
+      "sha256": "0b6c7960479b50c102fc4bcc498aebba49ea0159a161871f32b3b80ebb82eff4"
+    },
+    {
+      "id": "G-dragDecorate-bento",
+      "name": "おべんとうづくり",
+      "category": "play",
+      "illustration": "illustrations/G-dragDecorate-bento.png",
+      "preview": "previews/G-dragDecorate-bento.png",
+      "small80": "previews/G-dragDecorate-bento-80.png",
+      "small110": "previews/G-dragDecorate-bento-110.png",
+      "sha256": "a12a0081aad7fe5b60cae93f1eaa24b63a74b204501f1f8140b165a8cea834fc"
+    },
+    {
+      "id": "G-dragDecorate-cake",
+      "name": "ケーキのかざりつけ",
+      "category": "play",
+      "illustration": "illustrations/G-dragDecorate-cake.png",
+      "preview": "exports-approved/G-dragDecorate-cake.png",
+      "small80": "exports-approved/G-dragDecorate-cake-80.png",
+      "small110": "exports-approved/G-dragDecorate-cake-110.png",
+      "sha256": "3dcb1098d25403f2fc4ec2fd3984d72b9d926d09cf40b6392f9326e86690f074"
+    },
+    {
+      "id": "G-falling-block-puzzle",
+      "name": "ブロックパズル",
+      "category": "play",
+      "illustration": "illustrations/G-falling-block-puzzle.png",
+      "preview": "previews/G-falling-block-puzzle.png",
+      "small80": "previews/G-falling-block-puzzle-80.png",
+      "small110": "previews/G-falling-block-puzzle-110.png",
+      "sha256": "7b258b00e300e039a07494c2c79dd41b119cdc6e738d52a1c72e6251931aa03a"
+    },
+    {
+      "id": "G-fishing-deepsea",
+      "name": "しんかいフィッシング",
+      "category": "play",
+      "illustration": "illustrations/G-fishing-deepsea.png",
+      "preview": "previews/G-fishing-deepsea.png",
+      "small80": "previews/G-fishing-deepsea-80.png",
+      "small110": "previews/G-fishing-deepsea-110.png",
+      "sha256": "1632f5fa7d022c7aee924b2fd28d66cc3686cb0e4864803fd747c4aa967ae1dd"
+    },
+    {
+      "id": "G-fishing-river",
+      "name": "みずべのさかなつり",
+      "category": "play",
+      "illustration": "illustrations/G-fishing-river.png",
+      "preview": "exports-approved/G-fishing-river.png",
+      "small80": "exports-approved/G-fishing-river-80.png",
+      "small110": "exports-approved/G-fishing-river-110.png",
+      "sha256": "944cb7911d5aa3fc4ff7bdc95a3619b399901008bd956ee2deecbb0b79bcaa72"
+    },
+    {
+      "id": "G-fishing-sea",
+      "name": "うみのさかなつり",
+      "category": "play",
+      "illustration": "illustrations/G-fishing-sea.png",
+      "preview": "previews/G-fishing-sea.png",
+      "small80": "previews/G-fishing-sea-80.png",
+      "small110": "previews/G-fishing-sea-110.png",
+      "sha256": "3c669de2c3cc8ba210b2a9db45b422b7ad021c2571078c870d135a9d3ef78e0c"
+    },
+    {
+      "id": "G-fp-dungeon",
+      "name": "たからさがしダンジョン",
+      "category": "play",
+      "illustration": "illustrations/G-fp-dungeon.png",
+      "preview": "previews/G-fp-dungeon.png",
+      "small80": "previews/G-fp-dungeon-80.png",
+      "small110": "previews/G-fp-dungeon-110.png",
+      "sha256": "0cf8f0950655e99a855c21d24d1171ae41872f24a71afaec5295532d8f43d1fc"
+    },
+    {
+      "id": "G-free-kick-3d",
+      "name": "フリーキック",
+      "category": "play",
+      "illustration": "illustrations/G-free-kick-3d.png",
+      "preview": "previews/G-free-kick-3d.png",
+      "small80": "previews/G-free-kick-3d-80.png",
+      "small110": "previews/G-free-kick-3d-110.png",
+      "sha256": "b282f1a79001527f7ec592a5e0f5fda8f7825924d3758eb5a39d2111c5194f6e"
+    },
+    {
+      "id": "G-frogger-road",
+      "name": "かえるのおうちがえり",
+      "category": "play",
+      "illustration": "illustrations/G-frogger-road.png",
+      "preview": "previews/G-frogger-road.png",
+      "small80": "previews/G-frogger-road-80.png",
+      "small110": "previews/G-frogger-road-110.png",
+      "sha256": "1feab6bd0c5643ddcfac4f49196d58a6b7307376079d58edb1eef942f3c6ee1d"
+    },
+    {
+      "id": "G-fruit-slice",
+      "name": "フルーツ斬り",
+      "category": "play",
+      "illustration": "illustrations/G-fruit-slice.png",
+      "preview": "previews/G-fruit-slice.png",
+      "small80": "previews/G-fruit-slice-80.png",
+      "small110": "previews/G-fruit-slice-110.png",
+      "sha256": "cc99d91ad2451b207b23147f7e168f3288eac5b035ccb025123a5223abd24124"
+    },
+    {
+      "id": "G-gomoku-9",
+      "name": "五目ならべ",
+      "category": "play",
+      "illustration": "illustrations/G-gomoku-9.png",
+      "preview": "previews/G-gomoku-9.png",
+      "small80": "previews/G-gomoku-9-80.png",
+      "small110": "previews/G-gomoku-9-110.png",
+      "sha256": "66ec04bcf2fb89cf09ea45ba278e1c2f974b492b98c2ebda4c9b8553e99c49ed"
+    },
+    {
+      "id": "G-grand-prix-3d",
+      "name": "グランプリ",
+      "category": "play",
+      "illustration": "illustrations/G-grand-prix-3d.png",
+      "preview": "previews/G-grand-prix-3d.png",
+      "small80": "previews/G-grand-prix-3d-80.png",
+      "small110": "previews/G-grand-prix-3d-110.png",
+      "sha256": "0d0cb7c7698e692d9c8673fd9b00138db243bbf58157bf81f75eda979b6439da"
+    },
+    {
+      "id": "G-halfpipe-skate",
+      "name": "ハーフパイプ",
+      "category": "play",
+      "illustration": "illustrations/G-halfpipe-skate.png",
+      "preview": "previews/G-halfpipe-skate.png",
+      "small80": "previews/G-halfpipe-skate-80.png",
+      "small110": "previews/G-halfpipe-skate-110.png",
+      "sha256": "c4f1703c911341802c2db652c002e107d8449fb215209010ab22ae507b089b49"
+    },
+    {
+      "id": "G-hang-glider-3d",
+      "name": "ハンググライダー3D",
+      "category": "play",
+      "illustration": "illustrations/G-hang-glider-3d.png",
+      "preview": "previews/G-hang-glider-3d.png",
+      "small80": "previews/G-hang-glider-3d-80.png",
+      "small110": "previews/G-hang-glider-3d-110.png",
+      "sha256": "188a8639f3edc5638926550a3401ea25a5806c1bcddda54fcd4875e18c9f4786"
+    },
+    {
+      "id": "G-haunted-house-3d",
+      "name": "おばけやしき",
+      "category": "play",
+      "illustration": "illustrations/G-haunted-house-3d.png",
+      "preview": "previews/G-haunted-house-3d.png",
+      "small80": "previews/G-haunted-house-3d-80.png",
+      "small110": "previews/G-haunted-house-3d-110.png",
+      "sha256": "ff4628d63d0ee5123b62b055824ec59f6dbeb5f03ee7ad5e51da9e0fc0a3f6de"
+    },
+    {
+      "id": "G-hit-blow",
+      "name": "ヒット&ブロー",
+      "category": "play",
+      "illustration": "illustrations/G-hit-blow.png",
+      "preview": "previews/G-hit-blow.png",
+      "small80": "previews/G-hit-blow-80.png",
+      "small110": "previews/G-hit-blow-110.png",
+      "sha256": "e422f8c7855f2424ef722db043e721589947e8c45ebc3e601817abf8d24038a9"
+    },
+    {
+      "id": "G-jenga-tower",
+      "name": "ジェンガ",
+      "category": "play",
+      "illustration": "illustrations/G-jenga-tower.png",
+      "preview": "previews/G-jenga-tower.png",
+      "small80": "previews/G-jenga-tower-80.png",
+      "small110": "previews/G-jenga-tower-110.png",
+      "sha256": "d5a5319b52d106fbcd84245a3a73eeb24c53e5e51f339f5f3d611f3ccc460905"
+    },
+    {
+      "id": "G-jump-quest",
+      "name": "ジャンプクエスト",
+      "category": "play",
+      "illustration": "illustrations/G-jump-quest.png",
+      "preview": "previews/G-jump-quest.png",
+      "small80": "previews/G-jump-quest-80.png",
+      "small110": "previews/G-jump-quest-110.png",
+      "sha256": "6a78448005230b9418a5eedec136c8086096488f8a9c404fbbbad72dc92a5a02"
+    },
+    {
+      "id": "G-lights-out",
+      "name": "ライツアウト",
+      "category": "play",
+      "illustration": "illustrations/G-lights-out.png",
+      "preview": "previews/G-lights-out.png",
+      "small80": "previews/G-lights-out-80.png",
+      "small110": "previews/G-lights-out-110.png",
+      "sha256": "73513ef16caaff8f0a1e860023321829614c078242253e57f7f2190fdd77d947"
+    },
+    {
+      "id": "G-line-trace",
+      "name": "せんなぞり",
+      "category": "play",
+      "illustration": "illustrations/G-line-trace.png",
+      "preview": "previews/G-line-trace.png",
+      "small80": "previews/G-line-trace-80.png",
+      "small110": "previews/G-line-trace-110.png",
+      "sha256": "e4d807e9ea95b9e66e9718927529a85661807dfdadae9daa04c3f79adf3becc8"
+    },
+    {
+      "id": "G-lunar-lander",
+      "name": "ルナランダー",
+      "category": "play",
+      "illustration": "illustrations/G-lunar-lander.png",
+      "preview": "previews/G-lunar-lander.png",
+      "small80": "previews/G-lunar-lander-80.png",
+      "small110": "previews/G-lunar-lander-110.png",
+      "sha256": "0973fc4a17ff94379d01bedcdc80bdd008efb83bec8a019051cbbb8750b2b83e"
+    },
+    {
+      "id": "G-mancala-kalah",
+      "name": "マンカラ",
+      "category": "play",
+      "illustration": "illustrations/G-mancala-kalah.png",
+      "preview": "previews/G-mancala-kalah.png",
+      "small80": "previews/G-mancala-kalah-80.png",
+      "small110": "previews/G-mancala-kalah-110.png",
+      "sha256": "8dea5e2be50f298d2a8c03c28fb0185e1e6964b7a1ce6d6ba58167e92d0e41a8"
+    },
+    {
+      "id": "G-match-3",
+      "name": "フルーツマッチ3",
+      "category": "play",
+      "illustration": "illustrations/G-match-3.png",
+      "preview": "previews/G-match-3.png",
+      "small80": "previews/G-match-3-80.png",
+      "small110": "previews/G-match-3-110.png",
+      "sha256": "46f0bfc55c9adbe529c55c65da8412ba4d8749ededf3dd8843711c9459e51208"
+    },
+    {
+      "id": "G-memory-cards",
+      "name": "しんけいすいじゃく",
+      "category": "play",
+      "illustration": "illustrations/G-memory-cards.png",
+      "preview": "previews/G-memory-cards.png",
+      "small80": "previews/G-memory-cards-80.png",
+      "small110": "previews/G-memory-cards-110.png",
+      "sha256": "75263ab2c634c39f83d4fe1f503133e223f4c3a2f8372d8831d282cf70c8c55b"
+    },
+    {
+      "id": "G-minesweeper-8",
+      "name": "マインスイーパー",
+      "category": "play",
+      "illustration": "illustrations/G-minesweeper-8.png",
+      "preview": "previews/G-minesweeper-8.png",
+      "small80": "previews/G-minesweeper-8-80.png",
+      "small110": "previews/G-minesweeper-8-110.png",
+      "sha256": "c852326131da4f18ad31b854a809264c3de78b00b6f798264160163988dd0049"
+    },
+    {
+      "id": "G-mini-golf-physics",
+      "name": "ミニゴルフ",
+      "category": "play",
+      "illustration": "illustrations/G-mini-golf-physics.png",
+      "preview": "previews/G-mini-golf-physics.png",
+      "small80": "previews/G-mini-golf-physics-80.png",
+      "small110": "previews/G-mini-golf-physics-110.png",
+      "sha256": "bcc20ee07210e704e7cb31eb5a3e1aa277a37bd7b31b46c6b38716e589c2946c"
+    },
+    {
+      "id": "G-missile-command",
+      "name": "ミサイルコマンド",
+      "category": "play",
+      "illustration": "illustrations/G-missile-command.png",
+      "preview": "previews/G-missile-command.png",
+      "small80": "previews/G-missile-command-80.png",
+      "small110": "previews/G-missile-command-110.png",
+      "sha256": "b7e62d903a02524dedb22279109a218291883eff17758a6637a1adcc3cc7ec6f"
+    },
+    {
+      "id": "G-p3-drive",
+      "name": "ハイウェイドライブ",
+      "category": "play",
+      "illustration": "illustrations/G-p3-drive.png",
+      "preview": "previews/G-p3-drive.png",
+      "small80": "previews/G-p3-drive-80.png",
+      "small110": "previews/G-p3-drive-110.png",
+      "sha256": "8005386d07cb0c985fd879572b49ecf947433ec74bf4f651c2940245ed28a59d"
+    },
+    {
+      "id": "G-p3-space",
+      "name": "うちゅうフライト",
+      "category": "play",
+      "illustration": "illustrations/G-p3-space.png",
+      "preview": "previews/G-p3-space.png",
+      "small80": "previews/G-p3-space-80.png",
+      "small110": "previews/G-p3-space-110.png",
+      "sha256": "9624eb5dcd12c6e59cca7c684af21a47c921e2201475893b4d64ee151c69dbbb"
+    },
+    {
+      "id": "G-picross-5",
+      "name": "ピクロス",
+      "category": "play",
+      "illustration": "illustrations/G-picross-5.png",
+      "preview": "previews/G-picross-5.png",
+      "small80": "previews/G-picross-5-80.png",
+      "small110": "previews/G-picross-5-110.png",
+      "sha256": "d2fa8ad40b7b82acfa2711a81bcdbc3160c1b3764cef35ac6cb86f25ef8af4e2"
+    },
+    {
+      "id": "G-pinball-physics",
+      "name": "ピンボール",
+      "category": "play",
+      "illustration": "illustrations/G-pinball-physics.png",
+      "preview": "previews/G-pinball-physics.png",
+      "small80": "previews/G-pinball-physics-80.png",
+      "small110": "previews/G-pinball-physics-110.png",
+      "sha256": "df85d2f4197e58640e5994b0c307c98bf008e79c55ee174ea896101e4b52416a"
+    },
+    {
+      "id": "G-pingpong-3d",
+      "name": "ピンポンラリー",
+      "category": "play",
+      "illustration": "illustrations/G-pingpong-3d.png",
+      "preview": "previews/G-pingpong-3d.png",
+      "small80": "previews/G-pingpong-3d-80.png",
+      "small110": "previews/G-pingpong-3d-110.png",
+      "sha256": "dde15f2f189df3b7d6e2f6cff2e5c2704d34b9d09058531aac6bb82ebf9eb2bc"
+    },
+    {
+      "id": "G-pipe-connect",
+      "name": "パイプつなぎ",
+      "category": "play",
+      "illustration": "illustrations/G-pipe-connect.png",
+      "preview": "previews/G-pipe-connect.png",
+      "small80": "previews/G-pipe-connect-80.png",
+      "small110": "previews/G-pipe-connect-110.png",
+      "sha256": "aa86d44d7466a2f7ce95069689e3aa42a3f44f073488fcaf419f4b90a40e4fe5"
+    },
+    {
+      "id": "G-plane-landing",
+      "name": "ひこうき着陸",
+      "category": "play",
+      "illustration": "illustrations/G-plane-landing.png",
+      "preview": "previews/G-plane-landing.png",
+      "small80": "previews/G-plane-landing-80.png",
+      "small110": "previews/G-plane-landing-110.png",
+      "sha256": "308e01027bd5f2f615c3df036e26287bed743d6c7f31a48e7641a7710e8ba11e"
+    },
+    {
+      "id": "G-push-puzzle",
+      "name": "そうこばん",
+      "category": "play",
+      "illustration": "illustrations/G-push-puzzle.png",
+      "preview": "previews/G-push-puzzle.png",
+      "small80": "previews/G-push-puzzle-80.png",
+      "small110": "previews/G-push-puzzle-110.png",
+      "sha256": "54293c3a1b63bf3034891fc9ad3966c5db813a04fbbf6f09d2854654a4b09f63"
+    },
+    {
+      "id": "G-puzzle-2048",
+      "name": "2048",
+      "category": "play",
+      "illustration": "illustrations/G-puzzle-2048.png",
+      "preview": "previews/G-puzzle-2048.png",
+      "small80": "previews/G-puzzle-2048-80.png",
+      "small110": "previews/G-puzzle-2048-110.png",
+      "sha256": "8cb431cbce687f113d4c3745084316da103403397100351ee0a8a21ad3e3de9a"
+    },
+    {
+      "id": "G-race-3d",
+      "name": "ゴールをめざして",
+      "category": "play",
+      "illustration": "illustrations/G-race-3d.png",
+      "preview": "previews/G-race-3d.png",
+      "small80": "previews/G-race-3d-80.png",
+      "small110": "previews/G-race-3d-110.png",
+      "sha256": "66d51e144ac63a2c273d645e10abfe567b53effa0d657b5546def37b71139e1d"
+    },
+    {
+      "id": "G-real-fishing",
+      "name": "ほんかくさかなつり",
+      "category": "play",
+      "illustration": "illustrations/G-real-fishing.png",
+      "preview": "previews/G-real-fishing.png",
+      "small80": "previews/G-real-fishing-80.png",
+      "small110": "previews/G-real-fishing-110.png",
+      "sha256": "93301aaaf42ea336c47d60a308eede4670ec294bf2729837faad659d94cae9ee"
+    },
+    {
+      "id": "G-reversi-6",
+      "name": "オセロ",
+      "category": "play",
+      "illustration": "illustrations/G-reversi-6.png",
+      "preview": "previews/G-reversi-6.png",
+      "small80": "previews/G-reversi-6-80.png",
+      "small110": "previews/G-reversi-6-110.png",
+      "sha256": "84b18a9d9ffd9406e88e67e8c3e215b40ea7f06e4f9aea88b22eacb1959a4498"
+    },
+    {
+      "id": "G-rhythm-highway-3d",
+      "name": "リズムハイウェイ",
+      "category": "play",
+      "illustration": "illustrations/G-rhythm-highway-3d.png",
+      "preview": "previews/G-rhythm-highway-3d.png",
+      "small80": "previews/G-rhythm-highway-3d-80.png",
+      "small110": "previews/G-rhythm-highway-3d-110.png",
+      "sha256": "ff1cdf50f5ac7d8f9092dec578a3a24cb4bd296dfedf0c19ead8d283164f6894"
+    },
+    {
+      "id": "G-ring-flight-3d",
+      "name": "リングフライト3D",
+      "category": "play",
+      "illustration": "illustrations/G-ring-flight-3d.png",
+      "preview": "previews/G-ring-flight-3d.png",
+      "small80": "previews/G-ring-flight-3d-80.png",
+      "small110": "previews/G-ring-flight-3d-110.png",
+      "sha256": "61c5ed89ba57ecf2300869a8e87a5e8bb0ed368aec54c5552eb61579a4bc11cf"
+    },
+    {
+      "id": "G-ring-flight-summer",
+      "name": "なつのうみフライト",
+      "category": "play",
+      "illustration": "illustrations/G-ring-flight-summer.png",
+      "preview": "previews/G-ring-flight-summer.png",
+      "small80": "previews/G-ring-flight-summer-80.png",
+      "small110": "previews/G-ring-flight-summer-110.png",
+      "sha256": "e88619ab61462876bc6511dc547229ec77f010107f0a9567698645c5910ae203"
+    },
+    {
+      "id": "G-road-city",
+      "name": "とかいラン",
+      "category": "play",
+      "illustration": "illustrations/G-road-city.png",
+      "preview": "previews/G-road-city.png",
+      "small80": "previews/G-road-city-80.png",
+      "small110": "previews/G-road-city-110.png",
+      "sha256": "93d30a741e53e78253e0adc5d8ff08231f8b36f269d062535c6ef015b0b9b4a0"
+    },
+    {
+      "id": "G-road-desert",
+      "name": "さばくラン",
+      "category": "play",
+      "illustration": "illustrations/G-road-desert.png",
+      "preview": "previews/G-road-desert.png",
+      "small80": "previews/G-road-desert-80.png",
+      "small110": "previews/G-road-desert-110.png",
+      "sha256": "66ab465d3d4b277ee140c760710058a5caec51c02a9563bf39d5a2ed96933693"
+    },
+    {
+      "id": "G-road-jungle",
+      "name": "ジャングルラン",
+      "category": "play",
+      "illustration": "illustrations/G-road-jungle.png",
+      "preview": "previews/G-road-jungle.png",
+      "small80": "previews/G-road-jungle-80.png",
+      "small110": "previews/G-road-jungle-110.png",
+      "sha256": "e0b912c327b316af4acb0b4accf8d8acabe0ccfb80bc1ceb769982e826c0cc22"
+    },
+    {
+      "id": "G-road-themed",
+      "name": "よけてキャッチ",
+      "category": "play",
+      "illustration": "illustrations/G-road-themed.png",
+      "preview": "previews/G-road-themed.png",
+      "small80": "previews/G-road-themed-80.png",
+      "small110": "previews/G-road-themed-110.png",
+      "sha256": "e6be6212f5b987acffb80591df152a99e1bdbdcfebfab6f50da2ca19dce9617f"
+    },
+    {
+      "id": "G-roguelike-dungeon",
+      "name": "ローグライク",
+      "category": "play",
+      "illustration": "illustrations/G-roguelike-dungeon.png",
+      "preview": "previews/G-roguelike-dungeon.png",
+      "small80": "previews/G-roguelike-dungeon-80.png",
+      "small110": "previews/G-roguelike-dungeon-110.png",
+      "sha256": "770004b1ddcede80ead40659310711ee265ad8cfbae321d35262463244ba8fd9"
+    },
+    {
+      "id": "G-shanghai-tiles",
+      "name": "上海",
+      "category": "play",
+      "illustration": "illustrations/G-shanghai-tiles.png",
+      "preview": "previews/G-shanghai-tiles.png",
+      "small80": "previews/G-shanghai-tiles-80.png",
+      "small110": "previews/G-shanghai-tiles-110.png",
+      "sha256": "1f9d002b04699ecabde2ca85ec5d342f2416ef4ad4b0f2571be0d03ca8081d5d"
+    },
+    {
+      "id": "G-ski-jump",
+      "name": "スキージャンプ",
+      "category": "play",
+      "illustration": "illustrations/G-ski-jump.png",
+      "preview": "previews/G-ski-jump.png",
+      "small80": "previews/G-ski-jump-80.png",
+      "small110": "previews/G-ski-jump-110.png",
+      "sha256": "891a2fd46d32cf897925ce7f7ecbadcb4ca02a65122438066ebe9c5247573d20"
+    },
+    {
+      "id": "G-sky-shooter",
+      "name": "スカイシューター",
+      "category": "play",
+      "illustration": "illustrations/G-sky-shooter.png",
+      "preview": "previews/G-sky-shooter.png",
+      "small80": "previews/G-sky-shooter-80.png",
+      "small110": "previews/G-sky-shooter-110.png",
+      "sha256": "b09b37a1e773b7286afd17d0a99d9c228ad873f8dc8dc6021d7eee3d34e4b356"
+    },
+    {
+      "id": "G-slide-puzzle",
+      "name": "スライドパズル",
+      "category": "play",
+      "illustration": "illustrations/G-slide-puzzle.png",
+      "preview": "previews/G-slide-puzzle.png",
+      "small80": "previews/G-slide-puzzle-80.png",
+      "small110": "previews/G-slide-puzzle-110.png",
+      "sha256": "14d0ea953de1f95b2834687221ecaf13bdf2355360d8185845b56088efdda2fd"
+    },
+    {
+      "id": "G-snake-classic",
+      "name": "スネーク",
+      "category": "play",
+      "illustration": "illustrations/G-snake-classic.png",
+      "preview": "previews/G-snake-classic.png",
+      "small80": "previews/G-snake-classic-80.png",
+      "small110": "previews/G-snake-classic-110.png",
+      "sha256": "469cd4f098cbb160f833c0ad4c5c24486996ce685900e6581cafdd4ae0230534"
+    },
+    {
+      "id": "G-solitaire-klondike",
+      "name": "ソリティア",
+      "category": "play",
+      "illustration": "illustrations/G-solitaire-klondike.png",
+      "preview": "previews/G-solitaire-klondike.png",
+      "small80": "previews/G-solitaire-klondike-80.png",
+      "small110": "previews/G-solitaire-klondike-110.png",
+      "sha256": "cfd69d1ae47159c46da2197386af0ed0cb4bb8009271972f12f92bde6046c012"
+    },
+    {
+      "id": "G-space-gunner-3d",
+      "name": "スペースガンナー",
+      "category": "play",
+      "illustration": "illustrations/G-space-gunner-3d.png",
+      "preview": "previews/G-space-gunner-3d.png",
+      "small80": "previews/G-space-gunner-3d-80.png",
+      "small110": "previews/G-space-gunner-3d-110.png",
+      "sha256": "1644cf4c5baa820d9ad7f7652f24668c09a1bf344c23e0b3e5a9e94a7430ebc5"
+    },
+    {
+      "id": "G-stack-acorn",
+      "name": "きのみタワー",
+      "category": "play",
+      "illustration": "illustrations/G-stack-acorn.png",
+      "preview": "previews/G-stack-acorn.png",
+      "small80": "previews/G-stack-acorn-80.png",
+      "small110": "previews/G-stack-acorn-110.png",
+      "sha256": "47747c4f792cc68334626dcebe3286e3b6e3e38d18426abcf38a07734181d094"
+    },
+    {
+      "id": "G-stack-harvest",
+      "name": "しゅうかくタワー",
+      "category": "play",
+      "illustration": "illustrations/G-stack-harvest.png",
+      "preview": "previews/G-stack-harvest.png",
+      "small80": "previews/G-stack-harvest-80.png",
+      "small110": "previews/G-stack-harvest-110.png",
+      "sha256": "be0c047543b948148843ae78496356638be29e671e2ef8210397f4b602375461"
+    },
+    {
+      "id": "G-stack-leaves",
+      "name": "おちばタワー",
+      "category": "play",
+      "illustration": "illustrations/G-stack-leaves.png",
+      "preview": "previews/G-stack-leaves.png",
+      "small80": "previews/G-stack-leaves-80.png",
+      "small110": "previews/G-stack-leaves-110.png",
+      "sha256": "6d00313c113419fa587fc0cfe8183b4ec61c57cd1ef449b3a78959d0f1afc613"
+    },
+    {
+      "id": "G-stack-sakura",
+      "name": "さくらタワー",
+      "category": "play",
+      "illustration": "illustrations/G-stack-sakura.png",
+      "preview": "previews/G-stack-sakura.png",
+      "small80": "previews/G-stack-sakura-80.png",
+      "small110": "previews/G-stack-sakura-110.png",
+      "sha256": "9b3735548cdae1b0707d658bf2b82ab0970939e87a70988cf8c8b04a348aaf3a"
+    },
+    {
+      "id": "G-stack-snowman",
+      "name": "ゆきだるまタワー",
+      "category": "play",
+      "illustration": "illustrations/G-stack-snowman.png",
+      "preview": "previews/G-stack-snowman.png",
+      "small80": "previews/G-stack-snowman-80.png",
+      "small110": "previews/G-stack-snowman-110.png",
+      "sha256": "c4fd080cc8912d1d625e9706e846529c1d0b608de9af435746801d8f7a5d1de7"
+    },
+    {
+      "id": "G-stack-themed",
+      "name": "つみかさねタワー",
+      "category": "play",
+      "illustration": "illustrations/G-stack-themed.png",
+      "preview": "previews/G-stack-themed.png",
+      "small80": "previews/G-stack-themed-80.png",
+      "small110": "previews/G-stack-themed-110.png",
+      "sha256": "5b16e4a6118335007464436e63bd0b6f7b0f29b75ace77147b93dfe758389106"
+    },
+    {
+      "id": "G-street-fight",
+      "name": "かくとうバトル",
+      "category": "play",
+      "illustration": "illustrations/G-street-fight.png",
+      "preview": "previews/G-street-fight.png",
+      "small80": "previews/G-street-fight-80.png",
+      "small110": "previews/G-street-fight-110.png",
+      "sha256": "31d9d97d899dfee15fc85847f445b1d7e7f9796b03a18401f7b633777518e11e"
+    },
+    {
+      "id": "G-submarine-3d",
+      "name": "サブマリン3D",
+      "category": "play",
+      "illustration": "illustrations/G-submarine-3d.png",
+      "preview": "previews/G-submarine-3d.png",
+      "small80": "previews/G-submarine-3d-80.png",
+      "small110": "previews/G-submarine-3d-110.png",
+      "sha256": "40eb64dc14c5d5de2bef333673b78121e7ff467daf0e9faab9e5ecd7182d8a65"
+    },
+    {
+      "id": "G-sudoku-mini",
+      "name": "ナンプレ",
+      "category": "play",
+      "illustration": "illustrations/G-sudoku-mini.png",
+      "preview": "previews/G-sudoku-mini.png",
+      "small80": "previews/G-sudoku-mini-80.png",
+      "small110": "previews/G-sudoku-mini-110.png",
+      "sha256": "dd0682c666d185502ba41172f4e67008abe2a0483c348e5832d91ad3245355cf"
+    },
+    {
+      "id": "G-sugoroku-race",
+      "name": "すごろく",
+      "category": "play",
+      "illustration": "illustrations/G-sugoroku-race.png",
+      "preview": "previews/G-sugoroku-race.png",
+      "small80": "previews/G-sugoroku-race-80.png",
+      "small110": "previews/G-sugoroku-race-110.png",
+      "sha256": "470726667adaff60d297ebe1d646ee19ee3312e63f13df86e76011bb1dbabcb2"
+    },
+    {
+      "id": "G-sushi-belt",
+      "name": "かいてんずし",
+      "category": "play",
+      "illustration": "illustrations/G-sushi-belt.png",
+      "preview": "previews/G-sushi-belt.png",
+      "small80": "previews/G-sushi-belt-80.png",
+      "small110": "previews/G-sushi-belt-110.png",
+      "sha256": "5a81971a6c7da7ac92048d40e795a1a450bb6ada9075e282a3f5b1653c12764d"
+    },
+    {
+      "id": "G-takoyaki-grill",
+      "name": "たこやきやさん",
+      "category": "play",
+      "illustration": "illustrations/G-takoyaki-grill.png",
+      "preview": "previews/G-takoyaki-grill.png",
+      "small80": "previews/G-takoyaki-grill-80.png",
+      "small110": "previews/G-takoyaki-grill-110.png",
+      "sha256": "bd9256f6f01aeea5c1cf5f63939beae319aace37c9e1b91f829eed5297610c68"
+    },
+    {
+      "id": "G-tank-battle",
+      "name": "タンクバトル",
+      "category": "play",
+      "illustration": "illustrations/G-tank-battle.png",
+      "preview": "previews/G-tank-battle.png",
+      "small80": "previews/G-tank-battle-80.png",
+      "small110": "previews/G-tank-battle-110.png",
+      "sha256": "93c4e457e1e7f20744540c0320d585bbfa9d58b295ebd9f2a60f74097f62cd2e"
+    },
+    {
+      "id": "G-tennis-rally",
+      "name": "テニス",
+      "category": "play",
+      "illustration": "illustrations/G-tennis-rally.png",
+      "preview": "previews/G-tennis-rally.png",
+      "small80": "previews/G-tennis-rally-80.png",
+      "small110": "previews/G-tennis-rally-110.png",
+      "sha256": "6f90e66001d5adc275fea7d135e7821669df4fae5f38e57083f0745f6c53b0dc"
+    },
+    {
+      "id": "G-tilt-maze-3d",
+      "name": "たまころがしめいろ",
+      "category": "play",
+      "illustration": "illustrations/G-tilt-maze-3d.png",
+      "preview": "previews/G-tilt-maze-3d.png",
+      "small80": "previews/G-tilt-maze-3d-80.png",
+      "small110": "previews/G-tilt-maze-3d-110.png",
+      "sha256": "215694d57be1aa8844e5ca893ca12f0a5d05094da0e2da957fc7b3c45135e0fc"
+    },
+    {
+      "id": "G-tower-defense",
+      "name": "タワーディフェンス",
+      "category": "play",
+      "illustration": "illustrations/G-tower-defense.png",
+      "preview": "previews/G-tower-defense.png",
+      "small80": "previews/G-tower-defense-80.png",
+      "small110": "previews/G-tower-defense-110.png",
+      "sha256": "ede43f3a42f6609a2964202ab76b1fe1a2b49dbbb0982a64207b98c1fd62ce99"
+    },
+    {
+      "id": "G-track-field",
+      "name": "りくじょう",
+      "category": "play",
+      "illustration": "illustrations/G-track-field.png",
+      "preview": "previews/G-track-field.png",
+      "small80": "previews/G-track-field-80.png",
+      "small110": "previews/G-track-field-110.png",
+      "sha256": "9412e15c19c3a4b4c53c4d0dd5d91bfbb539717ebc76b33ee8d46e64bb839fa0"
+    },
+    {
+      "id": "G-voxel-mine",
+      "name": "ボクセルマイニング",
+      "category": "play",
+      "illustration": "illustrations/G-voxel-mine.png",
+      "preview": "previews/G-voxel-mine.png",
+      "small80": "previews/G-voxel-mine-80.png",
+      "small110": "previews/G-voxel-mine-110.png",
+      "sha256": "e910504e6fc49dbf80d5d37e81d2cef4529f13613d64eeecb5ccb6ce4764af56"
+    },
+    {
+      "id": "G-yacht-dice",
+      "name": "ヨット",
+      "category": "play",
+      "illustration": "illustrations/G-yacht-dice.png",
+      "preview": "previews/G-yacht-dice.png",
+      "small80": "previews/G-yacht-dice-80.png",
+      "small110": "previews/G-yacht-dice-110.png",
+      "sha256": "f82b512e65d6f18a6f6a2b9ca7b55d2a867541241e9bb19ad8b6fc1f5208e1ae"
+    },
+    {
+      "id": "I-bond1",
+      "name": "おともだちバッジ",
+      "category": "item",
+      "illustration": "illustrations/I-bond1.png",
+      "preview": "previews/I-bond1.png",
+      "small80": "previews/I-bond1-80.png",
+      "small110": "previews/I-bond1-110.png",
+      "sha256": "931ed84df9cba70fb105fe10eb504360265f01dcd31caff8091d3595dc7af6de"
+    },
+    {
+      "id": "I-bowtie",
+      "name": "おべんとうばこ",
+      "category": "item",
+      "illustration": "illustrations/I-bowtie.png",
+      "preview": "previews/I-bowtie.png",
+      "small80": "previews/I-bowtie-80.png",
+      "small110": "previews/I-bowtie-110.png",
+      "sha256": "1e9f521b227dd7fe8d25b8ad269f41e17a30cefcd7500ff517f04e61052bb42e"
+    },
+    {
+      "id": "I-c_coin2",
+      "name": "ラッキーコイン",
+      "category": "item",
+      "illustration": "illustrations/I-c_coin2.png",
+      "preview": "previews/I-c_coin2.png",
+      "small80": "previews/I-c_coin2-80.png",
+      "small110": "previews/I-c_coin2-110.png",
+      "sha256": "5eca47356c489512ae6c02a38062f07b8180d9970b941feca3d7ee6aa0fa1a7c"
+    },
+    {
+      "id": "I-c_dex",
+      "name": "ずかんチケット",
+      "category": "item",
+      "illustration": "illustrations/I-c_dex.png",
+      "preview": "previews/I-c_dex.png",
+      "small80": "previews/I-c_dex-80.png",
+      "small110": "previews/I-c_dex-110.png",
+      "sha256": "232187c6411e73d00cfee166b72ed2330003810ffdcd1886ee151203e3e456a0"
+    },
+    {
+      "id": "I-c_egg_normal",
+      "name": "ふしぎなたまご",
+      "category": "item",
+      "illustration": "illustrations/I-c_egg_normal.png",
+      "preview": "previews/I-c_egg_normal.png",
+      "small80": "previews/I-c_egg_normal-80.png",
+      "small110": "previews/I-c_egg_normal-110.png",
+      "sha256": "a1079b098d912756a920178da2725e960d7caf7f7e4263b60b31181cea8969ed"
+    },
+    {
+      "id": "I-c_egg_rare",
+      "name": "レアなたまご",
+      "category": "item",
+      "illustration": "illustrations/I-c_egg_rare.png",
+      "preview": "previews/I-c_egg_rare.png",
+      "small80": "previews/I-c_egg_rare-80.png",
+      "small110": "previews/I-c_egg_rare-110.png",
+      "sha256": "5157d54887d670fef2e0116db7d8b76f6870e72b67730e593c71cbb02b917edc"
+    },
+    {
+      "id": "I-c_friend",
+      "name": "おともだちチケット",
+      "category": "item",
+      "illustration": "illustrations/I-c_friend.png",
+      "preview": "previews/I-c_friend.png",
+      "small80": "previews/I-c_friend-80.png",
+      "small110": "previews/I-c_friend-110.png",
+      "sha256": "fc33624cc1b8511db302a48fc3cd44b0da274b034cb499581343d1f25b954009"
+    },
+    {
+      "id": "I-c_life",
+      "name": "いのちのくすり",
+      "category": "item",
+      "illustration": "illustrations/I-c_life.png",
+      "preview": "previews/I-c_life.png",
+      "small80": "previews/I-c_life-80.png",
+      "small110": "previews/I-c_life-110.png",
+      "sha256": "286c225fc4827af2417128bdeb7fe260523fefe50efebc42e4cb4ab4c3adcaa0"
+    },
+    {
+      "id": "I-c_life_charm",
+      "name": "いのちのおまもり",
+      "category": "item",
+      "illustration": "illustrations/I-c_life_charm.png",
+      "preview": "previews/I-c_life_charm.png",
+      "small80": "previews/I-c_life_charm-80.png",
+      "small110": "previews/I-c_life_charm-110.png",
+      "sha256": "8a4998137955651037ae45ae68de7063eaf1fd2f34a850457df3a76cfecf45ea"
+    },
+    {
+      "id": "I-c_match",
+      "name": "おみあいチケット",
+      "category": "item",
+      "illustration": "illustrations/I-c_match.png",
+      "preview": "previews/I-c_match.png",
+      "small80": "previews/I-c_match-80.png",
+      "small110": "previews/I-c_match-110.png",
+      "sha256": "e7ca98cbb62b09d2d4d3a92c8f07afe12a6b967fe888297bdff35328925d72bf"
+    },
+    {
+      "id": "I-c_rare_friend",
+      "name": "レアなかまチケット",
+      "category": "item",
+      "illustration": "illustrations/I-c_rare_friend.png",
+      "preview": "previews/I-c_rare_friend.png",
+      "small80": "previews/I-c_rare_friend-80.png",
+      "small110": "previews/I-c_rare_friend-110.png",
+      "sha256": "a8b9341c8ac714fd74cdb263054f1c23579444ca80dd3e203c640c1df91a705e"
+    },
+    {
+      "id": "I-c_time_back",
+      "name": "ときのチケット・まえ",
+      "category": "item",
+      "illustration": "illustrations/I-c_time_back.png",
+      "preview": "previews/I-c_time_back.png",
+      "small80": "previews/I-c_time_back-80.png",
+      "small110": "previews/I-c_time_back-110.png",
+      "sha256": "5ff21cdc233e6b1834ca422ec5710798e1f135f555b798686269593f7cc93af0"
+    },
+    {
+      "id": "I-c_time_forward",
+      "name": "ときのチケット・あと",
+      "category": "item",
+      "illustration": "illustrations/I-c_time_forward.png",
+      "preview": "previews/I-c_time_forward.png",
+      "small80": "previews/I-c_time_forward-80.png",
+      "small110": "previews/I-c_time_forward-110.png",
+      "sha256": "642a0cf0f791c49bc933f8348608ac87ecfd9ba307086d7f98624065bd88eea1"
+    },
+    {
+      "id": "I-c_transform",
+      "name": "へんしんチケット",
+      "category": "item",
+      "illustration": "illustrations/I-c_transform.png",
+      "preview": "previews/I-c_transform.png",
+      "small80": "previews/I-c_transform-80.png",
+      "small110": "previews/I-c_transform-110.png",
+      "sha256": "e91a48abfa3524fc4cde6187e137af08229753b77330863e4b3c878fad0c987f"
+    },
+    {
+      "id": "I-gamepass1",
+      "name": "ゲームパス",
+      "category": "item",
+      "illustration": "illustrations/I-gamepass1.png",
+      "preview": "previews/I-gamepass1.png",
+      "small80": "previews/I-gamepass1-80.png",
+      "small110": "previews/I-gamepass1-110.png",
+      "sha256": "3310fd806b8ac7821f533cf63cde2b97a9c2f35ecd03af99e7a641cc9313d1e2"
+    },
+    {
+      "id": "I-naoto_charm",
+      "name": "なおとのおまもり",
+      "category": "item",
+      "illustration": "illustrations/I-naoto_charm.png",
+      "preview": "previews/I-naoto_charm.png",
+      "small80": "previews/I-naoto_charm-80.png",
+      "small110": "previews/I-naoto_charm-110.png",
+      "sha256": "09e317d4cd0949119adeecb51b802655d668b8c1ac2276811aed45ffa0be4687"
+    },
+    {
+      "id": "I-naoto_crown",
+      "name": "なおとのかんむり",
+      "category": "item",
+      "illustration": "illustrations/I-naoto_crown.png",
+      "preview": "previews/I-naoto_crown.png",
+      "small80": "previews/I-naoto_crown-80.png",
+      "small110": "previews/I-naoto_crown-110.png",
+      "sha256": "5aef5007f2421a0347b39a518028ee529e95c7de5f917d76c6ed10b8c2a5f3e5"
+    },
+    {
+      "id": "I-naoto_lantern",
+      "name": "なおとのランタン",
+      "category": "item",
+      "illustration": "illustrations/I-naoto_lantern.png",
+      "preview": "exports-approved/I-naoto_lantern.png",
+      "small80": "exports-approved/I-naoto_lantern-80.png",
+      "small110": "exports-approved/I-naoto_lantern-110.png",
+      "sha256": "bc214055d20e001d22e7f1f4c4cb48bcd23a6cb0f5016c3a35671b604614f3a1"
+    },
+    {
+      "id": "I-naoto_ring",
+      "name": "なおとのリング",
+      "category": "item",
+      "illustration": "illustrations/I-naoto_ring.png",
+      "preview": "previews/I-naoto_ring.png",
+      "small80": "previews/I-naoto_ring-80.png",
+      "small110": "previews/I-naoto_ring-110.png",
+      "sha256": "ac54b2672bb68bfa10576bc06de407e9ed155a09d1dd94ecbd3bb33534ff9192"
+    },
+    {
+      "id": "I-partner1",
+      "name": "らぶれたー",
+      "category": "item",
+      "illustration": "illustrations/I-partner1.png",
+      "preview": "previews/I-partner1.png",
+      "small80": "previews/I-partner1-80.png",
+      "small110": "previews/I-partner1-110.png",
+      "sha256": "c39be145dcb765e10bddb9665455d8ba405c277f45012f407cc7ab3a2d4af72e"
+    },
+    {
+      "id": "I-poop1",
+      "name": "トイレットペーパー",
+      "category": "item",
+      "illustration": "illustrations/I-poop1.png",
+      "preview": "previews/I-poop1.png",
+      "small80": "previews/I-poop1-80.png",
+      "small110": "previews/I-poop1-110.png",
+      "sha256": "c20cf0421a573e393cdfef60f3b2f9ae57b227196cdb3887a4384cc8dda224e1"
+    },
+    {
+      "id": "I-ribbon",
+      "name": "おもちゃばこ",
+      "category": "item",
+      "illustration": "illustrations/I-ribbon.png",
+      "preview": "previews/I-ribbon.png",
+      "small80": "previews/I-ribbon-80.png",
+      "small110": "previews/I-ribbon-110.png",
+      "sha256": "542eaecc48914c44800ae9c6c0e1ed41a143167e8920b4d596b285c184c68dd8"
+    },
+    {
+      "id": "I-scarf",
+      "name": "きゅうきゅうばこ",
+      "category": "item",
+      "illustration": "illustrations/I-scarf.png",
+      "preview": "previews/I-scarf.png",
+      "small80": "previews/I-scarf-80.png",
+      "small110": "previews/I-scarf-110.png",
+      "sha256": "6061d79dbad4c85bfa1a0d5a03c8f456fb6725993d65fbb92cf3301c92975b9e"
+    },
+    {
+      "id": "I-sleepboost1",
+      "name": "ふかふかまくら",
+      "category": "item",
+      "illustration": "illustrations/I-sleepboost1.png",
+      "preview": "previews/I-sleepboost1.png",
+      "small80": "previews/I-sleepboost1-80.png",
+      "small110": "previews/I-sleepboost1-110.png",
+      "sha256": "06078ce76f57d00aaefbc47ec28608805cabad390495a3692652c40c357d48a5"
+    },
+    {
+      "id": "I-star",
+      "name": "スターバッジ",
+      "category": "item",
+      "illustration": "illustrations/I-star.png",
+      "preview": "previews/I-star.png",
+      "small80": "previews/I-star-80.png",
+      "small110": "previews/I-star-110.png",
+      "sha256": "7543dd1db16aaee8cd67aab99c3e7441ea27de498cc64bcf61b0f60b6f1e9313"
+    },
+    {
+      "id": "I-travel1",
+      "name": "リュックサック",
+      "category": "item",
+      "illustration": "illustrations/I-travel1.png",
+      "preview": "exports-approved/I-travel1.png",
+      "small80": "exports-approved/I-travel1-80.png",
+      "small110": "exports-approved/I-travel1-110.png",
+      "sha256": "d99734cba53bd4e2f07ebbabab249289e3fb6770c62319c849e7f2acc35de1f4"
+    },
+    {
+      "id": "M-antlion-01",
+      "name": "アリジゴク①",
+      "category": "main",
+      "illustration": "illustrations/M-antlion-01.png",
+      "preview": "previews/M-antlion-01.png",
+      "small80": "previews/M-antlion-01-80.png",
+      "small110": "previews/M-antlion-01-110.png",
+      "sha256": "2dc78e03dde12a0b07c01c5ea183e90f95290f7c0601e02c2b1b8147fa9c0f9d"
+    },
+    {
+      "id": "M-antlion-02",
+      "name": "アリジゴク②",
+      "category": "main",
+      "illustration": "illustrations/M-antlion-02.png",
+      "preview": "previews/M-antlion-02.png",
+      "small80": "previews/M-antlion-02-80.png",
+      "small110": "previews/M-antlion-02-110.png",
+      "sha256": "c6ab3d21f31084ef1e43b4a456b7076132dea7a8c125eab6b6ef534576b54fde"
+    },
+    {
+      "id": "M-antlion-03",
+      "name": "アリジゴク③",
+      "category": "main",
+      "illustration": "illustrations/M-antlion-03.png",
+      "preview": "previews/M-antlion-03.png",
+      "small80": "previews/M-antlion-03-80.png",
+      "small110": "previews/M-antlion-03-110.png",
+      "sha256": "43d3a1afba6cb78cbb145e7603bef44209a9dbd6883331964ded231e9fe91450"
+    },
+    {
+      "id": "M-antlion-04",
+      "name": "アリジゴク④",
+      "category": "main",
+      "illustration": "illustrations/M-antlion-04.png",
+      "preview": "previews/M-antlion-04.png",
+      "small80": "previews/M-antlion-04-80.png",
+      "small110": "previews/M-antlion-04-110.png",
+      "sha256": "912b0cc606022efa3d0cbbf282c02d8f0a4d3af265769a0bfee5a8da684ca8cb"
+    },
+    {
+      "id": "M-antlion-05",
+      "name": "アリジゴク⑤",
+      "category": "main",
+      "illustration": "illustrations/M-antlion-05.png",
+      "preview": "previews/M-antlion-05.png",
+      "small80": "previews/M-antlion-05-80.png",
+      "small110": "previews/M-antlion-05-110.png",
+      "sha256": "a40c7d5c5d6f984a25411226f22fc40f3d02ef1593ff4ff585ca3e4e0408a67d"
+    },
+    {
+      "id": "M-antlion-06",
+      "name": "アリジゴク⑥",
+      "category": "main",
+      "illustration": "illustrations/M-antlion-06.png",
+      "preview": "previews/M-antlion-06.png",
+      "small80": "previews/M-antlion-06-80.png",
+      "small110": "previews/M-antlion-06-110.png",
+      "sha256": "fe5784e879cc1c59416d23c504b31aeef196997856dc282c12d6765de56e40fd"
+    },
+    {
+      "id": "M-antlion-07",
+      "name": "アリジゴク⑦",
+      "category": "main",
+      "illustration": "illustrations/M-antlion-07.png",
+      "preview": "previews/M-antlion-07.png",
+      "small80": "previews/M-antlion-07-80.png",
+      "small110": "previews/M-antlion-07-110.png",
+      "sha256": "5449d5248c86ab92197dbf11dfdd24cf8177a998e3a3ae5be218b283d27f8731"
+    },
+    {
+      "id": "M-antlion-08",
+      "name": "アリジゴク⑧",
+      "category": "main",
+      "illustration": "illustrations/M-antlion-08.png",
+      "preview": "previews/M-antlion-08.png",
+      "small80": "previews/M-antlion-08-80.png",
+      "small110": "previews/M-antlion-08-110.png",
+      "sha256": "180bcba774bd212da4a18642db78d5fe4667f52c255e48404a7b9f85a2d92b66"
+    },
+    {
+      "id": "M-beetle-01",
+      "name": "カブトムシ①",
+      "category": "main",
+      "illustration": "illustrations/M-beetle-01.png",
+      "preview": "exports-approved/M-beetle-01.png",
+      "small80": "exports-approved/M-beetle-01-80.png",
+      "small110": "exports-approved/M-beetle-01-110.png",
+      "sha256": "7eb3dc7c0ebcb527b8ddd0f112fcc619745ee6751e3e5edb46f6991846f8d827"
+    },
+    {
+      "id": "M-beetle-02",
+      "name": "カブトムシ②",
+      "category": "main",
+      "illustration": "illustrations/M-beetle-02.png",
+      "preview": "exports-approved/M-beetle-02.png",
+      "small80": "exports-approved/M-beetle-02-80.png",
+      "small110": "exports-approved/M-beetle-02-110.png",
+      "sha256": "bd0cf0b4064cd47d87a7d6d0b3240108b3c7d39b23515d01fbe31f5578c1a8e2"
+    },
+    {
+      "id": "M-beetle-03",
+      "name": "カブトムシ③",
+      "category": "main",
+      "illustration": "illustrations/M-beetle-03.png",
+      "preview": "exports-approved/M-beetle-03.png",
+      "small80": "exports-approved/M-beetle-03-80.png",
+      "small110": "exports-approved/M-beetle-03-110.png",
+      "sha256": "30f7b68121e4d9efe8c1391b82fa256084d82242b19a0644185f002be1864fb9"
+    },
+    {
+      "id": "M-beetle-04",
+      "name": "カブトムシ④",
+      "category": "main",
+      "illustration": "illustrations/M-beetle-04.png",
+      "preview": "exports-approved/M-beetle-04.png",
+      "small80": "exports-approved/M-beetle-04-80.png",
+      "small110": "exports-approved/M-beetle-04-110.png",
+      "sha256": "c5a141c12b0a3a06776942bfaf24671622516788234385b41c770d32a19d84ff"
+    },
+    {
+      "id": "M-beetle-05",
+      "name": "カブトムシ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-beetle-05.png",
+      "preview": "exports-approved/M-beetle-05.png",
+      "small80": "exports-approved/M-beetle-05-80.png",
+      "small110": "exports-approved/M-beetle-05-110.png",
+      "sha256": "ed878b13ece77423a88c57c086f4d70c43f2026b2c11e1a6346bcf3704bb2dde"
+    },
+    {
+      "id": "M-beetle-06",
+      "name": "カブトムシ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-beetle-06.png",
+      "preview": "exports-approved/M-beetle-06.png",
+      "small80": "exports-approved/M-beetle-06-80.png",
+      "small110": "exports-approved/M-beetle-06-110.png",
+      "sha256": "8358034b9713b17247340792589a8043757132c89840c39f0ca3e0b72a952839"
+    },
+    {
+      "id": "M-beetle-07",
+      "name": "カブトムシ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-beetle-07.png",
+      "preview": "exports-approved/M-beetle-07.png",
+      "small80": "exports-approved/M-beetle-07-80.png",
+      "small110": "exports-approved/M-beetle-07-110.png",
+      "sha256": "6ad53ccc60af43731656003e4ec3fe4442a58d2350ed665969a466314c379196"
+    },
+    {
+      "id": "M-beetle-08",
+      "name": "カブトムシ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-beetle-08.png",
+      "preview": "exports-approved/M-beetle-08.png",
+      "small80": "exports-approved/M-beetle-08-80.png",
+      "small110": "exports-approved/M-beetle-08-110.png",
+      "sha256": "89d2ec63e9885c8534bdcc00bfd6d467ab453e399505d3d4b847461787613c67"
+    },
+    {
+      "id": "M-butterfly-01",
+      "name": "ちょう①",
+      "category": "main",
+      "illustration": "illustrations/M-butterfly-01.png",
+      "preview": "previews/M-butterfly-01.png",
+      "small80": "previews/M-butterfly-01-80.png",
+      "small110": "previews/M-butterfly-01-110.png",
+      "sha256": "cf5589f8554f031cf0e383d29413e9eefe84e399af25decd88b9ece1f7490783"
+    },
+    {
+      "id": "M-butterfly-02",
+      "name": "ちょう②",
+      "category": "main",
+      "illustration": "illustrations/M-butterfly-02.png",
+      "preview": "previews/M-butterfly-02.png",
+      "small80": "previews/M-butterfly-02-80.png",
+      "small110": "previews/M-butterfly-02-110.png",
+      "sha256": "5ec28ea9c1e65b07e5515301aacd6b4b004a52bc741ef78dd28103c673743387"
+    },
+    {
+      "id": "M-butterfly-03",
+      "name": "ちょう③",
+      "category": "main",
+      "illustration": "illustrations/M-butterfly-03.png",
+      "preview": "previews/M-butterfly-03.png",
+      "small80": "previews/M-butterfly-03-80.png",
+      "small110": "previews/M-butterfly-03-110.png",
+      "sha256": "ea14392bdfd520ad1f4627b0507e8931a3138ee069a8f2cc390effedb67c7697"
+    },
+    {
+      "id": "M-butterfly-04",
+      "name": "ちょう④",
+      "category": "main",
+      "illustration": "illustrations/M-butterfly-04.png",
+      "preview": "previews/M-butterfly-04.png",
+      "small80": "previews/M-butterfly-04-80.png",
+      "small110": "previews/M-butterfly-04-110.png",
+      "sha256": "04bd560a2aa982111c21d95c12941baa14fb169a0859bf28e97fcadddb5a239f"
+    },
+    {
+      "id": "M-butterfly-05",
+      "name": "ちょう⑤",
+      "category": "main",
+      "illustration": "illustrations/M-butterfly-05.png",
+      "preview": "previews/M-butterfly-05.png",
+      "small80": "previews/M-butterfly-05-80.png",
+      "small110": "previews/M-butterfly-05-110.png",
+      "sha256": "36de4b3786ffa0b00ca63fdfdcafb2fbba14f56e1edfa76ad4f0fb11fef18f93"
+    },
+    {
+      "id": "M-butterfly-06",
+      "name": "ちょう⑥",
+      "category": "main",
+      "illustration": "illustrations/M-butterfly-06.png",
+      "preview": "previews/M-butterfly-06.png",
+      "small80": "previews/M-butterfly-06-80.png",
+      "small110": "previews/M-butterfly-06-110.png",
+      "sha256": "6090413e52189914d553cf7157eeed6159429baba6b748ed7bd7ec055ece4068"
+    },
+    {
+      "id": "M-butterfly-07",
+      "name": "ちょう⑦",
+      "category": "main",
+      "illustration": "illustrations/M-butterfly-07.png",
+      "preview": "previews/M-butterfly-07.png",
+      "small80": "previews/M-butterfly-07-80.png",
+      "small110": "previews/M-butterfly-07-110.png",
+      "sha256": "e9891647347c7fc97a7757997b7ec59853112364e49b184cf0845b8a020515c3"
+    },
+    {
+      "id": "M-butterfly-08",
+      "name": "ちょう⑧",
+      "category": "main",
+      "illustration": "illustrations/M-butterfly-08.png",
+      "preview": "previews/M-butterfly-08.png",
+      "small80": "previews/M-butterfly-08-80.png",
+      "small110": "previews/M-butterfly-08-110.png",
+      "sha256": "86b8d67909835c5a2396342e335c4aa8db5dae90fa1588f8d3e2b355ae035efd"
+    },
+    {
+      "id": "M-cat-01",
+      "name": "ねこ①",
+      "category": "main",
+      "illustration": "illustrations/M-cat-01.png",
+      "preview": "exports-approved/M-cat-01.png",
+      "small80": "exports-approved/M-cat-01-80.png",
+      "small110": "exports-approved/M-cat-01-110.png",
+      "sha256": "6c62f9e001df85577c8449fe6ab234e49ee8decb2a77d64c477aefec48eacaaa"
+    },
+    {
+      "id": "M-cat-02",
+      "name": "ねこ②",
+      "category": "main",
+      "illustration": "illustrations/M-cat-02.png",
+      "preview": "exports-approved/M-cat-02.png",
+      "small80": "exports-approved/M-cat-02-80.png",
+      "small110": "exports-approved/M-cat-02-110.png",
+      "sha256": "72d2a22d60b8567afe69c8f9f7985d4e51cad42158bb5155f5ccb790604e937a"
+    },
+    {
+      "id": "M-cat-03",
+      "name": "ねこ③",
+      "category": "main",
+      "illustration": "illustrations/M-cat-03.png",
+      "preview": "exports-approved/M-cat-03.png",
+      "small80": "exports-approved/M-cat-03-80.png",
+      "small110": "exports-approved/M-cat-03-110.png",
+      "sha256": "7321240017448e242bbf94c8e68c9dc914d2d17e711f20bde9c8067320537c0b"
+    },
+    {
+      "id": "M-cat-04",
+      "name": "ねこ④",
+      "category": "main",
+      "illustration": "illustrations/M-cat-04.png",
+      "preview": "exports-approved/M-cat-04.png",
+      "small80": "exports-approved/M-cat-04-80.png",
+      "small110": "exports-approved/M-cat-04-110.png",
+      "sha256": "6726c7fb6c094d253dc64aea17b70cc9d6f37f40c6f2de778d5a36716affde1c"
+    },
+    {
+      "id": "M-cat-05",
+      "name": "ねこ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-cat-05.png",
+      "preview": "exports-approved/M-cat-05.png",
+      "small80": "exports-approved/M-cat-05-80.png",
+      "small110": "exports-approved/M-cat-05-110.png",
+      "sha256": "22e1d7761543b66db7a6fd45f24876d68413ff9fe2169b3a23fa11e69930fbce"
+    },
+    {
+      "id": "M-cat-06",
+      "name": "ねこ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-cat-06.png",
+      "preview": "exports-approved/M-cat-06.png",
+      "small80": "exports-approved/M-cat-06-80.png",
+      "small110": "exports-approved/M-cat-06-110.png",
+      "sha256": "3e7cdf6d01d76639e493dbd56d53fdb2b37f5eb2483f72965171e9e4c4ba3b83"
+    },
+    {
+      "id": "M-cat-07",
+      "name": "ねこ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-cat-07.png",
+      "preview": "exports-approved/M-cat-07.png",
+      "small80": "exports-approved/M-cat-07-80.png",
+      "small110": "exports-approved/M-cat-07-110.png",
+      "sha256": "868979101356b2c015a58377fb9e5ee9fc96ce42c60d2a24076302594d0bb28e"
+    },
+    {
+      "id": "M-cat-08",
+      "name": "ねこ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-cat-08.png",
+      "preview": "exports-approved/M-cat-08.png",
+      "small80": "exports-approved/M-cat-08-80.png",
+      "small110": "exports-approved/M-cat-08-110.png",
+      "sha256": "016f66910e97c751fcb33310db55db89f1f891dbf748440694ca6b72707aefce"
+    },
+    {
+      "id": "M-cicada-01",
+      "name": "セミ①",
+      "category": "main",
+      "illustration": "illustrations/M-cicada-01.png",
+      "preview": "previews/M-cicada-01.png",
+      "small80": "previews/M-cicada-01-80.png",
+      "small110": "previews/M-cicada-01-110.png",
+      "sha256": "25fa4760e8e73de3279272a60e2974af301306986a406d93634c99057cfb568c"
+    },
+    {
+      "id": "M-cicada-02",
+      "name": "セミ②",
+      "category": "main",
+      "illustration": "illustrations/M-cicada-02.png",
+      "preview": "previews/M-cicada-02.png",
+      "small80": "previews/M-cicada-02-80.png",
+      "small110": "previews/M-cicada-02-110.png",
+      "sha256": "1f61889ef6034025d598557887754acc3e77580ab575ee7d15855c439d5e237f"
+    },
+    {
+      "id": "M-cicada-03",
+      "name": "セミ③",
+      "category": "main",
+      "illustration": "illustrations/M-cicada-03.png",
+      "preview": "previews/M-cicada-03.png",
+      "small80": "previews/M-cicada-03-80.png",
+      "small110": "previews/M-cicada-03-110.png",
+      "sha256": "7bb0bdfed321fd78002d34c1fb6c86932e396ec897f0f2b0d8b25a434aab349c"
+    },
+    {
+      "id": "M-cicada-04",
+      "name": "セミ④",
+      "category": "main",
+      "illustration": "illustrations/M-cicada-04.png",
+      "preview": "previews/M-cicada-04.png",
+      "small80": "previews/M-cicada-04-80.png",
+      "small110": "previews/M-cicada-04-110.png",
+      "sha256": "281454d6117d45ce7a486a3c78c717db9fb0efb0d1688994d73a992bb8b1e940"
+    },
+    {
+      "id": "M-cicada-05",
+      "name": "セミ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-cicada-05.png",
+      "preview": "previews/M-cicada-05.png",
+      "small80": "previews/M-cicada-05-80.png",
+      "small110": "previews/M-cicada-05-110.png",
+      "sha256": "b03b719fb49d58d796092849311bf9c94fc2661ac7cffc7f996998b3052f7ab0"
+    },
+    {
+      "id": "M-cicada-06",
+      "name": "セミ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-cicada-06.png",
+      "preview": "previews/M-cicada-06.png",
+      "small80": "previews/M-cicada-06-80.png",
+      "small110": "previews/M-cicada-06-110.png",
+      "sha256": "eb5396afadca4caca01e8597657ed9f67708b25521aa64bd200d1b57de197fe6"
+    },
+    {
+      "id": "M-cicada-07",
+      "name": "セミ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-cicada-07.png",
+      "preview": "previews/M-cicada-07.png",
+      "small80": "previews/M-cicada-07-80.png",
+      "small110": "previews/M-cicada-07-110.png",
+      "sha256": "04960d7d4691e52c8fc8a91bba509936e705af2bdcfab91204a48fa8006c41b3"
+    },
+    {
+      "id": "M-cicada-08",
+      "name": "セミ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-cicada-08.png",
+      "preview": "previews/M-cicada-08.png",
+      "small80": "previews/M-cicada-08-80.png",
+      "small110": "previews/M-cicada-08-110.png",
+      "sha256": "96c9a7ec2ab2ce96f4b29a40fb7106e2f430ee503a28452a2ac0a85d350b51f2"
+    },
+    {
+      "id": "M-clownfish-01",
+      "name": "カクレクマノミ①",
+      "category": "main",
+      "illustration": "illustrations/M-clownfish-01.png",
+      "preview": "exports-approved/M-clownfish-01.png",
+      "small80": "exports-approved/M-clownfish-01-80.png",
+      "small110": "exports-approved/M-clownfish-01-110.png",
+      "sha256": "f07258fa7c6029ae7cd5b49561dd35a8528f59619d340f1a06dfebc684906ed7"
+    },
+    {
+      "id": "M-clownfish-02",
+      "name": "カクレクマノミ②",
+      "category": "main",
+      "illustration": "illustrations/M-clownfish-02.png",
+      "preview": "exports-approved/M-clownfish-02.png",
+      "small80": "exports-approved/M-clownfish-02-80.png",
+      "small110": "exports-approved/M-clownfish-02-110.png",
+      "sha256": "1c079036a02415e40e5983ba583994b8625cf109f49400139b27d0f8bbc58a87"
+    },
+    {
+      "id": "M-clownfish-03",
+      "name": "カクレクマノミ③",
+      "category": "main",
+      "illustration": "illustrations/M-clownfish-03.png",
+      "preview": "exports-approved/M-clownfish-03.png",
+      "small80": "exports-approved/M-clownfish-03-80.png",
+      "small110": "exports-approved/M-clownfish-03-110.png",
+      "sha256": "e15a2d01adb40630311e54eb16fde5d26dd5bb52adf5e42a51f2d23fd49f4b67"
+    },
+    {
+      "id": "M-clownfish-04",
+      "name": "カクレクマノミ④",
+      "category": "main",
+      "illustration": "illustrations/M-clownfish-04.png",
+      "preview": "exports-approved/M-clownfish-04.png",
+      "small80": "exports-approved/M-clownfish-04-80.png",
+      "small110": "exports-approved/M-clownfish-04-110.png",
+      "sha256": "67d038f519f3f0281405c9d12175aee21c61cd2666d11a9e8d207edd5353e1f1"
+    },
+    {
+      "id": "M-clownfish-05",
+      "name": "カクレクマノミ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-clownfish-05.png",
+      "preview": "exports-approved/M-clownfish-05.png",
+      "small80": "exports-approved/M-clownfish-05-80.png",
+      "small110": "exports-approved/M-clownfish-05-110.png",
+      "sha256": "e3d9c3d575b0bf3dec5c2e65e31b48a793980918c58e0a515448bae25ea22e07"
+    },
+    {
+      "id": "M-clownfish-06",
+      "name": "カクレクマノミ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-clownfish-06.png",
+      "preview": "exports-approved/M-clownfish-06.png",
+      "small80": "exports-approved/M-clownfish-06-80.png",
+      "small110": "exports-approved/M-clownfish-06-110.png",
+      "sha256": "ae5cfb01cd5ab0bebf9c414d41129033c92424ec0cd37079acc49efcb7c7d512"
+    },
+    {
+      "id": "M-clownfish-07",
+      "name": "カクレクマノミ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-clownfish-07.png",
+      "preview": "exports-approved/M-clownfish-07.png",
+      "small80": "exports-approved/M-clownfish-07-80.png",
+      "small110": "exports-approved/M-clownfish-07-110.png",
+      "sha256": "33d18e837a43901e55933ad2a5d9040b0c29e9945716f7f0b3f373dd9baf492f"
+    },
+    {
+      "id": "M-clownfish-08",
+      "name": "カクレクマノミ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-clownfish-08.png",
+      "preview": "exports-approved/M-clownfish-08.png",
+      "small80": "exports-approved/M-clownfish-08-80.png",
+      "small110": "exports-approved/M-clownfish-08-110.png",
+      "sha256": "985cd5e1d2aead57bb9ed9cb26162d0bf1bcd8f907a17500b3da884cb257f328"
+    },
+    {
+      "id": "M-coral-01",
+      "name": "サンゴ①",
+      "category": "main",
+      "illustration": "illustrations/M-coral-01.png",
+      "preview": "previews/M-coral-01.png",
+      "small80": "previews/M-coral-01-80.png",
+      "small110": "previews/M-coral-01-110.png",
+      "sha256": "add4509003e19d2e1f08c428290b60de56cac752d5b43a2d4c16a62d85a89734"
+    },
+    {
+      "id": "M-coral-02",
+      "name": "サンゴ②",
+      "category": "main",
+      "illustration": "illustrations/M-coral-02.png",
+      "preview": "previews/M-coral-02.png",
+      "small80": "previews/M-coral-02-80.png",
+      "small110": "previews/M-coral-02-110.png",
+      "sha256": "184660212d414b5fb64a1f04ae16ecc217137dc70f3796b62e6a1373c68a9cb7"
+    },
+    {
+      "id": "M-coral-03",
+      "name": "サンゴ③",
+      "category": "main",
+      "illustration": "illustrations/M-coral-03.png",
+      "preview": "previews/M-coral-03.png",
+      "small80": "previews/M-coral-03-80.png",
+      "small110": "previews/M-coral-03-110.png",
+      "sha256": "0a9d8ce666f8f49d2b8818073b4a899042b87d76016d880e00f7088dafea4d81"
+    },
+    {
+      "id": "M-coral-04",
+      "name": "サンゴ④",
+      "category": "main",
+      "illustration": "illustrations/M-coral-04.png",
+      "preview": "previews/M-coral-04.png",
+      "small80": "previews/M-coral-04-80.png",
+      "small110": "previews/M-coral-04-110.png",
+      "sha256": "34a35b2ae0f343fb402f87c430a1936e4756b657dc0c6bfae9e88df072e88747"
+    },
+    {
+      "id": "M-coral-05",
+      "name": "サンゴ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-coral-05.png",
+      "preview": "previews/M-coral-05.png",
+      "small80": "previews/M-coral-05-80.png",
+      "small110": "previews/M-coral-05-110.png",
+      "sha256": "7aaec7ef5668a8d29198018e5c671cd7fe9f9c799d395772bc0798615ad4ba18"
+    },
+    {
+      "id": "M-coral-06",
+      "name": "サンゴ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-coral-06.png",
+      "preview": "previews/M-coral-06.png",
+      "small80": "previews/M-coral-06-80.png",
+      "small110": "previews/M-coral-06-110.png",
+      "sha256": "eecab5b0dc2607c8e4e3b02d100719aa938d9163ff25e691f16b40c14bbaa99f"
+    },
+    {
+      "id": "M-coral-07",
+      "name": "サンゴ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-coral-07.png",
+      "preview": "previews/M-coral-07.png",
+      "small80": "previews/M-coral-07-80.png",
+      "small110": "previews/M-coral-07-110.png",
+      "sha256": "917d5195053bc99e2865a36b4420318a5c51d075cd4f7ce0e178eea393b14cb9"
+    },
+    {
+      "id": "M-coral-08",
+      "name": "サンゴ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-coral-08.png",
+      "preview": "previews/M-coral-08.png",
+      "small80": "previews/M-coral-08-80.png",
+      "small110": "previews/M-coral-08-110.png",
+      "sha256": "0ee4db73e037ef551cee4c83ab40451ea9881ee1637e5246d8b52c9519555926"
+    },
+    {
+      "id": "M-dandelion-01",
+      "name": "タンポポ①",
+      "category": "main",
+      "illustration": "illustrations/M-dandelion-01.png",
+      "preview": "exports-approved/M-dandelion-01.png",
+      "small80": "exports-approved/M-dandelion-01-80.png",
+      "small110": "exports-approved/M-dandelion-01-110.png",
+      "sha256": "5e6467124512b528bf815de4b2a176229eebdfdaa97500e2f59e5453b0fe752a"
+    },
+    {
+      "id": "M-dandelion-02",
+      "name": "タンポポ②",
+      "category": "main",
+      "illustration": "illustrations/M-dandelion-02.png",
+      "preview": "exports-approved/M-dandelion-02.png",
+      "small80": "exports-approved/M-dandelion-02-80.png",
+      "small110": "exports-approved/M-dandelion-02-110.png",
+      "sha256": "3bdda1078fcfade92e5715bcca1abe5fff63f59bc10261ac796b2dffc6436bc4"
+    },
+    {
+      "id": "M-dandelion-03",
+      "name": "タンポポ③",
+      "category": "main",
+      "illustration": "illustrations/M-dandelion-03.png",
+      "preview": "exports-approved/M-dandelion-03.png",
+      "small80": "exports-approved/M-dandelion-03-80.png",
+      "small110": "exports-approved/M-dandelion-03-110.png",
+      "sha256": "84e597c65c8c5db67f8f7a07a32109e557448de7d4e444473c8f5e82b6473a40"
+    },
+    {
+      "id": "M-dandelion-04",
+      "name": "タンポポ④",
+      "category": "main",
+      "illustration": "illustrations/M-dandelion-04.png",
+      "preview": "exports-approved/M-dandelion-04.png",
+      "small80": "exports-approved/M-dandelion-04-80.png",
+      "small110": "exports-approved/M-dandelion-04-110.png",
+      "sha256": "e1932b14bf10662d159b20abf11f110fdf838f123893609da68ef3476cdb1ac6"
+    },
+    {
+      "id": "M-dandelion-05",
+      "name": "タンポポ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-dandelion-05.png",
+      "preview": "exports-approved/M-dandelion-05.png",
+      "small80": "exports-approved/M-dandelion-05-80.png",
+      "small110": "exports-approved/M-dandelion-05-110.png",
+      "sha256": "001009fad4216647f7a8937f7dfeeda9a9483e2c0f2b6d71238f342e07ba96a8"
+    },
+    {
+      "id": "M-dandelion-06",
+      "name": "タンポポ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-dandelion-06.png",
+      "preview": "exports-approved/M-dandelion-06.png",
+      "small80": "exports-approved/M-dandelion-06-80.png",
+      "small110": "exports-approved/M-dandelion-06-110.png",
+      "sha256": "b06b3a960b2c90dd722bc329341f5d35707b1ecfbfea8c67ceb28f0563128797"
+    },
+    {
+      "id": "M-dandelion-07",
+      "name": "タンポポ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-dandelion-07.png",
+      "preview": "exports-approved/M-dandelion-07.png",
+      "small80": "exports-approved/M-dandelion-07-80.png",
+      "small110": "exports-approved/M-dandelion-07-110.png",
+      "sha256": "540dc414cad8e3c0d82a711d2c610c4a29851ab0722ca2df42bf420d7cc88c8f"
+    },
+    {
+      "id": "M-dandelion-08",
+      "name": "タンポポ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-dandelion-08.png",
+      "preview": "exports-approved/M-dandelion-08.png",
+      "small80": "exports-approved/M-dandelion-08-80.png",
+      "small110": "exports-approved/M-dandelion-08-110.png",
+      "sha256": "c9ef987e1d5d0bb8f4d802502c58a0ada0808215485da5b60c96e21578c68174"
+    },
+    {
+      "id": "M-dog-01",
+      "name": "いぬ①",
+      "category": "main",
+      "illustration": "illustrations/M-dog-01.png",
+      "preview": "previews/M-dog-01.png",
+      "small80": "previews/M-dog-01-80.png",
+      "small110": "previews/M-dog-01-110.png",
+      "sha256": "e4e3280ea06bc6321bb0736c2fa74fdf2e53788bcf15af4401bc030af4d472ca"
+    },
+    {
+      "id": "M-dog-02",
+      "name": "いぬ②",
+      "category": "main",
+      "illustration": "illustrations/M-dog-02.png",
+      "preview": "previews/M-dog-02.png",
+      "small80": "previews/M-dog-02-80.png",
+      "small110": "previews/M-dog-02-110.png",
+      "sha256": "3cac597a79a1859e4d0f801000f04d6989d83c2e52bd055b50b0cb061d3f7b9b"
+    },
+    {
+      "id": "M-dog-03",
+      "name": "いぬ③",
+      "category": "main",
+      "illustration": "illustrations/M-dog-03.png",
+      "preview": "previews/M-dog-03.png",
+      "small80": "previews/M-dog-03-80.png",
+      "small110": "previews/M-dog-03-110.png",
+      "sha256": "8d6892def5c7e330e7e01f0ea2139badf8564a92f395bae256e089ff33c0fcb0"
+    },
+    {
+      "id": "M-dog-04",
+      "name": "いぬ④",
+      "category": "main",
+      "illustration": "illustrations/M-dog-04.png",
+      "preview": "previews/M-dog-04.png",
+      "small80": "previews/M-dog-04-80.png",
+      "small110": "previews/M-dog-04-110.png",
+      "sha256": "1e23012272965829fe3578b6ec384d09f1202e0a7ffa24d78dc72f66a7dba423"
+    },
+    {
+      "id": "M-dog-05",
+      "name": "いぬ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-dog-05.png",
+      "preview": "previews/M-dog-05.png",
+      "small80": "previews/M-dog-05-80.png",
+      "small110": "previews/M-dog-05-110.png",
+      "sha256": "5c552747f27eca81eaf4120942b549715d2700f8fe7863b979d18f36b60f0cdc"
+    },
+    {
+      "id": "M-dog-06",
+      "name": "いぬ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-dog-06.png",
+      "preview": "previews/M-dog-06.png",
+      "small80": "previews/M-dog-06-80.png",
+      "small110": "previews/M-dog-06-110.png",
+      "sha256": "d0228831df220c9275a106df1cf3bff0da3f37f9f26a269445c817dae87d2425"
+    },
+    {
+      "id": "M-dog-07",
+      "name": "いぬ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-dog-07.png",
+      "preview": "previews/M-dog-07.png",
+      "small80": "previews/M-dog-07-80.png",
+      "small110": "previews/M-dog-07-110.png",
+      "sha256": "8487aa6f30bda9a83975e7e90f3e7565cc8add2072e5c5a1584f7b1596ec6767"
+    },
+    {
+      "id": "M-dog-08",
+      "name": "いぬ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-dog-08.png",
+      "preview": "previews/M-dog-08.png",
+      "small80": "previews/M-dog-08-80.png",
+      "small110": "previews/M-dog-08-110.png",
+      "sha256": "4c16a93cfa058696e98e1dbad6975efe65d448bb60c0aca4b1a4917452ae48de"
+    },
+    {
+      "id": "M-dragon-01",
+      "name": "りゅう①",
+      "category": "main",
+      "illustration": "illustrations/M-dragon-01.png",
+      "preview": "previews/M-dragon-01.png",
+      "small80": "previews/M-dragon-01-80.png",
+      "small110": "previews/M-dragon-01-110.png",
+      "sha256": "bcf8df5952449d40a35198ecb09058c100be3e31a6003899e5fbf539688da0c2"
+    },
+    {
+      "id": "M-dragon-02",
+      "name": "りゅう②",
+      "category": "main",
+      "illustration": "illustrations/M-dragon-02.png",
+      "preview": "previews/M-dragon-02.png",
+      "small80": "previews/M-dragon-02-80.png",
+      "small110": "previews/M-dragon-02-110.png",
+      "sha256": "6cb11033d690f27baf7e937796b1964cebaf1acd207ab1f273d3fd48241748f2"
+    },
+    {
+      "id": "M-dragon-03",
+      "name": "りゅう③",
+      "category": "main",
+      "illustration": "illustrations/M-dragon-03.png",
+      "preview": "previews/M-dragon-03.png",
+      "small80": "previews/M-dragon-03-80.png",
+      "small110": "previews/M-dragon-03-110.png",
+      "sha256": "52daa62164a0ddb7fb4a6a84717511ca0f452d8f8cc33d0be34212f37a2bc8a6"
+    },
+    {
+      "id": "M-dragon-04",
+      "name": "りゅう④",
+      "category": "main",
+      "illustration": "illustrations/M-dragon-04.png",
+      "preview": "previews/M-dragon-04.png",
+      "small80": "previews/M-dragon-04-80.png",
+      "small110": "previews/M-dragon-04-110.png",
+      "sha256": "0f55169f8e48e80ec5de91f06ac2de9ec080a34f48b20e48ecfdb145d7660df4"
+    },
+    {
+      "id": "M-dragon-05",
+      "name": "りゅう⑤",
+      "category": "main",
+      "illustration": "illustrations/M-dragon-05.png",
+      "preview": "previews/M-dragon-05.png",
+      "small80": "previews/M-dragon-05-80.png",
+      "small110": "previews/M-dragon-05-110.png",
+      "sha256": "895eecf2d323ccfc1d8b3d34675dbe35666ad83fb90bf6f09821f28f74a12599"
+    },
+    {
+      "id": "M-dragon-06",
+      "name": "りゅう⑥",
+      "category": "main",
+      "illustration": "illustrations/M-dragon-06.png",
+      "preview": "previews/M-dragon-06.png",
+      "small80": "previews/M-dragon-06-80.png",
+      "small110": "previews/M-dragon-06-110.png",
+      "sha256": "86e39fd74761a105bb056d3692385a96e46fc50db2bb72014aa63bc98cd50ab4"
+    },
+    {
+      "id": "M-dragon-07",
+      "name": "りゅう⑦",
+      "category": "main",
+      "illustration": "illustrations/M-dragon-07.png",
+      "preview": "previews/M-dragon-07.png",
+      "small80": "previews/M-dragon-07-80.png",
+      "small110": "previews/M-dragon-07-110.png",
+      "sha256": "f6114298a092553e5f5b494ad008de7fce86fde60ad08edadb83ae4f430eb43d"
+    },
+    {
+      "id": "M-dragon-08",
+      "name": "りゅう⑧",
+      "category": "main",
+      "illustration": "illustrations/M-dragon-08.png",
+      "preview": "previews/M-dragon-08.png",
+      "small80": "previews/M-dragon-08-80.png",
+      "small110": "previews/M-dragon-08-110.png",
+      "sha256": "0027e35df17b03af4713dfa27622517fe3c7b7bd2629607749c5eb51ad187128"
+    },
+    {
+      "id": "M-frog-01",
+      "name": "かえる①",
+      "category": "main",
+      "illustration": "illustrations/M-frog-01.png",
+      "preview": "previews/M-frog-01.png",
+      "small80": "previews/M-frog-01-80.png",
+      "small110": "previews/M-frog-01-110.png",
+      "sha256": "2f535686db9bd8a82d7ae6df7766f1df1a344274a56785abfdd14d63525532c9"
+    },
+    {
+      "id": "M-frog-02",
+      "name": "かえる②",
+      "category": "main",
+      "illustration": "illustrations/M-frog-02.png",
+      "preview": "previews/M-frog-02.png",
+      "small80": "previews/M-frog-02-80.png",
+      "small110": "previews/M-frog-02-110.png",
+      "sha256": "462a339da83428f2104a812d42452828caa31c222710949d0246cab90eec438e"
+    },
+    {
+      "id": "M-frog-03",
+      "name": "かえる③",
+      "category": "main",
+      "illustration": "illustrations/M-frog-03.png",
+      "preview": "previews/M-frog-03.png",
+      "small80": "previews/M-frog-03-80.png",
+      "small110": "previews/M-frog-03-110.png",
+      "sha256": "0bec3b5426a7276f8d648e827564fb9d6a39594c30c8c0203259f90e23ea64ac"
+    },
+    {
+      "id": "M-frog-04",
+      "name": "かえる④",
+      "category": "main",
+      "illustration": "illustrations/M-frog-04.png",
+      "preview": "previews/M-frog-04.png",
+      "small80": "previews/M-frog-04-80.png",
+      "small110": "previews/M-frog-04-110.png",
+      "sha256": "766a9bc4878552c47cef760d96013b082ec4f5e3cd4aeb711e665ca4607de849"
+    },
+    {
+      "id": "M-frog-05",
+      "name": "かえる⑤",
+      "category": "main",
+      "illustration": "illustrations/M-frog-05.png",
+      "preview": "previews/M-frog-05.png",
+      "small80": "previews/M-frog-05-80.png",
+      "small110": "previews/M-frog-05-110.png",
+      "sha256": "d8bae8b5037c8975da241197d9bc350dca8aeac24109893551a10f5b9ef967b5"
+    },
+    {
+      "id": "M-frog-06",
+      "name": "かえる⑥",
+      "category": "main",
+      "illustration": "illustrations/M-frog-06.png",
+      "preview": "previews/M-frog-06.png",
+      "small80": "previews/M-frog-06-80.png",
+      "small110": "previews/M-frog-06-110.png",
+      "sha256": "2ccc21077292fe96c5b2f9f1a6ab120d3ae58eca324578f4011aab9c20fef743"
+    },
+    {
+      "id": "M-frog-07",
+      "name": "かえる⑦",
+      "category": "main",
+      "illustration": "illustrations/M-frog-07.png",
+      "preview": "previews/M-frog-07.png",
+      "small80": "previews/M-frog-07-80.png",
+      "small110": "previews/M-frog-07-110.png",
+      "sha256": "9b48d0140bf5ca76bb8524074731b7387375add494c0d2a833b1bc3c5c08fc77"
+    },
+    {
+      "id": "M-frog-08",
+      "name": "かえる⑧",
+      "category": "main",
+      "illustration": "illustrations/M-frog-08.png",
+      "preview": "previews/M-frog-08.png",
+      "small80": "previews/M-frog-08-80.png",
+      "small110": "previews/M-frog-08-110.png",
+      "sha256": "84dfb3eacbd93024dc788fb347401c804155d2e9a8faf24c188372945fa4d332"
+    },
+    {
+      "id": "M-ghost-01",
+      "name": "おばけ①",
+      "category": "main",
+      "illustration": "illustrations/M-ghost-01.png",
+      "preview": "previews/M-ghost-01.png",
+      "small80": "previews/M-ghost-01-80.png",
+      "small110": "previews/M-ghost-01-110.png",
+      "sha256": "07a19b5f437ad6092b19823f76f082721b8e8c81d283ec949d87843ddad44550"
+    },
+    {
+      "id": "M-ghost-02",
+      "name": "おばけ②",
+      "category": "main",
+      "illustration": "illustrations/M-ghost-02.png",
+      "preview": "previews/M-ghost-02.png",
+      "small80": "previews/M-ghost-02-80.png",
+      "small110": "previews/M-ghost-02-110.png",
+      "sha256": "94bc05e429bff9357ff8b5c266bce39d2f309543f62492a8554ee222fd9d25cf"
+    },
+    {
+      "id": "M-ghost-03",
+      "name": "おばけ③",
+      "category": "main",
+      "illustration": "illustrations/M-ghost-03.png",
+      "preview": "previews/M-ghost-03.png",
+      "small80": "previews/M-ghost-03-80.png",
+      "small110": "previews/M-ghost-03-110.png",
+      "sha256": "50c382fe0fcf4e229f90d92e8f4df327bfcaf40002c18ad493e2a3c7a6b4f4ed"
+    },
+    {
+      "id": "M-ghost-04",
+      "name": "おばけ④",
+      "category": "main",
+      "illustration": "illustrations/M-ghost-04.png",
+      "preview": "previews/M-ghost-04.png",
+      "small80": "previews/M-ghost-04-80.png",
+      "small110": "previews/M-ghost-04-110.png",
+      "sha256": "dc0bfe61ac103c7643e33191804e7e7213d208e728a5f68ebd00a4fe9d6c76cf"
+    },
+    {
+      "id": "M-ghost-05",
+      "name": "おばけ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-ghost-05.png",
+      "preview": "previews/M-ghost-05.png",
+      "small80": "previews/M-ghost-05-80.png",
+      "small110": "previews/M-ghost-05-110.png",
+      "sha256": "068332b63dd75d0d00fcfb5a71e43c2f050a610d74ba25b9170afb4b68fde3f0"
+    },
+    {
+      "id": "M-ghost-06",
+      "name": "おばけ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-ghost-06.png",
+      "preview": "previews/M-ghost-06.png",
+      "small80": "previews/M-ghost-06-80.png",
+      "small110": "previews/M-ghost-06-110.png",
+      "sha256": "3cc648987a61354cce311d85d4bf204edd2a307e6cca594cb80565dc6eca71a1"
+    },
+    {
+      "id": "M-ghost-07",
+      "name": "おばけ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-ghost-07.png",
+      "preview": "previews/M-ghost-07.png",
+      "small80": "previews/M-ghost-07-80.png",
+      "small110": "previews/M-ghost-07-110.png",
+      "sha256": "496a9bd1240b6da36f1f739b8f070b231a983e5f7568430950d94aaea568b631"
+    },
+    {
+      "id": "M-ghost-08",
+      "name": "おばけ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-ghost-08.png",
+      "preview": "previews/M-ghost-08.png",
+      "small80": "previews/M-ghost-08-80.png",
+      "small110": "previews/M-ghost-08-110.png",
+      "sha256": "2ceb93bf7d9a87df80519c0a0b4a13a9016c3b5f17b9a13b94cc06c385a8e799"
+    },
+    {
+      "id": "M-god-01",
+      "name": "かみさま①",
+      "category": "main",
+      "illustration": "illustrations/M-god-01.png",
+      "preview": "previews/M-god-01.png",
+      "small80": "previews/M-god-01-80.png",
+      "small110": "previews/M-god-01-110.png",
+      "sha256": "e22016267fe4aa5d5c837098cc5eabfe72f3461053eafb502c5d2814262bc851"
+    },
+    {
+      "id": "M-god-02",
+      "name": "かみさま②",
+      "category": "main",
+      "illustration": "illustrations/M-god-02.png",
+      "preview": "previews/M-god-02.png",
+      "small80": "previews/M-god-02-80.png",
+      "small110": "previews/M-god-02-110.png",
+      "sha256": "5f7feeed428408f574e9c050ac6f8a434e79e8e8a12dba22c41004be9578f8ae"
+    },
+    {
+      "id": "M-god-03",
+      "name": "かみさま③",
+      "category": "main",
+      "illustration": "illustrations/M-god-03.png",
+      "preview": "previews/M-god-03.png",
+      "small80": "previews/M-god-03-80.png",
+      "small110": "previews/M-god-03-110.png",
+      "sha256": "0ede24aa6edaa6fee00fe9d65ae830825262f40cb1b16f75b398a6dd2beca573"
+    },
+    {
+      "id": "M-god-04",
+      "name": "かみさま④",
+      "category": "main",
+      "illustration": "illustrations/M-god-04.png",
+      "preview": "previews/M-god-04.png",
+      "small80": "previews/M-god-04-80.png",
+      "small110": "previews/M-god-04-110.png",
+      "sha256": "c82b6df6dced6e480d79e3f9f01ee3aada4f00ed512409c21b1693b4529936b3"
+    },
+    {
+      "id": "M-god-05",
+      "name": "かみさま⑤",
+      "category": "main",
+      "illustration": "illustrations/M-god-05.png",
+      "preview": "previews/M-god-05.png",
+      "small80": "previews/M-god-05-80.png",
+      "small110": "previews/M-god-05-110.png",
+      "sha256": "c0a87c4a63162df67bec25c9d424fcd56cf81343260b2829c0381a5e0b45c4bd"
+    },
+    {
+      "id": "M-god-06",
+      "name": "かみさま⑥",
+      "category": "main",
+      "illustration": "illustrations/M-god-06.png",
+      "preview": "previews/M-god-06.png",
+      "small80": "previews/M-god-06-80.png",
+      "small110": "previews/M-god-06-110.png",
+      "sha256": "ebb0a9d78814bf7a9dc16141332454e99d862a80271b90e33c0c2e9ac1d4747f"
+    },
+    {
+      "id": "M-god-07",
+      "name": "かみさま⑦",
+      "category": "main",
+      "illustration": "illustrations/M-god-07.png",
+      "preview": "previews/M-god-07.png",
+      "small80": "previews/M-god-07-80.png",
+      "small110": "previews/M-god-07-110.png",
+      "sha256": "af575bfb24643696eaa7fd0d82039969089315d495258bbd33a993a47c8e2a0d"
+    },
+    {
+      "id": "M-god-08",
+      "name": "かみさま⑧",
+      "category": "main",
+      "illustration": "illustrations/M-god-08.png",
+      "preview": "previews/M-god-08.png",
+      "small80": "previews/M-god-08-80.png",
+      "small110": "previews/M-god-08-110.png",
+      "sha256": "2d1c02964deddf6ebd9a1190588fe479d01a53c803b77829c09ce7575e5c8219"
+    },
+    {
+      "id": "M-hermit_crab-01",
+      "name": "ヤドカリ①",
+      "category": "main",
+      "illustration": "illustrations/M-hermit_crab-01.png",
+      "preview": "previews/M-hermit_crab-01.png",
+      "small80": "previews/M-hermit_crab-01-80.png",
+      "small110": "previews/M-hermit_crab-01-110.png",
+      "sha256": "be2f0a1f0206b5f58b95752d28f497e784519d33b91db46a2f2b43e8e0276bb4"
+    },
+    {
+      "id": "M-hermit_crab-02",
+      "name": "ヤドカリ②",
+      "category": "main",
+      "illustration": "illustrations/M-hermit_crab-02.png",
+      "preview": "previews/M-hermit_crab-02.png",
+      "small80": "previews/M-hermit_crab-02-80.png",
+      "small110": "previews/M-hermit_crab-02-110.png",
+      "sha256": "adbdb17a7ef8d5cb4988fe5c757c451eec7956d9998b334b2a665b420456200a"
+    },
+    {
+      "id": "M-hermit_crab-03",
+      "name": "ヤドカリ③",
+      "category": "main",
+      "illustration": "illustrations/M-hermit_crab-03.png",
+      "preview": "previews/M-hermit_crab-03.png",
+      "small80": "previews/M-hermit_crab-03-80.png",
+      "small110": "previews/M-hermit_crab-03-110.png",
+      "sha256": "de0a9b9d1bc72398e1ddca4ff0717d5b1c6e19f918866cad85d7c48fd720b849"
+    },
+    {
+      "id": "M-hermit_crab-04",
+      "name": "ヤドカリ④",
+      "category": "main",
+      "illustration": "illustrations/M-hermit_crab-04.png",
+      "preview": "previews/M-hermit_crab-04.png",
+      "small80": "previews/M-hermit_crab-04-80.png",
+      "small110": "previews/M-hermit_crab-04-110.png",
+      "sha256": "36f84ef2ac0c61159c4a53d3ebbddffd0754599e143ceacb8354c026c4ff73f0"
+    },
+    {
+      "id": "M-hermit_crab-05",
+      "name": "ヤドカリ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-hermit_crab-05.png",
+      "preview": "previews/M-hermit_crab-05.png",
+      "small80": "previews/M-hermit_crab-05-80.png",
+      "small110": "previews/M-hermit_crab-05-110.png",
+      "sha256": "725f65a9ca3fe347df00a8c5e520400fcb96522a7fb5118b27642c800134b067"
+    },
+    {
+      "id": "M-hermit_crab-06",
+      "name": "ヤドカリ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-hermit_crab-06.png",
+      "preview": "previews/M-hermit_crab-06.png",
+      "small80": "previews/M-hermit_crab-06-80.png",
+      "small110": "previews/M-hermit_crab-06-110.png",
+      "sha256": "9afb1fed1bd2e31e9389de6264bfc28d08594cb9377fd8445ce6e1059826795e"
+    },
+    {
+      "id": "M-hermit_crab-07",
+      "name": "ヤドカリ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-hermit_crab-07.png",
+      "preview": "previews/M-hermit_crab-07.png",
+      "small80": "previews/M-hermit_crab-07-80.png",
+      "small110": "previews/M-hermit_crab-07-110.png",
+      "sha256": "bbcc0f6436706bea0a86e6010a5a682944df8d0a0d560b5fb6569fb1abeb5c56"
+    },
+    {
+      "id": "M-hermit_crab-08",
+      "name": "ヤドカリ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-hermit_crab-08.png",
+      "preview": "previews/M-hermit_crab-08.png",
+      "small80": "previews/M-hermit_crab-08-80.png",
+      "small110": "previews/M-hermit_crab-08-110.png",
+      "sha256": "204a06c48ee59f464c7d0770ff2eb103b379e881a53790c93b5f453c00cc85d5"
+    },
+    {
+      "id": "M-jellyfish-01",
+      "name": "クラゲ①",
+      "category": "main",
+      "illustration": "illustrations/M-jellyfish-01.png",
+      "preview": "previews/M-jellyfish-01.png",
+      "small80": "previews/M-jellyfish-01-80.png",
+      "small110": "previews/M-jellyfish-01-110.png",
+      "sha256": "897b7f65a1ef74243fd0961df1906d5c816089c08d7b59c8902a9a170744ac50"
+    },
+    {
+      "id": "M-jellyfish-02",
+      "name": "クラゲ②",
+      "category": "main",
+      "illustration": "illustrations/M-jellyfish-02.png",
+      "preview": "previews/M-jellyfish-02.png",
+      "small80": "previews/M-jellyfish-02-80.png",
+      "small110": "previews/M-jellyfish-02-110.png",
+      "sha256": "9c7c6ecd92e1dca1c2cceea89793a04fc4d846b30a272db3f00dd4e356186f69"
+    },
+    {
+      "id": "M-jellyfish-03",
+      "name": "クラゲ③",
+      "category": "main",
+      "illustration": "illustrations/M-jellyfish-03.png",
+      "preview": "previews/M-jellyfish-03.png",
+      "small80": "previews/M-jellyfish-03-80.png",
+      "small110": "previews/M-jellyfish-03-110.png",
+      "sha256": "ad70f3f09a2d1eacd28707a967aa6d4422d9ff693e47e4cde75a7851212d97f7"
+    },
+    {
+      "id": "M-jellyfish-04",
+      "name": "クラゲ④",
+      "category": "main",
+      "illustration": "illustrations/M-jellyfish-04.png",
+      "preview": "previews/M-jellyfish-04.png",
+      "small80": "previews/M-jellyfish-04-80.png",
+      "small110": "previews/M-jellyfish-04-110.png",
+      "sha256": "fb6dcc62835a2532c5bbcaf0be6ff128ba95f5cd6aae37be2f203b03402b4fa3"
+    },
+    {
+      "id": "M-jellyfish-05",
+      "name": "クラゲ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-jellyfish-05.png",
+      "preview": "previews/M-jellyfish-05.png",
+      "small80": "previews/M-jellyfish-05-80.png",
+      "small110": "previews/M-jellyfish-05-110.png",
+      "sha256": "571468c6e8b1f202bc42096781c6a4681752846613b36738ca07d99511db6ba5"
+    },
+    {
+      "id": "M-jellyfish-06",
+      "name": "クラゲ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-jellyfish-06.png",
+      "preview": "previews/M-jellyfish-06.png",
+      "small80": "previews/M-jellyfish-06-80.png",
+      "small110": "previews/M-jellyfish-06-110.png",
+      "sha256": "cc9c85a44e9f2c8205183aec18b45fce90940012ff3e471819c39a52943ec3de"
+    },
+    {
+      "id": "M-jellyfish-07",
+      "name": "クラゲ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-jellyfish-07.png",
+      "preview": "previews/M-jellyfish-07.png",
+      "small80": "previews/M-jellyfish-07-80.png",
+      "small110": "previews/M-jellyfish-07-110.png",
+      "sha256": "582b574c0f896fb9849ff2a758802dc69c297194155e06aaef17a0f9b6a7feda"
+    },
+    {
+      "id": "M-jellyfish-08",
+      "name": "クラゲ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-jellyfish-08.png",
+      "preview": "previews/M-jellyfish-08.png",
+      "small80": "previews/M-jellyfish-08-80.png",
+      "small110": "previews/M-jellyfish-08-110.png",
+      "sha256": "945acd0253f3f542c3303471f88acf954796c64390597d3250e69bcca715a14f"
+    },
+    {
+      "id": "M-man-01",
+      "name": "おとこのひと①",
+      "category": "main",
+      "illustration": "illustrations/M-man-01.png",
+      "preview": "previews/M-man-01.png",
+      "small80": "previews/M-man-01-80.png",
+      "small110": "previews/M-man-01-110.png",
+      "sha256": "ee86c23e7e9cb4f7229999ea0670ec030193dd7c87006ab0b7342dad1039abfd"
+    },
+    {
+      "id": "M-man-02",
+      "name": "おとこのひと②",
+      "category": "main",
+      "illustration": "illustrations/M-man-02.png",
+      "preview": "previews/M-man-02.png",
+      "small80": "previews/M-man-02-80.png",
+      "small110": "previews/M-man-02-110.png",
+      "sha256": "4b8f1f9dcd111f9d15e75362a6f3e6d1a4a7ed65ba0dbd318f9c7f74fb410b39"
+    },
+    {
+      "id": "M-man-03",
+      "name": "おとこのひと③",
+      "category": "main",
+      "illustration": "illustrations/M-man-03.png",
+      "preview": "previews/M-man-03.png",
+      "small80": "previews/M-man-03-80.png",
+      "small110": "previews/M-man-03-110.png",
+      "sha256": "95c6a0499c69aa34f19c69bfa922969900cbb324ae393a158ee02c780698f6c7"
+    },
+    {
+      "id": "M-man-04",
+      "name": "おとこのひと④",
+      "category": "main",
+      "illustration": "illustrations/M-man-04.png",
+      "preview": "previews/M-man-04.png",
+      "small80": "previews/M-man-04-80.png",
+      "small110": "previews/M-man-04-110.png",
+      "sha256": "655e06c52538d43364932a44b327cf1848bd37a95e6d342ce93b708361b244be"
+    },
+    {
+      "id": "M-man-05",
+      "name": "おとこのひと⑤",
+      "category": "main",
+      "illustration": "illustrations/M-man-05.png",
+      "preview": "previews/M-man-05.png",
+      "small80": "previews/M-man-05-80.png",
+      "small110": "previews/M-man-05-110.png",
+      "sha256": "d5aca9ca2093c732c2cea6db5318f17eb5ead2eabf1c528858f171d218098333"
+    },
+    {
+      "id": "M-man-06",
+      "name": "おとこのひと⑥",
+      "category": "main",
+      "illustration": "illustrations/M-man-06.png",
+      "preview": "previews/M-man-06.png",
+      "small80": "previews/M-man-06-80.png",
+      "small110": "previews/M-man-06-110.png",
+      "sha256": "692bfa46702306b332644adbe3fbb53ede5999d6ceaba9f999cd2bb49c4ea78c"
+    },
+    {
+      "id": "M-man-07",
+      "name": "おとこのひと⑦",
+      "category": "main",
+      "illustration": "illustrations/M-man-07.png",
+      "preview": "previews/M-man-07.png",
+      "small80": "previews/M-man-07-80.png",
+      "small110": "previews/M-man-07-110.png",
+      "sha256": "596a7c00c2bfe7b430c2e244904842240c940f58d9c588c24ebb1258db862ab1"
+    },
+    {
+      "id": "M-man-08",
+      "name": "おとこのひと⑧",
+      "category": "main",
+      "illustration": "illustrations/M-man-08.png",
+      "preview": "previews/M-man-08.png",
+      "small80": "previews/M-man-08-80.png",
+      "small110": "previews/M-man-08-110.png",
+      "sha256": "539df5df1ee73dc36e8e1bf6cb958ace1e714641d148860d42f3386f219149d5"
+    },
+    {
+      "id": "M-mushroom-01",
+      "name": "キノコ①",
+      "category": "main",
+      "illustration": "illustrations/M-mushroom-01.png",
+      "preview": "previews/M-mushroom-01.png",
+      "small80": "previews/M-mushroom-01-80.png",
+      "small110": "previews/M-mushroom-01-110.png",
+      "sha256": "0867d5bc95dfbe1e6abdb79f8c2d7a96fd54167a54fd885302bd6948abc6b505"
+    },
+    {
+      "id": "M-mushroom-02",
+      "name": "キノコ②",
+      "category": "main",
+      "illustration": "illustrations/M-mushroom-02.png",
+      "preview": "previews/M-mushroom-02.png",
+      "small80": "previews/M-mushroom-02-80.png",
+      "small110": "previews/M-mushroom-02-110.png",
+      "sha256": "6e8340a657436db9471f70b55b535a3db93f6ff2c730d4c6b7768c5134efe064"
+    },
+    {
+      "id": "M-mushroom-03",
+      "name": "キノコ③",
+      "category": "main",
+      "illustration": "illustrations/M-mushroom-03.png",
+      "preview": "previews/M-mushroom-03.png",
+      "small80": "previews/M-mushroom-03-80.png",
+      "small110": "previews/M-mushroom-03-110.png",
+      "sha256": "feb258629574e06e0fd73a8530e8997f7f6f3acc22f6aa4243fb5ec6f50281c4"
+    },
+    {
+      "id": "M-mushroom-04",
+      "name": "キノコ④",
+      "category": "main",
+      "illustration": "illustrations/M-mushroom-04.png",
+      "preview": "previews/M-mushroom-04.png",
+      "small80": "previews/M-mushroom-04-80.png",
+      "small110": "previews/M-mushroom-04-110.png",
+      "sha256": "25d2203310046759596509db8e8d30442d018713977fb9df666e24cdd894785f"
+    },
+    {
+      "id": "M-mushroom-05",
+      "name": "キノコ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-mushroom-05.png",
+      "preview": "previews/M-mushroom-05.png",
+      "small80": "previews/M-mushroom-05-80.png",
+      "small110": "previews/M-mushroom-05-110.png",
+      "sha256": "a149e6e9ef911cb69d55cbeb16c446cb71ef0aaeb5b2990d93ee6a9955bb4d82"
+    },
+    {
+      "id": "M-mushroom-06",
+      "name": "キノコ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-mushroom-06.png",
+      "preview": "previews/M-mushroom-06.png",
+      "small80": "previews/M-mushroom-06-80.png",
+      "small110": "previews/M-mushroom-06-110.png",
+      "sha256": "bb68441085623dabfd345df70c4fa45fd8506e72f8d573ab3239f1ca06615ac2"
+    },
+    {
+      "id": "M-mushroom-07",
+      "name": "キノコ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-mushroom-07.png",
+      "preview": "previews/M-mushroom-07.png",
+      "small80": "previews/M-mushroom-07-80.png",
+      "small110": "previews/M-mushroom-07-110.png",
+      "sha256": "8837176e2ad7d3e204f653b68758f485d089b498f00d801bbf126635d4fd8f9b"
+    },
+    {
+      "id": "M-mushroom-08",
+      "name": "キノコ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-mushroom-08.png",
+      "preview": "previews/M-mushroom-08.png",
+      "small80": "previews/M-mushroom-08-80.png",
+      "small110": "previews/M-mushroom-08-110.png",
+      "sha256": "57b3a9c8ad460e18d43fb7804ca8407cedfc8d8b137bcb18d1751255efc149db"
+    },
+    {
+      "id": "M-penguin-01",
+      "name": "ペンギン①",
+      "category": "main",
+      "illustration": "illustrations/M-penguin-01.png",
+      "preview": "previews/M-penguin-01.png",
+      "small80": "previews/M-penguin-01-80.png",
+      "small110": "previews/M-penguin-01-110.png",
+      "sha256": "4ce95af6be37ee2ee1aefd108f23c0c7a8b033dd2f88638d80f32272fa779395"
+    },
+    {
+      "id": "M-penguin-02",
+      "name": "ペンギン②",
+      "category": "main",
+      "illustration": "illustrations/M-penguin-02.png",
+      "preview": "previews/M-penguin-02.png",
+      "small80": "previews/M-penguin-02-80.png",
+      "small110": "previews/M-penguin-02-110.png",
+      "sha256": "ee3eaa65c442ad04058586fb0abd4f5972a30721cbb3cf623a5e7f302aea1d2b"
+    },
+    {
+      "id": "M-penguin-03",
+      "name": "ペンギン③",
+      "category": "main",
+      "illustration": "illustrations/M-penguin-03.png",
+      "preview": "previews/M-penguin-03.png",
+      "small80": "previews/M-penguin-03-80.png",
+      "small110": "previews/M-penguin-03-110.png",
+      "sha256": "9d1ef61635e994a7fa5ec132146f6c2560c380515dc4bd91d3f48bde9785913e"
+    },
+    {
+      "id": "M-penguin-04",
+      "name": "ペンギン④",
+      "category": "main",
+      "illustration": "illustrations/M-penguin-04.png",
+      "preview": "previews/M-penguin-04.png",
+      "small80": "previews/M-penguin-04-80.png",
+      "small110": "previews/M-penguin-04-110.png",
+      "sha256": "87e0618a810521fe7aff81ea75d588bf812d6e1b16ec435ed9d85f825f7ce0aa"
+    },
+    {
+      "id": "M-penguin-05",
+      "name": "ペンギン⑤",
+      "category": "main",
+      "illustration": "illustrations/M-penguin-05.png",
+      "preview": "previews/M-penguin-05.png",
+      "small80": "previews/M-penguin-05-80.png",
+      "small110": "previews/M-penguin-05-110.png",
+      "sha256": "85813557f80c370c1414dd055f80cd66d8461e4d6ca4168d85aafa9da8c181a2"
+    },
+    {
+      "id": "M-penguin-06",
+      "name": "ペンギン⑥",
+      "category": "main",
+      "illustration": "illustrations/M-penguin-06.png",
+      "preview": "previews/M-penguin-06.png",
+      "small80": "previews/M-penguin-06-80.png",
+      "small110": "previews/M-penguin-06-110.png",
+      "sha256": "e37a72b85155180e0f54dd17dbd43741056c3d0437583760e11d7906ec300fe2"
+    },
+    {
+      "id": "M-penguin-07",
+      "name": "ペンギン⑦",
+      "category": "main",
+      "illustration": "illustrations/M-penguin-07.png",
+      "preview": "previews/M-penguin-07.png",
+      "small80": "previews/M-penguin-07-80.png",
+      "small110": "previews/M-penguin-07-110.png",
+      "sha256": "cb7006101fdca5ebaddc594d41aa25b513a0cfdcc5bcd9579075173a72c38d0d"
+    },
+    {
+      "id": "M-penguin-08",
+      "name": "ペンギン⑧",
+      "category": "main",
+      "illustration": "illustrations/M-penguin-08.png",
+      "preview": "previews/M-penguin-08.png",
+      "small80": "previews/M-penguin-08-80.png",
+      "small110": "previews/M-penguin-08-110.png",
+      "sha256": "c7c58820435501471ad143aa9470fb338604a36d80e9658e8cc1e72712b5ec9a"
+    },
+    {
+      "id": "M-phoenix-01",
+      "name": "フェニックス①",
+      "category": "main",
+      "illustration": "illustrations/M-phoenix-01.png",
+      "preview": "previews/M-phoenix-01.png",
+      "small80": "previews/M-phoenix-01-80.png",
+      "small110": "previews/M-phoenix-01-110.png",
+      "sha256": "ec6ec2b6d7fbac3d6d2ebdd086eafa2f0e7dc2479dde9a3eb55b3aa3d51e64b9"
+    },
+    {
+      "id": "M-phoenix-02",
+      "name": "フェニックス②",
+      "category": "main",
+      "illustration": "illustrations/M-phoenix-02.png",
+      "preview": "previews/M-phoenix-02.png",
+      "small80": "previews/M-phoenix-02-80.png",
+      "small110": "previews/M-phoenix-02-110.png",
+      "sha256": "898369859ce42f6be6e55dd6649968ba7f0da9da44ecfaf29f1be19a7cd9e945"
+    },
+    {
+      "id": "M-phoenix-03",
+      "name": "フェニックス③",
+      "category": "main",
+      "illustration": "illustrations/M-phoenix-03.png",
+      "preview": "previews/M-phoenix-03.png",
+      "small80": "previews/M-phoenix-03-80.png",
+      "small110": "previews/M-phoenix-03-110.png",
+      "sha256": "274926d982156d27de2275a52f632d65c65b0faca14a3e8a6d1c1b25e8ecd55d"
+    },
+    {
+      "id": "M-phoenix-04",
+      "name": "フェニックス④",
+      "category": "main",
+      "illustration": "illustrations/M-phoenix-04.png",
+      "preview": "previews/M-phoenix-04.png",
+      "small80": "previews/M-phoenix-04-80.png",
+      "small110": "previews/M-phoenix-04-110.png",
+      "sha256": "3c4da86c458b0d84ccc641e5e44c05c0be267f2a14b8849e997056c48d3de480"
+    },
+    {
+      "id": "M-phoenix-05",
+      "name": "フェニックス⑤",
+      "category": "main",
+      "illustration": "illustrations/M-phoenix-05.png",
+      "preview": "previews/M-phoenix-05.png",
+      "small80": "previews/M-phoenix-05-80.png",
+      "small110": "previews/M-phoenix-05-110.png",
+      "sha256": "48711bb53d72c7878abc823e9f3a8ddb129bdbc788032e74a06dab1e83a6692d"
+    },
+    {
+      "id": "M-phoenix-06",
+      "name": "フェニックス⑥",
+      "category": "main",
+      "illustration": "illustrations/M-phoenix-06.png",
+      "preview": "previews/M-phoenix-06.png",
+      "small80": "previews/M-phoenix-06-80.png",
+      "small110": "previews/M-phoenix-06-110.png",
+      "sha256": "661b57ad44e4e7071740d5254599af4babac3d1e1eb3326598624ada7dfb74ff"
+    },
+    {
+      "id": "M-phoenix-07",
+      "name": "フェニックス⑦",
+      "category": "main",
+      "illustration": "illustrations/M-phoenix-07.png",
+      "preview": "previews/M-phoenix-07.png",
+      "small80": "previews/M-phoenix-07-80.png",
+      "small110": "previews/M-phoenix-07-110.png",
+      "sha256": "eef04b680a1c353685248c9aa5891605fbf37089aaa3b8fe50917861969ffa7d"
+    },
+    {
+      "id": "M-phoenix-08",
+      "name": "フェニックス⑧",
+      "category": "main",
+      "illustration": "illustrations/M-phoenix-08.png",
+      "preview": "previews/M-phoenix-08.png",
+      "small80": "previews/M-phoenix-08-80.png",
+      "small110": "previews/M-phoenix-08-110.png",
+      "sha256": "017e1eac5aec8102456f71b94680efba53459b262103a9dba416b8a0d2f13540"
+    },
+    {
+      "id": "M-plush-01",
+      "name": "ぬいぐるみ①",
+      "category": "main",
+      "illustration": "illustrations/M-plush-01.png",
+      "preview": "previews/M-plush-01.png",
+      "small80": "previews/M-plush-01-80.png",
+      "small110": "previews/M-plush-01-110.png",
+      "sha256": "251b4cfd1d9993a4d2c6c2382fc569ab2e26081891af885a098fcd809a0b32d1"
+    },
+    {
+      "id": "M-plush-02",
+      "name": "ぬいぐるみ②",
+      "category": "main",
+      "illustration": "illustrations/M-plush-02.png",
+      "preview": "previews/M-plush-02.png",
+      "small80": "previews/M-plush-02-80.png",
+      "small110": "previews/M-plush-02-110.png",
+      "sha256": "fffbced9622ddff4c35e27c0c5ad0add4eeef1073f00246363c73ca13a0acb87"
+    },
+    {
+      "id": "M-plush-03",
+      "name": "ぬいぐるみ③",
+      "category": "main",
+      "illustration": "illustrations/M-plush-03.png",
+      "preview": "previews/M-plush-03.png",
+      "small80": "previews/M-plush-03-80.png",
+      "small110": "previews/M-plush-03-110.png",
+      "sha256": "ac12cc27372fee7726a4039810db72d6b156fea8275dd5e3c057a5de0c040a4b"
+    },
+    {
+      "id": "M-plush-04",
+      "name": "ぬいぐるみ④",
+      "category": "main",
+      "illustration": "illustrations/M-plush-04.png",
+      "preview": "previews/M-plush-04.png",
+      "small80": "previews/M-plush-04-80.png",
+      "small110": "previews/M-plush-04-110.png",
+      "sha256": "e640a50aaa6f150df387f3000a8f58b9ff4b0a73591b794ac31e27f34074473f"
+    },
+    {
+      "id": "M-plush-05",
+      "name": "ぬいぐるみ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-plush-05.png",
+      "preview": "previews/M-plush-05.png",
+      "small80": "previews/M-plush-05-80.png",
+      "small110": "previews/M-plush-05-110.png",
+      "sha256": "54deebfe2c1eec5acc866dcc586f9dfcb6e5fdec0225579e88b8385a6c505fa9"
+    },
+    {
+      "id": "M-plush-06",
+      "name": "ぬいぐるみ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-plush-06.png",
+      "preview": "previews/M-plush-06.png",
+      "small80": "previews/M-plush-06-80.png",
+      "small110": "previews/M-plush-06-110.png",
+      "sha256": "5d326a7e8ed6523200b0860b771dd441ffa1d3fc03843de83d0c7a02b4704c79"
+    },
+    {
+      "id": "M-plush-07",
+      "name": "ぬいぐるみ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-plush-07.png",
+      "preview": "previews/M-plush-07.png",
+      "small80": "previews/M-plush-07-80.png",
+      "small110": "previews/M-plush-07-110.png",
+      "sha256": "f089f6f9557611763284ce673da1acfb44834d27774d10828e73fcaa46ff97f3"
+    },
+    {
+      "id": "M-plush-08",
+      "name": "ぬいぐるみ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-plush-08.png",
+      "preview": "previews/M-plush-08.png",
+      "small80": "previews/M-plush-08-80.png",
+      "small110": "previews/M-plush-08-110.png",
+      "sha256": "0eceac5f18ddd2903c833843dba25aff1d4fd8d73188b44aa321ac15dfb2af8c"
+    },
+    {
+      "id": "M-ren-01",
+      "name": "れんくん①",
+      "category": "main",
+      "illustration": "illustrations/M-ren-01.png",
+      "preview": "previews/M-ren-01.png",
+      "small80": "previews/M-ren-01-80.png",
+      "small110": "previews/M-ren-01-110.png",
+      "sha256": "e54389e0fab728c0acdcc0cbf38a704a88aae2500803cfc2c9da74b66615ea23"
+    },
+    {
+      "id": "M-ren-02",
+      "name": "れんくん②",
+      "category": "main",
+      "illustration": "illustrations/M-ren-02.png",
+      "preview": "previews/M-ren-02.png",
+      "small80": "previews/M-ren-02-80.png",
+      "small110": "previews/M-ren-02-110.png",
+      "sha256": "845d6e0dbb5b7404ebfa5d0cf3b4d324fc663f232c785781d2c4e9d122004928"
+    },
+    {
+      "id": "M-ren-03",
+      "name": "れんくん③",
+      "category": "main",
+      "illustration": "illustrations/M-ren-03.png",
+      "preview": "previews/M-ren-03.png",
+      "small80": "previews/M-ren-03-80.png",
+      "small110": "previews/M-ren-03-110.png",
+      "sha256": "4527a3c0d42183acc27de78a6dd8cff5916fb7df9323f4eb1e798d35cddb09e0"
+    },
+    {
+      "id": "M-ren-04",
+      "name": "れんくん④",
+      "category": "main",
+      "illustration": "illustrations/M-ren-04.png",
+      "preview": "previews/M-ren-04.png",
+      "small80": "previews/M-ren-04-80.png",
+      "small110": "previews/M-ren-04-110.png",
+      "sha256": "64fbeeebac67137c948539c017ce43e67a2f28f9f82fd6a923544490899d156b"
+    },
+    {
+      "id": "M-ren-05",
+      "name": "れんくん⑤",
+      "category": "main",
+      "illustration": "illustrations/M-ren-05.png",
+      "preview": "previews/M-ren-05.png",
+      "small80": "previews/M-ren-05-80.png",
+      "small110": "previews/M-ren-05-110.png",
+      "sha256": "39dfe5d204386e6164e9b76ebe513c0f350a804d5d1533fb8ba8ed4e3df35477"
+    },
+    {
+      "id": "M-ren-06",
+      "name": "れんくん⑥",
+      "category": "main",
+      "illustration": "illustrations/M-ren-06.png",
+      "preview": "previews/M-ren-06.png",
+      "small80": "previews/M-ren-06-80.png",
+      "small110": "previews/M-ren-06-110.png",
+      "sha256": "46677e061297e335c159b0e137f7068a25a2a50b2d934ee17650d02d23a5da85"
+    },
+    {
+      "id": "M-ren-07",
+      "name": "れんくん⑦",
+      "category": "main",
+      "illustration": "illustrations/M-ren-07.png",
+      "preview": "previews/M-ren-07.png",
+      "small80": "previews/M-ren-07-80.png",
+      "small110": "previews/M-ren-07-110.png",
+      "sha256": "0e70843a11190421b3f5fd54c149ff613daf1767af23bc8917b62fd1a284f853"
+    },
+    {
+      "id": "M-ren-08",
+      "name": "れんくん⑧",
+      "category": "main",
+      "illustration": "illustrations/M-ren-08.png",
+      "preview": "previews/M-ren-08.png",
+      "small80": "previews/M-ren-08-80.png",
+      "small110": "previews/M-ren-08-110.png",
+      "sha256": "1344242964550a06cd50e3aab45ca0022312d0be1a46372b0c3456b5ec707dde"
+    },
+    {
+      "id": "M-sakura-01",
+      "name": "サクラ①",
+      "category": "main",
+      "illustration": "illustrations/M-sakura-01.png",
+      "preview": "previews/M-sakura-01.png",
+      "small80": "previews/M-sakura-01-80.png",
+      "small110": "previews/M-sakura-01-110.png",
+      "sha256": "d54c212ef0164c27c77dc8e7cca08698bb582d4314fb224f2258f11c23bf3bed"
+    },
+    {
+      "id": "M-sakura-02",
+      "name": "サクラ②",
+      "category": "main",
+      "illustration": "illustrations/M-sakura-02.png",
+      "preview": "previews/M-sakura-02.png",
+      "small80": "previews/M-sakura-02-80.png",
+      "small110": "previews/M-sakura-02-110.png",
+      "sha256": "cafdd215d9fd9f15dcb08b43dccc8ccef132cf9572bc5269f9a2f1ef4c70aacd"
+    },
+    {
+      "id": "M-sakura-03",
+      "name": "サクラ③",
+      "category": "main",
+      "illustration": "illustrations/M-sakura-03.png",
+      "preview": "previews/M-sakura-03.png",
+      "small80": "previews/M-sakura-03-80.png",
+      "small110": "previews/M-sakura-03-110.png",
+      "sha256": "a14d545a1eed3cf6350e167bb1dcd84a6535dc385e26bdce5ccb733ba37ed716"
+    },
+    {
+      "id": "M-sakura-04",
+      "name": "サクラ④",
+      "category": "main",
+      "illustration": "illustrations/M-sakura-04.png",
+      "preview": "previews/M-sakura-04.png",
+      "small80": "previews/M-sakura-04-80.png",
+      "small110": "previews/M-sakura-04-110.png",
+      "sha256": "5ef2975d0ebcfc74b5fe1a9706ff049715484ddb621e65b04a48ef9b4d85dd94"
+    },
+    {
+      "id": "M-sakura-05",
+      "name": "サクラ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-sakura-05.png",
+      "preview": "previews/M-sakura-05.png",
+      "small80": "previews/M-sakura-05-80.png",
+      "small110": "previews/M-sakura-05-110.png",
+      "sha256": "1e3ae1c9761dcf8068f9025271d00307431a72b23f17b23f01234ce5c8150948"
+    },
+    {
+      "id": "M-sakura-06",
+      "name": "サクラ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-sakura-06.png",
+      "preview": "previews/M-sakura-06.png",
+      "small80": "previews/M-sakura-06-80.png",
+      "small110": "previews/M-sakura-06-110.png",
+      "sha256": "f196269cb30217f6664caa2304a197ecf1de643a9a2a81d493cfc26607dacd05"
+    },
+    {
+      "id": "M-sakura-07",
+      "name": "サクラ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-sakura-07.png",
+      "preview": "previews/M-sakura-07.png",
+      "small80": "previews/M-sakura-07-80.png",
+      "small110": "previews/M-sakura-07-110.png",
+      "sha256": "27f37a83eb5d4731200349ca4c5a2b285d609e89d5f1a117d39421ddbbc1f66c"
+    },
+    {
+      "id": "M-sakura-08",
+      "name": "サクラ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-sakura-08.png",
+      "preview": "previews/M-sakura-08.png",
+      "small80": "previews/M-sakura-08-80.png",
+      "small110": "previews/M-sakura-08-110.png",
+      "sha256": "2bb78af8e6aadc7a4fb42f00b55b49b81023d91d567a77eddad57303bcbc9ec0"
+    },
+    {
+      "id": "M-salmon-01",
+      "name": "さけ①",
+      "category": "main",
+      "illustration": "illustrations/M-salmon-01.png",
+      "preview": "previews/M-salmon-01.png",
+      "small80": "previews/M-salmon-01-80.png",
+      "small110": "previews/M-salmon-01-110.png",
+      "sha256": "b6548f1c9724f8eea9be9324128fd33e0eba635f380140e23db235afc6e55092"
+    },
+    {
+      "id": "M-salmon-02",
+      "name": "さけ②",
+      "category": "main",
+      "illustration": "illustrations/M-salmon-02.png",
+      "preview": "previews/M-salmon-02.png",
+      "small80": "previews/M-salmon-02-80.png",
+      "small110": "previews/M-salmon-02-110.png",
+      "sha256": "0edd9d06be15da12536132f6d08c681f93da2bc85229b49419013ee95010200f"
+    },
+    {
+      "id": "M-salmon-03",
+      "name": "さけ③",
+      "category": "main",
+      "illustration": "illustrations/M-salmon-03.png",
+      "preview": "previews/M-salmon-03.png",
+      "small80": "previews/M-salmon-03-80.png",
+      "small110": "previews/M-salmon-03-110.png",
+      "sha256": "c977488cfa7060c9d430f0021f1c0d853bd44a47d0fb2ee2a72f123a55216cba"
+    },
+    {
+      "id": "M-salmon-04",
+      "name": "さけ④",
+      "category": "main",
+      "illustration": "illustrations/M-salmon-04.png",
+      "preview": "previews/M-salmon-04.png",
+      "small80": "previews/M-salmon-04-80.png",
+      "small110": "previews/M-salmon-04-110.png",
+      "sha256": "c9b7e9deb90c6c64a5e28cbc78c9a9c7e55886ad39eccce3db8e65b0db0ae9f0"
+    },
+    {
+      "id": "M-salmon-05",
+      "name": "さけ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-salmon-05.png",
+      "preview": "previews/M-salmon-05.png",
+      "small80": "previews/M-salmon-05-80.png",
+      "small110": "previews/M-salmon-05-110.png",
+      "sha256": "1a70171a146266dca38acca792d258471d00738dcfbc56ba181726c38b32ee6d"
+    },
+    {
+      "id": "M-salmon-06",
+      "name": "さけ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-salmon-06.png",
+      "preview": "previews/M-salmon-06.png",
+      "small80": "previews/M-salmon-06-80.png",
+      "small110": "previews/M-salmon-06-110.png",
+      "sha256": "f5bf767f049825524a740f71b128016c268bb9aa9099bb2bf35f215f9da53d4e"
+    },
+    {
+      "id": "M-salmon-07",
+      "name": "さけ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-salmon-07.png",
+      "preview": "previews/M-salmon-07.png",
+      "small80": "previews/M-salmon-07-80.png",
+      "small110": "previews/M-salmon-07-110.png",
+      "sha256": "314b09a204b66a67f3e68ee0b11c303eb194d0bfaf407517733531ff97ffbddb"
+    },
+    {
+      "id": "M-salmon-08",
+      "name": "さけ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-salmon-08.png",
+      "preview": "previews/M-salmon-08.png",
+      "small80": "previews/M-salmon-08-80.png",
+      "small110": "previews/M-salmon-08-110.png",
+      "sha256": "6005657d5fbf9e207c9b3a7a16aeca4f9da5758d3df5303c6b5601ea5c31cc60"
+    },
+    {
+      "id": "M-stagbeetle-01",
+      "name": "クワガタムシ①",
+      "category": "main",
+      "illustration": "illustrations/M-stagbeetle-01.png",
+      "preview": "previews/M-stagbeetle-01.png",
+      "small80": "previews/M-stagbeetle-01-80.png",
+      "small110": "previews/M-stagbeetle-01-110.png",
+      "sha256": "7608e1ad137ad40f4908fafff4b80f91e4e2097fac3c791ac059463df0d4046d"
+    },
+    {
+      "id": "M-stagbeetle-02",
+      "name": "クワガタムシ②",
+      "category": "main",
+      "illustration": "illustrations/M-stagbeetle-02.png",
+      "preview": "previews/M-stagbeetle-02.png",
+      "small80": "previews/M-stagbeetle-02-80.png",
+      "small110": "previews/M-stagbeetle-02-110.png",
+      "sha256": "ddeb54c2b7264d66a0a24c850e63020de485b524911925fae8d476883c775a10"
+    },
+    {
+      "id": "M-stagbeetle-03",
+      "name": "クワガタムシ③",
+      "category": "main",
+      "illustration": "illustrations/M-stagbeetle-03.png",
+      "preview": "previews/M-stagbeetle-03.png",
+      "small80": "previews/M-stagbeetle-03-80.png",
+      "small110": "previews/M-stagbeetle-03-110.png",
+      "sha256": "569d4fc02fe3c9eced6a85e44c4968015f9811cb5e0762c1788b2a433a2b1016"
+    },
+    {
+      "id": "M-stagbeetle-04",
+      "name": "クワガタムシ④",
+      "category": "main",
+      "illustration": "illustrations/M-stagbeetle-04.png",
+      "preview": "previews/M-stagbeetle-04.png",
+      "small80": "previews/M-stagbeetle-04-80.png",
+      "small110": "previews/M-stagbeetle-04-110.png",
+      "sha256": "7c3ef73de495493ef541e945b3a3273175211123f1ac9d74b17d47902e9c7c16"
+    },
+    {
+      "id": "M-stagbeetle-05",
+      "name": "クワガタムシ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-stagbeetle-05.png",
+      "preview": "previews/M-stagbeetle-05.png",
+      "small80": "previews/M-stagbeetle-05-80.png",
+      "small110": "previews/M-stagbeetle-05-110.png",
+      "sha256": "8017dec2cc2127ca107a8695ceac9a9d224905741ddf1ef8aa2cd33efb699084"
+    },
+    {
+      "id": "M-stagbeetle-06",
+      "name": "クワガタムシ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-stagbeetle-06.png",
+      "preview": "previews/M-stagbeetle-06.png",
+      "small80": "previews/M-stagbeetle-06-80.png",
+      "small110": "previews/M-stagbeetle-06-110.png",
+      "sha256": "fb385760b80dae5885c847e73195cfaaa756a906801bd1efea42c1502198bc95"
+    },
+    {
+      "id": "M-stagbeetle-07",
+      "name": "クワガタムシ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-stagbeetle-07.png",
+      "preview": "previews/M-stagbeetle-07.png",
+      "small80": "previews/M-stagbeetle-07-80.png",
+      "small110": "previews/M-stagbeetle-07-110.png",
+      "sha256": "5b089e1e4c272f47111cce303142143c1b18b63c8685671967ca1404296fc74e"
+    },
+    {
+      "id": "M-stagbeetle-08",
+      "name": "クワガタムシ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-stagbeetle-08.png",
+      "preview": "previews/M-stagbeetle-08.png",
+      "small80": "previews/M-stagbeetle-08-80.png",
+      "small110": "previews/M-stagbeetle-08-110.png",
+      "sha256": "852c314cfc1b96d906e7808c72ad176412712e46a039caa64e38ee1ed6b24723"
+    },
+    {
+      "id": "M-star-01",
+      "name": "ほし①",
+      "category": "main",
+      "illustration": "illustrations/M-star-01.png",
+      "preview": "previews/M-star-01.png",
+      "small80": "previews/M-star-01-80.png",
+      "small110": "previews/M-star-01-110.png",
+      "sha256": "d10456bae6029f8cce898a884d52d18a58f26c42744c050c2cb13f1239748f75"
+    },
+    {
+      "id": "M-star-02",
+      "name": "ほし②",
+      "category": "main",
+      "illustration": "illustrations/M-star-02.png",
+      "preview": "previews/M-star-02.png",
+      "small80": "previews/M-star-02-80.png",
+      "small110": "previews/M-star-02-110.png",
+      "sha256": "1812f8fc6b1e846c2d849aa6360f3fec2082432ac331d71354352d47064d76d6"
+    },
+    {
+      "id": "M-star-03",
+      "name": "ほし③",
+      "category": "main",
+      "illustration": "illustrations/M-star-03.png",
+      "preview": "previews/M-star-03.png",
+      "small80": "previews/M-star-03-80.png",
+      "small110": "previews/M-star-03-110.png",
+      "sha256": "f43df57d23c8326a583ab04281893a5c8f70bafb388421d96641286371cb9bb2"
+    },
+    {
+      "id": "M-star-04",
+      "name": "ほし④",
+      "category": "main",
+      "illustration": "illustrations/M-star-04.png",
+      "preview": "previews/M-star-04.png",
+      "small80": "previews/M-star-04-80.png",
+      "small110": "previews/M-star-04-110.png",
+      "sha256": "fde3a9d0931144a4d06552de734fb8a64d7288495a73cd653da13b35ccf6b647"
+    },
+    {
+      "id": "M-star-05",
+      "name": "ほし⑤",
+      "category": "main",
+      "illustration": "illustrations/M-star-05.png",
+      "preview": "previews/M-star-05.png",
+      "small80": "previews/M-star-05-80.png",
+      "small110": "previews/M-star-05-110.png",
+      "sha256": "d730b2b4cf425c573751b47e2009732b8c65e765911dc49e37511c57c3746b68"
+    },
+    {
+      "id": "M-star-06",
+      "name": "ほし⑥",
+      "category": "main",
+      "illustration": "illustrations/M-star-06.png",
+      "preview": "previews/M-star-06.png",
+      "small80": "previews/M-star-06-80.png",
+      "small110": "previews/M-star-06-110.png",
+      "sha256": "1078ccaa2507f83d695401061fb7626a7b97a0813ba7f0d908c6d1a8414d8c44"
+    },
+    {
+      "id": "M-star-07",
+      "name": "ほし⑦",
+      "category": "main",
+      "illustration": "illustrations/M-star-07.png",
+      "preview": "previews/M-star-07.png",
+      "small80": "previews/M-star-07-80.png",
+      "small110": "previews/M-star-07-110.png",
+      "sha256": "9362528691e9c0a40c6223f18283a46daaaf342c401a93803d871275e03c4fea"
+    },
+    {
+      "id": "M-star-08",
+      "name": "ほし⑧",
+      "category": "main",
+      "illustration": "illustrations/M-star-08.png",
+      "preview": "previews/M-star-08.png",
+      "small80": "previews/M-star-08-80.png",
+      "small110": "previews/M-star-08-110.png",
+      "sha256": "5f7ba7ec2acb6bbf97c6ffa9fd0aae1fec0d8651b8c252eb15e34ab7abb57601"
+    },
+    {
+      "id": "M-starfish-01",
+      "name": "ヒトデ①",
+      "category": "main",
+      "illustration": "illustrations/M-starfish-01.png",
+      "preview": "previews/M-starfish-01.png",
+      "small80": "previews/M-starfish-01-80.png",
+      "small110": "previews/M-starfish-01-110.png",
+      "sha256": "e72cce83bbaa527e9e60c9cd4513380cd6a700109bc051a75fbe2d84d812fabf"
+    },
+    {
+      "id": "M-starfish-02",
+      "name": "ヒトデ②",
+      "category": "main",
+      "illustration": "illustrations/M-starfish-02.png",
+      "preview": "previews/M-starfish-02.png",
+      "small80": "previews/M-starfish-02-80.png",
+      "small110": "previews/M-starfish-02-110.png",
+      "sha256": "a47c5dccc7413f842a84985b73a5e8aee0e4115a9ff88897d3da4fe5390ff393"
+    },
+    {
+      "id": "M-starfish-03",
+      "name": "ヒトデ③",
+      "category": "main",
+      "illustration": "illustrations/M-starfish-03.png",
+      "preview": "previews/M-starfish-03.png",
+      "small80": "previews/M-starfish-03-80.png",
+      "small110": "previews/M-starfish-03-110.png",
+      "sha256": "76e0e9e568d08352d5c4ed61e0e628bfbdff19fbc4856e780aa45e08f89e347c"
+    },
+    {
+      "id": "M-starfish-04",
+      "name": "ヒトデ④",
+      "category": "main",
+      "illustration": "illustrations/M-starfish-04.png",
+      "preview": "previews/M-starfish-04.png",
+      "small80": "previews/M-starfish-04-80.png",
+      "small110": "previews/M-starfish-04-110.png",
+      "sha256": "f9753c73316e678cc1f82da06b15ffb147cb172c058ecc348ed09f83a60c84b3"
+    },
+    {
+      "id": "M-starfish-05",
+      "name": "ヒトデ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-starfish-05.png",
+      "preview": "previews/M-starfish-05.png",
+      "small80": "previews/M-starfish-05-80.png",
+      "small110": "previews/M-starfish-05-110.png",
+      "sha256": "296cf57f36fb2bc28fc74ad7fcf626f817aef83244426ca39cf49db274aedb59"
+    },
+    {
+      "id": "M-starfish-06",
+      "name": "ヒトデ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-starfish-06.png",
+      "preview": "previews/M-starfish-06.png",
+      "small80": "previews/M-starfish-06-80.png",
+      "small110": "previews/M-starfish-06-110.png",
+      "sha256": "a072c429eb946305b46dc799de469707eba483d14714992123d61bcdbcc86b45"
+    },
+    {
+      "id": "M-starfish-07",
+      "name": "ヒトデ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-starfish-07.png",
+      "preview": "previews/M-starfish-07.png",
+      "small80": "previews/M-starfish-07-80.png",
+      "small110": "previews/M-starfish-07-110.png",
+      "sha256": "45ea6bde6b399a7e9d0ea00fc0f1bdf1d35a33845126075dbb369fb5099d2b48"
+    },
+    {
+      "id": "M-starfish-08",
+      "name": "ヒトデ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-starfish-08.png",
+      "preview": "previews/M-starfish-08.png",
+      "small80": "previews/M-starfish-08-80.png",
+      "small110": "previews/M-starfish-08-110.png",
+      "sha256": "19553cc78747a64058b22842ebbd3ca4620050beaba3f56a887a9e3a1eb6e369"
+    },
+    {
+      "id": "M-turtle-01",
+      "name": "かめ①",
+      "category": "main",
+      "illustration": "illustrations/M-turtle-01.png",
+      "preview": "previews/M-turtle-01.png",
+      "small80": "previews/M-turtle-01-80.png",
+      "small110": "previews/M-turtle-01-110.png",
+      "sha256": "94702093be35d96597f71fdb6ec71953313bbec13e05f471d28b6a88154f7ffd"
+    },
+    {
+      "id": "M-turtle-02",
+      "name": "かめ②",
+      "category": "main",
+      "illustration": "illustrations/M-turtle-02.png",
+      "preview": "previews/M-turtle-02.png",
+      "small80": "previews/M-turtle-02-80.png",
+      "small110": "previews/M-turtle-02-110.png",
+      "sha256": "85d54eba9e6f50997226177e3ed0e120fab4c8f08c2f8ad7a5192875a3285542"
+    },
+    {
+      "id": "M-turtle-03",
+      "name": "かめ③",
+      "category": "main",
+      "illustration": "illustrations/M-turtle-03.png",
+      "preview": "previews/M-turtle-03.png",
+      "small80": "previews/M-turtle-03-80.png",
+      "small110": "previews/M-turtle-03-110.png",
+      "sha256": "dac83767d2426367aab824854ed80ef388a950f530ba6ff61c14b06f69e44e24"
+    },
+    {
+      "id": "M-turtle-04",
+      "name": "かめ④",
+      "category": "main",
+      "illustration": "illustrations/M-turtle-04.png",
+      "preview": "previews/M-turtle-04.png",
+      "small80": "previews/M-turtle-04-80.png",
+      "small110": "previews/M-turtle-04-110.png",
+      "sha256": "b4d4410c50f5df71af94792e6bf3ae9e1157cc4358805d03b7ac0bc201081112"
+    },
+    {
+      "id": "M-turtle-05",
+      "name": "かめ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-turtle-05.png",
+      "preview": "previews/M-turtle-05.png",
+      "small80": "previews/M-turtle-05-80.png",
+      "small110": "previews/M-turtle-05-110.png",
+      "sha256": "6358d9f863ad1f2976fc6de4154b745715ca1bae2ff820ffb0e2cbcdc2ae8b99"
+    },
+    {
+      "id": "M-turtle-06",
+      "name": "かめ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-turtle-06.png",
+      "preview": "previews/M-turtle-06.png",
+      "small80": "previews/M-turtle-06-80.png",
+      "small110": "previews/M-turtle-06-110.png",
+      "sha256": "44b5431a15d0bd28987ce0515d2a8aab4086bc19c301255592ec340ead5e7402"
+    },
+    {
+      "id": "M-turtle-07",
+      "name": "かめ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-turtle-07.png",
+      "preview": "previews/M-turtle-07.png",
+      "small80": "previews/M-turtle-07-80.png",
+      "small110": "previews/M-turtle-07-110.png",
+      "sha256": "546427cc52012657ea4da55e59a7e89b674be20f97720aeaad080c03659babb5"
+    },
+    {
+      "id": "M-turtle-08",
+      "name": "かめ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-turtle-08.png",
+      "preview": "previews/M-turtle-08.png",
+      "small80": "previews/M-turtle-08-80.png",
+      "small110": "previews/M-turtle-08-110.png",
+      "sha256": "8b861c72431a4cf4b1754703bed0b13158f2237e7b557b011315c06ca92604e2"
+    },
+    {
+      "id": "M-unknown-01",
+      "name": "？？？①",
+      "category": "main",
+      "illustration": "illustrations/M-unknown-01.png",
+      "preview": "previews/M-unknown-01.png",
+      "small80": "previews/M-unknown-01-80.png",
+      "small110": "previews/M-unknown-01-110.png",
+      "sha256": "57fb084389a190ac8f8111f300eacdd70e169aa6e9bdc9e1277368f7a56506ef"
+    },
+    {
+      "id": "M-unknown-02",
+      "name": "？？？②",
+      "category": "main",
+      "illustration": "illustrations/M-unknown-02.png",
+      "preview": "previews/M-unknown-02.png",
+      "small80": "previews/M-unknown-02-80.png",
+      "small110": "previews/M-unknown-02-110.png",
+      "sha256": "92a72605028478a8962463ed209a9737eed8a6bb7f9f375354236e0b6dc2f09f"
+    },
+    {
+      "id": "M-unknown-03",
+      "name": "？？？③",
+      "category": "main",
+      "illustration": "illustrations/M-unknown-03.png",
+      "preview": "previews/M-unknown-03.png",
+      "small80": "previews/M-unknown-03-80.png",
+      "small110": "previews/M-unknown-03-110.png",
+      "sha256": "34964504c6e7314c96442abd4010e1579ebaea56161616c20644fe6ca7986a22"
+    },
+    {
+      "id": "M-unknown-04",
+      "name": "？？？④",
+      "category": "main",
+      "illustration": "illustrations/M-unknown-04.png",
+      "preview": "previews/M-unknown-04.png",
+      "small80": "previews/M-unknown-04-80.png",
+      "small110": "previews/M-unknown-04-110.png",
+      "sha256": "1fd79f249a15577162887b1b8fc2347e032e14b2bb32c7ccfac7ea854923589d"
+    },
+    {
+      "id": "M-unknown-05",
+      "name": "？？？⑤",
+      "category": "main",
+      "illustration": "illustrations/M-unknown-05.png",
+      "preview": "previews/M-unknown-05.png",
+      "small80": "previews/M-unknown-05-80.png",
+      "small110": "previews/M-unknown-05-110.png",
+      "sha256": "8cfbd8516c69e64c75d72fbce96f8b36e66d6312e2ccab55bce126b95cf72650"
+    },
+    {
+      "id": "M-unknown-06",
+      "name": "？？？⑥",
+      "category": "main",
+      "illustration": "illustrations/M-unknown-06.png",
+      "preview": "previews/M-unknown-06.png",
+      "small80": "previews/M-unknown-06-80.png",
+      "small110": "previews/M-unknown-06-110.png",
+      "sha256": "bc68772f6bac216e84197d0ccdd99c666bf252b257507833cd97c616be932f53"
+    },
+    {
+      "id": "M-unknown-07",
+      "name": "？？？⑦",
+      "category": "main",
+      "illustration": "illustrations/M-unknown-07.png",
+      "preview": "previews/M-unknown-07.png",
+      "small80": "previews/M-unknown-07-80.png",
+      "small110": "previews/M-unknown-07-110.png",
+      "sha256": "4a15fbce7ffd887a61674ea623a4b2be07e0e2f658ce33e59c149e48fea768ce"
+    },
+    {
+      "id": "M-unknown-08",
+      "name": "？？？⑧",
+      "category": "main",
+      "illustration": "illustrations/M-unknown-08.png",
+      "preview": "previews/M-unknown-08.png",
+      "small80": "previews/M-unknown-08-80.png",
+      "small110": "previews/M-unknown-08-110.png",
+      "sha256": "b4c085130cd6da97b8f06cee8bb8e7013fc304d3d40144ae09e81bcbe72d9071"
+    },
+    {
+      "id": "M-venus_flytrap-01",
+      "name": "ハエトリグサ①",
+      "category": "main",
+      "illustration": "illustrations/M-venus_flytrap-01.png",
+      "preview": "previews/M-venus_flytrap-01.png",
+      "small80": "previews/M-venus_flytrap-01-80.png",
+      "small110": "previews/M-venus_flytrap-01-110.png",
+      "sha256": "e5053758809f82250eefc548b308f31f111c70c2e602a3b301c24ca16e0579af"
+    },
+    {
+      "id": "M-venus_flytrap-02",
+      "name": "ハエトリグサ②",
+      "category": "main",
+      "illustration": "illustrations/M-venus_flytrap-02.png",
+      "preview": "previews/M-venus_flytrap-02.png",
+      "small80": "previews/M-venus_flytrap-02-80.png",
+      "small110": "previews/M-venus_flytrap-02-110.png",
+      "sha256": "074daf95405b43b285ff9e30acf76f895f692adc29b228d6b4cd3e9d8803adef"
+    },
+    {
+      "id": "M-venus_flytrap-03",
+      "name": "ハエトリグサ③",
+      "category": "main",
+      "illustration": "illustrations/M-venus_flytrap-03.png",
+      "preview": "previews/M-venus_flytrap-03.png",
+      "small80": "previews/M-venus_flytrap-03-80.png",
+      "small110": "previews/M-venus_flytrap-03-110.png",
+      "sha256": "83aae60cbc56aebbc2c2d5d904c74720d4a738308db8ec783e221052bb5ddafc"
+    },
+    {
+      "id": "M-venus_flytrap-04",
+      "name": "ハエトリグサ④",
+      "category": "main",
+      "illustration": "illustrations/M-venus_flytrap-04.png",
+      "preview": "previews/M-venus_flytrap-04.png",
+      "small80": "previews/M-venus_flytrap-04-80.png",
+      "small110": "previews/M-venus_flytrap-04-110.png",
+      "sha256": "b5f3df63bfc1c51eff75d69f124bfe39a4481d31c370e8eb2799b8d9babafdc7"
+    },
+    {
+      "id": "M-venus_flytrap-05",
+      "name": "ハエトリグサ⑤",
+      "category": "main",
+      "illustration": "illustrations/M-venus_flytrap-05.png",
+      "preview": "previews/M-venus_flytrap-05.png",
+      "small80": "previews/M-venus_flytrap-05-80.png",
+      "small110": "previews/M-venus_flytrap-05-110.png",
+      "sha256": "b20581aa6a875b9666e733d67e1d952950f679ed98c93f2c0547e0805d8b4d9d"
+    },
+    {
+      "id": "M-venus_flytrap-06",
+      "name": "ハエトリグサ⑥",
+      "category": "main",
+      "illustration": "illustrations/M-venus_flytrap-06.png",
+      "preview": "previews/M-venus_flytrap-06.png",
+      "small80": "previews/M-venus_flytrap-06-80.png",
+      "small110": "previews/M-venus_flytrap-06-110.png",
+      "sha256": "8eb73e2790a75cb74f3c04af168590027f2cf8bb91243939ec55f302f2058fd0"
+    },
+    {
+      "id": "M-venus_flytrap-07",
+      "name": "ハエトリグサ⑦",
+      "category": "main",
+      "illustration": "illustrations/M-venus_flytrap-07.png",
+      "preview": "previews/M-venus_flytrap-07.png",
+      "small80": "previews/M-venus_flytrap-07-80.png",
+      "small110": "previews/M-venus_flytrap-07-110.png",
+      "sha256": "bd14dfedb8d594ddf0f4d6e913b4fa1cb7ffe9250933d800c6449133ddc34c7c"
+    },
+    {
+      "id": "M-venus_flytrap-08",
+      "name": "ハエトリグサ⑧",
+      "category": "main",
+      "illustration": "illustrations/M-venus_flytrap-08.png",
+      "preview": "previews/M-venus_flytrap-08.png",
+      "small80": "previews/M-venus_flytrap-08-80.png",
+      "small110": "previews/M-venus_flytrap-08-110.png",
+      "sha256": "da6d81b43874c66aa72859f95a3398ba1621a8100ba4919135abe05dd3a08323"
+    },
+    {
+      "id": "M-woman-01",
+      "name": "おんなのひと①",
+      "category": "main",
+      "illustration": "illustrations/M-woman-01.png",
+      "preview": "previews/M-woman-01.png",
+      "small80": "previews/M-woman-01-80.png",
+      "small110": "previews/M-woman-01-110.png",
+      "sha256": "b03e167d66cd77a319921230628611f6faee21d7e60fe2cde3de770c1b5ee3bb"
+    },
+    {
+      "id": "M-woman-02",
+      "name": "おんなのひと②",
+      "category": "main",
+      "illustration": "illustrations/M-woman-02.png",
+      "preview": "previews/M-woman-02.png",
+      "small80": "previews/M-woman-02-80.png",
+      "small110": "previews/M-woman-02-110.png",
+      "sha256": "cbdf8beae163b8ebb13a58c1b2fe72de9c14bd10453c6874cde23dece9fcab64"
+    },
+    {
+      "id": "M-woman-03",
+      "name": "おんなのひと③",
+      "category": "main",
+      "illustration": "illustrations/M-woman-03.png",
+      "preview": "previews/M-woman-03.png",
+      "small80": "previews/M-woman-03-80.png",
+      "small110": "previews/M-woman-03-110.png",
+      "sha256": "630b4ad85effd323d6780770b684e5cd6ae741c594f9b17a0535fe9efdbc267e"
+    },
+    {
+      "id": "M-woman-04",
+      "name": "おんなのひと④",
+      "category": "main",
+      "illustration": "illustrations/M-woman-04.png",
+      "preview": "previews/M-woman-04.png",
+      "small80": "previews/M-woman-04-80.png",
+      "small110": "previews/M-woman-04-110.png",
+      "sha256": "d282b77ba3d93fead532d360bebe105e8e7a10821f84fa93aa30fba4a0f836a6"
+    },
+    {
+      "id": "M-woman-05",
+      "name": "おんなのひと⑤",
+      "category": "main",
+      "illustration": "illustrations/M-woman-05.png",
+      "preview": "previews/M-woman-05.png",
+      "small80": "previews/M-woman-05-80.png",
+      "small110": "previews/M-woman-05-110.png",
+      "sha256": "a02a0f658d136a2cf44cd4afa68200bfad9daf869e0742d6d6cd55b0fe18a8f9"
+    },
+    {
+      "id": "M-woman-06",
+      "name": "おんなのひと⑥",
+      "category": "main",
+      "illustration": "illustrations/M-woman-06.png",
+      "preview": "previews/M-woman-06.png",
+      "small80": "previews/M-woman-06-80.png",
+      "small110": "previews/M-woman-06-110.png",
+      "sha256": "2d3f2cdf6778b7f211daa654ca08081f9e8e17d921e61f66988225945f1e0f6e"
+    },
+    {
+      "id": "M-woman-07",
+      "name": "おんなのひと⑦",
+      "category": "main",
+      "illustration": "illustrations/M-woman-07.png",
+      "preview": "previews/M-woman-07.png",
+      "small80": "previews/M-woman-07-80.png",
+      "small110": "previews/M-woman-07-110.png",
+      "sha256": "d8a0291ddefc07a04b5812aee3e87d1f72714a33f3539384213f9c32c0db739e"
+    },
+    {
+      "id": "M-woman-08",
+      "name": "おんなのひと⑧",
+      "category": "main",
+      "illustration": "illustrations/M-woman-08.png",
+      "preview": "previews/M-woman-08.png",
+      "small80": "previews/M-woman-08-80.png",
+      "small110": "previews/M-woman-08-110.png",
+      "sha256": "d1d62520804c67f83666d7b0f2ea9aba7a1a1eaebac00b49034ea9d7d4cf4e1d"
+    },
+    {
+      "id": "M-world_tree-01",
+      "name": "世界樹①",
+      "category": "main",
+      "illustration": "illustrations/M-world_tree-01.png",
+      "preview": "previews/M-world_tree-01.png",
+      "small80": "previews/M-world_tree-01-80.png",
+      "small110": "previews/M-world_tree-01-110.png",
+      "sha256": "67e6eca4ba1ea6eec430255debee0ee51fa88d9ec70960fd45a26b590ec9f81c"
+    },
+    {
+      "id": "M-world_tree-02",
+      "name": "世界樹②",
+      "category": "main",
+      "illustration": "illustrations/M-world_tree-02.png",
+      "preview": "previews/M-world_tree-02.png",
+      "small80": "previews/M-world_tree-02-80.png",
+      "small110": "previews/M-world_tree-02-110.png",
+      "sha256": "891d105da887c026fe36d73b53df206d685591e6247c6bc4ef5e6cfc8ce042e4"
+    },
+    {
+      "id": "M-world_tree-03",
+      "name": "世界樹③",
+      "category": "main",
+      "illustration": "illustrations/M-world_tree-03.png",
+      "preview": "previews/M-world_tree-03.png",
+      "small80": "previews/M-world_tree-03-80.png",
+      "small110": "previews/M-world_tree-03-110.png",
+      "sha256": "d5d79ee8877d61c631a5eb2fbd19931d9906264097be263f3623c3c6949713bb"
+    },
+    {
+      "id": "M-world_tree-04",
+      "name": "世界樹④",
+      "category": "main",
+      "illustration": "illustrations/M-world_tree-04.png",
+      "preview": "previews/M-world_tree-04.png",
+      "small80": "previews/M-world_tree-04-80.png",
+      "small110": "previews/M-world_tree-04-110.png",
+      "sha256": "3b716fd883fcd9ce36189059a5f40f62001ecc2a70e0cf61c427146cc79e3883"
+    },
+    {
+      "id": "M-world_tree-05",
+      "name": "世界樹⑤",
+      "category": "main",
+      "illustration": "illustrations/M-world_tree-05.png",
+      "preview": "previews/M-world_tree-05.png",
+      "small80": "previews/M-world_tree-05-80.png",
+      "small110": "previews/M-world_tree-05-110.png",
+      "sha256": "8faa33f05107d3ede320bf72cbe1cc4a2228a8521ded8a6041b541d46bd2db9a"
+    },
+    {
+      "id": "M-world_tree-06",
+      "name": "世界樹⑥",
+      "category": "main",
+      "illustration": "illustrations/M-world_tree-06.png",
+      "preview": "previews/M-world_tree-06.png",
+      "small80": "previews/M-world_tree-06-80.png",
+      "small110": "previews/M-world_tree-06-110.png",
+      "sha256": "be586b9972d7ad6d6afb86f67a9cc20dd5668caa14a2aa75663d28c240ede4e4"
+    },
+    {
+      "id": "M-world_tree-07",
+      "name": "世界樹⑦",
+      "category": "main",
+      "illustration": "illustrations/M-world_tree-07.png",
+      "preview": "previews/M-world_tree-07.png",
+      "small80": "previews/M-world_tree-07-80.png",
+      "small110": "previews/M-world_tree-07-110.png",
+      "sha256": "9506bb39a94f51aef30eb4925b7d6694e133a4d05ee2926222383881c687a701"
+    },
+    {
+      "id": "M-world_tree-08",
+      "name": "世界樹⑧",
+      "category": "main",
+      "illustration": "illustrations/M-world_tree-08.png",
+      "preview": "previews/M-world_tree-08.png",
+      "small80": "previews/M-world_tree-08-80.png",
+      "small110": "previews/M-world_tree-08-110.png",
+      "sha256": "ab436e1d0c9b16c3277bb833a6c14eb2414cb9f05a8ee90ecef9e9562f23f01d"
+    },
+    {
+      "id": "P-anglerfish",
+      "name": "ひかるチョウチンアンコウ",
+      "category": "partner",
+      "illustration": "illustrations/P-anglerfish.png",
+      "preview": "previews/P-anglerfish.png",
+      "small80": "previews/P-anglerfish-80.png",
+      "small110": "previews/P-anglerfish-110.png",
+      "sha256": "5f32ec35d00fb685ade353252bde3b46435c9f5a57aa48d5d7f19af5ecdafcb7"
+    },
+    {
+      "id": "P-cat_ceo",
+      "name": "ビルのねこ社長",
+      "category": "partner",
+      "illustration": "illustrations/P-cat_ceo.png",
+      "preview": "previews/P-cat_ceo.png",
+      "small80": "previews/P-cat_ceo-80.png",
+      "small110": "previews/P-cat_ceo-110.png",
+      "sha256": "955d4bb89c1dcad60ef3ee1837e0fe5078bc1235bb9fc8883ab7f418dcc79119"
+    },
+    {
+      "id": "P-cliff_goat",
+      "name": "がけのヤギさん",
+      "category": "partner",
+      "illustration": "illustrations/P-cliff_goat.png",
+      "preview": "previews/P-cliff_goat.png",
+      "small80": "previews/P-cliff_goat-80.png",
+      "small110": "previews/P-cliff_goat-110.png",
+      "sha256": "d94447bd9f850630e8299d912076bc3dcefe08eade2c2d0b5a3511603bdc83af"
+    },
+    {
+      "id": "P-desert_scorpion",
+      "name": "さばくのサソリさん",
+      "category": "partner",
+      "illustration": "illustrations/P-desert_scorpion.png",
+      "preview": "previews/P-desert_scorpion.png",
+      "small80": "previews/P-desert_scorpion-80.png",
+      "small110": "previews/P-desert_scorpion-110.png",
+      "sha256": "969d07d13a6463101c115b4fee0bf85a0c5453e247f5f0bfd29481e7ceed3a26"
+    },
+    {
+      "id": "P-field_cow",
+      "name": "のはらのうしさん",
+      "category": "partner",
+      "illustration": "illustrations/P-field_cow.png",
+      "preview": "previews/P-field_cow.png",
+      "small80": "previews/P-field_cow-80.png",
+      "small110": "previews/P-field_cow-110.png",
+      "sha256": "c03d80048017f1ba289646e5c5fb894ea696142e65274d9fa0a25ef7c8e744a5"
+    },
+    {
+      "id": "P-forest_bear",
+      "name": "もりのクマさん",
+      "category": "partner",
+      "illustration": "illustrations/P-forest_bear.png",
+      "preview": "exports-approved/P-forest_bear.png",
+      "small80": "exports-approved/P-forest_bear-80.png",
+      "small110": "exports-approved/P-forest_bear-110.png",
+      "sha256": "72a3717aee0adbd912ca0c19df62a913fa5a782d6650c40d42c2e828522127f4"
+    },
+    {
+      "id": "P-gentle_gorilla",
+      "name": "やさしいゴリラ",
+      "category": "partner",
+      "illustration": "illustrations/P-gentle_gorilla.png",
+      "preview": "previews/P-gentle_gorilla.png",
+      "small80": "previews/P-gentle_gorilla-80.png",
+      "small110": "previews/P-gentle_gorilla-110.png",
+      "sha256": "d7ec0fd149ad9f103b117515884ba080eb4b3fd26105cf7ca144fe0be1c767e8"
+    },
+    {
+      "id": "P-grove_deer",
+      "name": "こだちのシカ",
+      "category": "partner",
+      "illustration": "illustrations/P-grove_deer.png",
+      "preview": "exports-approved/P-grove_deer.png",
+      "small80": "exports-approved/P-grove_deer-80.png",
+      "small110": "exports-approved/P-grove_deer-110.png",
+      "sha256": "d1cc8bd7198b7ed0a6eef96c46f8b825016dc9cd59aff6b84aa5975510b8e55b"
+    },
+    {
+      "id": "P-high_eagle",
+      "name": "たかねのワシ",
+      "category": "partner",
+      "illustration": "illustrations/P-high_eagle.png",
+      "preview": "previews/P-high_eagle.png",
+      "small80": "previews/P-high_eagle-80.png",
+      "small110": "previews/P-high_eagle-110.png",
+      "sha256": "a0a8f41db72278ef78b386aed8f984b79ca1335d0486271142ea5af8d8eafb1d"
+    },
+    {
+      "id": "P-knitting_spider",
+      "name": "あみものがすきなクモさん",
+      "category": "partner",
+      "illustration": "illustrations/P-knitting_spider.png",
+      "preview": "previews/P-knitting_spider.png",
+      "small80": "previews/P-knitting_spider-80.png",
+      "small110": "previews/P-knitting_spider-110.png",
+      "sha256": "4f1940e4336ad3c028b45ff43f027aea78cc6e3d6e13da4cc36a71bdc500af03"
+    },
+    {
+      "id": "P-oasis_cactus",
+      "name": "オアシスのサボテンさん",
+      "category": "partner",
+      "illustration": "illustrations/P-oasis_cactus.png",
+      "preview": "previews/P-oasis_cactus.png",
+      "small80": "previews/P-oasis_cactus-80.png",
+      "small110": "previews/P-oasis_cactus-110.png",
+      "sha256": "20aac59fad9fbf1203f44f817fc803ef8a9255bb5657b01031342bd8145dee6f"
+    },
+    {
+      "id": "P-robot_neighbor",
+      "name": "となりまちのロボット",
+      "category": "partner",
+      "illustration": "illustrations/P-robot_neighbor.png",
+      "preview": "previews/P-robot_neighbor.png",
+      "small80": "previews/P-robot_neighbor-80.png",
+      "small110": "previews/P-robot_neighbor-110.png",
+      "sha256": "67f78488a31138ccccf8eac3b303c463e460f07a9c3987e251ed23f3d8cfc1bd"
+    },
+    {
+      "id": "P-rock_octopus",
+      "name": "いわばのタコさん",
+      "category": "partner",
+      "illustration": "illustrations/P-rock_octopus.png",
+      "preview": "previews/P-rock_octopus.png",
+      "small80": "previews/P-rock_octopus-80.png",
+      "small110": "previews/P-rock_octopus-110.png",
+      "sha256": "5977e7e2a829a594ef47156c2db20492eaf2c8c4c007904a913c2c8d9d250cc2"
+    },
+    {
+      "id": "P-sea_mermaid",
+      "name": "うみのにんぎょ",
+      "category": "partner",
+      "illustration": "illustrations/P-sea_mermaid.png",
+      "preview": "previews/P-sea_mermaid.png",
+      "small80": "previews/P-sea_mermaid-80.png",
+      "small110": "previews/P-sea_mermaid-110.png",
+      "sha256": "aa8051c24c7a2644350b358c7d7a05923f4a78b7df1363408775b87a9b0ca2aa"
+    },
+    {
+      "id": "P-snow_spirit",
+      "name": "ゆきのせいれい",
+      "category": "partner",
+      "illustration": "illustrations/P-snow_spirit.png",
+      "preview": "previews/P-snow_spirit.png",
+      "small80": "previews/P-snow_spirit-80.png",
+      "small110": "previews/P-snow_spirit-110.png",
+      "sha256": "db82d418afff86ca0165931cedd2b5d7f3cccc8271bd2b723e095fff80ceb865"
+    },
+    {
+      "id": "P-snowman",
+      "name": "とけないゆきだるま",
+      "category": "partner",
+      "illustration": "illustrations/P-snowman.png",
+      "preview": "previews/P-snowman.png",
+      "small80": "previews/P-snowman-80.png",
+      "small110": "previews/P-snowman-110.png",
+      "sha256": "7b6973067dd75d8c51673af013a0e97d49e0eae9c6ad2f7e138cc200341a9006"
+    },
+    {
+      "id": "P-sunflower_partner",
+      "name": "はたけのひまわりさん",
+      "category": "partner",
+      "illustration": "illustrations/P-sunflower_partner.png",
+      "preview": "previews/P-sunflower_partner.png",
+      "small80": "previews/P-sunflower_partner-80.png",
+      "small110": "previews/P-sunflower_partner-110.png",
+      "sha256": "f03b136345b6e32ec8f0baec93822ada2aa71ca0fc28863008f177c932dc07ba"
+    },
+    {
+      "id": "P-swamp_croc",
+      "name": "ぬまのワニさん",
+      "category": "partner",
+      "illustration": "illustrations/P-swamp_croc.png",
+      "preview": "previews/P-swamp_croc.png",
+      "small80": "previews/P-swamp_croc-80.png",
+      "small110": "previews/P-swamp_croc-110.png",
+      "sha256": "6221f5e4cf09c337030a935ef107c4d572a8ce9f54265896b9fde84d192b56d7"
+    },
+    {
+      "id": "W-city",
+      "name": "とかい",
+      "category": "world",
+      "illustration": "illustrations/W-city.png",
+      "preview": "previews/W-city.png",
+      "small80": "previews/W-city-80.png",
+      "small110": "previews/W-city-110.png",
+      "sha256": "0d44c1dd519e624f3bbbd8ba86b9b52cc5dec4d4f479943f1215f46134462734"
+    },
+    {
+      "id": "W-countryside",
+      "name": "いなか",
+      "category": "world",
+      "illustration": "illustrations/W-countryside.png",
+      "preview": "previews/W-countryside.png",
+      "small80": "previews/W-countryside-80.png",
+      "small110": "previews/W-countryside-110.png",
+      "sha256": "bc603be1e742be98828beda34dca7315908d2d878e2f7f627b3526583f42c15d"
+    },
+    {
+      "id": "W-deepsea",
+      "name": "しんかい",
+      "category": "world",
+      "illustration": "illustrations/W-deepsea.png",
+      "preview": "previews/W-deepsea.png",
+      "small80": "previews/W-deepsea-80.png",
+      "small110": "previews/W-deepsea-110.png",
+      "sha256": "ab8f31db685b11cbce2223ff043a9688dc047d89cbb5a6ab2d60841ad6f79140"
+    },
+    {
+      "id": "W-desert",
+      "name": "さばく",
+      "category": "world",
+      "illustration": "illustrations/W-desert.png",
+      "preview": "previews/W-desert.png",
+      "small80": "previews/W-desert-80.png",
+      "small110": "previews/W-desert-110.png",
+      "sha256": "cebf3595e6b6be5a2aaec0fe86d8f2343a0c5dcb824ca296d37ded600d1cd935"
+    },
+    {
+      "id": "W-forest",
+      "name": "もり",
+      "category": "world",
+      "illustration": "illustrations/W-forest.png",
+      "preview": "exports-approved/W-forest.png",
+      "small80": "exports-approved/W-forest-80.png",
+      "small110": "exports-approved/W-forest-110.png",
+      "sha256": "cb791ef80facb36828195f3155328eed9f6564b1774c80bb924e14c08ffe3888"
+    },
+    {
+      "id": "W-home",
+      "name": "おうち",
+      "category": "world",
+      "illustration": "illustrations/W-home.png",
+      "preview": "previews/W-home.png",
+      "small80": "previews/W-home-80.png",
+      "small110": "previews/W-home-110.png",
+      "sha256": "b9ffdb9a0fbf0a8fbc7ebfe1b803ad1ac927d4896ff5a0da183dbbf19901acdb"
+    },
+    {
+      "id": "W-jungle",
+      "name": "ジャングル",
+      "category": "world",
+      "illustration": "illustrations/W-jungle.png",
+      "preview": "previews/W-jungle.png",
+      "small80": "previews/W-jungle-80.png",
+      "small110": "previews/W-jungle-110.png",
+      "sha256": "8fe568eeb618c7465b24e32c878e9130528c95d867a2bd8263b51aa947002688"
+    },
+    {
+      "id": "W-memory_lake",
+      "name": "きおくのみずうみ",
+      "category": "world",
+      "illustration": "illustrations/W-memory_lake.png",
+      "preview": "previews/W-memory_lake.png",
+      "small80": "previews/W-memory_lake-80.png",
+      "small110": "previews/W-memory_lake-110.png",
+      "sha256": "90b6ee6b17fba1f97f11ec482791f8376300921643359886f5077d953fa8b6c1"
+    },
+    {
+      "id": "W-mountain",
+      "name": "やま",
+      "category": "world",
+      "illustration": "illustrations/W-mountain.png",
+      "preview": "previews/W-mountain.png",
+      "small80": "previews/W-mountain-80.png",
+      "small110": "previews/W-mountain-110.png",
+      "sha256": "c2bf036ac80c9c605a48deadabfc5feccdd160bb1723068c688721497c66b8a7"
+    },
+    {
+      "id": "W-river_lake",
+      "name": "みずべ",
+      "category": "world",
+      "illustration": "illustrations/W-river_lake.png",
+      "preview": "previews/W-river_lake.png",
+      "small80": "previews/W-river_lake-80.png",
+      "small110": "previews/W-river_lake-110.png",
+      "sha256": "332ef04120134dc4d88a11b6a9de494bc4cc6954e161f46d3d6889bfdb92aa35"
+    },
+    {
+      "id": "W-sea",
+      "name": "うみ",
+      "category": "world",
+      "illustration": "illustrations/W-sea.png",
+      "preview": "exports-approved/W-sea.png",
+      "small80": "exports-approved/W-sea-80.png",
+      "small110": "exports-approved/W-sea-110.png",
+      "sha256": "586e8e295e05987d17bd63c0b53348d45e20aaca719db2ab7ac48f79e4856645"
+    },
+    {
+      "id": "W-snow",
+      "name": "ゆきぐに",
+      "category": "world",
+      "illustration": "illustrations/W-snow.png",
+      "preview": "previews/W-snow.png",
+      "small80": "previews/W-snow-80.png",
+      "small110": "previews/W-snow-110.png",
+      "sha256": "c146e69eb31a83de536e1b131c72400ef5ff1ff37f94d5c5cd39ad7dad02b0b2"
+    },
+    {
+      "id": "W-star_stop",
+      "name": "ほしぞらのていりゅうじょ",
+      "category": "world",
+      "illustration": "illustrations/W-star_stop.png",
+      "preview": "previews/W-star_stop.png",
+      "small80": "previews/W-star_stop-80.png",
+      "small110": "previews/W-star_stop-110.png",
+      "sha256": "0eb80c85d4cf326deb868623751158cafbf9e685a268d278d2eed5f84990ea14"
+    }
+  ]
+}

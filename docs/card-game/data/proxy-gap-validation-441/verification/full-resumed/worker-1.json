@@ -1,0 +1,390 @@
+{
+  "planned_ids": [
+    "test_proxy_new_seed_mixed_choice_344.MixedChoice344Tests.test_two_seeded_eggs_unique_response_and_free_companion",
+    "test_proxy_new_seed_mixed_replay_348.MixedReplay348Tests.test_four_passes_preserve_unresolved_first_date",
+    "test_proxy_new_seed_normal_audit_156.NewSeedNormalAudit156Tests.test_four_current_normal_opportunities",
+    "test_proxy_new_seed_normal_audit_156.NewSeedNormalAudit156Tests.test_saved_canonical_bytes",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_bottom_candidates_equal_all_seven_cards",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_fixed_seed_shuffle_matches_literal_top_seven",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_four_paths_stop_at_r1_egg_exchange",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_order_two_a_has_only_one_zero_cost_person",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_orders_are_distinct",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_saved_plan_and_audit_equal_builder_output",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_scope_counts_remain_zero",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_shuffle_preserves_exact_copy_and_instance_sets",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_three_paths_retain_zero_cost_person_after_one_bottom",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_validator_rejects_false_completion_and_changed_stop_reason",
+    "test_proxy_new_seed_mixed_choice_365.MixedChoice365Tests.test_normal_pass_first_date_and_unique_responses",
+    "test_proxy_new_seed_mixed_replay_370.MixedReplay370Tests.test_four_selected_passes_replay_with_hashes",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_canonical_output_and_original_unchanged",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_saved_source_proof_and_tamper_gate",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_three_first_actions_and_unchanged_quick_use_stop",
+    "test_proxy_normal_action_candidate_completeness.BoardAbilityTests.test_board_ability_must_have_canonical_classification",
+    "test_proxy_normal_action_candidate_completeness.BoardAbilityTests.test_chameleon_is_continuous_and_cat_ceo_trigger_is_past",
+    "test_proxy_normal_action_candidate_completeness.EvidenceBoundaryTests.test_forbidden_information_in_unit_evidence_flips_boundary",
+    "test_proxy_normal_action_candidate_completeness.TemplateSemanticTests.test_main_template_cost_conflicting_with_core_rule_stops",
+    "test_proxy_new_seed_mixed_choice_369.Choice369Tests.test_four_choices",
+    "test_proxy_new_seed_mixed_replay_373.Replay373Tests.test_proved_end_chain_and_two_end_responses",
+    "test_proxy_new_seed_normal_restart_147.NewSeedNormalRestart147Tests.test_source_and_canonical_bytes",
+    "test_proxy_new_seed_normal_restart_147.NewSeedNormalRestart147Tests.test_three_normal_choices_and_held_turn_end",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_builds_two_completed_draws_with_one_transition_each",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_full_slot_replacement_then_animal_shogi_recovers_the_old_instance",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_materialized_files_exactly_match_the_deterministic_builder",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_no_later_event_directly_references_the_retired_instance",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_order_only_derivation_moves_four_existing_companions_to_initial_hand",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_pair_validator_rejects_transition_tampering_and_old_instance_reuse",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_round_five_replay_creates_generation_two_and_retires_generation_one",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_trace_hashes_are_contiguous_and_match_completed_state",
+    "test_proxy_new_seed_mixed_choice_372.Choice372Tests.test_proved_end_and_three_unique_passes",
+    "test_proxy_new_seed_mixed_replay_376.Replay376Tests.test_egg_resolution_and_two_ends",
+    "test_proxy_new_seed_normal_restart_157.NewSeedNormalRestart157Tests.test_four_current_decisions",
+    "test_proxy_new_seed_normal_restart_157.NewSeedNormalRestart157Tests.test_saved_canonical_chain",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_124_two_replays_and_saved_bytes",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_125_explicit_source_rejects_forged_past_event",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_126_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_127_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_128_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_fresh_disk_and_returned_object_isolation",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_registry_scope_revalidated_after_change_and_restoration",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_supplied_inputs_unchanged_and_raw117_tampering_rejected",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_supplied_outcomes_cannot_bypass_independent_replay",
+    "test_proxy_new_seed_mixed_replay_255.MixedReplay255Tests.test_four_decisions_replay_from_saved_state",
+    "test_proxy_new_seed_mixed_replay_385.Replay385Tests.test_canonical_pipeline_and_four_routes",
+    "test_proxy_new_seed_response_audit_231.ResponseAudit231Test.test_four_unique_responses",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_end_only_partner_is_retained_across_next_start_draw",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_end_trigger_is_not_a_normal_action_and_registry_is_restored",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_non_egg_partner_end_trigger_is_not_suppressed",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_partner_end_ability_is_blocked_while_owner_is_egg",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_unknown_board_source_is_not_classified_as_passive",
+    "test_proxy_new_seed_mixed_choice_286.MixedChoice286Tests.test_two_responses_and_two_paid_comparisons",
+    "test_proxy_new_seed_mixed_replay_290.MixedReplay290Tests.test_two_normal_passes_and_two_end_response_passes",
+    "test_proxy_new_seed_mixed_replay_398.Replay398Tests.test_four_decisions",
+    "test_proxy_new_seed_turn_end_audit_163.TurnEndAudit163Test.test_all_four_six_stage_audits_complete",
+    "test_proxy_new_seed_turn_end_audit_163.TurnEndAudit163Test.test_altered_proof_fails_validation",
+    "test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay",
+    "test_proxy_targeted_execution.SavedAndTimingTests.test_world_and_challenge_keep_pending_first_opportunity"
+  ],
+  "started_ids": [
+    "test_proxy_new_seed_mixed_choice_344.MixedChoice344Tests.test_two_seeded_eggs_unique_response_and_free_companion",
+    "test_proxy_new_seed_mixed_replay_348.MixedReplay348Tests.test_four_passes_preserve_unresolved_first_date",
+    "test_proxy_new_seed_normal_audit_156.NewSeedNormalAudit156Tests.test_four_current_normal_opportunities",
+    "test_proxy_new_seed_normal_audit_156.NewSeedNormalAudit156Tests.test_saved_canonical_bytes",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_bottom_candidates_equal_all_seven_cards",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_fixed_seed_shuffle_matches_literal_top_seven",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_four_paths_stop_at_r1_egg_exchange",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_order_two_a_has_only_one_zero_cost_person",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_orders_are_distinct",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_saved_plan_and_audit_equal_builder_output",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_scope_counts_remain_zero",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_shuffle_preserves_exact_copy_and_instance_sets",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_three_paths_retain_zero_cost_person_after_one_bottom",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_validator_rejects_false_completion_and_changed_stop_reason",
+    "test_proxy_new_seed_mixed_choice_365.MixedChoice365Tests.test_normal_pass_first_date_and_unique_responses",
+    "test_proxy_new_seed_mixed_replay_370.MixedReplay370Tests.test_four_selected_passes_replay_with_hashes",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_canonical_output_and_original_unchanged",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_saved_source_proof_and_tamper_gate",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_three_first_actions_and_unchanged_quick_use_stop",
+    "test_proxy_normal_action_candidate_completeness.BoardAbilityTests.test_board_ability_must_have_canonical_classification",
+    "test_proxy_normal_action_candidate_completeness.BoardAbilityTests.test_chameleon_is_continuous_and_cat_ceo_trigger_is_past",
+    "test_proxy_normal_action_candidate_completeness.EvidenceBoundaryTests.test_forbidden_information_in_unit_evidence_flips_boundary",
+    "test_proxy_normal_action_candidate_completeness.TemplateSemanticTests.test_main_template_cost_conflicting_with_core_rule_stops",
+    "test_proxy_new_seed_mixed_choice_369.Choice369Tests.test_four_choices",
+    "test_proxy_new_seed_mixed_replay_373.Replay373Tests.test_proved_end_chain_and_two_end_responses",
+    "test_proxy_new_seed_normal_restart_147.NewSeedNormalRestart147Tests.test_source_and_canonical_bytes",
+    "test_proxy_new_seed_normal_restart_147.NewSeedNormalRestart147Tests.test_three_normal_choices_and_held_turn_end",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_builds_two_completed_draws_with_one_transition_each",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_full_slot_replacement_then_animal_shogi_recovers_the_old_instance",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_materialized_files_exactly_match_the_deterministic_builder",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_no_later_event_directly_references_the_retired_instance",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_order_only_derivation_moves_four_existing_companions_to_initial_hand",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_pair_validator_rejects_transition_tampering_and_old_instance_reuse",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_round_five_replay_creates_generation_two_and_retires_generation_one",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_trace_hashes_are_contiguous_and_match_completed_state",
+    "test_proxy_new_seed_mixed_choice_372.Choice372Tests.test_proved_end_and_three_unique_passes",
+    "test_proxy_new_seed_mixed_replay_376.Replay376Tests.test_egg_resolution_and_two_ends",
+    "test_proxy_new_seed_normal_restart_157.NewSeedNormalRestart157Tests.test_four_current_decisions",
+    "test_proxy_new_seed_normal_restart_157.NewSeedNormalRestart157Tests.test_saved_canonical_chain",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_124_two_replays_and_saved_bytes",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_125_explicit_source_rejects_forged_past_event",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_126_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_127_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_128_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_fresh_disk_and_returned_object_isolation",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_registry_scope_revalidated_after_change_and_restoration",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_supplied_inputs_unchanged_and_raw117_tampering_rejected",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_supplied_outcomes_cannot_bypass_independent_replay",
+    "test_proxy_new_seed_mixed_replay_255.MixedReplay255Tests.test_four_decisions_replay_from_saved_state",
+    "test_proxy_new_seed_mixed_replay_385.Replay385Tests.test_canonical_pipeline_and_four_routes",
+    "test_proxy_new_seed_response_audit_231.ResponseAudit231Test.test_four_unique_responses",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_end_only_partner_is_retained_across_next_start_draw",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_end_trigger_is_not_a_normal_action_and_registry_is_restored",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_non_egg_partner_end_trigger_is_not_suppressed",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_partner_end_ability_is_blocked_while_owner_is_egg",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_unknown_board_source_is_not_classified_as_passive",
+    "test_proxy_new_seed_mixed_choice_286.MixedChoice286Tests.test_two_responses_and_two_paid_comparisons",
+    "test_proxy_new_seed_mixed_replay_290.MixedReplay290Tests.test_two_normal_passes_and_two_end_response_passes",
+    "test_proxy_new_seed_mixed_replay_398.Replay398Tests.test_four_decisions",
+    "test_proxy_new_seed_turn_end_audit_163.TurnEndAudit163Test.test_all_four_six_stage_audits_complete",
+    "test_proxy_new_seed_turn_end_audit_163.TurnEndAudit163Test.test_altered_proof_fails_validation",
+    "test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay",
+    "test_proxy_targeted_execution.SavedAndTimingTests.test_world_and_challenge_keep_pending_first_opportunity"
+  ],
+  "finished_ids": [
+    "test_proxy_new_seed_mixed_choice_344.MixedChoice344Tests.test_two_seeded_eggs_unique_response_and_free_companion",
+    "test_proxy_new_seed_mixed_replay_348.MixedReplay348Tests.test_four_passes_preserve_unresolved_first_date",
+    "test_proxy_new_seed_normal_audit_156.NewSeedNormalAudit156Tests.test_four_current_normal_opportunities",
+    "test_proxy_new_seed_normal_audit_156.NewSeedNormalAudit156Tests.test_saved_canonical_bytes",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_bottom_candidates_equal_all_seven_cards",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_fixed_seed_shuffle_matches_literal_top_seven",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_four_paths_stop_at_r1_egg_exchange",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_order_two_a_has_only_one_zero_cost_person",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_orders_are_distinct",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_saved_plan_and_audit_equal_builder_output",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_scope_counts_remain_zero",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_shuffle_preserves_exact_copy_and_instance_sets",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_three_paths_retain_zero_cost_person_after_one_bottom",
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_validator_rejects_false_completion_and_changed_stop_reason",
+    "test_proxy_new_seed_mixed_choice_365.MixedChoice365Tests.test_normal_pass_first_date_and_unique_responses",
+    "test_proxy_new_seed_mixed_replay_370.MixedReplay370Tests.test_four_selected_passes_replay_with_hashes",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_canonical_output_and_original_unchanged",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_saved_source_proof_and_tamper_gate",
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_three_first_actions_and_unchanged_quick_use_stop",
+    "test_proxy_normal_action_candidate_completeness.BoardAbilityTests.test_board_ability_must_have_canonical_classification",
+    "test_proxy_normal_action_candidate_completeness.BoardAbilityTests.test_chameleon_is_continuous_and_cat_ceo_trigger_is_past",
+    "test_proxy_normal_action_candidate_completeness.EvidenceBoundaryTests.test_forbidden_information_in_unit_evidence_flips_boundary",
+    "test_proxy_normal_action_candidate_completeness.TemplateSemanticTests.test_main_template_cost_conflicting_with_core_rule_stops",
+    "test_proxy_new_seed_mixed_choice_369.Choice369Tests.test_four_choices",
+    "test_proxy_new_seed_mixed_replay_373.Replay373Tests.test_proved_end_chain_and_two_end_responses",
+    "test_proxy_new_seed_normal_restart_147.NewSeedNormalRestart147Tests.test_source_and_canonical_bytes",
+    "test_proxy_new_seed_normal_restart_147.NewSeedNormalRestart147Tests.test_three_normal_choices_and_held_turn_end",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_builds_two_completed_draws_with_one_transition_each",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_full_slot_replacement_then_animal_shogi_recovers_the_old_instance",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_materialized_files_exactly_match_the_deterministic_builder",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_no_later_event_directly_references_the_retired_instance",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_order_only_derivation_moves_four_existing_companions_to_initial_hand",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_pair_validator_rejects_transition_tampering_and_old_instance_reuse",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_round_five_replay_creates_generation_two_and_retires_generation_one",
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_trace_hashes_are_contiguous_and_match_completed_state",
+    "test_proxy_new_seed_mixed_choice_372.Choice372Tests.test_proved_end_and_three_unique_passes",
+    "test_proxy_new_seed_mixed_replay_376.Replay376Tests.test_egg_resolution_and_two_ends",
+    "test_proxy_new_seed_normal_restart_157.NewSeedNormalRestart157Tests.test_four_current_decisions",
+    "test_proxy_new_seed_normal_restart_157.NewSeedNormalRestart157Tests.test_saved_canonical_chain",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_124_two_replays_and_saved_bytes",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_125_explicit_source_rejects_forged_past_event",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_126_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_127_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_128_loads_prior_once",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_fresh_disk_and_returned_object_isolation",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_registry_scope_revalidated_after_change_and_restoration",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_supplied_inputs_unchanged_and_raw117_tampering_rejected",
+    "test_proxy_regeneration_410.Regeneration410Tests.test_supplied_outcomes_cannot_bypass_independent_replay",
+    "test_proxy_new_seed_mixed_replay_255.MixedReplay255Tests.test_four_decisions_replay_from_saved_state",
+    "test_proxy_new_seed_mixed_replay_385.Replay385Tests.test_canonical_pipeline_and_four_routes",
+    "test_proxy_new_seed_response_audit_231.ResponseAudit231Test.test_four_unique_responses",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_end_only_partner_is_retained_across_next_start_draw",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_end_trigger_is_not_a_normal_action_and_registry_is_restored",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_non_egg_partner_end_trigger_is_not_suppressed",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_partner_end_ability_is_blocked_while_owner_is_egg",
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_unknown_board_source_is_not_classified_as_passive",
+    "test_proxy_new_seed_mixed_choice_286.MixedChoice286Tests.test_two_responses_and_two_paid_comparisons",
+    "test_proxy_new_seed_mixed_replay_290.MixedReplay290Tests.test_two_normal_passes_and_two_end_response_passes",
+    "test_proxy_new_seed_mixed_replay_398.Replay398Tests.test_four_decisions",
+    "test_proxy_new_seed_turn_end_audit_163.TurnEndAudit163Test.test_all_four_six_stage_audits_complete",
+    "test_proxy_new_seed_turn_end_audit_163.TurnEndAudit163Test.test_altered_proof_fails_validation",
+    "test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay",
+    "test_proxy_targeted_execution.SavedAndTimingTests.test_world_and_challenge_keep_pending_first_opportunity"
+  ],
+  "status": {
+    "test_proxy_new_seed_mixed_choice_344.MixedChoice344Tests.test_two_seeded_eggs_unique_response_and_free_companion": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_348.MixedReplay348Tests.test_four_passes_preserve_unresolved_first_date": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_audit_156.NewSeedNormalAudit156Tests.test_four_current_normal_opportunities": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_audit_156.NewSeedNormalAudit156Tests.test_saved_canonical_bytes": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_bottom_candidates_equal_all_seven_cards": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_fixed_seed_shuffle_matches_literal_top_seven": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_four_paths_stop_at_r1_egg_exchange": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_order_two_a_has_only_one_zero_cost_person": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_orders_are_distinct": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_saved_plan_and_audit_equal_builder_output": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_scope_counts_remain_zero": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_shuffle_preserves_exact_copy_and_instance_sets": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_three_paths_retain_zero_cost_person_after_one_bottom": [
+      "pass"
+    ],
+    "test_proxy_normal_decision_first_choice_audit.NormalDecisionFirstChoiceAuditTests.test_validator_rejects_false_completion_and_changed_stop_reason": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_365.MixedChoice365Tests.test_normal_pass_first_date_and_unique_responses": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_370.MixedReplay370Tests.test_four_selected_passes_replay_with_hashes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_canonical_output_and_original_unchanged": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_saved_source_proof_and_tamper_gate": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_141.NewSeedNormalRestart141Tests.test_three_first_actions_and_unchanged_quick_use_stop": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.BoardAbilityTests.test_board_ability_must_have_canonical_classification": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.BoardAbilityTests.test_chameleon_is_continuous_and_cat_ceo_trigger_is_past": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.EvidenceBoundaryTests.test_forbidden_information_in_unit_evidence_flips_boundary": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.TemplateSemanticTests.test_main_template_cost_conflicting_with_core_rule_stops": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_369.Choice369Tests.test_four_choices": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_373.Replay373Tests.test_proved_end_chain_and_two_end_responses": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_147.NewSeedNormalRestart147Tests.test_source_and_canonical_bytes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_147.NewSeedNormalRestart147Tests.test_three_normal_choices_and_held_turn_end": [
+      "pass"
+    ],
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_builds_two_completed_draws_with_one_transition_each": [
+      "pass"
+    ],
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_full_slot_replacement_then_animal_shogi_recovers_the_old_instance": [
+      "pass"
+    ],
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_materialized_files_exactly_match_the_deterministic_builder": [
+      "pass"
+    ],
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_no_later_event_directly_references_the_retired_instance": [
+      "pass"
+    ],
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_order_only_derivation_moves_four_existing_companions_to_initial_hand": [
+      "pass"
+    ],
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_pair_validator_rejects_transition_tampering_and_old_instance_reuse": [
+      "pass"
+    ],
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_round_five_replay_creates_generation_two_and_retires_generation_one": [
+      "pass"
+    ],
+    "test_proxy_reentry_pilot.ProxyReentryPilotTest.test_trace_hashes_are_contiguous_and_match_completed_state": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_372.Choice372Tests.test_proved_end_and_three_unique_passes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_376.Replay376Tests.test_egg_resolution_and_two_ends": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_157.NewSeedNormalRestart157Tests.test_four_current_decisions": [
+      "pass"
+    ],
+    "test_proxy_new_seed_normal_restart_157.NewSeedNormalRestart157Tests.test_saved_canonical_chain": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_124_two_replays_and_saved_bytes": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_125_explicit_source_rejects_forged_past_event": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_126_loads_prior_once": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_127_loads_prior_once": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_128_loads_prior_once": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_fresh_disk_and_returned_object_isolation": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_registry_scope_revalidated_after_change_and_restoration": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_supplied_inputs_unchanged_and_raw117_tampering_rejected": [
+      "pass"
+    ],
+    "test_proxy_regeneration_410.Regeneration410Tests.test_supplied_outcomes_cannot_bypass_independent_replay": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_255.MixedReplay255Tests.test_four_decisions_replay_from_saved_state": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_385.Replay385Tests.test_canonical_pipeline_and_four_routes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_response_audit_231.ResponseAudit231Test.test_four_unique_responses": [
+      "pass"
+    ],
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_end_only_partner_is_retained_across_next_start_draw": [
+      "pass"
+    ],
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_end_trigger_is_not_a_normal_action_and_registry_is_restored": [
+      "pass"
+    ],
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_non_egg_partner_end_trigger_is_not_suppressed": [
+      "pass"
+    ],
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_partner_end_ability_is_blocked_while_owner_is_egg": [
+      "pass"
+    ],
+    "test_proxy_resource_value_normal_board.NormalBoardTests.test_unknown_board_source_is_not_classified_as_passive": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_286.MixedChoice286Tests.test_two_responses_and_two_paid_comparisons": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_290.MixedReplay290Tests.test_two_normal_passes_and_two_end_response_passes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_398.Replay398Tests.test_four_decisions": [
+      "pass"
+    ],
+    "test_proxy_new_seed_turn_end_audit_163.TurnEndAudit163Test.test_all_four_six_stage_audits_complete": [
+      "pass"
+    ],
+    "test_proxy_new_seed_turn_end_audit_163.TurnEndAudit163Test.test_altered_proof_fails_validation": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.SavedAndTimingTests.test_serialized_all_six_can_replay": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.SavedAndTimingTests.test_world_and_challenge_keep_pending_first_opportunity": [
+      "pass"
+    ]
+  },
+  "successful": true,
+  "seconds": 1519.271885983
+}

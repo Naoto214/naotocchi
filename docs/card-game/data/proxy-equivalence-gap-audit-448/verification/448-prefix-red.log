@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_invalid_source_input_is_not_fallback (test_proxy_equivalence_relationship_prefix.RelationshipPrefixTests.test_invalid_source_input_is_not_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_relationship_prefix.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public relationship prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public relationship prefix absent
+
+======================================================================
+FAIL: test_other_candidates_and_input_unchanged (test_proxy_equivalence_relationship_prefix.RelationshipPrefixTests.test_other_candidates_and_input_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_relationship_prefix.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public relationship prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public relationship prefix absent
+
+======================================================================
+FAIL: test_source_bound_stages_payment_rights_and_response (test_proxy_equivalence_relationship_prefix.RelationshipPrefixTests.test_source_bound_stages_payment_rights_and_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_relationship_prefix.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public relationship prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public relationship prefix absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.776s
+
+FAILED (failures=3)

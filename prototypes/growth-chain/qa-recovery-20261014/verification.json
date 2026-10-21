@@ -1,0 +1,30 @@
+{
+  "sourceHead": "9047ec55896127ec53507be76cd402a2a55c8ae0",
+  "node": "v24.19.0",
+  "dedicated": {
+    "pass": 108,
+    "fail": 0
+  },
+  "dom": {
+    "pass": 6
+  },
+  "mutation": {
+    "base": 12,
+    "balance": 3,
+    "eggs": 7,
+    "optimization": 6
+  },
+  "root": {
+    "pass": 3130,
+    "fail": 0,
+    "skip": 0
+  },
+  "relationship": {
+    "pass": 80,
+    "fail": 0,
+    "skip": 0
+  },
+  "scope": "Only prototypes/growth-chain artifacts/configuration/docs; engine, UI, tests and standard parameters unchanged since9047ec55",
+  "humanQA": "not performed",
+  "browser": "no new UI change; no new browser PASS claimed"
+}

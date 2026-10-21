@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "independent_discovery_matches_manifest": true,
+    "exact816_started_finished": true,
+    "no_duplicate_ids": true,
+    "all816_pass": true,
+    "all_worker_success": true,
+    "protected505_unchanged": true,
+    "summary_all_checks_true": true
+  },
+  "changed_protected_json": [],
+  "raw408_sha256": {
+    "proxy-new-seed-mixed-replay-408-20260930.json": "6623cc9b68a5a9375b0d02df081b56f42046c40e801b3ed937c3f38863018d4b",
+    "proxy-new-seed-mixed-audit-408-20260930.json": "006624f87ecb4b10b08f87d782a3c521dba02059637f69e10ce93ece2619724a"
+  },
+  "worker_seconds": {
+    "0": 1470.2838974880005,
+    "1": 1587.5895806980002,
+    "2": 1405.5960558919996,
+    "3": 1617.1257448840001,
+    "4": 1461.3966721859997,
+    "5": 1622.431389846
+  },
+  "planned_tests": 816,
+  "modules": 310
+}

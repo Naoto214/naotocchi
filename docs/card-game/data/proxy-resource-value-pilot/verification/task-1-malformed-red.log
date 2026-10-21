@@ -1,0 +1,30 @@
+test_all_components_dominance_selects_a (test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_components_dominance_selects_a) ... ok
+test_all_equal_uses_existing_tie_break (test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_equal_uses_existing_tie_break) ... ok
+test_candidate_order_invariance (test_proxy_resource_value_comparison.ResourceComparisonTests.test_candidate_order_invariance) ... ok
+test_dominance_cycle_rejected (test_proxy_resource_value_comparison.ResourceComparisonTests.test_dominance_cycle_rejected) ... ok
+test_equal_copy_ids_do_not_invent_target_tie_break (test_proxy_resource_value_comparison.ResourceComparisonTests.test_equal_copy_ids_do_not_invent_target_tie_break) ... ok
+test_input_and_return_objects_are_isolated (test_proxy_resource_value_comparison.ResourceComparisonTests.test_input_and_return_objects_are_isolated) ... ok
+test_invalid_pair_and_numeric_types_rejected (test_proxy_resource_value_comparison.ResourceComparisonTests.test_invalid_pair_and_numeric_types_rejected) ... ok
+test_malformed_json_values_return_validation_errors (test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_json_values_return_validation_errors) ... ok
+test_malformed_safe_certificate_reports_errors (test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_safe_certificate_reports_errors) ... ERROR
+test_paid_board_tradeoff_preserves_both_candidates (test_proxy_resource_value_comparison.ResourceComparisonTests.test_paid_board_tradeoff_preserves_both_candidates) ... ok
+test_partial_equality_does_not_shrink_incomparable_frontier (test_proxy_resource_value_comparison.ResourceComparisonTests.test_partial_equality_does_not_shrink_incomparable_frontier) ... ok
+test_safe_free_dominance_is_only_against_pass (test_proxy_resource_value_comparison.ResourceComparisonTests.test_safe_free_dominance_is_only_against_pass) ... ok
+test_upper_three_priorities_unchanged (test_proxy_resource_value_comparison.ResourceComparisonTests.test_upper_three_priorities_unchanged) ... ok
+
+======================================================================
+ERROR: test_malformed_safe_certificate_reports_errors (test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_safe_certificate_reports_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_comparison.py", line 118, in test_malformed_safe_certificate_reports_errors
+    self.assertTrue(comparison.validate_problem(p))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_comparison.py", line 79, in validate_problem
+    if set((a,b))!={cid,'pass'}:errors.append('safe certificate must compare placement with pass')
+                   ^^^^^^^^^^^^
+TypeError: unhashable type: 'list'
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.006s
+
+FAILED (errors=1)

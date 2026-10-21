@@ -1,0 +1,2593 @@
+{
+  "version": "growth-chain-lab/1",
+  "initial": {
+    "version": "growth-chain-lab/1",
+    "seed": 118,
+    "rules": {
+      "width": 6,
+      "height": 12,
+      "kinds": 5,
+      "anchor": "bottom",
+      "bulkAnchor": "bottom",
+      "consume": "all",
+      "competition": "component",
+      "pairFirst": false,
+      "deathSpecies": "same",
+      "eggCount": "group",
+      "eggThresholds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "gaugeMetric": "growth",
+      "gaugeUnit": 8,
+      "scoreMode": "evolution",
+      "topOut": "legal",
+      "eggPlacement": "column",
+      "bag": "fourEach",
+      "eggReward": "death"
+    },
+    "board": [
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "eggs": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gauge": 0,
+    "bag": {
+      "state": 440012197,
+      "kinds": 5,
+      "mode": "fourEach",
+      "index": 8,
+      "items": [
+        3,
+        2,
+        4,
+        2,
+        4,
+        3,
+        4,
+        0,
+        3,
+        1,
+        2,
+        3,
+        1,
+        0,
+        0,
+        2,
+        4,
+        0,
+        1,
+        1
+      ],
+      "cycle": 1
+    },
+    "queue": [
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "nextId": 1,
+    "score": 0,
+    "drops": 0,
+    "actions": 0,
+    "over": null
+  },
+  "actions": [
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 1,
+      "y": 10,
+      "to": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 4,
+      "to": 0
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 0,
+      "to": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 1,
+      "to": 2
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 2,
+      "to": 0
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "transform",
+      "x": 5,
+      "y": 8,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 1,
+      "to": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 2,
+      "to": 3
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "left",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 0,
+      "to": 4
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "rotate",
+        "rotate",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "left",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "rotate",
+        "hard"
+      ]
+    },
+    {
+      "type": "drop",
+      "path": [
+        "right",
+        "right",
+        "right",
+        "hard"
+      ]
+    },
+    {
+      "type": "bulk",
+      "from": 1,
+      "to": 4
+    }
+  ],
+  "hash": "44fdfe2e",
+  "note": {
+    "cohort": "egg-results-20261014",
+    "condition": "death-active",
+    "seed": 118,
+    "firstDeath": {
+      "drop": 242,
+      "action": 261,
+      "wave": 5
+    },
+    "endingEvents": [
+      {
+        "chain": 1,
+        "events": [
+          {
+            "consumed": [
+              378,
+              304,
+              406
+            ],
+            "anchor": {
+              "x": 3,
+              "y": 10,
+              "id": 378
+            },
+            "from": 2,
+            "to": 4,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          },
+          {
+            "consumed": [
+              418,
+              431
+            ],
+            "anchor": {
+              "x": 4,
+              "y": 10,
+              "id": 418
+            },
+            "from": 4,
+            "to": 5,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          },
+          {
+            "consumed": [
+              451,
+              454
+            ],
+            "anchor": {
+              "x": 3,
+              "y": 7,
+              "id": 451
+            },
+            "from": 2,
+            "to": 3,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          }
+        ]
+      },
+      {
+        "chain": 2,
+        "events": [
+          {
+            "consumed": [
+              275,
+              378,
+              425
+            ],
+            "anchor": {
+              "x": 2,
+              "y": 10,
+              "id": 275
+            },
+            "from": 4,
+            "to": 6,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          },
+          {
+            "consumed": [
+              356,
+              451,
+              458
+            ],
+            "anchor": {
+              "x": 2,
+              "y": 8,
+              "id": 356
+            },
+            "from": 3,
+            "to": 5,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          },
+          {
+            "consumed": [
+              482,
+              471
+            ],
+            "anchor": {
+              "x": 4,
+              "y": 5,
+              "id": 482
+            },
+            "from": 1,
+            "to": 2,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          }
+        ]
+      },
+      {
+        "chain": 3,
+        "events": [
+          {
+            "consumed": [
+              240,
+              275
+            ],
+            "anchor": {
+              "x": 2,
+              "y": 11,
+              "id": 240
+            },
+            "from": 6,
+            "to": 7,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          },
+          {
+            "consumed": [
+              321,
+              356
+            ],
+            "anchor": {
+              "x": 2,
+              "y": 9,
+              "id": 321
+            },
+            "from": 5,
+            "to": 6,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          }
+        ]
+      },
+      {
+        "chain": 4,
+        "events": [
+          {
+            "consumed": [
+              240,
+              322
+            ],
+            "anchor": {
+              "x": 2,
+              "y": 11,
+              "id": 240
+            },
+            "from": 7,
+            "to": 8,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          },
+          {
+            "consumed": [
+              302,
+              375
+            ],
+            "anchor": {
+              "x": 1,
+              "y": 9,
+              "id": 302
+            },
+            "from": 4,
+            "to": 5,
+            "overflow": 0,
+            "death": false,
+            "eggRank": -1,
+            "eggCount": 0
+          }
+        ]
+      },
+      {
+        "chain": 5,
+        "events": [
+          {
+            "consumed": [
+              19,
+              240
+            ],
+            "anchor": {
+              "x": 2,
+              "y": 12,
+              "id": 19
+            },
+            "from": 8,
+            "to": null,
+            "overflow": 0,
+            "death": true,
+            "eggRank": 3,
+            "eggCount": 1
+          }
+        ]
+      }
+    ]
+  }
+}

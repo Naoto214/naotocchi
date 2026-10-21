@@ -1,0 +1,49 @@
+{
+  "base_commit": "4816d0b8af33f8422cafe07e54ecc5d3f9c15273",
+  "base_tree": "a93a0f12de7d6ef8b8b5fdd52076a3194b5fc578",
+  "design_files_sha256": {
+    "docs/card-game/445-public-result-equivalence-design.md": "a7a2e3199c8e0ee536d2bb2345dcfcf19a21b5137efa220acddb3d40f490d667",
+    "docs/card-game/README.md": "e142aa888b00833979cef0b80b80a3f6ea10824a8bdab5589e045fae380d4d73",
+    "docs/card-game/data/proxy-equivalence-design-445/independent-review.md": "067f13fb922b784836e05d3c807f9d8a1d23ef1532b74b422cbef8e598110217",
+    "docs/card-game/plans/2026-10-03-public-result-equivalence-design-445.md": "70478084f8903429e20f4dab8d180a28ec966eaf3d7c243ef91ffaf6e59fdc4f"
+  },
+  "document_checks": {
+    "former_terms": false,
+    "local_links": true,
+    "trailing_whitespace": false
+  },
+  "full_design_data_checker_run": false,
+  "independent_balance_sample_count": 0,
+  "new_game_events": 0,
+  "new_matches": 0,
+  "policy_promoted": false,
+  "production_changes": 0,
+  "review_findings": {
+    "critical": 0,
+    "important": 0,
+    "minor": 1,
+    "minor_fixed": 1
+  },
+  "review_status": "completed_minor_clarification_fixed",
+  "runtime_tests_run": false,
+  "source_files_verified_sha256": {
+    "docs/card-game/01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "docs/card-game/02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+    "docs/card-game/06-action-chain-checkpoint.md": "7ac6d6141095d1139b8a8e072bc1523d621b7f100a57e292c08bbc97a7618c67",
+    "docs/card-game/114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "docs/card-game/116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "docs/card-game/119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "docs/card-game/443-completed-pilot-comparison.md": "469bf788bab87973e2cb678dea1b6699bf710e10709dbe1c2ec961d3c587b116",
+    "docs/card-game/444-fallback-cause-audit.md": "fd25e4c3a53687b682cb90fd9405d6cc3cac455017d3d4df07c45809d0eba492",
+    "docs/card-game/64-turn-boundaries-and-victory-timing.md": "00f9845b5b79774c48bac002e26f6b08096563a4bf1611f408aed0e2c9089a64",
+    "docs/card-game/data/proxy-fallback-audit-444/summary.json": "c66da6d6f21845c610ab596ba0d9aec7f13f325202a58c5ff1ad97fdf483d8d9",
+    "docs/card-game/plans/2026-10-01-normal-decision-resource-pilot-design.md": "3f5c08298fac03a3413bc2d4dd70f7608ed8d7df48547c5d00f59f7078b0d645",
+    "docs/card-game/tools/proxy_continuation_batch.py": "c019f1615b7b870403568154ee2467727816ad5c4c45b0d7cb3a4e215f8d2c77",
+    "docs/card-game/tools/proxy_continuation_conditions.py": "3fc02187ea3d09441ab70acf54a9eaa9035f4d65be1fc998af1fb65a33e6411e",
+    "docs/card-game/tools/proxy_continuation_payments.py": "762118081e5de277e5628d89c7c7a015aa5c59eb5e766bc43d92cd74b5673fcb",
+    "docs/card-game/tools/proxy_continuation_state.py": "c5935a5184038d315ebf190ba7939b7ff4935e198e4f9d53cf995959b991f6c9",
+    "docs/card-game/tools/proxy_resource_value_comparison.py": "6ee3e6aec1874dc76164da6eb9761c53b07992fe27fa777f1ea6c67335b917bc"
+  },
+  "status": "design_only_awaiting_semantics_A_approval",
+  "unchanged_base_tree_except_readme_and_additions": true
+}

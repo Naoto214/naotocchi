@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: all tools must fit without rail scrolling
+
+false !== true
+
+    at /workspace/scratch/391d64af4dfd/naotocchi/prototypes/growth-chain/tests/player-browser.cjs:102:14 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
