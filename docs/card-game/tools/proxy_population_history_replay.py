@@ -13,7 +13,41 @@ import proxy_continuation_actions as actions
 import proxy_continuation_candidates as candidates
 import proxy_continuation_state as state
 import proxy_resource_value_trajectory as old
+import proxy_population_hand_timing as hand_timing
 _LOCK=Lock()
+
+
+def hand_reaction(event, prior, byseq, history, initial, card):
+    """Registered hand-timing reaction (source_zone 'hand', sequential origin).
+
+    The reaction is not in the window actor's ordinary inventory; its legality
+    is owned by the hand-timing occurrence raised at the actual origin event.
+    Reuse that capture and the conditional activation audit, fail closed when
+    the origin transition is not in the verified history.
+    """
+    origin_seq = event['trigger_origin_event_seq']
+    if initial is None:
+        raise ValueError('hand timing provenance needs signed initial seed')
+    if origin_seq - 1 not in byseq or origin_seq not in byseq:
+        raise ValueError('hand timing origin transition absent from history')
+    origin = next((e for e in history if e['seq'] == origin_seq), None)
+    if origin is None:
+        raise ValueError('hand timing origin event absent from history')
+    captured = hand_timing.capture(byseq[origin_seq - 1], byseq[origin_seq], origin)
+    rows = [r for r in captured['occurrences'] if r['source_instance_id'] == event['source_instance_id'] and r['actor'] == event['actor']]
+    if len(rows) != 1:
+        raise ValueError('hand timing occurrence absent or ambiguous at its origin')
+    occurrence = rows[0]
+    actions, _ = hand_timing.current_actions(prior, occurrence, history)
+    action = next((a for a in actions if a['candidate_id'] == event['selected_candidate']), None)
+    if action is None:
+        raise ValueError('historical hand timing reaction absent from its occurrence inventory')
+    expected, generated = hand_timing.activate(prior, action, occurrence, history, initial)
+    raw = {k: v for k, v in generated[0].items() if k not in end.BIND_KEYS}
+    if expected != byseq[event['seq']] or raw != event:
+        raise ValueError('hand timing reaction independent provenance replay differs')
+    cap = hand_timing.descriptor(card)
+    return dict(event_seq=event['seq'], kind=event['action_type'], card_id=card, source_reference=cap['reference'], source_raw_sha256=cap['source_raw_sha256'], duration='activation_until_resolution', hand_timing_origin_event_seq=origin_seq)
 
 
 def quick_verifier(verify_original, initial):
@@ -37,6 +71,9 @@ def quick_verifier(verify_original, initial):
             if not activation and (not (card == 'E-final-time' and kind == 'resolve_event')):
                 continue
             history = [e for e in events if e['seq'] < event['seq']]
+            if activation and event.get('source_zone') == 'hand' and event.get('trigger_origin_event_seq') is not None and card in hand_timing.DESCRIPTORS:
+                proofs.append(hand_reaction(event, prior, byseq, history, initial, card))
+                continue
             if activation:
                 actor = event['actor']
                 normal = g['phase'] == 'normal_action'
