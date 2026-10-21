@@ -65,8 +65,8 @@
   // あとから 配列を ならべかえたり、とちゅうに べつの ゲームを 挿入・削除
   // しても、この id は かわらない(state.lifetime.minigamePlayCounts の
   // キーとして つかう。下の minigamePlayCount/recordMinigamePlay 参照)。
-  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームには わざと id を つけず、
-  // これまでどおり あそんだ かいすうの きろく対象がいの まま にしてある
+  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームも mg() で id を つけて
+  // きろくする(以前の 連番キーは script.js の LEGACY_MINIGAME_IDS で ひきつぐ)
   function mg(id, game) {
     game.id = id;
     return game;
@@ -2640,7 +2640,7 @@
   }
   const TILT_MAZE_THEMES = [
     { title: 'たまころがし迷路!盤をかたむけてゴールへ', ballEmoji: '', goalEmoji: '⭐', palette: { frame: '#5b3b1e', floorA: '#e8d3a8', floorB: '#e0c99a', wallTop: '#a86f3a', wallSide: '#6e4522', ball: '#9fc4e8', ballDark: '#3b6a99' } },
-    { title: 'こおりのたまころがし!すべる盤でゴールをめざせ', ballEmoji: '', goalEmoji: '🏁', palette: { frame: '#284a6e', floorA: '#d9f1ff', floorB: '#cbe8fb', wallTop: '#7fb8e6', wallSide: '#3f7bb0', ball: '#ffd27a', ballDark: '#b97a12' } },
+    { title: 'こおりのたまころがし!つめたい盤でゴールをめざせ', ballEmoji: '', goalEmoji: '🏁', palette: { frame: '#284a6e', floorA: '#d9f1ff', floorB: '#cbe8fb', wallTop: '#7fb8e6', wallSide: '#3f7bb0', ball: '#ffd27a', ballDark: '#b97a12' } },
     { title: 'おかしのたまころがし!あめだまをゴールへころがそう', ballEmoji: '🍬', goalEmoji: '🎁', palette: { frame: '#7a2d5a', floorA: '#ffe4f0', floorB: '#ffd6e8', wallTop: '#ff8fbf', wallSide: '#b8467f', ball: '#fff', ballDark: '#999' } },
   ];
   const TILT_MAZE_VARIANTS = [mg('tilt-maze-3d', randomThemeGame(makeTiltMazeGame, TILT_MAZE_THEMES))];
@@ -3823,7 +3823,7 @@
   const FREE_KICK_VARIANTS = [mg('free-kick-3d', makeFreeKickGame({ title: 'フリーキック!かべとキーパーをこえて、ゴールへ' }))];
 
   // --- タワーディフェンス: みちを あるいてくる てきを、マスに おいた
-  //     タワーで たおす。おかねで タワーを たてて/きょうかして 6ウェーブ まもりきる ---
+  //     タワーで たおす。おかねで タワーを たてて/きょうかして WAVES ぶん まもりきる ---
   function makeTowerDefenseGame({ title }) {
     return {
       start(container, onComplete) {
@@ -3962,7 +3962,7 @@
   const TOWER_DEFENSE_VARIANTS = [mg('tower-defense', makeTowerDefenseGame({ title: 'タワーディフェンス!お城を4ウェーブ守りきれ' }))];
 
   // --- ローグライク ダンジョン: ターンせいで うごく。まいかい ちがう
-  //     ダンジョンを 3かい おりて、てきと たたかい、アイテムを ひろう ---
+  //     ダンジョンを FLOORS かい おりて、てきと たたかい、アイテムを ひろう ---
   function makeRoguelikeGame({ title }) {
     return {
       start(container, onComplete) {
@@ -4085,7 +4085,7 @@
   // フラッグシップ第2弾: グランプリ / 横スクロールシューティング / プラットフォーマー / 倉庫番 / オセロ
   // ================================================================
 
-  // --- グランプリ: ライバル5台と 3しゅうの レース。ブーストパッドと オイルで
+  // --- グランプリ: ライバル5台と LAPS しゅうの レース。ブーストパッドと オイルで
   //     じゅんいが いれかわる。ゴールした じゅんいが スコア ---
   function makeGrandPrixGame({ title }) {
     return {
@@ -6370,7 +6370,7 @@
   const TANK_BATTLE_VARIANTS = [mg('tank-battle', makeTankBattleGame({ title: 'タンクバトル!かべをくだいて、敵を全部たおせ' }))];
 
   // --- テニス(よこ視点ラリー): ◀▶で うごき、ボールが ちかづいたら スイング。
-  //     うつ たかさで ロブ/ドライブが かわる。4ポイント さきどり ---
+  //     うつ たかさで ロブ/ドライブが かわる。WIN ポイント さきどり ---
   function makeTennisGame({ title }) {
     return {
       start(container, onComplete) {
@@ -6539,7 +6539,7 @@
   const PICROSS_VARIANTS = [mg('picross-5', makePicrossGame({ title: 'ピクロス!数字を読んで、絵をぬろう' }))];
 
   // --- ダーツ: おさえると ねらいが ゆれはじめる。ゆれが ちいさい うちに はなして
-  //     なげる。9本の ごうけい。ブル(まんなか)50てん、トリプルは 3ばい ---
+  //     なげる。DARTS 本の ごうけい。ブル(まんなか)50てん、トリプルは 3ばい ---
   function makeDartsGame({ title }) {
     return {
       start(container, onComplete) {
@@ -6811,7 +6811,7 @@
   }
   const BOMBER_VARIANTS = [mg('bomber-maze', makeBomberGame({ title: 'ボンバー!ばくだんでレンガをくだき、敵をたおせ' }))];
 
-  // --- ブラックジャック: 21に ちかづける。ディーラーは 17で ストップ。5ハンド ---
+  // --- ブラックジャック: 21に ちかづける。ディーラーは 17で ストップ。HANDS ハンド ---
   function makeBlackjackGame({ title }) {
     return {
       start(container, onComplete) {
@@ -7380,7 +7380,7 @@
   }
   const ASTEROIDS_VARIANTS = [mg('asteroids-classic', makeAsteroidsGame({ title: 'アステロイド!回して噴射して、岩をくだけ' }))];
 
-  // --- ヨット(サイコロ): 5この サイコロを 3かいまで ふり、やくを えらぶ。6ターン ---
+  // --- ヨット(サイコロ): 5この サイコロを 3かいまで ふり、やくを えらぶ。TURNS ターン ---
   function makeYachtDiceGame({ title }) {
     return {
       start(container, onComplete) {
@@ -7600,7 +7600,7 @@
 
   // --- カーリング: ストーンを うえへ スワイプして なげる。ながさで つよさ、
   //     ななめで カール。なげた あと タップれんだで スイープ(のびる)。
-  //     4こずつ なげて、ボタンに いちばん ちかい ほうが とくてん ---
+  //     STONES こずつ(ふつうは 3こ、ふゆの大会は 4こ)なげて、ボタンに いちばん ちかい ほうが とくてん ---
   function makeCurlingGame({ title, stoneCount }) {
     return {
       start(container, onComplete) {
@@ -8077,13 +8077,13 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const ROUNDS = 2, TIME_LIMIT_MS = mgDuration(45000);
-        let running = true, rafId = null, last = null, round = 0, path = [], slots = [], spare = 0, phase = 'build', fallen = 0, msg = '', msgUntil = 0, cleared = 0, pushAt = 0, totalUsed = 0;
+        let running = true, rafId = null, last = null, round = 0, path = [], slots = [], spare = 0, phase = 'build', fallen = 0, msg = '', msgUntil = 0, cleared = 0, pushAt = 0;
         const startTime = performance.now();
         container.innerHTML = `
           <div class="mg-header"><span id="dmRound">1/${ROUNDS}問目</span><span id="dmSpare">手持ち0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="dmCanvas"></canvas></div>
-          <div class="mg-hint" id="dmHint">道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。余った手持ちはボーナス。</div>
+          <div class="mg-hint" id="dmHint">道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。</div>
           <div class="mg-race-controls"><button class="mg-tap-btn primary" id="dmPush" data-key="action">👉おす!</button></div>`;
         const canvas = container.querySelector('#dmCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
@@ -8103,7 +8103,7 @@
         pushBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; phase = 'run'; sfx('whoosh'); pushAt = performance.now(); path[0].fallen = performance.now(); fallen = 1; hud(); say('👉パタパタ…', 1000); });
         function update(dt, now) {
           if (phase !== 'run') return;
-          for (let i = 0; i < path.length; i++) { const d = path[i]; if (!d.fallen || !d.present) continue; d.tilt = Math.min(1, d.tilt + dt * 6); const nxt = path[i + 1]; if (d.tilt > 0.55 && nxt && !nxt.fallen) { if (nxt.present) { sfx('tick'); nxt.fallen = now; fallen++; if (i + 1 === path.length - 1) { phase = 'done'; cleared++; totalUsed += slots.length; say('🔔ゴール!ぜんぶたおれた!', 1500); setTimeout(next, 1700); return; } } else { phase = 'done'; say('💦途中で止まった…', 1500); setTimeout(next, 1700); return; } } }
+          for (let i = 0; i < path.length; i++) { const d = path[i]; if (!d.fallen || !d.present) continue; d.tilt = Math.min(1, d.tilt + dt * 6); const nxt = path[i + 1]; if (d.tilt > 0.55 && nxt && !nxt.fallen) { if (nxt.present) { sfx('tick'); nxt.fallen = now; fallen++; if (i + 1 === path.length - 1) { phase = 'done'; cleared++; say('🔔ゴール!ぜんぶたおれた!', 1500); setTimeout(next, 1700); return; } } else { phase = 'done'; say('💦途中で止まった…', 1500); setTimeout(next, 1700); return; } } }
         }
         function next() { if (!running) return; round++; if (round >= ROUNDS) { finish(); return; } gen(); say('次の道!', 900); }
         function render(now) {
@@ -8268,8 +8268,8 @@
   }
   const MANCALA_VARIANTS = [mg('mancala-kalah', makeMancalaGame({ title: 'マンカラ!たねをまいて、ストアに集めよう' }))];
 
-  // --- ひこうき ちゃくりく: ▲▼で きしゅを あげさげ、みどりの グライドパスに のって
-  //     かっそうろの ⬛の うえに、ゆっくり おりる。3かい ちゃくりく ---
+  // --- ひこうき ちゃくりく: パッドか 画面の たてドラッグで きしゅを あげさげ、みどりの グライドパスに のって
+  //     かっそうろの ⬛の うえに、ゆっくり おりる。LANDINGS かい ちゃくりく ---
   function makePlaneLandingGame({ title }) {
     return {
       start(container, onComplete) {
@@ -10183,9 +10183,10 @@
     ],
   };
 
-  // きせつごとの あそび。  // きせつごとの あそび。地域とはちがい、その category を まるごと
-  // おきかえるのではなく、いま の きせつのあいだだけ「おまけの あと数種類」
-  // として ふつうの プールに くわわる(きせつが すぎれば また 出なくなる)。
+  // きせつごとの あそび。地域とはちがい、その category を まるごと
+  // おきかえるのではなく、どの きせつでも ふつうの プールの 候補に はいり、
+  // その きせつの あいだだけ 出やすくなる(script.js の buildMinigamePool /
+  // minigameDrawWeight 参照。きせつが すぎても 出なくは ならない)。
   // しょうらい きせつごとに 出現する ゲームを かえたり ふやしたり できる
   // よう、REGION_MINIGAMES と おなじ かたち([{category, game}, ...])で
   // もたせてある
