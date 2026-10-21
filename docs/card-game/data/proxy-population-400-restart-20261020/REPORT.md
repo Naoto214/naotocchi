@@ -113,19 +113,20 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 | `3e0574c3` | second-card public source | 盤面群発動の履歴再生が窓のpriority actorで候補列挙していた。相手ターンのW-city第2プレイ群（後置き応答窓、priority=ターンプレイヤーB、発動者A）では凍結述語が `second-card public source differs` で停止。event自身が持つ発動者とoriginを既存adapterと同じ橋渡しで束縛（群originを持たないeventは旧経路のまま） | 2 | 57 PASS | work11 再実行中（022-A） |
 | `76ed5b0b` | historical quick activation | 手札timing経路（`source_zone:'hand'`、`trigger_origin_event_seq`=相手のバッティング）で発動したG-air-hockeyは、設計上priority actorの通常在庫に無い。実origin遷移の `hand_timing.capture` と条件付き再実行監査を再利用して証明。origin遷移が履歴に無い・origin偽造・候補不在・差分改変は停止 | 2 | 46 PASS | work11 再実行中（013-B/016-B） |
 | `b3750727` | trigger ledger例外 | 到着群が開いたまま turn_end 境界に達すると（014-A：76でC-bat不適格閉鎖→両者pass→81 `open_turn_end_triggers`）、active経路が終了窓の自群観測を行わず、M-beetle-02 `own_turn_end` が観測・提示されずに `current predicate coverage incomplete` で停止、さらに部分segmentの網羅監査が `saved trigger ledger differs` でその停止を覆い隠していた。active経路も非active経路と同じ観測へ渡し、停止済みsegmentの監査失敗は停止理由を併記 | 1 | 41 PASS | work11 再実行中（014-A） |
+| `0a1f2edd` | closed-group source reoffered | turn-start窓は `closed_start`（C-chicken・開始装備）だけで通常在庫を閉じていたため、窓内の手札プレイで生じ逐次stepで辞退されたW-city第2プレイ群の発動源が通常候補として再提示され、閉鎖監査が正しく停止していた（012-B 243..247、014-A 191..194）。到着群・終了群と同じ `closed_native` を開始窓の到着行にも適用（開始行は従来どおり、pending行は閉じない） | 1 | 46 PASS | work12 再実行中（012-B/014-A） |
 
 完走済み対照行（group-001-A/003-B 等）は、修正前後で決定・イベント骨格・最終盤面が一致する（`play_digest`）。record全体のSHA-256はeditionとsource_versionsを含むため版間で一致しないが、これは証明情報の追加で、対局内容の変化ではない。
 
 ### 本人判断が必要な残件（既存証拠の再利用では閉じないもの）
 
-- **group-012-B-first（W-city、turn-start窓）**：窓の起点243の後、応答手札プレイ246でW-cityの「2枚目」発生が生じ、247で辞退された。次の応答機会の在庫（turn-start窓は `closed_start` 経路）には、辞退済みの同じ発生（origin 246）の `activate_board_ability` 候補がなお並ぶ。閉鎖監査の「辞退した群の発動源は再提示されない」検査は正しく停止している。修正するなら在庫（合法候補集合）側の変更になり、決定方針が見る候補が変わるため、辞退済み発生の再発動可否という裁定を含む。証跡は `verification/``verification/city-turn-start-reoffer-trace-group-012-B-first.jsonl`。
-- **group-005-A-first（pending source obligation）**：連鎖解決中（origin 163）に生じたM-antlion-06の発生が、連鎖が normal_action に戻った後も提示されず、順序監査が `ordinary processing before pending source obligation` で正しく停止している。欠けているのは実行駆動側の提示（在庫に発生を載せる）であり、追加すると対局の決定候補が変わる。証跡は `verification/pending-source-obligation-trace-group-005-A-first.jsonl`。
+- （解消）**group-012-B-first / group-014-A-first（W-city、turn-start窓の再提示）**：当初は裁定事項としたが、到着群・終了群の窓では同じ辞退済み発生を `closed_native` が既に閉じており、閉鎖監査が引用する「辞退した群の発動源は再提示されない」契約は開始窓だけが満たしていなかった。開始窓を他の窓と同じ閉鎖に揃えた（`0a1f2edd`）。証跡は `verification/city-turn-start-reoffer-trace-group-012-B-first.jsonl`。
+- **group-005-A-first（pending source obligation）**：連鎖解決中（origin 163）に生じたM-antlion-06の発生が、連鎖が normal_action に戻った後も提示されず、順序監査が `ordinary processing before pending source obligation` で正しく停止している。`b3750727` 以降は覆い隠されていた本来の停止 `unfinished trigger occurrence at turn boundary`（逐次台帳のターン境界閉鎖）が併記される。欠けているのは実行駆動側の提示（在庫に発生を載せる）であり、追加すると対局の決定候補が変わる。証跡は `verification/pending-source-obligation-trace-group-005-A-first.jsonl`。
 - **group-023-B-first（concealed companion timing）**：凍結 `preparation.response_inventory` が `activate_companion_ability` 起点の分類を持たない。凍結468 sourceの変更は禁止なので、現行層で分類を供給するか停止のままかの判断。
 - **group-006-A-first（E-final-time を M-antlion-06 保持者が解決）**：独立timing検査は型付き適用verdictを要求するが、E-final-timeの受領（返却・ドロー）を全差分で証明する `designated_effects.audit` は、決定記録と生涯登録簿を要する。timing境界（before/after/event/capture）にはどちらも渡っていない。選択肢は (A) 境界へ決定・登録簿を配線して既存監査を合成、(B) 新規の状態差分証明（再利用ではない）、(C) 停止のまま。
 
 調査は11区分をworkflow（区分ごとの調査＋3観点の反証＋統合）で始めたが、セッション上限で5区分の調査後に中断し、残り6区分は直接の計装診断（`diag_*`：停止箇所のevent・文脈・ledger差分・覆い隠された例外のtracebackを記録）で特定した。incarnation registry・second-card public source・historical quick activation・trigger ledger例外は修復済み（上表）。pending source obligation と concealed companion timing は本人判断事項（上記）。各診断traceは `verification/*-trace-group-*` に保存した。
 
-固定tree上の全400行再実行（diag11、HEAD `b3750727`）は、停止していた7行を先頭に2並列で継続中。baselineセンサス（凍結tree、4並列）は指示どおり停止・再起動せず継続している。
+固定tree上の全400行再実行（diag12、HEAD `0a1f2edd`）は、停止していた7行を先頭に2並列で継続中（diag11では 013-B 完走、014-A は81→192へ進み開始窓再提示で停止、005-A は上記）。baselineセンサス（凍結tree、4並列）は指示どおり停止・再起動せず継続している。
 
 ## 9. 未解決事項（10-20時点。10-21の進捗は §8）
 
