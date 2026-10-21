@@ -4,9 +4,9 @@
 
 本人指示（10-21）：承認チェックを#259→#408へ移行（PR番号以外の条件は維持）、censusは4並列で継続、証拠不足は既存の独立監査の再利用で補い、fail-closedを維持、auto-modeの安全制限は回避しない、本番は条件が揃うまで開始しない。
 
-- ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。承認権威移転 `7a4d71f2`。修復: first-date来歴 `f74b3a89`、M-antlion-06 typed application `1641abe0`、I-bowtie無選択ルート `54b18c5b`、W-city窓内閉鎖 `80a62c49`、I-bowtie来歴行 `f5ba32ed`、勝負復帰後の最終hash `a6da7466`、incarnation射影登録簿 `d0a233a8`、first-date重複行 `8a81e169`、群発動のactor/origin橋渡し `3e0574c3`、手札timing反応の履歴再生 `76ed5b0b`、到着群が開いたままの終了窓観測 `b3750727`、開始窓の辞退済み到着源の閉鎖 `0a1f2edd`。詳細と診断再実行の結果は `data/proxy-population-400-restart-20261020/REPORT.md` §8。
+- ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。承認権威移転 `7a4d71f2`。修復: first-date来歴 `f74b3a89`、M-antlion-06 typed application `1641abe0`、I-bowtie無選択ルート `54b18c5b`、W-city窓内閉鎖 `80a62c49`、I-bowtie来歴行 `f5ba32ed`、勝負復帰後の最終hash `a6da7466`、incarnation射影登録簿 `d0a233a8`、first-date重複行 `8a81e169`、群発動のactor/origin橋渡し `3e0574c3`、手札timing反応の履歴再生 `76ed5b0b`、到着群が開いたままの終了窓観測 `b3750727`、開始窓の辞退済み到着源の閉鎖 `0a1f2edd`、開始窓quick発動の再生を実closureで `93281ed2`。詳細と診断再実行の結果は `data/proxy-population-400-restart-20261020/REPORT.md` §8。
 - 各修復は RED→GREEN、関連モジュール、代表行の診断再実行（完走済み対照行は決定・イベント骨格・最終盤面が一致）で確認。診断は本番ではなく400戦に算入しない。
-- baseline census（凍結木 c1966ae4、4並列）は継続中。停止区分11のうち10を修復、pending source obligation（005-A＝実行駆動側の提示欠落）、concealed companion timing（023-B＝凍結在庫の分類欠落）、E-final-timeのtiming verdict（006-A）は本人判断事項（REPORT §8）。固定tree（HEAD `0a1f2edd`）上の全400行再実行は停止行を先頭に2並列で継続中（scratch `diag12`）。
+- baseline census（凍結木 c1966ae4、4並列）は継続中。停止区分11のうち10を修復（加えて10-21に新たに現れた2区分：到着群開放中の終了窓、開始窓のequipment start adapterも修復）、pending source obligation（005-A＝実行駆動側の提示欠落）、concealed companion timing（023-B＝凍結在庫の分類欠落）、E-final-timeのtiming verdict（006-A）は本人判断事項（REPORT §8）。固定tree（HEAD `0a1f2edd`）上の全400行再実行は停止行を先頭に2並列で継続中（scratch `diag12`；先頭7行は 4完走・2本人判断・1は `93281ed2` で修復中）。最終treeでの全400行再実行が別途必要。
 - 本番400戦・承認request・消費・supervisor・worker・retry・resumeは引き続き0。累計は着手1・完走0・未完了1・未実施399。
 
 以下は過去時点の履歴。

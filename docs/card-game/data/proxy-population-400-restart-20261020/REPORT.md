@@ -110,10 +110,11 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 | `a6da7466` | native final hash | 勝負窓内でのE-final-time解決後、凍結の勝負復帰が書き換えない406の最終hash欄を、復帰だけが差分であることを証明してから復帰後eventのhashに束縛 | 3 | 71 PASS | 2行とも完走、対照4行は対局内容一致 |
 | `d0a233a8` | incarnation registry | 再入場後、465局所frameは現役射影済みの札図で渡されるため登録簿と一致しなかった。現役射影が一致し全記録が合意する場合だけ完全記録へ解決 | 2 | 59 PASS | 4行とも完走 |
 | `8a81e169` | first-date 来歴の重複 | 保存停止履歴の診断（chain_resolutionの行が遮蔽されない経路）で、同一行の二重供給を誤って停止していた。同値行は受理し、矛盾行だけ停止 | 3+1 | 53 PASS | — |
-| `3e0574c3` | second-card public source | 盤面群発動の履歴再生が窓のpriority actorで候補列挙していた。相手ターンのW-city第2プレイ群（後置き応答窓、priority=ターンプレイヤーB、発動者A）では凍結述語が `second-card public source differs` で停止。event自身が持つ発動者とoriginを既存adapterと同じ橋渡しで束縛（群originを持たないeventは旧経路のまま） | 2 | 57 PASS | work11 再実行中（022-A） |
-| `76ed5b0b` | historical quick activation | 手札timing経路（`source_zone:'hand'`、`trigger_origin_event_seq`=相手のバッティング）で発動したG-air-hockeyは、設計上priority actorの通常在庫に無い。実origin遷移の `hand_timing.capture` と条件付き再実行監査を再利用して証明。origin遷移が履歴に無い・origin偽造・候補不在・差分改変は停止 | 2 | 46 PASS | work11 再実行中（013-B/016-B） |
-| `b3750727` | trigger ledger例外 | 到着群が開いたまま turn_end 境界に達すると（014-A：76でC-bat不適格閉鎖→両者pass→81 `open_turn_end_triggers`）、active経路が終了窓の自群観測を行わず、M-beetle-02 `own_turn_end` が観測・提示されずに `current predicate coverage incomplete` で停止、さらに部分segmentの網羅監査が `saved trigger ledger differs` でその停止を覆い隠していた。active経路も非active経路と同じ観測へ渡し、停止済みsegmentの監査失敗は停止理由を併記 | 1 | 41 PASS | work11 再実行中（014-A） |
-| `0a1f2edd` | closed-group source reoffered | turn-start窓は `closed_start`（C-chicken・開始装備）だけで通常在庫を閉じていたため、窓内の手札プレイで生じ逐次stepで辞退されたW-city第2プレイ群の発動源が通常候補として再提示され、閉鎖監査が正しく停止していた（012-B 243..247、014-A 191..194）。到着群・終了群と同じ `closed_native` を開始窓の到着行にも適用（開始行は従来どおり、pending行は閉じない） | 1 | 46 PASS | work12 再実行中（012-B/014-A） |
+| `3e0574c3` | second-card public source | 盤面群発動の履歴再生が窓のpriority actorで候補列挙していた。相手ターンのW-city第2プレイ群（後置き応答窓、priority=ターンプレイヤーB、発動者A）では凍結述語が `second-card public source differs` で停止。event自身が持つ発動者とoriginを既存adapterと同じ橋渡しで束縛（群originを持たないeventは旧経路のまま） | 2 | 57 PASS | 022-A 完走（work10/work12） |
+| `76ed5b0b` | historical quick activation | 手札timing経路（`source_zone:'hand'`、`trigger_origin_event_seq`=相手のバッティング）で発動したG-air-hockeyは、設計上priority actorの通常在庫に無い。実origin遷移の `hand_timing.capture` と条件付き再実行監査を再利用して証明。origin遷移が履歴に無い・origin偽造・候補不在・差分改変は停止 | 2 | 46 PASS | 013-B・016-B 完走（work12） |
+| `b3750727` | trigger ledger例外 | 到着群が開いたまま turn_end 境界に達すると（014-A：76でC-bat不適格閉鎖→両者pass→81 `open_turn_end_triggers`）、active経路が終了窓の自群観測を行わず、M-beetle-02 `own_turn_end` が観測・提示されずに `current predicate coverage incomplete` で停止、さらに部分segmentの網羅監査が `saved trigger ledger differs` でその停止を覆い隠していた。active経路も非active経路と同じ観測へ渡し、停止済みsegmentの監査失敗は停止理由を併記 | 1 | 41 PASS | 014-A 完走（work12、開始窓閉鎖と併せて） |
+| `0a1f2edd` | closed-group source reoffered | turn-start窓は `closed_start`（C-chicken・開始装備）だけで通常在庫を閉じていたため、窓内の手札プレイで生じ逐次stepで辞退されたW-city第2プレイ群の発動源が通常候補として再提示され、閉鎖監査が正しく停止していた（012-B 243..247、014-A 191..194）。到着群・終了群と同じ `closed_native` を開始窓の到着行にも適用（開始行は従来どおり、pending行は閉じない） | 1 | 46 PASS | 014-A 完走、012-B は次区分（equipment start adapter）へ進み `93281ed2` で修復中 |
+| `93281ed2` | equipment start adapter | 開始窓内の手札quick発動の履歴再生が凍結在庫だけで再列挙していたため、I-bowtieを準備済みの開始窓で凍結在庫自身が `equipment start activation/resolution adapter unavailable` を出していた（012-B、253後のturn_end検証）。実stepと同じ `closed_start` の下で再列挙・再発動（turn-start境界のみ） | 1 | 32 PASS | work13 再実行中（012-B） |
 
 完走済み対照行（group-001-A/003-B 等）は、修正前後で決定・イベント骨格・最終盤面が一致する（`play_digest`）。record全体のSHA-256はeditionとsource_versionsを含むため版間で一致しないが、これは証明情報の追加で、対局内容の変化ではない。
 
@@ -126,7 +127,7 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 
 調査は11区分をworkflow（区分ごとの調査＋3観点の反証＋統合）で始めたが、セッション上限で5区分の調査後に中断し、残り6区分は直接の計装診断（`diag_*`：停止箇所のevent・文脈・ledger差分・覆い隠された例外のtracebackを記録）で特定した。incarnation registry・second-card public source・historical quick activation・trigger ledger例外は修復済み（上表）。pending source obligation と concealed companion timing は本人判断事項（上記）。各診断traceは `verification/*-trace-group-*` に保存した。
 
-固定tree上の全400行再実行（diag12、HEAD `0a1f2edd`）は、停止していた7行を先頭に2並列で継続中（diag11では 013-B 完走、014-A は81→192へ進み開始窓再提示で停止、005-A は上記）。baselineセンサス（凍結tree、4並列）は指示どおり停止・再起動せず継続している。
+固定tree上の全400行再実行（diag12、HEAD `0a1f2edd`）は、停止していた7行を先頭に2並列で継続中。先頭7行の結果：013-B・014-A・016-B・022-A 完走、005-A・006-A は本人判断事項の停止、012-B は次区分（equipment start adapter）へ進み `93281ed2` で修復（work13で再実行中）。最終treeでの全400行再実行は、修復が止まった時点で改めて行う必要がある（1行2〜12分、2並列で十数時間）。baselineセンサス（凍結tree、4並列）は指示どおり停止・再起動せず継続している。
 
 ## 9. 未解決事項（10-20時点。10-21の進捗は §8）
 
