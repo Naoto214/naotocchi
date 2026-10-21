@@ -1,7 +1,10 @@
+import {RecordsStore,buildRecord} from './records.mjs';
+import {newMetadata,encodeMatch,decodeMatch} from './records-match.mjs';
+import {mountRecords} from './records-ui.mjs';
 import {mountLearning} from './learning-ui.mjs';
 import {mountCollection} from './collection-ui.mjs';
 import {mountMyDecks} from './my-decks-ui.mjs';
-import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck} from './engine.mjs';
+import {createGame,TYPE_NAMES,CARDS,supported,DEFAULT_DECK,validateDeck,restore as restoreEngine} from './engine.mjs';
 import {HotseatSession} from './ui-session.mjs';
 import {CpuSession,restoreMatch} from './cpu-session.mjs';
 import {CPU_DECKS,resolveCpuDeck,cpuDeck} from './cpu-decks.mjs';
@@ -20,10 +23,15 @@ const ORDER_KEY='naotocchi-hand-order-v1';
 let handOrder;try{handOrder=new HandOrder(localStorage.getItem(ORDER_KEY));}catch{handOrder=new HandOrder();}
 const $=id=>document.getElementById(id),KEY='naotocchi-hotseat-v1',CPU_KEY='naotocchi-cpu-match-v1';
 let session=new HotseatSession({autoAdvance:true});
+let matchMetadata=null,recordedId=null;
+const recordsStore=new RecordsStore(localStorage);
+const withRecordsLock=fn=>globalThis.navigator?.locks?.request?globalThis.navigator.locks.request('naotocchi-card-records',fn):Promise.resolve().then(fn);
+function saveMatch(){return matchMetadata?encodeMatch(session.save(),matchMetadata):session.save();}
+function recordFinished(){if(!session.finished||!matchMetadata||recordedId===matchMetadata.id)return;const m=structuredClone(matchMetadata),raw=session.engineSave??session.save();recordedId=m.id;withRecordsLock(()=>recordsStore.add(buildRecord(restoreEngine(raw),m,m.completedAt))).then(()=>recordsUI.refresh()).catch(e=>{recordedId=null;message('対戦は終了しました。戦績を保存できません：'+e.message+'。戦績画面から書き出してください。');});}
 const input=installActionInputGuard(document,()=>({session,revision:session.projection?.revision,viewer:session.viewer}));
 let dragging=false;
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
-const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog','rulebook-dialog','tutorial-dialog','learning-card-dialog','learning-term-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
+const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog','rulebook-dialog','tutorial-dialog','learning-card-dialog','learning-term-dialog','records-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
 const turnFeedback=new TurnFeedback();
 const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
@@ -38,7 +46,7 @@ function bindOrder(){handOrder.bind(session.engineSave??session.save());persistO
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 function button(text,handler){const n=el('button',text);n.type='button';n.addEventListener('click',handler);return n;}
 function message(text){$('status').textContent=text;}
-function persist(){try{localStorage.setItem(session.mode==='cpu'?CPU_KEY:KEY,session.save());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}}
+function persist(){if(session.finished&&matchMetadata&&matchMetadata.completedAt===null&&matchMetadata.startedAt!==null)matchMetadata.completedAt=Date.now();try{localStorage.setItem(session.mode==='cpu'?CPU_KEY:KEY,saveMatch());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}recordFinished();}
 function closeDialogs({focus=true}={}){
  input.invalidate();
  for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();delete d.dataset.browseSeat;delete d.dataset.browseZone;}
@@ -148,16 +156,18 @@ for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventLis
 $('new').onclick=()=>{try{const seeds=crypto.getRandomValues(new Uint32Array(3)),seed=seeds[0],solo=$('match-mode').value==='cpu',human=$('human-seat').value,cpuSeat=human==='A'?'B':'A';
  // The CPU seat may use a strategy deck instead of a My Deck; the human seat always uses the selected My Deck.
  const label=solo?resolveCpuDeck({mode:$('cpu-deck-mode').value,chosen:$('cpu-deck-type').value,last:readPref().last,seed:seeds[2]}):null,match={...decks,...(label?{[cpuSeat]:label.cards}:{})};
- validateDeck(match.A);validateDeck(match.B);cpu.cancel();session=solo?new CpuSession({humanSeat:human,difficulty:$('cpu-level').value,policySeed:seeds[1],cpuDeck:label}):new HotseatSession({autoAdvance:true});start(createGame(seed,match));if(label)writePref({last:label.id});persist();}catch(e){message(e.message);}};
-$('restore').onclick=()=>{try{const raw=localStorage.getItem($('match-mode').value==='cpu'?CPU_KEY:KEY);if(!raw)throw Error('保存された対戦がありません');cpu.cancel();session=restoreMatch(raw);bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
+ validateDeck(match.A);validateDeck(match.B);cpu.cancel();session=solo?new CpuSession({humanSeat:human,difficulty:$('cpu-level').value,policySeed:seeds[1],cpuDeck:label}):new HotseatSession({autoAdvance:true});matchMetadata=newMetadata({mode:solo?'cpu':'hotseat',human:solo?human:null,difficulty:solo?$('cpu-level').value:null,cpuDeck:label?.id??null,decks:Object.fromEntries(['A','B'].map(seat=>[seat,label&&seat===cpuSeat?{id:null,name:'CPU '+label.name,cards:[...match[seat]]}:myDecks.list().find(d=>d.id===$('select-deck-'+seat).value)]))});recordedId=null;start(createGame(seed,match));if(label)writePref({last:label.id});persist();}catch(e){message(e.message);}};
+$('restore').onclick=()=>{try{const raw=localStorage.getItem($('match-mode').value==='cpu'?CPU_KEY:KEY);if(!raw)throw Error('保存された対戦がありません');cpu.cancel();{const loaded=decodeMatch(raw);session=loaded.session;matchMetadata=loaded.metadata;recordedId=null;}bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();message('保存を検証して復帰しました');}catch(e){message(`復帰できません：${e.message}`);}};
 $('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
-$('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([session.save()],{type:'application/json'})),a=el('a');a.href=url;a.download=session.mode==='cpu'?'naotocchi-cpu.json':'naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
-$('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=restoreMatch(await file.text());cpu.cancel();session=restored;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
+$('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([saveMatch()],{type:'application/json'})),a=el('a');a.href=url;a.download=session.mode==='cpu'?'naotocchi-cpu.json':'naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=decodeMatch(await file.text());cpu.cancel();session=restored.session;matchMetadata=restored.metadata;recordedId=null;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
 window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
 const strategyDeck=()=>$('match-mode').value==='cpu'&&$('cpu-deck-mode').value!=='mydeck';
 const myDecks=mountMyDecks({inspect,message,onChange:next=>{decks=next;},seats:()=>strategyDeck()?[$('human-seat').value]:['A','B']});
-const collection=mountCollection({onRule:(chapter,origin)=>learning.openBook(chapter,origin),decks:myDecks,onOpen:()=>cpu.cancel(),onClose:()=>{learning.collectionClosed();cpu.schedule();}});
+const recordsUI=mountRecords({store:recordsStore,listDecks:()=>myDecks.list(),onOpen:()=>cpu.cancel(),onClose:()=>cpu.schedule(),inspect,withLock:withRecordsLock});
+$('records-open').onclick=e=>recordsUI.open(e.currentTarget);
+const collection=mountCollection({onStats:(id,origin)=>recordsUI.open(origin,id),onRule:(chapter,origin)=>learning.openBook(chapter,origin),decks:myDecks,onOpen:()=>cpu.cancel(),onClose:()=>{learning.collectionClosed();cpu.schedule();}});
 $('collection-open').onclick=e=>collection.open(e.currentTarget);
 $('deck-collection-open').onclick=e=>collection.open(e.currentTarget,true);
 $('menu-collection-open').onclick=e=>collection.open(e.currentTarget);
