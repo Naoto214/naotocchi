@@ -74,7 +74,11 @@ def scope(records=()):
         links=after['legacy_continuation']['activation_zone']
         if event.get('action_type')=='activate_response' and event.get('source_zone')=='board' and links and 'activation_receipt' in links[-1]:
             try:
-                current=state.current(before);source=event['source_instance_id'];actor=current['response_context']['priority_actor'];board=current['game_state']['players'][actor]['board']
+                current=state.current(before);source=event['source_instance_id'];actor=current['response_context']['priority_actor']
+                if 'trigger_origin_event_seq' in event:
+                    # Same actor/origin bridge as the existing adapter and the history replay.
+                    actor=event['actor'];current['response_context'].update(priority_actor=actor,origin_event_seq=event['trigger_origin_event_seq'])
+                board=current['game_state']['players'][actor]['board']
                 slot=next((name for name in ('main','partner','world') if board[name]==source),None)
                 if source in board['companions']:slot='companions'
                 if source in board['prepared']:slot='prepared'

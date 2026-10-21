@@ -126,11 +126,18 @@ def triggers_verifier(original_verify, initial):
                     else:
                         ctx = prior['legacy_continuation']['response_context']
                         actor = ctx['priority_actor']
+                        current = state.current(prior)
+                        if 'trigger_origin_event_seq' in event:
+                            # A source group activation carries its own actor and origin
+                            # (the existing adapter's bridge); the window's priority actor
+                            # may be the other player, e.g. W-city on the opponent's turn.
+                            actor = event['actor']
+                            current['response_context'].update(priority_actor=actor, origin_event_seq=event['trigger_origin_event_seq'])
                         board = g['players'][actor]['board']
                         slot = next((s for s in ('main', 'partner', 'world') if board[s] == source), None)
                         if slot is None and source in board['prepared']:
                             slot = 'prepared'
-                        details, _ = triggers.board_candidates(state.current(prior), history, source, slot, prior['runtime'])
+                        details, _ = triggers.board_candidates(current, history, source, slot, prior['runtime'])
                         a = next((d for d in details if d['candidate_id'] == event['selected_candidate']), None)
                         if a is None:
                             raise ValueError('historical board trigger not legal')
