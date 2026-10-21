@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "source_commit": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+  "count": 10,
+  "count_policy": "34 card differences are separate; these10 are heterogeneous cross-series review topics, not10 confirmed defects.",
+  "findings": [
+    {
+      "id": "X01",
+      "kind": "documentation_drift",
+      "status": "static_source_finding",
+      "description": "Master spec explicitly marks old counts (75 achievements, 168 forms, seasonal games) historical; runtime tables are current authority.",
+      "evidence": [
+        {
+          "file": "NAOTOCCHI_MASTER_SPEC.md",
+          "line": 1,
+          "end_line": 9
+        },
+        {
+          "file": "NAOTOCCHI_MASTER_SPEC.md",
+          "line": 315
+        }
+      ],
+      "card_impact": "要素を消す前にchange-impact.jsonで確認。直接由来と間接依存を区別。"
+    },
+    {
+      "id": "X02",
+      "kind": "mapping_caution",
+      "status": "static_source_finding",
+      "description": "Official IDs retain old thresholds; use exact condition, not numeric ID suffix. Examples minigame-50 requires30; games-complete-100 uses current pool length; record-rank-s-15 requires10; feed-100 requires30.",
+      "evidence": [
+        {
+          "file": "script.js",
+          "line": 2214,
+          "end_line": 2326
+        }
+      ],
+      "card_impact": "要素を消す前にchange-impact.jsonで確認。直接由来と間接依存を区別。"
+    },
+    {
+      "id": "X03",
+      "kind": "documentation_drift",
+      "status": "static_source_finding",
+      "description": "All10 region and4 seasonal games always available; location/season affect weighting, not exclusivity. games.js comments near line68 and seasonal definitions are stale.",
+      "evidence": [
+        {
+          "file": "games.js",
+          "line": 68,
+          "end_line": 69
+        },
+        {
+          "file": "script.js",
+          "line": 15969,
+          "end_line": 16007
+        }
+      ],
+      "card_impact": "要素を消す前にchange-impact.jsonで確認。直接由来と間接依存を区別。"
+    },
+    {
+      "id": "X04",
+      "kind": "conditional_progress_blocker",
+      "status": "static_source_finding",
+      "description": "Equipped gamepass1 returns before actionCounts.play, environment-play and game record increment. Unequip it to earn actual-play and rank achievements.",
+      "evidence": [
+        {
+          "file": "script.js",
+          "line": 17159,
+          "end_line": 17228
+        }
+      ],
+      "card_impact": "要素を消す前にchange-impact.jsonで確認。直接由来と間接依存を区別。"
+    },
+    {
+      "id": "X05",
+      "kind": "documentation_drift",
+      "status": "static_source_finding",
+      "description": "Old achievement preamble says dex-complete excluded, but current endingProgress includes all ACHIEVEMENTS.",
+      "evidence": [
+        {
+          "file": "script.js",
+          "line": 2205,
+          "end_line": 2212
+        },
+        {
+          "file": "script.js",
+          "line": 2805,
+          "end_line": 2806
+        }
+      ],
+      "card_impact": "要素を消す前にchange-impact.jsonで確認。直接由来と間接依存を区別。"
+    },
+    {
+      "id": "X06",
+      "kind": "mapping_caution",
+      "status": "static_source_finding",
+      "description": "downhill-mountain now names やまの岩場のぼり and uses makeRockClimbGame. Preserve official save ID.",
+      "evidence": [
+        {
+          "file": "games.js",
+          "line": 10155,
+          "end_line": 10157
+        },
+        {
+          "file": "script.js",
+          "line": 15033
+        }
+      ],
+      "card_impact": "要素を消す前にchange-impact.jsonで確認。直接由来と間接依存を区別。"
+    },
+    {
+      "id": "X07",
+      "kind": "confirmed_cosmetic_gap",
+      "status": "static_source_finding",
+      "description": "Five goal tiers but four ENDING_CELEBRATIONS entries; PERFECT tier4 has no particle configuration. Explicit source-known gap, not an unlock blocker.",
+      "evidence": [
+        {
+          "file": "script.js",
+          "line": 12089,
+          "end_line": 12105
+        }
+      ],
+      "card_impact": "要素を消す前にchange-impact.jsonで確認。直接由来と間接依存を区別。"
+    },
+    {
+      "id": "X08",
+      "kind": "unconfirmed_species",
+      "status": "draft_only",
+      "description": "レスキューfishには正式本編種族の対応根拠がない。dogも本編8姿の絵をまだ採用していない。clownfish/salmonへの自動対応は禁止。",
+      "evidence": [
+        {
+          "file": "prototypes/naopoyo-rescue/engine.mjs",
+          "line": 3,
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed"
+        },
+        {
+          "file": "prototypes/naopoyo-rescue/render.mjs",
+          "line": 18,
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed"
+        }
+      ],
+      "card_impact": "レスキュー正式採用後に共有種族のMカード8枚単位で見直す。現時点の確定対応なし。"
+    },
+    {
+      "id": "X09",
+      "kind": "multiple_cards_same_content",
+      "status": "intentional_not_defect",
+      "description": "31種族それぞれから8段階カードがある。同じ出典種族から複数カードがあるが、重複事故ではない。",
+      "evidence": [
+        {
+          "file": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 9
+        }
+      ],
+      "card_impact": "change-impact.json species_groupsの31グループ／248枚。段階構造変更時は種族全体を確認。"
+    },
+    {
+      "id": "X10",
+      "kind": "legacy_or_name_similarity",
+      "status": "historical_not_current_card_defect",
+      "description": "旧スノーボード・うそつきしょうぶ・キャッチボール・かくれんぼ案は現452の独立4カードではない。G-slide-puzzleはなおぽよスライドの由来と認定しない。なおぽよ01–08の段階と問題01–10も別軸。",
+      "evidence": [
+        {
+          "file": "docs/card-game/32-play-source-map.md",
+          "line": 190
+        },
+        {
+          "file": "prototypes/card-game/full-catalog.mjs",
+          "line": 1341
+        }
+      ],
+      "card_impact": "旧候補を復活・削除・改名する前に現役ID集合を確認。名称類似でカードを巻き込まない。"
+    }
+  ]
+}

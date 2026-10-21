@@ -1,0 +1,1887 @@
+{
+  "E-gate": [
+    {
+      "kind": "event",
+      "id": "LEGEND_ENCOUNTERS/gate",
+      "name": "むこうのまど",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 10,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 33,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 9593,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme."
+        }
+      ],
+      "current_status": "name_changed",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: そらにうかぶとりい. Current source name: むこうのまど. Retained ID proves lineage, not equivalence of the old and new story."
+    }
+  ],
+  "E-stairs": [
+    {
+      "kind": "event",
+      "id": "LEGEND_ENCOUNTERS/stairs",
+      "name": "たまごのないところ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 16,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 45,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 9598,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme."
+        }
+      ],
+      "current_status": "name_changed",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: どこにもつながらないかいだん. Current source name: たまごのないところ. Retained ID proves lineage, not equivalence of the old and new story."
+    }
+  ],
+  "E-boss": [
+    {
+      "kind": "event",
+      "id": "LEGEND_ENCOUNTERS/boss",
+      "name": "むかしのぼく",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 22,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 57,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 9603,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme."
+        }
+      ],
+      "current_status": "name_changed",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: あやまりにきただいおういか. Current source name: むかしのぼく. Retained ID proves lineage, not equivalence of the old and new story."
+    }
+  ],
+  "E-lamp": [
+    {
+      "kind": "event",
+      "id": "LEGEND_ENCOUNTERS/lamp",
+      "name": "100のむこう",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 28,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 69,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 9608,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme."
+        }
+      ],
+      "current_status": "name_changed",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: よなかのあかり. Current source name: 100のむこう. Retained ID proves lineage, not equivalence of the old and new story."
+    }
+  ],
+  "E-mirror": [
+    {
+      "kind": "event",
+      "id": "LEGEND_ENCOUNTERS/mirror",
+      "name": "みているひと",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 34,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 81,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 9613,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme."
+        }
+      ],
+      "current_status": "name_changed",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: としをとったじぶん. Current source name: みているひと. Retained ID proves lineage, not equivalence of the old and new story."
+    }
+  ],
+  "E-naoto": [
+    {
+      "kind": "author",
+      "id": "playerSpecies.author/naoto",
+      "name": "ナオト",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 40,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 93,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 87,
+          "reason": "Explicit non-playable author record with id naoto."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Card display name なおと is an intentional spelling difference from master label ナオト; not a playable main species."
+    }
+  ],
+  "E-midlife-hobby": [
+    {
+      "kind": "event",
+      "id": "MIDLIFE_EVENTS/age:44",
+      "name": "趣味を見つけた",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 46,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 105,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 10045,
+          "reason": "Current midlife event at the explicitly mapped age."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-midlife-50th": [
+    {
+      "kind": "event",
+      "id": "MIDLIFE_EVENTS/age:50",
+      "name": "50さいのお祝い",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 52,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 117,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 10046,
+          "reason": "Current midlife event at the explicitly mapped age."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-midlife-album": [
+    {
+      "kind": "event",
+      "id": "MIDLIFE_EVENTS/age:56",
+      "name": "昔のアルバム",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 58,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 129,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 10047,
+          "reason": "Current midlife event at the explicitly mapped age."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-midlife-flower": [
+    {
+      "kind": "event",
+      "id": "MIDLIFE_EVENTS/age:62",
+      "name": "庭に小さな花を植えた",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 64,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 141,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 10048,
+          "reason": "Current midlife event at the explicitly mapped age."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-midlife-travel-plan": [
+    {
+      "kind": "event",
+      "id": "MIDLIFE_EVENTS/age:66",
+      "name": "小さな旅の計画",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 70,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 153,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 10049,
+          "reason": "Current midlife event at the explicitly mapped age."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-big-illness": [
+    {
+      "kind": "event",
+      "id": "SICKNESS_TYPES",
+      "name": "おおきなびょうき",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 76,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 165,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 65,
+          "reason": "Current runtime anchor SICKNESS_TYPES is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-fateful-transform": [
+    {
+      "kind": "event",
+      "id": "offerTransformIfReady / rerollIdentityAndBreakupIfNeeded",
+      "name": "うんめいのへんしん",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 82,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 177,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 10647,
+          "reason": "Current runtime anchor offerTransformIfReady is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 14386,
+          "reason": "Current runtime anchor rerollIdentityAndBreakupIfNeeded is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-new-encounter": [
+    {
+      "kind": "event",
+      "id": "PARTNER_FIRST_ENCOUNTERS / playFirstPartnerEncounter",
+      "name": "あたらしいであい",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 88,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 189,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 17381,
+          "reason": "Current runtime anchor PARTNER_FIRST_ENCOUNTERS is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 17402,
+          "reason": "Current runtime anchor playFirstPartnerEncounter is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-misunderstanding": [
+    {
+      "kind": "event",
+      "id": "recheckRelationship / MISMATCH_REPAIR_NEEDED",
+      "name": "すれちがい",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 94,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 201,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 7103,
+          "reason": "Current runtime anchor recheckRelationship is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 165,
+          "reason": "Current runtime anchor MISMATCH_REPAIR_NEEDED is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-sudden-trip": [
+    {
+      "kind": "event",
+      "id": "travelToRegion / state.regionId / firstVisit",
+      "name": "とつぜんのたび",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 100,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 213,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 17742,
+          "reason": "Current runtime anchor travelToRegion is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 8779,
+          "reason": "Current runtime anchor state.regionId is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 17776,
+          "reason": "Current runtime anchor firstVisit is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-final-time": [
+    {
+      "kind": "event",
+      "id": "enterFarewell / GOAL_AGE",
+      "name": "さいごのじかん",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 106,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 225,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 10255,
+          "reason": "Current runtime anchor enterFarewell is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 95,
+          "reason": "Current runtime anchor GOAL_AGE is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-first-date": [
+    {
+      "kind": "event",
+      "id": "datesThisLife === 1 / rememberSpecialDate",
+      "name": "はじめてのデート",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 112,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 237,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 9568,
+          "reason": "Current runtime anchor datesThisLife === 1 is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 9415,
+          "reason": "Current runtime anchor rememberSpecialDate is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-reconciliation": [
+    {
+      "kind": "event",
+      "id": "courtBtn / MISMATCH_REPAIR_NEEDED",
+      "name": "なかなおり",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 118,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 249,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 17423,
+          "reason": "Current runtime anchor courtBtn is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 165,
+          "reason": "Current runtime anchor MISMATCH_REPAIR_NEEDED is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-wedding-anniversary": [
+    {
+      "kind": "event",
+      "id": "MARRIAGE_MILESTONES / checkMarriageMilestones",
+      "name": "けっこんきねんび",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 124,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 261,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 9474,
+          "reason": "Current runtime anchor MARRIAGE_MILESTONES is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 9524,
+          "reason": "Current runtime anchor checkMarriageMilestones is present; this is structural provenance, not a same-name match."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior."
+    }
+  ],
+  "E-special-trip-memory": [
+    {
+      "kind": "event",
+      "id": "travelToRegion / firstVisit / specialRegionsVisited",
+      "name": "とくべつなたびのおもいで",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 130,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor."
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 273,
+          "reason": "Canonical card-text source declaration."
+        },
+        {
+          "path": "script.js",
+          "line": 17742,
+          "reason": "Current runtime anchor travelToRegion is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 17776,
+          "reason": "Current runtime anchor firstVisit is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 1647,
+          "reason": "Current runtime anchor specialRegionsVisited is present; this is structural provenance, not a same-name match."
+        },
+        {
+          "path": "script.js",
+          "line": 17805,
+          "reason": "Former specialRewardTrip item reward remains removed; current source is the visit experience."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historical specialRewardTrip was retired and explicitly remapped to special-place visits; no current reward item is implied."
+    }
+  ],
+  "I-bond1": [
+    {
+      "kind": "item",
+      "id": "bond1",
+      "name": "おともだちバッジ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 123,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=bond1"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 65,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 57,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-bowtie": [
+    {
+      "kind": "item",
+      "id": "bowtie",
+      "name": "おべんとうばこ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 73,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=bowtie"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 30,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 22,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion. Historical source ID was retained across rename: ちょうネクタイ → おべんとうばこ. Card follows the new item name."
+    }
+  ],
+  "I-c_coin2": [
+    {
+      "kind": "item",
+      "id": "c_coin2",
+      "name": "ラッキーコイン",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 153,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_coin2"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 86,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 78,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_dex": [
+    {
+      "kind": "item",
+      "id": "c_dex",
+      "name": "ずかんチケット",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 263,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_dex"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 163,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 155,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_egg_normal": [
+    {
+      "kind": "item",
+      "id": "c_egg_normal",
+      "name": "ふしぎなたまご",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 243,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_egg_normal"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 149,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 141,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_egg_rare": [
+    {
+      "kind": "item",
+      "id": "c_egg_rare",
+      "name": "レアなたまご",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 253,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_egg_rare"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 156,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 148,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_friend": [
+    {
+      "kind": "item",
+      "id": "c_friend",
+      "name": "おともだちチケット",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 203,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_friend"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 121,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 113,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_life": [
+    {
+      "kind": "item",
+      "id": "c_life",
+      "name": "いのちのくすり",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 163,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_life"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 93,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 85,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_life_charm": [
+    {
+      "kind": "item",
+      "id": "c_life_charm",
+      "name": "いのちのおまもり",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 193,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_life_charm"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 114,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 106,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_match": [
+    {
+      "kind": "item",
+      "id": "c_match",
+      "name": "おみあいチケット",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 213,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_match"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 128,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 120,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_rare_friend": [
+    {
+      "kind": "item",
+      "id": "c_rare_friend",
+      "name": "レアなかまチケット",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 233,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_rare_friend"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 142,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 134,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_time_back": [
+    {
+      "kind": "item",
+      "id": "c_time_back",
+      "name": "ときのチケット・まえ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 173,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_time_back"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 100,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 92,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_time_forward": [
+    {
+      "kind": "item",
+      "id": "c_time_forward",
+      "name": "ときのチケット・あと",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 183,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_time_forward"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 107,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 99,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-c_transform": [
+    {
+      "kind": "item",
+      "id": "c_transform",
+      "name": "へんしんチケット",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 223,
+          "reason": "Canonical text explicitly maps card ID to CONSUMABLE_ITEMS / id=c_transform"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 135,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 127,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-gamepass1": [
+    {
+      "kind": "item",
+      "id": "gamepass1",
+      "name": "ゲームパス",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 133,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=gamepass1"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 72,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 64,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-naoto_charm": [
+    {
+      "kind": "item",
+      "id": "naoto_charm",
+      "name": "なおとのおまもり",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 273,
+          "reason": "Canonical text explicitly maps card ID to NAOTO_ITEMS / id=naoto_charm"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 170,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 162,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    },
+    {
+      "kind": "achievement",
+      "id": "GOAL_TIER.life",
+      "name": "てんじゅをまっとう",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/37-item-38-role-draft.md",
+          "line": 139,
+          "reason": "Design explicitly identifies these four items as the rewards for ending-goal tiers 0–3."
+        },
+        {
+          "path": "script.js",
+          "line": 2646,
+          "reason": "Current item unlockTier explicitly binds the reward to this tier."
+        },
+        {
+          "path": "script.js",
+          "line": 2452,
+          "reason": "Current GOAL_TIER_IDS establishes stable tier IDs and order."
+        },
+        {
+          "path": "script.js",
+          "line": 2709,
+          "reason": "Current achievedGoalTiers checks the corresponding recorded goal condition."
+        },
+        {
+          "path": "script.js",
+          "line": 2722,
+          "reason": "syncNaotoRewardItems grants items on matching unlockTier."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Achievement here means a grand-goal/ending tier, not an ACHIEVEMENTS badge ID. Card→item→goal is explicit. Existing rewards can be grandfathered; possession alone does not prove the goal was newly earned."
+    }
+  ],
+  "I-naoto_crown": [
+    {
+      "kind": "item",
+      "id": "naoto_crown",
+      "name": "なおとのかんむり",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 303,
+          "reason": "Canonical text explicitly maps card ID to NAOTO_ITEMS / id=naoto_crown"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 191,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 183,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    },
+    {
+      "kind": "achievement",
+      "id": "GOAL_TIER.dex",
+      "name": "ずかんクリア",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/37-item-38-role-draft.md",
+          "line": 139,
+          "reason": "Design explicitly identifies these four items as the rewards for ending-goal tiers 0–3."
+        },
+        {
+          "path": "script.js",
+          "line": 2649,
+          "reason": "Current item unlockTier explicitly binds the reward to this tier."
+        },
+        {
+          "path": "script.js",
+          "line": 2452,
+          "reason": "Current GOAL_TIER_IDS establishes stable tier IDs and order."
+        },
+        {
+          "path": "script.js",
+          "line": 2712,
+          "reason": "Current achievedGoalTiers checks the corresponding recorded goal condition."
+        },
+        {
+          "path": "script.js",
+          "line": 2722,
+          "reason": "syncNaotoRewardItems grants items on matching unlockTier."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Achievement here means a grand-goal/ending tier, not an ACHIEVEMENTS badge ID. Card→item→goal is explicit. Existing rewards can be grandfathered; possession alone does not prove the goal was newly earned."
+    }
+  ],
+  "I-naoto_lantern": [
+    {
+      "kind": "item",
+      "id": "naoto_lantern",
+      "name": "なおとのランタン",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 283,
+          "reason": "Canonical text explicitly maps card ID to NAOTO_ITEMS / id=naoto_lantern"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 177,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 169,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    },
+    {
+      "kind": "achievement",
+      "id": "GOAL_TIER.lifeClear",
+      "name": "いっしょうクリア",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/37-item-38-role-draft.md",
+          "line": 139,
+          "reason": "Design explicitly identifies these four items as the rewards for ending-goal tiers 0–3."
+        },
+        {
+          "path": "script.js",
+          "line": 2647,
+          "reason": "Current item unlockTier explicitly binds the reward to this tier."
+        },
+        {
+          "path": "script.js",
+          "line": 2452,
+          "reason": "Current GOAL_TIER_IDS establishes stable tier IDs and order."
+        },
+        {
+          "path": "script.js",
+          "line": 2710,
+          "reason": "Current achievedGoalTiers checks the corresponding recorded goal condition."
+        },
+        {
+          "path": "script.js",
+          "line": 2722,
+          "reason": "syncNaotoRewardItems grants items on matching unlockTier."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Achievement here means a grand-goal/ending tier, not an ACHIEVEMENTS badge ID. Card→item→goal is explicit. Existing rewards can be grandfathered; possession alone does not prove the goal was newly earned."
+    }
+  ],
+  "I-naoto_ring": [
+    {
+      "kind": "item",
+      "id": "naoto_ring",
+      "name": "なおとのリング",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 293,
+          "reason": "Canonical text explicitly maps card ID to NAOTO_ITEMS / id=naoto_ring"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 184,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 176,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    },
+    {
+      "kind": "achievement",
+      "id": "GOAL_TIER.best",
+      "name": "さいこうのいっしょう",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/37-item-38-role-draft.md",
+          "line": 139,
+          "reason": "Design explicitly identifies these four items as the rewards for ending-goal tiers 0–3."
+        },
+        {
+          "path": "script.js",
+          "line": 2648,
+          "reason": "Current item unlockTier explicitly binds the reward to this tier."
+        },
+        {
+          "path": "script.js",
+          "line": 2452,
+          "reason": "Current GOAL_TIER_IDS establishes stable tier IDs and order."
+        },
+        {
+          "path": "script.js",
+          "line": 2711,
+          "reason": "Current achievedGoalTiers checks the corresponding recorded goal condition."
+        },
+        {
+          "path": "script.js",
+          "line": 2722,
+          "reason": "syncNaotoRewardItems grants items on matching unlockTier."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Achievement here means a grand-goal/ending tier, not an ACHIEVEMENTS badge ID. Card→item→goal is explicit. Existing rewards can be grandfathered; possession alone does not prove the goal was newly earned."
+    }
+  ],
+  "I-partner1": [
+    {
+      "kind": "item",
+      "id": "partner1",
+      "name": "らぶれたー",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 113,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=partner1"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 58,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 50,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-poop1": [
+    {
+      "kind": "item",
+      "id": "poop1",
+      "name": "トイレットペーパー",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 53,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=poop1"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 16,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 8,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-ribbon": [
+    {
+      "kind": "item",
+      "id": "ribbon",
+      "name": "おもちゃばこ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 83,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=ribbon"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 37,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 29,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion. Historical source ID was retained across rename: リボン → おもちゃばこ. Card follows the new item name."
+    }
+  ],
+  "I-scarf": [
+    {
+      "kind": "item",
+      "id": "scarf",
+      "name": "きゅうきゅうばこ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 93,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=scarf"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 44,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 36,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion. Historical source ID was retained across rename: マフラー → きゅうきゅうばこ. Card follows the new item name."
+    }
+  ],
+  "I-sleepboost1": [
+    {
+      "kind": "item",
+      "id": "sleepboost1",
+      "name": "ふかふかまくら",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 63,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=sleepboost1"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 23,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 15,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-star": [
+    {
+      "kind": "item",
+      "id": "star",
+      "name": "スターバッジ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 143,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=star"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 79,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 71,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "I-travel1": [
+    {
+      "kind": "item",
+      "id": "travel1",
+      "name": "リュックサック",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/77-current-items-card-text-draft.md",
+          "line": 103,
+          "reason": "Canonical text explicitly maps card ID to SHOP_ITEMS / id=travel1"
+        },
+        {
+          "path": "docs/card-game/data/item-source-20260917.json",
+          "line": 51,
+          "reason": "Historical runtime snapshot definition."
+        },
+        {
+          "path": "item-system.js",
+          "line": 43,
+          "reason": "Current main-game CATALOG contains the same explicit item ID and label."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Current registered card. The 2026-09-17 draft registration status is historical, not current catalog exclusion."
+    }
+  ],
+  "W-home": [
+    {
+      "kind": "world",
+      "id": "home",
+      "name": "おうち",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 32,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 11,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 125,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-city": [
+    {
+      "kind": "world",
+      "id": "city",
+      "name": "とかい",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 45,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 18,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 127,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-countryside": [
+    {
+      "kind": "world",
+      "id": "countryside",
+      "name": "いなか",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 58,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 23,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 128,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-forest": [
+    {
+      "kind": "world",
+      "id": "forest",
+      "name": "もり",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 71,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 28,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 129,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-mountain": [
+    {
+      "kind": "world",
+      "id": "mountain",
+      "name": "やま",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 84,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 33,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 130,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-snow": [
+    {
+      "kind": "world",
+      "id": "snow",
+      "name": "ゆきぐに",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 97,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 38,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 131,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-sea": [
+    {
+      "kind": "world",
+      "id": "sea",
+      "name": "うみ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 110,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 43,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 132,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-deepsea": [
+    {
+      "kind": "world",
+      "id": "deepsea",
+      "name": "しんかい",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 123,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 48,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 133,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-river_lake": [
+    {
+      "kind": "world",
+      "id": "river_lake",
+      "name": "みずべ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 136,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 53,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 134,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-jungle": [
+    {
+      "kind": "world",
+      "id": "jungle",
+      "name": "ジャングル",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 149,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 58,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 135,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-desert": [
+    {
+      "kind": "world",
+      "id": "desert",
+      "name": "さばく",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 162,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 63,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 136,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8678,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-star_stop": [
+    {
+      "kind": "world",
+      "id": "star_stop",
+      "name": "ほしぞらのていりゅうじょ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 175,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 68,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 139,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8701,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ],
+  "W-memory_lake": [
+    {
+      "kind": "world",
+      "id": "memory_lake",
+      "name": "きおくのみずうみ",
+      "confidence": "confirmed",
+      "evidence": [
+        {
+          "path": "docs/card-game/89-world-13-card-text-draft.md",
+          "line": 188,
+          "reason": "Canonical world card section declares its exact W-ID and source group."
+        },
+        {
+          "path": "docs/card-game/data/world-source-20260917.json",
+          "line": 73,
+          "reason": "Snapshot explicitly records the registered region source ID."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 140,
+          "reason": "Current main-game master retains this registered region ID and label."
+        },
+        {
+          "path": "script.js",
+          "line": 8701,
+          "reason": "Current runtime loads special places separately from home/normal regions."
+        }
+      ],
+      "current_status": "present",
+      "notes": "Explicit registered place source; not a weather/time/season card. Home is a base; special places do not become normal travel regions."
+    }
+  ]
+}

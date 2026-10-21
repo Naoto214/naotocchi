@@ -1,0 +1,17 @@
+{
+  "baseline": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+  "checks": {
+    "unique_current_cards": 452,
+    "canonical_text_source_hashes": 452,
+    "explicit_origin_evidence_cards": 452,
+    "art_mapping_and_tree_paths": 452,
+    "ordinary_play_source_map": 100,
+    "reverse_edges": 456
+  },
+  "limitations": [
+    "No all-game/iPhone reachability run",
+    "No all452 visual art semantic review",
+    "Origins are historical design links, not necessarily runtime dependency",
+    "Draft PR snapshot may advance after this fixed observation"
+  ]
+}

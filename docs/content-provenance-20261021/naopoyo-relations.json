@@ -1,0 +1,6055 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-21",
+  "scope": "Research-only naopoyo provenance; no gameplay, save or deployment change",
+  "refs": {
+    "main": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+    "rescue_draft_pr412": "5f410591b589061c09ef12483f72adda9a2c71ed",
+    "swap_draft_pr405": "a3df3cad7bd8ff70d00460045f0b808cacaca260"
+  },
+  "counts": {
+    "catalog_species": 31,
+    "catalog_stage_labels": 248,
+    "initial_species": 5,
+    "unlockable_additional_species": 26,
+    "rescue_stages": 10,
+    "rescue_species_tokens": 2,
+    "adopted_future_rescue_species": 0
+  },
+  "species": [
+    {
+      "species_id": "man",
+      "label": "おとこのひと",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "あかちゃん",
+          "asset_path": "assets/characters/man/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 7,
+              "line_end": 7
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 51,
+              "line_end": 51
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "よちよち",
+          "asset_path": "assets/characters/man/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 8,
+              "line_end": 8
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 51,
+              "line_end": 51
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "子ども",
+          "asset_path": "assets/characters/man/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 9,
+              "line_end": 9
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 51,
+              "line_end": 51
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "少年",
+          "asset_path": "assets/characters/man/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 10,
+              "line_end": 10
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 51,
+              "line_end": 51
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "若者",
+          "asset_path": "assets/characters/man/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 11,
+              "line_end": 11
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 51,
+              "line_end": 51
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大人",
+          "asset_path": "assets/characters/man/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 12,
+              "line_end": 12
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 51,
+              "line_end": 51
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "落ちついた大人",
+          "asset_path": "assets/characters/man/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 13,
+              "line_end": 13
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 51,
+              "line_end": 51
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "おじいさん",
+          "asset_path": "assets/characters/man/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 14,
+              "line_end": 14
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 51,
+              "line_end": 51
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 4,
+          "line_end": 16
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "woman",
+      "label": "おんなのひと",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "あかちゃん",
+          "asset_path": "assets/characters/woman/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 21,
+              "line_end": 21
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 52,
+              "line_end": 52
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "よちよち",
+          "asset_path": "assets/characters/woman/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 22,
+              "line_end": 22
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 52,
+              "line_end": 52
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "子ども",
+          "asset_path": "assets/characters/woman/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 23,
+              "line_end": 23
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 52,
+              "line_end": 52
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "少女",
+          "asset_path": "assets/characters/woman/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 24,
+              "line_end": 24
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 52,
+              "line_end": 52
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "若者",
+          "asset_path": "assets/characters/woman/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 25,
+              "line_end": 25
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 52,
+              "line_end": 52
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大人",
+          "asset_path": "assets/characters/woman/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 26,
+              "line_end": 26
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 52,
+              "line_end": 52
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "落ちついた大人",
+          "asset_path": "assets/characters/woman/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 27,
+              "line_end": 27
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 52,
+              "line_end": 52
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "おばあさん",
+          "asset_path": "assets/characters/woman/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 28,
+              "line_end": 28
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 52,
+              "line_end": 52
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 18,
+          "line_end": 30
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "dog",
+      "label": "いぬ",
+      "status": "main_catalog",
+      "initially_available": true,
+      "unlock_rule": "initial",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "あかちゃんいぬ",
+          "asset_path": "assets/characters/dog/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 35,
+              "line_end": 35
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 53,
+              "line_end": 53
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "よちよちこいぬ",
+          "asset_path": "assets/characters/dog/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 36,
+              "line_end": 36
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 53,
+              "line_end": 53
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "こいぬ",
+          "asset_path": "assets/characters/dog/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 37,
+              "line_end": 37
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 53,
+              "line_end": 53
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "わんぱくいぬ",
+          "asset_path": "assets/characters/dog/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 38,
+              "line_end": 38
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 53,
+              "line_end": 53
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "若いいぬ",
+          "asset_path": "assets/characters/dog/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 39,
+              "line_end": 39
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 53,
+              "line_end": 53
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大人のいぬ",
+          "asset_path": "assets/characters/dog/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 40,
+              "line_end": 40
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 53,
+              "line_end": 53
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "落ちついたいぬ",
+          "asset_path": "assets/characters/dog/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 41,
+              "line_end": 41
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 53,
+              "line_end": 53
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "おとしよりのいぬ",
+          "asset_path": "assets/characters/dog/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 42,
+              "line_end": 42
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 53,
+              "line_end": 53
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 32,
+          "line_end": 44
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "cat",
+      "label": "ねこ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "あかちゃんねこ",
+          "asset_path": "assets/characters/cat/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 49,
+              "line_end": 49
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 54,
+              "line_end": 54
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "よちよちこねこ",
+          "asset_path": "assets/characters/cat/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 50,
+              "line_end": 50
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 54,
+              "line_end": 54
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "こねこ",
+          "asset_path": "assets/characters/cat/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 51,
+              "line_end": 51
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 54,
+              "line_end": 54
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "おてんばねこ",
+          "asset_path": "assets/characters/cat/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 52,
+              "line_end": 52
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 54,
+              "line_end": 54
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "若いねこ",
+          "asset_path": "assets/characters/cat/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 53,
+              "line_end": 53
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 54,
+              "line_end": 54
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大人のねこ",
+          "asset_path": "assets/characters/cat/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 54,
+              "line_end": 54
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 54,
+              "line_end": 54
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "落ちついたねこ",
+          "asset_path": "assets/characters/cat/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 55,
+              "line_end": 55
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 54,
+              "line_end": 54
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "おとしよりのねこ",
+          "asset_path": "assets/characters/cat/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 56,
+              "line_end": 56
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 54,
+              "line_end": 54
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 46,
+          "line_end": 58
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "penguin",
+      "label": "ペンギン",
+      "status": "main_catalog",
+      "initially_available": true,
+      "unlock_rule": "initial",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "小さなひな",
+          "asset_path": "assets/characters/penguin/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 63,
+              "line_end": 63
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 55,
+              "line_end": 55
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "ふわふわのひな",
+          "asset_path": "assets/characters/penguin/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 64,
+              "line_end": 64
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 55,
+              "line_end": 55
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "大きなひな",
+          "asset_path": "assets/characters/penguin/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 65,
+              "line_end": 65
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 55,
+              "line_end": 55
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "羽の衣替え中",
+          "asset_path": "assets/characters/penguin/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 66,
+              "line_end": 66
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 55,
+              "line_end": 55
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "若いペンギン",
+          "asset_path": "assets/characters/penguin/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 67,
+              "line_end": 67
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 55,
+              "line_end": 55
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大人のペンギン",
+          "asset_path": "assets/characters/penguin/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 68,
+              "line_end": 68
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 55,
+              "line_end": 55
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "ベテランペンギン",
+          "asset_path": "assets/characters/penguin/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 69,
+              "line_end": 69
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 55,
+              "line_end": 55
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "おとしよりペンギン",
+          "asset_path": "assets/characters/penguin/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 70,
+              "line_end": 70
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 55,
+              "line_end": 55
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 60,
+          "line_end": 72
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "turtle",
+      "label": "かめ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "うまれたてのかめ",
+          "asset_path": "assets/characters/turtle/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 77,
+              "line_end": 77
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 56,
+              "line_end": 56
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "ちびがめ",
+          "asset_path": "assets/characters/turtle/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 78,
+              "line_end": 78
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 56,
+              "line_end": 56
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "子がめ",
+          "asset_path": "assets/characters/turtle/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 79,
+              "line_end": 79
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 56,
+              "line_end": 56
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "若いかめ",
+          "asset_path": "assets/characters/turtle/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 80,
+              "line_end": 80
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 56,
+              "line_end": 56
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "大人のかめ",
+          "asset_path": "assets/characters/turtle/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 81,
+              "line_end": 81
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 56,
+              "line_end": 56
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大きなかめ",
+          "asset_path": "assets/characters/turtle/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 82,
+              "line_end": 82
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 56,
+              "line_end": 56
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "古いかめ",
+          "asset_path": "assets/characters/turtle/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 83,
+              "line_end": 83
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 56,
+              "line_end": 56
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "長生きのかめ",
+          "asset_path": "assets/characters/turtle/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 84,
+              "line_end": 84
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 56,
+              "line_end": 56
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 74,
+          "line_end": 86
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "frog",
+      "label": "かえる",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "ちびおたま",
+          "asset_path": "assets/characters/frog/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 91,
+              "line_end": 91
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 57,
+              "line_end": 57
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "おたまじゃくし",
+          "asset_path": "assets/characters/frog/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 92,
+              "line_end": 92
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 57,
+              "line_end": 57
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "後ろ足が出たおたま",
+          "asset_path": "assets/characters/frog/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 93,
+              "line_end": 93
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 57,
+              "line_end": 57
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "しっぽつきかえる",
+          "asset_path": "assets/characters/frog/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 94,
+              "line_end": 94
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 57,
+              "line_end": 57
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "陸に上がったかえる",
+          "asset_path": "assets/characters/frog/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 95,
+              "line_end": 95
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 57,
+              "line_end": 57
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "子がえる",
+          "asset_path": "assets/characters/frog/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 96,
+              "line_end": 96
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 57,
+              "line_end": 57
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "大人のかえる",
+          "asset_path": "assets/characters/frog/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 97,
+              "line_end": 97
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 57,
+              "line_end": 57
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "おとしよりのかえる",
+          "asset_path": "assets/characters/frog/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 98,
+              "line_end": 98
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 57,
+              "line_end": 57
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 88,
+          "line_end": 100
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "salmon",
+      "label": "さけ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "うまれたてのさけ",
+          "asset_path": "assets/characters/salmon/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 105,
+              "line_end": 105
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 58,
+              "line_end": 58
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "小さなさけ",
+          "asset_path": "assets/characters/salmon/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 106,
+              "line_end": 106
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 58,
+              "line_end": 58
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "しま模様のさけ",
+          "asset_path": "assets/characters/salmon/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 107,
+              "line_end": 107
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 58,
+              "line_end": 58
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "銀色のさけ",
+          "asset_path": "assets/characters/salmon/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 108,
+              "line_end": 108
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 58,
+              "line_end": 58
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "海の若いさけ",
+          "asset_path": "assets/characters/salmon/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 109,
+              "line_end": 109
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 58,
+              "line_end": 58
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大人のさけ",
+          "asset_path": "assets/characters/salmon/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 110,
+              "line_end": 110
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 58,
+              "line_end": 58
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "川をのぼるさけ",
+          "asset_path": "assets/characters/salmon/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 111,
+              "line_end": 111
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 58,
+              "line_end": 58
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "赤く色づくさけ",
+          "asset_path": "assets/characters/salmon/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 112,
+              "line_end": 112
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 58,
+              "line_end": 58
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 102,
+          "line_end": 114
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "clownfish",
+      "label": "カクレクマノミ",
+      "status": "main_catalog",
+      "initially_available": true,
+      "unlock_rule": "initial",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "透けたあかちゃん",
+          "asset_path": "assets/characters/clownfish/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 119,
+              "line_end": 119
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 59,
+              "line_end": 59
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "しまが出た子",
+          "asset_path": "assets/characters/clownfish/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 120,
+              "line_end": 120
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 59,
+              "line_end": 59
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "かくれんぼの子",
+          "asset_path": "assets/characters/clownfish/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 121,
+              "line_end": 121
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 59,
+              "line_end": 59
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "若いクマノミ",
+          "asset_path": "assets/characters/clownfish/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 122,
+              "line_end": 122
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 59,
+              "line_end": 59
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "群れのクマノミ",
+          "asset_path": "assets/characters/clownfish/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 123,
+              "line_end": 123
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 59,
+              "line_end": 59
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "卵を守るオス",
+          "asset_path": "assets/characters/clownfish/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 124,
+              "line_end": 124
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 59,
+              "line_end": 59
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "メスへ変わる途中",
+          "asset_path": "assets/characters/clownfish/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 125,
+              "line_end": 125
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 59,
+              "line_end": 59
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "群れのリーダーのメス",
+          "asset_path": "assets/characters/clownfish/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 126,
+              "line_end": 126
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 59,
+              "line_end": 59
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 116,
+          "line_end": 128
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "butterfly",
+      "label": "ちょう",
+      "status": "main_catalog",
+      "initially_available": true,
+      "unlock_rule": "initial",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "うまれたてのいもむし",
+          "asset_path": "assets/characters/butterfly/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 133,
+              "line_end": 133
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 60,
+              "line_end": 60
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "育ちざかりのいもむし",
+          "asset_path": "assets/characters/butterfly/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 134,
+              "line_end": 134
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 60,
+              "line_end": 60
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "大きないもむし",
+          "asset_path": "assets/characters/butterfly/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 135,
+              "line_end": 135
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 60,
+              "line_end": 60
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "さなぎの準備中",
+          "asset_path": "assets/characters/butterfly/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 136,
+              "line_end": 136
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 60,
+              "line_end": 60
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "さなぎ",
+          "asset_path": "assets/characters/butterfly/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 137,
+              "line_end": 137
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 60,
+              "line_end": 60
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "羽を広げたちょう",
+          "asset_path": "assets/characters/butterfly/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 138,
+              "line_end": 138
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 60,
+              "line_end": 60
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "花めぐりのちょう",
+          "asset_path": "assets/characters/butterfly/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 139,
+              "line_end": 139
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 60,
+              "line_end": 60
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "年を重ねたちょう",
+          "asset_path": "assets/characters/butterfly/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 140,
+              "line_end": 140
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 60,
+              "line_end": 60
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 130,
+          "line_end": 142
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "beetle",
+      "label": "カブトムシ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "うまれたての幼虫",
+          "asset_path": "assets/characters/beetle/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 147,
+              "line_end": 147
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 61,
+              "line_end": 61
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "育ちざかりの幼虫",
+          "asset_path": "assets/characters/beetle/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 148,
+              "line_end": 148
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 61,
+              "line_end": 61
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "まるまる幼虫",
+          "asset_path": "assets/characters/beetle/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 149,
+              "line_end": 149
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 61,
+              "line_end": 61
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "さなぎ",
+          "asset_path": "assets/characters/beetle/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 150,
+              "line_end": 150
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 61,
+              "line_end": 61
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "出たてのカブトムシ",
+          "asset_path": "assets/characters/beetle/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 151,
+              "line_end": 151
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 61,
+              "line_end": 61
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "若いカブトムシ",
+          "asset_path": "assets/characters/beetle/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 152,
+              "line_end": 152
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 61,
+              "line_end": 61
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "りっぱなカブトムシ",
+          "asset_path": "assets/characters/beetle/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 153,
+              "line_end": 153
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 61,
+              "line_end": 61
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "長生きカブトムシ",
+          "asset_path": "assets/characters/beetle/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 154,
+              "line_end": 154
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 61,
+              "line_end": 61
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 144,
+          "line_end": 156
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "stagbeetle",
+      "label": "クワガタムシ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "うまれたての幼虫",
+          "asset_path": "assets/characters/stagbeetle/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 161,
+              "line_end": 161
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 62,
+              "line_end": 62
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "育ちざかりの幼虫",
+          "asset_path": "assets/characters/stagbeetle/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 162,
+              "line_end": 162
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 62,
+              "line_end": 62
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "大きな幼虫",
+          "asset_path": "assets/characters/stagbeetle/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 163,
+              "line_end": 163
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 62,
+              "line_end": 62
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "さなぎ",
+          "asset_path": "assets/characters/stagbeetle/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 164,
+              "line_end": 164
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 62,
+              "line_end": 62
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "出たてのクワガタ",
+          "asset_path": "assets/characters/stagbeetle/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 165,
+              "line_end": 165
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 62,
+              "line_end": 62
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "若いクワガタ",
+          "asset_path": "assets/characters/stagbeetle/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 166,
+              "line_end": 166
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 62,
+              "line_end": 62
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "りっぱなクワガタ",
+          "asset_path": "assets/characters/stagbeetle/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 167,
+              "line_end": 167
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 62,
+              "line_end": 62
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "長生きクワガタ",
+          "asset_path": "assets/characters/stagbeetle/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 168,
+              "line_end": 168
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 62,
+              "line_end": 62
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 158,
+          "line_end": 170
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "cicada",
+      "label": "セミ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "小さな幼虫",
+          "asset_path": "assets/characters/cicada/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 175,
+              "line_end": 175
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 63,
+              "line_end": 63
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "土ぐらしの幼虫",
+          "asset_path": "assets/characters/cicada/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 176,
+              "line_end": 176
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 63,
+              "line_end": 63
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "旅立ち前の幼虫",
+          "asset_path": "assets/characters/cicada/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 177,
+              "line_end": 177
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 63,
+              "line_end": 63
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "地上に出たセミ",
+          "asset_path": "assets/characters/cicada/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 178,
+              "line_end": 178
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 63,
+              "line_end": 63
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "ぬけがらをぬぐセミ",
+          "asset_path": "assets/characters/cicada/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 179,
+              "line_end": 179
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 63,
+              "line_end": 63
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "若いセミ",
+          "asset_path": "assets/characters/cicada/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 180,
+              "line_end": 180
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 63,
+              "line_end": 63
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "よく鳴くセミ",
+          "asset_path": "assets/characters/cicada/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 181,
+              "line_end": 181
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 63,
+              "line_end": 63
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "年を重ねたセミ",
+          "asset_path": "assets/characters/cicada/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 182,
+              "line_end": 182
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 63,
+              "line_end": 63
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 172,
+          "line_end": 184
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "antlion",
+      "label": "アリジゴク",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "ちびアリジゴク",
+          "asset_path": "assets/characters/antlion/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 189,
+              "line_end": 189
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 64,
+              "line_end": 64
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "巣作りアリジゴク",
+          "asset_path": "assets/characters/antlion/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 190,
+              "line_end": 190
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 64,
+              "line_end": 64
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "大きなアリジゴク",
+          "asset_path": "assets/characters/antlion/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 191,
+              "line_end": 191
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 64,
+              "line_end": 64
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "砂のまゆ",
+          "asset_path": "assets/characters/antlion/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 192,
+              "line_end": 192
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 64,
+              "line_end": 64
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "まゆの中のさなぎ",
+          "asset_path": "assets/characters/antlion/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 193,
+              "line_end": 193
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 64,
+              "line_end": 64
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "出たてのウスバカゲロウ",
+          "asset_path": "assets/characters/antlion/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 194,
+              "line_end": 194
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 64,
+              "line_end": 64
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "飛び回るウスバカゲロウ",
+          "asset_path": "assets/characters/antlion/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 195,
+              "line_end": 195
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 64,
+              "line_end": 64
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "羽休めのウスバカゲロウ",
+          "asset_path": "assets/characters/antlion/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 196,
+              "line_end": 196
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 64,
+              "line_end": 64
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 186,
+          "line_end": 198
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "hermit_crab",
+      "label": "ヤドカリ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "ちびヤドカリ",
+          "asset_path": "assets/characters/hermit_crab/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 203,
+              "line_end": 203
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 65,
+              "line_end": 65
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "小さな貝の家",
+          "asset_path": "assets/characters/hermit_crab/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 204,
+              "line_end": 204
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 65,
+              "line_end": 65
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "引っ越し中",
+          "asset_path": "assets/characters/hermit_crab/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 205,
+              "line_end": 205
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 65,
+              "line_end": 65
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "若いヤドカリ",
+          "asset_path": "assets/characters/hermit_crab/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 206,
+              "line_end": 206
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 65,
+              "line_end": 65
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "ゆったり貝の家",
+          "asset_path": "assets/characters/hermit_crab/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 207,
+              "line_end": 207
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 65,
+              "line_end": 65
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大きな貝の家",
+          "asset_path": "assets/characters/hermit_crab/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 208,
+              "line_end": 208
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 65,
+              "line_end": 65
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "ごうかな貝の家",
+          "asset_path": "assets/characters/hermit_crab/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 209,
+              "line_end": 209
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 65,
+              "line_end": 65
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "ベテランヤドカリ",
+          "asset_path": "assets/characters/hermit_crab/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 210,
+              "line_end": 210
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 65,
+              "line_end": 65
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 200,
+          "line_end": 212
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "jellyfish",
+      "label": "クラゲ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "岩ぐらしの子",
+          "asset_path": "assets/characters/jellyfish/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 217,
+              "line_end": 217
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 66,
+              "line_end": 66
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "重なった子",
+          "asset_path": "assets/characters/jellyfish/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 218,
+              "line_end": 218
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 66,
+              "line_end": 66
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "星形の子",
+          "asset_path": "assets/characters/jellyfish/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 219,
+              "line_end": 219
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 66,
+              "line_end": 66
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "小さなかさ",
+          "asset_path": "assets/characters/jellyfish/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 220,
+              "line_end": 220
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 66,
+              "line_end": 66
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "若いクラゲ",
+          "asset_path": "assets/characters/jellyfish/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 221,
+              "line_end": 221
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 66,
+              "line_end": 66
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大人のクラゲ",
+          "asset_path": "assets/characters/jellyfish/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 222,
+              "line_end": 222
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 66,
+              "line_end": 66
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "大きなクラゲ",
+          "asset_path": "assets/characters/jellyfish/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 223,
+              "line_end": 223
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 66,
+              "line_end": 66
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "年を重ねたクラゲ",
+          "asset_path": "assets/characters/jellyfish/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 224,
+              "line_end": 224
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 66,
+              "line_end": 66
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 214,
+          "line_end": 226
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "starfish",
+      "label": "ヒトデ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "浮遊幼生",
+          "asset_path": "assets/characters/starfish/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 231,
+              "line_end": 231
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 67,
+              "line_end": 67
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "後期浮遊幼生",
+          "asset_path": "assets/characters/starfish/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 232,
+              "line_end": 232
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 67,
+              "line_end": 67
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "着底・変態期",
+          "asset_path": "assets/characters/starfish/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 233,
+              "line_end": 233
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 67,
+              "line_end": 67
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "変態後の稚ヒトデ",
+          "asset_path": "assets/characters/starfish/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 234,
+              "line_end": 234
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 67,
+              "line_end": 67
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "小型の稚ヒトデ",
+          "asset_path": "assets/characters/starfish/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 235,
+              "line_end": 235
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 67,
+              "line_end": 67
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "若いヒトデ",
+          "asset_path": "assets/characters/starfish/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 236,
+              "line_end": 236
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 67,
+              "line_end": 67
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "成熟したヒトデ",
+          "asset_path": "assets/characters/starfish/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 237,
+              "line_end": 237
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 67,
+              "line_end": 67
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "長生きしたヒトデ",
+          "asset_path": "assets/characters/starfish/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 238,
+              "line_end": 238
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 67,
+              "line_end": 67
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 228,
+          "line_end": 240
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "coral",
+      "label": "サンゴ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "住みついた子",
+          "asset_path": "assets/characters/coral/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 245,
+              "line_end": 245
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 68,
+              "line_end": 68
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "ひとつのサンゴ",
+          "asset_path": "assets/characters/coral/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 246,
+              "line_end": 246
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 68,
+              "line_end": 68
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "枝分かれサンゴ",
+          "asset_path": "assets/characters/coral/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 247,
+              "line_end": 247
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 68,
+              "line_end": 68
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "小さなサンゴの森",
+          "asset_path": "assets/characters/coral/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 248,
+              "line_end": 248
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 68,
+              "line_end": 68
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "若いサンゴの森",
+          "asset_path": "assets/characters/coral/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 249,
+              "line_end": 249
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 68,
+              "line_end": 68
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "色とりどりのサンゴ",
+          "asset_path": "assets/characters/coral/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 250,
+              "line_end": 250
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 68,
+              "line_end": 68
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "大きなサンゴの森",
+          "asset_path": "assets/characters/coral/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 251,
+              "line_end": 251
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 68,
+              "line_end": 68
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "広がるサンゴの海",
+          "asset_path": "assets/characters/coral/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 252,
+              "line_end": 252
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 68,
+              "line_end": 68
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 242,
+          "line_end": 254
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "dandelion",
+      "label": "タンポポ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "芽ぶきのたね",
+          "asset_path": "assets/characters/dandelion/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 259,
+              "line_end": 259
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 69,
+              "line_end": 69
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "ふたば",
+          "asset_path": "assets/characters/dandelion/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 260,
+              "line_end": 260
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 69,
+              "line_end": 69
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "地面に広がる葉",
+          "asset_path": "assets/characters/dandelion/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 261,
+              "line_end": 261
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 69,
+              "line_end": 69
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "葉がしげるタンポポ",
+          "asset_path": "assets/characters/dandelion/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 262,
+              "line_end": 262
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 69,
+              "line_end": 69
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "つぼみ",
+          "asset_path": "assets/characters/dandelion/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 263,
+              "line_end": 263
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 69,
+              "line_end": 69
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "花咲くタンポポ",
+          "asset_path": "assets/characters/dandelion/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 264,
+              "line_end": 264
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 69,
+              "line_end": 69
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "わたげ",
+          "asset_path": "assets/characters/dandelion/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 265,
+              "line_end": 265
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 69,
+              "line_end": 69
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "旅立つたね",
+          "asset_path": "assets/characters/dandelion/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 266,
+              "line_end": 266
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 69,
+              "line_end": 69
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 256,
+          "line_end": 268
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "sakura",
+      "label": "サクラ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "芽ぶきのサクラ",
+          "asset_path": "assets/characters/sakura/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 273,
+              "line_end": 273
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 70,
+              "line_end": 70
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "ふたばのサクラ",
+          "asset_path": "assets/characters/sakura/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 274,
+              "line_end": 274
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 70,
+              "line_end": 70
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "小さなサクラ",
+          "asset_path": "assets/characters/sakura/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 275,
+              "line_end": 275
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 70,
+              "line_end": 70
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "育ったサクラ",
+          "asset_path": "assets/characters/sakura/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 276,
+              "line_end": 276
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 70,
+              "line_end": 70
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "サクラのつぼみ",
+          "asset_path": "assets/characters/sakura/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 277,
+              "line_end": 277
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 70,
+              "line_end": 70
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "サクラの花",
+          "asset_path": "assets/characters/sakura/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 278,
+              "line_end": 278
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 70,
+              "line_end": 70
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "サクラの実",
+          "asset_path": "assets/characters/sakura/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 279,
+              "line_end": 279
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 70,
+              "line_end": 70
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "年を重ねたサクラ",
+          "asset_path": "assets/characters/sakura/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 280,
+              "line_end": 280
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 70,
+              "line_end": 70
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 270,
+          "line_end": 282
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "venus_flytrap",
+      "label": "ハエトリグサ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "目覚めるたね",
+          "asset_path": "assets/characters/venus_flytrap/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 287,
+              "line_end": 287
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 71,
+              "line_end": 71
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "小さな口の芽",
+          "asset_path": "assets/characters/venus_flytrap/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 288,
+              "line_end": 288
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 71,
+              "line_end": 71
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "若葉のハエトリグサ",
+          "asset_path": "assets/characters/venus_flytrap/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 289,
+              "line_end": 289
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 71,
+              "line_end": 71
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "口を広げた葉",
+          "asset_path": "assets/characters/venus_flytrap/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 290,
+              "line_end": 290
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 71,
+              "line_end": 71
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "育ちざかりの葉",
+          "asset_path": "assets/characters/venus_flytrap/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 291,
+              "line_end": 291
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 71,
+              "line_end": 71
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大きな口の葉",
+          "asset_path": "assets/characters/venus_flytrap/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 292,
+              "line_end": 292
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 71,
+              "line_end": 71
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "口がいっぱい",
+          "asset_path": "assets/characters/venus_flytrap/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 293,
+              "line_end": 293
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 71,
+              "line_end": 71
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "花咲くハエトリグサ",
+          "asset_path": "assets/characters/venus_flytrap/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 294,
+              "line_end": 294
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 71,
+              "line_end": 71
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 284,
+          "line_end": 296
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "mushroom",
+      "label": "キノコ",
+      "status": "main_catalog",
+      "initially_available": true,
+      "unlock_rule": "initial",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "キノコの小さな粒",
+          "asset_path": "assets/characters/mushroom/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 301,
+              "line_end": 301
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 72,
+              "line_end": 72
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "広がるキノコの糸",
+          "asset_path": "assets/characters/mushroom/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 302,
+              "line_end": 302
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 72,
+              "line_end": 72
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "小さなキノコの芽",
+          "asset_path": "assets/characters/mushroom/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 303,
+              "line_end": 303
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 72,
+              "line_end": 72
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "のびる子キノコ",
+          "asset_path": "assets/characters/mushroom/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 304,
+              "line_end": 304
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 72,
+              "line_end": 72
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "育ちざかりのキノコ",
+          "asset_path": "assets/characters/mushroom/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 305,
+              "line_end": 305
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 72,
+              "line_end": 72
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "かさを広げたキノコ",
+          "asset_path": "assets/characters/mushroom/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 306,
+              "line_end": 306
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 72,
+              "line_end": 72
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "粉を飛ばすキノコ",
+          "asset_path": "assets/characters/mushroom/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 307,
+              "line_end": 307
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 72,
+              "line_end": 72
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "年を重ねたキノコ",
+          "asset_path": "assets/characters/mushroom/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 308,
+              "line_end": 308
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 72,
+              "line_end": 72
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 298,
+          "line_end": 310
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "dragon",
+      "label": "りゅう",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "ちびりゅう",
+          "asset_path": "assets/characters/dragon/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 315,
+              "line_end": 315
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 75,
+              "line_end": 75
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "子りゅう",
+          "asset_path": "assets/characters/dragon/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 316,
+              "line_end": 316
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 75,
+              "line_end": 75
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "つのの生えたりゅう",
+          "asset_path": "assets/characters/dragon/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 317,
+              "line_end": 317
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 75,
+              "line_end": 75
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "小さなつばさのりゅう",
+          "asset_path": "assets/characters/dragon/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 318,
+              "line_end": 318
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 75,
+              "line_end": 75
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "つばさの育ったりゅう",
+          "asset_path": "assets/characters/dragon/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 319,
+              "line_end": 319
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 75,
+              "line_end": 75
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "火をふくりゅう",
+          "asset_path": "assets/characters/dragon/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 320,
+              "line_end": 320
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 75,
+              "line_end": 75
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "大きなりゅう",
+          "asset_path": "assets/characters/dragon/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 321,
+              "line_end": 321
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 75,
+              "line_end": 75
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "いにしえのりゅう",
+          "asset_path": "assets/characters/dragon/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 322,
+              "line_end": 322
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 75,
+              "line_end": 75
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 312,
+          "line_end": 324
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "phoenix",
+      "label": "フェニックス",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "火のひな",
+          "asset_path": "assets/characters/phoenix/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 329,
+              "line_end": 329
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 76,
+              "line_end": 76
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "よちよち火の鳥",
+          "asset_path": "assets/characters/phoenix/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 330,
+              "line_end": 330
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 76,
+              "line_end": 76
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "若い火の鳥",
+          "asset_path": "assets/characters/phoenix/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 331,
+              "line_end": 331
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 76,
+              "line_end": 76
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "空を飛ぶ火の鳥",
+          "asset_path": "assets/characters/phoenix/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 332,
+              "line_end": 332
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 76,
+              "line_end": 76
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "燃えさかる火の鳥",
+          "asset_path": "assets/characters/phoenix/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 333,
+              "line_end": 333
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 76,
+              "line_end": 76
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "金色の火の鳥",
+          "asset_path": "assets/characters/phoenix/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 334,
+              "line_end": 334
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 76,
+              "line_end": 76
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "年を重ねた火の鳥",
+          "asset_path": "assets/characters/phoenix/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 335,
+              "line_end": 335
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 76,
+              "line_end": 76
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "灰からよみがえる鳥",
+          "asset_path": "assets/characters/phoenix/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 336,
+              "line_end": 336
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 76,
+              "line_end": 76
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 326,
+          "line_end": 338
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "god",
+      "label": "かみさま",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "光の粒",
+          "asset_path": "assets/characters/god/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 343,
+              "line_end": 343
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 77,
+              "line_end": 77
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "光の子",
+          "asset_path": "assets/characters/god/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 344,
+              "line_end": 344
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 77,
+              "line_end": 77
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "小さな精霊",
+          "asset_path": "assets/characters/god/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 345,
+              "line_end": 345
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 77,
+              "line_end": 77
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "見習いかみさま",
+          "asset_path": "assets/characters/god/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 346,
+              "line_end": 346
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 77,
+              "line_end": 77
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "かみさま",
+          "asset_path": "assets/characters/god/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 347,
+              "line_end": 347
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 77,
+              "line_end": 77
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大いなるかみさま",
+          "asset_path": "assets/characters/god/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 348,
+              "line_end": 348
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 77,
+              "line_end": 77
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "神々しい光",
+          "asset_path": "assets/characters/god/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 349,
+              "line_end": 349
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 77,
+              "line_end": 77
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "光そのもの",
+          "asset_path": "assets/characters/god/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 350,
+              "line_end": 350
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 77,
+              "line_end": 77
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 340,
+          "line_end": 352
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "world_tree",
+      "label": "世界樹",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "光るたね",
+          "asset_path": "assets/characters/world_tree/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 357,
+              "line_end": 357
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 78,
+              "line_end": 78
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "ふしぎな苗",
+          "asset_path": "assets/characters/world_tree/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 358,
+              "line_end": 358
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 78,
+              "line_end": 78
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "若い木",
+          "asset_path": "assets/characters/world_tree/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 359,
+              "line_end": 359
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 78,
+              "line_end": 78
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "精霊の木",
+          "asset_path": "assets/characters/world_tree/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 360,
+              "line_end": 360
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 78,
+              "line_end": 78
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "大樹",
+          "asset_path": "assets/characters/world_tree/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 361,
+              "line_end": 361
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 78,
+              "line_end": 78
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "巨大な木",
+          "asset_path": "assets/characters/world_tree/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 362,
+              "line_end": 362
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 78,
+              "line_end": 78
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "天にのびる木",
+          "asset_path": "assets/characters/world_tree/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 363,
+              "line_end": 363
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 78,
+              "line_end": 78
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "世界樹",
+          "asset_path": "assets/characters/world_tree/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 364,
+              "line_end": 364
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 78,
+              "line_end": 78
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 354,
+          "line_end": 366
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "ghost",
+      "label": "おばけ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "小さなたましい",
+          "asset_path": "assets/characters/ghost/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 371,
+              "line_end": 371
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 79,
+              "line_end": 79
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "ちびおばけ",
+          "asset_path": "assets/characters/ghost/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 372,
+              "line_end": 372
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 79,
+              "line_end": 79
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "いたずらおばけ",
+          "asset_path": "assets/characters/ghost/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 373,
+              "line_end": 373
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 79,
+              "line_end": 79
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "おばけ",
+          "asset_path": "assets/characters/ghost/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 374,
+              "line_end": 374
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 79,
+              "line_end": 79
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "大きなおばけ",
+          "asset_path": "assets/characters/ghost/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 375,
+              "line_end": 375
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 79,
+              "line_end": 79
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "昔からいるおばけ",
+          "asset_path": "assets/characters/ghost/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 376,
+              "line_end": 376
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 79,
+              "line_end": 79
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "おだやかなおばけ",
+          "asset_path": "assets/characters/ghost/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 377,
+              "line_end": 377
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 79,
+              "line_end": 79
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "旅立ち前のおばけ",
+          "asset_path": "assets/characters/ghost/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 378,
+              "line_end": 378
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 79,
+              "line_end": 79
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 368,
+          "line_end": 380
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "star",
+      "label": "ほし",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "星のもとの雲",
+          "asset_path": "assets/characters/star/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 385,
+              "line_end": 385
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "集まる星の雲",
+          "asset_path": "assets/characters/star/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 386,
+              "line_end": 386
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "うまれかけの星",
+          "asset_path": "assets/characters/star/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 387,
+              "line_end": 387
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "若い星",
+          "asset_path": "assets/characters/star/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 388,
+              "line_end": 388
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "輝く星",
+          "asset_path": "assets/characters/star/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 389,
+              "line_end": 389
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "ふくらんだ星",
+          "asset_path": "assets/characters/star/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 390,
+              "line_end": 390
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "はじける星",
+          "asset_path": "assets/characters/star/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 391,
+              "line_end": 391
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "星のなごり",
+          "asset_path": "assets/characters/star/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 392,
+              "line_end": 392
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 382,
+          "line_end": 394
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "plush",
+      "label": "ぬいぐるみ",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "新品のぬいぐるみ",
+          "asset_path": "assets/characters/plush/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 399,
+              "line_end": 399
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 81,
+              "line_end": 81
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "遊び相手",
+          "asset_path": "assets/characters/plush/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 400,
+              "line_end": 400
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 81,
+              "line_end": 81
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "お気に入り",
+          "asset_path": "assets/characters/plush/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 401,
+              "line_end": 401
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 81,
+              "line_end": 81
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "よごれたぬいぐるみ",
+          "asset_path": "assets/characters/plush/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 402,
+              "line_end": 402
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 81,
+              "line_end": 81
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "ほつれたぬいぐるみ",
+          "asset_path": "assets/characters/plush/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 403,
+              "line_end": 403
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 81,
+              "line_end": 81
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "つぎはぎ",
+          "asset_path": "assets/characters/plush/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 404,
+              "line_end": 404
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 81,
+              "line_end": 81
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "くたくた",
+          "asset_path": "assets/characters/plush/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 405,
+              "line_end": 405
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 81,
+              "line_end": 81
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "大切な宝物",
+          "asset_path": "assets/characters/plush/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 406,
+              "line_end": 406
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 81,
+              "line_end": 81
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 396,
+          "line_end": 408
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "unknown",
+      "label": "？？？",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "点",
+          "asset_path": "assets/characters/unknown/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 413,
+              "line_end": 413
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 82,
+              "line_end": 82
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "ぷるたま",
+          "asset_path": "assets/characters/unknown/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 414,
+              "line_end": 414
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 82,
+              "line_end": 82
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "あしつきたま",
+          "asset_path": "assets/characters/unknown/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 415,
+              "line_end": 415
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 82,
+              "line_end": 82
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "ふたつぶたま",
+          "asset_path": "assets/characters/unknown/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 416,
+              "line_end": 416
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 82,
+              "line_end": 82
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "はねつきたま",
+          "asset_path": "assets/characters/unknown/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 417,
+              "line_end": 417
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 82,
+              "line_end": 82
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "おおたま",
+          "asset_path": "assets/characters/unknown/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 418,
+              "line_end": 418
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 82,
+              "line_end": 82
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "ちいさなたま",
+          "asset_path": "assets/characters/unknown/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 419,
+              "line_end": 419
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 82,
+              "line_end": 82
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "もどりの点",
+          "asset_path": "assets/characters/unknown/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 420,
+              "line_end": 420
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 82,
+              "line_end": 82
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 410,
+          "line_end": 422
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "species_id": "ren",
+      "label": "れんくん",
+      "status": "main_catalog",
+      "initially_available": false,
+      "unlock_rule": "main discoveredStages contains all zero-based keys species_id:0 through species_id:7",
+      "stages": [
+        {
+          "stage": "01",
+          "label": "ちびれん",
+          "asset_path": "assets/characters/ren/01.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 427,
+              "line_end": 427
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 85,
+              "line_end": 85
+            }
+          ]
+        },
+        {
+          "stage": "02",
+          "label": "げんきれん",
+          "asset_path": "assets/characters/ren/02.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 428,
+              "line_end": 428
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 85,
+              "line_end": 85
+            }
+          ]
+        },
+        {
+          "stage": "03",
+          "label": "子どもれん",
+          "asset_path": "assets/characters/ren/03.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 429,
+              "line_end": 429
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 85,
+              "line_end": 85
+            }
+          ]
+        },
+        {
+          "stage": "04",
+          "label": "少年れん",
+          "asset_path": "assets/characters/ren/04.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 430,
+              "line_end": 430
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 85,
+              "line_end": 85
+            }
+          ]
+        },
+        {
+          "stage": "05",
+          "label": "若者れん",
+          "asset_path": "assets/characters/ren/05.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 431,
+              "line_end": 431
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 85,
+              "line_end": 85
+            }
+          ]
+        },
+        {
+          "stage": "06",
+          "label": "大人れん",
+          "asset_path": "assets/characters/ren/06.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 432,
+              "line_end": 432
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 85,
+              "line_end": 85
+            }
+          ]
+        },
+        {
+          "stage": "07",
+          "label": "年を重ねたれん",
+          "asset_path": "assets/characters/ren/07.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 433,
+              "line_end": 433
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 85,
+              "line_end": 85
+            }
+          ]
+        },
+        {
+          "stage": "08",
+          "label": "おじいちゃんれん",
+          "asset_path": "assets/characters/ren/08.png",
+          "evidence": [
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "prototypes/growth-chain/catalog.mjs",
+              "line_start": 434,
+              "line_end": 434
+            },
+            {
+              "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+              "path": "character-world-master.v1.js",
+              "line_start": 85,
+              "line_end": 85
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/catalog.mjs",
+          "line_start": 424,
+          "line_end": 436
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 2,
+          "line_end": 40
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "canonical-catalog",
+      "status": "main",
+      "relation": "copies_main_species_and_eight_stage_labels",
+      "source": "character-world-master.v1.js",
+      "target": "naopoyo catalog",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/tests/catalog-source.test.mjs",
+          "line_start": 6,
+          "line_end": 28
+        }
+      ]
+    },
+    {
+      "id": "main-dex-unlock",
+      "status": "main",
+      "relation": "reads_main_discoveredStages_to_unlock_roster",
+      "source": "main save",
+      "target": "slide/drop roster",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 9,
+          "line_end": 40
+        }
+      ]
+    },
+    {
+      "id": "shared-assets",
+      "status": "main",
+      "relation": "uses_canonical_01_to_08_images",
+      "source": "assets/characters",
+      "target": "slide/drop",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/roster.mjs",
+          "line_start": 48,
+          "line_end": 51
+        }
+      ]
+    },
+    {
+      "id": "favorites",
+      "status": "main",
+      "relation": "three_sets_of_five_and_slide_subset_of_three",
+      "source": "unlocked roster",
+      "target": "series settings",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/naopoyo/settings.mjs",
+          "line_start": 10,
+          "line_end": 38
+        }
+      ]
+    },
+    {
+      "id": "current-drop-growth",
+      "status": "main",
+      "relation": "same_stage_component_same_species_grows_mixed_species_clears_without_growth_reward",
+      "source": "same-stage groups",
+      "target": "growth-clear",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-clear/engine.mjs",
+          "line_start": 3,
+          "line_end": 10
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-clear/engine.mjs",
+          "line_start": 25,
+          "line_end": 46
+        }
+      ]
+    },
+    {
+      "id": "slide-lifetime",
+      "status": "main",
+      "relation": "same_species_same_stage_merge_to_08_then_08_group_lifetime_clear",
+      "source": "01-08",
+      "target": "slide08",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/slide08/engine.mjs",
+          "line_start": 121,
+          "line_end": 140
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/slide08/engine.mjs",
+          "line_start": 233,
+          "line_end": 249
+        }
+      ]
+    },
+    {
+      "id": "old-drop-lifetime",
+      "status": "legacy_main",
+      "relation": "same_species_stage_growth_and_08_lifetime_clear_preserved",
+      "source": "01-08",
+      "target": "growth-chain",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/engine.mjs",
+          "line_start": 195,
+          "line_end": 219
+        }
+      ]
+    },
+    {
+      "id": "rescue-merge-split",
+      "status": "draft",
+      "relation": "same_species_same_level_merge_below_08_spikes_split_level_above_01",
+      "source": "rescue levels 01-08",
+      "target": "rescue actors",
+      "evidence": [
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/engine.mjs",
+          "line_start": 15,
+          "line_end": 24
+        }
+      ]
+    },
+    {
+      "id": "rescue-mass",
+      "status": "draft",
+      "relation": "level_is_power_of_two_mass_not_verified_canonical_life_stage",
+      "source": "level 01-08",
+      "target": "rescue mass",
+      "evidence": [
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/engine.mjs",
+          "line_start": 3,
+          "line_end": 4
+        },
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/render.mjs",
+          "line_start": 18,
+          "line_end": 21
+        }
+      ]
+    },
+    {
+      "id": "card-world-common",
+      "status": "main_documented_design",
+      "relation": "shared_canonical_life_stage_source_not_direct_naopoyo_card_wiring",
+      "source": "main 31 species",
+      "target": "CARD GAME themes",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "docs/card-game/41-main-31-species-life-theme-map.md",
+          "line_start": 9,
+          "line_end": 27
+        }
+      ]
+    }
+  ],
+  "draft_rescue": {
+    "status": "draft_unmerged_latest_independent_prototype",
+    "source_integrity": "All 28 added source files reconstructed from PR412 patch and git blob hashes verified against fixed HEAD tree.",
+    "species": [
+      {
+        "species_id": "dog",
+        "canonical_species_id": "dog",
+        "mapping_status": "same_token_only_rescue_art_not_canonical_stage_art",
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 1,
+            "line_end": 4
+          },
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/render.mjs",
+            "line_start": 18,
+            "line_end": 21
+          }
+        ]
+      },
+      {
+        "species_id": "fish",
+        "canonical_species_id": null,
+        "mapping_status": "generic_placeholder_no_evidence_for_clownfish_or_salmon",
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 11,
+            "line_end": 13
+          },
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/engine.mjs",
+            "line_start": 45,
+            "line_end": 45
+          }
+        ]
+      }
+    ],
+    "stages": [
+      {
+        "stage_id": "01",
+        "title": "はじめての救出",
+        "lesson": "なおぽよから出口まで、指でなぞろう。",
+        "species_ids": [
+          "dog"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 4,
+            "line_end": 4
+          }
+        ]
+      },
+      {
+        "stage_id": "02",
+        "title": "ふたりで、ひとつ",
+        "lesson": "同じ種族・同じ段階の2体で、ひとつ上へ。",
+        "species_ids": [
+          "dog"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 5,
+            "line_end": 5
+          }
+        ]
+      },
+      {
+        "stage_id": "03",
+        "title": "ぷにっと連続合体",
+        "lesson": "01＋01→02。もう1体の02と合体して03へ。",
+        "species_ids": [
+          "dog"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 6,
+            "line_end": 6
+          }
+        ]
+      },
+      {
+        "stage_id": "04",
+        "title": "とげで、ふたりに",
+        "lesson": "トゲで1段階下の2体に。残った子も救出しよう。",
+        "species_ids": [
+          "dog"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 7,
+            "line_end": 7
+          }
+        ]
+      },
+      {
+        "stage_id": "05",
+        "title": "もう一度、ひとつに",
+        "lesson": "分裂したら、トゲを離れた場所で再合体。",
+        "species_ids": [
+          "dog"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 8,
+            "line_end": 8
+          }
+        ]
+      },
+      {
+        "stage_id": "06",
+        "title": "小さな抜け道",
+        "lesson": "01だけが通れる出口へ。曲がり道を進もう。",
+        "species_ids": [
+          "dog"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 9,
+            "line_end": 9
+          }
+        ]
+      },
+      {
+        "stage_id": "07",
+        "title": "番人の約束",
+        "lesson": "02で番人を開けた後、分裂して小さな出口へ。",
+        "species_ids": [
+          "dog"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 10,
+            "line_end": 10
+          }
+        ]
+      },
+      {
+        "stage_id": "08",
+        "title": "それぞれの帰り道",
+        "lesson": "いぬは青い出口へ。さかなは桃色の出口へ。",
+        "species_ids": [
+          "dog",
+          "fish"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 11,
+            "line_end": 11
+          }
+        ]
+      },
+      {
+        "stage_id": "09",
+        "title": "なかまの階段",
+        "lesson": "さかなを足場に1段登ろう。上→右で着地。最後にさかなも救出。",
+        "species_ids": [
+          "dog",
+          "fish"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 12,
+            "line_end": 12
+          }
+        ]
+      },
+      {
+        "stage_id": "10",
+        "title": "みんなで帰ろう",
+        "lesson": "合体して番人へ。分裂した全員と、さかなも出口へ。",
+        "species_ids": [
+          "dog",
+          "fish"
+        ],
+        "evidence": [
+          {
+            "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+            "path": "prototypes/naopoyo-rescue/stages.mjs",
+            "line_start": 13,
+            "line_end": 13
+          }
+        ]
+      }
+    ],
+    "progression_note": "Stage numbers 01–10 are puzzle levels; actor levels 01–08 are merge/split levels. Neither establishes adoption of main characters.",
+    "evidence": [
+      {
+        "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+        "path": "prototypes/naopoyo-rescue/SPEC.md",
+        "line_start": 2,
+        "line_end": 14
+      }
+    ]
+  },
+  "achievement_and_record_relations": [
+    {
+      "id": "slide-records",
+      "status": "main",
+      "kind": "record_not_named_achievement",
+      "fields": [
+        "plays",
+        "deaths",
+        "fastest",
+        "fewest"
+      ],
+      "categories": [
+        "normal",
+        "practice"
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/slide08/player-store.mjs",
+          "line_start": 1,
+          "line_end": 27
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/slide08/player-store.mjs",
+          "line_start": 50,
+          "line_end": 60
+        }
+      ]
+    },
+    {
+      "id": "current-drop-records",
+      "status": "main",
+      "kind": "record_not_named_achievement",
+      "fields": [
+        "score",
+        "drops",
+        "maxChain",
+        "outcome"
+      ],
+      "categories": [
+        "standard 2/6",
+        "comparison 8/24"
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/naopoyo/series.mjs",
+          "line_start": 77,
+          "line_end": 84
+        }
+      ]
+    },
+    {
+      "id": "old-drop-records",
+      "status": "legacy_main",
+      "kind": "record_not_named_achievement",
+      "fields": [
+        "plays",
+        "best",
+        "deaths",
+        "maxChain"
+      ],
+      "categories": [
+        "clear",
+        "endless",
+        "post-clear"
+      ],
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/growth-chain/player-store.mjs",
+          "line_start": 38,
+          "line_end": 61
+        },
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/naopoyo/series.mjs",
+          "line_start": 85,
+          "line_end": 99
+        }
+      ]
+    },
+    {
+      "id": "rescue-clear-records",
+      "status": "draft",
+      "kind": "stage_completion_not_main_achievement",
+      "fields": [
+        "cleared stage IDs",
+        "history up to 80"
+      ],
+      "condition": "no actors remain and every required gate is open",
+      "evidence": [
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/engine.mjs",
+          "line_start": 4,
+          "line_end": 4
+        },
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/app.mjs",
+          "line_start": 7,
+          "line_end": 11
+        },
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/store.mjs",
+          "line_start": 1,
+          "line_end": 4
+        }
+      ]
+    },
+    {
+      "id": "legacy-preservation",
+      "status": "proposed_release_policy",
+      "kind": "preserve_old_records_and_achievement_definitions",
+      "evidence": [
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/RELEASE-PLAN.md",
+          "line_start": 27,
+          "line_end": 36
+        }
+      ]
+    }
+  ],
+  "play_event_card_motifs": [
+    {
+      "id": "G-chain-puzzle",
+      "status": "main_card",
+      "relationship": "puzzle motif comparison only; no established direct naopoyo provenance",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line_start": 659,
+          "line_end": 668
+        }
+      ]
+    },
+    {
+      "id": "G-slide-puzzle",
+      "status": "main_card",
+      "relationship": "puzzle motif comparison only; not evidence that slide08 is this card source",
+      "evidence": [
+        {
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "path": "prototypes/card-game/full-catalog.mjs",
+          "line_start": 1341,
+          "line_end": 1350
+        }
+      ]
+    },
+    {
+      "id": "rescue-events",
+      "status": "draft",
+      "motifs": [
+        "rescue",
+        "merge",
+        "split",
+        "recombine",
+        "guardian gate",
+        "species-specific exit",
+        "companion as foothold",
+        "everyone returns"
+      ],
+      "evidence": [
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/stages.mjs",
+          "line_start": 4,
+          "line_end": 13
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "rescue-public-route",
+      "status": "proposed_not_adopted",
+      "description": "PR412 adoption and separate public-route replacement require later approval; main remains slide/drop.",
+      "evidence": [
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/RELEASE-PLAN.md",
+          "line_start": 2,
+          "line_end": 25
+        }
+      ]
+    },
+    {
+      "id": "future-main-character-selection",
+      "status": "user_future_intent_not_selected",
+      "adopted_species_ids": [],
+      "description": "Main character selection remains open. Prior 4–8 species idea is not adopted and creates no roster authority.",
+      "evidence": [],
+      "basis": "Current user instruction relayed by parent; not repository evidence."
+    },
+    {
+      "id": "swap-preserve-stop",
+      "status": "draft_preserved_development_stopped",
+      "ref": "a3df3cad7bd8ff70d00460045f0b808cacaca260",
+      "description": "PR405 swap remains separate historical draft; no inference that its mechanics are main.",
+      "evidence": [
+        {
+          "ref": "5f410591b589061c09ef12483f72adda9a2c71ed",
+          "path": "prototypes/naopoyo-rescue/RELEASE-PLAN.md",
+          "line_start": 34,
+          "line_end": 46
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "Main means present in fixed main tree, not a claim of final balance approval or live deployment verification.",
+    "Historical README/REPORT no-main claims predate current main inclusion; current source and PR412 release plan determine routing status.",
+    "No dedicated named naopoyo achievement registry was identified in reviewed stores/app. Main ACHIEVEMENTS inventory is separate; do not interpret record milestones as main badge unlocks.",
+    "No direct naopoyo-specific play/event/card registry mapping established; shared life motifs and generic puzzle titles are explicitly weaker evidence.",
+    "Asset paths are generated from existing roster source; binary PNGs were not reread in sparse checkout."
+  ]
+}

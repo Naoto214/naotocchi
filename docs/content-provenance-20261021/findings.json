@@ -1,0 +1,1290 @@
+{
+  "schema_version": 1,
+  "scope": "Card-level static differences; see cross-series-findings.json for cross-cutting issues.",
+  "findings": [
+    {
+      "id": "F001",
+      "type": "source_name_change",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "E-boss"
+      ],
+      "description": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: あやまりにきただいおういか. Current source name: むかしのぼく. Retained ID proves lineage, not equivalence of the old and new story.",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 22,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 57,
+          "reason": "Canonical card-text source declaration.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "script.js",
+          "line": 9603,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        }
+      ]
+    },
+    {
+      "id": "F002",
+      "type": "source_name_change",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "E-gate"
+      ],
+      "description": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: そらにうかぶとりい. Current source name: むこうのまど. Retained ID proves lineage, not equivalence of the old and new story.",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 10,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 33,
+          "reason": "Canonical card-text source declaration.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "script.js",
+          "line": 9593,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        }
+      ]
+    },
+    {
+      "id": "F003",
+      "type": "source_name_change",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "E-lamp"
+      ],
+      "description": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: よなかのあかり. Current source name: 100のむこう. Retained ID proves lineage, not equivalence of the old and new story.",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 28,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 69,
+          "reason": "Canonical card-text source declaration.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "script.js",
+          "line": 9608,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        }
+      ]
+    },
+    {
+      "id": "F004",
+      "type": "source_name_change",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "E-mirror"
+      ],
+      "description": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: としをとったじぶん. Current source name: みているひと. Retained ID proves lineage, not equivalence of the old and new story.",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 34,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 81,
+          "reason": "Canonical card-text source declaration.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "script.js",
+          "line": 9613,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        }
+      ]
+    },
+    {
+      "id": "F005",
+      "type": "source_name_change",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "E-stairs"
+      ],
+      "description": "Explicit 2026-09-17 card-to-main-game source mapping; card rules are adaptations, not runtime behavior. Historic card/source name: どこにもつながらないかいだん. Current source name: たまごのないところ. Retained ID proves lineage, not equivalence of the old and new story.",
+      "evidence": [
+        {
+          "path": "docs/card-game/data/event-source-20260917.json",
+          "line": 16,
+          "reason": "Snapshot explicitly assigns this card ID to the source anchor.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "docs/card-game/91-event-21-card-text-draft.md",
+          "line": 45,
+          "reason": "Canonical card-text source declaration.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        },
+        {
+          "path": "script.js",
+          "line": 9598,
+          "reason": "Current LEGEND_ENCOUNTERS record retains the explicit source ID but changes its name and theme.",
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba"
+        }
+      ]
+    },
+    {
+      "id": "F006",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-dragDecorate-cake"
+      ],
+      "description": "カード「ケーキのかざりつけ」／本編一覧「ケーキデコレーション」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 94,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 990,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 829,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14962,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "ケーキのかざりつけ",
+      "current": "ケーキデコレーション"
+    },
+    {
+      "id": "F007",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-fp-dungeon"
+      ],
+      "description": "カード「たからさがしダンジョン」／本編一覧「ダンジョン3D」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 98,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 1324,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 1221,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14966,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "たからさがしダンジョン",
+      "current": "ダンジョン3D"
+    },
+    {
+      "id": "F008",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-haunted-house-3d"
+      ],
+      "description": "カード「おばけやしき」／本編一覧「おばけやしき3D」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 90,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 2085,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 1945,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14970,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "おばけやしき",
+      "current": "おばけやしき3D"
+    },
+    {
+      "id": "F009",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-p3-drive"
+      ],
+      "description": "カード「ハイウェイドライブ」／本編一覧「ハイウェイ3D」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 97,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 1005,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 94,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14965,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "ハイウェイドライブ",
+      "current": "ハイウェイ3D"
+    },
+    {
+      "id": "F010",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-p3-space"
+      ],
+      "description": "カード「うちゅうフライト」／本編一覧「うちゅうフライト3D」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 96,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 1004,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 94,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14964,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "うちゅうフライト",
+      "current": "うちゅうフライト3D"
+    },
+    {
+      "id": "F011",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-pingpong-3d"
+      ],
+      "description": "カード「ピンポンラリー」／本編一覧「卓球3D」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 106,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 3387,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 3267,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14978,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "ピンポンラリー",
+      "current": "卓球3D"
+    },
+    {
+      "id": "F012",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-race-3d"
+      ],
+      "description": "カード「ゴールをめざして」／本編一覧「カーレース3D」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 99,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 2394,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 2263,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14971,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "ゴールをめざして",
+      "current": "カーレース3D"
+    },
+    {
+      "id": "F013",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-road-themed"
+      ],
+      "description": "カード「よけてキャッチ」／本編一覧「ロードラン」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 84,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 204,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 94,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14956,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "よけてキャッチ",
+      "current": "ロードラン"
+    },
+    {
+      "id": "F014",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-stack-themed"
+      ],
+      "description": "カード「つみかさねタワー」／本編一覧「つみあげタワー」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 85,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 336,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 242,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14957,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "つみかさねタワー",
+      "current": "つみあげタワー"
+    },
+    {
+      "id": "F015",
+      "type": "play_display_name_difference",
+      "status": "confirmed_difference_not_proven_rename",
+      "card_ids": [
+        "G-tilt-maze-3d"
+      ],
+      "description": "カード「たまころがしめいろ」／本編一覧「たまころがし迷路」。カード固有名・テーマ名・一覧名の差を含み、全件を改名漏れと断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/32-play-source-map.md",
+          "line": 101,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit card stable ID → game stable ID source map."
+        },
+        {
+          "path": "games.js",
+          "line": 2646,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "games.js",
+          "line": 2516,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 14973,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 15969,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 16436,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        },
+        {
+          "path": "script.js",
+          "line": 17189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current game registry / title / entry / reward code."
+        }
+      ],
+      "before": "たまころがしめいろ",
+      "current": "たまころがし迷路"
+    },
+    {
+      "id": "F016",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-sakura-01"
+      ],
+      "description": "カード形態名「芽ぶきのたね」／現本編「芽ぶきのサクラ」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/representatives/06-plant-sakura.md",
+          "line": 59,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 70,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "芽ぶきのたね",
+      "current": "芽ぶきのサクラ"
+    },
+    {
+      "id": "F017",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-starfish-01"
+      ],
+      "description": "カード形態名「丸いあかちゃん」／現本編「浮遊幼生」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+          "line": 151,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 67,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "丸いあかちゃん",
+      "current": "浮遊幼生"
+    },
+    {
+      "id": "F018",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-starfish-02"
+      ],
+      "description": "カード形態名「透けた小さな星」／現本編「後期浮遊幼生」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+          "line": 155,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 67,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "透けた小さな星",
+      "current": "後期浮遊幼生"
+    },
+    {
+      "id": "F019",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-starfish-03"
+      ],
+      "description": "カード形態名「色づく小さな星」／現本編「着底・変態期」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+          "line": 161,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 67,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "色づく小さな星",
+      "current": "着底・変態期"
+    },
+    {
+      "id": "F020",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-starfish-04"
+      ],
+      "description": "カード形態名「ふっくらした星」／現本編「変態後の稚ヒトデ」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+          "line": 167,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 67,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "ふっくらした星",
+      "current": "変態後の稚ヒトデ"
+    },
+    {
+      "id": "F021",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-starfish-05"
+      ],
+      "description": "カード形態名「金色の子ヒトデ」／現本編「小型の稚ヒトデ」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+          "line": 173,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 67,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "金色の子ヒトデ",
+      "current": "小型の稚ヒトデ"
+    },
+    {
+      "id": "F022",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-starfish-06"
+      ],
+      "description": "カード形態名「ぶつぶつ子ヒトデ」／現本編「若いヒトデ」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+          "line": 181,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 67,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "ぶつぶつ子ヒトデ",
+      "current": "若いヒトデ"
+    },
+    {
+      "id": "F023",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-starfish-07"
+      ],
+      "description": "カード形態名「大人のヒトデ」／現本編「成熟したヒトデ」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+          "line": 189,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 67,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "大人のヒトデ",
+      "current": "成熟したヒトデ"
+    },
+    {
+      "id": "F024",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-starfish-08"
+      ],
+      "description": "カード形態名「大きなヒトデ」／現本編「長生きしたヒトデ」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+          "line": 196,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 67,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "大きなヒトデ",
+      "current": "長生きしたヒトデ"
+    },
+    {
+      "id": "F025",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-unknown-02"
+      ],
+      "description": "カード形態名「ぷる」／現本編「ぷるたま」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/68-mystery-two-lines-card-text-draft.md",
+          "line": 98,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 82,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "ぷる",
+      "current": "ぷるたま"
+    },
+    {
+      "id": "F026",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-unknown-03"
+      ],
+      "description": "カード形態名「足？」／現本編「あしつきたま」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/68-mystery-two-lines-card-text-draft.md",
+          "line": 99,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 82,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "足？",
+      "current": "あしつきたま"
+    },
+    {
+      "id": "F027",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-unknown-04"
+      ],
+      "description": "カード形態名「目？」／現本編「ふたつぶたま」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/68-mystery-two-lines-card-text-draft.md",
+          "line": 100,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 82,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "目？",
+      "current": "ふたつぶたま"
+    },
+    {
+      "id": "F028",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-unknown-05"
+      ],
+      "description": "カード形態名「羽？」／現本編「はねつきたま」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/68-mystery-two-lines-card-text-draft.md",
+          "line": 101,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 82,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "羽？",
+      "current": "はねつきたま"
+    },
+    {
+      "id": "F029",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-unknown-06"
+      ],
+      "description": "カード形態名「でっかい？」／現本編「おおたま」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/68-mystery-two-lines-card-text-draft.md",
+          "line": 102,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 82,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "でっかい？",
+      "current": "おおたま"
+    },
+    {
+      "id": "F030",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-unknown-07"
+      ],
+      "description": "カード形態名「ちっちゃい？」／現本編「ちいさなたま」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/68-mystery-two-lines-card-text-draft.md",
+          "line": 103,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 82,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "ちっちゃい？",
+      "current": "ちいさなたま"
+    },
+    {
+      "id": "F031",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-unknown-08"
+      ],
+      "description": "カード形態名「点……？」／現本編「もどりの点」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/68-mystery-two-lines-card-text-draft.md",
+          "line": 104,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 82,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "点……？",
+      "current": "もどりの点"
+    },
+    {
+      "id": "F032",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-world_tree-01"
+      ],
+      "description": "カード形態名「光る芽」／現本編「光るたね」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/57-plant-four-lines-card-text-draft.md",
+          "line": 261,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 78,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "光る芽",
+      "current": "光るたね"
+    },
+    {
+      "id": "F033",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-world_tree-03"
+      ],
+      "description": "カード形態名「小さな木」／現本編「若い木」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/57-plant-four-lines-card-text-draft.md",
+          "line": 263,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 78,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "小さな木",
+      "current": "若い木"
+    },
+    {
+      "id": "F034",
+      "type": "stage_label_difference",
+      "status": "confirmed_difference",
+      "card_ids": [
+        "M-world_tree-07"
+      ],
+      "description": "カード形態名「雲をこえる木」／現本編「天にのびる木」。表示差は確定。画像・効果の意味まで不適切とは断定しない。",
+      "evidence": [
+        {
+          "path": "docs/card-game/57-plant-four-lines-card-text-draft.md",
+          "line": 267,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current catalog explicitly identifies this canonical source; file SHA-256 verified."
+        },
+        {
+          "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+          "line": 13,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Explicit main master species ×8 provenance contract."
+        },
+        {
+          "path": "character-world-master.v1.js",
+          "line": 78,
+          "ref": "a037b3abe4f97b6e9bfb4838e854161c53ece6ba",
+          "reason": "Current authoritative species and eight stage labels."
+        }
+      ],
+      "before": "雲をこえる木",
+      "current": "天にのびる木"
+    }
+  ]
+}
