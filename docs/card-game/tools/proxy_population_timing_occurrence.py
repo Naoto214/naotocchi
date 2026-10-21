@@ -10,10 +10,33 @@ import proxy_continuation_state as state
 import proxy_continuation_triggers as triggers
 import proxy_continuation_rules as rules
 import proxy_population_start_obligations as sources
+import proxy_population_effect_creation as creation
+import proxy_population_effect_application_runtime as ruling
+import proxy_continuation_payments as payments
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 KINDS={'M-antlion-03':'after_opponent_quick_play','M-antlion-06':'after_own_quick_effect_applied','C-bat':'after_own_quick_on_opponent_turn','P-cliff_goat':'different_name_world_change'}
 QUICK=frozenset(('use_item','use_play','use_event'))
+TYPED_CREATION_EVENT='resolve_payment_modifier'
+
+
+def application(before,after,event,link):
+ """474 verdict of the resolved own hand quick card; untyped receipts stay unproved.
+
+ A typed receipt is read as before. A quick typed-creation route (payment,
+ stat or conditional row) is certified by the existing creation full-delta
+ audit: a created reservation is an application (474/67); zero creation must
+ carry the 474 not_applied evidence. Nothing is inferred from receipt keys.
+ """
+ receipt=event.get('created_effect',event.get('result'))
+ if type(receipt) is dict and type(receipt.get('effect_applied')) is bool:return receipt['effect_applied']
+ card=link['card_id']
+ if event.get('action_type')==TYPED_CREATION_EVENT and (card in payments.PAYMENT_CARDS or card in payments.STAT_CARDS or card in payments.CONDITIONAL_CARDS):
+  proof=creation.audit(before,after,event)
+  if proof['errors'] or proof['typed_creation_verified'] is not True or proof['created_effect_count'] not in (0,1):raise ValueError('timing requires current typed application evidence: '+str(proof['errors']))
+  if proof['created_effect_count']==1:return True
+  if 'application_evidence' in event and ruling.status(event)=='not_applied':return False
+ raise ValueError('timing requires current typed application evidence')
 
 
 def audit_hand(before,after,event,capture):
@@ -87,10 +110,7 @@ def audit(before,after,event,capture):
      links=[r for r in prior['activation_zone'] if r['link_id']==event.get('chain_link_id') and r['source_instance_id']==event.get('source_instance_id')]
      if len(links)!=1:raise ValueError('timing resolved link absent or ambiguous')
      link=links[0]
-     if link['actor']==actor and link['action_type'] in QUICK and link.get('source_zone','hand')=='hand':
-      receipt=event.get('created_effect',event.get('result'))
-      if type(receipt) is not dict or type(receipt.get('effect_applied')) is not bool:raise ValueError('timing requires current typed application evidence')
-      met=receipt['effect_applied']
+     if link['actor']==actor and link['action_type'] in QUICK and link.get('source_zone','hand')=='hand':met=application(before,after,event,link)
     elif card=='P-cliff_goat' and event['action_type']=='place_world' and event['actor']==actor:
      old=board['world'];new=current['game_state']['players'][actor]['board']['world']
      if event.get('previous_world_instance_id')!=old or event.get('source_instance_id')!=new:raise ValueError('timing world receipt differs')

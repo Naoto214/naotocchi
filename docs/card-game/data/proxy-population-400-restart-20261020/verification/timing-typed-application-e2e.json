@@ -1,0 +1,272 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "baseline tree c1966ae4 (no first-date/timing fix) vs tree with first-date + timing fixes; group-001-A-first / group-003-B-first are completed control rows (play digest = decisions + event skeleton + final game state, edition-independent)",
+ "rows": [
+  {
+   "match_id": "group-003-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 105,
+    "events": 138,
+    "record_sha256": "18abfd7c8415c6938e03a7b2601b9c19faefe01e3e04719866bc2e8e23ecb35f"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 186,
+    "events": 247,
+    "record_sha256": "b3ca356272c0a3f123dc175fe82d28cc13ecbfbda297766c1c1c717f9e2a0d39"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-014-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 159,
+    "events": 205,
+    "record_sha256": "61400cdfa4581d4e04d9ff6d1d6ea2c9195b9dd8aa068eea9c912ce1858ef368"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 265,
+    "events": 341,
+    "record_sha256": "5afd445b79350ce41a68d9e3601c1ec18902a2d17e84756157b54a936ef40f07"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-005-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "post_placement_response"
+    },
+    "error": null,
+    "steps": 139,
+    "events": 177,
+    "record_sha256": "96a083650f25ba75ab5e5ebd4c4af0f0ebfc6ce70b16fb90717d69ab635315e2"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 200,
+    "events": 258,
+    "record_sha256": "af46c18d40cef71f5c15a82113385ea5a59e1b429a5d7683c10c369fde58fa40"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-009-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "error": null,
+    "steps": 122,
+    "events": 152,
+    "record_sha256": "f2e7a63df1fa66304db087bb60e9946043215006dbb2de4c1fc8d2d24ac9662a"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 213,
+    "events": 277,
+    "record_sha256": "bfbca9d85a0b3669f869c595171b7058dd5d422e01218391579a733e6f56beff"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-006-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "post_placement_response"
+    },
+    "error": null,
+    "steps": 205,
+    "events": 272,
+    "record_sha256": "625e650d67a91ad5273067c4a51803353947cf60fed5d0321326c45650572d59"
+   },
+   "after": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "post_placement_response"
+    },
+    "error": null,
+    "steps": 205,
+    "events": 272,
+    "record_sha256": "c89059b05256f7cfbeea35922b7b2e41536c184a4434c6be23d5248457be6984"
+   },
+   "play_digest_equal": true
+  },
+  {
+   "match_id": "group-012-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 98,
+    "events": 129,
+    "record_sha256": "ae27c998740fc52832a7666085966a485ecad6723ca89690a2ecddfdc9702e9e"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 255,
+    "events": 342,
+    "record_sha256": "fad1beee72c0f1a4d5802906e4897f15f7f6a0feeb9181e9c77ccff67b1d5d07"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-016-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 222,
+    "events": 292,
+    "record_sha256": "ec8f03d031f11658c6687f65f1f9eddc8c7550a17177ecd0e9345f59e0780141"
+   },
+   "after": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "historical quick activation absent from complete inventory",
+     "phase": "turn_end"
+    },
+    "error": null,
+    "steps": 233,
+    "events": 307,
+    "record_sha256": "c0033b2bbb3a3db07fa6c96f3910f7bd60f2df97eb71ee47063b5c5ad7e68571"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-024-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 103,
+    "events": 132,
+    "record_sha256": "e02f6bd225abd4f35d211fb8d5422ba3a525893a43d14b5f3d9414f8d98ff44c"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 181,
+    "events": 234,
+    "record_sha256": "68982771990d9dcf305c36f9dee2391a9394765368c17655150a318d96e5df0b"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-025-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 140,
+    "events": 177,
+    "record_sha256": "caa17ca5f3e0d404d953ab6208d28d007173aef48ccfbee317fae32d2e7a5bea"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 223,
+    "events": 285,
+    "record_sha256": "ee62e85d9614db0e8a6db5893e6479d7104d839ab6fdd33e86d123bdfdd3b718"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-001-A-first",
+   "before": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 241,
+    "events": 307,
+    "record_sha256": "9eee19c76313a1b9b3b2190f9357b86719abdd0cb1ec6291cb31ee40e6882313"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 241,
+    "events": 307,
+    "record_sha256": "893d15c424c4f06d6bbf928be79cc3e2f5b334e749633ba8f90b87468871e2e5"
+   },
+   "play_digest_equal": true
+  },
+  {
+   "match_id": "group-003-B-first",
+   "before": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 186,
+    "events": 247,
+    "record_sha256": "c1938992ad825a6d9b765f4a213c902fd711fb2de0d102bbccf01ccd7a2757c3"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 186,
+    "events": 247,
+    "record_sha256": "56e4a92c36f00032ce6010940e83664630fc2a9b910ed0d59f0202bc584a9805"
+   },
+   "play_digest_equal": true
+  }
+ ]
+}

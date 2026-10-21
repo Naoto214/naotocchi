@@ -1,0 +1,125 @@
+test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys) ... 
+  test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys) (card='E-fateful-transform') ... FAIL
+  test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys) (card='G-beach-volley') ... FAIL
+  test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys) (card='G-basketball-3d') ... FAIL
+test_target_recheck_failure_is_not_applied_only_with_474_evidence (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_target_recheck_failure_is_not_applied_only_with_474_evidence) ... 
+  test_target_recheck_failure_is_not_applied_only_with_474_evidence (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_target_recheck_failure_is_not_applied_only_with_474_evidence) (card='G-beach-volley') ... FAIL
+  test_target_recheck_failure_is_not_applied_only_with_474_evidence (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_target_recheck_failure_is_not_applied_only_with_474_evidence) (card='G-basketball-3d') ... FAIL
+test_untyped_non_creation_receipts_stay_unproved (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_untyped_non_creation_receipts_stay_unproved) ... ERROR
+
+======================================================================
+ERROR: test_untyped_non_creation_receipts_stay_unproved (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_untyped_non_creation_receipts_stay_unproved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 111, in test_untyped_non_creation_receipts_stay_unproved
+    self.run_case(run)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 59, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),run)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 133, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 58, in run
+    with effects.scope():return callback()
+                                ^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 104, in run
+    with self.assertRaisesRegex(ValueError,'typed application evidence'):api.application(e,a,final,dict(link,card_id='E-final-time'))
+                                                                         ^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_timing_occurrence' has no attribute 'application'
+
+======================================================================
+FAIL: test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys) (card='E-fateful-transform')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 72, in run
+    check=api.audit(e,a,ev,capture);self.assertEqual(check['errors'],[]);self.assertEqual(check['expected_occurrence_count'],1)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['timing requires current typed application evidence'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'timing requires current typed application evidence'
+
+- ['timing requires current typed application evidence']
++ []
+
+======================================================================
+FAIL: test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys) (card='G-beach-volley')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 72, in run
+    check=api.audit(e,a,ev,capture);self.assertEqual(check['errors'],[]);self.assertEqual(check['expected_occurrence_count'],1)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['timing requires current typed application evidence'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'timing requires current typed application evidence'
+
+- ['timing requires current typed application evidence']
++ []
+
+======================================================================
+FAIL: test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys) (card='G-basketball-3d')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 72, in run
+    check=api.audit(e,a,ev,capture);self.assertEqual(check['errors'],[]);self.assertEqual(check['expected_occurrence_count'],1)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['timing requires current typed application evidence'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'timing requires current typed application evidence'
+
+- ['timing requires current typed application evidence']
++ []
+
+======================================================================
+FAIL: test_target_recheck_failure_is_not_applied_only_with_474_evidence (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_target_recheck_failure_is_not_applied_only_with_474_evidence) (card='G-beach-volley')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 91, in run
+    check=api.audit(e,a,ev,capture);self.assertEqual(check['errors'],[]);self.assertEqual(check['expected_occurrence_count'],0)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['timing requires current typed application evidence'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'timing requires current typed application evidence'
+
+- ['timing requires current typed application evidence']
++ []
+
+======================================================================
+FAIL: test_target_recheck_failure_is_not_applied_only_with_474_evidence (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_target_recheck_failure_is_not_applied_only_with_474_evidence) (card='G-basketball-3d')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_timing_occurrence.py", line 91, in run
+    check=api.audit(e,a,ev,capture);self.assertEqual(check['errors'],[]);self.assertEqual(check['expected_occurrence_count'],0)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['timing requires current typed application evidence'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'timing requires current typed application evidence'
+
+- ['timing requires current typed application evidence']
++ []
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.244s
+
+FAILED (failures=5, errors=1)
