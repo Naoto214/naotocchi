@@ -1,0 +1,8 @@
+import test from 'node:test';import assert from 'node:assert/strict';import{trace}from'../input.mjs';import{pack,restore}from'../store.mjs';import{stages}from'../stages.mjs';import{createState,move}from'../engine.mjs';
+test('fast swipe expands every crossed cell',()=>assert.deepEqual(trace({x:1,y:2},{x:6,y:2}),[[2,2],[3,2],[4,2],[5,2],[6,2]]));
+test('diagonal route stays adjacent and bounded',()=>{let p={x:0,y:0};for(const [x,y] of trace(p,{x:5,y:4})){assert.equal(Math.max(Math.abs(x-p.x),Math.abs(y-p.y)),1);p={x,y}}assert.deepEqual(p,{x:5,y:4})});
+test('save restores state and undo',()=>{let s=createState(stages[0]),old=structuredClone(s);move(s,'a',1,0);const r=restore(pack(0,s,[old],['01']));assert.equal(r.state.actors[0].x,2);assert.equal(r.history[0].actors[0].x,1)});
+test('corrupt and tampered saves rejected',()=>{assert.equal(restore('{'),null);let p=JSON.parse(pack(0,createState(stages[0]),[],[]));p.state.actors[0].level=8;assert.equal(restore(JSON.stringify(p)),null)});
+test('string index and nonboolean gate open are rejected',()=>{let p=JSON.parse(pack(8,createState(stages[8]),[],[]));p.index='8';assert.equal(restore(JSON.stringify(p)),null);p=JSON.parse(pack(6,createState(stages[6]),[],[]));p.state.gates[0].open='false';assert.equal(restore(JSON.stringify(p)),null)});
+test('actors cannot restore on exits or closed gates',()=>{let p=JSON.parse(pack(0,createState(stages[0]),[],[]));p.state.actors[0].x=6;assert.equal(restore(JSON.stringify(p)),null);p=JSON.parse(pack(6,createState(stages[6]),[],[]));p.state.actors[0].x=3;assert.equal(restore(JSON.stringify(p)),null)});
+

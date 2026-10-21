@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {stages} from '../stages.mjs';import{createState,move,release,mass,complete,validState}from '../engine.mjs';
+const solutions=JSON.parse(fs.readFileSync(new URL('../solutions.json',import.meta.url)));
+for(const stage of stages)test(`solution ${stage.id}: ${stage.title}`,()=>{const s=createState(stage),total=mass(s);for(const drag of solutions[stage.id]){for(const [x,y]of drag.path){let a=s.actors.find(a=>a.id===drag.id);assert.ok(a,'actor exists');assert.ok(move(s,drag.id,x-a.x,y-a.y),`legal move to ${x},${y}`);assert.equal(mass(s),total);assert.ok(validState(stage,s))}assert.ok(release(s));assert.equal(mass(s),total)}assert.ok(complete(s))});

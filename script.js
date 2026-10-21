@@ -4234,6 +4234,8 @@
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.dataset.speakerId = speaker.id || '';
     el.speechBubble.classList.remove('hidden');
+    // Director は「実際に表示した行」だけを記録する(抽選しただけの行は数えない)
+    conversationDirector?.noteShown(compactJapaneseText(text), conversationSpeakerKey(speaker));
     // A display:none ancestor has no scroll box; reset after revealing it.
     el.speechText.scrollTop = 0;
     if (speaker.kind === 'pet') {
@@ -4279,6 +4281,8 @@
   // ================================================================
   // 事実説明は setMessage / 上部イベント表示へ残し、キャラの感情・ツッコミ・
   // ひとりごとはここへ流す。本人→恋人/仲間の順に会話が続くこともある。
+  // 休眠中のキー: money は 2026-09-17 アイテムV2(#274)でそだち到達時のコイン報酬が撤去され、
+  // 呼び出し元がなくなった(31行・followUps含む)。新しいコイン源へつなぐかは仕様判断として保留。
   const CONVERSATION_POOLS = {
     "feed": {
       "pet": [
@@ -4976,14 +4980,86 @@
     const key = conversationLineKey(line);
     return recentConversationLines.some((recent) => conversationLineKey(recent) === key);
   }
+  // ================================================================
+  // Conversation Director v1(conversation-director.js)
+  // ================================================================
+  // 台詞は書かない。いつ・誰が・どの既存台詞を言うかの「記憶・間合い・鮮度」だけを受け持つ。
+  // モジュールが無い環境では従来の選び方(直近24件)のまま動く。
+  // 似た意味で連続させたくない既存台詞(本文は変えない)。監査 J / 設計書 §4.2
+  const CONVERSATION_FAMILIES = [
+    {id:'eyelids-went-home', lines:['まぶたが先に帰った', 'まぶたと交渉が終わった', 'まぶたが残業したがる']},
+    {id:'sleep-direction', lines:['寝る向きだけ決めた', 'ねる向きだけ決めた']},
+    {id:'contents-wake-later', lines:['中身がゆっくり起きてくる', '中身はあとから起きてくる']},
+    {id:'bitterness-stays', lines:['苦さだけ居残りしてる', '苦い顔、もどしていい?', '苦い顔だけ残ってるよ笑']},
+    {id:'no-place-for-joy', lines:['うれしいの置き場所がない', '照れた顔の置き場所がない', '嬉しい顔の片づけ方がわからない']},
+    {id:'came-this-far', lines:['急がずここまで来たね', '急がずここまで来たんだね']},
+  ];
+  // 寡黙なキャラ: 専用台詞を優先し、性格に合わない汎用台詞はたまにしか言わない(ゼロにはしない)
+  const QUIET_CONVERSATION_SPEAKERS = ['partner:high_eagle', 'partner:desert_scorpion', 'partner:swamp_croc',
+    'companion:sekizou', 'companion:box', 'companion:watcher'];
+  const conversationDirector = (() => {
+    const api = globalThis.NaotocchiConversationDirector;
+    if (!api) return null;
+    let storage = null;
+    try { storage = globalThis.localStorage || null; } catch (_) { storage = null; }
+    // QA 用: ?talkpace=0.5 で放置会話の間隔だけを倍率で変える(保存しない)
+    let paceScale = 1;
+    try { const m = String(globalThis.location?.search || '').match(/[?&]talkpace=([0-9.]+)(?:&|$)/); if (m) paceScale = Math.min(4, Math.max(0.1, Number(m[1]) || 1)); } catch (_) {}
+    // 時計と乱数はこのページのものを渡す(テストの疑似時計・シード付き乱数と同じものを使う)
+    const director = api.createDirector({now:() => Date.now(), random:() => Math.random(), storage,
+      families:CONVERSATION_FAMILIES, quietSpeakers:QUIET_CONVERSATION_SPEAKERS, config:{paceScale}});
+    director.load();
+    return director;
+  })();
+  if (conversationDirector) {
+    // 操作した直後は会話を活発に。画面を隠す・閉じるときに履歴を保存する(best effort)
+    const markConversationInteraction = () => conversationDirector.markInteraction();
+    try {
+      document.addEventListener('pointerdown', markConversationInteraction, {capture:true, passive:true});
+      document.addEventListener('keydown', markConversationInteraction, true);
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') conversationDirector.save(); else conversationDirector.markInteraction();
+      });
+      window.addEventListener('pagehide', () => conversationDirector.save());
+    } catch (_) { /* 会話の記憶は best effort */ }
+  }
+  function conversationSpeakerKey(speaker) {
+    if (!speaker) return null;
+    if (speaker.kind === 'partner') return 'partner:' + canonicalPartnerId(speaker.id);
+    if (speaker.kind === 'companion') return 'companion:' + canonicalCompanionId(speaker.id);
+    return speaker.kind === 'pet' ? 'pet' : null;
+  }
+  function conversationMessageText() {
+    return message ? String(message).replace(/[\p{Extended_Pictographic}\uFE0F\u200D]/gu, '') : '';
+  }
   function pickCharacterConversationLine(specific, fallback, ctx = {}) {
+    if (conversationDirector) {
+      const fill = (lines) => (lines || []).map((x) => fillConversationLine(x, ctx));
+      return conversationDirector.pickOwnOrShared(fill(specific), fill(fallback),
+        {speakerKey:ctx.speakerKey || null, avoid:[conversationMessageText(), ...(ctx.avoid || [])]});
+    }
     const fresh = (specific || []).filter((line) => !conversationLineIsRecent(fillConversationLine(line, ctx)));
     const pool = fresh.length && (!fallback?.length || Math.random() < 0.7) ? fresh : fallback;
     return pickConversationLine(pool, ctx);
   }
+  // 上部のお知らせ欄(#message)にいま出ている文と同じギャグを、吹き出しで重ねない。
+  function conversationLineEchoesMessage(line) {
+    if (!message) return false;
+    const shown = conversationLineKey(String(message).replace(/[\p{Extended_Pictographic}\uFE0F\u200D]/gu, ''));
+    return !!shown && conversationLineKey(line) === shown;
+  }
   function pickConversationLine(lines, ctx) {
     if (!lines || !lines.length) return null;
+    if (conversationDirector) {
+      const filled = lines.map((x) => fillConversationLine(x, ctx || {}));
+      const line = conversationDirector.pick(filled, {avoid:[conversationMessageText(), ...(ctx?.avoid || [])]});
+      // ムービーの字幕は吹き出しを通らないので、選んだ時点で「出た」と記録する
+      if (line && ctx?.channel === 'movie') conversationDirector.noteShown(line, 'movie');
+      return line;
+    }
     let pool = lines.map((x) => fillConversationLine(x, ctx || {}));
+    const unechoed = pool.filter((x) => !conversationLineEchoesMessage(x));
+    if (unechoed.length) pool = unechoed;
     const fresh = pool.filter((x) => !conversationLineIsRecent(x));
     if (fresh.length) pool = fresh;
     const line = pool[Math.floor(Math.random() * pool.length)];
@@ -5156,7 +5232,7 @@
     },
     "cliff_goat": {
       "play_with": [
-        "じゃれたら次のぼろ！",
+        "じゃれたら次、のぼろ！",
         "そこよりあっちの岩で遊ぼう!",
         "休憩場所、ちょっと高いけど来る?"
       ],
@@ -6211,8 +6287,8 @@
 
   function partnerDailyLine(eventKey, ctx) {
     if (!state.partner) return null;
-    const lines = PARTNER_DAILY_REACTIONS[state.partner.id]?.[eventKey];
-    return pickCharacterConversationLine(lines, CONVERSATION_POOLS[eventKey]?.partner, ctx || {});
+    const lines = PARTNER_DAILY_REACTIONS[canonicalPartnerId(state.partner.id)]?.[eventKey];
+    return pickCharacterConversationLine(lines, CONVERSATION_POOLS[eventKey]?.partner, {...(ctx || {}), speakerKey:'partner:' + canonicalPartnerId(state.partner.id)});
   }
 
   function speakEvent(eventKey, ctx = {}) {
@@ -6238,13 +6314,16 @@
       const ps = homePresentPartner() ? partnerSpeaker() : null;
       // 成立・結婚の固有セリフは、必ず恋人の吹き出しへ。
       const relationshipKey = eventKey === 'partner_new' ? 'court' : eventKey === 'marriage' ? 'marriage' : null;
-      const relationshipLine = PARTNER_RELATIONSHIP_LINES[state.partner.id]?.[relationshipKey];
-      const line = relationshipLine || partnerDailyLine(dialogueKey, ctx);
+      // 記念日ムービーと同じく、吹き出しでは外側の「」を外す。
+      const relationshipLine = PARTNER_RELATIONSHIP_LINES[canonicalPartnerId(state.partner.id)]?.[relationshipKey]?.replace(/^「|」$/g, '');
+      // 同じ会話の中で、同じ文・同じ family の台詞を重ねない
+      const line = relationshipLine || partnerDailyLine(dialogueKey, {...ctx, avoid:beats.map((b) => b.text)});
       if (ps && line) beats.push({ speaker: ps, text: line });
     }
     if (state.companions.length && pool.companion && Math.random() < (ctx.companionChance ?? 0.55)) {
       const cs = companionSpeaker();
-      const line = pickCharacterConversationLine(COMPANION_DAILY_REACTIONS[cs?.id]?.[dialogueKey], pool.companion, ctx);
+      const line = pickCharacterConversationLine(COMPANION_DAILY_REACTIONS[cs?.id]?.[dialogueKey], pool.companion,
+        {...ctx, speakerKey:cs ? 'companion:' + canonicalCompanionId(cs.id) : null, avoid:beats.map((b) => b.text)});
       if (cs && line) beats.push({ speaker: cs, text: line });
     }
     // いるキャラが次々しゃべるテンポを優先。本人→恋人→仲間だけで終わらず、
@@ -6412,7 +6491,7 @@
           "負けた分だけ次の話が長い"
         ]
       };
-      const line = pickConversationLine(followUps[dialogueKey], ctx);
+      const line = pickConversationLine(followUps[dialogueKey], {...ctx, avoid:beats.map((b) => b.text)});
       if (line) beats.push({ speaker: petSpeaker(), text: line });
     }
     playConversationBeats(beats, eventKey, ctx.delayMs || 0, ctx.motionTarget);
@@ -8965,6 +9044,8 @@
 
   // こいびとの せいかく(affinityTrait)ごとの リアクション。おなじ プランでも
   // あいてが かわると まったく ちがう デートに なる
+  // 休眠データ: 2026-09-15 に movie-dialogue.js の小話(出来事と返事をセット)へ置き換え済み。
+  // 現在は表示されない。削除せず保存し、再利用するかは仕様判断として保留。
   const DATE_PLAN_VARIATIONS = {
     "walk": [
       "曲がり角で、ふたりとも同じほうを指さした。",
@@ -9083,6 +9164,7 @@
     ]
   };
 
+  // 休眠データ: 上の DATE_PLAN_VARIATIONS と同じく movie-dialogue.js 化で表示されなくなった。
   const DATE_TRAIT_LINES = {
     "gentle": [
       "ずっとにこにこして、何度も「ありがとう」と言ってくれた",
@@ -9464,7 +9546,7 @@
       ...story,
       ...(aside.length ? aside : [{speaker:'pet',text:'今のこと、あとでまた話そう。'}, {speaker:'partner',text:'うん。続きも一緒にね。'}]),
       ...extra,
-      state.regionId === 'deepsea' ? pickConversationLine(book.deepseaClosings) : closing,
+      state.regionId === 'deepsea' ? pickConversationLine(book.deepseaClosings, {channel:'movie'}) : closing,
     ];
 
     const mood = state.regionId === 'deepsea' ? 'deepsea' : plan.id;
@@ -9486,7 +9568,7 @@
     // 年数と名前は最初の字幕にあるので、ここは相手固有の短い一言にする。
     const id = WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id;
     const lines = PARTNER_ANNIVERSARY_LINES[id] || PARTNER_SIGNATURE_LINES[id];
-    return lines?.length ? pickConversationLine(lines) : null;
+    return lines?.length ? pickConversationLine(lines, {channel:'movie'}) : null;
   }
 
   function playMarriageMovie(milestone) {
@@ -9555,8 +9637,9 @@
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
-    const traitLine = pickCharacterConversationLine(PARTNER_SIGNATURE_LINES[partner.id], DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle);
-    const closing = pickConversationLine(DATE_CLOSINGS);
+    // traitLine は 2026-09-15 の movie-dialogue.js 化(小話は出来事と返事をセット)で表示されなくなった。
+    // 見えない台詞で会話の重複回避履歴を消費しないよう、ここでは抽選しない(データは保存)。
+    const closing = pickConversationLine(DATE_CLOSINGS, {channel:'movie'});
 
     state.dateCooldownTicks = DATE_COOLDOWN_TICKS;
     state.datesThisLife += 1;
@@ -9577,7 +9660,7 @@
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きはまた今度`);
     emotePet('love');
     saveState();
-    playOrdinaryDateMovie(plan, partner, traitLine, closing);
+    playOrdinaryDateMovie(plan, partner, null, closing);
     render();
   }
 
@@ -9835,6 +9918,10 @@
     const choices = pool.length > 1 ? pool.filter((m) => m !== lastPicked) : pool;
     return choices[Math.floor(Math.random() * choices.length)];
   }
+  // 吹き出しへ出す本人のリアクション。Director があれば履歴(表示時記録)で鮮度を見る
+  function pickBubbleReaction(pool, lastPicked) {
+    return conversationDirector ? (pickConversationLine(pool) || pickReaction(pool, lastPicked)) : pickReaction(pool, lastPicked);
+  }
 
   // いまの人生で本当に起きた出来事だけを、本人がたまに思い出して話す。
   // lifeLog にない出来事は会話に使わないので、「やっていないことを覚えている」
@@ -9879,18 +9966,27 @@
     if (!memories.length) return null;
 
     // 年を重ね、思い出がいくつもできた個体は、ときどき人生全体を振り返る。
-    if (currentAge() >= 40 && memories.length >= 3 && Math.random() < 0.2) {
+    // Director があるときは「もう○さいかぁ」は1歳につき1回まで
+    if (currentAge() >= 40 && memories.length >= 3 && Math.random() < 0.2
+      && (!conversationDirector || conversationDirector.ageRecallAllowed(currentAge()))) {
+      conversationDirector?.noteAgeRecall(currentAge());
       return `もう${currentAge()}さいかぁ。いろいろあったね`;
     }
 
     const recent = memories.slice(-12);
     const keyOf = (entry) => `${entry.age}|${entry.icon || ''}|${entry.text}`;
-    const choices = recent.length > 1
+    let choices = recent.length > 1
       ? recent.filter((entry) => keyOf(entry) !== lastMemoryRecallKey)
       : recent;
+    // Director があるときは、同じ出来事の思い出を短い間に繰り返さない(実際の出来事だけを使うのは同じ)
+    if (conversationDirector) {
+      choices = choices.filter((entry) => conversationDirector.memoryFresh(keyOf(entry)));
+      if (!choices.length) return null;
+    }
     const entry = choices[Math.floor(Math.random() * choices.length)] || recent[recent.length - 1];
     if (!entry) return null;
     lastMemoryRecallKey = keyOf(entry);
+    conversationDirector?.noteMemory(keyOf(entry));
 
     const text = lifeLogTextKey(entry.text)
       .replace(/[。!！]+$/, '');
@@ -11079,7 +11175,8 @@
   function scheduleIdleGreeting() {
     // 通常画面では「誰かがほぼ常に何か言っている」くらい賑やかにする。
     // 放置会話は掛け合いより間を空ける。吹き出し自体の表示時間は共通。
-    const delay = 5200 + Math.random() * 3800;
+    // Director があるときは状況適応の間合い(操作直後は従来どおり 5.2〜9.0 秒、放置が続くと 12〜24 秒へ)
+    const delay = conversationDirector ? conversationDirector.nextIdleDelay() : 5200 + Math.random() * 3800;
     setTimeout(() => {
       const canGreet = !gameActive && pageVisible()
         && state.stage === STAGE.GROWING
@@ -11093,6 +11190,11 @@
         const excludePet = currentEmotion.state !== 'normal' || currentEmotion.suppressPetIdle;
         const petIdleBlocked = excludePet || !!careAfterglowTimer
           || Date.now() < petBusyUntil || castMotion?.isActive({kind:'pet'});
+        if (conversationDirector) {
+          speakIdleWithDirector(petIdleBlocked, excludePet);
+          scheduleIdleGreeting();
+          return;
+        }
         const choices = petIdleBlocked ? [] : [{ kind: 'pet', weight: 4 }];
         // 恋人・仲間がいる人生では本人だけが独占せず、周囲もかなりよく割り込む。
         if (homePresentPartner()) choices.push({ kind: 'partner', weight: 4 });
@@ -11100,7 +11202,7 @@
         const expanded = choices.flatMap((x) => Array(x.weight).fill(x.kind));
         const kind = expanded[Math.floor(Math.random() * expanded.length)];
         if (kind === 'partner') {
-          if(homePresentPartner() && homeInitiative('affection_interaction','partner:'+state.partner.id))setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[state.partner.id], PARTNER_IDLE_LINES), partnerSpeaker());
+          if(homePresentPartner() && homeInitiative('affection_interaction','partner:'+state.partner.id))setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(state.partner.id)], PARTNER_IDLE_LINES), partnerSpeaker());
         } else if (kind === 'companion') {
           const speaker = companionSpeaker();
           if(speaker && homeInitiative('greeting','companion:'+speaker.id))setSpeechBubble(pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[speaker.id], COMPANION_IDLE_LINES), speaker);
@@ -11116,6 +11218,51 @@
       }
       scheduleIdleGreeting();
     }, delay);
+  }
+
+  // Director v1 の放置会話。話す順番を Director が決め、言えなければ次の話者へ。
+  // こいびと・なかまの「訪問中」「homeInitiative」(自由生活のきまり)はそのまま守る。
+  function speakIdleWithDirector(petIdleBlocked, unwell) {
+    const director = conversationDirector;
+    const candidates = [];
+    if (!petIdleBlocked) candidates.push({key:'pet', kind:'pet', weight:4});
+    const partner = homePresentPartner();
+    if (partner) candidates.push({key:'partner:' + canonicalPartnerId(partner.id), kind:'partner', weight:4, visitor:true});
+    const present = homePresentCompanions();
+    for (const c of present) candidates.push({key:'companion:' + canonicalCompanionId(c.id), kind:'companion', id:c.id, weight:4 / present.length, visitor:true});
+    // 本人が不調(空腹・病気など)のときは、こいびと・なかまの陽気な放置会話をこの回ごと半分に
+    const visitorsQuiet = director.visitorStaysQuiet(unwell);
+    for (const c of director.orderSpeakers(candidates)) {
+      if (c.kind === 'pet') { if (speakPetIdleWithDirector()) return true; continue; }
+      if (visitorsQuiet) continue;
+      if (c.kind === 'partner') {
+        const line = pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(partner.id)], PARTNER_IDLE_LINES, {speakerKey:c.key});
+        if (line && homeInitiative('affection_interaction', 'partner:' + partner.id)) { setSpeechBubble(line, partnerSpeaker()); return true; }
+      } else {
+        const def = allCompanionsById(c.id);
+        const speaker = def ? {kind:'companion', id:def.id, emoji:def.emoji, label:def.name} : null;
+        const line = speaker && pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[def.id], COMPANION_IDLE_LINES, {speakerKey:c.key});
+        if (line && homeInitiative('greeting', 'companion:' + speaker.id)) { setSpeechBubble(line, speaker); return true; }
+      }
+    }
+    return false;
+  }
+  function speakPetIdleWithDirector() {
+    const director = conversationDirector;
+    const rareOk = director.rareReady();
+    let line = null, rare = false;
+    // 思い出(実際の lifeLog だけ)は本人の放置会話の約1割。方言は約8%
+    if (rareOk && director.wantsMemory()) { line = pickMemoryGreeting(); rare = !!line; }
+    if (!line) {
+      const dialect = rareOk && director.wantsDialect();
+      line = pickConversationLine(dialect ? IDLE_GREETINGS_DIALECT : IDLE_GREETINGS);
+      rare = dialect;
+    }
+    if (!line) return false;
+    if (rare) director.noteRare();
+    setSpeechBubble(line, petSpeaker());
+    if (!castMotion) emotePet('happy');
+    return true;
   }
 
   // IDLE_GREETINGSより ずっと まれにしか おきない、なかまとの であい
@@ -14566,6 +14713,15 @@
     try { return !/(?:^|[?&])meguru3d=0(?:&|$)/.test(String(location.search || '')); }
     catch (_) { return true; }
   })();
+  // めぐるの吹き出しへ渡す「その子らしい一言」(Home の放置台詞と同じ正本から1つ)。
+  // 乱数は使わず、キャラと日付で決める(住民名簿が同じ日に同じになり、めぐるの先読み world と
+  // 一致する。シード付きの乱数列もずらさない)。日がかわると別の一言になる。
+  function meguruOwnLine(lines, id) {
+    if (!Array.isArray(lines) || !lines.length) return '';
+    let h = 2166136261;
+    for (const ch of `${id}:${dailyKey()}`) h = Math.imul(h ^ ch.codePointAt(0), 16777619) >>> 0;
+    return lines[h % lines.length];
+  }
   const meguruBridge = {
     clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
     getState: () => state,
@@ -14577,11 +14733,21 @@
     selectedLocality: () => selectedLocality(),
     dailyKey: () => dailyKey(),
     SPECIES,
-    speciesStageDesc: (line, i) => stageDesc(line, i),
-    allCompanionsById, canonicalCompanionId,
+    // めぐるの talkLine は speciesStageDesc(図鑑の三人称の説明)を住民の吹き出しで読み上げるため渡さない。
+    // 図鑑の表示は script.js の stageDesc のまま(Conversation Hygiene CA-14)。
+    // なかまの flavor は出会いカードの地の文。めぐるでは吹き出しに出るので、その子の本人台詞に差し替えて渡す(CA-14)。
+    allCompanionsById: (id) => {
+      const def = allCompanionsById(id);
+      return def ? {...def, flavor:meguruOwnLine(COMPANION_CHARACTER_IDLE_LINES[canonicalCompanionId(def.id)], def.id)} : def;
+    },
+    canonicalCompanionId,
     // けしきの かんさ よう: なかま・レアなかま ぜんいんの emoji を しる ため
     allCompanions: () => [...COMPANIONS, ...RARE_COMPANIONS],
-    partners: (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: p.hook || '', asset: p.asset })),
+    // hook はめぐるで こいびとの一言として吹き出しに出る。world master の hook は設計メモなので渡さず、
+    // 本人の台詞を1つ渡す(日ごとに選び直すため getter。CA-13)。
+    get partners() {
+      return (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: meguruOwnLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(p.id)], p.id), asset: p.asset }));
+    },
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
     expressionPlayerInput: () => ({profile:deriveHomeEmotion(), sleeping:state.isSleeping,
@@ -17429,8 +17595,8 @@
     }
     const hasCompanions = state.companions.length > 0;
     const reaction = spammed
-      ? pickReaction([...CONVERSATION_POOLS.play_with_annoyed.pet, ...PET_ANNOYED_REACTIONS, ...TALK_ANNOYED_REACTIONS, ...(hasCompanions ? COMPANION_ANNOYED_REACTIONS : [])], lastPlayWithReaction)
-      : pickReaction([...CONVERSATION_POOLS.play_with.pet, ...PET_REACTIONS, ...TALK_REACTIONS, ...(hasCompanions ? [...COMPANION_PET_REACTIONS, ...COMPANION_TALK_REACTIONS] : [])], lastPlayWithReaction);
+      ? pickBubbleReaction([...CONVERSATION_POOLS.play_with_annoyed.pet, ...PET_ANNOYED_REACTIONS, ...TALK_ANNOYED_REACTIONS, ...(hasCompanions ? COMPANION_ANNOYED_REACTIONS : [])], lastPlayWithReaction)
+      : pickBubbleReaction([...CONVERSATION_POOLS.play_with.pet, ...PET_REACTIONS, ...TALK_REACTIONS, ...(hasCompanions ? [...COMPANION_PET_REACTIONS, ...COMPANION_TALK_REACTIONS] : [])], lastPlayWithReaction);
     lastPlayWithReaction = reaction;
     if (!checkMeters()) {
       // 日常の「じゃれる」は客観ナレーションを出さず、会話だけで見せる。
@@ -17558,7 +17724,7 @@
         emotePet('love');
         return;
       }
-      const reaction = pickReaction([...CONVERSATION_POOLS.court.pet, ...courtFlirtReactions(state.partner.label)], lastCourtReaction);
+      const reaction = pickBubbleReaction([...CONVERSATION_POOLS.court.pet, ...courtFlirtReactions(state.partner.label)], lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         // 恋人への日常的ないちゃつきは、客観説明を重ねず会話だけで見せる。
@@ -17593,8 +17759,8 @@
     if (!candidate) {
       state.happiness = clamp(state.happiness + 2, 0, 100);
       if (!checkMeters()) {
+        // 相手がいないのは告白の失敗ではない。court_fail の「振られた」台詞を出さない。
         setMessage('💞いまは気持ちをつたえたいあいてがいない');
-        speakEvent('court_fail', { partnerChance: 0, companionChance: 0.35 });
       }
       emotePet('happy');
       return;
@@ -17666,7 +17832,7 @@
         // きねんに 記録する(「はじめから」しても きえない永続コレクション)
         state.lifetime.partnersRecorded.push(candidate.id);
       }
-      const reaction = pickReaction([...CONVERSATION_POOLS.partner_new.pet, ...COURT_SUCCESS_REACTIONS], lastCourtReaction);
+      const reaction = pickBubbleReaction([...CONVERSATION_POOLS.partner_new.pet, ...COURT_SUCCESS_REACTIONS], lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage(`💑 ${candidate.label}とこいびとになった`);
@@ -17676,7 +17842,7 @@
     } else {
       state.happiness = clamp(state.happiness - 3, 0, 100);
       applyDecline(2);
-      const reaction = pickReaction([...CONVERSATION_POOLS.court_fail.pet, ...COURT_FAIL_REACTIONS], lastCourtReaction);
+      const reaction = pickBubbleReaction([...CONVERSATION_POOLS.court_fail.pet, ...COURT_FAIL_REACTIONS], lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage('💞気持ちはつたえた。返事は「もう少し友達でいたい」だった');
@@ -18053,6 +18219,7 @@
     for (const key of [SAVE_KEY, SAVE_BACKUP_KEY, SAVE_SNAP_KEY]) {
       try { localStorage.removeItem(key); } catch (e) { /* storage unavailable */ }
     }
+    conversationDirector?.reset();
     lastGoodSaveRaw = null;
     stateLoadRecovered = false;
     saveWriteBlocked = false;

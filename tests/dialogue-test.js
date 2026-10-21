@@ -69,6 +69,7 @@ function advance(ms) {
 }
 const masterSource = fs.readFileSync('character-world-master.v1.js', 'utf8');
 const master = new Function(masterSource + '\nreturn NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;')();
+const unquote = (text) => String(text).replace(/^「|」$/g, '');
 const clockDate = class extends Date { static now() { return now; } };
 const math = Object.create(Math); math.random = () => random;
 const sandbox = {
@@ -228,7 +229,8 @@ for (const def of master.partners) {
   assert.notEqual(first, api.pickCharacterConversationLine(lines, api.PARTNER_IDLE_LINES));
   for (const key of ['partner_new', 'marriage']) {
     reset({ partner: partner(def.id) }); api.speakEvent(key, { partnerChance: 1, companionChance: 0 }); advance(2500);
-    const expected = api.PARTNER_RELATIONSHIP_LINES[def.id][key === 'partner_new' ? 'court' : 'marriage'];
+    // 吹き出しでは外側の「」を外す(記念日ムービーと同じ。Conversation Hygiene CA-23)
+    const expected = unquote(api.PARTNER_RELATIONSHIP_LINES[def.id][key === 'partner_new' ? 'court' : 'marriage']);
     assert.equal(spoken[1].speaker.kind, 'partner'); assert.equal(spoken[1].text, expected);
     assert.notEqual(spoken[0].text, expected, 'partner line attributed to pet');
   }
@@ -281,7 +283,7 @@ for (const [value, key] of [[0, 'partner_new'], [0.99, 'court_fail']]) {
   random = value; click('courtBtn'); advance(2500); assert.ok(events.includes(key), key + ' court path'); validSpeech();
   if (key === 'partner_new') {
     const relation = api.PARTNER_RELATIONSHIP_LINES[api.getState().partner.id].court;
-    assert.equal(spoken[1].text, relation); assert.equal(spoken[1].speaker.kind, 'partner');
+    assert.equal(spoken[1].text, unquote(relation)); assert.equal(spoken[1].speaker.kind, 'partner');
   }
 }
 
@@ -289,7 +291,7 @@ for (const [value, key] of [[0, 'partner_new'], [0.99, 'court_fail']]) {
 for (const [bondCount, key] of [[0, 'court'], [100, 'marriage']]) {
   reset({ partner: partner('robot_neighbor', { bondCount }) }); click('courtBtn'); advance(2500);
   assert.ok(events.includes(key)); validSpeech();
-  if (key === 'marriage') assert.equal(spoken[1].text, api.PARTNER_RELATIONSHIP_LINES.robot_neighbor.marriage);
+  if (key === 'marriage') assert.equal(spoken[1].text, unquote(api.PARTNER_RELATIONSHIP_LINES.robot_neighbor.marriage));
 }
 
 // Legend movies used to throw ReferenceError before the first caption.
