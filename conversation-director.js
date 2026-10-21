@@ -30,7 +30,8 @@
     rareGapMs: 45e3,            // rare(思い出・方言)を立て続けにしない
     memoryEventGapMs: 6 * 60e3, // 同じ出来事の思い出は 6 分あける
     // 間合い(§5)
-    pace: Object.freeze({activeMinMs: 6000, activeMaxMs: 10000, idleMinMs: 12000, idleMaxMs: 24000, activeWindowMs: 180e3, rampMs: 120e3}),
+    // 操作直後は従来と同じ 5.2〜9.0 秒。放置が続くと 12〜24 秒へ
+    pace: Object.freeze({activeMinMs: 5200, activeMaxMs: 9000, idleMinMs: 12000, idleMaxMs: 24000, activeWindowMs: 180e3, rampMs: 120e3}),
     paceScale: 1,
     // 時計・保存
     maxCountedGapMs: 60e3,      // これより長い空白(閉じていた・裏にいた)は Home 表示時間に数えない

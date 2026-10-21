@@ -157,18 +157,18 @@ test('rare slot: memory and dialect are spaced, the same memory waits, the age r
   assert.ok(mem > 480 && mem < 720, `memory roll about 12% (about 10% after spacing): ${mem}/5000`);
 });
 
-test('pace: lively right after an interaction, 12–24s after a long idle, scalable for QA', () => {
+test('pace: as lively as before right after an interaction, 12–24s after a long idle, scalable for QA', () => {
   const {director, clock} = make();
   director.markInteraction();
-  for (let k = 0; k < 50; k++) { const d = director.nextIdleDelay(); assert.ok(d >= 6000 && d <= 10000, `${d}`); }
+  for (let k = 0; k < 50; k++) { const d = director.nextIdleDelay(); assert.ok(d >= 5200 && d <= 9000, `${d} (same as before the Director)`); }
   // 長い放置(Home 表示時間で 6 分。1 分以上の空白は数えないので 30 秒ずつ進める)
   for (let k = 0; k < 12; k++) { clock.add(30e3); director.nextIdleDelay(); }
   for (let k = 0; k < 50; k++) { const d = director.nextIdleDelay(); assert.ok(d >= 12000 && d <= 24000, `${d}`); }
   director.markInteraction();
-  assert.ok(director.nextIdleDelay() <= 10000, 'a tap brings the chatter back');
+  assert.ok(director.nextIdleDelay() <= 9000, 'a tap brings the chatter back');
   const fast = make({config:{paceScale:0.5}}).director;
   fast.markInteraction();
-  assert.ok(fast.nextIdleDelay() <= 5000);
+  assert.ok(fast.nextIdleDelay() <= 4500);
 });
 
 test('the clock only counts time on screen: long gaps (closed app) do not age the history', () => {

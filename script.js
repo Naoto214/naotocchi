@@ -11171,7 +11171,7 @@
   function scheduleIdleGreeting() {
     // 通常画面では「誰かがほぼ常に何か言っている」くらい賑やかにする。
     // 放置会話は掛け合いより間を空ける。吹き出し自体の表示時間は共通。
-    // Director があるときは状況適応の間合い(操作直後は活発、放置が続くと 12〜24 秒へ)
+    // Director があるときは状況適応の間合い(操作直後は従来どおり 5.2〜9.0 秒、放置が続くと 12〜24 秒へ)
     const delay = conversationDirector ? conversationDirector.nextIdleDelay() : 5200 + Math.random() * 3800;
     setTimeout(() => {
       const canGreet = !gameActive && pageVisible()
