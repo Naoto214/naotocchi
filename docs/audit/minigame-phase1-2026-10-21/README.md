@@ -72,7 +72,12 @@
 
 ## npm test の結果
 
-（統合後に記入）
+- 統合後の `npm test`: **3211 pass / 1 fail**。残りの relationship 系3本は個別に実行し、80 pass / 0 fail。
+- 失敗した1件は `illustration-catalog-test`「unmapped symbols: ★ ♡」。
+  - 本作業の前、main＋Phase 0 docs だけの状態でも同じ1件が失敗していた（ベースラインは 3163 pass / 1 fail）。
+  - main 由来の既存の失敗で、本作業の範囲外なので直していない。
+  - この失敗で `npm test` の連鎖が止まるため、最後の relationship 系は別に実行した。
+- 本作業による増減: +48 pass（新しいテスト）、新しい失敗は 0。
 
 ## 残っていること（判断待ち）
 
