@@ -155,6 +155,10 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 return original_forced(before,*args)
             with closed_start() if mode=='start' else closed_native(current_ledger,e['event_seq']):r=original_step(e,i,history,legacy,full,resolve_or_delegate,supplied_session)
             r=compose_response(r,e,history,full)
+            if any(event['action_type']=='open_turn_end_triggers' for event in r['events']):
+                # The end window opens its own source group even while an earlier
+                # arrival group is still open; observe it exactly as the inactive path does.
+                return observe_start(r,history,e)
             if r['final_envelope']['legacy_continuation']['game_state']['phase']==('turn_end' if mode=='end' else 'normal_action'):active=False
             return observe_existing(r,e,history)
         def step(*args,**kwargs):
@@ -179,7 +183,11 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 result.update(connection_revision='conditional_sequential_start_window_A',trigger_records=records,trigger_ledger=current_ledger,start_occurrence_proofs=start_proofs,other_occurrence_proofs=other_proofs,
                     closed_turn_trigger_ledgers=closed_turns,origin_authenticated=False,opportunity_completeness_proven=False)
                 import proxy_population_trigger_coverage as coverage
-                result['supported_trigger_coverage']=coverage.audit(result,events,proof,initial,shots)
+                try:result['supported_trigger_coverage']=coverage.audit(result,events,proof,initial,shots)
+                except ValueError as error:
+                    # A partial segment keeps its own stop visible instead of being masked by the audit.
+                    if result['stop'] is not None:raise ValueError(str(error)+' (after segment stop: '+result['stop']['detail']+')') from error
+                    raise
                 return result
             finally:base.operation=original_operation;base._step=original_step
     try:return original_operation(initial,scoped)
