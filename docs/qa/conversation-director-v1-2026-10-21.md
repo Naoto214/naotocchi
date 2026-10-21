@@ -115,7 +115,8 @@
 | 大きな `node --test` 群 | 3,163 / 3,164(失敗 1) | 3,163 / 3,164(失敗 1) |
 | 最後の群(relationship + 本ブランチの conversation 3 本) | 80 / 80 | 110 / 110 |
 
-- 失敗 1 件はどちらも `#602 every shipped UI/game emoji has an illustrated display definition`(★ ♡ の挿絵定義なし)。**main でも同じく失敗する既存の問題**で、Conversation の範囲外。
+- 失敗 1 件はどちらも `#602 every shipped UI/game emoji has an illustrated display definition`(★ ♡ の挿絵定義なし)。**この作業環境でだけ** main でもブランチでも失敗し、GitHub CI では main(`79d59aec` の Runtime smoke test)・本ブランチ(PR #414 の smoke-test)とも通過する。環境依存で原因は未特定、Conversation の範囲外。
+- **GitHub CI(PR #414): 全 13 チェック通過**(smoke-test = `npm test` 全体、regression、browser 4 種、character-integration、home-layout、pad-size、slide-series、naopoyo、Pages build)。
 - Phase 1 で一度だけ出た quick-mode の不安定テスト(乱数で 20 本を選ぶ)は、今回の main・ブランチとも通過。
 - 途中で検出して直したもの: `emotion-integration-test` の 2 件(#549 / #570)が「放置会話の最初の発火 5.2 秒」を前提にしていた。Director の活発な間合いを従来と同じ 5.2〜9.0 秒にして解消(他レーンのテストは変更していない)。
 
