@@ -11,9 +11,29 @@ import proxy_population_boundary_response as boundary
 import proxy_continuation_batch as batch
 import proxy_continuation_state as state
 import proxy_continuation_triggers as triggers
+import proxy_continuation_rules as rules
 from proxy_mandatory_policy_contract import canonical
 
 _ACTIVE=None
+
+
+def start_draw_descriptor(link):
+    """77 I-bowtie: own-turn-start single draw with no target, variant or cost.
+
+    The frozen batch registry has no row for this card. Its capability is the
+    pinned current107 start catalog row (section + raw sha, re-verified on every
+    call) joined with the frozen rules fragments -- the same facts scope()
+    installs around the actual resolution. Activation legality and effect
+    execution keep their own audits; this only closes the resolution-time
+    choice obligation.
+    """
+    if link.get('card_id')!='I-bowtie' or link.get('source_zone')!='board' or link.get('action_type')!='activate_board_ability':raise ValueError('start draw link differs')
+    if canonical(link.get('payment'))!=canonical(dict(time=0)) or link.get('target_instance_ids')!=[] or link.get('candidate_variant') is not None:raise ValueError('start draw activated link differs')
+    row=starts.catalog()['cards']['I-bowtie']
+    if row['start_kind']!='own_start_hand_at_most_two_draw':raise ValueError('start equipment source contract differs')
+    cap=rules.classification('I-bowtie')
+    if cap['kind']!='triggered' or cap['timing']!='own_turn_start' or cap['ability_key']!='start_draw' or cap['reference']!=row['reference'] or cap['source_raw_sha256']!=row['source_raw_sha256']:raise ValueError('start draw capability differs')
+    return dict(kind='triggered',timing='own_turn_start',reference=row['reference'],source_raw_sha256=row['source_raw_sha256'],semantic_section_sha256=row['section_sha256'],draw_count=1)
 
 def validate_opening(envelope,proof):
     expected=starts.collect(proof['capture'],envelope)

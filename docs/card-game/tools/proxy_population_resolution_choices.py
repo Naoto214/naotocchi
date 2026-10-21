@@ -12,6 +12,7 @@ import proxy_continuation_payments as payments
 import proxy_continuation_triggers as triggers
 import proxy_population_discard_recovery as recovery
 import proxy_population_trigger_latching as latching
+import proxy_population_trigger_connection as connection
 import proxy_population_legacy_choice_obligations as legacy
 from proxy_mandatory_choice_boundary import REGISTRY,source_catalog
 from proxy_mandatory_policy_contract import canonical
@@ -19,6 +20,10 @@ from proxy_mandatory_policy_contract import canonical
 
 def no_choice_route(link):
  card=link['card_id'];board=link.get('source_zone')=='board'
+ if board and card=='I-bowtie':
+  # Start-group draw: the frozen batch registry has no row, so classification()
+  # cannot speak for it; the start connection's catalog-bound descriptor does.
+  return 'proxy_population_trigger_connection.resolve:draw_only',connection.start_draw_descriptor(link)
  cap=batch.classification(card)
  if not board and card in payments.QUICK_CARDS:
   descriptor=payments.capability(card)
