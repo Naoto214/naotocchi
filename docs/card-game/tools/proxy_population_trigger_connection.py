@@ -59,7 +59,10 @@ def scope(proof):
 def resolve(envelope,initial):
     if _ACTIVE is None:raise ValueError('start occurrence connection absent')
     current=state.current(envelope);ctx=current['response_context'];link=current['activation_zone'][-1]
-    if current['game_state']['turn_player']!=_ACTIVE['capture']['turn_player'] or ctx['window_kind']!='turn_start' or ctx['origin_event_seq']!=_ACTIVE['origin_event_seq']:
+    # An arrival group activated inside the same start window (W-city second card)
+    # leaves its own origin in the live context; the start effect still belongs to
+    # this window when the origin lies between the captured start and now.
+    if current['game_state']['turn_player']!=_ACTIVE['capture']['turn_player'] or ctx['turn_player']!=_ACTIVE['capture']['turn_player'] or ctx['window_kind']!='turn_start' or type(ctx['origin_event_seq']) is not int or not _ACTIVE['origin_event_seq']<=ctx['origin_event_seq']<=envelope['event_seq']:
         raise ValueError('start effect processing origin differs')
     occurrences=[o for o in _ACTIVE['occurrences'] if o['source_instance_id']==link['source_instance_id']]
     if len(occurrences)!=1 or link['card_id'] not in ('C-chicken','I-bowtie') or link['source_zone']!='board' or link['action_type']!='activate_board_ability':raise ValueError('start effect source outside captured group')
