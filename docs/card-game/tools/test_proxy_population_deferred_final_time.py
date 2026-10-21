@@ -12,11 +12,12 @@ def resolution(valid=True):
  return event,link
 
 
-def record(events,audits,positive=False):
+def record(events,audits,positive=False,trace=None):
  obligations=[]
  for event,link in events:api.application(None,None,event,link,obligations)
  audit=dict(deferred_application_obligations=obligations)
  runtime=dict(positive_timing_proofs=[dict(independent_timing_audit=audit)]) if positive else dict(supplied_trigger_coverage=None,supported_trigger_coverage=dict(timing_occurrence_audits=[audit]))
+ runtime['events']=trace if trace is not None else [e for e,_ in events]
  return dict(runtime=runtime),dict(designated_effect_audits=audits)
 
 
@@ -46,7 +47,24 @@ class DeferredFinalTimeTests(unittest.TestCase):
     rec,opp=record([(event,link)],audits,positive)
     with self.assertRaises(ValueError):api.require_deferred(rec,opp)
   forged=copy.deepcopy(event);forged['result']['target_valid_at_resolution']=False
-  rec,opp=record([(forged,link)],[verified(event)])
+  rec,opp=record([(forged,link)],[verified(event)],trace=[event])
+  with self.assertRaises(ValueError):api.require_deferred(rec,opp)
+
+ def test_intermediate_capture_is_bound_through_the_verified_trace_event(self):
+  # group-040-A-first 235: the positive window also captured the raw resolver output
+  # before the result adapter rebound its hash fields.
+  event,link=resolution();raw=copy.deepcopy(event);raw['game_state_after_sha256']='0'*64
+  self.assertNotEqual(event_digest(raw),event_digest(event))
+  rec,opp=record([(raw,link),(event,link)],[verified(event)],positive=True,trace=[event])
+  proof=api.require_deferred(rec,opp);self.assertEqual((proof['obligation_count'],proof['intermediate_capture_count']),(2,1))
+  for change in (dict(source_instance_id='A-040#1'),dict(chain_link_id='response-link-forged'),dict(action_type='resolve_item')):
+   bad=dict(event,**change)
+   rec,opp=record([(raw,link)],[verified(bad)],positive=True,trace=[bad])
+   with self.assertRaises(ValueError):api.require_deferred(rec,opp)
+  other=copy.deepcopy(event);other['result']['target_valid_at_resolution']=False
+  rec,opp=record([(raw,link)],[verified(other)],positive=True,trace=[other])
+  with self.assertRaises(ValueError):api.require_deferred(rec,opp)
+  rec,opp=record([(raw,link)],[verified(event,ok=False)],positive=True,trace=[event])
   with self.assertRaises(ValueError):api.require_deferred(rec,opp)
 
  def test_records_without_obligations_pass_unchanged(self):

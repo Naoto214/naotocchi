@@ -47,20 +47,36 @@ def application(before,after,event,link,obligations=None):
   from proxy_population_resolution_semantics import event_digest
   # Conditional: the record is accepted only if the designated full-delta audit
   # verifies this exact event (and so this receipt) — see require_deferred.
-  obligations.append(dict(contract='designated_full_delta_required',card_id=card,event_seq=event['seq'],event_sha256=event_digest(event),verdict=verdict,source_reference=row['reference'],section_sha256=row['section_sha256']))
+  obligations.append(dict(contract='designated_full_delta_required',card_id=card,event_seq=event['seq'],event_sha256=event_digest(event),verdict=verdict,source_instance_id=event.get('source_instance_id'),chain_link_id=event.get('chain_link_id'),source_reference=row['reference'],section_sha256=row['section_sha256']))
   return verdict
  raise ValueError('timing requires current typed application evidence')
 
 
 def require_deferred(record,opportunities):
- """Every conditional timing verdict must be backed by a verified designated full-delta audit."""
+ """Every conditional timing verdict must be backed by a verified designated full-delta audit.
+
+ The positive window also captures the raw resolver output before the result
+ adapter rebinds its hash fields, so an obligation may name that intermediate
+ event. It is accepted only through the actual trace event at the same sequence:
+ same source and chain link, the same receipt verdict, and that event verified.
+ """
+ from proxy_population_resolution_semantics import event_digest
  runtime=record['runtime'];rows=[]
  for proof in (runtime.get('supported_trigger_coverage') or {}).get('timing_occurrence_audits',[]):rows.extend(proof.get('deferred_application_obligations',[]))
  for capture in runtime.get('positive_timing_proofs',[]):rows.extend(capture.get('independent_timing_audit',{}).get('deferred_application_obligations',[]))
  verified={a['event_sha256'] for a in opportunities['designated_effect_audits'] if a.get('supplied_designated_effect_verified') is True and a.get('choice_contract_id')=='final_time_hand_bottom'}
- missing=sorted({r['event_sha256'] for r in rows if r['event_sha256'] not in verified})
- if missing:raise ValueError('deferred timing application unproved: '+str(missing))
- return dict(schema='deferred_timing_application_audit.v1',deferred_application_verified=True,obligation_count=len(rows),distinct_event_count=len({r['event_sha256'] for r in rows}),backing_contract='supplied_designated_effect_semantics.v1')
+ trace={}
+ for event in runtime.get('events',[]):trace.setdefault(event['seq'],[]).append(event)
+ missing=set();rebound=set()
+ for row in rows:
+  if row['event_sha256'] in verified:continue
+  actual=trace.get(row['event_seq'],[])
+  if len(actual)!=1 or event_digest(actual[0]) not in verified:missing.add(row['event_sha256']);continue
+  e=actual[0];receipt=e.get('result') if type(e.get('result')) is dict else {}
+  if e.get('action_type')!='resolve_event' or e.get('source_instance_id')!=row.get('source_instance_id') or e.get('chain_link_id')!=row.get('chain_link_id') or receipt.get('target_valid_at_resolution') is not row['verdict']:missing.add(row['event_sha256']);continue
+  rebound.add(row['event_sha256'])
+ if missing:raise ValueError('deferred timing application unproved: '+str(sorted(missing)))
+ return dict(schema='deferred_timing_application_audit.v1',deferred_application_verified=True,obligation_count=len(rows),distinct_event_count=len({r['event_sha256'] for r in rows}),intermediate_capture_count=len(rebound),backing_contract='supplied_designated_effect_semantics.v1')
 
 
 def audit_hand(before,after,event,capture):
