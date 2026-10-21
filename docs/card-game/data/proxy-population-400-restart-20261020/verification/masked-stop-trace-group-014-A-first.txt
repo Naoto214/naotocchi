@@ -1,0 +1,10 @@
+seq=81
+Traceback (most recent call last):
+  File "<diag_stop segment>", line 8, in reconstruct
+  File "$SCRATCH/work9/docs/card-game/tools/proxy_population_trigger_window.py", line 167, in step
+    require_current_predicates(result)
+  File "$SCRATCH/work9/docs/card-game/tools/proxy_population_decision_binding.py", line 123, in require_current_predicates
+    raise ValueError('current predicate coverage incomplete: '+key+': '+str(proof.get(missing) if type(proof) is dict else 'missing audit'))
+ValueError: current predicate coverage incomplete: response_source_predicate_coverage: ['A-010#1']
+
+----
