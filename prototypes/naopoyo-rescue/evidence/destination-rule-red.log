@@ -1,0 +1,89 @@
+✔ stage07: slightly off-axis diagonal past spike does not enter or split on its corner (5.811031ms)
+✔ diagonal entry into spike splits at actual origin; save and undo retain both states (1.082566ms)
+✖ fast diagonal ignores side obstacles but cannot skip a blocked destination (1.552671ms)
+✔ pointer solution 01, slow/fast, save and Undo (2.888435ms)
+✔ pointer solution 02, slow/fast, save and Undo (1.178405ms)
+✔ pointer solution 03, slow/fast, save and Undo (0.884307ms)
+✔ pointer solution 04, slow/fast, save and Undo (1.95764ms)
+✔ pointer solution 05, slow/fast, save and Undo (1.186908ms)
+✔ pointer solution 06, slow/fast, save and Undo (1.419427ms)
+✔ pointer solution 07, slow/fast, save and Undo (1.543548ms)
+✔ pointer solution 08, slow/fast, save and Undo (0.87231ms)
+✔ pointer solution 09, slow/fast, save and Undo (2.116753ms)
+✔ pointer solution 10, slow/fast, save and Undo (1.931722ms)
+✔ pointer solution 11, slow/fast, save and Undo (1.1883ms)
+✔ pointer solution 12, slow/fast, save and Undo (0.860563ms)
+✔ gravity arrow is drawn only in gravity stages without changing state (0.431749ms)
+✔ all eight spike entries split at origin and all eight departures preserve mass (0.949983ms)
+✔ diagonal matching gate permits entry, mismatching gate rejects it for slow/fast input (0.616838ms)
+✔ edge drag remains in bounds and cannot skip an intermediate spike at speed (0.500929ms)
+✔ all eight directions work (1.715338ms)
+✔ diagonal merge and split retain active id and mass (1.114463ms)
+✔ diagonal gate and exit use conditions (0.385131ms)
+✔ gate permission rechecked even after a valid passage (0.208784ms)
+✖ destination-only diagonals ignore one/two side walls and denied side gates (1.248758ms)
+✔ gravity blocks unsupported diagonal ascent (0.277645ms)
+✔ diagonal pointer samples are eight-way (0.334167ms)
+✔ continuous pointer path is invariant under sample subdivision (0.673951ms)
+✔ old stage10 save gains fish passage without losing actors or undo (4.315234ms)
+✔ passage animation events are transient and include fast crossings (0.539566ms)
+✔ migration round-trips when an old actor or Undo occupies new fish gate (0.86522ms)
+✔ blocked continuous drag produces same engine state for slow and fast samples (1.456671ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 29
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 137.388773
+
+✖ failing tests:
+
+test at prototypes/naopoyo-rescue/tests/diagonal-polish.test.mjs:22:1
+✖ fast diagonal ignores side obstacles but cannot skip a blocked destination (1.552671ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   1,
+  +   1
+  -   5,
+  -   5
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/d4896d10e553/repo/prototypes/naopoyo-rescue/tests/diagonal-polish.test.mjs:24:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 1, 1 ],
+    expected: [ 5, 5 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-rescue/tests/eight-way.test.mjs:11:1
+✖ destination-only diagonals ignore one/two side walls and denied side gates (1.248758ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/d4896d10e553/repo/prototypes/naopoyo-rescue/tests/eight-way.test.mjs:11:205)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -19,9 +19,11 @@ test('diagonal entry into spike splits at actual origin; save and undo retain bo
  assert.equal(s.actors.length,2);assert.ok(s.actors.every(a=>a.level===1));
  const p=restore(pack(6,s,[old],[]));assert.deepEqual(p.state,s);assert.deepEqual(p.history[0],old);
 });
-test('fast diagonal cannot bypass walls or denied gates',()=>{
+test('fast diagonal ignores side obstacles but cannot skip a blocked destination',()=>{
  for(const field of ['walls','gates']){const s=createState({...stages[0],walls:[],gates:[],exits:[],actors:[{id:'a',x:1,y:1,level:1,species:'dog'}],[field]:field==='walls'?[[2,1]]:[{x:2,y:1,min:2}]});
- drag(s,'a',{x:1.5,y:1.5},{x:5.5,y:5.5});assert.deepEqual([s.actors[0].x,s.actors[0].y],[1,1]);}
+ drag(s,'a',{x:1.5,y:1.5},{x:5.5,y:5.5});assert.deepEqual([s.actors[0].x,s.actors[0].y],[5,5]);
+ const blocked=createState({...s,actors:[{id:'a',x:1,y:1,level:1,species:'dog'}],[field]:field==='walls'?[[2,2]]:[{x:2,y:2,min:2}]});
+ drag(blocked,'a',{x:1.5,y:1.5},{x:5.5,y:5.5});assert.deepEqual([blocked.actors[0].x,blocked.actors[0].y],[1,1]);}
 });
 
 import fs from 'node:fs';

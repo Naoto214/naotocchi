@@ -3,9 +3,9 @@ const key=s=>JSON.stringify([s.rescued,s.gates.map(g=>!!g.open),s.actors.map(a=>
 // Deliberately explores a SUPERSET of drag inputs: any actor can move before
 // release. Also includes release itself, using the real gravity engine.
 // Exhaustion proves impossibility; hitting the cap never does.
-export function search(stage,{sealed=false,limit=100000}={}){
+export function search(stage,{sealed=false,sealedGateIndices=[],limit=100000}={}){
  const initial=createState(stage);
- if(sealed)for(const g of initial.gates){g.open=false;g.species='__sealed__';g.required=false;}
+ for(const [i,g] of initial.gates.entries())if(sealed||sealedGateIndices.includes(i)){g.open=false;g.species='__sealed__';g.required=false;}
  const queue=[initial],seen=new Set([key(initial)]);let maxRescued=0;
  const total=mass(initial);
  for(let at=0;at<queue.length;at++){

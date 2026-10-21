@@ -16,7 +16,9 @@ export function pointerTrace(from,to){
 
 // Clip the pointer segment to a tile with chamfered corners. A diagonal finger
 // movement may skim a neighbouring tile's corner without intending to enter it.
-// Full edge centres remain responsive; collisions still belong solely to move().
+// Full edge centres remain responsive. This is pointer intent selection, not a
+// corner collision rule: move() checks each selected destination only, never
+// the two side tiles. Keep this independent of walls, gates and their conditions.
 function entersTile(from,to,x,y){
  let lo=0,hi=1;
  const px=from.x-x-.5,py=from.y-y-.5,dx=to.x-from.x,dy=to.y-from.y;

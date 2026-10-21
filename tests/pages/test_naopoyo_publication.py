@@ -41,10 +41,11 @@ class NaopoyoPublicationTests(unittest.TestCase):
             self.assertFalse(p['source'].startswith(LEGACY))
 
     def test_no_save_migration_or_legacy_reset_is_introduced(self):
-        # Reviewed v1 store: only exact pre-clearance terrain is additionally accepted.
-        # gate-diagonal.test.mjs verifies actors/history/schema are unchanged.
+        # Reviewed v1 store: additionally accepts exact 702721a clearance terrain.
+        # destination-only + pointer-app tests verify exact old-save/Undo round trips
+        # and retry onto current terrain. Schema, key and prior migrations are unchanged.
         source = ROOT / 'prototypes/naopoyo-rescue/store.mjs'
-        self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), 'd9ae9ba74e6b99afeb03f5ce08985d958b21e82008ff3fd97b0b08b896dacb44')
+        self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), '77023825f71ee98a547f66edf054e5af2ae87eacb43c41983d229b7bb70675ff')
         portal=(ROOT/'prototypes/naopoyo/index.html').read_text()
         self.assertNotIn('localStorage',portal)
         self.assertNotIn('<script',portal)

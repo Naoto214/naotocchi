@@ -52,3 +52,15 @@ for(const stage of stages)test(`actual app pointer listeners: solution ${stage.i
  assert.ok(engine.complete(h.state().state));if(expected)assert.deepEqual(h.state().state,expected);else expected=h.state().state;
  }
 });
+test('actual app reload keeps former terrain and Undo; retry creates new terrain without erasing clears',()=>{
+ const walls={6:[[3,0],[2,1],[2,3],[3,4],[3,5]],9:[[3,0],[2,1],[3,3],[3,5],[4,3],[5,3]],11:[[3,0],[4,1],[4,3],[3,4],[3,5]]};
+ for(const index of [6,9,11]){
+ const state=engine.createState({...stages[index],walls:walls[index]}),before=engine.clone(state);
+ state.actors[0].x=3;state.actors[0].y=1;
+ const raw=store.pack(index,state,[before],['01','02']);
+ const h=app(index,390,raw);assert.equal(h.raw(),raw);
+ h.get('undo').onclick();assert.deepEqual(h.state().state,before);
+ h.get('retry').onclick();assert.deepEqual(h.state().state,engine.createState(stages[index]));
+ assert.deepEqual(h.state().history,[]);assert.deepEqual(h.state().cleared,['01','02']);
+ }
+});

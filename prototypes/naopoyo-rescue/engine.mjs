@@ -12,9 +12,8 @@ export function move(s,id,dx,dy,fall=false){
  const a=s.actors.find(a=>a.id===id); if(!a||!Number.isInteger(dx)||!Number.isInteger(dy)||Math.max(Math.abs(dx),Math.abs(dy))!==1)return false;
  const x=a.x+dx,y=a.y+dy;
  if(wall(s,x,y))return false;
- // A diagonal sweeps both adjacent edges. Actors can serve as steps; solid terrain cannot.
- const solid=(px,py)=>wall(s,px,py)||s.gates.some(g=>g.x===px&&g.y===py&&!matchesCondition(a,g));
- if(dx&&dy&&(solid(a.x+dx,a.y)||solid(a.x,a.y+dy)))return false;
+ // All eight directions inspect only the destination for collision/conditions.
+ // Side walls/gates never block a diagonal. Gravity ascent still needs a foothold.
  if(s.gravity&&!fall&&dy<0&&(!support(s,a.x,a.y+1,a)||!(support(s,a.x-1,a.y,a)||support(s,a.x+1,a.y,a))))return false;
  const target=at(s.actors,x,y),gate=at(s.gates,x,y),exit=at(s.exits,x,y);
  if(target&&(target.species!==a.species||target.level!==a.level||a.level>=8))return false;
