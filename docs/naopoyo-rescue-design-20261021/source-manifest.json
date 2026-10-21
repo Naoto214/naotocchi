@@ -1,0 +1,755 @@
+{
+  "source_head": "5f410591b589061c09ef12483f72adda9a2c71ed",
+  "assets": [
+    {
+      "path": "assets/characters/butterfly/01.png",
+      "git_blob_sha": "a8391a890850743f7e158084d6b6b707c407fb73",
+      "sha256": "af05fb84d18e89704b84740ca96644a0a161c02fb81aa2620ce62e3be4b00ad8",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        31,
+        37,
+        98,
+        81
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/02.png",
+      "git_blob_sha": "64457dfdcc5bc36cca8dec3c42f0f4779bb5475b",
+      "sha256": "b33ab14c49ffacf77b97b997a6add5eabd6b0234bf732e76a9a4a6f79e417ecb",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        23,
+        34,
+        106,
+        94
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/03.png",
+      "git_blob_sha": "20eb496e8276c20bbe9ed087a5e3c2fe71b42415",
+      "sha256": "0fb0d70175b1a7aff382c5918c100a069cef1a6c77f9c9a43d0f406f59d1afa0",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        14,
+        24,
+        114,
+        104
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/04.png",
+      "git_blob_sha": "ac19fa70c0a760b6b7cde053ac77c177bbca530d",
+      "sha256": "fcffcc78f5a9de2302adb5b8291e11965fca4727550d398bd13fd585bb7e604a",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        15,
+        10,
+        113,
+        118
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/05.png",
+      "git_blob_sha": "2ef1a2944bb841a728a965f050b63b6d4d8102da",
+      "sha256": "b38357310dc9e9d501ae99252ba773dc5f62598d81cd6a8e7e2217f71d6a0939",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        17,
+        10,
+        110,
+        118
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/06.png",
+      "git_blob_sha": "d8abd37ef3911f8c279e7bfd8d53b3f0a98f4175",
+      "sha256": "bce91fa9a00a3c4ef1d31c69021f3bcb1fc20d72ad20d2f788da25b4a4562ced",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        12,
+        8,
+        115,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/07.png",
+      "git_blob_sha": "b12621f0bbf7ca74217801daf67ecf25875eeb5e",
+      "sha256": "fa03c4a8ea871beb6aaa05a4b2af166093789df497d05d1c332158ee4f75dca2",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        12,
+        120,
+        116
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/08.png",
+      "git_blob_sha": "eb8d0d90cf4e52ec0797e4c903547ddbcd0c6273",
+      "sha256": "04a5d230501ea700d9f4ec85b69544104ae1af2252f9b13d464d247ac51cd748",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        14,
+        120,
+        113
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/01.png",
+      "git_blob_sha": "75aba01dc32d550ecc0abb6af12dcd43f4a4de5f",
+      "sha256": "bd9097cf21d9e7eff29109a1bfc6cdb2331307057e1b86bcd24b15e46d163436",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        33,
+        49,
+        95,
+        79
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/02.png",
+      "git_blob_sha": "1c26e7d531291af5dfda49d1d124699d8789d8cb",
+      "sha256": "3c05811dac91954f3a2e7946c698f8b8c4a0a67395aa559deca916551fdf3c28",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        27,
+        45,
+        101,
+        82
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/03.png",
+      "git_blob_sha": "7469aba8ea4349798049f3871369c15364fc1850",
+      "sha256": "b8fadf6e358928f8dbf46753bf53d0b421334dcf45d322873d24cc262de10641",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        21,
+        39,
+        107,
+        89
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/04.png",
+      "git_blob_sha": "644de0269c3e148e1a3a015c85277d1171178b49",
+      "sha256": "b4939fe1cfcee1e23be5719769f250f6cabae2316bc643195e6a64ab8703c2e1",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        17,
+        36,
+        111,
+        92
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/05.png",
+      "git_blob_sha": "a2b3328012549bf25f75dd5693f244caee90b760",
+      "sha256": "dcdfc0da83f513c105799088b9bf5ca47170a5d9dc2e0b9f6acb76a43fb3a5d8",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        12,
+        120,
+        116
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/06.png",
+      "git_blob_sha": "b11dbbb0cdb27e0441e4f7f378bbac0fd4f666a3",
+      "sha256": "1219ced10749edb37c456e334d55fe931ce47e8232b141407599f3dda75ac75f",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        13,
+        32,
+        115,
+        95
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/07.png",
+      "git_blob_sha": "25ce73c60887f8339b35881da8ff5b53c6cafe48",
+      "sha256": "222fbe861cbb11c44fe2119b9888d3ad3b020e0c0a1767f12335c9aa88179e7c",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        10,
+        26,
+        118,
+        101
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/08.png",
+      "git_blob_sha": "5801175fda74d90bde41e63e224f67ff85fbd596",
+      "sha256": "205f15a7c3603f020604dbdc39e7d38335381162c34b23a507f143ec7f67570a",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        26,
+        120,
+        103
+      ]
+    },
+    {
+      "path": "assets/characters/companions/owl.png",
+      "git_blob_sha": "9a9dfdb9d69b00609d9b654ef481cef4d38a6fed",
+      "sha256": "943c2809d0394bc8b155e68eb8c701797530813de6bc4209166089fb78ad7a61",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        26,
+        14,
+        102,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/01.png",
+      "git_blob_sha": "f988b16dbc251cbe7263f2dff700796f12270d04",
+      "sha256": "6a597b0f008abc9d7385ed97a75e248d3766153726d102ddc975202dbdd70ee7",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        11,
+        8,
+        117,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/02.png",
+      "git_blob_sha": "07d9b2e23a3707c2ceeafac8b2754529e2e546ad",
+      "sha256": "209e9734d5ba1ba78b0c9f47d0a2dac80ea3ca1c3d74a4f94c46da183c4c3126",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        11,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/03.png",
+      "git_blob_sha": "063847b42edf6ee1163f2294b84272963d1efcf9",
+      "sha256": "6db34567124680686c80917faf264e68abaa9402596b2cefcb38598af598191a",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        37,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/04.png",
+      "git_blob_sha": "bcbc7132f21a1399d6f704af723d396f9aedc55b",
+      "sha256": "9bf10c335194a8fab141a8f2e58953a96d11042f26056a392254cd8fddae96b1",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        52,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/05.png",
+      "git_blob_sha": "c3c0121439430404c394805c8d612104fe314c22",
+      "sha256": "95c4d3a9b50e5e7fededfbab75f84d2e4be154d1a278bc0cab58271d9f0e1d60",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        24,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/06.png",
+      "git_blob_sha": "63b895d1662c6720639371d2bfa5d19dea9ec4e7",
+      "sha256": "fac2b34bea35fc8f241d74ed4cc20c065b98a6d49ae6291045a652bd36fb514e",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        29,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/07.png",
+      "git_blob_sha": "bd4a935cc4c3fd885a7867e6c99083afc54ca716",
+      "sha256": "82b93af4cfb010ce48e9fef6cb1028f696a7fd2da60b72647e29dc64fb4c6115",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        20,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/08.png",
+      "git_blob_sha": "21a1b4d69e5a19925ad512caa3436f90548d8fbe",
+      "sha256": "4fc6357e4f7a7d2ce97a91c05f34e751ef04135b476d00d7b8a19a0a125f3e83",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        17,
+        120,
+        110
+      ]
+    },
+    {
+      "path": "assets/characters/dog/01.png",
+      "git_blob_sha": "1a40fad248473f9d3cd45bd000b454d4487a4762",
+      "sha256": "0b4fbe1b5d39e7d3de9df99abf177613a11cdd727274e52dbf2b6d802961419e",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        31,
+        81,
+        97,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dog/02.png",
+      "git_blob_sha": "b307fdecf30f0b930513cd22597cab88b48d2d93",
+      "sha256": "7e8f25a1006e957a4f7d12ab0199f480f6f0121d2eed09542ee30735ce0dcfc2",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        27,
+        40,
+        100,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dog/03.png",
+      "git_blob_sha": "932da9c2379f687eda7d0b71d306deedf50e4cbd",
+      "sha256": "539fb6b30e43d39c7e08b4f48ac07aed8b431748ecd6aadb923559f96334a472",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        21,
+        29,
+        106,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dog/04.png",
+      "git_blob_sha": "8ddd04f3dce8431f65e6405544aa8642128bad53",
+      "sha256": "2a30a664493e6e6e4ad6539255a75381cd86f0f35acb4d8c6bc80b85de31abe7",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        11,
+        14,
+        116,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dog/05.png",
+      "git_blob_sha": "029085964b10de856f8152ba4c94a86ac82c8ebc",
+      "sha256": "5176f315bf90341b3a0354c13f11f5d1ca7e3813b33893518fae094a4adc96f7",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        15,
+        12,
+        113,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dog/06.png",
+      "git_blob_sha": "40b97aee35a8dbdfa49490e78a9229967f5227c3",
+      "sha256": "377669ea5b91689dbbb85ace4e19a93fd44aa07e0f0e289b9c1b0d080de40d20",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        16,
+        8,
+        112,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dog/07.png",
+      "git_blob_sha": "e59914dace6239f0692104123741196d59e0934a",
+      "sha256": "21a1af296e0e9ebd530db0ad7e8e500f0bba5daefd83a18f184ffab77741cded",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        22,
+        14,
+        105,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/dog/08.png",
+      "git_blob_sha": "618a13a464fd665d04e2e559ba1c154c1794f4d7",
+      "sha256": "5d944d8e799dc3702f1f2e155264e9a56f581b2c28d1c3bd22ce3396d284a62f",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        13,
+        28,
+        115,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/frog/01.png",
+      "git_blob_sha": "6e78d662c1218a90cd9b717d2e3f4d57c1dff42a",
+      "sha256": "db197004b609bb0f93f273135968de0deff0d6993b02ee94dbd3eb010147ff7f",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        32,
+        45,
+        96,
+        83
+      ]
+    },
+    {
+      "path": "assets/characters/frog/02.png",
+      "git_blob_sha": "fab2f724e21e2fdc773cc2474310f65237418766",
+      "sha256": "af8c08619432eb34e8f8a3fb1213e13bb17582b3e1734ba6692101833dc96952",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        22,
+        47,
+        106,
+        81
+      ]
+    },
+    {
+      "path": "assets/characters/frog/03.png",
+      "git_blob_sha": "48922f97aec46a9407b0b1c1fe16bd67763010ef",
+      "sha256": "5c0a95b75490414289cffb6902a31378f40e2a1b0c232dbcfcdbfa536de8d1b7",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        16,
+        40,
+        112,
+        87
+      ]
+    },
+    {
+      "path": "assets/characters/frog/04.png",
+      "git_blob_sha": "282438baefce144b39d85092b6e0852ec2097cb5",
+      "sha256": "7a553a48da43cccbd82a7a0b34ce7b685c0bad3e299ac0d879527c758c202571",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        10,
+        68,
+        118,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/frog/05.png",
+      "git_blob_sha": "573ba3fb038b1443c5f6fed56bbae838bd454469",
+      "sha256": "ea712f67c95fd017e39a6bf751440cdb8c37a558d77ab1e3315fcb0aa5c40ebf",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        25,
+        50,
+        103,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/frog/06.png",
+      "git_blob_sha": "4f8f25d532bffc76730d35681b8d16faafe3a607",
+      "sha256": "06704d5b03eb541b45c50896c6460740b3fcf89e772d16c1da2d0157ad3cfcf0",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        16,
+        44,
+        112,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/frog/07.png",
+      "git_blob_sha": "9dbdbb092ba88acbf7bc9c5bce44f38cb4c305fb",
+      "sha256": "2d6325b799c26cfbb1da78d51c052aa8eac50b62be58eb90b90f63f3f15da28b",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        16,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/frog/08.png",
+      "git_blob_sha": "ad381f1018b512c4126f1ad7411a3477406834f3",
+      "sha256": "92da93f109a6e69843bec823895b10720ace19f471baabfceef5c65b71659264",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        8,
+        24,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/god/03.png",
+      "git_blob_sha": "f5d97d5f773bfc3279797fcbfc97c452e9e79db5",
+      "sha256": "68184e0b5f36156281403e1100569088b620f570991319b5daa12216596e39a7",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        29,
+        22,
+        99,
+        106
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/01.png",
+      "git_blob_sha": "444feb065b2f1af024d1b5d0f733ee3819af5481",
+      "sha256": "1e3c09920dc8edb3f7d6cf107a67c883bf3948d2f1934f777142dd5733111b8e",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        36,
+        56,
+        92,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/02.png",
+      "git_blob_sha": "d0bca630bd396c107a289fcd7ce77811ab47824f",
+      "sha256": "94a64c31f5554661704315e01bb0bb9450e6bac405bc538f3c90ca630bcbe104",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        28,
+        40,
+        99,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/03.png",
+      "git_blob_sha": "5e32293d36f03ffbfbb7d4fcbb615240f3723451",
+      "sha256": "135c59c912ca9870f3113b4b35d40bca5d35980a418f84d27fe57a83ead842b6",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        25,
+        28,
+        102,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/04.png",
+      "git_blob_sha": "909cfc533768a3b26ef338467c9d67e3191abdfd",
+      "sha256": "826a374b27a0741e12e6e1d4d15eef4b614a230f0c658009aea942bdb071adba",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        27,
+        18,
+        101,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/05.png",
+      "git_blob_sha": "ccf7bf6e3f164d5c594c3ee46f793a5631bfcd14",
+      "sha256": "ff18675618304f5e2429ff85578302c6b04fe97e47109379bd72f2dc5f5226a1",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        29,
+        16,
+        99,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/06.png",
+      "git_blob_sha": "5c9018f07deb0c20bd211dcd128b88af7d48a0df",
+      "sha256": "444e6fa64916da93dd5c5a7fc5c20ebbe63f688bc28b237432199829ac8cd610",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        18,
+        8,
+        110,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/07.png",
+      "git_blob_sha": "fbc59b4d672660c916fd86a5ed24929531cdd055",
+      "sha256": "f35e007ac80eaa8914a5356abc826267d6f7102ac98229f8c92f5f79198d203d",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        23,
+        10,
+        105,
+        120
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/08.png",
+      "git_blob_sha": "bff7a1f7f56f6a18e2a85ad526a333f184faa9f5",
+      "sha256": "d7cc3627e011384258d6b6e47bf1cb646b308eddfa843096b9fc2182e05c6577",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        22,
+        14,
+        105,
+        120
+      ]
+    }
+  ]
+}

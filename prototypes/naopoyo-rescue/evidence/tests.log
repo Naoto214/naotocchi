@@ -1,0 +1,36 @@
+✔ equal merge preserves id and mass (1.488622ms)
+✔ unequal, other species and max level collide (0.25678ms)
+✔ split puts second child in previous cell (0.821645ms)
+✔ exit rejects wrong stage and records rescued mass (0.345822ms)
+✔ gate opens without consuming actor (0.226345ms)
+✔ fall merges, stops on floor and preserves mass (0.35827ms)
+✔ unsupported upward movement is rejected (0.217161ms)
+✔ fall through spike splits then settles (0.242649ms)
+✔ 07 merges to 08, 01 spike passes, wrong species gate blocks (0.305052ms)
+✔ walls stop fast path without teleporting (1.096422ms)
+✔ gravity rescues into matching exit and stops at blocking actor (0.43937ms)
+✔ deterministic mixed actions preserve mass and bounded occupancy (17.288327ms)
+✔ fast swipe expands every crossed cell (1.187456ms)
+✔ diagonal route stays orthogonal and bounded (0.334495ms)
+✔ save restores state and undo (0.756599ms)
+✔ corrupt and tampered saves rejected (0.242839ms)
+✔ string index and nonboolean gate open are rejected (0.339883ms)
+✔ actors cannot restore on exits or closed gates (0.246855ms)
+✔ solution 01: はじめての救出 (2.349095ms)
+✔ solution 02: ふたりで、ひとつ (1.564323ms)
+✔ solution 03: ぷにっと連続合体 (0.228908ms)
+✔ solution 04: とげで、ふたりに (0.317149ms)
+✔ solution 05: もう一度、ひとつに (0.277881ms)
+✔ solution 06: 小さな抜け道 (0.232494ms)
+✔ solution 07: 番人の約束 (0.815495ms)
+✔ solution 08: それぞれの帰り道 (0.514801ms)
+✔ solution 09: なかまの階段 (2.269406ms)
+✔ solution 10: みんなで帰ろう (0.619467ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 125.24446

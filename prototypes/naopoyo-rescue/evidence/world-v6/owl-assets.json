@@ -1,0 +1,18 @@
+{
+  "normal": "assets/characters/companions/owl.png",
+  "positive": "assets/characters/relationship/owl/positive.png",
+  "rejected_candidate": {
+    "path": "assets/characters/relationship/owl/lonely.png",
+    "reason": "lonely is sad, not mildly sulky"
+  },
+  "sulky": "prototypes/naopoyo-rescue/assets/owl-sulky-v1.png",
+  "sha256": {
+    "assets/characters/companions/owl.png": "943c2809d0394bc8b155e68eb8c701797530813de6bc4209166089fb78ad7a61",
+    "assets/characters/relationship/owl/positive.png": "eb23932210414f34b46fa6bfe16f0ca3d5adaa1de8bc9adb53d5cb0c4d8e2960",
+    "assets/characters/relationship/owl/lonely.png": "2f6e7bc55b06e441fb07f45ad443e974b8fbf237f9306ad7a3c8f339505061ab",
+    "prototypes/naopoyo-rescue/assets/owl-sulky-v1.png": "89157c43cc1fa7afbc13a1ee363af31200ba159085bbaac3ad6c47e540f75549"
+  },
+  "generator": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit. Asset type: tiny pixel-art owl guardian sprite for Naotocchi game. Edit target: official assets/characters/companions/owl.png. Preserve exact owl full-body front-facing pose, silhouette, feather shapes, palette, proportions, feet, ear tufts, pixel-art style and transparent background. Change ONLY expression: mildly sulky, cute little hmph, not yet face, half-lidded eyes with gently lowered inner brows, small closed beak. Friendly gatekeeper, not angry enemy. No tears, no sad raised inner brows, no threatening glare, no symbols, accessories, gate, or text. Single owl on transparency, whole body visible. Keep framing and identity as closely as possible.",
+  "status": "rescue-only additional trial expression; official originals untouched"
+}
