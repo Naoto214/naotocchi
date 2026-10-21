@@ -1,0 +1,124 @@
+{
+ "schema": "fixed400_first_date_provenance_e2e.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "source_commit": "f74b3a898aa8332107c2e3ceeb7f5b27249abd27",
+ "rows": [
+  {
+   "match_id": "group-009-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "steps": 91
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 232,
+    "record_sha256": "f2f8b9acb0909ce6b5d4cb8391b1c32efa46cbf4250d3b78953661b945271c17"
+   }
+  },
+  {
+   "match_id": "group-007-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "steps": 184
+   },
+   "after": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "incarnation metadata registry absent or ambiguous",
+     "phase": "response_window"
+    },
+    "steps": 240,
+    "record_sha256": "0daab4c47bcf9ebd1b0e9451dc53ef24e980a925faf3a71694c0f3b6093af866"
+   }
+  },
+  {
+   "match_id": "group-009-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "steps": 122
+   },
+   "after": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "response_window"
+    },
+    "steps": 149,
+    "record_sha256": "e7115706e11cd49622bf638efd2d37a26b1d03dcbe065ad2cf5500234d6e41f1"
+   }
+  },
+  {
+   "match_id": "group-011-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "steps": 169
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 206,
+    "record_sha256": "e3e4d516df255b0852fa546561f109c5e0312867200113496f55335a7352eaae"
+   }
+  },
+  {
+   "match_id": "group-011-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "steps": 152
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 223,
+    "record_sha256": "b88318a936520325fa0da5b2229a048c4c4a9f93a0c1d0199c524fa9ec3bc33a"
+   }
+  },
+  {
+   "match_id": "group-015-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "steps": 141
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 244,
+    "record_sha256": "2be730275ae7e25b16389205590c40bff3674d305d90e9943815362d6182c2b6"
+   }
+  }
+ ]
+}
