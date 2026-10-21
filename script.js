@@ -17708,7 +17708,7 @@
       const btn = e.target.closest('.theme-swatch');
       if (!btn || !GAME_LENGTH_CHOICES[btn.dataset.id]) return;
       state.lifetime.minigameLength = btn.dataset.id; saveState(); renderEnvironment();
-      setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（90秒以上の制限時間を60%にする）' : '⏱️ゲームのながさを「ふつう」にした');
+      setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（20秒以上の制限時間を70%にする）' : '⏱️ゲームのながさを「ふつう」にした');
     });
     el.difficultyModeGrid.addEventListener('click', (e) => {
       const btn = e.target.closest('.theme-swatch');
