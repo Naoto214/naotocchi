@@ -65,6 +65,7 @@ export function drawTerrain(c,s){
 export function drawGravity(c,s){
  if(!s.gravity)return;
  c.save();c.globalAlpha=.22;c.fillStyle='#fff5d9';
- c.textAlign='center';c.textBaseline='middle';c.font='bold 3.8px sans-serif';
- c.fillText('↓',s.w/2,s.h/2-.15);c.restore();
+ c.textAlign='center';c.textBaseline='middle';c.font='bold 1.7px sans-serif';
+ // Stage 09: a fixed clear patch right of the staircase, never actor-dependent.
+ c.fillText('↓',6.5,3.5,.85);c.restore();
 }

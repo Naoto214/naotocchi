@@ -41,9 +41,10 @@ class NaopoyoPublicationTests(unittest.TestCase):
             self.assertFalse(p['source'].startswith(LEGACY))
 
     def test_no_save_migration_or_legacy_reset_is_introduced(self):
-        # Exact approved v8 store contract: release routing must not change it.
+        # Reviewed v1 store: only exact pre-clearance terrain is additionally accepted.
+        # gate-diagonal.test.mjs verifies actors/history/schema are unchanged.
         source = ROOT / 'prototypes/naopoyo-rescue/store.mjs'
-        self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), '683b64a764eabf4ca59009268a25b74dc2991995b3f822725bc42a95f02e1432')
+        self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), 'd9ae9ba74e6b99afeb03f5ce08985d958b21e82008ff3fd97b0b08b896dacb44')
         portal=(ROOT/'prototypes/naopoyo/index.html').read_text()
         self.assertNotIn('localStorage',portal)
         self.assertNotIn('<script',portal)
