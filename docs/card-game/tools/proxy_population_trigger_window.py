@@ -73,6 +73,28 @@ def closed_native(journal,event_seq):
     finally:triggers.board_candidates=original
 
 
+START_ABILITIES=frozenset(('own_start_reveal_companion','own_start_hand_at_most_two_draw'))
+
+
+def arrival_rows(journal):
+    """Ledger restricted to occurrences the start window did not itself raise.
+
+    Inside the turn-start window the start sources are closed by closed_start;
+    a source group that arrived during the window (W-city second card) is owned
+    by the sequential ledger and, once activated/declined/ineligible, must not be
+    reoffered by the ordinary inventory, exactly as in the other window modes.
+    """
+    return dict(journal,occurrences={k:r for k,r in journal['occurrences'].items() if r['occurrence']['ability_key'] not in START_ABILITIES})
+
+
+@contextmanager
+def inventory_closure(mode,journal,event_seq):
+    if mode!='start':
+        with closed_native(journal,event_seq):yield
+        return
+    with closed_start(),closed_native(arrival_rows(journal),event_seq):yield
+
+
 def _step_record(record):
     decision=record['decision'];evaluation=base._evaluate(decision)
     return dict(schema='population_runtime_step_468.v1',source_envelope=record['before_envelope'],decision=decision,
@@ -153,7 +175,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 if c['response_context']['chain_status']=='resolving' and mode in ('start','end'):
                     boundaries[state.canonical_sha256(before)]=dict(kind=mode,turn_player=current_proof['capture']['turn_player'],origin_event_seq=current_proof['origin_event_seq'])
                 return original_forced(before,*args)
-            with closed_start() if mode=='start' else closed_native(current_ledger,e['event_seq']):r=original_step(e,i,history,legacy,full,resolve_or_delegate,supplied_session)
+            with inventory_closure(mode,current_ledger,e['event_seq']):r=original_step(e,i,history,legacy,full,resolve_or_delegate,supplied_session)
             r=compose_response(r,e,history,full)
             if any(event['action_type']=='open_turn_end_triggers' for event in r['events']):
                 # The end window opens its own source group even while an earlier
