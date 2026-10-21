@@ -10,7 +10,7 @@ import { INITIAL_SPECIES } from '../../growth-chain/roster.mjs';
 import { PlayerStore } from '../../growth-chain/player-store.mjs';
 const { JSDOM } = createRequire(import.meta.url)(process.env.JSDOM_PATH || '/tmp/naopoyo-ui-deps/node_modules/jsdom');
 const html = fs.readFileSync(new URL('../player.html', import.meta.url), 'utf8');
-const series = new JSDOM(fs.readFileSync(new URL('../../naopoyo/index.html', import.meta.url), 'utf8')).window.document;
+const series = new JSDOM(fs.readFileSync(new URL('../../naopoyo/legacy.html', import.meta.url), 'utf8')).window.document;
 assert.equal(series.querySelectorAll('.mode-card')[1].getAttribute('href'), '../growth-clear/player.html');
 const KEY = 'naopoyo-growth-clear-phone-v1';
 const old = new OldPlayer(oldSession(214));
