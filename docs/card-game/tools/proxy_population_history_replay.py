@@ -50,6 +50,21 @@ def hand_reaction(event, prior, byseq, history, initial, card):
     return dict(event_seq=event['seq'], kind=event['action_type'], card_id=card, source_reference=cap['reference'], source_raw_sha256=cap['source_raw_sha256'], duration='activation_until_resolution', hand_timing_origin_event_seq=origin_seq)
 
 
+def live_closure(prior):
+    """The inventory closure the live step used for this boundary.
+
+    Inside the turn-start window the runtime enumerates ordinary responses under
+    trigger_window.closed_start (start reveal and start equipment belong to the
+    sequential start group); the frozen inventory alone refuses a turn-start
+    window with start equipment attached. Other windows replay unchanged.
+    """
+    from contextlib import nullcontext
+    if prior['legacy_continuation']['response_context'].get('window_kind') != 'turn_start':
+        return nullcontext()
+    import proxy_population_trigger_window as window
+    return window.closed_start()
+
+
 def quick_verifier(verify_original, initial):
     def verify(events, shots, runtime):
         proofs = verify_original(events, shots, runtime)
@@ -77,13 +92,14 @@ def quick_verifier(verify_original, initial):
             if activation:
                 actor = event['actor']
                 normal = g['phase'] == 'normal_action'
-                chance = None if normal else actions.response_inventory(prior, initial, history)
-                details = quick.batch.candidates.audit(prior, history)['legal_candidate_details'] if normal else chance['legal_candidate_details']
-                a = next((d for d in details if d['candidate_id'] == event['selected_candidate']), None)
-                if a is None:
-                    raise ValueError('historical quick activation absent from complete inventory')
-                record = dict(actor=actor, selected_action=a, selected_candidate=a['candidate_id'], candidate_set_evidence=chance)
-                expected, generated = quick.activate(prior, record, dict(public_events=history), initial, verify_record=False)
+                with live_closure(prior):
+                    chance = None if normal else actions.response_inventory(prior, initial, history)
+                    details = quick.batch.candidates.audit(prior, history)['legal_candidate_details'] if normal else chance['legal_candidate_details']
+                    a = next((d for d in details if d['candidate_id'] == event['selected_candidate']), None)
+                    if a is None:
+                        raise ValueError('historical quick activation absent from complete inventory')
+                    record = dict(actor=actor, selected_action=a, selected_candidate=a['candidate_id'], candidate_set_evidence=chance)
+                    expected, generated = quick.activate(prior, record, dict(public_events=history), initial, verify_record=False)
                 raw = {k: v for k, v in generated[0].items() if k not in end.BIND_KEYS}
             else:
                 if initial is None:
