@@ -26,8 +26,9 @@ test('exchange handler supplies 10 experiences with four companions and 15 with 
 });
 test('real completed B games supply natural-only perseverance, without A/S or permanent-best dependency',()=>{
  const h=born(),s=h.api.state();s.lifetime.minigameRecords={};
- for(const g of h.api.games.filter(g=>!g.id.startsWith('quick')).slice(0,6)){s.lifetime.minigameRecords[g.id]={best:100,plays:99};h.api.startMinigame(g);h.api.finishMinigame(55);}
- assert.ok(I.points(s.individuality,'perseverance')>=60);assert.equal(s.partner,null);
+ for(const g of h.api.games.filter(g=>!g.id.startsWith('quick')).slice(0,5)){s.lifetime.minigameRecords[g.id]={best:100,plays:99};h.api.startMinigame(g);h.api.finishMinigame(55);}
+ h.api.startMinigame(h.api.games[0]);h.api.finishMinigame(55);
+ assert.equal(I.points(s.individuality,'perseverance'),60);assert.equal(s.partner,null);
 });
 test('real travel, scenery and encounters reach natural-only wonder/courage without meguru',()=>{
  const h=born(),s=h.api.state();
