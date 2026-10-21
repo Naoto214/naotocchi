@@ -1,6 +1,6 @@
 # Conversation Director v1 — 詳細設計とテスト計画(2026-10-12)
 
-- 状態: **設計のみ。未実装。** 実装は人間の承認後に行う。
+- 状態: **2026-10-21 承認・実装済み(§12)。** Draft PR・本人の実機確認待ち。
 - 前提資料: [既存会話監査](../audit/existing-conversation-audit-2026-10-03.md) / [Phase 1 記録](../qa/conversation-hygiene-2026-10-12.md)
 - 対象コード(監査時点からの確認済み): script.js の `pickConversationLine` / `pickCharacterConversationLine` / `recentConversationLines` / `speakEvent` / `playConversationBeats` / `setSpeechBubble` / `scheduleIdleGreeting` / `pickReaction` / `pickMemoryGreeting`
 - 検証ツール: `tools/conversation-sim.cjs`(本ブランチで追加。ゲームの挙動は変えない)
@@ -349,3 +349,28 @@ v1 で rare として扱うもの(本文は既存):
 5. 保存(案 A)と reload シナリオ。
 6. 頻度(§5、承認された案のみ)。pace シナリオ。
 7. 各段で `npm test` 全体と sim の結果を `docs/qa/conversation-director-v1-<date>.md` に記録。
+
+---
+
+## 12. 実装結果(2026-10-21、承認後に実装)
+
+状態: **実装済み・Draft PR・本人の実機確認待ち**(main 未マージ)。記録: [docs/qa/conversation-director-v1-2026-10-21.md](../qa/conversation-director-v1-2026-10-21.md)
+
+§10 の判断(2026-10-21 承認)と実装値:
+
+| # | 採用 | 実装値 |
+|---|---|---|
+| Q1 | A 別キー | `naotocchi-conversation-v1`(本文は保存せず FNV-1a 8 桁、最大 512 行 + 話者・family・思い出・rare、10KB 未満)。30 秒ごと・`visibilitychange` hidden・`pagehide` で保存。`doWipe` で消去 |
+| Q2 | 適応型(放置 12〜24 秒) | 操作直後 3 分は従来と同じ 5.2〜9.0 秒(他レーンのタイミング前提を保つ)、2 分かけて 12〜24 秒へ。`pointerdown` / `keydown` / 画面復帰で活発に戻る。`?talkpace=` は QA 用倍率(0.1〜4) |
+| Q3 | 寡黙キャラの汎用を制限(ゼロにしない) | 対象: ワシ・サソリ・ワニ・石像・はこ・ウォッチャー。専用は cooldown 10 分で優先、汎用は 10 分に 1 回・35% |
+| Q4 | 不調時は陽気な会話を半減 | 本人が黙る状態(`deriveHomeEmotion` が normal 以外)の放置ターンでは、訪問者の発話をそのターンごと 50% で見送る |
+| Q5 | sodachi の上書き | 現行どおり(操作の会話が勝つ)。表示時記録により、見えなかった sodachi の台詞は履歴を消費しない |
+| Q6 | 思い出 約 10% | 抽選 12%、同じ出来事 6 分、「もう○さいかぁ」1 歳 1 回、rare 間隔 45 秒 → 思い出 3 件の人生で実効 7.8% |
+| Q7 | family 6 組のみ | §4.2 の 6 組 |
+
+設計からの変更点:
+- `T_FAMILY` 5 分・`W_LINES` 48・`T_LINE` 15 分・`T_RECOVER` 60 分・`T_OWN` 20 分は設計どおり。`T_RARE_GAP` は設計の 3 分では思い出が約 3% まで下がるため **45 秒**、`T_RARE_EVENT` は 30 分 → **6 分**(思い出 3 件の人生でも約 1 割に届くように)。
+- 本人が不調のときの半減は「訪問者ごと」ではなく「ターンごと」に判定する(訪問者が複数いると、ごとに判定すると半減にならないため)。
+- 放置の話者は「選ばれた話者が言えなければ次の話者へ」(寡黙キャラが黙る・自由生活の initiative が拒否したとき、無言にせず本人などへ回す)。
+- **main の自由生活(#382)では、訪問中のこいびと・なかまの放置発話がほぼすべて initiative に拒否される**(記録 §3)。Director はこれを変えない。
+- meguru.js は Character 3D / World の保護 hash 対象のため変更しない(§8 のとおり)。
