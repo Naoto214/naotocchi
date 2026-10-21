@@ -74,8 +74,10 @@
 
 - 統合後の `npm test`: **3211 pass / 1 fail**。残りの relationship 系3本は個別に実行し、80 pass / 0 fail。
 - 失敗した1件は `illustration-catalog-test`「unmapped symbols: ★ ♡」。
-  - 本作業の前、main＋Phase 0 docs だけの状態でも同じ1件が失敗していた（ベースラインは 3163 pass / 1 fail）。
-  - main 由来の既存の失敗で、本作業の範囲外なので直していない。
+  - **この作業環境でだけ起きる**: 本作業の前の状態（main 79d59aec＋Phase 0 docs）でも、ローカルでは同じ1件が失敗していた（ベースラインは 3163 pass / 1 fail）。
+  - 一方、GitHub Actions の main（79d59aec、Runtime smoke test run 39548563107）は **3164 pass / 0 fail** で通っている。
+  - ★ と ♡ はどちらも本作業より前からあるコードの文字で、カタログのファイル（display-illustrations.js など）は本作業で変えていない。そのため、`\p{Extended_Pictographic}` の判定など、実行環境の差によるものと見ている。
+  - 最終的な判定は PR の CI で確かめる。
   - この失敗で `npm test` の連鎖が止まるため、最後の relationship 系は別に実行した。
 - 本作業による増減: +48 pass（新しいテスト）、新しい失敗は 0。
 
