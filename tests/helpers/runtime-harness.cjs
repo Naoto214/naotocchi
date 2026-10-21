@@ -223,6 +223,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     NaotocchiEmotionState: require('../../emotion-state.js'),
     NaotocchiPetExpression: require('../../pet-expression.js'),
     NaotocchiRelationshipLife: require('../../relationship-life.js'),
+    NaotocchiConversationDirector: require('../../conversation-director.js'),
     NaotocchiRelationshipExpression: require('../../relationship-expression.js'),
     NaotocchiResidentExpression: require('../../resident-expression.js'),
     NaotocchiExpressionPresentation: require('../../expression-presentation.js'),
