@@ -12,7 +12,7 @@ for(const [i,f]of [{species:'dog',min:2},{species:'fish',exact:1},{species:'peng
 for(const stage of stages){const card=document.createElement('div');card.className='card';const label=document.createElement('p');label.textContent=`${stage.id} ${stage.title} / ${worldNames[stageThemes[stage.id]]}`;const canvas=document.createElement('canvas');canvas.width=336;canvas.height=252;canvas.style.width='336px';const banner=document.createElement('div');banner.className='world-banner';banner.dataset.theme=stageThemes[stage.id];banner.innerHTML='<span class="scenery" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>';card.append(label,banner,canvas);document.querySelector('#worlds').append(card);renderer(canvas)(createState(stage),null,0);}
 let finger=true;
 function compare(){const c=document.querySelector('#dragCompare').getContext('2d');c.clearRect(0,0,336,370);
- for(const [row,species]of ['dog','fish','penguin','frog'].entries())for(const [col,label]of ['A 現行','B 上へ10px'].entries()){
+ for(const [row,species]of ['dog','fish','penguin','frog'].entries())for(const [col,label]of ['A 旧方式','B 標準・上へ10px'].entries()){
  c.save();c.translate(5+col*168,28+row*86);c.fillStyle='#314856';c.font='12px sans-serif';c.fillText(label,4,-8);c.scale(42,42);c.fillStyle='#d6e0dd';c.fillRect(0,0,3.7,1.6);c.strokeStyle='#839e9c';c.lineWidth=.02;
  for(let x=0;x<4;x++)c.strokeRect(x,0,1,1);c.strokeStyle='#a27339';c.beginPath();c.ellipse(1.5,.67,.34,.07,0,0,Math.PI*2);c.stroke();
  const box=actorVisual({x:1,y:0},{w:4,h:2},1.4);if(col===1)box.y-=10/42;
