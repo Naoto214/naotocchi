@@ -1,0 +1,80 @@
+✔ all diagonal orientations cross two rock corners in both directions, regardless of sampling (9.824185ms)
+✔ blocked destinations reject atomically in all eight directions (0.924248ms)
+✔ gate ALL/species/exact/min/max conditions use destination only from all eight sides (1.088932ms)
+✔ destination-only diagonals retain supported gravity ascent and landing (0.337179ms)
+✖ 702721a save 7: terrain, actors, Undo and cleared records round-trip exactly (5.764505ms)
+✖ 702721a save 10: terrain, actors, Undo and cleared records round-trip exactly (0.535192ms)
+✖ 702721a save 12: terrain, actors, Undo and cleared records round-trip exactly (0.338611ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 4
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 129.289361
+
+✖ failing tests:
+
+test at prototypes/naopoyo-rescue/tests/destination-only.test.mjs:57:29
+✖ 702721a save 7: terrain, actors, Undo and cleared records round-trip exactly (5.764505ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(p)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/d4896d10e553/repo/prototypes/naopoyo-rescue/tests/destination-only.test.mjs:61:69)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-rescue/tests/destination-only.test.mjs:57:29
+✖ 702721a save 10: terrain, actors, Undo and cleared records round-trip exactly (0.535192ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(p)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/d4896d10e553/repo/prototypes/naopoyo-rescue/tests/destination-only.test.mjs:61:69)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-rescue/tests/destination-only.test.mjs:57:29
+✖ 702721a save 12: terrain, actors, Undo and cleared records round-trip exactly (0.338611ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(p)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/d4896d10e553/repo/prototypes/naopoyo-rescue/tests/destination-only.test.mjs:61:69)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

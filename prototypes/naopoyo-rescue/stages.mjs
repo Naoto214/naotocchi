@@ -1,6 +1,8 @@
 const a=(id,x,y,level=1,species='dog')=>({id,x,y,level,species});
 const base=(id,title,lesson,actors,extra={})=>({id:String(id).padStart(2,'0'),title,lesson,w:8,h:6,walls:[],exits:[{x:6,y:2}],spikes:[],gates:[],actors,...extra});
 const fence=[0,1,3,4,5].map(y=>[3,y]);
+// Destination-only eight-way movement needs a continuous boundary-to-boundary
+// wall column. Only gate cells interrupt it; diagonal corner crossing stays legal.
 export const stages=[
 base(1,'ひかりの牢屋','星の出口へ、指でなぞって脱出しよう。',[a('a',1,2)],{walls:[...Array.from({length:8},(_,x)=>[x,0]),...Array.from({length:8},(_,x)=>[x,5]),...[1,2,3,4].flatMap(y=>[[0,y],[7,y]])]}),
 base(2,'ふたりで、ひとつ','同じ種族・同じ段階の2体で、ひとつ上へ。',[a('a',1,2),a('b',3,2)],{exits:[{x:6,y:2,exact:2}]}),

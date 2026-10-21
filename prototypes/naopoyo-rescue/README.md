@@ -9,3 +9,5 @@
 テスト: `node --test prototypes/naopoyo-rescue/tests/*.test.mjs`
 
 正式採用・公開はRELEASE-20261021.mdを参照。過去の各REPORT/PLANは当時の記録として保持。
+
+現行ルールは[SPEC.md](SPEC.md)。8方向とも移動先だけで判定し、岩の角の斜め通過を許可する。今回の地形・保存互換性・検証は[DESTINATION-ONLY-20261022.md](DESTINATION-ONLY-20261022.md)を参照。
