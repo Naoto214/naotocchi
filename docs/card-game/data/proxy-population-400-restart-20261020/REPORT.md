@@ -114,7 +114,7 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 | `76ed5b0b` | historical quick activation | 手札timing経路（`source_zone:'hand'`、`trigger_origin_event_seq`=相手のバッティング）で発動したG-air-hockeyは、設計上priority actorの通常在庫に無い。実origin遷移の `hand_timing.capture` と条件付き再実行監査を再利用して証明。origin遷移が履歴に無い・origin偽造・候補不在・差分改変は停止 | 2 | 46 PASS | 013-B・016-B 完走（work12） |
 | `b3750727` | trigger ledger例外 | 到着群が開いたまま turn_end 境界に達すると（014-A：76でC-bat不適格閉鎖→両者pass→81 `open_turn_end_triggers`）、active経路が終了窓の自群観測を行わず、M-beetle-02 `own_turn_end` が観測・提示されずに `current predicate coverage incomplete` で停止、さらに部分segmentの網羅監査が `saved trigger ledger differs` でその停止を覆い隠していた。active経路も非active経路と同じ観測へ渡し、停止済みsegmentの監査失敗は停止理由を併記 | 1 | 41 PASS | 014-A 完走（work12、開始窓閉鎖と併せて） |
 | `0a1f2edd` | closed-group source reoffered | turn-start窓は `closed_start`（C-chicken・開始装備）だけで通常在庫を閉じていたため、窓内の手札プレイで生じ逐次stepで辞退されたW-city第2プレイ群の発動源が通常候補として再提示され、閉鎖監査が正しく停止していた（012-B 243..247、014-A 191..194）。到着群・終了群と同じ `closed_native` を開始窓の到着行にも適用（開始行は従来どおり、pending行は閉じない） | 1 | 46 PASS | 014-A 完走、012-B は次区分（equipment start adapter）へ進み `93281ed2` で修復中 |
-| `93281ed2` | equipment start adapter | 開始窓内の手札quick発動の履歴再生が凍結在庫だけで再列挙していたため、I-bowtieを準備済みの開始窓で凍結在庫自身が `equipment start activation/resolution adapter unavailable` を出していた（012-B、253後のturn_end検証）。実stepと同じ `closed_start` の下で再列挙・再発動（turn-start境界のみ） | 1 | 32 PASS | work13 再実行中（012-B） |
+| `93281ed2` | equipment start adapter | 開始窓内の手札quick発動の履歴再生が凍結在庫だけで再列挙していたため、I-bowtieを準備済みの開始窓で凍結在庫自身が `equipment start activation/resolution adapter unavailable` を出していた（012-B、253後のturn_end検証）。実stepと同じ `closed_start` の下で再列挙・再発動（turn-start境界のみ） | 1 | 32 PASS | 012-B 完走（work13） |
 
 完走済み対照行（group-001-A/003-B 等）は、修正前後で決定・イベント骨格・最終盤面が一致する（`play_digest`）。record全体のSHA-256はeditionとsource_versionsを含むため版間で一致しないが、これは証明情報の追加で、対局内容の変化ではない。
 
