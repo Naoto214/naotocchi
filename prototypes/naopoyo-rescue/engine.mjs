@@ -1,3 +1,5 @@
+const passageEvents=new WeakMap();
+export const gatePassages=s=>passageEvents.get(s)||new Map();
 import { matchesCondition } from './conditions.mjs';
 export const clone=v=>JSON.parse(JSON.stringify(v));
 export const mass=s=>s.rescued+s.actors.reduce((n,a)=>n+2**(a.level-1),0);
@@ -5,19 +7,22 @@ export const complete=s=>s.actors.length===0&&s.gates.every(g=>!g.required||g.op
 export function createState(stage){return {...clone(stage),rescued:0,nextId:1,moves:0};}
 const at=(list,x,y)=>list.find(a=>a.x===x&&a.y===y);
 const wall=(s,x,y)=>x<0||x>=s.w||y<0||y>=s.h||s.walls.some(p=>p[0]===x&&p[1]===y);
-const support=(s,x,y)=>wall(s,x,y)||!!at(s.actors,x,y)||s.gates.some(g=>g.x===x&&g.y===y&&!g.open);
+const support=(s,x,y,a)=>wall(s,x,y)||!!at(s.actors,x,y)||s.gates.some(g=>g.x===x&&g.y===y&&!matchesCondition(a,g));
 export function move(s,id,dx,dy,fall=false){
- const a=s.actors.find(a=>a.id===id); if(!a||Math.abs(dx)+Math.abs(dy)!==1)return false;
+ const a=s.actors.find(a=>a.id===id); if(!a||!Number.isInteger(dx)||!Number.isInteger(dy)||Math.max(Math.abs(dx),Math.abs(dy))!==1)return false;
  const x=a.x+dx,y=a.y+dy;
  if(wall(s,x,y))return false;
- if(s.gravity&&!fall&&dy<0&&(!support(s,a.x,a.y+1)||!(support(s,a.x-1,a.y)||support(s,a.x+1,a.y))))return false;
+ // A diagonal sweeps both adjacent edges. Actors can serve as steps; solid terrain cannot.
+ const solid=(px,py)=>wall(s,px,py)||s.gates.some(g=>g.x===px&&g.y===py&&!matchesCondition(a,g));
+ if(dx&&dy&&(solid(a.x+dx,a.y)||solid(a.x,a.y+dy)))return false;
+ if(s.gravity&&!fall&&dy<0&&(!support(s,a.x,a.y+1,a)||!(support(s,a.x-1,a.y,a)||support(s,a.x+1,a.y,a))))return false;
  const target=at(s.actors,x,y),gate=at(s.gates,x,y),exit=at(s.exits,x,y);
  if(target&&(target.species!==a.species||target.level!==a.level||a.level>=8))return false;
  const prospective={...a,level:a.level+(target?1:0)};
- if(gate&&!gate.open&&!matchesCondition(prospective,gate)||exit&&!matchesCondition(prospective,exit))return false;
+ if(gate&&!matchesCondition(a,gate)||exit&&!matchesCondition(prospective,exit))return false;
  const prev={x:a.x,y:a.y};
  if(target){s.actors=s.actors.filter(v=>v.id!==target.id);a.level++;}
- a.x=x;a.y=y; if(gate)gate.open=true;
+ a.x=x;a.y=y; if(gate){gate.open=true;const events=gatePassages(s),key=`${x},${y}`;events.set(key,(events.get(key)||0)+1);passageEvents.set(s,events);}
  if(exit){s.rescued+=2**(a.level-1);s.actors=s.actors.filter(v=>v.id!==id);}
  else if(s.spikes.some(p=>p[0]===x&&p[1]===y)&&a.level>1){
   a.level--;let childId;do{childId=`child${s.nextId++}`}while(s.actors.some(v=>v.id===childId));
@@ -46,4 +51,5 @@ export function validState(stage,s){
  return mass(s)===mass(createState(stage));
  }catch{return false}
 }
+
 

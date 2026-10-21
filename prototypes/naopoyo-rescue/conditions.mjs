@@ -6,9 +6,10 @@ export function matchesCondition(actor, condition) {
     && (condition.max === undefined || actor.level <= condition.max);
 }
 export function conditionLabel(condition) {
-  const digits = value => String(value).padStart(2, '0');
+  const digits = value => String(value);
   if (condition.exact !== undefined) return `=${digits(condition.exact)}`;
   if (condition.min !== undefined) return `≥${digits(condition.min)}`;
   if (condition.max !== undefined) return `≤${digits(condition.max)}`;
   return 'ALL';
 }
+

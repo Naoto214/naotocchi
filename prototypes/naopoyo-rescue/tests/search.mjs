@@ -12,7 +12,7 @@ export function search(stage,{sealed=false,limit=100000}={}){
   const s=queue[at];maxRescued=Math.max(maxRescued,s.rescued);
   if(!s.actors.length)return {status:'solved',visited:seen.size,maxRescued};
   const next=[];
-  for(const a of s.actors)for(const [dx,dy]of [[1,0],[-1,0],[0,1],[0,-1]]){
+  for(const a of s.actors)for(const [dx,dy]of [[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]){
    const t=clone(s);if(move(t,a.id,dx,dy))next.push(t);
   }
   const dropped=clone(s);if(release(dropped))next.push(dropped);
@@ -25,3 +25,4 @@ export function search(stage,{sealed=false,limit=100000}={}){
  }
  return {status:'exhausted',visited:seen.size,maxRescued};
 }
+
