@@ -1,0 +1,104 @@
+test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) ... 
+  test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='cost') ... FAIL
+  test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='missing') ... FAIL
+  test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='overlap') ... FAIL
+  test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='identity') ... FAIL
+test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) ... FAIL
+test_actual_entry_rejects_partial_frontier_payment_tampering (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_partial_frontier_payment_tampering) ... FAIL
+
+======================================================================
+FAIL: test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='cost')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 24, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit_normal(e,h,bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 24, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit_normal(e,h,bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='overlap')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 24, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit_normal(e,h,bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns) (mode='identity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 24, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit_normal(e,h,bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns (test_proxy_population_payment_operands.PaymentOperandTests.test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 32, in test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns
+    self.run_scoped(run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 11, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 124, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 123, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 26, in run
+    self.assertTrue(proof['applicable']);self.assertTrue(proof['supported_payment_operands_verified']);self.assertEqual(proof['errors'],[])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_actual_entry_rejects_partial_frontier_payment_tampering (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_partial_frontier_payment_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 45, in test_actual_entry_rejects_partial_frontier_payment_tampering
+    with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 124, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 123, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_payment_operands.py", line 43, in run
+    with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.194s
+
+FAILED (failures=6)

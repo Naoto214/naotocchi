@@ -1,0 +1,14 @@
+..F
+======================================================================
+FAIL: test_normal_declaration_observes_partner_and_continues_comparison (__main__.ChallengeWindowTests.test_normal_declaration_observes_partner_and_continues_comparison)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_challenge_window.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(api,'challenge sequential connection absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : challenge sequential connection absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.380s
+
+FAILED (failures=1)

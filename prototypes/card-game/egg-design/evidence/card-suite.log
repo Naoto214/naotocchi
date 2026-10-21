@@ -1,0 +1,492 @@
+✔ complete snapshot survives original changes and ignores used state (3.502397ms)
+✔ limits independent and latest copy only (0.945173ms)
+✔ turn expiry and changed generation exclude copied text (1.587236ms)
+✔ copied trigger waits for a future event (0.326687ms)
+✔ missing activation contract fails closed (0.454522ms)
+✔ departure without generation increment prevents both receipt and access (8.027926ms)
+✔ this-name scope follows copier while literal names remain intact (0.508197ms)
+✔ approved soft design is global for every face, not a study opt-in (2.992844ms)
+✔ cost ink cannot inherit a white heading color (0.745551ms)
+✔ all 452 faces preserve formal colors, marks, and unique dedicated art at both resolutions (901.974078ms)
+✔ hidden cards retain the blue-silver back without front content (0.356464ms)
+✔ seven explicit source descriptors (1.519141ms)
+✔ actual transfer preserves physical identity and emits only attached (2.559427ms)
+✔ legality rejects main-only equipment on companion and same target (0.651369ms)
+✔ leave-return generation invalidates equipment and destination (0.45765ms)
+✔ original attachment continuity invalidates changed target and changed attachedAt (0.528003ms)
+✔ captured original main binds even if source departed; replacement is never selected (0.35809ms)
+✔ cake tests immediate old remaining equipment after transfer (0.305299ms)
+✔ push revalidates destination unequipped at resolution and no bonus after failed transfer (0.234845ms)
+✔ unknown op is unhandled (0.386534ms)
+✔ module exposes complete ten-card descriptors (3.053271ms)
+✔ blackjack stops into hand but duplicate types force bottom ordering (3.390311ms)
+✔ voxel can skip items, stop or take and caps five reveals (1.255085ms)
+✔ yacht swaps only candidates and caps swaps at two (0.449909ms)
+✔ road and roguelike give opponent the explicit public choice (0.762506ms)
+✔ partial decks perform mandatory picks and preserve original remainder order choice (0.403922ms)
+✔ fruit slice discards at most two play cards and queues growth (0.859263ms)
+✔ snake reveals selected hand cards then opponent keeps one (0.791549ms)
+✔ minesweeper respects face-up opponent target generation and printed cost (1.624302ms)
+✔ fruit growth is queued before remaining-card ordering starts (0.728558ms)
+✖ illustrated CPU boards preserve viewer orientation and hidden art through restore (78.007556ms)
+✔ illustrated history keeps CPU newest-first order and actual result text (13.077104ms)
+✔ both unable: two official passes, no rule mutation, stop at normal action (36.535942ms)
+✔ A only can respond: stop before any pass (9.664932ms)
+✔ B only can respond: skip A and stop at B (18.059492ms)
+✔ both can respond: no pass, then explicit A pass retains B decision (21.250913ms)
+✔ human A pass skips unable B and keeps A viewer without handoff (19.53652ms)
+✔ egg return and birth choice skip passes, stop at trigger and mandatory selection (45.000822ms)
+✔ new post-chain trigger stops without choosing trigger or skip (19.241077ms)
+✔ restore resumes older unresolved passes hidden, reproduces official commands and history (41.302798ms)
+✔ stale human click is rejected after automatic revisions and leaves save unchanged (12.890215ms)
+✔ unknown card or enumeration failure is a stop, never zero responses (11.094002ms)
+✔ official unsupported handler rolls back only the failing automatic command (21.606873ms)
+✔ transition limit preserves last good state; loop guard rejects same semantic state (11.361716ms)
+✔ throwing transition cannot corrupt the input state (4.267337ms)
+✔ unsupported selection contracts stop before mistaking suppressed candidates for no response (44.518058ms)
+✔ supported copied selection stays a human response; changed static capability stops (5.027308ms)
+✔ B-only response is handed over once and concealed until B reveals (7.550715ms)
+✔ same full first-turn commands, fewer human passes and handoffs, exact B normal state (279.118773ms)
+✔ enabled UI completes R10 with active play, preserves replay, hidden handoff and restore history (6762.929333ms)
+✔ legacy save keeps its official replay version through automatic response passes (14.106354ms)
+Traceback (most recent call last):
+  File "/workspace/scratch/6402aa54035b/naotocchi/docs/card-game/tools/check-design-data.py", line 788, in <module>
+    raise ValueError(f"Cannot find current array {name}")
+ValueError: Cannot find current array FUN_ITEMS
+Traceback (most recent call last):
+  File "/workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/build_full_catalog.py", line 96, in <module>
+    content = build()
+              ^^^^^^^
+  File "/workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/build_full_catalog.py", line 35, in build
+    audit = json.loads(subprocess.check_output(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', '/workspace/scratch/6402aa54035b/naotocchi/docs/card-game/tools/check-design-data.py', '--catalog']' returned non-zero exit status 1.
+✔ canonical catalog contains all452 current cards, including explicit vanilla (3.285081ms)
+✔ every source is real, exact text is preserved, and content hashes match (129.306102ms)
+✔ 95/96 current revisions and canonical names survive export (0.525597ms)
+✖ regeneration is deterministic and read-only in check mode (11288.570197ms)
+✔ trap negates a specific action link, leaves paid costs and discards both cards (24.214189ms)
+✔ effect-applied triggers wait until all links resolve, and negated effects never trigger (8.030374ms)
+✔ retarget keeps the original effect target restrictions and changes one field reference (8.063792ms)
+✔ one round ability cannot be activated twice from pending events in one chain (11.478017ms)
+✔ reveal effects emit applied but an empty optional selection does not (11.148406ms)
+✔ empty-deck deepsea still records the applied growth loss (2.467008ms)
+✔ departure ability belongs to the departed incarnation and survives replacement (39.029443ms)
+✔ next challenge reservation applies automatically before challenge trigger conditions (10.981209ms)
+✔ source departure does not cancel a next-win reservation; it fires once (17.14395ms)
+✔ Python oracle: 660 main payment/legality and 48 passive-stat cases (32.779564ms)
+✔ Python oracle: 9 hit/blow exact draw, bottom, growth outcomes (34.813885ms)
+✔ coin, first date and end/start equipment choices remain atomic (30.405583ms)
+✔ LIFO chain suspends for mandatory private choice; no response injection (32.109408ms)
+✔ reincarnated equipment target is not destroyed by an old link (4.480721ms)
+✔ all card instances conserved, placement limits and insufficient time rejected (11.416092ms)
+✔ 100 maintenance excludes current opposing turn and R10 uses final comparison (7.884819ms)
+✔ birth, cat return, full board reward, archery removal and marriage (18.754628ms)
+✔ bowtie starts after normal draw; empty decks do not lose or crash (8.376984ms)
+✔ mandatory reductions and taxes sum before floor and consume at zero (3.797565ms)
+✔ optional beetle choice locks following time skip only when accepted (0.404206ms)
+✔ source generation and turn bind once usage (0.444833ms)
+✔ frog existing world and hermit exact attachment target (0.392831ms)
+✔ first action recognizes prior item/event/play but ignores worlds (0.408928ms)
+✔ all eight explicit descriptors and source-bound locks (0.223899ms)
+✔ travel and home are separate source choices even when costs floor equally (0.307508ms)
+✔ dynamic selectors respect methods, types, partners and start serial (0.396787ms)
+✔ CPU commits three distinct-type costs exactly once and resolves draw (53.14648ms)
+✔ CPU resolves dependent payment and recovery target without cancel loop (23.11552ms)
+✔ CPU handles multiple public targets, resolution selections and hidden search ordering (18.856489ms)
+✔ opaque hidden trap candidates never carry identity-bearing values or targets (6.806774ms)
+✔ CPU action does not supersede the ongoing four-second notification batch (25.442748ms)
+✔ hidden hand, deck order, seed and trap identity do not change CPU observation or decision (31.736517ms)
+✔ CPU preserves affordable birth card during egg return and chooses birth before spending time (4.668668ms)
+✔ CPU avoids losing public-stat challenge and prefers higher winning parameter (7.39508ms)
+✔ all 452 definitions use the same bounded legal candidate interface (1021.690532ms)
+✔ policy rejects unknown difficulty and empty inventory instead of making up commands (1.922057ms)
+✔ growth reduction values denial at cap and does not waste increases at100 (3.553489ms)
+✔ removal selection prefers valuable opponent target and discards expendable own cards (3.603436ms)
+✔ CPU and human both seats complete ten rounds using real commands and hidden opponent hand (3867.215235ms)
+✔ save during CPU choice resumes identically without duplicate and preserves history (4462.879745ms)
+✔ hidden background session cannot execute and resume retains human viewpoint (1.361792ms)
+✔ old hotseat save loads as unchanged hotseat and bad CPU envelope is rejected (3.01105ms)
+✔ unknown policy command stops safely and persisted diagnostic does not restart on restore (2.736682ms)
+✔ scheduler cancels stale callbacks, pauses in background, and performs one committed step per tick (4.258868ms)
+✔ long-press hand gesture pauses CPU from pointerdown through release (4.012744ms)
+✔ repeated cancelled activation stops at a bounded safe boundary without silent pass (31.418038ms)
+✔ human B stays in front and keeps inspectable hand while CPU A operates (10.653584ms)
+✔ CPU workflow has readable history while human actions are absent (2.080677ms)
+✔ human game engine exists (1.644712ms)
+✔ 40 cards, private projection, stale commands and immutable transitions (12.176029ms)
+✔ save replay validates state, commands and restores exact decisions (29.385636ms)
+✔ both human command seats complete R10 with legal cards, choices and chains (650.044105ms)
+✔ projection preserves physical identity for hand selection (1.207837ms)
+✔ custom decks reject unsupported and copy limits; legacy saves remain exact (18.45669ms)
+✔ higher main birth and time skip use stage/difference payments (15.484994ms)
+✔ search requires private selection and explicit bottom ordering (22.334626ms)
+✔ stat changes apply, expire, and disappear after reincarnation (6.027646ms)
+✔ scheduled growth occurs after next own start and survives source departure (33.417823ms)
+✔ facedown trap is not disclosed by board, targeting labels or action IDs (7.207507ms)
+✔ start trap activates once, consumes prepared source and allows response (24.934187ms)
+✔ replacement partner relationship loss and equipment cleanup apply centrally (4.866081ms)
+✔ new custom decks complete R10 and replay exactly after choices (1135.8836ms)
+✔ search reveals only selected cards, never the inspected set (2.843852ms)
+✔ trap setup does not meet face-up play conditions (2.226178ms)
+✔ companion effect enables beach volley only after successful resolution (15.694525ms)
+✔ reversi lasts through challenge end but ends with turn (3.693384ms)
+✔ explicit public searches reveal the inspected set (3.44181ms)
+✔ registered descriptors reference implemented predicates, targets and passive values (64.446118ms)
+✔ activation hand cost is paid atomically before response and cannot be omitted (2.083054ms)
+✔ trigger cost requires both time and hand card at activation (1.77415ms)
+✔ automatic scheduled companion draws do not count as a new ability effect (7.265481ms)
+✔ dex overrides earlier modifiers using printed stats; later modifier adds and expiry restores earlier modifier (31.330455ms)
+✔ dex with no eligible hand main creates no setter and preserves stats (20.383173ms)
+✔ cake reattachment captures refs, preserves growth 80 and triggers receiving hermit (21.88295ms)
+✔ push rejects main-only equipment and permits legal companion transfer with draw (7.848454ms)
+✔ space prevents opponent decrease 5 with fully prevented draw 1 (3.252852ms)
+✔ space prevents opponent decrease 10 with fully prevented draw 0 (5.180098ms)
+✔ space does not prevent own effect decrease (2.086256ms)
+✔ drive protects opponent-effect main removal once even after play source leaves (12.298448ms)
+✔ drive does not protect own removal and protection expires at end (15.552599ms)
+✔ street kick requires payment, cancellation is atomic, then paid kick applies +3 (14.131064ms)
+✔ darts only offers payments with a same-cost opposing equipment target (10.199845ms)
+✔ solitaire requires same-species consecutive stages and draws only after all three move (21.080248ms)
+✔ optional beetle discount locks only accepted time skip (11.323225ms)
+✔ monkey copies beetle08 active despite used source, preserving discard target and source-bound stat (13.486122ms)
+✔ monkey copies woman03 reveal selection and self target without copying original used state (12.77521ms)
+✔ ghost departed incarnation trigger resolves after replacement without moving replacement (4.813596ms)
+✔ trigger payment selection retains the triggering card type through the prompt (3.122932ms)
+✔ copied this-name limit is separate from monkey acquisition and shared by the copied ability (15.004452ms)
+✔ prepared protection automatically prevents a single move without an optional decline (0.880782ms)
+✔ one remaining prepared protection chooses which simultaneous target is protected (6.720288ms)
+✔ 452 release representative deck completes and replays every committed choice exactly (5164.720629ms)
+✔ jintori text, time and method match the immutable official source (1.57816ms)
+✔ jintori can respond to own and opponent ordinary actions; fewer than seven is legal (22.340144ms)
+✔ a passed opportunity returns only after a new opposing link; same physical card cannot be reused (9.07503ms)
+✔ jintori counts the field at resolution, excludes egg and activation; 0/7/8/9 produce 0/10/10/15 (20.036479ms)
+✔ one explicit pass completes an empty response with no duplicate decision in CPU and two-player modes (26.504934ms)
+✔ main menu links to same-origin two-player CARD GAME without replacing existing games (2.211646ms)
+✔ explicit main programs bind canonical main sources without fallback (8.290842ms)
+✔ birth ordering descriptors distinguish reorder from top/bottom choice (1.818973ms)
+✔ higher-stage challenge programs bind exact action-count predicates (0.664838ms)
+✔ cicada search includes complete species and stage bounds with mandatory selection (0.506526ms)
+✔ persistent-world and end-turn requirements remain explicit (0.788323ms)
+✔ new exact family descriptors retain timing, cost-free conditions and source clauses (0.480231ms)
+✔ woman challenge modifier grants one bonus for either person and two for both (0.461055ms)
+✔ world continuity draw captures the selected world instead of this main (0.424935ms)
+✔ opponent action triggers preserve turn, ordinal and repeated method clauses (0.567934ms)
+✔ face-up play families require earlier qualifying plays instead of raw totals (0.999036ms)
+✔ delayed programs schedule exact next-start or same-turn-end effects (0.490458ms)
+✔ butterfly recovery follows successful movement and hermit crab searches methods (2.936854ms)
+✔ one-card activation costs remain separate from effect resolution (0.921944ms)
+✔ numeric time costs are paid for the full canonical dragon triggers (0.419983ms)
+✔ main observers watch any own companion placement with exact costs and targets (2.929811ms)
+✔ multi-card main costs preserve exact counts, destination and distinctness (0.879465ms)
+✔ prepared-card costs apply before targeted recovery or removal (0.901788ms)
+✔ god arrival returns two distinct non-main targets and retains its full activation costs (3.236464ms)
+✔ main result triggers preserve participant and result-specific canonical requirements (0.340765ms)
+✔ plush losing challenge compares its actual result value and draws only after moving hand (0.378219ms)
+✔ received challenge bonuses retain round limits and both-direction bonus shares one trigger (0.261459ms)
+✔ phoenix challenge pays time for a computed-value deficit and printed-stat star target stays distinct (0.623538ms)
+✔ main move replacement scopes, costs and round limits match complete canonical clauses (0.532599ms)
+✔ filtered world and same-type discard payments preserve replacement conditions (0.545231ms)
+✔ hand reveal and staged hand payment are costs while return choices remain targets (0.261391ms)
+✔ normal world-change main abilities require normal hand placement and exact name checks (0.757346ms)
+✔ starfish retrieval checks face-up field type during resolution rather than silently narrowing targets (0.346065ms)
+✔ coral applied-effect observers require abilities and earlier different support types (0.19324ms)
+✔ applied quick card and attached ability observers preserve source and cost contracts (0.2274ms)
+✔ trap applied history supplies opponent-turn passive and end draw exactly (0.214823ms)
+✔ mushroom retrieval filters activation names and rechecks the same name at resolution (1.508731ms)
+✔ clownfish picks its second recovery only during resolution after first return succeeds (0.298568ms)
+✔ mushroom searches retain original inspected cards and exact remainder destinations (0.430481ms)
+✔ man recovery bonus affects its source main and remembers target type instead of moving card stats (0.269954ms)
+✔ declared modal types bind activation constraints while card selections occur during resolution (0.358896ms)
+✔ life charm replacement is a private mandatory choice, consumes charm, preserves main (26.824323ms)
+✔ growth prevention consumes round limit, never prevents own costs (6.496422ms)
+✔ one shared stat-prevention use allows choosing power or wisdom (7.388165ms)
+✔ changed destination is checked against remaining replacement effects (8.452159ms)
+✔ challenge-end reservation runs after challenge stat expiry, including interrupted challenge (32.613024ms)
+✔ automatic jobs use turn owner first and allow each same-owner order choice (6.649406ms)
+✔ a reservation created after challenge interruption cannot attach to the ended event (0.529471ms)
+✔ multi-target selection commits only after both targets, captures generations (34.324258ms)
+✔ multi-hand cost keeps order and is paid exactly once before response (13.658027ms)
+✔ cancel selection preserves cards and cost, stale/forged choice rejected (4.314029ms)
+✔ a field target that leaves for discard is not retrieved from a different zone (5.170776ms)
+✔ removing a challenge participant ends comparison without crash or award (6.272876ms)
+✔ effect ordering is chosen after responses, not in target selection (8.971389ms)
+✔ resolution-time same-type selection uses the hand after responses (12.47132ms)
+✔ dependent cost and target selection rejects dead-end payment types (20.865387ms)
+✔ search follow-up selects from the original inspected remainder (7.572209ms)
+✔ recovery target and source stat target remain separate through resolution choice (4.049334ms)
+✔ five distinct types and unreachable prefixes (4.577059ms)
+✔ same type three, source excluded, metadata untouched (0.628005ms)
+✔ optional count and order; unsupported spec fails closed (0.428853ms)
+✖ 40 physical cards use bounded existence checks (1651.848823ms)
+✔ prepared attachments and printed filters (2.259796ms)
+✔ cross-selection types and canonical-name exclusions (1.278454ms)
+✔ all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art (848.737776ms)
+✔ hidden identity is never read, embedded or requested by art rendering (0.581574ms)
+✖ safe hand, both boards, discard and activation use shared dedicated thumbnails (74.034693ms)
+✔ private draws appear as images only in the owner result notice and history (8.149522ms)
+✔ all card faces apply the approved fourteen classifications and approved SVG geometry (264.440539ms)
+✔ image errors clear request attributes and preserve the existing card box (9.806887ms)
+✔ approved long-copy exceptions apply only to full detail faces (2.21354ms)
+✔ response picker only enables engine candidate sources, including discard and board (388.644481ms)
+✔ automatic UI is concise, has explicit pass, and public history stays collapsed (43.180413ms)
+✔ normal inspection and mandatory choices remain available (10.474516ms)
+✔ deck browsing is count/back only and has no state-changing controls (10.493347ms)
+✔ discard uses actual array order and read-only expansion even during response (2.056999ms)
+✔ activation lists next resolution first, exact sources and a suspended resolving effect (5.375445ms)
+✔ board cards use browsing independently of response legality; hidden cards render back only (2.26982ms)
+✔ read-only detail never selects a target or spends; explicit action link uses exact candidates (3.241716ms)
+✔ all management zones are buttons and resolved activation is history-only (2.809097ms)
+✔ real chain sources remain browsable after leaving hand and resolving choice stays visible (19.552765ms)
+✔ engine-projected face-down preparation stays private to its owner while browsing (2.359525ms)
+✔ irreversible replacement payments require confirmation although they are choose actions (1.347325ms)
+✔ engine-paid reaction requires confirmation even when its label has no cost token (33.69775ms)
+✔ automatic last pick confirms accumulated payment names and survives hide without leaking (31.038292ms)
+✔ selection presentation redacts identities of opponents face-down targets (2.014032ms)
+✔ CPU refresh leaves the visible notice and its ancestor continuously connected (4.37696ms)
+✔ initial render attaches the feedback host once (0.282796ms)
+✔ finished or hidden CPU view keeps human A/B upright without granting a private viewer (7.847107ms)
+✔ both human seats reverse opponent positions only, preserving slot IDs and card taps (5.495105ms)
+✔ opponent management faces the human in either orientation without rotating content (1.11075ms)
+✔ notification frame has no opacity entrance animation to restart between results (0.616527ms)
+✔ egg is a tappable state card only in the empty main slot, in both orientations (8.515973ms)
+✔ egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions (0.798789ms)
+✔ seven declarations require an explicit native choice, with no default main action (148.750535ms)
+✔ each declaration survives confirmation, command, chain and exact hit/miss resolution (981.316519ms)
+✔ CPU observes and chooses from the seven legal declarations without seeing deck order (108.168973ms)
+✔ only the turn owner field is marked, independent of human seat and response actor (36.737181ms)
+✔ field glow lasts 400ms once per turn, never per response, rerender, restore or reduced motion (0.6605ms)
+✔ egg history distinguishes normal and extra draws, return order and actual net hand count (53.436007ms)
+✔ CPU session commits each declaration using the same command and resolution as human play (733.458847ms)
+✔ normal main draws one; egg deck exhaustion follows possible parts, never a return-first redraw (37.872794ms)
+✔ draw annotations do not alter four-second notice content or reveal card identities (2.188149ms)
+✔ egg return history records the committed return even when a reservation immediately redraws it (5.153144ms)
+✔ selected mandatory card offers only its own engine choice, never another card action (23.709925ms)
+✔ court keeps actor-relative seats and current operations with chain collapsed (464.756137ms)
+✔ response workflow exposes engine responses/pass and mandatory workflow cannot skip (6.774754ms)
+✔ long press reorder commits display order only; pan/cancel never commits or opens card (10.516803ms)
+✔ invalid reordered IDs cannot add cards, lose duplicates or alter original hand (0.329958ms)
+✔ old response taps cannot execute after a state transition in CPU or hotseat (306.688465ms)
+✔ a gesture cannot be replayed, retargeted, or survive a render (1.333847ms)
+✔ restore to the same revision, hide, and fresh accessibility activation (170.645189ms)
+✔ held keyboard and browser multi-click cannot end a newly displayed turn (151.113409ms)
+✔ response and end-turn have distinct permanent slots and labels (73.485489ms)
+✔ capture listener blocks stale and retargeted DOM events before the action handler (1.230827ms)
+✔ held Enter is cancelled before native click and a pre-render select gesture is refused (0.573375ms)
+✔ either main opens exact legal challenge choices in both seats and match modes (217.000904ms)
+✔ own partner opens the existing costed relationship action and commits once (82.398893ms)
+✔ no shortcuts for absent candidates, wrong cards, nonacting viewer or hidden cards (16.46956ms)
+✔ mandatory choices still route only their exact choice card and browsing stays read-only (1.519836ms)
+✔ removed egg parking leaves both management columns aligned with the grid (1.300636ms)
+✔ cost badge uses bold high contrast numerals without changing any of 452 values (8.938817ms)
+✔ hand ordering is seat-local, instance-based, persistent and never changes engine save (121.431145ms)
+✔ whole detail card fits Safari reduced viewports and portrait after rotation (0.72104ms)
+✔ mandatory choices work inside card detail; hidden detail exposes no choices or identities (2.244563ms)
+✔ action hints mirror engine destinations and only expose safe choice card IDs (49.414531ms)
+✔ hand presentation highlights selected instance and exposes accessible reorder controls only in reorder mode (4.728599ms)
+✔ all 452 details keep current full text in the independent readable column (26.544326ms)
+✔ UI session completes a match and renders/restores the finished public result (1230.860789ms)
+✔ history retains the whole match and restore reproduces it beyond forty results (2084.191891ms)
+✔ trace-only operations enter history without generating extra result notices (1.736557ms)
+✔ history renders an event once, omits mass pass diagnostics, and escapes text (0.340827ms)
+✔ private identities stay out of public and opposing history projections (1.39958ms)
+✔ history renders newest first without mutating chronological journal and survives replay (49.946546ms)
+✔ turn ownership and response operator stay distinct for either human seat and hotseat (21.566927ms)
+✔ marriage derives from actual transition and reports capped growth, payment, public couple, operator (13.581587ms)
+✔ birth and main growth emphasize the actual card and stats, ordinary effects stay ordinary (69.145014ms)
+✔ history labels the command owner and turn before a turn boundary, no repeated pass-only rows (1.966338ms)
+✔ finished result is public and explicitly states the actual outcome (3.05207ms)
+✔ turn motion only occurs on a real turn change, never on response/render/restore (4.482757ms)
+✔ burst of important events stays in order without timer multiplication (6.928206ms)
+✔ new human input preserves pending important results but hide clears them (0.684307ms)
+✔ R1 hand tap → egg bottom → both response passes → hand tap birth costs exactly time1 (98.186046ms)
+✔ compact notice separates notification from card choices and opens the complete fallback (2.953586ms)
+✔ non-card mandatory choices remain reachable; singleton choices still require a tap (1.42056ms)
+✔ every catalog card renders current text; main-only fields never leak into other categories (23.083447ms)
+✔ hidden cards never look up or embed supplied private identity (0.766234ms)
+✔ board has nine ordered slots, shared preparation, management order and only the visible top state card (9.308108ms)
+✔ null viewer has no private hand or controls, and acting player is the large board (3.237938ms)
+✔ confirmation protects payment/target/final selection without interrupting pass or incremental choices (0.997753ms)
+✔ card names and text are escaped, never interpreted as markup (0.592393ms)
+✔ dedicated compact guidance names current operator and phase; closing result cannot remove guidance (17.400617ms)
+✔ compact card markup omits full-copy/footer and tiny stat labels across all 452 definitions (37.295231ms)
+✔ result overlay is outside flow and anchored to the opponent grid cell without a spacer (1.072333ms)
+✔ a board card needed for current choice opens exact action detail directly; other cards remain browsing-only (3.644172ms)
+✔ portrait board uses its allocated row and results wrap within available width (0.941241ms)
+✔ egg choice names the move and remains pinned until its response window ends (40.027676ms)
+✔ one legal choice is a direct button; no automatic selection or intermediate card picker (3.996591ms)
+✔ birth effect survives trigger, response, hand-bottom choice and restore (38.017423ms)
+✔ card detail exposes pass directly and only selected card actions during response (3.558937ms)
+✔ board has separate persistent opponent own and operation regions; handoff has no effect/private DOM (4.525119ms)
+✔ chain focus follows the latest public effect, then resolving choice; handoff reveals no opponent hand (18.768883ms)
+✔ activation target explains its declared destination without claiming it has already moved (2.743032ms)
+✔ hand responses use the hand only; off-hand legal sources keep a reachable shortcut (32.468517ms)
+✔ CPU read-only inspection does not highlight cards that cannot respond (7.365192ms)
+✔ CPU bursts and automatic-pass history keep the active notice and one four-second timer (5.952727ms)
+✔ re-render after collapse keeps the result reopen control available (0.581917ms)
+✔ same batch plays in revision order without waiting for a game action or duplicating on render (0.948341ms)
+✔ background/handoff drops queued private notices and stale callbacks cannot resurrect them (0.352052ms)
+✔ restore history stays in history; a new command replaces outdated pending notices (0.767428ms)
+✔ notices use four-second timers; manual collapse and replay preserve order without game input (0.617426ms)
+✔ replay icon and retained private payload are erased on handoff/background/reset (0.485666ms)
+✔ default browser timers retain Window receiver for schedule and cancellation (0.636912ms)
+✔ initial cards are a snapshot, egg return and birth draw have exact private identities (61.811669ms)
+✔ growth, time, birth and current stats use exact committed values (20.632829ms)
+✔ automatic chain results preserve command order and actual LIFO log without attributing net changes (16.092001ms)
+✔ restore reconstructs result history, starts concealed and stale clicks add no results (30.618817ms)
+✔ B draw remains hidden through handoff and appears only after B reveal (26.001388ms)
+✔ result notice has only a presentation close control, shows draw art and preserves full history (23.482038ms)
+✔ same-command negation is reported from actual history after links leave the chain (8.330213ms)
+✔ prevention displays its recorded outcome without claiming prevented loss happened (6.650498ms)
+✔ consecutive growth events retain individual actual amounts rather than one net total (8.487539ms)
+✔ actual power and wisdom reductions after prevention match engine stats (4.578326ms)
+✔ result capture is read-only, same-source time skip and discarded card are reported (2.319179ms)
+✔ restore suppresses old transient notifications, preserving history and future results (31.913507ms)
+✔ natural first turn result evidence preserves automation and private projections (40.797927ms)
+✔ handoff erases private projection on response actor change, and saved restore starts hidden (226.990533ms)
+✔ a queued second click and action from a hidden seat cannot mutate the saved game (2.194625ms)
+✔ normal end-turn action is never relabelled as a response pass (24.152927ms)
+✔ empty-chain response after birth resolution cannot claim normal action (39.834339ms)
+✔ opening handoff states owner, response reason, no response and exact pass destination (10.958984ms)
+✔ full first turn trace: egg, exact responses, birth effect, end boundary and B start (346.386786ms)
+✔ opening quick card requires chain passes then start-window passes without starting B turn (9.488338ms)
+✔ hidden mandatory choice is labelled as selection without revealing private choice content (0.493187ms)
+✔ new response link resets passes; LIFO resolution choice cannot offer a pass (21.896164ms)
+✔ aborted challenge pass does not promise a comparison that the engine will skip (2.733036ms)
+ℹ tests 343
+ℹ suites 0
+ℹ pass 339
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12005.621333
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/art-cpu-integration.test.mjs:8:1
+✖ illustrated CPU boards preserve viewer orientation and hidden art through restore (78.007556ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /dedicated-art|\.webp/. Input:
+  
+  '<header class="table-top"><div class="turn-indicator turn-self" data-turn-owner="A" role="status" aria-live="polite"><strong>▶ あなたのターン</strong><small>ROUND 1/10 · あなたが操作中</small></div><button type="button" class="result-reopen" data-result-reopen hidden aria-label="直近の結果通知を再表示">↺<small>結果</small></button><button type="button" data-menu aria-label="保存・受け渡しメニュー">☰</button></header>\n' +
+    ' \n' +
+    ' <div class="battle-area"><div class="board-shell opponent-shell" tabindex="0" aria-label="相手の盤面"><section data-player="B" class="player-board opponent" data-depth="far"><header class="player-heading"><strong>奥 · 相手 · B</strong><span>そだち <b>20</b> / 時 <b>0</b></span></header>\n' +
+    ' <div class="board-layout"><div class="board-field">\n' +
+    ' <div class="slots"><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="slot-content main-stack" data-main-top="egg"><button type="button" class="card-tap" data-egg-detail="B" aria-label="Bのたまごの詳細"><article class="egg-card" aria-label="たまご・状態表示用"><img src="ui-assets/egg-card-small.webp" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article><span class="board-card-name">たまご</span></button></div></div><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div></div></div>\n' +
+    ' <aside class="management"><button type="button" data-zone="discard" data-seat="B" aria-label="Bの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="B" aria-label="Bの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="B" aria-label="Bの山札 残り35枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>35</b></button></aside></div>\n' +
+    ' <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 5</span></footer></section></div><div class="board-shell own-shell" tabindex="0" aria-label="自分の盤面"><section data-player="A" class="player-board own field-turn-active field-turn-self" data-depth="near"><header class="player-heading"><strong>手前 · あなた · A</strong><span>そだち <b>20</b> / 時 <b>1</b></span></header>\n' +
+    ' <div class="board-layout"><div class="board-field">\n' +
+    ' <div class="slots"><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="slot-content main-stack" data-main-top="egg"><button type="button" class="card-tap" data-egg-detail="A" aria-label="Aのたまごの詳細"><article class="egg-card" aria-label="たまご・状態表示用"><img src="ui-assets/egg-card-small.webp" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article><span class="board-card-name">たまご</span></button></div></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div></div></div>\n' +
+    ' <aside class="management"><button type="button" data-zone="discard" data-seat="A" aria-label="Aの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="A" aria-label="Aの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="A" aria-label="Aの山札 残り33枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>33</b></button></aside></div>\n' +
+    ' <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 7</span></footer></section></div></div>\n' +
+    ' '
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/tests/art-cpu-integration.test.mjs:16:19)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<header class="table-top"><div class="turn-indicator turn-self" data-turn-owner="A" role="status" aria-live="polite"><strong>▶ あなたのターン</strong><small>ROUND 1/10 · あなたが操作中</small></div><button type="button" class="result-reopen" data-result-reopen hidden aria-label="直近の結果通知を再表示">↺<small>結果</small></button><button type="button" data-menu aria-label="保存・受け渡しメニュー">☰</button></header>\n \n <div class="battle-area"><div class="board-shell opponent-shell" tabindex="0" aria-label="相手の盤面"><section data-player="B" class="player-board opponent" data-depth="far"><header class="player-heading"><strong>奥 · 相手 · B</strong><span>そだち <b>20</b> / 時 <b>0</b></span></header>\n <div class="board-layout"><div class="board-field">\n <div class="slots"><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="slot-content main-stack" data-main-top="egg"><button type="button" class="card-tap" data-egg-detail="B" aria-label="Bのたまごの詳細"><article class="egg-card" aria-label="たまご・状態表示用"><img src="ui-assets/egg-card-small.webp" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article><span class="board-card-name">たまご</span></button></div></div><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div></div></div>\n <aside class="management"><button type="button" data-zone="discard" data-seat="B" aria-label="Bの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="B" aria-label="Bの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="B" aria-label="Bの山札 残り35枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>35</b></button></aside></div>\n <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 5</span></footer></section></div><div class="board-shell own-shell" tabindex="0" aria-label="自分の盤面"><section data-player="A" class="player-board own field-turn-active field-turn-self" data-depth="near"><header class="player-heading"><strong>手前 · あなた · A</strong><span>そだち <b>20</b> / 時 <b>1</b></span></header>\n <div class="board-layout"><div class="board-field">\n <div class="slots"><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="slot-content main-stack" data-main-top="egg"><button type="button" class="card-tap" data-egg-detail="A" aria-label="Aのたまごの詳細"><article class="egg-card" aria-label="たまご・状態表示用"><img src="ui-assets/egg-card-small.webp" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article><span class="board-card-name">たまご</span></button></div></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div></div></div>\n <aside class="management"><button type="button" data-zone="discard" data-seat="A" aria-label="Aの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="A" aria-label="Aの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="A" aria-label="Aの山札 残り33枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>33</b></button></aside></div>\n <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 7</span></footer></section></div></div>\n ',
+    expected: /dedicated-art|\.webp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/catalog.test.mjs:58:1
+✖ regeneration is deterministic and read-only in check mode (11288.570197ms)
+  Error: Command failed: python /workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/build_full_catalog.py --check
+  Traceback (most recent call last):
+    File "/workspace/scratch/6402aa54035b/naotocchi/docs/card-game/tools/check-design-data.py", line 788, in <module>
+      raise ValueError(f"Cannot find current array {name}")
+  ValueError: Cannot find current array FUN_ITEMS
+  Traceback (most recent call last):
+    File "/workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/build_full_catalog.py", line 96, in <module>
+      content = build()
+                ^^^^^^^
+    File "/workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/build_full_catalog.py", line 35, in build
+      audit = json.loads(subprocess.check_output(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+      return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+      raise CalledProcessError(retcode, process.args,
+  subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', '/workspace/scratch/6402aa54035b/naotocchi/docs/card-game/tools/check-design-data.py', '--catalog']' returned non-zero exit status 1.
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at TestContext.<anonymous> (file:///workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/tests/catalog.test.mjs:61:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12) {
+    status: 1,
+    signal: null,
+    output: [ null, <Buffer >, <Buffer 54 72 61 63 65 62 61 63 6b 20 28 6d 6f 73 74 20 72 65 63 65 6e 74 20 63 61 6c 6c 20 6c 61 73 74 29 3a 0a 20 20 46 69 6c 65 20 22 2f 77 6f 72 6b 73 70 ... 1297 more bytes> ],
+    pid: 129,
+    stdout: <Buffer >,
+    stderr: <Buffer 54 72 61 63 65 62 61 63 6b 20 28 6d 6f 73 74 20 72 65 63 65 6e 74 20 63 61 6c 6c 20 6c 61 73 74 29 3a 0a 20 20 46 69 6c 65 20 22 2f 77 6f 72 6b 73 70 ... 1297 more bytes>
+  }
+
+test at prototypes/card-game/tests/selection.test.mjs:10:1
+✖ 40 physical cards use bounded existence checks (1651.848823ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(performance.now()-start<1000)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/tests/selection.test.mjs:10:240)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-art-integration.test.mjs:25:1
+✖ safe hand, both boards, discard and activation use shared dedicated thumbnails (74.034693ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /dedicated-art|\.webp/. Input:
+  
+  '<header class="table-top"><div class="turn-indicator turn-self" data-turn-owner="A" role="status" aria-live="polite"><strong>▶ Aのターン</strong><small>ROUND 1/10 · Aが操作中</small></div><button type="button" class="result-reopen" data-result-reopen hidden aria-label="直近の結果通知を再表示">↺<small>結果</small></button><button type="button" data-menu aria-label="保存・受け渡しメニュー">☰</button></header>\n' +
+    ' \n' +
+    ' <div class="battle-area"><div class="board-shell opponent-shell" tabindex="0" aria-label="相手の盤面"><section data-player="B" class="player-board opponent" data-depth="far"><header class="player-heading"><strong>奥 · 相手 · B</strong><span>そだち <b>20</b> / 時 <b>0</b></span></header>\n' +
+    ' <div class="board-layout"><div class="board-field">\n' +
+    ' <div class="slots"><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="slot-content main-stack" data-main-top="egg"><button type="button" class="card-tap" data-egg-detail="B" aria-label="Bのたまごの詳細"><article class="egg-card" aria-label="たまご・状態表示用"><img src="ui-assets/egg-card-small.webp" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article><span class="board-card-name">たまご</span></button></div></div><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div></div></div>\n' +
+    ' <aside class="management"><button type="button" data-zone="discard" data-seat="B" aria-label="Bの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="B" aria-label="Bの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="B" aria-label="Bの山札 残り35枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>35</b></button></aside></div>\n' +
+    ' <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 5</span></footer></section></div><div class="board-shell own-shell" tabindex="0" aria-label="自分の盤面"><section data-player="A" class="player-board own field-turn-active field-turn-self" data-depth="near"><header class="player-heading"><strong>手前 · あなた · A</strong><span>そだち <b>20</b> / 時 <b>1</b></span></header>\n' +
+    ' <div class="board-layout"><div class="board-field">\n' +
+    ' <div class="slots"><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="slot-content main-stack" data-main-top="egg"><button type="button" class="card-tap" data-egg-detail="A" aria-label="Aのたまごの詳細"><article class="egg-card" aria-label="たまご・状態表示用"><img src="ui-assets/egg-card-small.webp" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article><span class="board-card-name">たまご</span></button></div></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div></div></div>\n' +
+    ' <aside class="management"><button type="button" data-zone="discard" data-seat="A" aria-label="Aの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="A" aria-label="Aの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="A" aria-label="Aの山札 残り33枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>33</b></button></aside></div>\n' +
+    ' <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 7</span></footer></section></div></div>\n' +
+    ' '
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/6402aa54035b/naotocchi/prototypes/card-game/tests/ui-art-integration.test.mjs:31:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<header class="table-top"><div class="turn-indicator turn-self" data-turn-owner="A" role="status" aria-live="polite"><strong>▶ Aのターン</strong><small>ROUND 1/10 · Aが操作中</small></div><button type="button" class="result-reopen" data-result-reopen hidden aria-label="直近の結果通知を再表示">↺<small>結果</small></button><button type="button" data-menu aria-label="保存・受け渡しメニュー">☰</button></header>\n \n <div class="battle-area"><div class="board-shell opponent-shell" tabindex="0" aria-label="相手の盤面"><section data-player="B" class="player-board opponent" data-depth="far"><header class="player-heading"><strong>奥 · 相手 · B</strong><span>そだち <b>20</b> / 時 <b>0</b></span></header>\n <div class="board-layout"><div class="board-field">\n <div class="slots"><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="slot-content main-stack" data-main-top="egg"><button type="button" class="card-tap" data-egg-detail="B" aria-label="Bのたまごの詳細"><article class="egg-card" aria-label="たまご・状態表示用"><img src="ui-assets/egg-card-small.webp" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article><span class="board-card-name">たまご</span></button></div></div><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div></div></div>\n <aside class="management"><button type="button" data-zone="discard" data-seat="B" aria-label="Bの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="B" aria-label="Bの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="B" aria-label="Bの山札 残り35枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>35</b></button></aside></div>\n <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 5</span></footer></section></div><div class="board-shell own-shell" tabindex="0" aria-label="自分の盤面"><section data-player="A" class="player-board own field-turn-active field-turn-self" data-depth="near"><header class="player-heading"><strong>手前 · あなた · A</strong><span>そだち <b>20</b> / 時 <b>1</b></span></header>\n <div class="board-layout"><div class="board-field">\n <div class="slots"><div class="slot" data-slot="0"><small>セカイ</small><span class="empty-slot">·</span></div><div class="slot" data-slot="1"><small>メイン</small><div class="slot-content main-stack" data-main-top="egg"><button type="button" class="card-tap" data-egg-detail="A" aria-label="Aのたまごの詳細"><article class="egg-card" aria-label="たまご・状態表示用"><img src="ui-assets/egg-card-small.webp" alt="たまご。メインがいない状態。通常ドロー後にさらに1枚引き、手札1枚を山札の下へ戻す。" draggable="false" decoding="async"></article><span class="board-card-name">たまご</span></button></div></div><div class="slot" data-slot="2"><small>こいびと</small><span class="empty-slot">·</span></div><div class="slot" data-slot="3"><small>なかま①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="4"><small>なかま②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="5"><small>なかま③</small><span class="empty-slot">·</span></div><div class="slot" data-slot="6"><small>準備①</small><span class="empty-slot">·</span></div><div class="slot" data-slot="7"><small>準備②</small><span class="empty-slot">·</span></div><div class="slot" data-slot="8"><small>準備③</small><span class="empty-slot">·</span></div></div></div>\n <aside class="management"><button type="button" data-zone="discard" data-seat="A" aria-label="Aの捨て札 0枚"><span>捨て札</span><b>0</b></button><button type="button" data-zone="activation" data-seat="A" aria-label="Aの発動領域を閲覧"><span>発動領域</span><b>0</b></button><button type="button" data-zone="deck" data-seat="A" aria-label="Aの山札 残り33枚"><span>山札</span><div class="card-back" role="img" aria-label="非公開のカード"><img src="ui-assets/card-back-approved.png" alt="" draggable="false"></div><b>33</b></button></aside></div>\n <footer class="board-metrics"><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26V16l-3-3q-2-4 1-4l5 4V7q0-4 3-2v8-9q3-3 4 0v9-7q3-3 4 0v9-4q4-2 4 2v8l-4 5v4H12v-4ZM13 18h10"/></svg> —</span><span><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7c-4-6-10-2-9 2-5 0-6 8-2 10-3 6 3 10 7 8 2 3 4 1 4-2V7ZM16 7c4-6 10-2 9 2 5 0 6 8 2 10 3 6-3 10-7 8-2 3-4 1-4-2M7 10l4 3-3 4m-3 2h5l2 4m13-13-4 3 3 4m3 2h-5l-2 4"/></svg> —</span><span>交際 —</span><span>手札 7</span></footer></section></div></div>\n ',
+    expected: /dedicated-art|\.webp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

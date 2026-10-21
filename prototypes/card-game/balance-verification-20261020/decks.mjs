@@ -1,0 +1,13 @@
+// Representative legal 40-card decks for the 2026-10-20 independent balance verification.
+// Card IDs only; every deck is checked against engine.validateDeck (40 cards, normal<=3, rare<=1).
+import {DEFAULT_DECK} from '../engine.mjs';
+const x=(spec)=>Object.entries(spec).flatMap(([id,n])=>Array(n).fill(id));
+export const DECKS={
+ D0_standard:{label:'標準デッキ（初期15種）',theme:'reference',cards:[...DEFAULT_DECK]},
+ D1_main_growth:{label:'メイン成長重視',theme:'main',cards:x({'M-dog-01':3,'M-dog-02':2,'M-dog-03':2,'M-dog-04':2,'M-dog-05':2,'M-dog-06':1,'M-beetle-01':2,'M-beetle-03':1,'M-beetle-06':1,'M-beetle-07':1,'E-mirror':3,'E-fateful-transform':2,'G-doodle-jump':2,'G-jump-quest':1,'C-shiba':2,'W-snow':2,'P-snow_spirit':2,'I-c_egg_normal':2,'G-picross-5':2,'I-c_time_forward':1,'G-race-3d':2,'C-rabbit_friend':2})},
+ D2_companions:{label:'なかま重視',theme:'companion',cards:x({'M-mushroom-01':3,'M-mushroom-02':2,'M-mushroom-03':2,'M-mushroom-04':1,'M-mushroom-05':1,'C-owl':3,'C-chicken':3,'C-hamster':2,'C-sheep':2,'C-cat_friend':2,'C-otter':2,'C-punyu':1,'C-many_tail_fox':1,'W-forest':3,'I-c_friend':2,'G-stack-acorn':2,'G-animal-shogi':2,'E-new-encounter':2,'I-bond1':2,'G-beach-volley':2})},
+ D3_partner:{label:'こいびと・交際重視',theme:'partner',cards:x({'M-cat-01':3,'M-cat-02':2,'M-cat-03':2,'M-cat-04':2,'M-cat-05':1,'P-grove_deer':3,'P-high_eagle':3,'P-robot_neighbor':2,'P-cat_ceo':2,'E-first-date':3,'E-wedding-anniversary':3,'E-reconciliation':2,'I-c_match':2,'I-partner1':2,'E-new-encounter':2,'W-home':2,'C-chicken':2,'C-seal':2})},
+ D4_challenge:{label:'ちょうせん重視',theme:'challenge',cards:x({'M-beetle-01':3,'M-beetle-02':2,'M-beetle-03':2,'M-beetle-05':2,'M-beetle-06':1,'M-beetle-07':1,'M-phoenix-01':1,'M-phoenix-02':1,'C-rabbit_friend':3,'C-otter':2,'P-gentle_gorilla':3,'W-jungle':2,'W-mountain':1,'G-ski-jump':3,'G-baseball-batting':3,'G-basketball-3d':2,'G-race-3d':2,'G-grand-prix-3d':2,'E-boss':2,'G-downhill-mountain':2})},
+ D5_growth_gain:{label:'そだち獲得重視',theme:'growth',cards:x({'M-turtle-01':3,'M-turtle-02':2,'M-turtle-03':2,'M-turtle-04':2,'W-countryside':3,'C-panda':3,'P-field_cow':2,'G-connect-four':2,'I-c_coin2':3,'G-sugoroku-race':3,'G-lunar-lander':2,'G-plane-landing':2,'E-midlife-flower':3,'I-naoto_lantern':1,'G-mini-golf-physics':3,'E-midlife-50th':2,'G-area-claim':2})},
+ D6_item_response:{label:'アイテム・応答重視',theme:'item_response',cards:x({'M-hermit_crab-01':3,'M-hermit_crab-02':2,'M-hermit_crab-03':2,'M-hermit_crab-04':2,'W-home':2,'C-parrot':2,'C-watcher':1,'I-sleepboost1':2,'I-bowtie':2,'I-c_life_charm':2,'I-poop1':2,'I-star':2,'G-missile-command':2,'G-space-gunner-3d':2,'G-air-hockey':2,'G-pingpong-3d':2,'G-tower-defense':2,'G-tank-battle':2,'G-archery-3d':2,'G-domino-run':2})},
+};

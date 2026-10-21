@@ -1,0 +1,407 @@
+{
+  "passed": false,
+  "failures": [
+    "ほし⑥ 320 full signature",
+    "ほし⑥ 320 full signature above bottom curve",
+    "ほし⑥ 320 full digit lanes equal width",
+    "ほし⑥ 320 full lining tabular digits",
+    "ほし⑥ 320 full cell fits fixed stat row",
+    "ほし⑥ 320 full lining tabular digits",
+    "ほし⑥ 320 full cell fits fixed stat row",
+    "ほし⑥ 80 full signature",
+    "ほし⑥ 80 full signature above bottom curve",
+    "ほし⑥ 80 full lining tabular digits",
+    "ほし⑥ 80 full cell fits fixed stat row",
+    "ほし⑥ 80 full lining tabular digits",
+    "ほし⑥ 80 full cell fits fixed stat row",
+    "ほし⑥ 80 compact signature",
+    "ほし⑥ 80 compact lining tabular digits",
+    "ほし⑥ 80 compact lining tabular digits",
+    "ほし⑥ 110 full signature",
+    "ほし⑥ 110 full signature above bottom curve",
+    "ほし⑥ 110 full lining tabular digits",
+    "ほし⑥ 110 full cell fits fixed stat row",
+    "ほし⑥ 110 full lining tabular digits",
+    "ほし⑥ 110 full cell fits fixed stat row",
+    "ほし⑥ 110 compact signature",
+    "ほし⑥ 110 compact lining tabular digits",
+    "ほし⑥ 110 compact lining tabular digits",
+    "ほし⑦ 320 full signature",
+    "ほし⑦ 320 full signature above bottom curve",
+    "ほし⑦ 320 full digit lanes equal width",
+    "ほし⑦ 320 full lining tabular digits",
+    "ほし⑦ 320 full cell fits fixed stat row",
+    "ほし⑦ 320 full lining tabular digits",
+    "ほし⑦ 320 full cell fits fixed stat row",
+    "ほし⑦ 80 full signature",
+    "ほし⑦ 80 full signature above bottom curve",
+    "ほし⑦ 80 full digit lanes equal width",
+    "ほし⑦ 80 full lining tabular digits",
+    "ほし⑦ 80 full cell fits fixed stat row",
+    "ほし⑦ 80 full lining tabular digits",
+    "ほし⑦ 80 full cell fits fixed stat row",
+    "ほし⑦ 80 compact signature",
+    "ほし⑦ 80 compact digit lanes equal width",
+    "ほし⑦ 80 compact lining tabular digits",
+    "ほし⑦ 80 compact lining tabular digits",
+    "ほし⑦ 110 full signature",
+    "ほし⑦ 110 full signature above bottom curve",
+    "ほし⑦ 110 full digit lanes equal width",
+    "ほし⑦ 110 full lining tabular digits",
+    "ほし⑦ 110 full cell fits fixed stat row",
+    "ほし⑦ 110 full lining tabular digits",
+    "ほし⑦ 110 full cell fits fixed stat row",
+    "ほし⑦ 110 compact signature",
+    "ほし⑦ 110 compact digit lanes equal width",
+    "ほし⑦ 110 compact lining tabular digits",
+    "ほし⑦ 110 compact lining tabular digits",
+    "ヒトデ① 320 full signature above bottom curve",
+    "ヒトデ① 320 full lining tabular digits",
+    "ヒトデ① 320 full cell fits fixed stat row",
+    "ヒトデ① 320 full lining tabular digits",
+    "ヒトデ① 320 full cell fits fixed stat row",
+    "ヒトデ① 80 full signature above bottom curve",
+    "ヒトデ① 80 full lining tabular digits",
+    "ヒトデ① 80 full cell fits fixed stat row",
+    "ヒトデ① 80 full lining tabular digits",
+    "ヒトデ① 80 full cell fits fixed stat row",
+    "ヒトデ① 80 compact signature",
+    "ヒトデ① 80 compact lining tabular digits",
+    "ヒトデ① 80 compact lining tabular digits",
+    "ヒトデ① 110 full signature above bottom curve",
+    "ヒトデ① 110 full lining tabular digits",
+    "ヒトデ① 110 full cell fits fixed stat row",
+    "ヒトデ① 110 full lining tabular digits",
+    "ヒトデ① 110 full cell fits fixed stat row",
+    "ヒトデ① 110 compact signature",
+    "ヒトデ① 110 compact lining tabular digits",
+    "ヒトデ① 110 compact lining tabular digits",
+    "ひとなつっこいしばいぬ 320 full signature above bottom curve",
+    "ひとなつっこいしばいぬ 80 full signature above bottom curve",
+    "ひとなつっこいしばいぬ 80 compact signature",
+    "ひとなつっこいしばいぬ 110 full signature above bottom curve",
+    "ひとなつっこいしばいぬ 110 compact signature",
+    "ひかるチョウチンアンコウ 320 full signature above bottom curve",
+    "ひかるチョウチンアンコウ 80 full signature above bottom curve",
+    "ひかるチョウチンアンコウ 80 compact signature",
+    "ひかるチョウチンアンコウ 110 full signature above bottom curve",
+    "ひかるチョウチンアンコウ 110 compact signature",
+    "しんけいすいじゃく 320 full signature above bottom curve",
+    "しんけいすいじゃく 80 full signature above bottom curve",
+    "しんけいすいじゃく 80 compact signature",
+    "しんけいすいじゃく 110 full signature above bottom curve",
+    "しんけいすいじゃく 110 compact signature",
+    "もり 320 full signature above bottom curve",
+    "もり 80 full signature above bottom curve",
+    "もり 80 compact signature",
+    "もり 110 full signature above bottom curve",
+    "もり 110 compact signature",
+    "なおと 320 full signature above bottom curve",
+    "なおと 80 full signature above bottom curve",
+    "なおと 80 compact signature",
+    "なおと 110 full signature above bottom curve",
+    "なおと 110 compact signature"
+  ],
+  "rows": [
+    {
+      "name": "ほし⑥ 320 full",
+      "statHeight": 45.234375,
+      "values": [
+        {
+          "text": "7",
+          "width": 20.640625,
+          "height": 50,
+          "center": 311.28125,
+          "font": "700 35.0887px Georgia, serif"
+        },
+        {
+          "text": "8",
+          "width": 20.84375,
+          "height": 50,
+          "center": 311.28125,
+          "font": "700 35.0887px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑥ 80 full",
+      "statHeight": 11.15625,
+      "values": [
+        {
+          "text": "7",
+          "width": 5.046875,
+          "height": 12,
+          "center": 78.1875,
+          "font": "700 8.595px Georgia, serif"
+        },
+        {
+          "text": "8",
+          "width": 5.109375,
+          "height": 12,
+          "center": 78.1875,
+          "font": "700 8.595px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑥ 80 compact",
+      "statHeight": 17.859375,
+      "values": [
+        {
+          "text": "7",
+          "width": 5.046875,
+          "height": 12,
+          "center": 106.875,
+          "font": "700 8.595px Georgia, serif"
+        },
+        {
+          "text": "8",
+          "width": 5.109375,
+          "height": 12,
+          "center": 106.875,
+          "font": "700 8.595px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑥ 110 full",
+      "statHeight": 15.421875,
+      "values": [
+        {
+          "text": "7",
+          "width": 7,
+          "height": 17,
+          "center": 107.453125,
+          "font": "700 11.9062px Georgia, serif"
+        },
+        {
+          "text": "8",
+          "width": 7.078125,
+          "height": 17,
+          "center": 107.453125,
+          "font": "700 11.9062px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑥ 110 compact",
+      "statHeight": 24.671875,
+      "values": [
+        {
+          "text": "7",
+          "width": 7,
+          "height": 17,
+          "center": 147.265625,
+          "font": "700 11.9062px Georgia, serif"
+        },
+        {
+          "text": "8",
+          "width": 7.078125,
+          "height": 17,
+          "center": 147.265625,
+          "font": "700 11.9062px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑦ 320 full",
+      "statHeight": 45.234375,
+      "values": [
+        {
+          "text": "10",
+          "width": 37.15625,
+          "height": 50,
+          "center": 311.28125,
+          "font": "700 35.0887px Georgia, serif"
+        },
+        {
+          "text": "3",
+          "width": 20.8125,
+          "height": 50,
+          "center": 311.28125,
+          "font": "700 35.0887px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑦ 80 full",
+      "statHeight": 11.15625,
+      "values": [
+        {
+          "text": "10",
+          "width": 9.09375,
+          "height": 12,
+          "center": 78.1875,
+          "font": "700 8.595px Georgia, serif"
+        },
+        {
+          "text": "3",
+          "width": 5.09375,
+          "height": 12,
+          "center": 78.1875,
+          "font": "700 8.595px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑦ 80 compact",
+      "statHeight": 17.859375,
+      "values": [
+        {
+          "text": "10",
+          "width": 9.09375,
+          "height": 12,
+          "center": 106.875,
+          "font": "700 8.595px Georgia, serif"
+        },
+        {
+          "text": "3",
+          "width": 5.09375,
+          "height": 12,
+          "center": 106.875,
+          "font": "700 8.595px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑦ 110 full",
+      "statHeight": 15.421875,
+      "values": [
+        {
+          "text": "10",
+          "width": 12.59375,
+          "height": 17,
+          "center": 107.453125,
+          "font": "700 11.9062px Georgia, serif"
+        },
+        {
+          "text": "3",
+          "width": 7.0625,
+          "height": 17,
+          "center": 107.453125,
+          "font": "700 11.9062px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ほし⑦ 110 compact",
+      "statHeight": 24.671875,
+      "values": [
+        {
+          "text": "10",
+          "width": 12.59375,
+          "height": 17,
+          "center": 147.265625,
+          "font": "700 11.9062px Georgia, serif"
+        },
+        {
+          "text": "3",
+          "width": 7.0625,
+          "height": 17,
+          "center": 147.265625,
+          "font": "700 11.9062px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ヒトデ① 320 full",
+      "statHeight": 45.234375,
+      "values": [
+        {
+          "text": "2",
+          "width": 20.84375,
+          "height": 50,
+          "center": 311.28125,
+          "font": "700 35.0887px Georgia, serif"
+        },
+        {
+          "text": "2",
+          "width": 20.84375,
+          "height": 50,
+          "center": 311.28125,
+          "font": "700 35.0887px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ヒトデ① 80 full",
+      "statHeight": 11.15625,
+      "values": [
+        {
+          "text": "2",
+          "width": 5.109375,
+          "height": 12,
+          "center": 78.1875,
+          "font": "700 8.595px Georgia, serif"
+        },
+        {
+          "text": "2",
+          "width": 5.109375,
+          "height": 12,
+          "center": 78.1875,
+          "font": "700 8.595px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ヒトデ① 80 compact",
+      "statHeight": 17.859375,
+      "values": [
+        {
+          "text": "2",
+          "width": 5.109375,
+          "height": 12,
+          "center": 106.875,
+          "font": "700 8.595px Georgia, serif"
+        },
+        {
+          "text": "2",
+          "width": 5.109375,
+          "height": 12,
+          "center": 106.875,
+          "font": "700 8.595px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ヒトデ① 110 full",
+      "statHeight": 15.421875,
+      "values": [
+        {
+          "text": "2",
+          "width": 7.078125,
+          "height": 17,
+          "center": 107.453125,
+          "font": "700 11.9062px Georgia, serif"
+        },
+        {
+          "text": "2",
+          "width": 7.078125,
+          "height": 17,
+          "center": 107.453125,
+          "font": "700 11.9062px Georgia, serif"
+        }
+      ]
+    },
+    {
+      "name": "ヒトデ① 110 compact",
+      "statHeight": 24.671875,
+      "values": [
+        {
+          "text": "2",
+          "width": 7.078125,
+          "height": 17,
+          "center": 147.265625,
+          "font": "700 11.9062px Georgia, serif"
+        },
+        {
+          "text": "2",
+          "width": 7.078125,
+          "height": 17,
+          "center": 147.265625,
+          "font": "700 11.9062px Georgia, serif"
+        }
+      ]
+    }
+  ]
+}

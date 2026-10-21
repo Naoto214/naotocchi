@@ -1,0 +1,321 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "A-004",
+        "A-005",
+        "A-006",
+        "A-020",
+        "A-029",
+        "A-030",
+        "A-034",
+        "A-039"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "legal_candidate_details": [
+        {
+          "candidate_id": "A-004",
+          "card_id": "M-antlion-04",
+          "initial_instance_id": "A-004#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "A-005",
+          "card_id": "M-antlion-05",
+          "initial_instance_id": "A-005#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "A-006",
+          "card_id": "M-antlion-06",
+          "initial_instance_id": "A-006#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "A-020",
+          "card_id": "W-city",
+          "initial_instance_id": "A-020#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "A-029",
+          "card_id": "G-basketball-3d",
+          "initial_instance_id": "A-029#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "A-030",
+          "card_id": "G-beach-volley",
+          "initial_instance_id": "A-030#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "A-034",
+          "card_id": "I-poop1",
+          "initial_instance_id": "A-034#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "A-039",
+          "card_id": "E-final-time",
+          "initial_instance_id": "A-039#1",
+          "kind": "card_copy"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "mandatory_egg_exchange",
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "seeded_fallback",
+      "source_continuation_state_sha256": "fe555a8e26f2c2dfc97b7584e34cf6de6fb7430caab20219aa0ebb3981ceb712",
+      "source_game_state_sha256": "dd0fba4776586c60c384c74f438dacb7d360b9c24187c6c3933e2ff09aa458e8",
+      "source_last_valid_event_seq": 57
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "B-001",
+        "B-010",
+        "B-013",
+        "B-016",
+        "B-022",
+        "B-028",
+        "B-036",
+        "B-039"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "legal_candidate_details": [
+        {
+          "candidate_id": "B-001",
+          "card_id": "M-antlion-01",
+          "initial_instance_id": "B-001#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-010",
+          "card_id": "M-beetle-02",
+          "initial_instance_id": "B-010#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-013",
+          "card_id": "C-cat_friend",
+          "initial_instance_id": "B-013#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-016",
+          "card_id": "P-anglerfish",
+          "initial_instance_id": "B-016#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-022",
+          "card_id": "W-deepsea",
+          "initial_instance_id": "B-022#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-028",
+          "card_id": "G-baseball-batting",
+          "initial_instance_id": "B-028#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-036",
+          "card_id": "E-big-illness",
+          "initial_instance_id": "B-036#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-039",
+          "card_id": "E-final-time",
+          "initial_instance_id": "B-039#1",
+          "kind": "card_copy"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "mandatory_egg_exchange",
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "seeded_fallback",
+      "source_continuation_state_sha256": "658c3aa1f258d111af9c8a889b3ae2a09db70cf723c7336fa595d81f9772f300",
+      "source_game_state_sha256": "8fc4a5794e0e365f5d539a4afe1ff7101cd7999acabc054c4a1f5325d01dae75",
+      "source_last_valid_event_seq": 59
+    },
+    {
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "action_type": "board_response_trigger",
+          "candidate_id": null,
+          "candidate_variant": "response_triggered",
+          "card_id": "P-cliff_goat",
+          "disposition": "excluded",
+          "enumeration_unit_id": "[\"board_card_action\",\"board\",\"B-018#1\",\"board_response_trigger\",\"response_triggered\",[]]",
+          "evidence": {
+            "phase": "normal_action",
+            "template.timing": "response_window"
+          },
+          "reason_codes": [
+            "timing_not_normal_action"
+          ],
+          "source_family": "board_card_action",
+          "source_id": "B-018#1",
+          "source_instance_id": "B-018#1",
+          "source_references": [
+            "74-partner-18-card-text-draft.md#P-cliff_goat",
+            "06-action-chain-checkpoint.md"
+          ],
+          "source_zone": "board",
+          "target_instance_ids": []
+        }
+      ],
+      "candidate_ids": [
+        "candidate-play-main-B-001#1-birth",
+        "pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "completeness_checks": {
+        "candidate_templates_complete": true,
+        "candidate_variants_complete": true,
+        "canonical_predicates_resolved": true,
+        "dispositions_and_reasons_valid": true,
+        "information_boundary_valid": true,
+        "legal_candidate_projection_exact": true,
+        "opportunity_context_valid": true,
+        "required_source_families_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_inventory_complete": true,
+        "stable_candidate_ids_valid": true,
+        "target_expansions_complete": true
+      },
+      "legal_candidate_details": [
+        {
+          "action_type": "play_main",
+          "candidate_id": "candidate-play-main-B-001#1-birth",
+          "candidate_variant": "birth",
+          "card_id": "M-antlion-01",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"birth\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "B-001#1",
+          "source_instance_id": "B-001#1",
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": []
+        },
+        {
+          "action_type": "pass",
+          "candidate_id": "pass",
+          "candidate_variant": "pass",
+          "card_id": null,
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "standing_pass",
+          "source_id": "pass",
+          "source_instance_id": null,
+          "source_references": [
+            "01-core-rules.md"
+          ],
+          "source_zone": "synthetic",
+          "target_instance_ids": []
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "normal_action",
+      "path_id": "probe-02-b-first",
+      "reported_stop_reason_code": "unproved_next_priority_response_candidates",
+      "source_continuation_state_sha256": "8293e794206610980be5ea8842dbc35849f0bb853d3f573ea662cac9d74e52eb",
+      "source_game_state_sha256": "c008f2ede551b7dc02be45c923ebd995ea4fad6a66a27923f0a3929edb362a01",
+      "source_last_valid_event_seq": 60,
+      "stop_label_correction": "phase_is_normal_action"
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "B-001",
+        "B-003",
+        "B-022",
+        "B-025",
+        "B-026",
+        "B-035",
+        "B-038",
+        "B-039"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "legal_candidate_details": [
+        {
+          "candidate_id": "B-001",
+          "card_id": "M-antlion-01",
+          "initial_instance_id": "B-001#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-003",
+          "card_id": "M-antlion-03",
+          "initial_instance_id": "B-003#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-022",
+          "card_id": "W-deepsea",
+          "initial_instance_id": "B-022#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-025",
+          "card_id": "G-archery-3d",
+          "initial_instance_id": "B-025#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-026",
+          "card_id": "G-area-claim",
+          "initial_instance_id": "B-026#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-035",
+          "card_id": "I-sleepboost1",
+          "initial_instance_id": "B-035#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-038",
+          "card_id": "E-fateful-transform",
+          "initial_instance_id": "B-038#1",
+          "kind": "card_copy"
+        },
+        {
+          "candidate_id": "B-039",
+          "card_id": "E-final-time",
+          "initial_instance_id": "B-039#1",
+          "kind": "card_copy"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "mandatory_egg_exchange",
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "seeded_fallback",
+      "source_continuation_state_sha256": "68bd7b2f2b143c6402aebd1d983ff454b3f4212e38eaee5d17ec6be33a83cbfb",
+      "source_game_state_sha256": "56c3c8f6f34177dfa2666b921e9fade7f6501747ad0e01e1ad8f5e6028e5d420",
+      "source_last_valid_event_seq": 48
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_mixed_audit_253.v1",
+  "source_raw_sha256": "0356ccf307e697fe78c15a53105fcefc9696b011615bebca339f07a804f50bda"
+}

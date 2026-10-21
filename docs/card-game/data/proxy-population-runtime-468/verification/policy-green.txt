@@ -1,0 +1,9 @@
+test_each_registered_kind_checks_intermediate_complete_choices_and_application (test_proxy_population_policy_bridge.BridgeTests.test_each_registered_kind_checks_intermediate_complete_choices_and_application) ... ok
+test_no_choice_requires_zero_callbacks_and_preserves_boundary (test_proxy_population_policy_bridge.BridgeTests.test_no_choice_requires_zero_callbacks_and_preserves_boundary) ... ok
+test_no_origin_rebinding_out_of_turn_and_cross_turn_replay (test_proxy_population_policy_bridge.BridgeTests.test_no_origin_rebinding_out_of_turn_and_cross_turn_replay) ... ok
+test_origin_counts_rule_occurrences_including_no_choice_and_retries (test_proxy_population_policy_bridge.BridgeTests.test_origin_counts_rule_occurrences_including_no_choice_and_retries) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.296s
+
+OK

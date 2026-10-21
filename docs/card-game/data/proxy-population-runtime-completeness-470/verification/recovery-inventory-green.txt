@@ -1,0 +1,7 @@
+test_actual_response_inventory_includes_target_and_pass_without_policy_extension (test_proxy_population_discard_recovery.RecoveryTests.test_actual_response_inventory_includes_target_and_pass_without_policy_extension) ... ok
+test_public_target_inventory_distinguishes_own_turn_and_same_name (test_proxy_population_discard_recovery.RecoveryTests.test_public_target_inventory_distinguishes_own_turn_and_same_name) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.044s
+
+OK

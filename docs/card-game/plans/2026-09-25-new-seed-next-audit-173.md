@@ -1,0 +1,3 @@
+# 173 新seed次機会TDD計画
+
+172保存raw・再生成state/hashと171候補証拠から開始。先に専用テストをREDにし、01-B/02-Bの無料こいびと配置と有償メイン誕生／passの優先順位を157/116契約で比較する。02-AはP-anglerfishの挑戦条件不成立を正本で照合し次優先者response候補を列挙する。01-Aの有償セカイ配置／passは比較証拠が不足するため判断せず保持する。event0、canonical bytesとhash境界を検証してGitHubへ保存する。

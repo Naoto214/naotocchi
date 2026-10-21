@@ -1,0 +1,29 @@
+test_hit_blow_reuses_native_effect_and_bounds_growth (test_proxy_population_chain_resolution.ChainTests.test_hit_blow_reuses_native_effect_and_bounds_growth) ... ERROR
+
+======================================================================
+ERROR: test_hit_blow_reuses_native_effect_and_bounds_growth (test_proxy_population_chain_resolution.ChainTests.test_hit_blow_reuses_native_effect_and_bounds_growth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_chain_resolution.py", line 41, in test_hit_blow_reuses_native_effect_and_bounds_growth
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_chain_resolution.py", line 39, in run
+    after,event=api.resolve_top(c);self.assertIn(main,after['game_state']['players']['A']['hand']);self.assertEqual(event['result']['growth_added'],0);self.assertTrue(event['result']['effect_applied']);self.assertTrue(event['result']['declaration_matched'])
+                ^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_chain_resolution.py", line 21, in resolve_top
+    if card!='I-c_coin2' or link['action_type']!='use_item' or link['payment']!={'time':1} or link['candidate_variant'] is not None or link['target_instance_ids']!=[]:raise ValueError('unsupported top link')
+                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: unsupported top link
+
+----------------------------------------------------------------------
+Ran 1 test in 0.022s
+
+FAILED (errors=1)

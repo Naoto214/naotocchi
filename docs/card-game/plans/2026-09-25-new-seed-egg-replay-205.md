@@ -1,0 +1,3 @@
+# 205 新seed4たまご交換 TDD計画
+
+204保存state raw SHAを固定。116のmandatory_choice候補全列挙とseed proofを使用し、現在のactor手番番号をseed_contextへ記録する。旧165/186の保存証拠は改変しない。テストを先にREDにし、4件のseeded fallback・改変seed拒否、event/snapshot/hash連鎖とcanonical JSON、設計データを確認してGitHubへ保存する。完走しても独立balance標本0。

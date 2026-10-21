@@ -1,0 +1,9 @@
+# 126 保存済み125の終了窓訂正と現在履歴の123再証明 設計
+
+125の4 stop rawは変更しない。保存済み125の終了申出後`game_state.phase=turn_end`だが`continuation_state.return_target=normal_action_opportunity`であり、123の閉鎖条件に反する。125の`missing_current_turn_end_provenance`停止は、履歴不足と断定する前にこの遷移整合性を訂正する必要がある。124の正本と125の候補・選択結果を再計算し、122に保存済みの終了申出response閉鎖handlerどおり`return_target=turn_end`とする。125の最終response-pass event後hash/snapshotは126に新たな訂正後再生証拠として保存し、元の125 stop/hashは歴史的な不整合記録のまま保持する。新規のゲーム裁定ではない。
+
+訂正後の現在stateについて、117〜122の連続履歴、124の3 event、125の全eventを初期stateから連結する。124の`turn_end_completed`だけは、123/124で保存booleanを信用せず独立検証された空の終了6手順を根拠に即時/そだち変化0と分類する。人物配置はカード本文参照で既存124 registryに照合し、responseのE-first-date即時+5を含む全eventのgrowth traceを再計算する。event seq・両hash・中間snapshotを検査し、未知効果または期限・予約・100履歴の不足はその経路のみ真正停止する。private情報はsource integrity照合のみに使う。
+
+現在stateから123の6手順/12条件を独立再導出し、completeの場合だけ01/06/64の終了処理へ進む。4件は後攻終了なので、ラウンド期限を確認して次ラウンドへ進める。次のR2開始は新しい判断機会であり、時回復・通常ドロー・たまご条件・開始予約/誘発の完全性を現stateで証明できなければそこで真正停止する。117/119/121/123/124/125の保護成果物、本編、カード本文と数値を変更しない。経路/card copy専用handlerなし。全452枚のエンジン化なし。
+
+126専用adapter/validator/test、訂正と独立再開のplan/evaluation/stop、報告、README、PR本文を新設し、JSONをcanonical bytesで再生成照合する。125の旧評価をCI成功やcompletedとして扱わず、訂正が必要な既存記録として明示する。

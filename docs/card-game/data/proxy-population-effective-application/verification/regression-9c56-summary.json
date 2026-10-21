@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "all_exit_zero": true,
+    "all_summaries_present": true,
+    "all_workers_successful": true,
+    "exact_started_coverage": true,
+    "exact_finished_coverage": true,
+    "no_duplicates": true,
+    "all_pass_no_skip": true,
+    "source_unchanged": true
+  },
+  "success": true,
+  "worker_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "planned": 1546,
+  "started": 1546,
+  "finished": 1546,
+  "missing": [],
+  "unexpected": [],
+  "non_pass": {}
+}

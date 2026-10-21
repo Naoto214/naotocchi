@@ -1,0 +1,35 @@
+test_entry_rejects_failed_conservation_gate (test_proxy_population_source_conservation.SourceConservationTests.test_entry_rejects_failed_conservation_gate) ... ok
+test_forged_source_metadata_and_journal_are_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_forged_source_metadata_and_journal_are_rejected) ... ok
+test_initial_and_every_actual_transition_are_bound (test_proxy_population_source_conservation.SourceConservationTests.test_initial_and_every_actual_transition_are_bound) ... ok
+test_missing_duplicate_step_and_final_changes_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_missing_duplicate_step_and_final_changes_rejected) ... ok
+test_bad_receipts_unrecorded_reentry_and_duplicates_are_atomic (test_proxy_population_incarnation.IncarnationTests.test_bad_receipts_unrecorded_reentry_and_duplicates_are_atomic) ... ok
+test_old_references_and_full_metadata_survive_projection (test_proxy_population_incarnation.IncarnationTests.test_old_references_and_full_metadata_survive_projection) ... ok
+test_recovery_and_repeated_actual_entry (test_proxy_population_incarnation.IncarnationTests.test_recovery_and_repeated_actual_entry) ... ok
+test_capture_rejects_runtime_only_tampering_and_missing_full_hash (test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_capture_rejects_runtime_only_tampering_and_missing_full_hash) ... ok
+test_incomplete_root_cannot_bypass_prior_entry_guard_and_scope_is_nonreentrant (test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_incomplete_root_cannot_bypass_prior_entry_guard_and_scope_is_nonreentrant) ... ok
+test_native_partner_and_main_reentry_keep_new_arrival_obligations (test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_native_partner_and_main_reentry_keep_new_arrival_obligations) ... ok
+test_native_replacement_then_response_preserve_generations_and_hashes (test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_native_replacement_then_response_preserve_generations_and_hashes) ... ok
+test_world_and_preparation_use_same_native_entry_finisher (test_proxy_population_incarnation_runtime.RuntimeIncarnationTests.test_world_and_preparation_use_same_native_entry_finisher) ... ok
+test_control_interrupt_keeps_full_schedule_and_never_retries (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_control_interrupt_keeps_full_schedule_and_never_retries) ... ok
+test_invalid_input_cannot_launch_or_create_destination (test_proxy_population_batch_supervisor.SupervisorTests.test_invalid_input_cannot_launch_or_create_destination) ... ok
+test_isolated_transport_runs_only_the_existing_historical_prefix (test_proxy_population_batch_supervisor.SupervisorTests.test_isolated_transport_runs_only_the_existing_historical_prefix) ... FAIL
+test_next_row_is_never_launched_after_incomplete_or_failed_child (test_proxy_population_batch_supervisor.SupervisorTests.test_next_row_is_never_launched_after_incomplete_or_failed_child) ... ok
+test_bad_local_lock_or_edition_cannot_invoke_the_executor (test_proxy_population_attempt_runner.AttemptRunnerTests.test_bad_local_lock_or_edition_cannot_invoke_the_executor) ... ok
+test_missing_external_reference_cannot_invoke_the_executor (test_proxy_population_attempt_runner.AttemptRunnerTests.test_missing_external_reference_cannot_invoke_the_executor) ... ok
+test_old_fixed_prefix_uses_real_backend_and_keeps_incomplete_record (test_proxy_population_attempt_runner.AttemptRunnerTests.test_old_fixed_prefix_uses_real_backend_and_keeps_incomplete_record) ... ok
+
+======================================================================
+FAIL: test_isolated_transport_runs_only_the_existing_historical_prefix (test_proxy_population_batch_supervisor.SupervisorTests.test_isolated_transport_runs_only_the_existing_historical_prefix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_batch_supervisor.py", line 61, in test_isolated_transport_runs_only_the_existing_historical_prefix
+    self.assertEqual(result['planned_rows'][0]['execution_status'],'incomplete',result['planned_rows'][0])
+AssertionError: 'record_unverified' != 'incomplete'
+- record_unverified
++ incomplete
+ : {'match_id': 'test-1A', 'execution_status': 'record_unverified', 'attempt_directory': 'attempt-0001', 'stop_reason': 'ValueError: worker process failed'}
+
+----------------------------------------------------------------------
+Ran 19 tests in 28.943s
+
+FAILED (failures=1)

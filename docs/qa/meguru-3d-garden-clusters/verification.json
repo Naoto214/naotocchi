@@ -1,0 +1,33 @@
+{
+  "status": "implementation-and-targeted-verified; full-regression-incomplete; browser-blocked",
+  "base": "1e2caad68912a1ede263b4fc90ed431706183b5e",
+  "sourceSha256": {
+    "meguru.js": "7419ede1f63e838a497d3f335013927f4dae79afe573d2f86492415b498e0d16",
+    "meguru-3d.mjs": "651e9933cc99e35e66a1b52b2e5b4553974a9b5f184aa2b712d0d2f3972df7d2",
+    "index.html": "d7f40703f3bb40b1d092262c247e5bc03c021179cc8fd70333595022494fca2e",
+    "tests/meguru-3d-visual-quality-test.cjs": "61e7688108ecfbe9201f0be9833d92b19f464f38f15cbf9561bb6f6321972e9c"
+  },
+  "targeted": {
+    "pass": 66,
+    "fail": 0,
+    "log": "targeted.log"
+  },
+  "reviewAssertionRerun": {
+    "pass": 1,
+    "fail": 0,
+    "log": "review-regression.log"
+  },
+  "full": {
+    "status": "incomplete",
+    "exit": null,
+    "observation": "No exit metadata or PIPELINE_EXIT marker; process session no longer exists and no /tmp/garden-full.py process found on resume. Termination cause unknown.",
+    "log": "full.log",
+    "metadata": "full-job.json"
+  },
+  "browser": {
+    "status": "not-run",
+    "blocker": "AF_UNIX socket creation denied errno1 persists"
+  },
+  "static": "static-summary.json",
+  "review": "No blocking findings; affected-house retention assertions added in response to low-priority test gap."
+}

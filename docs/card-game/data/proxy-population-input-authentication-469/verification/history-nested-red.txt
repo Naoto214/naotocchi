@@ -1,0 +1,21 @@
+test_nested_bad_owner_and_card_values_are_gaps (test_proxy_population_input_history.HistoryTests.test_nested_bad_owner_and_card_values_are_gaps) ... ERROR
+
+======================================================================
+ERROR: test_nested_bad_owner_and_card_values_are_gaps (test_proxy_population_input_history.HistoryTests.test_nested_bad_owner_and_card_values_are_gaps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_input_history.py", line 19, in test_nested_bad_owner_and_card_values_are_gaps
+    d=document();mutate(d);self.assertTrue(api.collect(d,'unit')['gaps'])
+                                           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_input_history.py", line 46, in collect
+    if not (type(document) is dict and str(document.get('$schema','')).startswith('https://json-schema.org/') and document.get('type')=='object' and type(document.get('properties')) is dict):walk(document,source+'#')
+                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_input_history.py", line 36, in walk
+    if len(players)!=2 or {p.get('player_id') for p in players if type(p) is dict}!={'A','B'}:gaps.append(pointer+': incomplete owner pair')
+                           ^^^^^^^^^^^^^^^^^^
+TypeError: unhashable type: 'list'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.186s
+
+FAILED (errors=1)

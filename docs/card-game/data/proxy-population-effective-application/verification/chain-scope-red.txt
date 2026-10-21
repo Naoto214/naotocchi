@@ -1,0 +1,26 @@
+test_opt_in_dispatch_and_end_provenance_reconstruct_same_operation (test_proxy_population_chain_resolution.ChainTests.test_opt_in_dispatch_and_end_provenance_reconstruct_same_operation) ... ERROR
+
+======================================================================
+ERROR: test_opt_in_dispatch_and_end_provenance_reconstruct_same_operation (test_proxy_population_chain_resolution.ChainTests.test_opt_in_dispatch_and_end_provenance_reconstruct_same_operation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_chain_resolution.py", line 32, in test_opt_in_dispatch_and_end_provenance_reconstruct_same_operation
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_chain_resolution.py", line 27, in run
+    with api.scope():
+         ^^^^^^^^^
+AttributeError: module 'proxy_population_chain_resolution' has no attribute 'scope'. Did you mean: 'copy'?
+
+----------------------------------------------------------------------
+Ran 1 test in 0.023s
+
+FAILED (errors=1)

@@ -1,0 +1,7 @@
+test_exports_complete_local_entries_without_promoting_origin_or_policy (test_proxy_population_policy_journal.PolicyJournalTests.test_exports_complete_local_entries_without_promoting_origin_or_policy) ... ok
+test_missing_duplicate_root_and_origin_changes_are_rejected (test_proxy_population_policy_journal.PolicyJournalTests.test_missing_duplicate_root_and_origin_changes_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.147s
+
+OK

@@ -1,0 +1,7 @@
+completed a
+completed b
+Traceback (most recent call last):
+  File "/tmp/regenerate-447.py", line 16, in <module>
+    assert all((a/p).read_bytes()==(b/p).read_bytes() for p in files)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

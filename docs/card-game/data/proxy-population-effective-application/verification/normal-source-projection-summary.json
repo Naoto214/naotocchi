@@ -1,0 +1,22 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_source_inventory",
+    "test_proxy_population_candidate_expansions",
+    "test_proxy_population_core_predicates",
+    "test_proxy_population_prepared_information",
+    "test_proxy_population_information_use",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 17.505775402001746,
+  "base_head": "a264e379eeb4d1e5ae830b36b3cd712e7f9c7aeb",
+  "python_count": 1072,
+  "source_unchanged": true,
+  "tests_passed": 26,
+  "fingerprint_sha256": "923536c0a26b9a6950459e58d06087a4388f9274f3b10b0013ffa6c8431c2ecd",
+  "production_generation": false,
+  "new_matches": 0
+}

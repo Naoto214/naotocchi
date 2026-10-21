@@ -1,0 +1,9 @@
+{
+  "status": "interrupted",
+  "success": false,
+  "reason": "final review identified two Important issues; fix pass requires new source manifest",
+  "planned": 908,
+  "completed_verified": null,
+  "worker_summaries_present": [],
+  "results_will_not_be_combined": true
+}

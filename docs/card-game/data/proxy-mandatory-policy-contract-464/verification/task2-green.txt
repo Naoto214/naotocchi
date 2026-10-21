@@ -1,0 +1,11 @@
+test_exact_messages_and_reference_mac (test_proxy_mandatory_policy_random.RandomTests.test_exact_messages_and_reference_mac) ... ok
+test_input_constraints_reject_scope_extension (test_proxy_mandatory_policy_random.RandomTests.test_input_constraints_reject_scope_extension) ... ok
+test_mirror_and_chooser_binding (test_proxy_mandatory_policy_random.RandomTests.test_mirror_and_chooser_binding) ... ok
+test_rejection_boundary_and_exhaustion (test_proxy_mandatory_policy_random.RandomTests.test_rejection_boundary_and_exhaustion) ... ok
+test_singleton_does_not_claim_strategy_comparison (test_proxy_mandatory_policy_random.RandomTests.test_singleton_does_not_claim_strategy_comparison) ... ok
+test_tampering_every_proof_component_is_rejected (test_proxy_mandatory_policy_random.RandomTests.test_tampering_every_proof_component_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+OK

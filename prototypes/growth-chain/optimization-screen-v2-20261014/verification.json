@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "trials": 168,
+  "operations": 39904,
+  "checks": [
+    "source hashes",
+    "seed and initial resources",
+    "common replay legality and final hash",
+    "all metrics and economy prefix invariants",
+    "win versus gameover versus censoring"
+  ]
+}

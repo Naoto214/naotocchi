@@ -1,0 +1,1085 @@
+{
+  "summary": [
+    {
+      "dir": "left",
+      "name": "start",
+      "width": 390,
+      "height": 844,
+      "time": 0,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "left",
+      "name": "middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.0015615275040659071,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.0015621538668426638,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.0000018790883018482418,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "left",
+      "name": "rotated-middle",
+      "width": 844,
+      "height": 390,
+      "time": 120,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.003128274054972735,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.0015649927103993377,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.004687946246576757,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.00312380921909039,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "left",
+      "name": "small-middle",
+      "width": 667,
+      "height": 320,
+      "time": 120,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.000004337394457820665,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.000004337394457820665,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.000005421743082933972,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.000003253045846918212,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "left",
+      "name": "returned-middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.0015615275040659071,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.0015621538668426638,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.0000018790883018482418,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "left",
+      "name": "end",
+      "width": 390,
+      "height": 844,
+      "time": 239.999,
+      "observations": [
+        {
+          "from": 4,
+          "to": 0,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 5,
+          "to": 1,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 11,
+          "to": 6,
+          "visible": true,
+          "positionError": 1.1332872418279294e-9,
+          "loaded": true
+        },
+        {
+          "from": 27,
+          "to": 24,
+          "visible": true,
+          "positionError": 6.799325547035551e-10,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "up",
+      "name": "start",
+      "width": 390,
+      "height": 844,
+      "time": 0,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 0,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "up",
+      "name": "middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.0015659685641082888,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.0000018790883018482418,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "up",
+      "name": "rotated-middle",
+      "width": 844,
+      "height": 390,
+      "time": 120,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.003128274054972735,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.0015649927103993377,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.004687946246576757,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.00312380921909039,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "up",
+      "name": "small-middle",
+      "width": 667,
+      "height": 320,
+      "time": 120,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.000004337394457820665,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.00000433739444360981,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.000005421743082933972,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.000003253045846918212,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "up",
+      "name": "returned-middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 0.0015659685641082888,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.0000018790883018482418,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "up",
+      "name": "end",
+      "width": 390,
+      "height": 844,
+      "time": 239.999,
+      "observations": [
+        {
+          "from": 24,
+          "to": 0,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 30,
+          "to": 6,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 31,
+          "to": 1,
+          "visible": true,
+          "positionError": 1.1332872418279294e-9,
+          "loaded": true
+        },
+        {
+          "from": 22,
+          "to": 4,
+          "visible": true,
+          "positionError": 6.799325547035551e-10,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "right",
+      "name": "start",
+      "width": 390,
+      "height": 844,
+      "time": 0,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "right",
+      "name": "middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 0.0015507097750742105,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 0.0015494570494638538,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "right",
+      "name": "rotated-middle",
+      "width": 844,
+      "height": 390,
+      "time": 120,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 0.0015497339213652594,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.003127829460652265,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 0.0031245537534232426,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 0.0015682684175999384,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "right",
+      "name": "small-middle",
+      "width": 667,
+      "height": 320,
+      "time": 120,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 0.00000433739444360981,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.00000433739444360981,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 0.000005421743082933972,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 0.000003253045861129067,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "right",
+      "name": "returned-middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 0.0015507097750742105,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 0.0015494570494638538,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "right",
+      "name": "end",
+      "width": 390,
+      "height": 844,
+      "time": 239.999,
+      "observations": [
+        {
+          "from": 1,
+          "to": 5,
+          "visible": true,
+          "positionError": 9.066525308298878e-10,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 4,
+          "visible": true,
+          "positionError": 9.066241091204574e-10,
+          "loaded": true
+        },
+        {
+          "from": 6,
+          "to": 11,
+          "visible": true,
+          "positionError": 1.1332872418279294e-9,
+          "loaded": true
+        },
+        {
+          "from": 26,
+          "to": 29,
+          "visible": true,
+          "positionError": 6.799609764129855e-10,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "down",
+      "name": "start",
+      "width": 390,
+      "height": 844,
+      "time": 0,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 0.015625,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "down",
+      "name": "middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 0.0015507097750742105,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 0.0015494570494638538,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "down",
+      "name": "rotated-middle",
+      "width": 844,
+      "height": 390,
+      "time": 120,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 0.0015497339213652594,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.003112570671589765,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 0.0031245537534232426,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 0.0015682684175999384,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "down",
+      "name": "small-middle",
+      "width": 667,
+      "height": 320,
+      "time": 120,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 0.00000433739444360981,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.00000433739444360981,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 0.000005421743082933972,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 0.000003253045861129067,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "down",
+      "name": "returned-middle",
+      "width": 390,
+      "height": 844,
+      "time": 120,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 0.0015653422013315321,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 0.0015507097750742105,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 0.0015494570494638538,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    },
+    {
+      "dir": "down",
+      "name": "end",
+      "width": 390,
+      "height": 844,
+      "time": 239.999,
+      "observations": [
+        {
+          "from": 6,
+          "to": 30,
+          "visible": true,
+          "positionError": 9.066525308298878e-10,
+          "loaded": true
+        },
+        {
+          "from": 0,
+          "to": 24,
+          "visible": true,
+          "positionError": 9.066525308298878e-10,
+          "loaded": true
+        },
+        {
+          "from": 1,
+          "to": 31,
+          "visible": true,
+          "positionError": 1.1332872418279294e-9,
+          "loaded": true
+        },
+        {
+          "from": 16,
+          "to": 34,
+          "visible": true,
+          "positionError": 6.799609764129855e-10,
+          "loaded": true
+        }
+      ],
+      "squares": true,
+      "durations": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "paintMatchesForeground": true
+    }
+  ],
+  "failures": []
+}

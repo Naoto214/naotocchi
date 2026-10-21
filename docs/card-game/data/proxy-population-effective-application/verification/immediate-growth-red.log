@@ -1,0 +1,50 @@
+FFFFF
+======================================================================
+FAIL: test_area_resolution_counts_and_cap_without_redeciding_activation (test_proxy_population_immediate_growth.ImmediateGrowthTests.test_area_resolution_counts_and_cap_without_redeciding_activation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_immediate_growth.py", line 43, in setUp
+    def setUp(self):self.assertIsNotNone(api,'immediate growth audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : immediate growth audit absent
+
+======================================================================
+FAIL: test_boss_draws_and_countryside_growth_have_complete_application (test_proxy_population_immediate_growth.ImmediateGrowthTests.test_boss_draws_and_countryside_growth_have_complete_application)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_immediate_growth.py", line 43, in setUp
+    def setUp(self):self.assertIsNotNone(api,'immediate growth audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : immediate growth audit absent
+
+======================================================================
+FAIL: test_consistent_false_operands_receipts_evidence_and_state_are_rejected (test_proxy_population_immediate_growth.ImmediateGrowthTests.test_consistent_false_operands_receipts_evidence_and_state_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_immediate_growth.py", line 43, in setUp
+    def setUp(self):self.assertIsNotNone(api,'immediate growth audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : immediate growth audit absent
+
+======================================================================
+FAIL: test_contexts_and_source_departure (test_proxy_population_immediate_growth.ImmediateGrowthTests.test_contexts_and_source_departure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_immediate_growth.py", line 43, in setUp
+    def setUp(self):self.assertIsNotNone(api,'immediate growth audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : immediate growth audit absent
+
+======================================================================
+FAIL: test_coverage_rejects_rebound_extra_draw (test_proxy_population_immediate_growth.ImmediateGrowthTests.test_coverage_rejects_rebound_extra_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_immediate_growth.py", line 43, in setUp
+    def setUp(self):self.assertIsNotNone(api,'immediate growth audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : immediate growth audit absent
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)

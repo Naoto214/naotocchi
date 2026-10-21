@@ -1,0 +1,1092 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 2415,
+    "sha256": "d37d8d2ad0e07aaf916d63a1b574c057e7a73feecfc3a98c991e4c76f8413410"
+  },
+  {
+    "path": "artifacts.json",
+    "bytes": 4327,
+    "sha256": "d9f94dd49a37b4846e8ab2985a7c332edb57f78a46f858388c61195849a216bb"
+  },
+  {
+    "path": "captures/after/city-arcade-vq.jpg",
+    "bytes": 75538,
+    "sha256": "b3b930906d206bae4821f5e3ff5f0c554e9e73081a3588b89e4134aa2df3ee01"
+  },
+  {
+    "path": "captures/after/city-market-vq.jpg",
+    "bytes": 68582,
+    "sha256": "28775d99d412862f1ea88dfe7fc8bc03eb186190c18c5c839daa64d76ba88ad6"
+  },
+  {
+    "path": "captures/after/city-vq.jpg",
+    "bytes": 68871,
+    "sha256": "36ecf27fb44adf70de3a12b2a7cb97f0f195a572b6e88b15a53877af7034fb51"
+  },
+  {
+    "path": "captures/after/countryside-autumn-vq.jpg",
+    "bytes": 78530,
+    "sha256": "7fa608278f7146621ff25b93f2941aa760aedc8a0af201618f420a7f37d0b3e1"
+  },
+  {
+    "path": "captures/after/countryside-river-vq.jpg",
+    "bytes": 85798,
+    "sha256": "9a1f35106f1d6c7a63ea51517e864fd8a2cbda25198285b6b7f64f4f6485c3d4"
+  },
+  {
+    "path": "captures/after/countryside-vq.jpg",
+    "bytes": 78250,
+    "sha256": "4f1d5dd4916b5ee71a8389e8b269589d1217eb54ca5b46c6b2eb0d81ef302222"
+  },
+  {
+    "path": "captures/after/deepsea-vq.jpg",
+    "bytes": 44570,
+    "sha256": "07fd8ad7990372766b86ee88c365f1ece529fd9866323e8bfa6d875dd2fbf2dd"
+  },
+  {
+    "path": "captures/after/desert-slope-vq.jpg",
+    "bytes": 53873,
+    "sha256": "ebfbd1f27b26e0576ce46ceaed058285dde2141f89acbdae57424c8842a06979"
+  },
+  {
+    "path": "captures/after/desert-vq.jpg",
+    "bytes": 71834,
+    "sha256": "1d701e9382e75c0998e7dff7c7be5e1a16017ed9e99e73fc396a6cb3b2bf9e72"
+  },
+  {
+    "path": "captures/after/entrance-15.jpg",
+    "bytes": 64625,
+    "sha256": "9a768c655e91c8f7d1bb40a4d7db85b532372f24b152516a6a4bf67ec5a3e217"
+  },
+  {
+    "path": "captures/after/entrance-196.jpg",
+    "bytes": 69430,
+    "sha256": "58c9b08d7c5100f0d3c3157f0014c6a59976a35fa3e73a611a2f4acffbf85fb0"
+  },
+  {
+    "path": "captures/after/entrance-45.jpg",
+    "bytes": 67917,
+    "sha256": "c691ac88bf39580096b4c30e89d400963459dec783164adbad5f150f8e115079"
+  },
+  {
+    "path": "captures/after/entrance-64.jpg",
+    "bytes": 81218,
+    "sha256": "d2f10f4b8049626fc25a88f413a72d019bdb750bc1d93351954100a139210528"
+  },
+  {
+    "path": "captures/after/forest-autumn-vq.jpg",
+    "bytes": 82772,
+    "sha256": "3279e2a58f86ef71256f6f49abc52510832ea42ebb204f7ff8deb6bc1b681efb"
+  },
+  {
+    "path": "captures/after/forest-bridge-vq.jpg",
+    "bytes": 82119,
+    "sha256": "b813632e1cac6c066504c29439887373821afab98b4c8a925435bfc70a583138"
+  },
+  {
+    "path": "captures/after/forest-creek-vq.jpg",
+    "bytes": 75569,
+    "sha256": "d1f602ef747579b1f76b3a14a9ca928d827ec96bee66aa4cc39ea54ec8e4ea9f"
+  },
+  {
+    "path": "captures/after/forest-vq.jpg",
+    "bytes": 82413,
+    "sha256": "97a18ad280463c89ec1f9e530bb250983c93557d2b49b247804d3db231eb9552"
+  },
+  {
+    "path": "captures/after/forest-winter-vq.jpg",
+    "bytes": 70815,
+    "sha256": "3f1d26be27866a3ecef8e6c6d4c481d18f68f57a70017c05c8fe2a08879f1366"
+  },
+  {
+    "path": "captures/after/home-house-vq.jpg",
+    "bytes": 71071,
+    "sha256": "460bf073d7de4a9767aadd5483958cca5427d1c4210cb2ddf67b437879aed868"
+  },
+  {
+    "path": "captures/after/home-spring-vq.jpg",
+    "bytes": 80233,
+    "sha256": "4b37dc35aa47bcc90c6f3a78721f6fedbe6b6b110a8c83ff1f419c43fdcef77c"
+  },
+  {
+    "path": "captures/after/home-vq.jpg",
+    "bytes": 80543,
+    "sha256": "9afa40d8af7dea34943665e10f593c1248c8ed5c87ab96c1d7f1a71553ade624"
+  },
+  {
+    "path": "captures/after/jungle-vq.jpg",
+    "bytes": 75309,
+    "sha256": "98a7d430bc5ff5141ea36afe80a9894b7bf9a4a3272dccaa92ec44a4ba85daff"
+  },
+  {
+    "path": "captures/after/memory_lake-vq.jpg",
+    "bytes": 60133,
+    "sha256": "548c069ae193a3073a47132e6cae415f70043ef65b3b454ba6082a27b6631c18"
+  },
+  {
+    "path": "captures/after/mountain-slope-vq.jpg",
+    "bytes": 64152,
+    "sha256": "e266c1a9a0bb627da447d9a2ccd7fe030c935d4504cc44e7ba64c40d5dfec5f3"
+  },
+  {
+    "path": "captures/after/mountain-summer-vq.jpg",
+    "bytes": 75598,
+    "sha256": "ed35675f17af13e050bdb8a2abfebb615d3b30e320996a7cf856c5f69a68bac0"
+  },
+  {
+    "path": "captures/after/mountain-vq.jpg",
+    "bytes": 74618,
+    "sha256": "1c90a897ca540570b3bceaad4cda290f6a458cad7da14b52f077fba191cc1089"
+  },
+  {
+    "path": "captures/after/mountain-winter-vq.jpg",
+    "bytes": 81821,
+    "sha256": "226421f4ce1454b78e44735a17422a2ca844095f7a02e663c4051ba22ba4af5f"
+  },
+  {
+    "path": "captures/after/oasis-vq.jpg",
+    "bytes": 71838,
+    "sha256": "5034272d3f0834476a9cf8115be521bd5f8e859c94497dbe516a171ab250d672"
+  },
+  {
+    "path": "captures/after/river-bridge-vq.jpg",
+    "bytes": 72890,
+    "sha256": "2224a64e1dd3510515aafe032b60784485e0fed3910b0c170094468cfd6669c9"
+  },
+  {
+    "path": "captures/after/river-bridge2-vq.jpg",
+    "bytes": 62756,
+    "sha256": "8808823601970b6eb228881708af25e68fd801c89e214ba6491bea7370d5bb4c"
+  },
+  {
+    "path": "captures/after/river-stonebridge-vq.jpg",
+    "bytes": 70543,
+    "sha256": "8151aa2b0ddd09d41f5b4baaf634cd2113e3c3496aef5de223efd487deb7ac14"
+  },
+  {
+    "path": "captures/after/river_lake-vq.jpg",
+    "bytes": 72303,
+    "sha256": "547f44bd2236fd2ca26e42ef8ec0f074994242fb1934f1fb2342c1b4dcf44118"
+  },
+  {
+    "path": "captures/after/sea-vq.jpg",
+    "bytes": 81503,
+    "sha256": "d940936e7d08b6ef9117097c2a0aee0e4cf2d57ad16c8851a6dda15531cf416f"
+  },
+  {
+    "path": "captures/after/snow-vq.jpg",
+    "bytes": 69657,
+    "sha256": "f35116f30ae42c03126e192148d8576b826f890b38192ac1255d1beddcc90773"
+  },
+  {
+    "path": "captures/after/star_stop-vq.jpg",
+    "bytes": 71355,
+    "sha256": "5657b683b7bc998c582b1155029f15fdf3068ced0474e571b6c5440f5f4d77bc"
+  },
+  {
+    "path": "captures/before/city-arcade-vq.jpg",
+    "bytes": 74610,
+    "sha256": "865bdd1069d16bdd14e8094c72a0bf0df3ca4caee4c843ea65e00380ba25dcc2"
+  },
+  {
+    "path": "captures/before/city-market-vq.jpg",
+    "bytes": 68594,
+    "sha256": "82cf2509cfb188ecacc2fa9e6fcf69c11b2fe1a6e6a1d097ccbd9132567496d2"
+  },
+  {
+    "path": "captures/before/city-vq.jpg",
+    "bytes": 69946,
+    "sha256": "ee306a8ff94b4d3f10adf88b29bb9a1c4788f428f23aa8c0c6e935d8d225ede6"
+  },
+  {
+    "path": "captures/before/countryside-autumn-vq.jpg",
+    "bytes": 78509,
+    "sha256": "2f4d6a9ce29c8d49519eba5ea20aacda67c2de9de8a6e0fb55bea141de02835e"
+  },
+  {
+    "path": "captures/before/countryside-river-vq.jpg",
+    "bytes": 85089,
+    "sha256": "b15e1d94e1658d7f9e591a66685b63e5dee2f990293b8c96b529dcf5c672130f"
+  },
+  {
+    "path": "captures/before/countryside-vq.jpg",
+    "bytes": 78119,
+    "sha256": "4fd69a7e2002ba8b29f6c79858bd64b55b85a9f778273876340003fde06b9260"
+  },
+  {
+    "path": "captures/before/deepsea-vq.jpg",
+    "bytes": 44755,
+    "sha256": "c9fe40ea6dba7766d7559520f98550eec550f1c09e83e9a845efc8c9a299e7ff"
+  },
+  {
+    "path": "captures/before/desert-slope-vq.jpg",
+    "bytes": 53081,
+    "sha256": "7411ce7a54784e77d8e66ffc2c55e7e1c11466e963616a9c9d3aadf1e2084e96"
+  },
+  {
+    "path": "captures/before/desert-vq.jpg",
+    "bytes": 71628,
+    "sha256": "d70fb2b7c759d1aae900690ff157a77a86522b742a9f410ebb4d5e431fbb3a64"
+  },
+  {
+    "path": "captures/before/entrance-15.jpg",
+    "bytes": 64510,
+    "sha256": "a5c883afe68b5c03a2fba61f14f30f17f79b93264bd7418ffc65d8a27352b466"
+  },
+  {
+    "path": "captures/before/entrance-196.jpg",
+    "bytes": 69244,
+    "sha256": "8cc4de9c7e48bf2d0327c814c5c34e2ec3b697fb7da86b3bd7b6e510ebd1b3ba"
+  },
+  {
+    "path": "captures/before/entrance-45.jpg",
+    "bytes": 68033,
+    "sha256": "6d9e22d8ed646a6fb2844af1124666267fb6957bbe5aed4971107875c78b442e"
+  },
+  {
+    "path": "captures/before/entrance-64.jpg",
+    "bytes": 81768,
+    "sha256": "927dba6fdfdca79faf1753c60ecb8b602aa4d1c5864c1de7b841090579ce5009"
+  },
+  {
+    "path": "captures/before/forest-autumn-vq.jpg",
+    "bytes": 82532,
+    "sha256": "31aefd427e85822e0410ee37d2006867a3ffea5f959cc705a1ac06920e6695ac"
+  },
+  {
+    "path": "captures/before/forest-bridge-vq.jpg",
+    "bytes": 82130,
+    "sha256": "3f197b6451309457a335c09e78eefbe13dd2244b446e2a81e303550e03a318e6"
+  },
+  {
+    "path": "captures/before/forest-creek-vq.jpg",
+    "bytes": 75319,
+    "sha256": "2a595f9ee483df2cd55423269151f1cdd8dfe4742611d90efc41046aa079466a"
+  },
+  {
+    "path": "captures/before/forest-vq.jpg",
+    "bytes": 82175,
+    "sha256": "c3331a519c3f0c5db3591664b7200ce933997507c2e5836f7f43d54cfce54050"
+  },
+  {
+    "path": "captures/before/forest-winter-vq.jpg",
+    "bytes": 71027,
+    "sha256": "e50738ef6dc42f01187b0198fa2c240b324863e8df07d5aac22e98274edce062"
+  },
+  {
+    "path": "captures/before/home-house-vq.jpg",
+    "bytes": 71001,
+    "sha256": "93341871ad821d60d0fe5639119f79532cbcfb4adda5d10a0b283f307a30171f"
+  },
+  {
+    "path": "captures/before/home-spring-vq.jpg",
+    "bytes": 79724,
+    "sha256": "2ab9dfab6cf0321b9d78b614f99ee4a5c2e65f32e28a2677cf098c89147bd1a5"
+  },
+  {
+    "path": "captures/before/home-vq.jpg",
+    "bytes": 79795,
+    "sha256": "c217c3b043dc043b3e8d135aa984247b85bca7d811caba2c484b0f5b864045ef"
+  },
+  {
+    "path": "captures/before/jungle-vq.jpg",
+    "bytes": 75463,
+    "sha256": "745562909baddf057f20f03d3708cb007b0a46c90f1e77ab054a7deec9358537"
+  },
+  {
+    "path": "captures/before/memory_lake-vq.jpg",
+    "bytes": 60370,
+    "sha256": "eccaa857422a0536f8552025c959281ecd1304cff90f88e165b2c750c2d6c810"
+  },
+  {
+    "path": "captures/before/mountain-slope-vq.jpg",
+    "bytes": 64109,
+    "sha256": "96ca7549e56fbde27e04e9b657d07ed284ec4b081811f24fb4db9b8795baafc5"
+  },
+  {
+    "path": "captures/before/mountain-summer-vq.jpg",
+    "bytes": 75837,
+    "sha256": "5a00acf4504c16c55182a86b156fe8fe38a6601bd485c2c7b91eb595be2a765a"
+  },
+  {
+    "path": "captures/before/mountain-vq.jpg",
+    "bytes": 74505,
+    "sha256": "dee522f15aa45706e5762eba5d569269c0b02c2fd93d85589a05c5ef2b8cf9e0"
+  },
+  {
+    "path": "captures/before/mountain-winter-vq.jpg",
+    "bytes": 81710,
+    "sha256": "79d2b1ec65e733558f17c7c21dc36d7722be4815f3c097cb90c12a00f98f2ede"
+  },
+  {
+    "path": "captures/before/oasis-vq.jpg",
+    "bytes": 71828,
+    "sha256": "4b5aa4ee4bc8e6a4af12481ffb758a94cd5d15140817e33165f1f489cb875d8c"
+  },
+  {
+    "path": "captures/before/river-bridge-vq.jpg",
+    "bytes": 72861,
+    "sha256": "16bb28faeb47e7bd0aeb41bfc936916e4c6013a8615f08bc763b33db99264145"
+  },
+  {
+    "path": "captures/before/river-bridge2-vq.jpg",
+    "bytes": 62507,
+    "sha256": "16af9cca5e5dbe6c7cdc1f5abe733622bac3e890f39f76c4faacba4c1d99e93d"
+  },
+  {
+    "path": "captures/before/river-stonebridge-vq.jpg",
+    "bytes": 70133,
+    "sha256": "4cc58fa18863149a399a8ebbc0fde6bfee3ecf7023a335ecc137b0652f41afcc"
+  },
+  {
+    "path": "captures/before/river_lake-vq.jpg",
+    "bytes": 72091,
+    "sha256": "83f5dac1621cc00f0946ada34280ffc71c32a50dea2e248c6deaba54f4062f19"
+  },
+  {
+    "path": "captures/before/sea-vq.jpg",
+    "bytes": 81324,
+    "sha256": "1d2ba134873d45bfa8c927b2406a9f5f82c9fbe76d84b54850aa9927e31fb9bc"
+  },
+  {
+    "path": "captures/before/snow-vq.jpg",
+    "bytes": 69713,
+    "sha256": "4bffa9b36ec033e4a089600559d88277b83e189e3741d5345247d258c7c2b095"
+  },
+  {
+    "path": "captures/before/star_stop-vq.jpg",
+    "bytes": 71489,
+    "sha256": "ec5ffc4432b2ad334b784cc6133357160c46265efcb1d8af667555880beef5b9"
+  },
+  {
+    "path": "captures/before-commit.txt",
+    "bytes": 41,
+    "sha256": "054bcf3e854806531a6ad730bedb1eef638216a3eae9dd4c0bfaf3a89e423fa6"
+  },
+  {
+    "path": "captures/browser-environment.json",
+    "bytes": 152,
+    "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18"
+  },
+  {
+    "path": "captures/capture-summary.json",
+    "bytes": 29589,
+    "sha256": "0ab9527a2440b3edfc6402beb172d505873a5ab8883ee6108913ae26e78e92e3"
+  },
+  {
+    "path": "captures/commit.txt",
+    "bytes": 41,
+    "sha256": "444ddd981b29372d76cc555c45c545379ad79ceda86d463566b9d6584ae65051"
+  },
+  {
+    "path": "captures/entrance-after.log",
+    "bytes": 910,
+    "sha256": "49cd176f81ec306b3522ee785cec06396bc411c48b98f48212b5e0abffcc078c"
+  },
+  {
+    "path": "captures/entrance-before.log",
+    "bytes": 910,
+    "sha256": "f13628f93b002d97c3548c57dab6a3d39a48029c777fa5df5418f1e9357bc0ba"
+  },
+  {
+    "path": "captures/entrance-recipe.json",
+    "bytes": 892,
+    "sha256": "a881bcdad1501fcdb38d9a1b441931af92cb08b33a39f3260f43e8ce504ccf19"
+  },
+  {
+    "path": "captures/gallery-after/family-barn.jpg",
+    "bytes": 23488,
+    "sha256": "104d1c8e38ab1eac131d1a93ac1db54cb5d8dc0f091e12d8c096abb485daf14d"
+  },
+  {
+    "path": "captures/gallery-after/family-cabin.jpg",
+    "bytes": 26497,
+    "sha256": "198ecbc411ddf374fbf07b8ede733a394dbf31e779d7e248409e203dd59a4a71"
+  },
+  {
+    "path": "captures/gallery-after/family-cottage.jpg",
+    "bytes": 24793,
+    "sha256": "181cb9f78187a9eaa98491121594591f25da4efce764595c1ea6e8f4e21be62e"
+  },
+  {
+    "path": "captures/gallery-after/family-farmhouse.jpg",
+    "bytes": 27113,
+    "sha256": "e832664c57db5fd32182f1e3eed09d55f16875d145946ca98fdc4630b5968dd8"
+  },
+  {
+    "path": "captures/gallery-after/family-hut.jpg",
+    "bytes": 25233,
+    "sha256": "0a45ae48c4cac24b5f420d733f4832c3648e884360d774f991238d4ee632ede7"
+  },
+  {
+    "path": "captures/gallery-after/family-shed.jpg",
+    "bytes": 26052,
+    "sha256": "986461af66fe18e10d2a77c2acc347034f6010feba5ed2f551af12bdb8a8580c"
+  },
+  {
+    "path": "captures/gallery-after/family-shop.jpg",
+    "bytes": 25172,
+    "sha256": "026cb70135891bcaf76765eba30612ffd8581b090df5619d75f3b65d8bd2f70f"
+  },
+  {
+    "path": "captures/gallery-after/family-single.jpg",
+    "bytes": 25273,
+    "sha256": "41b684406222ec250c0f8af5e3e2307df4bacc913c030975d663dbc458e2a5e1"
+  },
+  {
+    "path": "captures/gallery-after/family-twostorey.jpg",
+    "bytes": 27874,
+    "sha256": "f1f48eaa778b004268629379fed49ab3bb8134f04b0bad0373b0b5ac41c8aa78"
+  },
+  {
+    "path": "captures/gallery-after/prop-bike.jpg",
+    "bytes": 29003,
+    "sha256": "d9662358a49a6dcfd8cdd62e6ecfebf60001027bc6b666ab2ae046c74bddb052"
+  },
+  {
+    "path": "captures/gallery-after/prop-boxprop.jpg",
+    "bytes": 19055,
+    "sha256": "9ced8f082e99383ccf1c706728abf4c3297fcc9e0ddaa30a1ce7a27864c57cee"
+  },
+  {
+    "path": "captures/gallery-after/prop-car.jpg",
+    "bytes": 20488,
+    "sha256": "eb2df7bf346b7ae2bf527cef4c00db753af84f08b9d34e25f15ca08cb58b7954"
+  },
+  {
+    "path": "captures/gallery-after/prop-ferris.jpg",
+    "bytes": 27478,
+    "sha256": "8f07e818c78f73e8e49990f5c8f5cc74d3575c4493bde1fbf2e2ff384237ee6b"
+  },
+  {
+    "path": "captures/gallery-after/prop-ruin.jpg",
+    "bytes": 24298,
+    "sha256": "88d751d6f36fafcc683b533c541c98e7bde4ff152cf1978cd85a6c16c6fff24a"
+  },
+  {
+    "path": "captures/gallery-after/prop-signpost.jpg",
+    "bytes": 16560,
+    "sha256": "4ecf7b164b17b8ca6b9b839a1d9d959019e8e9c0c306c77b1b86221a715d08e5"
+  },
+  {
+    "path": "captures/gallery-after/prop-stall.jpg",
+    "bytes": 15885,
+    "sha256": "b88c0771ed02c1f24b96215c03b8c81da12528b37235eff0a1e47115d3f8faa2"
+  },
+  {
+    "path": "captures/gallery-after/prop-statue.jpg",
+    "bytes": 17759,
+    "sha256": "06d044ec4a12c088be29ae81808b4412035d357f3c59b9af8da5f78c3871975d"
+  },
+  {
+    "path": "captures/gallery-after/prop-telescope.jpg",
+    "bytes": 18438,
+    "sha256": "a3513c860884b84c7008a45f754a6d82bbac155875f2bd559677990a4c774fab"
+  },
+  {
+    "path": "captures/gallery-after/prop-tractor.jpg",
+    "bytes": 21916,
+    "sha256": "e91eeba4e01cd1e14069f62a1be040191d9ddbe7ab3ad78e289eec3d8dd30813"
+  },
+  {
+    "path": "captures/gallery-after/prop-wheel.jpg",
+    "bytes": 27958,
+    "sha256": "5afa5d5e43ddd14fe7a11f221f0a30d5838fc48f4c0509743f42189f2cb7aba7"
+  },
+  {
+    "path": "captures/gallery-after.log",
+    "bytes": 1127,
+    "sha256": "9d1e1bc0771e48701b4feac4baccbe57ec6347fbbc19fb624a4a010061997cfd"
+  },
+  {
+    "path": "captures/gallery-before/family-barn.jpg",
+    "bytes": 23488,
+    "sha256": "104d1c8e38ab1eac131d1a93ac1db54cb5d8dc0f091e12d8c096abb485daf14d"
+  },
+  {
+    "path": "captures/gallery-before/family-cabin.jpg",
+    "bytes": 26497,
+    "sha256": "198ecbc411ddf374fbf07b8ede733a394dbf31e779d7e248409e203dd59a4a71"
+  },
+  {
+    "path": "captures/gallery-before/family-cottage.jpg",
+    "bytes": 24793,
+    "sha256": "181cb9f78187a9eaa98491121594591f25da4efce764595c1ea6e8f4e21be62e"
+  },
+  {
+    "path": "captures/gallery-before/family-farmhouse.jpg",
+    "bytes": 27113,
+    "sha256": "e832664c57db5fd32182f1e3eed09d55f16875d145946ca98fdc4630b5968dd8"
+  },
+  {
+    "path": "captures/gallery-before/family-hut.jpg",
+    "bytes": 25233,
+    "sha256": "0a45ae48c4cac24b5f420d733f4832c3648e884360d774f991238d4ee632ede7"
+  },
+  {
+    "path": "captures/gallery-before/family-shed.jpg",
+    "bytes": 26052,
+    "sha256": "986461af66fe18e10d2a77c2acc347034f6010feba5ed2f551af12bdb8a8580c"
+  },
+  {
+    "path": "captures/gallery-before/family-shop.jpg",
+    "bytes": 25172,
+    "sha256": "026cb70135891bcaf76765eba30612ffd8581b090df5619d75f3b65d8bd2f70f"
+  },
+  {
+    "path": "captures/gallery-before/family-single.jpg",
+    "bytes": 25273,
+    "sha256": "41b684406222ec250c0f8af5e3e2307df4bacc913c030975d663dbc458e2a5e1"
+  },
+  {
+    "path": "captures/gallery-before/family-twostorey.jpg",
+    "bytes": 27874,
+    "sha256": "f1f48eaa778b004268629379fed49ab3bb8134f04b0bad0373b0b5ac41c8aa78"
+  },
+  {
+    "path": "captures/gallery-before/prop-bike.jpg",
+    "bytes": 29003,
+    "sha256": "d9662358a49a6dcfd8cdd62e6ecfebf60001027bc6b666ab2ae046c74bddb052"
+  },
+  {
+    "path": "captures/gallery-before/prop-boxprop.jpg",
+    "bytes": 19055,
+    "sha256": "9ced8f082e99383ccf1c706728abf4c3297fcc9e0ddaa30a1ce7a27864c57cee"
+  },
+  {
+    "path": "captures/gallery-before/prop-car.jpg",
+    "bytes": 20488,
+    "sha256": "eb2df7bf346b7ae2bf527cef4c00db753af84f08b9d34e25f15ca08cb58b7954"
+  },
+  {
+    "path": "captures/gallery-before/prop-ferris.jpg",
+    "bytes": 27478,
+    "sha256": "8f07e818c78f73e8e49990f5c8f5cc74d3575c4493bde1fbf2e2ff384237ee6b"
+  },
+  {
+    "path": "captures/gallery-before/prop-ruin.jpg",
+    "bytes": 24298,
+    "sha256": "88d751d6f36fafcc683b533c541c98e7bde4ff152cf1978cd85a6c16c6fff24a"
+  },
+  {
+    "path": "captures/gallery-before/prop-signpost.jpg",
+    "bytes": 16560,
+    "sha256": "4ecf7b164b17b8ca6b9b839a1d9d959019e8e9c0c306c77b1b86221a715d08e5"
+  },
+  {
+    "path": "captures/gallery-before/prop-stall.jpg",
+    "bytes": 15885,
+    "sha256": "b88c0771ed02c1f24b96215c03b8c81da12528b37235eff0a1e47115d3f8faa2"
+  },
+  {
+    "path": "captures/gallery-before/prop-statue.jpg",
+    "bytes": 17759,
+    "sha256": "06d044ec4a12c088be29ae81808b4412035d357f3c59b9af8da5f78c3871975d"
+  },
+  {
+    "path": "captures/gallery-before/prop-telescope.jpg",
+    "bytes": 18438,
+    "sha256": "a3513c860884b84c7008a45f754a6d82bbac155875f2bd559677990a4c774fab"
+  },
+  {
+    "path": "captures/gallery-before/prop-tractor.jpg",
+    "bytes": 21916,
+    "sha256": "e91eeba4e01cd1e14069f62a1be040191d9ddbe7ab3ad78e289eec3d8dd30813"
+  },
+  {
+    "path": "captures/gallery-before/prop-wheel.jpg",
+    "bytes": 27958,
+    "sha256": "5afa5d5e43ddd14fe7a11f221f0a30d5838fc48f4c0509743f42189f2cb7aba7"
+  },
+  {
+    "path": "captures/gallery-before.log",
+    "bytes": 1127,
+    "sha256": "9d1e1bc0771e48701b4feac4baccbe57ec6347fbbc19fb624a4a010061997cfd"
+  },
+  {
+    "path": "captures/gallery-recipe.json",
+    "bytes": 6063,
+    "sha256": "117f7b5748a995e023fa1eebf4e08182567e2fd8bedd9bc5a200831ce1c93257"
+  },
+  {
+    "path": "captures/node-version.txt",
+    "bytes": 9,
+    "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9"
+  },
+  {
+    "path": "captures/runner-exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "captures/source-sha256.txt",
+    "bytes": 233,
+    "sha256": "d66d02324679808290f4a0370bcee466659458601a07c3e8f3ec9c6cbb14cbde"
+  },
+  {
+    "path": "captures/world-after.log",
+    "bytes": 7811,
+    "sha256": "33f4588a51f016b79c24a9dd16e3cf9758e678351340ddca3c1c70488cea8c26"
+  },
+  {
+    "path": "captures/world-before.log",
+    "bytes": 7811,
+    "sha256": "244b83e88e14acbb5e94fb23ab8f98f646112e7684948a1221031e33d9499a73"
+  },
+  {
+    "path": "captures/world-recipe.json",
+    "bytes": 6149,
+    "sha256": "bdf9b43b48cb50a5b3aeb9edce88a045648617e9300e385d12766a1af4204a0a"
+  },
+  {
+    "path": "compare.md",
+    "bytes": 8807,
+    "sha256": "f603ead4f02b43b6f9efbeb9c175854cdfe0eecea147ad4157ec43f5a354a13d"
+  },
+  {
+    "path": "continuation.md",
+    "bytes": 3092,
+    "sha256": "27977687d8b0a5e4bdeff3de919b85da3e51e9c7c1c3a649f53d527f0ef67680"
+  },
+  {
+    "path": "corridor/browser-environment.json",
+    "bytes": 152,
+    "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18"
+  },
+  {
+    "path": "corridor/commit.txt",
+    "bytes": 41,
+    "sha256": "444ddd981b29372d76cc555c45c545379ad79ceda86d463566b9d6584ae65051"
+  },
+  {
+    "path": "corridor/corridor/city_sea_city-arrived.png",
+    "bytes": 319029,
+    "sha256": "cabd484be3274b3978d13cfb7fbae1028a95f98b72778d06b3c11b3c4564813d"
+  },
+  {
+    "path": "corridor/corridor/city_sea_city-corridor-0.png",
+    "bytes": 278363,
+    "sha256": "51fb025affa24bd6ca7752a3f1b45aa8b59f002e8273230fadec37ce58834cbf"
+  },
+  {
+    "path": "corridor/corridor/city_sea_city-corridor-1.png",
+    "bytes": 260998,
+    "sha256": "f576065a4a97b4ad312a5268c35446a4f0223cbeab7bd78011ea65b3acfeb319"
+  },
+  {
+    "path": "corridor/corridor/city_sea_city-corridor-2.png",
+    "bytes": 310543,
+    "sha256": "6c3f256f369ea1b29970a7aac7f0aee45d176246b82fe8fe514ae4c1c270bf42"
+  },
+  {
+    "path": "corridor/corridor/city_sea_city-corridor-3.png",
+    "bytes": 293226,
+    "sha256": "25b4b34027a17c57f8acb1538a89e21cdff00a79c5af2aaf7d0320e12f2f7293"
+  },
+  {
+    "path": "corridor/corridor/city_sea_sea-arrived.png",
+    "bytes": 328250,
+    "sha256": "90ec86dadc5674c9f6de77a074dc7c613afa2957516b9d276530a69b1cdf62fa"
+  },
+  {
+    "path": "corridor/corridor/city_sea_sea-corridor-0.png",
+    "bytes": 291921,
+    "sha256": "81ab3e3e1194390f1d2c8226b0f73a54e1a694e6601addb55a5f1bc45ec3dfda"
+  },
+  {
+    "path": "corridor/corridor/city_sea_sea-corridor-1.png",
+    "bytes": 282075,
+    "sha256": "cd13726d8bb5c8fea14c5b5256cb1108522e721c06005a6c5dc34129a0e09126"
+  },
+  {
+    "path": "corridor/corridor/city_sea_sea-corridor-2.png",
+    "bytes": 287756,
+    "sha256": "6e76db53dc01aeca9173542dc26a1cd3df4c29bbea74ca7cbad532f89dd34577"
+  },
+  {
+    "path": "corridor/corridor/city_sea_sea-corridor-3.png",
+    "bytes": 267330,
+    "sha256": "2c125b10a9b2686cd7f0948254878862ffad814ff5513e89188b2456a2b6a4f2"
+  },
+  {
+    "path": "corridor/corridor/corridor-qa.json",
+    "bytes": 61803,
+    "sha256": "031a6aa069dfa2c9ff79c1c380da09af883230d8387940bc50e7f61f0c09a183"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_countryside-arrived.png",
+    "bytes": 301577,
+    "sha256": "decee3a124485fbebb0230bc75c6e488d2bf8ec9e2a00f39dba77e9898748dfb"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_countryside-corridor-0.png",
+    "bytes": 288080,
+    "sha256": "38a663f1fbb45e9052546e25de86d04dcaa3be7a2082a738faa4f495aca001a9"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_countryside-corridor-1.png",
+    "bytes": 294938,
+    "sha256": "1f2da37b699bdd42e6cd15aae41c48ca32284633c48093f52bbf824f1e48473c"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_countryside-corridor-2.png",
+    "bytes": 320098,
+    "sha256": "7b56c10b8edbdf3855d77e592ff1f316db3afb06dc0fd43c115156ed30660549"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_countryside-corridor-3.png",
+    "bytes": 300436,
+    "sha256": "7c3bc99da59c49bd384202c988be32d4bca82d57d8c35469d366a835a822177a"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_forest-arrived.png",
+    "bytes": 385874,
+    "sha256": "fed2e914112e959b9dfa1334727e6b1e58697a55be68a24fc227eb2bdc35d09e"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_forest-corridor-0.png",
+    "bytes": 300448,
+    "sha256": "b2999286c0fbdeacd33b003b23b34f3bf3da2285b8b3c511173d4136251c099b"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_forest-corridor-1.png",
+    "bytes": 307114,
+    "sha256": "51029f7f21f657c5c2e7902f0a513a127b45a3bb904299dec14f4d596b71691c"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_forest-corridor-2.png",
+    "bytes": 314953,
+    "sha256": "7502678ffc4e609c247bbd220cd15e89dfce9f37ca0460bbc4282646b4a4cec2"
+  },
+  {
+    "path": "corridor/corridor/countryside_forest_forest-corridor-3.png",
+    "bytes": 321558,
+    "sha256": "9cb8c221c0a7edafb7e7a53e30e9d635a90c96007e7e59a13836d8f6ab69dffd"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_forest-arrived.png",
+    "bytes": 339850,
+    "sha256": "209bdc0610b1bd7ed9eb88deddff3e779e4c06c2b3542892cdf9b47df358180b"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_forest-corridor-0.png",
+    "bytes": 297118,
+    "sha256": "8d626b311d7357300fddb7e4b54b09fa9badc6b8ba4d9366158cd57952bfa6f9"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_forest-corridor-1.png",
+    "bytes": 289094,
+    "sha256": "7aedc2f4f1dfa2720227476500f91685173f918cc16c367c162a232e8c32b133"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_forest-corridor-2.png",
+    "bytes": 321830,
+    "sha256": "166efd740adba61ffadd9d2e4fa1a591fd714da9afdd85e212a84614bdfddfa5"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_forest-corridor-3.png",
+    "bytes": 313482,
+    "sha256": "1ddaedaa39ad669ae233760875ab8a95f5fcfb264e17439c60f35872d07268b8"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_mountain-arrived.png",
+    "bytes": 392989,
+    "sha256": "9325a7e9e208714452a33da8dbd46bd1db48c77e1e7e513816c18a4b7a94a95b"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_mountain-corridor-0.png",
+    "bytes": 305264,
+    "sha256": "48851cf9d2fca033ca365ca706e926b22ded3976d6ff15b116d9115962133be6"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_mountain-corridor-1.png",
+    "bytes": 302113,
+    "sha256": "f1dd8a5d86f6a48b491a12e6f05868bcfdb3166ca2f3b13138bae9e64911e96b"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_mountain-corridor-2.png",
+    "bytes": 313722,
+    "sha256": "c4755af82075ab94f7f727cfa6a16b2841c2952399b149579711807356443dba"
+  },
+  {
+    "path": "corridor/corridor/forest_mountain_mountain-corridor-3.png",
+    "bytes": 301694,
+    "sha256": "8a0783d7c9795ea38170c5fb5b389d6114c08322a4b1adf53a4564f86b65674e"
+  },
+  {
+    "path": "corridor/corridor/home_forest_forest-arrived.png",
+    "bytes": 318406,
+    "sha256": "4fb02076f0b4c0c1e3f00f201dc48a367c2461967524e70bf9f2bf5aca7a9b96"
+  },
+  {
+    "path": "corridor/corridor/home_forest_forest-corridor-0.png",
+    "bytes": 302054,
+    "sha256": "51b1db1a150b7873b26ba3e9baf31eaca1a8663f8d40683334e7a05e7701868c"
+  },
+  {
+    "path": "corridor/corridor/home_forest_forest-corridor-1.png",
+    "bytes": 288063,
+    "sha256": "3bce2324a1049d4c72e82d46934d36c6b647f04ddb2f95aa8c4e876103477526"
+  },
+  {
+    "path": "corridor/corridor/home_forest_forest-corridor-2.png",
+    "bytes": 292788,
+    "sha256": "d02a9740481ff3c67bdd9fb7727d32197d0c8ac1fa9b38ddd718f61ccba7c3f9"
+  },
+  {
+    "path": "corridor/corridor/home_forest_forest-corridor-3.png",
+    "bytes": 278296,
+    "sha256": "a8526f0aa4dba989709a9a841ee0ca2651d0363d5136c240e38fc49672c950ec"
+  },
+  {
+    "path": "corridor/corridor/home_forest_home-arrived.png",
+    "bytes": 373670,
+    "sha256": "630dcf4e15926dae47c847e7609027691193472fad0eeee069b0f9014c1a8111"
+  },
+  {
+    "path": "corridor/corridor/home_forest_home-corridor-0.png",
+    "bytes": 292440,
+    "sha256": "e7584f2fb36a378fb644f638844e7c6da58941b9fdf87b14639e9cb4db365558"
+  },
+  {
+    "path": "corridor/corridor/home_forest_home-corridor-1.png",
+    "bytes": 294651,
+    "sha256": "5383c520bda0a14e506ecff345f3ebaca1a6e77fb8c0adcc8d83bd751cf6f53b"
+  },
+  {
+    "path": "corridor/corridor/home_forest_home-corridor-2.png",
+    "bytes": 324693,
+    "sha256": "f4776f49a85996e633435a9c89ea035b3324a32d368b83411d9b30778efd85c7"
+  },
+  {
+    "path": "corridor/corridor/home_forest_home-corridor-3.png",
+    "bytes": 308014,
+    "sha256": "8e172882463727828f81039930a8ebc0704d9a701b3c631dc9c7128b0c123d94"
+  },
+  {
+    "path": "corridor/corridor.log",
+    "bytes": 1056,
+    "sha256": "01d35371b8e80bcd80ce010920b4239e27318b9aece9f7798e4fb1f77d7b394e"
+  },
+  {
+    "path": "corridor/node-version.txt",
+    "bytes": 9,
+    "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9"
+  },
+  {
+    "path": "corridor/runner-exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "corridor/source-sha256.txt",
+    "bytes": 233,
+    "sha256": "d66d02324679808290f4a0370bcee466659458601a07c3e8f3ec9c6cbb14cbde"
+  },
+  {
+    "path": "corridor/summary.json",
+    "bytes": 257,
+    "sha256": "19c90339925e4a7e238137f649d621999ff4f2c0b1da2f66fbc2f24850b11d2d"
+  },
+  {
+    "path": "corridor/summary.log",
+    "bytes": 224,
+    "sha256": "57c189ddec11d771525997f498f842738802a766d10b3d356c96fb9cd2226d0b"
+  },
+  {
+    "path": "jobs.json",
+    "bytes": 18593,
+    "sha256": "01caaa2b1681bc134734ad5bf0fdcade99d6a0d7f656895c0d0e47267b314aa2"
+  },
+  {
+    "path": "regression/command.txt",
+    "bytes": 4421,
+    "sha256": "48f7c62f57fc40310f81244be423ff378d931a00d28de90223b0a9c84a202652"
+  },
+  {
+    "path": "regression/commit.txt",
+    "bytes": 41,
+    "sha256": "444ddd981b29372d76cc555c45c545379ad79ceda86d463566b9d6584ae65051"
+  },
+  {
+    "path": "regression/exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "regression/full.log",
+    "bytes": 690203,
+    "sha256": "846ecb7afdd86fe33c1d1b21f8fd310ddf905109e529b28647f5c9058326f62e"
+  },
+  {
+    "path": "regression/node-version.txt",
+    "bytes": 9,
+    "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9"
+  },
+  {
+    "path": "regression/source-sha256.txt",
+    "bytes": 233,
+    "sha256": "d66d02324679808290f4a0370bcee466659458601a07c3e8f3ec9c6cbb14cbde"
+  },
+  {
+    "path": "smoke/browser-environment.json",
+    "bytes": 152,
+    "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18"
+  },
+  {
+    "path": "smoke/commit.txt",
+    "bytes": 41,
+    "sha256": "444ddd981b29372d76cc555c45c545379ad79ceda86d463566b9d6584ae65051"
+  },
+  {
+    "path": "smoke/node-version.txt",
+    "bytes": 9,
+    "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9"
+  },
+  {
+    "path": "smoke/runner-exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "smoke/smoke/city-3d.png",
+    "bytes": 243961,
+    "sha256": "84854d7f9f2741eb4ba301322404fb72ea941ec1f720b060605562e4a54251b6"
+  },
+  {
+    "path": "smoke/smoke/countryside-3d.png",
+    "bytes": 344948,
+    "sha256": "c20124bfa77eab0d17bf8440d1c291d149bdab6c10c482734244077b1fe5f8b2"
+  },
+  {
+    "path": "smoke/smoke/deepsea-3d.png",
+    "bytes": 273506,
+    "sha256": "b1fb7e0f10ef952192f974b9b5810826310e2026207c607ae496dc62a1c9c8cb"
+  },
+  {
+    "path": "smoke/smoke/desert-3d.png",
+    "bytes": 402042,
+    "sha256": "89b5f9d332d606635e1291bf5cbed31ad32b99432ac56fcaae641f59bd37be80"
+  },
+  {
+    "path": "smoke/smoke/forest-3d.png",
+    "bytes": 375796,
+    "sha256": "fe4eef20f61a307498bc64862250d644ff5aa1868097e9c330395d44aa9cae13"
+  },
+  {
+    "path": "smoke/smoke/home-3d.png",
+    "bytes": 322180,
+    "sha256": "6bb1bcb3af9929c2ece2b13d5014cf36cf8db269d105a06d1661ff2ec15d2b75"
+  },
+  {
+    "path": "smoke/smoke/jungle-3d.png",
+    "bytes": 375240,
+    "sha256": "d07521f3d61cc77761c9615643b374f253afd0878e224e55a96c3d1d14309f59"
+  },
+  {
+    "path": "smoke/smoke/memory_lake-3d.png",
+    "bytes": 320385,
+    "sha256": "f3e3e4b2d5067b4254c5d374d8ace96210db90b73d22d27888c9ae9c67d4dec0"
+  },
+  {
+    "path": "smoke/smoke/mountain-3d.png",
+    "bytes": 308103,
+    "sha256": "9842adbf5d182703aa295c344a328b198b6285216cecdf65dd5969df8eeb09ca"
+  },
+  {
+    "path": "smoke/smoke/regions-smoke.json",
+    "bytes": 42457,
+    "sha256": "a71683aa48a728704d27f3a6feee46f3b33d82a291eea1634246ace8d58c83e8"
+  },
+  {
+    "path": "smoke/smoke/river_lake-3d.png",
+    "bytes": 371745,
+    "sha256": "affe0f67564c140237b9e5204f3ddfdb41777b01dfde5276e2762484b9bb7cb7"
+  },
+  {
+    "path": "smoke/smoke/sea-3d.png",
+    "bytes": 247055,
+    "sha256": "8bd2b65229018f2c51bee025466c8ef20e9fccd72cd811a73676b9723177bc5f"
+  },
+  {
+    "path": "smoke/smoke/snow-3d.png",
+    "bytes": 347318,
+    "sha256": "d73c8d064ab6006ae75f2fa65fff9f6514a5e09b38f87265bac4aeeb1c3052f4"
+  },
+  {
+    "path": "smoke/smoke/star_stop-3d.png",
+    "bytes": 356528,
+    "sha256": "db78cd03750bc989b1c2bc4e88bea3b2e41772cd62279bf43f74656acf241e1a"
+  },
+  {
+    "path": "smoke/smoke.log",
+    "bytes": 1508,
+    "sha256": "d2d8e52663d5503708d327e1429f0be80596d9f12ee3a32ad56ad5579314cd01"
+  },
+  {
+    "path": "smoke/source-sha256.txt",
+    "bytes": 233,
+    "sha256": "d66d02324679808290f4a0370bcee466659458601a07c3e8f3ec9c6cbb14cbde"
+  },
+  {
+    "path": "smoke/summary.json",
+    "bytes": 275,
+    "sha256": "12868f0b72a35cea2477ae707adaa644f1c438db67ae796871df614afc8fc07c"
+  },
+  {
+    "path": "smoke/summary.log",
+    "bytes": 242,
+    "sha256": "25a1d1c340561696ba7b59621efe12b8082cdd1d5cd4966b7388b06706df0000"
+  },
+  {
+    "path": "verification.json",
+    "bytes": 2223,
+    "sha256": "9f921706ea6e94b299d7d0f8bf82c7cc4ed30b69e2cc464c8d0ca9eb56dbe368"
+  },
+  {
+    "path": "visibility/browser-environment.json",
+    "bytes": 152,
+    "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18"
+  },
+  {
+    "path": "visibility/commit.txt",
+    "bytes": 41,
+    "sha256": "444ddd981b29372d76cc555c45c545379ad79ceda86d463566b9d6584ae65051"
+  },
+  {
+    "path": "visibility/node-version.txt",
+    "bytes": 9,
+    "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9"
+  },
+  {
+    "path": "visibility/runner-exit-code.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "visibility/source-sha256.txt",
+    "bytes": 233,
+    "sha256": "d66d02324679808290f4a0370bcee466659458601a07c3e8f3ec9c6cbb14cbde"
+  },
+  {
+    "path": "visibility/summary.json",
+    "bytes": 263,
+    "sha256": "8253120768cb0bc5fa5ba0f41b6f4e9f50a266b5d34c5b2c264dd8a0790a6f53"
+  },
+  {
+    "path": "visibility/summary.log",
+    "bytes": 230,
+    "sha256": "173e2e5f190760a79709b5e2396f5564c03f62aba979db684d8356288e5b2031"
+  },
+  {
+    "path": "visibility/visibility/vis-audit.json",
+    "bytes": 27626,
+    "sha256": "a57c0f03cdaacb146acae96ccc8fdef51dacec1d4e9511d11d3966d8f2e08a2e"
+  },
+  {
+    "path": "visibility/visibility.log",
+    "bytes": 980,
+    "sha256": "c9d2cacca853c509e5d94c59402d21223c5ff9a366baf8b985ff411c91ce4dd1"
+  }
+]

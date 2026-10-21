@@ -1,0 +1,130 @@
+✖ old response taps cannot execute after a state transition in CPU or hotseat (2.367475ms)
+✖ a gesture cannot be replayed, retargeted, or survive a render (0.446417ms)
+✖ restore to the same revision, hide, and fresh accessibility activation (0.707794ms)
+✖ held keyboard and browser multi-click cannot end a newly displayed turn (0.648981ms)
+✖ response and end-turn have distinct permanent slots and labels (14.996159ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 188.641336
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/ui-input.test.mjs:19:1
+✖ old response taps cannot execute after a state transition in CPU or hotseat (2.367475ms)
+  AssertionError [ERR_ASSERTION]: UI must bind input to the rendered state
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at setup (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:10:9)
+      at TestContext.<anonymous> (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:21:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-input.test.mjs:34:1
+✖ a gesture cannot be replayed, retargeted, or survive a render (0.446417ms)
+  AssertionError [ERR_ASSERTION]: UI must bind input to the rendered state
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at setup (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:10:9)
+      at TestContext.<anonymous> (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:35:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-input.test.mjs:42:1
+✖ restore to the same revision, hide, and fresh accessibility activation (0.707794ms)
+  AssertionError [ERR_ASSERTION]: UI must bind input to the rendered state
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at setup (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:10:9)
+      at TestContext.<anonymous> (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:43:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-input.test.mjs:49:1
+✖ held keyboard and browser multi-click cannot end a newly displayed turn (0.648981ms)
+  AssertionError [ERR_ASSERTION]: UI must bind input to the rendered state
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at setup (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:10:9)
+      at TestContext.<anonymous> (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:50:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/ui-input.test.mjs:55:1
+✖ response and end-turn have distinct permanent slots and labels (14.996159ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /data-pass-slot="response"[^>]*>[\s\S]*data-pass-intent="response"/. Input:
+  
+  '<div class="operation-notice" role="status" aria-live="polite"><button type="button" class="notice-expand" data-workflow aria-label="ターン開始時の応答。操作 A · 応答。光るカードで応答／パス。効果・選択肢の詳細"><span class="notice-copy"><strong>操作 A · 応答</strong><span>光るカードで応答／パス</span></span><span class="notice-more">詳細 ›</span></button><div class="notice-actions actions"><button type="button" data-kind="pass" data-action="ui:1:7">応答しない（パス）</button></div></div><div class="response-options" aria-label="応答可能なカード"><button type="button" class="is-eligible" data-inspect="A:G-hit-blow:1">ヒット&amp;ブロー</button></div>'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/5f7e922a339f/naotocchi/prototypes/card-game/tests/ui-input.test.mjs:59:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<div class="operation-notice" role="status" aria-live="polite"><button type="button" class="notice-expand" data-workflow aria-label="ターン開始時の応答。操作 A · 応答。光るカードで応答／パス。効果・選択肢の詳細"><span class="notice-copy"><strong>操作 A · 応答</strong><span>光るカードで応答／パス</span></span><span class="notice-more">詳細 ›</span></button><div class="notice-actions actions"><button type="button" data-kind="pass" data-action="ui:1:7">応答しない（パス）</button></div></div><div class="response-options" aria-label="応答可能なカード"><button type="button" class="is-eligible" data-inspect="A:G-hit-blow:1">ヒット&amp;ブロー</button></div>',
+    expected: /data-pass-slot="response"[^>]*>[\s\S]*data-pass-intent="response"/,
+    operator: 'match',
+    diff: 'simple'
+  }

@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_manifest_row_reaches_connected_backend_and_exact_reconstruction (__main__.EntryTests.test_manifest_row_reaches_connected_backend_and_exact_reconstruction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_connected_entry.py", line 9, in test_manifest_row_reaches_connected_backend_and_exact_reconstruction
+    self.assertIsNotNone(api,'manifest-connected current backend absent')
+AssertionError: unexpectedly None : manifest-connected current backend absent
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

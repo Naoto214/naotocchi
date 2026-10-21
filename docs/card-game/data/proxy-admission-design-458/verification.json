@@ -1,0 +1,35 @@
+{
+  "card_type_prefixes": {
+    "A": [
+      "C",
+      "E",
+      "G",
+      "I",
+      "M",
+      "P",
+      "W"
+    ],
+    "B": [
+      "C",
+      "E",
+      "G",
+      "I",
+      "M",
+      "P",
+      "W"
+    ]
+  },
+  "changed_protected_files": [],
+  "design_data_errors": [],
+  "design_only": true,
+  "distinct_card_ids": 41,
+  "existing_repository_files_checked_except_readme": 3578,
+  "new_input_generation": 0,
+  "new_matches": 0,
+  "new_replays": 0,
+  "note": "Design/JSON consistency checks only; acceptance examples were not executed as game tests.",
+  "physical_cards": 80,
+  "proposed_sample_arithmetic_consistent": true,
+  "runtime_tests_run": 0,
+  "source_hashes_checked": 20
+}

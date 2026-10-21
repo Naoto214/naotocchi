@@ -1,0 +1,40 @@
+test_cli_nonexecution_and_error_exit_codes (test_proxy_mandatory_policy_audit.AuditTests.test_cli_nonexecution_and_error_exit_codes) ... ok
+test_contract_change_or_incomplete_candidates_cannot_be_hidden (test_proxy_mandatory_policy_audit.AuditTests.test_contract_change_or_incomplete_candidates_cannot_be_hidden) ... ok
+test_forged_verified_or_legacy_record_cannot_grant_admission (test_proxy_mandatory_policy_audit.AuditTests.test_forged_verified_or_legacy_record_cannot_grant_admission) ... ok
+test_normal_response_unregistered_malformed_and_wrong_root (test_proxy_mandatory_policy_audit.AuditTests.test_normal_response_unregistered_malformed_and_wrong_root) ... ok
+test_supplied_singleton_does_not_certify_forced_legal_choice (test_proxy_mandatory_policy_audit.AuditTests.test_supplied_singleton_does_not_certify_forced_legal_choice) ... FAIL
+test_valid_arithmetic_retains_unproven_gates (test_proxy_mandatory_policy_audit.AuditTests.test_valid_arithmetic_retains_unproven_gates) ... ok
+test_compact_utf8_and_types (test_proxy_mandatory_policy_contract.ContractTests.test_compact_utf8_and_types) ... ok
+test_load_rejects_duplicates_float_and_nonobject (test_proxy_mandatory_policy_contract.ContractTests.test_load_rejects_duplicates_float_and_nonobject) ... ok
+test_pinned_source_and_anchor_tamper_rejected (test_proxy_mandatory_policy_contract.ContractTests.test_pinned_source_and_anchor_tamper_rejected) ... ok
+test_verified_contract_never_authorizes_execution (test_proxy_mandatory_policy_contract.ContractTests.test_verified_contract_never_authorizes_execution) ... ok
+test_exact_messages_and_reference_mac (test_proxy_mandatory_policy_random.RandomTests.test_exact_messages_and_reference_mac) ... ok
+test_input_constraints_reject_scope_extension (test_proxy_mandatory_policy_random.RandomTests.test_input_constraints_reject_scope_extension) ... ok
+test_mirror_and_chooser_binding (test_proxy_mandatory_policy_random.RandomTests.test_mirror_and_chooser_binding) ... ok
+test_rejection_boundary_and_exhaustion (test_proxy_mandatory_policy_random.RandomTests.test_rejection_boundary_and_exhaustion) ... ok
+test_singleton_does_not_claim_strategy_comparison (test_proxy_mandatory_policy_random.RandomTests.test_singleton_does_not_claim_strategy_comparison) ... FAIL
+test_tampering_every_proof_component_is_rejected (test_proxy_mandatory_policy_random.RandomTests.test_tampering_every_proof_component_is_rejected) ... ok
+
+======================================================================
+FAIL: test_supplied_singleton_does_not_certify_forced_legal_choice (test_proxy_mandatory_policy_audit.AuditTests.test_supplied_singleton_does_not_certify_forced_legal_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_audit.py", line 76, in test_supplied_singleton_does_not_certify_forced_legal_choice
+    self.assertIsNone(result['strategic_unproven'])
+AssertionError: False is not None
+
+======================================================================
+FAIL: test_singleton_does_not_claim_strategy_comparison (test_proxy_mandatory_policy_random.RandomTests.test_singleton_does_not_claim_strategy_comparison)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_random.py", line 65, in test_singleton_does_not_claim_strategy_comparison
+    self.assertEqual(result['selection_basis'], 'supplied_singleton')
+AssertionError: 'rule_forced_singleton' != 'supplied_singleton'
+- rule_forced_singleton
++ supplied_singleton
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.246s
+
+FAILED (failures=2)

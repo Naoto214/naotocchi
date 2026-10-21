@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-20",
+  "github": {
+    "repository": "Naoto214/naotocchi",
+    "pr": 403,
+    "branch": "feat/card-rulebook-tutorial-20261020",
+    "start_head": "8ca59fc6ad598ba99420a925200f307b2a6a9b3b",
+    "start_tree": "e05eba89fa82a1dab632d54f76cad68b6949088e",
+    "implementation_head": "2dc2e18b640d16962526a2a8fccb8449d145204a",
+    "implementation_tree": "b10d1f08bad3a6ec80509f600a60c98947c7bc5a",
+    "main_unchanged": "db9ea8e8d86c632a68ed8ab4880968803f78a243",
+    "draft": true,
+    "merged": false
+  },
+  "site": {
+    "id": "appgdep_6ad7709cd460819190e2677796e26a50",
+    "project_id": "appgprj_6ad6fa1914c88191aa80d1bf654d9cb9",
+    "title": "なおとっち CARD GAME｜ルールブックと練習",
+    "version_id": "appgprj_6ad6fa1914c88191aa80d1bf654d9cb9~appgver_3775ae2dd8008191b2cd42d6171a8377",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naotocchi-learn-20261020.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad6fa1914c88191aa80d1bf654d9cb9",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-20T13:46:20.152330+00:00",
+    "source_commit": "918734e3413316d481ad71fb48dfbce2b1953ab4",
+    "owner_private": true,
+    "existing_url_preserved": true
+  },
+  "runtime": {
+    "files": 960,
+    "github_matching_files": 959,
+    "bytes": 141520412,
+    "qa_fixtures_excluded": true
+  },
+  "browser_after_deployment": {
+    "url": "https://naotocchi-learn-20261020.kerzion214.chatgpt.site/prototypes/card-game/",
+    "cover_transform": "none",
+    "caption_outside_cover": true,
+    "screenshot": "published-cover.jpg"
+  },
+  "tests": {
+    "focused": 61,
+    "additional": 34,
+    "failures": 0,
+    "dom_runs": 6,
+    "iphone_safari_physical": "pending owner QA"
+  },
+  "implementation_ci": {
+    "workflow_runs": [
+      {
+        "id": 39432975289,
+        "name": "Runtime smoke test",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_number": 1471,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/39432975289/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/39432975289/logs",
+        "workflow_id": 351596585
+      },
+      {
+        "id": 39432975139,
+        "name": "Home layout",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_number": 951,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/39432975139/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/39432975139/logs",
+        "workflow_id": 355795733
+      },
+      {
+        "id": 39432975145,
+        "name": "World visual quality",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_number": 80,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/39432975145/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/39432975145/logs",
+        "workflow_id": 374398717
+      },
+      {
+        "id": 39432975298,
+        "name": "Pages runtime package",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_number": 21,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/39432975298/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/39432975298/logs",
+        "workflow_id": 389281874
+      }
+    ]
+  },
+  "pages_failure": {
+    "job_id": 118662529164,
+    "deploy": "skipped",
+    "reason": "Existing unallowlisted learning-ui.mjs, rulebook-content.mjs, learning.css references; no Pages manifest/workflow change."
+  },
+  "note": "The subsequent evidence-only commit contains this publication record and deployed screenshot. Runtime is identical to implementation_head."
+}

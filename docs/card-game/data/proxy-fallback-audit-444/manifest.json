@@ -1,0 +1,23 @@
+{
+  "base_commit": "f0c6f0da932a28f4ac610b008a1822a23d532631",
+  "compressed_sha256": "d136bb5e68c88ec9289ce8ae4df0897f0fae74161bfa7b57a8bab8ce0f55e7ec",
+  "historical_execution_source_hashes_verified": 350,
+  "input_and_analysis_sha256": {
+    "data/proxy-comparison-closeout-443/comparison.json": "22c31ad47a8a80b1b9ac40914be3d32e8ac72edb03e90d6ba4529bc2392d42ba",
+    "data/proxy-completed-evaluation-440/manifest.json": "b5f2d5ac0afb1538380c372b72ce7d7fbc04b1dbde83df299da141f726780206",
+    "data/proxy-completed-evaluation-440/shadow.json.gz": "1890a213fe8e176eeaf550a756279cede29a98f0c87fdc50159ae64726c9d15e",
+    "data/proxy-continuation-batch-439/manifest.json": "2f4b812e2c1f02ec6c4d7a4ba4a295327e498266bdfd01520f580b3566f3cd1c",
+    "data/proxy-continuation-batch-439/paired.json.gz": "51d4f594e139bcaf54a59a2f48b951855409109fdaad92bd1bc1261413d9b657",
+    "data/proxy-fallback-audit-444/reproduce.py": "79cf92a41d1926ca7f6e7df414ecf638ed01c99a39f8cfd28ad9f508b86656ea",
+    "data/proxy-gap-validation-441/legacy-limits.json": "0d93fa8542d021b69674615194c96a6c11489b314b921d5ef32df025240ba0a4",
+    "plans/2026-10-01-normal-decision-resource-pilot-design.md": "3f5c08298fac03a3413bc2d4dd70f7608ed8d7df48547c5d00f59f7078b0d645",
+    "tools/proxy_completed_comparison.py": "a221f2322616716ba294c4283582f4884667e8d91efbf25c8420575850254059",
+    "tools/proxy_continuation_candidates.py": "6a8c91f6166a14aae4a0e8a1ecc7cce9f367749919293a74724ab52b12108573",
+    "tools/proxy_fallback_audit.py": "fee3b5b1202e66de52cba724aab1a6863ec79a2a9712bc43503bd6d7902efe3a",
+    "tools/proxy_resource_value_comparison.py": "6ee3e6aec1874dc76164da6eb9761c53b07992fe27fa777f1ea6c67335b917bc",
+    "tools/proxy_resource_value_selection.py": "aafd7c7c27371e7ac0fceee8b79749323a32d226afe394abfb1509adfb601050",
+    "tools/proxy_resource_value_shadow.py": "6ef742f112cca403e1337e019699c6d04f8b5508c0accf63271a1c5038969194"
+  },
+  "raw_sha256": "e1c0d2090714ff2b94f2446021f8bd452152516f74fd4ed2a71464842d6d6634",
+  "summary_sha256": "c66da6d6f21845c610ab596ba0d9aec7f13f325202a58c5ff1ad97fdf483d8d9"
+}

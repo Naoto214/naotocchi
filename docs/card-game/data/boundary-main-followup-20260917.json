@@ -1,0 +1,26 @@
+{
+  "base_main": "c77587b7488670d27af1e7f0fdb8a477a386e1c2",
+  "latest_main": "f23398e43eed952d49d5a2b805789a4c87b2b1bd",
+  "changed_paths": [
+    "DEVELOPMENT_CHECKPOINT_2026-09-07.md",
+    "index.html",
+    "meguru.js",
+    "script.js",
+    "tests/home-layout-browser.cjs",
+    "tests/meguru-layout-browser.cjs"
+  ],
+  "source_blobs": {
+    "character-world-master.v1.js": "062cf5bcaea5f78742af8cc66194f7c0e1a84c54",
+    "games.js": "4f9e43c84e68a8041fb83777bd7e496204376b94",
+    "item-system.js": "b31254d37d2eb8a596fca890f412e4866082aef1",
+    "movie-dialogue.js": "62890053dfb9c1bee9f5ebe9a4bb9c526b08be91",
+    "script.js": "3351bcb298a3f6c5230e2f779b5572eda6d814b4",
+    "world-environment.js": "202fb21df94e25239ffb1b7aa637ec58342c8ccd"
+  },
+  "script_change": {
+    "additions": 16,
+    "deletions": 0,
+    "patch": "@@ -3187,6 +3187,22 @@\n         if (avail > H) H = Math.min(avail, maxH);\n       }\n     }\n+    // がめんの したが きりとられない ように、canvas の たかさを おさえる。\n+    // overlay(ミニゲームの がめん)は はこの たかさが きまって いて、その そとに\n+    // 出た ぶんは えがかれない。せかい表示では .screen-frame が overflow:auto なので、\n+    // はみ出すと パッドや ボタンの わくの 下が きえて しまう。\n+    // grow と おなじ はかり方(はこの たかさ - ほかの こどもの たかさ)を、\n+    // こんどは「上げる」ではなく「こえさせない」ために つかう\n+    if (canvas && typeof canvas.closest === 'function') {\n+      const wrap = canvas.closest('.mg-canvas-wrap');\n+      const overlay = wrap && wrap.parentElement;\n+      if (overlay && overlay.clientHeight > 200) {\n+        let used = 0;\n+        for (const ch of overlay.children) { if (ch === wrap) continue; used += (ch.offsetHeight || 0) + 6; }\n+        const room = overlay.clientHeight - used - 14;\n+        if (room >= 180 && H > room) H = Math.round(room);\n+      }\n+    }\n     // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす\n     const dpr = Math.min(mgPerfDpr(), num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));\n     let ctx = canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;"
+  },
+  "conclusion": "script.js adds only a canvas-height clamp; card-related runtime remains unchanged. Existing pinned snapshots are retained; current main is not merged."
+}

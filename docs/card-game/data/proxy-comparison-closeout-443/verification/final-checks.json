@@ -1,0 +1,33 @@
+{
+  "all_existing_tracked_files_unchanged_before_readme": true,
+  "analysis_regeneration_byte_equal": {
+    "comparison.json": true,
+    "manifest.json": true
+  },
+  "base_commit": "40d48a37b6d549922416501e86d6325e231cddb8",
+  "dedicated_tests": 7,
+  "design_errors": [],
+  "full_historical_proxy_rerun": false,
+  "historical_engine_source_hashes_verified": 350,
+  "independent_balance_samples": 0,
+  "independent_replay_count": 8,
+  "integration_tests": 25,
+  "npm_node_test_files": 38,
+  "policy_promoted": false,
+  "preserved_tracked_files_excluding_readme": 2460,
+  "review_count": 1,
+  "review_findings": {
+    "critical": 0,
+    "important": 0,
+    "minor": 1,
+    "minor_fixed": true
+  },
+  "runtime_policy_test_sources_changed": 0,
+  "shadow_observed_reproduced": 313,
+  "shadow_order_invariance_checks": 626,
+  "shadow_regeneration_byte_equal": {
+    "manifest.json": true,
+    "shadow.json.gz": true,
+    "summary.json": true
+  }
+}

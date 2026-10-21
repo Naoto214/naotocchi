@@ -1,0 +1,26 @@
+test_connected_scope_overrides_native_hardcoded_growth_provenance (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_connected_scope_overrides_native_hardcoded_growth_provenance) ... FAIL
+
+======================================================================
+FAIL: test_connected_scope_overrides_native_hardcoded_growth_provenance (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_connected_scope_overrides_native_hardcoded_growth_provenance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_growth_runtime.py", line 45, in test_connected_scope_overrides_native_hardcoded_growth_provenance
+    with patch.object(end,'verify_new_events',return_value=[]),window.contract_scope():base.operation(initial(),run)
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_growth_runtime.py", line 43, in run
+    self.assertEqual(end.verify_new_events([event],[],[e,after])[0]['certain_growth_difference'],0)
+AssertionError: 5 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.150s
+
+FAILED (failures=1)

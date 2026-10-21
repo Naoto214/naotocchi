@@ -1,0 +1,16 @@
+{
+  "base_commit": "40d48a37b6d549922416501e86d6325e231cddb8",
+  "comparison_sha256": "22c31ad47a8a80b1b9ac40914be3d32e8ac72edb03e90d6ba4529bc2392d42ba",
+  "historical_439_sources_verified": 350,
+  "historical_metrics_reproduced": true,
+  "input_and_analysis_sha256": {
+    "data/proxy-comparison-closeout-443/reproduce.py": "e8526ea3208a7f414865907296f6d19243dac26c324bd9df3ee20e6138e9a2e7",
+    "data/proxy-completed-evaluation-440/manifest.json": "b5f2d5ac0afb1538380c372b72ce7d7fbc04b1dbde83df299da141f726780206",
+    "data/proxy-completed-evaluation-440/shadow.json.gz": "1890a213fe8e176eeaf550a756279cede29a98f0c87fdc50159ae64726c9d15e",
+    "data/proxy-continuation-batch-439/manifest.json": "2f4b812e2c1f02ec6c4d7a4ba4a295327e498266bdfd01520f580b3566f3cd1c",
+    "data/proxy-continuation-batch-439/paired.json.gz": "51d4f594e139bcaf54a59a2f48b951855409109fdaad92bd1bc1261413d9b657",
+    "data/proxy-gap-validation-441/legacy-limits.json": "0d93fa8542d021b69674615194c96a6c11489b314b921d5ef32df025240ba0a4",
+    "tools/proxy_completed_comparison.py": "a221f2322616716ba294c4283582f4884667e8d91efbf25c8420575850254059",
+    "tools/proxy_resource_value_evaluation.py": "f5377c17a1c41a1b6131618f2b5438d5ea28c97d4f57eb00648a0fba8ed58e2d"
+  }
+}

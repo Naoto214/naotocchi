@@ -1,0 +1,14 @@
+{"candidate_status": {"generator_unsupported": 297, "public_prefix_proved_unresolved_tail": 925}, "groups": {"already_seeded": {"baseline_414_fallback": 8, "decisions": 8, "equivalence_fallback": 8, "fallback_reduction": 0, "frontier_changes": 0, "proved_equal_pairs": 0, "selected_changes": 0}, "control": {"baseline_414_fallback": 0, "decisions": 59, "equivalence_fallback": 0, "fallback_reduction": 0, "frontier_changes": 0, "proved_equal_pairs": 0, "selected_changes": 0}, "legacy_safe_free_unique": {"baseline_414_fallback": 46, "decisions": 46, "equivalence_fallback": 46, "fallback_reduction": 0, "frontier_changes": 0, "proved_equal_pairs": 0, "selected_changes": 0}, "legacy_time_unique": {"baseline_414_fallback": 128, "decisions": 128, "equivalence_fallback": 128, "fallback_reduction": 0, "frontier_changes": 0, "proved_equal_pairs": 0, "selected_changes": 0}, "legacy_unsupported": {"baseline_414_fallback": 72, "decisions": 72, "equivalence_fallback": 72, "fallback_reduction": 0, "frontier_changes": 0, "proved_equal_pairs": 0, "selected_changes": 0}}, "hidden_order_checks": 626, "independent_balance_sample_count": 0, "outcome_unknowns": {"generator_unsupported": 297, "unresolved_arrival_or_departure": 496, "unresolved_effect": 22, "unresolved_response": 407}, "pair_unknowns": {"continuation_boundary_differs": 1363, "dependency_unproved": 2637, "generator_unsupported": 928, "residual_identity_or_state_differs": 2637, "unresolved_arrival_or_departure": 1815, "unresolved_effect": 153}, "planned": 313, "policy_promoted": false}
+probe-02-b-first legacy_107_114_116 True 181 None
+probe-02-b-first resource_value_pilot_v1 True 283 None
+probe-02-a-first legacy_107_114_116 True 169 None
+probe-01-a-first legacy_107_114_116 True 181 None
+probe-01-b-first legacy_107_114_116 True 182 None
+probe-02-b-first public_result_equivalence_pilot_v1 True 283 None
+probe-01-b-first resource_value_pilot_v1 True 284 None
+probe-02-a-first resource_value_pilot_v1 True 313 None
+probe-01-a-first resource_value_pilot_v1 True 340 None
+probe-01-b-first public_result_equivalence_pilot_v1 True 284 None
+probe-02-a-first public_result_equivalence_pilot_v1 True 313 None
+probe-01-a-first public_result_equivalence_pilot_v1 True 340 None
+{"completed": 12, "default_439_exact_matches": 8, "default_controls": 8, "independent_balance_sample_count": 0, "independent_replays": 12, "new_pilot_runs": 4, "planned": 12, "policy_promoted": false}

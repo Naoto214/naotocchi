@@ -1,0 +1,9 @@
+PASS continuation_batched_normal_v2:legacy_107_114_116:probe-01-a-first
+PASS continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-a-first
+PASS continuation_batched_normal_v2:legacy_107_114_116:probe-01-b-first
+PASS continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-b-first
+PASS continuation_batched_normal_v2:legacy_107_114_116:probe-02-a-first
+PASS continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-a-first
+PASS continuation_batched_normal_v2:legacy_107_114_116:probe-02-b-first
+PASS continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-b-first
+comparison generated 8 4

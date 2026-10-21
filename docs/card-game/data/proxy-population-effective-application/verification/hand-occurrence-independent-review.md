@@ -1,0 +1,11 @@
+# 手札G-air-hockey発生機会の別導出
+
+基準2f145e1449afc8780828e192cf151e648799abfc。既存hand_timing.captureは実入口とcoverageの両方から使われ、同じoccurrence欠落を両者で再現しても停止しなかった。実captureを一貫して空にする新テストはstop=NoneでRED。これは実装同士の一致だけでは発生機会を証明しない具体例である。
+
+既存timing_occurrenceへaudit_handを追加。producer/current_actionsを呼ばず、83本文をpinしたcatalogと発生直前の各所有者の手札、相手による実あそび発動、比較中challenge/参加mainからexpected集合を導出する。full boundary hash/実link・手札sourceと多重集合を照合。費用/対象/現在合法性は既存current_actionsに残す。positive_window.rememberの記録前とtrigger_coverageの全遷移に結合。後から引いた手札を過去発生へ足さず、activeでないeventへ余分な機会を作らない。
+
+新RED1件→手札/4source関連12PASS4.772s（後続assertion追加前）。最終固定29PASS15.504s、runner15.709529820s、exit0。tools再帰Python1044の前後hash一致。原log/全指紋はhand-occurrence-independent-related.log/.json.gz。欠落/重複/所有者変更/境界hash改変、発生前不在・発生後存在を拒否。既存の逐次群、次の所有者へ発生、手札+盤上同時群を維持。
+
+独立review1回Critical0/Important0、別実行15件PASS。現行capture意味との一致、inactive空集合、両接続先、83pin、局所証明範囲を確認。
+
+記録者のbefore手札は各sourceのルール機会計上用。相手の判断に渡す情報の安全性をこの監査から認定しない。全履歴起点/全機会/効果意味/合法性/operandは独立の残件。過去結果/番号付き正本は不変。preflight-ready=false、本番gate閉鎖、生成/固定/400戦0、policy promotion=false、独立balance標本0。次に3bundle後の旧115/零root全入口結合を一度だけ確認し、その後P09残りstart/arrival/end/自動、P10のfull-envelope adapter、P11上位operand由来を継続する。

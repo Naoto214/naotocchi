@@ -1,0 +1,31 @@
+.F
+======================================================================
+FAIL: test_real_resolution_cap_zero_keeps_resolution_without_M06_M07_basis (__main__.RuntimeApplicationTests.test_real_resolution_cap_zero_keeps_resolution_without_M06_M07_basis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_effect_application_runtime.py", line 46, in test_real_resolution_cap_zero_keeps_resolution_without_M06_M07_basis
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_effect_application_runtime.py", line 43, in run
+    self.assertEqual(api.validate(r,e,initial()),[])
+AssertionError: Lists differ: ['application native reconstruction differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'application native reconstruction differs'
+
+- ['application native reconstruction differs']
++ []
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.112s
+
+FAILED (failures=1)

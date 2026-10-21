@@ -1,0 +1,31 @@
+✔ race prioritizes first death, symmetric same-clock draw and explicit alternate clock (8.40688ms)
+✔ nonterminal caps remain unresolved, terminal ties draw, incompatible or illegal logs reject (3.722007ms)
+✔ finished no-death games fall back to actual replay score, not supplied totals (28.357073ms)
+✖ partial opponent history cannot lose before reaching the winning clock (1.032699ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.4938
+
+✖ failing tests:
+
+test at prototypes/growth-chain/tests/race.test.mjs:8:1
+✖ partial opponent history cannot lose before reaching the winning clock (1.032699ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  'A' !== null
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a7f7e5b8697d/naotocchi/prototypes/growth-chain/tests/race.test.mjs:8:188)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'A',
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

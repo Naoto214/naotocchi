@@ -1,0 +1,3 @@
+# 186 新seed次手番たまご交換 TDD計画
+
+185の保存済みraw/state/hashを入口に固定。専用テストを先にREDにし、116・165の一般たまご交換候補・seed付き選択を現手札から再計算する。交換札を山札下へ戻した1 eventと開始時response入口を各4経路で記録する。seeded fallbackを使った対戦は独立balance標本へ数えない。event/snapshot/hash連鎖、JSON再生成、設計データを検証しGitHub保存する。

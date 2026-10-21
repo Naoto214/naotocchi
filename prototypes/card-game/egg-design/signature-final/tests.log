@@ -1,0 +1,27 @@
+✔ illustrated CPU boards preserve viewer orientation and hidden art through restore (32.311884ms)
+✔ illustrated history keeps CPU newest-first order and actual result text (3.036323ms)
+✔ all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art (42.33503ms)
+✔ hidden identity is never read, embedded or requested by art rendering (0.624296ms)
+✔ safe hand, both boards, discard and activation use shared dedicated thumbnails (8.809833ms)
+✔ private draws appear as images only in the owner result notice and history (1.787851ms)
+✔ all card faces apply the approved fourteen classifications and approved SVG geometry (14.43434ms)
+✔ image errors clear request attributes and preserve the existing card box (0.849207ms)
+✔ approved long-copy exceptions apply only to full detail faces (0.754252ms)
+✔ egg is a tappable state card only in the empty main slot, in both orientations (10.356863ms)
+✔ egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions (0.738513ms)
+✔ real opening return and birth switch the top card and replay preserves the same display (53.82635ms)
+✔ real dragon removal exposes opponent egg and retains the engine discard destination (24.660687ms)
+✔ every catalog card renders current text; main-only fields never leak into other categories (21.689041ms)
+✔ hidden cards never look up or embed supplied private identity (0.300301ms)
+✔ board has nine ordered slots, shared preparation, management order and only the visible top state card (4.023393ms)
+✔ null viewer has no private hand or controls, and acting player is the large board (2.453888ms)
+✔ confirmation protects payment/target/final selection without interrupting pass or incremental choices (0.572442ms)
+✔ card names and text are escaped, never interpreted as markup (0.669922ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 879.303474

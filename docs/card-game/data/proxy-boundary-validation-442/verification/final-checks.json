@@ -1,0 +1,66 @@
+{
+  "allowed_existing_changes": [
+    "docs/card-game/README.md",
+    "docs/card-game/tools/proxy_targeted_execution.py"
+  ],
+  "base_commit": "44b3fcdc6ccfbd0075cc487b9bec9b77e97e5fa8",
+  "baseline_441_execution_identical": {
+    "G-jump-quest": true,
+    "M-dragon-08": true,
+    "M-god-08": true,
+    "M-mushroom-06": true,
+    "M-penguin-07": true,
+    "M-sakura-05": true
+  },
+  "byte_equal": {
+    "manifest.json": true,
+    "summary.json": true,
+    "variants.json.gz": true
+  },
+  "dedicated_tests": 34,
+  "design_errors": [],
+  "full_historical_proxy_rerun": false,
+  "independent_balance_samples": 0,
+  "independent_review_count": 1,
+  "integration_tests": 111,
+  "legacy_audit": {
+    "byte_identical_to_441": true,
+    "groups": {
+      "challenge_and_pass": 47,
+      "safe_development_and_challenge": 21,
+      "uncertified_partner_arrival": 4
+    },
+    "legacy_unsupported": 72,
+    "sha256": "0d93fa8542d021b69674615194c96a6c11489b314b921d5ef32df025240ba0a4"
+  },
+  "npm_exit_zero": true,
+  "npm_node_test_files": 38,
+  "policy_promoted": false,
+  "protected_mismatches": [],
+  "protected_tracked_files": 2436,
+  "review_findings": {
+    "critical": 0,
+    "important": 1,
+    "important_fixed": true,
+    "minor": 0
+  },
+  "runtime_input_canonical_hashes_match": true,
+  "saved_replay": {
+    "G-jump-quest/baseline": [],
+    "G-jump-quest/decline": [],
+    "M-dragon-08/baseline": [],
+    "M-dragon-08/decline": [],
+    "M-god-08/baseline": [],
+    "M-god-08/decline": [],
+    "M-god-08/expired": [],
+    "M-god-08/explicit_defense": [],
+    "M-mushroom-06/baseline": [],
+    "M-mushroom-06/decline": [],
+    "M-penguin-07/baseline": [],
+    "M-penguin-07/decline": [],
+    "M-penguin-07/expired": [],
+    "M-penguin-07/explicit_defense": [],
+    "M-sakura-05/baseline": [],
+    "M-sakura-05/decline": []
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "head": "829742a1f16a3f1961b149cd823f45b071d30396",
+  "tree": "4c637ab3507f1b7ec4677862714fc005ea3c0364",
+  "files": [
+    {
+      "path": "docs/card-game/430-resource-value-response-rate-fix.md",
+      "sha": "b1e90670d5239ba3da6274764dd23134eacffba1",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/README.md",
+      "sha": "ec5b3e51d764b0fb3805c77c3cb925cb4608016b",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/evaluation-checkpoint-430/evaluation.json",
+      "sha": "4e4075973b307965d3c8a14afe3f1bb635f07a2b",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/evaluation-checkpoint-430/manifest.json",
+      "sha": "824976f9ed37ad64def5a4f2f0394944c3708457",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/catalog-430.log",
+      "sha": "90f1fe2cef8f102b4d21085c2ef43a259e6fc4ec",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/design-430.log",
+      "sha": "787177f620d60dcca07f89157b80713f30bdc127",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/final-response-rate-fix-430.md",
+      "sha": "5fb2f9143d81b137a42b76592214fb4e47d190ff",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/final-response-rate-green-430.log",
+      "sha": "e367688ec48dc5b5cb4be1897c32b2108b32cd2a",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/final-response-rate-red-430.log",
+      "sha": "47b4f1593c71a04d905e8da399a4053af48192e0",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/full-430/interrupted.json",
+      "sha": "909692497be120620aa6a5c93ff0fd4a2be1bfda",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/full-430/manifest.json",
+      "sha": "f7f7996392ac4858ed0a1c096bcff398bbcca7c1",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/full-430/worker-0.log",
+      "sha": "b81adfd00c64b5c911a7fd0fc9b94f9aafdbd711",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/full-430/worker-1.log",
+      "sha": "95a7c16310ad058d0d3eee372a543290dc3873a2",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/full-430/worker-2.log",
+      "sha": "d3d733b1b3a2e7901541b10a0326b071315bdee3",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/full-430/worker-3.log",
+      "sha": "5bb675588744ed6f0e81ca08c0260666af8acd92",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/full-430/worker-4.log",
+      "sha": "1279525612079f43f2f5ff1620f36065d973bc5c",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/full-430/worker-5.log",
+      "sha": "60749522a3a39c2fe034adf6ae9ba6939c1d03ea",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/npm-430.log",
+      "sha": "7dcaeedeb930bb2a79027f63273e640c583b5995",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/pilot-final-green-430.log",
+      "sha": "10c0863ba2a026553e922facfcc006a13f6b6ccf",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/protected-430.json",
+      "sha": "4dffd07bf21a80fd5f16faa447cb1f21615d1c2d",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/remote-content-429.json",
+      "sha": "3cc30b227b2b802af77097798e8c2d50e7ad8fea",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/data/proxy-resource-value-pilot/verification/task-7-ledger-checkpoint-430.md",
+      "sha": "1b64dd04b0d55dad807ee5074125a3ad72fb7405",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/tools/check-design-data.py",
+      "sha": "c38b1584ce9bd42b458a052222a856321776e046",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/tools/proxy_resource_value_evaluation.py",
+      "sha": "cc94e3a3eab73a76e9bffdf1d4bc5128805f464b",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/tools/proxy_resource_value_integration.py",
+      "sha": "5446da96590c034dbb0af6d7acab8927339673a8",
+      "content_verified": true
+    },
+    {
+      "path": "docs/card-game/tools/test_proxy_resource_value_evaluation.py",
+      "sha": "9b55df692036d3c91a360bc4143d29d8274d92be",
+      "content_verified": true
+    }
+  ],
+  "draft": true,
+  "state": "open",
+  "merged": false
+}

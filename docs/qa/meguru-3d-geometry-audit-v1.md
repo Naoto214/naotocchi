@@ -1,0 +1,178 @@
+# めぐる 3D Geometry pass の つづき — 未完了の 棚卸し と 静的監査(2026-10-02)
+
+branch `feat/meguru-3d-geometry-terrain-v1`(Draft PR #374・base `feat/meguru-3d-art-direction-v1`)。
+**Human QA を またずに 安全に すすめられる 範囲 だけ。** iPhone 実機の 残像 / player の 消失 / 実機の カクつき / 最終的な 美観の 裁定 は **未承認の まま**(この doc でも 判定 しない)。
+main へ merge しない・Ready に しない・production Pages を かえない・save / schema を かえない・Resident Expression #368 / Character 3D lane には さわらない。
+
+## 0. fresh remote(開始時)
+
+| 対象 | 値 |
+|---|---|
+| `feat/meguru-3d-geometry-terrain-v1`(PR #374 head) | `7f4ccde3` = 報告どおり(remote は すすんで いない) |
+| base `feat/meguru-3d-art-direction-v1` | `69a8857b`(head に ふくまれる) |
+| `main` | `67aed860`(head より 16 commit すすむ: Motion v2 L2 など 3D 以外。merge-tree で 衝突は `package.json` の テスト一覧 だけ) |
+
+PR #374 は Art Direction v1 の 上に 積んだ Draft なので main は 取りこまない(取りこむと PR の 差分に main の 変更が まざる)。統合の ときに `package.json` の テスト一覧を 両方 のこす 1 行の 解消が 要る。
+
+## 1. 「25. 季節システムをfresh」で 切れた 件の 復元
+
+- 元の 指示は §1〜24 は 全文 とどき、§25 は 見出しの 途中「【25. 季節システムをfresh」で 切れ、その あとに 指示の 冒頭が もう一度 くりかえされて いた(session の 記録で 確認)。
+- 復元に つかえる 資料(repo の 中):
+  - Human QA の 正本 `docs/qa/meguru-3d-art-direction-v1-human-qa.md`: **HQ-15「季節 system を fresh に 監査。mountain の 夏 / 冬 対応」**
+  - おなじ doc の 実行順: 「season / weather 監査 → mountain 夏冬 対応」
+  - 今回の 指示: 「season / weather の 既存 2D 正本 と の 整合性 監査」「mountain summer / winter 以外で season 対応が 必要か の fresh 確認」
+- **新しい 仕様は つくらない。** 2D の 正本(meguru.js / script.js / world-environment.js)に すでに ある 季節 / 天気の きまり を 3D へ そのまま うつす もの だけ を 確認なしで すすめた(§4)。2D に ない 季節の 見た目(例: 冬の 地面を どの 地域でも 白く する)は つくって いない。
+
+## 2. 未完了の 棚卸し(元の 指示 §1〜25 × 状態)
+
+状態: ✅ = GT pass(`004bb6c0` まで)で 実装 / ✅+ = この 監査で 追加 / 🔒 = Human QA でしか 判断 できない(未承認の まま) / — = 対象外
+
+| § | 内容 | 状態 | 根拠 / のこり |
+|---|---|---|---|
+| 1 | GitHub 正本 | ✅+ | §0 |
+| 2 | Human QA 結果の 記録 | ✅ | `meguru-3d-art-direction-v1-human-qa.md` |
+| 3 | P0 残像 / 消失 / カクつき | ✅(headless)/ 🔒(実機) | ghost の いろ・ray の すかし・変わった instance だけ 送る・診断(`&perf=1`)。headless の 13 地域 hidden 0。**実機の 目視は 未承認** |
+| 4 | 予算 | ✅ / ✅+ | city 183k → 約 130k・jungle 214k → 約 174k。この 監査で 箱の 下の 面を けずった(§3.6) |
+| 5 | 根本課題(数より 形) | ✅+ | この 監査は 物を ふやさず 形 / 接地 / 置き方 を なおした(§3) |
+| 6 / 7 | Terrain v1(意味の ある 起伏) | ✅ / ✅+ | 接地の 監査で 斜面の 浮きを なおした・建物の 敷地を すべての 起伏で 平らに(§3.1) |
+| 8 / 9 | Creek / River v3・小川 と 池 | ✅ / ✅+ | 川の 帯の 中の 池の 円盤 1 を けした(§3.3) |
+| 10 | 水面 | ✅ | 海 / 川 / 池 / 用水路 |
+| 11 / 12 | Bridge v4・橋の 種類 | ✅ / ✅+ | river_lake の 交わり 1 か所に 橋が なかった → なおした(§3.2) |
+| 13〜16 | Building v4・厚み・細長い 家 | ✅ / ✅+ | 13 地域 158 件 シルエット ≤ 1.6(看板 / のき を ふくむ)(§3.4) |
+| 17 | home / countryside | ✅ / ✅+ | 数で くらべた(§3.7)。のこり: いなかの 構成は 2D の 小物(木 / あし)が おおく、畑の 数の 割合は 3%(面積は 大きい)。2D の 配置は 正本 なので かえて いない |
+| 18 / 19 | forest / jungle・jungle の 予算 | ✅ / ✅+ | 数で くらべた(§3.7) |
+| 20 | Tree v4 | ✅ | |
+| 21 | 花の 意味 | ✅ | AD-4 |
+| 22 / 23 | props gate・自転車 | ✅ / ✅+ | のこって いた「箱 1 つ / 柱 + 玉」の 小物を 形で なおした(§3.5) |
+| 24 | 13 地域の grammar | ✅ | `REGION3D[rid].grammar` |
+| 25 | 季節 system を fresh(本文 未受領) | ✅+ | §1 の 範囲で 2D 正本 と の 整合(§4) |
+| — | 最終的な 美観 / 「どうぶつの森的」「Art Direction 完成」「production ready」 | 🔒 | 判定 しない |
+
+## 3. 静的監査(`tools/meguru-3d-qa/geometry-audit.cjs`・テスト `tests/meguru-3d-geometry-audit-test.cjs` GA-1〜7)
+
+### 3.1 接地(浮き / 埋まり)
+
+以前: 物の parts は すべて 物の 中心の 地形の 高さに すわって いた → 斜面で 岩 / 盛り土 / 大木の 根 / 岸の 花の はしが 浮く。立て看板 / ねかせた 物は 地形を 見ず y = 0。
+
+いま(`objectGround`・renderer と 監査で おなじ 関数):
+- 構造物(家・遺跡・柵・橋の ない 小屋 …)= 足もとの いちばん ひくい 所まで 物ごと(最大 30)。屋根と からだが ずれない
+- それ以外 = 地面に つく parts ごとに 足もとの いちばん ひくい 所へ(厚みの 0.6 まで)。坂の 上がわは 地面に うまる = 地面から 生えて 見える
+- 構造物の まわりの がれき / 盛り土 / 花 は parts ごと
+- 建物の 敷地は 丘 だけで なく 根の 起伏・土手・浜・がけの 足もと でも 平ら
+
+| 地域 | 浮き parts(前 → 後) | 埋まり(前 → 後) |
+|---|---|---|
+| home | 0 → 0 | 0 → 0 |
+| city | 0 → 0 | 0 → 0 |
+| countryside | 130 → 1 | 2 → 2 |
+| forest | 121 → 1 | 5 → 0 |
+| mountain | 411 → 1 | 115 → 2 |
+| snow | 53 → 0 | 2 → 0 |
+| sea | 96 → 0 | 0 → 0 |
+| deepsea | 86 → 0 | 0 → 0 |
+| river_lake | 112 → 0 | 5 → 1 |
+| jungle | 305 → 0 | 13 → 4 |
+| desert | 231 → 1 | 20 → 9 |
+| star_stop / memory_lake | 0 → 0 | 0 → 0 |
+
+のこり(うけいれ): 山の 谷の 大岩 2(半径 90〜100・斜面に なかば うまる)、遺跡の 足もとの 土の もりあがり(高さ 10・坂の 上がわが うまる)。
+
+### 3.2 小川 / 川 / 橋の 交わり
+
+- 18 か所(countryside 3・forest 4・mountain 3・river_lake 3・jungle 5)すべて: 橋の 交わり = 橋が ある・床の 上面 − 水面 ≥ 12(用水路 ≥ 8)・ながさ ≥ 水の はば / 横切る 角度。飛び石の 交わり = 飛び石
+- **なおした**: river_lake の bridge2(0, 2250)。ランドマークの 橋(あたり あり・2D の いち 35, 2644)が 395 はなれた 交わりを「うけもち」、道が 川を わたる ところに 橋が なく、player は 水の 上の 床の 高さを あるいて いた。→ ランドマークは 交わりの 上に ある とき だけ うけもつ(< max(160, 水の はば + 80))。交わりには 木の 橋。ランドマークは その いちの ながれの むきで かける
+
+### 3.3 小川 と 池
+
+- ながれの 帯の 中の 池の 円盤(水の 小物): river_lake 1 → 0(川の 水面が ある ので 出さない)
+
+### 3.4 Building v4
+
+- 13 地域 158 件(ランドマーク のぞく): シルエット(からだ + 屋根 + 屋上の 看板 の 高さ / いちばん ひろい はば)最大 1.59(home)・1.52(city)・1.56(countryside)。塔の ような 家 0
+- 小さな みせ(敷地 62 × 42)は 1 かいの 高さ(あたま + 2)で 屋上の ひろい 看板(96)を もつ。看板を ふくめて 1.5
+
+### 3.5 小物(props gate の のこり)
+
+絵文字の 立て看板(2D の 記号を 3D に 立てた 物)は 13 地域 0。parts が 1〜2 の 小物を 見なおし:
+
+| 小物 | 以前 | いま | 区分 |
+|---|---|---|---|
+| 車 / トラクタ | 箱 2 つ | + 前後の 車輪 | A |
+| 望遠鏡 | 柱 + 箱 | 3 本 足 + 空へ かたむいた 筒 | A |
+| 像 | 柱 + 玉 2 つ | だい + からだ + あたま(2D の 像と おなじ 組み立て) | A |
+| かまくら / ドーム | ドーム 1 つ | + いりぐち + くらい 口 | A |
+| 箱の 小物(見張り小屋 / 屋台) | 箱 1 つ | + ひさし + 正面の 窓 | B |
+| テント・オベリスク・ゴミ箱・コーン・ほし草・丸太・切り株・小石・落ち葉 | 1 形 | そのまま(1 形で 読める) | B |
+| 自転車・水車・観覧車 | — | GT pass で 立てた | A |
+| 表示 しない 物 | — | なし | C |
+
+### 3.6 予算(triangle / draw call / instance / 見えない 形)
+
+- 三角形が おおい 形(headless・instanced の 合計): jungle = 小さな かんむり 25k・ヤシ / しだの は 21k・幹 17k・大木の かんむり 15k。city = 箱 41k・うすい 板 10k。1 つ だけ とびぬけた 形は ない
+- **見えない 形を けずった**: 箱の 下の 面(地面 / 下 むき・上から 見る カメラでは 見えない)12 → 10 三角形(city で 約 7k)
+- 季節で しか 出ない 形(針葉樹の 雪の ぼうし・頂の 雪)は ふだん visible = false(描かない)
+- 透明 fade で 遠くを けす 方式は つかって いない(GT-1)
+- browser の 数は §5
+
+### 3.7 地域の 識別性(数で)
+
+指紋 = 物 / 群生の 種類の 割合・verticality(高さ 200 こえ の 物の 割合)・openness(物の ない 150 の ます目の 割合)・高さの 中央値。cosine = 種類の 割合の 似かた(1 = おなじ)。
+
+| 地域 | verticality | openness | 高さの 中央値 |
+|---|---|---|---|
+| home | 0.126 | 0.524 | 66 |
+| countryside | 0.266 | **0.713** | 73 |
+| forest | 0.288 | 0.658 | 127 |
+| jungle | 0.325 | **0.582** | **193** |
+
+- home ~ countryside の cosine 0.66、forest ~ jungle 0.50(GA-7 で 0.75 / 0.6 を こえない ように まもる)
+- いちばん 似て いる 組: river_lake ~ memory_lake 0.86・countryside ~ river_lake 0.85(どちらも 広葉樹 + あし + 花の 群生 が おおい)。地域の 構成は 2D の world の 小物(正本)で きまる ので、3D だけで 種類を ふやして 差を つくる ことは して いない(「物を ふやす だけ」に しない)。のこりは Human QA の 目で 判断
+
+## 4. 季節 / 天気 — 2D 正本 と の 整合(fresh 監査)
+
+| 2D の 正本(場所) | 以前の 3D | いま |
+|---|---|---|
+| 針葉樹の 雪 = ゆき の 地域 か 冬(`pinewall`・meguru.js) | 山の 冬 だけ 木 全体が 白 / ほかは くすんだ みどり | 段ごとの 白い ぼうし(緑の 段は そのまま)。ゆき の 地域は いつも、ほかは 冬 |
+| 山の 頂の 雪 = ゆき の 地域 か 冬 か 雪の 日(`peak`) | いつも 白い ドーム | 2D と おなじ 条件で 出し入れ |
+| 秋の 大木 / 公園 / 川の 木 / 板根の 木 = だいだい(ジャングル のぞく) | みどり × うすい だいだい = オリーブ | instance の いろを 2D の 秋の 組(#9a5f28 / #c8843a / #e8a85a)へ。ジャングル / 青い 木 / きりの 木は そのまま |
+| 地区の はっぱ / はなびら(`ambLayer('leaves')`: 春 もも・夏 みどり・秋 だいだい・冬 かれ色、7 / 13 / 21) | なし | 3D の overlay に おなじ いろ / かず |
+| こな雪(`ambLayer('snow')`: ゆき の 地区) | なし | 3D の overlay に |
+| 地表の 季節 なし = deepsea / star_stop(`hasSurfaceSeasons`・script.js) | 季節の tint が かかって いた | 季節で かえない |
+| 雨 / 雪の つぶ(天気) | GT pass で 追加 | そのまま |
+| 山の 地面の 季節(`seasons3d`) | GT pass で 追加 | そのまま(2D の 山の 背景と おなじ 向き) |
+
+**mountain 以外で 季節 対応が 要るか(fresh 確認の 答え)**: 2D 正本に ある ものは 上の 表の とおり 要った(針葉樹の 雪・秋の 木・はっぱ / こな雪 の つぶ・deepsea / star_stop の 除外)ので 3D へ うつした。2D 正本に ない もの(冬に どの 地域も 地面を 白く する・春の 花の 量を かえる など)は 新しい 仕様に なる ので **して いない**(要るか どうかは Human QA / 次の 指示で)。
+
+## 5. browser QA(この 監査の あと)
+
+commit `55c8dc14`(この 監査の さいごの JS)で、headless Chromium(iPhone 390 幅)。
+
+- full `npm test`: pass 2857 / fail 0 + pass 80 / fail 0(exit 0)。3D の テスト: prototype 15・v2 15・AD 18・GT 13・GA 7
+- smoke(13 地域): すべて 3D ✓・めりこみ 0・err / fb 0
+
+| region | calls | tris(GT pass → いま) |
+|---|---|---|
+| home | 59 | 38k → 37k |
+| city | 59 | 132k → 127k |
+| countryside | 75 | 120k → 119k |
+| forest | 81 | 148k → 148k |
+| mountain | 76 | 107k → 107k |
+| snow | 69 | 65k → 70k(針葉樹の 雪の ぼうし = ゆき の 地域は いつも) |
+| sea | 68 | 70k → 70k |
+| deepsea | 59 | 74k → 74k |
+| river_lake | 94 | 114k → 114k |
+| jungle | 87 | 174k → 173k |
+| desert | 65 | 91k → 91k |
+| star_stop | 53 | 66k → 66k |
+| memory_lake | 60 | 52k → 52k |
+
+- corridor: home ⇄ forest・forest ⇄ mountain・city ⇄ sea・countryside ⇄ forest = 4 / 4 で started / arrived / corridor3D / playerOK、maxGhost 0〜6、err / fb 0
+- player の 見え かた(道を あるいて 4 方向の カメラ・足 / むね / あたま の ray): **13 地域 hidden 0**。partial(3 本 の うち 1〜2 本 だけ 見える)は city 5・jungle 3・countryside / mountain / sea / river_lake 1。平均 ghost: city 17.8・memory_lake 8.5・jungle 7.4・ほか 0.1〜5.5。
+  ※ この 回は 道の 上の 点を 前回(GT pass の 表)より こまかく とった(city 252 → 852 点)ので 平均 ghost / partial は 前回の 表と 1 対 1 では くらべられない。**headless の 数字は 実機の 確認の かわり には ならない**(Human QA の 正本: 実機の perf で `player ok miss 0` でも 消えて 見えた)
+- 画像: `docs/qa/meguru-3d-geometry-audit-v1/*-ga.jpg`(13 地域 + 近く + 季節 + この 監査の 場所)・比較 sheet `docs/qa/meguru-3d-geometry-audit-v1/compare.html`
+
+## 6. Human QA へ わたす もの / 未承認の まま
+
+- 🔒 iPhone 実機の 残像 / player の 消失 / 実機の カクつき(`&perf=1` の 4 行め と 目で 見た もの)
+- 🔒 最終的な 美観(箱庭感・地域の ちがい・橋 / 家 / 小川 の 見た目)
+- 見て ほしい ところ(この 監査で かわった もの): 山 / 砂漠 / ジャングルの 斜面の 岩 と 根(浮いて いない か)、river_lake の bridge2 の 橋、まち の 車 と 望遠鏡、ゆき の 地域の 針葉樹、秋の もり / いなか(だいだいの 木 と おちる はっぱ)、春の いえ(はなびら)

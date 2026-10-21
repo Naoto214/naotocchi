@@ -1,0 +1,52 @@
+test_mixed_frontier_keeps_unknown_but_excludes_proven_dominated_pass (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_mixed_frontier_keeps_unknown_but_excludes_proven_dominated_pass) ... ERROR
+
+======================================================================
+ERROR: test_mixed_frontier_keeps_unknown_but_excludes_proven_dominated_pass (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_mixed_frontier_keeps_unknown_but_excludes_proven_dominated_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_unproved_priority.py", line 71, in select
+    return prior(envelope,inventory,context,policy,inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_candidates.py", line 217, in select
+    p=problem(envelope,inventory,context,inputs)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_candidates.py", line 196, in problem
+    scores,certs=_scores(envelope,inventory);vh=inventory['view_sha256'];pairs=[]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch.py", line 250, in scores
+    proofs=[outcome(envelope,a,inventory['public_history']) for a in extra];delegated=copy.deepcopy(inventory)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch.py", line 78, in outcome
+    if action['card_id'] in ('I-c_coin2','G-hit-blow') and p['growth']+5>=100:raise ValueError('uncertain reveal threshold priority requires proof')
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: uncertain reveal threshold priority requires proof
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 49, in test_mixed_frontier_keeps_unknown_but_excludes_proven_dominated_pass
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 46, in run
+    with api.scope():r=candidates.select(e,inv,ctx,base.POLICY)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_unproved_priority.py", line 74, in select
+    return unresolved(envelope,inventory,context,policy,str(error))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_unproved_priority.py", line 29, in unresolved
+    if not any(p['growth']==100 for p in g['players'].values()):raise ValueError('mixed known and unknown upper frontier requires existing pair proofs')
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: mixed known and unknown upper frontier requires existing pair proofs
+
+----------------------------------------------------------------------
+Ran 1 test in 0.032s
+
+FAILED (errors=1)

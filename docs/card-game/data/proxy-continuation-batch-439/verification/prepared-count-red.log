@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_later_prepared_activation_does_not_count_as_a_played_card (test_proxy_continuation_triggers.ResponseOccurrenceTests.test_later_prepared_activation_does_not_count_as_a_played_card)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_triggers.py", line 87, in test_later_prepared_activation_does_not_count_as_a_played_card
+    self.assertEqual(batch.turn_card_count(self.g,history,'A',3),1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.991s
+
+FAILED (failures=1)

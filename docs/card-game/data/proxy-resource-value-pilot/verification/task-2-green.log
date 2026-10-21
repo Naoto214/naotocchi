@@ -1,0 +1,13 @@
+test_choice_kind_difference_is_recorded (test_proxy_resource_value_selection.ResourceSelectionTests.test_choice_kind_difference_is_recorded) ... ok
+test_context_and_evidence_must_be_valid_even_for_unique_choice (test_proxy_resource_value_selection.ResourceSelectionTests.test_context_and_evidence_must_be_valid_even_for_unique_choice) ... ok
+test_general_frontier_not_safe_context (test_proxy_resource_value_selection.ResourceSelectionTests.test_general_frontier_not_safe_context) ... ok
+test_seeded_frontier_delegates_to_116 (test_proxy_resource_value_selection.ResourceSelectionTests.test_seeded_frontier_delegates_to_116) ... ok
+test_structural_error_cannot_produce_seeded_choice (test_proxy_resource_value_selection.ResourceSelectionTests.test_structural_error_cannot_produce_seeded_choice) ... ok
+test_unique_selection_has_no_seed_record (test_proxy_resource_value_selection.ResourceSelectionTests.test_unique_selection_has_no_seed_record) ... ok
+test_wrapper_input_and_output_isolation (test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_input_and_output_isolation) ... ok
+test_wrapper_recomputes_frontier_before_accepting_selection (test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_recomputes_frontier_before_accepting_selection) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+OK

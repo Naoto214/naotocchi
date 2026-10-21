@@ -1,0 +1,59 @@
+{
+  "passed": 3,
+  "records": [
+    {
+      "type": "reunion",
+      "event": {
+        "context": "meguru",
+        "regionId": "home",
+        "reason": "nearby",
+        "targetKey": "player",
+        "version": 1,
+        "type": "reunion",
+        "actorKey": "companion:shiba",
+        "at": 181
+      },
+      "emotion": "positive",
+      "attention": {
+        "heading": 1.5707963267948966,
+        "weight": 0.6666666666666667
+      }
+    },
+    {
+      "type": "greeting",
+      "event": {
+        "context": "meguru",
+        "regionId": "home",
+        "reason": "nearby",
+        "targetKey": "player",
+        "version": 1,
+        "type": "greeting",
+        "actorKey": "companion:shiba",
+        "at": 181
+      },
+      "emotion": "positive",
+      "attention": {
+        "heading": 1.5707963267948966,
+        "weight": 0.6666666666666667
+      }
+    },
+    {
+      "type": "affection_interaction",
+      "event": {
+        "context": "meguru",
+        "regionId": "home",
+        "reason": "nearby",
+        "targetKey": "player",
+        "version": 1,
+        "type": "affection_interaction",
+        "actorKey": "partner:cat_ceo",
+        "at": 181
+      },
+      "emotion": "positive",
+      "attention": {
+        "heading": 1.5707963267948966,
+        "weight": 0.6666666666666667
+      }
+    }
+  ]
+}

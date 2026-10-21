@@ -1,0 +1,14 @@
+test_read_only_cli_pending_and_malformed_exit (test_proxy_population_opening.CliTests.test_read_only_cli_pending_and_malformed_exit) ... FAIL
+
+======================================================================
+FAIL: test_read_only_cli_pending_and_malformed_exit (test_proxy_population_opening.CliTests.test_read_only_cli_pending_and_malformed_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_opening.py", line 145, in test_read_only_cli_pending_and_malformed_exit
+    self.assertEqual(p.returncode,1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 1.887s
+
+FAILED (failures=1)

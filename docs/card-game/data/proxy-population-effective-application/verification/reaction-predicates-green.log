@@ -1,0 +1,28 @@
+..E..
+======================================================================
+ERROR: test_hand_optional_trigger_cannot_be_reoffered_as_ordinary_response (test_proxy_population_response_reactions.ReactionPredicateTests.test_hand_optional_trigger_cannot_be_reoffered_as_ordinary_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_response_reactions.py", line 69, in test_hand_optional_trigger_cannot_be_reoffered_as_ordinary_response
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_response_reactions.py", line 63, in run
+    occurrence=timing.capture(before,e,event)['occurrences'][0]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_population_hand_timing.py", line 36, in capture
+    if event['game_state_'+suffix+'_sha256']!=quick.old.start.opening._stop_state_sha256(value['game_state']) or event['continuation_state_'+suffix+'_sha256']!=quick.old.start._hash(value):raise ValueError('hand timing event hash differs')
+                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: hand timing event hash differs
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.284s
+
+FAILED (errors=1)

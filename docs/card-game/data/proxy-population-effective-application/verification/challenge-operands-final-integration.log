@@ -1,0 +1,58 @@
+======================================================================
+ERROR: test_manifest_row_reaches_connected_backend_and_exact_reconstruction (test_proxy_population_connected_entry.EntryTests.test_manifest_row_reaches_connected_backend_and_exact_reconstruction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_connected_entry.py", line 18, in test_manifest_row_reaches_connected_backend_and_exact_reconstruction
+    b=bundle();original=runtime.segment;r=api.reconstruct(b,'test-1A',10)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_connected_entry.py", line 43, in reconstruct
+    runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 32, in reconstruct
+    fingerprint=verify_sources()
+                ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 25, in verify_sources
+    if hashlib.sha256(source_path(root,name).read_bytes()).hexdigest()!=digest:raise ValueError('runtime source differs: '+name)
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: runtime source differs: tools/proxy_continuation_challenge.py
+
+======================================================================
+ERROR: test_mixed_actual_prefix_limits_preserve_authenticated_exclusion (test_proxy_population_admission.RealEntryAdmissionTests.test_mixed_actual_prefix_limits_preserve_authenticated_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 87, in test_mixed_actual_prefix_limits_preserve_authenticated_exclusion
+    b=bundle();short=api.connected.reconstruct(b,'test-1A',1);long=api.connected.reconstruct(b,'test-1A',3)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_connected_entry.py", line 43, in reconstruct
+    runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 32, in reconstruct
+    fingerprint=verify_sources()
+                ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 25, in verify_sources
+    if hashlib.sha256(source_path(root,name).read_bytes()).hexdigest()!=digest:raise ValueError('runtime source differs: '+name)
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: runtime source differs: tools/proxy_continuation_challenge.py
+
+======================================================================
+ERROR: test_real_bound_prefix_reconstruction_is_required_and_remains_unproved (test_proxy_population_admission.RealEntryAdmissionTests.test_real_bound_prefix_reconstruction_is_required_and_remains_unproved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 65, in test_real_bound_prefix_reconstruction_is_required_and_remains_unproved
+    b=bundle();r=api.connected.reconstruct(b,'test-1A',3)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_connected_entry.py", line 43, in reconstruct
+    runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 32, in reconstruct
+    fingerprint=verify_sources()
+                ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 25, in verify_sources
+    if hashlib.sha256(source_path(root,name).read_bytes()).hexdigest()!=digest:raise ValueError('runtime source differs: '+name)
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: runtime source differs: tools/proxy_continuation_challenge.py
+
+----------------------------------------------------------------------
+Ran 19 tests in 117.270s
+
+FAILED (errors=3)

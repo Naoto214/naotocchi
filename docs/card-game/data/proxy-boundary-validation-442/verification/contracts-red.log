@@ -1,0 +1,184 @@
+EEEFFFFEEFFEE.E
+======================================================================
+ERROR: test_consumed_defense_cannot_be_used_again (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_consumed_defense_cannot_be_used_again)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 108, in test_consumed_defense_cannot_be_used_again
+    self.unchanged_rejection(r,lambda:r.resolve_defended('A',[b]))
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 20, in unchanged_rejection
+    with self.assertRaises(ValueError):action()
+                                       ^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 108, in <lambda>
+    self.unchanged_rejection(r,lambda:r.resolve_defended('A',[b]))
+                                      ^^^^^^^^^^^^^^^^^^
+AttributeError: 'TargetedRunner' object has no attribute 'resolve_defended'
+
+======================================================================
+ERROR: test_duplicate_name_selects_two_distinct_payment_copies (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_duplicate_name_selects_two_distinct_payment_copies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 29, in test_duplicate_name_selects_two_distinct_payment_copies
+    proof=r.activate('A','M-dragon-08',target_card='C-bat',payment_cards=['G-basketball-3d']*2)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 73, in call
+    proof=fn(self,*args,**kwargs) or {}
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 295, in activate
+    if source_id in paid or source_id==target:raise ValueError('duplicate/target payment')
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: duplicate/target payment
+
+======================================================================
+ERROR: test_explicit_payment_identity_is_preserved (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_explicit_payment_identity_is_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 40, in test_explicit_payment_identity_is_preserved
+    self.assertEqual(r.activate('A','M-dragon-08',target_card='C-bat',payment_cards=choices)['paid'],ids)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 73, in call
+    proof=fn(self,*args,**kwargs) or {}
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 294, in activate
+    source_id=self.find(actor,cid,spec['pay_zone'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 116, in find
+    if index>=len(found):raise ValueError('card absent from '+zone+': '+card)
+                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+TypeError: can only concatenate str (not "dict") to str
+
+======================================================================
+ERROR: test_prevention_first_keeps_replacement_unused (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_prevention_first_keeps_replacement_unused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 89, in test_prevention_first_keeps_replacement_unused
+    proof=r.resolve_defended('A',[prevention])
+          ^^^^^^^^^^^^^^^^^^
+AttributeError: 'TargetedRunner' object has no attribute 'resolve_defended'
+
+======================================================================
+ERROR: test_replacement_first_rechecks_prevention_on_rewritten_event (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_replacement_first_rechecks_prevention_on_rewritten_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 96, in test_replacement_first_rechecks_prevention_on_rewritten_event
+    proof=r.resolve_defended('A',[replacement,prevention])
+          ^^^^^^^^^^^^^^^^^^
+AttributeError: 'TargetedRunner' object has no attribute 'resolve_defended'
+
+======================================================================
+ERROR: test_selector_rejects_wrong_owner_or_card_name (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_selector_rejects_wrong_owner_or_card_name) (selector={'card_id': 'C-box', 'instance_id': 'A-003#1'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 48, in test_selector_rejects_wrong_owner_or_card_name
+    self.unchanged_rejection(r,lambda:r.activate('A','M-god-08',target_card=selector,payment_cards=['G-stack-snowman']))
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 20, in unchanged_rejection
+    with self.assertRaises(ValueError):action()
+                                       ^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 48, in <lambda>
+    self.unchanged_rejection(r,lambda:r.activate('A','M-god-08',target_card=selector,payment_cards=['G-stack-snowman']))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 73, in call
+    proof=fn(self,*args,**kwargs) or {}
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 287, in activate
+    if spec['target']=='nonmain_board' and target_card and target_card.startswith('W-'):zone='world'
+                                                           ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'startswith'
+
+======================================================================
+ERROR: test_selector_rejects_wrong_owner_or_card_name (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_selector_rejects_wrong_owner_or_card_name) (selector={'card_id': 'C-bat', 'instance_id': 'B-011#1'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 48, in test_selector_rejects_wrong_owner_or_card_name
+    self.unchanged_rejection(r,lambda:r.activate('A','M-god-08',target_card=selector,payment_cards=['G-stack-snowman']))
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 20, in unchanged_rejection
+    with self.assertRaises(ValueError):action()
+                                       ^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 48, in <lambda>
+    self.unchanged_rejection(r,lambda:r.activate('A','M-god-08',target_card=selector,payment_cards=['G-stack-snowman']))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 73, in call
+    proof=fn(self,*args,**kwargs) or {}
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 287, in activate
+    if spec['target']=='nonmain_board' and target_card and target_card.startswith('W-'):zone='world'
+                                                           ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'startswith'
+
+======================================================================
+ERROR: test_wrong_defender_invalid_order_and_duplicate_choice_are_atomic (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_wrong_defender_invalid_order_and_duplicate_choice_are_atomic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 104, in test_wrong_defender_invalid_order_and_duplicate_choice_are_atomic
+    self.unchanged_rejection(r,lambda:r.resolve_defended(actor,order))
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 20, in unchanged_rejection
+    with self.assertRaises(ValueError):action()
+                                       ^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 104, in <lambda>
+    self.unchanged_rejection(r,lambda:r.resolve_defended(actor,order))
+                                      ^^^^^^^^^^^^^^^^^^
+AttributeError: 'TargetedRunner' object has no attribute 'resolve_defended'
+
+======================================================================
+FAIL: test_multiple_defenses_require_affected_players_choice (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_multiple_defenses_require_affected_players_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 85, in test_multiple_defenses_require_affected_players_choice
+    r,_,_=self.defenses();self.unchanged_rejection(r,lambda:r.resolve())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 20, in unchanged_rejection
+    with self.assertRaises(ValueError):action()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_negative_copy_index_rejected (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_negative_copy_index_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 52, in test_negative_copy_index_rejected
+    with self.assertRaises(ValueError):r.find('A','C-otter','discard',index=-1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_paid_target_departure_and_return_does_not_restore_tracking (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_paid_target_departure_and_return_does_not_restore_tracking)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 58, in test_paid_target_departure_and_return_does_not_restore_tracking
+    self.assertFalse(proof['effect_applied']);self.assertEqual(r.state['players']['A']['time'],time)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_per_object_use_is_retired_on_departure (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_per_object_use_is_retired_on_departure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 75, in test_per_object_use_is_retired_on_departure
+    self.assertFalse(any(z[0]==source for z in r.state['uses']))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_reservation_target_departure_invalidates_but_source_departure_does_not (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_reservation_target_departure_invalidates_but_source_departure_does_not) (focus='M-penguin-07')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 69, in test_reservation_target_departure_invalidates_but_source_departure_does_not
+    self.assertEqual(z['status'],'invalidated')
+AssertionError: 'active' != 'invalidated'
+- active
++ invalidated
+
+
+======================================================================
+FAIL: test_reservation_target_departure_invalidates_but_source_departure_does_not (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_reservation_target_departure_invalidates_but_source_departure_does_not) (focus='M-god-08')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 69, in test_reservation_target_departure_invalidates_but_source_departure_does_not
+    self.assertEqual(z['status'],'invalidated')
+AssertionError: 'active' != 'invalidated'
+- active
++ invalidated
+
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.608s
+
+FAILED (failures=6, errors=8)

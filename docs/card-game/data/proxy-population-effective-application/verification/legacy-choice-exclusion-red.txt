@@ -1,0 +1,25 @@
+F
+======================================================================
+FAIL: test_stat_choice_is_required_and_no_longer_current_main_has_no_choice (test_proxy_population_legacy_choice_obligations.LegacyChoiceTests.test_stat_choice_is_required_and_no_longer_current_main_has_no_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_legacy_choice_obligations.py", line 27, in test_stat_choice_is_required_and_no_longer_current_main_has_no_choice
+    runtime.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_legacy_choice_obligations.py", line 22, in run
+    bad=api.audit(before,initial(),fake);self.assertFalse(bad['legacy_choice_coverage_verified']);self.assertIsNone(bad['old_116_excluded'])
+                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not None
+
+----------------------------------------------------------------------
+Ran 1 test in 0.056s
+
+FAILED (failures=1)

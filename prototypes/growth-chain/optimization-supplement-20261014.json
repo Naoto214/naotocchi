@@ -1,0 +1,2498 @@
+{
+  "screen": {
+    "ordinary": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 0,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 0,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 0,
+      "maxToolStreak": 0,
+      "chains3": 31,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "chain": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 0,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 0,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 0,
+      "maxToolStreak": 0,
+      "chains3": 31,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "cluster": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 251,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        46,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 120.375,
+      "maxToolStreak": 7,
+      "chains3": 96,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "reach": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 7,
+      "reachButNotTwo": 1,
+      "twoButNotWin": 0,
+      "causalRewards": 505,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        111,
+        26,
+        1,
+        0
+      ],
+      "meanToolGaugeEarned": 196.25,
+      "maxToolStreak": 15,
+      "chains3": 151,
+      "chains5": 3,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "death": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 257,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        52,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 127.5,
+      "maxToolStreak": 8,
+      "chains3": 107,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "active": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 257,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        52,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 127.5,
+      "maxToolStreak": 8,
+      "chains3": 107,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "reserve": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 263,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        78,
+        4,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 140.625,
+      "maxToolStreak": 7,
+      "chains3": 66,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "transform": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 257,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        52,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 127.5,
+      "maxToolStreak": 8,
+      "chains3": 107,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "bulk": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 211,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        50,
+        10,
+        1,
+        0
+      ],
+      "meanToolGaugeEarned": 99.125,
+      "maxToolStreak": 14,
+      "chains3": 87,
+      "chains5": 4,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "lookahead": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 388,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        82,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 159,
+      "maxToolStreak": 9,
+      "chains3": 123,
+      "chains5": 2,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "legacy": {
+      "n": 8,
+      "winWilson95": [
+        0.07147921275211133,
+        0.5907245696898228
+      ],
+      "wins": 2,
+      "notReach08": 6,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 377,
+      "descendantDeaths": 2,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 2,
+      "eggInducedRewards": [
+        99,
+        20,
+        2,
+        1
+      ],
+      "meanToolGaugeEarned": 156.125,
+      "maxToolStreak": 14,
+      "chains3": 152,
+      "chains5": 8,
+      "winDrops": {
+        "min": 195,
+        "median": 200.5,
+        "max": 206
+      },
+      "winActions": {
+        "min": 301,
+        "median": 306.0,
+        "max": 311
+      },
+      "winInputSteps": {
+        "min": 949,
+        "median": 986.5,
+        "max": 1024
+      },
+      "winToolActions": {
+        "min": 105,
+        "median": 105.5,
+        "max": 106
+      },
+      "winTransform": {
+        "min": 7,
+        "median": 7.5,
+        "max": 8
+      },
+      "winBulk": {
+        "min": 15,
+        "median": 15.0,
+        "max": 15
+      },
+      "winEggUse": {
+        "min": 82,
+        "median": 83.0,
+        "max": 84
+      },
+      "winSeeds": [
+        200,
+        206
+      ],
+      "endStatuses": {
+        "win": 2,
+        "gameover": 6,
+        "censored": 0
+      }
+    },
+    "g12": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 129,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        30,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 75.375,
+      "maxToolStreak": 5,
+      "chains3": 81,
+      "chains5": 1,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "g6": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 343,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        43,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 163.25,
+      "maxToolStreak": 7,
+      "chains3": 95,
+      "chains5": 2,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "egg2": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 301,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        59,
+        3,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 143.75,
+      "maxToolStreak": 8,
+      "chains3": 115,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "silver1": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 276,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        50,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 129.625,
+      "maxToolStreak": 6,
+      "chains3": 100,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "width7": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 313,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        54,
+        3,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 150.125,
+      "maxToolStreak": 10,
+      "chains3": 118,
+      "chains5": 2,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "kinds4": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 425,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        78,
+        4,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 170.125,
+      "maxToolStreak": 7,
+      "chains3": 148,
+      "chains5": 2,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "kinds6": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 143,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        27,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 96.875,
+      "maxToolStreak": 6,
+      "chains3": 71,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "fixed20-4": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 438,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        85,
+        3,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 169.5,
+      "maxToolStreak": 9,
+      "chains3": 160,
+      "chains5": 2,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "fixed20-6": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 180,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        36,
+        0,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 102.625,
+      "maxToolStreak": 7,
+      "chains3": 68,
+      "chains5": 0,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "next0": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 288,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        54,
+        1,
+        0,
+        0
+      ],
+      "meanToolGaugeEarned": 138.25,
+      "maxToolStreak": 7,
+      "chains3": 98,
+      "chains5": 1,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    }
+  },
+  "legacy": {
+    "legacy": {
+      "n": 8,
+      "winWilson95": [
+        0.07147921275211133,
+        0.5907245696898228
+      ],
+      "wins": 2,
+      "notReach08": 6,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 377,
+      "descendantDeaths": 2,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 2,
+      "eggInducedRewards": [
+        99,
+        20,
+        2,
+        1
+      ],
+      "meanToolGaugeEarned": 156.125,
+      "maxToolStreak": 14,
+      "chains3": 152,
+      "chains5": 8,
+      "winDrops": {
+        "min": 195,
+        "median": 200.5,
+        "max": 206
+      },
+      "winActions": {
+        "min": 301,
+        "median": 306.0,
+        "max": 311
+      },
+      "winInputSteps": {
+        "min": 949,
+        "median": 986.5,
+        "max": 1024
+      },
+      "winToolActions": {
+        "min": 105,
+        "median": 105.5,
+        "max": 106
+      },
+      "winTransform": {
+        "min": 7,
+        "median": 7.5,
+        "max": 8
+      },
+      "winBulk": {
+        "min": 15,
+        "median": 15.0,
+        "max": 15
+      },
+      "winEggUse": {
+        "min": 82,
+        "median": 83.0,
+        "max": 84
+      },
+      "winSeeds": [
+        200,
+        206
+      ],
+      "endStatuses": {
+        "win": 2,
+        "gameover": 6,
+        "censored": 0
+      }
+    },
+    "g12": {
+      "n": 8,
+      "winWilson95": [
+        0.02241749145005756,
+        0.47088818221284356
+      ],
+      "wins": 1,
+      "notReach08": 5,
+      "reachButNotTwo": 2,
+      "twoButNotWin": 0,
+      "causalRewards": 311,
+      "descendantDeaths": 1,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 1,
+      "eggInducedRewards": [
+        90,
+        27,
+        3,
+        0
+      ],
+      "meanToolGaugeEarned": 133.625,
+      "maxToolStreak": 11,
+      "chains3": 121,
+      "chains5": 6,
+      "winDrops": {
+        "min": 175,
+        "median": 175,
+        "max": 175
+      },
+      "winActions": {
+        "min": 246,
+        "median": 246,
+        "max": 246
+      },
+      "winInputSteps": {
+        "min": 806,
+        "median": 806,
+        "max": 806
+      },
+      "winToolActions": {
+        "min": 71,
+        "median": 71,
+        "max": 71
+      },
+      "winTransform": {
+        "min": 0,
+        "median": 0,
+        "max": 0
+      },
+      "winBulk": {
+        "min": 10,
+        "median": 10,
+        "max": 10
+      },
+      "winEggUse": {
+        "min": 61,
+        "median": 61,
+        "max": 61
+      },
+      "winSeeds": [
+        201
+      ],
+      "endStatuses": {
+        "win": 1,
+        "gameover": 7,
+        "censored": 0
+      }
+    },
+    "g6": {
+      "n": 8,
+      "winWilson95": [
+        0.07147921275211133,
+        0.5907245696898228
+      ],
+      "wins": 2,
+      "notReach08": 5,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 1,
+      "causalRewards": 516,
+      "descendantDeaths": 2,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 2,
+      "eggInducedRewards": [
+        124,
+        28,
+        4,
+        1
+      ],
+      "meanToolGaugeEarned": 195.875,
+      "maxToolStreak": 16,
+      "chains3": 170,
+      "chains5": 9,
+      "winDrops": {
+        "min": 144,
+        "median": 144.5,
+        "max": 145
+      },
+      "winActions": {
+        "min": 233,
+        "median": 244.0,
+        "max": 255
+      },
+      "winInputSteps": {
+        "min": 703,
+        "median": 744.0,
+        "max": 785
+      },
+      "winToolActions": {
+        "min": 89,
+        "median": 99.5,
+        "max": 110
+      },
+      "winTransform": {
+        "min": 23,
+        "median": 25.0,
+        "max": 27
+      },
+      "winBulk": {
+        "min": 9,
+        "median": 9.0,
+        "max": 9
+      },
+      "winEggUse": {
+        "min": 57,
+        "median": 65.5,
+        "max": 74
+      },
+      "winSeeds": [
+        200,
+        204
+      ],
+      "endStatuses": {
+        "win": 2,
+        "gameover": 6,
+        "censored": 0
+      }
+    },
+    "g4": {
+      "n": 8,
+      "winWilson95": [
+        0.02241749145005756,
+        0.47088818221284356
+      ],
+      "wins": 1,
+      "notReach08": 5,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 2,
+      "causalRewards": 795,
+      "descendantDeaths": 1,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 1,
+      "eggInducedRewards": [
+        157,
+        34,
+        6,
+        2
+      ],
+      "meanToolGaugeEarned": 315.125,
+      "maxToolStreak": 12,
+      "chains3": 196,
+      "chains5": 5,
+      "winDrops": {
+        "min": 154,
+        "median": 154,
+        "max": 154
+      },
+      "winActions": {
+        "min": 284,
+        "median": 284,
+        "max": 284
+      },
+      "winInputSteps": {
+        "min": 814,
+        "median": 814,
+        "max": 814
+      },
+      "winToolActions": {
+        "min": 130,
+        "median": 130,
+        "max": 130
+      },
+      "winTransform": {
+        "min": 49,
+        "median": 49,
+        "max": 49
+      },
+      "winBulk": {
+        "min": 12,
+        "median": 12,
+        "max": 12
+      },
+      "winEggUse": {
+        "min": 69,
+        "median": 69,
+        "max": 69
+      },
+      "winSeeds": [
+        202
+      ],
+      "endStatuses": {
+        "win": 1,
+        "gameover": 7,
+        "censored": 0
+      }
+    },
+    "g2": {
+      "n": 8,
+      "winWilson95": [
+        0.40927543031017727,
+        0.9285207872478887
+      ],
+      "wins": 6,
+      "notReach08": 2,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 739,
+      "descendantDeaths": 7,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 6,
+      "eggInducedRewards": [
+        146,
+        31,
+        12,
+        4
+      ],
+      "meanToolGaugeEarned": 394.375,
+      "maxToolStreak": 11,
+      "chains3": 174,
+      "chains5": 5,
+      "winDrops": {
+        "min": 79,
+        "median": 123.5,
+        "max": 180
+      },
+      "winActions": {
+        "min": 187,
+        "median": 303.0,
+        "max": 435
+      },
+      "winInputSteps": {
+        "min": 523,
+        "median": 806.5,
+        "max": 1208
+      },
+      "winToolActions": {
+        "min": 108,
+        "median": 179.5,
+        "max": 255
+      },
+      "winTransform": {
+        "min": 67,
+        "median": 114.0,
+        "max": 165
+      },
+      "winBulk": {
+        "min": 7,
+        "median": 11.0,
+        "max": 13
+      },
+      "winEggUse": {
+        "min": 34,
+        "median": 56.5,
+        "max": 77
+      },
+      "winSeeds": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        207
+      ],
+      "endStatuses": {
+        "win": 6,
+        "gameover": 2,
+        "censored": 0
+      }
+    },
+    "egg2": {
+      "n": 8,
+      "winWilson95": [
+        0.02241749145005756,
+        0.47088818221284356
+      ],
+      "wins": 1,
+      "notReach08": 5,
+      "reachButNotTwo": 1,
+      "twoButNotWin": 1,
+      "causalRewards": 371,
+      "descendantDeaths": 1,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 1,
+      "eggInducedRewards": [
+        97,
+        27,
+        4,
+        0
+      ],
+      "meanToolGaugeEarned": 161.75,
+      "maxToolStreak": 12,
+      "chains3": 145,
+      "chains5": 11,
+      "winDrops": {
+        "min": 89,
+        "median": 89,
+        "max": 89
+      },
+      "winActions": {
+        "min": 123,
+        "median": 123,
+        "max": 123
+      },
+      "winInputSteps": {
+        "min": 405,
+        "median": 405,
+        "max": 405
+      },
+      "winToolActions": {
+        "min": 34,
+        "median": 34,
+        "max": 34
+      },
+      "winTransform": {
+        "min": 3,
+        "median": 3,
+        "max": 3
+      },
+      "winBulk": {
+        "min": 6,
+        "median": 6,
+        "max": 6
+      },
+      "winEggUse": {
+        "min": 25,
+        "median": 25,
+        "max": 25
+      },
+      "winSeeds": [
+        207
+      ],
+      "endStatuses": {
+        "win": 1,
+        "gameover": 7,
+        "censored": 0
+      }
+    },
+    "silver1": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 5,
+      "reachButNotTwo": 3,
+      "twoButNotWin": 0,
+      "causalRewards": 570,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        142,
+        39,
+        8,
+        1
+      ],
+      "meanToolGaugeEarned": 213.75,
+      "maxToolStreak": 18,
+      "chains3": 173,
+      "chains5": 9,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "platinum1": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 6,
+      "reachButNotTwo": 1,
+      "twoButNotWin": 1,
+      "causalRewards": 432,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        105,
+        33,
+        5,
+        1
+      ],
+      "meanToolGaugeEarned": 172.625,
+      "maxToolStreak": 16,
+      "chains3": 134,
+      "chains5": 5,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "width7": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 6,
+      "reachButNotTwo": 2,
+      "twoButNotWin": 0,
+      "causalRewards": 541,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        148,
+        27,
+        5,
+        1
+      ],
+      "meanToolGaugeEarned": 208,
+      "maxToolStreak": 16,
+      "chains3": 176,
+      "chains5": 4,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    },
+    "kinds4": {
+      "n": 8,
+      "winWilson95": [
+        0.02241749145005756,
+        0.47088818221284356
+      ],
+      "wins": 1,
+      "notReach08": 4,
+      "reachButNotTwo": 2,
+      "twoButNotWin": 1,
+      "causalRewards": 599,
+      "descendantDeaths": 1,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 1,
+      "eggInducedRewards": [
+        158,
+        42,
+        7,
+        2
+      ],
+      "meanToolGaugeEarned": 204.875,
+      "maxToolStreak": 14,
+      "chains3": 230,
+      "chains5": 7,
+      "winDrops": {
+        "min": 84,
+        "median": 84,
+        "max": 84
+      },
+      "winActions": {
+        "min": 125,
+        "median": 125,
+        "max": 125
+      },
+      "winInputSteps": {
+        "min": 414,
+        "median": 414,
+        "max": 414
+      },
+      "winToolActions": {
+        "min": 41,
+        "median": 41,
+        "max": 41
+      },
+      "winTransform": {
+        "min": 4,
+        "median": 4,
+        "max": 4
+      },
+      "winBulk": {
+        "min": 6,
+        "median": 6,
+        "max": 6
+      },
+      "winEggUse": {
+        "min": 31,
+        "median": 31,
+        "max": 31
+      },
+      "winSeeds": [
+        206
+      ],
+      "endStatuses": {
+        "win": 1,
+        "gameover": 7,
+        "censored": 0
+      }
+    },
+    "kinds6": {
+      "n": 8,
+      "winWilson95": [
+        0.0,
+        0.3244075648838681
+      ],
+      "wins": 0,
+      "notReach08": 8,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 220,
+      "descendantDeaths": 0,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 0,
+      "eggInducedRewards": [
+        58,
+        9,
+        1,
+        0
+      ],
+      "meanToolGaugeEarned": 106.875,
+      "maxToolStreak": 13,
+      "chains3": 86,
+      "chains5": 9,
+      "winDrops": null,
+      "winActions": null,
+      "winInputSteps": null,
+      "winToolActions": null,
+      "winTransform": null,
+      "winBulk": null,
+      "winEggUse": null,
+      "winSeeds": [],
+      "endStatuses": {
+        "win": 0,
+        "gameover": 8,
+        "censored": 0
+      }
+    }
+  },
+  "combo": {
+    "g4-width7": {
+      "n": 8,
+      "winWilson95": [
+        0.13684428582360114,
+        0.6942576053973659
+      ],
+      "wins": 3,
+      "notReach08": 5,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 807,
+      "descendantDeaths": 3,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 3,
+      "eggInducedRewards": [
+        155,
+        37,
+        6,
+        2
+      ],
+      "meanToolGaugeEarned": 308.5,
+      "maxToolStreak": 14,
+      "chains3": 193,
+      "chains5": 3,
+      "winDrops": {
+        "min": 126,
+        "median": 141,
+        "max": 173
+      },
+      "winActions": {
+        "min": 242,
+        "median": 265,
+        "max": 321
+      },
+      "winInputSteps": {
+        "min": 765,
+        "median": 847,
+        "max": 1010
+      },
+      "winToolActions": {
+        "min": 116,
+        "median": 124,
+        "max": 148
+      },
+      "winTransform": {
+        "min": 44,
+        "median": 47,
+        "max": 59
+      },
+      "winBulk": {
+        "min": 9,
+        "median": 11,
+        "max": 12
+      },
+      "winEggUse": {
+        "min": 63,
+        "median": 66,
+        "max": 77
+      },
+      "winSeeds": [
+        202,
+        205,
+        207
+      ],
+      "endStatuses": {
+        "win": 3,
+        "gameover": 5,
+        "censored": 0
+      }
+    },
+    "g6-width7": {
+      "n": 8,
+      "winWilson95": [
+        0.07147921275211133,
+        0.5907245696898228
+      ],
+      "wins": 2,
+      "notReach08": 6,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 634,
+      "descendantDeaths": 2,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 2,
+      "eggInducedRewards": [
+        155,
+        35,
+        5,
+        1
+      ],
+      "meanToolGaugeEarned": 242.625,
+      "maxToolStreak": 13,
+      "chains3": 190,
+      "chains5": 6,
+      "winDrops": {
+        "min": 163,
+        "median": 194.5,
+        "max": 226
+      },
+      "winActions": {
+        "min": 285,
+        "median": 331.5,
+        "max": 378
+      },
+      "winInputSteps": {
+        "min": 963,
+        "median": 1093.0,
+        "max": 1223
+      },
+      "winToolActions": {
+        "min": 122,
+        "median": 137.0,
+        "max": 152
+      },
+      "winTransform": {
+        "min": 32,
+        "median": 32.5,
+        "max": 33
+      },
+      "winBulk": {
+        "min": 9,
+        "median": 13.0,
+        "max": 17
+      },
+      "winEggUse": {
+        "min": 80,
+        "median": 91.5,
+        "max": 103
+      },
+      "winSeeds": [
+        200,
+        205
+      ],
+      "endStatuses": {
+        "win": 2,
+        "gameover": 6,
+        "censored": 0
+      }
+    },
+    "g4-kinds4": {
+      "n": 8,
+      "winWilson95": [
+        0.40927543031017727,
+        0.9285207872478887
+      ],
+      "wins": 6,
+      "notReach08": 2,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 646,
+      "descendantDeaths": 6,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 6,
+      "eggInducedRewards": [
+        124,
+        36,
+        11,
+        4
+      ],
+      "meanToolGaugeEarned": 246.5,
+      "maxToolStreak": 12,
+      "chains3": 165,
+      "chains5": 11,
+      "winDrops": {
+        "min": 103,
+        "median": 152.0,
+        "max": 176
+      },
+      "winActions": {
+        "min": 198,
+        "median": 296.0,
+        "max": 333
+      },
+      "winInputSteps": {
+        "min": 586,
+        "median": 901.0,
+        "max": 996
+      },
+      "winToolActions": {
+        "min": 95,
+        "median": 142.5,
+        "max": 163
+      },
+      "winTransform": {
+        "min": 38,
+        "median": 54.0,
+        "max": 71
+      },
+      "winBulk": {
+        "min": 7,
+        "median": 9.5,
+        "max": 13
+      },
+      "winEggUse": {
+        "min": 50,
+        "median": 75.5,
+        "max": 83
+      },
+      "winSeeds": [
+        200,
+        203,
+        204,
+        205,
+        206,
+        207
+      ],
+      "endStatuses": {
+        "win": 6,
+        "gameover": 2,
+        "censored": 0
+      }
+    },
+    "g6-kinds4": {
+      "n": 8,
+      "winWilson95": [
+        0.07147921275211133,
+        0.5907245696898228
+      ],
+      "wins": 2,
+      "notReach08": 3,
+      "reachButNotTwo": 3,
+      "twoButNotWin": 0,
+      "causalRewards": 698,
+      "descendantDeaths": 2,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 2,
+      "eggInducedRewards": [
+        170,
+        38,
+        9,
+        1
+      ],
+      "meanToolGaugeEarned": 241.25,
+      "maxToolStreak": 11,
+      "chains3": 210,
+      "chains5": 7,
+      "winDrops": {
+        "min": 143,
+        "median": 146.0,
+        "max": 149
+      },
+      "winActions": {
+        "min": 247,
+        "median": 253.5,
+        "max": 260
+      },
+      "winInputSteps": {
+        "min": 796,
+        "median": 804.5,
+        "max": 813
+      },
+      "winToolActions": {
+        "min": 104,
+        "median": 107.5,
+        "max": 111
+      },
+      "winTransform": {
+        "min": 25,
+        "median": 26.0,
+        "max": 27
+      },
+      "winBulk": {
+        "min": 9,
+        "median": 9.5,
+        "max": 10
+      },
+      "winEggUse": {
+        "min": 70,
+        "median": 72.0,
+        "max": 74
+      },
+      "winSeeds": [
+        204,
+        206
+      ],
+      "endStatuses": {
+        "win": 2,
+        "gameover": 6,
+        "censored": 0
+      }
+    },
+    "g4-silver1": {
+      "n": 8,
+      "winWilson95": [
+        0.07147921275211133,
+        0.5907245696898228
+      ],
+      "wins": 2,
+      "notReach08": 4,
+      "reachButNotTwo": 1,
+      "twoButNotWin": 1,
+      "causalRewards": 883,
+      "descendantDeaths": 2,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 2,
+      "eggInducedRewards": [
+        192,
+        43,
+        7,
+        2
+      ],
+      "meanToolGaugeEarned": 336.625,
+      "maxToolStreak": 15,
+      "chains3": 228,
+      "chains5": 11,
+      "winDrops": {
+        "min": 107,
+        "median": 177.5,
+        "max": 248
+      },
+      "winActions": {
+        "min": 215,
+        "median": 332.0,
+        "max": 449
+      },
+      "winInputSteps": {
+        "min": 632,
+        "median": 995.5,
+        "max": 1359
+      },
+      "winToolActions": {
+        "min": 108,
+        "median": 154.5,
+        "max": 201
+      },
+      "winTransform": {
+        "min": 41,
+        "median": 52.5,
+        "max": 64
+      },
+      "winBulk": {
+        "min": 7,
+        "median": 16.0,
+        "max": 25
+      },
+      "winEggUse": {
+        "min": 60,
+        "median": 86.0,
+        "max": 112
+      },
+      "winSeeds": [
+        200,
+        203
+      ],
+      "endStatuses": {
+        "win": 2,
+        "gameover": 6,
+        "censored": 0
+      }
+    },
+    "g2-width7": {
+      "n": 8,
+      "winWilson95": [
+        0.40927543031017727,
+        0.9285207872478887
+      ],
+      "wins": 6,
+      "notReach08": 2,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 844,
+      "descendantDeaths": 6,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 6,
+      "eggInducedRewards": [
+        163,
+        53,
+        15,
+        7
+      ],
+      "meanToolGaugeEarned": 437.25,
+      "maxToolStreak": 13,
+      "chains3": 173,
+      "chains5": 7,
+      "winDrops": {
+        "min": 89,
+        "median": 134.0,
+        "max": 194
+      },
+      "winActions": {
+        "min": 217,
+        "median": 336.0,
+        "max": 463
+      },
+      "winInputSteps": {
+        "min": 655,
+        "median": 956.0,
+        "max": 1299
+      },
+      "winToolActions": {
+        "min": 128,
+        "median": 203.0,
+        "max": 269
+      },
+      "winTransform": {
+        "min": 71,
+        "median": 126.0,
+        "max": 165
+      },
+      "winBulk": {
+        "min": 8,
+        "median": 11.0,
+        "max": 20
+      },
+      "winEggUse": {
+        "min": 46,
+        "median": 64.0,
+        "max": 85
+      },
+      "winSeeds": [
+        200,
+        201,
+        202,
+        204,
+        205,
+        207
+      ],
+      "endStatuses": {
+        "win": 6,
+        "gameover": 2,
+        "censored": 0
+      }
+    }
+  },
+  "confirm": {
+    "baseline8": {
+      "n": 32,
+      "winWilson95": [
+        0.005537860164003344,
+        0.15744263820012042
+      ],
+      "wins": 1,
+      "notReach08": 24,
+      "reachButNotTwo": 7,
+      "twoButNotWin": 0,
+      "causalRewards": 1751,
+      "descendantDeaths": 1,
+      "trialsWithCausalRewards": 32,
+      "trialsWithDescendantDeaths": 1,
+      "eggInducedRewards": [
+        450,
+        109,
+        10,
+        3
+      ],
+      "meanToolGaugeEarned": 170.40625,
+      "maxToolStreak": 18,
+      "chains3": 636,
+      "chains5": 33,
+      "winDrops": {
+        "min": 173,
+        "median": 173,
+        "max": 173
+      },
+      "winActions": {
+        "min": 253,
+        "median": 253,
+        "max": 253
+      },
+      "winInputSteps": {
+        "min": 815,
+        "median": 815,
+        "max": 815
+      },
+      "winToolActions": {
+        "min": 80,
+        "median": 80,
+        "max": 80
+      },
+      "winTransform": {
+        "min": 6,
+        "median": 6,
+        "max": 6
+      },
+      "winBulk": {
+        "min": 12,
+        "median": 12,
+        "max": 12
+      },
+      "winEggUse": {
+        "min": 62,
+        "median": 62,
+        "max": 62
+      },
+      "winSeeds": [
+        321
+      ],
+      "endStatuses": {
+        "win": 1,
+        "gameover": 31,
+        "censored": 0
+      }
+    },
+    "baseline12": {
+      "n": 32,
+      "winWilson95": [
+        0.005537860164003344,
+        0.15744263820012042
+      ],
+      "wins": 1,
+      "notReach08": 23,
+      "reachButNotTwo": 7,
+      "twoButNotWin": 1,
+      "causalRewards": 1317,
+      "descendantDeaths": 1,
+      "trialsWithCausalRewards": 32,
+      "trialsWithDescendantDeaths": 1,
+      "eggInducedRewards": [
+        398,
+        107,
+        16,
+        2
+      ],
+      "meanToolGaugeEarned": 140.90625,
+      "maxToolStreak": 14,
+      "chains3": 566,
+      "chains5": 29,
+      "winDrops": {
+        "min": 158,
+        "median": 158,
+        "max": 158
+      },
+      "winActions": {
+        "min": 222,
+        "median": 222,
+        "max": 222
+      },
+      "winInputSteps": {
+        "min": 702,
+        "median": 702,
+        "max": 702
+      },
+      "winToolActions": {
+        "min": 64,
+        "median": 64,
+        "max": 64
+      },
+      "winTransform": {
+        "min": 8,
+        "median": 8,
+        "max": 8
+      },
+      "winBulk": {
+        "min": 6,
+        "median": 6,
+        "max": 6
+      },
+      "winEggUse": {
+        "min": 50,
+        "median": 50,
+        "max": 50
+      },
+      "winSeeds": [
+        321
+      ],
+      "endStatuses": {
+        "win": 1,
+        "gameover": 31,
+        "censored": 0
+      }
+    },
+    "g2": {
+      "n": 32,
+      "winWilson95": [
+        0.6124500635075697,
+        0.889761637473956
+      ],
+      "wins": 25,
+      "notReach08": 7,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 2593,
+      "descendantDeaths": 25,
+      "trialsWithCausalRewards": 32,
+      "trialsWithDescendantDeaths": 25,
+      "eggInducedRewards": [
+        503,
+        142,
+        52,
+        14
+      ],
+      "meanToolGaugeEarned": 340.8125,
+      "maxToolStreak": 12,
+      "chains3": 563,
+      "chains5": 33,
+      "winDrops": {
+        "min": 89,
+        "median": 118,
+        "max": 160
+      },
+      "winActions": {
+        "min": 199,
+        "median": 277,
+        "max": 395
+      },
+      "winInputSteps": {
+        "min": 565,
+        "median": 766,
+        "max": 1112
+      },
+      "winToolActions": {
+        "min": 110,
+        "median": 162,
+        "max": 235
+      },
+      "winTransform": {
+        "min": 73,
+        "median": 98,
+        "max": 146
+      },
+      "winBulk": {
+        "min": 3,
+        "median": 10,
+        "max": 14
+      },
+      "winEggUse": {
+        "min": 31,
+        "median": 52,
+        "max": 76
+      },
+      "winSeeds": [
+        302,
+        303,
+        304,
+        305,
+        306,
+        308,
+        309,
+        310,
+        312,
+        314,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        327,
+        328,
+        329,
+        330,
+        331
+      ],
+      "endStatuses": {
+        "win": 25,
+        "gameover": 7,
+        "censored": 0
+      }
+    },
+    "g4-kinds4": {
+      "n": 32,
+      "winWilson95": [
+        0.17952541633610017,
+        0.48566678300954924
+      ],
+      "wins": 10,
+      "notReach08": 19,
+      "reachButNotTwo": 3,
+      "twoButNotWin": 0,
+      "causalRewards": 3607,
+      "descendantDeaths": 10,
+      "trialsWithCausalRewards": 32,
+      "trialsWithDescendantDeaths": 10,
+      "eggInducedRewards": [
+        722,
+        169,
+        47,
+        7
+      ],
+      "meanToolGaugeEarned": 335.375,
+      "maxToolStreak": 14,
+      "chains3": 931,
+      "chains5": 28,
+      "winDrops": {
+        "min": 99,
+        "median": 127.0,
+        "max": 242
+      },
+      "winActions": {
+        "min": 172,
+        "median": 243.0,
+        "max": 488
+      },
+      "winInputSteps": {
+        "min": 558,
+        "median": 728.5,
+        "max": 1511
+      },
+      "winToolActions": {
+        "min": 73,
+        "median": 114.5,
+        "max": 246
+      },
+      "winTransform": {
+        "min": 28,
+        "median": 41.5,
+        "max": 91
+      },
+      "winBulk": {
+        "min": 7,
+        "median": 9.5,
+        "max": 18
+      },
+      "winEggUse": {
+        "min": 37,
+        "median": 59.5,
+        "max": 137
+      },
+      "winSeeds": [
+        300,
+        302,
+        304,
+        307,
+        311,
+        314,
+        317,
+        320,
+        322,
+        329
+      ],
+      "endStatuses": {
+        "win": 10,
+        "gameover": 22,
+        "censored": 0
+      }
+    },
+    "g2-width7": {
+      "n": 32,
+      "winWilson95": [
+        0.3363088286932788,
+        0.6636911713067212
+      ],
+      "wins": 16,
+      "notReach08": 15,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 1,
+      "causalRewards": 4153,
+      "descendantDeaths": 16,
+      "trialsWithCausalRewards": 32,
+      "trialsWithDescendantDeaths": 16,
+      "eggInducedRewards": [
+        838,
+        218,
+        75,
+        8
+      ],
+      "meanToolGaugeEarned": 570.6875,
+      "maxToolStreak": 14,
+      "chains3": 921,
+      "chains5": 41,
+      "winDrops": {
+        "min": 95,
+        "median": 132.0,
+        "max": 194
+      },
+      "winActions": {
+        "min": 236,
+        "median": 309.0,
+        "max": 471
+      },
+      "winInputSteps": {
+        "min": 683,
+        "median": 911.0,
+        "max": 1331
+      },
+      "winToolActions": {
+        "min": 141,
+        "median": 178.0,
+        "max": 277
+      },
+      "winTransform": {
+        "min": 84,
+        "median": 109.5,
+        "max": 168
+      },
+      "winBulk": {
+        "min": 7,
+        "median": 11.0,
+        "max": 18
+      },
+      "winEggUse": {
+        "min": 39,
+        "median": 54.0,
+        "max": 91
+      },
+      "winSeeds": [
+        300,
+        301,
+        302,
+        308,
+        309,
+        311,
+        312,
+        316,
+        317,
+        318,
+        319,
+        321,
+        322,
+        324,
+        329,
+        330
+      ],
+      "endStatuses": {
+        "win": 16,
+        "gameover": 16,
+        "censored": 0
+      }
+    }
+  },
+  "sensitivity": {
+    "g2-death": {
+      "n": 8,
+      "winWilson95": [
+        0.40927543031017727,
+        0.9285207872478887
+      ],
+      "wins": 6,
+      "notReach08": 2,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 712,
+      "descendantDeaths": 6,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 6,
+      "eggInducedRewards": [
+        103,
+        16,
+        2,
+        1
+      ],
+      "meanToolGaugeEarned": 419.5,
+      "maxToolStreak": 16,
+      "chains3": 157,
+      "chains5": 3,
+      "winDrops": {
+        "min": 97,
+        "median": 225.5,
+        "max": 274
+      },
+      "winActions": {
+        "min": 225,
+        "median": 562.0,
+        "max": 676
+      },
+      "winInputSteps": {
+        "min": 609,
+        "median": 1549.5,
+        "max": 1855
+      },
+      "winToolActions": {
+        "min": 128,
+        "median": 336.5,
+        "max": 402
+      },
+      "winTransform": {
+        "min": 88,
+        "median": 229.0,
+        "max": 279
+      },
+      "winBulk": {
+        "min": 3,
+        "median": 7.0,
+        "max": 10
+      },
+      "winEggUse": {
+        "min": 37,
+        "median": 100.5,
+        "max": 116
+      },
+      "winSeeds": [
+        200,
+        201,
+        202,
+        204,
+        205,
+        206
+      ],
+      "endStatuses": {
+        "win": 6,
+        "gameover": 2,
+        "censored": 0
+      }
+    },
+    "g2-bulk": {
+      "n": 8,
+      "winWilson95": [
+        0.02241749145005756,
+        0.47088818221284356
+      ],
+      "wins": 1,
+      "notReach08": 7,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 398,
+      "descendantDeaths": 1,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 1,
+      "eggInducedRewards": [
+        100,
+        27,
+        2,
+        1
+      ],
+      "meanToolGaugeEarned": 201.375,
+      "maxToolStreak": 9,
+      "chains3": 125,
+      "chains5": 3,
+      "winDrops": {
+        "min": 176,
+        "median": 176,
+        "max": 176
+      },
+      "winActions": {
+        "min": 306,
+        "median": 306,
+        "max": 306
+      },
+      "winInputSteps": {
+        "min": 925,
+        "median": 925,
+        "max": 925
+      },
+      "winToolActions": {
+        "min": 130,
+        "median": 130,
+        "max": 130
+      },
+      "winTransform": {
+        "min": 0,
+        "median": 0,
+        "max": 0
+      },
+      "winBulk": {
+        "min": 62,
+        "median": 62,
+        "max": 62
+      },
+      "winEggUse": {
+        "min": 68,
+        "median": 68,
+        "max": 68
+      },
+      "winSeeds": [
+        203
+      ],
+      "endStatuses": {
+        "win": 1,
+        "gameover": 7,
+        "censored": 0
+      }
+    },
+    "g3-legacy": {
+      "n": 8,
+      "winWilson95": [
+        0.13684428582360114,
+        0.6942576053973659
+      ],
+      "wins": 3,
+      "notReach08": 5,
+      "reachButNotTwo": 0,
+      "twoButNotWin": 0,
+      "causalRewards": 735,
+      "descendantDeaths": 4,
+      "trialsWithCausalRewards": 8,
+      "trialsWithDescendantDeaths": 3,
+      "eggInducedRewards": [
+        111,
+        20,
+        8,
+        0
+      ],
+      "meanToolGaugeEarned": 318.125,
+      "maxToolStreak": 11,
+      "chains3": 134,
+      "chains5": 3,
+      "winDrops": {
+        "min": 64,
+        "median": 96,
+        "max": 197
+      },
+      "winActions": {
+        "min": 133,
+        "median": 196,
+        "max": 410
+      },
+      "winInputSteps": {
+        "min": 386,
+        "median": 576,
+        "max": 1239
+      },
+      "winToolActions": {
+        "min": 69,
+        "median": 100,
+        "max": 213
+      },
+      "winTransform": {
+        "min": 34,
+        "median": 52,
+        "max": 105
+      },
+      "winBulk": {
+        "min": 5,
+        "median": 6,
+        "max": 15
+      },
+      "winEggUse": {
+        "min": 30,
+        "median": 42,
+        "max": 93
+      },
+      "winSeeds": [
+        201,
+        202,
+        206
+      ],
+      "endStatuses": {
+        "win": 3,
+        "gameover": 5,
+        "censored": 0
+      }
+    }
+  }
+}

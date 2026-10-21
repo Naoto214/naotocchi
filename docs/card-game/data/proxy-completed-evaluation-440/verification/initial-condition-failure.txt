@@ -1,0 +1,12 @@
+Captured diagnostic excerpt from the initial, invalid owner-hand-order test.
+This is a failed analysis attempt, not a game regression failure or a final PASS.
+
+inventory difference view_sha256
+altered: 8e18a177b9af41e05f87e87e5b17967f69b54a314bc5d48d662b47fc3d93c4f9
+original: f4701795e2752be9c9523dfd3002ead1d26cc972a47f6bf0cb9999b2c48c268b
+ValueError: order variant changed public inventory owner_hand_order 439:continuation_batched_normal_v2:legacy_107_114_116:probe-01-a-first:normal:4
+
+Root cause: proxy_resource_value_inputs.project_visible intentionally includes
+ordered own_hand in the actor's known input. Reordering it changes that input.
+Only opponent-hand order and deck-interior order are hidden-order variants.
+No engine/policy/source contract was changed to force this check to pass.

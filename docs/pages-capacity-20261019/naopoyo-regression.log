@@ -1,0 +1,27 @@
+✔ 100 history cap does not cap totals or high scores; dedup survives eviction (23.91094ms)
+✔ stale tab cannot overwrite a newer revision; categories independent (0.877673ms)
+✔ corrupt save fails closed and never overwrites it (0.321495ms)
+✔ automatic falling continues while tool selection is open (6.964857ms)
+✔ snapshot restores pose, resources and deterministic queue (6.011284ms)
+✔ invalid live tool leaves state unchanged (2.356785ms)
+✔ stale target ID is rejected before resource use (1.323153ms)
+✔ live transform preserves falling pose and pair while spending2 (3.667258ms)
+✔ animation excludes duplicate actions until settle (1.9006ms)
+✔ blocked hidden landing resets lock delay and remains movable (0.91509ms)
+✔ 08 completion records once and restores terminal state (2.835083ms)
+✔ one-step undo restores resources, survives reload, time never rewinds (12.281519ms)
+✔ invalid operation never replaces undo state or spends resources (4.65748ms)
+✔ all four valid operation kinds restore exactly including chains (9.725387ms)
+✔ restore rejects locked species and inconsistent undo (3.189956ms)
+✔ records are separated and deduplicated, stale writer cannot overwrite (1.21717ms)
+✔ three favorite sets preserve five unlocked species and selected three (0.380902ms)
+✔ corrupt records are rejected without overwriting stored bytes (0.394387ms)
+✔ new runs reject incomplete or duplicate species mappings (0.819718ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 196.425474

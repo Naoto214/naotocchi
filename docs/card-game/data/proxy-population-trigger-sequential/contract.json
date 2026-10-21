@@ -1,0 +1,23 @@
+{
+  "schema": "sequential_trigger_connection_A.v1",
+  "base_commit": "56f7ec1e028003123158747c5f3f15c44d95d2f3",
+  "selection_unit": "one_current_next_activation_or_decline_remaining_group",
+  "selection_contract": "legacy_116_seeded_fallback_when_comparison_unresolved",
+  "legacy_116_excluded": true,
+  "mandatory_policy_allowlist_extended": false,
+  "strategic_proof": false,
+  "origin_authenticated": false,
+  "opportunity_completeness_proven": false,
+  "ready_for_execution": false,
+  "balance_admitted": null,
+  "independent_balance_samples": 0,
+  "policy_promoted": false,
+  "source_sha256": {
+    "tools/proxy_population_trigger_connection.py": "1bde2dac227dfc40fbf616bcd4178a2a65a072405edc0edf9b8cb086905aa3ff",
+    "tools/proxy_population_trigger_existing.py": "3124859e43c321d46224ba91b2c6ae6af592dd76891adb1a44eb811e3f164da7",
+    "tools/proxy_population_trigger_observation.py": "48f8cbb8648c18dbd0a376b3e6981de0250f1d1ccccd5aa68dc6aae6dccc5676",
+    "tools/proxy_population_trigger_replay.py": "c195a1d2b8192582862d4ac9a713e4d477be92285fbc0b060caa625de3814868",
+    "tools/proxy_population_trigger_sequential.py": "cfca9015f2ab92bf0d48b14eaa72c71e4d7c3a53227b7cc99495fdf73554d4a0",
+    "tools/proxy_population_trigger_window.py": "35aa3ace5c25067d85b201fe0ff2dc191eadb080ae77fbf4f0d39ef84a601892"
+  }
+}

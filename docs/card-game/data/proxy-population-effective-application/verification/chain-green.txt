@@ -1,0 +1,8 @@
+test_coin_at_cap_records_real_reveal_but_zero_growth (test_proxy_population_chain_resolution.ChainTests.test_coin_at_cap_records_real_reveal_but_zero_growth) ... ok
+test_empty_deck_resolves_without_effect_and_receipt_tampering_is_rejected (test_proxy_population_chain_resolution.ChainTests.test_empty_deck_resolves_without_effect_and_receipt_tampering_is_rejected) ... ok
+test_top_link_resolves_above_multiple_outer_links_without_resolving_them (test_proxy_population_chain_resolution.ChainTests.test_top_link_resolves_above_multiple_outer_links_without_resolving_them) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.055s
+
+OK

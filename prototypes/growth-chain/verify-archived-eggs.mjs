@@ -1,0 +1,5 @@
+// Old generation scripts are frozen at5ffa4999; this verifies their saved logs on the new engine.
+import fs from 'node:fs';import assert from 'node:assert/strict';import {replay} from './session.mjs';import {expandAction} from './experiments.mjs';import {traceMetrics} from './balance-metrics.mjs';
+let trials=0,operations=0;
+for(const dir of ['balance-results-20261014','balance-followup-20261014'])for(const f of fs.readdirSync(new URL('./'+dir+'/',import.meta.url)).filter(f=>/-\d+\.json$/.test(f))){const t=JSON.parse(fs.readFileSync(new URL('./'+dir+'/'+f,import.meta.url))),actions=t.actions.map(expandAction);assert.equal(t.initial.rules.eggReward,undefined);replay({version:t.initial.version,initial:t.initial,actions,hash:t.metrics.hash});assert.deepEqual(traceMetrics(t.initial,actions),t.metrics);trials++;operations+=actions.length;}
+assert.equal(trials,576);assert.equal(operations,109871);console.log(JSON.stringify({status:'PASS',trials,operations,checks:['legacy absent-field reward semantics','legal replay hashes','all prior balance metrics']}));

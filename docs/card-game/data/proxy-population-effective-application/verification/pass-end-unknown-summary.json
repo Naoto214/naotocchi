@@ -1,0 +1,20 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_pass_end_unknown",
+    "test_proxy_population_unproved_priority",
+    "test_proxy_population_payment_operands",
+    "test_proxy_population_fallback_payment",
+    "test_proxy_population_end_predicates",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 3.566552824995597,
+  "base_head": "9c98484c7e1ad861a2bf8897b1d0ddb7227303ff",
+  "python_count": 1071,
+  "source_unchanged": true,
+  "fingerprints_raw_sha256": "5f4a5ae55ef63b565a5b6b6e7c552cf0bea0b3530d4f9fd9783c0c00af3d4096",
+  "tests_passed": 31
+}

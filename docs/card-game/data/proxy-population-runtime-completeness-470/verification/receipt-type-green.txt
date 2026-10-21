@@ -1,0 +1,12 @@
+test_normal_activation_uses_same_cost_effect_and_usage_contract (test_proxy_population_discard_recovery.NormalRecoveryTests.test_normal_activation_uses_same_cost_effect_and_usage_contract) ... ok
+test_quick_recovery_uses_legacy_mandatory_policy_and_existing_chain (test_proxy_population_discard_recovery.QuickRecoveryTests.test_quick_recovery_uses_legacy_mandatory_policy_and_existing_chain) ... ok
+test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain (test_proxy_population_discard_recovery.RecoveryExecutionTests.test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain) ... ok
+test_disappeared_target_is_not_replaced_at_resolution (test_proxy_population_discard_recovery.RecoveryIntegrityTests.test_disappeared_target_is_not_replaced_at_resolution) ... ok
+test_paid_reference_and_runtime_replay_reject_forgery (test_proxy_population_discard_recovery.RecoveryIntegrityTests.test_paid_reference_and_runtime_replay_reject_forgery) ... ok
+test_actual_response_inventory_includes_target_and_pass_without_policy_extension (test_proxy_population_discard_recovery.RecoveryTests.test_actual_response_inventory_includes_target_and_pass_without_policy_extension) ... ok
+test_public_target_inventory_distinguishes_own_turn_and_same_name (test_proxy_population_discard_recovery.RecoveryTests.test_public_target_inventory_distinguishes_own_turn_and_same_name) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.382s
+
+OK

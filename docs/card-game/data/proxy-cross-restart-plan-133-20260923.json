@@ -1,0 +1,88 @@
+{
+  "schema": "naotocchi.card_game.proxy_cross_restart_plan.v1",
+  "checkpoint": 133,
+  "source_stop_raw_sha256": {
+    "order-01-a-first": "252394f19656f535f424261a1237f85b07c6c31519b1d42ba4965cfe3ef243c5",
+    "order-01-b-first": "1f9250d930bdeaa02a0157fc76c687d07c063e51d20d26b4fee378620086548b",
+    "order-02-a-first": "22cc2bfbf3e2f2b123b9aa1ef8ef924ae425ad8a2a7e5cca48cff97afedb0960",
+    "order-02-b-first": "1200ac21f7b36fe1b179977bb44b11e640a782bd989d44c86e880fbf77a19884"
+  },
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "252394f19656f535f424261a1237f85b07c6c31519b1d42ba4965cfe3ef243c5",
+      "game_state_sha256": "7799f65a216baa869d180e4e190d3287dd9cfd07cb42a2ad45d9b9a7b1e6220e",
+      "continuation_state_sha256": "5eb1adde62ca8f20f041c174fbd17ffaa76c4a8b1596e2507ae478b17eeae014",
+      "last_valid_event_seq": 105,
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "unresolved_canonical_predicate"
+          ]
+        },
+        "contract_stop_codes": [
+          "unresolved_canonical_predicate"
+        ]
+      },
+      "winner": null,
+      "decision_count": 21,
+      "event_count": 31,
+      "snapshot_count": 32,
+      "file": "proxy-cross-restart-stops-133/stop-133-order-01-a-first.json"
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "1f9250d930bdeaa02a0157fc76c687d07c063e51d20d26b4fee378620086548b",
+      "game_state_sha256": "b8c56c4d942c2085ace6e02655ff4b4fa6f64fff44a4b8209895d59873f8b215",
+      "continuation_state_sha256": "b870c4026aeec3c9adb59573cf1abbf2930340850e9fc2255e488f1a176124c5",
+      "last_valid_event_seq": 113,
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "unresolved_canonical_predicate"
+          ]
+        },
+        "contract_stop_codes": [
+          "unresolved_canonical_predicate"
+        ]
+      },
+      "winner": null,
+      "decision_count": 30,
+      "event_count": 44,
+      "snapshot_count": 45,
+      "file": "proxy-cross-restart-stops-133/stop-133-order-01-b-first.json"
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_sha256": "22cc2bfbf3e2f2b123b9aa1ef8ef924ae425ad8a2a7e5cca48cff97afedb0960",
+      "game_state_sha256": "8afb2ad81238cfd2bce16842f429fad0606898bc105d7bed8b9770fd0d917b89",
+      "continuation_state_sha256": "54cdba87b9ee30bd7d0b8604f01eda3290c215d2a629611b63122e5820d7d3cd",
+      "last_valid_event_seq": 121,
+      "status": "completed",
+      "reason": null,
+      "winner": null,
+      "decision_count": 5,
+      "event_count": 8,
+      "snapshot_count": 9,
+      "file": "proxy-cross-restart-stops-133/stop-133-order-02-a-first.json"
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_sha256": "1200ac21f7b36fe1b179977bb44b11e640a782bd989d44c86e880fbf77a19884",
+      "game_state_sha256": "c1416b19c77c3131bf4bafea2fa69b52de1d58d37a990030b6a0c4f8ddb0befc",
+      "continuation_state_sha256": "2790c8acc2c510264864f300c1125c95bdad9ce0f3a2f0fe8b38a8f8a7ba8a24",
+      "last_valid_event_seq": 121,
+      "status": "completed",
+      "reason": null,
+      "winner": null,
+      "decision_count": 6,
+      "event_count": 9,
+      "snapshot_count": 10,
+      "file": "proxy-cross-restart-stops-133/stop-133-order-02-b-first.json"
+    }
+  ]
+}

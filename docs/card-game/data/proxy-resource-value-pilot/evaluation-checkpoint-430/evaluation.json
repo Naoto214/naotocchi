@@ -1,0 +1,4889 @@
+{
+  "independent_balance_sample_count": 0,
+  "policy_promoted": false,
+  "schema": "naotocchi.card_game.resource_value_evaluation.v1",
+  "shadow": {
+    "candidate_comparison_missing": 0,
+    "candidate_set_changes": {
+      "count": 0,
+      "denominator": 93,
+      "rate": 0.0
+    },
+    "choice_changes": {
+      "count": 56,
+      "denominator": 93,
+      "rate": 0.6021505376344086
+    },
+    "compared": 93,
+    "independent_balance_sample_count": 0,
+    "legacy_reproduction_failures": {
+      "count": 0,
+      "denominator": 110,
+      "rate": 0.0
+    },
+    "legal_inventory_compatibility_changes": {
+      "count": 0,
+      "denominator": 93,
+      "rate": 0.0
+    },
+    "lottery_subset_changes": {
+      "count": 0,
+      "denominator": 4,
+      "rate": 0.0
+    },
+    "lottery_subset_comparison_missing": 0,
+    "new_matches": 0,
+    "paths": {
+      "probe-01-a-first": {
+        "choice_changes": {
+          "count": 15,
+          "denominator": 25,
+          "rate": 0.6
+        },
+        "compared": 25,
+        "planned": 27,
+        "status_counts": {
+          "compared": 25,
+          "unsupported": 2
+        }
+      },
+      "probe-01-b-first": {
+        "choice_changes": {
+          "count": 16,
+          "denominator": 25,
+          "rate": 0.64
+        },
+        "compared": 25,
+        "planned": 27,
+        "status_counts": {
+          "compared": 25,
+          "unsupported": 2
+        }
+      },
+      "probe-02-a-first": {
+        "choice_changes": {
+          "count": 12,
+          "denominator": 22,
+          "rate": 0.5454545454545454
+        },
+        "compared": 22,
+        "planned": 28,
+        "status_counts": {
+          "compared": 22,
+          "unsupported": 6
+        }
+      },
+      "probe-02-b-first": {
+        "choice_changes": {
+          "count": 13,
+          "denominator": 21,
+          "rate": 0.6190476190476191
+        },
+        "compared": 21,
+        "planned": 28,
+        "status_counts": {
+          "compared": 21,
+          "unsupported": 7
+        }
+      }
+    },
+    "planned": 110,
+    "planned_ids": [
+      "probe-01-a-first:105:B:f134e360e40fa824dcd5c1f3582ca151825d32a7aef88936521e9a446df0c324",
+      "probe-01-a-first:108:B:a89685ea14f8d86b14bf72ed26bef869ca4920968df57f2c6ae2c397d79b77ce",
+      "probe-01-a-first:117:A:f420855ada2417b16e4ae8034fa0781e8bc99e9f0fd75e6036c0271938040a5e",
+      "probe-01-a-first:124:B:e08f90533c3931b10b5a4bbaa53e250981a120fb3e4b50583e654f7ae4c469a5",
+      "probe-01-a-first:131:A:7f262a6b9cdc24d555757b9d33850f8a831bd3bdf48100a9f28932c8149e501e",
+      "probe-01-a-first:138:B:33b40cc313fd1f9f6e8e6130acce4f4be641126f8eb357b354e2afdddd428c10",
+      "probe-01-a-first:145:A:608cbc53def4f7dd9dcd34e8ec3d10fba75710de0ff33469a29d1ad090b43a65",
+      "probe-01-a-first:14:B:4da463b7bb6941080cce2fa06178b7f8625d46b3d932eb7d99172f50201cca49",
+      "probe-01-a-first:155:B:e00e42bb767808bf9b7c978842bdc9d45f636160d2ec8b2d4c4b7f2a78a5dec9",
+      "probe-01-a-first:166:A:38a3d965b7afd16a041ef909bfe650c085739822f5de0c3f2265f1a5294ad70f",
+      "probe-01-a-first:178:B:dea44875b15cb979ab88d691dbb3693578c352e07d9b37d531f739653cfcf5d5",
+      "probe-01-a-first:17:B:d5a10ddb394de25b20ac34cfbd8c6a4bb777deb02ab15446fc03e9c48e772ec9",
+      "probe-01-a-first:24:A:a47a8a5c6dd9e1c3687dea95180be131fbc8bd1d38ccbff8e0ce02376a147c08",
+      "probe-01-a-first:31:B:ce699ad767bc805771b8d458aa47179095e184b5580a3aeee9df712b93d4cdfb",
+      "probe-01-a-first:34:B:309e8ed50c93161b17331bf6bc31cb8cd2c9ffdb5796de5f9fbc8dc186567759",
+      "probe-01-a-first:43:A:4584071e88f8e1c5e11609065eb1ff86c891060b1a54b657b21fb6d4255ecb43",
+      "probe-01-a-first:46:A:f1afdf553e6b55d500dbc6f7018fcd539c9bb7a6498fab8ad41a29b5c472a52c",
+      "probe-01-a-first:4:A:6278278f79ed36d40810f44da3b524445bb52746218f1707200a97cca0f7d871",
+      "probe-01-a-first:53:B:03f0d7e3f894e32eaba1aed6193eba667ccf8701368d317f8f61e7ade28ce553",
+      "probe-01-a-first:60:A:6537684b35f91025ed81b3185a1b65caf054aaf1098a5269d10c0539316a2646",
+      "probe-01-a-first:67:B:1d295f9382d252b6f32a96b6a4ee0b50e65a75d1c4461c83e1be2c228e1a3b63",
+      "probe-01-a-first:70:B:6dc534edbf67d4cf737fa7ac2fdeb624cfc5894087a8c2129d90fc0b2e0c71c6",
+      "probe-01-a-first:79:A:1ad6243473cbeea44fc7bd314d6a36682b7b14e3cc96b5409ece64d827899f1c",
+      "probe-01-a-first:7:A:44921225b45df505c5d1b657403b9a1381d2b7e4826e680bf7248cd1a414ae06",
+      "probe-01-a-first:86:B:8ee37ba05524994671aba728a3c26783538ce40dfabdbb688a1c9ba3b203ae3e",
+      "probe-01-a-first:95:A:8c00c72981aa6dd8128ca00242420f65038162c9415e5e22d89ed5db9dd2c7a6",
+      "probe-01-a-first:98:A:0e6ae77696aae10caee8945eac4864e07f5bf4a0841e195aca20189abe9932c8",
+      "probe-01-b-first:105:A:a5cc8924290926f7a62218ad5269baa70a10f7675a68c67bef949cafccaa541a",
+      "probe-01-b-first:108:A:1b6bc57e8ffff6290f16cbb73987c257b686cb13a936661778bc00f2ed1d842e",
+      "probe-01-b-first:115:B:72ed47531d3e6f9d259aa1e2782197d1fb050d9213ab14289c8d9b17f4ff2049",
+      "probe-01-b-first:124:A:e1a2fe13d706689bf2436ae6744adceca1212abfc3f852f01db24725d82f36d1",
+      "probe-01-b-first:133:B:a6e256c7107a45f5b9bd1dfa5351d8ac6cee553b9d2e1ef04951dd026dc1438e",
+      "probe-01-b-first:140:A:f9e8848c84684cd3e433015d813313874aa4383011b387ee086e8339b24c437c",
+      "probe-01-b-first:147:B:e0f49becaef018384a00a68033cbec8173fe74879a8b69d8f0fb288750c6b519",
+      "probe-01-b-first:14:A:56c5df82a565fdec2316e53cbcce411384e26c62ab1f292f21fa8a2c5e03fa85",
+      "probe-01-b-first:158:A:675f092bc58dc400aa5e3f7b8c314c1c5da780f5082d3e64880972645e32350b",
+      "probe-01-b-first:165:B:2d4ea9a6d16d5654b1fb998fb6355138e3bc9327c6e557631330e016b2dd603f",
+      "probe-01-b-first:179:A:83acdc1c0ccce36df48a602959d98f09432608a259834777848eab803e28cb64",
+      "probe-01-b-first:17:A:6fba4fa287439726dcdad46e0847d66e5854f781f7f19af03b3befac34a35017",
+      "probe-01-b-first:24:B:a866b0a8e2f0412dbd376c270b9509b44dbee952cdc4b97dea316a050e979b84",
+      "probe-01-b-first:27:B:8438b93cd2560a2558b600a6eda6979ba09cf2be8a84bd131d3e40b03e3b49af",
+      "probe-01-b-first:36:A:871722a11c4a68c34bbd2808d586be0d8b5f4d042a0f3a4662cac709492832e6",
+      "probe-01-b-first:43:B:8d204c2fb238ec0b97bd073b6dccc4bbf31dc97a51fd7cb7b6c71f221e71d2c1",
+      "probe-01-b-first:4:B:7630db32c876deeb3b83a12b7e78cd5594d269e438a053addcd4f7acce74db1a",
+      "probe-01-b-first:52:A:939fce0c4689160439ea990fa0bca4b9c71ca79e78e7f2e502fb0ce88584c6a3",
+      "probe-01-b-first:55:A:c556311fd55e32f0aa10703bafcbb2aec1b1b760d327a3c01a34acc9adb3f88c",
+      "probe-01-b-first:62:B:cdfedeef3f36e71b6c16f794b8f2adf84de349cd5e977c298eba73792cdf2fcb",
+      "probe-01-b-first:65:B:330f13774fa604b9a53147b4602957eb157a5a5405841ed3905c99fed84261a5",
+      "probe-01-b-first:72:A:ad0eb5e5662ade70db89ea699852481d922d96729aeb9e3f2d782fe27a6f3966",
+      "probe-01-b-first:79:B:ebb5fae7766a6e51ac67073a76275d14df37a63dcccdf0eeeabd0d8abe4ed348",
+      "probe-01-b-first:7:B:06e9221a1764552a70dce01fb3fd1c5222a3efd1e5295eb5468189d4ceb5da87",
+      "probe-01-b-first:86:A:cc08436fb8f580eef9e5d152de2a88538aa5c55fc7467ae467d6e64c4c90f8ae",
+      "probe-01-b-first:93:B:b676b9b93c2f2e1147f05d18045397c6bd431130c88bc2781230fbae1522b287",
+      "probe-01-b-first:96:B:4617756b6441c8b0c988efa6dd928c4ec113267426365b521c9377b5a8115657",
+      "probe-02-a-first:101:B:f90ef5e805e3ac6f93c46fa0c3a0efdc6b57259e7d1555b9222839d2588e9443",
+      "probe-02-a-first:108:A:a2edf41bff2ae24f9001182242fc486c97444017200c65ec32e4aca81d1ebac7",
+      "probe-02-a-first:111:A:0a8b73a3b3144ffd9ea55ccf9742240b6355eaa9dd3d8c06728c7ffb8dea58c0",
+      "probe-02-a-first:118:B:3c773ecb25f96fdd2bb157a6a03ab308d5dab9064daccb6dc9eb13f7c1e64c9d",
+      "probe-02-a-first:125:A:e182ddf99e2e7eb9d2cab6c9c2e62c8c58e6968bebdcf219616240fbba622a05",
+      "probe-02-a-first:132:B:85d2c891902d6394b96d7b769582d9111e971306fd82a59e6ce9d45248eca574",
+      "probe-02-a-first:135:B:3ffaf6be2f72f883f65c13f0636333c559060f514320e614a885cf71217fbc5f",
+      "probe-02-a-first:144:A:20e1c17eeb557cc33948ed2f57ce34dde62055223eba6060c576dc81895713fb",
+      "probe-02-a-first:151:B:4fc97fd99e829bf3cae4f2c51d559a66a920d6d97b8507e5976b50f84e2de1de",
+      "probe-02-a-first:160:A:13f825ac16599a41285a8fc48a57e895ab6a140aa92e5d7682c4fbe7886fd298",
+      "probe-02-a-first:163:A:fa8ac7e66a3e9bef1d87b10c7995ef90546ff9b7e95a3bf3b2b01842b584f70b",
+      "probe-02-a-first:170:B:b2263fa7a4b7e35062c5d9c54f7d4b8aeb5ab3b89a535b71af20ae2e633e6b07",
+      "probe-02-a-first:18:B:fe6c052fff6ce946eb5a014b5d9de26c97dd7d8a84b0aad76903b7e40af94922",
+      "probe-02-a-first:25:A:0309662e85ed5af601c69dc35ad3c6e26527046c63c92732b421a69644bdaa73",
+      "probe-02-a-first:32:B:69fa476333d8c9089cbcd45f520a8863afdd3d743b054d61833e2059f66fb4ed",
+      "probe-02-a-first:35:B:8c7f0b89167a8fed9524135274f18c2e9f645ec60d4eb8a1df639f6f2d2e0b63",
+      "probe-02-a-first:37:B:5f9c16f6e85f9f8bdf835021be2c707b5d885f4028bc7e1337041d38d49e04bc",
+      "probe-02-a-first:44:A:963342e360c4e5a24a00727aa9d120ee5443074e751aed5bb446bd33d4ef4166",
+      "probe-02-a-first:51:B:35d495c88bdbd1a271ee3ff614250b3f107809c195a3df6870c4523d37439c72",
+      "probe-02-a-first:60:A:6357eaedf6c11f8a07aad9c48dada0a97dff49c8248e82e47506c2d773893d43",
+      "probe-02-a-first:67:B:55297b172429027d653fee343e5eec624161fd639a753e06e5703b9969a9a6ca",
+      "probe-02-a-first:6:A:d4df5833a4849218bdb60dd4670bbebce5ea07b8a388a029a25739dea11d9c21",
+      "probe-02-a-first:70:B:78c0963537ed6891268952e68c9dedbd508bf2e4b90c997cb5752ae7aae216fa",
+      "probe-02-a-first:77:A:c13506d6798776cff25c7684abae72a473de60104a6fc70f211b566094b30e59",
+      "probe-02-a-first:84:B:e570acfc0ad77a29ec8aabb713d23d5ec74e933978322f23133fcc524a9ce941",
+      "probe-02-a-first:91:A:53947637364fce1c4307834b516613f02c2e28b59078c9cb103c42f02383055f",
+      "probe-02-a-first:98:B:abdcc717295dcac6c385e0a9335435cc56ac70d4972d5d640c56de8ecbdb1747",
+      "probe-02-a-first:9:A:a864b2191604355a0eeaef0858156cad3a7b489f3297d02a906f15bbddbb937d",
+      "probe-02-b-first:103:A:34e9d4337be75c800061dc71908b61ea6018e2a81e93cda8133a168a19872eb2",
+      "probe-02-b-first:110:B:3620d5ed5c23828d474bc0aa6ac15ed3aa3caa2447b79d60f40907f63858ccf7",
+      "probe-02-b-first:117:A:673750468e37f9b04e7017faf9317b72e8db63bc7c086cca8db433439c612cd4",
+      "probe-02-b-first:120:A:e6b666195138c2ad31481509e56f4278c2703d6efb764d20cc36e42e6d05b200",
+      "probe-02-b-first:127:B:52145c2483f0af85de3120c19dcbaf45956eff710900b7493c0a27b2a377c5bf",
+      "probe-02-b-first:130:B:d9aa4ebf8614223ea8a9b6995dfbf50c5394bb9716948de03521fe1c5e350e7d",
+      "probe-02-b-first:139:A:639ba26de36b86f80996c4a7a20aa09555ce8eb68c4ede74ec116a30d9a4473d",
+      "probe-02-b-first:146:B:82efb17f9f11b0de4ca09748a9abbe2670d0723200a4fe665a7158dd80668100",
+      "probe-02-b-first:155:A:a51ca1ee098a290fc3e32e3722ebe5ca7420fa8374882b0ea8a875e949cfb4de",
+      "probe-02-b-first:162:B:ce596e78e92c451707482cad7c3a637fe2c057f7f5134e52cf849d52b26097d6",
+      "probe-02-b-first:16:A:0b51f958dcdcb0fa1acc67d2d5f6f04e311c783eaa62295a89a246bfe8d8ab9b",
+      "probe-02-b-first:175:A:cd745f97cf030fd1f018b8d4d6eeac4e9b7107bf4cc8701aa15eb77d8234173e",
+      "probe-02-b-first:178:A:13639989718e523ca98413b60654764c1c0c256721e66c68bee89c5fd8a8ca81",
+      "probe-02-b-first:19:A:ec59d1c358b698fc365274ef4233930ed7b78a8f4863578b36389f60cdccd0a3",
+      "probe-02-b-first:26:B:e7bd39f21573aae465792215651c01701090ce680dcc2af1c804f40cf9add6a2",
+      "probe-02-b-first:29:B:4a94726169ebf0f02bfd31068f3c704d668e61f5973b00a32c31edd1db672d69",
+      "probe-02-b-first:36:A:9d017593422d59706faa89c6328276c7cb41229cff2e56ec83b9a539f80e6013",
+      "probe-02-b-first:43:B:ed3bc761a0358106dd8f810a4e8c0ed3c17bde41f443d0674693db6e4669b291",
+      "probe-02-b-first:4:B:b9e3661d1075bb3d2fb857ea0e82f6c1a06cc95fa4b25831103197ce9c036c4d",
+      "probe-02-b-first:50:A:3f133e816acb78a4f56147ff8e0f62baf13e6d5ee65ca4e015d9e64151d0e488",
+      "probe-02-b-first:57:B:726ad1236c21702d227f21e7ac5520d16a3f477262e9a040de3fae0874186821",
+      "probe-02-b-first:60:B:70a981f4b7b079f38e0ec6abe7bad7cc2791a94ffa6a285d2580e7e932bd26a8",
+      "probe-02-b-first:69:A:d6c53e3986a145e555aec9f0ecfdfa0eb490fc2d32dddf853007b405d30070bb",
+      "probe-02-b-first:72:A:49bd3f1af241d8caf47599e24cb524844482fea2947950dfa43282f6086deb70",
+      "probe-02-b-first:79:B:0dceb7e33e40adc30e4dfa3af7622f496d63e5a688879927d61d73ed59524490",
+      "probe-02-b-first:86:A:6e1ab3b455aa45ca6231c545483a5b0b315e070cf4b5dc692f2dc47f1c755933",
+      "probe-02-b-first:93:B:84217fc6fac3697ea37b446f05e58345bc564e0919e89c984cf29b18a2ef6529",
+      "probe-02-b-first:96:B:34cf5d9fcd45e432dc62da315193b12b135f16ea378928e19287c690073bfdba"
+    ],
+    "policies": {
+      "legacy": {
+        "fallback": {
+          "count": 4,
+          "denominator": 93,
+          "rate": 0.043010752688172046
+        },
+        "reached": 110,
+        "strategic_unresolved": {
+          "count": 4,
+          "denominator": 93,
+          "rate": 0.043010752688172046
+        },
+        "true_stop": {
+          "count": 17,
+          "denominator": 110,
+          "rate": 0.15454545454545454
+        },
+        "valid": 93
+      },
+      "pilot": {
+        "fallback": {
+          "count": 88,
+          "denominator": 93,
+          "rate": 0.946236559139785
+        },
+        "reached": 110,
+        "strategic_unresolved": {
+          "count": 88,
+          "denominator": 93,
+          "rate": 0.946236559139785
+        },
+        "true_stop": {
+          "count": 17,
+          "denominator": 110,
+          "rate": 0.15454545454545454
+        },
+        "valid": 93
+      }
+    },
+    "policy_selection_pool_changes": {
+      "count": 84,
+      "denominator": 93,
+      "rate": 0.9032258064516129
+    },
+    "policy_selection_pool_comparison_missing": 0,
+    "reasons": {
+      "historical scoped inventory differs from fresh adapter; comparison held": 17
+    },
+    "seed_context_changes": {
+      "count": 88,
+      "denominator": 93,
+      "rate": 0.946236559139785
+    },
+    "seed_transitions": {
+      "both_seeded_context_changes": {
+        "count": 4,
+        "denominator": 4,
+        "rate": 1.0
+      },
+      "newly_seeded": {
+        "count": 84,
+        "denominator": 93,
+        "rate": 0.9032258064516129
+      },
+      "no_longer_seeded": {
+        "count": 0,
+        "denominator": 93,
+        "rate": 0.0
+      }
+    },
+    "unsupported": {
+      "count": 17,
+      "denominator": 110,
+      "rate": 0.15454545454545454
+    }
+  },
+  "source_raw_sha256": {
+    "docs/card-game/data/proxy-resource-value-pilot/shadow-checkpoint-428/shadow.json": "79cf443a32f9ffc643aa7742472decdcc9d6739d7ca91206834abd2c133d3222",
+    "docs/card-game/data/proxy-resource-value-pilot/trajectory-checkpoint-427/paired.json": "da96502819911c579bd5895116192524398a6b7b5db4a673b29319d3dee39d71"
+  },
+  "trajectories": {
+    "completed": 0,
+    "independent_balance_sample_count": 0,
+    "not_executed": 0,
+    "pairs": [
+      {
+        "common_completed_turns": [
+          {
+            "actor": "A",
+            "observations": {
+              "legacy_107_114_116": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 10,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 1,
+                  "B": 0
+                }
+              },
+              "resource_value_pilot_v1": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 10,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 1,
+                  "B": 0
+                }
+              }
+            },
+            "round": 1
+          }
+        ],
+        "final_growth_difference": null,
+        "noncommon_turns": {
+          "legacy_107_114_116": [
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 20,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 1,
+                  "B": 1
+                }
+              },
+              "other_policy": null,
+              "round": 1
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 27,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 2,
+                "time_before_end": {
+                  "A": 2,
+                  "B": 1
+                }
+              },
+              "other_policy": null,
+              "round": 2
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 37,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 2,
+                "time_before_end": {
+                  "A": 2,
+                  "B": 2
+                }
+              },
+              "other_policy": null,
+              "round": 2
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 49,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 3,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 2
+                }
+              },
+              "other_policy": null,
+              "round": 3
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 56,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 3,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 3
+                }
+              },
+              "other_policy": null,
+              "round": 3
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 63,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 4,
+                "time_before_end": {
+                  "A": 4,
+                  "B": 3
+                }
+              },
+              "other_policy": null,
+              "round": 4
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 73,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 4,
+                "time_before_end": {
+                  "A": 4,
+                  "B": 4
+                }
+              },
+              "other_policy": null,
+              "round": 4
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 82,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 5,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 4
+                }
+              },
+              "other_policy": null,
+              "round": 5
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 89,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 5,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 5
+                }
+              },
+              "other_policy": null,
+              "round": 5
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 101,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 6,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 5
+                }
+              },
+              "other_policy": null,
+              "round": 6
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 111,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 3,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 6,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 6
+                }
+              },
+              "other_policy": null,
+              "round": 6
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 120,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 3,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 7,
+                "time_before_end": {
+                  "A": 7,
+                  "B": 6
+                }
+              },
+              "other_policy": null,
+              "round": 7
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 127,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 3,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 7,
+                "time_before_end": {
+                  "A": 7,
+                  "B": 7
+                }
+              },
+              "other_policy": null,
+              "round": 7
+            }
+          ],
+          "resource_value_pilot_v1": []
+        },
+        "path_id": "probe-01-a-first",
+        "run_ids": [
+          "legacy_107_114_116:probe-01-a-first",
+          "resource_value_pilot_v1:probe-01-a-first"
+        ]
+      },
+      {
+        "common_completed_turns": [],
+        "final_growth_difference": null,
+        "noncommon_turns": {
+          "legacy_107_114_116": [
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 20,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 1,
+                  "B": 1
+                }
+              },
+              "other_policy": null,
+              "round": 1
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 10,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 1
+                }
+              },
+              "other_policy": null,
+              "round": 1
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 39,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 2,
+                "time_before_end": {
+                  "A": 2,
+                  "B": 2
+                }
+              },
+              "other_policy": null,
+              "round": 2
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 30,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 2,
+                "time_before_end": {
+                  "A": 1,
+                  "B": 2
+                }
+              },
+              "other_policy": null,
+              "round": 2
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 58,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 3,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 3
+                }
+              },
+              "other_policy": null,
+              "round": 3
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 46,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 3,
+                "time_before_end": {
+                  "A": 2,
+                  "B": 3
+                }
+              },
+              "other_policy": null,
+              "round": 3
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 75,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 4,
+                "time_before_end": {
+                  "A": 4,
+                  "B": 4
+                }
+              },
+              "other_policy": null,
+              "round": 4
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 68,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 4,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 4
+                }
+              },
+              "other_policy": null,
+              "round": 4
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 89,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 5,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 5
+                }
+              },
+              "other_policy": null,
+              "round": 5
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 82,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 5,
+                "time_before_end": {
+                  "A": 4,
+                  "B": 5
+                }
+              },
+              "other_policy": null,
+              "round": 5
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 111,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 3,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 6,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 6
+                }
+              },
+              "other_policy": null,
+              "round": 6
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 99,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 3,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 6,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 6
+                }
+              },
+              "other_policy": null,
+              "round": 6
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 127,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 3,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 7,
+                "time_before_end": {
+                  "A": 7,
+                  "B": 7
+                }
+              },
+              "other_policy": null,
+              "round": 7
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 118,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 3,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 7,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 7
+                }
+              },
+              "other_policy": null,
+              "round": 7
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 136,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 3,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 8,
+                "time_before_end": {
+                  "A": 7,
+                  "B": 8
+                }
+              },
+              "other_policy": null,
+              "round": 8
+            }
+          ],
+          "resource_value_pilot_v1": []
+        },
+        "path_id": "probe-01-b-first",
+        "run_ids": [
+          "legacy_107_114_116:probe-01-b-first",
+          "resource_value_pilot_v1:probe-01-b-first"
+        ]
+      },
+      {
+        "common_completed_turns": [
+          {
+            "actor": "A",
+            "observations": {
+              "legacy_107_114_116": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 12,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 0
+                }
+              },
+              "resource_value_pilot_v1": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 12,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 0
+                }
+              }
+            },
+            "round": 1
+          },
+          {
+            "actor": "B",
+            "observations": {
+              "legacy_107_114_116": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 21,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 0
+                }
+              },
+              "resource_value_pilot_v1": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 21,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 0
+                }
+              }
+            },
+            "round": 1
+          }
+        ],
+        "final_growth_difference": null,
+        "noncommon_turns": {
+          "legacy_107_114_116": [
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 28,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 2,
+                "time_before_end": {
+                  "A": 2,
+                  "B": 0
+                }
+              },
+              "other_policy": null,
+              "round": 2
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 40,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 2,
+                "time_before_end": {
+                  "A": 2,
+                  "B": 2
+                }
+              },
+              "other_policy": null,
+              "round": 2
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 47,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 3,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 2
+                }
+              },
+              "other_policy": null,
+              "round": 3
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 54,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 3,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 3
+                }
+              },
+              "other_policy": null,
+              "round": 3
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 63,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 4,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 3
+                }
+              },
+              "other_policy": null,
+              "round": 4
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 73,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 4,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 4
+                }
+              },
+              "other_policy": null,
+              "round": 4
+            }
+          ],
+          "resource_value_pilot_v1": []
+        },
+        "path_id": "probe-02-a-first",
+        "run_ids": [
+          "legacy_107_114_116:probe-02-a-first",
+          "resource_value_pilot_v1:probe-02-a-first"
+        ]
+      },
+      {
+        "common_completed_turns": [
+          {
+            "actor": "A",
+            "observations": {
+              "legacy_107_114_116": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 22,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 0
+                }
+              },
+              "resource_value_pilot_v1": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 23,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 0
+                }
+              }
+            },
+            "round": 1
+          },
+          {
+            "actor": "B",
+            "observations": {
+              "legacy_107_114_116": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 7,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 1
+                }
+              },
+              "resource_value_pilot_v1": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 11,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 0,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 1,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 0
+                }
+              }
+            },
+            "round": 1
+          }
+        ],
+        "final_growth_difference": null,
+        "noncommon_turns": {
+          "legacy_107_114_116": [
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 39,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 2,
+                "time_before_end": {
+                  "A": 2,
+                  "B": 2
+                }
+              },
+              "other_policy": null,
+              "round": 2
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 32,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 2,
+                "time_before_end": {
+                  "A": 0,
+                  "B": 2
+                }
+              },
+              "other_policy": null,
+              "round": 2
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 53,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 3,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 3
+                }
+              },
+              "other_policy": null,
+              "round": 3
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 46,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 3,
+                "time_before_end": {
+                  "A": 2,
+                  "B": 3
+                }
+              },
+              "other_policy": null,
+              "round": 3
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 75,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 4,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 4
+                }
+              },
+              "other_policy": null,
+              "round": 4
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 63,
+                "growth": {
+                  "A": 20,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 0,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 4,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 4
+                }
+              },
+              "other_policy": null,
+              "round": 4
+            },
+            {
+              "actor": "A",
+              "observed": {
+                "actor": "A",
+                "egg": true,
+                "event_seq": 89,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 5,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 5
+                }
+              },
+              "other_policy": null,
+              "round": 5
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 82,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 5,
+                "time_before_end": {
+                  "A": 3,
+                  "B": 5
+                }
+              },
+              "other_policy": null,
+              "round": 5
+            },
+            {
+              "actor": "B",
+              "observed": {
+                "actor": "B",
+                "egg": true,
+                "event_seq": 99,
+                "growth": {
+                  "A": 25,
+                  "B": 20
+                },
+                "occupancy": {
+                  "A": {
+                    "companions": 1,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  },
+                  "B": {
+                    "companions": 2,
+                    "main": 0,
+                    "partner": 1,
+                    "prepared": 0,
+                    "world": 0
+                  }
+                },
+                "round": 6,
+                "time_before_end": {
+                  "A": 5,
+                  "B": 6
+                }
+              },
+              "other_policy": null,
+              "round": 6
+            }
+          ],
+          "resource_value_pilot_v1": []
+        },
+        "path_id": "probe-02-b-first",
+        "run_ids": [
+          "legacy_107_114_116:probe-02-b-first",
+          "resource_value_pilot_v1:probe-02-b-first"
+        ]
+      }
+    ],
+    "planned": 8,
+    "planned_ids": [
+      "legacy_107_114_116:probe-01-a-first",
+      "legacy_107_114_116:probe-01-b-first",
+      "legacy_107_114_116:probe-02-a-first",
+      "legacy_107_114_116:probe-02-b-first",
+      "resource_value_pilot_v1:probe-01-a-first",
+      "resource_value_pilot_v1:probe-01-b-first",
+      "resource_value_pilot_v1:probe-02-a-first",
+      "resource_value_pilot_v1:probe-02-b-first"
+    ],
+    "routes": [
+      {
+        "board_formation": {
+          "egg_completed_turns": 14,
+          "first_main_round": {
+            "A": null,
+            "B": null
+          },
+          "placement_events": {
+            "place_companion": 5,
+            "place_partner": 2
+          }
+        },
+        "card_use": {
+          "board_activations": 3,
+          "effect_resolutions": 4,
+          "event_type_counts": {
+            "activate_response": 4,
+            "egg_exchange_bottom": 15,
+            "normal_pass_end_request": 14,
+            "place_companion": 5,
+            "place_partner": 2,
+            "resolve_board_ability": 3,
+            "resolve_event": 1,
+            "response_pass": 58,
+            "turn_end_completed": 14,
+            "turn_start_and_egg_draw": 15
+          },
+          "hand_play_types": {
+            "attach_item": 0,
+            "response_hand_plays": 1,
+            "set_item": 0,
+            "use_event": 0,
+            "use_item": 0,
+            "use_play": 0
+          },
+          "hand_plays": 1,
+          "prepared_activations": 0,
+          "response_activations": 4
+        },
+        "final_growth": null,
+        "growth_changes": [
+          {
+            "actor": "A",
+            "after": 25,
+            "before": 20,
+            "cause": "resolve_event",
+            "event_seq": 95
+          }
+        ],
+        "independent_balance_sample_count": 0,
+        "instance_transitions": [],
+        "main_transitions": [],
+        "mandatory": {
+          "fallback": {
+            "count": 15,
+            "denominator": 15,
+            "rate": 1.0
+          },
+          "reached": 15,
+          "strategic_unresolved": {
+            "count": 15,
+            "denominator": 15,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 15,
+            "rate": 0.0
+          },
+          "valid": 15
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 21,
+            "rate": 0.047619047619047616
+          },
+          "reached": 22,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 21,
+            "rate": 0.047619047619047616
+          },
+          "true_stop": {
+            "count": 1,
+            "denominator": 22,
+            "rate": 0.045454545454545456
+          },
+          "valid": 21
+        },
+        "observed_growth": {
+          "A": 25,
+          "B": 20
+        },
+        "path_id": "probe-01-a-first",
+        "policy_id": "legacy_107_114_116",
+        "reached_r10_comparison": false,
+        "reached_round": 8,
+        "reservation_changes": [],
+        "reservation_peak": {
+          "A": 0,
+          "B": 0
+        },
+        "response": {
+          "fallback": {
+            "count": 7,
+            "denominator": 62,
+            "rate": 0.11290322580645161
+          },
+          "reached": 62,
+          "strategic_unresolved": {
+            "count": 7,
+            "denominator": 62,
+            "rate": 0.11290322580645161
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 62,
+            "rate": 0.0
+          },
+          "valid": 62
+        },
+        "run_id": "legacy_107_114_116:probe-01-a-first",
+        "status": "stopped",
+        "stop": {
+          "event_seq": 131,
+          "evidence": {
+            "detail": "historical scoped inventory differs from fresh adapter; comparison held",
+            "stage": "normal_candidate_or_comparison_proof"
+          },
+          "phase": "normal_action",
+          "reason": "legality_not_confirmed",
+          "round": 8
+        },
+        "turn_ends": [
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 10,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 1,
+              "B": 0
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 20,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 1,
+              "B": 1
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 27,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 2,
+            "time_before_end": {
+              "A": 2,
+              "B": 1
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 37,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 2,
+            "time_before_end": {
+              "A": 2,
+              "B": 2
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 49,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 3,
+            "time_before_end": {
+              "A": 3,
+              "B": 2
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 56,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 3,
+            "time_before_end": {
+              "A": 3,
+              "B": 3
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 63,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 4,
+            "time_before_end": {
+              "A": 4,
+              "B": 3
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 73,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 4,
+            "time_before_end": {
+              "A": 4,
+              "B": 4
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 82,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 5,
+            "time_before_end": {
+              "A": 5,
+              "B": 4
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 89,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 5,
+            "time_before_end": {
+              "A": 5,
+              "B": 5
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 101,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 6,
+            "time_before_end": {
+              "A": 5,
+              "B": 5
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 111,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 3,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 6,
+            "time_before_end": {
+              "A": 5,
+              "B": 6
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 120,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 3,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 7,
+            "time_before_end": {
+              "A": 7,
+              "B": 6
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 127,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 3,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 7,
+            "time_before_end": {
+              "A": 7,
+              "B": 7
+            }
+          }
+        ],
+        "winner": null
+      },
+      {
+        "board_formation": {
+          "egg_completed_turns": 1,
+          "first_main_round": {
+            "A": null,
+            "B": 1
+          },
+          "placement_events": {
+            "place_companion": 2,
+            "play_main_birth": 1
+          }
+        },
+        "card_use": {
+          "board_activations": 0,
+          "effect_resolutions": 0,
+          "event_type_counts": {
+            "egg_exchange_bottom": 2,
+            "normal_pass_end_request": 1,
+            "place_companion": 2,
+            "play_main_birth": 1,
+            "response_pass": 11,
+            "turn_end_completed": 1,
+            "turn_start_and_egg_draw": 2
+          },
+          "hand_play_types": {
+            "attach_item": 0,
+            "response_hand_plays": 0,
+            "set_item": 0,
+            "use_event": 0,
+            "use_item": 0,
+            "use_play": 0
+          },
+          "hand_plays": 0,
+          "prepared_activations": 0,
+          "response_activations": 0
+        },
+        "final_growth": null,
+        "growth_changes": [],
+        "independent_balance_sample_count": 0,
+        "instance_transitions": [],
+        "main_transitions": [
+          {
+            "actor": "B",
+            "after": "B-001#1",
+            "before": null,
+            "cause": "play_main_birth",
+            "event_seq": 18
+          }
+        ],
+        "mandatory": {
+          "fallback": {
+            "count": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "reached": 2,
+          "strategic_unresolved": {
+            "count": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 2,
+            "rate": 0.0
+          },
+          "valid": 2
+        },
+        "normal": {
+          "fallback": {
+            "count": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "reached": 5,
+          "strategic_unresolved": {
+            "count": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "true_stop": {
+            "count": 1,
+            "denominator": 5,
+            "rate": 0.2
+          },
+          "valid": 4
+        },
+        "observed_growth": {
+          "A": 20,
+          "B": 20
+        },
+        "path_id": "probe-01-a-first",
+        "policy_id": "resource_value_pilot_v1",
+        "reached_r10_comparison": false,
+        "reached_round": 1,
+        "reservation_changes": [],
+        "reservation_peak": {
+          "A": 0,
+          "B": 0
+        },
+        "response": {
+          "fallback": {
+            "count": 0,
+            "denominator": 11,
+            "rate": 0.0
+          },
+          "reached": 11,
+          "strategic_unresolved": {
+            "count": 0,
+            "denominator": 11,
+            "rate": 0.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 11,
+            "rate": 0.0
+          },
+          "valid": 11
+        },
+        "run_id": "resource_value_pilot_v1:probe-01-a-first",
+        "status": "stopped",
+        "stop": {
+          "event_seq": 20,
+          "evidence": {
+            "detail": "unresolved_canonical_predicate: board ability classification",
+            "stage": "normal_candidate_or_comparison_proof"
+          },
+          "phase": "normal_action",
+          "reason": "legality_not_confirmed",
+          "round": 1
+        },
+        "turn_ends": [
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 10,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 1,
+              "B": 0
+            }
+          }
+        ],
+        "winner": null
+      },
+      {
+        "board_formation": {
+          "egg_completed_turns": 15,
+          "first_main_round": {
+            "A": null,
+            "B": null
+          },
+          "placement_events": {
+            "place_companion": 5,
+            "place_partner": 2
+          }
+        },
+        "card_use": {
+          "board_activations": 4,
+          "effect_resolutions": 5,
+          "event_type_counts": {
+            "activate_response": 5,
+            "egg_exchange_bottom": 16,
+            "normal_pass_end_request": 15,
+            "place_companion": 5,
+            "place_partner": 2,
+            "resolve_board_ability": 4,
+            "resolve_event": 1,
+            "response_pass": 61,
+            "turn_end_completed": 15,
+            "turn_start_and_egg_draw": 16
+          },
+          "hand_play_types": {
+            "attach_item": 0,
+            "response_hand_plays": 1,
+            "set_item": 0,
+            "use_event": 0,
+            "use_item": 0,
+            "use_play": 0
+          },
+          "hand_plays": 1,
+          "prepared_activations": 0,
+          "response_activations": 5
+        },
+        "final_growth": null,
+        "growth_changes": [
+          {
+            "actor": "A",
+            "after": 25,
+            "before": 20,
+            "cause": "resolve_event",
+            "event_seq": 105
+          }
+        ],
+        "independent_balance_sample_count": 0,
+        "instance_transitions": [],
+        "main_transitions": [],
+        "mandatory": {
+          "fallback": {
+            "count": 16,
+            "denominator": 16,
+            "rate": 1.0
+          },
+          "reached": 16,
+          "strategic_unresolved": {
+            "count": 16,
+            "denominator": 16,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 16,
+            "rate": 0.0
+          },
+          "valid": 16
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 22,
+            "rate": 0.045454545454545456
+          },
+          "reached": 23,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 22,
+            "rate": 0.045454545454545456
+          },
+          "true_stop": {
+            "count": 1,
+            "denominator": 23,
+            "rate": 0.043478260869565216
+          },
+          "valid": 22
+        },
+        "observed_growth": {
+          "A": 25,
+          "B": 20
+        },
+        "path_id": "probe-01-b-first",
+        "policy_id": "legacy_107_114_116",
+        "reached_r10_comparison": false,
+        "reached_round": 8,
+        "reservation_changes": [],
+        "reservation_peak": {
+          "A": 0,
+          "B": 0
+        },
+        "response": {
+          "fallback": {
+            "count": 7,
+            "denominator": 66,
+            "rate": 0.10606060606060606
+          },
+          "reached": 66,
+          "strategic_unresolved": {
+            "count": 7,
+            "denominator": 66,
+            "rate": 0.10606060606060606
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 66,
+            "rate": 0.0
+          },
+          "valid": 66
+        },
+        "run_id": "legacy_107_114_116:probe-01-b-first",
+        "status": "stopped",
+        "stop": {
+          "event_seq": 140,
+          "evidence": {
+            "detail": "historical scoped inventory differs from fresh adapter; comparison held",
+            "stage": "normal_candidate_or_comparison_proof"
+          },
+          "phase": "normal_action",
+          "reason": "legality_not_confirmed",
+          "round": 8
+        },
+        "turn_ends": [
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 10,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 1
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 20,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 1,
+              "B": 1
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 30,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 2,
+            "time_before_end": {
+              "A": 1,
+              "B": 2
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 39,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 2,
+            "time_before_end": {
+              "A": 2,
+              "B": 2
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 46,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 3,
+            "time_before_end": {
+              "A": 2,
+              "B": 3
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 58,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 3,
+            "time_before_end": {
+              "A": 3,
+              "B": 3
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 68,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 4,
+            "time_before_end": {
+              "A": 3,
+              "B": 4
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 75,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 4,
+            "time_before_end": {
+              "A": 4,
+              "B": 4
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 82,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 5,
+            "time_before_end": {
+              "A": 4,
+              "B": 5
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 89,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 5,
+            "time_before_end": {
+              "A": 5,
+              "B": 5
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 99,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 3,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 6,
+            "time_before_end": {
+              "A": 5,
+              "B": 6
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 111,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 3,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 6,
+            "time_before_end": {
+              "A": 5,
+              "B": 6
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 118,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 3,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 7,
+            "time_before_end": {
+              "A": 5,
+              "B": 7
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 127,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 3,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 7,
+            "time_before_end": {
+              "A": 7,
+              "B": 7
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 136,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 3,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 8,
+            "time_before_end": {
+              "A": 7,
+              "B": 8
+            }
+          }
+        ],
+        "winner": null
+      },
+      {
+        "board_formation": {
+          "egg_completed_turns": 0,
+          "first_main_round": {
+            "A": null,
+            "B": 1
+          },
+          "placement_events": {
+            "place_companion": 1,
+            "play_main_birth": 1
+          }
+        },
+        "card_use": {
+          "board_activations": 0,
+          "effect_resolutions": 0,
+          "event_type_counts": {
+            "egg_exchange_bottom": 1,
+            "place_companion": 1,
+            "play_main_birth": 1,
+            "response_pass": 6,
+            "turn_start_and_egg_draw": 1
+          },
+          "hand_play_types": {
+            "attach_item": 0,
+            "response_hand_plays": 0,
+            "set_item": 0,
+            "use_event": 0,
+            "use_item": 0,
+            "use_play": 0
+          },
+          "hand_plays": 0,
+          "prepared_activations": 0,
+          "response_activations": 0
+        },
+        "final_growth": null,
+        "growth_changes": [],
+        "independent_balance_sample_count": 0,
+        "instance_transitions": [],
+        "main_transitions": [
+          {
+            "actor": "B",
+            "after": "B-001#1",
+            "before": null,
+            "cause": "play_main_birth",
+            "event_seq": 8
+          }
+        ],
+        "mandatory": {
+          "fallback": {
+            "count": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "reached": 1,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 1,
+            "rate": 0.0
+          },
+          "valid": 1
+        },
+        "normal": {
+          "fallback": {
+            "count": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "reached": 3,
+          "strategic_unresolved": {
+            "count": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 1,
+            "denominator": 3,
+            "rate": 0.3333333333333333
+          },
+          "valid": 2
+        },
+        "observed_growth": {
+          "A": 20,
+          "B": 20
+        },
+        "path_id": "probe-01-b-first",
+        "policy_id": "resource_value_pilot_v1",
+        "reached_r10_comparison": false,
+        "reached_round": 1,
+        "reservation_changes": [],
+        "reservation_peak": {
+          "A": 0,
+          "B": 0
+        },
+        "response": {
+          "fallback": {
+            "count": 0,
+            "denominator": 6,
+            "rate": 0.0
+          },
+          "reached": 6,
+          "strategic_unresolved": {
+            "count": 0,
+            "denominator": 6,
+            "rate": 0.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 6,
+            "rate": 0.0
+          },
+          "valid": 6
+        },
+        "run_id": "resource_value_pilot_v1:probe-01-b-first",
+        "status": "stopped",
+        "stop": {
+          "event_seq": 10,
+          "evidence": {
+            "detail": "unresolved_canonical_predicate: board ability classification",
+            "stage": "normal_candidate_or_comparison_proof"
+          },
+          "phase": "normal_action",
+          "reason": "legality_not_confirmed",
+          "round": 1
+        },
+        "turn_ends": [],
+        "winner": null
+      },
+      {
+        "board_formation": {
+          "egg_completed_turns": 8,
+          "first_main_round": {
+            "A": null,
+            "B": null
+          },
+          "placement_events": {
+            "place_companion": 1,
+            "place_partner": 2
+          }
+        },
+        "card_use": {
+          "board_activations": 0,
+          "effect_resolutions": 3,
+          "event_type_counts": {
+            "activate_response": 3,
+            "egg_exchange_bottom": 9,
+            "normal_pass_end_request": 9,
+            "place_companion": 1,
+            "place_partner": 2,
+            "resolve_item": 2,
+            "resolve_play": 1,
+            "response_pass": 33,
+            "turn_end_completed": 8,
+            "turn_start_and_egg_draw": 9
+          },
+          "hand_play_types": {
+            "attach_item": 0,
+            "response_hand_plays": 3,
+            "set_item": 0,
+            "use_event": 0,
+            "use_item": 0,
+            "use_play": 0
+          },
+          "hand_plays": 3,
+          "prepared_activations": 0,
+          "response_activations": 3
+        },
+        "final_growth": null,
+        "growth_changes": [
+          {
+            "actor": "A",
+            "after": 25,
+            "before": 20,
+            "cause": "resolve_play",
+            "event_seq": 6
+          }
+        ],
+        "independent_balance_sample_count": 0,
+        "instance_transitions": [],
+        "main_transitions": [],
+        "mandatory": {
+          "fallback": {
+            "count": 9,
+            "denominator": 9,
+            "rate": 1.0
+          },
+          "reached": 9,
+          "strategic_unresolved": {
+            "count": 9,
+            "denominator": 9,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 9,
+            "rate": 0.0
+          },
+          "valid": 9
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 12,
+            "rate": 0.08333333333333333
+          },
+          "reached": 13,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 12,
+            "rate": 0.08333333333333333
+          },
+          "true_stop": {
+            "count": 1,
+            "denominator": 13,
+            "rate": 0.07692307692307693
+          },
+          "valid": 12
+        },
+        "observed_growth": {
+          "A": 25,
+          "B": 20
+        },
+        "path_id": "probe-02-a-first",
+        "policy_id": "legacy_107_114_116",
+        "reached_r10_comparison": false,
+        "reached_round": 5,
+        "reservation_changes": [],
+        "reservation_peak": {
+          "A": 0,
+          "B": 0
+        },
+        "response": {
+          "fallback": {
+            "count": 3,
+            "denominator": 36,
+            "rate": 0.08333333333333333
+          },
+          "reached": 36,
+          "strategic_unresolved": {
+            "count": 3,
+            "denominator": 36,
+            "rate": 0.08333333333333333
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 36,
+            "rate": 0.0
+          },
+          "valid": 36
+        },
+        "run_id": "legacy_107_114_116:probe-02-a-first",
+        "status": "stopped",
+        "stop": {
+          "event_seq": 77,
+          "evidence": {
+            "detail": "historical scoped inventory differs from fresh adapter; comparison held",
+            "stage": "normal_candidate_or_comparison_proof"
+          },
+          "phase": "normal_action",
+          "reason": "legality_not_confirmed",
+          "round": 5
+        },
+        "turn_ends": [
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 12,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 0
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 21,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 0
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 28,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 2,
+            "time_before_end": {
+              "A": 2,
+              "B": 0
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 40,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 2,
+            "time_before_end": {
+              "A": 2,
+              "B": 2
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 47,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 3,
+            "time_before_end": {
+              "A": 3,
+              "B": 2
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 54,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 3,
+            "time_before_end": {
+              "A": 3,
+              "B": 3
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 63,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 4,
+            "time_before_end": {
+              "A": 3,
+              "B": 3
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 73,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 4,
+            "time_before_end": {
+              "A": 3,
+              "B": 4
+            }
+          }
+        ],
+        "winner": null
+      },
+      {
+        "board_formation": {
+          "egg_completed_turns": 2,
+          "first_main_round": {
+            "A": null,
+            "B": null
+          },
+          "placement_events": {
+            "place_partner": 1
+          }
+        },
+        "card_use": {
+          "board_activations": 0,
+          "effect_resolutions": 2,
+          "event_type_counts": {
+            "activate_response": 2,
+            "egg_exchange_bottom": 3,
+            "normal_pass_end_request": 2,
+            "place_partner": 1,
+            "resolve_item": 1,
+            "resolve_play": 1,
+            "response_pass": 10,
+            "turn_end_completed": 2,
+            "turn_start_and_egg_draw": 3
+          },
+          "hand_play_types": {
+            "attach_item": 0,
+            "response_hand_plays": 2,
+            "set_item": 0,
+            "use_event": 0,
+            "use_item": 0,
+            "use_play": 0
+          },
+          "hand_plays": 2,
+          "prepared_activations": 0,
+          "response_activations": 2
+        },
+        "final_growth": null,
+        "growth_changes": [
+          {
+            "actor": "A",
+            "after": 25,
+            "before": 20,
+            "cause": "resolve_play",
+            "event_seq": 6
+          }
+        ],
+        "independent_balance_sample_count": 0,
+        "instance_transitions": [],
+        "main_transitions": [],
+        "mandatory": {
+          "fallback": {
+            "count": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "reached": 3,
+          "strategic_unresolved": {
+            "count": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 3,
+            "rate": 0.0
+          },
+          "valid": 3
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 3,
+            "rate": 0.3333333333333333
+          },
+          "reached": 4,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 3,
+            "rate": 0.3333333333333333
+          },
+          "true_stop": {
+            "count": 1,
+            "denominator": 4,
+            "rate": 0.25
+          },
+          "valid": 3
+        },
+        "observed_growth": {
+          "A": 25,
+          "B": 20
+        },
+        "path_id": "probe-02-a-first",
+        "policy_id": "resource_value_pilot_v1",
+        "reached_r10_comparison": false,
+        "reached_round": 2,
+        "reservation_changes": [],
+        "reservation_peak": {
+          "A": 0,
+          "B": 0
+        },
+        "response": {
+          "fallback": {
+            "count": 2,
+            "denominator": 12,
+            "rate": 0.16666666666666666
+          },
+          "reached": 12,
+          "strategic_unresolved": {
+            "count": 2,
+            "denominator": 12,
+            "rate": 0.16666666666666666
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "valid": 12
+        },
+        "run_id": "resource_value_pilot_v1:probe-02-a-first",
+        "status": "stopped",
+        "stop": {
+          "event_seq": 25,
+          "evidence": {
+            "action_type": "attach_item",
+            "source_references": [
+              "77-current-items-card-text-draft.md#I-bowtie"
+            ]
+          },
+          "phase": "normal_action",
+          "reason": "unsupported_resolution_adapter",
+          "round": 2
+        },
+        "turn_ends": [
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 12,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 0
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 21,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 0
+            }
+          }
+        ],
+        "winner": null
+      },
+      {
+        "board_formation": {
+          "egg_completed_turns": 11,
+          "first_main_round": {
+            "A": null,
+            "B": null
+          },
+          "placement_events": {
+            "place_companion": 3,
+            "place_partner": 2
+          }
+        },
+        "card_use": {
+          "board_activations": 0,
+          "effect_resolutions": 3,
+          "event_type_counts": {
+            "activate_response": 3,
+            "egg_exchange_bottom": 12,
+            "normal_pass_end_request": 11,
+            "place_companion": 3,
+            "place_partner": 2,
+            "resolve_item": 2,
+            "resolve_play": 1,
+            "response_pass": 46,
+            "turn_end_completed": 11,
+            "turn_start_and_egg_draw": 12
+          },
+          "hand_play_types": {
+            "attach_item": 0,
+            "response_hand_plays": 3,
+            "set_item": 0,
+            "use_event": 0,
+            "use_item": 0,
+            "use_play": 0
+          },
+          "hand_plays": 3,
+          "prepared_activations": 0,
+          "response_activations": 3
+        },
+        "final_growth": null,
+        "growth_changes": [
+          {
+            "actor": "A",
+            "after": 25,
+            "before": 20,
+            "cause": "resolve_item",
+            "event_seq": 69
+          }
+        ],
+        "independent_balance_sample_count": 0,
+        "instance_transitions": [],
+        "main_transitions": [],
+        "mandatory": {
+          "fallback": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "reached": 12,
+          "strategic_unresolved": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "valid": 12
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 16,
+            "rate": 0.0625
+          },
+          "reached": 17,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 16,
+            "rate": 0.0625
+          },
+          "true_stop": {
+            "count": 1,
+            "denominator": 17,
+            "rate": 0.058823529411764705
+          },
+          "valid": 16
+        },
+        "observed_growth": {
+          "A": 25,
+          "B": 20
+        },
+        "path_id": "probe-02-b-first",
+        "policy_id": "legacy_107_114_116",
+        "reached_r10_comparison": false,
+        "reached_round": 6,
+        "reservation_changes": [],
+        "reservation_peak": {
+          "A": 0,
+          "B": 0
+        },
+        "response": {
+          "fallback": {
+            "count": 4,
+            "denominator": 49,
+            "rate": 0.08163265306122448
+          },
+          "reached": 49,
+          "strategic_unresolved": {
+            "count": 4,
+            "denominator": 49,
+            "rate": 0.08163265306122448
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 49,
+            "rate": 0.0
+          },
+          "valid": 49
+        },
+        "run_id": "legacy_107_114_116:probe-02-b-first",
+        "status": "stopped",
+        "stop": {
+          "event_seq": 103,
+          "evidence": {
+            "detail": "historical scoped inventory differs from fresh adapter; comparison held",
+            "stage": "normal_candidate_or_comparison_proof"
+          },
+          "phase": "normal_action",
+          "reason": "legality_not_confirmed",
+          "round": 6
+        },
+        "turn_ends": [
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 7,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 1
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 22,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 0
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 32,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 2,
+            "time_before_end": {
+              "A": 0,
+              "B": 2
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 39,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 2,
+            "time_before_end": {
+              "A": 2,
+              "B": 2
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 46,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 3,
+            "time_before_end": {
+              "A": 2,
+              "B": 3
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 53,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 3,
+            "time_before_end": {
+              "A": 3,
+              "B": 3
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 63,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 4,
+            "time_before_end": {
+              "A": 3,
+              "B": 4
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 75,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 4,
+            "time_before_end": {
+              "A": 3,
+              "B": 4
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 82,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 5,
+            "time_before_end": {
+              "A": 3,
+              "B": 5
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 89,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 5,
+            "time_before_end": {
+              "A": 5,
+              "B": 5
+            }
+          },
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 99,
+            "growth": {
+              "A": 25,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 1,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 2,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 6,
+            "time_before_end": {
+              "A": 5,
+              "B": 6
+            }
+          }
+        ],
+        "winner": null
+      },
+      {
+        "board_formation": {
+          "egg_completed_turns": 2,
+          "first_main_round": {
+            "A": null,
+            "B": 2
+          },
+          "placement_events": {
+            "place_partner": 1,
+            "play_main_birth": 1
+          }
+        },
+        "card_use": {
+          "board_activations": 0,
+          "effect_resolutions": 2,
+          "event_type_counts": {
+            "activate_response": 1,
+            "egg_exchange_bottom": 3,
+            "normal_pass_end_request": 2,
+            "place_partner": 1,
+            "play_main_birth": 1,
+            "resolve_item": 1,
+            "resolve_play": 1,
+            "response_pass": 14,
+            "turn_end_completed": 2,
+            "turn_start_and_egg_draw": 3,
+            "use_item": 1
+          },
+          "hand_play_types": {
+            "attach_item": 0,
+            "response_hand_plays": 1,
+            "set_item": 0,
+            "use_event": 0,
+            "use_item": 1,
+            "use_play": 0
+          },
+          "hand_plays": 2,
+          "prepared_activations": 0,
+          "response_activations": 1
+        },
+        "final_growth": null,
+        "growth_changes": [],
+        "independent_balance_sample_count": 0,
+        "instance_transitions": [],
+        "main_transitions": [
+          {
+            "actor": "B",
+            "after": "B-001#1",
+            "before": null,
+            "cause": "play_main_birth",
+            "event_seq": 28
+          }
+        ],
+        "mandatory": {
+          "fallback": {
+            "count": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "reached": 3,
+          "strategic_unresolved": {
+            "count": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 3,
+            "rate": 0.0
+          },
+          "valid": 3
+        },
+        "normal": {
+          "fallback": {
+            "count": 3,
+            "denominator": 5,
+            "rate": 0.6
+          },
+          "reached": 6,
+          "strategic_unresolved": {
+            "count": 3,
+            "denominator": 5,
+            "rate": 0.6
+          },
+          "true_stop": {
+            "count": 1,
+            "denominator": 6,
+            "rate": 0.16666666666666666
+          },
+          "valid": 5
+        },
+        "observed_growth": {
+          "A": 20,
+          "B": 20
+        },
+        "path_id": "probe-02-b-first",
+        "policy_id": "resource_value_pilot_v1",
+        "reached_r10_comparison": false,
+        "reached_round": 2,
+        "reservation_changes": [],
+        "reservation_peak": {
+          "A": 0,
+          "B": 0
+        },
+        "response": {
+          "fallback": {
+            "count": 2,
+            "denominator": 15,
+            "rate": 0.13333333333333333
+          },
+          "reached": 15,
+          "strategic_unresolved": {
+            "count": 2,
+            "denominator": 15,
+            "rate": 0.13333333333333333
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 15,
+            "rate": 0.0
+          },
+          "valid": 15
+        },
+        "run_id": "resource_value_pilot_v1:probe-02-b-first",
+        "status": "stopped",
+        "stop": {
+          "event_seq": 30,
+          "evidence": {
+            "detail": "unresolved_canonical_predicate: board ability classification",
+            "stage": "normal_candidate_or_comparison_proof"
+          },
+          "phase": "normal_action",
+          "reason": "legality_not_confirmed",
+          "round": 2
+        },
+        "turn_ends": [
+          {
+            "actor": "B",
+            "egg": true,
+            "event_seq": 11,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 0
+            }
+          },
+          {
+            "actor": "A",
+            "egg": true,
+            "event_seq": 23,
+            "growth": {
+              "A": 20,
+              "B": 20
+            },
+            "occupancy": {
+              "A": {
+                "companions": 0,
+                "main": 0,
+                "partner": 1,
+                "prepared": 0,
+                "world": 0
+              },
+              "B": {
+                "companions": 0,
+                "main": 0,
+                "partner": 0,
+                "prepared": 0,
+                "world": 0
+              }
+            },
+            "round": 1,
+            "time_before_end": {
+              "A": 0,
+              "B": 0
+            }
+          }
+        ],
+        "winner": null
+      }
+    ],
+    "stop_reason_counts": {
+      "legality_not_confirmed": 7,
+      "unsupported_resolution_adapter": 1
+    },
+    "stopped": 8
+  }
+}

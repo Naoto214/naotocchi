@@ -1,0 +1,77 @@
+test_ability_use_count_and_turn_are_hashed_and_checked (test_proxy_continuation_state.StateTests.test_ability_use_count_and_turn_are_hashed_and_checked) ... FAIL
+test_advance_preserves_runtime_and_rejects_untracked_departure (test_proxy_continuation_state.StateTests.test_advance_preserves_runtime_and_rejects_untracked_departure) ... FAIL
+test_attachment_target_is_public_and_bound (test_proxy_continuation_state.StateTests.test_attachment_target_is_public_and_bound) ... FAIL
+test_hidden_deck_and_hand_order_do_not_change_visible_view (test_proxy_continuation_state.StateTests.test_hidden_deck_and_hand_order_do_not_change_visible_view) ... FAIL
+test_missing_or_duplicate_equipment_location_rejected (test_proxy_continuation_state.StateTests.test_missing_or_duplicate_equipment_location_rejected) ... FAIL
+test_runtime_is_hashed_and_input_is_not_shared (test_proxy_continuation_state.StateTests.test_runtime_is_hashed_and_input_is_not_shared) ... FAIL
+test_target_departure_discards_equipment_and_clears_relation (test_proxy_continuation_state.StateTests.test_target_departure_discards_equipment_and_clears_relation) ... FAIL
+test_unknown_or_unhashed_fields_rejected (test_proxy_continuation_state.StateTests.test_unknown_or_unhashed_fields_rejected) ... FAIL
+
+======================================================================
+FAIL: test_ability_use_count_and_turn_are_hashed_and_checked (test_proxy_continuation_state.StateTests.test_ability_use_count_and_turn_are_hashed_and_checked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_state.py", line 32, in setUp
+    self.assertIsNotNone(state, 'versioned continuation state contract not implemented')
+AssertionError: unexpectedly None : versioned continuation state contract not implemented
+
+======================================================================
+FAIL: test_advance_preserves_runtime_and_rejects_untracked_departure (test_proxy_continuation_state.StateTests.test_advance_preserves_runtime_and_rejects_untracked_departure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_state.py", line 32, in setUp
+    self.assertIsNotNone(state, 'versioned continuation state contract not implemented')
+AssertionError: unexpectedly None : versioned continuation state contract not implemented
+
+======================================================================
+FAIL: test_attachment_target_is_public_and_bound (test_proxy_continuation_state.StateTests.test_attachment_target_is_public_and_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_state.py", line 32, in setUp
+    self.assertIsNotNone(state, 'versioned continuation state contract not implemented')
+AssertionError: unexpectedly None : versioned continuation state contract not implemented
+
+======================================================================
+FAIL: test_hidden_deck_and_hand_order_do_not_change_visible_view (test_proxy_continuation_state.StateTests.test_hidden_deck_and_hand_order_do_not_change_visible_view)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_state.py", line 32, in setUp
+    self.assertIsNotNone(state, 'versioned continuation state contract not implemented')
+AssertionError: unexpectedly None : versioned continuation state contract not implemented
+
+======================================================================
+FAIL: test_missing_or_duplicate_equipment_location_rejected (test_proxy_continuation_state.StateTests.test_missing_or_duplicate_equipment_location_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_state.py", line 32, in setUp
+    self.assertIsNotNone(state, 'versioned continuation state contract not implemented')
+AssertionError: unexpectedly None : versioned continuation state contract not implemented
+
+======================================================================
+FAIL: test_runtime_is_hashed_and_input_is_not_shared (test_proxy_continuation_state.StateTests.test_runtime_is_hashed_and_input_is_not_shared)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_state.py", line 32, in setUp
+    self.assertIsNotNone(state, 'versioned continuation state contract not implemented')
+AssertionError: unexpectedly None : versioned continuation state contract not implemented
+
+======================================================================
+FAIL: test_target_departure_discards_equipment_and_clears_relation (test_proxy_continuation_state.StateTests.test_target_departure_discards_equipment_and_clears_relation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_state.py", line 32, in setUp
+    self.assertIsNotNone(state, 'versioned continuation state contract not implemented')
+AssertionError: unexpectedly None : versioned continuation state contract not implemented
+
+======================================================================
+FAIL: test_unknown_or_unhashed_fields_rejected (test_proxy_continuation_state.StateTests.test_unknown_or_unhashed_fields_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_state.py", line 32, in setUp
+    self.assertIsNotNone(state, 'versioned continuation state contract not implemented')
+AssertionError: unexpectedly None : versioned continuation state contract not implemented
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.090s
+
+FAILED (failures=8)

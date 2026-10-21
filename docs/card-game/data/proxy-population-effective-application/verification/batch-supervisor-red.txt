@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_invalid_input_cannot_launch_or_create_destination (test_proxy_population_batch_supervisor.SupervisorTests.test_invalid_input_cannot_launch_or_create_destination)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_batch_supervisor.py", line 34, in test_invalid_input_cannot_launch_or_create_destination
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_next_row_is_never_launched_after_incomplete_or_failed_child (test_proxy_population_batch_supervisor.SupervisorTests.test_next_row_is_never_launched_after_incomplete_or_failed_child)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_batch_supervisor.py", line 12, in test_next_row_is_never_launched_after_incomplete_or_failed_child
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

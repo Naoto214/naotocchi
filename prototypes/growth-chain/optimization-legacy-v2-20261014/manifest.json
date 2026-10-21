@@ -1,0 +1,106 @@
+{
+  "edition": "legacy",
+  "conditions": [
+    {
+      "id": "legacy",
+      "policy": "legacy"
+    },
+    {
+      "policy": "legacy",
+      "id": "g12",
+      "gauge": 12
+    },
+    {
+      "policy": "legacy",
+      "id": "g6",
+      "gauge": 6
+    },
+    {
+      "policy": "legacy",
+      "id": "g4",
+      "gauge": 4
+    },
+    {
+      "policy": "legacy",
+      "id": "g2",
+      "gauge": 2
+    },
+    {
+      "policy": "legacy",
+      "id": "egg2",
+      "eggs": [
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "policy": "legacy",
+      "id": "silver1",
+      "eggs": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "policy": "legacy",
+      "id": "platinum1",
+      "eggs": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "policy": "legacy",
+      "id": "width7",
+      "width": 7
+    },
+    {
+      "policy": "legacy",
+      "id": "kinds4",
+      "kinds": 4
+    },
+    {
+      "policy": "legacy",
+      "id": "kinds6",
+      "kinds": 6
+    }
+  ],
+  "seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+  ],
+  "limits": {
+    "drops": 600,
+    "actions": 4000
+  },
+  "toolCap": 64,
+  "sources": {
+    "optimization-run.mjs": "c15534928ea81b9db23e95745b60605d382403da4d756f4814b316f2742f04cb",
+    "optimization.mjs": "829f0a8681456e78e3e3c2ab41e543a056371ea4df6d3de0bc70e211c73af527",
+    "rules.mjs": "7772610c607a706417959355c38ddc7d3d1d1822a2a7dc451b78283ba597a6ea",
+    "session.mjs": "4dcb850314f6b8c214290d5c9943f1bc3e9cd2305f1132fcf78c09f246afb682",
+    "catalog.mjs": "bb900eb24e9fe8a85e86f95eae1a1765059012d166d2eb6d5ba5eedc1163d72c",
+    "random.mjs": "aac4e298e0cacdbc7f7da550aba1159f7fd9c66237dbae24f40a3b888addaf36",
+    "engine.mjs": "b29244e832baf09aee9f3f6e17c85324300e15b5c977df64b8ab1e3df7787d09",
+    "live-tools.mjs": "e795690ed38e8045a9021d634f89c087307d668e59e674f21663259b2905d9eb",
+    "policy.mjs": "2a07e705ab840b6a6cd699f93a1eb163c53fc6c9379a6c9b49f62622b76cef76",
+    "egg-policy.mjs": "4ba6af29fd5f65e142a245bd952bbce3b810beb3626daf17aa1c180160aa7cfd",
+    "balance-policy.mjs": "8ff2d8657f08961239c77bff32ab67e04fe802f75d6b27d9a731d230375e4da7",
+    "egg-economy.mjs": "fa372659b0724d23ef0284efb17636c90a3cb5de94e9cc91369c373a40a19e27",
+    "balance-manifest.mjs": "e5631c6a557fc741505fed7868577cbad71627820e2d22cddf5512d1b7ec9a7f"
+  },
+  "standard": "ba1936bf",
+  "time": "inputSteps times 0.25/0.5/1 s are assumption scenarios, not measured human time"
+}

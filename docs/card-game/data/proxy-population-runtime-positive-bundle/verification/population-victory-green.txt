@@ -1,0 +1,9 @@
+test_actual_drop_then_recovery_never_restores_the_old_deadline (test_proxy_population_victory_history.VictoryHistoryTests.test_actual_drop_then_recovery_never_restores_the_old_deadline) ... ok
+test_current_opponent_turn_does_not_count_as_a_future_start (test_proxy_population_victory_history.VictoryHistoryTests.test_current_opponent_turn_does_not_count_as_a_future_start) ... ok
+test_hash_sequence_and_unknown_initial_maintenance_fail_closed (test_proxy_population_victory_history.VictoryHistoryTests.test_hash_sequence_and_unknown_initial_maintenance_fail_closed) ... ok
+test_r10_never_returns_an_early_winner (test_proxy_population_victory_history.VictoryHistoryTests.test_r10_never_returns_an_early_winner) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.051s
+
+OK

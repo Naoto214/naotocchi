@@ -1,0 +1,34 @@
+[
+  {
+    "region": "home",
+    "x": 1113.7654555416855,
+    "z": 2410.6082631053455,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-cottage",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:10",
+    "galleryDistance": 323.01413333333335
+  },
+  {
+    "region": "countryside",
+    "x": -2127.1071544583147,
+    "z": 5164.077263105346,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-farmhouse",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "countryside:0",
+    "galleryDistance": 478.27797695999993
+  }
+]

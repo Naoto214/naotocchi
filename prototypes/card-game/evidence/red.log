@@ -1,0 +1,63 @@
+✖ human game engine exists (1.451943ms)
+✖ 40 cards, private projection, stale commands and immutable transitions (0.171994ms)
+✖ save replay validates state, commands and restores exact decisions (0.163942ms)
+✖ both human command seats complete R10 with legal cards, choices and chains (0.199685ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 99.781881
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/engine.test.mjs:4:1
+✖ human game engine exists (1.451943ms)
+  AssertionError [ERR_ASSERTION]: browser engine missing
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi-human/prototypes/card-game/tests/engine.test.mjs:4:44)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/engine.test.mjs:5:1
+✖ 40 cards, private projection, stale commands and immutable transitions (0.171994ms)
+  TypeError: Cannot read properties of undefined (reading 'createGame')
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi-human/prototypes/card-game/tests/engine.test.mjs:6:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at prototypes/card-game/tests/engine.test.mjs:12:1
+✖ save replay validates state, commands and restores exact decisions (0.163942ms)
+  TypeError: Cannot read properties of undefined (reading 'createGame')
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi-human/prototypes/card-game/tests/engine.test.mjs:13:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at prototypes/card-game/tests/engine.test.mjs:17:1
+✖ both human command seats complete R10 with legal cards, choices and chains (0.199685ms)
+  TypeError: Cannot read properties of undefined (reading 'createGame')
+      at TestContext.<anonymous> (file:///workspace/scratch/4cc1eee1ca09/naotocchi-human/prototypes/card-game/tests/engine.test.mjs:18:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

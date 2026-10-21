@@ -1,0 +1,45 @@
+{
+  "remote_start": {
+    "main": {
+      "head": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+      "tree": "ccca80d3796cf91cfcc9e03962f8d0315f3c9dfc"
+    },
+    "259": {
+      "head": "0a9df8f09b5ad657730f29d14e2d357241dace8c",
+      "tree": "78677b98fdc229c7acf10e9112ca9744ae0fa7ba"
+    },
+    "381": {
+      "head": "3a987044513fdb6d5e69b52b8af40add5a45ccd4",
+      "tree": "e86f089e6778061d7acd39492e96286656455702"
+    },
+    "384": {
+      "head": "e30b2fed1f5e9143089cec389b2ef183df6c02aa",
+      "tree": "26705a0cefd064eb4c50821821b68caad6c70190"
+    },
+    "393_start": {
+      "head": "c8a1baf1aa383c892f618b98b4717c9224f081fb",
+      "tree": "e17486a19b234ee07570f0684f896139af8aeffb"
+    }
+  },
+  "artworks": 23,
+  "unique_artwork_hashes": 23,
+  "original_seven_byte_identical": true,
+  "full_previews": [
+    600,
+    900
+  ],
+  "small_previews": [
+    [
+      80,
+      120
+    ],
+    [
+      110,
+      165
+    ]
+  ],
+  "all_images_decoded": true,
+  "physical_iphone_safari_tested": false,
+  "identity_review": "provenance.json",
+  "scope": "art-pilot only"
+}

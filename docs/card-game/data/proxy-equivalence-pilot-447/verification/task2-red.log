@@ -1,0 +1,65 @@
+test_discard_and_egg_are_not_deleted (test_proxy_equivalence_outcomes.OutcomeTests.test_discard_and_egg_are_not_deleted) ... FAIL
+test_empty_requires_coverage (test_proxy_equivalence_outcomes.OutcomeTests.test_empty_requires_coverage) ... FAIL
+test_pass_keeps_pending_end_response (test_proxy_equivalence_outcomes.OutcomeTests.test_pass_keeps_pending_end_response) ... FAIL
+test_runtime_effects_not_legacy_reservations_only (test_proxy_equivalence_outcomes.OutcomeTests.test_runtime_effects_not_legacy_reservations_only) ... FAIL
+test_same_instance_stays_identified (test_proxy_equivalence_outcomes.OutcomeTests.test_same_instance_stays_identified) ... FAIL
+test_unknown_reveal_stops_prefix (test_proxy_equivalence_outcomes.OutcomeTests.test_unknown_reveal_stops_prefix) ... FAIL
+
+======================================================================
+FAIL: test_discard_and_egg_are_not_deleted (test_proxy_equivalence_outcomes.OutcomeTests.test_discard_and_egg_are_not_deleted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_outcomes.py", line 15, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'outcome implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : outcome implementation absent
+
+======================================================================
+FAIL: test_empty_requires_coverage (test_proxy_equivalence_outcomes.OutcomeTests.test_empty_requires_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_outcomes.py", line 15, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'outcome implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : outcome implementation absent
+
+======================================================================
+FAIL: test_pass_keeps_pending_end_response (test_proxy_equivalence_outcomes.OutcomeTests.test_pass_keeps_pending_end_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_outcomes.py", line 15, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'outcome implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : outcome implementation absent
+
+======================================================================
+FAIL: test_runtime_effects_not_legacy_reservations_only (test_proxy_equivalence_outcomes.OutcomeTests.test_runtime_effects_not_legacy_reservations_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_outcomes.py", line 15, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'outcome implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : outcome implementation absent
+
+======================================================================
+FAIL: test_same_instance_stays_identified (test_proxy_equivalence_outcomes.OutcomeTests.test_same_instance_stays_identified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_outcomes.py", line 15, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'outcome implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : outcome implementation absent
+
+======================================================================
+FAIL: test_unknown_reveal_stops_prefix (test_proxy_equivalence_outcomes.OutcomeTests.test_unknown_reveal_stops_prefix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_outcomes.py", line 15, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'outcome implementation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : outcome implementation absent
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+FAILED (failures=6)

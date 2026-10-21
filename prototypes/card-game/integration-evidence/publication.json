@@ -1,0 +1,22 @@
+{
+  "id": "appgdep_6ad5e03a83dc8191bcaadd70c6e075e1",
+  "project_id": "appgprj_6ad5dde4cb288191a4a7c366a3217b22",
+  "title": "なおとっち CARD GAME — アート＋CPU統合試遊",
+  "version_id": "appgprj_6ad5dde4cb288191a4a7c366a3217b22~appgver_5064929a4e90819181c4247902160deb",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://naotocchi-card-integrated-20261019.kerzion214.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "site---6ad5dde4cb288191a4a7c366a3217b22",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-10-19T09:18:28.336367+00:00",
+  "siteSourceCommit": "42859308e4fd8670a39da913616882e545dabdc9",
+  "runtimeGithubHead": "4472ccba221502ecc1c4c3c7200b197372a25554",
+  "runtimeGithubTree": "d58a8cf328b6f3209c043e81858eaa21b9dfdb7d",
+  "pr": 399,
+  "audience": "owner-private",
+  "packagedFilesIdentical": 947,
+  "existingSitesUnchanged": true
+}

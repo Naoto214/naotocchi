@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_current_preflight",
+    "test_proxy_population_operation_edition",
+    "test_proxy_population_generation_entry",
+    "test_proxy_population_attempt_runner",
+    "test_proxy_population_batch_supervisor",
+    "test_proxy_population_supervisor_interrupt",
+    "test_proxy_population_generation_authorization",
+    "test_proxy_population_generation_operation",
+    "test_proxy_population_generation_package",
+    "test_proxy_population_launch_authorization",
+    "test_proxy_population_external_approval",
+    "test_proxy_population_approval_publication",
+    "test_proxy_population_execution_edition"
+  ],
+  "exit_code": 1,
+  "seconds": 54.011830807998194,
+  "python_file_count": 1090,
+  "fingerprints_equal": true,
+  "tests": "65",
+  "tail": "ed_request_or_comment_metadata_cannot_be_replaced (test_proxy_population_approval_publication.ApprovalPublicationTests.test_saved_request_or_comment_metadata_cannot_be_replaced) ... ok\ntest_git_replacement_cannot_redefine_saved_source (test_proxy_population_execution_edition.EditionBindingTests.test_git_replacement_cannot_redefine_saved_source) ... ok\ntest_saved_sources_python_and_tools_are_exact_but_not_authorization (test_proxy_population_execution_edition.EditionTests.test_saved_sources_python_and_tools_are_exact_but_not_authorization) ... ok\n\n======================================================================\nFAIL: test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness (test_proxy_population_external_approval.ExternalApprovalTests.test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_external_approval.py\", line 135, in test_operational_gate_cannot_use_a_string_or_verified_comment_as_readiness\n    with self.assertRaisesRegex(ValueError,'preflight'):call()\n                                                        ^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_external_approval.py\", line 132, in <lambda>\n    for call in (lambda:gen.generate_after_external_approval(gen.ROOT.parents[1],'1'*40,gen.ROOT/'data'/'never-auth-generated','looks-approved'),\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_generation_entry.py\", line 32, in generate_after_external_approval\n    preparation=external_approval.require_operation_ready('generation',repository=repository,commit=commit)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_external_approval.py\", line 204, in require_operation_ready\n    if stage=='generation':certificate=capture(repository,commit)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_execution_edition.py\", line 17, in capture\n    if git('cat-file','-t',commit).strip()!=b'commit':raise ValueError('commit type')\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_execution_edition.py\", line 16, in git\n    def git(*args):return subprocess.check_output(['git','--no-replace-objects','-C',str(repo),*args],stderr=subprocess.PIPE)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 466, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py\", line 1139, in __call__\n    return self._mock_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py\", line 1143, in _mock_call\n    return self._execute_mock_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py\", line 1198, in _execute_mock_call\n    raise effect\nAssertionError: no child\n\n----------------------------------------------------------------------\nRan 65 tests in 53.802s\n\nFAILED (failures=1)\n",
+  "base_commit": "0a33ffe090028559dc614a45d866842f132ea76d",
+  "preflight_ready": false,
+  "new_matches": 0
+}

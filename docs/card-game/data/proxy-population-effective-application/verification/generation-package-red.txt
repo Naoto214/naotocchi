@@ -1,0 +1,30 @@
+FFF
+======================================================================
+FAIL: test_mixed_commit_and_missing_or_corrupt_siblings_rejected (test_proxy_population_generation_package.PackageTests.test_mixed_commit_and_missing_or_corrupt_siblings_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_package.py", line 55, in test_mixed_commit_and_missing_or_corrupt_siblings_rejected
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_real_historical_registry_and_edition_gates_are_required (test_proxy_population_generation_package.PackageTests.test_real_historical_registry_and_edition_gates_are_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_package.py", line 51, in test_real_historical_registry_and_edition_gates_are_required
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_same_commit_package_is_content_evidence_only (test_proxy_population_generation_package.PackageTests.test_same_commit_package_is_content_evidence_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_package.py", line 44, in test_same_commit_package_is_content_evidence_only
+    self.assertIsNotNone(api);r=self.check()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.462s
+
+FAILED (failures=3)

@@ -1,0 +1,30 @@
+{
+  "tools_source_sha256": "e6bd9165c44237a0b422c1ae3cf3d52f55bd5fcb2cf5db983793df5d77e654d6",
+  "scope": "historical115_order_zero_roots_synthetic_integration",
+  "events": 174,
+  "decisions": 132,
+  "turn_counts": {
+    "A": 10,
+    "B": 10
+  },
+  "completed": true,
+  "stop": null,
+  "result": {
+    "winner": "A",
+    "final_growth": {
+      "A": 25,
+      "B": 20
+    },
+    "rounds_completed": 10,
+    "completion_reason": "r10_final_comparison",
+    "source_references": [
+      "01-core-rules.md",
+      "06-action-chain-checkpoint.md",
+      "64-turn-boundaries-and-victory-timing.md"
+    ]
+  },
+  "independent_balance_samples": 0,
+  "seed_generation": false,
+  "planned_400_execution": false,
+  "preflight_ready": false
+}

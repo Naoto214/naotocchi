@@ -1,0 +1,94 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (70.714575ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (29.453042ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (183.058098ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (1.123148ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (27.018688ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (360.520917ms)
+(node:22) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a73a007e273/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a73a007e273/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ AD-1. scene dressing の 契約: 3D だけ・あたり なし・ふんで とおれる・群生(2〜8)・道 / spot / かたい 物 / 水 には おかない (13017.608753ms)
+✔ AD-2. 配置は「空いた ところに 均一に 置く」では なく 群生 + 意図した 余白: 道ばたの 帯(roadside)と ます目(grid)の 両方・余白が ある (1.907673ms)
+✔ AD-3. remove-it: 2D の world と corridor には dressing が ない(3D だけ)。cover を 外した profile では 群生 0 (927.8822ms)
+✔ AD-4. 花は 地域に あった いろ・場所: home / forest / jungle / countryside に 花の 群生、しんかい / ゆき には 花 なし、さばくは オアシスの まわり だけ (1.772036ms)
+✔ AD-5. Tree v3: 針葉樹 4〜5 段(明暗・下ほど ひろい)、広葉樹は かたまり 2〜5(明 / 中 / 暗)、ヤシは は 5〜8(はばは 長さに 比例) (2.319403ms)
+✔ AD-6. gate: もり と ジャングルは 1 まいの 絵で 見わけが つく(葉の palette・きりの いろ・ジャングル だけ 大きな は / つる / 根もとの 下草 / lowPoly) (2.715839ms)
+✔ AD-7. Building v4: family ごとの かたまり・屋根の かたち(切妻 / 寄棟 / 平ら)・のき・土台・入口 と まど・かたまりの 足し(ポーチ / 出窓 / 縁側 / はなれ / ベランダ / 煙突 / ひさし)・シルエット 高さ / はば ≤ 1.5 (11.485939ms)
+✔ AD-8. city scene: 低層 / 中層 / 高層の まざり・灰 だけで ない いろ・みせ(ガラス + ひさし + 看板 + たて看板)・路地の かべも 正面を もつ・高さは 床の 5.5 倍まで (5.252041ms)
+✔ AD-9. city の 小物: 自転車・自販機は 3D の かたち(unresolved なし)。街路樹・信号・横断歩道・電柱は そのまま (1.019884ms)
+✔ AD-10. いけがき は 箱では なく まるい しげみの れつ(あたりの 箱の なか・あたまより 下) (1.130009ms)
+✔ AD-11. 水の 統合: 川は なめらかに 曲がり はばが ゆれる(riverCurve・pure)。見た目の 水は あたりの 帯の 内がわ。川岸に 石 / あし / 草 / 花の 帯 (58.833809ms)
+✔ AD-12. Bridge v4: 交わりに かかる(ながさ ≥ 水の はば)・床の 上面は 水面より 上・床より 下から ささえる 橋脚 / 橋台・種類で かたちが ちがう (2.747688ms)
+✔ AD-13. さばくの サボテンは 大きく 4 種(柱・枝分かれ・まる・むれ)。オアシスの まわりは 花 で 対比 (0.449512ms)
+✔ AD-14. 光: 明るい fill と 方向光で 面を 分ける・岩 / がけの 明るさ と 地域 palette を 保つ (0.412211ms)
+✔ AD-15. 箱庭の 比率: ビルは 床の 5.5 倍まで、大木の 幹は あたりより ほそい、花 / しげみ / 街の 小物は 見える 大きさ、まど / 入口は 家に 対して 小さい (1.793235ms)
+✔ AD-16. density gate: 代表 spot(各地域 最初の ひろば)から 前景(〜250)/ 中景(250〜700)/ 遠景(700〜1800)の それぞれに 意味の ある 物が 1 つ いじょう。道の 方向は 読める(道の 上に 物 なし) (108.940634ms)
+✔ AD-17. Human QA gate の 記録: 13 地域 × 7 条件(ひと目で 地域・さびしく ない・箱っぽく ない・いろ・歩きたい・見どころ・前景 / 中景 / 遠景)が status doc に ある。main merge / Ready は しない (0.913348ms)
+✔ AD-18. 原則だけ: Nintendo / どうぶつの森 固有の 名まえ・asset・模様は code にも doc にも 出てこない (4.243158ms)
+(node:23) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a73a007e273/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a73a007e273/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v2-1. player の 絵は きりで 消えない: キャラの material は fog なし・frustum culling なし・きりの 遠端は player + 900 より 遠く (2.132125ms)
+✔ v2-2. billboardVisible: 座標に いる のに 描かれない 状態(hidden / scale NaN / texture なし / きりの むこう)を 1 つの 判定で 見つける (47.338555ms)
+✔ v2-3. すかしは 見た目の 半径(えだはり)で 判定し、線分より 低い 物は すかさない。あたりの 半径 だけの 旧 判定も そのまま 通る (1.017324ms)
+✔ v2-4. ghost pool の 契約: 使った ものだけ visible、使わなかった ものは その frame で hidden、1 frame 使わなければ scene から はずす、pool は つかいまわす (2.242462ms)
+✔ v2-5. レンダラーの 切りかえで ghost が のこらない: scene の 捨て(地域 / corridor)・3D → 2D(fallback / 2D の 地域)で clear、stats に ghost と player (0.731887ms)
+✔ v2-6. corridor(地域の あいだの 道)は 3D で 描く: 10 本 × 2 方向 ぜんぶ 3D の 対象。飾りは ぜんぶ 意味の 表で 解決し(unresolved 0)、はしの いし だけ かたい (191.634775ms)
+✔ v2-7. corridor の gameplay は かわらない: 帯の 左右と はしの いし の あたり、着く / もどる、party の 受けわたし、セーブ なし (123.064381ms)
+✔ v2-8. しらせ: ふつうの spot と 地区は toast なし、ランドマークは quiet(左上の 静かな 強調)、ひみつ だけ toast。きろくは かわらない (1675.944811ms)
+✔ v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな 橋・通過点は 出さず、現在地・つながり・gate・ランドマーク・ひみつ・hub / ひろば は 出す。きろくと 分母は かわらない (2333.936181ms)
+✔ v2-10. 帯(strip)の geometry は 1 まいに つながる: frame × lane の 頂点を 共有し、となりの frame と 面で つながる(池の ならび では ない) (2.313648ms)
+✔ v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。帯に かくれる 池は おかない。しんかいの 谷も 1 本の 帯 (1774.362697ms)
+✔ v2-12. 海(sea)/ 湖(memory_lake)= 岸線から 水平線まで 1 まいの 面(ぬれた 砂 → 浅瀬 → 沖)+ 岸の あわ。岸の むこうの 池は おかない (905.764305ms)
+✔ v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の clamp・池の あたり・橋は 2D と 同じ。水の 面は あたりを もたない (2908.374557ms)
+✔ v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では ない)、遺跡は くずれた かべ、はしは いみ ごと、たてものは body + 屋根 + 入口 + まど (16076.862409ms)
+✔ v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある (8940.801176ms)
+(node:24) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a73a007e273/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a73a007e273/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GA-1. 接地: 地面に つく parts は 足もとの いちばん ひくい 地面まで(斜面で 岩 / 盛り土 / 根 / 岸の 花が 浮かない)。13 地域 (15238.006002ms)
+✔ GA-2. 小川 / 川 の 交わり: 橋の 交わり には 橋(床 > 水面・ながさ ≥ 水の はば)、そのほかは 飛び石。ランドマークの 橋は 交わりの 上に ある とき だけ うけもつ (0.693261ms)
+✔ GA-3. 小川と 池を わける: ながれの 帯の 中に 池の 円盤(水の 小物)を おかない (0.516026ms)
+✔ GA-4. Building v4: 塔の ような 家 なし(シルエット 高さ / いちばん ひろい はば ≤ 1.6、看板 / 屋根の はりだし を ふくむ) (0.343836ms)
+✔ GA-5. 小物の 読みやすさ(props gate): 車 = 車輪・望遠鏡 = 3 本 足 + かたむいた 筒・像 = だい + からだ + あたま・かまくら = いりぐち・箱の 小物 = ひさし + 窓。絵文字の 立て看板 は のこって いない (12014.436321ms)
+✔ GA-6. 季節 / 天気 は 2D の 正本に あわせる: 針葉樹の 雪 = ゆき の 地域 か 冬、山の 頂の 雪 = それ + 雪の 日、deepsea / star_stop は 地表の 季節 なし (9.854677ms)
+✔ GA-7. 地域の 識別性(数で): いえ ≠ いなか(いなかは ひらけ +0.1 いじょう・構成の cosine < 0.75)、もり ≠ ジャングル(ジャングルは 見とおし せまく・高い 層・cosine < 0.6) (4327.25926ms)
+(node:73) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a73a007e273/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a73a007e273/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GT-1. runtime P0(HQ-1 / HQ-2 / HQ-3): すかしは ray で ほんとうに 隠す 物 だけ・もとの いろ・大きな 物は うすく・ちらつかない・変わった instance だけ 送る (51.69553ms)
+✔ GT-2. ray の 格子(pure): 線分が とおる ます目の instance だけ が 候補 (1.059583ms)
+✔ GT-3. 予算(HQ-4): うすい 板は 1 まい・幹は ふたなし・mound は 下半分 なし・花の まんなか 8 三角形。透明 fade で けさない (0.373036ms)
+✔ GT-4. Terrain v1(HQ-5): 意味の ある 起伏。道 / spot は 平ら、ひらけた ところ に 丘、小川は 谷、池は くぼ地、海は 水へ ひくく。ランダムな こぶ だけ では ない (8467.384264ms)
+✔ GT-5. Creek / River v3(HQ-6): 小川は spot の 円盤の ならび では なく 1 本の ながれ。橋の spot の 下を とおり、道を 横切る ところは 橋 か 飛び石。道 / かたい 物 の 上を ながれない (2839.433708ms)
+✔ GT-6. Water(HQ-7): 海 / 川 / 池 で 水の 面を かえる(海 = 浅瀬 → 沖 → 水平線、川 = 谷の 中の ながれる 面、池 = しずかな くぼ地の 面) (0.96092ms)
+✔ GT-7. home と countryside(HQ-10): いえ = 家ごとの 庭(花だん・ポスト・ひくい さく・飛び石)、いなか = ひろい 畑 と 用水路 と 板の はし(庭 なし) (1.283294ms)
+✔ GT-8. forest と jungle(HQ-11): もり = つめたい みどり・たおれた 丸太・しだ・きのこ・見とおし ほどほど。ジャングル = 多層(大きな は の 下草・ヤシ・canopy の つる)・しめった もや (593.589087ms)
+✔ GT-9. Tree v4(HQ-12): 根もとの はり・2 だんの 幹(すこし かたむく)・かんむりへ のびる 枝・白っぽい ほそい 木(すずしい 地域) (1.536862ms)
+✔ GT-10. props gate(HQ-13): ラベル なしで わかる。自転車は 立って いる、水車 / 観覧車の わ は たて (5852.805149ms)
+✔ GT-11. 13 地域の grammar(HQ-14): 背景の 絵 なしで 3D だけで 地域が わかる きまり (0.501685ms)
+✔ GT-12. 季節 / 天気(HQ-15): 山は 夏(高原の みどり)と 冬(雪)で 地面が かわる・大木も 季節の いろ・3D でも 雨 / 雪 (0.50599ms)
+✔ GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない (4.800917ms)
+(node:81) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a73a007e273/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a73a007e273/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ VQ-6 cottage rooflines include both gable orientations within the residential family (395.063723ms)
+✔ VQ-5 garden stepping stones connect the actual front door to its finite road segment (290.528965ms)
+✔ VQ-1 contact footprints follow trunks and foundations without mutating objects (37.274154ms)
+✔ VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support (1.054208ms)
+✔ VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged (0.900811ms)
+✔ VQ-4 residential main roofs retain above-head clearance with canonical colliders (12510.740365ms)
+✔ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (220.418574ms)
+ℹ tests 66
+ℹ suites 0
+ℹ pass 66
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35438.142093

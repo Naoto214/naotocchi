@@ -1,0 +1,26 @@
+{
+  "cards": 452,
+  "counts": {
+    "companion": 26,
+    "event": 21,
+    "play": 100,
+    "item": 26,
+    "main": 248,
+    "partner": 18,
+    "world": 13
+  },
+  "derivatives": 904,
+  "uniqueSmall": 452,
+  "uniqueLarge": 452,
+  "bytes": 137575124,
+  "totals": {
+    "original": 1287568992,
+    "small": 17128656,
+    "large": 120446468
+  },
+  "smallDecodedRGBA": 393216,
+  "largeDecodedRGBA": 3538944,
+  "browserMeasured": false,
+  "iphoneMeasured": false,
+  "originalsRegenerated": false
+}

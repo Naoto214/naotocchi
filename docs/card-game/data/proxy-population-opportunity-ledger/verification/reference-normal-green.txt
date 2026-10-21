@@ -1,0 +1,8 @@
+test_normal_source_cost_uses_same_origin_receipt (test_proxy_population_activation_reference.ReferenceTests.test_normal_source_cost_uses_same_origin_receipt) ... ok
+test_receipt_cannot_be_minted_for_a_non_board_source (test_proxy_population_activation_reference.ReferenceTests.test_receipt_cannot_be_minted_for_a_non_board_source) ... ok
+test_receipt_keeps_actual_activation_hash_and_survives_source_departure (test_proxy_population_activation_reference.ReferenceTests.test_receipt_keeps_actual_activation_hash_and_survives_source_departure) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.225s
+
+OK

@@ -1,0 +1,92 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/f50bce74ad86/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/f50bce74ad86/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v2-1. player の 絵は きりで 消えない: キャラの material は fog なし・frustum culling なし・きりの 遠端は player + 900 より 遠く (1.58578ms)
+✔ v2-2. billboardVisible: 座標に いる のに 描かれない 状態(hidden / scale NaN / texture なし / きりの むこう)を 1 つの 判定で 見つける (42.179515ms)
+✔ v2-3. すかしは 見た目の 半径(えだはり)で 判定し、線分より 低い 物は すかさない。あたりの 半径 だけの 旧 判定も そのまま 通る (0.753065ms)
+✔ v2-4. ghost pool の 契約: 使った ものだけ visible、使わなかった ものは その frame で hidden、1 frame 使わなければ scene から はずす、pool は つかいまわす (1.773393ms)
+✔ v2-5. レンダラーの 切りかえで ghost が のこらない: scene の 捨て(地域 / corridor)・3D → 2D(fallback / 2D の 地域)で clear、stats に ghost と player (0.648658ms)
+✔ v2-6. corridor(地域の あいだの 道)は 3D で 描く: 10 本 × 2 方向 ぜんぶ 3D の 対象。飾りは ぜんぶ 意味の 表で 解決し(unresolved 0)、はしの いし だけ かたい (128.265557ms)
+✔ v2-7. corridor の gameplay は かわらない: 帯の 左右と はしの いし の あたり、着く / もどる、party の 受けわたし、セーブ なし (65.267871ms)
+✔ v2-8. しらせ: ふつうの spot と 地区は toast なし、ランドマークは quiet(左上の 静かな 強調)、ひみつ だけ toast。きろくは かわらない (8230.140603ms)
+✔ v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな 橋・通過点は 出さず、現在地・つながり・gate・ランドマーク・ひみつ・hub / ひろば は 出す。きろくと 分母は かわらない (11149.216594ms)
+✔ v2-10. 帯(strip)の geometry は 1 まいに つながる: frame × lane の 頂点を 共有し、となりの frame と 面で つながる(池の ならび では ない) (1.634096ms)
+✔ v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。帯に かくれる 池は おかない。しんかいの 谷も 1 本の 帯 (1663.98654ms)
+✔ v2-12. 海(sea)/ 湖(memory_lake)= 岸線から 水平線まで 1 まいの 面(ぬれた 砂 → 浅瀬 → 沖)+ 岸の あわ。岸の むこうの 池は おかない (1012.520155ms)
+✔ v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の clamp・池の あたり・橋は 2D と 同じ。水の 面は あたりを もたない (5116.36433ms)
+✔ v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では ない)、遺跡は くずれた かべ、はしは いみ ごと、たてものは body + 屋根 + 入口 + まど (13348.380603ms)
+✔ v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある (4112.657046ms)
+✔ ①-1 ふつうの ばしょ: toast は 出さない。左上の 名まえが かわり、ちず と セーブには きろくされる (1814.064176ms)
+✔ ①-2 おおきな めじるし(landmark)は toast では なく 左上の 名まえの 静かな 強調。きろくは のこる (1557.89764ms)
+✔ ①-3 ひみつは せんようの しらせ。なまえは 見つけた あとに そえる だけ (2159.014431ms)
+✔ ①-4 地区(zone)に 入っても toast は 出さない(2026-10-01 v2)。ちずの 地区は ひろがり、中の id は どこにも 出ない (1696.41422ms)
+✔ ②-1 おなじ ばしょへ もどっても もう「みつけた」と 出さない (2226.658132ms)
+✔ ②-2 セーブに のこした きろくを よみなおしても 2かいめ は 出ない(セーブ互換) (3187.008732ms)
+✔ ②-3 めじるしは しらせない。ちずの ボタンも 2かいめ は ひからない (2708.505435ms)
+✔ ③-1 1フレームに いくつ 見つけても 出すのは 1つ。つよい ものから (2131.204414ms)
+✔ ③-2 じゅんばんは region → secret → landmark → みち → zone → ふつうの spot (3718.598683ms)
+✔ ③-3 地域の はっけんと 二重に 出さない(はじめての 地域では 着いた ばしょの しらせを かさねない) (2694.863009ms)
+✔ ④-1 住民に ちかづいた ことは はっけんに しない(「はなす」だけ) (2913.748079ms)
+✔ ④-2 しらせは あるくのを とめない(ボタンも おおいも 出さない) (1668.546363ms)
+✔ ④-3 しらせの あいだ、した の そうさ せつめいは よわめる(ふたつが まざらない) (1882.456155ms)
+✔ ⑤-1「ちずに きろくした」と 出た ものは その とき ちずに ある (2094.159054ms)
+✔ ⑤-2 こえて いる あいだ に 見つけた めじるしも ちずに のこる (2327.520477ms)
+✔ ⑤-3 たんさく率の けいさんは 1つも かえて いない (3153.059327ms)
+✔ ⑤-4 みちの はっけんは 出かたが かわる だけ。ひらく じょうけんは そのまま (1778.111724ms)
+✔ ⑥-1 travelToRegion() と その ばの ボタンは 1つも かえて いない (1442.827995ms)
+✔ ⑥-2 たんさくを とじると しらせも のこらない (1768.32963ms)
+✔ ⑦-1 レベルは buildWorld() が ほんとうに おく ものから きまる (23.721135ms)
+✔ ⑦-2 目じるしの ない 通過点では しらせない。でも きろくは のこる(探索率は かわらない) (1786.86368ms)
+✔ ⑦-3 目じるしの ある ばしょ(L2)も toast は 出さない(2026-10-01 v2)。左上の 名まえ と きろく だけ (1417.480026ms)
+✔ ⑦-4「ちずに きろくした」は はじめの うちだけ(なんども くりかえさない) (1514.690774ms)
+✔ ⑦-5 はじめて あそぶ ひとには「ちずに きろくした」を そえる (1914.98474ms)
+✔ ⑦-6 レベルは セーブに 何も 足さない(旧セーブでも そのまま 動く) (1779.44714ms)
+✔ ⑦-7 監査の けっかと 実装が そろって いる (19.484363ms)
+✔ ⑧-1 4つの みはらしに、その ばしょ だけの けしきが ある (2676.313354ms)
+✔ ⑧-2 主役は 地域ごとに ちがう(どこにも おなじ てすりを 置かない) (2694.08606ms)
+✖ ⑧-3 けしきは あたりはんていを 1つも ふやさない(みち・出口・住民を ふさがない) (951.019358ms)
+✔ ⑧-4 gate の 発火は 1つも かわらない(connection に さわって いない) (2642.476561ms)
+✔ ⑧-5 4つとも L2。toast は 出さず(2026-10-01 v2)、左上の 名まえ と きろく だけ (1354.899453ms)
+✔ ⑧-6 2かいめ は 出さない。旧セーブで もう 見つけて いれば けしきだけ 見える (1456.051573ms)
+✔ ⑧-7 spot / path / zone / secret の かずは 1つも ふえて いない (16.709396ms)
+✔ a region you have never walked shows no paths, no spots and no landmarks: only the shape of the map (1588.726376ms)
+✔ walking into a district records it, and only the neighbours reachable by an ordinary path are hinted at (285.378866ms)
+✔ a spot appears on the map only once you have stood in it, and its name comes with it (224.278424ms)
+✔ an undiscovered secret leaks nothing: not its place, not its name, not the path to it, not even a marker (1284.968044ms)
+✔ a secret is added to the map the moment you find it, and not before (247.218483ms)
+✔ landmarks keep their three tiers, and are drawn only when the place they mark is known (1546.507892ms)
+✔ an old save that only knows spots is turned into a map without losing anything (336.714181ms)
+✔ the map save stays small: ids only, no coordinates, and it fits in the existing save shape (1773.209264ms)
+✔ opening the map pauses the walk and closing it puts you back where you stood (314.885727ms)
+✔ with the map closed there is no map work at all: it is built on open and thrown away on close (914.836206ms)
+✔ every one of the 13 regions can be drawn from mapData alone, and the progress never counts hidden secrets (1343.090013ms)
+✔ the map changes nothing about the scenery: the fauna and character audits still come back clean (1192.531277ms)
+ℹ tests 60
+ℹ suites 0
+ℹ pass 59
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 63334.485082
+
+✖ failing tests:
+
+test at tests/meguru-discovery-test.cjs:670:1
+✖ ⑧-3 けしきは あたりはんていを 1つも ふやさない(みち・出口・住民を ふさがない) (951.019358ms)
+  AssertionError [ERR_ASSERTION]: forest/stonelook: solid に して いる
+      at TestContext.<anonymous> (/workspace/scratch/f50bce74ad86/naotocchi/tests/meguru-discovery-test.cjs:677:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

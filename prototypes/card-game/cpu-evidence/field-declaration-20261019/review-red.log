@@ -1,0 +1,41 @@
+✔ seven declarations require an explicit native choice, with no default main action (10.964764ms)
+✔ each declaration survives confirmation, command, chain and exact hit/miss resolution (68.268225ms)
+✔ CPU observes and chooses from the seven legal declarations without seeing deck order (18.291808ms)
+✔ only the turn owner field is marked, independent of human seat and response actor (6.990805ms)
+✔ field glow lasts 400ms once per turn, never per response, rerender, restore or reduced motion (0.34685ms)
+✔ egg history distinguishes normal and extra draws, return order and actual net hand count (12.279195ms)
+✔ CPU session commits each declaration using the same command and resolution as human play (92.373206ms)
+✔ normal main draws one; egg deck exhaustion follows possible parts, never a return-first redraw (11.238302ms)
+✔ draw annotations do not alter four-second notice content or reveal card identities (1.261671ms)
+✖ egg return history records the committed return even when a reservation immediately redraws it (4.005933ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 378.800035
+
+✖ failing tests:
+
+test at repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:82:1
+✖ egg return history records the committed return even when a reservation immediately redraws it (4.005933ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /たまご返却：1枚を山札の下へ/. Input:
+
+  '<details class="result-history"><summary>対戦履歴 · 最新から過去へ（自分だけのカード情報を含む）</summary><section data-result-revision="1"><h3>R1 · Aのターン · 操作 A <small>手順1</small></h3><ul><li>A：手札1枚を山札下へ</li><li>A：たまご返却：0枚を山札の下へ · 手札 7 → 7枚</li><li>A：予約状態が更新されました</li></ul></section></details>'
+
+      at TestContext.<anonymous> (file:///workspace/scratch/a9e1fdfaea1b/repo/prototypes/card-game/tests/ui-field-declaration.test.mjs:87:81)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<details class="result-history"><summary>対戦履歴 · 最新から過去へ（自分だけのカード情報を含む）</summary><section data-result-revision="1"><h3>R1 · Aのターン · 操作 A <small>手順1</small></h3><ul><li>A：手札1枚を山札下へ</li><li>A：たまご返却：0枚を山札の下へ · 手札 7 → 7枚</li><li>A：予約状態が更新されました</li></ul></section></details>',
+    expected: /たまご返却：1枚を山札の下へ/,
+    operator: 'match',
+    diff: 'simple'
+  }

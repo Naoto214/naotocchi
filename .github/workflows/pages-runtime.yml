@@ -1,0 +1,61 @@
+name: Pages runtime package
+
+on:
+  pull_request:
+    branches: [main, feat/card-art-cpu-integration-20261019]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-runtime-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test allowlist and failure guards
+        run: python -m unittest discover -s tests/pages -v
+      - name: Build byte-preserving runtime artifact
+        run: >-
+          python tools/pages/package.py
+          --out "${{ runner.temp }}/pages-runtime"
+          --report "${{ runner.temp }}/pages-reports/package-report.json"
+          --tar "${{ runner.temp }}/pages-runtime.tar"
+      - name: Verify every HTTP file, entry point and card image
+        run: >-
+          python tools/pages/verify.py
+          --artifact "${{ runner.temp }}/pages-runtime"
+          --package-report "${{ runner.temp }}/pages-reports/package-report.json"
+          --report "${{ runner.temp }}/pages-reports/http-report.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pages-capacity-reports
+          path: ${{ runner.temp }}/pages-reports/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/pages-runtime
+
+  deploy:
+    # PRs (including the stacked capacity fix) can never deploy.
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy reviewed runtime artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

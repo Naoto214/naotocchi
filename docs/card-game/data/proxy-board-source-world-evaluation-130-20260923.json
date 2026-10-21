@@ -1,0 +1,15 @@
+{
+  "schema": "naotocchi.card_game.proxy_board_source_world_evaluation.v1",
+  "checkpoint": 130,
+  "planned": 4,
+  "completed": 0,
+  "rules_stop": 4,
+  "decision": 36,
+  "event": 60,
+  "snapshot": 64,
+  "winner": 0,
+  "independent_balance_sample": 0,
+  "stop_codes": {
+    "missing_next_normal_action_choice_proof": 4
+  }
+}

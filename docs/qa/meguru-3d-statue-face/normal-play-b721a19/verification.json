@@ -1,0 +1,30 @@
+{
+  "run": 38032284466,
+  "artifact": 11663205739,
+  "zipSha256": "76769719039b3697676733c1bada02ceb4c8feadc5fd62a3a07027345655753f",
+  "beforeCommit": "f817ad49ce4ecd715bcc0cdeb678987d98c56a8c",
+  "afterCommit": "b721a19d4cb4b7e2dede8c9ff7e6ae9cbad79557",
+  "afterSourceMatches": "61412b0b0dcb097e738476fda7a69cb142a0786c",
+  "sourceHashesAndExitVerified": true,
+  "exit": 0,
+  "imagesInspected": [
+    "before.jpg",
+    "after.jpg"
+  ],
+  "beforeCameraDistance": 442.15277758756935,
+  "afterCameraDistance": 443.97910028180576,
+  "deltaTriangles": 56,
+  "deltaCalls": 0,
+  "assessment": "Lateral player placement leaves statue head/body/pedestal unobscured. Original silhouette and scale retained. Facial marks intentionally tiny at normal play distance; individual eye/nose detail is not sharply resolved. Close front/oblique views establish the carving. No exaggerated projection observed. Natural camera settling and animated party differ, so this is not a pixel-identical comparison or performance benchmark.",
+  "files": {
+    "source-sha256.txt": "a6fcdb2bbd5c8e8ed7a41d8d914227112fabca5e97d5a33fe766fa3737aae474",
+    "runner-exit-code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "commit.txt": "74ac7904192811bf02b4cd5b487d7a96afbb2656fe78f552964e3f3239901115",
+    "before-commit.txt": "38514434c884eb5f42bbc56c7f6b2380c1c1e319360645a0cebd02084052cf6c",
+    "before.jpg": "2100a5f94364bbe095407f9bd9e3de68572f9d7dee1ea8bee86b50d3b8971683",
+    "before-play.log": "a7450757de37e3270c3f47ee1b3253bf8e8ed94ef8ceb6ebd68684bb2705c6db",
+    "before-source-sha256.txt": "be287aa823b55598512dbd7f8177b133c73af34f832b304a7bf85bf77deb656c",
+    "after-play.log": "f9dffd45066670dd18ac52da825d91ad2b544574bc21a38935992e2fb9ca632d",
+    "after.jpg": "e472c3690cecc09465567cca877e3d53a89ecffc787d36f99f4b54aed2ef7117"
+  }
+}

@@ -1,0 +1,68 @@
+F.FEEEEF.
+======================================================================
+ERROR: test_positive_last_link_resolution_obligation_blocks_continuation (test_proxy_continuation_triggers.ResponseOccurrenceTests.test_positive_last_link_resolution_obligation_blocks_continuation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_triggers.py", line 95, in test_positive_last_link_resolution_obligation_blocks_continuation
+    with self.assertRaisesRegex(ValueError,'post-resolution obligation'):batch.guard_resolution_result(e,result,[])
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_continuation_batch' has no attribute 'guard_resolution_result'
+
+======================================================================
+ERROR: test_resolution_guard_rechecks_resource_turn_and_actual_effect (test_proxy_continuation_triggers.ResponseOccurrenceTests.test_resolution_guard_rechecks_resource_turn_and_actual_effect) (case='no_world_payment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_triggers.py", line 103, in test_resolution_guard_rechecks_resource_turn_and_actual_effect
+    with self.subTest(case=case):batch.guard_resolution_result(e,r,[])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_continuation_batch' has no attribute 'guard_resolution_result'
+
+======================================================================
+ERROR: test_resolution_guard_rechecks_resource_turn_and_actual_effect (test_proxy_continuation_triggers.ResponseOccurrenceTests.test_resolution_guard_rechecks_resource_turn_and_actual_effect) (case='opponent_turn')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_triggers.py", line 103, in test_resolution_guard_rechecks_resource_turn_and_actual_effect
+    with self.subTest(case=case):batch.guard_resolution_result(e,r,[])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_continuation_batch' has no attribute 'guard_resolution_result'
+
+======================================================================
+ERROR: test_resolution_guard_rechecks_resource_turn_and_actual_effect (test_proxy_continuation_triggers.ResponseOccurrenceTests.test_resolution_guard_rechecks_resource_turn_and_actual_effect) (case='no_effect')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_triggers.py", line 103, in test_resolution_guard_rechecks_resource_turn_and_actual_effect
+    with self.subTest(case=case):batch.guard_resolution_result(e,r,[])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_continuation_batch' has no attribute 'guard_resolution_result'
+
+======================================================================
+FAIL: test_batch_forced_adapter_cannot_accept_positive_unsupported_resolution (test_proxy_continuation_triggers.ResponseOccurrenceTests.test_batch_forced_adapter_cannot_accept_positive_unsupported_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_triggers.py", line 110, in test_batch_forced_adapter_cannot_accept_positive_unsupported_resolution
+    with self.assertRaisesRegex(ValueError,'post-resolution obligation'):runner.run_route(initial,old.POLICIES[0])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_opponent_response_quick_with_concealed_preparation_fails_closed (test_proxy_continuation_triggers.ResponseOccurrenceTests.test_opponent_response_quick_with_concealed_preparation_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_triggers.py", line 73, in test_opponent_response_quick_with_concealed_preparation_fails_closed
+    with self.assertRaisesRegex(ValueError,'eligible board activation/response obligation'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_second_response_play_uses_actual_occurrence_not_window_anchor (test_proxy_continuation_triggers.ResponseOccurrenceTests.test_second_response_play_uses_actual_occurrence_not_window_anchor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_triggers.py", line 62, in test_second_response_play_uses_actual_occurrence_not_window_anchor
+    self.assertEqual(len(details),1);self.assertEqual(details[0]['trigger_origin_event_seq'],3)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.448s
+
+FAILED (failures=3, errors=4)

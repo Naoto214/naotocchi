@@ -1,0 +1,15 @@
+test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss) ... ok
+test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles) ... ok
+test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps (test_proxy_population_trace_obligations.TraceObligationsTests.test_actual_trace_obligations_bind_every_boundary_and_preserve_gaps) ... ok
+test_initial_entry_requires_fresh_native_and_start_collection_binding (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_fresh_native_and_start_collection_binding) ... ok
+test_initial_entry_requires_verified_timing_and_automatic_responsibilities (test_proxy_population_trace_obligations.TraceObligationsTests.test_initial_entry_requires_verified_timing_and_automatic_responsibilities) ... ok
+test_entry_rejects_failed_conservation_gate (test_proxy_population_source_conservation.SourceConservationTests.test_entry_rejects_failed_conservation_gate) ... ok
+test_forged_source_metadata_and_journal_are_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_forged_source_metadata_and_journal_are_rejected) ... ok
+test_initial_and_every_actual_transition_are_bound (test_proxy_population_source_conservation.SourceConservationTests.test_initial_and_every_actual_transition_are_bound) ... ok
+test_missing_duplicate_step_and_final_changes_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_missing_duplicate_step_and_final_changes_rejected) ... ok
+test_unknown_activation_actor_is_not_ignored_by_owner_check (test_proxy_population_source_conservation.SourceConservationTests.test_unknown_activation_actor_is_not_ignored_by_owner_check) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 77.352s
+
+OK

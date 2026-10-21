@@ -1,0 +1,3 @@
+# 188 新seed開始時response初回選択 TDD計画
+
+187候補完全性・186保存stateをraw SHAで固定する。先に専用テストをREDにし、119・116の一般response選択器へ盤上能力と手札候補を統合する。選択がpassならeventを適用し次優先者の窓へ進む。能力・即時カードが選ばれたら効果を先回りせず、選択時state/hashのまま起動直前に保持する。全event/snapshot/hash連鎖とcanonical JSON、設計データを検証してGitHub保存する。

@@ -1,0 +1,39 @@
+games 257 -> 257
+completed 257 -> 257
+abnormal 0 -> 0
+replay_mismatch 0 -> 0
+time_spent_share 0.25 -> 0.277
+final_growth 57.43 -> 56.68
+reached100 0.023 -> 0.058
+early 0.004 -> 0.019
+responses_used 8.57 -> 7.01
+challenges 8.95 -> 8.72
+first_win_decisive 0.446 -> 0.477
+deck_vs_others
+    D0_standard 0.212 -> 0.188
+    D1_main_growth 0.562 -> 0.613
+    D2_companions 0.355 -> 0.329
+    D3_partner 0.775 -> 0.8
+    D4_challenge 0.622 -> 0.537
+    D5_growth_gain 0.595 -> 0.703
+    D6_item_response 0.375 -> 0.338
+use_per_draw
+    I-c_friend (0, 69, 0.0) -> (7, 69, 0.101)
+    I-c_match (0, 69, 0.0) -> (0, 66, 0.0)
+    I-c_time_forward (0, 30, 0.0) -> (0, 29, 0.0)
+    G-picross-5 (0, 58, 0.0) -> (0, 58, 0.0)
+    G-stack-acorn (0, 62, 0.0) -> (34, 63, 0.54)
+    E-new-encounter (142, 161, 0.882) -> (116, 165, 0.703)
+    E-mirror (90, 104, 0.865) -> (42, 105, 0.4)
+    I-c_egg_normal (0, 68, 0.0) -> (11, 67, 0.164)
+    G-animal-shogi (0, 214, 0.0) -> (1, 205, 0.005)
+    C-cat_friend (143, 228, 0.627) -> (140, 232, 0.603)
+    G-mini-golf-physics (0, 100, 0.0) -> (104, 116, 0.897)
+    E-fateful-transform (0, 62, 0.0) -> (39, 69, 0.565)
+    I-c_coin2 (249, 254, 0.98) -> (254, 256, 0.992)
+    G-hit-blow (147, 148, 0.993) -> (136, 137, 0.993)
+    G-area-claim (52, 175, 0.297) -> (53, 177, 0.299)
+    E-first-date (114, 266, 0.429) -> (123, 258, 0.477)
+    G-archery-3d (111, 239, 0.464) -> (105, 241, 0.436)
+distinct_cards_used_per_seat 8.63 -> 8.92
+identical records 5 / 257

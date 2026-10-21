@@ -1,0 +1,12 @@
+✔ egg is a tappable state card only in the empty main slot, in both orientations (27.973728ms)
+✔ egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions (0.88255ms)
+✔ real opening return and birth switch the top card and replay preserves the same display (67.520092ms)
+✔ real dragon removal exposes opponent egg and retains the engine discard destination (18.625299ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 407.885117

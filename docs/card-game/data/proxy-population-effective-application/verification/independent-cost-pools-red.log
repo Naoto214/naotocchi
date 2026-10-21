@@ -1,0 +1,87 @@
+test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) ... 
+  test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) (keep=0) ... FAIL
+  test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) (keep=1) ... FAIL
+test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) ... 
+  test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-02', kind='response') ... FAIL
+  test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-02', kind='normal_expansion') ... FAIL
+  test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-02', kind='normal_predicates') ... FAIL
+  test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-08', kind='response') ... FAIL
+  test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-08', kind='normal_expansion') ... FAIL
+  test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-08', kind='normal_predicates') ... FAIL
+
+======================================================================
+FAIL: test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) (keep=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 102, in run
+    with self.subTest(keep=keep):self.assertFalse(api.audit_normal(e,inv)['registered_expansions_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) (keep=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 102, in run
+    with self.subTest(keep=keep):self.assertFalse(api.audit_normal(e,inv)['registered_expansions_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-02', kind='response')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 119, in run
+    with self.subTest(card=card,kind='response'):self.assertFalse(board.audit_response(e,history,response)['response_board_predicates_verified'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-02', kind='normal_expansion')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 122, in run
+    with self.subTest(card=card,kind='normal_expansion'):self.assertFalse(api.audit_normal(e,inv)['registered_expansions_verified'])
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-02', kind='normal_predicates')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 123, in run
+    with self.subTest(card=card,kind='normal_predicates'):self.assertFalse(board.audit_normal(e,inv)['board_predicates_verified'])
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-08', kind='response')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 119, in run
+    with self.subTest(card=card,kind='response'):self.assertFalse(board.audit_response(e,history,response)['response_board_predicates_verified'])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-08', kind='normal_expansion')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 122, in run
+    with self.subTest(card=card,kind='normal_expansion'):self.assertFalse(api.audit_normal(e,inv)['registered_expansions_verified'])
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) (card='M-antlion-08', kind='normal_predicates')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 123, in run
+    with self.subTest(card=card,kind='normal_predicates'):self.assertFalse(board.audit_normal(e,inv)['board_predicates_verified'])
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.108s
+
+FAILED (failures=8)

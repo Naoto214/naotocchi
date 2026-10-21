@@ -1,0 +1,14 @@
+test_source_read_failure_releases_entry_lock (test_proxy_population_connected_entry.EntryTests.test_source_read_failure_releases_entry_lock) ... ok
+test_coin_at_cap_records_real_reveal_but_zero_growth (test_proxy_population_chain_resolution.ChainTests.test_coin_at_cap_records_real_reveal_but_zero_growth) ... ok
+test_empty_deck_resolves_without_effect_and_receipt_tampering_is_rejected (test_proxy_population_chain_resolution.ChainTests.test_empty_deck_resolves_without_effect_and_receipt_tampering_is_rejected) ... ok
+test_first_date_rechecks_current_incarnation_without_migrating_old_target (test_proxy_population_chain_resolution.ChainTests.test_first_date_rechecks_current_incarnation_without_migrating_old_target) ... ok
+test_hit_blow_reuses_native_effect_and_bounds_growth (test_proxy_population_chain_resolution.ChainTests.test_hit_blow_reuses_native_effect_and_bounds_growth) ... ok
+test_legal_first_date_at_cap_empty_deck_is_resolved_but_not_applied (test_proxy_population_chain_resolution.ChainTests.test_legal_first_date_at_cap_empty_deck_is_resolved_but_not_applied) ... ok
+test_normalized_end_provenance_is_reconstructed_and_tampering_rejected (test_proxy_population_chain_resolution.ChainTests.test_normalized_end_provenance_is_reconstructed_and_tampering_rejected) ... ok
+test_opt_in_dispatch_restores_original_handler (test_proxy_population_chain_resolution.ChainTests.test_opt_in_dispatch_restores_original_handler) ... ok
+test_top_link_resolves_above_multiple_outer_links_without_resolving_them (test_proxy_population_chain_resolution.ChainTests.test_top_link_resolves_above_multiple_outer_links_without_resolving_them) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.204s
+
+OK

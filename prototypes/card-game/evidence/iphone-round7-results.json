@@ -1,0 +1,782 @@
+{
+  "seed": 4,
+  "scope": "Natural fixture results; A normal after birth effect, handoff, B first start",
+  "A": [
+    {
+      "id": 0,
+      "revision": 0,
+      "turn": "A",
+      "heading": "対戦開始時点",
+      "combined": false,
+      "trace": [
+        "R1 Aのターン開始"
+      ],
+      "rows": [
+        {
+          "kind": "initial",
+          "seat": "A",
+          "text": "A：開始時の手札 しんかい・どうぶつしょうぎ・はじめてのデート・カブトムシ①・アーチェリー・おべんとうばこ・ヒット&ブロー",
+          "cards": [
+            {
+              "id": "A:W-deepsea:1",
+              "name": "しんかい",
+              "type": "world",
+              "cost": 2,
+              "rare": false,
+              "text": "自分の手札が2枚以下の間、自分のメインのちから・ちえ+1。",
+              "source": "89-world-13-card-text-draft.md#W-deepsea — しんかい",
+              "source_sha256": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269",
+              "cardId": "W-deepsea"
+            },
+            {
+              "id": "A:G-animal-shogi:2",
+              "name": "どうぶつしょうぎ",
+              "type": "play",
+              "cost": 2,
+              "rare": false,
+              "text": "自分の捨て札のなかま1枚を対象とし、手札に戻す。戻したなら、山札の上1枚を見て、一番上か一番下に置く。",
+              "source": "83-play-batch-3-card-text-draft.md#G-animal-shogi — どうぶつしょうぎ",
+              "source_sha256": "09a12201ebdd0ed7e8079dc59eec283a1afc84c66fbbbc008cbf7d9317abff27",
+              "method": "すぐつかう",
+              "cardId": "G-animal-shogi"
+            },
+            {
+              "id": "A:E-first-date:3",
+              "name": "はじめてのデート",
+              "type": "event",
+              "cost": 1,
+              "rare": false,
+              "text": "自分のこいびと1枚を対象として発動できる。対象が自分のこいびと枠にいて、その交際段階が0の場合、1枚引き、自分のそだち+5。",
+              "source": "91-event-21-card-text-draft.md#E-first-date — はじめてのデート",
+              "source_sha256": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+              "method": "すぐつかう",
+              "cardId": "E-first-date"
+            },
+            {
+              "id": "A:M-beetle-01:2",
+              "name": "カブトムシ①",
+              "type": "main",
+              "cost": 1,
+              "rare": false,
+              "text": "このメインがたんじょうした時、発動できる。手札1枚を山札の一番下に置く。その後1枚引く。",
+              "source": "15-test-deck-b-main-16-draft.md#① 2/2「ためこむ」",
+              "source_sha256": "6db5aee2f74b0a8c3a809e302fa054aa0b48e9210c5487952a16cbb898ee1085",
+              "stage": 1,
+              "species": "M-beetle",
+              "power": 2,
+              "wisdom": 2,
+              "attribute": "むし",
+              "form": "うまれたての幼虫",
+              "cardId": "M-beetle-01"
+            },
+            {
+              "id": "A:G-archery-3d:2",
+              "name": "アーチェリー",
+              "type": "play",
+              "cost": 2,
+              "rare": false,
+              "text": "自分にセカイがある場合、相手の準備枠の、カードに書かれた時コストが2以下のみにつけられているカード1枚を対象として発動できる。そのカードを捨て札に置く。",
+              "source": "79-play-batch-1-card-text-draft.md#G-archery-3d — アーチェリー",
+              "source_sha256": "cc3cdf1f52581d0e58a72190aff4792da406bdfe7abc508e57849b56fc0a900a",
+              "method": "すぐつかう",
+              "cardId": "G-archery-3d"
+            },
+            {
+              "id": "A:I-bowtie:2",
+              "name": "おべんとうばこ",
+              "type": "item",
+              "cost": 2,
+              "rare": false,
+              "text": "メイン・なかま・こいびとのいずれかにみにつける。1ターンに1回。自分のターン開始時、手札が2枚以下の場合、発動できる。1枚引く。",
+              "source": "77-current-items-card-text-draft.md#I-bowtie — おべんとうばこ",
+              "source_sha256": "ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02",
+              "method": "みにつける",
+              "cardId": "I-bowtie"
+            },
+            {
+              "id": "A:G-hit-blow:1",
+              "name": "ヒット&ブロー",
+              "type": "play",
+              "cost": 1,
+              "rare": false,
+              "text": "発動時にカード種を1つ宣言する。山札上1枚を公開する。宣言した種類なら手札に加え、自分のそだち+5。違うなら山札下へ置き、1枚引く。",
+              "source": "87-play-batch-5-card-text-draft.md#G-hit-blow — ヒット&ブロー",
+              "source_sha256": "b87a3288c053d2ddb811d6dc341de03370a014f570516d145948e978980169f4",
+              "method": "すぐつかう",
+              "cardId": "G-hit-blow"
+            }
+          ]
+        },
+        {
+          "kind": "initial",
+          "seat": "B",
+          "text": "B：開始時の手札 5枚",
+          "cards": []
+        },
+        {
+          "kind": "time",
+          "seat": "A",
+          "before": null,
+          "after": 1,
+          "delta": null,
+          "text": "A：時 — → 1",
+          "cards": []
+        },
+        {
+          "kind": "time",
+          "seat": "B",
+          "before": null,
+          "after": 0,
+          "delta": null,
+          "text": "B：時 — → 0",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "revision": 1,
+      "turn": "A",
+      "heading": "たまご・手札返却",
+      "combined": false,
+      "trace": [
+        "A：手札1枚を山札下へ"
+      ],
+      "rows": [
+        {
+          "kind": "return",
+          "seat": "A",
+          "from": "hand",
+          "to": "deck",
+          "text": "A：山札へ戻した ヒット&ブロー",
+          "cards": [
+            {
+              "id": "A:G-hit-blow:1",
+              "name": "ヒット&ブロー",
+              "type": "play",
+              "cost": 1,
+              "rare": false,
+              "text": "発動時にカード種を1つ宣言する。山札上1枚を公開する。宣言した種類なら手札に加え、自分のそだち+5。違うなら山札下へ置き、1枚引く。",
+              "source": "87-play-batch-5-card-text-draft.md#G-hit-blow — ヒット&ブロー",
+              "source_sha256": "b87a3288c053d2ddb811d6dc341de03370a014f570516d145948e978980169f4",
+              "method": "すぐつかう",
+              "cardId": "G-hit-blow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "revision": 4,
+      "turn": "A",
+      "heading": "A：カブトムシ①を配置（時1）",
+      "combined": false,
+      "trace": [
+        "A：カブトムシ①を配置（時1）"
+      ],
+      "rows": [
+        {
+          "kind": "birth",
+          "seat": "A",
+          "from": "hand",
+          "to": "main",
+          "text": "A：たんじょう カブトムシ①",
+          "cards": [
+            {
+              "id": "A:M-beetle-01:2",
+              "name": "カブトムシ①",
+              "type": "main",
+              "cost": 1,
+              "rare": false,
+              "text": "このメインがたんじょうした時、発動できる。手札1枚を山札の一番下に置く。その後1枚引く。",
+              "source": "15-test-deck-b-main-16-draft.md#① 2/2「ためこむ」",
+              "source_sha256": "6db5aee2f74b0a8c3a809e302fa054aa0b48e9210c5487952a16cbb898ee1085",
+              "stage": 1,
+              "species": "M-beetle",
+              "power": 2,
+              "wisdom": 2,
+              "attribute": "むし",
+              "form": "うまれたての幼虫",
+              "cardId": "M-beetle-01"
+            }
+          ]
+        },
+        {
+          "kind": "time",
+          "seat": "A",
+          "before": 1,
+          "after": 0,
+          "delta": -1,
+          "text": "A：時 1 → 0（−1）",
+          "cards": []
+        },
+        {
+          "kind": "power",
+          "seat": "A",
+          "before": null,
+          "after": 2,
+          "delta": null,
+          "text": "A：ちから — → 2",
+          "cards": []
+        },
+        {
+          "kind": "wisdom",
+          "seat": "A",
+          "before": null,
+          "after": 2,
+          "delta": null,
+          "text": "A：ちえ — → 2",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "revision": 7,
+      "turn": "A",
+      "heading": "A：カブトムシ①を解決",
+      "combined": false,
+      "trace": [
+        "A：カブトムシ①を解決"
+      ],
+      "rows": []
+    },
+    {
+      "id": 8,
+      "revision": 8,
+      "turn": "A",
+      "heading": "A：手札1枚を山札下へ",
+      "combined": false,
+      "trace": [
+        "A：手札1枚を山札下へ"
+      ],
+      "rows": [
+        {
+          "kind": "draw",
+          "seat": "A",
+          "from": "deck",
+          "to": "hand",
+          "text": "A：手札に追加（山札から） アーチェリー",
+          "cards": [
+            {
+              "id": "A:G-archery-3d:3",
+              "name": "アーチェリー",
+              "type": "play",
+              "cost": 2,
+              "rare": false,
+              "text": "自分にセカイがある場合、相手の準備枠の、カードに書かれた時コストが2以下のみにつけられているカード1枚を対象として発動できる。そのカードを捨て札に置く。",
+              "source": "79-play-batch-1-card-text-draft.md#G-archery-3d — アーチェリー",
+              "source_sha256": "cc3cdf1f52581d0e58a72190aff4792da406bdfe7abc508e57849b56fc0a900a",
+              "method": "すぐつかう",
+              "cardId": "G-archery-3d"
+            }
+          ]
+        },
+        {
+          "kind": "return",
+          "seat": "A",
+          "from": "hand",
+          "to": "deck",
+          "text": "A：山札へ戻した しんかい",
+          "cards": [
+            {
+              "id": "A:W-deepsea:1",
+              "name": "しんかい",
+              "type": "world",
+              "cost": 2,
+              "rare": false,
+              "text": "自分の手札が2枚以下の間、自分のメインのちから・ちえ+1。",
+              "source": "89-world-13-card-text-draft.md#W-deepsea — しんかい",
+              "source_sha256": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269",
+              "cardId": "W-deepsea"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hidden": [
+    {
+      "id": 0,
+      "revision": 0,
+      "turn": "A",
+      "heading": "対戦開始時点",
+      "combined": false,
+      "trace": [
+        "R1 Aのターン開始"
+      ],
+      "rows": [
+        {
+          "kind": "initial",
+          "seat": "A",
+          "text": "A：開始時の手札 7枚",
+          "cards": []
+        },
+        {
+          "kind": "initial",
+          "seat": "B",
+          "text": "B：開始時の手札 5枚",
+          "cards": []
+        },
+        {
+          "kind": "time",
+          "seat": "A",
+          "before": null,
+          "after": 1,
+          "delta": null,
+          "text": "A：時 — → 1",
+          "cards": []
+        },
+        {
+          "kind": "time",
+          "seat": "B",
+          "before": null,
+          "after": 0,
+          "delta": null,
+          "text": "B：時 — → 0",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "revision": 1,
+      "turn": "A",
+      "heading": "たまご・手札返却",
+      "combined": false,
+      "trace": [
+        "A：手札1枚を山札下へ"
+      ],
+      "rows": [
+        {
+          "kind": "return",
+          "seat": "A",
+          "from": "hand",
+          "to": "deck",
+          "text": "A：山札へ戻した 1枚",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "revision": 4,
+      "turn": "A",
+      "heading": "A：カブトムシ①を配置（時1）",
+      "combined": false,
+      "trace": [
+        "A：カブトムシ①を配置（時1）"
+      ],
+      "rows": [
+        {
+          "kind": "birth",
+          "seat": "A",
+          "from": "hand",
+          "to": "main",
+          "text": "A：たんじょう カブトムシ①",
+          "cards": [
+            {
+              "id": "A:M-beetle-01:2",
+              "name": "カブトムシ①",
+              "type": "main",
+              "cost": 1,
+              "rare": false,
+              "text": "このメインがたんじょうした時、発動できる。手札1枚を山札の一番下に置く。その後1枚引く。",
+              "source": "15-test-deck-b-main-16-draft.md#① 2/2「ためこむ」",
+              "source_sha256": "6db5aee2f74b0a8c3a809e302fa054aa0b48e9210c5487952a16cbb898ee1085",
+              "stage": 1,
+              "species": "M-beetle",
+              "power": 2,
+              "wisdom": 2,
+              "attribute": "むし",
+              "form": "うまれたての幼虫",
+              "cardId": "M-beetle-01"
+            }
+          ]
+        },
+        {
+          "kind": "time",
+          "seat": "A",
+          "before": 1,
+          "after": 0,
+          "delta": -1,
+          "text": "A：時 1 → 0（−1）",
+          "cards": []
+        },
+        {
+          "kind": "power",
+          "seat": "A",
+          "before": null,
+          "after": 2,
+          "delta": null,
+          "text": "A：ちから — → 2",
+          "cards": []
+        },
+        {
+          "kind": "wisdom",
+          "seat": "A",
+          "before": null,
+          "after": 2,
+          "delta": null,
+          "text": "A：ちえ — → 2",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "revision": 7,
+      "turn": "A",
+      "heading": "A：カブトムシ①を解決",
+      "combined": false,
+      "trace": [
+        "A：カブトムシ①を解決"
+      ],
+      "rows": []
+    },
+    {
+      "id": 8,
+      "revision": 8,
+      "turn": "A",
+      "heading": "A：手札1枚を山札下へ",
+      "combined": false,
+      "trace": [
+        "A：手札1枚を山札下へ"
+      ],
+      "rows": [
+        {
+          "kind": "draw",
+          "seat": "A",
+          "from": "deck",
+          "to": "hand",
+          "text": "A：手札に追加（山札から） 1枚",
+          "cards": []
+        },
+        {
+          "kind": "return",
+          "seat": "A",
+          "from": "hand",
+          "to": "deck",
+          "text": "A：山札へ戻した 1枚",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "revision": 14,
+      "turn": "B",
+      "heading": "R1 Bのターン開始",
+      "combined": false,
+      "trace": [
+        "R1 Bのターン開始"
+      ],
+      "rows": [
+        {
+          "kind": "draw",
+          "seat": "B",
+          "from": "deck",
+          "to": "hand",
+          "text": "B：手札に追加（山札から） 2枚",
+          "cards": []
+        },
+        {
+          "kind": "time",
+          "seat": "B",
+          "before": 0,
+          "after": 1,
+          "delta": 1,
+          "text": "B：時 0 → 1（+1）",
+          "cards": []
+        }
+      ]
+    }
+  ],
+  "B": [
+    {
+      "id": 0,
+      "revision": 0,
+      "turn": "A",
+      "heading": "対戦開始時点",
+      "combined": false,
+      "trace": [
+        "R1 Aのターン開始"
+      ],
+      "rows": [
+        {
+          "kind": "initial",
+          "seat": "A",
+          "text": "A：開始時の手札 7枚",
+          "cards": []
+        },
+        {
+          "kind": "initial",
+          "seat": "B",
+          "text": "B：開始時の手札 きまぐれなねこ・はじめてのデート・しんかい・カブトムシ①・ヒット&ブロー",
+          "cards": [
+            {
+              "id": "B:C-cat_friend:2",
+              "name": "きまぐれなねこ",
+              "type": "companion",
+              "cost": 0,
+              "rare": false,
+              "text": "1ターンに1回。自分のターンに、このカードをなかま枠から山札の一番下に置き、自分の捨て札の「きまぐれなねこ」以外のなかまカード1枚を対象として発動できる。そのカードを手札に戻す。",
+              "source": "72-companion-26-card-text-draft.md#C-cat_friend — きまぐれなねこ",
+              "source_sha256": "941d17e157d77badfaaab0e1f04539eb602c05b893241ff3024ecd7ae0c97117",
+              "cardId": "C-cat_friend"
+            },
+            {
+              "id": "B:E-first-date:2",
+              "name": "はじめてのデート",
+              "type": "event",
+              "cost": 1,
+              "rare": false,
+              "text": "自分のこいびと1枚を対象として発動できる。対象が自分のこいびと枠にいて、その交際段階が0の場合、1枚引き、自分のそだち+5。",
+              "source": "91-event-21-card-text-draft.md#E-first-date — はじめてのデート",
+              "source_sha256": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+              "method": "すぐつかう",
+              "cardId": "E-first-date"
+            },
+            {
+              "id": "B:W-deepsea:3",
+              "name": "しんかい",
+              "type": "world",
+              "cost": 2,
+              "rare": false,
+              "text": "自分の手札が2枚以下の間、自分のメインのちから・ちえ+1。",
+              "source": "89-world-13-card-text-draft.md#W-deepsea — しんかい",
+              "source_sha256": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269",
+              "cardId": "W-deepsea"
+            },
+            {
+              "id": "B:M-beetle-01:3",
+              "name": "カブトムシ①",
+              "type": "main",
+              "cost": 1,
+              "rare": false,
+              "text": "このメインがたんじょうした時、発動できる。手札1枚を山札の一番下に置く。その後1枚引く。",
+              "source": "15-test-deck-b-main-16-draft.md#① 2/2「ためこむ」",
+              "source_sha256": "6db5aee2f74b0a8c3a809e302fa054aa0b48e9210c5487952a16cbb898ee1085",
+              "stage": 1,
+              "species": "M-beetle",
+              "power": 2,
+              "wisdom": 2,
+              "attribute": "むし",
+              "form": "うまれたての幼虫",
+              "cardId": "M-beetle-01"
+            },
+            {
+              "id": "B:G-hit-blow:3",
+              "name": "ヒット&ブロー",
+              "type": "play",
+              "cost": 1,
+              "rare": false,
+              "text": "発動時にカード種を1つ宣言する。山札上1枚を公開する。宣言した種類なら手札に加え、自分のそだち+5。違うなら山札下へ置き、1枚引く。",
+              "source": "87-play-batch-5-card-text-draft.md#G-hit-blow — ヒット&ブロー",
+              "source_sha256": "b87a3288c053d2ddb811d6dc341de03370a014f570516d145948e978980169f4",
+              "method": "すぐつかう",
+              "cardId": "G-hit-blow"
+            }
+          ]
+        },
+        {
+          "kind": "time",
+          "seat": "A",
+          "before": null,
+          "after": 1,
+          "delta": null,
+          "text": "A：時 — → 1",
+          "cards": []
+        },
+        {
+          "kind": "time",
+          "seat": "B",
+          "before": null,
+          "after": 0,
+          "delta": null,
+          "text": "B：時 — → 0",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "revision": 1,
+      "turn": "A",
+      "heading": "たまご・手札返却",
+      "combined": false,
+      "trace": [
+        "A：手札1枚を山札下へ"
+      ],
+      "rows": [
+        {
+          "kind": "return",
+          "seat": "A",
+          "from": "hand",
+          "to": "deck",
+          "text": "A：山札へ戻した 1枚",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "revision": 4,
+      "turn": "A",
+      "heading": "A：カブトムシ①を配置（時1）",
+      "combined": false,
+      "trace": [
+        "A：カブトムシ①を配置（時1）"
+      ],
+      "rows": [
+        {
+          "kind": "birth",
+          "seat": "A",
+          "from": "hand",
+          "to": "main",
+          "text": "A：たんじょう カブトムシ①",
+          "cards": [
+            {
+              "id": "A:M-beetle-01:2",
+              "name": "カブトムシ①",
+              "type": "main",
+              "cost": 1,
+              "rare": false,
+              "text": "このメインがたんじょうした時、発動できる。手札1枚を山札の一番下に置く。その後1枚引く。",
+              "source": "15-test-deck-b-main-16-draft.md#① 2/2「ためこむ」",
+              "source_sha256": "6db5aee2f74b0a8c3a809e302fa054aa0b48e9210c5487952a16cbb898ee1085",
+              "stage": 1,
+              "species": "M-beetle",
+              "power": 2,
+              "wisdom": 2,
+              "attribute": "むし",
+              "form": "うまれたての幼虫",
+              "cardId": "M-beetle-01"
+            }
+          ]
+        },
+        {
+          "kind": "time",
+          "seat": "A",
+          "before": 1,
+          "after": 0,
+          "delta": -1,
+          "text": "A：時 1 → 0（−1）",
+          "cards": []
+        },
+        {
+          "kind": "power",
+          "seat": "A",
+          "before": null,
+          "after": 2,
+          "delta": null,
+          "text": "A：ちから — → 2",
+          "cards": []
+        },
+        {
+          "kind": "wisdom",
+          "seat": "A",
+          "before": null,
+          "after": 2,
+          "delta": null,
+          "text": "A：ちえ — → 2",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "revision": 7,
+      "turn": "A",
+      "heading": "A：カブトムシ①を解決",
+      "combined": false,
+      "trace": [
+        "A：カブトムシ①を解決"
+      ],
+      "rows": []
+    },
+    {
+      "id": 8,
+      "revision": 8,
+      "turn": "A",
+      "heading": "A：手札1枚を山札下へ",
+      "combined": false,
+      "trace": [
+        "A：手札1枚を山札下へ"
+      ],
+      "rows": [
+        {
+          "kind": "draw",
+          "seat": "A",
+          "from": "deck",
+          "to": "hand",
+          "text": "A：手札に追加（山札から） 1枚",
+          "cards": []
+        },
+        {
+          "kind": "return",
+          "seat": "A",
+          "from": "hand",
+          "to": "deck",
+          "text": "A：山札へ戻した 1枚",
+          "cards": []
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "revision": 14,
+      "turn": "B",
+      "heading": "R1 Bのターン開始",
+      "combined": false,
+      "trace": [
+        "R1 Bのターン開始"
+      ],
+      "rows": [
+        {
+          "kind": "draw",
+          "seat": "B",
+          "from": "deck",
+          "to": "hand",
+          "text": "B：手札に追加（山札から） がけのヤギさん・おべんとうばこ",
+          "cards": [
+            {
+              "id": "B:P-cliff_goat:3",
+              "name": "がけのヤギさん",
+              "type": "partner",
+              "cost": 0,
+              "rare": false,
+              "text": "1ターンに1回。自分が名前の異なるセカイへ変更した時、発動できる。このターン、自分が次にこのこいびととの交際を進めるための時を1少なくする。",
+              "source": "74-partner-18-card-text-draft.md#P-cliff_goat — がけのヤギさん",
+              "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0",
+              "cardId": "P-cliff_goat"
+            },
+            {
+              "id": "B:I-bowtie:1",
+              "name": "おべんとうばこ",
+              "type": "item",
+              "cost": 2,
+              "rare": false,
+              "text": "メイン・なかま・こいびとのいずれかにみにつける。1ターンに1回。自分のターン開始時、手札が2枚以下の場合、発動できる。1枚引く。",
+              "source": "77-current-items-card-text-draft.md#I-bowtie — おべんとうばこ",
+              "source_sha256": "ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02",
+              "method": "みにつける",
+              "cardId": "I-bowtie"
+            }
+          ]
+        },
+        {
+          "kind": "time",
+          "seat": "B",
+          "before": 0,
+          "after": 1,
+          "delta": 1,
+          "text": "B：時 0 → 1（+1）",
+          "cards": []
+        }
+      ]
+    }
+  ],
+  "automaticPasses": 9
+}

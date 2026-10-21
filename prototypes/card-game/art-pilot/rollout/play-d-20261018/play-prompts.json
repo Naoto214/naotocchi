@@ -1,0 +1,410 @@
+[
+  {
+    "id": "G-minesweeper-8",
+    "keys": [
+      "tanuki"
+    ],
+    "scene": "Tanuki thoughtfully uncovers safe blank tiles on an eight-by-eight square tabletop mine puzzle board in a sunny study. Several unrevealed tiles carry tiny RED flags indicating hidden round toy mines, a small corner safely open. Hint marks represented by simple dot groups rather than digits. Tanuki paw lifts a single empty safe tile, otherpaw thoughtfulat chin. No explosions; visual metaphor of cautious searching. All64tiles uniformgrid.",
+    "identity": "Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+    "sources": [
+      "assets/characters/companions/tanuki.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/tanuki.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Tanuki thoughtfully uncovers safe blank tiles on an eight-by-eight square tabletop mine puzzle board in a sunny study. Several unrevealed tiles carry tiny RED flags indicating hidden round toy mines, a small corner safely open. Hint marks represented by simple dot groups rather than digits. Tanuki paw lifts a single empty safe tile, otherpaw thoughtfulat chin. No explosions; visual metaphor of cautious searching. All64tiles uniformgrid. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-f86644b3-3c64-43f5-b28d-d18c16847906.png",
+    "first_candidate": "prototypes/card-game/art-pilot/rollout/play-d-20261018/G-minesweeper-8-first_candidate.png",
+    "revision_prompt": "Correct the tileboard to exactly EIGHT COLUMNS and EIGHT ROWS,64 equal squaretiles. Keep tanuki,room,flags,blankliftedtile,pipclues andstyle. Make each row clear, board slightlydeeper if needed. No numeralsletters.1536x1024.",
+    "qa_status": "repair_pending",
+    "qa_issue": "After edit, board still does not show canonical 8x8 tile geometry. Keep candidate unapproved until grid repaired.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      }
+    ]
+  },
+  {
+    "id": "G-mini-golf-physics",
+    "keys": [
+      "penguin_friend"
+    ],
+    "scene": "Navy white penguin holds a smallputter with twoflippers and gently putts a whitegolfball toward a roundhole with plainyellowflag on a lush miniaturegolfcourse. Curvingbankedgreen andtinywoodenbridge createfunobstacle, lowballlevelcamera, brightmorning, penguin orangefeetplanted, no digits orflagtext.",
+    "identity": "Small navy blue penguin, white face and belly, orange beak and webbed feet, big bright eyes; belly sliding posture.",
+    "sources": [
+      "assets/characters/companions/penguin_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/penguin_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Small navy blue penguin, white face and belly, orange beak and webbed feet, big bright eyes; belly sliding posture.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Navy white penguin holds a smallputter with twoflippers and gently putts a whitegolfball toward a roundhole with plainyellowflag on a lush miniaturegolfcourse. Curvingbankedgreen andtinywoodenbridge createfunobstacle, lowballlevelcamera, brightmorning, penguin orangefeetplanted, no digits orflagtext. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-fea07768-bd1b-4d39-8b13-1dd3643e6464.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/penguin_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "8c2ac5016718c214f4112e2a30bd97bb2d5204c3"
+      }
+    ]
+  },
+  {
+    "id": "G-missile-command",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden round hamster operates a friendly toy defense console above a miniature colorful town, pressing a blankroundbutton. Three slim glowing incoming streaks in sky are intercepted by expanding soft rainbow light circles from a small rounded launcher. Safe arcadegame diorama, no military insignia, no destruction/injury, mainfocushamster and protective lightumbrella, luminous twilightsky.",
+    "identity": "Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/hamster.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Golden round hamster operates a friendly toy defense console above a miniature colorful town, pressing a blankroundbutton. Three slim glowing incoming streaks in sky are intercepted by expanding soft rainbow light circles from a small rounded launcher. Safe arcadegame diorama, no military insignia, no destruction/injury, mainfocushamster and protective lightumbrella, luminous twilightsky. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-6be57cdf-ce51-47d3-b45d-204387daf562.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-p3-drive",
+    "keys": [
+      "shiba"
+    ],
+    "scene": "Shiba drives a small red convertible along a broad winding highway through rolling countryside. Front threequarterview ofhappyface, forepaws steeringwheel, plainseatbelt, earsandcurledtailvisible. A few floatinggolden coins andbluegem aheadalonglane, onebluecar far ahead and roadsideorangecones indicate avoidancegame. No roadsignletters,no carlogos,numplate blank.",
+    "identity": "Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.",
+    "sources": [
+      "assets/characters/companions/shiba.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/shiba.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Orange shiba inu with white cream muzzle chest belly and paws, triangular ears, black eyes and nose, curled plush tail.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Shiba drives a small red convertible along a broad winding highway through rolling countryside. Front threequarterview ofhappyface, forepaws steeringwheel, plainseatbelt, earsandcurledtailvisible. A few floatinggolden coins andbluegem aheadalonglane, onebluecar far ahead and roadsideorangecones indicate avoidancegame. No roadsignletters,no carlogos,numplate blank. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-03751cf2-8cbd-4d58-8602-4a9b30cee153.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/shiba.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9fe0f2e61e6c87e4bd38412624a786d271d680f1"
+      }
+    ]
+  },
+  {
+    "id": "G-p3-space",
+    "keys": [
+      "rabbit_friend"
+    ],
+    "scene": "White rabbit pilots a small teal rocket with clearbubblecockpit, bothforepaws oncontrols, longears fitinside. Rocket flies through glowing golden starcollectibles while curving around a large rounded graymeteor in upperright. Deepviolet skywithpastelnebula, friendly nonviolent spacetravel, diagonalupwardmotion, no weapons,textornumbers, fullrocket silhouette.",
+    "identity": "Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: White rabbit pilots a small teal rocket with clearbubblecockpit, bothforepaws oncontrols, longears fitinside. Rocket flies through glowing golden starcollectibles while curving around a large rounded graymeteor in upperright. Deepviolet skywithpastelnebula, friendly nonviolent spacetravel, diagonalupwardmotion, no weapons,textornumbers, fullrocket silhouette. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-b8e9d44b-2596-4f7d-8fac-1b8d85cedcc7.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-picross-5",
+    "keys": [
+      "panda"
+    ],
+    "scene": "Panda carefully colors dark blue squares on a small5by5wooden picturepuzzlegrid at a brightwindowtable. Filledsquares form a simple tiny symmetric heartlikepixelpicture, unfilledsquares cream, severalgraydotclues at margins INSTEADofnumbers. Exactly5columns5rows. Panda uses bluecrayon withonepaw otherpaw restsedge, thoughtfulgentleface, no lettersor numerals.",
+    "identity": "Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+    "sources": [
+      "assets/characters/companions/panda.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Panda carefully colors dark blue squares on a small5by5wooden picturepuzzlegrid at a brightwindowtable. Filledsquares form a simple tiny symmetric heartlikepixelpicture, unfilledsquares cream, severalgraydotclues at margins INSTEADofnumbers. Exactly5columns5rows. Panda uses bluecrayon withonepaw otherpaw restsedge, thoughtfulgentleface, no lettersor numerals. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-f600b9ed-eeb8-4b06-b901-72b6585ae80a.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      }
+    ]
+  },
+  {
+    "id": "G-pinball-physics",
+    "keys": [
+      "squirrel"
+    ],
+    "scene": "Orange squirrel enthusiastically plays a colorful pinballtable, oneforepaw at eachsidebutton, eyesfollowing shiny silverball bouncing from redroundbumper toward twoyellow flippers at bottom. Near overhead diagonalview shows full playfield, curvedlanes and launchspring, tabletopwoodentoy in sunlitplayroom. No score screenornumbers,no text, expressiveclearsquirrelface andcurledtail.",
+    "identity": "Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+    "sources": [
+      "assets/characters/companions/squirrel.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/squirrel.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Orange squirrel enthusiastically plays a colorful pinballtable, oneforepaw at eachsidebutton, eyesfollowing shiny silverball bouncing from redroundbumper toward twoyellow flippers at bottom. Near overhead diagonalview shows full playfield, curvedlanes and launchspring, tabletopwoodentoy in sunlitplayroom. No score screenornumbers,no text, expressiveclearsquirrelface andcurledtail. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-9a111d5b-2766-424b-83c5-b7fd8f785029.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/squirrel.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+      }
+    ]
+  },
+  {
+    "id": "G-pingpong-3d",
+    "keys": [
+      "monkey",
+      "rabbit_friend"
+    ],
+    "scene": "Monkey and white rabbit rally one small white pingpongball across a blue tablewithlowcenternet. Monkey at LEFT SHORT END with redpaddle, rabbit at RIGHT SHORT END with bluepaddle, facing eachother down longtableaxis. Camera fromlongside sees bothfaces inprofile and fulltable; ball justclearingnet, natural2arms2legs, joyfulsunnygardencourt, no text.",
+    "identity": "Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/monkey.png",
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/monkey.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair. / Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Monkey and white rabbit rally one small white pingpongball across a blue tablewithlowcenternet. Monkey at LEFT SHORT END with redpaddle, rabbit at RIGHT SHORT END with bluepaddle, facing eachother down longtableaxis. Camera fromlongside sees bothfaces inprofile and fulltable; ball justclearingnet, natural2arms2legs, joyfulsunnygardencourt, no text. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-9b8804f7-de49-45c0-b5d0-a5b4fa832d43.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      },
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-pipe-connect",
+    "keys": [
+      "otter"
+    ],
+    "scene": "Otter rotates one elbow pipe segment in a wooden square pipe-puzzle tray outdoors by a gardenpond. Connected blue pipes create an unbroken winding route from a little water tank at left to a flowerwateringoutlet at right; one loose elbow being turned closes finalgap. Water visible in connected transparentsections, twoforepaws distinct, thoughtfulsmile, cleanreadablepipeconnections andnodeadend atsource/outlet.",
+    "identity": "Brown otter, cream muzzle throat belly, roundears, whiskers andsmooth longtaperedtail.",
+    "sources": [
+      "assets/characters/companions/otter.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/otter.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Brown otter, cream muzzle throat belly, roundears, whiskers andsmooth longtaperedtail.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Otter rotates one elbow pipe segment in a wooden square pipe-puzzle tray outdoors by a gardenpond. Connected blue pipes create an unbroken winding route from a little water tank at left to a flowerwateringoutlet at right; one loose elbow being turned closes finalgap. Water visible in connected transparentsections, twoforepaws distinct, thoughtfulsmile, cleanreadablepipeconnections andnodeadend atsource/outlet. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-d79debdd-c02b-4f43-8299-2bf684f5440a.png",
+    "first_candidate": "prototypes/card-game/art-pilot/rollout/play-d-20261018/G-pipe-connect-first_candidate.png",
+    "revision_prompt": "Replace ONLY pipe layout with a single simple CONTINUOUS path from tankleft to sprayheadright. Route: tank outlet goes RIGHT, elbow turns towardBACK ofboard, then elbow turnsRIGHT along backrow, then elbow turns towardFRONT downmiddle, then elbow turnsRIGHT alongfrontrow and finalelbow turnsUP into existing right sprayhead. ExactlyONE continuous serpentine pipe, NO loops, NO forks, NO openends, NO detachedpipe inotterpaw. Otter paw rests on one connectedelbow. Transparentbluepipe filledwithwaterallway. Preserveotterandgarden,1536x1024,no text.",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/otter.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "28dfc0c91893bc9fbf57ef98d6d9c2be84c04b40"
+      }
+    ]
+  },
+  {
+    "id": "G-plane-landing",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden hamster pilots a rounded cream and blue propellerplane in a gentle landingapproach over a grassy airfield. Two mainwheels nearlytouch a clear pavedrunway, one smalltailwheel behind, wingsproperlyconnected, frontpropeller softmotionblur. Cockpitwindow shows roundcreamcheeks and tiny pinkpaws, redwhitestripedwindsock andflowerbanks, sunrisegoldlight. No letteringordigits, fullplanevisible.",
+    "identity": "Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/hamster.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Golden hamster pilots a rounded cream and blue propellerplane in a gentle landingapproach over a grassy airfield. Two mainwheels nearlytouch a clear pavedrunway, one smalltailwheel behind, wingsproperlyconnected, frontpropeller softmotionblur. Cockpitwindow shows roundcreamcheeks and tiny pinkpaws, redwhitestripedwindsock andflowerbanks, sunrisegoldlight. No letteringordigits, fullplanevisible. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-d4d03f71-7926-4db5-b244-35b86cfa3221.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  },
+  {
+    "id": "G-push-puzzle",
+    "keys": [
+      "tanuki"
+    ],
+    "scene": "Tanuki uses BOTH forepaws to push a plain woodencrate onto a yellow star target painted on a stonefloor inside cozywarehouse. Other crates form a simple navigablepuzzle withclearpath andtwootherstartargets, highdiagonalcamera, twohindfeet braced andbrownfluffytail, nofacesoncrates,nobrandtext. Warmwindowlight, visiblepushingeffortbuthappy.",
+    "identity": "Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.",
+    "sources": [
+      "assets/characters/companions/tanuki.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/tanuki.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Round brown tanuki, dark mask around eyes, cream muzzle and belly, rounded ears, brown bushy tail, holding a small green leaf.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Tanuki uses BOTH forepaws to push a plain woodencrate onto a yellow star target painted on a stonefloor inside cozywarehouse. Other crates form a simple navigablepuzzle withclearpath andtwootherstartargets, highdiagonalcamera, twohindfeet braced andbrownfluffytail, nofacesoncrates,nobrandtext. Warmwindowlight, visiblepushingeffortbuthappy. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-46c5918b-c761-4fcf-8167-74df7220fd25.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/tanuki.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "fd93aa15ca9b0406c167fd634d20135e5b6a2e94"
+      }
+    ]
+  },
+  {
+    "id": "G-puzzle-2048",
+    "keys": [
+      "panda"
+    ],
+    "scene": "Panda slides two IDENTICAL palegold squaretiles together across a four-by-four wooden slidingpuzzleboard. At their meetingpoint a warmglow reveals one larger orangegem icon on mergedtile, illustrating merging equal values into greater one. Use GEM SYMBOLS ONLY ontiles, absolutelyno numerals because standaloneartmustbetextfree. Other tiles have matching singlebluegem or twinnedgreen gems. Close overheadthreequarterview, cozy study, clear4by4grid.",
+    "identity": "Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+    "sources": [
+      "assets/characters/companions/panda.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Panda slides two IDENTICAL palegold squaretiles together across a four-by-four wooden slidingpuzzleboard. At their meetingpoint a warmglow reveals one larger orangegem icon on mergedtile, illustrating merging equal values into greater one. Use GEM SYMBOLS ONLY ontiles, absolutelyno numerals because standaloneartmustbetextfree. Other tiles have matching singlebluegem or twinnedgreen gems. Close overheadthreequarterview, cozy study, clear4by4grid. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-5bbd3464-5753-4fad-8f0c-b2fff73d9d3a.png",
+    "first_candidate": "prototypes/card-game/art-pilot/rollout/play-d-20261018/G-puzzle-2048-first_candidate.png",
+    "revision_prompt": "Correct puzzleboard ONLY to exactly FOUR columns and FOUR rows (16squarecells). Show16 even squarecells clear in perspective. Put matching small orangegem tiles sidebyside in centralrow and one larger glowingorangegem between them slightlyfloating toillustratemerge. All remainingcells can be empty or contain singlebluegem tiles. Preservepanda,sceneandpainterlystyle,nolettersornumerals,1536x1024.",
+    "qa_status": "repair_pending",
+    "qa_issue": "After edit, board still has only three rows rather than canonical 4x4. Keep candidate unapproved until fourth row is added.",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      }
+    ]
+  },
+  {
+    "id": "G-race-3d",
+    "keys": [
+      "rabbit_friend"
+    ],
+    "scene": "White rabbit rides a small green open racingkart toward a blackwhite checkered finisharch on a sunny forestroad, seen rear threequarter withcheek andlongears visible. Bothforepaws steeringwheel, fluffyshorttailbehindseat, road curves into arch, one distant rivalcart. Clearforwardmotion andgoal, differentview fromgrandprixfrontshot, no text/roadnumbers, brightstorybook.",
+    "identity": "Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.",
+    "sources": [
+      "assets/characters/companions/rabbit_friend.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/rabbit_friend.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Cream white rabbit, long pink-lined ears, large brown eyes, pink nose and small round fluffy tail.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: White rabbit rides a small green open racingkart toward a blackwhite checkered finisharch on a sunny forestroad, seen rear threequarter withcheek andlongears visible. Bothforepaws steeringwheel, fluffyshorttailbehindseat, road curves into arch, one distant rivalcart. Clearforwardmotion andgoal, differentview fromgrandprixfrontshot, no text/roadnumbers, brightstorybook. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-9486219e-bc8d-4738-8787-dbbc7985d229.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/rabbit_friend.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "2d2ef37b5b7753b991f98ab6a6f7c124203dbd74"
+      }
+    ]
+  },
+  {
+    "id": "G-real-fishing",
+    "keys": [
+      "panda"
+    ],
+    "scene": "Panda at the edge of a calm lake intheearlymorning carefully reels a fishingrod while a silverfish swirls belowwater near afloat. Forepaws hold rodandturnreel, seatedroundedbody onwoodenstool, plainbucket beside, reeds andsoftmist. Close sideview shows bendrod andcontinuousline,floatandsmallfish, peacefulfocusedexpression, no injury, no seaside surf.",
+    "identity": "Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.",
+    "sources": [
+      "assets/characters/companions/panda.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/panda.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Plump black and white panda with black ears, eye patches, arms and legs, white face and belly, small leafy sprig nearby.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Panda at the edge of a calm lake intheearlymorning carefully reels a fishingrod while a silverfish swirls belowwater near afloat. Forepaws hold rodandturnreel, seatedroundedbody onwoodenstool, plainbucket beside, reeds andsoftmist. Close sideview shows bendrod andcontinuousline,floatandsmallfish, peacefulfocusedexpression, no injury, no seaside surf. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-c596d9cb-47f6-43ad-aae2-ba0aca5a8b0e.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/panda.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "c5d6c6f8abce1b47b1f683e1afe528960fbfe5f3"
+      }
+    ]
+  },
+  {
+    "id": "G-reversi-6",
+    "keys": [
+      "monkey",
+      "squirrel"
+    ],
+    "scene": "Monkey and squirrel play reversi on a clearly SIX-by-SIX green board withthinwoodframe at a woodlandpicnictable. Blackwhite round discs centered INSIDE squares, a shortrow of threewhitediscs bracketedbyblackdiscs, monkey flipsmiddleone fromwhite toblack. Nearlyoverhead boardview with bothfaces above, naturalhandsdistinct, no lettersdigits, softleafshadow.",
+    "identity": "Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair. / Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.",
+    "sources": [
+      "assets/characters/companions/monkey.png",
+      "assets/characters/companions/squirrel.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/monkey.png",
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/squirrel.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Small warm brown monkey, pale cream face and belly, large round pink-lined ears, curling long tail, round friendly eyes and tuft of hair. / Rusty orange squirrel with cream muzzle chest belly, huge curled fluffy tail, tufted ears, small paws and bright brown eyes.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Monkey and squirrel play reversi on a clearly SIX-by-SIX green board withthinwoodframe at a woodlandpicnictable. Blackwhite round discs centered INSIDE squares, a shortrow of threewhitediscs bracketedbyblackdiscs, monkey flipsmiddleone fromwhite toblack. Nearlyoverhead boardview with bothfaces above, naturalhandsdistinct, no lettersdigits, softleafshadow. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-c893c683-f590-401b-b40c-f4b5d9d5c795.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/monkey.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "21e856a2a199c0ac200c17c9d0d9abaaf650ce2f"
+      },
+      {
+        "path": "assets/characters/companions/squirrel.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "6d3f3e0530260af25048aaa2dac17ec601fd77e7"
+      }
+    ]
+  },
+  {
+    "id": "G-rhythm-highway-3d",
+    "keys": [
+      "hamster"
+    ],
+    "scene": "Golden round hamster joyfully taps a small set of three glowing blank pads as a magical three-lane musical roadway stretches away into a pastel twilight horizon. Colored square note-tiles descend eachlane towardpadsofmatchingcolor, softlightpulses and starbursts conveybeat. Hamster two tiny pinkpaws alternatingpads, cheeksandshortnubtailpreserved, musicrhythmgamenotcartraffic, no printednoteslettersnumbers.",
+    "identity": "Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.",
+    "sources": [
+      "assets/characters/companions/hamster.png"
+    ],
+    "refs": [
+      "/workspace/scratch/12defc51d7b0/naotocchi/assets/characters/companions/hamster.png"
+    ],
+    "prompt": "Create ONE Naotocchi CARD GAME dedicated illustration,1536x1024PNG landscape3:2. Firstreference(s) canonical2D identity: Round orange golden hamster, white cream belly and enormous cream cheek pouches, tiny pink hands and feet, dark bright eyes.. Lastreference approved picturebookpainting STYLEONLY; do not copy itscharacters orbeachsetting. Scene: Golden round hamster joyfully taps a small set of three glowing blank pads as a magical three-lane musical roadway stretches away into a pastel twilight horizon. Colored square note-tiles descend eachlane towardpadsofmatchingcolor, softlightpulses and starbursts conveybeat. Hamster two tiny pinkpaws alternatingpads, cheeksandshortnubtailpreserved, musicrhythmgamenotcartraffic, no printednoteslettersnumbers. Cute delicate watercolor/gouache,softnatural light,finebrushtexture,warmfriendlyexpressions,focalcharactersreadable on smallcards. Coherent anatomy allhands/feetattached. No letters,numerals,watermark,logo,cardframe,HUD.",
+    "generated_path": "/workspace/scratch/12defc51d7b0/generated_images/exec-72bc2281-f4fc-484f-b3ef-17139b589597.png",
+    "qa_status": "complete_qa",
+    "provenance_sources": [
+      {
+        "path": "assets/characters/companions/hamster.png",
+        "ref": "5d950d1b88751b202ac2fe2fcb2f3ea7ef0598af",
+        "blob": "9d5ac53d80ed9c7e550067f91ced25459aa5d098"
+      }
+    ]
+  }
+]

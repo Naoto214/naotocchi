@@ -1,0 +1,148 @@
+{
+  "cause": "Fixed 280 ms elapsed before a slow World3D frame committed the quiet class and began the CSS opacity transition.",
+  "unchanged_assertion": "hintOpacity < 0.6",
+  "red": {
+    "targeted_real_app": "iphone-390 walking case failed at opacity 0.709307",
+    "focused_css_regression": "old fixed wait failed at opacity 1; transition running, pending, currentTime 0"
+  },
+  "green": {
+    "focused_css_regression": "actual style.css transition settled to opacity 0.38",
+    "targeted_real_app": "iphone-390, iphone-375, android-360 all PASS; targeted invocation exit 0",
+    "measurements": [
+      {
+        "label": "chromium-meguru-discovery-iphone-390",
+        "tag": "secret",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "かくれたいけ",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -37.5,
+          "right": -37.5,
+          "top": -430.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      },
+      {
+        "label": "chromium-meguru-discovery-iphone-390",
+        "tag": "歩行中",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "こけむしたくぼみ",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -37.5,
+          "right": -37.5,
+          "top": -430.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      },
+      {
+        "label": "chromium-meguru-discovery-iphone-390",
+        "tag": "contextボタン + 下部ヘルプ",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "ひかりのすきま",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -37.5,
+          "right": -37.5,
+          "top": -430.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      },
+      {
+        "label": "chromium-meguru-discovery-iphone-375",
+        "tag": "secret",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "かくれたいけ",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -30,
+          "right": -30,
+          "top": -283.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      },
+      {
+        "label": "chromium-meguru-discovery-iphone-375",
+        "tag": "歩行中",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "こけむしたくぼみ",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -30,
+          "right": -30,
+          "top": -283.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      },
+      {
+        "label": "chromium-meguru-discovery-iphone-375",
+        "tag": "contextボタン + 下部ヘルプ",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "ひかりのすきま",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -30,
+          "right": -30,
+          "top": -283.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      },
+      {
+        "label": "chromium-meguru-discovery-android-360",
+        "tag": "secret",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "かくれたいけ",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -29.5,
+          "right": -29.5,
+          "top": -256.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      },
+      {
+        "label": "chromium-meguru-discovery-android-360",
+        "tag": "歩行中",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "こけむしたくぼみ",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -29.5,
+          "right": -29.5,
+          "top": -256.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      },
+      {
+        "label": "chromium-meguru-discovery-android-360",
+        "tag": "contextボタン + 下部ヘルプ",
+        "title": "ひみつのばしょを みつけた！",
+        "sub": "ひかりのすきま",
+        "cls": "mgr-found mgr-found-secret mgr-found-strong",
+        "out": {
+          "left": -29.5,
+          "right": -29.5,
+          "top": -256.203125,
+          "bottom": -52
+        },
+        "hintOpacity": 0.38
+      }
+    ]
+  },
+  "fix": "Flush computed hint style, then wait until getAnimations has no pending or running animations before original measurements.",
+  "scope": "Chromium134 software browser viewport emulation; physical iPhone NOT_RUN",
+  "production_edits": false,
+  "source_sha256": {
+    "tests/meguru-discovery-browser.cjs": "0c191dff0799bf2da825464c59e83f0524ef13e2725f1128dc08bba0837f333a",
+    "tests/meguru-discovery-transition-browser.cjs": "cd51bc1df84cd9922e0af2aa7800db82cbe3329cb5325dd107576d1f7f51671d",
+    "style.css": "7cb15da46be57c588a6b8270588b982e76121fc3445ea17dca785c0995297ccc"
+  }
+}

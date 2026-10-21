@@ -1,0 +1,8 @@
+test_both_mirrors_join_source_order_to_first_opportunity_without_promotion (test_proxy_population_initial_obligations.InitialObligationsTests.test_both_mirrors_join_source_order_to_first_opportunity_without_promotion) ... ok
+test_connected_gate_rejects_unverified_fresh_initial_audit (test_proxy_population_initial_obligations.InitialObligationsTests.test_connected_gate_rejects_unverified_fresh_initial_audit) ... ok
+test_shared_initial_dealer_cannot_substitute_manifest_top_card (test_proxy_population_initial_obligations.InitialObligationsTests.test_shared_initial_dealer_cannot_substitute_manifest_top_card) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 6.286s
+
+OK

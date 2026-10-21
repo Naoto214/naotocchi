@@ -1,0 +1,21 @@
+{"scope": "historical115_order_zero_roots_synthetic_integration", "events": 162, "decisions": 123, "turn_counts": {"A": 10, "B": 9}, "completed": false, "stop": {"code": "unsupported_contract_boundary", "detail": "reached cat target needs separate proof", "phase": "post_placement_response"}, "result": null, "independent_balance_samples": 0, "seed_generation": false, "planned_400_execution": false, "preflight_ready": false}
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/data/proxy-population-runtime-completeness-470/probe_historical_unit.py", line 28, in <module>
+    evidence=dict(final_envelope=r['final_envelope'],initial=i,events=all_events,**old_runtime.operation(i,inspect))
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/data/proxy-population-runtime-completeness-470/probe_historical_unit.py", line 26, in inspect
+    def inspect(forced):return dict(inventory=candidates.audit(r['final_envelope'],all_events))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_candidates.py", line 53, in audit
+    if game['phase']!='normal_action': raise ValueError('not a normal opportunity')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not a normal opportunity

@@ -1,0 +1,46 @@
+{
+  "choice_changes": 0,
+  "decision_record_changes": 0,
+  "declaration_prefixes": 152,
+  "diagnostic_only": true,
+  "frontier_changes": 0,
+  "groups": {
+    "already_seeded": {
+      "fallback": 8,
+      "frontier_refined_candidates": 0,
+      "inputs": 8,
+      "refined_declaration_candidates": 0
+    },
+    "control": {
+      "fallback": 0,
+      "frontier_refined_candidates": 0,
+      "inputs": 59,
+      "refined_declaration_candidates": 12
+    },
+    "legacy_safe_free_unique": {
+      "fallback": 46,
+      "frontier_refined_candidates": 0,
+      "inputs": 46,
+      "refined_declaration_candidates": 0
+    },
+    "legacy_time_unique": {
+      "fallback": 128,
+      "frontier_refined_candidates": 0,
+      "inputs": 128,
+      "refined_declaration_candidates": 0
+    },
+    "legacy_unsupported": {
+      "fallback": 72,
+      "frontier_refined_candidates": 140,
+      "inputs": 72,
+      "refined_declaration_candidates": 140
+    }
+  },
+  "independent_balance_sample_count": 0,
+  "inputs": 313,
+  "new_runs": 0,
+  "policy_promoted": false,
+  "proved_equal_pairs": 0,
+  "remaining_by_group_action": [],
+  "remaining_generator_unsupported": 0
+}

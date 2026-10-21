@@ -1,0 +1,45 @@
+test_activation_resolution_not_double_play (test_proxy_resource_value_evaluation.EvaluationTests.test_activation_resolution_not_double_play) ... ok
+test_counts_and_denominators_are_separate (test_proxy_resource_value_evaluation.EvaluationTests.test_counts_and_denominators_are_separate) ... ok
+test_direct_frontier_selection_counts_as_valid_without_fallback (test_proxy_resource_value_evaluation.EvaluationTests.test_direct_frontier_selection_counts_as_valid_without_fallback) ... ERROR
+test_equal_tie_break_success_is_not_unresolved (test_proxy_resource_value_evaluation.EvaluationTests.test_equal_tie_break_success_is_not_unresolved) ... ok
+test_missing_or_duplicate_planned_ids_are_rejected (test_proxy_resource_value_evaluation.EvaluationTests.test_missing_or_duplicate_planned_ids_are_rejected) ... ok
+test_one_side_stopped_is_missing_not_zero (test_proxy_resource_value_evaluation.EvaluationTests.test_one_side_stopped_is_missing_not_zero) ... ok
+test_response_activation_uses_public_source_zone_and_hand_movement (test_proxy_resource_value_evaluation.EvaluationTests.test_response_activation_uses_public_source_zone_and_hand_movement) ... FAIL
+test_seed_context_and_candidate_changes_are_separate (test_proxy_resource_value_evaluation.EvaluationTests.test_seed_context_and_candidate_changes_are_separate) ... ok
+test_seeded_routes_excluded_from_balance (test_proxy_resource_value_evaluation.EvaluationTests.test_seeded_routes_excluded_from_balance) ... ok
+test_shadow_not_counted_as_matches (test_proxy_resource_value_evaluation.EvaluationTests.test_shadow_not_counted_as_matches) ... ok
+
+======================================================================
+ERROR: test_direct_frontier_selection_counts_as_valid_without_fallback (test_proxy_resource_value_evaluation.EvaluationTests.test_direct_frontier_selection_counts_as_valid_without_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_evaluation.py", line 61, in test_direct_frontier_selection_counts_as_valid_without_fallback
+    out=e.evaluate_trajectories(dict(planned_ids=['old:p']),[r])['routes'][0]['normal']
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_evaluation.py", line 110, in evaluate_trajectories
+    _coverage(manifest,routes,'run_id');evaluated=[_route(r) for r in routes];pairs=[]
+                                                   ^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_evaluation.py", line 90, in _route
+    normal=_decision_counts(normal,normal_stop),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_evaluation.py", line 25, in _decision_counts
+    fallback=sum(r.get('resolution_mode')=='seeded_fallback' and len(r.get('legal_candidates',[]))>1 for r in rows)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_evaluation.py", line 25, in <genexpr>
+    fallback=sum(r.get('resolution_mode')=='seeded_fallback' and len(r.get('legal_candidates',[]))>1 for r in rows)
+                 ^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+
+======================================================================
+FAIL: test_response_activation_uses_public_source_zone_and_hand_movement (test_proxy_resource_value_evaluation.EvaluationTests.test_response_activation_uses_public_source_zone_and_hand_movement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_evaluation.py", line 69, in test_response_activation_uses_public_source_zone_and_hand_movement
+    self.assertEqual(out['hand_plays'],1);self.assertEqual(out['board_activations'],1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+FAILED (failures=1, errors=1)

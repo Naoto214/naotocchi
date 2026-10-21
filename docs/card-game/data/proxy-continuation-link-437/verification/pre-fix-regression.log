@@ -1,0 +1,26 @@
+test_hand_and_board_link_ids_share_one_namespace (test_proxy_continuation_board_links.BoardLinkTests.test_hand_and_board_link_ids_share_one_namespace) ... 
+  test_hand_and_board_link_ids_share_one_namespace (test_proxy_continuation_board_links.BoardLinkTests.test_hand_and_board_link_ids_share_one_namespace) (reverse=False) ... FAIL
+  test_hand_and_board_link_ids_share_one_namespace (test_proxy_continuation_board_links.BoardLinkTests.test_hand_and_board_link_ids_share_one_namespace) (reverse=True) ... FAIL
+
+======================================================================
+FAIL: test_hand_and_board_link_ids_share_one_namespace (test_proxy_continuation_board_links.BoardLinkTests.test_hand_and_board_link_ids_share_one_namespace) (reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_board_links.py", line 55, in test_hand_and_board_link_ids_share_one_namespace
+    with self.assertRaises(ValueError):state.validate(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_hand_and_board_link_ids_share_one_namespace (test_proxy_continuation_board_links.BoardLinkTests.test_hand_and_board_link_ids_share_one_namespace) (reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_board_links.py", line 55, in test_hand_and_board_link_ids_share_one_namespace
+    with self.assertRaises(ValueError):state.validate(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=2)

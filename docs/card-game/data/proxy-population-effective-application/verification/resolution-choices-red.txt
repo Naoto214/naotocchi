@@ -1,0 +1,37 @@
+FFFF
+======================================================================
+FAIL: test_descriptor_no_choice_routes_reject_extra_records (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_descriptor_no_choice_routes_reject_extra_records)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_choices.py", line 11, in test_descriptor_no_choice_routes_reject_extra_records
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_designated_family_requires_separate_journal_proof (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_designated_family_requires_separate_journal_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_choices.py", line 32, in test_designated_family_requires_separate_journal_proof
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_legacy_search_failure_is_explicit_no_choice_not_designated_policy (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_legacy_search_failure_is_explicit_no_choice_not_designated_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_choices.py", line 40, in test_legacy_search_failure_is_explicit_no_choice_not_designated_policy
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_unknown_resolver_is_not_certified_by_empty_decisions (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_unknown_resolver_is_not_certified_by_empty_decisions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_choices.py", line 22, in test_unknown_resolver_is_not_certified_by_empty_decisions
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

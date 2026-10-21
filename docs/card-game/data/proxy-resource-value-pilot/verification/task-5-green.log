@@ -1,0 +1,24 @@
+test_diverged_states_are_not_matched_by_round_only (test_proxy_resource_value_trajectory.TrajectoryTests.test_diverged_states_are_not_matched_by_round_only) ... ok
+test_fresh_paired_exact_coverage (test_proxy_resource_value_trajectory.TrajectoryTests.test_fresh_paired_exact_coverage) ... ok
+test_independent_replay_rejects_event_snapshot_hash_tampering (test_proxy_resource_value_trajectory.TrajectoryTests.test_independent_replay_rejects_event_snapshot_hash_tampering) ... ok
+test_legacy_replay_matches_saved_results (test_proxy_resource_value_trajectory.TrajectoryTests.test_legacy_replay_matches_saved_results) ... ok
+test_mandatory_response_context_preserved (test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_response_context_preserved) ... ok
+test_no_r11_after_terminal (test_proxy_resource_value_trajectory.TrajectoryTests.test_no_r11_after_terminal) ... ok
+test_same_initial_manifest_two_policies_four_routes (test_proxy_resource_value_trajectory.TrajectoryTests.test_same_initial_manifest_two_policies_four_routes) ... ok
+test_unsupported_new_action_is_structural_stop (test_proxy_resource_value_trajectory.TrajectoryTests.test_unsupported_new_action_is_structural_stop) ... ERROR
+
+======================================================================
+ERROR: test_unsupported_new_action_is_structural_stop (test_proxy_resource_value_trajectory.TrajectoryTests.test_unsupported_new_action_is_structural_stop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_trajectory.py", line 26, in test_unsupported_new_action_is_structural_stop
+    trajectory.apply_selected(state,forged,initial['inputs'])
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_trajectory.py", line 136, in apply_selected
+    if action['candidate_id']!=record['selected_candidate']:raise ValueError('selected action differs')
+       ~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'candidate_id'
+
+----------------------------------------------------------------------
+Ran 8 tests in 12.405s
+
+FAILED (errors=1)

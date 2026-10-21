@@ -1,0 +1,21 @@
+import sys,json,subprocess,hashlib
+from pathlib import Path
+R=Path('/workspace/scratch/4cc1eee1ca09/naotocchi-verification');W=Path('/workspace/scratch/4cc1eee1ca09/rebinding-work')
+sys.path.insert(0,str(R/'docs/card-game/tools'))
+import proxy_population_launch_authorization as launch
+from proxy_mandatory_policy_contract import canonical
+def git(*args):return subprocess.check_output(['git',*args],cwd=R).decode().strip()
+assert git('rev-parse','HEAD')=='d4e24431a1f3c9b6dae0cc9b8d8c5099db3a5e02'
+assert not git('status','--porcelain')
+read=lambda n:json.loads((W/n).read_bytes())
+request=read('request.json');certificate=read('edition.json');context=read('context.json');receipt=read('manifest-receipt.json')
+assert hashlib.sha256(canonical(request)).hexdigest()=='e932c1632915fb98597a42ff8d2884fbb2efae6406613ddea4953faa874ba59c'
+bundle=json.loads((R/receipt['path']).read_bytes())
+claim=R/'docs/card-game/data/proxy-population-approval-consumption/6162350238.json'
+assert not claim.exists() and not (R/request['destination']).exists()
+with (W/'consumption-6162350238.invoked').open('x') as marker:marker.write('single invocation; do not rerun')
+result=launch.consume_launch_after_prevalidation(R,bundle,receipt,certificate,512,R/request['destination'],6162350238,execution_binding=context)
+
+with (W/'consumption-6162350238.json').open('xb') as f:f.write(canonical(result))
+assert claim.exists() and not (R/request['destination']).exists()
+print(json.dumps({'consumed':True,'preconsumption_verified':result['prevalidation']['preconsumption_verified'],'claim':str(claim)}))

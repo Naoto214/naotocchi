@@ -1,0 +1,11 @@
+test_duplicate_source_decision_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_duplicate_source_decision_rejected) ... ok
+test_group_label_not_selection_input (test_proxy_equivalence_evaluation.EvaluationTests.test_group_label_not_selection_input) ... ok
+test_manifest_313_and_groups_241_72 (test_proxy_equivalence_evaluation.EvaluationTests.test_manifest_313_and_groups_241_72) ... ok
+test_new_unsupported_row_not_dropped (test_proxy_equivalence_evaluation.EvaluationTests.test_new_unsupported_row_not_dropped) ... ok
+test_selected_action_binding_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_selected_action_binding_rejected) ... ok
+test_zero_reduction_is_valid (test_proxy_equivalence_evaluation.EvaluationTests.test_zero_reduction_is_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 10.476s
+
+OK

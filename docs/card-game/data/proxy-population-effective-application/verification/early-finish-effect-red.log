@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_100_without_future_opponent_end_may_continue (test_proxy_population_early_finish_effect.EarlyFinishEffectTests.test_100_without_future_opponent_end_may_continue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_early_finish_effect.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'early finish public-history delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : early finish public-history delta absent
+
+======================================================================
+FAIL: test_actual_existing_terminal_and_no_early_result_in_r10 (test_proxy_population_early_finish_effect.EarlyFinishEffectTests.test_actual_existing_terminal_and_no_early_result_in_r10)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_early_finish_effect.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'early finish public-history delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : early finish public-history delta absent
+
+======================================================================
+FAIL: test_coverage_rejects_extra_growth_with_full_supplied_history (test_proxy_population_early_finish_effect.EarlyFinishEffectTests.test_coverage_rejects_extra_growth_with_full_supplied_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_early_finish_effect.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'early finish public-history delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : early finish public-history delta absent
+
+======================================================================
+FAIL: test_terminal_delta_history_result_and_improper_continuation_rejected (test_proxy_population_early_finish_effect.EarlyFinishEffectTests.test_terminal_delta_history_result_and_improper_continuation_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_early_finish_effect.py", line 25, in setUp
+    def setUp(self):self.assertIsNotNone(api,'early finish public-history delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : early finish public-history delta absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

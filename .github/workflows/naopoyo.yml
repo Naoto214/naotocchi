@@ -1,0 +1,45 @@
+name: Naopoyo integration
+on:
+  pull_request:
+    branches: [main]
+    paths: ['prototypes/growth-chain/**', 'index.html', 'ui.css', '.github/workflows/naopoyo.yml']
+  push:
+    branches: [main]
+    paths: ['prototypes/growth-chain/**', 'index.html', 'ui.css', '.github/workflows/naopoyo.yml']
+permissions:
+  contents: read
+jobs:
+  naopoyo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm --prefix prototypes/growth-chain install --package-lock=false
+      - run: npx --prefix prototypes/growth-chain playwright install --with-deps chromium
+      - name: Unit and DOM
+        run: |
+          npm --prefix prototypes/growth-chain test
+          npm --prefix prototypes/growth-chain run test:dom
+      - name: Targeted mutations
+        run: |
+          for name in mutation balance-mutation egg-mutation optimization-mutation gauge-mutation player-mutation profile-mutation; do
+            node prototypes/growth-chain/tests/$name.cjs
+          done
+      - name: Build and browser flows
+        run: |
+          export CHROME_PATH="$(node -e "console.log(require('./prototypes/growth-chain/node_modules/playwright').chromium.executablePath())")"
+          export QA_OUT="$PWD/test-results/naopoyo"
+          node prototypes/growth-chain/build-player.cjs
+          for name in browser flows input effects offline; do
+            node prototypes/growth-chain/tests/player-$name.cjs
+          done
+          node prototypes/growth-chain/tests/integration-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: naopoyo-browser
+          path: test-results/naopoyo
+          retention-days: 14

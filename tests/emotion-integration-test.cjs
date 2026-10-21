@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const vm = require('node:vm');
-const {harness} = require('./helpers/runtime-harness.cjs');
+const {harness} = require('./helpers/present-cast-harness.cjs');
 
 function renderNormal(h) {
   // The lightweight DOM does not parse index.html's initial hidden classes.

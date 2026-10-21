@@ -1,0 +1,15 @@
+test_shared_projector_cannot_add_private_fields_to_actual_inventory (test_proxy_population_history_projection.HistoryProjectionTests.test_shared_projector_cannot_add_private_fields_to_actual_inventory) ... FAIL
+
+======================================================================
+FAIL: test_shared_projector_cannot_add_private_fields_to_actual_inventory (test_proxy_population_history_projection.HistoryProjectionTests.test_shared_projector_cannot_add_private_fields_to_actual_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_history_projection.py", line 16, in test_shared_projector_cannot_add_private_fields_to_actual_inventory
+    with patch.object(history,'event_projection',leaking),self.assertRaisesRegex(ValueError,'allowed history'):
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 2.791s
+
+FAILED (failures=1)

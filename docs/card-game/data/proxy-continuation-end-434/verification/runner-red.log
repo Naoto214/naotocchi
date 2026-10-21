@@ -1,0 +1,45 @@
+test_independent_replay_checks_runtime_and_end_evidence (test_proxy_continuation_end_runner.EndRunnerTests.test_independent_replay_checks_runtime_and_end_evidence) ... FAIL
+test_old_433_default_replay_still_exact (test_proxy_continuation_end_runner.EndRunnerTests.test_old_433_default_replay_still_exact) ... FAIL
+test_paired_eight_initial_inputs_and_explicit_coverage (test_proxy_continuation_end_runner.EndRunnerTests.test_paired_eight_initial_inputs_and_explicit_coverage) ... FAIL
+test_reached_main_and_equipment_end_boundaries_advance (test_proxy_continuation_end_runner.EndRunnerTests.test_reached_main_and_equipment_end_boundaries_advance) ... FAIL
+
+======================================================================
+FAIL: test_independent_replay_checks_runtime_and_end_evidence (test_proxy_continuation_end_runner.EndRunnerTests.test_independent_replay_checks_runtime_and_end_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end_runner.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'opt-in shared end runner absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : opt-in shared end runner absent
+
+======================================================================
+FAIL: test_old_433_default_replay_still_exact (test_proxy_continuation_end_runner.EndRunnerTests.test_old_433_default_replay_still_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end_runner.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'opt-in shared end runner absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : opt-in shared end runner absent
+
+======================================================================
+FAIL: test_paired_eight_initial_inputs_and_explicit_coverage (test_proxy_continuation_end_runner.EndRunnerTests.test_paired_eight_initial_inputs_and_explicit_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end_runner.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'opt-in shared end runner absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : opt-in shared end runner absent
+
+======================================================================
+FAIL: test_reached_main_and_equipment_end_boundaries_advance (test_proxy_continuation_end_runner.EndRunnerTests.test_reached_main_and_equipment_end_boundaries_advance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end_runner.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'opt-in shared end runner absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : opt-in shared end runner absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.619s
+
+FAILED (failures=4)

@@ -1,0 +1,418 @@
+[
+  {
+    "region": "home",
+    "spot": "yard",
+    "yaw": 0,
+    "dz": -150,
+    "name": "home-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "home",
+    "spot": "house",
+    "yaw": 90,
+    "dx": 200,
+    "name": "home-house-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "forest",
+    "spot": "bright1",
+    "yaw": 0,
+    "dz": -200,
+    "name": "forest-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "jungle",
+    "spot": "clearing",
+    "yaw": 0,
+    "dz": -200,
+    "name": "jungle-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "city",
+    "spot": "square",
+    "yaw": 0,
+    "dz": -200,
+    "name": "city-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "city",
+    "spot": "arcade",
+    "yaw": 0,
+    "dz": -150,
+    "name": "city-arcade-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "city",
+    "spot": "market",
+    "yaw": 180,
+    "dz": 150,
+    "name": "city-market-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "countryside",
+    "spot": "village",
+    "yaw": 0,
+    "dz": -200,
+    "name": "countryside-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "mountain",
+    "spot": "trailhead",
+    "yaw": 0,
+    "dz": -200,
+    "name": "mountain-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "snow",
+    "spot": "field",
+    "yaw": 0,
+    "dz": -200,
+    "name": "snow-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "sea",
+    "spot": "shore",
+    "yaw": 0,
+    "dz": -200,
+    "name": "sea-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "deepsea",
+    "spot": "coralcity",
+    "yaw": 0,
+    "dz": -200,
+    "name": "deepsea-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "river_lake",
+    "spot": "riverside",
+    "yaw": 300,
+    "dz": -100,
+    "name": "river_lake-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "river_lake",
+    "spot": "bridge1",
+    "yaw": 0,
+    "dz": -320,
+    "name": "river-bridge-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "desert",
+    "spot": "well",
+    "yaw": 0,
+    "dz": -200,
+    "name": "desert-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "desert",
+    "spot": "oasis",
+    "yaw": 0,
+    "dz": -260,
+    "name": "oasis-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "star_stop",
+    "spot": "platform",
+    "yaw": 0,
+    "dz": -200,
+    "name": "star_stop-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "memory_lake",
+    "spot": "path1",
+    "yaw": 0,
+    "dz": -200,
+    "name": "memory_lake-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "forest",
+    "spot": "creek2",
+    "yaw": 30,
+    "dz": -300,
+    "dx": 150,
+    "dist": 650,
+    "name": "forest-creek-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "forest",
+    "spot": "bridge1",
+    "yaw": 250,
+    "dx": 200,
+    "dz": 120,
+    "dist": 600,
+    "name": "forest-bridge-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "river_lake",
+    "spot": "bridge2",
+    "yaw": 120,
+    "dx": -250,
+    "dz": 150,
+    "dist": 600,
+    "name": "river-stonebridge-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "countryside",
+    "spot": "meadow",
+    "yaw": 0,
+    "dz": -250,
+    "dist": 650,
+    "name": "countryside-river-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "mountain",
+    "spot": "mtvillage",
+    "yaw": 0,
+    "dz": -250,
+    "dist": 620,
+    "name": "mountain-summer-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "mountain",
+    "spot": "mtvillage",
+    "yaw": 0,
+    "dz": -250,
+    "dist": 620,
+    "name": "mountain-winter-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "winter"
+    ]
+  },
+  {
+    "region": "river_lake",
+    "x": -60,
+    "z": 2250,
+    "yaw": 90,
+    "dist": 520,
+    "name": "river-bridge2-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "mountain",
+    "x": -81,
+    "z": 1880,
+    "yaw": 0,
+    "dist": 560,
+    "name": "mountain-slope-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "desert",
+    "x": 2168,
+    "z": 7300,
+    "yaw": 0,
+    "dist": 560,
+    "name": "desert-slope-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "forest",
+    "spot": "bright1",
+    "yaw": 0,
+    "dz": -200,
+    "name": "forest-autumn-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "autumn"
+    ]
+  },
+  {
+    "region": "countryside",
+    "spot": "village",
+    "yaw": 0,
+    "dz": -200,
+    "name": "countryside-autumn-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "autumn"
+    ]
+  },
+  {
+    "region": "forest",
+    "spot": "bright1",
+    "yaw": 180,
+    "dz": 200,
+    "name": "forest-winter-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "winter"
+    ],
+    "dist": 650
+  },
+  {
+    "region": "home",
+    "spot": "yard",
+    "yaw": 0,
+    "dz": -150,
+    "name": "home-spring-vq",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "spring"
+    ]
+  }
+]

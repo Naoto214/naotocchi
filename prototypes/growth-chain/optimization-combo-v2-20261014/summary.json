@@ -1,0 +1,880 @@
+{
+  "edition": "combo",
+  "conditions": [
+    {
+      "condition": {
+        "policy": "legacy",
+        "id": "g4-width7",
+        "gauge": 4,
+        "width": 7
+      },
+      "n": 8,
+      "wins": 3,
+      "gameovers": 5,
+      "censored": 0,
+      "reach": 3,
+      "two08": 3,
+      "winAfterTwo": 1,
+      "meanObservedDrops": 250.375,
+      "meanActions": 467.5,
+      "gaugeEarned": 4440,
+      "gaugeSpent": 4364,
+      "transforms": 683,
+      "bulks": 136,
+      "transClear": 915,
+      "bulkClear": 333,
+      "maxChain": 5,
+      "chains2": 974,
+      "meanHighStageOccupancy": 4.648663101604278,
+      "scoreQuantiles": [
+        4270,
+        4690,
+        8470,
+        9300,
+        9980
+      ],
+      "winActions": [
+        265,
+        321,
+        242
+      ],
+      "winInputSteps": [
+        847,
+        1010,
+        765
+      ],
+      "capHits": 0,
+      "earned": [
+        565,
+        292,
+        64,
+        6
+      ],
+      "remaining": [
+        3,
+        3,
+        1,
+        2
+      ],
+      "spent": [
+        562,
+        289,
+        63,
+        4
+      ],
+      "seeds": [
+        {
+          "seed": 200,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 318,
+          "actions": 592,
+          "score": 9300,
+          "hash": "43ff8539"
+        },
+        {
+          "seed": 201,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 288,
+          "actions": 522,
+          "score": 8470,
+          "hash": "835fd618"
+        },
+        {
+          "seed": 202,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 141,
+          "actions": 265,
+          "score": 4690,
+          "hash": "d74171cb"
+        },
+        {
+          "seed": 203,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 327,
+          "actions": 620,
+          "score": 9520,
+          "hash": "ac8b9c31"
+        },
+        {
+          "seed": 204,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 332,
+          "actions": 636,
+          "score": 9980,
+          "hash": "caaccb8e"
+        },
+        {
+          "seed": 205,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 173,
+          "actions": 321,
+          "score": 5420,
+          "hash": "dc881caa"
+        },
+        {
+          "seed": 206,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 298,
+          "actions": 542,
+          "score": 8520,
+          "hash": "29dd9eb4"
+        },
+        {
+          "seed": 207,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 126,
+          "actions": 242,
+          "score": 4270,
+          "hash": "1d8d2ac5"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "policy": "legacy",
+        "id": "g6-width7",
+        "gauge": 6,
+        "width": 7
+      },
+      "n": 8,
+      "wins": 2,
+      "gameovers": 6,
+      "censored": 0,
+      "reach": 2,
+      "two08": 2,
+      "winAfterTwo": 1,
+      "meanObservedDrops": 239.75,
+      "meanActions": 385.75,
+      "gaugeEarned": 4062,
+      "gaugeSpent": 3942,
+      "transforms": 258,
+      "bulks": 133,
+      "transClear": 422,
+      "bulkClear": 460,
+      "maxChain": 7,
+      "chains2": 898,
+      "meanHighStageOccupancy": 3.6652624756966947,
+      "scoreQuantiles": [
+        5600,
+        6640,
+        7120,
+        7550,
+        7630
+      ],
+      "winActions": [
+        378,
+        285
+      ],
+      "winInputSteps": [
+        1223,
+        963
+      ],
+      "capHits": 0,
+      "earned": [
+        460,
+        258,
+        55,
+        8
+      ],
+      "remaining": [
+        3,
+        1,
+        0,
+        0
+      ],
+      "spent": [
+        457,
+        257,
+        55,
+        8
+      ],
+      "seeds": [
+        {
+          "seed": 200,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 226,
+          "actions": 378,
+          "score": 7550,
+          "hash": "bd35d2cb"
+        },
+        {
+          "seed": 201,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 250,
+          "actions": 395,
+          "score": 7120,
+          "hash": "017e8be7"
+        },
+        {
+          "seed": 202,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 267,
+          "actions": 431,
+          "score": 7590,
+          "hash": "f2340b3b"
+        },
+        {
+          "seed": 203,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 247,
+          "actions": 382,
+          "score": 6900,
+          "hash": "7d80c931"
+        },
+        {
+          "seed": 204,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 271,
+          "actions": 435,
+          "score": 7630,
+          "hash": "b6681d5d"
+        },
+        {
+          "seed": 205,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 163,
+          "actions": 285,
+          "score": 5600,
+          "hash": "0410b1dc"
+        },
+        {
+          "seed": 206,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 258,
+          "actions": 410,
+          "score": 7550,
+          "hash": "8bba066a"
+        },
+        {
+          "seed": 207,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 236,
+          "actions": 370,
+          "score": 6640,
+          "hash": "f5468589"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "policy": "legacy",
+        "id": "g4-kinds4",
+        "gauge": 4,
+        "kinds": 4
+      },
+      "n": 8,
+      "wins": 6,
+      "gameovers": 2,
+      "censored": 0,
+      "reach": 6,
+      "two08": 6,
+      "winAfterTwo": 1,
+      "meanObservedDrops": 184.375,
+      "meanActions": 357,
+      "gaugeEarned": 3416,
+      "gaugeSpent": 3340,
+      "transforms": 580,
+      "bulks": 85,
+      "transClear": 768,
+      "bulkClear": 270,
+      "maxChain": 7,
+      "chains2": 725,
+      "meanHighStageOccupancy": 3.850840336134454,
+      "scoreQuantiles": [
+        3590,
+        3890,
+        5600,
+        6180,
+        9890
+      ],
+      "winActions": [
+        279,
+        205,
+        198,
+        326,
+        313,
+        333
+      ],
+      "winInputSteps": [
+        874,
+        589,
+        586,
+        965,
+        928,
+        996
+      ],
+      "capHits": 0,
+      "earned": [
+        440,
+        222,
+        59,
+        19
+      ],
+      "remaining": [
+        5,
+        5,
+        7,
+        7
+      ],
+      "spent": [
+        435,
+        217,
+        52,
+        12
+      ],
+      "seeds": [
+        {
+          "seed": 200,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 144,
+          "actions": 279,
+          "score": 5600,
+          "hash": "4cff5789"
+        },
+        {
+          "seed": 201,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 320,
+          "actions": 633,
+          "score": 9890,
+          "hash": "4831baab"
+        },
+        {
+          "seed": 202,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 297,
+          "actions": 569,
+          "score": 9170,
+          "hash": "83207c6e"
+        },
+        {
+          "seed": 203,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 105,
+          "actions": 205,
+          "score": 3590,
+          "hash": "ece775ea"
+        },
+        {
+          "seed": 204,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 103,
+          "actions": 198,
+          "score": 3890,
+          "hash": "d2cade7c"
+        },
+        {
+          "seed": 205,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 176,
+          "actions": 326,
+          "score": 6180,
+          "hash": "0327ea27"
+        },
+        {
+          "seed": 206,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 160,
+          "actions": 313,
+          "score": 5140,
+          "hash": "b88014fc"
+        },
+        {
+          "seed": 207,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 170,
+          "actions": 333,
+          "score": 5760,
+          "hash": "af4dac49"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "policy": "legacy",
+        "id": "g6-kinds4",
+        "gauge": 6,
+        "kinds": 4
+      },
+      "n": 8,
+      "wins": 2,
+      "gameovers": 6,
+      "censored": 0,
+      "reach": 5,
+      "two08": 2,
+      "winAfterTwo": 1,
+      "meanObservedDrops": 226.625,
+      "meanActions": 380.625,
+      "gaugeEarned": 3962,
+      "gaugeSpent": 3858,
+      "transforms": 325,
+      "bulks": 106,
+      "transClear": 482,
+      "bulkClear": 338,
+      "maxChain": 7,
+      "chains2": 900,
+      "meanHighStageOccupancy": 4.139244663382595,
+      "scoreQuantiles": [
+        5300,
+        5560,
+        7360,
+        7790,
+        7960
+      ],
+      "winActions": [
+        260,
+        247
+      ],
+      "winInputSteps": [
+        813,
+        796
+      ],
+      "capHits": 0,
+      "earned": [
+        495,
+        244,
+        59,
+        9
+      ],
+      "remaining": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "spent": [
+        494,
+        243,
+        56,
+        8
+      ],
+      "seeds": [
+        {
+          "seed": 200,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 249,
+          "actions": 421,
+          "score": 7510,
+          "hash": "66692860"
+        },
+        {
+          "seed": 201,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 264,
+          "actions": 433,
+          "score": 7960,
+          "hash": "045ff99f"
+        },
+        {
+          "seed": 202,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 259,
+          "actions": 449,
+          "score": 7940,
+          "hash": "6d3d3308"
+        },
+        {
+          "seed": 203,
+          "status": "gameover",
+          "created": 1,
+          "two08": false,
+          "drops": 239,
+          "actions": 389,
+          "score": 6890,
+          "hash": "aa1c518f"
+        },
+        {
+          "seed": 204,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 149,
+          "actions": 260,
+          "score": 5560,
+          "hash": "8af84398"
+        },
+        {
+          "seed": 205,
+          "status": "gameover",
+          "created": 1,
+          "two08": false,
+          "drops": 249,
+          "actions": 408,
+          "score": 7360,
+          "hash": "d662ab36"
+        },
+        {
+          "seed": 206,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 143,
+          "actions": 247,
+          "score": 5300,
+          "hash": "3ebd5581"
+        },
+        {
+          "seed": 207,
+          "status": "gameover",
+          "created": 1,
+          "two08": false,
+          "drops": 261,
+          "actions": 438,
+          "score": 7790,
+          "hash": "1b28b32a"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "policy": "legacy",
+        "id": "g4-silver1",
+        "gauge": 4,
+        "eggs": [
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "n": 8,
+      "wins": 2,
+      "gameovers": 6,
+      "censored": 0,
+      "reach": 4,
+      "two08": 3,
+      "winAfterTwo": 0.6666666666666666,
+      "meanObservedDrops": 262.125,
+      "meanActions": 490.625,
+      "gaugeEarned": 4743,
+      "gaugeSpent": 4668,
+      "transforms": 621,
+      "bulks": 182,
+      "transClear": 812,
+      "bulkClear": 539,
+      "maxChain": 6,
+      "chains2": 981,
+      "meanHighStageOccupancy": 5.866496815286625,
+      "scoreQuantiles": [
+        3830,
+        6310,
+        8120,
+        9560,
+        10740
+      ],
+      "winActions": [
+        449,
+        215
+      ],
+      "winInputSteps": [
+        1359,
+        632
+      ],
+      "capHits": 0,
+      "earned": [
+        620,
+        305,
+        84,
+        18
+      ],
+      "remaining": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "spent": [
+        617,
+        310,
+        83,
+        15
+      ],
+      "seeds": [
+        {
+          "seed": 200,
+          "status": "win",
+          "created": 5,
+          "two08": true,
+          "drops": 248,
+          "actions": 449,
+          "score": 8120,
+          "hash": "d2c83912"
+        },
+        {
+          "seed": 201,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 220,
+          "actions": 389,
+          "score": 6310,
+          "hash": "91d90b08"
+        },
+        {
+          "seed": 202,
+          "status": "gameover",
+          "created": 1,
+          "two08": false,
+          "drops": 336,
+          "actions": 641,
+          "score": 10740,
+          "hash": "51fc8a44"
+        },
+        {
+          "seed": 203,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 107,
+          "actions": 215,
+          "score": 3830,
+          "hash": "3799796b"
+        },
+        {
+          "seed": 204,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 297,
+          "actions": 567,
+          "score": 9080,
+          "hash": "3c1ff05d"
+        },
+        {
+          "seed": 205,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 272,
+          "actions": 496,
+          "score": 8080,
+          "hash": "faf75cc1"
+        },
+        {
+          "seed": 206,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 310,
+          "actions": 590,
+          "score": 9560,
+          "hash": "5d463d90"
+        },
+        {
+          "seed": 207,
+          "status": "gameover",
+          "created": 3,
+          "two08": true,
+          "drops": 307,
+          "actions": 578,
+          "score": 9950,
+          "hash": "79e3dbe3"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "policy": "legacy",
+        "id": "g2-width7",
+        "gauge": 2,
+        "width": 7
+      },
+      "n": 8,
+      "wins": 6,
+      "gameovers": 2,
+      "censored": 0,
+      "reach": 6,
+      "two08": 6,
+      "winAfterTwo": 1,
+      "meanObservedDrops": 224,
+      "meanActions": 557.75,
+      "gaugeEarned": 4238,
+      "gaugeSpent": 4158,
+      "transforms": 1629,
+      "bulks": 150,
+      "transClear": 1986,
+      "bulkClear": 297,
+      "maxChain": 5,
+      "chains2": 841,
+      "meanHighStageOccupancy": 7.830569251456746,
+      "scoreQuantiles": [
+        3320,
+        4500,
+        4820,
+        6740,
+        14530
+      ],
+      "winActions": [
+        311,
+        397,
+        346,
+        463,
+        217,
+        326
+      ],
+      "winInputSteps": [
+        831,
+        1236,
+        966,
+        1299,
+        655,
+        946
+      ],
+      "capHits": 0,
+      "earned": [
+        572,
+        276,
+        88,
+        29
+      ],
+      "remaining": [
+        57,
+        7,
+        6,
+        4
+      ],
+      "spent": [
+        515,
+        269,
+        82,
+        25
+      ],
+      "seeds": [
+        {
+          "seed": 200,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 131,
+          "actions": 311,
+          "score": 4630,
+          "hash": "56d8873c"
+        },
+        {
+          "seed": 201,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 167,
+          "actions": 397,
+          "score": 6110,
+          "hash": "a9bd1b24"
+        },
+        {
+          "seed": 202,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 137,
+          "actions": 346,
+          "score": 4820,
+          "hash": "b8d68568"
+        },
+        {
+          "seed": 203,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 477,
+          "actions": 1219,
+          "score": 14530,
+          "hash": "c17e2a5e"
+        },
+        {
+          "seed": 204,
+          "status": "win",
+          "created": 3,
+          "two08": true,
+          "drops": 194,
+          "actions": 463,
+          "score": 6740,
+          "hash": "2f7d6e4a"
+        },
+        {
+          "seed": 205,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 89,
+          "actions": 217,
+          "score": 3320,
+          "hash": "18838e4a"
+        },
+        {
+          "seed": 206,
+          "status": "gameover",
+          "created": 0,
+          "two08": false,
+          "drops": 468,
+          "actions": 1183,
+          "score": 14390,
+          "hash": "ed76b54c"
+        },
+        {
+          "seed": 207,
+          "status": "win",
+          "created": 2,
+          "two08": true,
+          "drops": 129,
+          "actions": 326,
+          "score": 4500,
+          "hash": "85568f15"
+        }
+      ]
+    }
+  ]
+}

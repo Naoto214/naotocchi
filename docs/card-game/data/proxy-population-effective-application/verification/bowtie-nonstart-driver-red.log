@@ -1,0 +1,19 @@
+E
+======================================================================
+ERROR: test_supplied_nonstart_driver_exports_both_start_sources_as_negative (test_proxy_population_response_start_negative.ResponseStartNegativeTests.test_supplied_nonstart_driver_exports_both_start_sources_as_negative)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_response_start_negative.py", line 38, in test_supplied_nonstart_driver_exports_both_start_sources_as_negative
+    e,j,_=both();e=runtime.engine.payments.upgrade(e);c=e['legacy_continuation'];g=c['game_state'];e['event_seq']=5
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_payments.py", line 88, in upgrade
+    e=copy.deepcopy(envelope);e['schema']=SCHEMA;e['execution_contract_id']=CONTRACT;e['runtime']['payment_effects']=[];e['runtime']['stat_effects']=[];e['runtime']['conditional_effects']=[];state.validate(e);return e
+                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_state.py", line 29, in validate
+    raise ValueError('invalid continuation envelope')
+ValueError: invalid continuation envelope
+
+----------------------------------------------------------------------
+Ran 1 test in 0.017s
+
+FAILED (errors=1)

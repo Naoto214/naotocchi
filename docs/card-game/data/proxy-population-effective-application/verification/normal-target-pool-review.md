@@ -1,0 +1,11 @@
+# 通常手札target poolの独立実状態照合
+
+基準e389658c00a0f42a49153e34c83a33c16a40c71b。共有_targetsをI-bowtieの1対象だけにするとproducerと旧expansion監査が同時欠落する2RED（audit/actual entry）を再現した。手札source/action/variant別の対象集合を実owner盤面・公開discard・公開相手main/装備から別導出し、既存Counterの前に照合する。79/83の装備条件は公開face_upを先に確認、印刷costは固定114表。91の初デートは発動時partner段階を限定しない。対象空集合の明示行、合法性dispositionと効果成否は分離する。
+
+独立review C0/I0/Minor0。レビュー担当は79/83/114/91対応とprivate identity read trapを確認。別3テストPASS1.153s、helper正常45呼出し・各状態60又は74枚を参照禁止。有限fixture検査であり全情報経路の証明ではない。実装編集なし。
+
+最終固定31PASS18.648s/exit0、再帰Python1072前後一致。normal-target-pool-final.log/summary/fingerprintsを原本とする。共有装備helper省略、対象なし/複数対象、quick15種、allhand core、初デートstage1、実初期3step入口を確認。支払候補の全多重度/全board targetの独立証明には拡張しない。
+
+初回C-box探索でdiscardを漏らしたfixture失敗はfixture-error.log、訂正後の実2REDはred.log。追加populated正例は既存paid scopeがnative登録前だったためM02 board_passiveとactivate_main_abilityが相違し2回失敗、callback内paid.scopeへ修正後14PASS11.810s。これは新target検査の不具合ではなくfixture結合不足。最終候補31件の初回は前bundleの拒否messageがsource inventoryから先行candidate expansionsへ変わり1FAIL、before-gate-test-update原本を保持。拒否期待を両gateに対応させた最終結果だけをPASSとする。
+
+preflight-ready=false。本番生成/固定/400戦0、116除外/指定5policy不変。P09全dispatch/機会、P10全許可read、P11残operand、P14–18共通gate/最終版は未完。次は自動dispatchの各event条件と正本責務の対応、入力/版/承認との共通gate合成。最新完全結合は修正前a264e37であり今回版全回帰ではない。

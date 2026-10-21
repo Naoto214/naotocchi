@@ -1,0 +1,18 @@
+test_request_is_frozen_before_network_reads_and_claim_storage (test_proxy_population_external_approval.ExternalApprovalTests.test_request_is_frozen_before_network_reads_and_claim_storage) ... ERROR
+
+======================================================================
+ERROR: test_request_is_frozen_before_network_reads_and_claim_storage (test_proxy_population_external_approval.ExternalApprovalTests.test_request_is_frozen_before_network_reads_and_claim_storage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_external_approval.py", line 97, in test_request_is_frozen_before_network_reads_and_claim_storage
+    record=api.consume_live(req,17)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_external_approval.py", line 173, in consume_live
+    if not proof['external_approval_verified']:raise ValueError('live external approval unverified: '+str(proof['errors']))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: live external approval unverified: ['approval text or request digest differs']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

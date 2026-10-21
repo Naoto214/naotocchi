@@ -1,6 +1,6 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
-const {harness}=require('./helpers/runtime-harness.cjs');
+const {harness}=require('./helpers/present-cast-harness.cjs');
 function setup(options={}) {
  const h=harness(options),s=h.api.state();
  const world=new Function(require('node:fs').readFileSync('character-world-master.v1.js','utf8')+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();

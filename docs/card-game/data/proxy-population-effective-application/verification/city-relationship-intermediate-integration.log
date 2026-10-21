@@ -1,0 +1,13 @@
+.............F.....
+======================================================================
+FAIL: test_mixed_actual_prefix_limits_preserve_authenticated_exclusion (test_proxy_population_admission.RealEntryAdmissionTests.test_mixed_actual_prefix_limits_preserve_authenticated_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 90, in test_mixed_actual_prefix_limits_preserve_authenticated_exclusion
+    self.assertEqual(out['source_reconstructed_attempt_count'],2)
+AssertionError: 0 != 2
+
+----------------------------------------------------------------------
+Ran 19 tests in 141.699s
+
+FAILED (failures=1)

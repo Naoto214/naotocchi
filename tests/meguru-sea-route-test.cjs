@@ -222,7 +222,7 @@ test('9. なかまは いっしょに わたる。住民は のせない。二�
   assert.equal(h.api.startMeguru(), true);
   const run = h.api.meguruRun();
   const party0 = run.party.map((a) => a.key).sort().join(',');
-  assert.ok(party0.length > 0, 'なかまが いっしょに あるいて いる');
+  assert.equal(party0.length, 0, '関係だけでは自動同行しない');
   ride(h, 'うみ');
   h.advance(8000);
   assert.equal(s.regionId, 'jungle');

@@ -1,0 +1,10 @@
+test_inventory_is_rederived_from_bundle_not_supplied_claim (test_proxy_population_first_response.IntegrationTests.test_inventory_is_rederived_from_bundle_not_supplied_claim) ... ok
+test_all_41_cards_have_a_hand_source_disposition_without_value_scores (test_proxy_population_first_response.InventoryTests.test_all_41_cards_have_a_hand_source_disposition_without_value_scores) ... ok
+test_boundary_cannot_be_used_for_later_windows_or_changed_resources (test_proxy_population_first_response.InventoryTests.test_boundary_cannot_be_used_for_later_windows_or_changed_resources) ... ok
+test_hidden_deck_contents_are_not_part_of_the_candidate_view (test_proxy_population_first_response.InventoryTests.test_hidden_deck_contents_are_not_part_of_the_candidate_view) ... ok
+test_same_named_physical_cards_each_supply_their_own_candidates (test_proxy_population_first_response.InventoryTests.test_same_named_physical_cards_each_supply_their_own_candidates) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 12.192s
+
+OK

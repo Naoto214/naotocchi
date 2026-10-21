@@ -1,0 +1,31 @@
+FFF
+======================================================================
+FAIL: test_actual_own_main_movement_and_counterfactual_enemy_or_reservation_changes (test_proxy_population_source_invariants.SourceInvariantTests.test_actual_own_main_movement_and_counterfactual_enemy_or_reservation_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_invariants.py", line 23, in test_actual_own_main_movement_and_counterfactual_enemy_or_reservation_changes
+    self.assertTrue(hasattr(source,'check_transition'),'source trace invariant audit absent')
+AssertionError: False is not true : source trace invariant audit absent
+
+======================================================================
+FAIL: test_actual_trace_reports_only_supplied_invariants (test_proxy_population_source_invariants.SourceInvariantTests.test_actual_trace_reports_only_supplied_invariants)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_invariants.py", line 13, in test_actual_trace_reports_only_supplied_invariants
+    proof=journal.audit_opportunities(self.record);self.assertEqual(proof['errors'],[]);self.assertTrue(proof.get('supplied_source_invariants_verified',False));self.assertFalse(proof['global_replacement_unreachability_proven']);self.assertFalse(proof['all_rule_opportunities_proven'])
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_legacy_reservation_at_initial_or_runtime_root_is_rejected (test_proxy_population_source_invariants.SourceInvariantTests.test_legacy_reservation_at_initial_or_runtime_root_is_rejected) (mode='initial')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_invariants.py", line 21, in test_legacy_reservation_at_initial_or_runtime_root_is_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.572s
+
+FAILED (failures=3)

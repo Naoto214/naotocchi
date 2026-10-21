@@ -1,0 +1,71 @@
+FFFFFF
+======================================================================
+FAIL: test_denominators_and_exclusive_common_causes (test_proxy_fallback_audit.FallbackAuditTests.test_denominators_and_exclusive_common_causes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 19, in test_denominators_and_exclusive_common_causes
+    r = self.run_audit()
+        ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 15, in run_audit
+    self.assertIsNotNone(audit, 'read-only fallback audit is not implemented')
+AssertionError: unexpectedly None : read-only fallback audit is not implemented
+
+======================================================================
+FAIL: test_duplicate_shadow_and_missing_limit_rejected (test_proxy_fallback_audit.FallbackAuditTests.test_duplicate_shadow_and_missing_limit_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 30, in test_duplicate_shadow_and_missing_limit_rejected
+    with self.assertRaises(ValueError):self.run_audit(p,ss,ll)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 15, in run_audit
+    self.assertIsNotNone(audit, 'read-only fallback audit is not implemented')
+AssertionError: unexpectedly None : read-only fallback audit is not implemented
+
+======================================================================
+FAIL: test_saved_wrapper_tampering_rejected (test_proxy_fallback_audit.FallbackAuditTests.test_saved_wrapper_tampering_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 40, in test_saved_wrapper_tampering_rejected
+    with self.assertRaises(ValueError):self.run_audit(p,s,l)
+                                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 15, in run_audit
+    self.assertIsNotNone(audit, 'read-only fallback audit is not implemented')
+AssertionError: unexpectedly None : read-only fallback audit is not implemented
+
+======================================================================
+FAIL: test_sensitivity_is_not_a_policy_change_and_inputs_unchanged (test_proxy_fallback_audit.FallbackAuditTests.test_sensitivity_is_not_a_policy_change_and_inputs_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 43, in test_sensitivity_is_not_a_policy_change_and_inputs_unchanged
+    before=saved.sha(self.inputs);r=self.run_audit()
+                                    ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 15, in run_audit
+    self.assertIsNotNone(audit, 'read-only fallback audit is not implemented')
+AssertionError: unexpectedly None : read-only fallback audit is not implemented
+
+======================================================================
+FAIL: test_source_problem_tampering_rejected (test_proxy_fallback_audit.FallbackAuditTests.test_source_problem_tampering_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 35, in test_source_problem_tampering_rejected
+    with self.assertRaises(ValueError):self.run_audit(p,s,l)
+                                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 15, in run_audit
+    self.assertIsNotNone(audit, 'read-only fallback audit is not implemented')
+AssertionError: unexpectedly None : read-only fallback audit is not implemented
+
+======================================================================
+FAIL: test_source_snapshot_tampering_rejected (test_proxy_fallback_audit.FallbackAuditTests.test_source_snapshot_tampering_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 55, in test_source_snapshot_tampering_rejected
+    with self.assertRaises(ValueError):self.run_audit(p,s,l)
+                                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 15, in run_audit
+    self.assertIsNotNone(audit, 'read-only fallback audit is not implemented')
+AssertionError: unexpectedly None : read-only fallback audit is not implemented
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.683s
+
+FAILED (failures=6)

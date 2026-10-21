@@ -1,0 +1,118 @@
+.EE.F.FE.....EE...E
+======================================================================
+ERROR: test_existing_unit_prefix_crosses_multiple_turns_with_all_histories (test_proxy_population_challenge_window.MultiTurnConnectionTests.test_existing_unit_prefix_crosses_multiple_turns_with_all_histories)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_window.py", line 43, in test_existing_unit_prefix_crosses_multiple_turns_with_all_histories
+    prefix=reconstruct_opening(bundle(),'test-1A');e=prefix['final_envelope'];cards=e['legacy_continuation']['game_state']['cards'];shots=[]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_opening.py", line 58, in reconstruct_opening
+    initial=load_match(bundle,match_id,root)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_opening.py", line 32, in load_match
+    raise ValueError('supplied bundle invalid: '+'; '.join(checked['errors']))
+ValueError: supplied bundle invalid: boundary source differs: tools/proxy_continuation_triggers.py
+
+======================================================================
+ERROR: test_manifest_row_reaches_connected_backend_and_exact_reconstruction (test_proxy_population_connected_entry.EntryTests.test_manifest_row_reaches_connected_backend_and_exact_reconstruction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_connected_entry.py", line 18, in test_manifest_row_reaches_connected_backend_and_exact_reconstruction
+    b=bundle();original=runtime.segment;r=api.reconstruct(b,'test-1A',10)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_connected_entry.py", line 43, in reconstruct
+    runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 32, in reconstruct
+    fingerprint=verify_sources()
+                ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 25, in verify_sources
+    if hashlib.sha256(source_path(root,name).read_bytes()).hexdigest()!=digest:raise ValueError('runtime source differs: '+name)
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: runtime source differs: tools/proxy_continuation_triggers.py
+
+======================================================================
+ERROR: test_unknown_or_old_self_reported_eligible_is_unproved_without_replay (test_proxy_population_admission.AdmissionTests.test_unknown_or_old_self_reported_eligible_is_unproved_without_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 23, in test_unknown_or_old_self_reported_eligible_is_unproved_without_replay
+    first=out['matches'][0];self.assertEqual(first['disposition'],'unproved');self.assertFalse(first['exclusions'])
+          ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_mixed_actual_prefix_limits_preserve_authenticated_exclusion (test_proxy_population_admission.RealEntryAdmissionTests.test_mixed_actual_prefix_limits_preserve_authenticated_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 87, in test_mixed_actual_prefix_limits_preserve_authenticated_exclusion
+    b=bundle();short=api.connected.reconstruct(b,'test-1A',1);long=api.connected.reconstruct(b,'test-1A',3)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_connected_entry.py", line 43, in reconstruct
+    runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 32, in reconstruct
+    fingerprint=verify_sources()
+                ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 25, in verify_sources
+    if hashlib.sha256(source_path(root,name).read_bytes()).hexdigest()!=digest:raise ValueError('runtime source differs: '+name)
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: runtime source differs: tools/proxy_continuation_triggers.py
+
+======================================================================
+ERROR: test_real_bound_prefix_reconstruction_is_required_and_remains_unproved (test_proxy_population_admission.RealEntryAdmissionTests.test_real_bound_prefix_reconstruction_is_required_and_remains_unproved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 65, in test_real_bound_prefix_reconstruction_is_required_and_remains_unproved
+    b=bundle();r=api.connected.reconstruct(b,'test-1A',3)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_connected_entry.py", line 43, in reconstruct
+    runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 32, in reconstruct
+    fingerprint=verify_sources()
+                ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime_entry.py", line 25, in verify_sources
+    if hashlib.sha256(source_path(root,name).read_bytes()).hexdigest()!=digest:raise ValueError('runtime source differs: '+name)
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: runtime source differs: tools/proxy_continuation_triggers.py
+
+======================================================================
+ERROR: test_replayed_legacy_exclusion_survives_mrp_and_a_later_unverified_attempt (test_proxy_population_admission.ReplayedDispositionTests.test_replayed_legacy_exclusion_survives_mrp_and_a_later_unverified_attempt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 44, in test_replayed_legacy_exclusion_survives_mrp_and_a_later_unverified_attempt
+    first=out['matches'][0];self.assertEqual(first['disposition'],'excluded');self.assertTrue(first['gaps']);self.assertEqual(first['attempt_count'],2)
+          ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+======================================================================
+FAIL: test_all_unexecuted_slots_and_pairs_remain_without_denominator_repair (test_proxy_population_admission.AdmissionTests.test_all_unexecuted_slots_and_pairs_remain_without_denominator_repair)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 13, in test_all_unexecuted_slots_and_pairs_remain_without_denominator_repair
+    self.assertEqual(len(out['matches']),400);self.assertEqual(len(out['groups']),200)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 400
+
+======================================================================
+FAIL: test_out_of_plan_attempt_is_retained_as_integrity_gap (test_proxy_population_admission.AdmissionTests.test_out_of_plan_attempt_is_retained_as_integrity_gap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_admission.py", line 28, in test_out_of_plan_attempt_is_retained_as_integrity_gap
+    self.assertEqual(out['unplanned_attempt_indices'],[0]);self.assertIn('unplanned_attempts',out['gaps']);self.assertFalse(out['whole_set']['allowed'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != [0]
+
+Second list contains 1 additional elements.
+First extra element 0:
+0
+
+- []
++ [0]
+?  +
+
+
+----------------------------------------------------------------------
+Ran 19 tests in 8.838s
+
+FAILED (failures=2, errors=6)

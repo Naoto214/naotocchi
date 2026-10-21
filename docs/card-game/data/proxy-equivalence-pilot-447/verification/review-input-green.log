@@ -1,0 +1,13 @@
+test_build_binds_complete_inventory (test_proxy_equivalence_inputs.InputsTests.test_build_binds_complete_inventory) ... ok
+test_discard_egg_runtime_control_preserved (test_proxy_equivalence_inputs.InputsTests.test_discard_egg_runtime_control_preserved) ... ok
+test_hidden_permutation_invariant (test_proxy_equivalence_inputs.InputsTests.test_hidden_permutation_invariant) ... ok
+test_hidden_preparation_identity_not_copied (test_proxy_equivalence_inputs.InputsTests.test_hidden_preparation_identity_not_copied) ... ok
+test_invalid_schema_and_bool_resource_rejected (test_proxy_equivalence_inputs.InputsTests.test_invalid_schema_and_bool_resource_rejected) ... ok
+test_nested_right_type_rejected_at_proof_entry (test_proxy_equivalence_inputs.ReviewInputTests.test_nested_right_type_rejected_at_proof_entry) ... ok
+test_pass_descriptor_cannot_borrow_placement_identity (test_proxy_equivalence_inputs.ReviewInputTests.test_pass_descriptor_cannot_borrow_placement_identity) ... ok
+test_source_variant_target_or_extra_field_tamper_rejected (test_proxy_equivalence_inputs.ReviewInputTests.test_source_variant_target_or_extra_field_tamper_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 4.113s
+
+OK

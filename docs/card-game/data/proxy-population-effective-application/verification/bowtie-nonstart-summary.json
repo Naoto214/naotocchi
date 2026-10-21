@@ -1,0 +1,22 @@
+{
+  "base_head": "c13b823a068d0cc61f9bb2af1f7c1b559b186bbe",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_response_start_negative",
+    "test_proxy_population_response_board_predicates",
+    "test_proxy_population_equipment_predicates",
+    "test_proxy_population_response_end_predicates",
+    "test_proxy_population_response_event_predicates",
+    "test_proxy_population_response_group_closure",
+    "test_proxy_population_trigger_predicates",
+    "test_proxy_population_predicate_gate"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 20.921901647001505,
+  "python_file_count": 1079,
+  "python_fingerprints_unchanged": true,
+  "production_input_generation": 0,
+  "new_matches": 0
+}

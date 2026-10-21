@@ -1,0 +1,242 @@
+[
+  {
+    "id": "anchor-transform-bottom",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 3,
+    "after": 1,
+    "chains": 1,
+    "score": 20,
+    "gauge": 42,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "anchor-bulk-bottom",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 3,
+    "after": 1,
+    "chains": 1,
+    "score": 20,
+    "gauge": 26,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "large-6-all",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 6,
+    "after": 1,
+    "chains": 1,
+    "score": 40,
+    "gauge": 28,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "large-10-all",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 10,
+    "after": 1,
+    "chains": 1,
+    "score": 40,
+    "gauge": 28,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "large-12-all",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 12,
+    "after": 1,
+    "chains": 1,
+    "score": 40,
+    "gauge": 28,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "life-1-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 2,
+    "after": 0,
+    "chains": 1,
+    "score": 100,
+    "gauge": 40,
+    "eggs": [
+      3,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "life-2-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 3,
+    "after": 0,
+    "chains": 2,
+    "score": 210,
+    "gauge": 41,
+    "eggs": [
+      2,
+      3,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "life-3-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 4,
+    "after": 0,
+    "chains": 3,
+    "score": 330,
+    "gauge": 42,
+    "eggs": [
+      2,
+      2,
+      3,
+      2
+    ]
+  },
+  {
+    "id": "life-4-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 5,
+    "after": 0,
+    "chains": 4,
+    "score": 460,
+    "gauge": 43,
+    "eggs": [
+      2,
+      2,
+      2,
+      3
+    ]
+  },
+  {
+    "id": "life-5-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 6,
+    "after": 0,
+    "chains": 5,
+    "score": 600,
+    "gauge": 44,
+    "eggs": [
+      2,
+      2,
+      2,
+      3
+    ]
+  },
+  {
+    "id": "life-7-1234",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 8,
+    "after": 0,
+    "chains": 7,
+    "score": 910,
+    "gauge": 46,
+    "eggs": [
+      2,
+      2,
+      2,
+      3
+    ]
+  },
+  {
+    "id": "egg-count-group",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 6,
+    "after": 0,
+    "chains": 1,
+    "score": 100,
+    "gauge": 24,
+    "eggs": [
+      3,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "four-targets-transform",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 12,
+    "after": 9,
+    "chains": 2,
+    "score": 40,
+    "gauge": 43,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "four-targets-bulk",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 12,
+    "after": 4,
+    "chains": 1,
+    "score": 80,
+    "gauge": 32,
+    "eggs": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "id": "egg-chain-3",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 3,
+    "after": 1,
+    "chains": 3,
+    "score": 60,
+    "gauge": 51,
+    "eggs": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "egg-chain-5",
+    "origin": "artificial endowed probe, not natural frequency",
+    "before": 5,
+    "after": 1,
+    "chains": 5,
+    "score": 150,
+    "gauge": 53,
+    "eggs": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+]

@@ -1,0 +1,82 @@
+test_changed_head_revocation_edit_and_missing_listing_after_retry_fail_closed (test_proxy_population_approval_read_retry.ReadRetryTests.test_changed_head_revocation_edit_and_missing_listing_after_retry_fail_closed) ... FAIL
+test_claim_is_written_once_after_recovery_and_failure_retains_audit (test_proxy_population_approval_read_retry.ReadRetryTests.test_claim_is_written_once_after_recovery_and_failure_retains_audit) ... ERROR
+test_deadline_cannot_sleep_or_accept_late_success (test_proxy_population_approval_read_retry.ReadRetryTests.test_deadline_cannot_sleep_or_accept_late_success) ... ERROR
+test_exact_retryable_failures_and_three_attempt_limit (test_proxy_population_approval_read_retry.ReadRetryTests.test_exact_retryable_failures_and_three_attempt_limit) ... FAIL
+test_nontransport_failures_never_retry (test_proxy_population_approval_read_retry.ReadRetryTests.test_nontransport_failures_never_retry) ... ok
+test_owner_mismatch_is_not_hidden_by_later_transport_failure (test_proxy_population_approval_read_retry.ReadRetryTests.test_owner_mismatch_is_not_hidden_by_later_transport_failure) ... FAIL
+test_transient_failures_restart_all_reads_without_mixing (test_proxy_population_approval_read_retry.ReadRetryTests.test_transient_failures_restart_all_reads_without_mixing) ... FAIL
+
+======================================================================
+ERROR: test_claim_is_written_once_after_recovery_and_failure_retains_audit (test_proxy_population_approval_read_retry.ReadRetryTests.test_claim_is_written_once_after_recovery_and_failure_retains_audit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 94, in test_claim_is_written_once_after_recovery_and_failure_retains_audit
+    (Path(tmp)/'data').mkdir();record=api.consume_live(req,17)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_external_approval.py", line 208, in consume_live
+    if not proof['external_approval_verified']:raise ValueError('live external approval unverified: '+str(proof['errors']))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: live external approval unverified: ['synthetic']
+
+======================================================================
+ERROR: test_deadline_cannot_sleep_or_accept_late_success (test_proxy_population_approval_read_retry.ReadRetryTests.test_deadline_cannot_sleep_or_accept_late_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 85, in test_deadline_cannot_sleep_or_accept_late_success
+    self.assertEqual(proof['read_audit']['outcome'],'deadline');self.assertEqual(calls,[''])
+                     ~~~~~^^^^^^^^^^^^^^
+KeyError: 'read_audit'
+
+======================================================================
+FAIL: test_changed_head_revocation_edit_and_missing_listing_after_retry_fail_closed (test_proxy_population_approval_read_retry.ReadRetryTests.test_changed_head_revocation_edit_and_missing_listing_after_retry_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 67, in test_changed_head_revocation_edit_and_missing_listing_after_retry_fail_closed
+    self.assertFalse(proof['external_approval_verified'],mutation);self.assertIsNone(proof['evidence']);self.assertEqual(attempt,2);self.assertEqual(clock.waits,[2])
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+======================================================================
+FAIL: test_exact_retryable_failures_and_three_attempt_limit (test_proxy_population_approval_read_retry.ReadRetryTests.test_exact_retryable_failures_and_three_attempt_limit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 46, in test_exact_retryable_failures_and_three_attempt_limit
+    self.assertEqual(calls,['']*3);self.assertEqual(clock.waits,[2,5]);self.assertEqual(proof['read_audit']['outcome'],'attempt_limit')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [''] != ['', '', '']
+
+Second list contains 2 additional elements.
+First extra element 1:
+''
+
+- ['']
++ ['', '', '']
+
+======================================================================
+FAIL: test_owner_mismatch_is_not_hidden_by_later_transport_failure (test_proxy_population_approval_read_retry.ReadRetryTests.test_owner_mismatch_is_not_hidden_by_later_transport_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 75, in test_owner_mismatch_is_not_hidden_by_later_transport_failure
+    self.assertEqual(calls,['']);self.assertEqual(clock.waits,[]);self.assertFalse(proof['external_approval_verified'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['', '/pulls/259'] != ['']
+
+First list contains 1 additional elements.
+First extra element 1:
+'/pulls/259'
+
+- ['', '/pulls/259']
++ ['']
+
+======================================================================
+FAIL: test_transient_failures_restart_all_reads_without_mixing (test_proxy_population_approval_read_retry.ReadRetryTests.test_transient_failures_restart_all_reads_without_mixing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_approval_read_retry.py", line 31, in test_transient_failures_restart_all_reads_without_mixing
+    self.assertTrue(proof['external_approval_verified'],proof)
+AssertionError: False is not true : {'schema': 'live_population_owner_approval.v1', 'external_approval_verified': False, 'errors': ['HTTP Error 502: synthetic'], 'request_sha256': '92e242cfa98145aed2173b592fb4d25fd694570686417ccb85f4d3e83f3b9650', 'comment_id': 17, 'evidence': None, 'scope': 'live_GitHub_owner_comment_for_exact_request', 'historical_edit_absence_proven': False, 'remote_consumption_verified': False, 'input_lock_verified': False, 'provenance_verified': False, 'pre_outcome_ordering_verified': False, 'ready_for_execution': False, 'balance_admitted': None}
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.009s
+
+FAILED (failures=4, errors=2)

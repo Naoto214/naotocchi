@@ -1,0 +1,14 @@
+test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain (test_proxy_population_discard_recovery.RecoveryExecutionTests.test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain) ... FAIL
+
+======================================================================
+FAIL: test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain (test_proxy_population_discard_recovery.RecoveryExecutionTests.test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_discard_recovery.py", line 40, in test_source_cost_reference_two_passes_and_recovery_reuse_existing_chain
+    self.assertTrue(hasattr(api,'activate'))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

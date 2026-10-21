@@ -1,0 +1,509 @@
+{
+  "version": "slide08-v1",
+  "generated": true,
+  "initial": {
+    "version": "slide08-v1",
+    "seed": 2,
+    "config": {
+      "size": 6,
+      "count": 24,
+      "kinds": 3,
+      "maxStage": 4,
+      "single": 4,
+      "bulk": 12,
+      "cap": 24,
+      "initialGauge": 4,
+      "initialEggs": [
+        2,
+        1,
+        0,
+        0
+      ],
+      "reward": "landing"
+    },
+    "board": [
+      18,
+      4,
+      11,
+      0,
+      20,
+      0,
+      20,
+      12,
+      4,
+      0,
+      0,
+      0,
+      20,
+      9,
+      0,
+      4,
+      18,
+      0,
+      3,
+      0,
+      0,
+      0,
+      20,
+      11,
+      3,
+      19,
+      0,
+      4,
+      0,
+      9,
+      2,
+      11,
+      12,
+      17,
+      19,
+      17
+    ],
+    "eggs": [
+      2,
+      1,
+      0,
+      0
+    ],
+    "gauge": 4,
+    "moves": 0,
+    "score": 0,
+    "won": false,
+    "used": {
+      "egg": 0,
+      "single": 0,
+      "bulk": 0
+    }
+  },
+  "actions": [
+    {
+      "type": "single",
+      "index": 32,
+      "kind": 0
+    },
+    {
+      "type": "slide",
+      "dir": "down"
+    },
+    {
+      "type": "single",
+      "index": 32,
+      "kind": 2
+    },
+    {
+      "type": "egg",
+      "rank": 3,
+      "kind": 2,
+      "dir": "down",
+      "lane": 3
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "down",
+      "lane": 2
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "down",
+      "lane": 3
+    },
+    {
+      "type": "single",
+      "index": 13,
+      "kind": 2
+    },
+    {
+      "type": "slide",
+      "dir": "left"
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    },
+    {
+      "type": "slide",
+      "dir": "up"
+    },
+    {
+      "type": "egg",
+      "rank": 3,
+      "kind": 2,
+      "dir": "left",
+      "lane": 3
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "kind": 2,
+      "dir": "right",
+      "lane": 2
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "right",
+      "lane": 1
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 2,
+      "dir": "left",
+      "lane": 3
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 2,
+      "dir": "up",
+      "lane": 2
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 2,
+      "dir": "up",
+      "lane": 3
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 2,
+      "dir": "up",
+      "lane": 4
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 2,
+      "dir": "left",
+      "lane": 3
+    },
+    {
+      "type": "bulk",
+      "from": 2,
+      "kind": 1
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 1,
+      "dir": "right",
+      "lane": 2
+    },
+    {
+      "type": "slide",
+      "dir": "down"
+    },
+    {
+      "type": "egg",
+      "rank": 3,
+      "kind": 1,
+      "dir": "down",
+      "lane": 1
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 1,
+      "dir": "down",
+      "lane": 3
+    },
+    {
+      "type": "slide",
+      "dir": "up"
+    },
+    {
+      "type": "single",
+      "index": 7,
+      "kind": 1
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "up",
+      "lane": 3
+    },
+    {
+      "type": "single",
+      "index": 5,
+      "kind": 1
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "left",
+      "lane": 2
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 1,
+      "dir": "left",
+      "lane": 3
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 1,
+      "dir": "left",
+      "lane": 3
+    },
+    {
+      "type": "single",
+      "index": 0,
+      "kind": 1
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 1,
+      "dir": "up",
+      "lane": 1
+    },
+    {
+      "type": "slide",
+      "dir": "down"
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    },
+    {
+      "type": "egg",
+      "rank": 1,
+      "kind": 1,
+      "dir": "down",
+      "lane": 3
+    },
+    {
+      "type": "slide",
+      "dir": "up"
+    },
+    {
+      "type": "slide",
+      "dir": "left"
+    },
+    {
+      "type": "egg",
+      "rank": 2,
+      "kind": 1,
+      "dir": "left",
+      "lane": 4
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    },
+    {
+      "type": "slide",
+      "dir": "down"
+    },
+    {
+      "type": "slide",
+      "dir": "left"
+    },
+    {
+      "type": "slide",
+      "dir": "up"
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    },
+    {
+      "type": "slide",
+      "dir": "down"
+    },
+    {
+      "type": "slide",
+      "dir": "left"
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    },
+    {
+      "type": "egg",
+      "rank": 3,
+      "kind": 1,
+      "dir": "down",
+      "lane": 1
+    },
+    {
+      "type": "slide",
+      "dir": "up"
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    },
+    {
+      "type": "single",
+      "index": 10,
+      "kind": 0
+    },
+    {
+      "type": "slide",
+      "dir": "down"
+    },
+    {
+      "type": "egg",
+      "rank": 0,
+      "kind": 1,
+      "dir": "down",
+      "lane": 2
+    },
+    {
+      "type": "slide",
+      "dir": "up"
+    },
+    {
+      "type": "slide",
+      "dir": "left"
+    },
+    {
+      "type": "slide",
+      "dir": "right"
+    }
+  ],
+  "hashes": [
+    "c0d1dbffb308afe8f6c092f6991755e623998df444f4333ffa45de81eea4cebe",
+    "5a91454b3819908c11b875990046db93bd095c2cc9d84bd8df75cf97c2925f8b",
+    "f689d8879139fc3e13d915485fb85ee1d2eda9cfc7343bc388c01dcad4179c54",
+    "ec8cd58470871e1f8420835f2cdd37692585e593bae5a96aad49e8978c4b7442",
+    "f853eec4af8dd36e4278015bca9d7eef6751a0c99fa0b72a68eaa49988bd6d01",
+    "45aa3ee8d26c05a762e3c4fb0f646456c0525d7f2917c71d53b2f87082016c6e",
+    "793ca980cca6278201a79e7cd7f546e656a89c646a1f6e6c13760890e213f2ea",
+    "bd3ba0e12373b7c5683f17e05a6634055e62b89810f1215502617db34be9e3d8",
+    "8b840f9a374aea1671c1f1edf53e4fb2d7f8bbfcd27d78b652dd1eae8400f364",
+    "09b70bc8bd581b10e6cb4860d7574348491f410410d1f018249a6b4fc967673e",
+    "3f301f242507070c086956a35c56aeea6008008c538b6256e25c4085fbfe5b70",
+    "ee9d40493bfd891cfb192896e111670b27f186e4657ae8bba89fa107dddb77f1",
+    "a60d7dd15ba50dc97f39bd012d23927992e3bdb6e5e88f14a436f1dcb6cdcd0d",
+    "ffb47b6b951bd21fcf30667991fc3e0a4ac5609bbbfef9b0fcff0d18334df331",
+    "aa751e8e1027788a22d5a7b7fc458c64c84a61febc16e2cb7e2fe731d4c756ae",
+    "5aec86003e72fdcf46edf7cf41c18439d85ed58a9d525c47379463dfe33ce3e5",
+    "079af5bc2a7ee506f81f4e794fa61277009d86495a73928863a3a115c1ef1dce",
+    "1a51c84692ab27579bbad0f5d7b5769ae8600559070d31f6ca46a1451a8308e0",
+    "d811c8abd10fe102d24ea7eeeb0884a5fa0bdc187fbadce0a3fc1f4d82482055",
+    "fc4602352d877f2bd8ffc309e16b5fe505f85f59c999d574ffa6d0ba765981bd",
+    "099b24778e8a80b2cc3b59ba3bfaf3aaca6d3086999c108d5e095a5945bae4bf",
+    "a62f5e28e3ac72f1a78afe30bd1ccfcfec66db9a6045dfb515107b32f6724a0f",
+    "af75ba7b1dd8944401bcfb87037056856ffebb171a5ea2bf764ba2ea4602540d",
+    "ff4e63c8700d5b0228a37879ebaadd411c9254a53a55e30837783343e355e0b8",
+    "f4ad42d9495635b928ef90da5c0a5c7b98d0edd9f1b2496c5e6de30e28b38e09",
+    "12ebd580ed42009a3fe0c1ef0e0d89b9efdfc82ffd2b001f1fa8d9a31fae4b02",
+    "5e5e229725bb52a940a1a7b04ed2aef69a4beaf23a242afd907a3c37dc311af3",
+    "06dd1584d24a9b40adffa296d88f3a7ed7c48e5985e1c202d09253b83f92b33d",
+    "28334a29b19067961887ef5a5fc5b9a61a709b52708b916c19d8de0c9ae2acc6",
+    "165862fc532a45c57b865035438be4cb1dacfcd1017b512f948738b9dc3e48b5",
+    "5cf9135e0cee4b66433905da7a663c3e7d3ae65187042a623980ab9e2c1e11ae",
+    "3c614c14001d277c6e7b527c69928358da7306bfa3fb13ff0e9cf249f854b739",
+    "c3be90f4b4077243a829e8bf194727076a89c2c63e8e779333cf59468a550142",
+    "61d58213f57f4c010a09a10c14b4d071b76e822b03ed3607e7ec05c2dcd0cb11",
+    "61169e478659550eb9070c91834bbb000e2eeac8ebc221c16d54bbb0c64953dd",
+    "667eff0e7eb9b0878a3b1e9ee92158c961ea00816b60d1578a3f5401864b0c93",
+    "53f400db9d17e2547bc799c6d1fcc9fde7031a2f49036953964251548a4aface",
+    "29d8ca3c8380ed50daa27287b35e571594bb0b592a9a18b9c59fa20d7913e6ba",
+    "f6ad737e97f9327cb4a0e9510158a2daacb7f70323867e9d280436d7d0b78b92",
+    "986afd91392f34ceda4d950bde6d74d9367b3edcc8d396ac3d158c746ce98e61",
+    "c5254bbdfd09f63ccd2cc7f763230b66ef08a74a0f0442bf2b0c32ec08b80387",
+    "0d2c450155434063094b17f7d6bc717b8d372d13d66c3286fe3aac3ca4c6a992",
+    "93176349d48d74a1f260ded0c3c5abcb36aeaf9f39d1c719caf9b29b713af257",
+    "e03e15f2de6e4c0c84868001f30cd6217071f422ccd658deeec9b23a7e03cb8e",
+    "7d5c37b2199418e49e97144caa44586f952a9f30b26c371457949c6e66111186",
+    "a1654ece6276ae947d0d36684bff36fa9a573c7d6f6ca27938d908fd796f5013",
+    "ab263818e82aa3240a3575ecff8cda6085d08fef9e924b8125c32e356b325c1d",
+    "a0315bb22d7195c091797c18c42e2601c3b1d029f75a083f627bf225ae51dfa3",
+    "baf09a2aff991dd9dd342211abd389169c12a2cb412ee5df5922b2adb499e083",
+    "788368cd30e1e758f055d5016924a104aee5ca23e4cdf4053a7fafe39948f9ef",
+    "24eff6071b2c4080079bcc57c5832f7592cc9e0b04e7b199b3bfd3819ee4848e",
+    "c10873a2faca042e89c3838c053d22b22946cf6f95e5bc22ad8e6822629df0c9",
+    "b44189c1d38440ecab1d5999882faf30c21217dc79ef5c8146bc86cbddf7ff51",
+    "69b52705f4784c292281038427b9f30e351f175b0d13a402ff2ccc568969d4a9",
+    "fef6f76e2610e76b5d95a41eff4a4fdd0f393473936fd42e86ec38b4e7c4dad8",
+    "637629c55148dd9d37c6193e653fb750d02085a71e318d832d84eb748efb0463"
+  ],
+  "final": {
+    "version": "slide08-v1",
+    "seed": 2,
+    "config": {
+      "size": 6,
+      "count": 24,
+      "kinds": 3,
+      "maxStage": 4,
+      "single": 4,
+      "bulk": 12,
+      "cap": 24,
+      "initialGauge": 4,
+      "initialEggs": [
+        2,
+        1,
+        0,
+        0
+      ],
+      "reward": "landing"
+    },
+    "board": [
+      0,
+      0,
+      12,
+      9,
+      10,
+      12,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "eggs": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gauge": 4,
+    "moves": 55,
+    "score": 570,
+    "won": true,
+    "used": {
+      "egg": 23,
+      "single": 7,
+      "bulk": 1
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "actual_counts": {
+    "groups": 0,
+    "matches": 0,
+    "seeds": 0
+  },
+  "balance_admitted": null,
+  "blockers": [
+    "input_generation_not_authorized",
+    "complete_authenticated_input_lock_absent",
+    "execution_not_authorized",
+    "generalized_execution_adapter_unavailable",
+    "all_judgment_and_opportunity_validator_unavailable",
+    "unavoidable_opening_116_exclusion"
+  ],
+  "diagnostic_subset": {
+    "complete_pair_count": 0,
+    "eligible_denominator": 0,
+    "excluded_count": 0,
+    "generalizable": false,
+    "label": "diagnostic_subset_only",
+    "numerators": null,
+    "planned_denominator": 400,
+    "rates": null,
+    "single_side_count": 0,
+    "unproved_count": 400
+  },
+  "disposition_counts": {
+    "groups": {
+      "eligible": 0,
+      "excluded": 0,
+      "unproved": 200
+    },
+    "judgments": null,
+    "matches": {
+      "eligible": 0,
+      "excluded": 0,
+      "unproved": 400
+    }
+  },
+  "disposition_scope": "planned_unexecuted_slots_only_not_audit_of_supplied_runs",
+  "execution_status_counts": {
+    "not_executed": 400
+  },
+  "independent_balance_sample_count": 0,
+  "manifest": {
+    "balance_admitted": null,
+    "checks_scope": "implemented_structure_only_not_full_manifest_certification",
+    "errors": [
+      "manifest not supplied"
+    ],
+    "executable": false,
+    "gaps": [
+      "input_lock_authentication_unavailable",
+      "generation_provenance_verifier_unavailable",
+      "historical_registry_verifier_unavailable",
+      "execution_source_edition_unfixed"
+    ],
+    "stage": "manifest",
+    "structurally_valid": false,
+    "valid": false
+  },
+  "new_matches": 0,
+  "new_replays": 0,
+  "opening_feasibility": {
+    "balance_admitted": null,
+    "eligible_completion_reachable_under_current_executor": false,
+    "first_choice_physical_candidates": 7,
+    "gaps": [],
+    "observed_matches": 0,
+    "premises": [
+      "01: initial hand 5, no mulligan, first player R1 draws normally",
+      "02: initial main is egg; extra draw then one hand card to deck bottom",
+      "01: no activation interrupts time recovery through egg exchange",
+      "107: 40 distinct physical copies per deck; 5+1+1 leaves 7 choices",
+      "117.build_mandatory_choice_decision: unconditional seeded mode and strategic_unresolved true",
+      "135.run_route and continuation_runner.run_route: opening delegates to that mandatory resolver",
+      "116: any seeded OR strategically unresolved judgment excludes completed match",
+      "458/459: all planned matches/groups must be eligible for whole-set conclusion"
+    ],
+    "required_existing_resolution": "seeded_fallback",
+    "schema": "opening_feasibility_460.v1",
+    "scope": "unchanged_107_inventory_and_existing_mandatory_116_executor_only",
+    "source_sha256": {
+      "01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+      "02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+      "115-normal-decision-first-choice-audit.md": "1744396cb771160bb74d88196151fe8e35992e46ed5606f26ffbb9673959fc5c",
+      "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+      "tools/proxy_continuation_batch_runner.py": "164fa89ca8503a7a59351b6625df2ba57952caddb6be131239767273d7bc7184",
+      "tools/proxy_continuation_choices.py": "e2152db6a78a45b8d145d96b725eda81196ef0481c2f27c1a1415dfd046112e4",
+      "tools/proxy_continuation_runner.py": "b33579d72c905f56711c0e0f008f7a70c6d3ed3aaf5e7111ba18e710c0c64402",
+      "tools/proxy_independent_seed_probe.py": "c0e474874ce73d6b02ce2f0d1b91ee6556b1ad277a7cd8bb215148cd23e64ca9",
+      "tools/proxy_normal_decision_seeded_restart.py": "57a43474658ea99f1dc362882ad291fae77116762ce567a26ec21835b9977c3d",
+      "tools/proxy_resource_value_trajectory.py": "5a057f175317a5484e4fa31a7a3b9d53d438102076a592c056cea87e90c39245"
+    },
+    "status": "proven_unavoidable_116_for_current_executor"
+  },
+  "planned_counts": {
+    "groups": 200,
+    "matches": 400
+  },
+  "planned_match_ids": null,
+  "policy_promoted": false,
+  "protocol": {
+    "balance_admitted": null,
+    "errors": [],
+    "executable": false,
+    "stage": "protocol",
+    "valid": true
+  },
+  "ready_for_execution": false,
+  "ready_for_input_generation": false,
+  "schema": "population_preflight_460.v1",
+  "stage": "preflight",
+  "whole_set": {
+    "allowed": false,
+    "conclusion": null,
+    "counts": null,
+    "rates": null
+  }
+}

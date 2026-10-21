@@ -1,0 +1,3 @@
+# 197 新seed設置後次優先者pass TDD計画
+
+196 raw SHAと4状態を固定。post_placement_responseで連鎖・待機なし、相手優先の2回目機会だけを対象に、手札条件付き札と盤上の開始時能力を正本本文・既存trigger契約で分類する。候補完全性と唯一passの意思決定を先にテストREDにし、既存119優先権遷移で適用する。残る3状態は保持する。event/snapshot/hash連鎖、canonical JSON、設計データを検査しGitHubへ保存する。

@@ -1,0 +1,26 @@
+test_stop_continuation_cannot_borrow_other_history_with_same_public_growth (test_proxy_population_end_victory.EndVictoryTests.test_stop_continuation_cannot_borrow_other_history_with_same_public_growth) ... FAIL
+
+======================================================================
+FAIL: test_stop_continuation_cannot_borrow_other_history_with_same_public_growth (test_proxy_population_end_victory.EndVictoryTests.test_stop_continuation_cannot_borrow_other_history_with_same_public_growth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_end_victory.py", line 53, in test_stop_continuation_cannot_borrow_other_history_with_same_public_growth
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_end_victory.py", line 51, in run
+    with self.assertRaises(ValueError):api.audit_end(*args)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.042s
+
+FAILED (failures=1)

@@ -1,0 +1,95 @@
+FFFFFFFFFF
+======================================================================
+FAIL: test_contract_is_non_admitting_and_isolated (test_proxy_judgment_evidence_audit.EvidenceTests.test_contract_is_non_admitting_and_isolated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_empty_run_never_admitted (test_proxy_judgment_evidence_audit.EvidenceTests.test_empty_run_never_admitted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_flag_alone_excludes_even_nonseeded (test_proxy_judgment_evidence_audit.EvidenceTests.test_flag_alone_excludes_even_nonseeded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_malformed_sources_rejected (test_proxy_judgment_evidence_audit.EvidenceTests.test_malformed_sources_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_nonseeded_does_not_certify_legality_or_admission (test_proxy_judgment_evidence_audit.EvidenceTests.test_nonseeded_does_not_certify_legality_or_admission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_normal_wrappers_and_response_modes_remain_distinct (test_proxy_judgment_evidence_audit.EvidenceTests.test_normal_wrappers_and_response_modes_remain_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_sidecar_mutation_and_omission_rejected (test_proxy_judgment_evidence_audit.EvidenceTests.test_sidecar_mutation_and_omission_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_singleton_seeded_is_excluded_without_mutation (test_proxy_judgment_evidence_audit.EvidenceTests.test_singleton_seeded_is_excluded_without_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_source_change_invalidates_projection (test_proxy_judgment_evidence_audit.EvidenceTests.test_source_change_invalidates_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+======================================================================
+FAIL: test_unknown_mode_and_missing_inventory_are_not_success (test_proxy_judgment_evidence_audit.EvidenceTests.test_unknown_mode_and_missing_inventory_are_not_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'audit module not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : audit module not implemented
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+FAILED (failures=10)

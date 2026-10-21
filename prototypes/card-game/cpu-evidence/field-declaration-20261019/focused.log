@@ -1,0 +1,18 @@
+✔ seven declarations require an explicit native choice, with no default main action (12.412349ms)
+✔ each declaration survives confirmation, command, chain and exact hit/miss resolution (66.180018ms)
+✔ CPU observes and chooses from the seven legal declarations without seeing deck order (24.179312ms)
+✔ only the turn owner field is marked, independent of human seat and response actor (10.495836ms)
+✔ field glow lasts 400ms once per turn, never per response, rerender, restore or reduced motion (0.385716ms)
+✔ egg history distinguishes normal and extra draws, return order and actual net hand count (22.714006ms)
+✔ CPU session commits each declaration using the same command and resolution as human play (109.075073ms)
+✔ normal main draws one; egg deck exhaustion follows possible parts, never a return-first redraw (20.564405ms)
+✔ draw annotations do not alter four-second notice content or reveal card identities (1.92709ms)
+✔ egg return history records the committed return even when a reservation immediately redraws it (2.726169ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 442.390485

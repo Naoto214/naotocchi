@@ -1,0 +1,33 @@
+{
+  "base_head": "1c4830439682007bb11c31a3baf77f0761563852",
+  "production_generation": false,
+  "new_matches": 0,
+  "command": "connected.reconstruct(bundle(), 'test-1A', 512)",
+  "completed": true,
+  "stop": null,
+  "steps": 143,
+  "events": 181,
+  "audits": {
+    "mandatory_policy_entry_audit": [],
+    "mandatory_origin_audit": [],
+    "mandatory_opportunity_audit": [],
+    "resolution_semantics_audit": [],
+    "nonresolution_semantics_audit": [],
+    "decision_projection_audit": [],
+    "source_conservation_audit": [],
+    "end_dispatch_obligation_audit": [],
+    "trace_obligations_audit": []
+  },
+  "trace_step_counts": {
+    "ordinary_normal_count": 30,
+    "ordinary_response_count": 88,
+    "automatic_step_count": 25,
+    "sequential_trigger_step_count": 0
+  },
+  "record_sha256": "6df499387a605a29b63a7df61652915a779f343a8b52f5de9c42d2a5e69afd07",
+  "exit_code": 0,
+  "seconds": 114.11539855300362,
+  "source_unchanged": true,
+  "python_count": 1075,
+  "verification_raw_sha256": "a81f098e7c80a7bbad9ed695d3129d24b7c5ad3281b937a5b60a2dd2dd96a0ed"
+}

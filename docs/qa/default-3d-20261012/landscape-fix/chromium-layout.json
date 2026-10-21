@@ -1,0 +1,1417 @@
+{
+  "physicalIPhone": "NOT_RUN",
+  "checks": [
+    {
+      "label": "chromium-?m3d2d=1-393x760",
+      "width": 393,
+      "height": 760,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 57,
+          "y": 97.78125,
+          "width": 279,
+          "height": 432,
+          "right": 336,
+          "bottom": 529.78125,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 57,
+          "y": 601,
+          "width": 185,
+          "height": 112,
+          "right": 242,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 248,
+          "y": 640,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 674,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 248,
+          "y": 679,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 265,
+          "y": 493.390625,
+          "width": 63,
+          "height": 28.390625,
+          "right": 328,
+          "bottom": 521.78125,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?m3d2d=1-852x320",
+      "width": 852,
+      "height": 320,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?m3d2d=1-852x300",
+      "width": 852,
+      "height": 300,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?m3d2d=1-667x300",
+      "width": 667,
+      "height": 300,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 373,
+          "height": 220,
+          "right": 424,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 432,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 616,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 494.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 553.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 557.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 616.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 353,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 416,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?m3d2d=1-852x390",
+      "width": 852,
+      "height": 390,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?m3d2d=1-393x760",
+      "width": 393,
+      "height": 760,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 57,
+          "y": 97.78125,
+          "width": 279,
+          "height": 220,
+          "right": 336,
+          "bottom": 317.78125,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 57,
+          "y": 601,
+          "width": 185,
+          "height": 112,
+          "right": 242,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 248,
+          "y": 640,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 674,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 248,
+          "y": 679,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 265,
+          "y": 281.390625,
+          "width": 63,
+          "height": 28.390625,
+          "right": 328,
+          "bottom": 309.78125,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium?m3d2d=1 input/map/exit/reentry",
+      "pass": true,
+      "renderer": "Canvas"
+    },
+    {
+      "label": "chromium-?meguru3d=0-393x760",
+      "width": 393,
+      "height": 760,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 57,
+          "y": 97.78125,
+          "width": 279,
+          "height": 432,
+          "right": 336,
+          "bottom": 529.78125,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 57,
+          "y": 601,
+          "width": 185,
+          "height": 112,
+          "right": 242,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 248,
+          "y": 640,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 674,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 248,
+          "y": 679,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 265,
+          "y": 493.390625,
+          "width": 63,
+          "height": 28.390625,
+          "right": 328,
+          "bottom": 521.78125,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?meguru3d=0-852x320",
+      "width": 852,
+      "height": 320,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?meguru3d=0-852x300",
+      "width": 852,
+      "height": 300,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?meguru3d=0-667x300",
+      "width": 667,
+      "height": 300,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 373,
+          "height": 220,
+          "right": 424,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 432,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 616,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 494.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 553.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 557.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 616.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 353,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 416,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?meguru3d=0-852x390",
+      "width": 852,
+      "height": 390,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?meguru3d=0-393x760",
+      "width": 393,
+      "height": 760,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 57,
+          "y": 97.78125,
+          "width": 279,
+          "height": 438,
+          "right": 336,
+          "bottom": 535.78125,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 57,
+          "y": 601,
+          "width": 185,
+          "height": 112,
+          "right": 242,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 248,
+          "y": 640,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 674,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 248,
+          "y": 679,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 265,
+          "y": 499.390625,
+          "width": 63,
+          "height": 28.390625,
+          "right": 328,
+          "bottom": 527.78125,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium?meguru3d=0 input/map/exit/reentry",
+      "pass": true,
+      "renderer": "Canvas"
+    },
+    {
+      "label": "chromium-?char3d=0-393x760",
+      "width": 393,
+      "height": 760,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 57,
+          "y": 97.78125,
+          "width": 279,
+          "height": 432,
+          "right": 336,
+          "bottom": 529.78125,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 57,
+          "y": 601,
+          "width": 185,
+          "height": 112,
+          "right": 242,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 248,
+          "y": 640,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 674,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 248,
+          "y": 679,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 265,
+          "y": 493.390625,
+          "width": 63,
+          "height": 28.390625,
+          "right": 328,
+          "bottom": 521.78125,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?char3d=0-852x320",
+      "width": 852,
+      "height": 320,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?char3d=0-852x300",
+      "width": 852,
+      "height": 300,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?char3d=0-667x300",
+      "width": 667,
+      "height": 300,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 373,
+          "height": 220,
+          "right": 424,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 432,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 616,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 494.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 553.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 557.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 616.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 353,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 416,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?char3d=0-852x390",
+      "width": 852,
+      "height": 390,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-?char3d=0-393x760",
+      "width": 393,
+      "height": 760,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 57,
+          "y": 97.78125,
+          "width": 279,
+          "height": 438,
+          "right": 336,
+          "bottom": 535.78125,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 57,
+          "y": 601,
+          "width": 185,
+          "height": 112,
+          "right": 242,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 248,
+          "y": 640,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 674,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 248,
+          "y": 679,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 265,
+          "y": 499.390625,
+          "width": 63,
+          "height": 28.390625,
+          "right": 328,
+          "bottom": 527.78125,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium?char3d=0 input/map/exit/reentry",
+      "pass": true,
+      "renderer": "3D"
+    },
+    {
+      "label": "chromium-default-393x760",
+      "width": 393,
+      "height": 760,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 57,
+          "y": 97.78125,
+          "width": 279,
+          "height": 432,
+          "right": 336,
+          "bottom": 529.78125,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 57,
+          "y": 601,
+          "width": 185,
+          "height": 112,
+          "right": 242,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 248,
+          "y": 640,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 674,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 248,
+          "y": 679,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 265,
+          "y": 493.390625,
+          "width": 63,
+          "height": 28.390625,
+          "right": 328,
+          "bottom": 521.78125,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-default-852x320",
+      "width": 852,
+      "height": 320,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-default-852x300",
+      "width": 852,
+      "height": 300,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-default-667x300",
+      "width": 667,
+      "height": 300,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 373,
+          "height": 220,
+          "right": 424,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 432,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 616,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 494.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 553.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 557.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 616.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 353,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 416,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-default-852x390",
+      "width": 852,
+      "height": 390,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 51,
+          "y": 30.1875,
+          "width": 558,
+          "height": 220,
+          "right": 609,
+          "bottom": 250.1875,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 617,
+          "y": 34.1875,
+          "width": 184,
+          "height": 100,
+          "right": 801,
+          "bottom": 134.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 679.671875,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 738.34375,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 742.34375,
+          "y": 140.1875,
+          "width": 58.671875,
+          "height": 44,
+          "right": 801.015625,
+          "bottom": 184.1875,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 538,
+          "y": 213.796875,
+          "width": 63,
+          "height": 28.390625,
+          "right": 601,
+          "bottom": 242.1875,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium-default-393x760",
+      "width": 393,
+      "height": 760,
+      "visible": [
+        {
+          "selector": "#mgrCanvas",
+          "x": 57,
+          "y": 97.78125,
+          "width": 279,
+          "height": 438,
+          "right": 336,
+          "bottom": 535.78125,
+          "hit": true
+        },
+        {
+          "selector": ".mg-pad",
+          "x": 57,
+          "y": 601,
+          "width": 185,
+          "height": 112,
+          "right": 242,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrTravel",
+          "x": 248,
+          "y": 640,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 674,
+          "hit": true
+        },
+        {
+          "selector": "#mgrHome",
+          "x": 248,
+          "y": 679,
+          "width": 88,
+          "height": 34,
+          "right": 336,
+          "bottom": 713,
+          "hit": true
+        },
+        {
+          "selector": "#mgrMap",
+          "x": 265,
+          "y": 499.390625,
+          "width": 63,
+          "height": 28.390625,
+          "right": 328,
+          "bottom": 527.78125,
+          "hit": true
+        }
+      ],
+      "scroll": 0
+    },
+    {
+      "label": "chromium input/map/exit/reentry",
+      "pass": true,
+      "renderer": "3D"
+    }
+  ]
+}

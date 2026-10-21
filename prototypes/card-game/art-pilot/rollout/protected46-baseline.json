@@ -1,0 +1,742 @@
+{
+  "source_commit": "aba67da04c91db70744fc6a4d03334ab5635ba3c",
+  "source": "Original index entries retained from checkout; all 184 also verified against source commit in companion/partner/world QA before previous scratch expired.",
+  "files": [
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-beetle-04.png",
+      "sha": "2072421eade47ff4054116e671c2ac7b2f3ab462"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-04.png",
+      "sha": "a3dc76931e0bdeb942e5d958db07ab3c8f7d98b5"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-04-80.png",
+      "sha": "42c1088c68cdeb17c17ed915ac40098750726279"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-04-110.png",
+      "sha": "b8c1035f7177d7238e335d58d3b154a7e30d3316"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/C-cat_friend.png",
+      "sha": "f9d0acfd3634dc488e32427312fd9a06fb7e94ba"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-cat_friend.png",
+      "sha": "57e3e3ff1db24432dd59080b9f1d3f0c6da18f4d"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-cat_friend-80.png",
+      "sha": "d2ce904f59588412c4fddf0be93a46beeb80d3f3"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-cat_friend-110.png",
+      "sha": "4668466479b928b6317ffaa325476a9e97ec6bf2"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/P-forest_bear.png",
+      "sha": "33c40fc50e0720add015c46919bf5508834f099b"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/P-forest_bear.png",
+      "sha": "913388e84f013b61cae0d034becc730ef4c9f9ac"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/P-forest_bear-80.png",
+      "sha": "e905ee8653583cbf2795e8af08fed765980dd007"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/P-forest_bear-110.png",
+      "sha": "8d462991cdf094cba92cde2fd8da84e51c4f2dce"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/W-forest.png",
+      "sha": "24216ee0cb6f4a89d17460455c259f9cf2be311d"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/W-forest.png",
+      "sha": "70234e3c3ebb8c6ec8c562a34e24b6d886a1ecfd"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/W-forest-80.png",
+      "sha": "2f3a8ebe88bb15c09845fbeb806b02f79a19c3fd"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/W-forest-110.png",
+      "sha": "92fb89329891d71fb1f58bd57c5b2467745e9b1e"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/G-fishing-river.png",
+      "sha": "183c4c545a62d87a7f4c465d4c84c83548959701"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-fishing-river.png",
+      "sha": "9ee3d94c61d9cd6671f29435da0f86bd1badca80"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-fishing-river-80.png",
+      "sha": "502baed7106e8343acd207c6e190d16ad48af9a0"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-fishing-river-110.png",
+      "sha": "fa3044a6e8ad185ece0279b948607b2bca2c0808"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/I-travel1.png",
+      "sha": "b135c5e3242de35a58cf9f6fbc64a31dcc18dc21"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/I-travel1.png",
+      "sha": "b76a49a01316f2b0c2f26df879aecf7a4e7541f9"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/I-travel1-80.png",
+      "sha": "676a8779653df7d0e7425477ec5bc0a4ac82e157"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/I-travel1-110.png",
+      "sha": "bea231445ff7255c997a5c2c8626edf0ed84326b"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/E-new-encounter.png",
+      "sha": "8d1eb145346a296120536f6a0b7faacfad8ffd99"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/E-new-encounter.png",
+      "sha": "ce2913c8a7d0c152d6054843345e62f7311d2b15"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/E-new-encounter-80.png",
+      "sha": "4bc56690b972a0dc720c5e5d75dba72e1c8a8da0"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/E-new-encounter-110.png",
+      "sha": "8d118e3d6a5a26c078bd385461e7154919b1f46a"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-dandelion-01.png",
+      "sha": "8bbe8cad387e70dc155b56760e8410c1240e4aef"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-01.png",
+      "sha": "4461fdf7070672c1ac04474e78f7c95cff76101a"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-01-80.png",
+      "sha": "6c3c1daf83799bc8c1d3d1dd1dc714feaeb78d55"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-01-110.png",
+      "sha": "52a100fab579545e5334d50d6e7d26b74f322251"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-dandelion-02.png",
+      "sha": "e37f46e60480b467831747ac5b2cf435ea8bbaba"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-02.png",
+      "sha": "9c01759f75c4bc0bc91163141deb946b20e821b1"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-02-80.png",
+      "sha": "9088feffe6216cabf0abd9368542c2dd203e2c14"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-02-110.png",
+      "sha": "b0531e205c2a76e43d14c783577a267a035845ec"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-dandelion-03.png",
+      "sha": "ffe51411d907e79a7b485773202fc69c121067da"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-03.png",
+      "sha": "1d34ad7b449516f52e66e195ee87fdd73db70607"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-03-80.png",
+      "sha": "bb92fbb361ac25427124c5af9ee0fdfef32c2696"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-03-110.png",
+      "sha": "2d9b0ea61c3e5d95d7a86d98bd514a9982867e96"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-dandelion-04.png",
+      "sha": "4696675f37a56aeb2fdd75cb8129a0f741f7f9b7"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-04.png",
+      "sha": "5b515aa6e345fa1b5127c053fc2897b7d3e75224"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-04-80.png",
+      "sha": "f3e52d8847bcc198a69441b55f9438c85211a82d"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-04-110.png",
+      "sha": "2442a90293826093a75d5cae07244fa7e6d3be93"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-dandelion-05.png",
+      "sha": "05b0e02b6ab162be48698d99e803da201c60205c"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-05.png",
+      "sha": "3760ad3579a2cd7b9ecce16e6a6d9aca1559bc34"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-05-80.png",
+      "sha": "e9baea32b612185d32d4f3537b8abc80aa7e79dd"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-05-110.png",
+      "sha": "5ed25f482c17a415a30e99aac7219897535f6293"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-dandelion-06.png",
+      "sha": "958d1ff37e095c6cf598a719e7f4a7f76bedffb7"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-06.png",
+      "sha": "28ad89c8f220cd14d01086314a6893a06c316b38"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-06-80.png",
+      "sha": "3b3c6168b0e6227a96154c183e5fcc7af3fa5493"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-06-110.png",
+      "sha": "c7792316ba09b9c53df2e3559226f3c166ba398d"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-dandelion-07.png",
+      "sha": "25a1ffe36496707419e98ead58e6f79bad99fb6b"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-07.png",
+      "sha": "b7ac3b41c81ffdf98e28c5b6f0ef19d2fd58d1d4"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-07-80.png",
+      "sha": "458cd9230514385fa30753e6cdabdf009af8640e"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-07-110.png",
+      "sha": "7803352c9b8915f59d3322bd21dbddd2d1618035"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-dandelion-08.png",
+      "sha": "e3a5133f573e8d4e84f0eda0feb39a6d4caa17d2"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-08.png",
+      "sha": "238887fa82be1a8a482ebe57c8113180312a7700"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-08-80.png",
+      "sha": "0f4e58ebd55eec8a126a523e6e03b9bd6d48493f"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-dandelion-08-110.png",
+      "sha": "363ea8bbe3e87e8bb9f718ce24d57894009f54f1"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/C-otter.png",
+      "sha": "1e12ef09fb8f054a6b36aa4d5fe10e84172054fd"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-otter.png",
+      "sha": "f5ce3b19b725f3a8f4dea14e544a2f760f4440c4"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-otter-80.png",
+      "sha": "bc537a474491ec414e04e610f2f7b485b46c8a06"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-otter-110.png",
+      "sha": "fd66192321274653b9cd15985d336caff7eafe7c"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/C-owl.png",
+      "sha": "db56b7233278834d7fe11f964c13ea5abdfe70fd"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-owl.png",
+      "sha": "dcb3a41a13568c6cfcdf8bbb91f1badea12bdc20"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-owl-80.png",
+      "sha": "94cc9bf202d90ec5ab9f0aa94d0bf706c55fb8a5"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/C-owl-110.png",
+      "sha": "ff0fdd01e70ec7fdb1b8fac04c542c2f6351b2f7"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/P-grove_deer.png",
+      "sha": "26cb085a6606b429d9d806d5538c38f077ac89bb"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/P-grove_deer.png",
+      "sha": "7479eee89034790d0a48fc008345c9a0ed5bbec8"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/P-grove_deer-80.png",
+      "sha": "4a2ac8f6fdb65688ec8a7baba835de66ccc13e76"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/P-grove_deer-110.png",
+      "sha": "a4a690099192e6aef12472acb9fe8b46071d10bd"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/W-sea.png",
+      "sha": "123dde1d5d2e103fc94165cd13922c5cb2f875da"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/W-sea.png",
+      "sha": "81f5ce7f6d350a4f4c913a0fdefc078755b01e49"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/W-sea-80.png",
+      "sha": "c05a93b1a067b40bb6456ac677959290314677ae"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/W-sea-110.png",
+      "sha": "cf6cd47513dfcdfcf38ef4394587b7fd7d83a5d7"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/G-dragDecorate-cake.png",
+      "sha": "d176986c48fd50616e0c1cd7f7661543daa5640d"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-dragDecorate-cake.png",
+      "sha": "bebebd6c54788fd51a6ec667f0a29d9e120f898a"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-dragDecorate-cake-80.png",
+      "sha": "41a4be94c81b93a06a501d283bc0dc3ac4b897f1"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-dragDecorate-cake-110.png",
+      "sha": "83eea336713c1b063f790fca43d50b5844042c78"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/G-beach-volley.png",
+      "sha": "cd4961280d372864d0a36d23118b55c654c7ef68"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-beach-volley.png",
+      "sha": "8438f5d945722a04d9f6f2110a0cdc35ae58f9f5"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-beach-volley-80.png",
+      "sha": "ffe9d2875ab77207e1c404a4e4d315b1c8747654"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/G-beach-volley-110.png",
+      "sha": "7c14d8fdee34846d244c8e379206bab96dbbfba3"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/I-naoto_lantern.png",
+      "sha": "38ab4ae9c198b82ac3e9e194cef1aa228c013bae"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/I-naoto_lantern.png",
+      "sha": "148d6e0bd212041ab972f8cb2cba1fb5ba229175"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/I-naoto_lantern-80.png",
+      "sha": "195c9df0fc84ab12f7a92cd76ba762caebcf8179"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/I-naoto_lantern-110.png",
+      "sha": "5c48b7cab59f78b3b5b2ffb20f76f3f94bd6e693"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/E-midlife-flower.png",
+      "sha": "00d312b24c1ed66a90896f9837b6ba1056548d7e"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/E-midlife-flower.png",
+      "sha": "bfd97913adde30c68f74e11dd64a676b4f49a4a2"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/E-midlife-flower-80.png",
+      "sha": "155686464970641d0ade7ac902fc5cdf2cb76158"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/E-midlife-flower-110.png",
+      "sha": "b85f8d8c6bbcc438fa0b2785f0f72c6f7476ade8"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-beetle-01.png",
+      "sha": "e18391d69479796dae5b44eeb9f754ef9a22d1cb"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-01.png",
+      "sha": "a51c75cfdcf5f5d93fbd8e40d829fd93ad69bb68"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-01-80.png",
+      "sha": "465d7788371daf8ddbbff70b90e8e3e748716c82"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-01-110.png",
+      "sha": "da3ac2c0e782d55759aa774d9b116d9ddb5e1248"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-beetle-02.png",
+      "sha": "2107787ecd8697c5d528489c64ca875c1de6e78f"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-02.png",
+      "sha": "c73a40bdc10d20708aad707dbe659d7b9525285f"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-02-80.png",
+      "sha": "add708d5ad07cf11d617f5e7bc7bb52ec6ef5db5"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-02-110.png",
+      "sha": "8a5ed702f606ced619e71fa7503458674c5d3b7c"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-beetle-03.png",
+      "sha": "66c9205e84a8f5c3346b0f42d6b122cb2e93b22f"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-03.png",
+      "sha": "44965aff1dc8600d4be02106c3baf4199b0cc595"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-03-80.png",
+      "sha": "158501578c07ed85d9cfe72a6b038ecd146f91c9"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-03-110.png",
+      "sha": "9692fcb3eca71e7fab948086746c4a4b86e821d4"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-beetle-05.png",
+      "sha": "bd1273ed943dd1c3fe9cec7927967a433e815c87"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-05.png",
+      "sha": "052f58c1bdb0ad939b1d8e584959c4e882fd0b75"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-05-80.png",
+      "sha": "458f94883f927f223655c64089bfcc8d5628b479"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-05-110.png",
+      "sha": "edea38195556115e6e0ef8ed78fde64ebbd97604"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-beetle-06.png",
+      "sha": "215737164b26d1751dabd5536eeaa10e6830e93b"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-06.png",
+      "sha": "8a55c7f2c85c8ed7342f0beae02f87b2e94fb554"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-06-80.png",
+      "sha": "3daba92ac8b277ea9e274ce0afa460084e6ad02d"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-06-110.png",
+      "sha": "6280a143ca2a93107c911dfb5e10ae153dcc7236"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-beetle-07.png",
+      "sha": "0db32100be840ca63a315ade1fb5ebb54c69ff33"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-07.png",
+      "sha": "8dc3b6ae409272a198b2954e15a6a7f4619f4957"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-07-80.png",
+      "sha": "1a444566e685948a690204386f9fd11c27a34642"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-07-110.png",
+      "sha": "493fcbf89e2a50358cf2cce9708af3b904c30edb"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-beetle-08.png",
+      "sha": "981129083ef85b70077ac15e2e9ea922461c894e"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-08.png",
+      "sha": "2beab97e1737a6c2281554bbd838b25ba15079d1"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-08-80.png",
+      "sha": "e5114b91fcd285d1d081dc123da74da1f33a44d4"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-beetle-08-110.png",
+      "sha": "a2827c07924a3c654f16912f8a74e29606fb5cf7"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-cat-01.png",
+      "sha": "06182ce3f2c7ab1c85c123dbb3022c818bad0e3f"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-01.png",
+      "sha": "c7602ed9d157857491adb92cae335c9f48a57459"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-01-80.png",
+      "sha": "c62f9ea1c2e55dfefe8c5e7f34f131575f12c451"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-01-110.png",
+      "sha": "697900b5d6c5099e017d130e2702bb1e6e3cb8e6"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-cat-02.png",
+      "sha": "3c06f29b2efe72a0e1e3978ba96a5efc4a7587a3"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-02.png",
+      "sha": "12e4524228b7d400c9ba18328daaf90873ba6dcf"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-02-80.png",
+      "sha": "c82ec19abe00dfb337b132f4a77c4620cf2844ed"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-02-110.png",
+      "sha": "2de30959e8823540d2f58c7801410545c250b6e4"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-cat-03.png",
+      "sha": "2ffb18e8d4daf2f351fd3874342e6b9ab5462cfb"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-03.png",
+      "sha": "8a54cbf7d592e2aca6454136c084437eab9c2186"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-03-80.png",
+      "sha": "bc1ad318cf516f0de8ebee72e56ff3c0c91bf4f6"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-03-110.png",
+      "sha": "b86e8a566562ff6015ac45da5fca8dd1430f2569"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-cat-04.png",
+      "sha": "1a640fbb7230d43760560dcbfc9b2992ff6cf396"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-04.png",
+      "sha": "25fd87ddb09149c9ef4c0b460c3b0e89f9824051"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-04-80.png",
+      "sha": "8d5ec3f01f8d5021152fe473a0275ede23fa0d7d"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-04-110.png",
+      "sha": "c36d55f35998576fe010e245a2a878003c5b83d8"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-cat-05.png",
+      "sha": "293edbcae50e8dd38652f8f2082b89e9fbeed22f"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-05.png",
+      "sha": "b69fa31ef3fa5f833ec2d5985f7e3f20f39803ff"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-05-80.png",
+      "sha": "30c62489bfbd21b3ad983ee01c99dea330be9ff7"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-05-110.png",
+      "sha": "fb43d7231666af44ce21623820239ffee073ca73"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-cat-06.png",
+      "sha": "14fd8882bf7544ea4c29abdf6ace8c38d3e5c0f7"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-06.png",
+      "sha": "8db739681402b3604f94e2c5d74ffacc927f9af9"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-06-80.png",
+      "sha": "46605964113fa3114e3f4f20f22cbfff1637de9a"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-06-110.png",
+      "sha": "69c61a791d608f0542f04ceb09539c5e3d165067"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-cat-07.png",
+      "sha": "fa8159e335959138d8a84b15a73c75474bcf0f6a"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-07.png",
+      "sha": "7a83b345e88b83f516002c523bec1da3a5e95b6b"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-07-80.png",
+      "sha": "568f48f414c6b74dce97f7451b0d3a607a314a23"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-07-110.png",
+      "sha": "3ca9bfcf45ad5f112323474b2fd70cd571b58371"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-cat-08.png",
+      "sha": "1f1f9ff32666131125e14b9d175fcd326da6e43a"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-08.png",
+      "sha": "30655c7466d78f92a99075a6422130b79534f081"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-08-80.png",
+      "sha": "5899707458a2cb8e6a2bc0f6d26c43c7bdddb695"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-cat-08-110.png",
+      "sha": "bcef628ca3ba7a07eb7bd6a64740ad32708b0edd"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-clownfish-01.png",
+      "sha": "5bb66a1e9b767c86c4d7adb3c8d9cf8f88d2f6e9"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-01.png",
+      "sha": "00b3a4536dced77f3c5d5cb24bd00ab840dd2762"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-01-80.png",
+      "sha": "851c15e30031b52767943cbe685507f5f2d2600a"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-01-110.png",
+      "sha": "0a89f2c78e1214e224992df6633f2039a0416c6c"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-clownfish-02.png",
+      "sha": "61d7d533cd8195b1e8f74b2d5a4b5cb5d54c0696"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-02.png",
+      "sha": "e3d00d4288eef19b17bfde2367787075d988c232"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-02-80.png",
+      "sha": "76138904b048d511e82678c91b4bc9cb6d034ca7"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-02-110.png",
+      "sha": "2f6f5b6e0d4b9100f33ec4b9a4da6934bd495b91"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-clownfish-03.png",
+      "sha": "3860858576bf15b7500cb527c51482f32cf20af8"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-03.png",
+      "sha": "f087158c49ff5a5f6f54181444ded5478026039b"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-03-80.png",
+      "sha": "139082b9ef27098f363d9aa4ba7c4ea8a5206b1f"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-03-110.png",
+      "sha": "df1de00067bb3c159c155f2a1ee3b082c85ee5a3"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-clownfish-04.png",
+      "sha": "3ccd6bf101e176e3b9367e26878c00b66f9d5fbe"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-04.png",
+      "sha": "f3c0537941efbf74e1bbfd5d5cad342b73330b87"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-04-80.png",
+      "sha": "79f7008fd310a538b8d5d6aa172489e8ec47e6d2"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-04-110.png",
+      "sha": "38ca3af4bdd25be0bd3e773285f83cdfb2b20615"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-clownfish-05.png",
+      "sha": "b440cf2cc72b022d3f39c3f7bb7c8e9be76d769c"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-05.png",
+      "sha": "d0a7a357d484508ef4444bf890df7adc5431c6ce"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-05-80.png",
+      "sha": "fbaa33a4a6788eb9405920a40d694199b5b1e00f"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-05-110.png",
+      "sha": "a3e9472436c06bd9f95d0a1840349cfaedcbe086"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-clownfish-06.png",
+      "sha": "d04586252dec23937ee83138a83b98cf53fd9e9a"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-06.png",
+      "sha": "b66a5c2d10a076252fc15275c2b8886f8dba91bc"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-06-80.png",
+      "sha": "409d8f8b9b8a0de12447e1b8e2638454e2e90fac"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-06-110.png",
+      "sha": "2499884cd360284ae80cab8fe81bb7a0cec23e6c"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-clownfish-07.png",
+      "sha": "cfbbfc1b6eae887eacf2f1fc4fab4b70d6379fa3"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-07.png",
+      "sha": "4054c5b79d959ce6fc78c0d8191b5f0cad54457e"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-07-80.png",
+      "sha": "1e0a006aea452577ab0ccc330013f4016b4a2e43"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-07-110.png",
+      "sha": "28bde2df7612d8df2e96a8bcc05fc053c20d5d06"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/illustrations/M-clownfish-08.png",
+      "sha": "278e4e4ece47c647d38f1f7f7ac717359709a298"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-08.png",
+      "sha": "0f1af5eddcca23827d0b87d155f2aba9799d1f23"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-08-80.png",
+      "sha": "9c813b543cf5880a6d455b53a165630e70a415fe"
+    },
+    {
+      "path": "prototypes/card-game/art-pilot/previews/M-clownfish-08-110.png",
+      "sha": "cd09924114164d9268e53353ff218c224943c17a"
+    }
+  ]
+}

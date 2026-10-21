@@ -1,0 +1,15 @@
+test_shared_projector_cannot_add_private_fields_to_actual_inventory (test_proxy_population_history_projection.HistoryProjectionTests.test_shared_projector_cannot_add_private_fields_to_actual_inventory) ... ERROR
+
+======================================================================
+ERROR: test_shared_projector_cannot_add_private_fields_to_actual_inventory (test_proxy_population_history_projection.HistoryProjectionTests.test_shared_projector_cannot_add_private_fields_to_actual_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_history_projection.py", line 18, in test_shared_projector_cannot_add_private_fields_to_actual_inventory
+    self.assertFalse(record['completed']);self.assertIn('allowed history',str(record['stop']))
+                                                                              ~~~~~~^^^^^^^^
+KeyError: 'stop'
+
+----------------------------------------------------------------------
+Ran 1 test in 2.964s
+
+FAILED (errors=1)

@@ -1,0 +1,47 @@
+test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) ... 
+  test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) (keep=0) ... FAIL
+  test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) (keep=1) ... FAIL
+test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response) ... ERROR
+
+======================================================================
+ERROR: test_shared_paid_cost_omission_is_rejected_in_normal_and_response (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_paid_cost_omission_is_rejected_in_normal_and_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 123, in test_shared_paid_cost_omission_is_rejected_in_normal_and_response
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 113, in run
+    extra=next(s for s in p['hand']+p['deck'] if g['cards'][s]['card_id']=='I-poop1');next(p[z] for z in ('hand','deck') if extra in p[z]).remove(extra);p['board']['prepared'].append(extra);e['runtime']['public_prepared'][extra]=dict(controller=g['turn_player'],face_up=False,paid_time=1,placed_event_seq=2)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+======================================================================
+FAIL: test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) (keep=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 102, in run
+    with self.subTest(keep=keep):self.assertFalse(api.audit_normal(e,inv)['registered_expansions_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_optional_discount_omission_is_rejected (test_proxy_population_candidate_expansions.SharedCostPoolTests.test_shared_optional_discount_omission_is_rejected) (keep=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 102, in run
+    with self.subTest(keep=keep):self.assertFalse(api.audit_normal(e,inv)['registered_expansions_verified'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.074s
+
+FAILED (failures=2, errors=1)

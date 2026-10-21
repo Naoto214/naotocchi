@@ -1,0 +1,29 @@
+FFF
+======================================================================
+FAIL: test_normal_requires_actual_existing114_comparison_not_unique_label (test_proxy_population_selection_basis.SelectionBasisTests.test_normal_requires_actual_existing114_comparison_not_unique_label)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_selection_basis.py", line 8, in test_normal_requires_actual_existing114_comparison_not_unique_label
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_response_requires_existing119_computation_and_complete_record (test_proxy_population_selection_basis.SelectionBasisTests.test_response_requires_existing119_computation_and_complete_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_selection_basis.py", line 33, in test_response_requires_existing119_computation_and_complete_record
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_safe_placement_needs_certificate_and_paid_exclusion (test_proxy_population_selection_basis.SelectionBasisTests.test_safe_placement_needs_certificate_and_paid_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_selection_basis.py", line 19, in test_safe_placement_needs_certificate_and_paid_exclusion
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

@@ -1,0 +1,25 @@
+{
+  "base_head": "829c8dba61c3383ee43dcb8388e0c41ef891b6cd",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_payment_operands",
+    "test_proxy_population_departure",
+    "test_proxy_population_paid_draw",
+    "test_proxy_population_fallback_payment",
+    "test_proxy_population_selection_basis",
+    "test_proxy_population_unproved_priority",
+    "test_proxy_population_candidate_expansions",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 6.832238626993785,
+  "python_file_count": 1072,
+  "python_unchanged": true,
+  "tests": [
+    "42"
+  ],
+  "production_generation": false,
+  "new_matches": 0
+}

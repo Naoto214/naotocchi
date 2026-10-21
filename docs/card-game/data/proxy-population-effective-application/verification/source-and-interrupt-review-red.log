@@ -1,0 +1,48 @@
+test_unknown_activation_actor_is_not_ignored_by_owner_check (test_proxy_population_source_conservation.SourceConservationTests.test_unknown_activation_actor_is_not_ignored_by_owner_check) ... FAIL
+test_request_and_result_write_interrupts_still_save_fixed_schedule (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_request_and_result_write_interrupts_still_save_fixed_schedule) ... 
+  test_request_and_result_write_interrupts_still_save_fixed_schedule (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_request_and_result_write_interrupts_still_save_fixed_schedule) (filename='request-0001.json') ... ERROR
+  test_request_and_result_write_interrupts_still_save_fixed_schedule (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_request_and_result_write_interrupts_still_save_fixed_schedule) (filename='result-0001.json') ... ERROR
+
+======================================================================
+ERROR: test_request_and_result_write_interrupts_still_save_fixed_schedule (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_request_and_result_write_interrupts_still_save_fixed_schedule) (filename='request-0001.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_supervisor_interrupt.py", line 56, in test_request_and_result_write_interrupts_still_save_fixed_schedule
+    report=json.loads((out/'supervisor.json').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpwvp06ngb/docs/card-game/data/interrupted/supervisor.json'
+
+======================================================================
+ERROR: test_request_and_result_write_interrupts_still_save_fixed_schedule (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_request_and_result_write_interrupts_still_save_fixed_schedule) (filename='result-0001.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_supervisor_interrupt.py", line 56, in test_request_and_result_write_interrupts_still_save_fixed_schedule
+    report=json.loads((out/'supervisor.json').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpj913a_ih/docs/card-game/data/interrupted/supervisor.json'
+
+======================================================================
+FAIL: test_unknown_activation_actor_is_not_ignored_by_owner_check (test_proxy_population_source_conservation.SourceConservationTests.test_unknown_activation_actor_is_not_ignored_by_owner_check)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_source_conservation.py", line 48, in test_unknown_activation_actor_is_not_ignored_by_owner_check
+    with self.assertRaisesRegex(ValueError,'activation actor'):api.check_owners(e,owners)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.260s
+
+FAILED (failures=1, errors=2)

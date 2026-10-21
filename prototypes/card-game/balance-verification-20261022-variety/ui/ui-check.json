@@ -1,0 +1,37 @@
+{
+ "defaultMode": "auto",
+ "guideAuto": "対戦ごとに7つの戦略デッキから1つを選びます。どのデッキかは対戦の後に表示します。",
+ "cpuSeatSelectDisabled": true,
+ "typeVisible": true,
+ "guideChoose": "ちょうせん：サクラとドラゴンを育て、スキージャンプなどの補正でちから・ちえ両方のちょうせんに勝つ。",
+ "chooseLabel": {
+  "mode": "choose",
+  "id": "challenge",
+  "name": "ちょうせん",
+  "seed": null
+ },
+ "cpuSeatHasChosenDeck": true,
+ "deckNameHiddenDuringPlay": true,
+ "guideFixed": "前回と同じ「ちょうせん」で練習します。カードの並びは毎回変わります。",
+ "restoredLabel": {
+  "mode": "choose",
+  "id": "challenge",
+  "name": "ちょうせん",
+  "seed": null
+ },
+ "autoLabel": {
+  "mode": "auto",
+  "id": "partner",
+  "name": "こいびと・交際",
+  "seed": 3417265071
+ },
+ "cpuSeatSelectDisabledMyDeck": false,
+ "mydeckLabel": null,
+ "prefs": {
+  "mode": "mydeck",
+  "chosen": "challenge",
+  "last": "partner"
+ },
+ "horizontalOverflow": false,
+ "pageErrors": []
+}

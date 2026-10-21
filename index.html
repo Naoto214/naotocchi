@@ -78,9 +78,9 @@
   setTimeout(function () { if (!booted()) show(); }, 6000);
 })();
 </script>
-  <link rel="stylesheet" href="style.css?v=20260929-4584fdbe">
+  <link rel="stylesheet" href="style.css?v=20261013-5a78d867">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20261001-140bc65e">
+  <link rel="stylesheet" href="ui.css?v=20261014-1496e5e9">
   <link rel="stylesheet" href="design.css?v=20260929-ae1c4ad1">
   <link rel="stylesheet" href="egg-hatching.css?v=20260929-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260929-6a3b29a4">
@@ -465,6 +465,8 @@
             <button type="button" id="worldBtn"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i><span>せかい</span><small>じかん・てんき・きせつ</small></button>
             <button type="button" id="itemBtn"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i><span>あいてむ</span><small>もちもの・おみせ</small></button>
             <button type="button" id="gamesBtn"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>ゲームをえらぶ</span><small>きろくからあそぶ</small></button>
+            <a class="independent-game" href="prototypes/naopoyo/"><span aria-hidden="true">✦</span><span>なおぽよ</span><small>スライド・ドロップ</small></a>
+            <a class="independent-game" href="prototypes/card-game/"><span aria-hidden="true">▣</span><span>CARD GAME</span><small>同一端末2人対戦</small></a>
             <button type="button" id="quickBtn"><span class="menu-emoji" aria-hidden="true">⚡</span><span>クイック</span><small>げんき消費なし</small></button>
             <button type="button" id="dexBtn"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i><span>ずかん</span><small>であったすがた</small></button>
             <button type="button" id="achBtn"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i><span>じっせき</span><small>できたこと・おもいで</small></button>
@@ -873,9 +875,10 @@
   <script src="illustration-catalog.js?v=20260929-f072008f"></script>
   <script src="display-illustrations.js?v=20260929-0eb0da4a"></script>
   <script src="canvas-illustrations.js?v=20260929-0c241de2"></script>
-  <!-- めぐる 3D prototype(?meguru3d=1 の ときだけ script.js が <script type="module"> で よむ。ふだんは よみこまない) -->
-  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261002-321fd71a"></template>
-  <script src="meguru.js?v=20261002-4241ceac"></script>
+  <!-- めぐる 3D: script.js が通常起動で読み込む。URL の明示2D指定と失敗時は Canvas へ -->
+  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261016-2b3574b5"></template>
+  <script src="relationship-life.js?v=20261014-7b5221c0"></script>
+  <script src="meguru.js?v=20261016-fe7d14d5"></script>
   <script src="quick.js?v=20260929-302dab6e"></script>
   <script src="games.js?v=20260929-5a399dc0"></script>
   <script src="audio.js?v=20260929-f12be965"></script>
@@ -884,12 +887,14 @@
   <script src="relationship-expression.js?v=20261001-dedbb693"></script>
   <script src="pet-expression.js?v=20260929-77a295ed"></script>
   <!-- めぐる 住民の 表情(Home の Expression System を そのまま つかう。resolver は 複製しない) -->
-  <script src="resident-expression.js?v=20261001-cbddf0c2"></script>
+  <script src="resident-expression.js?v=20261016-6fba3749"></script>
+  <script src="expression-presentation.js?v=20261016-9b5dcd4d"></script>
   <script src="item-memories.js?v=20260929-1636293f"></script>
   <script src="item-system.js?v=20260929-b218da8f"></script>
   <script src="movie-dialogue.js?v=20260929-2b99e35a"></script>
   <script src="life-stage-profiles.js?v=20260930-1a189f0f"></script>
-  <script src="script.js?v=20261002-194f3480"></script>
+  <script src="script.js?v=20261016-19a616c0"></script>
   <script src="home-touch.js?v=20260929-36be057a"></script>
 </body>
 </html>
+

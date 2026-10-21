@@ -1,0 +1,22 @@
+{
+  "files_sha256": {
+    "probe-01-a-first.json.gz": "8ad43ea149c5f2a18133962ddec913515224e309fb040994c49a7cb4eb2cf00b",
+    "probe-01-b-first.json.gz": "e411ca98f7a69a9c192a1ea1fad1e271f6c5451eb3b68736698deed313cb6425",
+    "probe-02-a-first.json.gz": "1aad107710a061268efdfd1b8f54401efe5492bb6245c82f50135289f6bd83d0",
+    "probe-02-b-first.json.gz": "1adc84c3ced755bde615c4ec4413629a5cf8a2b7d4cab20eadbfa7bc41f5d5b0"
+  },
+  "planned_ids": [
+    "continuation_batched_normal_v2:legacy_107_114_116:probe-01-a-first",
+    "continuation_batched_normal_v2:legacy_107_114_116:probe-01-b-first",
+    "continuation_batched_normal_v2:legacy_107_114_116:probe-02-a-first",
+    "continuation_batched_normal_v2:legacy_107_114_116:probe-02-b-first",
+    "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-01-a-first",
+    "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-01-b-first",
+    "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-02-a-first",
+    "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-02-b-first",
+    "continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-a-first",
+    "continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-b-first",
+    "continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-a-first",
+    "continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-b-first"
+  ]
+}

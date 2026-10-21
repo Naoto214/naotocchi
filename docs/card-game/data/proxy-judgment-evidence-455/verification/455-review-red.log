@@ -1,0 +1,59 @@
+..FFFFFF............
+======================================================================
+FAIL: test_outer_exclusion_evidence_cannot_be_shadowed (test_proxy_judgment_evidence_audit.BoundaryTests.test_outer_exclusion_evidence_cannot_be_shadowed) (layer='record', field='resolution_mode')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 87, in test_outer_exclusion_evidence_cannot_be_shadowed
+    with self.subTest(layer=layer,field=field),self.assertRaises(ValueError):subject.build_sidecar(run(record))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_outer_exclusion_evidence_cannot_be_shadowed (test_proxy_judgment_evidence_audit.BoundaryTests.test_outer_exclusion_evidence_cannot_be_shadowed) (layer='record', field='strategic_unresolved')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 87, in test_outer_exclusion_evidence_cannot_be_shadowed
+    with self.subTest(layer=layer,field=field),self.assertRaises(ValueError):subject.build_sidecar(run(record))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_outer_exclusion_evidence_cannot_be_shadowed (test_proxy_judgment_evidence_audit.BoundaryTests.test_outer_exclusion_evidence_cannot_be_shadowed) (layer='record', field='reason_code')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 87, in test_outer_exclusion_evidence_cannot_be_shadowed
+    with self.subTest(layer=layer,field=field),self.assertRaises(ValueError):subject.build_sidecar(run(record))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_outer_exclusion_evidence_cannot_be_shadowed (test_proxy_judgment_evidence_audit.BoundaryTests.test_outer_exclusion_evidence_cannot_be_shadowed) (layer='choice', field='resolution_mode')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 87, in test_outer_exclusion_evidence_cannot_be_shadowed
+    with self.subTest(layer=layer,field=field),self.assertRaises(ValueError):subject.build_sidecar(run(record))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_outer_exclusion_evidence_cannot_be_shadowed (test_proxy_judgment_evidence_audit.BoundaryTests.test_outer_exclusion_evidence_cannot_be_shadowed) (layer='choice', field='strategic_unresolved')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 87, in test_outer_exclusion_evidence_cannot_be_shadowed
+    with self.subTest(layer=layer,field=field),self.assertRaises(ValueError):subject.build_sidecar(run(record))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_outer_exclusion_evidence_cannot_be_shadowed (test_proxy_judgment_evidence_audit.BoundaryTests.test_outer_exclusion_evidence_cannot_be_shadowed) (layer='choice', field='reason_code')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_judgment_evidence_audit.py", line 87, in test_outer_exclusion_evidence_cannot_be_shadowed
+    with self.subTest(layer=layer,field=field),self.assertRaises(ValueError):subject.build_sidecar(run(record))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 15 tests in 28.817s
+
+FAILED (failures=6)

@@ -1,0 +1,17 @@
+{
+  "modules": 355,
+  "tests": 1227,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "all_passed": true,
+  "final_source_retested_modules": [
+    "test_proxy_equivalence_evaluation",
+    "test_proxy_equivalence_inputs",
+    "test_proxy_equivalence_outcomes",
+    "test_proxy_equivalence_proofs",
+    "test_proxy_equivalence_selection",
+    "test_proxy_equivalence_trajectory"
+  ],
+  "review_retest_tests": 47
+}

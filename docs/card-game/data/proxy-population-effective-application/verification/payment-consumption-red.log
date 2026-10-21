@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_actual_transform_consumes_all_own_and_preserves_other_controller (test_proxy_population_payment_consumption.ConsumptionTests.test_actual_transform_consumes_all_own_and_preserves_other_controller)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 23, in setUp
+    def setUp(self):self.assertIsNotNone(api,'payment consumption audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : payment consumption audit missing
+
+======================================================================
+FAIL: test_receipt_omission_duplicate_and_other_controller_consumption_fail (test_proxy_population_payment_consumption.ConsumptionTests.test_receipt_omission_duplicate_and_other_controller_consumption_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 23, in setUp
+    def setUp(self):self.assertIsNotNone(api,'payment consumption audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : payment consumption audit missing
+
+======================================================================
+FAIL: test_time_skip_preserves_next_transform_and_pass_cannot_claim_consumption (test_proxy_population_payment_consumption.ConsumptionTests.test_time_skip_preserves_next_transform_and_pass_cannot_claim_consumption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 23, in setUp
+    def setUp(self):self.assertIsNotNone(api,'payment consumption audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : payment consumption audit missing
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

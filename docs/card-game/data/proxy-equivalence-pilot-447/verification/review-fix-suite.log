@@ -1,0 +1,17 @@
+.......................E...................
+======================================================================
+ERROR: test_unknown_reveal_stops_prefix (test_proxy_equivalence_outcomes.OutcomeTests.test_unknown_reveal_stops_prefix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_outcomes.py", line 34, in test_unknown_reveal_stops_prefix
+    r=next(r for r in subject.derive_outcomes(x) if r['candidate_id']==a['candidate_id'])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/proxy_equivalence_outcomes.py", line 53, in derive_outcomes
+    if errors:raise ValueError('; '.join(errors))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: malformed equivalence input
+
+----------------------------------------------------------------------
+Ran 43 tests in 20.879s
+
+FAILED (errors=1)

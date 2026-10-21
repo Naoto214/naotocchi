@@ -1,0 +1,7 @@
+# 129 conditional-growth decision proof
+
+Input: checkpoint 128 commit `2af7a360bf0cd8bbcf8839d714f798ba8e58a171` and its four immutable stopped states. Keep 107/114 priorities, 116 fallback eligibility, 128 candidate completeness and IDs.
+
+At a pre-action normal decision, only a growth change guaranteed by the public and owner-known current state belongs to `certain_growth_difference`. A hidden top-deck match in `G-hit-blow` may be true or false; do not inspect future deck order. `E-first-date` requires the target to remain in the partner slot at resolution, and its own text explicitly allows a response to make the effect fail. A currently stage-0 partner proves present legality, not post-response success. Thus neither action has an unconditional +5 at the decision boundary. This is an application of the existing word “certain,” not a prediction of card strength. Both pay positive time; 114 compares the certain time remainder before any hand/board future value and can select pass. Retain all admitted variants and targets in the legal set. Do not seed a ranked loser via 116.
+
+Record source text, condition, state field, uncertain outcome branch, score and pairwise 114 proof. If the public state cannot prove the condition's uncertainty or a card has an immediate certain effect, stop. Replay independently from each 128 raw state/hash with the existing response and turn-end contracts until genuine stop, with no card-copy branches and no older artifact edits.

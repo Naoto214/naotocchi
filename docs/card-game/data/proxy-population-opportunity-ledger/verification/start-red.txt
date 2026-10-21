@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_catalog_exactly_covers_existing107_and_preserves_literal_sources (test_proxy_population_start_obligations.StartTests.test_catalog_exactly_covers_existing107_and_preserves_literal_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_start_obligations.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_chicken_empty_deck_is_not_an_added_activation_condition (test_proxy_population_start_obligations.StartTests.test_chicken_empty_deck_is_not_an_added_activation_condition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_start_obligations.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_equipment_remaining_hand_condition_and_opponent_owner_are_separate (test_proxy_population_start_obligations.StartTests.test_equipment_remaining_hand_condition_and_opponent_owner_are_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_start_obligations.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_sources_cannot_join_retroactively_and_unknown_cards_fail_closed (test_proxy_population_start_obligations.StartTests.test_sources_cannot_join_retroactively_and_unknown_cards_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_start_obligations.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

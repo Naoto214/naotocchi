@@ -1,0 +1,27 @@
+F
+======================================================================
+FAIL: test_direct_growth_default_zero_is_not_a_normal_comparison_proof (test_proxy_population_unproved_priority.DirectGrowthOperandTests.test_direct_growth_default_zero_is_not_a_normal_comparison_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 80, in test_direct_growth_default_zero_is_not_a_normal_comparison_proof
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 75, in run
+    self.assertEqual(r['choice']['resolution_mode'],'seeded_fallback')
+AssertionError: 'priority_unique' != 'seeded_fallback'
+- priority_unique
++ seeded_fallback
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.128s
+
+FAILED (failures=1)

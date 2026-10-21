@@ -1,0 +1,172 @@
+{
+  "passed": false,
+  "failures": [
+    "card 0: stage circle centered vertically",
+    "card 0: attribute lane centered vertically",
+    "card 0: category does not overlap title",
+    "card 1: stage circle centered vertically",
+    "card 1: attribute lane centered vertically",
+    "card 1: category does not overlap title",
+    "card 2: stage circle centered vertically",
+    "card 2: attribute lane centered vertically",
+    "card 2: category does not overlap title",
+    "card 3: stage circle centered vertically",
+    "card 3: attribute lane centered vertically",
+    "card 3: category does not overlap title"
+  ],
+  "cards": [
+    {
+      "card-heading": {
+        "x": 10.59375,
+        "y": 10.59375,
+        "width": 218.8125,
+        "height": 67.75
+      },
+      "card-title": {
+        "x": 60.90625,
+        "y": 25.65625,
+        "width": 118.1875,
+        "height": 37.1875
+      },
+      "card-art": {
+        "x": 10.59375,
+        "y": 81.71875,
+        "width": 218.8125,
+        "height": 128.828125
+      },
+      "card-stats": {
+        "x": 10.59375,
+        "y": 213.921875,
+        "width": 218.8125,
+        "height": 33.875
+      },
+      "card-copy": {
+        "x": 10.59375,
+        "y": 251.171875,
+        "width": 218.8125,
+        "height": 84.703125
+      },
+      "card-footer": {
+        "x": 10.59375,
+        "y": 339.25,
+        "width": 218.8125,
+        "height": 10.15625
+      }
+    },
+    {
+      "card-heading": {
+        "x": 10.59375,
+        "y": 10.59375,
+        "width": 218.8125,
+        "height": 67.75
+      },
+      "card-title": {
+        "x": 60.90625,
+        "y": 25.65625,
+        "width": 118.1875,
+        "height": 37.1875
+      },
+      "card-art": {
+        "x": 10.59375,
+        "y": 81.71875,
+        "width": 218.8125,
+        "height": 128.828125
+      },
+      "card-stats": {
+        "x": 10.59375,
+        "y": 213.921875,
+        "width": 218.8125,
+        "height": 33.875
+      },
+      "card-copy": {
+        "x": 10.59375,
+        "y": 251.171875,
+        "width": 218.8125,
+        "height": 84.703125
+      },
+      "card-footer": {
+        "x": 10.59375,
+        "y": 339.25,
+        "width": 218.8125,
+        "height": 10.15625
+      }
+    },
+    {
+      "card-heading": {
+        "x": 10.59375,
+        "y": 10.59375,
+        "width": 218.8125,
+        "height": 67.75
+      },
+      "card-title": {
+        "x": 60.90625,
+        "y": 25.65625,
+        "width": 118.1875,
+        "height": 37.1875
+      },
+      "card-art": {
+        "x": 10.59375,
+        "y": 81.71875,
+        "width": 218.8125,
+        "height": 128.828125
+      },
+      "card-stats": {
+        "x": 10.59375,
+        "y": 213.921875,
+        "width": 218.8125,
+        "height": 33.875
+      },
+      "card-copy": {
+        "x": 10.59375,
+        "y": 251.171875,
+        "width": 218.8125,
+        "height": 84.703125
+      },
+      "card-footer": {
+        "x": 10.59375,
+        "y": 339.25,
+        "width": 218.8125,
+        "height": 10.15625
+      }
+    },
+    {
+      "card-heading": {
+        "x": 10.59375,
+        "y": 10.59375,
+        "width": 218.8125,
+        "height": 67.75
+      },
+      "card-title": {
+        "x": 60.90625,
+        "y": 25.65625,
+        "width": 118.1875,
+        "height": 37.1875
+      },
+      "card-art": {
+        "x": 10.59375,
+        "y": 81.71875,
+        "width": 218.8125,
+        "height": 128.828125
+      },
+      "card-stats": {
+        "x": 10.59375,
+        "y": 213.921875,
+        "width": 218.8125,
+        "height": 33.875
+      },
+      "card-copy": {
+        "x": 10.59375,
+        "y": 251.171875,
+        "width": 218.8125,
+        "height": 84.703125
+      },
+      "card-footer": {
+        "x": 10.59375,
+        "y": 339.25,
+        "width": 218.8125,
+        "height": 10.15625
+      }
+    }
+  ],
+  "tutorial": null
+}

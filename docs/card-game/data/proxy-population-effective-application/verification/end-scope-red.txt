@@ -1,0 +1,26 @@
+test_runtime_scope_retains_end_verification_before_terminal_replay (test_proxy_population_end_victory.EndVictoryTests.test_runtime_scope_retains_end_verification_before_terminal_replay) ... ERROR
+
+======================================================================
+ERROR: test_runtime_scope_retains_end_verification_before_terminal_replay (test_proxy_population_end_victory.EndVictoryTests.test_runtime_scope_retains_end_verification_before_terminal_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_end_victory.py", line 69, in test_runtime_scope_retains_end_verification_before_terminal_replay
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_end_victory.py", line 66, in run
+    with patch.object(end,'verify_new_events',return_value=[]) as verify,patch.object(end.old,'_end_transition',side_effect=verified_transition),api.scope(),boundary.metadata_scope(i,None):
+                                                                                                                                                 ^^^^^^^^^
+AttributeError: module 'proxy_population_end_victory' has no attribute 'scope'. Did you mean: 'copy'?
+
+----------------------------------------------------------------------
+Ran 1 test in 0.053s
+
+FAILED (errors=1)

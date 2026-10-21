@@ -1,0 +1,35 @@
+test_mirror_uses_other_first_owner_and_side_but_same_initial_state (test_proxy_population_opening.OpeningTests.test_mirror_uses_other_first_owner_and_side_but_same_initial_state) ... FAIL
+test_snapshot_and_continuation_hashes_bind_states_without_mutation (test_proxy_population_opening.OpeningTests.test_snapshot_and_continuation_hashes_bind_states_without_mutation) ... FAIL
+test_two_draws_seven_physical_candidates_and_rule_derived_address (test_proxy_population_opening.OpeningTests.test_two_draws_seven_physical_candidates_and_rule_derived_address) ... FAIL
+
+======================================================================
+FAIL: test_mirror_uses_other_first_owner_and_side_but_same_initial_state (test_proxy_population_opening.OpeningTests.test_mirror_uses_other_first_owner_and_side_but_same_initial_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_opening.py", line 44, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'reconstruct_opening'),'first-turn reconstruction missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : first-turn reconstruction missing
+
+======================================================================
+FAIL: test_snapshot_and_continuation_hashes_bind_states_without_mutation (test_proxy_population_opening.OpeningTests.test_snapshot_and_continuation_hashes_bind_states_without_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_opening.py", line 44, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'reconstruct_opening'),'first-turn reconstruction missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : first-turn reconstruction missing
+
+======================================================================
+FAIL: test_two_draws_seven_physical_candidates_and_rule_derived_address (test_proxy_population_opening.OpeningTests.test_two_draws_seven_physical_candidates_and_rule_derived_address)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_opening.py", line 44, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'reconstruct_opening'),'first-turn reconstruction missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : first-turn reconstruction missing
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

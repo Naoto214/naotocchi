@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const vm = require('node:vm');
-const {harness} = require('./helpers/runtime-harness.cjs');
+const {harness} = require('./helpers/present-cast-harness.cjs');
 
 const BASE = 'assets/characters/cat/06.png';
 const HAPPY = 'assets/characters/expressions/cat/06-happy-v3.png';

@@ -1,0 +1,142 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "id": "M-starfish-01",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "stats": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-starfish-02",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "stats": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-starfish-03",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "stats": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-starfish-04",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "stats": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-starfish-05",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "stats": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-starfish-06",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "stats": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-starfish-07",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "stats": true,
+      "title": true,
+      "attributeCount": 1
+    },
+    {
+      "id": "M-starfish-08",
+      "width": 600,
+      "height": 900,
+      "text": true,
+      "textFits": true,
+      "nonOverlap": true,
+      "color": "#2878E8",
+      "categoryMark": true,
+      "botanical": true,
+      "cost": true,
+      "stats": true,
+      "title": true,
+      "attributeCount": 1
+    }
+  ],
+  "mobile": [
+    {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 430,
+      "scrollWidth": 430
+    }
+  ],
+  "errors": [],
+  "physicalSafari": false,
+  "browser": "153.0.8010.0"
+}

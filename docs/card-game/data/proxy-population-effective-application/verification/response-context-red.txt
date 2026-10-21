@@ -1,0 +1,23 @@
+test_concealed_slot_projection_preserves_legal_challenge_modifier_candidate (test_proxy_population_response_context.ResponseContextTests.test_concealed_slot_projection_preserves_legal_challenge_modifier_candidate) ... FAIL
+test_nested_scope_and_delegate_exception_restore_context (test_proxy_population_response_context.ResponseContextTests.test_nested_scope_and_delegate_exception_restore_context) ... FAIL
+
+======================================================================
+FAIL: test_concealed_slot_projection_preserves_legal_challenge_modifier_candidate (test_proxy_population_response_context.ResponseContextTests.test_concealed_slot_projection_preserves_legal_challenge_modifier_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_response_context.py", line 13, in test_concealed_slot_projection_preserves_legal_challenge_modifier_candidate
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_nested_scope_and_delegate_exception_restore_context (test_proxy_population_response_context.ResponseContextTests.test_nested_scope_and_delegate_exception_restore_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_response_context.py", line 22, in test_nested_scope_and_delegate_exception_restore_context
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

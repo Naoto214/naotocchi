@@ -1,0 +1,122 @@
+[
+  {
+    "name": "mixed precedence",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "mixed no reward",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "mixed 08 not clear",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "pure08 clear",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "full group consume",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "growth max4",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "stage cap08",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "gravity cascade",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "anchor B",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "anchor C",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "egg rewards",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "species count",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "category count",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "stage marginal",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "bag reproducibility",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "drop stages",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "bulk price",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "egg consumption",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "transient08 metrics",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  },
+  {
+    "name": "mixed success",
+    "killed": true,
+    "status": 1,
+    "timeout": false
+  }
+]

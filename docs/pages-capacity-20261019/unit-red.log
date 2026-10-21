@@ -1,0 +1,68 @@
+test_budget_and_stale_destination_stop_without_deleting_data (test_package.PackageTests.test_budget_and_stale_destination_stop_without_deleting_data) ... FAIL
+test_dynamic_contract_detects_new_sample_not_allowlisted (test_package.PackageTests.test_dynamic_contract_detects_new_sample_not_allowlisted) ... FAIL
+test_external_fragment_data_and_query_links_are_not_local_files (test_package.PackageTests.test_external_fragment_data_and_query_links_are_not_local_files) ... FAIL
+test_missing_import_or_asset_stops_publication (test_package.PackageTests.test_missing_import_or_asset_stops_publication) ... FAIL
+test_new_referenced_image_must_be_reviewed_into_allowlist (test_package.PackageTests.test_new_referenced_image_must_be_reviewed_into_allowlist) ... FAIL
+test_only_exact_allowlist_is_copied_byte_identically (test_package.PackageTests.test_only_exact_allowlist_is_copied_byte_identically) ... FAIL
+test_path_escape_absolute_duplicate_and_symlink_are_rejected (test_package.PackageTests.test_path_escape_absolute_duplicate_and_symlink_are_rejected) ... FAIL
+
+======================================================================
+FAIL: test_budget_and_stale_destination_stop_without_deleting_data (test_package.PackageTests.test_budget_and_stale_destination_stop_without_deleting_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ecb1e0f1ee03/pages-fix/tests/pages/test_package.py", line 20, in setUp
+    self.assertTrue(SCRIPT.exists(), 'runtime allowlist packager must exist')
+AssertionError: False is not true : runtime allowlist packager must exist
+
+======================================================================
+FAIL: test_dynamic_contract_detects_new_sample_not_allowlisted (test_package.PackageTests.test_dynamic_contract_detects_new_sample_not_allowlisted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ecb1e0f1ee03/pages-fix/tests/pages/test_package.py", line 20, in setUp
+    self.assertTrue(SCRIPT.exists(), 'runtime allowlist packager must exist')
+AssertionError: False is not true : runtime allowlist packager must exist
+
+======================================================================
+FAIL: test_external_fragment_data_and_query_links_are_not_local_files (test_package.PackageTests.test_external_fragment_data_and_query_links_are_not_local_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ecb1e0f1ee03/pages-fix/tests/pages/test_package.py", line 20, in setUp
+    self.assertTrue(SCRIPT.exists(), 'runtime allowlist packager must exist')
+AssertionError: False is not true : runtime allowlist packager must exist
+
+======================================================================
+FAIL: test_missing_import_or_asset_stops_publication (test_package.PackageTests.test_missing_import_or_asset_stops_publication)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ecb1e0f1ee03/pages-fix/tests/pages/test_package.py", line 20, in setUp
+    self.assertTrue(SCRIPT.exists(), 'runtime allowlist packager must exist')
+AssertionError: False is not true : runtime allowlist packager must exist
+
+======================================================================
+FAIL: test_new_referenced_image_must_be_reviewed_into_allowlist (test_package.PackageTests.test_new_referenced_image_must_be_reviewed_into_allowlist)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ecb1e0f1ee03/pages-fix/tests/pages/test_package.py", line 20, in setUp
+    self.assertTrue(SCRIPT.exists(), 'runtime allowlist packager must exist')
+AssertionError: False is not true : runtime allowlist packager must exist
+
+======================================================================
+FAIL: test_only_exact_allowlist_is_copied_byte_identically (test_package.PackageTests.test_only_exact_allowlist_is_copied_byte_identically)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ecb1e0f1ee03/pages-fix/tests/pages/test_package.py", line 20, in setUp
+    self.assertTrue(SCRIPT.exists(), 'runtime allowlist packager must exist')
+AssertionError: False is not true : runtime allowlist packager must exist
+
+======================================================================
+FAIL: test_path_escape_absolute_duplicate_and_symlink_are_rejected (test_package.PackageTests.test_path_escape_absolute_duplicate_and_symlink_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ecb1e0f1ee03/pages-fix/tests/pages/test_package.py", line 20, in setUp
+    self.assertTrue(SCRIPT.exists(), 'runtime allowlist packager must exist')
+AssertionError: False is not true : runtime allowlist packager must exist
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+FAILED (failures=7)

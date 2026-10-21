@@ -1,0 +1,3682 @@
+{
+  "audit": "94-removal-defense-supply-audit",
+  "status": "supply_audit_complete_with_unresolved_gaps",
+  "start_head": "d32d95021f8a7d9fa5d9cff58616a8dce6c59658",
+  "start_tree": "7072f1de45e410cb3847d8139dac2c8a72316b98",
+  "latest_main_checked": "f23398e43eed952d49d5a2b805789a4c87b2b1bd",
+  "branch": "design/card-pool-master-20260914",
+  "pr": 259,
+  "pr_draft": true,
+  "pr_merged": false,
+  "start_runtime_ci": {
+    "id": 35224600029,
+    "conclusion": "success"
+  },
+  "scope": "Manual semantic supply audit plus identity/text/blob checks; not a simulator, release count, or balance validation.",
+  "catalog_total": 452,
+  "vanilla_entries": 7,
+  "registered": {
+    "CARD": 463,
+    "HOLD": 14,
+    "total": 477
+  },
+  "documents_01_through_93": [
+    {
+      "path": "docs/card-game/01-core-rules.md",
+      "baseline_blob": "b75c03833076c86b1875c9f59ed92f566b42e0ca"
+    },
+    {
+      "path": "docs/card-game/02-main-system.md",
+      "baseline_blob": "ffbe868bfddcdaad50f5abbc113e198bfe27193c"
+    },
+    {
+      "path": "docs/card-game/03-design-principles.md",
+      "baseline_blob": "2da167edefe6378fc6802129851b08457dad21ac"
+    },
+    {
+      "path": "docs/card-game/04-representative-tests.md",
+      "baseline_blob": "ecb3a9f492bd7092c8af974a96ebc4666e7f3b88"
+    },
+    {
+      "path": "docs/card-game/05-horizontal-audit.md",
+      "baseline_blob": "9e2986fe274f7e0f3dcf2539cc1f17b52a4143bc"
+    },
+    {
+      "path": "docs/card-game/06-action-chain-checkpoint.md",
+      "baseline_blob": "354d3fdb12d9be91c9d3cc06f1b5b99059c64d71"
+    },
+    {
+      "path": "docs/card-game/07-advanced-rules-checkpoint.md",
+      "baseline_blob": "c3d62262802e5f12ea3e41e7c000f638fc9b465d"
+    },
+    {
+      "path": "docs/card-game/08-test-deck-a-card-drafts.md",
+      "baseline_blob": "494f91db8e33e3aa7b3c5b270dbb688bdddd3b2d"
+    },
+    {
+      "path": "docs/card-game/09-test-deck-a-simulation-1.md",
+      "baseline_blob": "ea47c453e1005cd54c9327045a7d51dca81d440a"
+    },
+    {
+      "path": "docs/card-game/10-test-deck-a-birth-statistics.md",
+      "baseline_blob": "71ba12d755ef597ed83a18205cca057957f17cdb"
+    },
+    {
+      "path": "docs/card-game/11-test-deck-a-detailed-simulations.md",
+      "baseline_blob": "ecf210219452a1ee180d4059780c59498a261177"
+    },
+    {
+      "path": "docs/card-game/12-test-deck-a-second-draft-and-b-plan.md",
+      "baseline_blob": "91e3bde2a27a32d9e68bef951527045633d2948e"
+    },
+    {
+      "path": "docs/card-game/12-test-deck-b-life-connection.md",
+      "baseline_blob": "ac9ef438caf7411aeae7a85214050473dcec8a1c"
+    },
+    {
+      "path": "docs/card-game/13-test-deck-b-support-pool.md",
+      "baseline_blob": "c28a062fb40023e727252ffa9fff302fca8a5263"
+    },
+    {
+      "path": "docs/card-game/14-test-deck-b-simulation-1.md",
+      "baseline_blob": "a276cac81491290e031386a67422b504d7889f42"
+    },
+    {
+      "path": "docs/card-game/15-test-deck-b-main-16-draft.md",
+      "baseline_blob": "b85d2a60a41b8fe03ad87a28e5fc0565591c4cdd"
+    },
+    {
+      "path": "docs/card-game/16-test-deck-b-simulation-2.md",
+      "baseline_blob": "53b89b13f3b49f124572f1dd542f5f5d6d0d9df1"
+    },
+    {
+      "path": "docs/card-game/17-test-deck-b-simulation-3-human.md",
+      "baseline_blob": "92dcf889803aa5dc69da51c13b85d7723cc42877"
+    },
+    {
+      "path": "docs/card-game/18-test-deck-b-simulation-4.md",
+      "baseline_blob": "3065b3d07a3b2ba9916c4723f155da9fe400a226"
+    },
+    {
+      "path": "docs/card-game/19-test-decks-a-b-cross-audit.md",
+      "baseline_blob": "4577e3096c1b7b518ba539c8504eb1d772afed50"
+    },
+    {
+      "path": "docs/card-game/20-set-zero-pool-sizing.md",
+      "baseline_blob": "ec35817ed8e3d45a5f0860c5f4e20fa78834b061"
+    },
+    {
+      "path": "docs/card-game/21-main-card-art-and-biology-principles.md",
+      "baseline_blob": "874804f4ea405ce647c359c62d03631e2bd70796"
+    },
+    {
+      "path": "docs/card-game/22-beetle-stagbeetle-16-stage-audit.md",
+      "baseline_blob": "b0ef1edd19da0cc70ec8ebca26875dab5d2a6ce5"
+    },
+    {
+      "path": "docs/card-game/23-stagbeetle-first-pass.md",
+      "baseline_blob": "b64bbf79bffe41c0b005bd21565bde26e1adfa54"
+    },
+    {
+      "path": "docs/card-game/24-beetle-vs-stagbeetle-simulation-1.md",
+      "baseline_blob": "59a7b7ca6aa40a011dc435ae7c2152477a1aa82e"
+    },
+    {
+      "path": "docs/card-game/25-full-card-pool-development-plan.md",
+      "baseline_blob": "800b262b0db797c9ac6b79fdb42743de2bbfd6ae"
+    },
+    {
+      "path": "docs/card-game/26-full-card-pool-inventory-1.md",
+      "baseline_blob": "173c2f423445ed6114aa765d84cea905ede09b86"
+    },
+    {
+      "path": "docs/card-game/27-card-master-foundation.md",
+      "baseline_blob": "77273eb77ed545d80729d1a2dc8e390c40c8cb0d"
+    },
+    {
+      "path": "docs/card-game/28-play-and-item-inventory.md",
+      "baseline_blob": "96b212da89c3d2295ffbcb41d8db0a18c3727ab8"
+    },
+    {
+      "path": "docs/card-game/29-event-pool-inventory-1.md",
+      "baseline_blob": "6e863b9dea3a76e011166671c3bc57e45c55bb7f"
+    },
+    {
+      "path": "docs/card-game/30-event-pool-inventory-2.md",
+      "baseline_blob": "6619f28651409c6478e8754b027d67c229c3dc85"
+    },
+    {
+      "path": "docs/card-game/31-beetle-stagbeetle-card-master-migration.md",
+      "baseline_blob": "023a04ffea9207951b948a63c001244121a8038d"
+    },
+    {
+      "path": "docs/card-game/32-play-source-map.md",
+      "baseline_blob": "5c64538580fc9f7b6e4c558aaf8bddabb6481c5f"
+    },
+    {
+      "path": "docs/card-game/33-world-four-axis-inventory.md",
+      "baseline_blob": "ea6ecef11a8466306e04142a1fcf840fec6dc69a"
+    },
+    {
+      "path": "docs/card-game/34-full-pool-role-map-1.md",
+      "baseline_blob": "b73a5e3f4f7a3193aec48eb09c6b6a8a0cab163c"
+    },
+    {
+      "path": "docs/card-game/35-companion-26-role-draft.md",
+      "baseline_blob": "26b46284aa762dfeb77081415b3de0b46b8234ef"
+    },
+    {
+      "path": "docs/card-game/36-partner-18-role-draft.md",
+      "baseline_blob": "c32f9025d82e9e5cffca1f67092fde594e0d363b"
+    },
+    {
+      "path": "docs/card-game/37-item-38-role-draft.md",
+      "baseline_blob": "ddcd6e673613c44c166afd777d682c24e09be9c3"
+    },
+    {
+      "path": "docs/card-game/38-event-34-role-audit.md",
+      "baseline_blob": "8186ff24739d297c289aa676c505ffb869e6f2bd"
+    },
+    {
+      "path": "docs/card-game/39-play-100-role-draft.md",
+      "baseline_blob": "9110b881dd6cda0036201abee5122f2d54474ec9"
+    },
+    {
+      "path": "docs/card-game/40-place-13-role-draft.md",
+      "baseline_blob": "7a873bcb9fe923e48599b7d249f362602cc89003"
+    },
+    {
+      "path": "docs/card-game/41-main-31-species-life-theme-map.md",
+      "baseline_blob": "529221349ff44ee89648f8dbd8f38ea17480d5d9"
+    },
+    {
+      "path": "docs/card-game/42-human-three-lines-first-pass.md",
+      "baseline_blob": "416ff64cde7dd62de7a22d56a82b3f70e2837337"
+    },
+    {
+      "path": "docs/card-game/43-beast-cat-first-pass.md",
+      "baseline_blob": "5b4c7e41f3ee34ec2ec393d6229b66f417907001"
+    },
+    {
+      "path": "docs/card-game/44-waterside-three-lines-first-pass.md",
+      "baseline_blob": "ae12c9811c6a4d8c2c1cedc4ded29611353f2adf"
+    },
+    {
+      "path": "docs/card-game/45-ocean-four-lines-first-pass.md",
+      "baseline_blob": "b40ba357670fdda2f9d8324a130386083684bf4d"
+    },
+    {
+      "path": "docs/card-game/46-insect-three-lines-first-pass.md",
+      "baseline_blob": "235ee84e544cf64b8406afcbed91d8a614f845b2"
+    },
+    {
+      "path": "docs/card-game/47-plant-four-lines-first-pass.md",
+      "baseline_blob": "25be85c79ca3bda5e0e7d7388971b31fc027a697"
+    },
+    {
+      "path": "docs/card-game/48-fantasy-three-lines-first-pass.md",
+      "baseline_blob": "24d8f190a3b037100fba335f3a2ab4cdc887cf49"
+    },
+    {
+      "path": "docs/card-game/49-mystery-two-lines-first-pass.md",
+      "baseline_blob": "a1b16cdf9167075b1fb13fa7b5ff6e983d9ebb9a"
+    },
+    {
+      "path": "docs/card-game/50-main-248-numeric-cross-audit.md",
+      "baseline_blob": "68fa39e578931baf627640b31860b58cc9520589"
+    },
+    {
+      "path": "docs/card-game/51-human-woman-ren-card-text-draft.md",
+      "baseline_blob": "b7171738b807d22cc0af5592a2956f7eaf53864e"
+    },
+    {
+      "path": "docs/card-game/52-beast-cat-card-text-draft.md",
+      "baseline_blob": "89b28c73eee502fa88b5078f073e957f86a69dd5"
+    },
+    {
+      "path": "docs/card-game/53-waterside-three-lines-card-text-draft.md",
+      "baseline_blob": "727a64cb11c0a9883f746017883d36e976c57018"
+    },
+    {
+      "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+      "baseline_blob": "c5b3bc858069fb4785bda8aaffefa6a37ed5bbfd"
+    },
+    {
+      "path": "docs/card-game/55-insect-three-lines-card-text-draft.md",
+      "baseline_blob": "78ffb01dc3d1573a9cf5396a5aa3a6bd4505940a"
+    },
+    {
+      "path": "docs/card-game/56-insect-three-lines-text-audit.md",
+      "baseline_blob": "16d205a40bd242fa2e8491a6a70672304cb287c6"
+    },
+    {
+      "path": "docs/card-game/57-plant-four-lines-card-text-draft.md",
+      "baseline_blob": "b9391843c19e8c7beeaf5cccd7e00d74122254fd"
+    },
+    {
+      "path": "docs/card-game/58-plant-four-lines-text-audit.md",
+      "baseline_blob": "8ec9e99a75625b7b1454888b1d56292b349d74a3"
+    },
+    {
+      "path": "docs/card-game/59-fantasy-three-lines-card-text-draft.md",
+      "baseline_blob": "ab35262e02b9ddac83034a9d4a41f44e522b648b"
+    },
+    {
+      "path": "docs/card-game/60-fantasy-three-lines-text-audit.md",
+      "baseline_blob": "fcdd2dfd4e4f91c6cf9280d6bfec385d3582cc99"
+    },
+    {
+      "path": "docs/card-game/61-full-rules-and-card-text-audit.md",
+      "baseline_blob": "979949aec4f4fabbdf4ccc64f7560606c4801258"
+    },
+    {
+      "path": "docs/card-game/62-public-information-and-activation-text-fixes.md",
+      "baseline_blob": "fcf47deb6199306958e4c71fa90e1171c971c234"
+    },
+    {
+      "path": "docs/card-game/63-action-payment-response-proposal.md",
+      "baseline_blob": "13380ebbd2ad7931a2dcee30f8c20f78dfdb7d07"
+    },
+    {
+      "path": "docs/card-game/64-turn-boundaries-and-victory-timing.md",
+      "baseline_blob": "04507dfda10ed34b47199a18dfbe76d66c6f1533"
+    },
+    {
+      "path": "docs/card-game/65-challenge-participants-and-resolution.md",
+      "baseline_blob": "1ff6c5269651dfdb9df66eb90548e26ef25509d5"
+    },
+    {
+      "path": "docs/card-game/66-relationship-start-and-romance-profile.md",
+      "baseline_blob": "68b6c4ef0553648814b95894ac14345588107060"
+    },
+    {
+      "path": "docs/card-game/67-legacy-test-card-function-and-tracking.md",
+      "baseline_blob": "188d8b94a598f8dc0319feb1fad4f31ea0962a48"
+    },
+    {
+      "path": "docs/card-game/68-mystery-two-lines-card-text-draft.md",
+      "baseline_blob": "59a8511f6f3dbb8cfe7da077ee20500668f27213"
+    },
+    {
+      "path": "docs/card-game/69-mystery-two-lines-text-audit.md",
+      "baseline_blob": "b370587a1c28fee81edb988ef3e87c885bb0681d"
+    },
+    {
+      "path": "docs/card-game/70-representative-six-lines-completion.md",
+      "baseline_blob": "86ea66a18c7ba13b9f953796bc5627937375ea05"
+    },
+    {
+      "path": "docs/card-game/71-main-248-card-text-cross-audit.md",
+      "baseline_blob": "3eddcb7adcbb9c102a5d9d28eab01b657313c836"
+    },
+    {
+      "path": "docs/card-game/72-companion-26-card-text-draft.md",
+      "baseline_blob": "38e8e9d0bbf744aafb4c486fd27565e36ad799d7"
+    },
+    {
+      "path": "docs/card-game/73-companion-26-text-audit.md",
+      "baseline_blob": "76a485407b968c9c13565ac42de158c57bde6ca6"
+    },
+    {
+      "path": "docs/card-game/74-partner-18-card-text-draft.md",
+      "baseline_blob": "4bdc8d3c85976a67c5d420566bae85c9c73ec39f"
+    },
+    {
+      "path": "docs/card-game/75-partner-18-text-audit.md",
+      "baseline_blob": "a4bae8ce771965a2cdf79a290b4d9e2d256f5e8b"
+    },
+    {
+      "path": "docs/card-game/76-item-source-v2-followup.md",
+      "baseline_blob": "7e286472bcb6b2b98428b93aac755d50fe28a61e"
+    },
+    {
+      "path": "docs/card-game/77-current-items-card-text-draft.md",
+      "baseline_blob": "664721fcd1b5ebb09f57bd7b48d7cf100299f58f"
+    },
+    {
+      "path": "docs/card-game/78-current-items-text-audit.md",
+      "baseline_blob": "d424e3563609fcc2617931fe5c1d4dcc2686cc63"
+    },
+    {
+      "path": "docs/card-game/79-play-batch-1-card-text-draft.md",
+      "baseline_blob": "b571c05abf2f1969a6a6a371ecd1b4f6e04298d8"
+    },
+    {
+      "path": "docs/card-game/80-play-batch-1-text-audit.md",
+      "baseline_blob": "a14dcb95c0e9fb6f1be2885d261b683df8827e64"
+    },
+    {
+      "path": "docs/card-game/81-play-batch-2-card-text-draft.md",
+      "baseline_blob": "0aef3d5f1ebdea4b48cd0701dad3577965639e5d"
+    },
+    {
+      "path": "docs/card-game/82-play-batch-2-text-audit.md",
+      "baseline_blob": "1c4b211b0e285be6b40ac33e85ea187ff4daddb1"
+    },
+    {
+      "path": "docs/card-game/83-play-batch-3-card-text-draft.md",
+      "baseline_blob": "8f14d6329ff92c56b162ff22101427e161cac8c6"
+    },
+    {
+      "path": "docs/card-game/84-play-batch-3-text-audit.md",
+      "baseline_blob": "79fea036a15042e550d85f0387ac03d324594799"
+    },
+    {
+      "path": "docs/card-game/85-play-batch-4-card-text-draft.md",
+      "baseline_blob": "d89c2e66c8b885d532a0a30cb34fa3831931e7d3"
+    },
+    {
+      "path": "docs/card-game/86-play-batch-4-text-audit.md",
+      "baseline_blob": "c171d3c95670b9af2c5d877122a0e4d817353a18"
+    },
+    {
+      "path": "docs/card-game/87-play-batch-5-card-text-draft.md",
+      "baseline_blob": "dabb60f284e3f7e425f43d411f75cf3816921cab"
+    },
+    {
+      "path": "docs/card-game/88-play-batch-5-text-audit.md",
+      "baseline_blob": "f5abb3661e9303eeffdba348905f004f3cc8dbdc"
+    },
+    {
+      "path": "docs/card-game/89-world-13-card-text-draft.md",
+      "baseline_blob": "4e08d6fde3bb1e15838625a128518722bc7880f8"
+    },
+    {
+      "path": "docs/card-game/90-world-13-text-audit.md",
+      "baseline_blob": "1e75432978568cd263a3b28b65953ef97e1cc829"
+    },
+    {
+      "path": "docs/card-game/91-event-21-card-text-draft.md",
+      "baseline_blob": "89d1b08f8b3e8329e1ff9f9b9585a0b2526a6ba9"
+    },
+    {
+      "path": "docs/card-game/92-event-21-text-audit.md",
+      "baseline_blob": "ce93a17f29787b671a73ca74f8f28ac59c6c8b12"
+    },
+    {
+      "path": "docs/card-game/93-cross-type-boundary-audit.md",
+      "baseline_blob": "12bd360fda9270950797a0a2c14c06ab80267e4e"
+    }
+  ],
+  "current_source_files": [
+    {
+      "path": "character-world-master.v1.js",
+      "git_blob": "062cf5bcaea5f78742af8cc66194f7c0e1a84c54",
+      "bytes": 21674,
+      "sha256": "90aab4fba14a237337ef418753b10378a25150f5eb1257c28d12f6a2f4d3dbd3",
+      "matches_prior_followup": true
+    },
+    {
+      "path": "script.js",
+      "git_blob": "3351bcb298a3f6c5230e2f779b5572eda6d814b4",
+      "bytes": 1015656,
+      "sha256": "ea3bb83a804a58a42d63b9229c1a6dc6db8ef321e681087c58ad81d5b22d7eac",
+      "matches_prior_followup": true
+    },
+    {
+      "path": "item-system.js",
+      "git_blob": "b31254d37d2eb8a596fca890f412e4866082aef1",
+      "bytes": 24535,
+      "sha256": "75cfbf0b3e004a51d9c0f4a140aa679b4cb0ee3aeb4b68153c9c13b6ea34d598",
+      "matches_prior_followup": true
+    },
+    {
+      "path": "games.js",
+      "git_blob": "4f9e43c84e68a8041fb83777bd7e496204376b94",
+      "bytes": 939584,
+      "sha256": "451c516e755eab55f4521f1ff83b1c53174e2d03962964cc27c704202b09b88c",
+      "matches_prior_followup": true
+    },
+    {
+      "path": "movie-dialogue.js",
+      "git_blob": "62890053dfb9c1bee9f5ebe9a4bb9c526b08be91",
+      "bytes": 28611,
+      "sha256": "ce3df00f66aaee263b67f9c63a3df723441b7f568593826a06e082beb5c7100f",
+      "matches_prior_followup": true
+    },
+    {
+      "path": "world-environment.js",
+      "git_blob": "202fb21df94e25239ffb1b7aa637ec58342c8ccd",
+      "bytes": 12485,
+      "sha256": "f35a8b6f77859fd7b6b629a0e26e79c2392ac808ec6d4fc3a6277601057c354a",
+      "matches_prior_followup": true
+    }
+  ],
+  "main_diff_correction": {
+    "base": "c77587b7488670d27af1e7f0fdb8a477a386e1c2",
+    "head": "f23398e43eed952d49d5a2b805789a4c87b2b1bd",
+    "changed_paths": [
+      "DEVELOPMENT_CHECKPOINT_2026-09-07.md",
+      "index.html",
+      "meguru.js",
+      "script.js",
+      "tests/home-layout-browser.cjs",
+      "tests/meguru-layout-browser.cjs"
+    ],
+    "actual_count": 6,
+    "previous_prose_count": 7
+  },
+  "catalog_text_index": [
+    {
+      "id": "C-bat",
+      "group": "companions",
+      "text_sha256": "b34ebff925f5b9ede53884869cd477e612e976eb22edfcc3fb4a4f2eb8eb473d"
+    },
+    {
+      "id": "C-box",
+      "group": "companions",
+      "text_sha256": "ffd4711f47ea28a6f8443a7f0f8e2bf61a06ef9b5de65e714171c230d1143676"
+    },
+    {
+      "id": "C-cat_friend",
+      "group": "companions",
+      "text_sha256": "7ed42b90967434b878861e75e5c54cef46db88ae3bef091026b909d18287e732"
+    },
+    {
+      "id": "C-chameleon",
+      "group": "companions",
+      "text_sha256": "12bd00947513ae9b267ba86ef19fa732c6c7c363eb432179002367ed32905dea"
+    },
+    {
+      "id": "C-chicken",
+      "group": "companions",
+      "text_sha256": "16a67133533196213f55ee728def659556c22ec9dde18cf551971879130551a3"
+    },
+    {
+      "id": "C-clock",
+      "group": "companions",
+      "text_sha256": "6c528b533d5480b17064bc4a0185bdad82c13edf9f1fb617515159393208e1b3"
+    },
+    {
+      "id": "C-hamster",
+      "group": "companions",
+      "text_sha256": "db8c06c4c2f6356615e905ca151c9f0962d6884ee54ced33163533e378060fd9"
+    },
+    {
+      "id": "C-hedgehog",
+      "group": "companions",
+      "text_sha256": "b04c7be4cbc3ae5de59a2d502af112621ca7548d0806dbab1231aec8a322048c"
+    },
+    {
+      "id": "C-many_tail_fox",
+      "group": "companions",
+      "text_sha256": "117312e76f3924d5528226ad9df3450dbf655caa29e77a55f407c0e1aeebbd51"
+    },
+    {
+      "id": "C-monkey",
+      "group": "companions",
+      "text_sha256": "e938743537227a631658dbf584e7fd38d3f718dd984fa29acaf83e532de13412"
+    },
+    {
+      "id": "C-otter",
+      "group": "companions",
+      "text_sha256": "88034e044a79a52b716ad9215c000183b2ae539c29ec23ccba8e69d9ac25b439"
+    },
+    {
+      "id": "C-owl",
+      "group": "companions",
+      "text_sha256": "9c7decc8f8c30af77ced9ef2642205d8ca15fbac712104ac97971e81cb03a40d"
+    },
+    {
+      "id": "C-panda",
+      "group": "companions",
+      "text_sha256": "128b2fe86e4375d56eb056525dbb6da7bcf7a5836de388c7c2049c0f9aa66138"
+    },
+    {
+      "id": "C-parrot",
+      "group": "companions",
+      "text_sha256": "b09d2265ee5d15456824efe87c94fa39a4beb98069dfa3568898860f9a0e0da2"
+    },
+    {
+      "id": "C-penguin_friend",
+      "group": "companions",
+      "text_sha256": "c208b2a05ce2da98c1fc05b52787812bd5f3da06b32d035967805d00c2225b14"
+    },
+    {
+      "id": "C-punyu",
+      "group": "companions",
+      "text_sha256": "e8a59893de7abbc0671e9e10e7043584f3d295766590594eb067d446f772f976"
+    },
+    {
+      "id": "C-rabbit_friend",
+      "group": "companions",
+      "text_sha256": "2edd1bc4672b2250bd55c2cb0e455d8535f71e8d085584792590dd8e805dd667"
+    },
+    {
+      "id": "C-seal",
+      "group": "companions",
+      "text_sha256": "508d09966cf6f60aa0b8f3856bb08852d37a6abbaa79642c17628f4956777b99"
+    },
+    {
+      "id": "C-sekizou",
+      "group": "companions",
+      "text_sha256": "6da5d43d6d7714d0d76387e84d7eb07eb55c2405e6e506eea1caaff474c9744c"
+    },
+    {
+      "id": "C-sheep",
+      "group": "companions",
+      "text_sha256": "a834b14f08a54007d2e450a2fd3dd281fc446daf938dc62f13e83ddecc2d5ff3"
+    },
+    {
+      "id": "C-shiba",
+      "group": "companions",
+      "text_sha256": "0dde9e447ac9cd97aaf0deb4e69e342c78a22ac082c9e1f3c433e3ff647b9abd"
+    },
+    {
+      "id": "C-snail",
+      "group": "companions",
+      "text_sha256": "340b85f49b73e984560b518be1940d4a19980c9b6b747a50b9f6d1d2d922e025"
+    },
+    {
+      "id": "C-squirrel",
+      "group": "companions",
+      "text_sha256": "773abe99fd46267cdd893ee517c5ef9171e6b2bcf55741b77e4b781c274d7bd0"
+    },
+    {
+      "id": "C-tanuki",
+      "group": "companions",
+      "text_sha256": "2b95167fd46df05211c0bab1dd247c91830a0b2cc5950b9bf9fa59d7ccf08762"
+    },
+    {
+      "id": "C-unicorn",
+      "group": "companions",
+      "text_sha256": "f457b2195906ebda6e7cfd81716625f415225310eb9bd6e9345314d7c9d7701d"
+    },
+    {
+      "id": "C-watcher",
+      "group": "companions",
+      "text_sha256": "1a86e2c2bf0646a2638ea8a41777e50ecfe195b0d6d91b68cb65e03636c74486"
+    },
+    {
+      "id": "E-big-illness",
+      "group": "events",
+      "text_sha256": "cd88d31740a8c81887e4a1fa7f7f686bc92c009831dca4889269ffda3fda478a"
+    },
+    {
+      "id": "E-boss",
+      "group": "events",
+      "text_sha256": "f1b63d1df927482f55281ef5ab6c967df0eedae6d40efeadc8ef14011e5a5452"
+    },
+    {
+      "id": "E-fateful-transform",
+      "group": "events",
+      "text_sha256": "8f4a8832a7754f5f77a2ca35a1713a3f8d8e8e09791cfd29e12a08a3cb25b590"
+    },
+    {
+      "id": "E-final-time",
+      "group": "events",
+      "text_sha256": "b0c4626b691680431168b8fb30f9a5fe450e74f11012cf638d7d76863bc022a9"
+    },
+    {
+      "id": "E-first-date",
+      "group": "events",
+      "text_sha256": "8db92eacf23e790b1cb23cdbafba5ab6f5189f4bd7b3dd35603beb23aa120c5f"
+    },
+    {
+      "id": "E-gate",
+      "group": "events",
+      "text_sha256": "4d49ed1e083ceb01c73f40efef180b4214002641720c6923802427bc669e24f1"
+    },
+    {
+      "id": "E-lamp",
+      "group": "events",
+      "text_sha256": "a33114a0a71179c630658e24ff52e1ac8351d2f4ebf305fa2b6f6e639ea8fdca"
+    },
+    {
+      "id": "E-midlife-50th",
+      "group": "events",
+      "text_sha256": "e6aa1ffc04370e5f417a98bc1bdb6a599e9fb97621253cd6f81d310ac5ada4ea"
+    },
+    {
+      "id": "E-midlife-album",
+      "group": "events",
+      "text_sha256": "1ea159e63b6df04596bb6618e1d28c8de85b48384c778f18d844794f70f71b2f"
+    },
+    {
+      "id": "E-midlife-flower",
+      "group": "events",
+      "text_sha256": "6654c06b9fc1231bb555238658de0c235ecc0a9be1beee6f8b6661b69638aab9"
+    },
+    {
+      "id": "E-midlife-hobby",
+      "group": "events",
+      "text_sha256": "231def67753082df634d9d20f14ca6db59d35675f2003deb7a477321e166a1b7"
+    },
+    {
+      "id": "E-midlife-travel-plan",
+      "group": "events",
+      "text_sha256": "5ef1bd9197f198195440511bdfb62a42a61bd1590e3f36b22caadc38abd58a1d"
+    },
+    {
+      "id": "E-mirror",
+      "group": "events",
+      "text_sha256": "d6143d6c466b71c33e0650f7d36d6b018d0cf8364300ff67e946f0a12e19894a"
+    },
+    {
+      "id": "E-misunderstanding",
+      "group": "events",
+      "text_sha256": "874dbd177a9839c8dd7e13cbca11af9614f86a4f54c2dc2d4881fd3b3bc2e285"
+    },
+    {
+      "id": "E-naoto",
+      "group": "events",
+      "text_sha256": "350f7a7c280f08b8c67b1e8f95bfb006cef347d6141bda028858aaf3dd6ef84d"
+    },
+    {
+      "id": "E-new-encounter",
+      "group": "events",
+      "text_sha256": "023e76fea8e55816977ee6491b2b6d7ccb7ef1abc0b310debe644e1a0ee977fd"
+    },
+    {
+      "id": "E-reconciliation",
+      "group": "events",
+      "text_sha256": "faa828061822958f429e639cd2672a3641ee3d4daac401431019d8ee29a74fbb"
+    },
+    {
+      "id": "E-special-trip-memory",
+      "group": "events",
+      "text_sha256": "3b810887d885398978cde5fcd3e7cb9de97a3607ad6e12b186b1540e056b4bd8"
+    },
+    {
+      "id": "E-stairs",
+      "group": "events",
+      "text_sha256": "e0010eb3a456f5a06ef835da228210c58e334ee772617f7d36abf6a7994716c3"
+    },
+    {
+      "id": "E-sudden-trip",
+      "group": "events",
+      "text_sha256": "6bf8c9f9581a1011b95fb80c91d6107719085bd748df57ac520e8e76aa98da59"
+    },
+    {
+      "id": "E-wedding-anniversary",
+      "group": "events",
+      "text_sha256": "a7416f7bd5fbb0a55709805c5ee0c49c207c206b469dffbe19388dd62a8536d4"
+    },
+    {
+      "id": "G-air-hockey",
+      "group": "play_cards",
+      "text_sha256": "2b12e5ca76e8942751ff7532ff657ab93c38f2f0faea91d6f364ec23bc2411f1"
+    },
+    {
+      "id": "G-animal-shogi",
+      "group": "play_cards",
+      "text_sha256": "38b349d78e352ccbc9f465340d38172f8fa4bf6874ae90a96e02d500189ae122"
+    },
+    {
+      "id": "G-archery-3d",
+      "group": "play_cards",
+      "text_sha256": "dc434dadbe0f7d8491386ffc578de6a9513129549fcba5e5f52b2ff5a790ed50"
+    },
+    {
+      "id": "G-area-claim",
+      "group": "play_cards",
+      "text_sha256": "29bf6e918641d212892031b63cb92f36b6de630d7345b02f41be6f2ed8830149"
+    },
+    {
+      "id": "G-asteroids-classic",
+      "group": "play_cards",
+      "text_sha256": "735d8524d796ae269da83d9129db424291df3752b947fc1ebf39aa758d99af42"
+    },
+    {
+      "id": "G-baseball-batting",
+      "group": "play_cards",
+      "text_sha256": "953eedee83d4ae5145d7da52540b9c8e276780aab49a2aed8737e16c3a6a0e2c"
+    },
+    {
+      "id": "G-basketball-3d",
+      "group": "play_cards",
+      "text_sha256": "b26a10e9cac49e78560f88ef2fec15b18073375e7444207793cb5ab0e577337d"
+    },
+    {
+      "id": "G-beach-volley",
+      "group": "play_cards",
+      "text_sha256": "84b586011c1a25a5566e2b9f4fb6dcc7bada5fbc45fb2d92411cd2a0447fde3c"
+    },
+    {
+      "id": "G-billiards-6",
+      "group": "play_cards",
+      "text_sha256": "e6e499e6b46499ecec2aa633a5e63f735d467690641b523787010233ae641246"
+    },
+    {
+      "id": "G-blackjack-21",
+      "group": "play_cards",
+      "text_sha256": "be5d7ae6fe3bbc5a87f219243cc9a21be149a8e01ab47586ed0f6360888de542"
+    },
+    {
+      "id": "G-bomber-maze",
+      "group": "play_cards",
+      "text_sha256": "a6a2191dd156c1936d82dfbe6a8689dcfa43db0d917130bba3bca3108c40bc1e"
+    },
+    {
+      "id": "G-bowling-3d",
+      "group": "play_cards",
+      "text_sha256": "84c0f109431a5bcab7ed01ee0789722ebbe0c0f89727df88660f081339d9fe2b"
+    },
+    {
+      "id": "G-breakout-classic",
+      "group": "play_cards",
+      "text_sha256": "c5d1b97de67e79f2ca91801d2f6f47c4bd1a1c84449ac235ff6175f4cccebe85"
+    },
+    {
+      "id": "G-bubble-shooter",
+      "group": "play_cards",
+      "text_sha256": "a91ab629ab14ae6c4c51b5fd74b5df6796020eec8e204e0ee311b8f4ba3786e1"
+    },
+    {
+      "id": "G-catapult-castle",
+      "group": "play_cards",
+      "text_sha256": "adf267d834cc547ff3ef1336c7390f915b0291bdcbefca069e641e5f029efada"
+    },
+    {
+      "id": "G-chain-puzzle",
+      "group": "play_cards",
+      "text_sha256": "fa07709045f96f40dab0c65d3e65dbc2c86caa78201ca56c2942f8ad93e93976"
+    },
+    {
+      "id": "G-checkers-6",
+      "group": "play_cards",
+      "text_sha256": "56928da9bedf874c6d510d530bac69c46786fac6d89654f4e117e9f6f4417b79"
+    },
+    {
+      "id": "G-connect-four",
+      "group": "play_cards",
+      "text_sha256": "0d55e4097fcf05b4ee1bb38c565491659b12edd68d7b325bd7a18a713065b8c0"
+    },
+    {
+      "id": "G-crane-game-3d",
+      "group": "play_cards",
+      "text_sha256": "a1b4fc06a1d718e69dc1fe9665d66db1d2feea99cc5c8947756604bb8383fccc"
+    },
+    {
+      "id": "G-curling-ice",
+      "group": "play_cards",
+      "text_sha256": "da3f0fdc1e9d48cb1bbfa353420a4e7f9ad7369f29a0d868c64a71530424175a"
+    },
+    {
+      "id": "G-curling-winter",
+      "group": "play_cards",
+      "text_sha256": "d6e5fdd27c7b8534329075fb7448bad2a0d64d35a65cc36d47a2d6f5e8392b8e"
+    },
+    {
+      "id": "G-darts-board",
+      "group": "play_cards",
+      "text_sha256": "e40c05c5f25b03c4fa905f4823339ed037720d1e1a6ae188c03ed76563bdcce4"
+    },
+    {
+      "id": "G-domino-run",
+      "group": "play_cards",
+      "text_sha256": "a84737c49209015b37d81dbde26199bf354603d093163abeca14fcf21e2c5a64"
+    },
+    {
+      "id": "G-doodle-jump",
+      "group": "play_cards",
+      "text_sha256": "7976137f01349009719c1c9393eb73462e25ff3c93928c22532ba7f757a1302a"
+    },
+    {
+      "id": "G-dot-eater",
+      "group": "play_cards",
+      "text_sha256": "5a9df0292a52c341c9decd2a277500cdb72af4e85f9b42307ff75083ee222765"
+    },
+    {
+      "id": "G-downhill-mountain",
+      "group": "play_cards",
+      "text_sha256": "d20686d0382e6e9029a33630ac52aecd110e1ddb5bd5ca76b826b8f20270a747"
+    },
+    {
+      "id": "G-downhill-snow",
+      "group": "play_cards",
+      "text_sha256": "4252ea940369a7d99416268130e1b507e2ee060c7e8b01b1aa8fb97b6ed53cda"
+    },
+    {
+      "id": "G-dragDecorate-bento",
+      "group": "play_cards",
+      "text_sha256": "af06f2c829475d817d63aa70450d773e82d4a66bf65203a9c75aa7a6d66ef4df"
+    },
+    {
+      "id": "G-dragDecorate-cake",
+      "group": "play_cards",
+      "text_sha256": "085fc5182bdbd3d8c910f7cae4eceb7af78f641ab5110b7748e59c76205ab772"
+    },
+    {
+      "id": "G-falling-block-puzzle",
+      "group": "play_cards",
+      "text_sha256": "71e6bb94ea619a1e8bea0ce0cb78000e9d0ceec264654bf6849de0327de02fde"
+    },
+    {
+      "id": "G-fishing-deepsea",
+      "group": "play_cards",
+      "text_sha256": "324e1a1dc94053e8cf7311a27835c03f2361849ca888407b99fb511b4ae9371c"
+    },
+    {
+      "id": "G-fishing-river",
+      "group": "play_cards",
+      "text_sha256": "fe909d7b7799f70b01cd3c21ff8d58aa6e92705c4066d15d8f3dba37c4823a91"
+    },
+    {
+      "id": "G-fishing-sea",
+      "group": "play_cards",
+      "text_sha256": "e64c9516000081e2320022a3a9aa80bc2e760077db6019122a6d1b85dc84971a"
+    },
+    {
+      "id": "G-fp-dungeon",
+      "group": "play_cards",
+      "text_sha256": "6ec75c7881a70fa8fcf94bb80583c6fad2ea8070d199b00ae4cc302c2aa23ea4"
+    },
+    {
+      "id": "G-free-kick-3d",
+      "group": "play_cards",
+      "text_sha256": "070e389a8ad37a46aff073e7d8a9ac6cc96cb902d013d65c38e271a84edc1136"
+    },
+    {
+      "id": "G-frogger-road",
+      "group": "play_cards",
+      "text_sha256": "4320f730c9920a87106fc2727d65656d46146d6f29b8301b1c971dbcbdacf75c"
+    },
+    {
+      "id": "G-fruit-slice",
+      "group": "play_cards",
+      "text_sha256": "7b134aa1cf613b6ce4542c2f624c8fc795456f8f49c4ad4b821343aab5e4ac78"
+    },
+    {
+      "id": "G-gomoku-9",
+      "group": "play_cards",
+      "text_sha256": "0f4c21335f7a84392bf420a2f0120a88fc7434529fba802ba9b9696a94140a7d"
+    },
+    {
+      "id": "G-grand-prix-3d",
+      "group": "play_cards",
+      "text_sha256": "d6c0e46190193abde028197390406c0418b395d1de3d63c29235abe0cd4d15e5"
+    },
+    {
+      "id": "G-halfpipe-skate",
+      "group": "play_cards",
+      "text_sha256": "22282f13afa38fc5b56c1d9225b166141e43453982bfd3514c0e29df6aaa4388"
+    },
+    {
+      "id": "G-hang-glider-3d",
+      "group": "play_cards",
+      "text_sha256": "98dbb091ff7db0d3e58b57d751c610c86ae5cb7b6ca9a464a14a08ce8083365f"
+    },
+    {
+      "id": "G-haunted-house-3d",
+      "group": "play_cards",
+      "text_sha256": "6eaa153a6902132ba7edef449087095fc61773fa831b8e3d4eff407ddc8f72be"
+    },
+    {
+      "id": "G-hit-blow",
+      "group": "play_cards",
+      "text_sha256": "ce11f3fe13f62f56efc5df7c5d81f46081751e97361bc39d1ccc7e2968cef8d3"
+    },
+    {
+      "id": "G-jenga-tower",
+      "group": "play_cards",
+      "text_sha256": "2eb1894e0f7acbf2bd3c46a2e540c17a64955bcb1ba63cfa5da7d20acb7d5d44"
+    },
+    {
+      "id": "G-jump-quest",
+      "group": "play_cards",
+      "text_sha256": "5e7645576a5d28835ca4887a9d965c5d4d546eb1b950fc4095bfcc021a3a5a5e"
+    },
+    {
+      "id": "G-lights-out",
+      "group": "play_cards",
+      "text_sha256": "f7c7cc84a63da67187cf408c13d319a3ada393d0a375b84fb80668cac957ff07"
+    },
+    {
+      "id": "G-line-trace",
+      "group": "play_cards",
+      "text_sha256": "9c48e4243a24c7ea3dd0534dcad3a7666df5ccc5580f6430020a9a5b68f99379"
+    },
+    {
+      "id": "G-lunar-lander",
+      "group": "play_cards",
+      "text_sha256": "45123261eb0b4b01b691a78afcdec4a5241d43d4d0bf201440485efdd3fd05f8"
+    },
+    {
+      "id": "G-mancala-kalah",
+      "group": "play_cards",
+      "text_sha256": "5ab5534c8e9dfc2313d78819fff190921f0071c40c5d1c36fa021f057bb576f7"
+    },
+    {
+      "id": "G-match-3",
+      "group": "play_cards",
+      "text_sha256": "3f43f146baa1ed6a4c565c9b681c29a2ad99c3ca8d0b985dc88d5956b9ab6ac0"
+    },
+    {
+      "id": "G-memory-cards",
+      "group": "play_cards",
+      "text_sha256": "77267cd723ee1c34be32f6fb4495ad88578a6fcdecd4b6d2447569cb766660c5"
+    },
+    {
+      "id": "G-minesweeper-8",
+      "group": "play_cards",
+      "text_sha256": "db6a7ea75e7a2afa581075a1d6ea0ba90a46d2f0f2f0e2847571f60636ffefe2"
+    },
+    {
+      "id": "G-mini-golf-physics",
+      "group": "play_cards",
+      "text_sha256": "2b2cdf6dc1d7d660c5acc0075f8f945730482e104b0a2db9c3730d9f1ceaeb68"
+    },
+    {
+      "id": "G-missile-command",
+      "group": "play_cards",
+      "text_sha256": "825da6438cca6eeeebb009a82019d9ddea738c92f7c705649656a5716f01f5b7"
+    },
+    {
+      "id": "G-p3-drive",
+      "group": "play_cards",
+      "text_sha256": "95c909568018be1082e2fb18294b15fbb43d511e73ac86ba154f7b719d5c9d8b"
+    },
+    {
+      "id": "G-p3-space",
+      "group": "play_cards",
+      "text_sha256": "0835ddd04917c95de47f7d42258aa8661418165997d6d22d9241ba1935190464"
+    },
+    {
+      "id": "G-picross-5",
+      "group": "play_cards",
+      "text_sha256": "1efe6eceaae13312e38a0d25854553b96920911bf0fcda7e0578369805d6b29c"
+    },
+    {
+      "id": "G-pinball-physics",
+      "group": "play_cards",
+      "text_sha256": "5065bbba7a52062fcea1f4c22ed9125913f1c593f4f88209bbc0ceb988012094"
+    },
+    {
+      "id": "G-pingpong-3d",
+      "group": "play_cards",
+      "text_sha256": "a26b547f073bc26b7a75065e9c5f20161b3a91c82c91e21e436eda4efe2a30ff"
+    },
+    {
+      "id": "G-pipe-connect",
+      "group": "play_cards",
+      "text_sha256": "13ee9bc91c5fd5fbfa0cf0dfcbc15a73264cf4482040f8db1353b6de8211853d"
+    },
+    {
+      "id": "G-plane-landing",
+      "group": "play_cards",
+      "text_sha256": "7d28c77fa4c9ca71f3c23ff9041ca2e0360f59d439b007c7715b1ad48f89ee88"
+    },
+    {
+      "id": "G-push-puzzle",
+      "group": "play_cards",
+      "text_sha256": "0e7e11322773e68f4cb2147f656d2a8641606ea511e16425882f5c0eda8de24b"
+    },
+    {
+      "id": "G-puzzle-2048",
+      "group": "play_cards",
+      "text_sha256": "1a459757f423d1d89e972e8615dd6459806f2a7ffc1943426f65a87cff399b25"
+    },
+    {
+      "id": "G-race-3d",
+      "group": "play_cards",
+      "text_sha256": "576b4597d6b72ddb286fcfbeaddc9c2d90c89077551575d746d4a8ac79bdad1e"
+    },
+    {
+      "id": "G-real-fishing",
+      "group": "play_cards",
+      "text_sha256": "d96eb0db988b2d9a83978ab7afb6ab8666bd288d76fad00cfbf91914193d9e2b"
+    },
+    {
+      "id": "G-reversi-6",
+      "group": "play_cards",
+      "text_sha256": "12bcfe4e7bb1860225fdeb3a2e71cc0a8d224f4eebfbd055350edf4995e23f1c"
+    },
+    {
+      "id": "G-rhythm-highway-3d",
+      "group": "play_cards",
+      "text_sha256": "cafc9fc8d85c08e7a25698c01adfea1d27f346b730e87c1a35b618446613f9f4"
+    },
+    {
+      "id": "G-ring-flight-3d",
+      "group": "play_cards",
+      "text_sha256": "0b23fc179a00dfa99216483ba489a0a49d8699ba77371a1422a5292f5e5ad969"
+    },
+    {
+      "id": "G-ring-flight-summer",
+      "group": "play_cards",
+      "text_sha256": "254867d3be5472686207e22bb32e4a1ea0444190a85ff6705238fd9762f668e1"
+    },
+    {
+      "id": "G-road-city",
+      "group": "play_cards",
+      "text_sha256": "c251ef3b162e85105c166555334a475d1bdcdaee01cdc3f6abc6a149a3c58834"
+    },
+    {
+      "id": "G-road-desert",
+      "group": "play_cards",
+      "text_sha256": "72e6e898caf361007b36f11e34b8d975e193458eb3c051e7a82d27a3db328607"
+    },
+    {
+      "id": "G-road-jungle",
+      "group": "play_cards",
+      "text_sha256": "3142c1ad560957190c63d9c62d8f05ea116b587b4a5a8bb1c052501a9ce6cf74"
+    },
+    {
+      "id": "G-road-themed",
+      "group": "play_cards",
+      "text_sha256": "a7a3fa418381cd00e184638f21af2578ec74ab8055bcad803942e00bf08c1849"
+    },
+    {
+      "id": "G-roguelike-dungeon",
+      "group": "play_cards",
+      "text_sha256": "ff47bf8df84f9a81c9b82c5b7ba8a119654109b922e1e4feaf7f06b9f614e96b"
+    },
+    {
+      "id": "G-shanghai-tiles",
+      "group": "play_cards",
+      "text_sha256": "f2b0b9071723cde3bbab2153939a8dc84a94542772f6f8849546388a69ee99d8"
+    },
+    {
+      "id": "G-ski-jump",
+      "group": "play_cards",
+      "text_sha256": "d7daf8a218108f6517710c97c40e7f65243b3aa7c73d5b90a7213bb4e0ec68da"
+    },
+    {
+      "id": "G-sky-shooter",
+      "group": "play_cards",
+      "text_sha256": "09bb55d43152a15ea75db04d1544c5f0cafb3276a588b7f17f2748b50bcd189f"
+    },
+    {
+      "id": "G-slide-puzzle",
+      "group": "play_cards",
+      "text_sha256": "7a0d53619806e5fb068a5d59a6355f4204c4ae16f65bfd9a967f1b19702c12f6"
+    },
+    {
+      "id": "G-snake-classic",
+      "group": "play_cards",
+      "text_sha256": "2b9af90895a935d840ea69fbaa74f37e9ea373e149a566034fc707ed2adc0e01"
+    },
+    {
+      "id": "G-solitaire-klondike",
+      "group": "play_cards",
+      "text_sha256": "ec66f6f1394364ae998e78effeeec7d33230bff614b0c81ecfd5848176a20d85"
+    },
+    {
+      "id": "G-space-gunner-3d",
+      "group": "play_cards",
+      "text_sha256": "e13f77db0ed228341367d483765f063d65292aae2db856a88908a24300f806ee"
+    },
+    {
+      "id": "G-stack-acorn",
+      "group": "play_cards",
+      "text_sha256": "06f73b6b13209d9b77029f782db0df47a99331207c9d8ef760163b7b8858caa2"
+    },
+    {
+      "id": "G-stack-harvest",
+      "group": "play_cards",
+      "text_sha256": "d3f5e4ed5da4387192c23d21a5ba8ed1b2e53c4943b24d6c2f4a6ca04ab68213"
+    },
+    {
+      "id": "G-stack-leaves",
+      "group": "play_cards",
+      "text_sha256": "ac6483a31626e51c1449b62c72664cbc09509dd2618d59782381b3780c3cd7f8"
+    },
+    {
+      "id": "G-stack-sakura",
+      "group": "play_cards",
+      "text_sha256": "0e8fd0eb7ca0b6025e1f9c5224c1285ab28133c5605bbf409aaf659be68f3556"
+    },
+    {
+      "id": "G-stack-snowman",
+      "group": "play_cards",
+      "text_sha256": "b5cf71cc776511e5565b3a8830eea4c34443673668ec0e2ba6895783b2b2c5ea"
+    },
+    {
+      "id": "G-stack-themed",
+      "group": "play_cards",
+      "text_sha256": "ef0e554c3fb0bb2d1351ef673ca5e65cf61e7d5320b24590029156898602d8ce"
+    },
+    {
+      "id": "G-street-fight",
+      "group": "play_cards",
+      "text_sha256": "23846d3a50206af870c045743185578da19a0106bef605fce78b9620be78b29f"
+    },
+    {
+      "id": "G-submarine-3d",
+      "group": "play_cards",
+      "text_sha256": "ccd0a65c80cce92ae4a230a12c73ee0b490f81485f4799fdb63c9a8a101704b4"
+    },
+    {
+      "id": "G-sudoku-mini",
+      "group": "play_cards",
+      "text_sha256": "f73809e088c8a25192d4178926f79ed1248ba8fedeb0e7f1d84faada8ffa492a"
+    },
+    {
+      "id": "G-sugoroku-race",
+      "group": "play_cards",
+      "text_sha256": "700d441cf1bd49cb71c6a99e0a1b18a14c750a484e2d1685166dbf6f06148856"
+    },
+    {
+      "id": "G-sushi-belt",
+      "group": "play_cards",
+      "text_sha256": "063959b80396b29e5a19329c6103ea2c15771e4d4ab74004ce4287cdd2ec77cf"
+    },
+    {
+      "id": "G-takoyaki-grill",
+      "group": "play_cards",
+      "text_sha256": "57ede9615648a4f386e5ac60ae66c6f0f235422b689ad6d2dda1042b27a0cfad"
+    },
+    {
+      "id": "G-tank-battle",
+      "group": "play_cards",
+      "text_sha256": "9e78a44a54079749204a9f09ae4dd3ee4322a8277d8f69f6af14585ce21a008b"
+    },
+    {
+      "id": "G-tennis-rally",
+      "group": "play_cards",
+      "text_sha256": "96af9cf58bf985c58c287409f54a4b95104a779b9b994d7dc5d423263c9d443c"
+    },
+    {
+      "id": "G-tilt-maze-3d",
+      "group": "play_cards",
+      "text_sha256": "d58a03be3548a91d779418733ef7d8ddd52e970157096bfe8683c8d921c641a6"
+    },
+    {
+      "id": "G-tower-defense",
+      "group": "play_cards",
+      "text_sha256": "6d882670523695aef1741e774949ff11905deca4ee1aaedb37faf3ee568fe8f1"
+    },
+    {
+      "id": "G-track-field",
+      "group": "play_cards",
+      "text_sha256": "c5131d08d247e88624dd3aaf6bdce30b43b31cf4b7ef40b674defb67571fb4c9"
+    },
+    {
+      "id": "G-voxel-mine",
+      "group": "play_cards",
+      "text_sha256": "ca7ad6a52112c3c11194210a4f04ae2d5d93cda3dc4448d7baecbc9e8c3adbb7"
+    },
+    {
+      "id": "G-yacht-dice",
+      "group": "play_cards",
+      "text_sha256": "b751433fb2fdfa092a3233e3f1ed337cf34f078176a231f77d2974b29d4b611d"
+    },
+    {
+      "id": "I-bond1",
+      "group": "items_current_source",
+      "text_sha256": "cc8171b4ef05fd29a49c69c2b23b366bc5675726b582fe4056d666ae7bcf7a6b"
+    },
+    {
+      "id": "I-bowtie",
+      "group": "items_current_source",
+      "text_sha256": "b0c6d96c43a85d576ca88d2d92b678af06ba0ff85d85152992a81e17bf8c686c"
+    },
+    {
+      "id": "I-c_coin2",
+      "group": "items_current_source",
+      "text_sha256": "dfddac1f64d2063dff4c6f61f33e5b0248fa5ed07f1996e91ec89017fcb1475e"
+    },
+    {
+      "id": "I-c_dex",
+      "group": "items_current_source",
+      "text_sha256": "b208d07031745f96f29a2be85f455a1edf3b02f03d9b98ea8974bbc489299b46"
+    },
+    {
+      "id": "I-c_egg_normal",
+      "group": "items_current_source",
+      "text_sha256": "cbcfe744b7cb7df8a461243676e071ebc27867b5615d0ee528b7a210ab74ab74"
+    },
+    {
+      "id": "I-c_egg_rare",
+      "group": "items_current_source",
+      "text_sha256": "8e88a908e67573f6d9cd21fc0bb7ecd28be2076eae0913f3689cf26005f718d2"
+    },
+    {
+      "id": "I-c_friend",
+      "group": "items_current_source",
+      "text_sha256": "783424c9b5ff3649a94f5b5e86761f5079234663150e3eb0c2cc3a8b47709ae3"
+    },
+    {
+      "id": "I-c_life",
+      "group": "items_current_source",
+      "text_sha256": "34f7bfaac0ea58ffe02ca3f277e5abe41c6391789df326ece1f9aea0c71ce368"
+    },
+    {
+      "id": "I-c_life_charm",
+      "group": "items_current_source",
+      "text_sha256": "2f1c3e1a9420097072c216d6de0ab39adaa00626cf80b28af401ff761780b731"
+    },
+    {
+      "id": "I-c_match",
+      "group": "items_current_source",
+      "text_sha256": "82271efba7a818b6dda2ab05c6b98d00db7ed015c556d0ee8ec2e0b7d19d1348"
+    },
+    {
+      "id": "I-c_rare_friend",
+      "group": "items_current_source",
+      "text_sha256": "df1bffd1cb5f27291096edd846487a174687d815139c62e642bc0c06221c6196"
+    },
+    {
+      "id": "I-c_time_back",
+      "group": "items_current_source",
+      "text_sha256": "d45c9a1a78e46e228a5c55760d3ad844336debefa17811ad7eba0b562eb75784"
+    },
+    {
+      "id": "I-c_time_forward",
+      "group": "items_current_source",
+      "text_sha256": "252b0cde9f30089b8b91eb9e900517d384426fd7cd3f75630bce1bf009bff216"
+    },
+    {
+      "id": "I-c_transform",
+      "group": "items_current_source",
+      "text_sha256": "db86aa7bd9b362c0f50236a114bec52a9f494b9aa3815a167c3adfd9b74440de"
+    },
+    {
+      "id": "I-gamepass1",
+      "group": "items_current_source",
+      "text_sha256": "909e7bda4974dbc644f56e27f68343ab172aaafc0dd26fa6ce36fba4b63a285d"
+    },
+    {
+      "id": "I-naoto_charm",
+      "group": "items_current_source",
+      "text_sha256": "85ff7749b4109a2277fa311e10bd2d112b7125c5b89c0db6b58201caf27e0ca2"
+    },
+    {
+      "id": "I-naoto_crown",
+      "group": "items_current_source",
+      "text_sha256": "380a6f5c5020c6bd1b8b9c531ac3b80592444004ff44502bc0ddb9b09154df58"
+    },
+    {
+      "id": "I-naoto_lantern",
+      "group": "items_current_source",
+      "text_sha256": "42b612594b6188649f24a9b1b8d810654ecdb061664ae912a87ab661c5a5bf2a"
+    },
+    {
+      "id": "I-naoto_ring",
+      "group": "items_current_source",
+      "text_sha256": "459df8f7dfe06a154a7e71f94cfb04f6d3745e04c1af77e1f81ad5d7b44871dd"
+    },
+    {
+      "id": "I-partner1",
+      "group": "items_current_source",
+      "text_sha256": "c8361afa4e04e3424b01ad1371b2d53e1cb7601de0228edc6d58dd0d63f079fa"
+    },
+    {
+      "id": "I-poop1",
+      "group": "items_current_source",
+      "text_sha256": "fcd9575c04b2523dd6b28cc04753a0500e5a8e51d04534c4250a9d53295dd347"
+    },
+    {
+      "id": "I-ribbon",
+      "group": "items_current_source",
+      "text_sha256": "1ae21fbecb3bd8d906136b94620a14b6f90d8145f232c37f2e407bd3e9a12bde"
+    },
+    {
+      "id": "I-scarf",
+      "group": "items_current_source",
+      "text_sha256": "846bb44184425201a6544e602d0f378ce4a895a24bc715d63f5e47b433faf675"
+    },
+    {
+      "id": "I-sleepboost1",
+      "group": "items_current_source",
+      "text_sha256": "dc410e64a0c0800d6c5b2c22f5bd4a365c619cb74d5c5329da07a6f37040de54"
+    },
+    {
+      "id": "I-star",
+      "group": "items_current_source",
+      "text_sha256": "7d8c7b8c510aeaede4baac33db7541115359d3f9062653e75552d605c5d99bd6"
+    },
+    {
+      "id": "I-travel1",
+      "group": "items_current_source",
+      "text_sha256": "545715668bdcd07af18b426d13872e2d7ab1581fe49a4d7cb5730a37e3b79ac5"
+    },
+    {
+      "id": "M-antlion-01",
+      "group": "cards",
+      "text_sha256": "b861a3bf4c203953f5b2160bbeda35dffe631992a64e5fcdcf79cd0d041a3b13"
+    },
+    {
+      "id": "M-antlion-02",
+      "group": "cards",
+      "text_sha256": "01391c93e0c0592d4884771bef3b55061f0e757e81c73f81190d4eeb911465da"
+    },
+    {
+      "id": "M-antlion-03",
+      "group": "cards",
+      "text_sha256": "b87c604f5905b059b2fb958ec50f320dc13db63468b91fec54341ac9189b6afc"
+    },
+    {
+      "id": "M-antlion-04",
+      "group": "cards",
+      "text_sha256": "56b8f1cbd64398a7a853deb016a30b4917bc787a47f2021f91d5fdf37d53f416"
+    },
+    {
+      "id": "M-antlion-05",
+      "group": "cards",
+      "text_sha256": "678d01982e8d2615e05e95281ef59dc8a774d6ae44fb2eabfbb5d2dbd7b630a4"
+    },
+    {
+      "id": "M-antlion-06",
+      "group": "cards",
+      "text_sha256": "f0bbe4a5f63c6951932699b8f9a7aef84fa64b5a91c0b88c8bc98f3807e65411"
+    },
+    {
+      "id": "M-antlion-07",
+      "group": "cards",
+      "text_sha256": "26eebfaaeb7ad0ac870a393d7405e86215d180769ba5621d6780e7f89ce25e11"
+    },
+    {
+      "id": "M-antlion-08",
+      "group": "cards",
+      "text_sha256": "c00f57a37572263f70e009e43d952925e0dc2279f86f95dbaf4557d6df657755"
+    },
+    {
+      "id": "M-beetle-01",
+      "group": "cards",
+      "text_sha256": "5f3c1905bfbd0a559bdb38ec4edfbbee34a71d38ec6de20d971e48132b965106"
+    },
+    {
+      "id": "M-beetle-02",
+      "group": "cards",
+      "text_sha256": "5394143f21426f35120d8c7d447c62f6aad04ddc8307601decf21f728cd10d6d"
+    },
+    {
+      "id": "M-beetle-03",
+      "group": "cards",
+      "text_sha256": "0fb7598d48d090105ef3a0e3296c67cf5c9b719d8bb85fa480708f85d579d69e"
+    },
+    {
+      "id": "M-beetle-04",
+      "group": "cards",
+      "text_sha256": "aa897523e54a3502f30bbb802598c7b256488333741f8006aef8ada6f99bb9ad"
+    },
+    {
+      "id": "M-beetle-05",
+      "group": "cards",
+      "text_sha256": "8e04f97ebadf71bfb9c49caeec1c51960e44afb5a5692b9886968f08ffb1f81e"
+    },
+    {
+      "id": "M-beetle-06",
+      "group": "cards",
+      "text_sha256": "f64f929b8c7e45a08e128fb175f9cf2c059317eac6b7f472611fc5ad670bc22d"
+    },
+    {
+      "id": "M-beetle-07",
+      "group": "cards",
+      "text_sha256": "ffd4711f47ea28a6f8443a7f0f8e2bf61a06ef9b5de65e714171c230d1143676"
+    },
+    {
+      "id": "M-beetle-08",
+      "group": "cards",
+      "text_sha256": "fb35a51de069c7f8e7e78b027180aa9da9a957a6aaa7fa575763bc2d72b9bc94"
+    },
+    {
+      "id": "M-butterfly-01",
+      "group": "cards",
+      "text_sha256": "ad6017d7bda00ee35690e7629ebd43532d52e3d997d01527d4e91e2c0245b021"
+    },
+    {
+      "id": "M-butterfly-02",
+      "group": "cards",
+      "text_sha256": "d051fccb8a455693ad11f954efc86731d2597bac1131487b5a1d9c0c47256647"
+    },
+    {
+      "id": "M-butterfly-03",
+      "group": "cards",
+      "text_sha256": "de4fe76500f45285c14ec9a835e8a31d6bb2a67f0add696fcbe53d0c75bf1bcb"
+    },
+    {
+      "id": "M-butterfly-04",
+      "group": "cards",
+      "text_sha256": "96c269927a77ed4940c25ebb928dead87146dc162279b2e9793a78a7d9bbf69d"
+    },
+    {
+      "id": "M-butterfly-05",
+      "group": "cards",
+      "text_sha256": "4219d0f6acdcfeb8ef981b5cf0c3129f8b180e77a6f402c59b6836b1d8ffa60e"
+    },
+    {
+      "id": "M-butterfly-06",
+      "group": "cards",
+      "text_sha256": "a7401d5cae683e9a4f13b78474231c6349f660c27a45f36b63d1508604983240"
+    },
+    {
+      "id": "M-butterfly-07",
+      "group": "cards",
+      "text_sha256": "7c6ca65ca5ed0fa8d655ad61002c4ce5a3b2e2b3ed0eff32220008cc39328a82"
+    },
+    {
+      "id": "M-butterfly-08",
+      "group": "cards",
+      "text_sha256": "eb90cca0f960d760ed05c834f44d440f47a663d478c4a9133efdc13323f32714"
+    },
+    {
+      "id": "M-cat-01",
+      "group": "cards",
+      "text_sha256": "44ba53a0a7c355dd4ccc2a61c1f8aaee29cc257c316b073c2e527a7d18721a73"
+    },
+    {
+      "id": "M-cat-02",
+      "group": "cards",
+      "text_sha256": "551a6ac9076e5ed6e2040383806f75a485e21ddbcbc990fa0033886fe72e1761"
+    },
+    {
+      "id": "M-cat-03",
+      "group": "cards",
+      "text_sha256": "ffd4711f47ea28a6f8443a7f0f8e2bf61a06ef9b5de65e714171c230d1143676"
+    },
+    {
+      "id": "M-cat-04",
+      "group": "cards",
+      "text_sha256": "c61701c1eaf6a9dd95ad5ca2a25d88ce527b676579491b25c250f381a415eccb"
+    },
+    {
+      "id": "M-cat-05",
+      "group": "cards",
+      "text_sha256": "74e09ff799f9d9cd1f2a212785f790e3115cce361aa1adf3f346fd726614509d"
+    },
+    {
+      "id": "M-cat-06",
+      "group": "cards",
+      "text_sha256": "5c9c1bdd32715224870e958ee710caa6dea0dad1f4eab97d4bd74d55e8ede1d8"
+    },
+    {
+      "id": "M-cat-07",
+      "group": "cards",
+      "text_sha256": "5b8938e61168072c287c24f46465d5072069aad75a1c55391a03f88ee71a54f1"
+    },
+    {
+      "id": "M-cat-08",
+      "group": "cards",
+      "text_sha256": "793f83ed89fe4babee2d7b7ced4bb5c090375e54c460e2b4e6c58f31872e3938"
+    },
+    {
+      "id": "M-cicada-01",
+      "group": "cards",
+      "text_sha256": "9f4af39b57c78998f6dad4364856167f11b5b4d954f0f6b0a95867b34119972e"
+    },
+    {
+      "id": "M-cicada-02",
+      "group": "cards",
+      "text_sha256": "b644034c8de25c15a0cbbc5f2361530be92e3a543036fed7c9a58948ddf413ff"
+    },
+    {
+      "id": "M-cicada-03",
+      "group": "cards",
+      "text_sha256": "3345a99d797b5dbd657d52888102238e23f4399e513825a354d06ad0b1b71598"
+    },
+    {
+      "id": "M-cicada-04",
+      "group": "cards",
+      "text_sha256": "2339872524022de856200f2df6bbc571177cc62a9fb1d9751ed31b50bd880241"
+    },
+    {
+      "id": "M-cicada-05",
+      "group": "cards",
+      "text_sha256": "ace394a9b48732c7e5895784ba5a9b5cd6bfaacde23d430bb810a1223767e324"
+    },
+    {
+      "id": "M-cicada-06",
+      "group": "cards",
+      "text_sha256": "fcff9d718bc7b3df9abc4f2db47c994fb5801eeef6ca840b0e3b12f7e38479d7"
+    },
+    {
+      "id": "M-cicada-07",
+      "group": "cards",
+      "text_sha256": "1c4087307995af93c8589b09d681f638359eaab87b1af7a2fd6fd074979bd375"
+    },
+    {
+      "id": "M-cicada-08",
+      "group": "cards",
+      "text_sha256": "1fdeeeb2387f4c8788f9b8e569f7da8b33b4a846b35765c74dd1a7d9cbdf2493"
+    },
+    {
+      "id": "M-clownfish-01",
+      "group": "cards",
+      "text_sha256": "b92505fffd02efa838013f85ea90860cf6df669f1706894395adbc19037ab9f1"
+    },
+    {
+      "id": "M-clownfish-02",
+      "group": "cards",
+      "text_sha256": "1990625e0c5940a41cd8091210cb2a18d93f81a02b42d03d2098de14b485e1f7"
+    },
+    {
+      "id": "M-clownfish-03",
+      "group": "cards",
+      "text_sha256": "146fb0ffd1c779f03e6d368110c4266c0dc45509dabede606bc7c3605eb8f1b3"
+    },
+    {
+      "id": "M-clownfish-04",
+      "group": "cards",
+      "text_sha256": "266434e53152c11908e27f649439c57fb000ff0bb07c172b1cc5afe12f6505c0"
+    },
+    {
+      "id": "M-clownfish-05",
+      "group": "cards",
+      "text_sha256": "7bd986e71abdafab696e6f4bac1f32b73d4feee1da5ea675dc8bb551fdb5c14b"
+    },
+    {
+      "id": "M-clownfish-06",
+      "group": "cards",
+      "text_sha256": "cfcf9d351a04cba64d7016553a7815d2d6953525ec839b1046c68c474c287807"
+    },
+    {
+      "id": "M-clownfish-07",
+      "group": "cards",
+      "text_sha256": "5576eb072d9a614b16a8e8f05820210c0fa36c976eda2649baf7ca393adc6890"
+    },
+    {
+      "id": "M-clownfish-08",
+      "group": "cards",
+      "text_sha256": "63e955ffe9c11aaaad0f5f8ba82738d7f50b75d30efee2af2287f194dd828869"
+    },
+    {
+      "id": "M-coral-01",
+      "group": "cards",
+      "text_sha256": "90c4d4816baecdd7fe6147cb425e3721288e3444902817ee80d0416c32d15372"
+    },
+    {
+      "id": "M-coral-02",
+      "group": "cards",
+      "text_sha256": "d390dc3c3f3608148ada5143ef573893ecefabbeb97db5fa2dd8475585bf89a3"
+    },
+    {
+      "id": "M-coral-03",
+      "group": "cards",
+      "text_sha256": "3c447cf1a67f6d8246e8d7a430854870cb92896d7dca5fd2dc8ac2a9eadf8760"
+    },
+    {
+      "id": "M-coral-04",
+      "group": "cards",
+      "text_sha256": "8e13b56280682c1b9110d04895ef21076775e5f3d8a3bbc02ad80a626447f51d"
+    },
+    {
+      "id": "M-coral-05",
+      "group": "cards",
+      "text_sha256": "09f0884dcf7f981488efd22e9a9ea569a67815e8d6df55d9176e034a2288b40f"
+    },
+    {
+      "id": "M-coral-06",
+      "group": "cards",
+      "text_sha256": "499d263ae0e39c11362a260ebc125b3daebd62fccef42b4d2bbcb5dfc75ddbe1"
+    },
+    {
+      "id": "M-coral-07",
+      "group": "cards",
+      "text_sha256": "1baf782e19fe0378a681d160c61ca023992e51515e66b955e7f17611c045dce1"
+    },
+    {
+      "id": "M-coral-08",
+      "group": "cards",
+      "text_sha256": "a0ddfae456b217ac30861a7649af6f3113bc8c525628044b142a7f85d5ca00e2"
+    },
+    {
+      "id": "M-dandelion-01",
+      "group": "cards",
+      "text_sha256": "96f63a54da7603bd2f8c4d04ebae928f9b14b1aa3543bb429bb2ff030883b794"
+    },
+    {
+      "id": "M-dandelion-02",
+      "group": "cards",
+      "text_sha256": "8bf3c6c072a0bfdeb0a19ba2f7f67c26b7665782bef0f1591b8ed4f34977233c"
+    },
+    {
+      "id": "M-dandelion-03",
+      "group": "cards",
+      "text_sha256": "a1df40befb07c87ca19b1f5dc27fd133eafc8b7ecaa3b469c7981a86cbe32975"
+    },
+    {
+      "id": "M-dandelion-04",
+      "group": "cards",
+      "text_sha256": "7cd25b1f8b3a486b3b91f4db7a0818d25a1d865b6359982256a4a685ea4c61bb"
+    },
+    {
+      "id": "M-dandelion-05",
+      "group": "cards",
+      "text_sha256": "20a15ff76e5deaea35b4fac00d6a0dab07c603e325988a9b9cf595c0db606b77"
+    },
+    {
+      "id": "M-dandelion-06",
+      "group": "cards",
+      "text_sha256": "ea700f24ea48208ad4a3d7b9426f20bd2e67de71365b2c1216cdc801d4e2ab01"
+    },
+    {
+      "id": "M-dandelion-07",
+      "group": "cards",
+      "text_sha256": "8ba5509bf140843db2bcb6f37c2583758259c5038707ed2bc0e794f08bf214f8"
+    },
+    {
+      "id": "M-dandelion-08",
+      "group": "cards",
+      "text_sha256": "cb51936b189c00452ab1fd9eb1299c475a9da58df01ca0eef5ff7152baaf2e56"
+    },
+    {
+      "id": "M-dog-01",
+      "group": "cards",
+      "text_sha256": "f81e101ae5baa0d70d693090f67e0c66e1b0b345c5718b10606ab994b9aa47db"
+    },
+    {
+      "id": "M-dog-02",
+      "group": "cards",
+      "text_sha256": "cbd492b6f0c11741eadaf91fe558e162cf9c3ff5d8ed5f08371f51f8f57bca03"
+    },
+    {
+      "id": "M-dog-03",
+      "group": "cards",
+      "text_sha256": "e8ad76d51b31e44107ba1d230c1550b70ab9401d89f286016fdc8ee428566d44"
+    },
+    {
+      "id": "M-dog-04",
+      "group": "cards",
+      "text_sha256": "f0142974375a89d904e49062f0178ac34e7dd3648103b0a9485f75a24f9b75ec"
+    },
+    {
+      "id": "M-dog-05",
+      "group": "cards",
+      "text_sha256": "6b3da8a3ddb33839d4452bb1d23b6dc041bc79c7e18aa0698d5629de48371c6f"
+    },
+    {
+      "id": "M-dog-06",
+      "group": "cards",
+      "text_sha256": "26b017eac28c55388ff8420a449efd6e9eadd01325b3d3c21c21954618d65b47"
+    },
+    {
+      "id": "M-dog-07",
+      "group": "cards",
+      "text_sha256": "d09a4ed77c9dd4ca857479c10425ccdaf83de33e55e7a8cddf569c4aa1e06217"
+    },
+    {
+      "id": "M-dog-08",
+      "group": "cards",
+      "text_sha256": "308f6c37cecc8b88af73ca88d9e967fc6e08ce69fb5786c66cf1ffbd53c7ba85"
+    },
+    {
+      "id": "M-dragon-01",
+      "group": "cards",
+      "text_sha256": "17b307bc0aa54cc9593922aafccf04e270d3acb9e4839957042f09f4dc557bd3"
+    },
+    {
+      "id": "M-dragon-02",
+      "group": "cards",
+      "text_sha256": "4252af650f9373b75593b02e381ef649f2e9591151398bb45c4d0a45acc7afde"
+    },
+    {
+      "id": "M-dragon-03",
+      "group": "cards",
+      "text_sha256": "d1cc29c87b7cc6967f1398b201a7ccb02aca0daeff6747eb2e85b1c85df26982"
+    },
+    {
+      "id": "M-dragon-04",
+      "group": "cards",
+      "text_sha256": "fb9b011bfb2635f1e3528a0c6496d58bd240a5fcdfc5f95718fd0b9d7b0b45bf"
+    },
+    {
+      "id": "M-dragon-05",
+      "group": "cards",
+      "text_sha256": "c604d202f288f927e312f29f5f7645648cec8074f01f8c1bc47a2b932304b03e"
+    },
+    {
+      "id": "M-dragon-06",
+      "group": "cards",
+      "text_sha256": "ac830aabc7bc2794a32ff8bbd24c98dee6d693e6de86b4670641aa3e57531567"
+    },
+    {
+      "id": "M-dragon-07",
+      "group": "cards",
+      "text_sha256": "264d3f28b93fed85ce2abc1228f50f86fe7c7f3abd2e17fe5b678a22f236245e"
+    },
+    {
+      "id": "M-dragon-08",
+      "group": "cards",
+      "text_sha256": "541394d735e090fe3ad5027f2ce6b9e31e488773f8f26264035056dfe9a2dea6"
+    },
+    {
+      "id": "M-frog-01",
+      "group": "cards",
+      "text_sha256": "c6772ca03859df95c1432300ddc010c6dcba141844087b86aea0ae7b77f3d15b"
+    },
+    {
+      "id": "M-frog-02",
+      "group": "cards",
+      "text_sha256": "4295cce12ad5bd3201ebb824a7482173b2b941ff9401c64294ef03a142ba8d92"
+    },
+    {
+      "id": "M-frog-03",
+      "group": "cards",
+      "text_sha256": "33ad54be59417f2bb62964dc51a79bab73b135b9dcb7a3b5b7435106322a2a6d"
+    },
+    {
+      "id": "M-frog-04",
+      "group": "cards",
+      "text_sha256": "640046ef3d7eabe9e58afbf3f7073970e12864e5f396471a459817b1fcd3da98"
+    },
+    {
+      "id": "M-frog-05",
+      "group": "cards",
+      "text_sha256": "a2d2834154e91b16618b0479a09c37d6ef656666f22b9a9e2ad350c2e66a1304"
+    },
+    {
+      "id": "M-frog-06",
+      "group": "cards",
+      "text_sha256": "1a3d27d706a414efe997a4c2b8e9b778de3668c9c3cd36bcaef88616c1ac97d5"
+    },
+    {
+      "id": "M-frog-07",
+      "group": "cards",
+      "text_sha256": "a4873aedcebf0ccbff2278320558da8ce444cd0a169c68fe8b54b562865e8a76"
+    },
+    {
+      "id": "M-frog-08",
+      "group": "cards",
+      "text_sha256": "c7db9921c5b172adfda12577f8511d289884dbff4c7a3146af8dbf9b11c8d8cb"
+    },
+    {
+      "id": "M-ghost-01",
+      "group": "cards",
+      "text_sha256": "0e33887c05e59689a025e1a02d2b2d617f2d7735bcc0a76ce7a6458586c33e49"
+    },
+    {
+      "id": "M-ghost-02",
+      "group": "cards",
+      "text_sha256": "0df2398a52c98fc61b4f03f8e2382a56fba5abc7e044e4acbc5b87a3dff36d4f"
+    },
+    {
+      "id": "M-ghost-03",
+      "group": "cards",
+      "text_sha256": "dd0f5c9413f6d95bfea0681565ca15032895bbabe7a3b64061c338561594d67a"
+    },
+    {
+      "id": "M-ghost-04",
+      "group": "cards",
+      "text_sha256": "aed8ee00f2c734e8907041b8af6117b1fa3633d321ba6ec747cd76343d999657"
+    },
+    {
+      "id": "M-ghost-05",
+      "group": "cards",
+      "text_sha256": "7597682ee21a353f1b6b14f22dbcfb191eb89256bb93c976dbe1fee1ee8a1a71"
+    },
+    {
+      "id": "M-ghost-06",
+      "group": "cards",
+      "text_sha256": "447f76468dbf13e4074c700a5a752c169ca090f2d0592ecbffdb74031c3f784b"
+    },
+    {
+      "id": "M-ghost-07",
+      "group": "cards",
+      "text_sha256": "472a8b97f11a84aa4202bd310df4784c6cc8dc5a7d3de948956a395d5cee4060"
+    },
+    {
+      "id": "M-ghost-08",
+      "group": "cards",
+      "text_sha256": "fbe400d634e093c22476415ba7b9d84b3654d67a2ec6e3484c22ba289e633e98"
+    },
+    {
+      "id": "M-god-01",
+      "group": "cards",
+      "text_sha256": "e70dcce105ce2511aa68b9835c2dac9a3f79650c45e7ef5f1399104a87ea68f6"
+    },
+    {
+      "id": "M-god-02",
+      "group": "cards",
+      "text_sha256": "d224e5c0d2b4fd3dd62d06db38798c9c21f98bd836ce9bee926cd31b02a15bb3"
+    },
+    {
+      "id": "M-god-03",
+      "group": "cards",
+      "text_sha256": "c36141da6a49a3a20ce2e49cceca433f94de5fa1adaa0a621f2607689758d43e"
+    },
+    {
+      "id": "M-god-04",
+      "group": "cards",
+      "text_sha256": "71e65017920202a828e19d5b3d2e865eef471d68efbce1523a8b91a5399c9797"
+    },
+    {
+      "id": "M-god-05",
+      "group": "cards",
+      "text_sha256": "650e5f439ef7d4f62d520eddb38ae5a8812e4fac9d012e6304bef75b2214e95f"
+    },
+    {
+      "id": "M-god-06",
+      "group": "cards",
+      "text_sha256": "86b6524765dac3162a0bddc94bc36ed46d0bbba4c4a410e930340420e911190b"
+    },
+    {
+      "id": "M-god-07",
+      "group": "cards",
+      "text_sha256": "1fa42809541b77a65b183f94f6731fe197acf23b4f2bd49706d8fa221db825a1"
+    },
+    {
+      "id": "M-god-08",
+      "group": "cards",
+      "text_sha256": "760bcce6320b5553ebc60d8d99bf4143f8d69c93fa0aaae80120c4eaf613b660"
+    },
+    {
+      "id": "M-hermit_crab-01",
+      "group": "cards",
+      "text_sha256": "d8d63ac1a4d8f42dbc62dc7dc85184a66f6573d5152bf7376cd47012bcc6a806"
+    },
+    {
+      "id": "M-hermit_crab-02",
+      "group": "cards",
+      "text_sha256": "ed399ff7b34bab6846e93fd3cccc1df0c2c8b9008dd80ec84ab188690f93140b"
+    },
+    {
+      "id": "M-hermit_crab-03",
+      "group": "cards",
+      "text_sha256": "2efad12e2d82fd2e59ad60c17d199c9ced70ebfb60793b289e28081b98704659"
+    },
+    {
+      "id": "M-hermit_crab-04",
+      "group": "cards",
+      "text_sha256": "18e03f06be1430a5eab22060345ff5a943035e229d45db1889424cab2a49dd08"
+    },
+    {
+      "id": "M-hermit_crab-05",
+      "group": "cards",
+      "text_sha256": "7c9d5c44eb302b766f9aae12bf7fb8bd04df729e93581fa39790972f66d7c7e8"
+    },
+    {
+      "id": "M-hermit_crab-06",
+      "group": "cards",
+      "text_sha256": "249e389e1540b7fef2bfd41f9b84c75ce423aeb6e733fa4cf190cc027e95980d"
+    },
+    {
+      "id": "M-hermit_crab-07",
+      "group": "cards",
+      "text_sha256": "219460644ded0850d5fefa42416be2abbb84900376ee3f3034f545a4c41865fa"
+    },
+    {
+      "id": "M-hermit_crab-08",
+      "group": "cards",
+      "text_sha256": "9f3ba7f42b0618d8747579d0e1b3a1de6a8f82ba88cb1648687b41d7b03e67a7"
+    },
+    {
+      "id": "M-jellyfish-01",
+      "group": "cards",
+      "text_sha256": "10a55eaef7e9cc55a0395e178e53a31d3e4bc3c7f6da63755baa45680c4271ed"
+    },
+    {
+      "id": "M-jellyfish-02",
+      "group": "cards",
+      "text_sha256": "2caa73c88e40cb081a0ea91bfa90e2f9265c5fc1ebabc4ce1e92feeb5d78604f"
+    },
+    {
+      "id": "M-jellyfish-03",
+      "group": "cards",
+      "text_sha256": "01f9420789b3c879d0cebf6d1e1b3cbf12310c18928e8c20c320ed8709419a5c"
+    },
+    {
+      "id": "M-jellyfish-04",
+      "group": "cards",
+      "text_sha256": "616fee9a6dcd4bddf94ab646837fada94eae28a627f9690cdb7e1e8c912c69a2"
+    },
+    {
+      "id": "M-jellyfish-05",
+      "group": "cards",
+      "text_sha256": "82b5b23549b3c0f778e9ac9e9a8dbbbfce953761bcadf10a821e8c7afa13288b"
+    },
+    {
+      "id": "M-jellyfish-06",
+      "group": "cards",
+      "text_sha256": "31f8fa20a2f960b1edcbf9eb87f82539ee42a51c99114224ecb802138d985c8d"
+    },
+    {
+      "id": "M-jellyfish-07",
+      "group": "cards",
+      "text_sha256": "759313cb865afc0168c654e9f6e7ca0ec19638d67b71a8e2068b3cde8e78e061"
+    },
+    {
+      "id": "M-jellyfish-08",
+      "group": "cards",
+      "text_sha256": "587521d8f84b251e457d72e218c1c078bab5318b7dd871a64b7959dc386d3121"
+    },
+    {
+      "id": "M-man-01",
+      "group": "cards",
+      "text_sha256": "fb43f0ea5cd83b7dac65e99bef7bf03158581698c6458caae7941708bdd60171"
+    },
+    {
+      "id": "M-man-02",
+      "group": "cards",
+      "text_sha256": "7f3b9e4f19f1cdcedd2a647111f4b77b90b1d78e39cc283c38e6bf11398f0375"
+    },
+    {
+      "id": "M-man-03",
+      "group": "cards",
+      "text_sha256": "27e3e144c4238f8ef590db6f3e8d95734a94a9c66214a58ac2b083181ab53ec5"
+    },
+    {
+      "id": "M-man-04",
+      "group": "cards",
+      "text_sha256": "224f3363f9e043d3b48d99825f398dc1eef255b22434c8ce59b17043b1ed23e4"
+    },
+    {
+      "id": "M-man-05",
+      "group": "cards",
+      "text_sha256": "85303590ab9d7d9f50787a86fe66fd5907a31babc5b77e8cbbb036de1529ea37"
+    },
+    {
+      "id": "M-man-06",
+      "group": "cards",
+      "text_sha256": "b4e45c0f9e0db3e807e643d0a5cdb2cbec3203d159ba34dd63d91320294c9b1c"
+    },
+    {
+      "id": "M-man-07",
+      "group": "cards",
+      "text_sha256": "78da08f4e827107657d924dde5a6e0ae53ff708940137641bb2040447429562e"
+    },
+    {
+      "id": "M-man-08",
+      "group": "cards",
+      "text_sha256": "52d1f57d16e5c1e04babebedc28eff725b2f9ed062eaa1cd02dc20ed44d768c3"
+    },
+    {
+      "id": "M-mushroom-01",
+      "group": "cards",
+      "text_sha256": "414378c0b1e4133695420d782dd4656a9f5aa0d14a1c1f5615c0a234c54f77d3"
+    },
+    {
+      "id": "M-mushroom-02",
+      "group": "cards",
+      "text_sha256": "53623e3dc865253327b89cab4283fa1338edb533ae060df6a421a5b1af224a3f"
+    },
+    {
+      "id": "M-mushroom-03",
+      "group": "cards",
+      "text_sha256": "557ecca914d3f2220bc258e785ec11387ccffc7d0f3e9b2fcc3a7eda940e5418"
+    },
+    {
+      "id": "M-mushroom-04",
+      "group": "cards",
+      "text_sha256": "386c6c05b0cb8c7b47fdf0c74e679bfbdceee1f20cd37329e724059cc95c3d93"
+    },
+    {
+      "id": "M-mushroom-05",
+      "group": "cards",
+      "text_sha256": "921a78eacf24e8866190c61dec3989b6269dc9ac39733bd65d01eb5d69e03da5"
+    },
+    {
+      "id": "M-mushroom-06",
+      "group": "cards",
+      "text_sha256": "f3182fe94cb45732d76931063e90edcae45d99989a5f85d3afbb6742f9b60dbe"
+    },
+    {
+      "id": "M-mushroom-07",
+      "group": "cards",
+      "text_sha256": "0aa1296cdccf15e5b63b08e880d69f1a8c1c86992a7e93e63b67dd5841cccb9f"
+    },
+    {
+      "id": "M-mushroom-08",
+      "group": "cards",
+      "text_sha256": "ba3815bf6139e34c1c071a9f89b1494a12ba73ba9e7c15a20cdf715f471855c6"
+    },
+    {
+      "id": "M-penguin-01",
+      "group": "cards",
+      "text_sha256": "2119f5ba16f1fbce324c45f7824a816d0ce3a6f65c2bebc3ae1c39cc703e9c79"
+    },
+    {
+      "id": "M-penguin-02",
+      "group": "cards",
+      "text_sha256": "1d484249e2dc939fa5f096de22c3ea532877571a82be78bf26ef41b2933a0d67"
+    },
+    {
+      "id": "M-penguin-03",
+      "group": "cards",
+      "text_sha256": "7fc3b4b23c4a1bbf6223eb366ad55b081aada0f40d711ca5d62240b138e4bdc0"
+    },
+    {
+      "id": "M-penguin-04",
+      "group": "cards",
+      "text_sha256": "6b657922a42c02fc3310330503d63cf8a611e8cbad9ba4b097cba26dba99100a"
+    },
+    {
+      "id": "M-penguin-05",
+      "group": "cards",
+      "text_sha256": "4eb5a0b0c00bae7b15b996ce3d7b783df08a769a14b91f374d3a59da04f2f631"
+    },
+    {
+      "id": "M-penguin-06",
+      "group": "cards",
+      "text_sha256": "09aaf0b7f2b7b9a6883fcb7e10d4cb917b7aa4e50571c1a5bcd12cfcab6d4953"
+    },
+    {
+      "id": "M-penguin-07",
+      "group": "cards",
+      "text_sha256": "11b2b4e2855b8e73b362e217970481b7cf0ae400e17860e24c3b8bae3d835a98"
+    },
+    {
+      "id": "M-penguin-08",
+      "group": "cards",
+      "text_sha256": "7fdd4866fe7778cc0b257a568a6de0eb8d3a412db9ada3753f7ccc87d48ca0ff"
+    },
+    {
+      "id": "M-phoenix-01",
+      "group": "cards",
+      "text_sha256": "3b8d4658b1d2be0d1f0f2d8b57cd4518099508a265d78a5f9d8660ded7a2ea7e"
+    },
+    {
+      "id": "M-phoenix-02",
+      "group": "cards",
+      "text_sha256": "d6c637e5456cb0bf143f9ef1c07762fec65f2c25fe4240ecfe9541af1e027fa2"
+    },
+    {
+      "id": "M-phoenix-03",
+      "group": "cards",
+      "text_sha256": "2bedaecb54da6ccdb797b8b9bb6e2cb887f4b68c001f0087250c40ddd7fc0daa"
+    },
+    {
+      "id": "M-phoenix-04",
+      "group": "cards",
+      "text_sha256": "8146b979c4dc34d3fe1b655e2f6a70c2f6f7280ff8e28334102b9b17d606266a"
+    },
+    {
+      "id": "M-phoenix-05",
+      "group": "cards",
+      "text_sha256": "e50df8d283cb0d5d7169abaaa853b6b3651281dc7321d312c1efc076eea12922"
+    },
+    {
+      "id": "M-phoenix-06",
+      "group": "cards",
+      "text_sha256": "d8b41dc4e3ea37bad0f3e8243e07aa3ee80fe7e833fec15ae1356523cdb33ba9"
+    },
+    {
+      "id": "M-phoenix-07",
+      "group": "cards",
+      "text_sha256": "136beb438b640574a4a8c302c18e30c56a2248e6328abb10415a84502e24deb7"
+    },
+    {
+      "id": "M-phoenix-08",
+      "group": "cards",
+      "text_sha256": "b8477e7dd2d1383b91575fc323cec74bcebc8a1842585da3ae067d7f31b66473"
+    },
+    {
+      "id": "M-plush-01",
+      "group": "cards",
+      "text_sha256": "6a90bd23d6fe4c8df739e0a266610a687104a2bfe8b6ac9f2c6a0713866e46a1"
+    },
+    {
+      "id": "M-plush-02",
+      "group": "cards",
+      "text_sha256": "e6588e939e8ac14f262feffda5dea0e9ec506093310f0a9064a904783b8e1a41"
+    },
+    {
+      "id": "M-plush-03",
+      "group": "cards",
+      "text_sha256": "f28d9c7719bc7e0525ec86091bdb67daa555d8fd07f6e99365c5d48855535e90"
+    },
+    {
+      "id": "M-plush-04",
+      "group": "cards",
+      "text_sha256": "ea20bfc0de57f51b2c064a32fabb05544b5ad7c3a81e827c479d636f423f218b"
+    },
+    {
+      "id": "M-plush-05",
+      "group": "cards",
+      "text_sha256": "4c301efb3c1bb20a634cfffd1d70aa23b51bc096b62429511847f64bf6e176de"
+    },
+    {
+      "id": "M-plush-06",
+      "group": "cards",
+      "text_sha256": "2d4ce270717a380c71622be3b4f0ab562f35e074aa77f8fe255f16a9217df2e1"
+    },
+    {
+      "id": "M-plush-07",
+      "group": "cards",
+      "text_sha256": "d1fa14e32b674b74fb856ae8b5ece4f704299d7c825713a273be456af4a180ba"
+    },
+    {
+      "id": "M-plush-08",
+      "group": "cards",
+      "text_sha256": "07a5f6b12d30b5225075fe6f6d4841df9b2faf539ff8ff2227149701e9a423a3"
+    },
+    {
+      "id": "M-ren-01",
+      "group": "cards",
+      "text_sha256": "fd62da5e9f69b53b5fd4099655fdacc9643b5b4336dcb1807f574b67253465eb"
+    },
+    {
+      "id": "M-ren-02",
+      "group": "cards",
+      "text_sha256": "9c42325406c270427978f4656a657feadc25e0b504d24ad421ded81a1f4160a0"
+    },
+    {
+      "id": "M-ren-03",
+      "group": "cards",
+      "text_sha256": "49ed52461027360344d5ebef9665a6baa17623e7dc98472ddc1d88e21f1d1fec"
+    },
+    {
+      "id": "M-ren-04",
+      "group": "cards",
+      "text_sha256": "f4d862a8f44a39b4af682665f09423f7f4a2cd1f04338349ff12393776ad514b"
+    },
+    {
+      "id": "M-ren-05",
+      "group": "cards",
+      "text_sha256": "c3b848c2a65829b004562ac8df939265cf8bfae10f5e858af30ef56611c67a8a"
+    },
+    {
+      "id": "M-ren-06",
+      "group": "cards",
+      "text_sha256": "d5028f90a8b2ecca145490a535f06263c601be1f4d27fd8e29d2482c91500788"
+    },
+    {
+      "id": "M-ren-07",
+      "group": "cards",
+      "text_sha256": "5bfc92bf282a34a072e8fa3f29d0a34eb039e887415d9747a6e3606cd183582b"
+    },
+    {
+      "id": "M-ren-08",
+      "group": "cards",
+      "text_sha256": "fa6976c9547e59b8a753b6a43e488f3545d3c4aef3355bbe38380223ae4e943c"
+    },
+    {
+      "id": "M-sakura-01",
+      "group": "cards",
+      "text_sha256": "61e8b7cb8201c3e4240115d223ce5b90aca84c4656f3e27c8ada3ed5456b4ffe"
+    },
+    {
+      "id": "M-sakura-02",
+      "group": "cards",
+      "text_sha256": "c0eb9ddf9a629f9e071ae429f62e7b69e3104ce99c6eca924806c794bcae16be"
+    },
+    {
+      "id": "M-sakura-03",
+      "group": "cards",
+      "text_sha256": "1655a1b297ab82f36134f9ccf58e0727e81271e729c23142a8b448f285b3fbd1"
+    },
+    {
+      "id": "M-sakura-04",
+      "group": "cards",
+      "text_sha256": "7d4d23bef51f77f9f58a93642f18331f4c65652f0086005bbe7052ca55e944ad"
+    },
+    {
+      "id": "M-sakura-05",
+      "group": "cards",
+      "text_sha256": "cbcb249fe4f7b1c72ad82a59b770b5bb4826ab937414a143b34db4c470fe55a3"
+    },
+    {
+      "id": "M-sakura-06",
+      "group": "cards",
+      "text_sha256": "be2e9fb4c98488bed131e4b449d6f31acabc5650f2903c06855c6562a04b3db6"
+    },
+    {
+      "id": "M-sakura-07",
+      "group": "cards",
+      "text_sha256": "d375bbde3bce6aff15a44e2658b31078e83f3f512a6b46d49f3d64cad3af21a3"
+    },
+    {
+      "id": "M-sakura-08",
+      "group": "cards",
+      "text_sha256": "0525ad63c5e181daa1da3a186745ad3e453da93412c5a7192df354636d121594"
+    },
+    {
+      "id": "M-salmon-01",
+      "group": "cards",
+      "text_sha256": "dc47dfb1878f4e1b60d526c151291cff367dff5e039de1f831edb6e8c4a4cb43"
+    },
+    {
+      "id": "M-salmon-02",
+      "group": "cards",
+      "text_sha256": "1db949575a7452d082e1453e7b52519af775109246e1b8d33894ab9a2ffd6492"
+    },
+    {
+      "id": "M-salmon-03",
+      "group": "cards",
+      "text_sha256": "89c060ab3da9aafb93b2e28fec2c7374d4d538036f36b9c68727b84dc724a6d9"
+    },
+    {
+      "id": "M-salmon-04",
+      "group": "cards",
+      "text_sha256": "b34c686d45f08cf0cfdd40a0ae05cbe84afe82de7fdf2317d6b43021c72526d8"
+    },
+    {
+      "id": "M-salmon-05",
+      "group": "cards",
+      "text_sha256": "b390a752f554fc3f149dfaa58d828685ada795307d752a6d50eb468fc1f26a02"
+    },
+    {
+      "id": "M-salmon-06",
+      "group": "cards",
+      "text_sha256": "764e78cb666cac468e775d297d6bfac3eb414ab1a8a2a2bc5804cb985a618663"
+    },
+    {
+      "id": "M-salmon-07",
+      "group": "cards",
+      "text_sha256": "71032c0fc4b669582d4f51e469c830a974cd99184c7cc6fb4c69af3a9163615e"
+    },
+    {
+      "id": "M-salmon-08",
+      "group": "cards",
+      "text_sha256": "7f0f9bcef28ec6be49c61271c9dff8dc005fbdba7c3cbca5651ee74cbb207e23"
+    },
+    {
+      "id": "M-stagbeetle-01",
+      "group": "cards",
+      "text_sha256": "fe474713624b0f33bc63f66378ac1b475a67c37f6983023c1a7f96a9e2e9e73e"
+    },
+    {
+      "id": "M-stagbeetle-02",
+      "group": "cards",
+      "text_sha256": "7a243ff2585334b42df0b2626ac9c4c5b9a21ba1606fe938d23972ec516a9949"
+    },
+    {
+      "id": "M-stagbeetle-03",
+      "group": "cards",
+      "text_sha256": "5fba7e521b431b9493e6182cf51d8704723a55b78abbbb0dbae928caab8f4287"
+    },
+    {
+      "id": "M-stagbeetle-04",
+      "group": "cards",
+      "text_sha256": "abde60ccff801f45b50240b61f707d3432ad6cf348d5f58b56c91443ebcfa559"
+    },
+    {
+      "id": "M-stagbeetle-05",
+      "group": "cards",
+      "text_sha256": "293b62dde5c48305d78b34482d9b28adc5046f1a1a38acdcafb5e1f475c56737"
+    },
+    {
+      "id": "M-stagbeetle-06",
+      "group": "cards",
+      "text_sha256": "50ead636491da298d9519ab39ceb540fa70ba68c074f1051c947f2c1f1ea5e0b"
+    },
+    {
+      "id": "M-stagbeetle-07",
+      "group": "cards",
+      "text_sha256": "439f98f45e8b2bb8a1da3bfdea7027e7a76d9f65eb60a00b8a0a1a06dcaaacd8"
+    },
+    {
+      "id": "M-stagbeetle-08",
+      "group": "cards",
+      "text_sha256": "ae61893feef947408046d75b41f0c687082e9ddfecb697696f10fdd977192832"
+    },
+    {
+      "id": "M-star-01",
+      "group": "cards",
+      "text_sha256": "b8b5c6a6db057104c2dc28a5c1574f4344dea3b7cf1f1de85eea37b0f1c68d72"
+    },
+    {
+      "id": "M-star-02",
+      "group": "cards",
+      "text_sha256": "83c0307739e78a85b1ef373b69879a56a44292ce3b00dfd0491478db400463c4"
+    },
+    {
+      "id": "M-star-03",
+      "group": "cards",
+      "text_sha256": "920ce91913d0a261c9369e0684c3be6dfdd0abf96ace22f4d31e3f83fe7af96c"
+    },
+    {
+      "id": "M-star-04",
+      "group": "cards",
+      "text_sha256": "ffd4711f47ea28a6f8443a7f0f8e2bf61a06ef9b5de65e714171c230d1143676"
+    },
+    {
+      "id": "M-star-05",
+      "group": "cards",
+      "text_sha256": "7f36ec5c1d86acdc412696a39c5b3eb5a7238e833c8cbb9824be547a5e756512"
+    },
+    {
+      "id": "M-star-06",
+      "group": "cards",
+      "text_sha256": "6901956839df8e481b27bb47eeb5c6d29fa30cfded5387bdb2e84f16444e2767"
+    },
+    {
+      "id": "M-star-07",
+      "group": "cards",
+      "text_sha256": "0299897e1acfa2cb41a9122e505c22ca9837f5f322e9010804ecf9e003ba0a1b"
+    },
+    {
+      "id": "M-star-08",
+      "group": "cards",
+      "text_sha256": "386843d62af26963cd529b7bc82d71ff65ccb4edcff964dba4196b9239d8c3b6"
+    },
+    {
+      "id": "M-starfish-01",
+      "group": "cards",
+      "text_sha256": "ffd4711f47ea28a6f8443a7f0f8e2bf61a06ef9b5de65e714171c230d1143676"
+    },
+    {
+      "id": "M-starfish-02",
+      "group": "cards",
+      "text_sha256": "2759f9404b543a667c61f4335f0b18169dcf9065da64885924ccb957495d46d8"
+    },
+    {
+      "id": "M-starfish-03",
+      "group": "cards",
+      "text_sha256": "d839271e4b81067e62a87c32ffcef09e8966bcd9de0dda43f1d9435d7305e0a9"
+    },
+    {
+      "id": "M-starfish-04",
+      "group": "cards",
+      "text_sha256": "b2b341f90d82699e333c43841d7ed3d547c22e3301b1e79e331f454ea84eaf36"
+    },
+    {
+      "id": "M-starfish-05",
+      "group": "cards",
+      "text_sha256": "be6eb0a4349449e004ec41b532ec4e7226b5f5cd9dc55cbc91d3ece9b4866f68"
+    },
+    {
+      "id": "M-starfish-06",
+      "group": "cards",
+      "text_sha256": "a380b3700ade1fe97170158eaaacd8c0e656a3fd840c1dfca1b94d2c1dc20daf"
+    },
+    {
+      "id": "M-starfish-07",
+      "group": "cards",
+      "text_sha256": "4f1cba766c4a1f315cda3a5dd7bd673d8e2a9b4096c834be5a02bc8b76aeceea"
+    },
+    {
+      "id": "M-starfish-08",
+      "group": "cards",
+      "text_sha256": "c99c237be2e0ef90cff7506ce43b084e8fa62da1479c3cef35d6f25410bed918"
+    },
+    {
+      "id": "M-turtle-01",
+      "group": "cards",
+      "text_sha256": "ffd4711f47ea28a6f8443a7f0f8e2bf61a06ef9b5de65e714171c230d1143676"
+    },
+    {
+      "id": "M-turtle-02",
+      "group": "cards",
+      "text_sha256": "c104fc54198f1a7e4240d5f38e72a35c569db063bf2270bee7a05ff92471d8b2"
+    },
+    {
+      "id": "M-turtle-03",
+      "group": "cards",
+      "text_sha256": "ee8f60c927f38f2beca92d3859223fa0f4f1ac02d8b4938c1f4dc778dc4176a6"
+    },
+    {
+      "id": "M-turtle-04",
+      "group": "cards",
+      "text_sha256": "6103245f025188445d7b5a80e2826929530f4f03c360063833eb8c2f3a6e91af"
+    },
+    {
+      "id": "M-turtle-05",
+      "group": "cards",
+      "text_sha256": "8fe3bbd8c1249ab69498eee222edc12287241858324f5e0800fe9fc2a941514d"
+    },
+    {
+      "id": "M-turtle-06",
+      "group": "cards",
+      "text_sha256": "1aa699a85f55bbc9a4031e7f4bc5d490b359c6792e568bce63a73940f204c4d6"
+    },
+    {
+      "id": "M-turtle-07",
+      "group": "cards",
+      "text_sha256": "0a8794fe965f396e2b3522aba4db8665654252b58a63c8d2e203149d8532088e"
+    },
+    {
+      "id": "M-turtle-08",
+      "group": "cards",
+      "text_sha256": "59c7787a4a2da8dbf48622df6368052c9a49fea6df913c06f55f161c33ec209a"
+    },
+    {
+      "id": "M-unknown-01",
+      "group": "cards",
+      "text_sha256": "2119d70e6786ebe2143a5394ede6ea0acf5613cb1dc26c367b2c1a847608b845"
+    },
+    {
+      "id": "M-unknown-02",
+      "group": "cards",
+      "text_sha256": "245a40a08828bc8b0d79af0d71799cb51bb3e6b7893cbe6f18baba5fc6e3b40e"
+    },
+    {
+      "id": "M-unknown-03",
+      "group": "cards",
+      "text_sha256": "4304cdeaa12c32ec88639b3b255b07696920d6edba3bc9f57fb7226341e767b0"
+    },
+    {
+      "id": "M-unknown-04",
+      "group": "cards",
+      "text_sha256": "1320f931bd3ab8543d85d6e9cfda20dbc4e775c15e6af08f54edc157988f1737"
+    },
+    {
+      "id": "M-unknown-05",
+      "group": "cards",
+      "text_sha256": "3a216842c7e6d487c2f16deac6cd6b716818f9408cf529244e0e7d2b2d034fdd"
+    },
+    {
+      "id": "M-unknown-06",
+      "group": "cards",
+      "text_sha256": "ffd4711f47ea28a6f8443a7f0f8e2bf61a06ef9b5de65e714171c230d1143676"
+    },
+    {
+      "id": "M-unknown-07",
+      "group": "cards",
+      "text_sha256": "adf085314c41ed7bc34d591999cdc84124a5554495cd2d19fdf24f8c69c60dbf"
+    },
+    {
+      "id": "M-unknown-08",
+      "group": "cards",
+      "text_sha256": "8e3f25d268de8858660b73b8584a0aafd15ee6e6c21753105561c422f3fbf55b"
+    },
+    {
+      "id": "M-venus_flytrap-01",
+      "group": "cards",
+      "text_sha256": "e979fcce8dc8022f70f5eb4292fcda553c06179c2414ed3ff934d4191f7c191c"
+    },
+    {
+      "id": "M-venus_flytrap-02",
+      "group": "cards",
+      "text_sha256": "ec3d3c33b094f070db786a3b6482b898fa31e8435bd47075b23bbe9a3ed43bae"
+    },
+    {
+      "id": "M-venus_flytrap-03",
+      "group": "cards",
+      "text_sha256": "e9feaa6a87d70b54d4fbfb6a6bf9d5d2391f5b5b1c81b7b1bd7c5cbb163c5adf"
+    },
+    {
+      "id": "M-venus_flytrap-04",
+      "group": "cards",
+      "text_sha256": "926ead3572add904e6492e19a1584db1a5aee50537ce9e57f1c7e05bf246879a"
+    },
+    {
+      "id": "M-venus_flytrap-05",
+      "group": "cards",
+      "text_sha256": "d9b7b285e0338f6153abe1dab4e88e4380993ba6511e98fba12c801312fd6e05"
+    },
+    {
+      "id": "M-venus_flytrap-06",
+      "group": "cards",
+      "text_sha256": "c54c4f9b1d8dddc051073478357549b90c8ab4616abf68a4bf6e41a33596142b"
+    },
+    {
+      "id": "M-venus_flytrap-07",
+      "group": "cards",
+      "text_sha256": "89275aaef6dbba415c132f7e3d4e638f8a644f6a1b33aa54981d480b026d2d8e"
+    },
+    {
+      "id": "M-venus_flytrap-08",
+      "group": "cards",
+      "text_sha256": "cb819bc56df74e4deaa5da2c2cd354e8d9f93c0569a32f979df818133dda2251"
+    },
+    {
+      "id": "M-woman-01",
+      "group": "cards",
+      "text_sha256": "6327bca43008b3273d1c580b4b56e818ac574b834e01f736be44af570ecf98fc"
+    },
+    {
+      "id": "M-woman-02",
+      "group": "cards",
+      "text_sha256": "998f6c5004093cbcc8da05cde5fb69e4c3ff717490aecf519a7e18817b4ff46c"
+    },
+    {
+      "id": "M-woman-03",
+      "group": "cards",
+      "text_sha256": "ed560d1cc76c28b3db91ef02c8aceb14bd82279d6d59db96efd9be5ba1391a12"
+    },
+    {
+      "id": "M-woman-04",
+      "group": "cards",
+      "text_sha256": "9b40c8bbb5ee02d9c7e9a622897e34ce75f2c61def46e55c28710f97cf4a255e"
+    },
+    {
+      "id": "M-woman-05",
+      "group": "cards",
+      "text_sha256": "fdafec3dd04f041efb670c80f08b590ff41da9513d3a7b0095859e3b617892fa"
+    },
+    {
+      "id": "M-woman-06",
+      "group": "cards",
+      "text_sha256": "29c26f421f741cf4bd186145be18f36468eb7df3c32da97acde53c18b17567dd"
+    },
+    {
+      "id": "M-woman-07",
+      "group": "cards",
+      "text_sha256": "e8d667565f546b72dc34ccacdee9970397f57b7f4c9d7b1c0a819d6fe3ef9b3d"
+    },
+    {
+      "id": "M-woman-08",
+      "group": "cards",
+      "text_sha256": "0e58a9bb293a42f42440e46a38c88daed217bc03ee48f6267bac062c86a7b823"
+    },
+    {
+      "id": "M-world_tree-01",
+      "group": "cards",
+      "text_sha256": "e33e459586d87876497d0068b3c161315151db9eb2dfc8525995bbc8b644b9df"
+    },
+    {
+      "id": "M-world_tree-02",
+      "group": "cards",
+      "text_sha256": "c3fc68c786e1c23cb27713e2ae9a9964873b7bbb364db9c5b5db01aea74e41f4"
+    },
+    {
+      "id": "M-world_tree-03",
+      "group": "cards",
+      "text_sha256": "a1f6f68bf0961cf6c10e72123eea829bab7def9893df8ce706138e13196138d1"
+    },
+    {
+      "id": "M-world_tree-04",
+      "group": "cards",
+      "text_sha256": "20450a8e9bb9d613e9ac97dd4fa4440a90a8148c2c2e4fa5dbcc76598bb04a24"
+    },
+    {
+      "id": "M-world_tree-05",
+      "group": "cards",
+      "text_sha256": "7960ba77bb08d9b8cece7fe21c92b243e4bbce236ac7a2ca556ed47f8aa6fed2"
+    },
+    {
+      "id": "M-world_tree-06",
+      "group": "cards",
+      "text_sha256": "ec97dca620b3d98bd4c44fd6ad0f3ef92bba79f32e5f4afbbe08dad3d6b98c91"
+    },
+    {
+      "id": "M-world_tree-07",
+      "group": "cards",
+      "text_sha256": "c3d31f1dad7842fa1869ed7eb90f50e506494d9b52c531e08d08d1903212cc86"
+    },
+    {
+      "id": "M-world_tree-08",
+      "group": "cards",
+      "text_sha256": "f35ff0cdf4b6a37e62f29a34fa5bb22216168402a82ea7a56376c003471ed154"
+    },
+    {
+      "id": "P-anglerfish",
+      "group": "partners",
+      "text_sha256": "37a69cfdba4d07a2e0ef7507b44697724ef6fcd1603cd80782fd11e456f02b95"
+    },
+    {
+      "id": "P-cat_ceo",
+      "group": "partners",
+      "text_sha256": "a6cebd93d5ab9bc0196ffdd288513902e9844b7f69e52d1dae916d7f9b77e279"
+    },
+    {
+      "id": "P-cliff_goat",
+      "group": "partners",
+      "text_sha256": "e1e9feb531c843020854a463b7431d58fa8fc3cc6038aee2bf99e41c5b0493a8"
+    },
+    {
+      "id": "P-desert_scorpion",
+      "group": "partners",
+      "text_sha256": "eceaf3f0ec6fa8df723f383cfd0ac303dbb99c30ef6585f5303097217f37e171"
+    },
+    {
+      "id": "P-field_cow",
+      "group": "partners",
+      "text_sha256": "53122c40084735b38e8dcd7d881f8c758d8b8eb8c61471a88185215c8391c3d7"
+    },
+    {
+      "id": "P-forest_bear",
+      "group": "partners",
+      "text_sha256": "84a509aa9a5508941219b3f5be42e1bc1181587ceddfc158704a671e2706b81b"
+    },
+    {
+      "id": "P-gentle_gorilla",
+      "group": "partners",
+      "text_sha256": "1ad68686bc49b9dfa728bad30df8c880cfd8aa780557345c4330526e8acdd1cc"
+    },
+    {
+      "id": "P-grove_deer",
+      "group": "partners",
+      "text_sha256": "948ef7011aea430a178f3292adad08aa5dc8594e60f2f03ae6a6b9859ba5e195"
+    },
+    {
+      "id": "P-high_eagle",
+      "group": "partners",
+      "text_sha256": "6809a6ff314bbdf42367b650b51da93c2cde97855405367cabd9d53e61064393"
+    },
+    {
+      "id": "P-knitting_spider",
+      "group": "partners",
+      "text_sha256": "1bba860808e6c56173923a9b5c9eda8a7e500039152b84e3cd34605b024a9215"
+    },
+    {
+      "id": "P-oasis_cactus",
+      "group": "partners",
+      "text_sha256": "662f3e2fe6c86520aa1be25f21382b3375d8a15769417351b99ab0d9c25853b0"
+    },
+    {
+      "id": "P-robot_neighbor",
+      "group": "partners",
+      "text_sha256": "8a226d6ed9190db77fbf93a98286403c1f6f38186e6ae7a1c2202babfa18d9a2"
+    },
+    {
+      "id": "P-rock_octopus",
+      "group": "partners",
+      "text_sha256": "d1652042f5d48435c3878c8dabd9bc214ac35a74c92519de916c36a7ec4ba83a"
+    },
+    {
+      "id": "P-sea_mermaid",
+      "group": "partners",
+      "text_sha256": "dca05bdcb03d184557fc53c8cb60f0f57c03b45cde8dbc6680770ebf17b1391f"
+    },
+    {
+      "id": "P-snow_spirit",
+      "group": "partners",
+      "text_sha256": "8c3a1fa13c6f7597c130e601098407f798c7e55400298a7378705f92eeb6eea4"
+    },
+    {
+      "id": "P-snowman",
+      "group": "partners",
+      "text_sha256": "97db8115913f932d241a1c7a0f8fbc4773ebc124d69e48ab33ca0de4320f6253"
+    },
+    {
+      "id": "P-sunflower_partner",
+      "group": "partners",
+      "text_sha256": "a168c7425041b8ebe4ebf04cd38b3270f50d32e36e20f98a214a2d45dd23fe5d"
+    },
+    {
+      "id": "P-swamp_croc",
+      "group": "partners",
+      "text_sha256": "c68b4db9dcb65351fbba38ab8244263ebf2aac14b733c379c202d5663d506e55"
+    },
+    {
+      "id": "W-city",
+      "group": "worlds",
+      "text_sha256": "96590c91153dfcd3ca0dfc99b5ccc6f191eb4ae090c6e88360bfacbcacc364f8"
+    },
+    {
+      "id": "W-countryside",
+      "group": "worlds",
+      "text_sha256": "66034a15815a6e9847b185612861c658d9c9b248533569f9d8abf484abb6510c"
+    },
+    {
+      "id": "W-deepsea",
+      "group": "worlds",
+      "text_sha256": "e465e6aee0f61acada1e69f9d7f9bca46c39ee10dd0471d281c4d5dc9eff7864"
+    },
+    {
+      "id": "W-desert",
+      "group": "worlds",
+      "text_sha256": "45f2e30db29370418fa9f4914457746a4208eeed6236e3696b6a38e151c7bfc5"
+    },
+    {
+      "id": "W-forest",
+      "group": "worlds",
+      "text_sha256": "d5520a68854864b901f5320cc488c57785ffef99871ce3422179851cd417b12f"
+    },
+    {
+      "id": "W-home",
+      "group": "worlds",
+      "text_sha256": "910a852fa669765533edc129610e5c0c83974259ceb46eb8b1c8a2bd057cdbc0"
+    },
+    {
+      "id": "W-jungle",
+      "group": "worlds",
+      "text_sha256": "7299ffbf59edf1866d4a5e9b56abade8b4da1a0831abf61b53bac8aa365f8f42"
+    },
+    {
+      "id": "W-memory_lake",
+      "group": "worlds",
+      "text_sha256": "398835270e3a28aa1a6d75ec04737249f21ff46f12d8b66349e0dfb6f74e4ee8"
+    },
+    {
+      "id": "W-mountain",
+      "group": "worlds",
+      "text_sha256": "4c92892ac02551f65b7cf3680aac4b0344f8576c387f889cf9387f780f0defae"
+    },
+    {
+      "id": "W-river_lake",
+      "group": "worlds",
+      "text_sha256": "4a8044ddd27a33fe31a7c4b9d4128bcce6a226419cb5499acf8adaf5dd1d2b6d"
+    },
+    {
+      "id": "W-sea",
+      "group": "worlds",
+      "text_sha256": "157775a76d95d1eb18270372298392033f440ec4fd705ba1c39f0f639dc0fcc5"
+    },
+    {
+      "id": "W-snow",
+      "group": "worlds",
+      "text_sha256": "d96ae5a57587f744adbab48e5731f118dc73372a6da6387a5587c000f6716521"
+    },
+    {
+      "id": "W-star_stop",
+      "group": "worlds",
+      "text_sha256": "0b85d99d7327ab93d90f4c960e92a4430fa01a029bd68cf237210714b842a6f4"
+    }
+  ],
+  "supply_relations": [
+    {
+      "id": "opponent_main_to_discard",
+      "provider_ids": [],
+      "consumer_ids": [
+        "M-turtle-08",
+        "P-forest_bear",
+        "I-c_life_charm",
+        "I-poop1"
+      ],
+      "classification": "no_provider_in_current_catalog",
+      "basis": "Manual reading of current card texts and core rules; not simulated reachability proof."
+    },
+    {
+      "id": "opponent_main_to_hand",
+      "provider_ids": [],
+      "consumer_ids": [
+        "G-p3-drive"
+      ],
+      "classification": "no_provider_in_current_catalog",
+      "basis": "Manual reading of current card texts and core rules; not simulated reachability proof."
+    },
+    {
+      "id": "opponent_companion_to_discard",
+      "provider_ids": [],
+      "consumer_ids": [
+        "M-world_tree-03",
+        "M-penguin-07",
+        "I-bond1",
+        "G-road-jungle",
+        "M-god-08"
+      ],
+      "classification": "no_provider_in_current_catalog",
+      "basis": "Manual reading of current card texts and core rules; not simulated reachability proof."
+    },
+    {
+      "id": "opponent_companion_to_hand",
+      "provider_ids": [],
+      "consumer_ids": [
+        "C-sheep",
+        "C-sekizou",
+        "M-penguin-07",
+        "I-bond1",
+        "G-road-jungle"
+      ],
+      "classification": "no_provider_in_current_catalog",
+      "basis": "Manual reading of current card texts and core rules; not simulated reachability proof."
+    },
+    {
+      "id": "opponent_companion_to_deck",
+      "provider_ids": [],
+      "consumer_ids": [
+        "C-sekizou",
+        "M-penguin-07"
+      ],
+      "classification": "no_provider_in_current_catalog",
+      "basis": "Manual reading of current card texts and core rules; not simulated reachability proof."
+    },
+    {
+      "id": "opponent_partner_to_discard",
+      "provider_ids": [],
+      "consumer_ids": [
+        "P-snowman",
+        "M-god-08"
+      ],
+      "classification": "no_provider_in_current_catalog",
+      "basis": "Manual reading of current card texts and core rules; not simulated reachability proof."
+    },
+    {
+      "id": "opponent_world_to_discard",
+      "provider_ids": [],
+      "consumer_ids": [
+        "M-dandelion-04",
+        "M-god-08"
+      ],
+      "classification": "no_provider_in_current_catalog",
+      "basis": "Manual reading of current card texts and core rules; not simulated reachability proof."
+    },
+    {
+      "id": "opponent_partner_to_hand",
+      "provider_ids": [
+        "E-misunderstanding"
+      ],
+      "consumer_ids": [
+        "P-oasis_cactus",
+        "I-partner1"
+      ],
+      "classification": "supplied"
+    },
+    {
+      "id": "opponent_world_to_hand",
+      "provider_ids": [
+        "E-sudden-trip"
+      ],
+      "consumer_ids": [
+        "G-tilt-maze-3d"
+      ],
+      "classification": "supplied"
+    },
+    {
+      "id": "opponent_preparation_to_discard",
+      "provider_ids": [
+        "M-dragon-06",
+        "G-archery-3d",
+        "G-bomber-maze",
+        "G-catapult-castle",
+        "G-darts-board"
+      ],
+      "consumer_ids": [
+        "M-turtle-06",
+        "M-clownfish-06",
+        "M-coral-07",
+        "M-starfish-07",
+        "M-world_tree-07",
+        "M-god-07",
+        "G-frogger-road",
+        "G-tower-defense",
+        "M-starfish-04",
+        "M-starfish-05",
+        "M-ghost-04"
+      ],
+      "classification": "supplied"
+    },
+    {
+      "id": "opponent_preparation_to_hand",
+      "provider_ids": [
+        "M-venus_flytrap-04",
+        "G-billiards-6",
+        "G-breakout-classic",
+        "G-checkers-6",
+        "G-free-kick-3d",
+        "G-tank-battle"
+      ],
+      "dormant_provider_ids": [
+        "G-bowling-3d"
+      ],
+      "consumer_ids": [
+        "M-sakura-04",
+        "G-frogger-road",
+        "G-tower-defense",
+        "G-tilt-maze-3d"
+      ],
+      "classification": "supplied_except_bowling"
+    },
+    {
+      "id": "opponent_growth_decrease",
+      "provider_ids": [
+        "G-gomoku-9"
+      ],
+      "consumer_ids": [
+        "C-hedgehog",
+        "M-turtle-07",
+        "M-plush-06",
+        "M-ghost-08",
+        "I-naoto_charm",
+        "G-p3-space"
+      ],
+      "classification": "supplied"
+    }
+  ],
+  "followup": {
+    "major_function_without_operational_supply": [
+      "M-turtle-08",
+      "P-forest_bear",
+      "I-c_life_charm",
+      "I-poop1",
+      "M-world_tree-03",
+      "M-penguin-07",
+      "C-sheep",
+      "C-sekizou",
+      "I-bond1",
+      "M-dandelion-04",
+      "M-god-08",
+      "P-snowman",
+      "M-clownfish-03",
+      "G-bowling-3d"
+    ],
+    "partial_function_without_supply": [
+      "G-p3-drive",
+      "G-road-jungle"
+    ],
+    "target_change_ambiguity": [
+      "M-stagbeetle-06"
+    ],
+    "total_unique_current_ids": 17
+  },
+  "equipment_printed_time": [
+    {
+      "id": "I-bond1",
+      "time": 2
+    },
+    {
+      "id": "I-bowtie",
+      "time": 2
+    },
+    {
+      "id": "I-c_life_charm",
+      "time": 2
+    },
+    {
+      "id": "I-gamepass1",
+      "time": 3
+    },
+    {
+      "id": "I-naoto_charm",
+      "time": 3
+    },
+    {
+      "id": "I-naoto_crown",
+      "time": 3
+    },
+    {
+      "id": "I-naoto_lantern",
+      "time": 4
+    },
+    {
+      "id": "I-naoto_ring",
+      "time": 3
+    },
+    {
+      "id": "I-partner1",
+      "time": 2
+    },
+    {
+      "id": "I-ribbon",
+      "time": 2
+    },
+    {
+      "id": "I-scarf",
+      "time": 2
+    },
+    {
+      "id": "I-sleepboost1",
+      "time": 2
+    },
+    {
+      "id": "I-star",
+      "time": 3
+    },
+    {
+      "id": "I-travel1",
+      "time": 2
+    }
+  ],
+  "legacy_separate": {
+    "bowling_targets": [
+      "I-flower",
+      "I-glasses"
+    ],
+    "hide_and_seek": "Legacy kakurenbo has the same main-to-companion target eligibility gap; excluded from 452.",
+    "retired_item_count": 24,
+    "retired_CARD": 23,
+    "retired_HOLD": 1,
+    "event_HOLD": 13,
+    "legacy_play_count": 4
+  },
+  "manual_case_ids": [
+    "N01",
+    "N02",
+    "N03",
+    "N04",
+    "N05",
+    "N06",
+    "N07",
+    "N08",
+    "N09",
+    "N10",
+    "N11",
+    "N12",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16",
+    "P17",
+    "P18",
+    "P19",
+    "P20",
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08"
+  ],
+  "evidence_card_texts": [
+    {
+      "id": "C-hedgehog",
+      "source_id": "hedgehog",
+      "name": "びっくりハリネズミ",
+      "type": "なかま",
+      "normal_time": 0,
+      "rarity": "normal",
+      "text": "1ラウンドに1回。自分のそだちが相手の効果で減る時、その減少を5防ぐ。",
+      "path": "docs/card-game/72-companion-26-card-text-draft.md",
+      "catalog_group": "companions"
+    },
+    {
+      "id": "C-sekizou",
+      "source_id": "sekizou",
+      "name": "むひょうじょうのせきぞう",
+      "type": "なかま",
+      "normal_time": 0,
+      "rarity": "rare",
+      "text": "1ラウンドに1回。このカードが相手の効果で手札または山札に移動するなら、代わりにこのカードをなかま枠に残してもよい。",
+      "path": "docs/card-game/72-companion-26-card-text-draft.md",
+      "catalog_group": "companions"
+    },
+    {
+      "id": "C-sheep",
+      "source_id": "sheep",
+      "name": "ふわふわヒツジ",
+      "type": "なかま",
+      "normal_time": 0,
+      "rarity": "normal",
+      "text": "1ラウンドに1回。自分になかまが2枚以上ある時、自分の他のなかまが相手の効果で手札に戻るなら、その移動を防いでもよい。",
+      "path": "docs/card-game/72-companion-26-card-text-draft.md",
+      "catalog_group": "companions"
+    },
+    {
+      "id": "E-misunderstanding",
+      "name": "すれちがい",
+      "type": "できごと",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "相手のこいびと1枚を対象として発動できる。対象を持ち主の手札に戻す。",
+      "path": "docs/card-game/91-event-21-card-text-draft.md",
+      "catalog_group": "events"
+    },
+    {
+      "id": "E-sudden-trip",
+      "name": "とつぜんのたび",
+      "type": "できごと",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "自分または相手のセカイ1枚を対象として発動できる。対象を持ち主の手札に戻す。",
+      "path": "docs/card-game/91-event-21-card-text-draft.md",
+      "catalog_group": "events"
+    },
+    {
+      "id": "G-archery-3d",
+      "name": "アーチェリー",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "自分にセカイがある場合、相手の準備枠の、カードに書かれた時コストが2以下のみにつけられているカード1枚を対象として発動できる。そのカードを捨て札に置く。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/79-play-batch-1-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-billiards-6",
+      "name": "ビリヤード",
+      "time": 1,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "相手についている時コスト2以下の装備カード1枚と、自分についている装備カード1枚を対象として発動できる。相手の対象を持ち主の手札に戻す。戻したなら、自分の対象も持ち主の手札に戻す。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/81-play-batch-2-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-bomber-maze",
+      "name": "ボンバー",
+      "time": 2,
+      "method": "しかける",
+      "rarity": "normal",
+      "text": "相手のターン開始時に発動できる。自分と相手の準備枠のカードを1枚ずつ対象とする。このターン終了時、それぞれを捨て札に置く。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/83-play-batch-3-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-bowling-3d",
+      "name": "ボウリング",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "相手の準備枠の、カードに書かれた時コストが1以下のみにつけられているカード2枚までを対象として発動できる。それらを持ち主の手札に戻す。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/79-play-batch-1-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-breakout-classic",
+      "name": "ブロックくずし",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "相手の準備枠のカード1枚を対象として発動できる。次の自分のターン開始時、そのカードが相手の準備枠にあるなら、持ち主の手札に戻す。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/79-play-batch-1-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-catapult-castle",
+      "name": "カタパルト",
+      "time": 3,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "相手の準備枠にカードが3枚ある場合に発動できる。その中の1枚を対象とし、捨て札に置く。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/83-play-batch-3-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-checkers-6",
+      "name": "チェッカー",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "このターン自分がちょうせんで勝っている場合に発動できる。相手のしかけてあるカード1枚と相手の装備カード1枚を対象とする。しかけてある対象を手札に戻す。戻したなら、装備の対象も手札に戻す。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/85-play-batch-4-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-darts-board",
+      "name": "ダーツ",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "発動コストとして手札のアクションカード1枚を公開して捨て札に置く。そのカードに書かれた時コストと同じ時コストの相手の装備カード1枚を対象とし、捨て札に置く。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/83-play-batch-3-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-free-kick-3d",
+      "name": "フリーキック",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "自分から宣言したちょうせん中に発動できる。相手の参加メインについている装備カード1枚を対象とし、持ち主の手札に戻す。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/81-play-batch-2-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-frogger-road",
+      "name": "かえるのおうちがえり",
+      "time": 1,
+      "method": "しかける",
+      "rarity": "normal",
+      "text": "自分が通常のセカイ変更を行った時に発動できる。自分の準備枠のカード1枚を対象とする。このターン、そのカードは相手のカード効果では手札にも捨て札にも移らない。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/81-play-batch-2-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-gomoku-9",
+      "name": "五目ならべ",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "自分の準備枠にカードが2枚以上ある場合に発動できる。発動時に、自分のそだち+5か、相手のそだち-5かを選び、適用する。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/83-play-batch-3-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-p3-drive",
+      "name": "ハイウェイドライブ",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "自分のメイン1枚を対象として発動できる。このターン、そのメインが相手の効果で手札に戻るなら、1回だけ、代わりに場に残す。このターン、自分が次に手札からセカイを通常の方法で変更するための時を1少なくする。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/79-play-batch-1-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-p3-space",
+      "name": "うちゅうフライト",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "このターン、次に自分のそだちが相手の効果で減る時、その減少を5防ぐ。その防止で減少をすべて防いだなら、1枚引く。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/79-play-batch-1-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-road-jungle",
+      "name": "ジャングルラン",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "自分のセカイが「ジャングル」なら発動できる。自分のなかま1枚を対象とする。このターン、対象は相手の効果では手札に戻らず、捨て札へ送られない。1枚引く。",
+      "source": "region",
+      "context": "jungle",
+      "source_file": "docs/card-game/87-play-batch-5-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-tank-battle",
+      "name": "タンクバトル",
+      "time": 1,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "相手の準備枠にしかけてあるカード1枚を対象とし、持ち主の手札に戻す。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/83-play-batch-3-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-tilt-maze-3d",
+      "name": "たまころがしめいろ",
+      "time": 2,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "text": "場のカード1枚だけを対象とする相手のアクションカードが発動した時、その発動と、元の効果が対象にできる別の場のカード1枚を対象として発動できる。その発動の対象を、後者のカードに変更する。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/79-play-batch-1-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "G-tower-defense",
+      "name": "タワーディフェンス",
+      "time": 2,
+      "method": "しかける",
+      "rarity": "normal",
+      "text": "相手が自分の準備枠のカードを捨て札か手札へ移す効果を発動した時に発動できる。このターン、相手のカード効果で自分の準備枠のカードが捨て札か手札へ移る場合、その移動を合計2枚まで防ぐ。同時に防げる枚数を超える場合、防ぐカードを自分が選ぶ。",
+      "source": "general",
+      "context": null,
+      "source_file": "docs/card-game/81-play-batch-2-card-text-draft.md",
+      "catalog_group": "play_cards"
+    },
+    {
+      "id": "I-bond1",
+      "source_id": "bond1",
+      "name": "おともだちバッジ",
+      "time": 2,
+      "method": "みにつける",
+      "rarity": "normal",
+      "registration": "registered",
+      "text": "なかまにみにつける。そのなかまが相手の効果でなかま枠から手札か捨て札に移るなら、このカードを捨て札に置くことで、代わりにそのなかまをなかま枠に残してもよい。",
+      "catalog_group": "items_current_source"
+    },
+    {
+      "id": "I-c_life",
+      "source_id": "c_life",
+      "name": "いのちのくすり",
+      "time": 3,
+      "method": "すぐつかう",
+      "rarity": "normal",
+      "registration": "source-only",
+      "text": "自分のそだちがこのターン減っている場合に発動できる。自分のそだち+10。この名前のカードは1ターンに1回しか発動できない。",
+      "catalog_group": "items_current_source"
+    },
+    {
+      "id": "I-c_life_charm",
+      "source_id": "c_life_charm",
+      "name": "いのちのおまもり",
+      "time": 2,
+      "method": "みにつける",
+      "rarity": "normal",
+      "registration": "source-only",
+      "text": "メインにみにつける。そのメインが相手の効果で捨て札に置かれるなら、このカードを捨て札に置くことで、代わりにそのメインをメイン枠に残してもよい。",
+      "catalog_group": "items_current_source"
+    },
+    {
+      "id": "I-naoto_charm",
+      "source_id": "naoto_charm",
+      "name": "なおとのおまもり",
+      "time": 3,
+      "method": "みにつける",
+      "rarity": "rare",
+      "registration": "registered",
+      "text": "メインにみにつける。1ラウンドに1回。第7ラウンド以降、自分のそだちが相手の効果で減るなら、その減少を5防ぐ。",
+      "catalog_group": "items_current_source"
+    },
+    {
+      "id": "I-partner1",
+      "source_id": "partner1",
+      "name": "らぶれたー",
+      "time": 2,
+      "method": "みにつける",
+      "rarity": "normal",
+      "registration": "registered",
+      "text": "メインまたはこいびとにみにつける。自分のこいびとが相手の効果で手札に戻るなら、このカードを捨て札に置くことで、代わりにそのこいびとをこいびと枠に残してもよい。",
+      "catalog_group": "items_current_source"
+    },
+    {
+      "id": "I-poop1",
+      "source_id": "poop1",
+      "name": "トイレットペーパー",
+      "time": 1,
+      "method": "しかける",
+      "rarity": "normal",
+      "registration": "registered",
+      "text": "相手がメインを除去する効果を発動した時、自分のメイン1枚を対象として発動できる。その発動が無効になっていない場合、その相手の発動の処理が終わるまで、対象のメインがその効果による除去で捨て札に置かれるなら、1回だけ、代わりにそのメインを場に残す。",
+      "catalog_group": "items_current_source"
+    },
+    {
+      "id": "M-clownfish-03",
+      "species": "clownfish",
+      "stage": 3,
+      "name": "カクレクマノミ③",
+      "form": "かくれんぼの子",
+      "power": 3,
+      "wisdom": 4,
+      "normal_time": 3,
+      "text": "1ターンに1回。相手がこのメインだけを対象にする効果を発動した時、時1を払い、その効果の適正な対象である自分のなかま1枚を対象として発動できる。その相手の効果の対象を、そのなかまへ変更する。",
+      "path": "docs/card-game/representatives/04-ocean-clownfish.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-clownfish-06",
+      "species": "clownfish",
+      "stage": 6,
+      "name": "カクレクマノミ⑥",
+      "form": "卵を守るオス",
+      "power": 5,
+      "wisdom": 7,
+      "normal_time": 6,
+      "text": "1ラウンドに1回。自分の準備枠の伏せたカード1枚が相手の効果で捨て札に置かれるなら、手札1枚を捨て札に置くことで、その準備枠のカードを代わりに手札へ戻してもよい。",
+      "path": "docs/card-game/representatives/04-ocean-clownfish.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-coral-07",
+      "species": "coral",
+      "stage": 7,
+      "name": "サンゴ⑦",
+      "form": "大きなサンゴの森",
+      "power": 4,
+      "wisdom": 8,
+      "normal_time": 7,
+      "text": "1ラウンドに1回。自分の盤面に、なかま・こいびと・セカイの3種類すべてがある場合、自分のメイン以外のカード1枚が相手の効果で捨て札に置かれるなら、そのカードを捨て札に置かない。",
+      "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-dandelion-04",
+      "species": "dandelion",
+      "stage": 4,
+      "name": "タンポポ④",
+      "form": "葉がしげるタンポポ",
+      "power": 5,
+      "wisdom": 4,
+      "normal_time": 4,
+      "text": "1ラウンドに1回。自分のセカイが相手の効果で捨て札に置かれるなら、手札のセカイ1枚を公開して捨て札に置くことで、セカイ枠のそのカードを捨て札に置かない。",
+      "path": "docs/card-game/57-plant-four-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-dragon-06",
+      "species": "dragon",
+      "stage": 6,
+      "name": "りゅう⑥",
+      "form": "火をふくりゅう",
+      "power": 10,
+      "wisdom": 5,
+      "normal_time": 6,
+      "text": "1ターンに1回。自分のターンに、時2を払い、手札1枚と自分の準備枠のカード1枚を捨て札に置き、相手の準備枠のカード1枚か2枚を対象として発動できる。その対象を捨て札に置く。",
+      "path": "docs/card-game/59-fantasy-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-ghost-04",
+      "species": "ghost",
+      "stage": 4,
+      "name": "おばけ④",
+      "form": "おばけ",
+      "power": 6,
+      "wisdom": 6,
+      "normal_time": 4,
+      "text": "この名前の能力は1ターンに1回。このメインがメイン枠から捨て札に置かれた時、発動できる。次の自分のターン終了時まで、自分の盤面のメイン以外のカードが相手の効果で捨て札に置かれた時、1回だけ1枚引く。",
+      "path": "docs/card-game/59-fantasy-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-ghost-08",
+      "species": "ghost",
+      "stage": 8,
+      "name": "おばけ⑧",
+      "form": "旅立ち前のおばけ",
+      "power": 1,
+      "wisdom": 10,
+      "normal_time": 8,
+      "text": "この名前の能力は1ターンに1回。このメインがメイン枠から捨て札に置かれた時、発動できる。次の自分のターン終了時まで、相手の効果で自分のそだちが次に減る時、その減少を5少なくする。",
+      "path": "docs/card-game/59-fantasy-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-god-07",
+      "species": "god",
+      "stage": 7,
+      "name": "かみさま⑦",
+      "form": "神々しい光",
+      "power": 5,
+      "wisdom": 9,
+      "normal_time": 7,
+      "text": "1ターンに1回。自分のターン終了時、自分になかま・こいびと・セカイの3種類すべてがある場合、自分の準備枠のカード1枚を対象として発動できる。次の自分のターン開始時まで、そのカードが相手の効果で捨て札に置かれることを1回だけ防ぐ。",
+      "path": "docs/card-game/59-fantasy-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-god-08",
+      "species": "god",
+      "stage": 8,
+      "name": "かみさま⑧",
+      "form": "光そのもの",
+      "power": 4,
+      "wisdom": 10,
+      "normal_time": 8,
+      "text": "1ターンに1回。自分のターンに、時1を払い、手札1枚を山札の一番下に置き、自分の盤面のなかま・こいびと・セカイのうち1枚を対象として発動できる。次の自分のターン開始時まで、そのカードが次に相手の効果で捨て札に置かれるなら、代わりに手札に戻す。",
+      "path": "docs/card-game/59-fantasy-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-penguin-07",
+      "species": "penguin",
+      "stage": 7,
+      "name": "ペンギン⑦",
+      "form": "ベテランペンギン",
+      "power": 6,
+      "wisdom": 7,
+      "normal_time": 7,
+      "text": "1ターンに1回。自分がセカイを変更した時、自分になかまがある場合、発動できる。自分のなかま1枚を選ぶ。このターン、そのなかまが相手の効果で盤面を離れる場合、1回だけ盤面を離れない。",
+      "path": "docs/card-game/53-waterside-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-plush-06",
+      "species": "plush",
+      "stage": 6,
+      "name": "ぬいぐるみ⑥",
+      "form": "つぎはぎ",
+      "power": 4,
+      "wisdom": 7,
+      "normal_time": 6,
+      "text": "1ラウンドに1回。自分の捨て札に「あそび」「あいてむ」「できごと」の3種類すべてがある場合、相手の効果で自分のそだちが減る時、その減少を5少なくする。",
+      "path": "docs/card-game/representatives/08-mystery-plush.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-sakura-04",
+      "species": "sakura",
+      "stage": 4,
+      "name": "サクラ④",
+      "form": "育ったサクラ",
+      "power": 6,
+      "wisdom": 4,
+      "normal_time": 4,
+      "text": "1ラウンドに1回。自分の準備枠のカード1枚が相手の効果で手札に戻るなら、時1を払うことで、そのカードが手札に戻ることを防いでもよい。",
+      "path": "docs/card-game/representatives/06-plant-sakura.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-stagbeetle-06",
+      "species": "stagbeetle",
+      "stage": 6,
+      "name": "クワガタムシ⑥",
+      "form": "若いクワガタ",
+      "power": 7,
+      "wisdom": 5,
+      "normal_time": 6,
+      "text": "1ターンに1回。相手が自分のカード1枚を対象にする効果を発動した時、時1を払って発動できる。このメインがその効果の適正な対象なら、その対象をこのメインへ変更する。そうしたなら、このターンこのメインのちから+2。",
+      "path": "docs/card-game/23-stagbeetle-first-pass.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-starfish-04",
+      "species": "starfish",
+      "stage": 4,
+      "name": "ヒトデ④",
+      "form": "ふっくらした星",
+      "power": 5,
+      "wisdom": 4,
+      "normal_time": 4,
+      "text": "1ターンに1回。自分の盤面のメイン以外のカードが相手の効果で捨て札に置かれた時、発動できる。1枚引き、その後手札1枚を山札の一番下に置く。",
+      "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-starfish-05",
+      "species": "starfish",
+      "stage": 5,
+      "name": "ヒトデ⑤",
+      "form": "金色の子ヒトデ",
+      "power": 6,
+      "wisdom": 5,
+      "normal_time": 5,
+      "text": "1ターンに1回。自分の盤面のメイン以外のカードが相手の効果で捨て札に置かれた時、発動できる。このターン、自分が次にアクションカードをプレイするための時を1少なくする。",
+      "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-starfish-07",
+      "species": "starfish",
+      "stage": 7,
+      "name": "ヒトデ⑦",
+      "form": "大人のヒトデ",
+      "power": 7,
+      "wisdom": 6,
+      "normal_time": 7,
+      "text": "1ラウンドに1回。自分の盤面のメイン以外のカードが相手の効果で捨て札に置かれる場合、代わりにそのカードを持ち主の山札の一番下に置く。",
+      "path": "docs/card-game/54-ocean-four-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-turtle-06",
+      "species": "turtle",
+      "stage": 6,
+      "name": "かめ⑥",
+      "form": "大きなかめ",
+      "power": 6,
+      "wisdom": 6,
+      "normal_time": 6,
+      "text": "1ラウンドに1回。このメインにみにつけられているカードが相手の効果で捨て札に置かれる場合、そのカードを捨て札に置かない。",
+      "path": "docs/card-game/53-waterside-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-turtle-07",
+      "species": "turtle",
+      "stage": 7,
+      "name": "かめ⑦",
+      "form": "古いかめ",
+      "power": 5,
+      "wisdom": 7,
+      "normal_time": 7,
+      "text": "1ラウンドに1回。相手の効果で自分のそだちが減る場合、自分の捨て札に、その効果を発動したカードと同じカード種類のカードがあるなら、その減少を5少なくする。",
+      "path": "docs/card-game/53-waterside-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-turtle-08",
+      "species": "turtle",
+      "stage": 8,
+      "name": "かめ⑧",
+      "form": "長生きのかめ",
+      "power": 4,
+      "wisdom": 8,
+      "normal_time": 8,
+      "text": "1ラウンドに1回。相手の効果でこのメインがメイン枠から捨て札に置かれる場合、自分のセカイを捨て札に置くことができる。そうしたなら、代わりにこのメインを捨て札に置かない。",
+      "path": "docs/card-game/53-waterside-three-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-venus_flytrap-04",
+      "species": "venus_flytrap",
+      "stage": 4,
+      "name": "ハエトリグサ④",
+      "form": "口を広げた葉",
+      "power": 6,
+      "wisdom": 4,
+      "normal_time": 4,
+      "text": "1ターンに1回。相手のターンに、相手がアクションカードをプレイした時、相手がこのターン、それより前に同じプレイ方法でアクションカードをプレイしていた場合、相手の準備枠のカード1枚を対象として発動できる。そのカードを手札に戻す。",
+      "path": "docs/card-game/57-plant-four-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-world_tree-03",
+      "species": "world_tree",
+      "stage": 3,
+      "name": "世界樹③",
+      "form": "小さな木",
+      "power": 3,
+      "wisdom": 6,
+      "normal_time": 3,
+      "text": "1ラウンドに1回。自分のなかま1枚が相手の効果で捨て札に置かれるなら、自分の準備枠のカード1枚を山札の一番下に置くことで、そのなかまを代わりに手札に戻してもよい。",
+      "path": "docs/card-game/57-plant-four-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "M-world_tree-07",
+      "species": "world_tree",
+      "stage": 7,
+      "name": "世界樹⑦",
+      "form": "雲をこえる木",
+      "power": 6,
+      "wisdom": 9,
+      "normal_time": 7,
+      "text": "1ラウンドに1回。自分にセカイがあり、自分の盤面のメイン以外の表向きのカード1枚が相手の効果で捨て札に置かれるなら、それと同じカード種類の自分の捨て札のカード1枚を山札の一番下に置くことで、その盤面のカードを代わりに山札の一番上に置いてもよい。",
+      "path": "docs/card-game/57-plant-four-lines-card-text-draft.md",
+      "catalog_group": "cards"
+    },
+    {
+      "id": "P-forest_bear",
+      "source_id": "forest_bear",
+      "name": "もりのクマさん",
+      "type": "こいびと",
+      "normal_time": 0,
+      "rarity": "normal",
+      "first_region": "forest",
+      "text": "1ラウンドに1回。自分のメインが相手の効果で捨て札に置かれるなら、このカードにみにつけられたカード1枚を捨て札に置くことで、代わりにそのメインをメイン枠に残してもよい。",
+      "path": "docs/card-game/74-partner-18-card-text-draft.md",
+      "catalog_group": "partners"
+    },
+    {
+      "id": "P-oasis_cactus",
+      "source_id": "oasis_cactus",
+      "name": "オアシスのサボテンさん",
+      "type": "こいびと",
+      "normal_time": 0,
+      "rarity": "normal",
+      "first_region": "desert",
+      "text": "1ラウンドに1回。このカードにカードがみにつけられていない間、このカードが相手の効果で手札に戻るなら、その移動を防いでもよい。",
+      "path": "docs/card-game/74-partner-18-card-text-draft.md",
+      "catalog_group": "partners"
+    },
+    {
+      "id": "P-snowman",
+      "source_id": "snowman",
+      "name": "とけないゆきだるま",
+      "type": "こいびと",
+      "normal_time": 0,
+      "rarity": "normal",
+      "first_region": "snow",
+      "text": "このカードとの交際または結婚が終了し、このカードがこいびと枠から捨て札に置かれた時、自分のメインがたまごでない場合、捨て札で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
+      "path": "docs/card-game/74-partner-18-card-text-draft.md",
+      "catalog_group": "partners"
+    }
+  ],
+  "lexical_screen": {
+    "pattern": "山札",
+    "counts_by_group": {
+      "cards": 108,
+      "companions": 9,
+      "partners": 5,
+      "worlds": 4,
+      "play_cards": 35,
+      "items_current_source": 10,
+      "events": 12
+    },
+    "total": 183,
+    "warning": "Lexical hits are not semantic search counts or operation density measurements."
+  }
+}

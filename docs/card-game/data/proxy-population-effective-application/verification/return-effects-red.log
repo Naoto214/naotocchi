@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_actual_return_and_invalid_target_preserve_paid_cost_and_source_departure (test_proxy_population_return_effects.ReturnEffectsTests.test_actual_return_and_invalid_target_preserve_paid_cost_and_source_departure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_return_effects.py", line 37, in setUp
+    def setUp(self):self.assertIsNotNone(api,'return-effect semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : return-effect semantic audit absent
+
+======================================================================
+FAIL: test_false_receipt_draw_refund_reservation_and_chain_changes_rejected (test_proxy_population_return_effects.ReturnEffectsTests.test_false_receipt_draw_refund_reservation_and_chain_changes_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_return_effects.py", line 37, in setUp
+    def setUp(self):self.assertIsNotNone(api,'return-effect semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : return-effect semantic audit absent
+
+======================================================================
+FAIL: test_wrong_dispatch_or_link_identity_rejected_and_unrelated_event_unproved (test_proxy_population_return_effects.ReturnEffectsTests.test_wrong_dispatch_or_link_identity_rejected_and_unrelated_event_unproved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_return_effects.py", line 37, in setUp
+    def setUp(self):self.assertIsNotNone(api,'return-effect semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : return-effect semantic audit absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

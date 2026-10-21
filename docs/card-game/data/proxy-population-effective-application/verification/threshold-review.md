@@ -1,0 +1,9 @@
+# 100/終了/合法性/台帳closure bundleの独立レビュー
+
+対象：c6cd092後のgrowth_runtime、end_victory、unproved_priority、paid/recovery selector結合、challenge scope、activation_legality、trigger closure/archiveとテスト。read-only agent review1回。Critical0／Important0／Minor1。専用19件PASS。新規意味論、数値、旧116除外緩和なし。
+
+Minor（留保）：activation_legalityの`test_absent_target_cost_and_unregistered_declaration_still_rejected`は対象不在だけを検証し、名前にある支払・宣言とstale responseは専用に検証していない。実装にはチェックがあるが、テスト名をそれらのPASS証拠に数えない。
+
+100/終了の条件付き履歴とmock境界は、真正入力から100へ到達する完走履歴の検証ではない。preflight=false。
+
+レビュー後のsource監査で02§たまごのこいびと能力無効を再確認し、出来事時にたまごなら待ち発動を生成しないnegative境界をlatchingへ追加（P-cliff_goat／sourceslot partner、02全文hash）。対応テストRED→GREEN、latching7件PASS。これは本レビューの対象外の後続変更であり、最終検証に含める。

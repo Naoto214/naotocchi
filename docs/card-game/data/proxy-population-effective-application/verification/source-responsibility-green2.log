@@ -1,0 +1,16 @@
+test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss) ... ERROR
+test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_pinned_existing_table_exactly_covers_catalog_and_supplemental_roles) ... ok
+
+======================================================================
+ERROR: test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss (test_proxy_population_source_responsibilities.SourceResponsibilitiesTests.test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_source_responsibilities.py", line 32, in test_actual_entry_requires_fresh_join_and_rejects_scope_or_boundary_loss
+    item=next(p for p in c['native_source_collections'] if p['unproved_sources'])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+----------------------------------------------------------------------
+Ran 2 tests in 8.279s
+
+FAILED (errors=1)

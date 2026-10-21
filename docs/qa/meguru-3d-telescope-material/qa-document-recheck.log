@@ -1,0 +1,10 @@
+✔ AD-17. Human QA gate の 記録: 13 地域 × 7 条件(ひと目で 地域・さびしく ない・箱っぽく ない・いろ・歩きたい・見どころ・前景 / 中景 / 遠景)が status doc に ある。main merge / Ready は しない (1.489898ms)
+✔ AD-18. 原則だけ: Nintendo / どうぶつの森 固有の 名まえ・asset・模様は code にも doc にも 出てこない (4.003282ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 227.91201

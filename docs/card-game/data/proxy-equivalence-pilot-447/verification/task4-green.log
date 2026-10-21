@@ -1,0 +1,12 @@
+test_disabled_proofs_reproduce_414 (test_proxy_equivalence_selection.SelectionTests.test_disabled_proofs_reproduce_414) ... ok
+test_input_order_does_not_choose_group (test_proxy_equivalence_selection.SelectionTests.test_input_order_does_not_choose_group) ... ok
+test_safe_free_certificate_not_transferred (test_proxy_equivalence_selection.SelectionTests.test_safe_free_certificate_not_transferred) ... ok
+test_same_frontier_same_seed (test_proxy_equivalence_selection.SelectionTests.test_same_frontier_same_seed) ... ok
+test_unknown_input_not_fallback (test_proxy_equivalence_selection.SelectionTests.test_unknown_input_not_fallback) ... ok
+test_unknown_retains_seeded_frontier (test_proxy_equivalence_selection.SelectionTests.test_unknown_retains_seeded_frontier) ... ok
+test_wrapper_choice_and_action_binding (test_proxy_equivalence_selection.SelectionTests.test_wrapper_choice_and_action_binding) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.759s
+
+OK

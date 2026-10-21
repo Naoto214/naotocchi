@@ -1,0 +1,14 @@
+E....
+======================================================================
+ERROR: test_227_empty_pass_reproduces_exact_source_transition (test_proxy_resource_value_response_profiles.LegacyEmptyPassTests.test_227_empty_pass_reproduces_exact_source_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_response_profiles.py", line 44, in test_227_empty_pass_reproduces_exact_source_transition
+    profiles=trajectory._fresh_empty_pass_boundaries(initial['inputs'],initial['path_id'])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_resource_value_trajectory' has no attribute '_fresh_empty_pass_boundaries'
+
+----------------------------------------------------------------------
+Ran 5 tests in 5.215s
+
+FAILED (errors=1)

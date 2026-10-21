@@ -1,0 +1,24 @@
+test_source_change_before_child_or_after_return_stops_fixed_schedule (test_proxy_population_batch_supervisor.SupervisorTests.test_source_change_before_child_or_after_return_stops_fixed_schedule) ... 
+  test_source_change_before_child_or_after_return_stops_fixed_schedule (test_proxy_population_batch_supervisor.SupervisorTests.test_source_change_before_child_or_after_return_stops_fixed_schedule) (when='before_child') ... FAIL
+  test_source_change_before_child_or_after_return_stops_fixed_schedule (test_proxy_population_batch_supervisor.SupervisorTests.test_source_change_before_child_or_after_return_stops_fixed_schedule) (when='after_return') ... FAIL
+
+======================================================================
+FAIL: test_source_change_before_child_or_after_return_stops_fixed_schedule (test_proxy_population_batch_supervisor.SupervisorTests.test_source_change_before_child_or_after_return_stops_fixed_schedule) (when='before_child')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_batch_supervisor.py", line 57, in test_source_change_before_child_or_after_return_stops_fixed_schedule
+    self.assertEqual(len(calls),0 if when=='before_child' else 1)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_source_change_before_child_or_after_return_stops_fixed_schedule (test_proxy_population_batch_supervisor.SupervisorTests.test_source_change_before_child_or_after_return_stops_fixed_schedule) (when='after_return')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_batch_supervisor.py", line 57, in test_source_change_before_child_or_after_return_stops_fixed_schedule
+    self.assertEqual(len(calls),0 if when=='before_child' else 1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 1.704s
+
+FAILED (failures=2)

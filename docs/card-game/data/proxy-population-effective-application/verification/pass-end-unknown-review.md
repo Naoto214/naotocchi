@@ -1,0 +1,9 @@
+# 現在いなか終了条件を満たすpassの比較未証明保持
+
+基準9c98484。normal pass直後のdelta0だけでは、その先の任意終了機会を含む比較operandの根拠にならない。自分のW-countrysideが現在の終了時成長条件を満たす場合、現行比較中のpassをPASS_END_GAPとして既存116 unknownへ渡す。発動/選択/成長値を予測せず、0や+5を新たに設定しない。未知passによる有料候補の除外を止め、合法passと実通常遷移は維持。単一候補でも116除外・policy_eligible=falseを保持。
+
+107/114はpass比較が後の任意終了窓をどこまで含むかを明示していない。114の同じ解決という文言は時収支についてであり、本変更で一般の比較時間幅を新設しない。ユーザーの未知を0にしない境界に従い、不十分な既存比較証明を保守的に撤回する。いなかの終了成長がpassの即時結果だと証明したものではない。条件不成立/他owner/不在の比較や、将来の反応を含む全pass operandの証明には昇格しない。
+
+新2件RED→GREEN。追加fixtureの他owner対照はA現物をBへ移しownership不整合となったためB所有の現物へ修正。これは実装不具合のREDに数えない。独立review1回C0/I0/Minor0、別実行5PASS。最終31PASS3.339s/exit0、再帰Python1071前後一致。pass-end-unknown-final.log/summary.json/fingerprints.json.gz。source分類hash異常をunknownへ変換せず拒否、比較後/異常時にscorerとoutcomeを復元。
+
+preflight-ready=false、生成/固定/400戦0、gate閉鎖、独立balance標本0。全成長/上位operand由来、P09自動機会、P10公開履歴/全許可read、P14–18共通gate/固定版検証は未完。4b520b3完全結合を本変更の全回帰とはしない。

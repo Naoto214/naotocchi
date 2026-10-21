@@ -1,0 +1,26 @@
+test_shared_recovery_target_omission_cannot_close_a_response_opportunity (test_proxy_population_board_predicates.BoardPredicateTests.test_shared_recovery_target_omission_cannot_close_a_response_opportunity) ... 
+  test_shared_recovery_target_omission_cannot_close_a_response_opportunity (test_proxy_population_board_predicates.BoardPredicateTests.test_shared_recovery_target_omission_cannot_close_a_response_opportunity) (boundary='audit') ... FAIL
+  test_shared_recovery_target_omission_cannot_close_a_response_opportunity (test_proxy_population_board_predicates.BoardPredicateTests.test_shared_recovery_target_omission_cannot_close_a_response_opportunity) (boundary='actual_entry') ... FAIL
+
+======================================================================
+FAIL: test_shared_recovery_target_omission_cannot_close_a_response_opportunity (test_proxy_population_board_predicates.BoardPredicateTests.test_shared_recovery_target_omission_cannot_close_a_response_opportunity) (boundary='audit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_board_predicates.py", line 63, in run
+    with self.subTest(boundary='audit'):self.assertFalse(api.audit_response(e,history,inventory)['response_board_predicates_verified'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_shared_recovery_target_omission_cannot_close_a_response_opportunity (test_proxy_population_board_predicates.BoardPredicateTests.test_shared_recovery_target_omission_cannot_close_a_response_opportunity) (boundary='actual_entry')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_board_predicates.py", line 65, in run
+    with self.assertRaisesRegex(ValueError,'response board predicates'):runtime._step(e,initial(),history,[],[e],forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.068s
+
+FAILED (failures=2)

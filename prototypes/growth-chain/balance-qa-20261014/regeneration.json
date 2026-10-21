@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "trials": 128,
+  "workers": 4,
+  "checks": [
+    "deterministic policy recomputation",
+    "exact full trial equality including actions metrics initial state and censoring",
+    "manifest-v2 hashes",
+    "supplemental transitive dependency proof"
+  ],
+  "note": "Original trial files retained unchanged"
+}

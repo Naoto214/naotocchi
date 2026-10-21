@@ -241,12 +241,12 @@ test('13. flag なし: 2D billboard の まま(character module を よまない
   assert.match(src, /function loadChar3d\(\) \{\n\s+if \(charMod \|\| charLoading \|\| !C3\.on\) return;/);
   assert.match(src, /if \(C3\.on\) loadChar3d\(\);/);
   assert.match(src, /if \(!C3\.on \|\| !charMod\) \{ if \(charPresenter\) charPresenter\.reset\(\); return null; \}/);
-  assert.match(src, /if \(cp && ci && cp\.present\(a, ci\)\) \{/, '3D が えがけた ときだけ 立て看板を かくす');
+  assert.match(src, /if \(cp && ci && cp\.present\(a, \{ \.\.\.ci, groundY: wy \}\)\) \{/, '3D が えがけた ときだけ 立て看板を かくす');
   assert.ok(!/character-3d/.test(fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8')), 'index.html は よまない');
 });
-test('14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ', () => {
+test('14. Character 3D defaults on; URL char3d=0 explicitly selects billboard', () => {
   const s = SCRIPT();
-  assert.match(s, /char3d: \/\[\?&\]char3d=1\(\?:&\|\$\)\/\.test\(q\)/);
+  assert.match(s, /char3d: !\/\[\?&\]char3d=0\(\?:&\|\$\)\/\.test\(q\)/);
   assert.match(s, /playerKey: \(\) => meguruBridge\.currentPetKey\(\)/);
   assert.match(M3D(), /const char3dOpts = \{ on: !!opts\.char3d,/);
 });
@@ -266,10 +266,9 @@ test('16. actor の 状態は 2D / 3D で 共通(presenter は actor を かき�
   a.x -= 360;
   assert.equal(JSON.stringify(a), before, 'x / z / heading / behavior / emotion / say は そのまま');
 });
-test('17. movement logic(めぐるの シミュレーション)は かえない: meguru.js は main と 同一', () => {
-  const fx = require('./fixtures/character-3d-protected-hashes.json');
+test('17. reviewed World integration source is pinned; Character runtime cannot move actors', () => {
   const sha = crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, 'meguru.js'))).digest('hex');
-  assert.equal(sha, fx.groups['meguru.js'].sha1);
+  assert.equal(sha, require('./fixtures/world-character-protected-source.json')['meguru.js'].sha1);
   assert.ok(!/actor\.(x|z|heading) =|a\.(x|z|heading) =/.test(fs.readFileSync(path.join(ROOT, 'character-3d/runtime.mjs'), 'utf8')), 'runtime は 位置を かかない');
 });
 test('18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D', async () => {
@@ -372,7 +371,7 @@ test('25. player は いつも えがく(frustum culling で きえない・表�
   let culled = 0; p.instanceOf(pl).holder.traverse((o) => { if (o.isMesh && o.frustumCulled) culled++; });
   assert.equal(culled, 0, 'player の mesh は frustum culling しない');
   // player は 遠さの LOD に かからない・住人 の あと に えがく(near3d は 住人 だけ)
-  assert.match(M3D(), /placeActor\(built, actorMesh\(built, player\), player, 0, c\.yaw, charLight, glyphTexture\(pg, o\.wrapCtx \|\| null, 'p'\), cp, ci\(player, true\)\);/);
+  assert.match(M3D(), /const pm = actorMesh\(built, player\);\s+placeActor\(built, pm, player, 0, c\.yaw, charLight, glyphTexture\(pg, o\.wrapCtx \|\| null, 'p'\), cp, ci\(player, true\)\);/);
 });
 test('26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D', async () => {
   assert.deepEqual(SPEC.specKeyFor({ kind: 'companion', id: 'shiba' }), { id: 'shiba', stage: 0, exact: true });
@@ -435,7 +434,10 @@ test('30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime 
   const fx = require('./fixtures/character-3d-protected-hashes.json');
   const { current } = require('../tools/character-3d/protected-hashes.cjs');
   const now = current();
-  for (const [k, v] of Object.entries(fx.groups)) assert.deepEqual(now[k], v, k);
+  for (const [k, v] of Object.entries(fx.groups)) {
+    const expected = k === 'meguru.js' ? require('./fixtures/world-character-protected-source.json')[k] : v;
+    assert.deepEqual(now[k], expected, k);
+  }
 });
 test('31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし)', () => {
   const s = SCRIPT();
@@ -447,9 +449,11 @@ test('31. save / schema は そのまま(schemaVersion 5・3D の ための キ�
   const lines = s.split('\n').filter((l) => /char3d|c3dface/.test(l));
   assert.ok(lines.length >= 1 && lines.length <= 3, 'char3d は loader の 1 か所 だけ: ' + lines.length);
 });
-test('32. 既存の World 3D は かわらない(forest だけ・hybrid の fallback は そのまま)', () => {
+test('32. 統合 World 3D: 地域・corridor は明示許可、force2d / failure は fallback', () => {
   const src = M3D();
-  assert.match(src, /return !opts\.force2d && !failed && !!w && !w\.corridor && !!w\.world3d && M\.WORLD3D_REGIONS\.has\(w\.regionId\);/);
+  assert.match(src, /if \(!w \|\| opts\.force2d \|\| failed\) return false;/);
+  assert.match(src, /if \(w\.corridor\) return !!w\.chartFrom && !!w\.corridorTo && M\.WORLD3D_REGIONS\.has\(w\.chartFrom\) && M\.WORLD3D_REGIONS\.has\(w\.corridorTo\);/);
+  assert.match(src, /return !!w\.world3d && M\.WORLD3D_REGIONS\.has\(w\.regionId\);/);
   assert.match(src, /function fail\(err\) \{\n\s+failed = true;/);
   assert.match(src, /sc\.fog = new THREE\.Fog\('#dff0ff', 700, 3200\);/, 'World の ひかり・きりは かえない');
   // World 3D の 回帰は tests/meguru-3d-prototype-test.cjs(npm test に ふくまれる)

@@ -1,0 +1,67 @@
+test_all_six_native_entries_reenter_through_outer_guard (test_proxy_population_entry_history.EntryHistoryTests.test_all_six_native_entries_reenter_through_outer_guard) ... ok
+test_full_envelope_branch_collision_and_binding_tampering_stop (test_proxy_population_entry_history.EntryHistoryTests.test_full_envelope_branch_collision_and_binding_tampering_stop) ... FAIL
+test_hypothetical_branch_is_not_selected_history_and_retired_source_stops (test_proxy_population_entry_history.EntryHistoryTests.test_hypothetical_branch_is_not_selected_history_and_retired_source_stops) ... ok
+test_late_event_annotation_does_not_replace_captured_transition (test_proxy_population_entry_history.EntryHistoryTests.test_late_event_annotation_does_not_replace_captured_transition) ... ERROR
+test_root_prefix_and_record_state_binding_are_required (test_proxy_population_entry_history.EntryHistoryTests.test_root_prefix_and_record_state_binding_are_required) ... ok
+test_saved_stop_history_proves_guard_without_resuming_attempt (test_proxy_population_entry_history.EntryHistoryTests.test_saved_stop_history_proves_guard_without_resuming_attempt) ... ok
+test_wrong_or_missing_history_cannot_borrow_a_cached_state (test_proxy_population_entry_history.EntryHistoryTests.test_wrong_or_missing_history_cannot_borrow_a_cached_state) ... ok
+
+======================================================================
+ERROR: test_late_event_annotation_does_not_replace_captured_transition (test_proxy_population_entry_history.EntryHistoryTests.test_late_event_annotation_does_not_replace_captured_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 188, in test_late_event_annotation_does_not_replace_captured_transition
+    self.run_case(run)
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 62, in run_case
+    def run_case(self,callback):return base.operation(initial(),lambda forced:callback())
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 62, in <lambda>
+    def run_case(self,callback):return base.operation(initial(),lambda forced:callback())
+                                                                              ^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 184, in run
+    annotated=dict(event,unit_annotation='final evidence');connection.capture(e,after,annotated)
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 83, in capture
+    if dest in self.paths and self.paths[dest]!=edge:raise ValueError('same full state has different event history')
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: same full state has different event history
+
+======================================================================
+FAIL: test_full_envelope_branch_collision_and_binding_tampering_stop (test_proxy_population_entry_history.EntryHistoryTests.test_full_envelope_branch_collision_and_binding_tampering_stop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 177, in test_full_envelope_branch_collision_and_binding_tampering_stop
+    self.run_case(run)
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 62, in run_case
+    def run_case(self,callback):return base.operation(initial(),lambda forced:callback())
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 62, in <lambda>
+    def run_case(self,callback):return base.operation(initial(),lambda forced:callback())
+                                                                              ^^^^^^^^^^
+  File "/workspace/scratch/b268cf4e8afd/naotocchi/docs/card-game/tools/test_proxy_population_entry_history.py", line 169, in run
+    with self.assertRaisesRegex(ValueError,'history|binding'):guard.require_initial_entry(action,[first],two)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.601s
+
+FAILED (failures=1, errors=1)

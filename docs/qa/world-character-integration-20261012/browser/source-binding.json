@@ -1,0 +1,12 @@
+{
+  "sourceTreeConfirmedByRoot": "bfdce764",
+  "run": "current local headless shell v1161",
+  "files": {
+    "meguru.js": "9eaae1a1e678a8a7be110632ae9ddb255380f15776637498c94fb67921a9c4b6",
+    "meguru-3d.mjs": "39eb1d72ed5b30c00ffd5817163e3e8c9365ad8f09c6069cbccded373b3c3c0b",
+    "character-3d/runtime.mjs": "47fc27857794647abaf9deb6f0fa492dda14777424741d53c705b001a2326c9a",
+    "character-3d/spec.js": "f2ddd9f5dc57d9bc297daf63a21159f2143cc6219fac704d106c5c43b899de91",
+    "tools/meguru-3d-qa/character-integration.cjs": "b3833e5864154ead410c11eac76a61e16bb62577fb83cd987b4abc51e709e8d4",
+    "tests/world-character-browser-runner-test.cjs": "b831415d5cee858863f591f3e13e86e2cd76ce21f40e0f2250905662d1b41d78"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_response_start_negative",
+    "test_proxy_population_start_condition_history",
+    "test_proxy_population_board_predicates",
+    "test_proxy_population_response_composition",
+    "test_proxy_population_response_activation_closure",
+    "test_proxy_population_positive_activation_effect"
+  ],
+  "exit_code": 0,
+  "seconds": 11.965437507009483,
+  "python_file_count": 1084,
+  "fingerprints_equal": true,
+  "tests": "23",
+  "tail": "oryTests.test_missing_or_changed_origin_evidence_never_certifies_a_negative) ... ok\ntest_original_start_count_not_current_count_controls_the_negative (test_proxy_population_start_condition_history.StartConditionHistoryTests.test_original_start_count_not_current_count_controls_the_negative) ... ok\ntest_actual_entry_exports_distinct_board_predicate_evidence (test_proxy_population_board_predicates.BoardPredicateTests.test_actual_entry_exports_distinct_board_predicate_evidence) ... ok\ntest_all_current_person_world_and_equipment_sources (test_proxy_population_board_predicates.BoardPredicateTests.test_all_current_person_world_and_equipment_sources) ... ok\ntest_hand_board_ability_is_excluded_and_composition_detects_gaps (test_proxy_population_board_predicates.BoardPredicateTests.test_hand_board_ability_is_excluded_and_composition_detects_gaps) ... ok\ntest_paid_costs_usage_and_forged_passive_exclusion (test_proxy_population_board_predicates.BoardPredicateTests.test_paid_costs_usage_and_forged_passive_exclusion) ... ok\ntest_recovery_other_name_target_and_current_incarnation_limit (test_proxy_population_board_predicates.BoardPredicateTests.test_recovery_other_name_target_and_current_incarnation_limit) ... ok\ntest_shared_recovery_target_omission_cannot_close_a_response_opportunity (test_proxy_population_board_predicates.BoardPredicateTests.test_shared_recovery_target_omission_cannot_close_a_response_opportunity) ... ok\ntest_empty_board_does_not_allow_a_missing_audit_family (test_proxy_population_response_composition.ResponseCompositionTests.test_empty_board_does_not_allow_a_missing_audit_family) ... ok\ntest_missing_family_failed_duplicate_foreign_and_reaction_omission (test_proxy_population_response_composition.ResponseCompositionTests.test_missing_family_failed_duplicate_foreign_and_reaction_omission) ... ok\ntest_real_prepared_sources_and_foreign_equipment_are_not_conflated (test_proxy_population_response_composition.ResponseCompositionTests.test_real_prepared_sources_and_foreign_equipment_are_not_conflated) ... ok\ntest_real_reaction_complements_source_gaps (test_proxy_population_response_composition.ResponseCompositionTests.test_real_reaction_complements_source_gaps) ... ok\ntest_activated_status_without_actual_record_and_reoffered_source_fail (test_proxy_population_response_activation_closure.ResponseActivationClosureTests.test_activated_status_without_actual_record_and_reoffered_source_fail) ... ok\ntest_coherently_rehashed_extra_growth_still_fails_full_delta (test_proxy_population_response_activation_closure.ResponseActivationClosureTests.test_coherently_rehashed_extra_growth_still_fails_full_delta) ... ok\ntest_positive_activation_receipts_without_timing_origin_are_rejected (test_proxy_population_response_activation_closure.ResponseActivationClosureTests.test_positive_activation_receipts_without_timing_origin_are_rejected) ... ok\ntest_real_start_arrival_and_end_activation_receipts_are_bound (test_proxy_population_response_activation_closure.ResponseActivationClosureTests.test_real_start_arrival_and_end_activation_receipts_are_bound) ... ok\ntest_all_four_group_sources_and_m06_world_cost (test_proxy_population_positive_activation_effect.PositiveActivationEffectTests.test_all_four_group_sources_and_m06_world_cost) ... ok\ntest_cost_receipt_usage_group_and_unrelated_changes_refused (test_proxy_population_positive_activation_effect.PositiveActivationEffectTests.test_cost_receipt_usage_group_and_unrelated_changes_refused) ... ok\ntest_coverage_binds_actual_group_record_and_rejects_extra_growth (test_proxy_population_positive_activation_effect.PositiveActivationEffectTests.test_coverage_binds_actual_group_record_and_rejects_extra_growth) ... ok\ntest_m06_group_after_resolution_returns_from_normal_phase (test_proxy_population_positive_activation_effect.PositiveActivationEffectTests.test_m06_group_after_resolution_returns_from_normal_phase) ... ok\n\n----------------------------------------------------------------------\nRan 23 tests in 11.820s\n\nOK\n",
+  "base_commit": "667232b7920005c211087f6207a22eb45e35a197",
+  "preflight_ready": false,
+  "new_matches": 0
+}

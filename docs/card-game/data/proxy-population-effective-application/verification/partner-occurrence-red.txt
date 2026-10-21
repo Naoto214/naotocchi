@@ -1,0 +1,37 @@
+.....F.
+======================================================================
+FAIL: test_goat_requires_actual_different_world_and_same_non_egg_partner (test_proxy_population_trigger_latching.OtherTimingTests.test_goat_requires_actual_different_world_and_same_non_egg_partner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 115, in test_goat_requires_actual_different_world_and_same_non_egg_partner
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 112, in run
+    proof=api.capture(before,after,event);self.assertEqual(proof['occurrences'],[]);self.assertEqual(next(r for r in proof['classifications'] if r['source_instance_id']==goat)['reason'],'partner_suppressed_at_occurrence_while_egg')
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [{'origin_event_seq': 4, 'source_instance_[164 chars]at'}] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+{'origin_event_seq': 4, 'source_instance_id': 'A-018#1', 'actor': 'A', 'category': 'optional', 'ability_key': 'different_name_world_change', 'source_reference': '74-partner-18-card-text-draft.md#P-cliff_goat'}
+
++ []
+- [{'ability_key': 'different_name_world_change',
+-   'actor': 'A',
+-   'category': 'optional',
+-   'origin_event_seq': 4,
+-   'source_instance_id': 'A-018#1',
+-   'source_reference': '74-partner-18-card-text-draft.md#P-cliff_goat'}]
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.301s
+
+FAILED (failures=1)

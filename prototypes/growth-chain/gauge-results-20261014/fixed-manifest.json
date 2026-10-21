@@ -1,0 +1,81 @@
+{
+  "phase": "fixed",
+  "seeds": [
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331
+  ],
+  "conditions": [
+    {
+      "id": "g2",
+      "gauge": 2,
+      "options": {}
+    },
+    {
+      "id": "g3",
+      "gauge": 3,
+      "options": {}
+    },
+    {
+      "id": "g4",
+      "gauge": 4,
+      "options": {}
+    },
+    {
+      "id": "g8",
+      "gauge": 8,
+      "options": {}
+    }
+  ],
+  "limits": {
+    "drops": 600,
+    "actions": 4000
+  },
+  "toolCap": 64,
+  "sources": {
+    "gauge-run.mjs": "8a4c31da7c1072ec9cac596463dbedad91d96e1a1dc095e3933c9ef15a2a8c27",
+    "gauge-comparison.mjs": "ca9f4775b51d3fc7fdb5328dbb6b49bb17dd227954d342f192715b93832d8b80",
+    "optimization.mjs": "829f0a8681456e78e3e3c2ab41e543a056371ea4df6d3de0bc70e211c73af527",
+    "rules.mjs": "7772610c607a706417959355c38ddc7d3d1d1822a2a7dc451b78283ba597a6ea",
+    "session.mjs": "4dcb850314f6b8c214290d5c9943f1bc3e9cd2305f1132fcf78c09f246afb682",
+    "catalog.mjs": "bb900eb24e9fe8a85e86f95eae1a1765059012d166d2eb6d5ba5eedc1163d72c",
+    "random.mjs": "aac4e298e0cacdbc7f7da550aba1159f7fd9c66237dbae24f40a3b888addaf36",
+    "engine.mjs": "b29244e832baf09aee9f3f6e17c85324300e15b5c977df64b8ab1e3df7787d09",
+    "live-tools.mjs": "e795690ed38e8045a9021d634f89c087307d668e59e674f21663259b2905d9eb",
+    "policy.mjs": "2a07e705ab840b6a6cd699f93a1eb163c53fc6c9379a6c9b49f62622b76cef76",
+    "egg-policy.mjs": "4d598d573721f538c919cc73689e0a35212f099cb8472ce172ead2496dac3473",
+    "balance-policy.mjs": "8ff2d8657f08961239c77bff32ab67e04fe802f75d6b27d9a731d230375e4da7",
+    "egg-economy.mjs": "fa372659b0724d23ef0284efb17636c90a3cb5de94e9cc91369c373a40a19e27",
+    "balance-manifest.mjs": "e5631c6a557fc741505fed7868577cbad71627820e2d22cddf5512d1b7ec9a7f"
+  },
+  "sourceHead": "d5022f6a4a7f96b347eec338021ed8b2dcb57535"
+}

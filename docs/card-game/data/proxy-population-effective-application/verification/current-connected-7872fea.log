@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "<string>", line 18, in <module>
+AssertionError
+{"completed": false, "stop": {"code": "unsupported_contract_boundary", "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['B-032#1']", "phase": "response_window"}, "steps": 300, "events": 321, "audits": {"initial_obligation_audit": [], "initial_runtime_root_audit": [], "mandatory_policy_entry_audit": [], "mandatory_origin_audit": [], "mandatory_opportunity_audit": [], "resolution_semantics_audit": [], "nonresolution_semantics_audit": [], "decision_projection_audit": [], "source_conservation_audit": [], "end_dispatch_obligation_audit": [], "trace_obligations_audit": [], "source_responsibility_audit": [], "permitted_input_audit": []}, "step_counts": {"ordinary_normal_count": 54, "ordinary_response_count": 178, "automatic_step_count": 59, "sequential_trigger_step_count": 9}, "preflight_ready": false, "new_matches": 0}

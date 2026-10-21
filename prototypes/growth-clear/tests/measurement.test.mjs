@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createSession,applyAction} from '../session.mjs';
+import {chooseAction} from '../policy.mjs';import {newMetrics,observe} from '../metrics.mjs';
+import {board} from '../../growth-chain/engine.mjs';import {standardRules} from '../../growth-chain/rules.mjs';
+test('policy ignores hidden bag state and seed including beam',()=>{const a=createSession(12),b=structuredClone(a);b.bag.state=999;b.bag.items=[];b.seed=777;for(const policy of ['focus','multiple','clear','protect','chain','active','reserve','beam','random'])assert.deepEqual(chooseAction(a,{policy}),chooseAction(b,{policy}));});
+test('metrics count transient same08 pair before lifetime clear',()=>{const b=board(standardRules());b[13][0]={id:1,k:0,s:8};const s=createSession(1,{}, {board:b});s.queue[0]=[{k:0,s:8},{k:0,s:8}];const a={type:'drop',path:['left','left','hard']},z=applyAction(s,a),m=newMetrics();observe(m,s,z,a);assert.equal(m.reached08,true);assert.equal(m.two08,true);assert.equal(m.success,true);assert.equal(m.mainSuccess,true);});
+test('mixed high loss, no false successful clear',()=>{const s=createSession(1);s.queue[0]=[{k:0,s:8},{k:1,s:8}];const a={type:'drop',path:['hard']},z=applyAction(s,a),m=newMetrics();observe(m,s,z,a);assert.equal(m.success,false);assert.equal(m.highLost,2);assert.equal(m.mainLost,1);assert.equal(m.two08,false);});

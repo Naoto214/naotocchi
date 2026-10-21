@@ -1,0 +1,9 @@
+test_board_growth_cap_and_verified_provenance_use_actual_delta (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_board_growth_cap_and_verified_provenance_use_actual_delta) ... ok
+test_challenge_reward_is_bounded_in_state_result_and_hashes (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_challenge_reward_is_bounded_in_state_result_and_hashes) ... ok
+test_closed_end_expires_known_modifiers_at100_without_deciding_victory (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_closed_end_expires_known_modifiers_at100_without_deciding_victory) ... ok
+test_connected_scope_overrides_native_hardcoded_growth_provenance (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_connected_scope_overrides_native_hardcoded_growth_provenance) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.360s
+
+OK

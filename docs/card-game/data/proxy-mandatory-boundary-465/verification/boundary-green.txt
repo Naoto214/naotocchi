@@ -1,0 +1,14 @@
+test_bad_scope_identity_and_duplicate_locations_fail_closed (test_proxy_mandatory_choice_boundary.BoundaryTests.test_bad_scope_identity_and_duplicate_locations_fail_closed) ... ok
+test_draw_two_uses_actual_intermediate_state_and_partial_draw (test_proxy_mandatory_choice_boundary.BoundaryTests.test_draw_two_uses_actual_intermediate_state_and_partial_draw) ... ok
+test_egg_draw_precedes_complete_physical_hand (test_proxy_mandatory_choice_boundary.BoundaryTests.test_egg_draw_precedes_complete_physical_hand) ... ok
+test_final_time_rechecks_target_before_conditional_draw (test_proxy_mandatory_choice_boundary.BoundaryTests.test_final_time_rechecks_target_before_conditional_draw) ... ok
+test_information_view_excludes_opponent_and_unseen_deck (test_proxy_mandatory_choice_boundary.BoundaryTests.test_information_view_excludes_opponent_and_unseen_deck) ... ok
+test_partner_egg_suppression_and_no_choice_are_not_seeded (test_proxy_mandatory_choice_boundary.BoundaryTests.test_partner_egg_suppression_and_no_choice_are_not_seeded) ... ok
+test_pinned_sources_cannot_be_overridden (test_proxy_mandatory_choice_boundary.BoundaryTests.test_pinned_sources_cannot_be_overridden) ... ok
+test_return_then_draw_does_not_include_future_draw_in_choices (test_proxy_mandatory_choice_boundary.BoundaryTests.test_return_then_draw_does_not_include_future_draw_in_choices) ... ok
+test_top_bottom_remain_two_options_even_with_single_card (test_proxy_mandatory_choice_boundary.BoundaryTests.test_top_bottom_remain_two_options_even_with_single_card) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.090s
+
+OK

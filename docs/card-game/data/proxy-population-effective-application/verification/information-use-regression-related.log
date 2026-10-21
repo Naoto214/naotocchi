@@ -1,0 +1,16 @@
+test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions (test_proxy_population_information_use.InformationUseTests.test_hidden_permutations_preserve_entire_actual_normal_and_response_decisions) ... ok
+test_public_loss_history_changes_choice_with_same_current_visible_state (test_proxy_population_information_use.InformationUseTests.test_public_loss_history_changes_choice_with_same_current_visible_state) ... ok
+test_public_time_changes_actual_candidate_and_choice (test_proxy_population_information_use.InformationUseTests.test_public_time_changes_actual_candidate_and_choice) ... ok
+test_departed_main_normal_and_response_selection_through_verified_apply (test_proxy_population_loss_reward.ConnectedSelectionTests.test_departed_main_normal_and_response_selection_through_verified_apply) ... ok
+test_departed_main_does_not_erase_public_loss_activation (test_proxy_population_loss_reward.LossRewardTests.test_departed_main_does_not_erase_public_loss_activation) ... ok
+test_no_loss_previous_turn_draw_and_insufficient_time_are_excluded (test_proxy_population_loss_reward.LossRewardTests.test_no_loss_previous_turn_draw_and_insufficient_time_are_excluded) ... ok
+test_exception_restores_prior_qualifier (test_proxy_population_loss_reward.ScopeTests.test_exception_restores_prior_qualifier) ... ok
+test_all_41_cards_have_a_hand_source_disposition_without_value_scores (test_proxy_population_first_response.InventoryTests.test_all_41_cards_have_a_hand_source_disposition_without_value_scores) ... ok
+test_boundary_cannot_be_used_for_later_windows_or_changed_resources (test_proxy_population_first_response.InventoryTests.test_boundary_cannot_be_used_for_later_windows_or_changed_resources) ... ok
+test_hidden_deck_contents_are_not_part_of_the_candidate_view (test_proxy_population_first_response.InventoryTests.test_hidden_deck_contents_are_not_part_of_the_candidate_view) ... ok
+test_same_named_physical_cards_each_supply_their_own_candidates (test_proxy_population_first_response.InventoryTests.test_same_named_physical_cards_each_supply_their_own_candidates) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 3.231s
+
+OK

@@ -1,0 +1,36 @@
+test_actual_quick_step_enters_sequential_group_before_ordinary_response (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_actual_quick_step_enters_sequential_group_before_ordinary_response) ... ok
+test_group_hand_activation_creates_next_owner_occurrence (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_group_hand_activation_creates_next_owner_occurrence) ... ok
+test_hand_and_board_share_the_same_current_optional_group (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_hand_and_board_share_the_same_current_optional_group) ... ERROR
+test_actual_opponent_play_captures_only_preexisting_own_hand_source (test_proxy_population_hand_timing.HandTimingTests.test_actual_opponent_play_captures_only_preexisting_own_hand_source) ... ok
+test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin (test_proxy_population_hand_timing.HandTimingTests.test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin) ... ok
+test_group_activation_reuses_payment_link_and_no_ordinary_reoffer (test_proxy_population_hand_timing.HandTimingTests.test_group_activation_reuses_payment_link_and_no_ordinary_reoffer) ... ok
+test_source_drift_and_event_identity_mismatch_fail_closed (test_proxy_population_hand_timing.HandTimingTests.test_source_drift_and_event_identity_mismatch_fail_closed) ... ok
+
+======================================================================
+ERROR: test_hand_and_board_share_the_same_current_optional_group (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_hand_and_board_share_the_same_current_optional_group)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_hand_timing.py", line 145, in test_hand_and_board_share_the_same_current_optional_group
+    p=runtime.operation(i,prepare)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_hand_timing.py", line 142, in prepare
+    before,_,_,history,source=fixture(mixed=True)
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_hand_timing.py", line 39, in fixture
+    action=next(a for a in inv['legal_candidate_details'] if a.get('source_instance_id')==played)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.780s
+
+FAILED (errors=1)

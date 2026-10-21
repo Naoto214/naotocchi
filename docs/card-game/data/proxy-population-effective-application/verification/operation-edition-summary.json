@@ -1,0 +1,29 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_operation_edition",
+    "test_proxy_population_generation_entry",
+    "test_proxy_population_attempt_runner",
+    "test_proxy_population_execution_edition",
+    "test_proxy_population_external_approval",
+    "test_proxy_population_generation_journal",
+    "test_proxy_population_generation_authorization",
+    "test_proxy_population_launch_authorization",
+    "test_proxy_population_batch_supervisor",
+    "test_proxy_population_supervisor_interrupt"
+  ],
+  "exit_code": 0,
+  "seconds": 31.38391606899677,
+  "python_file_count": 1082,
+  "fingerprints_equal": true,
+  "tests": 45,
+  "result": "PASS",
+  "fingerprint_record_sha256": "52292a9396a51f246910f031585ab49eadc95c5a8c3a69ef955c736a324b241d",
+  "base_commit": "02c0a91c08707e72cdb62ccdbe36d04732007244",
+  "preflight_ready": false,
+  "production_entropy_returned_bytes": 0,
+  "new_matches": 0
+}

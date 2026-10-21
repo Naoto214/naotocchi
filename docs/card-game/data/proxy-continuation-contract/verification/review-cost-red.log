@@ -1,0 +1,25 @@
+test_missing_historical_cost_is_explicitly_unproved (test_proxy_continuation_runner.CandidateMeaningTests.test_missing_historical_cost_is_explicitly_unproved) ... ERROR
+test_same_id_payment_or_modifier_change_is_not_lost (test_proxy_continuation_runner.CandidateMeaningTests.test_same_id_payment_or_modifier_change_is_not_lost) ... ERROR
+
+======================================================================
+ERROR: test_missing_historical_cost_is_explicitly_unproved (test_proxy_continuation_runner.CandidateMeaningTests.test_missing_historical_cost_is_explicitly_unproved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_runner.py", line 90, in test_missing_historical_cost_is_explicitly_unproved
+    meaning=runner.candidate_meaning(dict(candidate_id='x',evidence={}))
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_continuation_runner' has no attribute 'candidate_meaning'
+
+======================================================================
+ERROR: test_same_id_payment_or_modifier_change_is_not_lost (test_proxy_continuation_runner.CandidateMeaningTests.test_same_id_payment_or_modifier_change_is_not_lost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_runner.py", line 85, in test_same_id_payment_or_modifier_change_is_not_lost
+    delta=runner.candidate_differences([before],[after])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_continuation_runner' has no attribute 'candidate_differences'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (errors=2)

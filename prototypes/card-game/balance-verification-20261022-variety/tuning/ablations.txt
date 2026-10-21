@@ -1,0 +1,7 @@
+Feature ablations: current intermediate (X) vs same policy with one feature reverted (Y), E1 matches with seats swapped
+== outcome-based modifier valuation (removed, not adopted)
+h2h games 1680 abnormal 0 new score 0.496
+== expected-value challenge (before tie fix)
+h2h games 1680 abnormal 0 new score 0.508
+== expected-value challenge (adopted, after tie fix)
+h2h games 1680 abnormal 0 new score 0.512

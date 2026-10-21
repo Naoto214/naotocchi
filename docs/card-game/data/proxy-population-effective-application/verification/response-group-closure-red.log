@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_missing_receipt_event_trace_or_inventory_binding_cannot_prove_closure (test_proxy_population_response_group_closure.ResponseGroupClosureTests.test_missing_receipt_event_trace_or_inventory_binding_cannot_prove_closure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_group_closure.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response group receipt binding absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response group receipt binding absent
+
+======================================================================
+FAIL: test_real_decline_and_ineligible_records_close_only_supplied_current_sources (test_proxy_population_response_group_closure.ResponseGroupClosureTests.test_real_decline_and_ineligible_records_close_only_supplied_current_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_group_closure.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response group receipt binding absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response group receipt binding absent
+
+======================================================================
+FAIL: test_real_driver_attaches_fresh_closure_to_response_composition (test_proxy_population_response_group_closure.ResponseGroupClosureTests.test_real_driver_attaches_fresh_closure_to_response_composition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_group_closure.py", line 20, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response group receipt binding absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response group receipt binding absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

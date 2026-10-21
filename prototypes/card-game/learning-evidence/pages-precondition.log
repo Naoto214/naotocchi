@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/aa15ef583f7d/naotocchi/tools/pages/package.py", line 207, in <module>
+    main()
+  File "/workspace/scratch/aa15ef583f7d/naotocchi/tools/pages/package.py", line 193, in main
+    result = build(ROOT, args.out, manifest)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/aa15ef583f7d/naotocchi/tools/pages/package.py", line 154, in build
+    result = validate(root, manifest)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/aa15ef583f7d/naotocchi/tools/pages/package.py", line 112, in validate
+    raise ValueError('unpublished reference(s):\n' + '\n'.join(missing))
+ValueError: unpublished reference(s):
+prototypes/card-game/app.mjs -> ./learning-ui.mjs -> prototypes/card-game/learning-ui.mjs
+prototypes/card-game/collection-ui.mjs -> ./rulebook-content.mjs -> prototypes/card-game/rulebook-content.mjs
+prototypes/card-game/index.html -> learning.css -> prototypes/card-game/learning.css
+prototypes/card-game/ui-presentation.mjs -> ./rulebook-content.mjs -> prototypes/card-game/rulebook-content.mjs

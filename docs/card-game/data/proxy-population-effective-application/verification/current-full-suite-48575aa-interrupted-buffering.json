@@ -1,0 +1,19 @@
+{
+  "schema": "population_regression_interruption.v1",
+  "base_commit": "48575aaaf709601e86d2b1c364e73a00311a188e",
+  "outer_exit_code": 130,
+  "completion_verified": false,
+  "pass_claim": false,
+  "pipe_log_saved": false,
+  "reason": "Restart with inherited PYTHONUNBUFFERED=1; successful policy-journal print output otherwise follows stderr unittest completion and violates raw-log final gate.",
+  "last_progress": {
+    "started": 160,
+    "failures": 0,
+    "errors": 0,
+    "current": "test_proxy_population_challenge_window.MultiTurnConnectionTests.test_existing_unit_prefix_crosses_multiple_turns_with_all_histories",
+    "time": 1791782787.6792874
+  },
+  "remaining_full_suite_processes": [],
+  "python_edited": false,
+  "production_inputs_generated": false
+}

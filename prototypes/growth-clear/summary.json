@@ -1,0 +1,5543 @@
+{
+  "summary": [
+    {
+      "id": "A-adaptive",
+      "n": 16,
+      "reached08": 11,
+      "two08": 4,
+      "success": 0,
+      "main08": 11,
+      "mainTwo08": 4,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.1521779224041533,
+      "mixedRemoved": 217.9375,
+      "highLost": 0.5,
+      "mainLossRate": 0.46943195133055854,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 702,
+        "1": 1719,
+        "2": 600,
+        "3": 82,
+        "4": 19,
+        "5": 5,
+        "6": 1
+      },
+      "chain2plusRate": 0.2260230179028133,
+      "evolutions": 104.0625,
+      "mixedGroups": 101.3125,
+      "eggs": 23.125,
+      "transform": 12.3125,
+      "bulk": 0.0625,
+      "controls": 432.125,
+      "choices": 0,
+      "stageLost": [
+        1298,
+        1091,
+        837,
+        253,
+        8,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 127,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 69,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 135,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 139,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 120,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 108,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 159,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 131,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 111,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "A-center",
+      "n": 16,
+      "reached08": 13,
+      "two08": 1,
+      "success": 0,
+      "main08": 13,
+      "mainTwo08": 1,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.15742365309517206,
+      "mixedRemoved": 219.1875,
+      "highLost": 0,
+      "mainLossRate": 0.4593825919175289,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 703,
+        "1": 1760,
+        "2": 601,
+        "3": 89,
+        "4": 15,
+        "5": 3
+      },
+      "chain2plusRate": 0.22327341532639547,
+      "evolutions": 104.625,
+      "mixedGroups": 102.5625,
+      "eggs": 25.5,
+      "transform": 12.6875,
+      "bulk": 0,
+      "controls": 430,
+      "choices": 0,
+      "stageLost": [
+        1338,
+        1072,
+        837,
+        260,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 152,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 85,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 155,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 151,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 150,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 106,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 69,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": 151,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 116,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 141,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 85,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 154,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "A-left",
+      "n": 16,
+      "reached08": 9,
+      "two08": 3,
+      "success": 0,
+      "main08": 9,
+      "mainTwo08": 3,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.16875553714368696,
+      "mixedRemoved": 218.875,
+      "highLost": 0.1875,
+      "mainLossRate": 0.45587199512819954,
+      "maxChain": 7,
+      "chainHistogram": {
+        "0": 711,
+        "1": 1725,
+        "2": 601,
+        "3": 81,
+        "4": 14,
+        "5": 4,
+        "7": 1
+      },
+      "chain2plusRate": 0.22346190627988524,
+      "evolutions": 102.0625,
+      "mixedGroups": 102.0625,
+      "eggs": 23.875,
+      "transform": 12.0625,
+      "bulk": 0.125,
+      "controls": 434.125,
+      "choices": 0,
+      "stageLost": [
+        1309,
+        1101,
+        833,
+        256,
+        3,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 84,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 89,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 107,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 127,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 99,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 132,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 111,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "A-right",
+      "n": 16,
+      "reached08": 8,
+      "two08": 3,
+      "success": 1,
+      "main08": 8,
+      "mainTwo08": 3,
+      "mainSuccess": 1,
+      "gameover": 0,
+      "censored": 15,
+      "meanObservedDrops": 159.6875,
+      "occupancy": 0.1524122337332883,
+      "mixedRemoved": 217.8125,
+      "highLost": 0.125,
+      "mainLossRate": 0.44188725621049807,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 698,
+        "1": 1738,
+        "2": 622,
+        "3": 72,
+        "4": 16,
+        "5": 3,
+        "6": 1
+      },
+      "chain2plusRate": 0.22666666666666666,
+      "evolutions": 104.25,
+      "mixedGroups": 101.5625,
+      "eggs": 25.125,
+      "transform": 11.875,
+      "bulk": 0.1875,
+      "controls": 429.375,
+      "choices": 0,
+      "stageLost": [
+        1288,
+        1079,
+        839,
+        277,
+        2,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 111,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 66,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 138,
+          "firstSuccess": 155,
+          "drops": 155,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 101,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 148,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 109,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 70,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "B-adaptive",
+      "n": 16,
+      "reached08": 9,
+      "two08": 4,
+      "success": 3,
+      "main08": 9,
+      "mainTwo08": 4,
+      "mainSuccess": 3,
+      "gameover": 0,
+      "censored": 13,
+      "meanObservedDrops": 155,
+      "occupancy": 0.164888927407708,
+      "mixedRemoved": 210.4375,
+      "highLost": 0.125,
+      "mainLossRate": 0.4427809884588463,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 702,
+        "1": 1682,
+        "2": 610,
+        "3": 76,
+        "4": 15,
+        "5": 5,
+        "6": 1
+      },
+      "chain2plusRate": 0.22872856680685863,
+      "evolutions": 103.625,
+      "mixedGroups": 98.25,
+      "eggs": 26,
+      "transform": 12,
+      "bulk": 0.1875,
+      "controls": 417.75,
+      "choices": 0,
+      "stageLost": [
+        1256,
+        1074,
+        793,
+        242,
+        2,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 115,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 92,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 90,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 71,
+          "firstSuccess": 89,
+          "drops": 89,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 135,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 147,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 139,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 154,
+          "firstSuccess": 156,
+          "drops": 156,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 114,
+          "firstSuccess": 155,
+          "drops": 155,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "B-center",
+      "n": 16,
+      "reached08": 10,
+      "two08": 1,
+      "success": 0,
+      "main08": 10,
+      "mainTwo08": 1,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.17248928675775405,
+      "mixedRemoved": 216.6875,
+      "highLost": 0.25,
+      "mainLossRate": 0.4476216948173596,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 717,
+        "1": 1709,
+        "2": 634,
+        "3": 68,
+        "4": 12,
+        "5": 5
+      },
+      "chain2plusRate": 0.2286168521462639,
+      "evolutions": 102.875,
+      "mixedGroups": 101.125,
+      "eggs": 24.125,
+      "transform": 12.3125,
+      "bulk": 0.125,
+      "controls": 427.5,
+      "choices": 0,
+      "stageLost": [
+        1313,
+        1087,
+        835,
+        228,
+        4,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 115,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 135,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 106,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 140,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 131,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 157,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 116,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 112,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 50,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "B-left",
+      "n": 16,
+      "reached08": 8,
+      "two08": 1,
+      "success": 0,
+      "main08": 8,
+      "mainTwo08": 1,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.17061424595466573,
+      "mixedRemoved": 217.75,
+      "highLost": 0.125,
+      "mainLossRate": 0.45298300190727053,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 695,
+        "1": 1750,
+        "2": 602,
+        "3": 69,
+        "4": 15,
+        "5": 3,
+        "6": 1
+      },
+      "chain2plusRate": 0.22009569377990432,
+      "evolutions": 101.875,
+      "mixedGroups": 101.5625,
+      "eggs": 23.375,
+      "transform": 12.4375,
+      "bulk": 0.125,
+      "controls": 435.6875,
+      "choices": 0,
+      "stageLost": [
+        1310,
+        1095,
+        838,
+        239,
+        2,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 127,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 87,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 89,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 108,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 127,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 132,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 122,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 124,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "B-right",
+      "n": 16,
+      "reached08": 12,
+      "two08": 5,
+      "success": 0,
+      "main08": 12,
+      "mainTwo08": 5,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.15551625486769866,
+      "mixedRemoved": 219.625,
+      "highLost": 0.125,
+      "mainLossRate": 0.4453534296085298,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 687,
+        "1": 1769,
+        "2": 594,
+        "3": 83,
+        "4": 17,
+        "5": 2,
+        "6": 1
+      },
+      "chain2plusRate": 0.2210593085949889,
+      "evolutions": 103.875,
+      "mixedGroups": 102.8125,
+      "eggs": 24.9375,
+      "transform": 12.0625,
+      "bulk": 0.0625,
+      "controls": 433.625,
+      "choices": 0,
+      "stageLost": [
+        1336,
+        1098,
+        814,
+        264,
+        2,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 77,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 100,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 100,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 90,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 89,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 106,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 107,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": 129,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 118,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 109,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 147,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 146,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "C-adaptive",
+      "n": 16,
+      "reached08": 12,
+      "two08": 3,
+      "success": 0,
+      "main08": 12,
+      "mainTwo08": 3,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.15131155136196775,
+      "mixedRemoved": 222.125,
+      "highLost": 0.625,
+      "mainLossRate": 0.4796402382023618,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 691,
+        "1": 1730,
+        "2": 624,
+        "3": 59,
+        "4": 20,
+        "5": 4
+      },
+      "chain2plusRate": 0.2260230179028133,
+      "evolutions": 100.9375,
+      "mixedGroups": 103.75,
+      "eggs": 23.25,
+      "transform": 12.0625,
+      "bulk": 0.1875,
+      "controls": 429.625,
+      "choices": 100.9375,
+      "stageLost": [
+        1317,
+        1109,
+        867,
+        251,
+        10,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 115,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 136,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 103,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 100,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 112,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 103,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 65,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 127,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 109,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 111,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 136,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 99,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "C-center",
+      "n": 16,
+      "reached08": 11,
+      "two08": 2,
+      "success": 2,
+      "main08": 11,
+      "mainTwo08": 2,
+      "mainSuccess": 2,
+      "gameover": 0,
+      "censored": 14,
+      "meanObservedDrops": 155,
+      "occupancy": 0.15492419676233982,
+      "mixedRemoved": 213.6875,
+      "highLost": 0.3125,
+      "mainLossRate": 0.45750555504071644,
+      "maxChain": 8,
+      "chainHistogram": {
+        "0": 649,
+        "1": 1708,
+        "2": 566,
+        "3": 62,
+        "4": 13,
+        "5": 6,
+        "8": 1
+      },
+      "chain2plusRate": 0.2156405990016639,
+      "evolutions": 95.9375,
+      "mixedGroups": 99.3125,
+      "eggs": 20.875,
+      "transform": 11.875,
+      "bulk": 0.0625,
+      "controls": 424.375,
+      "choices": 95.9375,
+      "stageLost": [
+        1268,
+        1058,
+        840,
+        248,
+        5,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 127,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 152,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 98,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 74,
+          "firstSuccess": 131,
+          "drops": 131,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 107,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 106,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 61,
+          "firstSuccess": 109,
+          "drops": 109,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 136,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 129,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "C-left",
+      "n": 16,
+      "reached08": 11,
+      "two08": 3,
+      "success": 1,
+      "main08": 11,
+      "mainTwo08": 3,
+      "mainSuccess": 1,
+      "gameover": 0,
+      "censored": 15,
+      "meanObservedDrops": 159.4375,
+      "occupancy": 0.16420094373036534,
+      "mixedRemoved": 215.8125,
+      "highLost": 0,
+      "mainLossRate": 0.44896744221546353,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 702,
+        "1": 1703,
+        "2": 598,
+        "3": 94,
+        "4": 16,
+        "5": 4
+      },
+      "chain2plusRate": 0.22842476740455567,
+      "evolutions": 103.875,
+      "mixedGroups": 100.875,
+      "eggs": 23.0625,
+      "transform": 12.1875,
+      "bulk": 0.125,
+      "controls": 435.5625,
+      "choices": 103.875,
+      "stageLost": [
+        1278,
+        1091,
+        828,
+        256,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 84,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 89,
+          "firstSuccess": 151,
+          "drops": 151,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 107,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 130,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 104,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 109,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 156,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 114,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 93,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "C-right",
+      "n": 16,
+      "reached08": 8,
+      "two08": 1,
+      "success": 0,
+      "main08": 8,
+      "mainTwo08": 1,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.16477423624014725,
+      "mixedRemoved": 220.9375,
+      "highLost": 0.375,
+      "mainLossRate": 0.47556643180721,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 687,
+        "1": 1754,
+        "2": 578,
+        "3": 67,
+        "4": 19,
+        "5": 6
+      },
+      "chain2plusRate": 0.2153648344583735,
+      "evolutions": 99,
+      "mixedGroups": 102.75,
+      "eggs": 22.8125,
+      "transform": 11.5,
+      "bulk": 0.125,
+      "controls": 427.1875,
+      "choices": 99,
+      "stageLost": [
+        1331,
+        1098,
+        822,
+        278,
+        6,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 87,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 122,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 131,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 151,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": 129,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 149,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 132,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 134,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "active",
+      "n": 16,
+      "reached08": 7,
+      "two08": 2,
+      "success": 0,
+      "main08": 7,
+      "mainTwo08": 2,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.16724152498507813,
+      "mixedRemoved": 221.25,
+      "highLost": 0,
+      "mainLossRate": 0.47789156599697996,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 735,
+        "1": 1737,
+        "2": 611,
+        "3": 70,
+        "4": 21,
+        "5": 3,
+        "6": 1
+      },
+      "chain2plusRate": 0.22215229704216488,
+      "evolutions": 102.0625,
+      "mixedGroups": 103.1875,
+      "eggs": 25.6875,
+      "transform": 12.9375,
+      "bulk": 0,
+      "controls": 434.125,
+      "choices": 0,
+      "stageLost": [
+        1333,
+        1087,
+        833,
+        287,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 144,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 139,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 140,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 136,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 151,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 135,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "beam",
+      "n": 16,
+      "reached08": 12,
+      "two08": 3,
+      "success": 1,
+      "main08": 12,
+      "mainTwo08": 3,
+      "mainSuccess": 1,
+      "gameover": 0,
+      "censored": 15,
+      "meanObservedDrops": 157.875,
+      "occupancy": 0.15344672033465534,
+      "mixedRemoved": 212,
+      "highLost": 0.125,
+      "mainLossRate": 0.43887131689354536,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 667,
+        "1": 1722,
+        "2": 609,
+        "3": 61,
+        "4": 19,
+        "5": 2,
+        "6": 2
+      },
+      "chain2plusRate": 0.22485399091499025,
+      "evolutions": 102.25,
+      "mixedGroups": 99.625,
+      "eggs": 22.1875,
+      "transform": 12.375,
+      "bulk": 0.1875,
+      "controls": 427.25,
+      "choices": 0,
+      "stageLost": [
+        1305,
+        1109,
+        768,
+        208,
+        2,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 90,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 151,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 89,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 147,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 108,
+          "firstSuccess": 126,
+          "drops": 126,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 103,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": 122,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 82,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 76,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 61,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "chain",
+      "n": 16,
+      "reached08": 0,
+      "two08": 0,
+      "success": 0,
+      "main08": 0,
+      "mainTwo08": 0,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.0432355860532297,
+      "mixedRemoved": 240.9375,
+      "highLost": 7,
+      "mainLossRate": 0.7161469445695148,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 393,
+        "1": 1741,
+        "2": 669,
+        "3": 71,
+        "5": 1
+      },
+      "chain2plusRate": 0.2577391304347826,
+      "evolutions": 92.75,
+      "mixedGroups": 113.5625,
+      "eggs": 19.5625,
+      "transform": 0.0625,
+      "bulk": 0.0625,
+      "controls": 356.3125,
+      "choices": 0,
+      "stageLost": [
+        1294,
+        1054,
+        921,
+        474,
+        106,
+        6,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "clear",
+      "n": 16,
+      "reached08": 0,
+      "two08": 0,
+      "success": 0,
+      "main08": 0,
+      "mainTwo08": 0,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.04818660750893767,
+      "mixedRemoved": 277.9375,
+      "highLost": 1.5,
+      "mainLossRate": 0.8467924382130447,
+      "maxChain": 4,
+      "chainHistogram": {
+        "0": 493,
+        "1": 1865,
+        "2": 405,
+        "3": 19,
+        "4": 2
+      },
+      "chain2plusRate": 0.15301724137931033,
+      "evolutions": 49.75,
+      "mixedGroups": 121.75,
+      "eggs": 14,
+      "transform": 0,
+      "bulk": 0,
+      "controls": 368.0625,
+      "choices": 0,
+      "stageLost": [
+        1588,
+        1412,
+        940,
+        483,
+        24,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "gauge-2",
+      "n": 16,
+      "reached08": 15,
+      "two08": 12,
+      "success": 5,
+      "main08": 15,
+      "mainTwo08": 12,
+      "mainSuccess": 5,
+      "gameover": 0,
+      "censored": 11,
+      "meanObservedDrops": 151.3125,
+      "occupancy": 0.13812713629922932,
+      "mixedRemoved": 197.625,
+      "highLost": 0,
+      "mainLossRate": 0.3380079656102899,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 883,
+        "1": 1689,
+        "2": 588,
+        "3": 84,
+        "4": 30,
+        "5": 7,
+        "6": 1
+      },
+      "chain2plusRate": 0.21633150517976843,
+      "evolutions": 113.375,
+      "mixedGroups": 92.25,
+      "eggs": 30.9375,
+      "transform": 18.0625,
+      "bulk": 4.8125,
+      "controls": 424.75,
+      "choices": 0,
+      "stageLost": [
+        1223,
+        1022,
+        779,
+        138,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 115,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 60,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 87,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 59,
+          "firstSuccess": 141,
+          "drops": 141,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 86,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 96,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 108,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 103,
+          "firstSuccess": 130,
+          "drops": 130,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 100,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 91,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 52,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 132,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 92,
+          "firstSuccess": 114,
+          "drops": 114,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 58,
+          "firstSuccess": 131,
+          "drops": 131,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": 145,
+          "drops": 145,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "gauge-3",
+      "n": 16,
+      "reached08": 16,
+      "two08": 11,
+      "success": 4,
+      "main08": 16,
+      "mainTwo08": 11,
+      "mainSuccess": 4,
+      "gameover": 0,
+      "censored": 12,
+      "meanObservedDrops": 155.875,
+      "occupancy": 0.14644328691118128,
+      "mixedRemoved": 202.1875,
+      "highLost": 0,
+      "mainLossRate": 0.3562856317057409,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 909,
+        "1": 1703,
+        "2": 642,
+        "3": 75,
+        "4": 27,
+        "5": 8,
+        "6": 2
+      },
+      "chain2plusRate": 0.22400475341651813,
+      "evolutions": 117.5,
+      "mixedGroups": 93.875,
+      "eggs": 31.25,
+      "transform": 19.9375,
+      "bulk": 3.3125,
+      "controls": 449.125,
+      "choices": 0,
+      "stageLost": [
+        1237,
+        1032,
+        821,
+        145,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 103,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 74,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 119,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 139,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 86,
+          "firstSuccess": 150,
+          "drops": 150,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 106,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 122,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 103,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": 138,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 82,
+          "firstSuccess": 145,
+          "drops": 145,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 127,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 81,
+          "firstSuccess": 141,
+          "drops": 141,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 95,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 61,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 58,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 61,
+          "firstSuccess": 138,
+          "drops": 138,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "gauge-4",
+      "n": 16,
+      "reached08": 15,
+      "two08": 12,
+      "success": 1,
+      "main08": 15,
+      "mainTwo08": 12,
+      "mainSuccess": 1,
+      "gameover": 0,
+      "censored": 15,
+      "meanObservedDrops": 157.875,
+      "occupancy": 0.1406104499445245,
+      "mixedRemoved": 206.75,
+      "highLost": 0,
+      "mainLossRate": 0.35261153139039836,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 831,
+        "1": 1751,
+        "2": 637,
+        "3": 90,
+        "4": 30,
+        "5": 2,
+        "6": 1
+      },
+      "chain2plusRate": 0.22740873728306404,
+      "evolutions": 118.375,
+      "mixedGroups": 97,
+      "eggs": 31.5,
+      "transform": 17.25,
+      "bulk": 2.25,
+      "controls": 444.375,
+      "choices": 0,
+      "stageLost": [
+        1254,
+        1065,
+        806,
+        183,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 123,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 78,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 86,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 146,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 96,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 96,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 76,
+          "firstSuccess": 126,
+          "drops": 126,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 130,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 135,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 96,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 109,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 147,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 95,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 136,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "multiple",
+      "n": 16,
+      "reached08": 1,
+      "two08": 0,
+      "success": 0,
+      "main08": 0,
+      "mainTwo08": 0,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.21617663841057744,
+      "mixedRemoved": 219.4375,
+      "highLost": 0.25,
+      "mainLossRate": 0.6706195122211734,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 548,
+        "1": 1686,
+        "2": 568,
+        "3": 63,
+        "4": 5,
+        "5": 1
+      },
+      "chain2plusRate": 0.22187391152908395,
+      "evolutions": 88.25,
+      "mixedGroups": 102.3125,
+      "eggs": 17.3125,
+      "transform": 1.25,
+      "bulk": 0.875,
+      "controls": 419.0625,
+      "choices": 0,
+      "stageLost": [
+        1292,
+        1126,
+        867,
+        222,
+        4,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 123,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "no-items",
+      "n": 16,
+      "reached08": 0,
+      "two08": 0,
+      "success": 0,
+      "main08": 0,
+      "mainTwo08": 0,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.1766655815972222,
+      "mixedRemoved": 225.0625,
+      "highLost": 0.375,
+      "mainLossRate": 0.6416015625,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 387,
+        "1": 1638,
+        "2": 485,
+        "3": 41,
+        "4": 8,
+        "5": 1
+      },
+      "chain2plusRate": 0.208984375,
+      "evolutions": 70.6875,
+      "mixedGroups": 103.625,
+      "eggs": 0,
+      "transform": 0,
+      "bulk": 0,
+      "controls": 408.25,
+      "choices": 0,
+      "stageLost": [
+        1380,
+        1159,
+        784,
+        272,
+        6,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "old",
+      "n": 16,
+      "reached08": 11,
+      "two08": 10,
+      "success": 5,
+      "main08": 11,
+      "mainTwo08": 10,
+      "mainSuccess": 5,
+      "gameover": 10,
+      "censored": 1,
+      "meanObservedDrops": 125,
+      "occupancy": 0.5048883595543122,
+      "mixedRemoved": 0,
+      "highLost": 0,
+      "mainLossRate": 0,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 1006,
+        "1": 2053,
+        "2": 888,
+        "3": 144,
+        "4": 26,
+        "5": 2
+      },
+      "chain2plusRate": 0.2573440155377519,
+      "evolutions": 274.3125,
+      "mixedGroups": 0,
+      "eggs": 97.125,
+      "transform": 35.3125,
+      "bulk": 0,
+      "controls": 525.9375,
+      "choices": 0,
+      "stageLost": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 127,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4101,
+          "first08": 76,
+          "firstSuccess": 127,
+          "drops": 127,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 48,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 62,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4104,
+          "first08": 46,
+          "firstSuccess": 80,
+          "drops": 80,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 115,
+          "firstSuccess": null,
+          "drops": 146,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 95,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 138,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4108,
+          "first08": 51,
+          "firstSuccess": 132,
+          "drops": 132,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 26,
+          "firstSuccess": null,
+          "drops": 145,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4110,
+          "first08": 45,
+          "firstSuccess": 87,
+          "drops": 87,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 74,
+          "firstSuccess": null,
+          "drops": 116,
+          "over": "no-legal-placement"
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 101,
+          "over": "no-legal-placement"
+        },
+        {
+          "seed": 4113,
+          "first08": 88,
+          "firstSuccess": null,
+          "drops": 145,
+          "over": "no-legal-placement"
+        },
+        {
+          "seed": 4114,
+          "first08": 70,
+          "firstSuccess": 115,
+          "drops": 115,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 126,
+          "over": "spawn-blocked"
+        }
+      ]
+    },
+    {
+      "id": "protect",
+      "n": 16,
+      "reached08": 1,
+      "two08": 0,
+      "success": 0,
+      "main08": 0,
+      "mainTwo08": 0,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.2169290174621727,
+      "mixedRemoved": 219.125,
+      "highLost": 0,
+      "mainLossRate": 0.6714620751235274,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 542,
+        "1": 1692,
+        "2": 561,
+        "3": 63,
+        "4": 5,
+        "5": 1
+      },
+      "chain2plusRate": 0.21997206703910616,
+      "evolutions": 88,
+      "mixedGroups": 102.0625,
+      "eggs": 16.875,
+      "transform": 1.25,
+      "bulk": 0.875,
+      "controls": 421.3125,
+      "choices": 0,
+      "stageLost": [
+        1276,
+        1118,
+        877,
+        235,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 123,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "random",
+      "n": 16,
+      "reached08": 0,
+      "two08": 0,
+      "success": 0,
+      "main08": 0,
+      "mainTwo08": 0,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.2423882378472222,
+      "mixedRemoved": 253.4375,
+      "highLost": 1.375,
+      "mainLossRate": 0.7900390625,
+      "maxChain": 9,
+      "chainHistogram": {
+        "0": 877,
+        "1": 1347,
+        "2": 260,
+        "3": 55,
+        "4": 15,
+        "5": 2,
+        "6": 2,
+        "8": 1,
+        "9": 1
+      },
+      "chain2plusRate": 0.13125,
+      "evolutions": 36.375,
+      "mixedGroups": 106.125,
+      "eggs": 0,
+      "transform": 0,
+      "bulk": 0,
+      "controls": 609.6875,
+      "choices": 0,
+      "stageLost": [
+        1576,
+        1252,
+        813,
+        392,
+        22,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "reserve",
+      "n": 16,
+      "reached08": 1,
+      "two08": 0,
+      "success": 0,
+      "main08": 1,
+      "mainTwo08": 0,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.17608187349643548,
+      "mixedRemoved": 224.625,
+      "highLost": 0.375,
+      "mainLossRate": 0.5899533908737574,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 409,
+        "1": 1638,
+        "2": 503,
+        "3": 42,
+        "4": 7,
+        "5": 1
+      },
+      "chain2plusRate": 0.21269230769230768,
+      "evolutions": 72.4375,
+      "mixedGroups": 103.75,
+      "eggs": 0.5,
+      "transform": 0.3125,
+      "bulk": 1.6875,
+      "controls": 409.5,
+      "choices": 0,
+      "stageLost": [
+        1386,
+        1164,
+        776,
+        262,
+        6,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 150,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "actual-old-supply",
+      "n": 16,
+      "reached08": 1,
+      "two08": 0,
+      "success": 0,
+      "main08": 1,
+      "mainTwo08": 0,
+      "mainSuccess": 0,
+      "gameover": 2,
+      "censored": 14,
+      "meanObservedDrops": 159.5,
+      "occupancy": 0.4910553774439079,
+      "mixedRemoved": 0,
+      "highLost": 0,
+      "mainLossRate": 0,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 876,
+        "1": 2077,
+        "2": 1008,
+        "3": 178,
+        "4": 21,
+        "5": 2
+      },
+      "chain2plusRate": 0.290485343584815,
+      "evolutions": 303.125,
+      "mixedGroups": 0,
+      "eggs": 61.1875,
+      "transform": 39.4375,
+      "bulk": 0,
+      "controls": 652.875,
+      "choices": 0,
+      "stageLost": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 152,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4105,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 105,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "beam-2",
+      "n": 16,
+      "reached08": 15,
+      "two08": 12,
+      "success": 9,
+      "main08": 15,
+      "mainTwo08": 12,
+      "mainSuccess": 9,
+      "gameover": 0,
+      "censored": 7,
+      "meanObservedDrops": 138.3125,
+      "occupancy": 0.1329334202044855,
+      "mixedRemoved": 173.5625,
+      "highLost": 0.1875,
+      "mainLossRate": 0.32427936824875125,
+      "maxChain": 7,
+      "chainHistogram": {
+        "0": 786,
+        "1": 1574,
+        "2": 532,
+        "3": 74,
+        "4": 22,
+        "5": 13,
+        "6": 2,
+        "7": 1
+      },
+      "chain2plusRate": 0.21438082556591212,
+      "evolutions": 107.9375,
+      "mixedGroups": 81.8125,
+      "eggs": 26.5625,
+      "transform": 19.5625,
+      "bulk": 3.3125,
+      "controls": 399.9375,
+      "choices": 0,
+      "stageLost": [
+        1129,
+        926,
+        634,
+        85,
+        3,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 80,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 69,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 56,
+          "firstSuccess": 95,
+          "drops": 95,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 44,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 150,
+          "firstSuccess": 150,
+          "drops": 150,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 67,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 76,
+          "firstSuccess": 126,
+          "drops": 126,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 79,
+          "firstSuccess": 103,
+          "drops": 103,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 91,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 92,
+          "firstSuccess": 145,
+          "drops": 145,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 53,
+          "firstSuccess": 109,
+          "drops": 109,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 84,
+          "firstSuccess": 115,
+          "drops": 115,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 75,
+          "firstSuccess": 114,
+          "drops": 114,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 112,
+          "firstSuccess": 136,
+          "drops": 136,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "heldout-2",
+      "n": 32,
+      "reached08": 32,
+      "two08": 32,
+      "success": 32,
+      "main08": 32,
+      "mainTwo08": 32,
+      "mainSuccess": 32,
+      "gameover": 0,
+      "censored": 0,
+      "meanObservedDrops": 162.75,
+      "occupancy": 0.15407015838561233,
+      "mixedRemoved": 209.15625,
+      "highLost": 0.09375,
+      "mainLossRate": 0.344834413310343,
+      "maxChain": 10,
+      "chainHistogram": {
+        "0": 2001,
+        "1": 3635,
+        "2": 1246,
+        "3": 200,
+        "4": 56,
+        "5": 22,
+        "6": 5,
+        "7": 3,
+        "8": 3,
+        "10": 1
+      },
+      "chain2plusRate": 0.21416620189626326,
+      "evolutions": 125.71875,
+      "mixedGroups": 97.21875,
+      "eggs": 34.4375,
+      "transform": 21.5625,
+      "bulk": 5.375,
+      "controls": 469.125,
+      "choices": 0,
+      "stageLost": [
+        2514,
+        2205,
+        1643,
+        328,
+        3,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4200,
+          "first08": 91,
+          "firstSuccess": 142,
+          "drops": 142,
+          "over": null
+        },
+        {
+          "seed": 4201,
+          "first08": 104,
+          "firstSuccess": 201,
+          "drops": 201,
+          "over": null
+        },
+        {
+          "seed": 4202,
+          "first08": 74,
+          "firstSuccess": 223,
+          "drops": 223,
+          "over": null
+        },
+        {
+          "seed": 4203,
+          "first08": 121,
+          "firstSuccess": 212,
+          "drops": 212,
+          "over": null
+        },
+        {
+          "seed": 4204,
+          "first08": 110,
+          "firstSuccess": 171,
+          "drops": 171,
+          "over": null
+        },
+        {
+          "seed": 4205,
+          "first08": 68,
+          "firstSuccess": 102,
+          "drops": 102,
+          "over": null
+        },
+        {
+          "seed": 4206,
+          "first08": 120,
+          "firstSuccess": 257,
+          "drops": 257,
+          "over": null
+        },
+        {
+          "seed": 4207,
+          "first08": 90,
+          "firstSuccess": 124,
+          "drops": 124,
+          "over": null
+        },
+        {
+          "seed": 4208,
+          "first08": 86,
+          "firstSuccess": 251,
+          "drops": 251,
+          "over": null
+        },
+        {
+          "seed": 4209,
+          "first08": 79,
+          "firstSuccess": 176,
+          "drops": 176,
+          "over": null
+        },
+        {
+          "seed": 4210,
+          "first08": 67,
+          "firstSuccess": 83,
+          "drops": 83,
+          "over": null
+        },
+        {
+          "seed": 4211,
+          "first08": 55,
+          "firstSuccess": 146,
+          "drops": 146,
+          "over": null
+        },
+        {
+          "seed": 4212,
+          "first08": 144,
+          "firstSuccess": 266,
+          "drops": 266,
+          "over": null
+        },
+        {
+          "seed": 4213,
+          "first08": 187,
+          "firstSuccess": 257,
+          "drops": 257,
+          "over": null
+        },
+        {
+          "seed": 4214,
+          "first08": 76,
+          "firstSuccess": 136,
+          "drops": 136,
+          "over": null
+        },
+        {
+          "seed": 4215,
+          "first08": 50,
+          "firstSuccess": 70,
+          "drops": 70,
+          "over": null
+        },
+        {
+          "seed": 4216,
+          "first08": 118,
+          "firstSuccess": 155,
+          "drops": 155,
+          "over": null
+        },
+        {
+          "seed": 4217,
+          "first08": 84,
+          "firstSuccess": 106,
+          "drops": 106,
+          "over": null
+        },
+        {
+          "seed": 4218,
+          "first08": 112,
+          "firstSuccess": 172,
+          "drops": 172,
+          "over": null
+        },
+        {
+          "seed": 4219,
+          "first08": 99,
+          "firstSuccess": 135,
+          "drops": 135,
+          "over": null
+        },
+        {
+          "seed": 4220,
+          "first08": 50,
+          "firstSuccess": 135,
+          "drops": 135,
+          "over": null
+        },
+        {
+          "seed": 4221,
+          "first08": 125,
+          "firstSuccess": 125,
+          "drops": 125,
+          "over": null
+        },
+        {
+          "seed": 4222,
+          "first08": 45,
+          "firstSuccess": 140,
+          "drops": 140,
+          "over": null
+        },
+        {
+          "seed": 4223,
+          "first08": 63,
+          "firstSuccess": 138,
+          "drops": 138,
+          "over": null
+        },
+        {
+          "seed": 4224,
+          "first08": 93,
+          "firstSuccess": 135,
+          "drops": 135,
+          "over": null
+        },
+        {
+          "seed": 4225,
+          "first08": 75,
+          "firstSuccess": 128,
+          "drops": 128,
+          "over": null
+        },
+        {
+          "seed": 4226,
+          "first08": 117,
+          "firstSuccess": 122,
+          "drops": 122,
+          "over": null
+        },
+        {
+          "seed": 4227,
+          "first08": 56,
+          "firstSuccess": 167,
+          "drops": 167,
+          "over": null
+        },
+        {
+          "seed": 4228,
+          "first08": 61,
+          "firstSuccess": 127,
+          "drops": 127,
+          "over": null
+        },
+        {
+          "seed": 4229,
+          "first08": 132,
+          "firstSuccess": 174,
+          "drops": 174,
+          "over": null
+        },
+        {
+          "seed": 4230,
+          "first08": 103,
+          "firstSuccess": 181,
+          "drops": 181,
+          "over": null
+        },
+        {
+          "seed": 4231,
+          "first08": 50,
+          "firstSuccess": 251,
+          "drops": 251,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "heldout-8",
+      "n": 32,
+      "reached08": 32,
+      "two08": 32,
+      "success": 32,
+      "main08": 32,
+      "mainTwo08": 32,
+      "mainSuccess": 32,
+      "gameover": 0,
+      "censored": 0,
+      "meanObservedDrops": 288.5,
+      "occupancy": 0.20761348474538677,
+      "mixedRemoved": 401.71875,
+      "highLost": 0.34375,
+      "mainLossRate": 0.4466889123334116,
+      "maxChain": 10,
+      "chainHistogram": {
+        "0": 2723,
+        "1": 6526,
+        "2": 2323,
+        "3": 301,
+        "4": 72,
+        "5": 27,
+        "6": 10,
+        "7": 2,
+        "10": 1
+      },
+      "chain2plusRate": 0.22828535669586983,
+      "evolutions": 206.75,
+      "mixedGroups": 186.9375,
+      "eggs": 61.53125,
+      "transform": 24,
+      "bulk": 0.5,
+      "controls": 799.90625,
+      "choices": 0,
+      "stageLost": [
+        4467,
+        3967,
+        3327,
+        1083,
+        11,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4200,
+          "first08": 103,
+          "firstSuccess": 252,
+          "drops": 252,
+          "over": null
+        },
+        {
+          "seed": 4201,
+          "first08": 230,
+          "firstSuccess": 359,
+          "drops": 359,
+          "over": null
+        },
+        {
+          "seed": 4202,
+          "first08": 183,
+          "firstSuccess": 214,
+          "drops": 214,
+          "over": null
+        },
+        {
+          "seed": 4203,
+          "first08": 112,
+          "firstSuccess": 166,
+          "drops": 166,
+          "over": null
+        },
+        {
+          "seed": 4204,
+          "first08": 151,
+          "firstSuccess": 321,
+          "drops": 321,
+          "over": null
+        },
+        {
+          "seed": 4205,
+          "first08": 68,
+          "firstSuccess": 281,
+          "drops": 281,
+          "over": null
+        },
+        {
+          "seed": 4206,
+          "first08": 243,
+          "firstSuccess": 440,
+          "drops": 440,
+          "over": null
+        },
+        {
+          "seed": 4207,
+          "first08": 140,
+          "firstSuccess": 397,
+          "drops": 397,
+          "over": null
+        },
+        {
+          "seed": 4208,
+          "first08": 161,
+          "firstSuccess": 256,
+          "drops": 256,
+          "over": null
+        },
+        {
+          "seed": 4209,
+          "first08": 82,
+          "firstSuccess": 245,
+          "drops": 245,
+          "over": null
+        },
+        {
+          "seed": 4210,
+          "first08": 83,
+          "firstSuccess": 223,
+          "drops": 223,
+          "over": null
+        },
+        {
+          "seed": 4211,
+          "first08": 236,
+          "firstSuccess": 262,
+          "drops": 262,
+          "over": null
+        },
+        {
+          "seed": 4212,
+          "first08": 85,
+          "firstSuccess": 194,
+          "drops": 194,
+          "over": null
+        },
+        {
+          "seed": 4213,
+          "first08": 157,
+          "firstSuccess": 350,
+          "drops": 350,
+          "over": null
+        },
+        {
+          "seed": 4214,
+          "first08": 136,
+          "firstSuccess": 250,
+          "drops": 250,
+          "over": null
+        },
+        {
+          "seed": 4215,
+          "first08": 61,
+          "firstSuccess": 532,
+          "drops": 532,
+          "over": null
+        },
+        {
+          "seed": 4216,
+          "first08": 396,
+          "firstSuccess": 482,
+          "drops": 482,
+          "over": null
+        },
+        {
+          "seed": 4217,
+          "first08": 78,
+          "firstSuccess": 471,
+          "drops": 471,
+          "over": null
+        },
+        {
+          "seed": 4218,
+          "first08": 112,
+          "firstSuccess": 124,
+          "drops": 124,
+          "over": null
+        },
+        {
+          "seed": 4219,
+          "first08": 152,
+          "firstSuccess": 205,
+          "drops": 205,
+          "over": null
+        },
+        {
+          "seed": 4220,
+          "first08": 135,
+          "firstSuccess": 234,
+          "drops": 234,
+          "over": null
+        },
+        {
+          "seed": 4221,
+          "first08": 282,
+          "firstSuccess": 313,
+          "drops": 313,
+          "over": null
+        },
+        {
+          "seed": 4222,
+          "first08": 77,
+          "firstSuccess": 194,
+          "drops": 194,
+          "over": null
+        },
+        {
+          "seed": 4223,
+          "first08": 118,
+          "firstSuccess": 214,
+          "drops": 214,
+          "over": null
+        },
+        {
+          "seed": 4224,
+          "first08": 139,
+          "firstSuccess": 402,
+          "drops": 402,
+          "over": null
+        },
+        {
+          "seed": 4225,
+          "first08": 128,
+          "firstSuccess": 219,
+          "drops": 219,
+          "over": null
+        },
+        {
+          "seed": 4226,
+          "first08": 128,
+          "firstSuccess": 340,
+          "drops": 340,
+          "over": null
+        },
+        {
+          "seed": 4227,
+          "first08": 68,
+          "firstSuccess": 206,
+          "drops": 206,
+          "over": null
+        },
+        {
+          "seed": 4228,
+          "first08": 106,
+          "firstSuccess": 262,
+          "drops": 262,
+          "over": null
+        },
+        {
+          "seed": 4229,
+          "first08": 132,
+          "firstSuccess": 388,
+          "drops": 388,
+          "over": null
+        },
+        {
+          "seed": 4230,
+          "first08": 83,
+          "firstSuccess": 185,
+          "drops": 185,
+          "over": null
+        },
+        {
+          "seed": 4231,
+          "first08": 130,
+          "firstSuccess": 251,
+          "drops": 251,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "long-2",
+      "n": 16,
+      "reached08": 16,
+      "two08": 16,
+      "success": 16,
+      "main08": 16,
+      "mainTwo08": 16,
+      "mainSuccess": 16,
+      "gameover": 0,
+      "censored": 0,
+      "meanObservedDrops": 172.25,
+      "occupancy": 0.14442027669204,
+      "mixedRemoved": 226.375,
+      "highLost": 0,
+      "mainLossRate": 0.3363597734230986,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 1023,
+        "1": 1914,
+        "2": 684,
+        "3": 99,
+        "4": 33,
+        "5": 16,
+        "6": 3
+      },
+      "chain2plusRate": 0.2213679745493107,
+      "evolutions": 132.75,
+      "mixedGroups": 105.6875,
+      "eggs": 37.375,
+      "transform": 20.5,
+      "bulk": 5.625,
+      "controls": 489.3125,
+      "choices": 0,
+      "stageLost": [
+        1395,
+        1179,
+        881,
+        167,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 115,
+          "firstSuccess": 209,
+          "drops": 209,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 60,
+          "firstSuccess": 180,
+          "drops": 180,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 87,
+          "firstSuccess": 176,
+          "drops": 176,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 59,
+          "firstSuccess": 141,
+          "drops": 141,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 86,
+          "firstSuccess": 210,
+          "drops": 210,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 96,
+          "firstSuccess": 173,
+          "drops": 173,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 108,
+          "firstSuccess": 248,
+          "drops": 248,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 103,
+          "firstSuccess": 130,
+          "drops": 130,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": 175,
+          "firstSuccess": 211,
+          "drops": 211,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 100,
+          "firstSuccess": 171,
+          "drops": 171,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 91,
+          "firstSuccess": 164,
+          "drops": 164,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 52,
+          "firstSuccess": 193,
+          "drops": 193,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 132,
+          "firstSuccess": 160,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 92,
+          "firstSuccess": 114,
+          "drops": 114,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 58,
+          "firstSuccess": 131,
+          "drops": 131,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": 145,
+          "drops": 145,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "long-8",
+      "n": 16,
+      "reached08": 16,
+      "two08": 16,
+      "success": 16,
+      "main08": 16,
+      "mainTwo08": 16,
+      "mainSuccess": 16,
+      "gameover": 0,
+      "censored": 0,
+      "meanObservedDrops": 356.375,
+      "occupancy": 0.21635475498005233,
+      "mixedRemoved": 501.6875,
+      "highLost": 0.9375,
+      "mainLossRate": 0.45155600043908894,
+      "maxChain": 9,
+      "chainHistogram": {
+        "0": 1680,
+        "1": 4041,
+        "2": 1383,
+        "3": 203,
+        "4": 55,
+        "5": 18,
+        "6": 4,
+        "7": 1,
+        "9": 1
+      },
+      "chain2plusRate": 0.22542648253452477,
+      "evolutions": 252.625,
+      "mixedGroups": 233.9375,
+      "eggs": 76.125,
+      "transform": 28.3125,
+      "bulk": 0.8125,
+      "controls": 997.8125,
+      "choices": 0,
+      "stageLost": [
+        2880,
+        2398,
+        2088,
+        646,
+        15,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 127,
+          "firstSuccess": 300,
+          "drops": 300,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 69,
+          "firstSuccess": 552,
+          "drops": 552,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 135,
+          "firstSuccess": 373,
+          "drops": 373,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 139,
+          "firstSuccess": 397,
+          "drops": 397,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": 267,
+          "firstSuccess": 407,
+          "drops": 407,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 120,
+          "firstSuccess": 416,
+          "drops": 416,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 108,
+          "firstSuccess": 355,
+          "drops": 355,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 159,
+          "firstSuccess": 205,
+          "drops": 205,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": 175,
+          "firstSuccess": 390,
+          "drops": 390,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 244,
+          "firstSuccess": 355,
+          "drops": 355,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": 163,
+          "firstSuccess": 355,
+          "drops": 355,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 131,
+          "firstSuccess": 297,
+          "drops": 297,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 145,
+          "firstSuccess": 347,
+          "drops": 347,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 111,
+          "firstSuccess": 300,
+          "drops": 300,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": 176,
+          "firstSuccess": 336,
+          "drops": 336,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": 317,
+          "drops": 317,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "survival-new",
+      "n": 16,
+      "reached08": 11,
+      "two08": 4,
+      "success": 0,
+      "main08": 11,
+      "mainTwo08": 4,
+      "mainSuccess": 0,
+      "gameover": 0,
+      "censored": 16,
+      "meanObservedDrops": 160,
+      "occupancy": 0.1521779224041533,
+      "mixedRemoved": 217.9375,
+      "highLost": 0.5,
+      "mainLossRate": 0.46943195133055854,
+      "maxChain": 6,
+      "chainHistogram": {
+        "0": 702,
+        "1": 1719,
+        "2": 600,
+        "3": 82,
+        "4": 19,
+        "5": 5,
+        "6": 1
+      },
+      "chain2plusRate": 0.2260230179028133,
+      "evolutions": 104.0625,
+      "mixedGroups": 101.3125,
+      "eggs": 23.125,
+      "transform": 12.3125,
+      "bulk": 0.0625,
+      "controls": 432.125,
+      "choices": 0,
+      "stageLost": [
+        1298,
+        1091,
+        837,
+        253,
+        8,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": 127,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4101,
+          "first08": 69,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 135,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 139,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4104,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 120,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4106,
+          "first08": 108,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4107,
+          "first08": 159,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4108,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4110,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 131,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4112,
+          "first08": 145,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4113,
+          "first08": 111,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4114,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": 137,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        }
+      ]
+    },
+    {
+      "id": "survival-old",
+      "n": 16,
+      "reached08": 11,
+      "two08": 10,
+      "success": 5,
+      "main08": 11,
+      "mainTwo08": 10,
+      "mainSuccess": 5,
+      "gameover": 10,
+      "censored": 6,
+      "meanObservedDrops": 141.1875,
+      "occupancy": 0.5311721117668643,
+      "mixedRemoved": 0,
+      "highLost": 0,
+      "mainLossRate": 0,
+      "maxChain": 5,
+      "chainHistogram": {
+        "0": 1162,
+        "1": 2375,
+        "2": 1017,
+        "3": 160,
+        "4": 30,
+        "5": 2
+      },
+      "chain2plusRate": 0.2547408343868521,
+      "evolutions": 314.6875,
+      "mixedGroups": 0,
+      "eggs": 114.875,
+      "transform": 40.5625,
+      "bulk": 0,
+      "controls": 599.625,
+      "choices": 0,
+      "stageLost": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seedResults": [
+        {
+          "seed": 4100,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 127,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4101,
+          "first08": 76,
+          "firstSuccess": 127,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4102,
+          "first08": 48,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4103,
+          "first08": 62,
+          "firstSuccess": null,
+          "drops": 160,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4104,
+          "first08": 46,
+          "firstSuccess": 80,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4105,
+          "first08": 115,
+          "firstSuccess": null,
+          "drops": 146,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4106,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 95,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4107,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 138,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4108,
+          "first08": 51,
+          "firstSuccess": 132,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4109,
+          "first08": 26,
+          "firstSuccess": null,
+          "drops": 145,
+          "over": "spawn-blocked"
+        },
+        {
+          "seed": 4110,
+          "first08": 45,
+          "firstSuccess": 87,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4111,
+          "first08": 74,
+          "firstSuccess": null,
+          "drops": 116,
+          "over": "no-legal-placement"
+        },
+        {
+          "seed": 4112,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 101,
+          "over": "no-legal-placement"
+        },
+        {
+          "seed": 4113,
+          "first08": 88,
+          "firstSuccess": null,
+          "drops": 145,
+          "over": "no-legal-placement"
+        },
+        {
+          "seed": 4114,
+          "first08": 70,
+          "firstSuccess": 115,
+          "drops": 160,
+          "over": null
+        },
+        {
+          "seed": 4115,
+          "first08": null,
+          "firstSuccess": null,
+          "drops": 126,
+          "over": "spawn-blocked"
+        }
+      ]
+    }
+  ],
+  "paired": [
+    {
+      "base": "old",
+      "compare": "A-adaptive",
+      "n": 16,
+      "both": 0,
+      "onlyOld": 5,
+      "onlyNew": 0,
+      "neither": 11
+    },
+    {
+      "base": "old",
+      "compare": "gauge-2",
+      "n": 16,
+      "both": 1,
+      "onlyOld": 4,
+      "onlyNew": 4,
+      "neither": 7
+    },
+    {
+      "base": "old",
+      "compare": "gauge-3",
+      "n": 16,
+      "both": 1,
+      "onlyOld": 4,
+      "onlyNew": 3,
+      "neither": 8
+    },
+    {
+      "base": "old",
+      "compare": "B-adaptive",
+      "n": 16,
+      "both": 1,
+      "onlyOld": 4,
+      "onlyNew": 2,
+      "neither": 9
+    },
+    {
+      "base": "old",
+      "compare": "C-center",
+      "n": 16,
+      "both": 0,
+      "onlyOld": 5,
+      "onlyNew": 2,
+      "neither": 9
+    },
+    {
+      "base": "old",
+      "compare": "long-8",
+      "n": 16,
+      "both": 5,
+      "onlyOld": 0,
+      "onlyNew": 11,
+      "neither": 0
+    },
+    {
+      "base": "old",
+      "compare": "long-2",
+      "n": 16,
+      "both": 5,
+      "onlyOld": 0,
+      "onlyNew": 11,
+      "neither": 0
+    },
+    {
+      "base": "old",
+      "compare": "beam-2",
+      "n": 16,
+      "both": 3,
+      "onlyOld": 2,
+      "onlyNew": 6,
+      "neither": 5
+    }
+  ]
+}

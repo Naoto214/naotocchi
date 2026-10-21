@@ -1,0 +1,29 @@
+FFF
+======================================================================
+FAIL: test_actual_entry_exports_narrow_board_predicate_scope (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_actual_entry_exports_narrow_board_predicate_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_response_board_predicates.py", line 51, in test_actual_entry_exports_narrow_board_predicate_scope
+    self.assertIsNotNone(audit_response)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_paid_sources_costs_usage_and_turn_owner (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_paid_sources_costs_usage_and_turn_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_response_board_predicates.py", line 15, in test_paid_sources_costs_usage_and_turn_owner
+    self.assertIsNotNone(audit_response)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_recovery_current_source_targets_and_response_use (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_recovery_current_source_targets_and_response_use)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_response_board_predicates.py", line 37, in test_recovery_current_source_targets_and_response_use
+    self.assertIsNotNone(audit_response)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

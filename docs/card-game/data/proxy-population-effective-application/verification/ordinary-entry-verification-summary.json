@@ -1,0 +1,41 @@
+{
+  "schema": "observed_verification_summary.v1",
+  "evidence_kind": "tool_output_summary_not_original_log",
+  "base": "75b8c06bc1ec2c2aa51b0ff954f6217e9afecd1c",
+  "unit": {
+    "tests": 41,
+    "seconds": 24.465,
+    "exit_code": 0,
+    "result": "OK"
+  },
+  "connected": {
+    "fixture": "saved115_zero_policy_roots",
+    "completed": true,
+    "stop": null,
+    "steps": 143,
+    "events": 181,
+    "ordinary_steps": 118,
+    "selection_computation_audits": 108,
+    "connected_audit_errors": {
+      "mandatory_policy_entry_audit": [],
+      "mandatory_origin_audit": [],
+      "mandatory_opportunity_audit": [],
+      "resolution_semantics_audit": [],
+      "nonresolution_semantics_audit": [],
+      "decision_projection_audit": [],
+      "source_conservation_audit": []
+    },
+    "combined_seconds": 128.96791964099975,
+    "exit_code": 0,
+    "source_unchanged": true,
+    "python_count": 1068
+  },
+  "design_errors": [],
+  "protected_numbered_files": 477,
+  "protected_changes": [],
+  "preflight_ready": false,
+  "production_generation": false,
+  "production_matches": 0,
+  "full_proxy_regression_completed": false,
+  "local_logs_and_individual_fingerprint_table_lost_to_workspace_maintenance": true
+}

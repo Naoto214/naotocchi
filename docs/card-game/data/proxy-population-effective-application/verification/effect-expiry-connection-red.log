@@ -1,0 +1,36 @@
+F....
+======================================================================
+FAIL: test_actual_transition_coverage_exports_and_enforces_expiry (test_proxy_population_effect_expiry.ExpiryTests.test_actual_transition_coverage_exports_and_enforces_expiry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_expiry.py", line 81, in test_actual_transition_coverage_exports_and_enforces_expiry
+    self.run_case(run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_expiry.py", line 23, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(expiry_case()))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 108, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 107, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_expiry.py", line 23, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(expiry_case()))
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_expiry.py", line 76, in run
+    self.assertIn('typed_effect_expiry_audits',proof,'real transition coverage bypasses expiration audit')
+AssertionError: 'typed_effect_expiry_audits' not found in {'schema': 'supported_trigger_coverage.v1', 'covered': True, 'expected_count': 0, 'recorded_count': 0, 'missing_occurrence_ids': [], 'extra_occurrence_ids': [], 'pending_count': 0, 'origin_authenticated': False, 'opportunity_scope': 'existing_executor_only', 'opportunity_completeness_proven': False, 'strategic_proof': False, 'policy_eligible': None, 'balance_admitted': None, 'processing_order': {'schema': 'source_obligation_processing_order.v1', 'phase_order_verified': True, 'supplied_closure_execution_bound': True, 'ordinary_normal_count': 0, 'ordinary_response_count': 0, 'automatic_step_count': 1, 'sequential_trigger_step_count': 0, 'pending_count': 0, 'expected_occurrences_sha256': '4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945', 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None, 'opportunity_scope': 'supplied_source_obligations_and_existing_executor_phases'}, 'transitions': [{'event_seq': 4, 'event_sha256': 'cf794c337b0e4f3a604fb2088f3e970549e2aa769a363ad0d7c0d60784277ad1', 'before_envelope_sha256': '009ed8778de8f3f81d514fad5eb47d3eabf698ab7808c374ba60605e3df84b0a', 'after_envelope_sha256': '0e32540e12ff9a4f2ded5a5f403429fba3a22c0a4d6816a80db64ce8ea0addc0'}], 'start_origins': [], 'source_scope': {'native': ['I-sleepboost1', 'M-antlion-04', 'M-antlion-05', 'M-antlion-07', 'M-beetle-01', 'M-beetle-02', 'P-anglerfish', 'P-cat_ceo', 'P-desert_scorpion', 'W-city', 'W-countryside'], 'latched': ['C-bat', 'M-antlion-03', 'M-antlion-06', 'P-cliff_goat'], 'hand_optional': ['G-air-hockey'], 'start_catalog_sha256': '1957d8570eda5bd668aca7c4574480948862b758debbd80c31e44540257cdc64'}, 'initial_occurrences_conditionally_supplied': True} : real transition coverage bypasses expiration audit
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.219s
+
+FAILED (failures=1)

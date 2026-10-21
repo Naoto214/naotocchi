@@ -1,0 +1,4 @@
+end_condition_met True
+isolated_expiry_audit_errors []
+actual_first_dispatch open_turn_end_triggers
+meaning: isolated expiry delta does not certify ordering; native opens eligible end window first

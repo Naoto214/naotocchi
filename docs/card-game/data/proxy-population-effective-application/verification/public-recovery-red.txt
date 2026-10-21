@@ -1,0 +1,34 @@
+test_actual_current_public_continuous_application_is_retained (test_proxy_population_public_application.ActualApplicationTests.test_actual_current_public_continuous_application_is_retained) ... ok
+test_native_companion_recovery_success_and_no_application_are_distinct (test_proxy_population_public_application.ActualApplicationTests.test_native_companion_recovery_success_and_no_application_are_distinct) ... 
+  test_native_companion_recovery_success_and_no_application_are_distinct (test_proxy_population_public_application.ActualApplicationTests.test_native_companion_recovery_success_and_no_application_are_distinct) (succeeds=True) ... ERROR
+  test_native_companion_recovery_success_and_no_application_are_distinct (test_proxy_population_public_application.ActualApplicationTests.test_native_companion_recovery_success_and_no_application_are_distinct) (succeeds=False) ... ERROR
+test_removed_continuous_source_cannot_be_invented_by_later_worlds (test_proxy_population_public_application.ActualApplicationTests.test_removed_continuous_source_cannot_be_invented_by_later_worlds) ... ok
+
+======================================================================
+ERROR: test_native_companion_recovery_success_and_no_application_are_distinct (test_proxy_population_public_application.ActualApplicationTests.test_native_companion_recovery_success_and_no_application_are_distinct) (succeeds=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_public_application.py", line 58, in run
+    self.assertEqual(api.companion_applied(game,[event],shots,'A')['condition_met'],succeeds)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_public_application.py", line 43, in companion_applied
+    else:raise ValueError('companion resolution application unproved')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: companion resolution application unproved
+
+======================================================================
+ERROR: test_native_companion_recovery_success_and_no_application_are_distinct (test_proxy_population_public_application.ActualApplicationTests.test_native_companion_recovery_success_and_no_application_are_distinct) (succeeds=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_public_application.py", line 58, in run
+    self.assertEqual(api.companion_applied(game,[event],shots,'A')['condition_met'],succeeds)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_public_application.py", line 43, in companion_applied
+    else:raise ValueError('companion resolution application unproved')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: companion resolution application unproved
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.088s
+
+FAILED (errors=2)

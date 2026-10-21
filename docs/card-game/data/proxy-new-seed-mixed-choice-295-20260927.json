@@ -1,0 +1,435 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "mandatory_proved_end",
+      "selected_candidate": "turn_end",
+      "six_stage_checks": {
+        "closed_response_window_valid": true,
+        "enumeration_ids_unique": true,
+        "expiration_boundary_resolved": true,
+        "expiration_trigger_inventory_complete": true,
+        "reservation_order_resolved": true,
+        "six_stage_inventory_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_dispositions_explained": true,
+        "source_projection_exact": true,
+        "transition_handlers_proven": true,
+        "trigger_information_boundary_valid": true,
+        "victory_history_sufficient": true
+      },
+      "source_continuation_state_sha256": "dc4066baa18447a684c51ff26f18b201fc5f10423f7e158dfc8bcca4f8240673",
+      "source_game_state_sha256": "34934a52705eafee59eea30942d1b0453ffdba5b8d2d804b287ac305354157b2",
+      "source_last_valid_event_seq": 72
+    },
+    {
+      "balance_sample_count": 0,
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "mandatory_proved_end",
+      "selected_candidate": "turn_end",
+      "six_stage_checks": {
+        "closed_response_window_valid": true,
+        "enumeration_ids_unique": true,
+        "expiration_boundary_resolved": true,
+        "expiration_trigger_inventory_complete": true,
+        "reservation_order_resolved": true,
+        "six_stage_inventory_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_dispositions_explained": true,
+        "source_projection_exact": true,
+        "transition_handlers_proven": true,
+        "trigger_information_boundary_valid": true,
+        "victory_history_sufficient": true
+      },
+      "source_continuation_state_sha256": "e7d50f415afe136ee3257ee94f13c8d75c4149282d001735d526faf825e9a16a",
+      "source_game_state_sha256": "7764ca99e16a170d335102e2a32dcdc58f8a8124f530fd89cf22a468b19090bd",
+      "source_last_valid_event_seq": 74
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "B-001",
+        "B-010",
+        "B-025",
+        "B-026",
+        "B-027",
+        "B-030",
+        "B-034",
+        "B-038",
+        "B-039"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-b-first",
+      "resolution_mode": "seeded_fallback",
+      "selected_candidate": "B-034",
+      "selected_decision": {
+        "candidate_set_complete": true,
+        "candidate_set_evidence": {
+          "enumeration_rule": "all card copies in hand after egg draw",
+          "source_ref": "115.bottom_candidate_copy_ids",
+          "state_ref": "R5:egg_exchange_choice:B"
+        },
+        "decision_kind": "mandatory_choice",
+        "event_seq": 76,
+        "legal_candidate_details": [
+          {
+            "candidate_id": "B-001",
+            "card_id": "M-antlion-01",
+            "initial_instance_id": "B-001#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-010",
+            "card_id": "M-beetle-02",
+            "initial_instance_id": "B-010#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-025",
+            "card_id": "G-archery-3d",
+            "initial_instance_id": "B-025#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-026",
+            "card_id": "G-area-claim",
+            "initial_instance_id": "B-026#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-027",
+            "card_id": "G-asteroids-classic",
+            "initial_instance_id": "B-027#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-030",
+            "card_id": "G-beach-volley",
+            "initial_instance_id": "B-030#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-034",
+            "card_id": "I-poop1",
+            "initial_instance_id": "B-034#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-038",
+            "card_id": "E-fateful-transform",
+            "initial_instance_id": "B-038#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-039",
+            "card_id": "E-final-time",
+            "initial_instance_id": "B-039#1",
+            "kind": "card_copy"
+          }
+        ],
+        "legal_candidates": [
+          "B-001",
+          "B-010",
+          "B-025",
+          "B-026",
+          "B-027",
+          "B-030",
+          "B-034",
+          "B-038",
+          "B-039"
+        ],
+        "pre_continuation_state_sha256": "235dedc8b734b750bd08b2ba21f09754e55cb353e43dfd57a1392e079ffafff1",
+        "pre_game_state_sha256": "ed2da259baea25567fecdaafdb70500873dc64eb5f6732edd7db3b5c1923a103",
+        "reason_code": "strategic_unresolved_seeded_fallback",
+        "resolution_mode": "seeded_fallback",
+        "runner_up_action": {
+          "candidate_id": "B-001",
+          "card_id": "M-antlion-01",
+          "initial_instance_id": "B-001#1",
+          "kind": "card_copy"
+        },
+        "runner_up_candidates": [
+          "B-001",
+          "B-010",
+          "B-025",
+          "B-026",
+          "B-027",
+          "B-030",
+          "B-038",
+          "B-039"
+        ],
+        "seed_context": {
+          "actor": "B",
+          "actor_turn_index": 5,
+          "choice_kind": "egg_exchange_bottom",
+          "contract_version": "naotocchi.card_game.proxy_normal_decision_fallback.v1",
+          "decision_kind": "mandatory_choice",
+          "order_id": "probe-02",
+          "phase": "egg_exchange_choice",
+          "round": 5
+        },
+        "seed_proof": {
+          "algorithm": "sha256_modulo",
+          "candidate_count": 9,
+          "canonical_candidate_ids": [
+            "B-001",
+            "B-010",
+            "B-025",
+            "B-026",
+            "B-027",
+            "B-030",
+            "B-034",
+            "B-038",
+            "B-039"
+          ],
+          "canonical_serialization": "[\"naotocchi.card_game.proxy_normal_decision_fallback.v1\",\"probe-02\",\"B\",5,5,\"egg_exchange_choice\",\"mandatory_choice\",\"egg_exchange_bottom\",[\"B-001\",\"B-010\",\"B-025\",\"B-026\",\"B-027\",\"B-030\",\"B-034\",\"B-038\",\"B-039\"]]",
+          "seed_material": [
+            "naotocchi.card_game.proxy_normal_decision_fallback.v1",
+            "probe-02",
+            "B",
+            5,
+            5,
+            "egg_exchange_choice",
+            "mandatory_choice",
+            "egg_exchange_bottom",
+            [
+              "B-001",
+              "B-010",
+              "B-025",
+              "B-026",
+              "B-027",
+              "B-030",
+              "B-034",
+              "B-038",
+              "B-039"
+            ]
+          ],
+          "selected_candidate": "B-034",
+          "selected_index": 6,
+          "sha256": "3c701d8a6cd946e5885f0535d725c57c4f5ded3da42da07478ffb2fba6a91ae7"
+        },
+        "seeded_fallback_candidates": [
+          "B-001",
+          "B-010",
+          "B-025",
+          "B-026",
+          "B-027",
+          "B-030",
+          "B-034",
+          "B-038",
+          "B-039"
+        ],
+        "selected_action": {
+          "card_copy_id": "B-034",
+          "card_id": "I-poop1",
+          "initial_instance_id": "B-034#1"
+        },
+        "selected_candidate": "B-034",
+        "strategic_unresolved": true
+      },
+      "source_continuation_state_sha256": "235dedc8b734b750bd08b2ba21f09754e55cb353e43dfd57a1392e079ffafff1",
+      "source_game_state_sha256": "ed2da259baea25567fecdaafdb70500873dc64eb5f6732edd7db3b5c1923a103",
+      "source_last_valid_event_seq": 76
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "B-001",
+        "B-003",
+        "B-013",
+        "B-022",
+        "B-025",
+        "B-026",
+        "B-030",
+        "B-035",
+        "B-038"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "seeded_fallback",
+      "selected_candidate": "B-038",
+      "selected_decision": {
+        "candidate_set_complete": true,
+        "candidate_set_evidence": {
+          "enumeration_rule": "all card copies in hand after egg draw",
+          "source_ref": "115.bottom_candidate_copy_ids",
+          "state_ref": "R4:egg_exchange_choice:B"
+        },
+        "decision_kind": "mandatory_choice",
+        "event_seq": 64,
+        "legal_candidate_details": [
+          {
+            "candidate_id": "B-001",
+            "card_id": "M-antlion-01",
+            "initial_instance_id": "B-001#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-003",
+            "card_id": "M-antlion-03",
+            "initial_instance_id": "B-003#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-013",
+            "card_id": "C-cat_friend",
+            "initial_instance_id": "B-013#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-022",
+            "card_id": "W-deepsea",
+            "initial_instance_id": "B-022#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-025",
+            "card_id": "G-archery-3d",
+            "initial_instance_id": "B-025#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-026",
+            "card_id": "G-area-claim",
+            "initial_instance_id": "B-026#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-030",
+            "card_id": "G-beach-volley",
+            "initial_instance_id": "B-030#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-035",
+            "card_id": "I-sleepboost1",
+            "initial_instance_id": "B-035#1",
+            "kind": "card_copy"
+          },
+          {
+            "candidate_id": "B-038",
+            "card_id": "E-fateful-transform",
+            "initial_instance_id": "B-038#1",
+            "kind": "card_copy"
+          }
+        ],
+        "legal_candidates": [
+          "B-001",
+          "B-003",
+          "B-013",
+          "B-022",
+          "B-025",
+          "B-026",
+          "B-030",
+          "B-035",
+          "B-038"
+        ],
+        "pre_continuation_state_sha256": "aa81378125fb5ea85ab30d0748079501fde71a5e2b88490ef782a9f3c2366a0f",
+        "pre_game_state_sha256": "a930716d92470c37b754ad0714db190e2bc88327f3b7535a14c4d65f13960575",
+        "reason_code": "strategic_unresolved_seeded_fallback",
+        "resolution_mode": "seeded_fallback",
+        "runner_up_action": {
+          "candidate_id": "B-001",
+          "card_id": "M-antlion-01",
+          "initial_instance_id": "B-001#1",
+          "kind": "card_copy"
+        },
+        "runner_up_candidates": [
+          "B-001",
+          "B-003",
+          "B-013",
+          "B-022",
+          "B-025",
+          "B-026",
+          "B-030",
+          "B-035"
+        ],
+        "seed_context": {
+          "actor": "B",
+          "actor_turn_index": 4,
+          "choice_kind": "egg_exchange_bottom",
+          "contract_version": "naotocchi.card_game.proxy_normal_decision_fallback.v1",
+          "decision_kind": "mandatory_choice",
+          "order_id": "probe-02",
+          "phase": "egg_exchange_choice",
+          "round": 4
+        },
+        "seed_proof": {
+          "algorithm": "sha256_modulo",
+          "candidate_count": 9,
+          "canonical_candidate_ids": [
+            "B-001",
+            "B-003",
+            "B-013",
+            "B-022",
+            "B-025",
+            "B-026",
+            "B-030",
+            "B-035",
+            "B-038"
+          ],
+          "canonical_serialization": "[\"naotocchi.card_game.proxy_normal_decision_fallback.v1\",\"probe-02\",\"B\",4,4,\"egg_exchange_choice\",\"mandatory_choice\",\"egg_exchange_bottom\",[\"B-001\",\"B-003\",\"B-013\",\"B-022\",\"B-025\",\"B-026\",\"B-030\",\"B-035\",\"B-038\"]]",
+          "seed_material": [
+            "naotocchi.card_game.proxy_normal_decision_fallback.v1",
+            "probe-02",
+            "B",
+            4,
+            4,
+            "egg_exchange_choice",
+            "mandatory_choice",
+            "egg_exchange_bottom",
+            [
+              "B-001",
+              "B-003",
+              "B-013",
+              "B-022",
+              "B-025",
+              "B-026",
+              "B-030",
+              "B-035",
+              "B-038"
+            ]
+          ],
+          "selected_candidate": "B-038",
+          "selected_index": 8,
+          "sha256": "30c0d842e50567276da6eb26fd55ff1a84ea08a26b5f9020018e2a1ad1ec4833"
+        },
+        "seeded_fallback_candidates": [
+          "B-001",
+          "B-003",
+          "B-013",
+          "B-022",
+          "B-025",
+          "B-026",
+          "B-030",
+          "B-035",
+          "B-038"
+        ],
+        "selected_action": {
+          "card_copy_id": "B-038",
+          "card_id": "E-fateful-transform",
+          "initial_instance_id": "B-038#1"
+        },
+        "selected_candidate": "B-038",
+        "strategic_unresolved": true
+      },
+      "source_continuation_state_sha256": "aa81378125fb5ea85ab30d0748079501fde71a5e2b88490ef782a9f3c2366a0f",
+      "source_game_state_sha256": "a930716d92470c37b754ad0714db190e2bc88327f3b7535a14c4d65f13960575",
+      "source_last_valid_event_seq": 64
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_mixed_choice_295.v1",
+  "source_raw_sha256": "1fd378057081f46579bbfbce81fb0adc83d919766fe62977e58787dfbd0ed3ef",
+  "state_raw_sha256": "230a7bdb9a9fde02a242025ecea458327d16168b6f4a411b41d1d2452f67b094"
+}

@@ -1,0 +1,25 @@
+test_match_side_and_chooser_root_are_derived_from_bundle (test_proxy_mandatory_population_input.BindingTests.test_match_side_and_chooser_root_are_derived_from_bundle) ... FAIL
+test_swap_bundle_match_evidence_or_unsupported_scope_is_rejected (test_proxy_mandatory_population_input.BindingTests.test_swap_bundle_match_evidence_or_unsupported_scope_is_rejected) ... FAIL
+
+======================================================================
+FAIL: test_match_side_and_chooser_root_are_derived_from_bundle (test_proxy_mandatory_population_input.BindingTests.test_match_side_and_chooser_root_are_derived_from_bundle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 115, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'build_bound_local_record'),'bundle-to-choice binding missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : bundle-to-choice binding missing
+
+======================================================================
+FAIL: test_swap_bundle_match_evidence_or_unsupported_scope_is_rejected (test_proxy_mandatory_population_input.BindingTests.test_swap_bundle_match_evidence_or_unsupported_scope_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 115, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'build_bound_local_record'),'bundle-to-choice binding missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : bundle-to-choice binding missing
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+FAILED (failures=2)

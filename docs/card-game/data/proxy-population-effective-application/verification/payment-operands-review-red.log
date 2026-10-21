@@ -1,0 +1,33 @@
+F
+======================================================================
+FAIL: test_unknown_route_cannot_alias_a_verified_enumeration_unit (test_proxy_population_payment_operands.PaymentOperandTests.test_unknown_route_cannot_alias_a_verified_enumeration_unit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/test_proxy_population_payment_operands.py", line 72, in test_unknown_route_cannot_alias_a_verified_enumeration_unit
+    self.run_scoped(run)
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/test_proxy_population_payment_operands.py", line 11, in run_scoped
+    with window.contract_scope():runtime.operation(initial(),body)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/proxy_population_challenge_window.py", line 119, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/proxy_population_challenge_window.py", line 118, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/test_proxy_population_payment_operands.py", line 70, in run
+    self.assertFalse(proof['supported_payment_operands_verified'],proof)
+AssertionError: True is not false : {'schema': 'normal_comparison_payment_operands.v1', 'applicable': True, 'supported_payment_operands_verified': True, 'errors': [], 'verified_candidates': [{'candidate_id': 'candidate-use_play-A-001#1-declare-companion', 'enumeration_unit_id': '["hand_card_action","hand","A-001#1","use_play","companion",[]]', 'payment_time': 1, 'time_after_certain_resolution': 1, 'source_references': ['87-play-batch-5-card-text-draft.md#G-hit-blow']}, {'candidate_id': 'candidate-use_play-A-001#1-declare-event', 'enumeration_unit_id': '["hand_card_action","hand","A-001#1","use_play","event",[]]', 'payment_time': 1, 'time_after_certain_resolution': 1, 'source_references': ['87-play-batch-5-card-text-draft.md#G-hit-blow']}, {'candidate_id': 'candidate-use_play-A-001#1-declare-item', 'enumeration_unit_id': '["hand_card_action","hand","A-001#1","use_play","item",[]]', 'payment_time': 1, 'time_after_certain_resolution': 1, 'source_references': ['87-play-batch-5-card-text-draft.md#G-hit-blow']}, {'candidate_id': 'candidate-use_play-A-001#1-declare-main', 'enumeration_unit_id': '["hand_card_action","hand","A-001#1","use_play","main",[]]', 'payment_time': 1, 'time_after_certain_resolution': 1, 'source_references': ['87-play-batch-5-card-text-draft.md#G-hit-blow']}, {'candidate_id': 'candidate-use_play-A-001#1-declare-partner', 'enumeration_unit_id': '["hand_card_action","hand","A-001#1","use_play","partner",[]]', 'payment_time': 1, 'time_after_certain_resolution': 1, 'source_references': ['87-play-batch-5-card-text-draft.md#G-hit-blow']}, {'candidate_id': 'candidate-use_play-A-001#1-declare-play', 'enumeration_unit_id': '["hand_card_action","hand","A-001#1","use_play","play",[]]', 'payment_time': 1, 'time_after_certain_resolution': 1, 'source_references': ['87-play-batch-5-card-text-draft.md#G-hit-blow']}, {'candidate_id': 'candidate-use_play-A-001#1-declare-world', 'enumeration_unit_id': '["hand_card_action","hand","A-001#1","use_play","world",[]]', 'payment_time': 1, 'time_after_certain_resolution': 1, 'source_references': ['87-play-batch-5-card-text-draft.md#G-hit-blow']}, {'candidate_id': 'pass', 'enumeration_unit_id': '["standing_pass","synthetic","pass","pass","pass",[]]', 'payment_time': 0, 'time_after_certain_resolution': 2, 'source_references': ['01-core-rules.md']}, {'candidate_id': 'unknown-board', 'enumeration_unit_id': '["standing_pass","synthetic","pass","pass","pass",[]]', 'payment_time': 0, 'time_after_certain_resolution': 2, 'source_references': ['01-core-rules.md']}], 'unproved_candidates': [], 'source_sha256': {'01-core-rules.md': 'd95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71', '02-main-system.md': '6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127', '06-action-chain-checkpoint.md': '7ac6d6141095d1139b8a8e072bc1523d621b7f100a57e292c08bbc97a7618c67', 'data/proxy-normal-decision-candidate-table-114-20260918.json': '7e1df8fbedb74413c407497fff6f285f77f72907d7e544095e8bb34b348ed737', '114-normal-decision-protocol-hardening.md': 'aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a', '127-r2-candidate-extension.md': 'daa9f3f48221b0926a76f1fb2093833e9fbba3baac52c8a241e07ac504eafd35', '91-event-21-card-text-draft.md': '46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8', '77-current-items-card-text-draft.md': 'ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02', '79-play-batch-1-card-text-draft.md': 'cc3cdf1f52581d0e58a72190aff4792da406bdfe7abc508e57849b56fc0a900a', '81-play-batch-2-card-text-draft.md': '78aad20fd869c7b46865ced0759c3b8c6768077cd3d55e27628b918719a5e3c4', '83-play-batch-3-card-text-draft.md': '09a12201ebdd0ed7e8079dc59eec283a1afc84c66fbbbc008cbf7d9317abff27', '85-play-batch-4-card-text-draft.md': 'a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b', '87-play-batch-5-card-text-draft.md': 'b87a3288c053d2ddb811d6dc341de03370a014f570516d145948e978980169f4'}, 'operand_provenance_verified': False, 'other_priority_operands_proven': False, 'information_use_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.220s
+
+FAILED (failures=1)

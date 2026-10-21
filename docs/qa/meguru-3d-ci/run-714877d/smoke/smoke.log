@@ -1,0 +1,13 @@
+home         3D=true walk=386 pen=0.0/0.0 party=27 calls=58 tris=34926 js=6.4 enter=268ms spot=bigtree err=0/0 fb=0
+city         3D=true walk=307 pen=0.0/0.0 party=27 calls=60 tris=129296 js=8.5 enter=467ms spot=tower err=0/0 fb=0
+countryside  3D=true walk=346 pen=0.0/0.0 party=27 calls=75 tris=119850 js=7.8 enter=370ms spot=watermill err=0/0 fb=0
+forest       3D=true walk=325 pen=0.0/0.0 party=27 calls=81 tris=147962 js=9.3 enter=881ms spot=mush1 err=0/0 fb=0
+mountain     3D=true walk=355 pen=0.0/0.0 party=27 calls=76 tris=106754 js=8.6 enter=796ms spot=bigfalls err=0/0 fb=0
+snow         3D=true walk=389 pen=0.0/0.0 party=27 calls=69 tris=69834 js=6.6 enter=300ms spot=lodge err=0/0 fb=0
+sea          3D=true walk=367 pen=0.0/0.0 party=27 calls=68 tris=69452 js=8.5 enter=379ms spot=lighthouse err=0/0 fb=0
+deepsea      3D=true walk=390 pen=0.0/0.0 party=27 calls=59 tris=73746 js=6.7 enter=315ms spot=coralcity err=0/0 fb=0
+river_lake   3D=true walk=342 pen=0.0/0.0 party=27 calls=94 tris=113886 js=8.7 enter=393ms spot=bridge2 err=0/0 fb=0
+jungle       3D=true walk=294 pen=0.0/0.0 party=27 calls=90 tris=173318 js=10.5 enter=581ms spot=falls err=0/0 fb=0
+desert       3D=true walk=376 pen=0.0/0.0 party=27 calls=65 tris=90878 js=7.5 enter=658ms spot=oasis err=0/0 fb=0
+star_stop    3D=true walk=389 pen=0.0/0.0 party=27 calls=53 tris=66398 js=5.7 enter=317ms spot=stop err=0/0 fb=0
+memory_lake  3D=true walk=440 pen=0.0/0.0 party=27 calls=60 tris=51666 js=7.1 enter=346ms spot=shore err=0/0 fb=0

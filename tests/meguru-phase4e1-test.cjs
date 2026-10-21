@@ -387,7 +387,7 @@ test('15. まだ だれも つかって いない: simulation / renderer / UI / 
   const rest = strip4e2(SRC.replace(block, ''));   // 4E-2(4E-1 を つかう さいしょの ひと)の 印の ところは のぞく
   const INNER = ['CORRIDOR_REVISIT_SPEED', 'CORRIDOR_TURN_BUDGET', 'CORRIDOR_RAMP', 'CORRIDOR_EDGE', 'CORRIDOR_OBSTACLE_ALLOWANCE',
     'CORRIDOR_OBSTACLE_MAX', 'CORRIDOR_TERRAIN', 'CORRIDOR_WIDTH_ORDER', 'buildWalkCorridorSpec', 'walkSpecCache', 'turnedAt', 'deepFreeze', 'wrapDeg', 'deg360', 'round3'];
-  const exportLine = rest.split('\n').find((l) => l.includes('return { computeMapData,')) || '';
+  const exportLine = rest.split('\n').find((l) => /return \{ (?:socialSession, )?computeMapData,/.test(l)) || '';
   const outside = rest.replace(exportLine, '');
   for (const n of EXPORTS_4E1.concat(INNER)) {
     const hit = outside.match(new RegExp('\\b' + n + '\\b', 'g')) || [];

@@ -1,0 +1,32 @@
+test_marriage_native_transition_uses_actual_bounded_increase (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_marriage_native_transition_uses_actual_bounded_increase) ... ERROR
+
+======================================================================
+ERROR: test_marriage_native_transition_uses_actual_bounded_increase (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_marriage_native_transition_uses_actual_bounded_increase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 31, in test_marriage_native_transition_uses_actual_bounded_increase
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 28, in run
+    with api.scope():after,events=base.engine.batch.transition(e,action,[])
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch.py", line 187, in transition
+    proof=outcome(envelope,action,history);g,p=ready(envelope,action,history);actor=proof['actor'];kind=action['action_type']
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch.py", line 63, in outcome
+    if p['growth']+growth>=100:raise ValueError('relationship 100 maintenance boundary requires priority proof')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: relationship 100 maintenance boundary requires priority proof
+
+----------------------------------------------------------------------
+Ran 1 test in 0.224s
+
+FAILED (errors=1)

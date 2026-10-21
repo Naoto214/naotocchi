@@ -1,0 +1,13 @@
+.F.........
+======================================================================
+FAIL: test_existing_end_adapter_advances_to_next_egg_choice (test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_end_adapter_advances_to_next_egg_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_trajectory.py", line 39, in test_existing_end_adapter_advances_to_next_egg_choice
+    self.assertGreaterEqual(kinds.count("egg_exchange_bottom"),3)
+AssertionError: 2 not greater than or equal to 3
+
+----------------------------------------------------------------------
+Ran 11 tests in 14.601s
+
+FAILED (failures=1)

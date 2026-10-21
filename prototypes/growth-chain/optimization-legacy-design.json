@@ -1,0 +1,84 @@
+{
+  "reason": "Screening found new greedy policies spend gauge too early; compare parameters with retained stronger legacy policy. Same screening seeds, adaptive exploratory edition.",
+  "conditions": [
+    {
+      "id": "legacy",
+      "policy": "legacy"
+    },
+    {
+      "policy": "legacy",
+      "id": "g12",
+      "gauge": 12
+    },
+    {
+      "policy": "legacy",
+      "id": "g6",
+      "gauge": 6
+    },
+    {
+      "policy": "legacy",
+      "id": "g4",
+      "gauge": 4
+    },
+    {
+      "policy": "legacy",
+      "id": "g2",
+      "gauge": 2
+    },
+    {
+      "policy": "legacy",
+      "id": "egg2",
+      "eggs": [
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "policy": "legacy",
+      "id": "silver1",
+      "eggs": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "policy": "legacy",
+      "id": "platinum1",
+      "eggs": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "policy": "legacy",
+      "id": "width7",
+      "width": 7
+    },
+    {
+      "policy": "legacy",
+      "id": "kinds4",
+      "kinds": 4
+    },
+    {
+      "policy": "legacy",
+      "id": "kinds6",
+      "kinds": 6
+    }
+  ],
+  "seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+  ]
+}

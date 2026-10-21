@@ -1,0 +1,15 @@
+test_historical_trigger_scope_conflict_has_public_event_evidence (test_proxy_resource_value_trajectory.TrajectoryTests.test_historical_trigger_scope_conflict_has_public_event_evidence) ... ERROR
+
+======================================================================
+ERROR: test_historical_trigger_scope_conflict_has_public_event_evidence (test_proxy_resource_value_trajectory.TrajectoryTests.test_historical_trigger_scope_conflict_has_public_event_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_trajectory.py", line 65, in test_historical_trigger_scope_conflict_has_public_event_evidence
+    self.assertEqual(result['stop_evidence']['trigger_event'],dict(seq=84,action_type='egg_exchange_bottom',actor='A'))
+                     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'trigger_event'
+
+----------------------------------------------------------------------
+Ran 1 test in 9.739s
+
+FAILED (errors=1)

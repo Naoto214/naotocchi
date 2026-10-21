@@ -1,0 +1,141 @@
+{
+  "scope": "existing_test_1A_conditional_unit_only",
+  "base_head": "c949ae979a9d365be7f30f6b0a0b9b103cfbeb7a",
+  "tools_sha256": "1bec0901e350d7c3eec070ba6c316f2230a212cc483165816c46146c5d068720",
+  "completed": true,
+  "runtime_steps": 143,
+  "counts": {
+    "response_steps": 89,
+    "response_covered_steps": 85,
+    "normal_steps": 29,
+    "normal_covered_steps": 19
+  },
+  "response_unproved_counts": {
+    "C-chicken": 4
+  },
+  "response_samples": {
+    "C-chicken": [
+      {
+        "event_seq": 169,
+        "source_instance_id": "A-015#1",
+        "actor": "A",
+        "context": {
+          "source_phase": "post_placement_response",
+          "phase": "response_window",
+          "window_kind": "after_normal_action",
+          "origin_event_seq": 169,
+          "turn_player": "A",
+          "priority_actor": "A",
+          "chain_status": "empty",
+          "chain_links": [],
+          "consecutive_passes": 0,
+          "response_opportunity_index": 1,
+          "decision_kind": "response_action",
+          "choice_kind": "reaction_or_pass"
+        },
+        "board_reason": [
+          {
+            "source_instance_id": "A-015#1",
+            "card_id": "C-chicken",
+            "reason": "event_or_prepared_response_predicate_unproved"
+          }
+        ],
+        "closure_reason": []
+      },
+      {
+        "event_seq": 170,
+        "source_instance_id": "A-015#1",
+        "actor": "A",
+        "context": {
+          "source_phase": "post_placement_response",
+          "phase": "response_window",
+          "window_kind": "after_normal_action",
+          "origin_event_seq": 169,
+          "turn_player": "A",
+          "priority_actor": "A",
+          "chain_status": "building",
+          "chain_links": [
+            "response-link-170-A-013#1"
+          ],
+          "consecutive_passes": 0,
+          "response_opportunity_index": 2,
+          "decision_kind": "response_action",
+          "choice_kind": "reaction_or_pass"
+        },
+        "board_reason": [
+          {
+            "source_instance_id": "A-015#1",
+            "card_id": "C-chicken",
+            "reason": "event_or_prepared_response_predicate_unproved"
+          }
+        ],
+        "closure_reason": []
+      },
+      {
+        "event_seq": 179,
+        "source_instance_id": "A-015#1",
+        "actor": "A",
+        "context": {
+          "source_phase": "response_window",
+          "phase": "response_window",
+          "window_kind": "turn_start",
+          "origin_event_seq": 178,
+          "turn_player": "B",
+          "priority_actor": "A",
+          "chain_status": "empty",
+          "chain_links": [],
+          "consecutive_passes": 1,
+          "response_opportunity_index": 2,
+          "decision_kind": "response_action",
+          "choice_kind": "reaction_or_pass"
+        },
+        "board_reason": [
+          {
+            "source_instance_id": "A-015#1",
+            "card_id": "C-chicken",
+            "reason": "event_or_prepared_response_predicate_unproved"
+          }
+        ],
+        "closure_reason": [
+          {
+            "source_instance_id": "A-015#1",
+            "reason": "current_group_consumption_unproved"
+          }
+        ]
+      },
+      {
+        "event_seq": 181,
+        "source_instance_id": "A-015#1",
+        "actor": "A",
+        "context": {
+          "source_phase": "normal_action",
+          "phase": "response_window",
+          "window_kind": "after_normal_action",
+          "origin_event_seq": 181,
+          "turn_player": "B",
+          "priority_actor": "A",
+          "chain_status": "empty",
+          "chain_links": [],
+          "consecutive_passes": 1,
+          "response_opportunity_index": 2,
+          "decision_kind": "response_action",
+          "choice_kind": "reaction_or_pass"
+        },
+        "board_reason": [
+          {
+            "source_instance_id": "A-015#1",
+            "card_id": "C-chicken",
+            "reason": "event_or_prepared_response_predicate_unproved"
+          }
+        ],
+        "closure_reason": []
+      }
+    ]
+  },
+  "normal_unproved_counts": {
+    "('I-poop1', 'hand_card_action', 'trigger_prepared_item')": 10
+  },
+  "whole_opportunity_proof": false,
+  "production_matches": 0,
+  "independent_balance_samples": 0
+}

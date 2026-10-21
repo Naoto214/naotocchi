@@ -1,0 +1,23 @@
+.EE....................
+======================================================================
+ERROR: test_four_negative_sources_reoffers_and_incomplete_history (test_proxy_population_response_end_predicates.ResponseEndPredicateTests.test_four_negative_sources_reoffers_and_incomplete_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_end_predicates.py", line 28, in test_four_negative_sources_reoffers_and_incomplete_history
+    with connected.contract_scope():runtime.operation(initial(),run)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_connected_entry' has no attribute 'contract_scope'
+
+======================================================================
+ERROR: test_positive_end_absence_or_closed_reason_is_not_negative_proof (test_proxy_population_response_end_predicates.ResponseEndPredicateTests.test_positive_end_absence_or_closed_reason_is_not_negative_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_end_predicates.py", line 43, in test_positive_end_absence_or_closed_reason_is_not_negative_proof
+    with connected.contract_scope():runtime.operation(initial(),run)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_connected_entry' has no attribute 'contract_scope'
+
+----------------------------------------------------------------------
+Ran 23 tests in 9.747s
+
+FAILED (errors=2)

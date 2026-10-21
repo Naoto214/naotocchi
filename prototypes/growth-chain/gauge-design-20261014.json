@@ -1,0 +1,400 @@
+{
+  "sourceHead": "d5022f6a4a7f96b347eec338021ed8b2dcb57535",
+  "limits": {
+    "drops": 600,
+    "actions": 4000
+  },
+  "fixed": {
+    "seeds": [
+      300,
+      301,
+      302,
+      303,
+      304,
+      305,
+      306,
+      307,
+      308,
+      309,
+      310,
+      311,
+      312,
+      313,
+      314,
+      315,
+      316,
+      317,
+      318,
+      319,
+      320,
+      321,
+      322,
+      323,
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331
+    ],
+    "conditions": [
+      {
+        "id": "g2",
+        "gauge": 2,
+        "options": {}
+      },
+      {
+        "id": "g3",
+        "gauge": 3,
+        "options": {}
+      },
+      {
+        "id": "g4",
+        "gauge": 4,
+        "options": {}
+      },
+      {
+        "id": "g8",
+        "gauge": 8,
+        "options": {}
+      }
+    ]
+  },
+  "tune": {
+    "seeds": [
+      400,
+      401,
+      402,
+      403,
+      404,
+      405,
+      406,
+      407
+    ],
+    "conditions": [
+      {
+        "id": "g2-legacy",
+        "gauge": 2,
+        "options": {},
+        "candidate": "legacy"
+      },
+      {
+        "id": "g2-penalty6",
+        "gauge": 2,
+        "options": {
+          "transformPenalty": 6
+        },
+        "candidate": "penalty6"
+      },
+      {
+        "id": "g2-reserve24",
+        "gauge": 2,
+        "options": {
+          "reservePoints": 24,
+          "transformPenalty": 12
+        },
+        "candidate": "reserve24"
+      },
+      {
+        "id": "g3-legacy",
+        "gauge": 3,
+        "options": {},
+        "candidate": "legacy"
+      },
+      {
+        "id": "g3-penalty6",
+        "gauge": 3,
+        "options": {
+          "transformPenalty": 6
+        },
+        "candidate": "penalty6"
+      },
+      {
+        "id": "g3-reserve24",
+        "gauge": 3,
+        "options": {
+          "reservePoints": 24,
+          "transformPenalty": 12
+        },
+        "candidate": "reserve24"
+      },
+      {
+        "id": "g4-legacy",
+        "gauge": 4,
+        "options": {},
+        "candidate": "legacy"
+      },
+      {
+        "id": "g4-penalty6",
+        "gauge": 4,
+        "options": {
+          "transformPenalty": 6
+        },
+        "candidate": "penalty6"
+      },
+      {
+        "id": "g4-reserve24",
+        "gauge": 4,
+        "options": {
+          "reservePoints": 24,
+          "transformPenalty": 12
+        },
+        "candidate": "reserve24"
+      },
+      {
+        "id": "g8-legacy",
+        "gauge": 8,
+        "options": {},
+        "candidate": "legacy"
+      },
+      {
+        "id": "g8-penalty6",
+        "gauge": 8,
+        "options": {
+          "transformPenalty": 6
+        },
+        "candidate": "penalty6"
+      },
+      {
+        "id": "g8-reserve24",
+        "gauge": 8,
+        "options": {
+          "reservePoints": 24,
+          "transformPenalty": 12
+        },
+        "candidate": "reserve24"
+      }
+    ]
+  },
+  "ablation": {
+    "seeds": [
+      300,
+      301,
+      302,
+      303,
+      304,
+      305,
+      306,
+      307
+    ],
+    "conditions": [
+      {
+        "id": "g2-noSingle",
+        "gauge": 2,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "egg",
+            "bulk"
+          ]
+        }
+      },
+      {
+        "id": "g2-noBulk",
+        "gauge": 2,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "egg",
+            "transform"
+          ]
+        }
+      },
+      {
+        "id": "g2-noEgg",
+        "gauge": 2,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "transform",
+            "bulk"
+          ]
+        }
+      },
+      {
+        "id": "g2-singleOnly",
+        "gauge": 2,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "transform"
+          ]
+        }
+      },
+      {
+        "id": "g2-dropOnly",
+        "gauge": 2,
+        "options": {
+          "allowedTypes": [
+            "drop"
+          ]
+        }
+      },
+      {
+        "id": "g3-noSingle",
+        "gauge": 3,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "egg",
+            "bulk"
+          ]
+        }
+      },
+      {
+        "id": "g3-noBulk",
+        "gauge": 3,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "egg",
+            "transform"
+          ]
+        }
+      },
+      {
+        "id": "g3-noEgg",
+        "gauge": 3,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "transform",
+            "bulk"
+          ]
+        }
+      },
+      {
+        "id": "g3-singleOnly",
+        "gauge": 3,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "transform"
+          ]
+        }
+      },
+      {
+        "id": "g3-dropOnly",
+        "gauge": 3,
+        "options": {
+          "allowedTypes": [
+            "drop"
+          ]
+        }
+      },
+      {
+        "id": "g4-noSingle",
+        "gauge": 4,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "egg",
+            "bulk"
+          ]
+        }
+      },
+      {
+        "id": "g4-noBulk",
+        "gauge": 4,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "egg",
+            "transform"
+          ]
+        }
+      },
+      {
+        "id": "g4-noEgg",
+        "gauge": 4,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "transform",
+            "bulk"
+          ]
+        }
+      },
+      {
+        "id": "g4-singleOnly",
+        "gauge": 4,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "transform"
+          ]
+        }
+      },
+      {
+        "id": "g4-dropOnly",
+        "gauge": 4,
+        "options": {
+          "allowedTypes": [
+            "drop"
+          ]
+        }
+      },
+      {
+        "id": "g8-noSingle",
+        "gauge": 8,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "egg",
+            "bulk"
+          ]
+        }
+      },
+      {
+        "id": "g8-noBulk",
+        "gauge": 8,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "egg",
+            "transform"
+          ]
+        }
+      },
+      {
+        "id": "g8-noEgg",
+        "gauge": 8,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "transform",
+            "bulk"
+          ]
+        }
+      },
+      {
+        "id": "g8-singleOnly",
+        "gauge": 8,
+        "options": {
+          "allowedTypes": [
+            "drop",
+            "transform"
+          ]
+        }
+      },
+      {
+        "id": "g8-dropOnly",
+        "gauge": 8,
+        "options": {
+          "allowedTypes": [
+            "drop"
+          ]
+        }
+      }
+    ]
+  },
+  "selectionRule": "Max tuning wins, then min all-trial transforms, then min screenDiscrete inputs, then lexicographic id. Confirm on existing 300..331 benchmark, never select on confirmation results.",
+  "notes": [
+    "Fixed is identical legacy algorithm, including its price-relative three-bar reserve. Not identical decisions or absolute reserve.",
+    "Tuning 400..407 not used for reporting confirmation rates. Existing 300..331 benchmark is previously observed, not a pristine holdout.",
+    "Ablation limits available actions at both lookahead levels; engine rules/rewards unchanged. Chain benefit described from traces, not by disabling gravity or chain rules.",
+    "UI snapshot sourceHead: rail egg/transform/bulk -> target and kind -> confirm = 4 inputs. Drop down steps treated as automatic wait; discrete left/right taps versus uninterrupted same-direction hold scenarios. No thought, animation or error time estimate."
+  ]
+}

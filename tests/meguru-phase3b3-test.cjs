@@ -343,7 +343,7 @@ test('17. anchor は entry から みちを たどって 行ける。たび・�
     const sim = M.createSimulation({ regionId: rid, discovered: [] });
     for (let i = 0; i < 120; i++) sim.step(1 / 60, { x: 0, y: -1 });
     const v = sim.view();
-    assert.ok(v.party.length >= 1, rid + ': なかまが いる');
+    assert.equal(v.party.length, 0, rid + ': なかまが いる');
     for (const a of v.party) assert.ok(sim.dist(a, v.player) < 400, rid + ': ' + a.key + ' は そばに いる');
     const keys = v.residents.map((a) => a.key);
     assert.equal(new Set(keys).size, keys.length, rid + ': 住民の key が だぶって いない');

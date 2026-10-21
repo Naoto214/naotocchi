@@ -1,0 +1,14 @@
+{
+  "count": 8,
+  "new_independent_samples": 0,
+  "verified": [
+    "continuation_batched_normal_v2:legacy_107_114_116:probe-01-a-first",
+    "continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-a-first",
+    "continuation_batched_normal_v2:legacy_107_114_116:probe-01-b-first",
+    "continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-b-first",
+    "continuation_batched_normal_v2:legacy_107_114_116:probe-02-a-first",
+    "continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-a-first",
+    "continuation_batched_normal_v2:legacy_107_114_116:probe-02-b-first",
+    "continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-b-first"
+  ]
+}

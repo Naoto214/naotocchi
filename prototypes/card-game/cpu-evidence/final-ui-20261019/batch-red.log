@@ -1,0 +1,22 @@
+Initial failing-test summary (full terminal output retained during implementation).
+✔ history renders newest first without mutating chronological journal and survives replay (21.269621ms)
+✔ turn ownership and response operator stay distinct for either human seat and hotseat (6.520156ms)
+✔ marriage derives from actual transition and reports capped growth, payment, public couple, operator (7.218809ms)
+✔ birth and main growth emphasize the actual card and stats, ordinary effects stay ordinary (8.144304ms)
+✔ history labels the command owner and turn before a turn boundary, no repeated pass-only rows (2.45003ms)
+✔ finished result is public and explicitly states the actual outcome (1.685892ms)
+✔ turn motion only occurs on a real turn change, never on response/render/restore (1.244479ms)
+✔ burst of important events stays in order without timer multiplication (3.261639ms)
+✖ new human input preserves pending important results but hide clears them (2.335399ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 220.893711
+✖ failing tests:
+test at prototypes/card-game/tests/ui-milestones.test.mjs:61:1
+✖ new human input preserves pending important results but hide clears them (2.335399ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:

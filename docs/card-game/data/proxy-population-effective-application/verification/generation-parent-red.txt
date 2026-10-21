@@ -1,0 +1,31 @@
+F
+======================================================================
+FAIL: test_new_directory_is_durable_before_first_attempted_read (test_proxy_population_generation_entry.GenerationEntryTests.test_new_directory_is_durable_before_first_attempted_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_entry.py", line 42, in test_new_directory_is_durable_before_first_attempted_read
+    with self.assertRaises(OSError):api.generate_after_external_approval(Path(d),'0'*40,out,'test-only-reference-not-approval')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_generation_entry.py", line 44, in generate_after_external_approval
+    collected=collect_supplied(cursor,destination/'sampling-journal.jsonl',os.urandom)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_generation_journal.py", line 27, in collect_supplied
+    raw=read(request['byte_count'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_entry.py", line 36, in forbid
+    self.assertIn(out.parent.stat().st_ino,synced)
+AssertionError: 393314 not found in [393316, 393315, 393317, 393315, 393318, 393315, 393315, 393319]
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

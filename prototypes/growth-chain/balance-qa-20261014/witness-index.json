@@ -1,0 +1,41 @@
+[
+  {
+    "file": "witness-life2-8-egg0-seed85-action170.json",
+    "seed": 85,
+    "drop": 154,
+    "action": 170,
+    "eggs": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "causalEggRewards": 0
+  },
+  {
+    "file": "witness-life2-8-egg1-seed79-action258.json",
+    "seed": 79,
+    "drop": 235,
+    "action": 258,
+    "eggs": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "causalEggRewards": 0
+  },
+  {
+    "file": "witness-life2-8-egg1-seed79-action346.json",
+    "seed": 79,
+    "drop": 313,
+    "action": 346,
+    "eggs": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "causalEggRewards": 0
+  }
+]

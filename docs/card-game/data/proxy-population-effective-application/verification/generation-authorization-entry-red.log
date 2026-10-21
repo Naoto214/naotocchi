@@ -1,0 +1,18 @@
+...F.
+======================================================================
+FAIL: test_generation_entry_reference_alone_never_reaches_entropy (test_proxy_population_generation_authorization.GenerationAuthorizationTests.test_generation_entry_reference_alone_never_reaches_entropy)
+----------------------------------------------------------------------
+ValueError: test reached entropy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_generation_authorization.py", line 57, in test_generation_entry_reference_alone_never_reaches_entropy
+    with self.assertRaisesRegex(ValueError,'approval'):entry.generate_after_external_approval(self.repo,self.cert['commit'],self.destination,'reference-only')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "approval" does not match "test reached entropy"
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.360s
+
+FAILED (failures=1)
