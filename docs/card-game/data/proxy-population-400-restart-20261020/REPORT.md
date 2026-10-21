@@ -125,6 +125,7 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 | `b1df7af2` | prepared coverage origin binding | 現行の prepared 監査が main/companion 発動起点を公開リンクへ束縛せず未証明扱い。同じ厳密束縛を適用（リンク効果経路は別途検査） | 2 | 30 PASS | 032-B 完走 |
 | `c8da1007` | start source negative | 開始誘発源（C-chicken・I-bowtie）の否定証明が、登録済み通常手段の起点に main/companion 発動を含まない | 2 | 31 PASS | 023-B 完走 |
 | `831c8fe6` | E-final-time timing verdict | 型付き適用証拠の無い E-final-time 解決で M-antlion-06 判定が停止。文面「そうしたなら」により適用＝target_valid_at_resolution。この受領値を条件付き判定として記録し、記録全体の受理時に既存の designated 全差分監査（受領を規則から再計算し全envelopeを束縛）が同じeventを検証済みであることを必須化（無ければ記録ごと停止） | 3 | 36 PASS | 006-A・101-A 完走 |
+| `c64a889e` | duplicate physical copy identity | 凍結 next_turn は465の prepare/apply_choice を名前で取り込み、全状態から egg 交換frameを作る。再入場後は退役前身が残るため重複copyとして拒否。incarnation scope内で、未変更の465操作を登録簿束縛の現役ビューで実行し全カード表を復元（記録受理時の egg_choice_effect 監査が restore_game で導く形と同一） | 2 | 38 PASS | 042-A 完走 |
 
 完走済み対照行（group-001-A/003-B 等）は、修正前後で決定・イベント骨格・最終盤面が一致する（`play_digest`）。record全体のSHA-256はeditionとsource_versionsを含むため版間で一致しないが、これは証明情報の追加で、対局内容の変化ではない。
 
@@ -138,7 +139,7 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 
 調査は11区分をworkflow（区分ごとの調査＋3観点の反証＋統合）で始めたが、セッション上限で5区分の調査後に中断し、以後は直接の計装診断（`diag_*`：停止箇所のevent・文脈・ledger差分・覆い隠された例外のtraceback・述語監査の未証明理由を記録）で特定した。baselineで見えた19区分のうち、本人判断として残るのは pending source obligation（005-A・044-B・106-A）と R10・メイン不在の E-final-time 列挙（068-A）の2区分。各診断traceは `verification/*-trace-group-*` に保存した。
 
-固定tree上の全400行再実行は、修復のたびに停止行を先頭へ置いて再開している。現在は HEAD `831c8fe6` で、固定treeで未完走の377行を2並列で実行中（1行2〜12分、約1日）。2026-10-21の再実行でbaselineの停止行のうち31行以上が完走に変わった（各 `*-e2e.json`）。baselineセンサス（凍結tree、4並列）は指示どおり継続している（コンテナ再起動で一度停止したため、完了行をそのまま残して中断4行だけを再実行する形で再開した）。
+固定tree上の全400行再実行は、修復のたびに停止行を先頭へ置いて再開している。現在は HEAD `c64a889e` で、固定treeで未完走の372行を2並列で実行中（1行2〜12分、約1日）。2026-10-21の再実行でbaselineの停止行のうち31行以上が完走に変わった（各 `*-e2e.json`）。baselineセンサス（凍結tree、4並列）は指示どおり継続している（コンテナ再起動で一度停止したため、完了行をそのまま残して中断4行だけを再実行する形で再開した）。
 
 ## 9. 未解決事項（10-20時点。10-21の進捗は §8）
 
