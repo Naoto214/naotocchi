@@ -97,8 +97,9 @@ class ReplacementOriginTests(unittest.TestCase):
     with api.scope():
      row=actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,history)
      self.assertEqual((row['source_instance_id'],row['reason']),(bond,'certified_origin_does_not_move_an_opponent_companion'))
+     # Same row shape as the frozen classifier returns for a listed origin (the coverage audit binds it).
      listed=copy.deepcopy(history);listed[-1]['action_type']='use_item'
-     self.assertNotIn('concealed_origin_proof',actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,listed))
+     self.assertEqual(row,actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,listed))
      with patch.object(api,'REPLACEMENT',('I-bond1','0'*64)):
       with self.assertRaises(ValueError):actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,history)
     native=actions.PREPARED_REACTION_CLASSIFIER

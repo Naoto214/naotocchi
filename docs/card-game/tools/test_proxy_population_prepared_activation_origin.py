@@ -43,3 +43,15 @@ class PreparedActivationOriginTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class ReplacementCoverageTests(unittest.TestCase):
+ def test_bond_exclusion_for_the_paid_draw_origin_passes_the_coverage_audit(self):
+  from test_proxy_population_concealed_origin import with_bond
+  def run(forced):
+   after,history,hidden=activated();after=receipted(after);e,bond=with_bond(after);e['legacy_continuation']['response_context']['priority_actor']='B'
+   inv=actions.response_inventory(e,initial(),history)
+   proof=api.audit(e,history,inv)
+   self.assertEqual(proof['errors'],[]);self.assertTrue(proof['equipment_predicates_verified']);self.assertEqual([r['source_instance_id'] for r in proof['verified_equipment']],[bond])
+   return {}
+  with connected.contract_scope():base.operation(initial(),run)

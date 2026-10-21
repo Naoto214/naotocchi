@@ -78,7 +78,8 @@ def replacement(native,envelope,owner,source,events):
  if proof is None:return native(envelope,owner,source,events)
  c=state.current(envelope);card=c['game_state']['cards'][source]['card_id']
  if card!=REPLACEMENT[0] or starts.catalog()['cards'][card]['section_sha256']!=REPLACEMENT[1]:raise ValueError('replacement source outside the pinned text')
- return dict(source_instance_id=source,source_reference=batch.rules.classification(card)['reference'],reason='certified_origin_does_not_move_an_opponent_companion',concealed_origin_proof=proof)
+ # Exactly the frozen classifier's row: the coverage audit binds that shape.
+ return dict(source_instance_id=source,source_reference=batch.rules.classification(card)['reference'],reason='certified_origin_does_not_move_an_opponent_companion')
 
 
 @contextmanager
