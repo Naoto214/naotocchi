@@ -10,3 +10,6 @@ Review: fresh reviewer found save index coercion / gate boolean / impossible occ
 Minor deferred: renderer reuses animation positions across stage/retry; brief visual easing only, logical position correct.
 Pointer cancellation and multi-touch remain iPhone real-device QA items; cloud drag, Undo, save/reload checked.
 Existing regression: 95/95 growth-clear + slide08 tests after checking out growth-chain dependency.
+UI update: plan UI-PLAN.md. Shared condition contract, one-cell guardian/gate vs hexagonal rescue exit. Stage/input/save files unchanged.
+UI tests: 81/81; existing 95/95. Fresh review: no important blockers; minor overlay/reduced-motion live changes documented in UI-REPORT.md. No new gameplay/legacy changes.
+Release migration design saved in RELEASE-PLAN.md; public hub/allowlist/save keys read, no writes to these files.

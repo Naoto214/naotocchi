@@ -1,9 +1,9 @@
+import { matchesCondition } from './conditions.mjs';
 export const clone=v=>JSON.parse(JSON.stringify(v));
 export const mass=s=>s.rescued+s.actors.reduce((n,a)=>n+2**(a.level-1),0);
 export const complete=s=>s.actors.length===0&&s.gates.every(g=>!g.required||g.open);
 export function createState(stage){return {...clone(stage),rescued:0,nextId:1,moves:0};}
 const at=(list,x,y)=>list.find(a=>a.x===x&&a.y===y);
-const matches=(a,t)=>(!t.species||t.species===a.species)&&(!t.exact||t.exact===a.level)&&(!t.min||a.level>=t.min)&&(!t.max||a.level<=t.max);
 const wall=(s,x,y)=>x<0||x>=s.w||y<0||y>=s.h||s.walls.some(p=>p[0]===x&&p[1]===y);
 const support=(s,x,y)=>wall(s,x,y)||!!at(s.actors,x,y)||s.gates.some(g=>g.x===x&&g.y===y&&!g.open);
 export function move(s,id,dx,dy,fall=false){
@@ -14,7 +14,7 @@ export function move(s,id,dx,dy,fall=false){
  const target=at(s.actors,x,y),gate=at(s.gates,x,y),exit=at(s.exits,x,y);
  if(target&&(target.species!==a.species||target.level!==a.level||a.level>=8))return false;
  const prospective={...a,level:a.level+(target?1:0)};
- if(gate&&!gate.open&&!matches(prospective,gate)||exit&&!matches(prospective,exit))return false;
+ if(gate&&!gate.open&&!matchesCondition(prospective,gate)||exit&&!matchesCondition(prospective,exit))return false;
  const prev={x:a.x,y:a.y};
  if(target){s.actors=s.actors.filter(v=>v.id!==target.id);a.level++;}
  a.x=x;a.y=y; if(gate)gate.open=true;
