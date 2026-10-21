@@ -2640,7 +2640,7 @@
   }
   const TILT_MAZE_THEMES = [
     { title: 'たまころがし迷路!盤をかたむけてゴールへ', ballEmoji: '', goalEmoji: '⭐', palette: { frame: '#5b3b1e', floorA: '#e8d3a8', floorB: '#e0c99a', wallTop: '#a86f3a', wallSide: '#6e4522', ball: '#9fc4e8', ballDark: '#3b6a99' } },
-    { title: 'こおりのたまころがし!すべる盤でゴールをめざせ', ballEmoji: '', goalEmoji: '🏁', palette: { frame: '#284a6e', floorA: '#d9f1ff', floorB: '#cbe8fb', wallTop: '#7fb8e6', wallSide: '#3f7bb0', ball: '#ffd27a', ballDark: '#b97a12' } },
+    { title: 'こおりのたまころがし!つめたい盤でゴールをめざせ', ballEmoji: '', goalEmoji: '🏁', palette: { frame: '#284a6e', floorA: '#d9f1ff', floorB: '#cbe8fb', wallTop: '#7fb8e6', wallSide: '#3f7bb0', ball: '#ffd27a', ballDark: '#b97a12' } },
     { title: 'おかしのたまころがし!あめだまをゴールへころがそう', ballEmoji: '🍬', goalEmoji: '🎁', palette: { frame: '#7a2d5a', floorA: '#ffe4f0', floorB: '#ffd6e8', wallTop: '#ff8fbf', wallSide: '#b8467f', ball: '#fff', ballDark: '#999' } },
   ];
   const TILT_MAZE_VARIANTS = [mg('tilt-maze-3d', randomThemeGame(makeTiltMazeGame, TILT_MAZE_THEMES))];
