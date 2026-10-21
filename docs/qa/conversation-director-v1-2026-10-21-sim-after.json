@@ -1,0 +1,4350 @@
+{
+ "generatedAt": "2026-10-21T06:35:42.116Z",
+ "root": "39b5c27d (Conversation Director v1)",
+ "seeds": [
+  11,
+  22,
+  33
+ ],
+ "results": [
+  {
+   "scenario": "pet-only",
+   "label": "本人のみ",
+   "duration": "10m",
+   "utterances": 53.667,
+   "perMinute": 5.367,
+   "unique": 53.667,
+   "repeatRate": 0,
+   "windowRepeatRate": 0,
+   "maxSameLine": 1,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.05,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.467,
+   "perMinuteAfter30m": null,
+   "crossReloadRepeats": 0,
+   "minGapLines": null,
+   "medianGapSec": null,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 55,
+     "perMinute": 5.5,
+     "unique": 55,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 55
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 18,
+      "IDLE_GREETINGS_FOREIGN": 9,
+      "IDLE_GREETINGS_SILLY": 21,
+      "unlisted": 4,
+      "IDLE_GREETINGS_DIALECT": 3
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.055,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.6,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "ねえ、ちゃんとみてる?",
+       1
+      ],
+      [
+       "Merhaba!",
+       1
+      ],
+      [
+       "こっちみてこっちみて!",
+       1
+      ],
+      [
+       "ねえ、ちょっと!",
+       1
+      ],
+      [
+       "かっこいいポーズ、受付中",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 52,
+     "perMinute": 5.2,
+     "unique": 52,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 52
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_SILLY": 15,
+      "IDLE_GREETINGS_FOREIGN": 10,
+      "IDLE_GREETINGS_DIALECT": 2,
+      "IDLE_GREETINGS_STANDARD": 21,
+      "unlisted": 4
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.038,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.4,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "急に市役所いく?",
+       1
+      ],
+      [
+       "Olá!",
+       1
+      ],
+      [
+       "ンモー!",
+       1
+      ],
+      [
+       "なんしょん?",
+       1
+      ],
+      [
+       "ちょっときいて!",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 54,
+     "perMinute": 5.4,
+     "unique": 54,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 54
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 16,
+      "IDLE_GREETINGS_SILLY": 19,
+      "IDLE_GREETINGS_FOREIGN": 10,
+      "unlisted": 6,
+      "IDLE_GREETINGS_DIALECT": 3
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.056,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.4,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "ひとりごときいてくれる?",
+       1
+      ],
+      [
+       "予定のない時間を忙しく過ごしてる",
+       1
+      ],
+      [
+       "今日のごはん、想像だけしてる",
+       1
+      ],
+      [
+       "影とじゃんけんしたら引き分けた",
+       1
+      ],
+      [
+       "画面のこっち側も見てるよ",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "pet-only",
+   "label": "本人のみ",
+   "duration": "1h",
+   "utterances": 221.667,
+   "perMinute": 3.697,
+   "unique": 110,
+   "repeatRate": 0.504,
+   "windowRepeatRate": 0,
+   "maxSameLine": 3.667,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.068,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.467,
+   "perMinuteAfter30m": 3.357,
+   "crossReloadRepeats": 0,
+   "minGapLines": 50,
+   "medianGapSec": 1557.76,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 223,
+     "perMinute": 3.72,
+     "unique": 108,
+     "repeatRate": 0.516,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 58,
+      "median": 90
+     },
+     "reappearGapSec": {
+      "min": 906.403,
+      "p10": 1042.781,
+      "median": 1574.348
+     },
+     "maxSameLine": 4,
+     "bySpeaker": {
+      "pet": 223
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 39,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8,
+      "IDLE_GREETINGS_DIALECT": 13
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.063,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.6,
+     "perMinuteAfter30m": 3.37,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "ここにいるよー!",
+       4
+      ],
+      [
+       "Namaste!",
+       4
+      ],
+      [
+       "ねえ、ちゃんとみてる?",
+       3
+      ],
+      [
+       "ねえ、ちょっと!",
+       3
+      ],
+      [
+       "いまの声、宇宙まで届いた?",
+       3
+      ]
+     ]
+    },
+    {
+     "utterances": 220,
+     "perMinute": 3.67,
+     "unique": 112,
+     "repeatRate": 0.491,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 51,
+      "p10": 55,
+      "median": 90
+     },
+     "reappearGapSec": {
+      "min": 907.393,
+      "p10": 976.456,
+      "median": 1606.02
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 220
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_DIALECT": 16,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.077,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.4,
+     "perMinuteAfter30m": 3.37,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "急に市役所いく?",
+       3
+      ],
+      [
+       "ンモー!",
+       3
+      ],
+      [
+       "ちょっときいて!",
+       3
+      ],
+      [
+       "あなたのばんです!",
+       3
+      ],
+      [
+       "なにしてるの?",
+       3
+      ]
+     ]
+    },
+    {
+     "utterances": 222,
+     "perMinute": 3.7,
+     "unique": 110,
+     "repeatRate": 0.505,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 51,
+      "p10": 62,
+      "median": 84
+     },
+     "reappearGapSec": {
+      "min": 902.826,
+      "p10": 1022.612,
+      "median": 1492.911
+     },
+     "maxSameLine": 4,
+     "bySpeaker": {
+      "pet": 222
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "unlisted": 8,
+      "IDLE_GREETINGS_DIALECT": 14
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.063,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.4,
+     "perMinuteAfter30m": 3.33,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "げんき?",
+       4
+      ],
+      [
+       "ひとりごときいてくれる?",
+       3
+      ],
+      [
+       "予定のない時間を忙しく過ごしてる",
+       3
+      ],
+      [
+       "ここにいるよー!",
+       3
+      ],
+      [
+       "筋肉より先にやる気が疲れた",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "pet-only",
+   "label": "本人のみ",
+   "duration": "2h",
+   "utterances": 420.667,
+   "perMinute": 3.507,
+   "unique": 120.333,
+   "repeatRate": 0.714,
+   "windowRepeatRate": 0,
+   "maxSameLine": 6,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.067,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.467,
+   "perMinuteAfter30m": 3.327,
+   "crossReloadRepeats": 0,
+   "minGapLines": 50,
+   "medianGapSec": 1654.495,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 423,
+     "perMinute": 3.52,
+     "unique": 119,
+     "repeatRate": 0.719,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 60,
+      "median": 94
+     },
+     "reappearGapSec": {
+      "min": 906.403,
+      "p10": 1078.319,
+      "median": 1647.878
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "pet": 423
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8,
+      "IDLE_GREETINGS_DIALECT": 23
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.061,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.6,
+     "perMinuteAfter30m": 3.34,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "好きな顔ってこういう顔?",
+       6
+      ],
+      [
+       "ここにいるよー!",
+       6
+      ],
+      [
+       "안녕!",
+       6
+      ],
+      [
+       "ここにいるのは覚えといてね",
+       6
+      ],
+      [
+       "こっちむいて!",
+       6
+      ]
+     ]
+    },
+    {
+     "utterances": 417,
+     "perMinute": 3.48,
+     "unique": 122,
+     "repeatRate": 0.707,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 57,
+      "median": 94
+     },
+     "reappearGapSec": {
+      "min": 907.393,
+      "p10": 1013.513,
+      "median": 1675.179
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "pet": 417
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_DIALECT": 26,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.077,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.4,
+     "perMinuteAfter30m": 3.31,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "なにしてるの?",
+       6
+      ],
+      [
+       "ひま?",
+       6
+      ],
+      [
+       "おーい!",
+       6
+      ],
+      [
+       "ンモー!",
+       5
+      ],
+      [
+       "ちょっときいて!",
+       5
+      ]
+     ]
+    },
+    {
+     "utterances": 422,
+     "perMinute": 3.52,
+     "unique": 120,
+     "repeatRate": 0.716,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 60,
+      "median": 93
+     },
+     "reappearGapSec": {
+      "min": 902.826,
+      "p10": 1079.088,
+      "median": 1640.427
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "pet": 422
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "unlisted": 8,
+      "IDLE_GREETINGS_DIALECT": 24
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.064,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.4,
+     "perMinuteAfter30m": 3.33,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "げんき?",
+       6
+      ],
+      [
+       "いまのぼく、たぶん天才",
+       6
+      ],
+      [
+       "腹筋の前に休憩を入れる",
+       6
+      ],
+      [
+       "Howdy!",
+       6
+      ],
+      [
+       "いまの声、宇宙まで届いた?",
+       6
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "partner",
+   "label": "本人+こいびと(ロボット)",
+   "duration": "10m",
+   "utterances": 46.667,
+   "perMinute": 4.667,
+   "unique": 46.667,
+   "repeatRate": 0,
+   "windowRepeatRate": 0,
+   "maxSameLine": 1,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.035,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.2,
+   "perMinuteAfter30m": null,
+   "crossReloadRepeats": 0,
+   "minGapLines": null,
+   "medianGapSec": null,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 47,
+     "perMinute": 4.7,
+     "unique": 47,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 47
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 8,
+      "IDLE_GREETINGS_STANDARD": 18,
+      "IDLE_GREETINGS_SILLY": 15,
+      "IDLE_GREETINGS_DIALECT": 4,
+      "unlisted": 2
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.085,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hello!",
+       1
+      ],
+      [
+       "今日のごはん、想像だけしてる",
+       1
+      ],
+      [
+       "ドキッとした?",
+       1
+      ],
+      [
+       "まいど!",
+       1
+      ],
+      [
+       "げんき?",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 49,
+     "perMinute": 4.9,
+     "unique": 49,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 49
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 22,
+      "IDLE_GREETINGS_FOREIGN": 9,
+      "IDLE_GREETINGS_SILLY": 14,
+      "IDLE_GREETINGS_DIALECT": 1,
+      "unlisted": 3
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.02,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "こんにちは!",
+       1
+      ],
+      [
+       "やあ!",
+       1
+      ],
+      [
+       "静かだから小声で呼んでみた",
+       1
+      ],
+      [
+       "Namaste!",
+       1
+      ],
+      [
+       "ねえ、ちゃんとみてる?",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 44,
+     "perMinute": 4.4,
+     "unique": 44,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 44
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 9,
+      "unlisted": 5,
+      "IDLE_GREETINGS_SILLY": 12,
+      "IDLE_GREETINGS_STANDARD": 18
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hej!",
+       1
+      ],
+      [
+       "動き出す理由を探してる",
+       1
+      ],
+      [
+       "ぴぴぴっ!",
+       1
+      ],
+      [
+       "こっちみてこっちみて!",
+       1
+      ],
+      [
+       "Guten Tag!",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "partner",
+   "label": "本人+こいびと(ロボット)",
+   "duration": "1h",
+   "utterances": 176.667,
+   "perMinute": 2.947,
+   "unique": 105.667,
+   "repeatRate": 0.402,
+   "windowRepeatRate": 0,
+   "maxSameLine": 3,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.068,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.2,
+   "perMinuteAfter30m": 2.59,
+   "crossReloadRepeats": 0,
+   "minGapLines": 50,
+   "medianGapSec": 1740.653,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 180,
+     "perMinute": 3,
+     "unique": 107,
+     "repeatRate": 0.406,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 55,
+      "median": 76
+     },
+     "reappearGapSec": {
+      "min": 1062.277,
+      "p10": 1213.822,
+      "median": 1669.637
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 180
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 38,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 13,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.078,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.6,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "げんき?",
+       3
+      ],
+      [
+       "冷蔵庫に何かいた気がする",
+       3
+      ],
+      [
+       "ンモー!",
+       3
+      ],
+      [
+       "画面のこっち側も見てるよ",
+       3
+      ],
+      [
+       "ひさしぶりなきがする!",
+       3
+      ]
+     ]
+    },
+    {
+     "utterances": 178,
+     "perMinute": 2.97,
+     "unique": 106,
+     "repeatRate": 0.404,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 51,
+      "p10": 54,
+      "median": 73
+     },
+     "reappearGapSec": {
+      "min": 1013.553,
+      "p10": 1194.905,
+      "median": 1699.588
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 178
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 39,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 11,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.062,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.6,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hej!",
+       3
+      ],
+      [
+       "Aloha!",
+       3
+      ],
+      [
+       "Shalom!",
+       3
+      ],
+      [
+       "かわいい顔の練習、見てた?",
+       3
+      ],
+      [
+       "視線の先に参加していい?",
+       3
+      ]
+     ]
+    },
+    {
+     "utterances": 172,
+     "perMinute": 2.87,
+     "unique": 104,
+     "repeatRate": 0.395,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 51,
+      "p10": 56,
+      "median": 81
+     },
+     "reappearGapSec": {
+      "min": 1165.361,
+      "p10": 1265.637,
+      "median": 1852.734
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 172
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 19,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_STANDARD": 38,
+      "IDLE_GREETINGS_DIALECT": 11
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.064,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.57,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Guten Tag!",
+       3
+      ],
+      [
+       "Namaste!",
+       3
+      ],
+      [
+       "ンモー!",
+       3
+      ],
+      [
+       "好きな顔ってこういう顔?",
+       3
+      ],
+      [
+       "えらそうな顔ってどれだろ",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "partner",
+   "label": "本人+こいびと(ロボット)",
+   "duration": "2h",
+   "utterances": 330,
+   "perMinute": 2.75,
+   "unique": 116,
+   "repeatRate": 0.649,
+   "windowRepeatRate": 0,
+   "maxSameLine": 5,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.07,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.2,
+   "perMinuteAfter30m": 2.567,
+   "crossReloadRepeats": 0,
+   "minGapLines": 50,
+   "medianGapSec": 2031.036,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 332,
+     "perMinute": 2.77,
+     "unique": 119,
+     "repeatRate": 0.642,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 56,
+      "median": 89
+     },
+     "reappearGapSec": {
+      "min": 1062.277,
+      "p10": 1283.169,
+      "median": 2003.222
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 332
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 23,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.078,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.56,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "げんき?",
+       5
+      ],
+      [
+       "画面のこっち側も見てるよ",
+       5
+      ],
+      [
+       "ドキッとした?",
+       4
+      ],
+      [
+       "なんちゃって!",
+       4
+      ],
+      [
+       "冷蔵庫に何かいた気がする",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 329,
+     "perMinute": 2.74,
+     "unique": 117,
+     "repeatRate": 0.644,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 57,
+      "median": 89
+     },
+     "reappearGapSec": {
+      "min": 1013.553,
+      "p10": 1273.713,
+      "median": 2020.182
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 329
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 21,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.07,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.54,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hej!",
+       5
+      ],
+      [
+       "Shalom!",
+       5
+      ],
+      [
+       "ひま?",
+       5
+      ],
+      [
+       "静かだから小声で呼んでみた",
+       4
+      ],
+      [
+       "ねえ、ちゃんとみてる?",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 329,
+     "perMinute": 2.74,
+     "unique": 112,
+     "repeatRate": 0.66,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 57,
+      "median": 89
+     },
+     "reappearGapSec": {
+      "min": 1146.793,
+      "p10": 1328.651,
+      "median": 2069.705
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 329
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_DIALECT": 16
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.061,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.6,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Guten Tag!",
+       5
+      ],
+      [
+       "Namaste!",
+       5
+      ],
+      [
+       "ドキッとした?",
+       5
+      ],
+      [
+       "こんにちは!",
+       5
+      ],
+      [
+       "Hej!",
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "party",
+   "label": "本人+こいびと+なかま3体",
+   "duration": "10m",
+   "utterances": 45.667,
+   "perMinute": 4.567,
+   "unique": 45.667,
+   "repeatRate": 0,
+   "windowRepeatRate": 0,
+   "maxSameLine": 1,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.066,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7,
+   "perMinuteAfter30m": null,
+   "crossReloadRepeats": 0,
+   "minGapLines": null,
+   "medianGapSec": null,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 47,
+     "perMinute": 4.7,
+     "unique": 47,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 47
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_SILLY": 12,
+      "unlisted": 5,
+      "IDLE_GREETINGS_STANDARD": 19,
+      "IDLE_GREETINGS_DIALECT": 3,
+      "IDLE_GREETINGS_FOREIGN": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.064,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "きゅうにはなしかけてごめんね!",
+       1
+      ],
+      [
+       "好きな顔ってこういう顔?",
+       1
+      ],
+      [
+       "予定のない時間を忙しく過ごしてる",
+       1
+      ],
+      [
+       "おーい!",
+       1
+      ],
+      [
+       "ンモー!",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 45,
+     "perMinute": 4.5,
+     "unique": 45,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 45
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_DIALECT": 3,
+      "IDLE_GREETINGS_FOREIGN": 9,
+      "IDLE_GREETINGS_STANDARD": 17,
+      "IDLE_GREETINGS_SILLY": 13,
+      "unlisted": 3
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.067,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "めんこいなぁ",
+       1
+      ],
+      [
+       "Olá!",
+       1
+      ],
+      [
+       "Merhaba!",
+       1
+      ],
+      [
+       "さみしいよ…",
+       1
+      ],
+      [
+       "やあ!",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 45,
+     "perMinute": 4.5,
+     "unique": 45,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 45
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 14,
+      "unlisted": 5,
+      "IDLE_GREETINGS_SILLY": 13,
+      "IDLE_GREETINGS_FOREIGN": 10,
+      "IDLE_GREETINGS_DIALECT": 3
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.067,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 6.8,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "小銭って増える音だけ聞きたいね",
+       1
+      ],
+      [
+       "かまってかまって!",
+       1
+      ],
+      [
+       "腹筋の前に休憩を入れる",
+       1
+      ],
+      [
+       "座る場所に先を越された",
+       1
+      ],
+      [
+       "你好!",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "party",
+   "label": "本人+こいびと+なかま3体",
+   "duration": "1h",
+   "utterances": 169,
+   "perMinute": 2.817,
+   "unique": 105,
+   "repeatRate": 0.379,
+   "windowRepeatRate": 0,
+   "maxSameLine": 3,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.063,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7,
+   "perMinuteAfter30m": 2.457,
+   "crossReloadRepeats": 0,
+   "minGapLines": 50,
+   "medianGapSec": 1944.822,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 172,
+     "perMinute": 2.87,
+     "unique": 106,
+     "repeatRate": 0.384,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 52,
+      "p10": 64,
+      "median": 88
+     },
+     "reappearGapSec": {
+      "min": 1055.365,
+      "p10": 1430.876,
+      "median": 1942.74
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 172
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8,
+      "IDLE_GREETINGS_STANDARD": 39,
+      "IDLE_GREETINGS_DIALECT": 12,
+      "IDLE_GREETINGS_FOREIGN": 19
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.076,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": 2.57,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "好きな顔ってこういう顔?",
+       3
+      ],
+      [
+       "今日ちょっと顔よくない?",
+       3
+      ],
+      [
+       "腹筋の前に休憩を入れる",
+       3
+      ],
+      [
+       "Salut!",
+       3
+      ],
+      [
+       "きゅうにはなしかけてごめんね!",
+       2
+      ]
+     ]
+    },
+    {
+     "utterances": 171,
+     "perMinute": 2.85,
+     "unique": 106,
+     "repeatRate": 0.38,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 52,
+      "p10": 57,
+      "median": 85
+     },
+     "reappearGapSec": {
+      "min": 1048.773,
+      "p10": 1327.522,
+      "median": 1950.782
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 171
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_DIALECT": 10,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.058,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.4,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "えらそうな顔ってどれだろ",
+       3
+      ],
+      [
+       "ドキッとした?",
+       3
+      ],
+      [
+       "Olá!",
+       2
+      ],
+      [
+       "Merhaba!",
+       2
+      ],
+      [
+       "さみしいよ…",
+       2
+      ]
+     ]
+    },
+    {
+     "utterances": 164,
+     "perMinute": 2.73,
+     "unique": 103,
+     "repeatRate": 0.372,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 55,
+      "median": 79
+     },
+     "reappearGapSec": {
+      "min": 1169.659,
+      "p10": 1336.642,
+      "median": 1940.943
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 164
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 39,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 27,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_DIALECT": 9
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.055,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 6.8,
+     "perMinuteAfter30m": 2.4,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "座る場所に先を越された",
+       3
+      ],
+      [
+       "あそびにきたよ!",
+       3
+      ],
+      [
+       "こんばんは!",
+       3
+      ],
+      [
+       "静かだから小声で呼んでみた",
+       3
+      ],
+      [
+       "Yo!",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "party",
+   "label": "本人+こいびと+なかま3体",
+   "duration": "2h",
+   "utterances": 321.667,
+   "perMinute": 2.68,
+   "unique": 115.333,
+   "repeatRate": 0.641,
+   "windowRepeatRate": 0,
+   "maxSameLine": 4.667,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.068,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7,
+   "perMinuteAfter30m": 2.517,
+   "crossReloadRepeats": 0,
+   "minGapLines": 50,
+   "medianGapSec": 2155.762,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 336,
+     "perMinute": 2.8,
+     "unique": 116,
+     "repeatRate": 0.655,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 62,
+      "median": 91
+     },
+     "reappearGapSec": {
+      "min": 1025.55,
+      "p10": 1378.384,
+      "median": 2031.419
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 336
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_DIALECT": 20,
+      "IDLE_GREETINGS_FOREIGN": 20
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.071,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": 2.68,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "ひま?",
+       5
+      ],
+      [
+       "Aloha!",
+       5
+      ],
+      [
+       "きゅうにはなしかけてごめんね!",
+       4
+      ],
+      [
+       "好きな顔ってこういう顔?",
+       4
+      ],
+      [
+       "おーい!",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 312,
+     "perMinute": 2.6,
+     "unique": 114,
+     "repeatRate": 0.635,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 58,
+      "median": 92
+     },
+     "reappearGapSec": {
+      "min": 1048.773,
+      "p10": 1435.527,
+      "median": 2287.59
+     },
+     "maxSameLine": 4,
+     "bySpeaker": {
+      "pet": 312
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_DIALECT": 18,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.061,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.37,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "やあ!",
+       4
+      ],
+      [
+       "えらそうな顔ってどれだろ",
+       4
+      ],
+      [
+       "心の中でアンコールしてる",
+       4
+      ],
+      [
+       "腹筋の前に休憩を入れる",
+       4
+      ],
+      [
+       "歩くリズムが途中で迷子",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 317,
+     "perMinute": 2.64,
+     "unique": 116,
+     "repeatRate": 0.634,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 56,
+      "median": 91
+     },
+     "reappearGapSec": {
+      "min": 1124.38,
+      "p10": 1332.361,
+      "median": 2148.278
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 317
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_DIALECT": 20
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.073,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 6.8,
+     "perMinuteAfter30m": 2.5,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "あそびにきたよ!",
+       5
+      ],
+      [
+       "静かだから小声で呼んでみた",
+       5
+      ],
+      [
+       "Yo!",
+       5
+      ],
+      [
+       "何か言う顔だけ先にできた",
+       5
+      ],
+      [
+       "なにしてるの?",
+       5
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "small-pool",
+   "label": "少数プール(なかま1体+思い出3件)",
+   "duration": "10m",
+   "utterances": 45.667,
+   "perMinute": 4.567,
+   "unique": 45.667,
+   "repeatRate": 0,
+   "windowRepeatRate": 0,
+   "maxSameLine": 1,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0.073,
+   "dialectShareOfPet": 0.036,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.067,
+   "perMinuteAfter30m": null,
+   "crossReloadRepeats": 0,
+   "minGapLines": null,
+   "medianGapSec": null,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 48,
+     "perMinute": 4.8,
+     "unique": 48,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 48
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 10,
+      "IDLE_GREETINGS_STANDARD": 19,
+      "IDLE_GREETINGS_SILLY": 11,
+      "IDLE_GREETINGS_DIALECT": 2,
+      "unlisted": 3,
+      "MEMORY": 3
+     },
+     "memoryShareOfPet": 0.063,
+     "dialectShareOfPet": 0.042,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hello!",
+       1
+      ],
+      [
+       "今日のごはん、想像だけしてる",
+       1
+      ],
+      [
+       "ドキッとした?",
+       1
+      ],
+      [
+       "まいど!",
+       1
+      ],
+      [
+       "げんき?",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 41,
+     "perMinute": 4.1,
+     "unique": 41,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 41
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 16,
+      "MEMORY": 3,
+      "IDLE_GREETINGS_FOREIGN": 9,
+      "IDLE_GREETINGS_SILLY": 10,
+      "unlisted": 2,
+      "IDLE_GREETINGS_DIALECT": 1
+     },
+     "memoryShareOfPet": 0.073,
+     "dialectShareOfPet": 0.024,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "こんにちは!",
+       1
+      ],
+      [
+       "やあ!",
+       1
+      ],
+      [
+       "静かだから小声で呼んでみた",
+       1
+      ],
+      [
+       "元気になったとき、ほっとしたね",
+       1
+      ],
+      [
+       "ひま?",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 48,
+     "perMinute": 4.8,
+     "unique": 48,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 48
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 11,
+      "unlisted": 4,
+      "IDLE_GREETINGS_SILLY": 11,
+      "MEMORY": 4,
+      "IDLE_GREETINGS_STANDARD": 16,
+      "IDLE_GREETINGS_DIALECT": 2
+     },
+     "memoryShareOfPet": 0.083,
+     "dialectShareOfPet": 0.042,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hej!",
+       1
+      ],
+      [
+       "動き出す理由を探してる",
+       1
+      ],
+      [
+       "ぴぴぴっ!",
+       1
+      ],
+      [
+       "初めての場所に着いた顔、覚えてる?",
+       1
+      ],
+      [
+       "Olá!",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "small-pool",
+   "label": "少数プール(なかま1体+思い出3件)",
+   "duration": "1h",
+   "utterances": 162.667,
+   "perMinute": 2.71,
+   "unique": 107.333,
+   "repeatRate": 0.34,
+   "windowRepeatRate": 0,
+   "maxSameLine": 3.333,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0.08,
+   "dialectShareOfPet": 0.059,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.067,
+   "perMinuteAfter30m": 2.333,
+   "crossReloadRepeats": 0,
+   "minGapLines": 32,
+   "medianGapSec": 1932.819,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 164,
+     "perMinute": 2.73,
+     "unique": 110,
+     "repeatRate": 0.329,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 52,
+      "p10": 59,
+      "median": 79
+     },
+     "reappearGapSec": {
+      "min": 1048.519,
+      "p10": 1431.441,
+      "median": 1906.885
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 164
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 39,
+      "IDLE_GREETINGS_SILLY": 27,
+      "IDLE_GREETINGS_DIALECT": 10,
+      "unlisted": 8,
+      "MEMORY": 6
+     },
+     "memoryShareOfPet": 0.061,
+     "dialectShareOfPet": 0.061,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.4,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "画面のこっち側も見てるよ",
+       3
+      ],
+      [
+       "おなかの話ならいつでもできる",
+       3
+      ],
+      [
+       "Hello!",
+       2
+      ],
+      [
+       "今日のごはん、想像だけしてる",
+       2
+      ],
+      [
+       "ドキッとした?",
+       2
+      ]
+     ]
+    },
+    {
+     "utterances": 158,
+     "perMinute": 2.63,
+     "unique": 102,
+     "repeatRate": 0.354,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 38,
+      "p10": 50,
+      "median": 80
+     },
+     "reappearGapSec": {
+      "min": 917.028,
+      "p10": 1183.479,
+      "median": 1974.409
+     },
+     "maxSameLine": 3,
+     "bySpeaker": {
+      "pet": 158
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 38,
+      "MEMORY": 6,
+      "IDLE_GREETINGS_FOREIGN": 18,
+      "IDLE_GREETINGS_SILLY": 27,
+      "unlisted": 7,
+      "IDLE_GREETINGS_DIALECT": 6
+     },
+     "memoryShareOfPet": 0.101,
+     "dialectShareOfPet": 0.044,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": 2.2,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "元気になったとき、ほっとしたね",
+       3
+      ],
+      [
+       "心の中でアンコールしてる",
+       3
+      ],
+      [
+       "あの出会いから、少しにぎやかになったね",
+       3
+      ],
+      [
+       "振り返る用事、いま作った",
+       3
+      ],
+      [
+       "5さいのときの看病、ありがとう",
+       3
+      ]
+     ]
+    },
+    {
+     "utterances": 166,
+     "perMinute": 2.77,
+     "unique": 110,
+     "repeatRate": 0.337,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 32,
+      "p10": 58,
+      "median": 82
+     },
+     "reappearGapSec": {
+      "min": 812.126,
+      "p10": 1353.676,
+      "median": 1917.163
+     },
+     "maxSameLine": 4,
+     "bySpeaker": {
+      "pet": 166
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 19,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 28,
+      "MEMORY": 6,
+      "IDLE_GREETINGS_STANDARD": 37,
+      "IDLE_GREETINGS_DIALECT": 12
+     },
+     "memoryShareOfPet": 0.078,
+     "dialectShareOfPet": 0.072,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": 2.4,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "初めての場所に着いた顔、覚えてる?",
+       4
+      ],
+      [
+       "好きな顔ってこういう顔?",
+       3
+      ],
+      [
+       "Hej!",
+       2
+      ],
+      [
+       "ぴぴぴっ!",
+       2
+      ],
+      [
+       "Olá!",
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "small-pool",
+   "label": "少数プール(なかま1体+思い出3件)",
+   "duration": "2h",
+   "utterances": 309.333,
+   "perMinute": 2.577,
+   "unique": 119.667,
+   "repeatRate": 0.613,
+   "windowRepeatRate": 0,
+   "maxSameLine": 5,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0.078,
+   "dialectShareOfPet": 0.065,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.067,
+   "perMinuteAfter30m": 2.407,
+   "crossReloadRepeats": 0,
+   "minGapLines": 32,
+   "medianGapSec": 2292.498,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 307,
+     "perMinute": 2.56,
+     "unique": 118,
+     "repeatRate": 0.616,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 35,
+      "p10": 59,
+      "median": 90
+     },
+     "reappearGapSec": {
+      "min": 877.017,
+      "p10": 1490.496,
+      "median": 2253.675
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "pet": 307
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 16,
+      "unlisted": 8,
+      "MEMORY": 6
+     },
+     "memoryShareOfPet": 0.081,
+     "dialectShareOfPet": 0.065,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.39,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "初めての場所に着いた顔、覚えてる?",
+       6
+      ],
+      [
+       "ンモー!",
+       5
+      ],
+      [
+       "おなかの話ならいつでもできる",
+       5
+      ],
+      [
+       "Hello!",
+       4
+      ],
+      [
+       "なんちゃって!",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 310,
+     "perMinute": 2.58,
+     "unique": 121,
+     "repeatRate": 0.61,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 38,
+      "p10": 57,
+      "median": 88
+     },
+     "reappearGapSec": {
+      "min": 917.028,
+      "p10": 1342.183,
+      "median": 2223.595
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 310
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "MEMORY": 6,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8,
+      "IDLE_GREETINGS_DIALECT": 19
+     },
+     "memoryShareOfPet": 0.084,
+     "dialectShareOfPet": 0.065,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": 2.42,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "元気になったとき、ほっとしたね",
+       5
+      ],
+      [
+       "5さいのときの看病、ありがとう",
+       5
+      ],
+      [
+       "Olá!",
+       5
+      ],
+      [
+       "Hola!",
+       4
+      ],
+      [
+       "心の中でアンコールしてる",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 311,
+     "perMinute": 2.59,
+     "unique": 120,
+     "repeatRate": 0.614,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 32,
+      "p10": 61,
+      "median": 99
+     },
+     "reappearGapSec": {
+      "min": 812.126,
+      "p10": 1451.54,
+      "median": 2400.225
+     },
+     "maxSameLine": 4,
+     "bySpeaker": {
+      "pet": 311
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 28,
+      "MEMORY": 6,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_DIALECT": 18
+     },
+     "memoryShareOfPet": 0.068,
+     "dialectShareOfPet": 0.064,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": 2.41,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hej!",
+       4
+      ],
+      [
+       "ぴぴぴっ!",
+       4
+      ],
+      [
+       "初めての場所に着いた顔、覚えてる?",
+       4
+      ],
+      [
+       "Ciao!",
+       4
+      ],
+      [
+       "げんき?",
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "reload",
+   "label": "本人+こいびと、10分ごとに reload",
+   "duration": "10m",
+   "utterances": 46.667,
+   "perMinute": 4.667,
+   "unique": 46.667,
+   "repeatRate": 0,
+   "windowRepeatRate": 0,
+   "maxSameLine": 1,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.035,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.2,
+   "perMinuteAfter30m": null,
+   "crossReloadRepeats": 0,
+   "minGapLines": null,
+   "medianGapSec": null,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 47,
+     "perMinute": 4.7,
+     "unique": 47,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 47
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 8,
+      "IDLE_GREETINGS_STANDARD": 18,
+      "IDLE_GREETINGS_SILLY": 15,
+      "IDLE_GREETINGS_DIALECT": 4,
+      "unlisted": 2
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.085,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hello!",
+       1
+      ],
+      [
+       "今日のごはん、想像だけしてる",
+       1
+      ],
+      [
+       "ドキッとした?",
+       1
+      ],
+      [
+       "まいど!",
+       1
+      ],
+      [
+       "げんき?",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 49,
+     "perMinute": 4.9,
+     "unique": 49,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 49
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 22,
+      "IDLE_GREETINGS_FOREIGN": 9,
+      "IDLE_GREETINGS_SILLY": 14,
+      "IDLE_GREETINGS_DIALECT": 1,
+      "unlisted": 3
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.02,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "こんにちは!",
+       1
+      ],
+      [
+       "やあ!",
+       1
+      ],
+      [
+       "静かだから小声で呼んでみた",
+       1
+      ],
+      [
+       "Namaste!",
+       1
+      ],
+      [
+       "ねえ、ちゃんとみてる?",
+       1
+      ]
+     ]
+    },
+    {
+     "utterances": 44,
+     "perMinute": 4.4,
+     "unique": 44,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 1,
+     "bySpeaker": {
+      "pet": 44
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 9,
+      "unlisted": 5,
+      "IDLE_GREETINGS_SILLY": 12,
+      "IDLE_GREETINGS_STANDARD": 18
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": null,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Hej!",
+       1
+      ],
+      [
+       "動き出す理由を探してる",
+       1
+      ],
+      [
+       "ぴぴぴっ!",
+       1
+      ],
+      [
+       "こっちみてこっちみて!",
+       1
+      ],
+      [
+       "Guten Tag!",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "reload",
+   "label": "本人+こいびと、10分ごとに reload",
+   "duration": "1h",
+   "utterances": 274.667,
+   "perMinute": 4.577,
+   "unique": 112.667,
+   "repeatRate": 0.59,
+   "windowRepeatRate": 0,
+   "maxSameLine": 4,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.062,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.2,
+   "perMinuteAfter30m": 4.49,
+   "crossReloadRepeats": 0,
+   "minGapLines": 58,
+   "medianGapSec": 1228.825,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 270,
+     "perMinute": 4.5,
+     "unique": 117,
+     "repeatRate": 0.567,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 58,
+      "p10": 73,
+      "median": 96
+     },
+     "reappearGapSec": {
+      "min": 934.703,
+      "p10": 1025.104,
+      "median": 1259.853
+     },
+     "maxSameLine": 4,
+     "bySpeaker": {
+      "pet": 270
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 21,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.081,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 4.37,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Merhaba!",
+       4
+      ],
+      [
+       "Hello!",
+       3
+      ],
+      [
+       "今日のごはん、想像だけしてる",
+       3
+      ],
+      [
+       "ドキッとした?",
+       3
+      ],
+      [
+       "げんき?",
+       3
+      ]
+     ]
+    },
+    {
+     "utterances": 279,
+     "perMinute": 4.65,
+     "unique": 110,
+     "repeatRate": 0.606,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 61,
+      "p10": 71,
+      "median": 95
+     },
+     "reappearGapSec": {
+      "min": 911.575,
+      "p10": 965.389,
+      "median": 1210.822
+     },
+     "maxSameLine": 4,
+     "bySpeaker": {
+      "pet": 279
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 14,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.05,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 4.57,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "やあ!",
+       4
+      ],
+      [
+       "静かだから小声で呼んでみた",
+       4
+      ],
+      [
+       "笑う理由を後から考えてる",
+       4
+      ],
+      [
+       "ぴぴぴっ!",
+       4
+      ],
+      [
+       "振り返る用事、いま作った",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 275,
+     "perMinute": 4.58,
+     "unique": 111,
+     "repeatRate": 0.596,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 61,
+      "p10": 74,
+      "median": 94
+     },
+     "reappearGapSec": {
+      "min": 917.567,
+      "p10": 995.448,
+      "median": 1215.801
+     },
+     "maxSameLine": 4,
+     "bySpeaker": {
+      "pet": 275
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_DIALECT": 15
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.055,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 4.53,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "かわいい顔の練習、見てた?",
+       4
+      ],
+      [
+       "こんにちは!",
+       4
+      ],
+      [
+       "Hej!",
+       3
+      ],
+      [
+       "動き出す理由を探してる",
+       3
+      ],
+      [
+       "ぴぴぴっ!",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "reload",
+   "label": "本人+こいびと、10分ごとに reload",
+   "duration": "2h",
+   "utterances": 545,
+   "perMinute": 4.54,
+   "unique": 122.333,
+   "repeatRate": 0.775,
+   "windowRepeatRate": 0,
+   "maxSameLine": 7,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.057,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.2,
+   "perMinuteAfter30m": 4.497,
+   "crossReloadRepeats": 0,
+   "minGapLines": 55,
+   "medianGapSec": 1249.528,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 547,
+     "perMinute": 4.56,
+     "unique": 125,
+     "repeatRate": 0.771,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 57,
+      "p10": 73,
+      "median": 98
+     },
+     "reappearGapSec": {
+      "min": 917.641,
+      "p10": 1013.638,
+      "median": 1275.195
+     },
+     "maxSameLine": 7,
+     "bySpeaker": {
+      "pet": 547
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 29,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.066,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 4.53,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "心の中でアンコールしてる",
+       7
+      ],
+      [
+       "Hello!",
+       6
+      ],
+      [
+       "げんき?",
+       6
+      ],
+      [
+       "なんちゃって!",
+       6
+      ],
+      [
+       "足音だけ立派に歩いてみる",
+       6
+      ]
+     ]
+    },
+    {
+     "utterances": 551,
+     "perMinute": 4.59,
+     "unique": 125,
+     "repeatRate": 0.773,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 55,
+      "p10": 72,
+      "median": 96
+     },
+     "reappearGapSec": {
+      "min": 911.575,
+      "p10": 983.319,
+      "median": 1234.296
+     },
+     "maxSameLine": 7,
+     "bySpeaker": {
+      "pet": 551
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_DIALECT": 29,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.058,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 4.54,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "静かだから小声で呼んでみた",
+       7
+      ],
+      [
+       "ンモー!",
+       7
+      ],
+      [
+       "Salut!",
+       7
+      ],
+      [
+       "Hola!",
+       7
+      ],
+      [
+       "こんにちは!",
+       6
+      ]
+     ]
+    },
+    {
+     "utterances": 537,
+     "perMinute": 4.47,
+     "unique": 117,
+     "repeatRate": 0.782,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 57,
+      "p10": 74,
+      "median": 95
+     },
+     "reappearGapSec": {
+      "min": 902.03,
+      "p10": 1017.697,
+      "median": 1239.092
+     },
+     "maxSameLine": 7,
+     "bySpeaker": {
+      "pet": 537
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_DIALECT": 21
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.047,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 4.42,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "Guten Tag!",
+       7
+      ],
+      [
+       "動き出す理由を探してる",
+       6
+      ],
+      [
+       "ぴぴぴっ!",
+       6
+      ],
+      [
+       "こっちみてこっちみて!",
+       6
+      ],
+      [
+       "あなたのばんです!",
+       6
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "quiet",
+   "label": "寡黙(ワニ+はこ+石像)",
+   "duration": "2h",
+   "utterances": 311,
+   "perMinute": 2.593,
+   "unique": 117.667,
+   "repeatRate": 0.621,
+   "windowRepeatRate": 0,
+   "maxSameLine": 5,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.076,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7,
+   "perMinuteAfter30m": 2.38,
+   "crossReloadRepeats": 0,
+   "minGapLines": 50,
+   "medianGapSec": 2165.924,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 301,
+     "perMinute": 2.51,
+     "unique": 120,
+     "repeatRate": 0.601,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 62,
+      "median": 88
+     },
+     "reappearGapSec": {
+      "min": 1021.412,
+      "p10": 1448.359,
+      "median": 2168.016
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 301
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_DIALECT": 24,
+      "IDLE_GREETINGS_FOREIGN": 20
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.083,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7,
+     "perMinuteAfter30m": 2.19,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "予定のない時間を忙しく過ごしてる",
+       5
+      ],
+      [
+       "小さく踊る準備はできた",
+       5
+      ],
+      [
+       "ここにいるよー!",
+       5
+      ],
+      [
+       "きゅうにはなしかけてごめんね!",
+       4
+      ],
+      [
+       "好きな顔ってこういう顔?",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 324,
+     "perMinute": 2.7,
+     "unique": 119,
+     "repeatRate": 0.633,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 55,
+      "median": 91
+     },
+     "reappearGapSec": {
+      "min": 1151.568,
+      "p10": 1358.685,
+      "median": 2162.143
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 324
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_DIALECT": 23,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.08,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 2.51,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "きゅうにはなしかけてごめんね!",
+       5
+      ],
+      [
+       "予定のない時間を忙しく過ごしてる",
+       5
+      ],
+      [
+       "笑う理由を後から考えてる",
+       5
+      ],
+      [
+       "さみしいよ…",
+       4
+      ],
+      [
+       "やあ!",
+       4
+      ]
+     ]
+    },
+    {
+     "utterances": 308,
+     "perMinute": 2.57,
+     "unique": 114,
+     "repeatRate": 0.63,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 58,
+      "median": 87
+     },
+     "reappearGapSec": {
+      "min": 955.1,
+      "p10": 1373.3,
+      "median": 2167.613
+     },
+     "maxSameLine": 5,
+     "bySpeaker": {
+      "pet": 308
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "unlisted": 8,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_DIALECT": 18
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.065,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 6.8,
+     "perMinuteAfter30m": 2.44,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "你好!",
+       5
+      ],
+      [
+       "さみしいよ…",
+       5
+      ],
+      [
+       "今日ちょっと顔よくない?",
+       5
+      ],
+      [
+       "かまってかまって!",
+       4
+      ],
+      [
+       "腹筋の前に休憩を入れる",
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "hungry",
+   "label": "空腹45(本人は黙る)+こいびと+なかま3体",
+   "duration": "2h",
+   "utterances": 0,
+   "perMinute": 0,
+   "unique": 0,
+   "repeatRate": 0,
+   "windowRepeatRate": 0,
+   "maxSameLine": 0,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 0,
+   "perMinuteAfter30m": 0,
+   "crossReloadRepeats": 0,
+   "minGapLines": null,
+   "medianGapSec": null,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 0,
+     "perMinute": 0,
+     "unique": 0,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 0,
+     "bySpeaker": {},
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {},
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 0,
+     "perMinuteAfter30m": 0,
+     "crossReloadRepeats": 0,
+     "top": []
+    },
+    {
+     "utterances": 0,
+     "perMinute": 0,
+     "unique": 0,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 0,
+     "bySpeaker": {},
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {},
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 0,
+     "perMinuteAfter30m": 0,
+     "crossReloadRepeats": 0,
+     "top": []
+    },
+    {
+     "utterances": 0,
+     "perMinute": 0,
+     "unique": 0,
+     "repeatRate": 0,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "reappearGapSec": {
+      "min": null,
+      "p10": null,
+      "median": null
+     },
+     "maxSameLine": 0,
+     "bySpeaker": {},
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {},
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 0,
+     "perMinuteAfter30m": 0,
+     "crossReloadRepeats": 0,
+     "top": []
+    }
+   ]
+  },
+  {
+   "scenario": "interact",
+   "label": "本人のみ、1分ごとに画面タップ(操作中の頻度で比較)",
+   "duration": "2h",
+   "utterances": 1009,
+   "perMinute": 8.41,
+   "unique": 138,
+   "repeatRate": 0.863,
+   "windowRepeatRate": 0,
+   "maxSameLine": 10,
+   "speakerShareStdev": 0,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.055,
+   "visitorLines": 0,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 8.867,
+   "perMinuteAfter30m": 8.387,
+   "crossReloadRepeats": 0,
+   "minGapLines": 98,
+   "medianGapSec": 725.856,
+   "maxSameSpeakerRun": null,
+   "runs": [
+    {
+     "utterances": 1011,
+     "perMinute": 8.43,
+     "unique": 140,
+     "repeatRate": 0.862,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 98,
+      "p10": 100,
+      "median": 102
+     },
+     "reappearGapSec": {
+      "min": 688.073,
+      "p10": 707.914,
+      "median": 729.052
+     },
+     "maxSameLine": 10,
+     "bySpeaker": {
+      "pet": 1011
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_SILLY": 28,
+      "unlisted": 8,
+      "IDLE_GREETINGS_DIALECT": 44
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.056,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 9.2,
+     "perMinuteAfter30m": 8.39,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "ねえ、ちゃんとみてる?",
+       10
+      ],
+      [
+       "Merhaba!",
+       10
+      ],
+      [
+       "こっちみてこっちみて!",
+       10
+      ],
+      [
+       "ねえ、ちょっと!",
+       10
+      ],
+      [
+       "かっこいいポーズ、受付中",
+       10
+      ]
+     ]
+    },
+    {
+     "utterances": 1009,
+     "perMinute": 8.41,
+     "unique": 136,
+     "repeatRate": 0.865,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 98,
+      "p10": 100,
+      "median": 102
+     },
+     "reappearGapSec": {
+      "min": 689.236,
+      "p10": 704.373,
+      "median": 729.077
+     },
+     "maxSameLine": 10,
+     "bySpeaker": {
+      "pet": 1009
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "IDLE_GREETINGS_DIALECT": 40,
+      "IDLE_GREETINGS_STANDARD": 40,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.058,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 8.6,
+     "perMinuteAfter30m": 8.39,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "急に市役所いく?",
+       10
+      ],
+      [
+       "Olá!",
+       10
+      ],
+      [
+       "ンモー!",
+       10
+      ],
+      [
+       "ちょっときいて!",
+       10
+      ],
+      [
+       "こっちみてこっちみて!",
+       10
+      ]
+     ]
+    },
+    {
+     "utterances": 1007,
+     "perMinute": 8.39,
+     "unique": 138,
+     "repeatRate": 0.863,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 98,
+      "p10": 99,
+      "median": 101
+     },
+     "reappearGapSec": {
+      "min": 687.784,
+      "p10": 700.442,
+      "median": 719.439
+     },
+     "maxSameLine": 10,
+     "bySpeaker": {
+      "pet": 1007
+     },
+     "speakerShareStdev": 0,
+     "maxSameSpeakerRun": null,
+     "poolSeen": {
+      "IDLE_GREETINGS_STANDARD": 40,
+      "IDLE_GREETINGS_SILLY": 28,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "unlisted": 8,
+      "IDLE_GREETINGS_DIALECT": 42
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.051,
+     "visitorLines": 0,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 8.8,
+     "perMinuteAfter30m": 8.38,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "ひとりごときいてくれる?",
+       10
+      ],
+      [
+       "予定のない時間を忙しく過ごしてる",
+       10
+      ],
+      [
+       "今日のごはん、想像だけしてる",
+       10
+      ],
+      [
+       "影とじゃんけんしたら引き分けた",
+       10
+      ],
+      [
+       "画面のこっち側も見てるよ",
+       10
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "fx-party",
+   "label": "[常在fixture] こいびと+なかま3体",
+   "duration": "2h",
+   "utterances": 421.333,
+   "perMinute": 3.513,
+   "unique": 204.333,
+   "repeatRate": 0.515,
+   "windowRepeatRate": 0,
+   "maxSameLine": 6,
+   "speakerShareStdev": 0.089,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.092,
+   "visitorLines": 281,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 7.133,
+   "perMinuteAfter30m": 3.353,
+   "crossReloadRepeats": 0,
+   "minGapLines": 50,
+   "medianGapSec": 1983.033,
+   "maxSameSpeakerRun": 2,
+   "runs": [
+    {
+     "utterances": 421,
+     "perMinute": 3.51,
+     "unique": 205,
+     "repeatRate": 0.513,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 50,
+      "p10": 70,
+      "median": 113
+     },
+     "reappearGapSec": {
+      "min": 903.567,
+      "p10": 1250.255,
+      "median": 1999.644
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "partner:robot_neighbor": 118,
+      "companion:clock": 52,
+      "pet": 147,
+      "companion:snail": 50,
+      "companion:otter": 54
+     },
+     "speakerShareStdev": 0.096,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "PIDLE_CHAR": 3,
+      "CIDLE_CHAR": 13,
+      "IDLE_GREETINGS_SILLY": 27,
+      "IDLE_GREETINGS_STANDARD": 34,
+      "unlisted": 8,
+      "IDLE_GREETINGS_FOREIGN": 19,
+      "COMPANION_IDLE_LINES": 45,
+      "PARTNER_IDLE_LINES": 48,
+      "IDLE_GREETINGS_DIALECT": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.054,
+     "visitorLines": 274,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.2,
+     "perMinuteAfter30m": 3.34,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "この落ちつき、保存できませんか",
+       6
+      ],
+      [
+       "今?だいたいこのへん",
+       6
+      ],
+      [
+       "目があうと処理が少し遅れます",
+       6
+      ],
+      [
+       "この葉っぱ、座り心地もいいね",
+       6
+      ],
+      [
+       "沈黙でも通信できている気がします",
+       6
+      ]
+     ]
+    },
+    {
+     "utterances": 422,
+     "perMinute": 3.52,
+     "unique": 204,
+     "repeatRate": 0.517,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 51,
+      "p10": 69,
+      "median": 118
+     },
+     "reappearGapSec": {
+      "min": 919.788,
+      "p10": 1236.247,
+      "median": 2083.832
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "partner:robot_neighbor": 122,
+      "pet": 145,
+      "companion:otter": 41,
+      "companion:snail": 63,
+      "companion:clock": 51
+     },
+     "speakerShareStdev": 0.098,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "PIDLE_CHAR": 3,
+      "IDLE_GREETINGS_STANDARD": 32,
+      "CIDLE_CHAR": 13,
+      "IDLE_GREETINGS_SILLY": 27,
+      "PARTNER_IDLE_LINES": 49,
+      "IDLE_GREETINGS_FOREIGN": 17,
+      "COMPANION_IDLE_LINES": 45,
+      "unlisted": 7,
+      "IDLE_GREETINGS_DIALECT": 11
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.076,
+     "visitorLines": 277,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 7.4,
+     "perMinuteAfter30m": 3.36,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "この落ちつき、保存できませんか",
+       6
+      ],
+      [
+       "目があうと処理が少し遅れます",
+       6
+      ],
+      [
+       "秒針だけ先に帰った",
+       6
+      ],
+      [
+       "忘れ物!…家、背中だった",
+       6
+      ],
+      [
+       "きのうの音が、ひとつ残ってる",
+       6
+      ]
+     ]
+    },
+    {
+     "utterances": 421,
+     "perMinute": 3.51,
+     "unique": 204,
+     "repeatRate": 0.515,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 54,
+      "p10": 70,
+      "median": 107
+     },
+     "reappearGapSec": {
+      "min": 963.742,
+      "p10": 1230.063,
+      "median": 1865.624
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "partner:robot_neighbor": 114,
+      "pet": 129,
+      "companion:otter": 67,
+      "companion:clock": 60,
+      "companion:snail": 51
+     },
+     "speakerShareStdev": 0.074,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "PARTNER_IDLE_LINES": 48,
+      "IDLE_GREETINGS_DIALECT": 17,
+      "PIDLE_CHAR": 3,
+      "CIDLE_CHAR": 13,
+      "COMPANION_IDLE_LINES": 45,
+      "IDLE_GREETINGS_FOREIGN": 17,
+      "IDLE_GREETINGS_SILLY": 21,
+      "IDLE_GREETINGS_STANDARD": 35,
+      "unlisted": 5
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.147,
+     "visitorLines": 292,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 6.8,
+     "perMinuteAfter30m": 3.36,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "この落ちつき、保存できませんか",
+       6
+      ],
+      [
+       "石の名前、まだ決まらない",
+       6
+      ],
+      [
+       "目があうと処理が少し遅れます",
+       6
+      ],
+      [
+       "秒針だけ先に帰った",
+       6
+      ],
+      [
+       "石ひとつでずっと遊べる!",
+       6
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "fx-quiet",
+   "label": "[常在fixture] 寡黙(ワニ+はこ+石像)",
+   "duration": "2h",
+   "utterances": 316.333,
+   "perMinute": 2.637,
+   "unique": 139,
+   "repeatRate": 0.56,
+   "windowRepeatRate": 0.05,
+   "maxSameLine": 12,
+   "speakerShareStdev": 0.178,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0.06,
+   "visitorLines": 139.667,
+   "quietLines": 139.667,
+   "quietGeneric": 32,
+   "perMinuteFirst5m": 4.8,
+   "perMinuteAfter30m": 2.717,
+   "crossReloadRepeats": 0,
+   "minGapLines": 16,
+   "medianGapSec": 678.916,
+   "maxSameSpeakerRun": 2,
+   "runs": [
+    {
+     "utterances": 304,
+     "perMinute": 2.53,
+     "unique": 140,
+     "repeatRate": 0.539,
+     "windowRepeats": 25,
+     "windowRepeatRate": 0.082,
+     "reappearGapLines": {
+      "min": 16,
+      "p10": 23,
+      "median": 29
+     },
+     "reappearGapSec": {
+      "min": 600.205,
+      "p10": 606.083,
+      "median": 639.673
+     },
+     "maxSameLine": 12,
+     "bySpeaker": {
+      "partner:swamp_croc": 46,
+      "companion:box": 46,
+      "pet": 165,
+      "companion:sekizou": 47
+     },
+     "speakerShareStdev": 0.169,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "PIDLE_CHAR": 3,
+      "CIDLE_CHAR": 6,
+      "IDLE_GREETINGS_SILLY": 25,
+      "IDLE_GREETINGS_FOREIGN": 20,
+      "COMPANION_IDLE_LINES": 20,
+      "IDLE_GREETINGS_STANDARD": 39,
+      "PARTNER_IDLE_LINES": 10,
+      "IDLE_GREETINGS_DIALECT": 9,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.055,
+     "visitorLines": 139,
+     "quietLines": 139,
+     "quietGeneric": 31,
+     "perMinuteFirst5m": 4.4,
+     "perMinuteAfter30m": 2.64,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "隣、あいてる。荷物はどかす",
+       12
+      ],
+      [
+       "中の話はまだしません",
+       12
+      ],
+      [
+       "……ただのはこです",
+       12
+      ],
+      [
+       "ここにいたことにしておこう",
+       12
+      ],
+      [
+       "……来たなら座っていけば",
+       12
+      ]
+     ]
+    },
+    {
+     "utterances": 318,
+     "perMinute": 2.65,
+     "unique": 142,
+     "repeatRate": 0.553,
+     "windowRepeats": 8,
+     "windowRepeatRate": 0.025,
+     "reappearGapLines": {
+      "min": 18,
+      "p10": 25,
+      "median": 30
+     },
+     "reappearGapSec": {
+      "min": 600.079,
+      "p10": 607.75,
+      "median": 641.764
+     },
+     "maxSameLine": 12,
+     "bySpeaker": {
+      "partner:swamp_croc": 47,
+      "companion:box": 47,
+      "pet": 178,
+      "companion:sekizou": 46
+     },
+     "speakerShareStdev": 0.179,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "PIDLE_CHAR": 3,
+      "CIDLE_CHAR": 6,
+      "IDLE_GREETINGS_STANDARD": 39,
+      "IDLE_GREETINGS_FOREIGN": 19,
+      "IDLE_GREETINGS_SILLY": 25,
+      "PARTNER_IDLE_LINES": 10,
+      "COMPANION_IDLE_LINES": 21,
+      "IDLE_GREETINGS_DIALECT": 11,
+      "unlisted": 8
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.062,
+     "visitorLines": 140,
+     "quietLines": 140,
+     "quietGeneric": 32,
+     "perMinuteFirst5m": 5.2,
+     "perMinuteAfter30m": 2.68,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "隣、あいてる。荷物はどかす",
+       12
+      ],
+      [
+       "中の話はまだしません",
+       12
+      ],
+      [
+       "……来たなら座っていけば",
+       12
+      ],
+      [
+       "……さっきより近い?",
+       12
+      ],
+      [
+       "置いてあっても参加してる",
+       12
+      ]
+     ]
+    },
+    {
+     "utterances": 327,
+     "perMinute": 2.73,
+     "unique": 135,
+     "repeatRate": 0.587,
+     "windowRepeats": 14,
+     "windowRepeatRate": 0.043,
+     "reappearGapLines": {
+      "min": 16,
+      "p10": 27,
+      "median": 35
+     },
+     "reappearGapSec": {
+      "min": 600.139,
+      "p10": 605.426,
+      "median": 755.312
+     },
+     "maxSameLine": 12,
+     "bySpeaker": {
+      "partner:swamp_croc": 47,
+      "pet": 187,
+      "companion:box": 47,
+      "companion:sekizou": 46
+     },
+     "speakerShareStdev": 0.186,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "PIDLE_CHAR": 3,
+      "IDLE_GREETINGS_SILLY": 24,
+      "IDLE_GREETINGS_DIALECT": 12,
+      "CIDLE_CHAR": 6,
+      "IDLE_GREETINGS_FOREIGN": 19,
+      "IDLE_GREETINGS_STANDARD": 37,
+      "PARTNER_IDLE_LINES": 10,
+      "COMPANION_IDLE_LINES": 17,
+      "unlisted": 7
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0.064,
+     "visitorLines": 140,
+     "quietLines": 140,
+     "quietGeneric": 33,
+     "perMinuteFirst5m": 4.8,
+     "perMinuteAfter30m": 2.83,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "……笑ってた?そりゃ、少しは",
+       12
+      ],
+      [
+       "中の話はまだしません",
+       12
+      ],
+      [
+       "……来たなら座っていけば",
+       12
+      ],
+      [
+       "……ただのはこです",
+       12
+      ],
+      [
+       "……さっきより近い?",
+       12
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scenario": "fx-hungry",
+   "label": "[常在fixture] 空腹45+こいびと+なかま3体",
+   "duration": "2h",
+   "utterances": 207.667,
+   "perMinute": 1.73,
+   "unique": 99.667,
+   "repeatRate": 0.52,
+   "windowRepeatRate": 0,
+   "maxSameLine": 6,
+   "speakerShareStdev": 0.08,
+   "memoryShareOfPet": 0,
+   "dialectShareOfPet": 0,
+   "visitorLines": 207.667,
+   "quietLines": 0,
+   "quietGeneric": 0,
+   "perMinuteFirst5m": 4,
+   "perMinuteAfter30m": 1.597,
+   "crossReloadRepeats": 0,
+   "minGapLines": 26,
+   "medianGapSec": 1772.041,
+   "maxSameSpeakerRun": 2,
+   "runs": [
+    {
+     "utterances": 210,
+     "perMinute": 1.75,
+     "unique": 100,
+     "repeatRate": 0.524,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 31,
+      "p10": 34,
+      "median": 50
+     },
+     "reappearGapSec": {
+      "min": 1132.734,
+      "p10": 1241.844,
+      "median": 1764.48
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "partner:robot_neighbor": 79,
+      "companion:clock": 48,
+      "companion:snail": 37,
+      "companion:otter": 46
+     },
+     "speakerShareStdev": 0.075,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "PIDLE_CHAR": 3,
+      "COMPANION_IDLE_LINES": 42,
+      "CIDLE_CHAR": 13,
+      "PARTNER_IDLE_LINES": 42
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0,
+     "visitorLines": 210,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 4,
+     "perMinuteAfter30m": 1.58,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "この落ちつき、保存できませんか",
+       6
+      ],
+      [
+       "目があうと処理が少し遅れます",
+       6
+      ],
+      [
+       "沈黙でも通信できている気がします",
+       6
+      ],
+      [
+       "きのうの音が、ひとつ残ってる",
+       6
+      ],
+      [
+       "石の名前、まだ決まらない",
+       5
+      ]
+     ]
+    },
+    {
+     "utterances": 209,
+     "perMinute": 1.74,
+     "unique": 101,
+     "repeatRate": 0.517,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 26,
+      "p10": 32,
+      "median": 60
+     },
+     "reappearGapSec": {
+      "min": 1059.992,
+      "p10": 1268.872,
+      "median": 2057.74
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "partner:robot_neighbor": 79,
+      "companion:clock": 46,
+      "companion:snail": 47,
+      "companion:otter": 37
+     },
+     "speakerShareStdev": 0.076,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "PIDLE_CHAR": 3,
+      "CIDLE_CHAR": 13,
+      "COMPANION_IDLE_LINES": 44,
+      "PARTNER_IDLE_LINES": 41
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0,
+     "visitorLines": 209,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 4.4,
+     "perMinuteAfter30m": 1.59,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "沈黙でも通信できている気がします",
+       6
+      ],
+      [
+       "目があうと処理が少し遅れます",
+       6
+      ],
+      [
+       "この落ちつき、保存できませんか",
+       6
+      ],
+      [
+       "雨のにおい!窓はないけどわかる",
+       5
+      ],
+      [
+       "石の名前、まだ決まらない",
+       5
+      ]
+     ]
+    },
+    {
+     "utterances": 204,
+     "perMinute": 1.7,
+     "unique": 98,
+     "repeatRate": 0.52,
+     "windowRepeats": 0,
+     "windowRepeatRate": 0,
+     "reappearGapLines": {
+      "min": 28,
+      "p10": 33,
+      "median": 42
+     },
+     "reappearGapSec": {
+      "min": 1201.087,
+      "p10": 1227.173,
+      "median": 1493.904
+     },
+     "maxSameLine": 6,
+     "bySpeaker": {
+      "companion:clock": 42,
+      "partner:robot_neighbor": 82,
+      "companion:otter": 40,
+      "companion:snail": 40
+     },
+     "speakerShareStdev": 0.088,
+     "maxSameSpeakerRun": 2,
+     "poolSeen": {
+      "CIDLE_CHAR": 13,
+      "PIDLE_CHAR": 3,
+      "PARTNER_IDLE_LINES": 42,
+      "COMPANION_IDLE_LINES": 40
+     },
+     "memoryShareOfPet": 0,
+     "dialectShareOfPet": 0,
+     "visitorLines": 204,
+     "quietLines": 0,
+     "quietGeneric": 0,
+     "perMinuteFirst5m": 3.6,
+     "perMinuteAfter30m": 1.62,
+     "crossReloadRepeats": 0,
+     "top": [
+      [
+       "この落ちつき、保存できませんか",
+       6
+      ],
+      [
+       "転がすのにちょうどいい石ない?",
+       6
+      ],
+      [
+       "目があうと処理が少し遅れます",
+       6
+      ],
+      [
+       "沈黙でも通信できている気がします",
+       6
+      ],
+      [
+       "秒針だけ先に帰った",
+       6
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}
