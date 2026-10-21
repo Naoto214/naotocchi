@@ -8,6 +8,7 @@
   const CARE_STATUS = window.NaotocchiCareStatus || null;
   const EMOTION_STATE = window.NaotocchiEmotionState || null;
   const PET_EXPRESSION = window.NaotocchiPetExpression || null;
+  const MINIGAME_REACTIONS = window.NaotocchiMinigameReactions || null;
   const RELATIONSHIP_EXPRESSION = window.NaotocchiRelationshipExpression || null;
   let relationshipRenderTimer = null;
   let homeSocialReactions = null;
@@ -6215,6 +6216,9 @@
   }
 
   function speakEvent(eventKey, ctx = {}) {
+    // ミニゲームの けっか処理の さいちゅう(そだち・とし など)は、けっかトーストを けさない よう
+    // いったん ためて、トーストの あとに まわす(dispatchMinigameReaction)
+    if (minigameResultSpeechHold) { minigameResultSpeechHold.push([eventKey, ctx]); return; }
     const dialogueKey = eventKey === 'evolve' ? 'age' : eventKey === 'companion_new' ? 'minigame_great' : eventKey;
     const pool = CONVERSATION_POOLS[dialogueKey];
     if (!pool) return;
@@ -14529,7 +14533,8 @@
   const QUICK_FOOD_EMOJI = ['🍙', '🍎', '🍰', '🍓', '🍩', '🍇'];
   const quickMod = typeof installNaotocchiQuick === 'function' ? installNaotocchiQuick({
     sfx: (name) => audio.play(name),
-    voice: (text) => audio.voice(text),
+    // 第2引数(question など よみかたの しじ)も おとさず わたす
+    voice: (text, opts) => audio.voice(text, opts),
     clamp, lerp, escapeHtml, createMgCanvas,
     currentSprite: () => currentSprite(),
     partnerEmoji: () => (state.partner && state.partner.emoji) || null,
@@ -14863,9 +14868,15 @@
     if (!q.single || typeof q.single !== 'object') q.single = {};
     return q;
   }
+  // 「1本ずつ」の けっかカードは、50本で 1枠の minigameRecords['quick-solo'] ではなく、
+  // その 1本の きろく(quick.single)と くらべる。onRunEnd は onComplete より さきに よばれるので、
+  // うわがき まえの ベストを ここで おぼえておく(セーブには のこさない)
+  let quickSoloPrev = null;
   function recordQuickRun(stats) {
     const q = quickStats();
     if (stats.solo) {
+      const before = q.single[stats.solo];
+      quickSoloPrev = { id: stats.solo, best: before && before.runs > 0 ? Math.round(before.best * 100 / (stats.total || 1)) : null };
       const r = q.single[stats.solo] || (q.single[stats.solo] = { runs: 0, best: 0 });
       r.runs += 1; r.best = Math.max(r.best, stats.cleared);
     } else {
@@ -14876,6 +14887,14 @@
     q.totalCleared += stats.cleared;
     for (const [id, n] of Object.entries(stats.plays || {})) q.plays[id] = (q.plays[id] || 0) + n;
     for (const [id, n] of Object.entries(stats.clears || {})) q.clears[id] = (q.clears[id] || 0) + n;
+  }
+  function quickSoloToastRecord(game, record) {
+    const prev = quickSoloPrev;
+    quickSoloPrev = null;
+    if (!record || game.id !== 'quick-solo' || !prev || prev.id !== game.quickGameId) return record;
+    const isNewBest = prev.best == null || record.score > prev.best;
+    const best = isNewBest ? record.score : prev.best;
+    return { ...record, best, prevBest: prev.best, isNewBest, bestRank: minigameRankOf(best) };
   }
   // gameId を わたすと その 1本だけの ラン、なしなら ぜんぶ まぜた ラン
   function startQuickRun(gameId) {
@@ -16425,7 +16444,35 @@
       finishMinigameInner(game, score, customMessage);
     } finally {
       mgCodeDepth = savedDepth;
+      minigameResultSpeechHold = null;
     }
+  }
+
+  // --- ミニゲームの けっか → キャラの はんのう(minigame-reactions.js の v0) ---
+  // ちょっと まえの けっか(ほぞんしない)。連敗・くりかえし などの 判定に つかう
+  const recentMinigameResults = [];
+  let minigameResultSpeechHold = null;
+  const MINIGAME_REACTION_FALLBACK = {
+    recruit: { eventKey: 'companion_new', partnerChance: 0.5, companionChance: 0.6 },
+    great: { eventKey: 'minigame_great', partnerChance: 0.5, companionChance: 0.6 },
+    bad: { eventKey: 'minigame_bad', partnerChance: 0.45, companionChance: 0.5 },
+    mid: { eventKey: null },
+  };
+  function minigameReactionPlan(input) {
+    if (!MINIGAME_REACTIONS) return MINIGAME_REACTION_FALLBACK[input.recruited === true ? 'recruit' : input.band];
+    return MINIGAME_REACTIONS.resolve(MINIGAME_REACTIONS.buildContext(input));
+  }
+  // プランを 既存の 部品に ながす。会話は speakEvent を 名前で よぶ(イベントキーは ふやさない)
+  function dispatchMinigameReaction(plan, held, delayMs, motionTarget) {
+    if (plan && plan.eventKey) {
+      const ctx = { delayMs, partnerChance: plan.partnerChance, companionChance: plan.companionChance };
+      if (plan.eventKey === 'companion_new' && motionTarget) ctx.motionTarget = motionTarget;
+      if (plan.petText) ctx.petText = plan.petText;
+      speakEvent(plan.eventKey, ctx);
+      return;
+    }
+    // 会話の ない 帯: けっか処理の あいだに たまった 吹き出しは、トーストを 読んだ あとに 出す
+    for (const [key, ctx] of held) speakEvent(key, { ...ctx, delayMs: ((ctx && ctx.delayMs) || 0) + delayMs });
   }
 
   function ordinaryMinigameCoins(result, equipmentId) {
@@ -16453,12 +16500,14 @@
       pendingCompanionId = null;
       setMessage((customMessage || resultMessageForScore(score)) + (coins ? '／100コインをもらった!' : ''));
       closeMinigameScreen();
-      showMinigameResultToast(record);
+      showMinigameResultToast(quickSoloToastRecord(game, record));
       audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
       saveState(); // 実績・記録は残し、育成・勧誘・ストーリーの結果処理を通さない。
       render();
       return;
     }
+    minigameResultSpeechHold = [];
+    const fromCompanion = !!pendingCompanionId;
     state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
     const energyCost = Math.max(1, Math.round(12 * envModifiers().play));
     state.energy = clamp(state.energy - energyCost, 0, 100);
@@ -16541,9 +16590,17 @@
     closeMinigameScreen();
     const resultDuration = showMinigameResultToast(record) || 0;
     // 成績を読んでから感想を出す。別のお世話や再プレイで会話は取り消せる。
-    if (recruitedMotionTarget) speakEvent('companion_new', {delayMs:resultDuration,motionTarget:recruitedMotionTarget,partnerChance:0.5,companionChance:0.6});
-    else if (isGreat) speakEvent('minigame_great', { delayMs: resultDuration, partnerChance: 0.5, companionChance: 0.6 });
-    else if (isBad) speakEvent('minigame_bad', { delayMs: resultDuration, partnerChance: 0.45, companionChance: 0.5 });
+    const band = isGreat ? 'great' : isBad ? 'bad' : 'mid';
+    recentMinigameResults.push({ gameId: game.id, band, score: rawScore });
+    if (recentMinigameResults.length > 8) recentMinigameResults.shift();
+    const heldSpeech = minigameResultSpeechHold || [];
+    minigameResultSpeechHold = null;
+    dispatchMinigameReaction(minigameReactionPlan({
+      kind: 'normal', gameId: game.id, category: minigameCategoryOf.get(game) || null, genre: minigameGenreId(game),
+      score: rawScore, band, record, playCount: minigamePlayCount(game), recent: recentMinigameResults,
+      source: fromCompanion ? 'companion' : 'play', recruited: fromCompanion ? recruitedNow : null,
+      hasPartner: !!state.partner, companionCount: state.companions.length,
+    }), heldSpeech, resultDuration, recruitedMotionTarget);
     audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
 
     // checkStoryEvents() no-ops while gameActive, so this must run after
@@ -17186,6 +17243,13 @@
   // 共通いりぐち。chosenGame が あれば その ゲームを、なければ 抽選する。
   // えらんで あそんだ ときも プレイ回数・直前ゲーム・ジャンルの きろくは
   // ランダムの ときと おなじように のこす(未プレイ優遇の もとデータ)
+  // じっさいに ミニゲームを はじめた ことの きろく(実績「あそんだ」「雨の日に あそんだ」など)。
+  // 「あそぶ」からでも なかまの さそいからでも おなじ 1かいとして かぞえる
+  function notePlayStarted() {
+    state.actionCounts.play += 1;
+    recordEnvironmentPlay();
+  }
+
   function tryStartPlay(chosenGame) {
     if (gameActive) return false;
     if (state.isSleeping) {
@@ -17207,12 +17271,11 @@
       applyGamePassSuccess();
       return true;
     }
-    state.actionCounts.play += 1;
+    notePlayStarted();
     if (!isQuick) {
       state.affectionStreak = 0;
       state.travelStreak = 0;
     }
-    recordEnvironmentPlay();
     let game;
     if (chosenGame) {
       game = chosenGame;
@@ -17883,6 +17946,7 @@
       render();
       return;
     }
+    notePlayStarted();
     startMinigame(pickRandomMinigame());
   });
 
