@@ -182,8 +182,16 @@ class Connection:
    # directly. Only that transition receives the registry-bound active view;
    # every other caller, every non-reentry game and every state already
    # projected by verify() above keeps the legacy check.
-   if len(events)!=1 or events[0].get('action_type')!='r10_final_comparison' or not any(retains_predecessor(c['game_state']['cards']) for c in (before,after)):return prior_step(before,after,events)
-   if before['game_state']['round']!=10 or after['game_state']['phase']!='completed' or canonical(before['game_state']['cards'])!=canonical(after['game_state']['cards']):raise ValueError('R10 incarnation final comparison state differs')
+   # The 196 C-chicken start resolution calls the same verifier directly with
+   # its single-link projection; it receives the same registry-bound view.
+   if len(events)!=1 or not any(retains_predecessor(c['game_state']['cards']) for c in (before,after)):return prior_step(before,after,events)
+   kind=events[0].get('action_type');links=before['activation_zone']
+   if kind=='r10_final_comparison':
+    if before['game_state']['round']!=10 or after['game_state']['phase']!='completed' or canonical(before['game_state']['cards'])!=canonical(after['game_state']['cards']):raise ValueError('R10 incarnation final comparison state differs')
+   elif kind=='resolve_board_ability' and len(links)==1 and links[0].get('card_id')=='C-chicken':
+    link=links[0];event=events[0]
+    if event.get('chain_link_id')!=link['link_id'] or event.get('source_instance_id')!=link['source_instance_id'] or before['game_state']['cards'].get(link['source_instance_id'],{}).get('card_id')!='C-chicken' or canonical(before['game_state']['cards'])!=canonical(after['game_state']['cards']):raise ValueError('incarnation chicken resolution state differs')
+   else:return prior_step(before,after,events)
    record=self.registry(before['game_state'])
    for current in (before,after):life.check(record,dict(legacy_continuation=current))
    r=restart_122.response_120;event=events[0]

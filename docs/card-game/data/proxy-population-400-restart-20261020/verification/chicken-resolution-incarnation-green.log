@@ -1,0 +1,7 @@
+test_chicken_resolution_after_reentry_passes_the_registry_bound_check (test_proxy_population_chicken_resolution_incarnation.ChickenResolutionIncarnationTests.test_chicken_resolution_after_reentry_passes_the_registry_bound_check) ... ok
+test_legacy_check_alone_still_rejects_and_tampering_fails_closed (test_proxy_population_chicken_resolution_incarnation.ChickenResolutionIncarnationTests.test_legacy_check_alone_still_rejects_and_tampering_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.254s
+
+OK
