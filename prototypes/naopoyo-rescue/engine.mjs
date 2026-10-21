@@ -42,7 +42,8 @@ export function validState(stage,s){
  for(const k of ['walls','exits','spikes','gravity'])if(JSON.stringify(s[k])!==JSON.stringify(stage[k]))return false;
  if(s.gates.length!==stage.gates.length||s.gates.some((g,i)=>(g.open!==undefined&&typeof g.open!=='boolean')||JSON.stringify({...g,open:false})!==JSON.stringify({...stage.gates[i],open:false})))return false;
  const ids=new Set(),cells=new Set();
- for(const a of s.actors){const cell=`${a.x},${a.y}`;if(typeof a.id!=='string'||ids.has(a.id)||cells.has(cell)||!['dog','fish'].includes(a.species)||!Number.isInteger(a.level)||a.level<1||a.level>8||!Number.isInteger(a.x)||!Number.isInteger(a.y)||wall(s,a.x,a.y)||at(s.exits,a.x,a.y)||s.gates.some(g=>g.x===a.x&&g.y===a.y&&!g.open))return false;ids.add(a.id);cells.add(cell)}
+ for(const a of s.actors){const cell=`${a.x},${a.y}`;if(typeof a.id!=='string'||ids.has(a.id)||cells.has(cell)||!['dog','fish','penguin','frog'].includes(a.species)||!Number.isInteger(a.level)||a.level<1||a.level>8||!Number.isInteger(a.x)||!Number.isInteger(a.y)||wall(s,a.x,a.y)||at(s.exits,a.x,a.y)||s.gates.some(g=>g.x===a.x&&g.y===a.y&&!g.open))return false;ids.add(a.id);cells.add(cell)}
  return mass(s)===mass(createState(stage));
  }catch{return false}
 }
+
