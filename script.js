@@ -2923,7 +2923,7 @@
   // difficulty knobs off of this so the whole game gets meaner as the pet
   // gets older, instead of staying at "baby" difficulty forever
   // 「せかい」がめんで えらぶ ミニゲームの むずかしさ。ねんれいで あがる
-  // むずかしさの のびを おさえ(やさしい 0.4倍 / ふつう 0.7倍 / むずかしい 1倍)、
+  // むずかしさの のびを おさえ(やさしい 0.3倍 / ふつう 0.55倍 / むずかしい 1倍)、
   // せいげん時間を ながくする(mgDuration)
   const DIFFICULTY_CHOICES = { easy: ['🌱', 'やさしい'], normal: ['🙂', 'ふつう'], hard: ['🔥', 'むずかしい'] };
   const GAME_LENGTH_CHOICES = { normal: ['⏱️', 'ふつう'], short: ['⚡', 'みじかめ'] };
@@ -15989,14 +15989,13 @@
     return !!seasonEntries && seasonEntries.some((entry) => entry.game === game);
   }
 
-  // ミニゲームの 出やすさは「質の ティア」で きめる。
-  //  S: 物理/3D/れんぞく操作が ある、いちばん あそびごたえの ある ゲーム(追加チケット2枚)
-  //  A: 操作感や 展開に 変化が あって しっかり あそべる ゲーム(追加チケット1枚)
-  //  B: みじかい タイミング/選択の ゲーム(そのまま)
-  // ゲームid に ついた ティアが 優先、なければ カテゴリの ティア、それも なければ B
-  // 出やすさは ぜんゲーム 同確率。いま いる地域 / いまの きせつの ゲームだけ
-  // 袋に 2まい 入れて、滞在中は 約2ばい 出やすくする(ほかの 地域でも
-  // ふつうの 確率で 出る。「出ない ゲーム」は つくらない)
+  // ミニゲームの 出やすさ(シャッフルの おもみ)。
+  //  - まだ あそんでいない ゲームは 2.2、あそんだ ものは かいすうに おうじて
+  //    1/(1+かいすう×0.12) に へっていく
+  //  - いま いる地域の ゲームは ×1.45、いまの きせつの ゲームは ×1.25
+  //  - さいごに 天気・時間・季節・地域の 環境補正(environmentGameWeight)を かける
+  // ほかの 地域・きせつの ゲームも ふつうに 出る(「出ない ゲーム」は つくらない)。
+  // いまの 地域・きせつの ゲームには 下の refillMinigameQueue で 追加の 券も 1まい 入る
   function minigameDrawWeight(game) {
     const played = minigamePlayCount(game);
     let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
@@ -16033,10 +16032,11 @@
     weighted.sort((a, b) => a.key - b.key);
     minigameQueue = weighted.map((w) => w.i);
 
-    // ティアに おうじて 追加チケット(S:2枚 A:1枚)。質の高いゲームへ明確に寄せつつ、
-    // 元のプールも残すので同じ数本だけに固定はしない。
-    // 未プレイ優遇・地域/季節優遇と競合しないよう、追加チケットも同じ
-    // キューに混ぜてから軽くシャッフルする。
+    // いま いる地域・いまの きせつの ゲームには 追加チケットを 1まい 足し、
+    // 滞在中は さらに 出やすくする。元のプールも残すので同じ数本だけに固定はしない。
+    // 追加チケットは 同じ キューの ランダムな 位置に 混ぜる。
+    // そのあと、おうかんの 実績に ひつような ゲームは refreshCrownMinigameQueue で
+    // おもみを 2ばいに して 並べ直す(crownAchievementWeight)。
     const spotlightTickets = [];
     currentMinigamePool.forEach((game, i) => {
       if (isRegionExclusiveGame(game) || isSeasonExclusiveGame(game)) spotlightTickets.push(i);
