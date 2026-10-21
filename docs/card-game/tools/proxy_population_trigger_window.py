@@ -74,6 +74,17 @@ def closed_native(journal,event_seq):
 
 
 START_ABILITIES=frozenset(('own_start_reveal_companion','own_start_hand_at_most_two_draw'))
+BOUNDARY_EVENTS=frozenset(('open_turn_end_triggers','turn_end_completed','turn_start_and_normal_draw','egg_exchange_bottom'))
+
+
+def turn_boundary_result(result):
+    """A step result that opens the end window or crosses into the next turn.
+
+    Such a result must be observed by the start/end observation even while an
+    arrival group is still open: the end window raises its own source group and
+    a new turn closes the current ledger and captures the next start group.
+    """
+    return any(event['action_type'] in BOUNDARY_EVENTS for event in result['events'])
 
 
 def arrival_rows(journal):
@@ -177,9 +188,10 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 return original_forced(before,*args)
             with inventory_closure(mode,current_ledger,e['event_seq']):r=original_step(e,i,history,legacy,full,resolve_or_delegate,supplied_session)
             r=compose_response(r,e,history,full)
-            if any(event['action_type']=='open_turn_end_triggers' for event in r['events']):
-                # The end window opens its own source group even while an earlier
-                # arrival group is still open; observe it exactly as the inactive path does.
+            if turn_boundary_result(r):
+                # The end window opens its own source group, and a turn change closes
+                # the ledger and captures the next start group, even while an earlier
+                # arrival group is still open; observe exactly as the inactive path does.
                 return observe_start(r,history,e)
             if r['final_envelope']['legacy_continuation']['game_state']['phase']==('turn_end' if mode=='end' else 'normal_action'):active=False
             return observe_existing(r,e,history)
