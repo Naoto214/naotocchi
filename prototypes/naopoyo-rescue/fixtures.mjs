@@ -18,13 +18,17 @@ function rounded(c, x, y, w, h, radius, color) {
 }
 export function drawCondition(c, fixture) {
   inCell(c, fixture, () => {
-    if (fixture.species) drawSprite(c, fixture.species, 6, {x:.035,y:.68,w:.36,h:.29});
-    c.fillStyle = '#243d4a'; c.textAlign = 'center'; c.textBaseline = 'middle';
-    c.font = 'bold .31px ui-monospace, monospace';
-    const label=fixture.species && conditionLabel(fixture)==='ALL'?'':conditionLabel(fixture);
-    c.strokeStyle='#ffffed';c.lineWidth=.055;c.lineJoin='round';
-    c.strokeText(label,fixture.species?.66:.5,.835,fixture.species?.54:.86);
-    c.fillText(label,fixture.species?.66:.5,.835,fixture.species?.54:.86);
+    const label=conditionLabel(fixture), all=label==='ALL';
+    // Fit cropped art and text around one shared visual centre (not PNG padding).
+    const iconWidth=.30, gap=.04, textWidth=all?.51:.47;
+    const groupWidth=fixture.species?iconWidth+gap+textWidth:textWidth;
+    const left=(1-groupWidth)/2, cy=.835;
+    if(fixture.species)drawSprite(c,fixture.species,6,{x:left,y:cy-.145,w:iconWidth,h:.29});
+    c.fillStyle='#243d4a';c.textAlign='center';c.textBaseline='middle';
+    c.font=`bold ${all?.245:.29}px ui-monospace, monospace`;
+    const tx=fixture.species?left+iconWidth+gap+textWidth/2:.5;
+    c.strokeStyle='#ffffed';c.lineWidth=.045;c.lineJoin='round';
+    c.strokeText(label,tx,cy,textWidth);c.fillText(label,tx,cy,textWidth);
   });
 }
 export function drawExit(c, fixture) {
@@ -47,21 +51,30 @@ export function drawExit(c, fixture) {
 }
 export function drawGate(c, fixture, opening = 1, occupied = false) {
   inCell(c, fixture, () => {
-    const openness=fixture.open?opening:0;
-    rounded(c,.08,.40,.84,.06,.025,'#9b805d');
-    rounded(c,.08,.43,.09,.24,.02,'#806b53');
-    rounded(c,.83,.43,.09,.24,.02,'#806b53');
-    if(fixture.open){
-      rounded(c,.19,.40,.62,.26,.04,'#c8e4bd');
-      c.strokeStyle='#4e8062';c.lineWidth=.045;
-      c.beginPath();c.moveTo(.4,.59);c.lineTo(.5,.46);c.lineTo(.6,.59);c.stroke();
-    }
+    const openness=fixture.open?Math.max(0,Math.min(1,opening)):0;
+    // A dark, full-height passage with stone jambs and two sliding iron leaves.
+    rounded(c,.10,.20,.80,.48,[.13,.13,.025,.025],'#334854');
+    rounded(c,.07,.21,.12,.47,.025,'#8b9caa');
+    rounded(c,.81,.21,.12,.47,.025,'#8b9caa');
+    rounded(c,.07,.17,.86,.10,.03,'#bdc8c7');
+    rounded(c,.07,.63,.86,.045,.012,'#d4c7a2');
+    c.save();c.beginPath();c.rect(.19,.27,.62,.36);c.clip();
     for(const side of [-1,1]){
-      const w=.32*(1-openness)+.025,x=side<0?.18:.82-w;
-      rounded(c,x,.46,w,.20,.025,'#b99c70');
-      c.strokeStyle='#806b53';c.lineWidth=.02;c.strokeRect(x,.46,w,.20);
+      const shift=side*openness*.31;
+      c.strokeStyle='#b1c5ca';c.lineWidth=.043;
+      c.beginPath();
+      for(const x of (side<0?[.23,.35,.47]:[.53,.65,.77])){
+        c.moveTo(x+shift,.27);c.lineTo(x+shift,.63);
+      }
+      c.moveTo((side<0?.19:.5)+shift,.39);c.lineTo((side<0?.5:.81)+shift,.39);
+      c.moveTo((side<0?.19:.5)+shift,.56);c.lineTo((side<0?.5:.81)+shift,.56);c.stroke();
     }
-    drawSprite(c,'owl',1,occupied?{x:.025,y:.015,w:.38,h:.36}:{x:.16,y:.005,w:.68,h:.60});
+    c.restore();
+    // The familiar owl sits on the lintel, with a readable face, even when occupied.
+    if(!occupied)drawSprite(c,'owl',1,{x:.20,y:.025,w:.60,h:.52});
   });
 }
 
+export function drawOccupiedGuardian(c,fixture){
+ inCell(c,fixture,()=>drawSprite(c,'owl',1,{x:.035,y:.025,w:.40,h:.48}));
+}

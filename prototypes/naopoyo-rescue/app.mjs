@@ -33,6 +33,6 @@ function arrow(dx,dy){if(!selected||!state.actors.some(a=>a.id===selected)){$('m
 for(const b of document.querySelectorAll('[data-dir]'))b.onclick=()=>arrow(...b.dataset.dir.split(',').map(Number));$('drop').onclick=finish;
 canvas.addEventListener('keydown',e=>{const dirs={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]};if(dirs[e.key]){e.preventDefault();arrow(...dirs[e.key])}if(e.key==='Enter'||e.key==='Escape')finish()});
 $('help').onclick=()=>{$('guide').showModal()};$('closeHelp').onclick=()=>{$('guide').close()};
-function frame(t){draw(state,selected,t);requestAnimationFrame(frame)}update();requestAnimationFrame(frame);
+function frame(t){draw(state,selected,t,drag!==null?selected:null);requestAnimationFrame(frame)}update();requestAnimationFrame(frame);
 
 
