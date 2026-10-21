@@ -74,6 +74,39 @@ class ConcealedOriginTests(unittest.TestCase):
 if __name__=='__main__':unittest.main()
 
 
+def with_bond(after):
+ """A's companion wearing a face-up I-bond1 (group-023-B-first board at 188)."""
+ e=copy.deepcopy(after);g=e['legacy_continuation']['game_state'];p=g['players']['A']
+ pick=lambda card:next(x for x in p['hand']+p['deck'] if g['cards'][x]['card_id']==card)
+ companion=pick('C-box');bond=pick('I-bond1')
+ for x in (companion,bond):
+  for zone in ('hand','deck'):
+   if x in p[zone]:p[zone].remove(x)
+ p['board']['companions'].append(companion);p['board']['prepared'].append(bond)
+ e['runtime']['public_prepared'][bond]=dict(controller='A',face_up=True,paid_time=2,placed_event_seq=1);e['runtime']['attachments'][bond]=dict(controller='A',target_instance_id=companion,attached_event_seq=1)
+ state.validate(e);return e,bond
+
+
+class ReplacementOriginTests(unittest.TestCase):
+ def test_bond_replacement_is_classified_for_the_paid_draw_origin(self):
+  import proxy_continuation_actions as actions
+  def run():
+   after,history,hidden=activated();e,bond=with_bond(after)
+   with preparation.scope():
+    with self.assertRaises(ValueError):actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,history)
+    with api.scope():
+     row=actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,history)
+     self.assertEqual((row['source_instance_id'],row['reason']),(bond,'certified_origin_does_not_move_an_opponent_companion'))
+     listed=copy.deepcopy(history);listed[-1]['action_type']='use_item'
+     self.assertNotIn('concealed_origin_proof',actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,listed))
+     with patch.object(api,'REPLACEMENT',('I-bond1','0'*64)):
+      with self.assertRaises(ValueError):actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,history)
+    native=actions.PREPARED_REACTION_CLASSIFIER
+   self.assertIsNot(native,None)
+  def wrapped(forced):run();return {}
+  base.operation(initial(),wrapped)
+
+
 class ConnectedConcealedOriginTests(unittest.TestCase):
  def test_connected_scope_admits_the_paid_draw_origin(self):
   import proxy_population_challenge_window as connected

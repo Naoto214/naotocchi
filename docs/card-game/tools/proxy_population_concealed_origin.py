@@ -9,6 +9,12 @@ added two activations it does not list: the paid draw of M-antlion-02/08
 removes a main. Only for those origins, with the card-text sections pinned and
 re-verified through the start catalog, the frozen projection is run as-is; every
 other origin still goes to the frozen function. No concealed identity is read.
+
+The same two origins are also unknown to the frozen face-up replacement
+classifier (I-bond1, companion_departure). I-bond1 only replaces a companion
+moved from the companion slot to hand or discard by the opponent's effect and
+does not stop the owner's own cost or moves to the deck; neither origin text
+does that, so the frozen classifier's own row is returned for them.
 """
 import copy
 from contextlib import contextmanager
@@ -23,6 +29,7 @@ ORIGINS={
  'M-antlion-08':('activate_main_ability','f741ca3a7bb090554d0c08efaef5fb764b47b989f06e5d6d94ef845ae13c646e'),
  'C-cat_friend':('activate_companion_ability','41b133fc4248abc95361a57dda56978e1c017e76af74322ca8cbd92ce9cc8880'),
 }
+REPLACEMENT=('I-bond1','321a29ac4ba65f55f4a5ded3ac707cfe2903ccd14dab5d2906f1114ebe21e578')
 _LOCK=Lock()
 
 
@@ -66,10 +73,20 @@ def inventory(native,envelope,initial,events,delegate):
  return dict(projected(envelope,initial,events,delegate),concealed_origin_proof=proof)
 
 
+def replacement(native,envelope,owner,source,events):
+ proof=proven_origin(envelope,events)
+ if proof is None:return native(envelope,owner,source,events)
+ c=state.current(envelope);card=c['game_state']['cards'][source]['card_id']
+ if card!=REPLACEMENT[0] or starts.catalog()['cards'][card]['section_sha256']!=REPLACEMENT[1]:raise ValueError('replacement source outside the pinned text')
+ return dict(source_instance_id=source,source_reference=batch.rules.classification(card)['reference'],reason='certified_origin_does_not_move_an_opponent_companion',concealed_origin_proof=proof)
+
+
 @contextmanager
 def scope():
  if not _LOCK.acquire(blocking=False):raise ValueError('concealed origin scope concurrency/reentry forbidden')
- native=preparation.response_inventory
+ native=preparation.response_inventory;actions=preparation.actions;native_reaction=actions.PREPARED_REACTION_CLASSIFIER
  try:
-  preparation.response_inventory=lambda envelope,initial,events,delegate:inventory(native,envelope,initial,events,delegate);yield
- finally:preparation.response_inventory=native;_LOCK.release()
+  preparation.response_inventory=lambda envelope,initial,events,delegate:inventory(native,envelope,initial,events,delegate)
+  if native_reaction is not None:actions.PREPARED_REACTION_CLASSIFIER=lambda envelope,owner,source,events:replacement(native_reaction,envelope,owner,source,events)
+  yield
+ finally:preparation.response_inventory=native;actions.PREPARED_REACTION_CLASSIFIER=native_reaction;_LOCK.release()

@@ -1,0 +1,32 @@
+test_bond_replacement_is_classified_for_the_paid_draw_origin (test_proxy_population_concealed_origin.ReplacementOriginTests.test_bond_replacement_is_classified_for_the_paid_draw_origin) ... ERROR
+
+======================================================================
+ERROR: test_bond_replacement_is_classified_for_the_paid_draw_origin (test_proxy_population_concealed_origin.ReplacementOriginTests.test_bond_replacement_is_classified_for_the_paid_draw_origin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_concealed_origin.py", line 107, in test_bond_replacement_is_classified_for_the_paid_draw_origin
+    base.operation(initial(),wrapped)
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_concealed_origin.py", line 106, in wrapped
+    def wrapped(forced):run();return {}
+                        ^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_concealed_origin.py", line 98, in run
+    row=actions.PREPARED_REACTION_CLASSIFIER(e,'A',bond,history)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_preparation.py", line 99, in reaction_classifier
+    elif origin['action_type'] not in batch.NORMAL_CARD_EVENTS|{'normal_pass_end_request','turn_start_and_egg_draw','turn_start_and_normal_draw','egg_exchange_bottom','open_turn_end_triggers','relationship_progress','relationship_marriage','challenge_declared','challenge_compared','resolve_board_stat','resolve_payment_modifier','resolve_immediate_effect','resolve_event','resolve_item','resolve_play','resolve_board_ability','resolve_targeted_zone_move'}:raise ValueError('replacement origin effect unclassified')
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: replacement origin effect unclassified
+
+----------------------------------------------------------------------
+Ran 1 test in 0.055s
+
+FAILED (errors=1)
