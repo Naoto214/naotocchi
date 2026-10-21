@@ -6,7 +6,7 @@ const copy = value => JSON.parse(JSON.stringify(value));
 const careFields = ['stage','speciesLine','stageIndex','ageTicks','hunger','happiness','energy','health',
   'sodachi','maxSodachi','growth','decline','boostTicks','recentActionTicks','deathMeter','dying','dyingTicks',
   'transformMeter','transformOptions','transformsThisLife','transformStageDone','affectionStreak','travelStreak',
-  'partner','companions','traitCounts','isSick','sicknessType','poopCount','lifeLog'];
+  'partner','companions','individuality','isSick','sicknessType','poopCount','lifeLog'];
 function care(s) { return copy(Object.fromEntries(careFields.map(key => [key,s[key]]))); }
 // The daily game is picked from the calendar day. These tests replace Math.random with a
 // constant, and some minigames draw their layout by rejection sampling (domino-run keeps

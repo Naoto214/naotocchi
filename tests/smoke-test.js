@@ -92,6 +92,7 @@ global.window.NaotocchiCast = require('../cast-layout.js');
 global.window.NaotocchiCastMotion = require('../cast-motion.js');
 global.window.NaotocchiEnvironment = require('../world-environment.js');
 global.window.NaotocchiCareStatus = require('../care-status.js');
+global.window.NaotocchiIndividuality = require('../individuality.js');
 global.window.NaotocchiItems = require('../item-system.js');
 global.window.NaotocchiItemMemories = require('../item-memories.js');
 global.localStorage = { getItem: () => null, setItem: noop, removeItem: noop };

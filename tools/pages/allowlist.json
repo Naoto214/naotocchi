@@ -4127,7 +4127,9 @@
     "vendor/three-0.170.0/three.module.min.js",
     "world-environment.js",
     "world-scene.css",
-    "world-scene.js"
+    "world-scene.js",
+    "individuality.js",
+    "individuality-data.js"
   ],
   "dynamic_families": [
     "assets/characters/**/*.png",
@@ -4210,7 +4212,7 @@
     "home-care-colors.css": "ea67edc0b0c27fd194993419c62e3863d5474a5613984488c6bf2e2b127775bc",
     "home-touch.js": "eda7deef505a69cd93e7e5ab4933c9791732ec351679eb6f0171a77c314e684f",
     "illustration-catalog.js": "75f714c1d6ddb429f2d2eebab23f468d976d8e4201dcbaa10b91adfc3c84da0d",
-    "index.html": "f1b1f0a8613484ff91bdc3e033729f4a85feb6508b164979c56c9041a087332f",
+    "index.html": "82e7804e70201abc01ba4dc4e4fc4c20ecdb2e1848ded9e7f1ce7a20b9def68a",
     "item-memories.css": "8434fee41472c872e3c3ee168ee78335ce7ba091fb8a60a7c96fe35bec5e0eb8",
     "item-memories.js": "252a43fba4fce6890cd4eb74fe9c073bac676dad309130987dd2d512c273c369",
     "item-system.js": "75cfbf0b3e004a51d9c0f4a140aa679b4cb0ee3aeb4b68153c9c13b6ea34d598",
@@ -4332,15 +4334,17 @@
     "relationship-expression.js": "5fdba60b9155f53f7a3f77c3acb307df2c2397c344e8b74a5e955bbb2eb85082",
     "relationship-life.js": "845ec0c9e35de4b47b0f8b56086d428433fa4407aa3e58adca0b85e6fabc3441",
     "resident-expression.js": "57387bc14ffffbb25a4838fb32b51d8c58ad73fca12ed1f783d886af6863911d",
-    "script.js": "023e44f0d6ba8072cd42e58a5a8a091cacb9818c5e41c7ccea81ff0059ff2ca4",
+    "script.js": "98fe6751caa140cf53e1e9fa909826904bcc06e89c9334f1b9cafbe49a6a93ad",
     "style.css": "50dbd9b14e78b98dae31aed50ae03ffed9290dd964161a19444f04de4a00b015",
     "ui-illustrations.css": "94f2a91665f90bfcfbd72b002c28aab5bdbef581c5d5d43e0cbb95159ff82f81",
     "ui-symbol-art.js": "dbdce7f8a51024f6de2e5cf60b5775f3fef307b8cb44474e1e9428fca5f68684",
-    "ui.css": "88fbae0b0b1bb44c2c4aa2cc7881b1d646b7c0243581dc20a0652d270203c2d7",
+    "ui.css": "8717caa1034c9c80e3a6c5be611956b0580423c5df0478cef1f69a10c7e5ff8f",
     "vendor/three-0.170.0/three.module.min.js": "08fd7545d13d2c7fb65ab691530a802dafefd638596501854f267d0fb13c39e7",
     "world-environment.js": "f35a8b6f77859fd7b6b629a0e26e79c2392ac808ec6d4fc3a6277601057c354a",
     "world-scene.css": "ff0bba97a5fd85d859acbd0f59cb7a0abdb8efe79d4f11167271c7fdf506b430",
-    "world-scene.js": "a3c7451223d34c4092aed67750487dc62e075a83d5bbdaa58e81937c35a3dc6d"
+    "world-scene.js": "a3c7451223d34c4092aed67750487dc62e075a83d5bbdaa58e81937c35a3dc6d",
+    "individuality.js": "58f2b79761d45917fb07eaf8d48c1c2ae0f85e618e85b7bf2729e7691504679a",
+    "individuality-data.js": "7ff3ee9eb91c7a0c7c19ee9582f07ad2fce8269c43d8b5d89a5359e804f87ec3"
   },
   "forbidden_patterns": [
     "^(?:docs|tests|tools|\\.github)/",

@@ -48,7 +48,7 @@ test('equipment reactions only occur for actual eligible care and active protect
 });
 test('guest origin persists across appearance, reload and codes but differs for a new life',()=>{
  let {h,s}=setup();const first=h.api.decodeGuestCode(h.api.encodeGuestCode());assert.equal(typeof first.originId,'string');
- s.speciesLine='cat';s.stageIndex=6;s.traitCounts.gentle=10;const changed=h.api.decodeGuestCode(h.api.encodeGuestCode());assert.equal(changed.originId,first.originId);
+ s.speciesLine='cat';s.stageIndex=6;s.individuality=require('../individuality.js').create('cat',['home'],()=>.5,'guest-test');const changed=h.api.decodeGuestCode(h.api.encodeGuestCode());assert.equal(changed.originId,first.originId);
  h=reload(s);assert.equal(h.api.decodeGuestCode(h.api.encodeGuestCode()).originId,first.originId);click(h,'resetBtn');Object.assign(h.api.state(),{speciesLine:'dog',stageIndex:0,gender:'male',orientationId:'pan',attractedTo:['male','female','nonbinary']});assert.notEqual(h.api.decodeGuestCode(h.api.encodeGuestCode()).originId,first.originId);
  const payload={s:'dog',i:5,g:'male',o:'pan',a:['male','female','nonbinary'],t:{}};
  const code=p=>'NAOTOCCHI1:'+btoa(encodeURIComponent(JSON.stringify(p)));
