@@ -115,6 +115,16 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 | `b3750727` | trigger ledger例外 | 到着群が開いたまま turn_end 境界に達すると（014-A：76でC-bat不適格閉鎖→両者pass→81 `open_turn_end_triggers`）、active経路が終了窓の自群観測を行わず、M-beetle-02 `own_turn_end` が観測・提示されずに `current predicate coverage incomplete` で停止、さらに部分segmentの網羅監査が `saved trigger ledger differs` でその停止を覆い隠していた。active経路も非active経路と同じ観測へ渡し、停止済みsegmentの監査失敗は停止理由を併記 | 1 | 41 PASS | 014-A 完走（work12、開始窓閉鎖と併せて） |
 | `0a1f2edd` | closed-group source reoffered | turn-start窓は `closed_start`（C-chicken・開始装備）だけで通常在庫を閉じていたため、窓内の手札プレイで生じ逐次stepで辞退されたW-city第2プレイ群の発動源が通常候補として再提示され、閉鎖監査が正しく停止していた（012-B 243..247、014-A 191..194）。到着群・終了群と同じ `closed_native` を開始窓の到着行にも適用（開始行は従来どおり、pending行は閉じない） | 1 | 46 PASS | 014-A 完走、012-B は次区分（equipment start adapter）へ進み `93281ed2` で修復中 |
 | `93281ed2` | equipment start adapter | 開始窓内の手札quick発動の履歴再生が凍結在庫だけで再列挙していたため、I-bowtieを準備済みの開始窓で凍結在庫自身が `equipment start activation/resolution adapter unavailable` を出していた（012-B、253後のturn_end検証）。実stepと同じ `closed_start` の下で再列挙・再発動（turn-start境界のみ） | 1 | 32 PASS | 012-B 完走（work13） |
+| `157a05b3` | start effect processing origin | 開始窓内の到着群（W-city）が文脈originを動かした後、C-chickenの解決が「originが開始originと等しい」要求で停止。同ターン・turn-start窓・捕捉開始〜現在のorigin範囲に束縛（再開境界は捕捉開始originのまま） | 2 | 31 PASS | 031-B 完走 |
+| `3b1948f2` | `'card_id'` KeyError | paid draw 発動の来歴行に card_id が無く、凍結 end_scope の (kind, card_id) 登録簿が KeyError | 1 | 19 PASS | 081-A は次区分へ |
+| `60ce2c12` | archive execution boundaries | 到着群が開いたまま適格終了源なしでターンが替わる結果（277..280）をactive経路が観測せず、旧ターンの台帳が閉じない。ターン境界を含む結果を非active経路と同じ観測へ | 2 | 27 PASS | 028-A 完走 |
+| `e022c53a` | incarnation zone（C-chicken） | 再入場後、凍結196のC-chicken解決が122検証器へ退役前身を含む全状態を渡す。R10最終比較と同じ登録簿束縛ビューを単一リンクのC-chicken解決にも適用 | 2 | 30 PASS | 081-A 完走 |
+| `e9adca68` | reached cat target | 凍結 next_turn の開始誘発分類が、捨て札になかまがある きまぐれなねこ を拒否。文面hash束縛の開始source catalog（start_kind none）でその拒否時のみ分類 | 4 | 41 PASS | 034-B 完走 |
+| `42d02877` | concealed response timing | 凍結の伏せ札応答窓が、現行層の paid draw / きまぐれなねこ 発動起点を知らない。両カード文はメイン除去を含まないため、文面hashを固定・再検証し、凍結の射影本体をそのまま適用（列挙済み起点で凍結関数と完全一致を試験） | 4 | 33 PASS | 032-B は次区分へ |
+| `5df9538b`・`a416162f` | replacement origin | 同じ起点が face-up I-bond1 置換分類にも未登録。I-bond1は相手効果によるなかま枠→手札/捨て札だけを置換し、自分のコスト・山札移動を防がないため、凍結分類と同形の行を返す | 1+1 | 31・27 PASS | 023-B/101-A は次区分へ |
+| `b1df7af2` | prepared coverage origin binding | 現行の prepared 監査が main/companion 発動起点を公開リンクへ束縛せず未証明扱い。同じ厳密束縛を適用（リンク効果経路は別途検査） | 2 | 30 PASS | 032-B 完走 |
+| `c8da1007` | start source negative | 開始誘発源（C-chicken・I-bowtie）の否定証明が、登録済み通常手段の起点に main/companion 発動を含まない | 2 | 31 PASS | 023-B 完走 |
+| `831c8fe6` | E-final-time timing verdict | 型付き適用証拠の無い E-final-time 解決で M-antlion-06 判定が停止。文面「そうしたなら」により適用＝target_valid_at_resolution。この受領値を条件付き判定として記録し、記録全体の受理時に既存の designated 全差分監査（受領を規則から再計算し全envelopeを束縛）が同じeventを検証済みであることを必須化（無ければ記録ごと停止） | 3 | 36 PASS | 006-A・101-A 完走 |
 
 完走済み対照行（group-001-A/003-B 等）は、修正前後で決定・イベント骨格・最終盤面が一致する（`play_digest`）。record全体のSHA-256はeditionとsource_versionsを含むため版間で一致しないが、これは証明情報の追加で、対局内容の変化ではない。
 
@@ -124,11 +134,11 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 - **group-005-A-first（pending source obligation）**：連鎖解決中（origin 163）に生じたM-antlion-06の発生が、連鎖が normal_action に戻った後も提示されず、順序監査が `ordinary processing before pending source obligation` で正しく停止している。`b3750727` 以降は覆い隠されていた本来の停止 `unfinished trigger occurrence at turn boundary`（逐次台帳のターン境界閉鎖）が併記される。欠けているのは実行駆動側の提示（在庫に発生を載せる）であり、追加すると対局の決定候補が変わる。証跡は `verification/pending-source-obligation-trace-group-005-A-first.jsonl`。
 - （解消）**group-023-B-first / group-032-B-first（concealed companion / main ability timing）**：凍結 `preparation.response_inventory` と face-up置換分類が、現行層で追加した paid draw（M-antlion-02/08）と きまぐれなねこ の発動起点を知らなかった。両カード文はメイン除去も相手効果によるなかま移動も含まないため、文面section hashを固定・再検証した上で凍結の射影をそのまま適用（`42d02877`・`5df9538b`）。
 - **group-068-A-first（R10・メイン不在の E-final-time）**：凍結の合法候補列挙（468 source）は前提文に `own main` を含むだけで「自分のメインが必要」として除外するが、文面は「自分のメインが⑧、**または**現在のラウンドがR10」で、R10・メイン不在でも発動できる。現行層のhand監査は文面どおり許可と判定し、列挙と食い違うので正しく停止している。直すと合法候補が増えてCPUの選択が変わるため、本人判断。証跡は `verification/final-time-r10-no-main-trace-group-068-A-first.jsonl`。
-- **group-006-A-first（E-final-time を M-antlion-06 保持者が解決）**：独立timing検査は型付き適用verdictを要求するが、E-final-timeの受領（返却・ドロー）を全差分で証明する `designated_effects.audit` は、決定記録と生涯登録簿を要する。timing境界（before/after/event/capture）にはどちらも渡っていない。選択肢は (A) 境界へ決定・登録簿を配線して既存監査を合成、(B) 新規の状態差分証明（再利用ではない）、(C) 停止のまま。停止eventの実形状（`resolve_event` 275、`result` に `target_valid_at_resolution`・返却・2枚ドローのみで `application_evidence`/`created_effect` なし）は `verification/final-time-timing-trace-group-006-A-first.jsonl`。受領キーからの推定は timing 契約が明示的に禁じているため、現行層では閉じない。
+- （解消）**group-006-A-first（E-final-time を M-antlion-06 保持者が解決）**：当初は本人判断事項としたが、既存の designated 全差分監査が記録受理時に同じeventの受領を規則から再計算・全envelope束縛していることを確認し、その監査結果を必須の裏付けとして再利用した（`831c8fe6`）。受領キーからの推定ではなく、裏付けが無ければ記録ごと停止する。
 
-調査は11区分をworkflow（区分ごとの調査＋3観点の反証＋統合）で始めたが、セッション上限で5区分の調査後に中断し、残り6区分は直接の計装診断（`diag_*`：停止箇所のevent・文脈・ledger差分・覆い隠された例外のtracebackを記録）で特定した。incarnation registry・second-card public source・historical quick activation・trigger ledger例外は修復済み（上表）。pending source obligation と concealed companion timing は本人判断事項（上記）。各診断traceは `verification/*-trace-group-*` に保存した。
+調査は11区分をworkflow（区分ごとの調査＋3観点の反証＋統合）で始めたが、セッション上限で5区分の調査後に中断し、以後は直接の計装診断（`diag_*`：停止箇所のevent・文脈・ledger差分・覆い隠された例外のtraceback・述語監査の未証明理由を記録）で特定した。baselineで見えた19区分のうち、本人判断として残るのは pending source obligation（005-A・044-B・106-A）と R10・メイン不在の E-final-time 列挙（068-A）の2区分。各診断traceは `verification/*-trace-group-*` に保存した。
 
-固定tree上の全400行再実行（diag12、HEAD `0a1f2edd`）は、停止していた7行を先頭に2並列で継続中。先頭7行の結果：013-B・014-A・016-B・022-A 完走、005-A・006-A は本人判断事項の停止、012-B は次区分（equipment start adapter）へ進み `93281ed2` で修復（work13で再実行中）。最終treeでの全400行再実行は、修復が止まった時点で改めて行う必要がある（1行2〜12分、2並列で十数時間）。baselineセンサス（凍結tree、4並列）は指示どおり停止・再起動せず継続している。
+固定tree上の全400行再実行は、修復のたびに停止行を先頭へ置いて再開している。現在は HEAD `831c8fe6` で、固定treeで未完走の377行を2並列で実行中（1行2〜12分、約1日）。2026-10-21の再実行でbaselineの停止行のうち31行以上が完走に変わった（各 `*-e2e.json`）。baselineセンサス（凍結tree、4並列）は指示どおり継続している（コンテナ再起動で一度停止したため、完了行をそのまま残して中断4行だけを再実行する形で再開した）。
 
 ## 9. 未解決事項（10-20時点。10-21の進捗は §8）
 
