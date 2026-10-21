@@ -43,6 +43,7 @@ export function drawTerrain(c,s){
  }
  // Light changes mood without changing traversability.
  for(const e of s.exits){const glow=c.createRadialGradient(e.x+.5,e.y+.35,.1,e.x+.5,e.y+.35,2.6);glow.addColorStop(0,'#ffe3a45c');glow.addColorStop(1,'#ffe3a400');c.fillStyle=glow;c.fillRect(0,0,s.w,s.h);}
+ drawGravity(c,s);
  for(const[x,y]of s.walls){
   block(c,x,y,p);
   if(theme==='prison'){
@@ -58,4 +59,12 @@ export function drawTerrain(c,s){
    if((x+y)%4===1)lantern(c,x,y);
   }
  }
+}
+
+// Presentation only, beneath solid terrain and every interactive fixture.
+export function drawGravity(c,s){
+ if(!s.gravity)return;
+ c.save();c.globalAlpha=.22;c.fillStyle='#fff5d9';
+ c.textAlign='center';c.textBaseline='middle';c.font='bold 3.8px sans-serif';
+ c.fillText('↓',s.w/2,s.h/2-.15);c.restore();
 }
