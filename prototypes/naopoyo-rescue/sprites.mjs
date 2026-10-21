@@ -12,7 +12,7 @@ export function fitSprite([sx,sy,sw,sh],box){
 const images=new Map();
 export async function loadSprites(){
  const failed=[];
- await Promise.all(Object.entries(spriteData).map(([key,spec])=>new Promise(resolve=>{
+ await Promise.all(Object.entries(spriteData).filter(([key])=>!key.startsWith('owl')).map(([key,spec])=>new Promise(resolve=>{
   const img=new Image();img.onload=()=>{images.set(key,img);resolve()};
   img.onerror=()=>{failed.push(spec.path);resolve()};
   img.src=new URL('../../'+spec.path,import.meta.url).href;

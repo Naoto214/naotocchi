@@ -3,6 +3,7 @@ import {loadSprites,speciesNames} from './sprites.mjs';
 import {legacyStages} from './legacy-stages.mjs';
 import{stages}from'./stages.mjs';import{clone,createState,move,release,complete,mass}from'./engine.mjs';import{movePointer}from'./input.mjs';import{KEY,pack,restore}from'./store.mjs';import{renderer}from'./render.mjs';
 const $=id=>document.getElementById(id),canvas=$('board'),draw=renderer(canvas);let index=0,state=createState(stages[0]),history=[],cleared=[],selected=null,drag=null,before=null,storageError=false,solutions={},legacySolutions={},lastPointer=null;
+let dragMode='A';
 const oldLayout=()=>JSON.stringify(state.walls)!==JSON.stringify(stages[index].walls);
 try{const p=restore(localStorage.getItem(KEY));if(p)({index,state,history,cleared}=p)}catch{storageError=true}
 loadSprites().then(failed=>{if(failed.length)$('message').textContent='キャラ画像を読み込めませんでした。再読み込みしてください。'});
@@ -27,6 +28,11 @@ canvas.addEventListener('pointermove',e=>{if(e.pointerId!==drag)return;e.prevent
 canvas.addEventListener('pointerup',e=>{if(e.pointerId!==drag)return;travel(point(e));finish()});
 for(const event of['pointercancel','lostpointercapture'])canvas.addEventListener(event,e=>{if(e.pointerId===drag)finish()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)finish()});window.addEventListener('pagehide',finish);
+for(const b of document.querySelectorAll('[data-drag-mode]'))b.onclick=()=>{
+ finish();dragMode=b.dataset.dragMode;
+ for(const button of document.querySelectorAll('[data-drag-mode]'))button.setAttribute('aria-pressed',String(button.dataset.dragMode===dragMode));
+ $('dragNote').textContent=dragMode==='B'?'B：表示だけ10px上へ。足元の輪が実際のマスです。':'A：指と同じ位置で1.4倍に拡大します。';
+};
 $('undo').onclick=()=>{finish();if(history.length){state=history.pop();selected=null;save();update();$('message').textContent='1回のドラッグを戻しました。'}};
 $('retry').onclick=()=>choose(index);$('next').onclick=()=>choose((index+1)%stages.length);
 $('hint').onclick=()=>{$('hintBox').open=!$('hintBox').open;showSolution()};
@@ -35,6 +41,6 @@ function arrow(dx,dy){if(!selected||!state.actors.some(a=>a.id===selected)){$('m
 for(const b of document.querySelectorAll('[data-dir]'))b.onclick=()=>arrow(...b.dataset.dir.split(',').map(Number));$('drop').onclick=finish;
 canvas.addEventListener('keydown',e=>{const dirs={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]};if(dirs[e.key]){e.preventDefault();arrow(...dirs[e.key])}if(e.key==='Enter'||e.key==='Escape')finish()});
 $('help').onclick=()=>{$('guide').showModal()};$('closeHelp').onclick=()=>{$('guide').close()};
-function frame(t){draw(state,selected,t,drag!==null?selected:null);requestAnimationFrame(frame)}update();requestAnimationFrame(frame);
+function frame(t){draw(state,selected,t,drag!==null?selected:null,dragMode);requestAnimationFrame(frame)}update();requestAnimationFrame(frame);
 
 

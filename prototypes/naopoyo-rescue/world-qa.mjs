@@ -1,16 +1,13 @@
 import {loadSprites,drawSprite} from './sprites.mjs';
 import {stages} from './stages.mjs';
 import {createState} from './engine.mjs';
-import {renderer,actorVisual,guardianVisual} from './render.mjs';
+import {renderer,actorVisual,gateVisual} from './render.mjs';
 import {drawGate,drawCondition,drawExit} from './fixtures.mjs';
 import {worldNames,stageThemes} from './themes.mjs';
 await loadSprites();
-for(const [expression,label] of [['normal','通常'],['positive','通れる・笑顔'],['sulky','通れない・むすっ']]){
- const card=document.createElement('div');card.className='sample';const canvas=document.createElement('canvas');canvas.width=100;canvas.height=100;canvas.style.width='100px';const c=canvas.getContext('2d');c.scale(100,100);drawSprite(c,expression==='normal'?'owl':`owl-${expression}`,1,{x:.12,y:.04,w:.76,h:.92});const p=document.createElement('p');p.textContent=label;card.append(canvas,p);document.querySelector('#expressions').append(card);
-}
 const c=document.querySelector('#conditions').getContext('2d');c.scale(42,42);
 for(const [i,f]of [{species:'dog',min:2},{species:'fish',exact:1},{species:'penguin',max:3},{species:'frog'},{}].entries()){
- for(let j=0;j<3;j++){const g={...f,x:.25+i*1.5,y:.15+j*1.25,open:j===1,expression:j===1?'positive':'sulky'};j===2?drawExit(c,g):drawGate(c,g,j===1?1:0);drawCondition(c,g);}
+ for(let j=0;j<3;j++){const g={...f,x:.25+i*1.5,y:.15+j*1.25,open:j===1};j===2?drawExit(c,g):drawGate(c,g,j===1?1:0);drawCondition(c,g);}
 }
 for(const stage of stages){const card=document.createElement('div');card.className='card';const label=document.createElement('p');label.textContent=`${stage.id} ${stage.title} / ${worldNames[stageThemes[stage.id]]}`;const canvas=document.createElement('canvas');canvas.width=336;canvas.height=252;canvas.style.width='336px';const banner=document.createElement('div');banner.className='world-banner';banner.dataset.theme=stageThemes[stage.id];banner.innerHTML='<span class="scenery" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>';card.append(label,banner,canvas);document.querySelector('#worlds').append(card);renderer(canvas)(createState(stage),null,0);}
 let finger=true;
@@ -28,6 +25,6 @@ document.querySelector('#finger').onclick=()=>{finger=!finger;compare()};compare
 const reactionCanvas=document.querySelector('#reaction');
 const reactionState=createState({id:'10',w:8,h:4,walls:[],exits:[],spikes:[],gates:[{x:3,y:1,species:'dog',min:2}],actors:[{id:'yes',x:2,y:1,level:2,species:'dog'},{id:'no',x:4,y:2,level:1,species:'fish'}]});
 let active=null;const reactionDraw=renderer(reactionCanvas);
-function showReaction(id){active=id;const v=guardianVisual(reactionState,reactionState.gates[0],id);document.querySelector('#reactionResult').textContent=v.expression==='normal'?'通常待機':v.open?'笑顔・開門（通行可）':'むすっ・閉門（通行不可）';}
+function showReaction(id){active=id;const v=gateVisual(reactionState,reactionState.gates[0],id);document.querySelector('#reactionResult').textContent=v.open?'開門（通行可）':'閉門（条件に合う子だけ通れます）';}
 document.querySelector('#nearYes').onclick=()=>showReaction('yes');document.querySelector('#nearNo').onclick=()=>showReaction('no');document.querySelector('#leave').onclick=()=>showReaction(null);
 function frame(t){reactionDraw(reactionState,active,t,active);requestAnimationFrame(frame)}showReaction(null);requestAnimationFrame(frame);
