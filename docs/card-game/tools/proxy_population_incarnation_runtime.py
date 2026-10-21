@@ -141,6 +141,25 @@ class Connection:
   prior_placement=history_replay.legacy_placement
   prior_final_verify=quick.final_time.verify_transition
   prior_step=restart_122._verify_step
+  import proxy_population_turn_boundary as turn_boundary
+  prior_turn_prepare=turn_boundary.prepare;prior_turn_apply=turn_boundary.apply_choice
+  # The frozen next_turn builds its egg-exchange frame from the full state. After a
+  # reentry that map keeps the retired predecessor, which the465 boundary refuses
+  # as a duplicate copy. Run the unchanged465 operation on the registry-bound
+  # active view and restore the full card map, exactly the shape the record-level
+  # egg_choice_effect audit expects (life.restore_game).
+  def turn_frame(frame):
+   full=frame['game_state']
+   if not retains_predecessor(full['cards']):return None,frame
+   record=self.registry(full);projected=copy.deepcopy(frame);projected['game_state']=life.project_game(record,full);return record,projected
+  def turn_prepare(frame):
+   record,local=turn_frame(frame)
+   if record is None:return prior_turn_prepare(frame)
+   result=prior_turn_prepare(local);return dict(result,choice_game_state=life.restore_game(record,frame['game_state'],result['choice_game_state']))
+  def turn_apply(frame,selected):
+   record,local=turn_frame(frame)
+   if record is None:return prior_turn_apply(frame,selected)
+   result=prior_turn_apply(local,selected);return dict(result,local_after_game_state=life.restore_game(record,frame['game_state'],result['local_after_game_state']))
   def final_verify(row,after,event):
    before=quick.final_time.contracts.current(row)
    outer_board=[link for link in before['activation_zone'][:-1] if link.get('source_zone')=='board']
@@ -259,8 +278,8 @@ class Connection:
   try:
    history_replay.legacy_placement=legacy_placement
    quick.final_time.verify_transition=final_verify
-   preparation.set_card=set_card;actions.attach=attach;state.validate=validate;response_contract._instance_detail=detail;guard.require_initial_entry=require;departure.replace_companion=replaced;batch.transition=transition;actions.apply=apply;actions.bind_event=bind;old.extension._verify_extended_step=verify;restart_122._verify_step=final_comparison;yield
+   preparation.set_card=set_card;actions.attach=attach;state.validate=validate;response_contract._instance_detail=detail;guard.require_initial_entry=require;departure.replace_companion=replaced;batch.transition=transition;actions.apply=apply;actions.bind_event=bind;old.extension._verify_extended_step=verify;restart_122._verify_step=final_comparison;turn_boundary.prepare=turn_prepare;turn_boundary.apply_choice=turn_apply;yield
   finally:
    history_replay.legacy_placement=prior_placement
    quick.final_time.verify_transition=prior_final_verify
-   preparation.set_card=prior_set;actions.attach=prior_attach;state.validate=prior_validate;response_contract._instance_detail=prior_detail;guard.require_initial_entry=prior_guard;departure.replace_companion=prior_departure;batch.transition=prior_transition;actions.apply=prior_apply;actions.bind_event=prior_bind;old.extension._verify_extended_step=prior_verify;restart_122._verify_step=prior_step;_SCOPE_LOCK.release()
+   preparation.set_card=prior_set;actions.attach=prior_attach;state.validate=prior_validate;response_contract._instance_detail=prior_detail;guard.require_initial_entry=prior_guard;departure.replace_companion=prior_departure;batch.transition=prior_transition;actions.apply=prior_apply;actions.bind_event=prior_bind;old.extension._verify_extended_step=prior_verify;restart_122._verify_step=prior_step;turn_boundary.prepare=prior_turn_prepare;turn_boundary.apply_choice=prior_turn_apply;_SCOPE_LOCK.release()
