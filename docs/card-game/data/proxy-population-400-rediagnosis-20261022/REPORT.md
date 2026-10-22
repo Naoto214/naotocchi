@@ -51,31 +51,51 @@
 
 ## 5. 全400行の再診断（`44d54844`、tree `bddcfec6`、`diagnostics/final-classification-v2.json`）
 
-__COUNTS__
+| 区分 | 行数 |
+|---|---|
+| 正常完走 | **400** |
+| 本人判断が必要 | 0 |
+| 未証明 | 0 |
+| 異常終了 | 0 |
+| 未実行 | 0 |
+
+- 400行すべてが同一の派生 manifest（bundle canonical sha `85a8a031…`）で、tools fingerprint は各行の前後で不変。1行あたり 233〜881 秒（平均 442 秒）、合計 49.2 CPU時間、4並列で 2026-10-22 08:47〜21:09 UTC。
+- 各行の step 数・event 数・record sha・play digest は `final-classification-v2.json` の `rows` にある。
 
 - 実行条件：元の固定 manifest（seed・policy・予定集合不変）から派生した診断 manifest（source version のみ異なる、`require_equivalent` 検査済み）、Python 3.12.14、4並列、`diag_run.py`（診断専用・本番宛先に触れない）。各行に tree HEAD・bundle canonical sha・record sha・play digest を記録。
 - 分類の定義：正常完走＝診断実行が `completed`。本人判断＝停止理由が本人判断2区分の文言。未証明＝それ以外の検証停止（returned）。異常終了＝例外。未実行＝summary 無し。
 
 ## 6. 既存結果との比較（`diagnostics/final-classification-v2.json` の `comparison_*`、`baseline155`）
 
-__COMPARISON__
+| 比較 | 結果 |
+|---|---|
+| 前回 executable 393 行 | 393行とも今回も完走し、play digest（決定列・event骨格・最終盤面）が**全行一致**。record sha は全行で異なるが、これは record が source version（edition）を含むためで、前回の比較（155行の record sha 変化・play 一致）と同じ性質 |
+| 前回 本人判断 7 行 | 7行とも今回は完走。6行（判断①）は前回が例外停止で記録が無く、停止地点以降が新規生成。068-A は旧記録213 event まで完全一致で、以降が新規（§4） |
+| 新しい停止・例外 | 0 |
+| 決定・event・最終盤面の差 | 前回完走行では差なし。差が出たのは本人判断7行の停止地点以降だけで、いずれも §2 の裁定に沿った変化（判断①：合法候補0の提示と `close_ineligible_triggers` の挿入、判断②：R10・メイン不在での E-final-time 候補の追加） |
+
+詳細は `diagnostics/previous-final-vs-v2-comparison.json`（行ごとの前回分類・今回分類・play 一致・最初の分岐点）。
 
 ## 7. 再現性・回帰
 
 - 関連テスト：判断② 141件 OK、判断① 89件 OK（ログは `verification/`）。
-- 155試合（凍結tree `c1966ae4` で完走した baseline 行）の play digest 一致：__BASELINE__。
-- 前回 executable 393 行の play digest 一致：__EXEC__。
+- 155試合（凍結tree `c1966ae4` で完走した baseline 行）の play digest 一致：155/155（`baseline155.play_equal=155`、後退0）。
+- 前回 executable 393 行の play digest 一致：393/393（後退0、`play_changed_rows=[]`）。
 
 ## 8. 最終 HEAD／tree と PR #408
 
-__HEAD__
+- 診断に使った tree：HEAD `44d54844ad18730638db91f39ccddee33a929c45`（root tree `bddcfec6…`、`docs/card-game` tree `1a85150b…`）。これ以降のコミットは報告書・証拠ファイルの追加だけで、`tools/` は変えていない。
+- PR #408（`claude/fixed400-restart-20261020`、Draft、未マージ）。今回のコミット：`0bbad6f1`（判断②）、`9fc01f20`（判断①）、`44d54844`（ヘルパ・テスト）、`ed514104`（7試合の証拠）、`e94ef94b`（報告書下書き）、および本報告書の確定コミット。
+- main への取り込み、本番 GitHub Pages の更新、承認 request・消費、supervisor・worker の起動はいずれも 0。
 
 ## 9. 本番実行の可否
 
-__GO__
+診断上は 400/400 が完走し、前回完走行に後退は無い。ただし本番起動は今回の作業に含めない。起動には、(1) この HEAD に対する本人承認、(2) 承認ゲート（PR #408 宛て）経由の起動、が別途必要である。診断実行は本番成果ではなく、固定400戦の完走数は引き続き 0 のまま（累計：着手1・完走0・未完了1・未実施399）。
 
 本番400戦の正式実行・mainマージ・本番GitHub Pages更新は今回の作業に含めず、実行していない。承認ゲートは PR #408 宛てのまま、要求も消費もしていない。
 
 ## 10. 残る本人判断事項
 
-__REMAINING__
+- 検証基盤側に本人判断待ちの停止は残っていない（本人判断 0 行）。
+- 残るのは実行判断のみ：本番400戦の正式実行（HEAD `44d54844` 以降の tools 不変の HEAD に対する承認）、main マージ、本番 GitHub Pages 更新。いずれも別承認。
+- 今回の2修正は合法手の集合を変えうる修正（判断②は実際に R10・メイン不在の候補を追加）なので、本番実行前に本人がこの変更内容（§2・§3）を確認すること。

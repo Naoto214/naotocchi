@@ -1,6 +1,17 @@
 # CARD GAME 最小再開メモ
 
-## 最新状態 — 全400行の診断分類が完了（393完走・本人判断7・未証明0）。本番は未起動（2026-10-22）
+## 最新状態 — 残る本人判断2件を正式裁定で解消し、全400行が診断完走（400/400・後退0）。本番は未起動（2026-10-22）
+
+- ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。報告書は `data/proxy-population-400-rediagnosis-20261022/REPORT.md`（既存の `proxy-population-400-restart-20261020/` 以下は不変）。
+- 裁定①（06 56・74–75行）：連鎖解決中に成立した誘発は連鎖終了後の新しい連鎖として、次の通常行動の前に提示する → `9fc01f20`/`44d54844`（trigger_window：台帳に未解決の発生が残る間は窓を活性のまま保つ）。6試合で13件の発生がすべて1回だけ提示され、合法候補0で `close_ineligible_triggers`。決定候補は増えていない。
+- 裁定②（91 E-final-time「メイン⑧ **または** R10」「R10ならたまごでも条件可」）：R10・メイン不在でも使用可 → `0bbad6f1`（`proxy_population_final_time_round.py`：凍結121 adjudicator の `required_own_main_absent` をその条件だけ外す scope）。068-A は旧記録213 event まで一致、seq 215 の在庫に E-final-time 候補が加わった。
+- 全400行再診断（HEAD `44d54844`、同一派生manifest、4並列）：正常完走400・本人判断0・未証明0・異常終了0・未実行0（`diagnostics/final-classification-v2.json`）。前回 executable 393 行は play digest 全行一致、baseline 155 行も全行一致（後退0）。比較は `diagnostics/previous-final-vs-v2-comparison.json`。
+- 本番400戦・mainマージ・本番Pages更新は今回の作業に含めず未実施。承認 request・消費・supervisor・worker・retry・resume は引き続き0。累計は着手1・完走0・未完了1・未実施399。起動には `44d54844` 以降（tools不変）の HEAD への本人承認と承認ゲート経由が必要。
+- 診断の長時間実行中はMonitorを張り続ける（セッション待機でコンテナが回収される）。
+
+以下は過去時点の履歴。
+
+## 全400行の診断分類が完了（393完走・本人判断7・未証明0）。本番は未起動（2026-10-22 前半）
 
 - ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。承認権威は #408 へ移行済み（`7a4d71f2`）。10-21〜22の検証基盤修復は29件（`f74b3a89` から `d4595213` まで）。一覧と証跡は `data/proxy-population-400-restart-20261020/REPORT.md` §8。
 - baseline census（凍結木 c1966ae4）：完走155・境界停止216・例外29（`diagnostics/census.json`）。
