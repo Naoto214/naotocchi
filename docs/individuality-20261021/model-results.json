@@ -1,0 +1,576 @@
+{
+  "kind": "hypothetical-opportunity-model",
+  "seed": 20261021,
+  "runsPerScenario": 2000,
+  "heartOrder": [
+    "wonder",
+    "courage",
+    "kindness",
+    "perseverance"
+  ],
+  "assumptions": {
+    "realization": 0.85,
+    "defaultChoiceParticipation": 0.8,
+    "allChoices": 1,
+    "missedChoices": 0.4,
+    "opportunities": {
+      "care": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "games": [
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          6,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          6,
+          6,
+          6
+        ]
+      ],
+      "travel": [
+        [
+          6,
+          6,
+          4
+        ],
+        [
+          1,
+          6,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "companions": [
+        [
+          2,
+          2,
+          6
+        ],
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          6,
+          6,
+          6
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "balanced": [
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "no-romance": [
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "no-meguru": [
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "no-A-S": [
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          6,
+          6,
+          6
+        ]
+      ],
+      "repetition": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "missed-choices": [
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "all-12": [
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "focus-wonder": [
+        [
+          5,
+          5,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "focus-courage": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          5,
+          5,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "focus-kindness": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          5,
+          5,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "focus-perseverance": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          5,
+          5,
+          4
+        ]
+      ]
+    }
+  },
+  "results": [
+    {
+      "scenario": "care",
+      "meanStars": [
+        2.672,
+        2.268,
+        3.317,
+        1.71
+      ],
+      "fiveStarPercent": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scenario": "games",
+      "meanStars": [
+        2.885,
+        3.791,
+        2.666,
+        4.923
+      ],
+      "fiveStarPercent": [
+        0,
+        0,
+        0,
+        92.3
+      ]
+    },
+    {
+      "scenario": "travel",
+      "meanStars": [
+        4.823,
+        3.99,
+        2.669,
+        2.274
+      ],
+      "fiveStarPercent": [
+        82.3,
+        3.8,
+        0,
+        0
+      ]
+    },
+    {
+      "scenario": "companions",
+      "meanStars": [
+        3.959,
+        3.781,
+        4.96,
+        2.28
+      ],
+      "fiveStarPercent": [
+        2.2,
+        0,
+        96,
+        0
+      ]
+    },
+    {
+      "scenario": "balanced",
+      "meanStars": [
+        4.17,
+        4.098,
+        4.16,
+        4.094
+      ],
+      "fiveStarPercent": [
+        18.05,
+        11.25,
+        17.1,
+        10.5
+      ]
+    },
+    {
+      "scenario": "no-romance",
+      "meanStars": [
+        4.67,
+        4.585,
+        4.67,
+        4.593
+      ],
+      "fiveStarPercent": [
+        67.15,
+        58.45,
+        67.05,
+        59.45
+      ]
+    },
+    {
+      "scenario": "no-meguru",
+      "meanStars": [
+        4.687,
+        4.586,
+        4.683,
+        4.585
+      ],
+      "fiveStarPercent": [
+        68.7,
+        58.6,
+        68.3,
+        58.55
+      ]
+    },
+    {
+      "scenario": "no-A-S",
+      "meanStars": [
+        3.845,
+        4.075,
+        3.845,
+        4.923
+      ],
+      "fiveStarPercent": [
+        0,
+        9.25,
+        0,
+        92.3
+      ]
+    },
+    {
+      "scenario": "repetition",
+      "meanStars": [
+        2.179,
+        1.988,
+        2.178,
+        1.986
+      ],
+      "fiveStarPercent": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scenario": "missed-choices",
+      "meanStars": [
+        3.99,
+        3.979,
+        3.996,
+        3.98
+      ],
+      "fiveStarPercent": [
+        2.55,
+        2,
+        2.85,
+        1.75
+      ]
+    },
+    {
+      "scenario": "all-12",
+      "meanStars": [
+        4.291,
+        4.173,
+        4.29,
+        4.188
+      ],
+      "fiveStarPercent": [
+        29.5,
+        17.9,
+        29.35,
+        19.6
+      ]
+    },
+    {
+      "scenario": "focus-wonder",
+      "meanStars": [
+        4.958,
+        2.017,
+        2.005,
+        2.01
+      ],
+      "fiveStarPercent": [
+        95.85,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scenario": "focus-courage",
+      "meanStars": [
+        2.171,
+        4.95,
+        2.175,
+        2.163
+      ],
+      "fiveStarPercent": [
+        0,
+        95,
+        0,
+        0
+      ]
+    },
+    {
+      "scenario": "focus-kindness",
+      "meanStars": [
+        2.009,
+        2.014,
+        4.952,
+        2.018
+      ],
+      "fiveStarPercent": [
+        0,
+        0,
+        95.15,
+        0
+      ]
+    },
+    {
+      "scenario": "focus-perseverance",
+      "meanStars": [
+        2.183,
+        2.176,
+        2.171,
+        4.938
+      ],
+      "fiveStarPercent": [
+        0,
+        0,
+        0,
+        93.75
+      ]
+    }
+  ]
+}

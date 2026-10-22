@@ -3,6 +3,9 @@
 
   const ITEM_SYSTEM = window.NaotocchiItems;
   const SAVE_KEY = 'naotocchi-save-v1';
+  const INDIVIDUALITY = window.NaotocchiIndividuality;
+  let individualityDialogOpen=false, individualityDeferred=false, individualityDialogLife=null;
+  let individualGameLifeId=null;
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const LIFE_STAGE_RULES = window.NaotocchiLifeStages || null;
   const CARE_STATUS = window.NaotocchiCareStatus || null;
@@ -935,10 +938,6 @@
     return (list && list[stageIndex]) || '';
   }
 
-  // プロフィールの「せいかく傾向」に つかう traitCounts のラベル
-  const TRAIT_LABELS = {
-    gentle: 'やさしい', wild: 'やんちゃ', calm: 'おだやか', brave: 'ゆうかん', romantic: 'ロマンチック',
-  };
 
   function pickRandomLine() {
     return NORMAL_LINES[Math.floor(Math.random() * NORMAL_LINES.length)];
@@ -978,10 +977,6 @@
       if (line === state.speciesLine || excluded.includes(line)) return false;
       if (isSecretLine(line)) return false;
       if (line === 'god') return avgCare >= (eased ? 82 : 90);
-      // せいかくは「せいかくクイズ」でしか たまらず、それは ぜんミニゲームの
-      // 6%。100分でも 7かい前後しか まわってこない ので、基本閾値を 3 に する
-      if (line === 'mermaid') return state.traitCounts.gentle >= (eased ? 2 : 3);
-      if (line === 'unicorn') return state.traitCounts.brave >= (eased ? 2 : 3);
       // ★ 「なった かいすう」では なく「なおした かいすう」。
       //   ちゃんと くすりを あげた 人が むくわれる じょうけんに する
       if (line === 'phoenix') return (state.sicknessCuredThisLife || 0) >= (eased ? 3 : 5);
@@ -992,7 +987,7 @@
       candidates[Math.floor(Math.random() * candidates.length)] = rare;
     }
     const renReady = state.speciesLine !== SECRET_LINE && !excluded.includes(SECRET_LINE)
-      && ((state.minigameCount >= 5 && avgSkill >= (renEased ? 78 : 85)) || state.traitCounts.romantic >= (renEased ? 3 : 5));
+      && (state.minigameCount >= 5 && avgSkill >= (renEased ? 78 : 85));
     if (renReady && Math.random() < (renEased ? 0.3 : 0.18)) {
       candidates[Math.floor(Math.random() * candidates.length)] = SECRET_LINE;
     }
@@ -1473,7 +1468,7 @@
       // ボーナスが 逆転する
       travelStreak: 0,
       actionCounts: { feed: 0, play: 0, clean: 0, sleep: 0, medicine: 0, pet: 0, talk: 0 },
-      traitCounts: { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 },
+      individuality: null,
       minigameScoreSum: 0,
       minigameCount: 0,
       deathMeter: 0,
@@ -1825,6 +1820,9 @@
       st.lifetime[key] = Math.round(clamp(st.lifetime[key], bounds.min, bounds.max));
     }
     st.ageTicks = Math.max(0, Math.floor(st.ageTicks));
+    delete st.traitCounts;
+    for (const actor of [st.partner, st.guest]) if (actor && typeof actor === 'object') { delete actor.traitCounts; delete actor.affinityTrait; }
+    if (st.speciesLine) st.individuality = INDIVIDUALITY.normalize(st.individuality, {species:st.speciesLine,regions:['home',...(WORLD_MASTER?.regions.normal || []).map(r=>r.id)],age:Math.floor(st.ageTicks/AGE_TICKS_PER_YEAR)});
     st.lifeLog = st.lifeLog.filter((e) => e && typeof e === 'object' && typeof e.text === 'string');
     st.midlifeSeen = st.midlifeSeen.filter((v) => Number.isFinite(v));
     if (Array.isArray(st.lifetime.pastLives)) {
@@ -2213,6 +2211,10 @@
   // クリアを 前提に しており、じっせきグリッドの 100%達成が 事実上
   // とどかない ものに なって しまうため
   const ACHIEVEMENTS = [
+    { id: 'heart-kindness-5', emoji: '💗', label: 'やさしいこころ', desc: 'やさしさのこころが★★★★★になった', tier: 'easy2', condition: (l,s) => INDIVIDUALITY.points(s.individuality,'kindness') >= 60 },
+    { id: 'heart-courage-5', emoji: '🦁', label: 'ゆうきあるこころ', desc: 'ゆうきのこころが★★★★★になった', tier: 'easy2', condition: (l,s) => INDIVIDUALITY.points(s.individuality,'courage') >= 60 },
+    { id: 'heart-wonder-5', emoji: '✨', label: 'ときめくこころ', desc: 'ときめきのこころが★★★★★になった', tier: 'easy2', condition: (l,s) => INDIVIDUALITY.points(s.individuality,'wonder') >= 60 },
+    { id: 'heart-perseverance-5', emoji: '🌱', label: 'がんばりや', desc: 'がんばりのこころが★★★★★になった', tier: 'easy2', condition: (l,s) => INDIVIDUALITY.points(s.individuality,'perseverance') >= 60 },
     // --- かんたん(ふつうに あそんでいれば すぐ とどく) ---
     { id: 'evolve-1', emoji: '🌱', label: 'はじめのいっぽ', desc: 'はじめてそだちがあがった', tier: 'easy', condition: (l) => l.evolutions >= 1 },
     { id: 'devolve-1', emoji: '👶', label: 'はじめてのおとろえ', desc: 'はじめてそだちがさがった', tier: 'easy', condition: (l) => l.devolutions >= 1 },
@@ -2242,9 +2244,6 @@
     { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを30回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 30 },
     { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: 'ひとつの人生で、30回あそんだ', tier: 'easy2', condition: (l, s) => s.actionCounts.play >= 30 },
     { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を30かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.pet >= 30 },
-    { id: 'gentle-10', emoji: '💗', label: 'やさしいこころ', desc: 'ひとつの人生で、やさしい選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.gentle >= 10 },
-    { id: 'brave-10', emoji: '🦁', label: 'ゆうかんなこころ', desc: 'ひとつの人生で、ゆうかんな選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.brave >= 10 },
-    { id: 'romantic-10', emoji: '💘', label: 'ロマンチスト', desc: 'ひとつの人生で、ロマンチックな選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.romantic >= 10 },
     { id: 'companion-1', emoji: '🐾', label: 'はじめてのなかま', desc: 'はじめてなかまができた', tier: 'easy2', condition: (l) => companionsRecruitedCount(l) >= 1 },
     { id: 'partner-1', emoji: '💑', label: 'はじめてのこいびと', desc: 'はじめてこいびとができた', tier: 'easy2', condition: (l) => partnersFoundCount(l) >= 1 },
     { id: 'money-500', emoji: '💴', label: 'おおがねもち', desc: '持っているおかねが500以上になった', tier: 'easy2', condition: (l) => l.money >= 500 },
@@ -3761,7 +3760,7 @@
     ['🎮','minigame-300 minigame-1000'],['🧭','games-played-25 region-3'],
     ['💊','sick-cured-1 sick-cured-30 medicine-30'],['🌱','age-10'],
     ['📖','dex-25 dex-50 dex-100 dex-150 pastlives-10 elder-collector'],
-    ['🧸','play-100'],['💕','pet-100 romantic-10'],['🏅','brave-10 record-rank-a-20 clear-25'],
+    ['🧸','play-100'],['💕','pet-100 heart-kindness-5'],['🏅','heart-courage-5 record-rank-a-20 clear-25'],
     ['💰','money-500'],['🌈','weather-all'],['🐾','companion-5'],['✨','sodachi-90 transform-25'],
     ['🏆','lifeclear-10 perfect-life games-complete-100 item-all'],['🌳','nodecline'],
     ['💍','married-3'],['🎁','shop-all sticker-10'],
@@ -7305,12 +7304,12 @@
     return resolved;
   }
 
-  // 「きゅうあいする」の おあいて候補を つくる ヘルパー。affinityTrait は
-  // traitCounts の どのせいかく(やさしい/やんちゃ/おだやか/ゆうかん/
-  // ロマンチック)を 積み重ねていると成功しやすいかで、null は せいかくに
-  // 左右されない ニュートラルな あいて
-  function courtCandidate({ id, label, emoji, gender, orientationId, affinityTrait = null }) {
-    return { id, label, emoji, gender, orientationId, attractedTo: attractedToFor(gender, orientationId), affinityTrait };
+  // 「きゅうあいする」の おあいて候補を つくる ヘルパー。affinityHeart は
+  // 育ったこころへのゆるやかな相性補正。
+  // null はこころを指定しない中立の相手。
+  // 生得気質は成功率に影響しない。
+  function courtCandidate({ id, label, emoji, gender, orientationId, affinityHeart = null }) {
+    return { id, label, emoji, gender, orientationId, attractedTo: attractedToFor(gender, orientationId), affinityHeart };
   }
 
   // 「あいてコード」: サーバーも つうしんも つかわず、じぶんの なおとっちの
@@ -7318,7 +7317,7 @@
   // がわが よみこむと「たびさきの おきゃくさん」として あらわれる。
   // GITHUB_PAGES の ような 静的サイトの ままでも できる、いちばん かるい
   // 「つうしん」の しくみ
-  const GUEST_CODE_PREFIX = 'NAOTOCCHI1:';
+  const GUEST_CODE_PREFIX = 'NAOTOCCHI2:';
 
   function validGuestOriginId(value) {
     return typeof value === 'string' && /^[A-Za-z0-9_-]{8,96}$/.test(value);
@@ -7345,7 +7344,7 @@
       g: state.gender,
       o: orientationIdFor(state.gender, state.orientationId, state.attractedTo),
       a: normalizeAttractedTo(state.gender, state.orientationId, state.attractedTo),
-      t: state.traitCounts,
+      individuality: INDIVIDUALITY.summary(state.individuality),
     };
     return GUEST_CODE_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
   }
@@ -7357,7 +7356,7 @@
       // 一部の アプリ(メッセージの リンク自動検出 など)は URIスキームっぽい
       // コードの プレフィックス部分だけを こぴー/ひょうじ 時に 小文字化する
       // ことが あるため、プレフィックスの ひかくは 大文字小文字を くべつしない
-      const trimmed = raw.trim().replace(/^NAOTOCCHI1:/i, '');
+      const trimmed = raw.trim().replace(/^NAOTOCCHI[12]:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
       if (!payload || typeof payload !== 'object') return null;
       if (payload.u !== undefined && !validGuestOriginId(payload.u)) return null;
@@ -7367,11 +7366,17 @@
       if (!ORIENTATION_ROLL_POOL.includes(payload.o)) return null;
       if (payload.a !== undefined && (!Array.isArray(payload.a) || payload.a.length > 3
           || payload.a.some((g) => !GENDERS.includes(g)))) return null;
-      const traitCounts = {};
-      Object.keys(TRAIT_LABELS).forEach((key) => {
-        const v = payload.t && payload.t[key];
-        traitCounts[key] = Number.isFinite(v) ? v : 0;
-      });
+      const summary = payload.individuality;
+      const hearts = {};
+      for (const key of Object.keys(INDIVIDUALITY.data.hearts)) {
+        const v=summary?.hearts?.[key]; if (Number.isInteger(v) && v>=1 && v<=5) hearts[key]=v;
+      }
+      const temperament = {};
+      for (const key of Object.keys(INDIVIDUALITY.data.temperaments)) {
+        const v=summary?.temperament?.[key]; if (Number.isInteger(v) && v>=1 && v<=5) temperament[key]=v;
+      }
+      const place=typeof summary?.place==='string'&&[...REGIONS,...SPECIAL_REGIONS].some(r=>r.id===summary.place)?summary.place:null;
+      const game=Object.hasOwn(INDIVIDUALITY.data.games,summary?.game||'')?summary.game:null;
       const identity = {gender:payload.g, orientationId:payload.o, attractedTo:payload.a};
       normalizeRomanticIdentity(identity);
       return {
@@ -7379,22 +7384,11 @@
         stageIndex: payload.i,
         ...(payload.u ? {originId:payload.u} : {}),
         ...identity,
-        traitCounts,
+        individuality: {hearts,temperament,place,game},
       };
     } catch (e) {
       return null;
     }
-  }
-
-  // ゲストの traitCounts から いちばん たかい せいかくを 1つ えらび、
-  // その ひとの affinityTrait(すきな ところ)として あつかう。すべて 0
-  // (よみこんだ ばかりで まだ なにも 選んでいない)なら ニュートラル
-  function dominantTrait(traitCounts) {
-    const entries = Object.entries(traitCounts);
-    const max = Math.max(...entries.map(([, v]) => v));
-    if (max <= 0) return null;
-    const top = entries.filter(([, v]) => v === max);
-    return top[Math.floor(Math.random() * top.length)][0];
   }
 
   function guestCandidate(guest) {
@@ -7407,7 +7401,7 @@
       gender: guest.gender,
       orientationId: guest.orientationId,
       attractedTo: guest.attractedTo,
-      affinityTrait: dominantTrait(guest.traitCounts),
+      affinityHeart: Object.keys(INDIVIDUALITY.data.hearts).find(h=>guest.individuality?.hearts?.[h]===5) || null,
     };
   }
 
@@ -8465,24 +8459,24 @@
   // ひろく ちらして あり、どの ラインの なおとっちでも 種族を こえた
   // 恋愛が できる
   const PARTNER_RUNTIME_PROFILE = {
-    cat_ceo: { emoji: '🐈‍⬛', gender: 'female', orientationId: 'gay', affinityTrait: 'brave' },
-    robot_neighbor: { emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'calm' },
-    field_cow: { emoji: '🐄', gender: 'male', orientationId: 'pan', affinityTrait: 'gentle' },
-    sunflower_partner: { emoji: '🌻', gender: 'female', orientationId: 'straight', affinityTrait: 'romantic' },
-    forest_bear: { emoji: '🐻', gender: 'male', orientationId: 'bi', affinityTrait: 'gentle' },
-    grove_deer: { emoji: '🦌', gender: 'female', orientationId: 'bi', affinityTrait: 'calm' },
-    cliff_goat: { emoji: '🐐', gender: 'male', orientationId: 'straight', affinityTrait: 'wild' },
-    high_eagle: { emoji: '🦅', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'brave' },
-    snow_spirit: { emoji: '❄️', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'calm' },
-    snowman: { emoji: '☃️', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'gentle' },
-    rock_octopus: { emoji: '🐙', gender: 'male', orientationId: 'bi', affinityTrait: 'gentle' },
-    sea_mermaid: { emoji: '🧜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' },
-    anglerfish: { emoji: '🐟', gender: 'female', orientationId: 'bi', affinityTrait: 'calm' },
-    swamp_croc: { emoji: '🐊', gender: 'male', orientationId: 'straight', affinityTrait: 'calm' },
-    gentle_gorilla: { emoji: '🦍', gender: 'male', orientationId: 'pan', affinityTrait: 'gentle' },
-    knitting_spider: { emoji: '🕷️', gender: 'female', orientationId: 'bi', affinityTrait: 'gentle' },
-    desert_scorpion: { emoji: '🦂', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'brave' },
-    oasis_cactus: { emoji: '🌵', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'calm' },
+    cat_ceo: { emoji: '🐈‍⬛', gender: 'female', orientationId: 'gay', affinityHeart: 'courage' },
+    robot_neighbor: { emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityHeart: 'perseverance' },
+    field_cow: { emoji: '🐄', gender: 'male', orientationId: 'pan', affinityHeart: 'kindness' },
+    sunflower_partner: { emoji: '🌻', gender: 'female', orientationId: 'straight', affinityHeart: 'wonder' },
+    forest_bear: { emoji: '🐻', gender: 'male', orientationId: 'bi', affinityHeart: 'kindness' },
+    grove_deer: { emoji: '🦌', gender: 'female', orientationId: 'bi', affinityHeart: 'perseverance' },
+    cliff_goat: { emoji: '🐐', gender: 'male', orientationId: 'straight', affinityHeart: 'courage' },
+    high_eagle: { emoji: '🦅', gender: 'nonbinary', orientationId: 'bi', affinityHeart: 'courage' },
+    snow_spirit: { emoji: '❄️', gender: 'nonbinary', orientationId: 'pan', affinityHeart: 'wonder' },
+    snowman: { emoji: '☃️', gender: 'nonbinary', orientationId: 'pan', affinityHeart: 'kindness' },
+    rock_octopus: { emoji: '🐙', gender: 'male', orientationId: 'bi', affinityHeart: 'perseverance' },
+    sea_mermaid: { emoji: '🧜', gender: 'female', orientationId: 'pan', affinityHeart: 'wonder' },
+    anglerfish: { emoji: '🐟', gender: 'female', orientationId: 'bi', affinityHeart: 'wonder' },
+    swamp_croc: { emoji: '🐊', gender: 'male', orientationId: 'straight', affinityHeart: 'courage' },
+    gentle_gorilla: { emoji: '🦍', gender: 'male', orientationId: 'pan', affinityHeart: 'kindness' },
+    knitting_spider: { emoji: '🕷️', gender: 'female', orientationId: 'bi', affinityHeart: 'perseverance' },
+    desert_scorpion: { emoji: '🦂', gender: 'nonbinary', orientationId: 'bi', affinityHeart: 'courage' },
+    oasis_cactus: { emoji: '🌵', gender: 'nonbinary', orientationId: 'pan', affinityHeart: 'perseverance' },
   };
 
   const REGION_RUNTIME_META = {
@@ -8737,7 +8731,7 @@
       emoji: p.emoji,
       gender: p.gender,
       orientationId: p.orientationId,
-      affinityTrait: p.affinityTrait,
+      affinityHeart: p.affinityHeart,
     });
   }
 
@@ -9019,7 +9013,7 @@
   // ================================================================
   // ・こいびとが いる ときだけ「せかい」から さそえる
   // ・いま いる ばしょ(REGIONS/SPECIAL_REGIONS)× デートの プラン ×
-  //   こいびとの せいかく(affinityTrait)の 3つで ぶんしょうが きまる ので、
+  //   こいびとの せいかく(affinityHeart)の 3つで ぶんしょうが きまる ので、
   //   おなじ くみあわせは なかなか でない
   // ・もらえる ものは「なかよし度」「きげん」「すこしの せいちょう」だけ。
   //   コインも アイテムも でない ので、かせぎの ばしょには ならない。
@@ -9042,7 +9036,7 @@
     { id: 'lost', emoji: '🧭', label: 'まいごになる', line: '道に迷った。ふたりとも相手についてきたつもりだった' },
   ];
 
-  // こいびとの せいかく(affinityTrait)ごとの リアクション。おなじ プランでも
+  // こいびとの せいかく(affinityHeart)ごとの リアクション。おなじ プランでも
   // あいてが かわると まったく ちがう デートに なる
   // 休眠データ: 2026-09-15 に movie-dialogue.js の小話(出来事と返事をセット)へ置き換え済み。
   // 現在は表示されない。削除せず保存し、再利用するかは仕様判断として保留。
@@ -9165,48 +9159,7 @@
   };
 
   // 休眠データ: 上の DATE_PLAN_VARIATIONS と同じく movie-dialogue.js 化で表示されなくなった。
-  const DATE_TRAIT_LINES = {
-    "gentle": [
-      "ずっとにこにこして、何度も「ありがとう」と言ってくれた",
-      "はぐれないように、少し近くへ来てくれた",
-      "小さな声で「楽しいね」と言った",
-      "ころびかけたら、先に荷物を受けとめてくれた",
-      "「少し休も」と、自分のほうが先に座った",
-      "別れぎわ、おみやげを持ちやすく直してくれた"
-    ],
-    "wild": [
-      "途中で走りだして、ついていくのが大変だった",
-      "「つぎあっち!」と、予定にない場所へ引っぱっていかれた",
-      "大声で笑って、まわりに振り返られた",
-      "面白そうな道を見つけて、地図をしまってしまった",
-      "休憩のつもりが、次の遊びの相談になった",
-      "寄り道が多くて、予定のほうを変えることにした"
-    ],
-    "calm": [
-      "何も言わずに、となりで同じほうを見ていた",
-      "いつものペースをくずさない。それが少しうれしかった",
-      "「べつに、ふつうだった」と言いながら、ずっと機嫌がよかった",
-      "歩く速さが少しずつ合って、話すのを忘れた",
-      "静かな場所を見つけると、何も言わず座った",
-      "「また来よう」と、小さな声だけ残した"
-    ],
-    "brave": [
-      "「まかせて」と言って、結局ぜんぶ仕切ってくれた",
-      "ちょっと危ない近道を選んで、どや顔をしていた",
-      "困った人を助けに行って、デートが30分のびた",
-      "道を間違えても、引き返す足取りは堂々としていた",
-      "先に橋を渡って、真ん中で待っていてくれた",
-      "「まかせて」のあと、地図をそっと上下逆にした"
-    ],
-    "romantic": [
-      "「手、つなごう」と言ってから、あいてのほうが照れた",
-      "「今日のことは忘れない」と、まじめな顔で言われた",
-      "まじめに見つめられた。何か言う前に、おなかが鳴った",
-      "落ちていた花びらを、記念だと大事にしまった",
-      "いい雰囲気の途中で、帰り道を間違えた",
-      "別れの言葉を考えすぎて、「またね」が二回になった"
-    ]
-  };
+
 
   // 18体それぞれの口調。性格カテゴリに加えて固有台詞を優先し、
   // 誰と付き合っているかがデート中にも分かるようにする。
@@ -10079,6 +10032,8 @@
     const reservedLine = pickDreamLine();
     state.speciesLine = reservedLine || pickRandomLine();
     state.stage = STAGE.GROWING;
+    state.individuality = INDIVIDUALITY.create(state.speciesLine,REGIONS.map(r=>r.id));
+    individualityDeferred=false;
     state.ageTicks = 0;
     state.stageIndex = 0;
     if (!state.lifetime.raisedSpecies.includes(state.speciesLine)) state.lifetime.raisedSpecies.push(state.speciesLine);
@@ -10103,6 +10058,7 @@
   function onAgeChanged(prevAge) {
     const age = currentAge();
     if (age === prevAge) return;
+    if(individualityWritable()) { INDIVIDUALITY.queue(state.individuality,prevAge,age); saveState(); }
     const before = stageForAge(prevAge, state.speciesLine);
     const after = stageForAge(age, state.speciesLine);
     if (after !== before) clearTemporaryForm();
@@ -10115,6 +10071,8 @@
     }
     if (after !== before) onStageChanged(before, after, age, sexChange);
     else onBirthday(age);
+    if(after !== before) maybeMidlifeEvent(age);
+    if(age>=90 && prevAge<90) state.miracleGuard=true;
   }
 
   function onStageChanged(before, after, age, sexChange = null) {
@@ -10442,12 +10400,133 @@
     showPendingClownfishTransition();
   }
 
+  // Individuality uses the existing save transaction and life identity, never its own storage key.
+  function individualityWritable(lifeId) {
+    if (!state.individuality || state.stage !== STAGE.GROWING || state.infinite || saveWriteBlocked || otherTabTookOver || (lifeId && lifeId !== state.individuality.lifeId)) return false;
+    try { if (storedSaveRevision(localStorage.getItem(SAVE_KEY)) > knownSaveRevision) { yieldToOtherTab(); return false; } } catch (_) { return false; }
+    return true;
+  }
+  function individualExperience(heart, category, id, lifeId = state.individuality?.lifeId) {
+    return individualityWritable(lifeId) && INDIVIDUALITY.experience(state.individuality, {lifeId,heart,category,id});
+  }
+  function individualPreference(kind, target, id, impressive = false) {
+    if (!individualityWritable()) return;
+    if (INDIVIDUALITY.prefer(state.individuality,kind,target,id,impressive)) {
+      const label = kind === 'place' ? findRegion(state.individuality.preferences[kind].current)?.label : INDIVIDUALITY.data.games[state.individuality.preferences[kind].current];
+      pushLifeLog('💖', `${label || target}が好きになった`);
+    }
+  }
+  function individualGameResult(game, score, lifeId) {
+    if (!individualityWritable(lifeId) || game.id.startsWith('quick') || !Number.isFinite(score)) return;
+    const rank=minigameRankOf(score), category=minigameGenreId(game);
+    if (!['S','A','B','C'].includes(rank)) return;
+    individualExperience('courage',0,`genre:${category}`,lifeId);
+    const previous=state.individuality.natural.perseverance[0];
+    const firstGame=!previous.includes(`game:${game.id}`);
+    const applied=previous.some(id=>id!==`game:${game.id}`);
+    individualExperience('perseverance',0,`game:${game.id}`,lifeId);
+    if (['S','A','B'].includes(rank)) individualExperience('perseverance',1,`game:${game.id}`,lifeId);
+    if (applied) individualExperience('perseverance',2,`game:${game.id}`,lifeId);
+    individualPreference('game',category,`game:${game.id}:period:${Math.floor(currentAge()/5)}`,firstGame);
+  }
+  function individualVisit(region) {
+    if (!individualityWritable()) return;
+    const first=individualExperience('wonder',0,`region:${region.id}`);
+    individualExperience('courage',1,`region:${region.id}`);
+    individualPreference('place',region.id,`visit:${region.id}:period:${Math.floor(currentAge()/5)}`,first);
+  }
+  function individualMeeting(id) {
+    individualExperience('courage',2,`meet:${id}`);
+    individualExperience('wonder',2,`meet:${id}`);
+  }
+  function individualScenery(moment) {
+    if (!moment?.id || !individualityWritable()) return;
+    const first=individualExperience('wonder',1,`scene:${moment.id}`);
+    individualPreference('place',currentRegionId(),`scene:${moment.id}:region:${currentRegionId()}`,first);
+  }
+  function individualityProfileHTML() {
+    const s=state.individuality;
+    if (!s) return '<p>うまれたら、この子の個性がわかるよ。</p>';
+    const d=INDIVIDUALITY.data;
+    const traits=Object.entries(d.temperaments).map(([id,[name,left,right]])=>`<div class="individual-trait"><b>${name}</b><div class="individual-axis"><span>${left}</span><span aria-label="5段階の${s.temperament[id]}">${[1,2,3,4,5].map(n=>n===s.temperament[id]?'●':'·').join(' ')}</span><span>${right}</span></div></div>`).join('');
+    const hearts=Object.entries(d.hearts).map(([h,name])=>`<div class="individual-heart"><span>${name}</span><span>${'★'.repeat(INDIVIDUALITY.stars(INDIVIDUALITY.points(s,h)))}${'☆'.repeat(5-INDIVIDUALITY.stars(INDIVIDUALITY.points(s,h)))}</span></div>`).join('');
+    const place=(s.preferences.place.current ? findRegion(s.preferences.place.current)?.label : null) || 'まだ わからない';
+    const game=d.games[s.preferences.game.current] || 'まだ わからない';
+    const pending=INDIVIDUALITY.pending(s).length;
+    return `<h4>うまれつき</h4>${traits}<h4>そだったこころ</h4>${hearts}<h4>この子のすき</h4><p>場所：${escapeHtml(place)}<br>遊び：${escapeHtml(game)}</p>${pending?'<button type="button" id="individualResume">人生のつづきへ</button>':''}`;
+  }
+  function individualityCardHTML(raw=state.individuality) {
+    if (!raw) return '';
+    const s=INDIVIDUALITY.summary(INDIVIDUALITY.normalize(raw,{regions:REGIONS.map(r=>r.id),age:100})),d=INDIVIDUALITY.data;
+    const traits=Object.entries(d.temperaments).map(([k,[name,left,right]])=>`${name}：${s.temperament[k]<3?left:s.temperament[k]>3?right:'どちらも'}`).join('／');
+    const hearts=Object.entries(d.hearts).map(([k,n])=>`${n}${'★'.repeat(s.hearts[k])}`).join('／');
+    return `<div class="lifecard-line">${escapeHtml(traits)}<br>${escapeHtml(hearts)}<br>すき：${escapeHtml((s.place?findRegion(s.place)?.label:null)||'まだ わからない')}／${escapeHtml(d.games[s.game]||'まだ わからない')}</div>`;
+  }
+  function closeIndividualityDialog(defer=true) {
+    individualityDialogOpen=false;individualityDeferred=defer;
+    document.getElementById('individualityDialog')?.classList.add('hidden');
+    render();
+  }
+  function chooseIndividualityEvent(age,heart,lifeId) {
+    if (!individualityWritable(lifeId) || !INDIVIDUALITY.choose(state.individuality,age,heart,lifeId)) return false;
+    const e=INDIVIDUALITY.data.events.find(e=>e.age===age),choice=e.choices.find(c=>c.heart===heart);
+    pushLifeLog('🌱',`${age}さい：${choice.label}`);
+    closeIndividualityDialog(false);saveState();setMessage('その気持ちを、思い出にしまった。');render();return true;
+  }
+  function showIndividualityEvent(force=false) {
+    if(force)individualityDeferred=false;
+    if (!individualityWritable() || individualityDeferred || individualityDialogOpen || gameActive || isAnyMenuOverlayOpen() || state.transformOptions || !el.storyFlash.classList.contains('hidden')) return false;
+    const e=INDIVIDUALITY.pending(state.individuality)[0];if(!e)return false;
+    const dialog=document.getElementById('individualityDialog');if(!dialog)return false;
+    individualityDialogLife=state.individuality.lifeId;individualityDialogOpen=true;
+    document.getElementById('individualityTitle').textContent=`${e.age}さい・${e.title}`;
+    document.getElementById('individualityText').textContent='この子は、どんな気持ちで過ごすだろう。';
+    const choices=document.getElementById('individualityChoices');choices.innerHTML='';
+    for(const choice of e.choices){const b=document.createElement('button');b.type='button';b.textContent=choice.label;const lifeId=individualityDialogLife;b.onclick=()=>chooseIndividualityEvent(e.age,choice.heart,lifeId);choices.appendChild(b);}
+    document.getElementById('individualityLater').onclick=()=>closeIndividualityDialog(true);
+    dialog.classList.remove('hidden');scheduleHistoryLayerSync();choices.querySelector?.('button')?.focus?.();return true;
+  }
+  function chooseIndividualExchange(id,lifeId) {
+    const e=INDIVIDUALITY.data.exchanges.find(e=>e.id===id);
+    if(!e || !individualityWritable(lifeId) || !state.companions.some(c=>c.id===e.companion))return false;
+    if(!individualExperience('kindness',e.category,e.id,lifeId))return false;
+    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();setMessage(e.reaction);render();return true;
+  }
+  function maybeIndividualExchange() {
+    if(!individualityWritable() || individualityDialogOpen || gameActive || isAnyMenuOverlayOpen() || state.isSick || state.isSleeping || INDIVIDUALITY.pending(state.individuality).length)return false;
+    const s=state.individuality,age=currentAge();if(age<=s.lastExchangeAge)return false;
+    const pool=INDIVIDUALITY.data.exchanges.filter(e=>state.companions.some(c=>c.id===e.companion)&&e.companion!==s.lastCompanion&&!s.natural.kindness[e.category].includes(e.id)&&s.natural.kindness[e.category].length<6);
+    if(!pool.length)return false;const e=pool[Math.floor(Math.random()*pool.length)],lifeId=s.lifeId;
+    s.lastCompanion=e.companion;s.lastExchangeAge=age;saveState();
+    const dialog=document.getElementById('individualityDialog');if(!dialog)return false;
+    individualityDialogOpen=true;individualityDialogLife=lifeId;
+    document.getElementById('individualityTitle').textContent='なかまと、ひととき';document.getElementById('individualityText').textContent=e.text;
+    const choices=document.getElementById('individualityChoices');choices.innerHTML='';const b=document.createElement('button');b.type='button';b.textContent=e.label;b.onclick=()=>chooseIndividualExchange(e.id,lifeId);choices.appendChild(b);
+    document.getElementById('individualityLater').onclick=()=>closeIndividualityDialog(true);dialog.classList.remove('hidden');scheduleHistoryLayerSync();b.focus?.();return true;
+  }
+  function individualityLines() {
+    const s=state.individuality;if(!s)return [];
+    const t=s.temperament,lines=[];
+    if(t.curiosity>=4)lines.push('あっちには、何があるんだろう。');else if(t.curiosity<=2)lines.push('もう少し、ここを見ていたいな。');
+    if(t.boldness<=2)lines.push('どきどきするけど、気にはなる。');else if(t.boldness>=4)lines.push('一歩、踏み出してみようかな。');
+    if(t.sociability<=2)lines.push('ひとりの時間も、好きなんだ。');else if(t.sociability>=4)lines.push('だれかと、話したい気分。');
+    if(t.persistence<=2)lines.push('今度は、別のやり方にしてみよう。');else if(t.persistence>=4)lines.push('あと少し、続けてみたい。');
+    if(INDIVIDUALITY.points(s,'kindness')>=36)lines.push('あの子の話、また聞きたいな。');
+    if(INDIVIDUALITY.points(s,'courage')>=36)lines.push('どきどきしても、やってみてよかった。');
+    if(INDIVIDUALITY.points(s,'wonder')>=36)lines.push('思い出すと、いまもわくわくする。');
+    if(INDIVIDUALITY.points(s,'perseverance')>=36)lines.push('続けてきたこと、ちゃんと覚えてる。');
+    const place=s.preferences.place.current?findRegion(s.preferences.place.current):null;if(place)lines.push(`また${place.label}へ行きたいな。`);
+    const game=INDIVIDUALITY.data.games[s.preferences.game.current];if(game)lines.push(`${game}で遊びたい気分。`);
+    return lines;
+  }
+
   // 人生の きろくカード。死亡時・100さい到達時に 見せる
   function buildLifeCard() {
     const L = state.lifetime;
     const age = currentAge();
     const species = SPECIES_DISPLAY_NAMES[state.speciesLine] || '???';
     const rows = [];
+    rows.push(individualityCardHTML());
     rows.push(`<div class="lifecard-title">${(currentVisualStage().asset ? commentPictureHTML(currentVisualStage().asset, currentSprite(), species) : displayIconHTML(currentSprite()))} ${species}</div>`);
     rows.push(`<div class="lifecard-age">${age}さいまでいきた</div>`);
     // SECRET れんくんが天寿をまっとうした人生だけ、通常カードの情報を
@@ -10523,7 +10602,7 @@
   // ともだちに おくれる。よみこんでも セーブは かわらず、カードとして 見るだけ
   const LIFE_CODE_PREFIX = 'NTL1.';
   function encodeLifeCode(snapshot) {
-    const s = snapshot || { ...lifeSummaryStats(), emoji: currentSprite(), line: state.speciesLine, visualStage:currentFormStageIndex(), log: (state.lifeLog || []).slice(-40) };
+    const s = snapshot || { individuality: state.individuality ? JSON.parse(JSON.stringify(state.individuality)) : null, ...lifeSummaryStats(), emoji: currentSprite(), line: state.speciesLine, visualStage:currentFormStageIndex(), log: (state.lifeLog || []).slice(-40) };
     const json = JSON.stringify({ v: 1, ...s });
     const bytes = new TextEncoder().encode(json);
     let bin = ''; for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
@@ -10546,7 +10625,7 @@
     if (card.age >= GOAL_AGE && card.sodachi >= SODACHI_MAX) badges.push('★さいこう');
     return `<div class="life-code-card"><div class="life-code-head">${lifeRecordVisual(card)} ${escapeHtml(card.species)}・${card.age}さい・そだち${card.sodachi}${badges.length ? ' ' + badges.join(' ') : ''}</div>`
       + `<div class="life-code-line">${card.partner ? (card.partner.married ? '💍' : '💖') + escapeHtml(card.partner.label) : 'こいびとなし'}／なかま${card.companions}にん／へんしん${card.transforms}かい${card.bestGame ? `／${escapeHtml(card.bestGame.emoji || '')}${escapeHtml(card.bestGame.name)} ${card.bestGame.best}てん` : ''}</div>`
-      + buildLifeTimelineHTML(card.log,0,card.line) + '</div>';
+      + individualityCardHTML(card.individuality || null) + buildLifeTimelineHTML(card.log,0,card.line) + '</div>';
   }
   function renderLifeTimeline() {
     if (!el.profileTimeline) return;
@@ -10556,7 +10635,7 @@
     if (el.profilePastLives) {
       const past = (state.lifetime.pastLives || []).slice().reverse();
       el.profilePastLives.innerHTML = past.length
-        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${escapeHtml(p.age)}さい・そだち${escapeHtml(p.sodachi)}${p.married ? '・💍' : ''}${p.companions ? `・なかま${escapeHtml(p.companions)}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
+        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${escapeHtml(p.age)}さい・そだち${escapeHtml(p.sodachi)}${p.married ? '・💍' : ''}${p.companions ? `・なかま${escapeHtml(p.companions)}` : ''}</summary>${individualityCardHTML(p.individuality || null)}${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
         : '<div class="profile-hint">まだ おわかれした子は いない</div>';
     }
   }
@@ -10601,6 +10680,7 @@
       line: state.speciesLine,
       visualStage: currentFormStageIndex(),
       log: (state.lifeLog || []).slice(-40),
+      individuality: state.individuality ? JSON.parse(JSON.stringify(state.individuality)) : null,
       code: encodeLifeCode(),
     });
     if (L.pastLives.length > 100) L.pastLives.shift();
@@ -10811,6 +10891,7 @@
     clearTimeout(storyFlashTimer);
     storyFlashTimer = setTimeout(() => {
       el.storyFlash.classList.add('hidden');
+      showIndividualityEvent();
       renderWorldScene();
       syncHomeEmotion();
       renderPetVisual();
@@ -10818,6 +10899,7 @@
   }
 
   function tick() {
+    if(individualityDialogOpen) return;
     // さいごの じかん(FAREWELL)は そだち・ねんれい・いのち・ステータスの
     // すべてが とまる - お別れを ゆっくり すごす ための じかんな ので、
     // ここで なにも すすめない(§12)。♾️の せかいも ねんれいは とまる
@@ -11281,7 +11363,7 @@
   // すでに ひらいている ときにしか 到達しないため、ここには ふくめていない
   // (overlayIs('item') だけで じゅうぶん カバーできる)
   function isAnyMenuOverlayOpen() {
-    return !!activeOverlay || duelOpen
+    return individualityDialogOpen || !!activeOverlay || duelOpen
       || dateOpen || companionInviteOpen || !!pendingItemScene || !!itemSceneRecord
       // ④⑤の おいわい がめん(grandGoalPending)と ずかんの くわしい がめんも
       // 「ひらいている がめん」。ここを いれないと、おいわいの うえに
@@ -11348,6 +11430,7 @@
   let companionInviteOpen = false;
 
   function openCompanionInvite(companion, isRare) {
+    individualMeeting(companion.id);
     pendingCompanionId = companion.id;
     companionInviteOpen = true;
     el.companionInviteEmoji.innerHTML = companionVisualHTML(companion, 'hero');
@@ -11890,6 +11973,7 @@
   }
 
   function render() {
+    if (typeof state !== 'undefined' && state.individuality) setTimeout(()=>showIndividualityEvent(),0);
     updateHomeVisits();
     scheduleHistoryLayerSync();
     // 実時間の残りだけ待つ。保存からの再開でも5秒を延長しない。
@@ -12174,6 +12258,10 @@
   // メインメニュー同士は同時に1枚だけ開く。別メニューを押したら、
   // いま開いているものを先に閉じて、そのまま新しい画面へ切り替える。
   function closeAllMenuOverlays() {
+    if(individualityDialogOpen) {
+      individualityDialogOpen=false;individualityDeferred=true;
+      document.getElementById('individualityDialog')?.classList.add('hidden');
+    }
     restoreFocusToMenu();
     activeOverlay = null;
     currentLocationIntent += 1;
@@ -12463,8 +12551,8 @@
   }
 
   // なおとっち本体の しゅぞく・せいちょう段階・せいべつ・れんあいタイプ・
-  // せいかく傾向(traitCounts)と、こいびとが いれば その せいべつ・
-  // れんあいタイプ・affinityTrait を まとめて 見せる
+  // 個性と、こいびとがいればその性別・
+  // れんあいタイプ・affinityHeart を まとめて 見せる
   function renderProfile() {
     renderSaveSnaps();
     renderLifeTimeline();
@@ -12509,17 +12597,9 @@
       renderProfile();
     };
 
-    const maxTrait = Math.max(1, ...Object.values(state.traitCounts));
-    el.profileTraits.innerHTML = Object.keys(TRAIT_LABELS).map((key) => {
-      const value = state.traitCounts[key] || 0;
-      const pct = Math.round((value / maxTrait) * 100);
-      return `
-        <div class="profile-trait-row">
-          <span class="profile-trait-label">${TRAIT_LABELS[key]}</span>
-          <div class="profile-trait-bar"><div class="profile-trait-fill" style="width:${pct}%"></div></div>
-        </div>
-      `;
-    }).join('');
+    el.profileTraits.innerHTML = individualityProfileHTML();
+    const resumeIndividual = el.profileTraits.querySelector('#individualResume');
+    if(resumeIndividual) resumeIndividual.onclick=()=>{closeAllMenuOverlays();showIndividualityEvent(true);};
 
     if (state.partner) {
       const p = state.partner;
@@ -12532,7 +12612,7 @@
           <div class="profile-partner-text">
             <span class="profile-partner-name">${escapeHtml(compactJapaneseText(p.label))}(${p.married ? '夫婦💍' : 'こいびと💑'})</span>
             <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${orientationLabel(p.orientationId, p.gender, p.attractedTo)}</span>
-            <span class="profile-partner-detail">すきなところ: ${TRAIT_LABELS[p.affinityTrait] || 'とくになし'}</span>
+            <span class="profile-partner-detail">すきなところ: ${INDIVIDUALITY.data.hearts[INDIVIDUALITY.data.affinityHeart[p.id] || p.affinityHeart] || 'とくになし'}</span>
             ${bondHint}
           </div>
         </div>
@@ -14078,37 +14158,37 @@
   // --- せかいの できごと: てんき・じかんたいに ちなんだ 小さな できごとが ときどき おこる ---
   const ENV_MOMENTS = {
     sunny: [
-      { emoji: '🌞', message: 'ひなたぼっこでぽかぽか。げんき+5', energy: 5 },
-      { emoji: '🌈', message: '虹を見つけた!ごきげん+8', happiness: 8 },
+      { id: 'sunbath', emoji: '🌞', message: 'ひなたぼっこでぽかぽか。げんき+5', energy: 5 },
+      { id: 'rainbow', emoji: '🌈', message: '虹を見つけた!ごきげん+8', happiness: 8 },
     ],
     cloudy: [
-      { emoji: '☁️', message: '雲をながめてのんびり。げんき+3', energy: 3 },
-      { emoji: '🍃', message: 'すずしい風がふいた。ごきげん+4', happiness: 4 },
+      { id: 'cloud-watch', emoji: '☁️', message: '雲をながめてのんびり。げんき+3', energy: 3 },
+      { id: 'cool-breeze', emoji: '🍃', message: 'すずしい風がふいた。ごきげん+4', happiness: 4 },
     ],
     rain: [
-      { emoji: '☔', message: '雨やどりしながらおしゃべり。ごきげん+6', happiness: 6 },
-      { emoji: '🐌', message: 'かたつむりを見つけた。ごきげん+4', happiness: 4 },
-      { emoji: '🐸', message: 'かえるの合唱を聞いた。ごきげん+3', happiness: 3 },
+      { id: 'rain-shelter', emoji: '☔', message: '雨やどりしながらおしゃべり。ごきげん+6', happiness: 6 },
+      { id: 'snail-find', emoji: '🐌', message: 'かたつむりを見つけた。ごきげん+4', happiness: 4 },
+      { id: 'frog-chorus', emoji: '🐸', message: 'かえるの合唱を聞いた。ごきげん+3', happiness: 3 },
     ],
     snow: [
-      { emoji: '⛄', message: '雪だるまを作った!ごきげん+8／げんき-3', happiness: 8, energy: -3 },
-      { emoji: '❄️', message: '雪をぱくっとキャッチ。ごきげん+5', happiness: 5 },
+      { id: 'snowman-build', emoji: '⛄', message: '雪だるまを作った!ごきげん+8／げんき-3', happiness: 8, energy: -3 },
+      { id: 'snow-catch', emoji: '❄️', message: '雪をぱくっとキャッチ。ごきげん+5', happiness: 5 },
     ],
     morning: [
-      { emoji: '🐦', message: '小鳥の声で、すっきり目覚めた。げんき+4', energy: 4 },
-      { emoji: '🌄', message: '朝日をあびて深呼吸。ごきげん+4', happiness: 4 },
+      { id: 'birdsong', emoji: '🐦', message: '小鳥の声で、すっきり目覚めた。げんき+4', energy: 4 },
+      { id: 'sunrise', emoji: '🌄', message: '朝日をあびて深呼吸。ごきげん+4', happiness: 4 },
     ],
     day: [
-      { emoji: '🦋', message: 'ちょうちょを追いかけた。ごきげん+4', happiness: 4 },
+      { id: 'butterfly-chase', emoji: '🦋', message: 'ちょうちょを追いかけた。ごきげん+4', happiness: 4 },
     ],
     evening: [
-      { emoji: '🌇', message: '夕やけがきれい。ごきげん+6', happiness: 6 },
-      { emoji: '🦇', message: 'こうもりが飛んでいった。ちょっとびっくり', happiness: 1 },
+      { id: 'sunset', emoji: '🌇', message: '夕やけがきれい。ごきげん+6', happiness: 6 },
+      { id: 'bat-flight', emoji: '🦇', message: 'こうもりが飛んでいった。ちょっとびっくり', happiness: 1 },
     ],
     night: [
-      { emoji: '⭐', message: '流れ星にお願い。' },
-      { emoji: '🦉', message: 'ふくろうの声…ちょっとこわい。ごきげん-2', happiness: -2 },
-      { emoji: '🌙', message: '月がきれいだね。ごきげん+5', happiness: 5 },
+      { id: 'shooting-star', emoji: '⭐', message: '流れ星にお願い。' },
+      { id: 'owl-call', emoji: '🦉', message: 'ふくろうの声…ちょっとこわい。ごきげん-2', happiness: -2 },
+      { id: 'moon-watch', emoji: '🌙', message: '月がきれいだね。ごきげん+5', happiness: 5 },
     ],
   };
   const REGION_MOMENT_HINTS = {
@@ -14122,33 +14202,33 @@
   };
   const REGION_MOMENTS = {
     mountain: [
-      { emoji: '⛰️', message: '山びこが少し遅れて返事をした。ごきげん+5', happiness: 5 },
-      { emoji: '🪨', message: '平らな岩でひと休み。げんき+5', energy: 5 },
+      { id: 'echo', emoji: '⛰️', message: '山びこが少し遅れて返事をした。ごきげん+5', happiness: 5 },
+      { id: 'flat-rock', emoji: '🪨', message: '平らな岩でひと休み。げんき+5', energy: 5 },
     ],
     river_lake: [
-      { emoji: '💧', message: '水切りの石が、今度は3回はねた。ごきげん+6', happiness: 6 },
-      { emoji: '🪷', message: '水面の輪が静かに広がった。げんき+4', energy: 4 },
+      { id: 'stone-skips', emoji: '💧', message: '水切りの石が、今度は3回はねた。ごきげん+6', happiness: 6 },
+      { id: 'water-rings', emoji: '🪷', message: '水面の輪が静かに広がった。げんき+4', energy: 4 },
     ],
     jungle: [
-      { emoji: '🦜', message: '葉のかげから、聞いたことのない声。ごきげん+6', happiness: 6 },
-      { emoji: '🌿', message: '大きな葉の下で休んだ。げんき+5', energy: 5 },
+      { id: 'jungle-voice', emoji: '🦜', message: '葉のかげから、聞いたことのない声。ごきげん+6', happiness: 6 },
+      { id: 'leaf-shelter', emoji: '🌿', message: '大きな葉の下で休んだ。げんき+5', energy: 5 },
     ],
     desert: [
-      { emoji: '💧', message: 'オアシスのそばでひと休み。げんき+6', energy: 6 },
-      { emoji: '✨', message: '砂の中に、小さなかざりを見つけた。' },
+      { id: 'oasis-rest', emoji: '💧', message: 'オアシスのそばでひと休み。げんき+6', energy: 6 },
+      { id: 'sand-trinket', emoji: '✨', message: '砂の中に、小さなかざりを見つけた。' },
     ],
     deepsea: [
-      { emoji: '🪼', message: '光るくらげが、ゆっくり道を横切った。ごきげん+6', happiness: 6 },
-      { emoji: '🫧', message: '深海で泡の音に耳をすませた。げんき+5', energy: 5 },
+      { id: 'glowing-jelly', emoji: '🪼', message: '光るくらげが、ゆっくり道を横切った。ごきげん+6', happiness: 6 },
+      { id: 'deep-bubbles', emoji: '🫧', message: '深海で泡の音に耳をすませた。げんき+5', energy: 5 },
     ],
     star_stop: [
-      { emoji: '⭐', message: '星をひとつ見送った。次はどこへ行くのだろう。ごきげん+6', happiness: 6 },
-      { emoji: '✨', message: 'ベンチの下に星のかけらが落ちていた。' },
-      { emoji: '🌌', message: '遠くの星の明かりを数えて休んだ。げんき+5', energy: 5 },
+      { id: 'star-farewell', emoji: '⭐', message: '星をひとつ見送った。次はどこへ行くのだろう。ごきげん+6', happiness: 6 },
+      { id: 'star-piece', emoji: '✨', message: 'ベンチの下に星のかけらが落ちていた。' },
+      { id: 'star-count', emoji: '🌌', message: '遠くの星の明かりを数えて休んだ。げんき+5', energy: 5 },
     ],
     memory_lake: [
-      { emoji: '🪞', memory: true, happiness: 6 },
-      { emoji: '💧', message: '湖の波が静まるまで、思い出をたどった。げんき+6', energy: 6 },
+      { id: 'memory-reflection', emoji: '🪞', memory: true, happiness: 6 },
+      { id: 'lake-rest', emoji: '💧', message: '湖の波が静まるまで、思い出をたどった。げんき+6', energy: 6 },
     ],
   };
   function environmentMomentPool(env) {
@@ -14191,6 +14271,7 @@
           const pool = environmentMomentPool(env);
           const m = drawEnvironmentMoment(pool);
           if (m) {
+            individualScenery(m);
             if (m.happiness) state.happiness = clamp(state.happiness + m.happiness, 0, 100);
             if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
             state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
@@ -14544,11 +14625,7 @@
     state.pendingClownfishTransition = null;
     state.questioningEncounters = 0;
     // せいかく傾向は ゼロに もどさず 半分に する - レア種族の 解禁条件の
-    // おおくが traitCounts に よるので、ゼロに すると「へんしんするほど
-    // レアが とおのく」ぎゃくインセンティブに なってしまう
-    Object.keys(state.traitCounts).forEach((k) => {
-      state.traitCounts[k] = Math.floor((state.traitCounts[k] || 0) / 2);
-    });
+
 
     return recheckRelationship(state);
   }
@@ -14832,6 +14909,7 @@
       const list = isSpecial ? state.lifetime.specialRegionsVisited : state.lifetime.regionsVisited;
       const first = !list.includes(region.id);
       state.regionId = region.id;
+    individualVisit(region);
       // 「いまいる ばしょ」の ひょうじだけを もどす しくみとは べつなので、ここで けす
       state.lifetime.currentLocationSelected = false;
       state.lifetime.currentLocation = null;
@@ -16672,6 +16750,7 @@
       render();
       return;
     }
+    individualGameResult(game,rawScore,individualGameLifeId);
     minigameResultSpeechHold = [];
     const fromCompanion = !!pendingCompanionId;
     state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
@@ -16737,6 +16816,7 @@
           if (!state.companions.some((c) => c.id === companion.id)) {
             state.companions.push({ id: companion.id, bond: 100 });
           }
+          individualMeeting(companion.id);
           pushLifeLog(companion.emoji, `${companion.name}がなかまになった`);
           recruitedNow = true;
           recruitedMotionTarget = {kind:'companion',id:companion.id};
@@ -16785,6 +16865,7 @@
   // ゲームきろく からの みちすじ = tryStartPlay だけ。テストや ハーネスからの
   // ちょくせつの startMinigame() は すぐ はじまる)
   function startMinigame(game, opts = {}) {
+    individualGameLifeId=state.individuality?.lifeId;
     invalidateCareAfterglow();
     clearPetExpression();
     clearConversationTimers();
@@ -17596,14 +17677,14 @@
     const hasCompanions = state.companions.length > 0;
     const reaction = spammed
       ? pickBubbleReaction([...CONVERSATION_POOLS.play_with_annoyed.pet, ...PET_ANNOYED_REACTIONS, ...TALK_ANNOYED_REACTIONS, ...(hasCompanions ? COMPANION_ANNOYED_REACTIONS : [])], lastPlayWithReaction)
-      : pickBubbleReaction([...CONVERSATION_POOLS.play_with.pet, ...PET_REACTIONS, ...TALK_REACTIONS, ...(hasCompanions ? [...COMPANION_PET_REACTIONS, ...COMPANION_TALK_REACTIONS] : [])], lastPlayWithReaction);
+      : pickBubbleReaction([...CONVERSATION_POOLS.play_with.pet, ...individualityLines(), ...PET_REACTIONS, ...TALK_REACTIONS, ...(hasCompanions ? [...COMPANION_PET_REACTIONS, ...COMPANION_TALK_REACTIONS] : [])], lastPlayWithReaction);
     lastPlayWithReaction = reaction;
     if (!checkMeters()) {
       // 日常の「じゃれる」は客観ナレーションを出さず、会話だけで見せる。
       // 状態変化の事実通知が必要な場面だけ setMessage() を使う。
       setMessage('');
       speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
-      if (!spammed) checkStoryEvents('pet');
+      if (!spammed) { checkStoryEvents('pet'); setTimeout(()=>maybeIndividualExchange(),STORY_FLASH_DURATION_MS); }
     }
   }));
 
@@ -17791,15 +17872,16 @@
       return;
     }
 
-    // れんあいタイプが あってさえいれば、あとは せいかく(traitCounts)の
+    // 双方向の恋愛対象一致を確認した後、育ったこころを穏やかに反映する。
     // あいしょうと、いまの きげんで せいこう率が すこし かわる - まいかい
     // かならず せいこうする ゲームバランス崩壊を さけつつ、お世話を
     // がんばっているほど とおりやすくは なる
-    const traitBonus = candidate.affinityTrait ? Math.min(0.3, state.traitCounts[candidate.affinityTrait] * 0.03) : 0.1;
+    const heart = INDIVIDUALITY.data.affinityHeart[candidate.id] || candidate.affinityHeart;
+    const heartBonus = Object.hasOwn(INDIVIDUALITY.data.hearts,heart) ? .02*(INDIVIDUALITY.stars(INDIVIDUALITY.points(state.individuality,heart))-1) : .04;
     const happinessBonus = (state.happiness / 100) * 0.15;
     // そだち50の「こいの きざし」で +10%、さらに いまの そだちに おうじて 最大+20%
     const sodachiBonus = (hasPerk(50) ? 0.1 : 0) + (hasPerk(50) ? Math.min(0.2, state.sodachi / 500) : 0);
-    const successChance = clamp(0.35 + traitBonus + happinessBonus + sodachiBonus, 0.15, 0.85);
+    const successChance = clamp(0.35 + heartBonus + happinessBonus + sodachiBonus, 0.15, 0.85);
 
     if (Math.random() < successChance) {
       state.partner = {
@@ -17809,7 +17891,7 @@
         gender: candidate.gender,
         orientationId: orientationIdFor(candidate.gender, candidate.orientationId, candidate.attractedTo),
         attractedTo: [...candidate.attractedTo],
-        affinityTrait: candidate.affinityTrait,
+        affinityHeart: candidate.affinityHeart,
         ...(candidate.id === 'guest' ? { ...(candidate.originId ? {originId:candidate.originId} : {}), guestSnapshot: JSON.parse(JSON.stringify(state.guest)) } : {}),
         affection: 100,
         married: false,
@@ -18004,6 +18086,7 @@
     const visitedList = isSpecial ? state.lifetime.specialRegionsVisited : state.lifetime.regionsVisited;
     const firstVisit = !visitedList.includes(region.id);
     state.regionId = region.id;
+    individualVisit(region);
     // じっせきの「せかい いっしゅう」用に、いちど でも おとずれた ことの
     // ある地域を えいきゅうに きろくしておく(「はじめから」しても きえない)
     if (firstVisit) {
