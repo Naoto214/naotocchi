@@ -108,6 +108,15 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .speech-slot .speech-bubble.hidden {display:none}
 .speech-speaker {font-size:17px;line-height:1.2}
 .speech-text {min-width:0;max-height:2.8em;overflow-y:auto;overflow-wrap:anywhere;overscroll-behavior:contain}
+.speech-slot {position:relative}
+/* Conversation v2: 問いかけの選択肢。吹き出しのすぐ下に重ねて出し、Home の並びは動かさない。
+   問いかけの間だけ吹き出しの段をメーターより前へ出す(メーターは表示だけで、押す場所ではない) */
+.speech-slot.is-asking {z-index:6}
+.speech-choices {position:absolute;left:50%;width:min(360px,calc(100vw - 24px));transform:translateX(-50%);top:100%;z-index:6;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:8px;padding:8px 2px 0;pointer-events:none}
+.speech-choices[data-count="4"] {grid-auto-flow:row;grid-template-columns:1fr 1fr}
+.speech-choices.hidden {display:none}
+.speech-choice {pointer-events:auto;min-width:0;min-height:48px;padding:6px 8px;font:inherit;font-size:14px;line-height:1.3;overflow-wrap:anywhere;color:var(--ui-ink);background:#fffaf8;border:2px solid #63735b;border-radius:16px;box-shadow:0 2px 0 #40503826;touch-action:manipulation;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.speech-choice:active {transform:translateY(1px);box-shadow:none}
 /* The floor never participates in flex sizing and never moves with the cast. */
 #poopRow {position:absolute;inset:auto 0 0;height:20px;min-height:0;padding:0;margin:0;font-size:17px;line-height:20px;letter-spacing:3px;text-align:center;white-space:nowrap;pointer-events:none}
 #poopRow:empty {visibility:hidden}

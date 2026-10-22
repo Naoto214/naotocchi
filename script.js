@@ -1100,6 +1100,7 @@
     speechSlot: document.getElementById('speechSlot'),
     speechSpeaker: document.getElementById('speechSpeaker'),
     speechText: document.getElementById('speechText'),
+    speechChoices: document.getElementById('speechChoices'),
     companionInviteOverlay: document.getElementById('companionInviteOverlay'),
     companionInviteEmoji: document.getElementById('companionInviteEmoji'),
     companionInviteTitle: document.getElementById('companionInviteTitle'),
@@ -4214,6 +4215,8 @@
   }
 
   function hideSpeechBubble() {
+    // 吹き出しを消す場面(メニュー・ゲーム・別の会話)では、掛け合い・問いかけも途中でやめる
+    conv2Abort('hidden');
     speechActive = false;
     if (speechTimer) { clearTimeout(speechTimer); speechTimer = null; }
     if (el.speechBubble) el.speechBubble.classList.add('hidden');
@@ -4250,7 +4253,7 @@
       speechActive = false;
       el.speechBubble.classList.add('hidden');
       castMotion?.clearSpeaker();
-    }, SPEECH_DURATION_MS);
+    }, reaction.holdMs || SPEECH_DURATION_MS);
   }
 
   function sayPet(text) {
@@ -4959,6 +4962,7 @@
   let conversationBusyUntil = 0;
   let recentConversationLines = [];
   function clearConversationTimers() {
+    conv2Abort('cleared');
     conversationTimers.forEach((t) => clearTimeout(t));
     conversationTimers = [];
     conversationBusyUntil = 0;
@@ -6295,6 +6299,12 @@
     // ミニゲームの けっか処理の さいちゅう(そだち・とし など)は、けっかトーストを けさない よう
     // いったん ためて、トーストの あとに まわす(dispatchMinigameReaction)
     if (minigameResultSpeechHold) { minigameResultSpeechHold.push([eventKey, ctx]); return; }
+    // 掛け合い・問いかけの途中: プレイヤーが何か操作したならそちらを優先して掛け合いをやめる。
+    // 自動で起きた会話(誕生日など)は、掛け合いが終わるまで待ってから話す
+    if (conv2Unit) {
+      if (lastPlayerInputAt >= conv2Unit.startedAt) conv2Abort('player');
+      else { conv2Unit.held.push([eventKey, ctx]); return; }
+    }
     const dialogueKey = eventKey === 'evolve' ? 'age' : eventKey === 'companion_new' ? 'minigame_great' : eventKey;
     const pool = CONVERSATION_POOLS[dialogueKey];
     if (!pool) return;
@@ -6510,6 +6520,222 @@
         : petSpeaker();
       conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));
     });
+  }
+
+  // ================================================================
+  // Conversation v2 Pilot: 掛け合い(本人⇄来ている相手)と選択肢つきの問いかけ
+  // ================================================================
+  // 台詞は conversation-banter.js。ひとつの掛け合い・問いかけは途中で別の会話に割り込ませない単位として扱い、
+  // 鮮度・間隔は Director の unit 履歴で見る。セーブ本体には何も書かない。
+  // 設計: docs/design/conversation-v2-pilot-2026-10-22.md
+  const CONVERSATION_BANTER = globalThis.NaotocchiConversationBanter || null;
+  // QA 用: ?conv2=demo で掛け合い・問いかけを出やすくする(保存しない。本人の試遊確認用)
+  const CONV2_DEMO = (() => { try { return /[?&]conv2=demo(?:&|$)/.test(String(globalThis.location?.search || '')); } catch (_) { return false; } })();
+  const CONV2 = Object.freeze({
+    banterSkipEvery: CONV2_DEMO ? 0 : 4,   // 来訪 4 回に 1 回は掛け合いなしで静かに過ごす
+    banterDelayMs: 2600,                   // 来てから少し間をおいて話し始める
+    banterRetryMs: 2000,
+    banterRetries: 30,
+    banterRepeatMs: CONV2_DEMO ? 40e3 : 0, // demo だけ: 同じ来訪中にもう一度
+    specificShare: 0.75,                   // その相手専用の掛け合いを優先する割合
+    questionChance: CONV2_DEMO ? 1 : 0.25, // 本人の放置会話の番のうち
+    questionGapMs: CONV2_DEMO ? 40e3 : 6 * 60e3,
+    questionActiveMs: 180e3,               // 最後の操作から 3 分以内(見ている人がいるとき)だけ問いかける
+    visitorQuestionShare: 0.5,
+    answerWaitMs: 12000,                   // 選ばなくても、この時間で問いかけは静かに終わる
+    noAnswerLineChance: 0.5,
+    replyDelayMs: 350,
+    lastBeatHoldMs: 3200,                  // オチの一言は少し長く読めるように
+  });
+  var conv2Unit = null;        // いま進行中の掛け合い・問いかけ {kind, id, startedAt, held, timers, visitorKey, question, awaiting}
+  var conv2VisitCount = 0;
+  var conv2BootAt = Date.now();
+  var lastPlayerInputAt = 0;
+  try {
+    const markInput = () => { lastPlayerInputAt = Date.now(); };
+    document.addEventListener('pointerdown', markInput, {capture:true, passive:true});
+    document.addEventListener('keydown', markInput, true);
+    document.addEventListener('visibilitychange', () => { if (!pageVisible()) conv2Abort('hidden'); });
+    el.speechChoices?.addEventListener('click', (e) => {
+      const btn = e.target?.closest ? e.target.closest('[data-choice]') : e.target;
+      if (btn?.dataset?.choice != null) conv2Answer(Number(btn.dataset.choice));
+    });
+  } catch (_) { /* 会話の演出は best effort */ }
+
+  function conv2ContextOk() {
+    return !!CONVERSATION_BANTER && !!conversationDirector && !gameActive && pageVisible()
+      && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions && !isAnyMenuOverlayOpen();
+  }
+  // 新しく始めてよいか。放置会話と同じ条件に加えて、本人が不調・ほかの動きの最中でないこと
+  function conv2CanStart() {
+    if (!conv2ContextOk() || conv2Unit || message || speechActive || conversationIsBusy()) return false;
+    const emotion = deriveHomeEmotion();
+    if (emotion.state !== 'normal' || emotion.suppressPetIdle) return false;
+    return !careAfterglowTimer && Date.now() >= petBusyUntil && !castMotion?.isActive({kind:'pet'});
+  }
+  function conv2CurrentVisitorKey() {
+    const partner = homePresentPartner();
+    if (partner) return 'partner:' + canonicalPartnerId(partner.id);
+    const companion = homePresentCompanions()[0];
+    return companion ? 'companion:' + canonicalCompanionId(companion.id) : null;
+  }
+  function conv2VisitorSpeaker(key) {
+    if (!key || conv2CurrentVisitorKey() !== key) return null;
+    if (key.startsWith('partner:')) return partnerSpeaker();
+    const c = homePresentCompanions()[0];
+    const def = c && allCompanionsById(c.id);
+    return def ? {kind:'companion', id:def.id, emoji:def.emoji, label:def.name} : null;
+  }
+  function conv2Later(unit, fn, ms) {
+    const timer = setTimeout(() => { if (conv2Unit === unit) fn(); }, Math.max(1, ms));
+    unit.timers.push(timer);
+  }
+  function conv2HideChoices() {
+    if (!el.speechChoices) return;
+    el.speechChoices.classList.add('hidden');
+    el.speechChoices.innerHTML = '';
+    el.speechSlot?.classList.remove('is-asking');
+  }
+  // 途中でやめる。言いかけの続きは出さない。ためていた自動の会話も捨てる
+  // (やめる理由はケア操作・メニュー・ゲームなどで、v2 以前でもその会話はそこで上書きされていた。
+  //  あとから流すと、いま始まったケアの反応を消してしまう)
+  function conv2Abort(reason) {
+    const unit = conv2Unit;
+    if (!unit) return;
+    conv2Unit = null;
+    unit.timers.forEach(t => clearTimeout(t));
+    conv2HideChoices();
+    unit.abortReason = reason;
+  }
+  function conv2Finish(unit) {
+    if (conv2Unit !== unit) return;
+    conv2Unit = null;
+    unit.timers.forEach(t => clearTimeout(t));
+    conv2HideChoices();
+    conv2Flush(unit.held);
+  }
+  function conv2Flush(held) {
+    for (const [eventKey, ctx] of held) speakEvent(eventKey, ctx);
+  }
+  // beats を順に出す。相手が帰った・画面が変わったら、その場で静かにやめる
+  function conv2Play(unit, beats, visitorKey, done, firstDelayMs = 0) {
+    let at = firstDelayMs;
+    beats.forEach((b, i) => {
+      const hold = i === beats.length - 1 ? CONV2.lastBeatHoldMs : SPEECH_DURATION_MS;
+      conv2Later(unit, () => {
+        if (!conv2ContextOk()) { conv2Abort('context'); return; }
+        const visitor = visitorKey ? conv2VisitorSpeaker(visitorKey) : null;
+        const speaker = b.role === 'pet' ? petSpeaker() : visitor;
+        if (!speaker || (visitorKey && !visitor)) { conv2Abort('visitor_left'); return; }
+        setSpeechBubble(b.text, speaker, {listener:b.role === 'pet' ? visitor : petSpeaker(), holdMs:hold});
+      }, at);
+      at += hold;
+    });
+    conversationBusyUntil = Math.max(conversationBusyUntil, Date.now() + at);
+    conv2Later(unit, () => done(), at);
+  }
+  function conv2NewUnit(kind, id, visitorKey) {
+    conv2Unit = {kind, id, visitorKey, startedAt:Date.now(), held:[], timers:[], awaiting:false};
+    conversationDirector.noteUnit(id, kind);
+    return conv2Unit;
+  }
+  function conv2PickFrom(specific, generic, share) {
+    const director = conversationDirector;
+    const ids = list => list.map(u => u.id);
+    const first = specific.length && (!generic.length || Math.random() < share) ? specific : generic;
+    const second = first === specific ? generic : specific;
+    const id = director.pickUnit(ids(first)) || director.pickUnit(ids(second));
+    return id ? [...specific, ...generic].find(u => u.id === id) : null;
+  }
+
+  // ---- 掛け合い ----
+  function conv2StartBanter(visitorKey) {
+    if (!visitorKey || !conv2CanStart()) return false;
+    const {specific, generic} = CONVERSATION_BANTER.banterCandidates(visitorKey, {isQuiet:key => conversationDirector.isQuiet(key)});
+    const unitDef = conv2PickFrom(specific, generic, CONV2.specificShare);
+    if (!unitDef) return false;
+    const unit = conv2NewUnit('banter', unitDef.id, visitorKey);
+    conv2Play(unit, unitDef.beats, visitorKey, () => conv2Finish(unit));
+    return true;
+  }
+  // 来訪が始まったとき。来てすぐではなく、少し落ちついてから。話せる状態になるまで少し待つ
+  function conv2ScheduleBanter() {
+    if (!CONVERSATION_BANTER || !conversationDirector) return;
+    conv2VisitCount += 1;
+    if (CONV2.banterSkipEvery && conv2VisitCount % CONV2.banterSkipEvery === 0) return;
+    const visitorKey = conv2CurrentVisitorKey();
+    let tries = 0;
+    const attempt = () => {
+      if (conv2CurrentVisitorKey() !== visitorKey || !visitorKey) return; // もう帰った・入れかわった
+      if (!conv2CanStart()) { if (++tries < CONV2.banterRetries) setTimeout(attempt, CONV2.banterRetryMs); return; }
+      if (conv2StartBanter(visitorKey) && CONV2.banterRepeatMs) setTimeout(attempt, CONV2.banterRepeatMs);
+    };
+    setTimeout(attempt, CONV2.banterDelayMs);
+  }
+
+  // ---- 問いかけ ----
+  function conv2MaybeAsk() {
+    if (!CONVERSATION_BANTER || !conversationDirector || !conv2CanStart()) return false;
+    const director = conversationDirector;
+    if (Date.now() - conv2BootAt < CONV2.questionGapMs || !director.unitReady('question', CONV2.questionGapMs)) return false;
+    if (director.sinceInteraction() > CONV2.questionActiveMs) return false;
+    if (Math.random() >= CONV2.questionChance) return false;
+    const visitorKey = conv2CurrentVisitorKey();
+    const {solo, withVisitor} = CONVERSATION_BANTER.questionCandidates(visitorKey, {isQuiet:key => director.isQuiet(key)});
+    const q = conv2PickFrom(withVisitor, solo, CONV2.visitorQuestionShare);
+    if (!q) return false;
+    return conv2Ask(q, q.with ? visitorKey : null);
+  }
+  function conv2Ask(q, visitorKey = null) {
+    if (!q || !conv2CanStart()) return false;
+    const unit = conv2NewUnit('question', q.id, visitorKey);
+    unit.question = q;
+    const ask = () => {
+      if (!conv2ContextOk()) { conv2Abort('context'); return; }
+      setSpeechBubble(q.ask, petSpeaker(), {holdMs:CONV2.answerWaitMs});
+      conv2ShowChoices(q);
+      unit.awaiting = true;
+      conversationBusyUntil = Math.max(conversationBusyUntil, Date.now() + CONV2.answerWaitMs);
+      conv2Later(unit, () => conv2NoAnswer(unit), CONV2.answerWaitMs);
+    };
+    if (q.lead.length) conv2Play(unit, q.lead, visitorKey, ask);
+    else ask();
+    return true;
+  }
+  function conv2ShowChoices(q) {
+    if (!el.speechChoices) return;
+    el.speechChoices.innerHTML = q.choices.map((c, i) =>
+      `<button type="button" class="speech-choice" data-choice="${i}">${escapeHtml(c.label)}</button>`).join('');
+    el.speechChoices.dataset.count = String(q.choices.length);
+    el.speechChoices.classList.remove('hidden');
+    el.speechSlot?.classList.add('is-asking');
+  }
+  function conv2Answer(index) {
+    const unit = conv2Unit;
+    if (!unit || unit.kind !== 'question' || !unit.awaiting) return false;
+    const choice = unit.question.choices[index];
+    if (!choice) return false;
+    unit.awaiting = false;
+    unit.timers.forEach(t => clearTimeout(t)); unit.timers = [];
+    unit.answer = index;
+    conv2HideChoices();
+    hideSpeechBubbleOnly();
+    conv2Play(unit, choice.reply, unit.visitorKey, () => conv2Finish(unit), CONV2.replyDelayMs);
+    return true;
+  }
+  function conv2NoAnswer(unit) {
+    if (conv2Unit !== unit || !unit.awaiting) return;
+    unit.awaiting = false;
+    conv2HideChoices();
+    const line = Math.random() < CONV2.noAnswerLineChance ? conversationDirector.pick(CONVERSATION_BANTER.NO_ANSWER_LINES) : null;
+    if (line && conv2ContextOk()) conv2Play(unit, [{role:'pet', text:line}], null, () => conv2Finish(unit), CONV2.replyDelayMs);
+    else conv2Finish(unit);
+  }
+  // 問いかけの吹き出しだけを閉じる(返事の一言へ切りかえる。hideSpeechBubble は掛け合いごとやめてしまう)
+  function hideSpeechBubbleOnly() {
+    speechActive = false;
+    if (speechTimer) { clearTimeout(speechTimer); speechTimer = null; }
+    el.speechBubble?.classList.add('hidden');
   }
 
   function celebrateAgeSpeech(age, stageLabel) {
@@ -11249,6 +11475,8 @@
   }
   function speakPetIdleWithDirector() {
     const director = conversationDirector;
+    // Conversation v2: 見ている人がいるとき、たまに本人がプレイヤーに問いかける
+    if (conv2MaybeAsk()) return true;
     const rareOk = director.rareReady();
     let line = null, rare = false;
     // 思い出(実際の lifeLog だけ)は本人の放置会話の約1割。方言は約8%
@@ -14904,6 +15132,8 @@
   homeSocialReactions = newHomeSocialReactions();
   meguruMod?.socialSession?.subscribe(event=>{
     if(event.context!=='home')return;
+    // Conversation v2: 来た相手と本人の掛け合いは、この来訪の一部として少しあとに(新しい声かけの枠は使わない)
+    if(event.type==='visit')conv2ScheduleBanter();
     if(event.type==='return_to_free_life'){homeSocialReactions=newHomeSocialReactions();return;}
     if(!['visit','greeting','affection_interaction','reunion'].includes(event.type)||!pageVisible()||meguruActive)return;
     const [kind,id]=event.actorKey.split(':');
