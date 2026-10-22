@@ -1,7 +1,7 @@
 # Progress — PLAN.md
 
-Task 1 and 2 complete. Additive/gravity engine first verified RED against prior v2, then GREEN. Interaction/storage/render assertions likewise added before implementation. Initial shared disk exhaustion handled with isolated /dev/shm checkout; no other work deleted.
+All three tasks complete. Engine and interaction tests followed RED/GREEN. Independent review had no Critical/Important findings; two documentation corrections applied. Dedicated156, formal205, full bounded-concurrency3390 tests plus smoke/dialogue/visual QA pass.
 
-Independent reviewer found no Critical/Important issues. Two documentation nits addressed. New owner-private Site version1 deployed successfully, no audience changes. Exact source/build content verification in progress. GitHub delivery follows.
+New owner-private Site version1 published. All49 delivered files match exact build SHA256, including same-origin HTML redirects. New Draft PR428 saved via GitHub API after CLI authentication failure; local and remote implementation trees identical. No merge, no Pages update, no existing source/save/asset/stage/PR branch changes. iPhone Safari and subjective fun remain for owner playtest.
 
-Only prototypes/naopoyo-v2 and docs/naopoyo-v2-gravity-20261023 added. main b3f8f4f7 still latest at pre-delivery read. #422 remains open Draft at 88ab41e1, unchanged.
+Implementation and evidence only in prototypes/naopoyo-v2 and docs/naopoyo-v2-gravity-20261023. Initial disk exhaustion worked around with isolated /dev/shm checkout; no other task files deleted. Workspace retained for PR feedback.
