@@ -29,7 +29,7 @@ async function cameraPose(W,H,yaw=0,terrain=0,height=1) {
  const src=fs.readFileSync('meguru-3d.mjs','utf8');
  const block=src.slice(src.indexOf('    const F = '),src.indexOf('    // ひかり(時間'));
  const camera=new THREE.PerspectiveCamera(50,1,20,12000), c={x:100,z:300,dist:430,yaw,height};
- vm.runInNewContext(block,{W,H,c,camera,HOR_BASE:.30,FEET_FRAC:.80,built:{terr:{walkY:()=>terrain}},view:{player:{x:c.x,z:c.z}},Math});
+ vm.runInNewContext(block,{W,H,c,camera,o:{home:false},HOR_BASE:.30,FEET_FRAC:.80,built:{terr:{walkY:()=>terrain}},view:{player:{x:c.x,z:c.z}},Math});
  camera.updateMatrixWorld(true);
  return {camera,feet:new THREE.Vector3(c.x,terrain,-c.z).project(camera),direction:camera.getWorldDirection(new THREE.Vector3()), horizon:new THREE.Vector3(c.x+Math.sin(yaw)*1e9,terrain,-c.z-Math.cos(yaw)*1e9).project(camera)};
 }

@@ -9,7 +9,7 @@ test('landmarks use the real Meguru profile and stage bounds',()=>{
   assert.equal(s.crown,p.foliage.crown[1]);assert.equal(s.water,p.water.shallow);
   assert.ok(s.tags.every(t=>t.x>=0&&t.x<=350&&t.y<=186));
   assert.ok(s.tags.some(t=>t.tag==='shelter'));
-  assert.match(api.landscape(s),/<svg/);assert.doesNotMatch(api.landscape(s),/foreignObject|<image|<script/);
+  assert.equal(api.landscape,undefined,'old translucent SVG landscape is removed');
  }
 });
 function node(){return {style:{setProperty(k,v){this[k]=v;},removeProperty(k){delete this[k];}},dataset:{},children:[],attrs:{},classList:{add(){},remove(){},toggle(){}},isConnected:true,
@@ -36,3 +36,10 @@ test('hidden document cancels RAF and destination, visible resumes without catch
 test('Pilot exit restores original actor styles and input ownership',()=>{const h=setup();h.c.update({region:'home'},{});assert.equal(h.stage.dataset.diorama,undefined);assert.equal(h.owner.style.translate,'');assert.equal(h.owner.getAttribute('role'),null);});
 test('departed actor cannot receive stale drag release',()=>{const h=setup();const p={pointerId:1,isPrimary:true,clientX:170,clientY:120,target:h.owner,preventDefault(){}};h.stage.listeners.pointerdown(p);h.setActors([]);h.c.sync();h.stage.listeners.pointerup({...p,clientX:60});assert.equal(h.c.model.snapshot().length,0);});
 test('leaving a paused Pilot removes all animation pause state',()=>{const h=setup();h.setBlocked(true);h.c.update({region:'forest'},{});assert.equal(h.stage.dataset.dioramaPaused,'true');h.c.update({region:'home'},{});assert.equal(h.stage.dataset.dioramaPaused,undefined);assert.equal(h.stage.dataset.dioramaReduced,undefined);});
+test('a 15-second held drag survives repeated normal render updates without autonomous movement',()=>{
+ const h=setup(),p={pointerId:1,isPrimary:true,button:0,clientX:170,clientY:120,target:h.owner,preventDefault(){}};
+ h.stage.listeners.pointerdown(p);const before=h.c.model.snapshot()[0];
+ for(let i=1;i<=160;i++){const callbacks=[...h.raf.values()];h.raf.clear();for(const f of callbacks)f(i*100);h.c.update({region:'forest',width:350,height:240,season:'summer',weather:'sunny',time:'day'},{});}
+ const after=h.c.model.snapshot()[0];assert.equal(after.x,before.x);assert.equal(after.y,before.y);assert.equal(after.target,null);assert.equal(h.c.model.metrics().moves,0);
+ h.stage.listeners.pointermove({...p,clientX:80,clientY:160});h.stage.listeners.pointerup({...p,clientX:80,clientY:160});assert.ok(h.c.model.snapshot()[0].target);h.c.destroy();
+});

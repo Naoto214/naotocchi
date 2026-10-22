@@ -15,3 +15,22 @@ test('invalid inputs and absent actors are ignored',()=>{const m=model();assert.
 test('rain autonomy prefers tagged shelter and night has slower activity',()=>{const m=model();m.sync([actors[0]],{...scene,weather:'rain'});for(let i=0;i<150;i++)m.step(.1,{});const a=m.snapshot()[0];assert.ok(a.x<170);assert.ok(a.y>=a.h+18);});
 test('an arriving visitor cannot trap an already moved pet',()=>{const m=api.createModel();m.sync([actors[0]],scene);m.move('pet:dog',{x:250,y:155});for(let i=0;i<100;i++)m.step(.1,{autonomy:false});m.sync([actors[0],{...actors[1],x:250,y:155}],scene);const [a,b]=m.snapshot();assert.ok(Math.hypot((a.x-b.x)/((a.w+b.w)*.45+6),(a.y-b.y)/20)>=1);m.move(a.key,{x:150,y:155});m.step(.1,{autonomy:false});assert.ok(m.snapshot()[0].x<a.x);});
 test('movement reserves asymmetric attachment bounds',()=>{const m=api.createModel();m.sync([{...actors[0],extent:{left:40,right:85,top:120,bottom:12}}],scene);m.move('pet:dog',{x:999,y:999});for(let i=0;i<100;i++)m.step(.1,{autonomy:false});const a=m.snapshot()[0];assert.ok(a.x+85<=scene.width-12);assert.ok(a.y+12<=scene.height-54);assert.ok(a.y-120>=18);});
+
+test('frequent presentation sync does not starve life; actions diversify and stay ephemeral',()=>{
+ const API=require('../home-diorama-model.js'),events=[],m=API.createModel({random:()=>.23,onEvent:e=>events.push(e)});
+ const list=[{key:'pet:a',kind:'pet',id:'a',x:175,y:190,w:45,h:55,temperament:{curiosity:5,sociability:5,persistence:3,boldness:3}},{key:'partner:b',kind:'partner',id:'b',x:265,y:210,w:40,h:50}];
+ const scene={region:'forest',width:380,height:320,time:'day',weather:'sunny',groundTop:120,tags:[{tag:'tree',x:80,y:190},{tag:'flower',x:290,y:240}]},before=JSON.stringify(list);
+ m.sync(list,scene);for(let i=0;i<1200;i++){m.step(.1,{});if(i%30===0)m.sync(list,scene);}
+ assert.equal(JSON.stringify(list),before);assert.ok(m.metrics().distance>60);assert.ok(Object.keys(m.metrics().activities).length>=4);assert.ok(m.metrics().moves>=3);
+});
+test('repeated busy updates yield once, then manual and autonomous activity resume',()=>{
+ const m=require('../home-diorama-model.js').createModel({random:()=>.3});const list=[{key:'pet:a',kind:'pet',id:'a',x:175,y:180,w:45,h:55}],s={region:'forest',width:380,height:320,time:'day',tags:[]};m.sync(list,s);
+ for(let i=0;i<50;i++)m.step(.1,{blocked:true});m.step(0,{blocked:false});assert.ok(m.select('pet:a'));assert.ok(m.move('pet:a',{x:80,y:220},'drag'));
+ for(let i=0;i<600;i++)m.step(.1,{});assert.ok(m.metrics().distance>100);assert.ok(m.metrics().moves>1);
+});
+test('held pointer keeps only the selected actor from choosing a new autonomous action',()=>{
+ const m=api.createModel({random:()=>.4});
+ m.sync([{key:'pet:dog',kind:'pet',id:'dog',x:180,y:150,w:60,h:70}],{region:'forest',width:350,height:240,tags:[]});
+ m.select('pet:dog');for(let i=0;i<150;i++)m.step(.1,{heldActor:'pet:dog'});
+ assert.equal(m.metrics().moves,0);m.step(.1);assert.ok(m.metrics().moves>0||Object.keys(m.metrics().activities).length>0);
+});

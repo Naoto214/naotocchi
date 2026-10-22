@@ -9,6 +9,8 @@
 // ・WebGL が つかえない / context lost のときは すぐ 2D に もどる(その あとは この あそびの あいだ ずっと 2D)。
 // ・座標: せかいの (x, z) → three の (x, y, -z)。カメラは 2D と おなじ ピンホール(焦点 0.95W・地平線 30%・水平)。
 import * as THREE from './vendor/three-0.170.0/three.module.min.js';
+import { createSoftwareRenderer } from './world-software.mjs';
+import { installWind, drawProjectedLife } from './world-ambient.mjs';
 
 export const THREE_REVISION = THREE.REVISION;
 // Upward ground leaves reuse the palm mesh with a proper rotation, never a
@@ -565,6 +567,11 @@ const SEASON_CONIFER = { spring: '#dcf2e0', summer: '#ffffff', autumn: '#e6f0e2'
 const FOLIAGE_DEFAULT = { crown: ['#4a9a44', '#5fb353', '#82cc62'], conifer: ['#2f6b3f', '#3b7f4a', '#4f9a5a'] };
 const shadeOf = (list, k) => list[Math.max(0, Math.min(list.length - 1, k == null ? 1 : k))];
 
+// Home shares the complete scene builder; camera, cast and input remain Home-owned.
+export function createHomeEnvironmentRenderer(M, o) {
+  return create3DRenderer(M, {...o, home:true}, () => o.onLost?.());
+}
+
 function create3DRenderer(M, o, onLost) {
   const canvas2d = o.canvas;
   const doc = canvas2d.ownerDocument || document;
@@ -594,7 +601,7 @@ function create3DRenderer(M, o, onLost) {
     }
   }
   try {
-  renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: false });
+  renderer = o.home && !webgl2Available(doc) ? createSoftwareRenderer(gl) : new THREE.WebGLRenderer({ canvas: gl, antialias: true, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: false });
   // 残像(まえの frame が のこる)を ふせぐ きまり: canvas は 不透明(alpha: false)・drawing buffer は のこさない・まい frame いろ と depth を けす。
   // すかしの ghost は frame ごとに visible を 入れなおし、hidden の 物は 線分から はずれた frame で もとに もどす(fadeOccluders)
   renderer.debug.onShaderError = () => { throw new Error('WebGL shader program failed'); };
@@ -849,6 +856,7 @@ function create3DRenderer(M, o, onLost) {
     // Terrain v1(Geometry pass): 地域の なかは 起伏の ある 格子(頂点の いろ = 明暗・水辺の 土)。そとの ひろい 面は ひくく(−3)おいて 地平まで
     const terr = world.corridor ? null : terrainGrid(world, M, objects);
     const groundMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ map: gt })));
+    groundMat.userData.softwareSurface=-3;
     if (!terr) {
       const ground = new THREE.Mesh(keep(new THREE.PlaneGeometry(hi - lo + 4000, world.len + 4000)), groundMat);
       ground.rotation.x = -Math.PI / 2; ground.position.set((lo + hi) / 2, 0, -world.len / 2);
@@ -873,7 +881,7 @@ function create3DRenderer(M, o, onLost) {
       }
       for (let j = 0; j < nz; j++) for (let i = 0; i < nx; i++) { const a = j * (nx + 1) + i, b = a + 1, c = a + nx + 1, d = c + 1; idx.push(a, b, c, b, d, c); }
       const gg = keep(new THREE.BufferGeometry()); gg.setAttribute('position', new THREE.BufferAttribute(pos, 3)); gg.setAttribute('color', new THREE.BufferAttribute(colA, 3)); gg.setAttribute('uv', new THREE.BufferAttribute(uvA, 2)); gg.setIndex(idx); gg.computeVertexNormals();
-      const tm = new THREE.Mesh(gg, keep(groundedMaterial(new THREE.MeshLambertMaterial({ map: gt2, vertexColors: true })))); tm.name = 'terrain'; tm.frustumCulled = false; sc.add(tm);
+      const tm = new THREE.Mesh(gg, keep(groundedMaterial(new THREE.MeshLambertMaterial({ map: gt2, vertexColors: true })))); tm.name = 'terrain';tm.userData.softwareSurface=-3; tm.frustumCulled = false; sc.add(tm);
     }
     // みち と スポット(道の 面)
     const pathMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ color: world.path })));
@@ -906,7 +914,7 @@ function create3DRenderer(M, o, onLost) {
     const land = (world.spots || []).filter((q) => q.kind !== 'water' && !gaps.some((c) => Math.hypot(c.x - q.x, c.z - q.z) < q.r + c.w)), ponds = (world.spots || []).filter((q) => q.kind === 'water' && !ownPool.has(q.id) && !(terr && terr.anchorIds.has(q.id)));
     const pads = new THREE.InstancedMesh(disc, pathMat, Math.max(1, land.length));
     land.forEach((q, i) => { tmp.position.set(q.x, 0.7, -q.z); tmp.rotation.set(0, 0, 0); tmp.scale.set(q.r * 0.85, 1.4, q.r * 0.85); tmp.updateMatrix(); pads.setMatrixAt(i, tmp.matrix); });
-    pads.count = land.length; sc.add(pads);
+    pads.count = land.length; pads.userData.softwareSurface=-2;road.userData.softwareSurface=-2;sc.add(pads);
     // 地面の まだら(areas: したくさ など)と 草の たば(marks)。2D と おなじ データ
     const areas = world.areas || [];
     const patch = terr ? null : new THREE.InstancedMesh(keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2)), keep(new THREE.MeshLambertMaterial({ color: world.ground[1], transparent: true, opacity: 0.55, depthWrite: false })), Math.max(1, areas.length));
@@ -968,6 +976,9 @@ function create3DRenderer(M, o, onLost) {
     GEO_ALIAS.snowcone = 'wcone6'; GEO_ALIAS.snowcap = 'cap'; MAT.snowcone = flat('#f2f6fa');
     // Neutral aliases reuse existing geometry/material; raw nuts, flower centers and trees retain their palette.
     const MAT_ALIAS = { wtrunk: 'wbox', wnut: 'wbox', snowcap: 'snowcone', trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wpanel: 'wbox', nut8: 'nut', gable: 'wroof', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
+    const livingClock = {value:0};
+    if(o.home) for(const shape of ['crown','cone','blade','kelp','petal']) if(MAT[shape]) installWind(MAT[shape],livingClock,shape==='crown'?4:2);
+    const homeCars=[];
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
@@ -980,6 +991,7 @@ function create3DRenderer(M, o, onLost) {
     const push = (shape, it) => {
       if (curOy) it.y = (it.y || 0) + curOy;   // Terrain v1: 物は 地形の 高さに すわる
       const l = inst[shape] || (inst[shape] = []);
+      if(o.home && cur?.ob.type==='car')homeCars.push({shape,i:l.length,it:{...it},origin:cur.ob});
       if (cur && !NO_FADE.has(shape)) {
         cur.refs.push({ shape, i: l.length, it });
         // 見た目の 半径・高さ(すかしの 判定 用。v2 F1): parts の 中心の ずれ + 大きさ
@@ -1083,7 +1095,7 @@ function create3DRenderer(M, o, onLost) {
       g.setAttribute('position', new THREE.BufferAttribute(data.positions, 3)); g.setAttribute('color', new THREE.BufferAttribute(data.colors, 3));
       if (data.uvs) g.setAttribute('uv', new THREE.BufferAttribute(data.uvs, 2));
       g.setIndex(data.index); g.computeVertexNormals();
-      const m = new THREE.Mesh(g, mat); m.name = name; m.frustumCulled = false; sc.add(m); return m;
+      const m = new THREE.Mesh(g, mat); m.name = name;m.userData.softwareSurface=name.startsWith('water:')?-1:0; m.frustumCulled = false; sc.add(m); return m;
     };
     const waveTex = keep(waveTexture()); waveTex.repeat.set(3, 1);
     // 帯の 向き(折れ線の 進む 向き・岸の side)で 面の 表裏が かわる ので、水の material は 両面(DoubleSide)
@@ -1203,7 +1215,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = GHOST_OPACITY; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
-    return { rid: world.regionId, motion: world.motion || null, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
+    return { livingClock, homeCars, rid: world.regionId, motion: world.motion || null, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
       setGroundColors: (cols) => { const k = cols ? cols.join(',') : ''; if ((groundOverride ? groundOverride.join(',') : '') === k) return; groundOverride = cols; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; },
       occluders, hidden: new Set(), ghostPool: [], ghostTint: new Map(), rayGrid: buildRayGrid(inst, NO_FADE), inst, terr, camY: null, ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
@@ -1264,7 +1276,8 @@ function create3DRenderer(M, o, onLost) {
     const pyT = built.terr ? built.terr.walkY(view.player.x, view.player.z) : 0;
     built.camY = built.camY == null ? pyT : built.camY + (pyT - built.camY) * 0.15;
     camera.position.set(c.x - sinY * c.dist, camH + built.camY, -(c.z - cosY * c.dist)); camera.rotation.set(0, -c.yaw, 0);
-    camera.updateProjectionMatrix();
+    if(o.home){camera.clearViewOffset();camera.fov=46;camera.aspect=W/H;camera.position.set(0,1100,1350);camera.lookAt(0,0,-1000);}
+    camera.updateProjectionMatrix();camera.updateMatrixWorld();
     // ひかり(時間・天気・場所の きぶん)。2D の TIME_LIGHT / WEATHER_LIGHT を そのまま つかう
     const TL = M.TIME_LIGHT[env.time] || M.TIME_LIGHT.day, wl = M.WEATHER_LIGHT[env.weather] || 1;
     const light = Math.max(0.35, TL.light * wl * (mood.light || 1));
@@ -1354,11 +1367,12 @@ function create3DRenderer(M, o, onLost) {
     const pg = typeof o.playerGlyph === 'function' ? o.playerGlyph() : '🐣';
     const pm = actorMesh(built, player);
     placeActor(built, pm, player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'), cp, ci(player, true));
+    if(o.home){pm.visible=false;pm.userData.seen=actorFrame;built.shadows.count=0;}
     if (cp) cp.endFrame();
     // Independent cleanup for 2D fallback billboards and 3D presenter instances.
     for (const [a, m] of built.actors) if (m.userData.seen !== actorFrame) { built.sc.remove(m); m.material.dispose(); built.actors.delete(a); }
     built.shadows.instanceMatrix.needsUpdate = true;
-    fadeOccluders(built, camera.position.x, -camera.position.z, fade ? player : null, camH, view.frame || 0);
+    fadeOccluders(built, camera.position.x, -camera.position.z, fade && !o.home ? player : null, camH, view.frame || 0);
     // player の 絵が この frame で 見えるか(F1)。座標に いる のに 描かれない なら perf 表示 と stats に 出る(frame ごとに 判定)
     playerVis = activeActorVisible(cp, player, pm, built.sc.fog.far, playerDist, camera);
     if (diagOn) collectDiag(view);
@@ -1366,6 +1380,18 @@ function create3DRenderer(M, o, onLost) {
     if (diag.on && (view.frame || 0) % 4 === 0) { diag.ray = rayProbe(built, player); diag.rayChecks++; if (!diag.ray.seen) diag.occlFrames++; }
     adaptDpr(now || 0);
     diag.frames++; diag.lastPlayer = player;
+    if(o.home){
+      built.livingClock.value=animLv>0?(now||0)/1000:built.livingClock.value;
+      for(const m of built.water.meshes)if(m.name.includes('river')||m.name.includes('creek'))m.material.userData.livingWater=built.livingClock;
+      const car=(view.homeLife||[]).find(a=>a.kind==='car');
+      for(const rf of built.homeCars){
+        const it=rf.it,m=built.meshes[rf.shape];if(!m)continue;
+        const angle=(car?.direction||1)*Math.PI/2,cs=Math.cos(angle),sn=Math.sin(angle),dx=it.x-rf.origin.x,dz=it.z+rf.origin.z;
+        tmp.position.set((car?.x||0)+cs*dx+sn*dz,it.y,-rf.origin.z-sn*dx+cs*dz);
+        tmp.rotation.set(it.rx||0,it.ry+angle,it.rz||0);tmp.scale.set(car?it.sx:0,it.sy,it.sz);tmp.updateMatrix();
+        m.setMatrixAt(rf.i,tmp.matrix);m.instanceMatrix.needsUpdate=true;m.frustumCulled=false;
+      }
+    }
     renderer.render(scene, camera);
     drawOverlay(view, now);
     if (t0) { frameMs.push(performance.now() - t0); if (frameMs.length > 240) frameMs.shift(); }
@@ -1540,6 +1566,7 @@ function create3DRenderer(M, o, onLost) {
       for (let i = 0; i < m2; i++) { const y = wrap(i * 89 + nw * (0.03 + (i % 5) * 0.012), H + 30) - 15, x = wrap(i * 173 + Math.sin(t * 0.6 + i) * 26 + nw * 0.012, W + 30) - 15; ctx.globalAlpha = 0.22 + 0.4 * ((i % 3) / 2); ctx.beginPath(); ctx.arc(x, y, 1.2 + (i % 3) * 0.7, 0, TAU); ctx.fill(); }
       ctx.restore();
     }
+    if(o.home)drawProjectedLife(ctx,view.homeLife,toScreen,now||0);
     const p0 = view.player;
     for (const a of [...(view.party || []), ...(view.residents || [])]) {
       const d = Math.hypot(a.x - p0.x, a.z - p0.z);
@@ -1580,12 +1607,12 @@ function create3DRenderer(M, o, onLost) {
     resize(n) { ctx = n.ctx || ctx; W = n.W || W; H = n.H || H; renderer.setSize(W, H, false); place(); },
     stats() {
       const info = renderer.info, xs = frameMs.slice().sort((a, b) => a - b), pick = (q) => (xs.length ? xs[Math.min(xs.length - 1, Math.floor(xs.length * q))] : 0);
-      return { calls: info.render.calls, triangles: info.render.triangles, textures: info.memory.textures, geometries: info.memory.geometries,
+      return { mode:renderer.software?'canvas-3d':'webgl', calls: info.render.calls, triangles: info.render.triangles, textures: info.memory.textures, geometries: info.memory.geometries,
         objects: built ? built.objects : 0, actors: built ? built.actors.size : 0, drawMsAvg: xs.length ? xs.reduce((s, v) => s + v, 0) / xs.length : 0, drawMsP95: pick(0.95), pixelRatio: renderer.getPixelRatio(),
         char3d: charPresenter && C3.on ? charPresenter.stats() : null,
         ghosts: built ? Object.assign({ hiddenObjects: built.hidden.size, owners: [...built.hidden].map((oc) => oc.ob.id) }, built.ghostStat) : null,
         water: built ? { kind: built.water.kind, meshes: built.water.meshes.map((m) => m.name), ponds: built.water.ponds || 0 } : null,
-        player: Object.assign({ missFrames: playerMiss }, playerVis),
+        player: o.home ? { mode:'dom', pixelVisibility:'DOM_QA_REQUIRED', applicable:false } : Object.assign({ missFrames: playerMiss }, playerVis),
         diag: { on: diag.on, ray: diag.ray, occlFrames: diag.occlFrames, rayChecks: diag.rayChecks, uploads: diag.uploads, longFrames: diag.longFrames, dprSteps: diag.dprSteps.slice() } };
     },
     char3dChanged() { if (charPresenter) { charPresenter.reset(); charPresenter.setFaceMode(C3.faceMode); charPresenter.setHooks(C3.hooks); } },
