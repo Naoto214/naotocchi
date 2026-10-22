@@ -1,5 +1,5 @@
 // World styling is presentation-only: solid geometry is drawn ONLY on s.walls.
-export const stageThemes=Object.fromEntries(Array.from({length:12},(_,i)=>[String(i+1).padStart(2,'0'),i<4?'prison':i<8?'cavern':'castle']));
+export const stageThemes=Object.fromEntries(Array.from({length:24},(_,i)=>[String(i+1).padStart(2,'0'),i<4?'prison':i<8?'cavern':i<12?'castle':i<15?'prison':i<18?'castle':i<21?'cavern':'castle']));
 export const worldNames={prison:'洞窟牢屋',cavern:'地下洞窟',castle:'古城の地下通路'};
 const palettes={
  prison:{top:'#293d50',bottom:'#485967',floor:['#697f8b','#647986'],rock:'#465d70',edge:'#223747',light:'#91a3ae'},

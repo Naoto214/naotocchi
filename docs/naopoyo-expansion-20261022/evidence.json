@@ -1,0 +1,784 @@
+{
+  "base": "f69310c79131f51ceed043417cf4c39cab925331",
+  "hashes": {
+    "engine.mjs": "70eca38a1734e7ce7642655cb6cf86bd009a481f5186ee77d7a7320d26bc1ed3",
+    "input.mjs": "627dfda45814d1d8063bd8f0ef41f21470fe844be905572b5dfbe1828a779f8b",
+    "store.mjs": "77023825f71ee98a547f66edf054e5af2ae87eacb43c41983d229b7bb70675ff",
+    "stages.mjs": "35395d4658a4f72f2411c02da144d8518eadde84fb33e31a48afd16504376177",
+    "advanced-stages.mjs": "3e87d42a802f006761274aeead5c2e39bb61a01ec6ccf3482b0df8d91905b6de",
+    "solutions.json": "8e014b2ad614b18d69ba976c626acf17e07b8a29e4da952dd0bb6a9121870043"
+  },
+  "handsetQA": "pending-owner-iPhone-Safari",
+  "unit": "drags + manual grid steps; gravity steps separate",
+  "stages": [
+    {
+      "id": "01",
+      "title": "ひかりの牢屋",
+      "drags": 1,
+      "manualSteps": 5,
+      "automaticFallSteps": 0,
+      "merges": 0,
+      "splits": 0,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 1,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "02",
+      "title": "ふたりで、ひとつ",
+      "drags": 1,
+      "manualSteps": 5,
+      "automaticFallSteps": 0,
+      "merges": 1,
+      "splits": 0,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 2,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "03",
+      "title": "ぷにっと連続合体",
+      "drags": 1,
+      "manualSteps": 5,
+      "automaticFallSteps": 0,
+      "merges": 2,
+      "splits": 0,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 4,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "04",
+      "title": "とげで、ふたりに",
+      "drags": 2,
+      "manualSteps": 10,
+      "automaticFallSteps": 0,
+      "merges": 0,
+      "splits": 1,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 2,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "05",
+      "title": "もう一度、ひとつに",
+      "drags": 2,
+      "manualSteps": 7,
+      "automaticFallSteps": 0,
+      "merges": 1,
+      "splits": 1,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 2,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "06",
+      "title": "小さな抜け道",
+      "drags": 2,
+      "manualSteps": 14,
+      "automaticFallSteps": 0,
+      "merges": 0,
+      "splits": 1,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 2,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "07",
+      "title": "魔法の門",
+      "drags": 2,
+      "manualSteps": 8,
+      "automaticFallSteps": 0,
+      "merges": 1,
+      "splits": 1,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 2,
+      "gatePassages": {
+        "3,2": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "08",
+      "title": "それぞれの帰り道",
+      "drags": 2,
+      "manualSteps": 10,
+      "automaticFallSteps": 0,
+      "merges": 0,
+      "splits": 0,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 2,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "09",
+      "title": "なかまの階段",
+      "drags": 3,
+      "manualSteps": 7,
+      "automaticFallSteps": 0,
+      "merges": 0,
+      "splits": 0,
+      "actorSupportedAscents": 2,
+      "rescuedMass": 2,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "10",
+      "title": "みんなで帰ろう",
+      "drags": 3,
+      "manualSteps": 16,
+      "automaticFallSteps": 0,
+      "merges": 1,
+      "splits": 1,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 3,
+      "gatePassages": {
+        "3,2": 1,
+        "3,4": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            }
+          ]
+        },
+        {
+          "status": "unproved",
+          "sealedIndices": [
+            1
+          ],
+          "stranded": []
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "11",
+      "title": "ペンギンの大きな約束",
+      "drags": 2,
+      "manualSteps": 9,
+      "automaticFallSteps": 0,
+      "merges": 1,
+      "splits": 1,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 8,
+      "gatePassages": {
+        "3,2": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "p",
+              "species": "penguin",
+              "mass": 4,
+              "reachable": 18
+            },
+            {
+              "id": "q",
+              "species": "penguin",
+              "mass": 4,
+              "reachable": 18
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "12",
+      "title": "かえるの小さな鍵",
+      "drags": 2,
+      "manualSteps": 8,
+      "automaticFallSteps": 0,
+      "merges": 1,
+      "splits": 1,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 2,
+      "gatePassages": {
+        "3,2": 2
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "r",
+              "species": "frog",
+              "mass": 2,
+              "reachable": 18
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "13",
+      "title": "大きな鍵、小さな四人",
+      "drags": 4,
+      "manualSteps": 17,
+      "automaticFallSteps": 0,
+      "merges": 2,
+      "splits": 3,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 4,
+      "gatePassages": {
+        "3,2": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            },
+            {
+              "id": "c",
+              "species": "dog",
+              "mass": 2,
+              "reachable": 18
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "14",
+      "title": "四つにほどく約束",
+      "drags": 4,
+      "manualSteps": 22,
+      "automaticFallSteps": 0,
+      "merges": 3,
+      "splits": 3,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 4,
+      "gatePassages": {
+        "3,2": 4
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "p",
+              "species": "penguin",
+              "mass": 4,
+              "reachable": 18
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "15",
+      "title": "小さく、大きく、小さく",
+      "drags": 3,
+      "manualSteps": 13,
+      "automaticFallSteps": 0,
+      "merges": 1,
+      "splits": 2,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 2,
+      "gatePassages": {
+        "2,2": 2,
+        "5,2": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "r",
+              "species": "frog",
+              "mass": 2,
+              "reachable": 12
+            }
+          ]
+        },
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            1
+          ],
+          "stranded": [
+            {
+              "id": "r",
+              "species": "frog",
+              "mass": 2,
+              "reachable": 25
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "16",
+      "title": "二重の番人",
+      "drags": 4,
+      "manualSteps": 18,
+      "automaticFallSteps": 0,
+      "merges": 2,
+      "splits": 3,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 4,
+      "gatePassages": {
+        "2,2": 1,
+        "5,2": 2
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 12
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 12
+            },
+            {
+              "id": "c",
+              "species": "dog",
+              "mass": 2,
+              "reachable": 12
+            }
+          ]
+        },
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            1
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 25
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 25
+            },
+            {
+              "id": "c",
+              "species": "dog",
+              "mass": 2,
+              "reachable": 25
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "17",
+      "title": "逆向きの約束",
+      "drags": 4,
+      "manualSteps": 18,
+      "automaticFallSteps": 0,
+      "merges": 2,
+      "splits": 2,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 4,
+      "gatePassages": {
+        "3,4": 2,
+        "3,1": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            }
+          ]
+        },
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            1
+          ],
+          "stranded": [
+            {
+              "id": "f",
+              "species": "fish",
+              "mass": 2,
+              "reachable": 18
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "18",
+      "title": "三人の分かれ道",
+      "drags": 3,
+      "manualSteps": 19,
+      "automaticFallSteps": 0,
+      "merges": 1,
+      "splits": 1,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 3,
+      "gatePassages": {
+        "2,2": 3,
+        "5,1": 1,
+        "5,4": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "p",
+              "species": "penguin",
+              "mass": 2,
+              "reachable": 12
+            },
+            {
+              "id": "q",
+              "species": "fish",
+              "mass": 1,
+              "reachable": 12
+            }
+          ]
+        },
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            1
+          ],
+          "stranded": [
+            {
+              "id": "p",
+              "species": "penguin",
+              "mass": 2,
+              "reachable": 25
+            }
+          ]
+        },
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            2
+          ],
+          "stranded": [
+            {
+              "id": "q",
+              "species": "fish",
+              "mass": 1,
+              "reachable": 25
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "19",
+      "title": "ほどいて架ける階段",
+      "drags": 4,
+      "manualSteps": 8,
+      "automaticFallSteps": 1,
+      "merges": 1,
+      "splits": 1,
+      "actorSupportedAscents": 2,
+      "rescuedMass": 3,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "20",
+      "title": "上で待っている君",
+      "drags": 4,
+      "manualSteps": 9,
+      "automaticFallSteps": 2,
+      "merges": 2,
+      "splits": 1,
+      "actorSupportedAscents": 2,
+      "rescuedMass": 4,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "21",
+      "title": "最後の足場係",
+      "drags": 6,
+      "manualSteps": 15,
+      "automaticFallSteps": 2,
+      "merges": 1,
+      "splits": 1,
+      "actorSupportedAscents": 3,
+      "rescuedMass": 4,
+      "gatePassages": {},
+      "gateCuts": [],
+      "shortestProved": false
+    },
+    {
+      "id": "22",
+      "title": "三種族の鍵束",
+      "drags": 6,
+      "manualSteps": 28,
+      "automaticFallSteps": 0,
+      "merges": 2,
+      "splits": 3,
+      "actorSupportedAscents": 0,
+      "rescuedMass": 6,
+      "gatePassages": {
+        "3,3": 2,
+        "3,1": 1,
+        "3,5": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 18
+            }
+          ]
+        },
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            1
+          ],
+          "stranded": [
+            {
+              "id": "f",
+              "species": "fish",
+              "mass": 2,
+              "reachable": 18
+            }
+          ]
+        },
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            2
+          ],
+          "stranded": [
+            {
+              "id": "r",
+              "species": "frog",
+              "mass": 2,
+              "reachable": 18
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "23",
+      "title": "空中の大きな鍵",
+      "drags": 5,
+      "manualSteps": 12,
+      "automaticFallSteps": 0,
+      "merges": 2,
+      "splits": 2,
+      "actorSupportedAscents": 2,
+      "rescuedMass": 4,
+      "gatePassages": {
+        "5,2": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 23
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 23
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    },
+    {
+      "id": "24",
+      "title": "みんなの帰り道、最後の橋",
+      "drags": 7,
+      "manualSteps": 19,
+      "automaticFallSteps": 0,
+      "merges": 2,
+      "splits": 2,
+      "actorSupportedAscents": 3,
+      "rescuedMass": 5,
+      "gatePassages": {
+        "5,2": 1,
+        "5,1": 1
+      },
+      "gateCuts": [
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            0
+          ],
+          "stranded": [
+            {
+              "id": "a",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 23
+            },
+            {
+              "id": "b",
+              "species": "dog",
+              "mass": 1,
+              "reachable": 23
+            }
+          ]
+        },
+        {
+          "status": "proved-impossible",
+          "sealedIndices": [
+            1
+          ],
+          "stranded": [
+            {
+              "id": "r",
+              "species": "frog",
+              "mass": 1,
+              "reachable": 23
+            }
+          ]
+        }
+      ],
+      "shortestProved": false
+    }
+  ]
+}

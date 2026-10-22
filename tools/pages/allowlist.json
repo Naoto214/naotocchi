@@ -4044,7 +4044,8 @@
     "world-scene.css",
     "world-scene.js",
     "individuality.js",
-    "individuality-data.js"
+    "individuality-data.js",
+    "prototypes/naopoyo-rescue/advanced-stages.mjs"
   ],
   "dynamic_families": [
     "assets/characters/**/*.png",
@@ -4185,10 +4186,10 @@
     "prototypes/naopoyo-rescue/render.mjs": "0eddabbe17d747fdc4bd490a9b582183f063c7a86fc54147eea59219d3655bea",
     "prototypes/naopoyo-rescue/sprite-data.mjs": "105c314c6428c10fda58566fd08169fb712fc47412a2d7e214a20560a5b51d42",
     "prototypes/naopoyo-rescue/sprites.mjs": "9ed13fbd6d711ff3e60baf118aae84570af9633ea3dc21805ef6e6a45e5ff342",
-    "prototypes/naopoyo-rescue/stages.mjs": "3fb5288e6e170c8324909424d8b9f50c85b63c8d1861d22c112e8077affec825",
+    "prototypes/naopoyo-rescue/stages.mjs": "35395d4658a4f72f2411c02da144d8518eadde84fb33e31a48afd16504376177",
     "prototypes/naopoyo-rescue/store.mjs": "77023825f71ee98a547f66edf054e5af2ae87eacb43c41983d229b7bb70675ff",
     "prototypes/naopoyo-rescue/style.css": "442045e7407d66467032f8e23186088fc559309374b8d7cd33a3b68718fa903a",
-    "prototypes/naopoyo-rescue/themes.mjs": "65e1d0bee21fdaf8747dd95e6972dc09d08ce1e173f163d0300a19b7663a571f",
+    "prototypes/naopoyo-rescue/themes.mjs": "e642eea1a3ae22cc598fe51d9a50be58534059d08cca34dbfcde1760d8acec12",
     "prototypes/naopoyo/index.html": "a2969d44aaa5924d4f3e7c8436e507d3b18b8afd16b15fa14bc6ecd72d1badc3",
     "quick.js": "c2e295f45691699814c5a1e968c2ab0a080facf5e6399cf84fef76893b62bbfa",
     "relationship-expression.js": "5fdba60b9155f53f7a3f77c3acb307df2c2397c344e8b74a5e955bbb2eb85082",
@@ -4204,7 +4205,8 @@
     "world-scene.css": "ff0bba97a5fd85d859acbd0f59cb7a0abdb8efe79d4f11167271c7fdf506b430",
     "world-scene.js": "a3c7451223d34c4092aed67750487dc62e075a83d5bbdaa58e81937c35a3dc6d",
     "individuality.js": "58f2b79761d45917fb07eaf8d48c1c2ae0f85e618e85b7bf2729e7691504679a",
-    "individuality-data.js": "7ff3ee9eb91c7a0c7c19ee9582f07ad2fce8269c43d8b5d89a5359e804f87ec3"
+    "individuality-data.js": "7ff3ee9eb91c7a0c7c19ee9582f07ad2fce8269c43d8b5d89a5359e804f87ec3",
+    "prototypes/naopoyo-rescue/advanced-stages.mjs": "3e87d42a802f006761274aeead5c2e39bb61a01ec6ccf3482b0df8d91905b6de"
   },
   "forbidden_patterns": [
     "^(?:docs|tests|tools|\\.github)/",
