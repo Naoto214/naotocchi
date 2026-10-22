@@ -128,6 +128,7 @@ supervisorは最初の非完走行で停止する設計である。したがっ�
 | `c64a889e` | duplicate physical copy identity | 凍結 next_turn は465の prepare/apply_choice を名前で取り込み、全状態から egg 交換frameを作る。再入場後は退役前身が残るため重複copyとして拒否。incarnation scope内で、未変更の465操作を登録簿束縛の現役ビューで実行し全カード表を復元（記録受理時の egg_choice_effect 監査が restore_game で導く形と同一） | 2 | 38 PASS | 042-A 完走 |
 | `f306426a` | deferred timing application | positive window は解決結果フックで正規化前の生eventにも timing capture を残すため、同じ E-final-time 解決に trace に無い digest の義務が付く。その義務は、同一seqの trace event（同じ発生源・chain link・同じ target_valid 判定・designated 監査で検証済み）を通してのみ受理 | 4 | 18 PASS | 040-A 完走 |
 | `c2e418b9` | unclassified runtime change | 同じ解決の二重captureで、positive window の再生検証器が M-antlion-06 群発動に対し同一発生を2件見つけ「ちょうど1件」要求で拒否。ledger同一性で同一発生を1件に畳む（異なる発生は従来どおり拒否） | 2 | 34 PASS | 044-A 完走 |
+| `d4595213` | designated effect full envelope | 凍結 quick.resolve は 406 の許容phaseに合わせて後置き応答窓を response_window と付け替え、外側リンクが残ると 406 はその付け替えを戻さない。記録受理時の designated 全差分監査は窓名だけ旧のまま期待していた（カード・領域・ドロー・受領は一致）。E-final-time・後置き応答窓・外側リンク残りの場合に限り同じ付け替えを期待 | 2 | 17 PASS | 200-A 完走 |
 
 完走済み対照行（group-001-A/003-B 等）は、修正前後で決定・イベント骨格・最終盤面が一致する（`play_digest`）。record全体のSHA-256はeditionとsource_versionsを含むため版間で一致しないが、これは証明情報の追加で、対局内容の変化ではない。
 

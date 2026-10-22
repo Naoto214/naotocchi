@@ -1,0 +1,27 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree c2e418b9 where group-200-A-first raised 'designated effect full envelope differs' (only the phase label differed after E-final-time at 263 over an outer link in a post-placement window); after = tree d4595213 expecting the frozen quick.resolve relabel in exactly that case.",
+ "rows": [
+  {
+   "match_id": "group-200-A-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "actual mandatory opportunities differ: [\"designated effect semantics differ: ['designated effect full envelope differs']\"]"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 294,
+    "events": 385,
+    "record_sha256": "f23193100f79f1f470eb016b90eb9411b7c0a8247b89160bc6cc2b5e02997886",
+    "error": null
+   }
+  }
+ ]
+}
