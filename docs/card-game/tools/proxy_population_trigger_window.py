@@ -106,6 +106,11 @@ def inventory_closure(mode,journal,event_seq):
     with closed_start(),closed_native(arrival_rows(journal),event_seq):yield
 
 
+def unresolved_occurrence(journal):
+    """An occurrence still owed an offer: released after its chain, or waiting for it to end."""
+    return any(row['status'] in ('pending','deferred') for row in journal['occurrences'].values())
+
+
 def _step_record(record):
     decision=record['decision'];evaluation=base._evaluate(decision)
     return dict(schema='population_runtime_step_468.v1',source_envelope=record['before_envelope'],decision=decision,
@@ -199,7 +204,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
             # chain is empty, before the next ordinary action. It was observed in an
             # earlier step, so it is not new here; keep the ledger driving until it is
             # offered, instead of letting the inactive path pass it by.
-            if not active and any(row['status'] in ('pending','deferred') for row in current_ledger['occurrences'].values()):active=True
+            if not active and unresolved_occurrence(current_ledger):active=True
             return r
         def step(*args,**kwargs):
             nonlocal current_ledger,active,current_proof,mode
