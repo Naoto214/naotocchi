@@ -194,7 +194,13 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 # arrival group is still open; observe exactly as the inactive path does.
                 return observe_start(r,history,e)
             if r['final_envelope']['legacy_continuation']['game_state']['phase']==('turn_end' if mode=='end' else 'normal_action'):active=False
-            return observe_existing(r,e,history)
+            r=observe_existing(r,e,history)
+            # 06: an occurrence met during chain resolution starts a new chain once the
+            # chain is empty, before the next ordinary action. It was observed in an
+            # earlier step, so it is not new here; keep the ledger driving until it is
+            # offered, instead of letting the inactive path pass it by.
+            if not active and any(row['status'] in ('pending','deferred') for row in current_ledger['occurrences'].values()):active=True
+            return r
         def step(*args,**kwargs):
             nonlocal current_ledger,active,current_proof,mode
             before=copy.deepcopy((current_ledger,active,current_proof,mode,boundaries))
