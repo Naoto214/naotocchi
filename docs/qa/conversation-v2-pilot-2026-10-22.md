@@ -64,11 +64,11 @@ Playwright Chromium(モバイル・タッチ有効)で、実際の index.html �
 
 ## 5. 本人専用 iPhone 試遊版(本番 Pages は変更しない)
 
-commit 固定の CDN URL(#414 と同じ方式。中身は 3 つとも commit `4d96f574`)。どれかが開かなければ次を試す。末尾の `?conv2=demo` は、掛け合い・問いかけを出やすくする試遊用の切りかえ(保存しない)。外すと本番と同じ頻度になる。
+commit 固定の CDN URL(#414 と同じ方式。中身は 3 つとも commit `9c92471a`(main の #417 を取り込んだあと))。どれかが開かなければ次を試す。末尾の `?conv2=demo` は、掛け合い・問いかけを出やすくする試遊用の切りかえ(保存しない)。外すと本番と同じ頻度になる。
 
-- https://rawcdn.githack.com/Naoto214/naotocchi/4d96f574975dbc3f877a8c95bbec832499eb4b9b/index.html?conv2=demo
-- https://cdn.jsdelivr.net/gh/Naoto214/naotocchi@4d96f574975dbc3f877a8c95bbec832499eb4b9b/index.html?conv2=demo
-- https://cdn.statically.io/gh/Naoto214/naotocchi/4d96f574975dbc3f877a8c95bbec832499eb4b9b/index.html?conv2=demo
+- https://rawcdn.githack.com/Naoto214/naotocchi/9c92471a1c2668e692d7bd4698c9325180a241a0/index.html?conv2=demo
+- https://cdn.jsdelivr.net/gh/Naoto214/naotocchi@9c92471a1c2668e692d7bd4698c9325180a241a0/index.html?conv2=demo
+- https://cdn.statically.io/gh/Naoto214/naotocchi/9c92471a1c2668e692d7bd4698c9325180a241a0/index.html?conv2=demo
 
 到達確認: この作業環境からは CDN へ接続できない(proxy の制限)ため、開けるかどうかは未確認。
 
