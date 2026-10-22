@@ -1,0 +1,114 @@
+✔ stage07: slightly off-axis diagonal past spike does not enter or split on its corner (5.892431ms)
+✔ diagonal entry into spike splits at actual origin; save and undo retain both states (1.298015ms)
+✔ fast diagonal ignores side obstacles but cannot skip a blocked destination (0.518958ms)
+✔ pointer solution 01, slow/fast, save and Undo (2.916327ms)
+✔ pointer solution 02, slow/fast, save and Undo (1.089851ms)
+✔ pointer solution 03, slow/fast, save and Undo (0.816712ms)
+✔ pointer solution 04, slow/fast, save and Undo (6.313611ms)
+✔ pointer solution 05, slow/fast, save and Undo (1.136088ms)
+✔ pointer solution 06, slow/fast, save and Undo (2.772757ms)
+✔ pointer solution 07, slow/fast, save and Undo (1.916437ms)
+✔ pointer solution 08, slow/fast, save and Undo (0.550924ms)
+✔ pointer solution 09, slow/fast, save and Undo (44.793575ms)
+✔ pointer solution 10, slow/fast, save and Undo (1.560848ms)
+✔ pointer solution 11, slow/fast, save and Undo (0.880225ms)
+✔ pointer solution 12, slow/fast, save and Undo (0.567468ms)
+✔ gravity arrow is drawn only in gravity stages without changing state (0.509894ms)
+✔ all eight spike entries split at origin and all eight departures preserve mass (0.968564ms)
+✔ diagonal matching gate permits entry, mismatching gate rejects it for slow/fast input (0.43802ms)
+✔ edge drag remains in bounds and cannot skip an intermediate spike at speed (0.337993ms)
+✔ all eight directions work (2.213792ms)
+✔ diagonal merge and split retain active id and mass (1.30841ms)
+✔ diagonal gate and exit use conditions (0.378382ms)
+✔ gate permission rechecked even after a valid passage (0.203236ms)
+✔ destination-only diagonals ignore one/two side walls and denied side gates (0.337263ms)
+✔ gravity blocks unsupported diagonal ascent (0.19853ms)
+✔ diagonal pointer samples are eight-way (0.318885ms)
+✔ continuous pointer path is invariant under sample subdivision (0.662507ms)
+✔ old stage10 save gains fish passage without losing actors or undo (8.219998ms)
+✔ passage animation events are transient and include fast crossings (0.564865ms)
+✔ migration round-trips when an old actor or Undo occupies new fish gate (0.748372ms)
+✔ blocked continuous drag produces same engine state for slow and fast samples (1.590152ms)
+✖ sealed gate prevents ANY rescue: 07 (141.199468ms)
+✖ sealed gate prevents ANY rescue: 10 (6283.092228ms)
+✔ sealed gate prevents ANY rescue: 11 (33.424684ms)
+✖ sealed gate prevents ANY rescue: 12 (42.693092ms)
+✔ search catches the old stage 07 bypass even with victory gate flags removed (92.49299ms)
+✔ search cap is unproved, never impossible (0.465857ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 34
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6745.328735
+
+✖ failing tests:
+
+test at prototypes/naopoyo-rescue/tests/passages.test.mjs:3:53
+✖ sealed gate prevents ANY rescue: 07 (141.199468ms)
+  AssertionError [ERR_ASSERTION]: {"status":"solved","visited":855,"maxRescued":2}
+  + actual - expected
+  
+  + 'solved'
+  - 'exhausted'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/d4896d10e553/repo/prototypes/naopoyo-rescue/tests/passages.test.mjs:5:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'solved',
+    expected: 'exhausted',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-rescue/tests/passages.test.mjs:3:53
+✖ sealed gate prevents ANY rescue: 10 (6283.092228ms)
+  AssertionError [ERR_ASSERTION]: {"status":"solved","visited":28347,"maxRescued":3}
+  + actual - expected
+  
+  + 'solved'
+  - 'exhausted'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/d4896d10e553/repo/prototypes/naopoyo-rescue/tests/passages.test.mjs:5:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'solved',
+    expected: 'exhausted',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-rescue/tests/passages.test.mjs:3:53
+✖ sealed gate prevents ANY rescue: 12 (42.693092ms)
+  AssertionError [ERR_ASSERTION]: {"status":"solved","visited":459,"maxRescued":2}
+  + actual - expected
+  
+  + 'solved'
+  - 'exhausted'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/d4896d10e553/repo/prototypes/naopoyo-rescue/tests/passages.test.mjs:5:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'solved',
+    expected: 'exhausted',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

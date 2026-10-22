@@ -26,7 +26,7 @@ const assert = require("node:assert/strict"),
       }),
       page = await context.newPage();
     page.on("pageerror", (e) => errors.push(e.message));
-    await page.goto("http://127.0.0.1:8765/prototypes/naopoyo/");
+    await page.goto("http://127.0.0.1:8765/prototypes/naopoyo/legacy.html");
     await page.locator("#slidePreview span").last().waitFor();
     assert.equal(await page.locator("#slidePreview span").count(), 36);
     assert.equal(await page.locator("#dropPreview span").count(), 72);
@@ -191,6 +191,9 @@ const assert = require("node:assert/strict"),
       .locator("#dialogChoices")
       .getByRole("button", { name: "モード選択へ戻る", exact: true })
       .click();
+    await page.waitForURL('**/prototypes/naopoyo-rescue/index.html');
+    await page.locator('#stageSelect').waitFor();
+    await page.goto('http://127.0.0.1:8765/prototypes/naopoyo/legacy.html');
     await page
       .locator('.mode-card[href="../growth-clear/player.html"]')
       .click();

@@ -94,6 +94,7 @@ const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('qu
 sandbox.window.NaotocchiIndividuality = require('../individuality.js');
 sandbox.window.NaotocchiCast = require('../cast-layout.js');
 sandbox.window.NaotocchiCastMotion = require('../cast-motion.js');
+sandbox.window.NaotocchiMinigameReactions = require('../minigame-reactions.js');
 sandbox.window.NaotocchiEnvironment = require('../world-environment.js');
 // Keep historical dialogue assertions focused on their copy. Dedicated runtime
 // tests load the status presenter and check its priority over these messages.

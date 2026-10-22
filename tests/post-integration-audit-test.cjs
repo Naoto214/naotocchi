@@ -88,7 +88,8 @@ test('a correct Sudoku cell keeps the incomplete board; only the last cell advan
   };
   put(0,0,1);h.advance(1701);
   assert.equal(round.textContent,'1/3問目','one correct digit is not a completed board');
-  for(const [r,c,n] of [[0,1,2],[0,2,3],[0,3,4],[1,0,3],[1,1,4],[1,2,1]])put(r,c,n);
+  // 盤は 解が 1つに なる くうはくだけ あける(B17)。0.5 では 1ぎょうめ ぜんぶ・(1,0)(1,1)(2,0) が くうはく
+  for(const [r,c,n] of [[0,1,2],[0,2,3],[0,3,4],[1,0,3],[1,1,4],[2,0,2]])put(r,c,n);
   h.advance(1701);assert.equal(round.textContent,'2/3問目');
   h.advance(1701);assert.equal(round.textContent,'2/3問目','one solved board schedules one transition');
 });

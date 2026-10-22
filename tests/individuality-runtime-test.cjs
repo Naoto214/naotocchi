@@ -53,9 +53,12 @@ test('closing menus dismisses the choice dialog and permits later resumption',()
 test('automatic dialog synchronizes modal inert before the next user action',async()=>{
  const h=born(),s=h.api.state();s.ageTicks=60;h.api.onAgeChanged(2);h.get('storyFlash').classList.add('hidden');h.api.closeAllMenuOverlays();h.api.showIndividualityEvent(true);await Promise.resolve();assert.equal(h.get('screenNormal').inert,true);
 });
-test('all fifty quick results leave a born child individuality unchanged',()=>{
+test('all fifty quick solo wrappers and the mixed run complete without changing individuality',()=>{
  const h=born(),s=h.api.state(),before=JSON.stringify(s.individuality);assert.equal(h.api.QUICK_GAMES.length,50);
- for(const g of h.api.QUICK_GAMES){h.api.startMinigame(g);h.api.finishMinigame(100);}
+ for(const g of h.api.QUICK_GAMES){assert.equal(h.api.startQuickRun(g.id),true,g.id);h.api.finishMinigame(100);assert.equal(JSON.stringify(s.individuality),before,g.id);}
+ assert.equal(s.minigameCount,50,'all fifty quick result handlers actually completed');
+ assert.equal(h.api.startQuickRun(),true);h.api.finishMinigame(100);
+ assert.equal(s.minigameCount,51,'mixed quick result handler also completed');
  assert.equal(JSON.stringify(s.individuality),before);
 });
 test('registered achievement total is 92 and removed IDs cannot fill new heart slots',()=>{

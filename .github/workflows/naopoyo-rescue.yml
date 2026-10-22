@@ -1,0 +1,23 @@
+name: Naopoyo official release
+on:
+  pull_request:
+    branches: [main]
+    paths: ['prototypes/naopoyo-rescue/**', 'prototypes/naopoyo/**', 'tools/pages/**', 'tests/pages/**', 'index.html', '.github/workflows/naopoyo-rescue.yml']
+  push:
+    branches: [main]
+    paths: ['prototypes/naopoyo-rescue/**', 'prototypes/naopoyo/**', 'tools/pages/**', 'tests/pages/**', 'index.html', '.github/workflows/naopoyo-rescue.yml']
+permissions:
+  contents: read
+jobs:
+  naopoyo-official:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Twelve solutions, pointer input, saves and original art
+        run: node --test prototypes/naopoyo-rescue/tests/*.test.mjs
+      - name: Official-only publication contract
+        run: python -m unittest discover -s tests/pages -v

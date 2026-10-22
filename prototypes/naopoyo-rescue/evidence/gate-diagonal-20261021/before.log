@@ -1,0 +1,119 @@
+✖ stage 7: actual dog2 gate exit and return, pointer offsets and sampling (5.130218ms)
+✖ stage 10: actual dog2 gate exit and return, pointer offsets and sampling (1.334613ms)
+✖ stage07: actual spike entry splits and a now-ineligible child cannot re-enter gate (10.008856ms)
+✖ stage12: frog1 can leave and return diagonally on the spike side; frog2 still denied (1.111646ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 141.824081
+
+✖ failing tests:
+
+test at prototypes/naopoyo-rescue/tests/gate-diagonal.test.mjs:9:26
+✖ stage 7: actual dog2 gate exit and return, pointer offsets and sampling (5.130218ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      id: 'a',
+      level: 2,
+      species: 'dog',
+  +   x: 3,
+  +   y: 2
+  -   x: 4,
+  -   y: 1
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b5a2b620add8/repo/prototypes/naopoyo-rescue/tests/gate-diagonal.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'a', x: 3, y: 2, level: 2, species: 'dog' },
+    expected: { id: 'a', species: 'dog', level: 2, x: 4, y: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-rescue/tests/gate-diagonal.test.mjs:9:26
+✖ stage 10: actual dog2 gate exit and return, pointer offsets and sampling (1.334613ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      id: 'a',
+      level: 2,
+      species: 'dog',
+  +   x: 3,
+  +   y: 2
+  -   x: 4,
+  -   y: 1
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b5a2b620add8/repo/prototypes/naopoyo-rescue/tests/gate-diagonal.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'a', x: 3, y: 2, level: 2, species: 'dog' },
+    expected: { id: 'a', species: 'dog', level: 2, x: 4, y: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-rescue/tests/gate-diagonal.test.mjs:24:1
+✖ stage07: actual spike entry splits and a now-ineligible child cannot re-enter gate (10.008856ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(move(s,'child1',1,-1))
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b5a2b620add8/repo/prototypes/naopoyo-rescue/tests/gate-diagonal.test.mjs:27:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-rescue/tests/gate-diagonal.test.mjs:29:1
+✖ stage12: frog1 can leave and return diagonally on the spike side; frog2 still denied (1.111646ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   3,
+      2,
+  -   1
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b5a2b620add8/repo/prototypes/naopoyo-rescue/tests/gate-diagonal.test.mjs:33:31)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 3, 2 ],
+    expected: [ 2, 1 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

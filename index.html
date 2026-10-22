@@ -465,7 +465,7 @@
             <button type="button" id="worldBtn"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i><span>せかい</span><small>じかん・てんき・きせつ</small></button>
             <button type="button" id="itemBtn"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i><span>あいてむ</span><small>もちもの・おみせ</small></button>
             <button type="button" id="gamesBtn"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>ゲームをえらぶ</span><small>きろくからあそぶ</small></button>
-            <a class="independent-game" href="prototypes/naopoyo/"><span aria-hidden="true">✦</span><span>なおぽよ</span><small>スライド・ドロップ</small></a>
+            <a class="independent-game" href="prototypes/naopoyo/"><svg class="naopoyo-menu-icon" aria-hidden="true" width="56" height="40" viewBox="0 0 56 40"><rect x="1" y="1" width="54" height="38" rx="15" fill="#fff8e7"/><path d="M30 34V18a12 12 0 0 1 24 0v16Z" fill="#a2d5b6"/><path d="M34 32V18a8 8 0 0 1 16 0v14Z" fill="#315e62"/><path d="m42 10 2.5 6 6.5.5-5 4.5 1.5 6.5-5.5-3.5-5.5 3.5L38 21l-5-4.5 6.5-.5Z" fill="#ffe398" stroke="#8e753c" stroke-width=".65"/><path d="M30 34h24" stroke="#e9ecc4" stroke-width="2"/><svg x="2" y="5" width="31" height="32" viewBox="25 38 77 84"><image href="assets/characters/dog/02.png" width="128" height="128"/></svg></svg><span>なおぽよ。</span><small>くっついて、わかれて、みんなで帰ろう。</small></a>
             <a class="independent-game" href="prototypes/card-game/"><span aria-hidden="true">▣</span><span>CARD GAME</span><small>同一端末2人対戦</small></a>
             <button type="button" id="quickBtn"><span class="menu-emoji" aria-hidden="true">⚡</span><span>クイック</span><small>げんき消費なし</small></button>
             <button type="button" id="dexBtn"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i><span>ずかん</span><small>であったすがた</small></button>
@@ -483,7 +483,7 @@
             <section class="profile-section"><h3>てんき</h3><div class="environment-choices" id="weatherModeGrid"></div></section>
             <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
             <section class="profile-section"><h3>ゲームのむずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">「やさしい」は、年齢によって上がるむずかしさをおさえ、制限時間も長くなります。</p></section>
-            <section class="profile-section"><h3>ゲームのながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">「みじかめ」は、90秒以上の制限時間を60%の長さにします。</p></section>
+            <section class="profile-section"><h3>ゲームのながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">「みじかめ」は、20秒以上の制限時間を70%の長さにします。</p></section>
             <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div><p class="profile-hint">クイックモードのこえ</p><div class="environment-choices" id="quickVoiceGrid"></div></section>
             <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報の数値はセーブに残しません。旅先に選んだ市区町村名は、景色を表示するために保存します。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
           </div>
@@ -879,8 +879,8 @@
   <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261016-2b3574b5"></template>
   <script src="relationship-life.js?v=20261014-7b5221c0"></script>
   <script src="meguru.js?v=20261016-fe7d14d5"></script>
-  <script src="quick.js?v=20260929-302dab6e"></script>
-  <script src="games.js?v=20260929-5a399dc0"></script>
+  <script src="quick.js?v=20261021-f3954ce7"></script>
+  <script src="games.js?v=20261021-67504380"></script>
   <script src="audio.js?v=20260929-f12be965"></script>
   <script src="care-status.js?v=20260929-f881119b"></script>
   <script src="emotion-state.js?v=20260929-0c9ca245"></script>
@@ -896,7 +896,8 @@
   <script src="life-stage-profiles.js?v=20260930-1a189f0f"></script>
   <script src="individuality-data.js?v=20261021-b9f59243"></script>
   <script src="individuality.js?v=20261021-fab004ae"></script>
-  <script src="script.js?v=20261021-d1f1d286"></script>
+  <script src="minigame-reactions.js?v=20261021-a2cbe8e5"></script>
+  <script src="script.js?v=20261022-a386cbfe"></script>
   <script src="home-touch.js?v=20260929-36be057a"></script>
 <div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
 </body>
