@@ -69,4 +69,9 @@ npm test
 - 独立コードレビュー: Critical/Important指摘なし。旧12面の定義を固定JSONと比較し、エンジン・入力・保存本体は変更なし。
 - `actorSupportedAscents` は仲間が支え候補にいた上昇の診断値。壁も同時に支える場合を含み、足場の必要性の証明ではない。
 - Chromeのiframeで375×667（19/24・24面選択）、390×664（13）、430×740（24）を確認。bodyのscrollWidth/Heightは各viewportと一致。Safari実機の代替ではない。
-- 本体の最後の独立テスト群（関係性・会話）110/110成功。フルnpm testの結果はPRに追記。
+- 本体の最後の独立テスト群（関係性・会話）110/110成功。フルnpm testも終了コード0（Node群26+24+3212+110成功、smoke/dialogue/visual QA通過）。
+
+- Pagesテスト15/15成功。最終パッケージ4039ファイル、HTTP検証で欠落0・ハッシュ不一致0。公開用ファイルへの追加は検証のみで、本番Pagesは更新していない。
+- GitHub: [Draft PR #422](https://github.com/Naoto214/naotocchi/pull/422)。実装commit `062c8c1cb00eea85bb60502d379e807aead72b1a`、tree `dbc771d6faed6a9353909ce068f4f938830408e9`。
+- [本人限定試遊 v14](https://naopoyo-rescue-20261021.kerzion214.chatgpt.site): 配信成功。ownerのみ1名、追加editor/group/external visitorなしを配信後再確認。Sites source `9d6cad785032eaf7a96cec3b549521bd15ec5496`。既存originを維持。
+- この追記は検証記録のみ。配信されたゲームデータは上記実装commitと一致。新面の正式な難易度採用判断・iPhone Safari実機QAは本人待ち。

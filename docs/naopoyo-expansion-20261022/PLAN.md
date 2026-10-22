@@ -29,5 +29,7 @@ Spec: この依頼の1〜18節、および本ディレクトリCOMMON-RULES-v1.m
 
 ## Task 3: QA・公開
 - [x] iPhone寸法QA、最終レビュー、必要修正
-- [ ] commit/push/Draft PR、Sites owner-private試遊版配信
-- [ ] 配信とアクセス権を確認、報告
+- [x] commit/push/Draft PR、Sites owner-private試遊版配信
+- [x] 配信とアクセス権を確認、報告
+
+完了: Draft PR #422、本人限定Sites v14公開成功。main/本番Pages未更新。本人iPhone実機による難易度採用判断は別途。
