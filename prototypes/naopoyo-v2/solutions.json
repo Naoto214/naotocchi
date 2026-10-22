@@ -1,0 +1,2961 @@
+{
+  "V01": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V01",
+      "title": "ひと筆で、1 → 3 → 6 → 7",
+      "lesson": "いぬ1から右へ、指を離さずなぞろう。数字は足し算で育つ。",
+      "tags": [
+        "chain"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [
+        {
+          "x": 5,
+          "y": 3,
+          "exact": 7
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 7,
+          "species": "dog"
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    "finalRescued": 7,
+    "searchStates": 10
+  },
+  "V02": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V02",
+      "title": "ちがう段階も、ひとつに",
+      "lesson": "2を3へ。2＋3＝5、そのまま星へ。",
+      "tags": [
+        "2+3"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    "finalRescued": 5,
+    "searchStates": 10
+  },
+  "V03": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V03",
+      "title": "8まで、いっしょ",
+      "lesson": "5から3へなぞると8に。いちばん大きな姿で帰ろう。",
+      "tags": [
+        "5+3"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "snow",
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "penguin"
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    "finalRescued": 8,
+    "searchStates": 10
+  },
+  "V04": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": false
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "b",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "b",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "b",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V04",
+      "title": "9には、ならない",
+      "lesson": "5＋4は合体できない。指を離さず上か下へ回り、別々に星へ。",
+      "tags": [
+        "5+4"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    "finalRescued": 9,
+    "searchStates": 36
+  },
+  "V05": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V05",
+      "title": "5から、3つの1",
+      "lesson": "3連トゲへ。5は2＋1＋1＋1に。散らばった子もみんな星へ。",
+      "tags": [
+        "split5"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 1
+    },
+    "finalRescued": 5,
+    "searchStates": 69
+  },
+  "V06": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V06",
+      "title": "2は、1と1",
+      "lesson": "3連でも、2から取り出せる1はひとつだけ。",
+      "tags": [
+        "split2"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 1,
+          "species": "frog"
+        },
+        {
+          "id": "child1",
+          "species": "frog",
+          "level": 1,
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 2,
+      "moves": 1
+    },
+    "finalRescued": 2,
+    "searchStates": 37
+  },
+  "V07": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V07",
+      "title": "空いているぶんだけ",
+      "lesson": "空きは2マス。3連トゲでも、5は3＋1＋1になる。",
+      "tags": [
+        "partial"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 1
+    },
+    "finalRescued": 5,
+    "searchStates": 6
+  },
+  "V08": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V08",
+      "title": "生まれる場所がなくても",
+      "lesson": "門の上からトゲへ。空きがないから、そのまま5で通れる。",
+      "tags": [
+        "no-space"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 1,
+          "y": 3,
+          "open": true
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    "finalRescued": 5,
+    "searchStates": 1
+  },
+  "V09": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V09",
+      "title": "1なら、すいすい",
+      "lesson": "1はこれ以上わかれない。どのトゲも止まらず通れる。",
+      "tags": [
+        "minimum"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 1,
+          "y": 3,
+          "power": 1
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 1,
+          "species": "dog"
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    "finalRescued": 1,
+    "searchStates": 10
+  },
+  "V10": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          -1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          -1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V10",
+      "title": "集まって、わかれて、また集まる",
+      "lesson": "2と3を合体→トゲで分裂→後ろの1を吸収。指はそのまま。",
+      "tags": [
+        "remerge"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 6
+    },
+    "finalRescued": 5,
+    "searchStates": 10
+  },
+  "V11": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V11",
+      "title": "トゲの上でも、つながる A",
+      "lesson": "2をトゲ上の3へ。先に5へ合体、そのあと2＋1＋1＋1に。",
+      "tags": [
+        "occupied-A"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 1
+    },
+    "finalRescued": 5,
+    "searchStates": 69
+  },
+  "V12": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": false
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "b",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "b",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "b",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V12",
+      "title": "トゲの上では、待っている B",
+      "lesson": "比較用：トゲ上の子へは進入できない。先に3を動かしてみよう。",
+      "tags": [
+        "occupied-B"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "occupiedSpikeMode": "block",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 0
+    },
+    "finalRescued": 5,
+    "searchStates": 36
+  },
+  "V13": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          0,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V13",
+      "title": "落ちても、ひと筆",
+      "lesson": "移動のたびに下へ。落下後も同じ子を操作。指を動かす方向で続けられる。",
+      "tags": [
+        "gravity"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "cave",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "gravity": true,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 6,
+          "level": 1,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 4,
+          "y": 6,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 6
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 5
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 3
+    },
+    "finalRescued": 6,
+    "searchStates": 22
+  },
+  "V14": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "c",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "c",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "c",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "c",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "c",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "c",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "e",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "e",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V14",
+      "title": "それぞれの帰り道",
+      "lesson": "同じ種族だけ合体できる。いぬ・かえる・魚をそれぞれ星へ。",
+      "tags": [
+        "mixed"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "shore",
+      "walls": [],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 2,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 2,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 0,
+          "y": 4,
+          "level": 2,
+          "species": "frog"
+        },
+        {
+          "id": "d",
+          "x": 2,
+          "y": 4,
+          "level": 3,
+          "species": "frog"
+        },
+        {
+          "id": "e",
+          "x": 4,
+          "y": 3,
+          "level": 1,
+          "species": "fish"
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 0
+    },
+    "finalRescued": 11,
+    "searchStates": 115
+  },
+  "V15": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          -1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          0,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V15",
+      "title": "2歩先に、生まれる",
+      "lesson": "1歩目の空きは後ろだけ。次はそこから届く2歩先。壁の向こうには出ない。",
+      "tags": [
+        "two-step"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 3,
+          "exact": 2
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 1
+    },
+    "finalRescued": 5,
+    "searchStates": 170
+  },
+  "V16": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V16",
+      "title": "1つずつ、ほどける",
+      "lesson": "通常トゲを続けて通ると、5→4→3。指を離す必要はない。",
+      "tags": [
+        "single"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "grove",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 3,
+          "power": 1
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 3,
+      "moves": 2
+    },
+    "finalRescued": 5,
+    "searchStates": 63
+  },
+  "V17": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child4",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child4",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child4",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V17",
+      "title": "2つずつ、ほどける",
+      "lesson": "2連を続けて通ると5→3→1。生まれた1も連れて帰ろう。",
+      "tags": [
+        "double"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "shore",
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 1,
+          "species": "fish"
+        },
+        {
+          "id": "child1",
+          "species": "fish",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child2",
+          "species": "fish",
+          "level": 1,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "fish",
+          "level": 1,
+          "x": 3,
+          "y": 2
+        },
+        {
+          "id": "child4",
+          "species": "fish",
+          "level": 1,
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 5,
+      "moves": 2
+    },
+    "finalRescued": 5,
+    "searchStates": 127
+  },
+  "V18": {
+    "steps": [
+      {
+        "id": "a",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "a",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child1",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child2",
+        "delta": [
+          1,
+          1
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          0
+        ],
+        "ok": true
+      },
+      {
+        "id": "child3",
+        "delta": [
+          1,
+          -1
+        ],
+        "ok": true
+      }
+    ],
+    "demonstration": {
+      "id": "V18",
+      "title": "斜めにも、ひと筆",
+      "lesson": "壁の角でも移動先が空いていれば通れる。斜め進入でも後ろから生まれる。",
+      "tags": [
+        "diagonal"
+      ],
+      "w": 7,
+      "h": 7,
+      "theme": "snow",
+      "walls": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 3,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "gravity": false,
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 2,
+          "species": "penguin"
+        },
+        {
+          "id": "child1",
+          "species": "penguin",
+          "level": 1,
+          "x": 1,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "penguin",
+          "level": 1,
+          "x": 1,
+          "y": 2
+        },
+        {
+          "id": "child3",
+          "species": "penguin",
+          "level": 1,
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 1
+    },
+    "finalRescued": 5,
+    "searchStates": 122
+  }
+}

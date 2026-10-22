@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#eff2e8"><title>なおぽよ。｜ひと筆の実験室</title><link rel="stylesheet" href="./style.css"></head>
+<body><main>
+<header><a class="brand" href="./index.html" aria-label="なおぽよ。">なおぽよ<span>。</span><small>NAOPOYO.</small></a><div class="edition">v2 <span>ひと筆の実験室</span></div><button id="help" class="help" aria-label="遊び方">?</button></header>
+<section class="intro"><div class="eyebrow"><span id="stageNum"></span><span id="gravity"></span></div><h1 id="title"></h1><p id="lesson"></p></section>
+<section class="game" aria-label="なおぽよ。独立試遊"><div class="board-shell"><canvas id="board" width="700" height="700" aria-label="キャラから指をなぞって8方向へ。数字を足し算して、星へ全員脱出。"></canvas></div><div class="live"><span class="dot"></span><span id="active"></span></div><div class="stats"><span id="moves"></span><span id="remaining"></span></div></section>
+<div class="toolbar"><button id="undo"><b>↶</b>ひと筆もどす</button><button id="retry"><b>↻</b>はじめから</button><button id="stageSelect"><b>▦</b>場面をえらぶ</button></div>
+<p id="message" role="status" aria-live="polite"></p>
+<section id="win" hidden><span class="win-star">✦</span><h2>みんな、おかえり。</h2><p id="winText"></p><button id="next">次の場面へ →</button></section>
+<footer><span>足し算で集まる。1ずつ、わかれる。</span><small>正式版とは別の試遊です。記録はこの試遊だけに保存されます。</small></footer>
+</main>
+<dialog id="stageDialog"><div class="dialog-head"><h2>18の小さな実験</h2><button id="closeStages" aria-label="場面選択を閉じる">閉じる</button></div><p>01〜10は基本、11・12はA/B比較、13は重力です。</p><div id="levels"></div></dialog>
+<dialog id="guide"><div class="dialog-head"><h2>ひと筆で、つながろう。</h2><button id="closeHelp">閉じる</button></div><p>キャラに触れたまま、行きたい道をなぞります。上下左右も斜めもOK。</p><div class="rule"><strong>1 ＋ 2 ＋ 3 → 6</strong><p>同じ種族なら、ちがう数字でも合体。合計は8まで。</p></div><div class="rule"><strong>5 → 2 ＋ 1 ＋ 1 ＋ 1</strong><p>トゲの本数ぶん、1が生まれます。空きが少なければ、生まれるぶんだけ。分かれなくても通れます。</p></div><p>生まれる場所は、トゲから2歩以内の空きマス。まず1歩、後ろ→左→右の順。点線の丸は、次のトゲで生まれる順番です。</p><p>分裂したあとも本体をそのまま動かせます。星へ全員を連れていくとクリア。</p><p><strong>重力の場面：</strong>1マス進むたびに落ちます。落ちても指を離さず、行きたい方向へなぞれます。落下だけでは合体・分裂しません。上に進むには下と横の足場が必要です。</p><p>「ひと筆もどす」で、触れてから離すまでの操作を丸ごと戻せます。</p></dialog>
+<script type="module">import {mount} from './app.mjs';mount();</script></body></html>
