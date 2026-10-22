@@ -288,11 +288,13 @@
     def({ id: 'season', cue: 'きせつは？', say: 'きせつ', dur: 3600, uses: ['tap'], motif: '世界・季節',
       create(g) {
         const W = g.W, H = g.H;
-        const SEASONS = { spring: ['はるは？', 'はるは', '🌸'], summer: ['なつは？', 'なつは', '🌻'], autumn: ['あきは？', 'あきは', '🍁'], winter: ['ふゆは？', 'ふゆは', '⛄'] };
+        // 答えの 絵は きせつごとの プールから 毎回 1つ(絵で おぼえず「きせつ」で えらぶ)。
+        // プールは たがいに かぶらず、どの きせつか まよう 絵(いちご・こいのぼり・ただの はな など)は 入れない
+        const SEASONS = { spring: ['はるは？', 'はるは', ['🌸', '🐣', '🍡']], summer: ['なつは？', 'なつは', ['🌻', '🍉', '🎆']], autumn: ['あきは？', 'あきは', ['🍁', '🎃', '🌰']], winter: ['ふゆは？', 'ふゆは', ['⛄', '🧤', '🧣']] };
         const keys = Object.keys(SEASONS);
         const cur = SEASONS[season()] ? season() : pick(keys);
         const want = Math.random() < 0.6 ? cur : pick(keys);
-        const items = shuffle(keys).map((k, i) => ({ k, ch: SEASONS[k][2], x: W * (0.2 + 0.6 * (i % 2)), y: H * (0.3 + 0.36 * Math.floor(i / 2)) }));
+        const items = shuffle(keys).map((k, i) => ({ k, ch: pick(SEASONS[k][2]), x: W * (0.2 + 0.6 * (i % 2)), y: H * (0.3 + 0.36 * Math.floor(i / 2)) }));
         let done = false;
         return {
           cue: SEASONS[want][0], say: SEASONS[want][1],
@@ -602,14 +604,16 @@
     def({ id: 'color', cue: 'いろは？', say: 'いろ', dur: 3600, uses: ['tap'], motif: 'ずかん',
       create(g) {
         const W = g.W, H = g.H;
-        const COLORS = [['あかは？', 'あかは', '🍎'], ['きいろは？', 'きいろは', '🍋'], ['みどりは？', 'みどりは', '🥦'], ['あおは？', 'あおは', '🫐'], ['むらさきは？', 'むらさきは', '🍇']];
+        // いろごとに 3つの 絵の プールから 毎回 1つ(いろが はっきりした 絵だけ。
+        // ブルーベリーは ぶどう と まぎれるので つかわない)。プールは たがいに かぶらない
+        const COLORS = [['あかは？', 'あかは', ['🍎', '🍓', '🍅']], ['きいろは？', 'きいろは', ['🍋', '🍌', '🐥']], ['みどりは？', 'みどりは', ['🥦', '🍀', '🌿']], ['あおは？', 'あおは', ['🐳', '💧', '🧢']], ['むらさきは？', 'むらさきは', ['🍇', '☂️', '🔮']]];
         const n = 3 + Math.min(2, g.extra + (g.level >= 3 ? 1 : 0));
         const set = shuffle(COLORS).slice(0, n); const want = pick(set);
-        const items = set.map((c, i) => ({ c, x: W * (0.18 + 0.64 * (i % 3) / 2), y: H * (0.32 + 0.3 * Math.floor(i / 3)) }));
+        const items = set.map((c, i) => ({ c, ch: pick(c[2]), x: W * (0.18 + 0.64 * (i % 3) / 2), y: H * (0.32 + 0.3 * Math.floor(i / 3)) }));
         let done = false;
         return {
           cue: want[0], say: want[1],
-          draw(ctx) { bg(ctx, W, H, '#fffaf0', '#fff0d6'); for (const it of items) { ring(ctx, it.x, it.y, 36, 'rgba(255,255,255,.9)', 3); glyph(ctx, it.c[2], it.x, it.y, 44); } glyph(ctx, sprite(), W / 2, H * 0.88, 36); },
+          draw(ctx) { bg(ctx, W, H, '#fffaf0', '#fff0d6'); for (const it of items) { ring(ctx, it.x, it.y, 36, 'rgba(255,255,255,.9)', 3); glyph(ctx, it.ch, it.x, it.y, 44); } glyph(ctx, sprite(), W / 2, H * 0.88, 36); },
           onTap(x, y) { if (done) return; for (const it of items) if (hit(x, y, it.x, it.y, 40)) { done = true; if (it.c === want) { sfx('coin'); g.win(); } else { sfx('bad'); g.lose(); } return; } },
           target() { const it = items.find((k) => k.c === want); return { kind: 'tap', x: it.x, y: it.y }; },
         };
@@ -868,13 +872,15 @@
     def({ id: 'weather', cue: 'てんきは？', say: 'てんき', dur: 3600, uses: ['tap'], motif: 'てんき',
       create(g) {
         const W = g.W, H = g.H;
-        const KINDS = [['はれは？', 'はれは', '🕶️', '☀️'], ['あめは？', 'あめは', '☂️', '🌧️'], ['ゆきは？', 'ゆきは', '🧣', '❄️']];
+        // あう ものは てんきごとの プールから 毎回 1つ(ながぐつ・パラソルは ほかの てんきとも まよう ので 入れない)。
+        // プールは たがいに かぶらない。☔ は あめの 絵(🌧️)と おなじ 絵に なるので つかわない
+        const KINDS = [['はれは？', 'はれは', ['🕶️', '🧢'], '☀️'], ['あめは？', 'あめは', ['☂️', '🐌'], '🌧️'], ['ゆきは？', 'ゆきは', ['🧣', '🧤'], '❄️']];
         const want = pick(KINDS);
-        const items = shuffle(KINDS).map((k, i) => ({ k, x: W * ((i + 0.5) / 3), y: H * 0.6 }));
+        const items = shuffle(KINDS).map((k, i) => ({ k, ch: pick(k[2]), x: W * ((i + 0.5) / 3), y: H * 0.6 }));
         let done = false;
         return {
           cue: want[0], say: want[1],
-          draw(ctx) { bg(ctx, W, H, '#eef8ff', '#d7ecff'); glyph(ctx, want[3], W / 2, H * 0.22, 70); for (const it of items) { ring(ctx, it.x, it.y, 38, 'rgba(255,255,255,.9)', 3); glyph(ctx, it.k[2], it.x, it.y, 44); } glyph(ctx, sprite(), W / 2, H * 0.9, 32); },
+          draw(ctx) { bg(ctx, W, H, '#eef8ff', '#d7ecff'); glyph(ctx, want[3], W / 2, H * 0.22, 70); for (const it of items) { ring(ctx, it.x, it.y, 38, 'rgba(255,255,255,.9)', 3); glyph(ctx, it.ch, it.x, it.y, 44); } glyph(ctx, sprite(), W / 2, H * 0.9, 32); },
           onTap(x, y) { if (done) return; for (const it of items) if (hit(x, y, it.x, it.y, 42)) { done = true; if (it.k === want) { sfx('coin'); g.win(); } else { sfx('bad'); g.lose(); } return; } },
           target() { const it = items.find((k) => k.k === want); return { kind: 'tap', x: it.x, y: it.y }; },
         };
