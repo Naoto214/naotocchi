@@ -10,7 +10,13 @@ const byId = (h, id) => h.api.games.find((g) => g.id === id);
 function prime(h) {
   const s = h.api.state();
   for (const g of h.api.games) s.lifetime.minigamePlayCounts[g.id] = 1;
-  h.api.pickRandomMinigame(); // 最初の補充を済ませ、地域・季節の切り替え判定を落ち着かせる
+  const first = h.api.pickRandomMinigame(); // 最初の補充を済ませ、地域・季節の切り替え判定を落ち着かせる
+  // 直前のゲームと直近の系統を、road / 釣りと関係のない2本に固定する
+  // (乱数の1本目が road 系だと 3連続回避が、同じゲームだと「直前と同じ」回避が先に効いてしまう)
+  const [a, b] = ['breakout-classic', 'pinball-physics', 'reversi-6'].filter((id) => id !== first.id);
+  h.api.setQueueIds([a, b]);
+  assert.equal(h.api.pickRandomMinigame().id, b);
+  assert.equal(h.api.pickRandomMinigame().id, a);
 }
 
 test('road-themed → p3-space → p3-drive is avoided when another family is nearby', () => {
