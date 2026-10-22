@@ -76,7 +76,7 @@
 
 ## 視覚証拠・本人QA
 
-`comparison.html` / `comparison.jpg` が旧PRとの比較。`contacts.html` は各地域の接地部分の実画面切り出し。各地域の `*-phone.jpg` は実際の育成画面、`*-final.jpg` は保存しない複数キャラ見本。連続フレームは `*-living-start/after.jpg`。最後のうんち・車方向・余分な影の修正は、後段のphone／接地画像で再確認した。接地部の個別JPEG書き出しはブラウザ取得エラーで未完了のため、HTMLで保存した。地域ごと5種類をすべて独立画像として揃えたとはしない。動画は未作成。
+`comparison.html` / `comparison.jpg` が旧PRとの比較。`contacts.html` は各地域の接地部分の実画面切り出し。各地域の `*-phone.jpg` は実際の育成画面、`*-final.jpg` は保存しない複数キャラ見本。連続フレームは水辺の `water-living-start.jpg` / `water-living-after.jpg`。森は `forest-living-start.jpg` / `forest-final.jpg`、都会は `city-start.jpg` / `city-final.jpg` に経時状態を保存した。最後のうんち・車方向・余分な影の修正は、後段のphone／接地画像で再確認した。接地部の個別JPEG書き出しはブラウザ取得エラーで未完了のため、HTMLで保存した。地域ごと5種類をすべて独立画像として揃えたとはしない。動画は未作成。
 
 本人のiPhone Safariでは、3地域を各60秒以上観察し、次を確認する：
 
@@ -94,3 +94,14 @@
 海中・山などは未展開。現Pilotは安全な前景矩形とキャラ同士の分離、背景専用の道路／水中経路を使う。任意地形への共有ナビゲーション、地形に沿う3Dキャラ接地、地形との一般的な遮蔽・衝突は今後の拡張。風向・水流方向の地域データ化、専用の低頻度イベント、新しい座りアートも未実装。WebGL context loss後の実機復旧、低メモリ端末の負荷調整、Safari長時間検証が残る。
 
 共通レンダラー・素材の更新はHomeにも届くが、配置／カメラ／育成UIはHomeが所有する。今後のめぐる変更には、この3地域の構成テストと視覚比較を回帰ゲートとして残す。
+
+## GitHub保存・本人限定公開の記録
+
+- ランタイムのGitHub commit: `53dcb210990033ee6a687fb41cd4d947292081a3`。検証済みローカルtreeと完全一致。最新main `b3f8f4f7` を親に含み、PR #426はDraft/open/未マージ、競合なしを確認した。
+- PR: https://github.com/Naoto214/naotocchi/pull/426
+- 継続利用する試遊URL: https://naotocchi-home-diorama-20261022.kerzion214.chatgpt.site/
+- Site version **2**、source commit `9fa76d2b6297e61c5f5af74657a7619f0ac38069`。deployment `appgdep_6ada36ebde94819198ad33af32408151` は **succeeded**（2026-10-22 16:17 UTC）。
+- アクセス設定は所有者1名のみ。外部訪問者0。mainへのマージ・本番GitHub Pages更新は実施していない。
+- 公開物の全4,046ランタイムファイルを照合。試遊用入口、game.htmlへの同一index配置、script.jsの保存キー変換だけが意図した差分。保存キーは `naotocchi-home-diorama-preview-v1`。
+- 公開URLは実際に開き、未認証時の「アクセスするにはログインしてください」を確認。**認証後の公開画面・動作は未確認**。実操作と連続観察の結果は同一ランタイムのローカルプレビューのもの。認証後表示を合格と扱わない。
+- この公開記録の追記は文書だけの変更であり、公開ランタイムは上記commitから変更していない。

@@ -10,3 +10,7 @@
 - Browser observation: forest repeat 143s, water 106s, city 115s; Canvas only, ~1.1fps remote update limitation. GPU/iPhone not verified.
 - Full broad run 3213 cases, 5 stale-token/camera-fixture failures resolved; explicit rerun/remaining relationship + conversation 140/140. Home integration 48/48; renderer 41/41; input 12/12; Naopoyo existing rescue 205/205.
 - Browser crop export became unreliable; contact detail HTML preserves exact screenshot regions. Do not claim all requested per-region crop/video artifacts were produced.
+
+## Delivery receipt — 2026-10-22 16:17 UTC
+
+GitHub runtime commit 53dcb210990033ee6a687fb41cd4d947292081a3 matches the validated local tree. The existing owner-private Site version 2 deployed successfully from source 9fa76d2b6297e61c5f5af74657a7619f0ac38069. Runtime file hashes and isolated preview save keys were checked. Anonymous navigation shows the sign-in gate. Authenticated published runtime and human iPhone Safari QA remain unverified; see REPORT.md. Draft #426 is retained and main / production Pages are untouched.

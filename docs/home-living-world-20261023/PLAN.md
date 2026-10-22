@@ -31,6 +31,8 @@ No main merge, Pages update, care rules, saved traits, relationship or attendanc
 
 ### Task 3: Evidence and delivery
 - [x] Run focused and project regression suites; regenerate version tokens and runtime allowlist.
-- [x] Capture before/after and >=60s per-region visible metrics/frames, hidden recovery and bounded long-run memory.
+- [x] Capture before/after and >=60s per-region visible metrics/frames; test hidden recovery and bounded model memory. Actual Safari hidden recovery and long-run GPU memory remain unverified.
 - [x] Independent review, fix material findings, commit/push existing branch and update Draft description.
-- [ ] Package exact source into existing owner-private Site, deploy and verify; report real iPhone gates as unverified.
+- [x] Package exact source into existing owner-private Site and deploy version 2; verify deployment success and anonymous sign-in gate.
+- [ ] Authenticated post-deployment display/motion: blocked by sign-in; not counted as passed.
+- [ ] Human iPhone Safari acceptance: all real-device gates remain unverified.
