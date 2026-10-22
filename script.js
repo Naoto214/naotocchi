@@ -25,6 +25,7 @@
   });
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
+  let homeDiorama = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   // じどうバックアップ: 20分いじょう あいだが あいた セーブを 3つまで
   // のこし、プロフィールの「もどす」で その時点に もどせる
@@ -14397,7 +14398,8 @@
     const point = actors.find(a=>a.kind===kind && a.id===speakerId) || pet;
     // Only constrain the tail when the completed poop row is at its height.
     // A row below the bubble must not pull even the main speaker's tail aside.
-    let x = clamp(point.x-area.x,12,area.w-12);
+    const pointX = point.x+(point.dioramaX||0);
+    let x = clamp(pointX-area.x,12,area.w-12);
     if (poop.y<area.y+1 && poop.y+poop.h>area.y-5) {
       const left=poop.x-area.x-9,right=poop.x+poop.w-area.x+9;
       if(x>left && x<right) {
@@ -14406,7 +14408,7 @@
       }
     }
     el.speechBubble.style.setProperty('--speech-tail-x',x+'px');
-    el.speechBubble.style.setProperty('--speech-tail-tip',point.x<area.x+area.w/2-16?'0%':point.x>area.x+area.w/2+16?'100%':'50%');
+    el.speechBubble.style.setProperty('--speech-tail-tip',pointX<area.x+area.w/2-16?'0%':pointX>area.x+area.w/2+16?'100%':'50%');
   }
 
   function renderHomeCast() {
@@ -14429,7 +14431,7 @@
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
-    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); return; }
+    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); renderHomeDiorama(); return; }
     homeCastLayoutKey = key;
     castMotion?.clear();
     const layout = window.NaotocchiCast.layoutHomeCast(args);
@@ -14485,6 +14487,52 @@
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
     renderRelationshipReactions();
+    renderHomeDiorama();
+  }
+
+  // This bridge supplies visual copies only: attendance, art and save stay owned above.
+  function dioramaActors() {
+    if (!relationshipCastFrames) return [];
+    const {layout,recruited,args}=relationshipCastFrames;
+    return homeCastActors().filter(a=>a.kind!=='accessory').map(a=>{
+      const i=recruited.findIndex(c=>c.id===a.id);
+      const f=a.kind==='pet'?layout.main:a.kind==='partner'?layout.partner:layout.companions[i];
+      const path=a.kind==='pet'?args.mainAsset:a.kind==='partner'?args.partnerAsset:args.companions[i];
+      if(!f)return null;
+      const b=window.NaotocchiCastBounds?.[path]?.box||[0,0,128,128];
+      const owner=a.kind==='partner'?el.partnerCompanion:a.node;
+      const label=a.kind==='pet'?'なおとっち':a.kind==='partner'?(state.partner?.label||'こいびと'):(recruited[i]?.label||'なかま');
+      const x=f.x+f.w*(b[0]+b[2])/256,y=f.y+f.h*b[3]/128+(f.artOffsetY||0);
+      const w=f.w*(b[2]-b[0])/128,h=f.h*(b[3]-b[1])/128;
+      const extras=(a.kind==='partner'?[layout.ring,...layout.hearts]:a.kind==='pet'?[layout.accessory]:[]).filter(Boolean);
+      // Reserve original solver-owned attachments, including ring/heart motion clearance.
+      const extent={left:w/2,right:w/2,top:h,bottom:0};
+      for(const r of extras){extent.left=Math.max(extent.left,x-r.x+6);extent.right=Math.max(extent.right,r.x+r.w-x+6);extent.top=Math.max(extent.top,y-r.y+6);extent.bottom=Math.max(extent.bottom,r.y+r.h-y+6);}
+      return {key:a.kind+':'+a.id,kind:a.kind,id:a.id,label,node:a.node,owner,
+        attachments:a.kind==='pet'&&!el.petAccessory.classList.contains('hidden')?[el.petAccessory]:[],x,y,w,h,extent};
+    }).filter(Boolean);
+  }
+  function homeDioramaBlocked() {
+    return gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()
+      || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || speechActive || conversationIsBusy()
+      || !el.lifeCardOverlay.classList.contains('hidden') || !el.storyFlash.classList.contains('hidden')
+      || document.body.classList.contains('movie-active') || el.screenNormal.classList.contains('hidden')
+      || !!el.castResponse.dataset.reaction
+      || homeCastActors().some(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction));
+  }
+  function renderHomeDiorama() {
+    if (!window.NaotocchiHomeDiorama) return;
+    if (!homeDiorama) homeDiorama=window.NaotocchiHomeDiorama.createController({
+      stage:el.castStage,document,env:window,getActors:dioramaActors,isBlocked:homeDioramaBlocked,
+      getProfile:region=>meguruMod?.REGION3D[region],getWorld:region=>meguruMod?.WORLDS[region],
+      onGesture:(actor,mood)=>castMotion?.gesture(actor,mood),
+      onPosition:(actor,dx)=>{
+        const anchor=actor.kind==='pet'?homeSpeechAnchors?.pet:homeSpeechAnchors?.actors.find(a=>a.kind===actor.kind&&a.id===actor.id);
+        if(anchor)anchor.dioramaX=dx;
+        pointHomeSpeech();
+      },
+    });
+    homeDiorama?.update(currentEnvironment(),{tier:mgPerfTier,available:![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)});
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {
@@ -17349,6 +17397,7 @@
 
   function withFeedback(fn, afterRender) {
     return () => {
+      homeDiorama?.interrupt();
       const reactionSerial = invalidateCareAfterglow();
       clearPetExpression();
       clearConversationTimers();

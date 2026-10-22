@@ -1,0 +1,10 @@
+{
+  "bytes": 213217517,
+  "file_count": 4041,
+  "static_references": 1654,
+  "dynamic_references": 2954,
+  "source_head": "f69310c79131f51ceed043417cf4c39cab925331",
+  "allowlist_sha256": "031f8964235baf169022fb864dc86ec2c48002f71926edf105c7d7e7921bec5a",
+  "max_bytes": 350000000,
+  "note": "Validated uncommitted working tree based on source_head; runtime hashes are pinned in tools/pages/allowlist.json. Preview-only transformations are performed afterward."
+}

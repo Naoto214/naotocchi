@@ -4044,7 +4044,10 @@
     "world-scene.css",
     "world-scene.js",
     "individuality.js",
-    "individuality-data.js"
+    "individuality-data.js",
+    "home-diorama-model.js",
+    "home-diorama.js",
+    "home-diorama.css"
   ],
   "dynamic_families": [
     "assets/characters/**/*.png",
@@ -4061,7 +4064,7 @@
     "care-status.js": "9a78a2fa3a7e9acfc80a4a10f09e05c07bfd6f008d2aba496d97e4bc8ad75410",
     "cast-bounds.js": "3844bd70323ca765ea9bc24b3486b2142c633d345b8156821d02167beefa0c1e",
     "cast-layout.js": "0ccb5535b52c90488b850b8a909ad71d8046925548ff47b14c713bc786eef8a0",
-    "cast-motion.js": "c19687572a61e033ea3f0a509ad3a9ea0aa5677097b71e77580ddd7e8dbac4f0",
+    "cast-motion.js": "1e8d37ab684176362199fe79258093f48c6cb307d0cdb6f32ac381cbb794e8e7",
     "character-3d/animate.mjs": "494787327fbefac82daaab313f4fb2ac81037900c89b386d123c9f525d2b45a1",
     "character-3d/aquatic-spec.js": "843d9a76de90e7b6d3e8987864e2dd237fa8c4f37468036456d2de97828cfed0",
     "character-3d/archetypes.mjs": "6b95503c5ab853ee3d936150a639ea05327d0f5a83acd10790117c8d58a3d01b",
@@ -4104,7 +4107,7 @@
     "home-care-colors.css": "ea67edc0b0c27fd194993419c62e3863d5474a5613984488c6bf2e2b127775bc",
     "home-touch.js": "eda7deef505a69cd93e7e5ab4933c9791732ec351679eb6f0171a77c314e684f",
     "illustration-catalog.js": "75f714c1d6ddb429f2d2eebab23f468d976d8e4201dcbaa10b91adfc3c84da0d",
-    "index.html": "238cb9daaead7990599d449fc1cecc6910665869a393de64ca0dbdcecf62211f",
+    "index.html": "6c49eaf830092536dc26353e658f648a786e1dd0f786f6e0148a5ba48ae5c8dc",
     "item-memories.css": "8434fee41472c872e3c3ee168ee78335ce7ba091fb8a60a7c96fe35bec5e0eb8",
     "item-memories.js": "252a43fba4fce6890cd4eb74fe9c073bac676dad309130987dd2d512c273c369",
     "item-system.js": "75cfbf0b3e004a51d9c0f4a140aa679b4cb0ee3aeb4b68153c9c13b6ea34d598",
@@ -4194,7 +4197,7 @@
     "relationship-expression.js": "5fdba60b9155f53f7a3f77c3acb307df2c2397c344e8b74a5e955bbb2eb85082",
     "relationship-life.js": "845ec0c9e35de4b47b0f8b56086d428433fa4407aa3e58adca0b85e6fabc3441",
     "resident-expression.js": "57387bc14ffffbb25a4838fb32b51d8c58ad73fca12ed1f783d886af6863911d",
-    "script.js": "a43d8016a2cd4ae4ebfb660fd6063ac67d5a85ba9ed866198beaba8f92ae46a5",
+    "script.js": "a2bd7f19a9c080159c17d819624f935290ef1aa23ae62d1ed7cc88645c48cc9e",
     "style.css": "50dbd9b14e78b98dae31aed50ae03ffed9290dd964161a19444f04de4a00b015",
     "ui-illustrations.css": "94f2a91665f90bfcfbd72b002c28aab5bdbef581c5d5d43e0cbb95159ff82f81",
     "ui-symbol-art.js": "dbdce7f8a51024f6de2e5cf60b5775f3fef307b8cb44474e1e9428fca5f68684",
@@ -4204,7 +4207,10 @@
     "world-scene.css": "ff0bba97a5fd85d859acbd0f59cb7a0abdb8efe79d4f11167271c7fdf506b430",
     "world-scene.js": "a3c7451223d34c4092aed67750487dc62e075a83d5bbdaa58e81937c35a3dc6d",
     "individuality.js": "58f2b79761d45917fb07eaf8d48c1c2ae0f85e618e85b7bf2729e7691504679a",
-    "individuality-data.js": "7ff3ee9eb91c7a0c7c19ee9582f07ad2fce8269c43d8b5d89a5359e804f87ec3"
+    "individuality-data.js": "7ff3ee9eb91c7a0c7c19ee9582f07ad2fce8269c43d8b5d89a5359e804f87ec3",
+    "home-diorama-model.js": "bfdd5b553eaafb3ed7c07d880e7a72fcac7bc3c470b2fe6ab1337fd37c5104cf",
+    "home-diorama.js": "a0d036721c17ac346c799640b744fe54d005370102b5eca4459a88b0dcc896a8",
+    "home-diorama.css": "baeea2a303206fde940fbaaf91dcf229e0f11b208cda77efa15b60e444b43ae7"
   },
   "forbidden_patterns": [
     "^(?:docs|tests|tools|\\.github)/",

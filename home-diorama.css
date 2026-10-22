@@ -1,0 +1,35 @@
+/* Position belongs to the diorama; WAAPI transform remains Motion v2-owned. */
+#castStage[data-diorama] {touch-action:pan-y pinch-zoom;--diorama-light:1}
+#castStage[data-diorama] .cast-sway {animation:none!important;transform:none!important;z-index:2}
+#castStage[data-diorama] [data-diorama-actor] {pointer-events:auto;touch-action:none;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;outline-offset:3px}
+#castStage[data-diorama] [data-diorama-actor]:focus-visible {outline:2px solid #e2f7ff;border-radius:20px}
+#castStage[data-diorama] .pet-accessory {pointer-events:none}
+.diorama-art,.diorama-overlay {position:absolute;inset:0;pointer-events:none}
+.diorama-art {z-index:0;filter:brightness(var(--diorama-light));overflow:hidden}
+.diorama-overlay {z-index:1}
+.diorama-landscape {width:100%;height:100%;overflow:visible}
+.diorama-shadow {position:absolute;height:9px;background:radial-gradient(ellipse,#203a3960,transparent 70%);border-radius:50%;transform:translate(-50%,-50%)}
+.diorama-shadow[data-selected="true"] {outline:2px solid #d2eeff;box-shadow:0 0 0 3px #3a7f9b70;background:#c5efff45}
+.diorama-target {position:absolute;width:24px;height:10px;transform:translate(-50%,-50%);border:2px dashed #e5f7ff;border-radius:50%;background:#71b4c56b;box-shadow:0 0 0 1px #285b6966}
+.diorama-hint {position:absolute;top:0;left:0;right:0;text-align:center;font-size:10px;color:var(--world-ink,#244b46);text-shadow:var(--world-text-halo);opacity:.76;pointer-events:none;z-index:3}
+.diorama-leaves,.diorama-grass {transform-box:fill-box;transform-origin:center bottom;animation:diorama-sway 7s ease-in-out infinite alternate}
+.diorama-ripples {animation:diorama-water 6s ease-in-out infinite alternate}
+.diorama-cloud {animation:diorama-cloud 35s ease-in-out infinite alternate}
+.diorama-light {animation:diorama-light 18s ease-in-out infinite alternate}
+/* Most of this cycle is quiet; occasional fauna is not constant motion. */
+.diorama-visitor {opacity:0;animation:diorama-visit 32s ease-in-out infinite}
+#castStage[data-diorama-time="night"] {--diorama-light:.72}
+#castStage[data-diorama-weather="rain"] {--diorama-light:.78}
+#castStage[data-diorama-weather="rain"] .diorama-visitor,#castStage[data-diorama-weather="snow"] .diorama-visitor {display:none}
+#castStage[data-diorama-tier="2"] :is(.diorama-far,.diorama-visitor,.diorama-cloud) {display:none}
+#castStage[data-diorama][data-diorama-paused="true"] *,#castStage[data-diorama][data-diorama-reduced="true"] * {animation-play-state:paused!important}
+#castStage[data-diorama][data-diorama-reduced="true"] .diorama-visitor {display:none}
+@keyframes diorama-sway {from{transform:rotate(-1deg)}to{transform:rotate(1.5deg)}}
+@keyframes diorama-water {from{transform:translateX(-4px);opacity:.25}to{transform:translateX(4px);opacity:.65}}
+@keyframes diorama-cloud {to{transform:translateX(30px)}}
+@keyframes diorama-light {to{opacity:.025;transform:translateX(14px)}}
+@keyframes diorama-visit {0%,72%,100%{opacity:0;transform:translate(-20px,5px)}77%{opacity:.75}90%{opacity:.75;transform:translate(38px,-15px)}95%{opacity:0;transform:translate(50px,-20px)}}
+@media(prefers-reduced-motion:reduce){.diorama-art *{animation:none!important}.diorama-visitor{display:none}}
+
+#castStage[data-diorama] [data-diorama-walking="true"] > .character-visual,#castStage[data-diorama] [data-diorama-walking="true"] > .partner-emoji > .character-visual {animation:diorama-walk .5s ease-in-out infinite alternate;transform-origin:center bottom}
+@keyframes diorama-walk {from{translate:0 0;rotate:-.6deg}to{translate:0 -1px;rotate:.6deg}}
