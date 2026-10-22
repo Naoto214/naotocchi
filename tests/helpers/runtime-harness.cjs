@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 
-const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('item-memories.js', 'utf8') + '\n' + fs.readFileSync('item-system.js', 'utf8') + '\n' + fs.readFileSync('movie-dialogue.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
+const source = fs.readFileSync('individuality-data.js','utf8') + '\n' + fs.readFileSync('individuality.js','utf8') + '\n' + fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('item-memories.js', 'utf8') + '\n' + fs.readFileSync('item-system.js', 'utf8') + '\n' + fs.readFileSync('movie-dialogue.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // テストの とけい。
@@ -245,6 +245,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
   });
   const expose = `
     globalThis.lifecycle = {
+      genreOf:minigameGenreId, INDIVIDUALITY, individualGameResult, individualVisit, individualMeeting, individualScenery, chooseIndividualityEvent, chooseIndividualExchange, showIndividualityEvent, closeIndividualityDialog, maybeIndividualExchange,
       setPresentCastFixture: () => {homePresentCompanions=()=>state.companions;homePresentPartner=()=>state.partner;homeInitiative=()=>true;},
       relationshipVisual,
       homeVisitors: () => ({companions:homePresentCompanions(),partner:homePresentPartner()}),
@@ -297,7 +298,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
       conv2: {startBanter:conv2StartBanter, scheduleBanter:conv2ScheduleBanter, ask:conv2Ask, answer:conv2Answer, visitorKey:conv2CurrentVisitorKey,
         canStart:conv2CanStart, unit:() => conv2Unit && {kind:conv2Unit.kind, id:conv2Unit.id, awaiting:conv2Unit.awaiting, held:conv2Unit.held.length},
         data:CONVERSATION_BANTER, director:() => conversationDirector, config:CONV2,
-        visitorLeaves:() => {homePresentPartner=()=>null;homePresentCompanions=()=>[];}, pools:() => CONVERSATION_POOLS},
+        visitorLeaves:() => {homePresentPartner=()=>null;homePresentCompanions=()=>[];}, pools:() => CONVERSATION_POOLS, setLifeEventOpen:v => {individualityDialogOpen=!!v;}},
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, scheduleIdleGreeting, scheduleItemContextMessage, renderHomeCast,
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       achievementIconHTML: (...args) => achievementIconHTML(...args),

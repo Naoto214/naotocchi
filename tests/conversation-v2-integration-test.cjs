@@ -293,3 +293,19 @@ test('every partner and companion with its own banter can actually play it in th
     assert.equal(them.kind, kind);
   }
 });
+
+test('the life-event choice dialog (individuality) keeps banters and questions out, and stops one in progress', () => {
+  const {h, s, shown} = boot({seed:80});
+  waitUntilFree(h, s);
+  h.api.conv2.setLifeEventOpen(true);
+  assert.equal(h.api.conv2.canStart(), false, 'nothing starts behind the life-event dialog');
+  assert.equal(h.api.conv2.startBanter('partner:rock_octopus'), false);
+  h.api.conv2.setLifeEventOpen(false);
+  assert.ok(h.api.conv2.startBanter('partner:rock_octopus'));
+  const def = unitDef(h, h.api.conv2.unit().id);
+  shown.length = 0;
+  h.api.conv2.setLifeEventOpen(true);
+  settle(h, s, 15000);
+  assert.equal(h.api.conv2.unit(), null, 'the banter stopped');
+  assert.ok(shown.every(x => !def.beats.slice(1).some(b => b.text === x.text)), 'no further banter lines while the dialog is open');
+});
