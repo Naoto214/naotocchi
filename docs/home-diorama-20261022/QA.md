@@ -60,3 +60,15 @@
 - 建物・水・草木は軽量表現。地域固有建築の精密再現、全天候専用しぐさ、大量の生物演出は未実装。
 - Conversation v2のイベント購読・発話頻度／同文抑制・台詞と表情の同期は将来実装。独立会話システムは追加しない。
 - 既存PR #419/#421（会話）、#422（なおぽよ。）、#420（ミニゲーム）との統合は将来mainの確定後に再確認。mainマージは禁止のため実施しない。
+
+## 公開・保存結果
+
+- Draft PR: https://github.com/Naoto214/naotocchi/pull/426
+- 本人限定試遊: https://naotocchi-home-diorama-20261022.kerzion214.chatgpt.site/
+- Runtime source commit: `74c3e066a9597bddd94dd24de8ab104ffd97fa3b`。GitHub tree SHAがローカル検証済みtreeと完全一致することを確認。
+- Sites source commit: `2f27168234b41a8ef773d7495354a38fc4a27f0c`。全4045ファイルを確定ビルドと照合、owner-privateデプロイ `succeeded` を確認。
+- アクセスには所有者のChatGPTサインインが必要。クラウドブラウザでは公開URLのログインゲートまで確認、ログイン後の公開画面は未確認。表示・操作QAは同一ビルドのローカルプレビューで実施。
+- 本番Pages更新、mainマージは実施していない。GitHub Actionsは記録時点で実行待ち／実行中で、CI完了を主張しない。
+- 約213MBの素材に対するSites Git一括送信が上限に達したため、同じサイトのsourceを7回に分けて同期。公開したのは最終完全版だけ。
+
+![もり・390pxの実Home検証画面](forest-390.jpg)

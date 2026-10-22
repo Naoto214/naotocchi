@@ -30,5 +30,5 @@ No main merge / production Pages updates. No care/stat/save/relationship changes
 ### Task 3: delivery
 - [x] Document coverage and Safari checklist; update asset tokens/Pages allowlist.
 - [x] Fresh whole-branch reviewer; address material issues and verify.
-- [ ] Commit/push isolated branch and create Draft PR.
-- [ ] Build exact runtime into new owner-private Sites preview; verify deployed status; report actual URLs and limits.
+- [x] Commit/push isolated branch and create Draft PR.
+- [x] Build exact runtime into new owner-private Sites preview; verify deployed status; report actual URLs and limits.
