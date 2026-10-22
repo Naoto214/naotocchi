@@ -38,6 +38,7 @@
       SCORE_PER_CLEAR: 5,
       SOLO_TOTAL: 10,        // 「1本ずつ」は 10かい(1つ 10てん)
       SOLO_LEVEL_EVERY: 2,   // 「1本ずつ」は 2かいごとに レベルが あがる
+      GRACE_MS: 150,     // さわると すぐ しっぱいしうる ゲームで、はじまった ちょくごの おしを むしする じかん(まえの ゲームの のこりの タップ よけ)
     };
 
     // ---- キャラ・ものの え(ぜんぶ 絵文字の fillText) ----
@@ -125,7 +126,8 @@
             if (m.y < 34 || m.y > H - 34) { m.vy = -m.vy; m.y = clamp(m.y, 34, H - 34); }
           },
           draw(ctx) { bg(ctx, W, H, '#eaffdf', '#c9efb6'); for (const d of decoys) glyph(ctx, d.ch, d.x, d.y, 38); glyph(ctx, ch, m.x, m.y, 46); glyph(ctx, sprite(), 36, H - 36, 36); },
-          onTap(x, y) { if (hit(x, y, m.x, m.y, m.r + 16)) { sfx('pop'); g.win(); } else { sfx('tap'); } },
+          // おとり(🍂🪨🧸)を おしたら しっぱい(なかまと かさなって いたら なかまが さき)
+          onTap(x, y) { if (hit(x, y, m.x, m.y, m.r + 16)) { sfx('pop'); g.win(); } else if (decoys.some((d) => hit(x, y, d.x, d.y, 26))) { sfx('bad'); g.lose(); } else { sfx('tap'); } },
           target() { return { kind: 'tap', x: m.x, y: m.y }; },
         };
       } });
@@ -172,7 +174,7 @@
 
 
     // 6. とめろ! — うごく しるしが みどりの まんなかに きたら タップ(たこやきの やきかげん)
-    def({ id: 'stop', cue: 'とめろ！', say: 'とめろ', dur: 3800, uses: ['tap'], motif: 'たこやき',
+    def({ id: 'stop', graceMs: RULES.GRACE_MS, cue: 'とめろ！', say: 'とめろ', dur: 3800, uses: ['tap'], motif: 'たこやき',
       create(g) {
         const W = g.W, H = g.H;
         const half = lerp(0.11, 0.06, (g.level - 1) / (RULES.MAX_LEVEL - 1));
@@ -191,7 +193,7 @@
       } });
 
     // 7. うえへ!/みぎへ!… — いわれた むきへ スワイプ。レベル 3 からは「ぎゃくへ!」(やじるしの はんたい)
-    def({ id: 'swipe', cue: 'スワイプ！', say: 'スワイプ', dur: 3200, uses: ['swipe'], motif: 'スキージャンプ',
+    def({ id: 'swipe', graceMs: RULES.GRACE_MS, cue: 'スワイプ！', say: 'スワイプ', dur: 3200, uses: ['swipe'], motif: 'スキージャンプ',
       create(g) {
         const W = g.W, H = g.H;
         const DIRS = { up: ['うえへ！', 'うえへ', '⬆️'], down: ['したへ！', 'したへ', '⬇️'], left: ['ひだりへ！', 'ひだりへ', '⬅️'], right: ['みぎへ！', 'みぎへ', '➡️'] };
@@ -355,7 +357,7 @@
       } });
 
     // 16. おせ! — ボタンが みどりに なったら おす(あかで おすと ×)
-    def({ id: 'button', cue: 'みどりでおせ！', say: 'みどりでおせ', dur: 3800, uses: ['tap'], motif: 'ボタン',
+    def({ id: 'button', graceMs: RULES.GRACE_MS, cue: 'みどりでおせ！', say: 'みどりでおせ', dur: 3800, uses: ['tap'], motif: 'ボタン',
       create(g) {
         const W = g.W, H = g.H;
         const goAt = rnd(0.8, 2.0) / g.speed; let t = 0, done = false, flick = 0;
@@ -374,7 +376,8 @@
       create(g) {
         const W = g.W, H = g.H;
         const n = 3 + Math.min(2, g.extra + (g.level >= 3 ? 1 : 0));
-        const cands = []; for (let i = 0; i < n; i++) cands.push({ x: W * ((i + 0.5) / n), y: H * (0.42 + (i % 2) * 0.08), lit: true, relit: g.feint && i === 0 ? rnd(1.2, 1.8) : 0 });
+        const back = Math.floor(Math.random() * n); // ひが もどる ろうそくは まいかい ちがう
+        const cands = []; for (let i = 0; i < n; i++) cands.push({ x: W * ((i + 0.5) / n), y: H * (0.42 + (i % 2) * 0.08), lit: true, relit: g.feint && i === back ? rnd(1.2, 1.8) : 0 });
         let t = 0;
         return {
           update(dt) { t += dt; for (const c of cands) if (c.relit && !c.lit && t >= c.relit) { c.lit = true; c.relit = 0; sfx('notify'); } },
@@ -408,7 +411,7 @@
       } });
 
     // 19. とまれ! — がけの てまえ(みどり)で タップして とまる
-    def({ id: 'cliff', cue: 'とまれ！', say: 'とまれ', dur: 3600, uses: ['tap'], motif: 'ダウンヒル',
+    def({ id: 'cliff', graceMs: RULES.GRACE_MS, cue: 'とまれ！', say: 'とまれ', dur: 3600, uses: ['tap'], motif: 'ダウンヒル',
       create(g) {
         const W = g.W, H = g.H;
         const edge = W * 0.78, zone = lerp(70, 44, (g.level - 1) / (RULES.MAX_LEVEL - 1));
@@ -422,7 +425,7 @@
       } });
 
     // 20. なげろ! — うごく かごが まうえに きたら、うえへ スワイプ
-    def({ id: 'throw', cue: 'なげろ！', say: 'なげろ', dur: 4000, uses: ['swipe'], motif: 'バスケ',
+    def({ id: 'throw', graceMs: RULES.GRACE_MS, cue: 'なげろ！', say: 'なげろ', dur: 4000, uses: ['swipe'], motif: 'バスケ',
       create(g) {
         const W = g.W, H = g.H;
         const hoop = { x: W * 0.2, y: H * 0.22, v: (120 + 30 * g.extra) * g.speed, dir: 1 };
@@ -451,7 +454,7 @@
       } });
 
     // 22. まて! — なにも さわらない(さわったら ×)
-    def({ id: 'wait', cue: 'まて！', say: 'まて', dur: 3400, uses: ['none'], survive: true, motif: 'おあずけ',
+    def({ id: 'wait', graceMs: RULES.GRACE_MS, cue: 'まて！', say: 'まて', dur: 3400, uses: ['none'], survive: true, motif: 'おあずけ',
       create(g) {
         const W = g.W, H = g.H;
         const food = pick(foods()); let t = 0;
@@ -465,7 +468,7 @@
       } });
 
     // 23. にげろ! — おばけが きた ほうこうと はんたいへ スワイプ
-    def({ id: 'flee', cue: 'にげろ！', say: 'にげろ', dur: 3400, uses: ['swipe'], motif: 'おばけ屋敷',
+    def({ id: 'flee', graceMs: RULES.GRACE_MS, cue: 'にげろ！', say: 'にげろ', dur: 3400, uses: ['swipe'], motif: 'おばけ屋敷',
       create(g) {
         const W = g.W, H = g.H;
         const from = pick(['left', 'right', 'up', 'down']);
@@ -622,7 +625,9 @@
         const n = 2 + Math.floor(Math.random() * (2 + Math.min(2, g.extra)));
         const stars = []; for (let i = 0; i < n; i++) stars.push({ x: rnd(40, W - 40), y: rnd(50, H * 0.5) });
         const SHOW = lerp(1.1, 0.7, (g.level - 1) / (RULES.MAX_LEVEL - 1)); let t = 0, done = false;
-        const choices = shuffle([n, n + 1, Math.max(1, n - 1)]).map((v, i) => ({ v, x: W * ((i + 0.5) / 3), y: H * 0.8 }));
+        // n を ふくむ れんぞくした 3つ(1より ちいさい かずは つかわない)。せいかいが まんなかとは かぎらない
+        const lo = pick([n - 2, n - 1, n].filter((v) => v >= 1));
+        const choices = shuffle([lo, lo + 1, lo + 2]).map((v, i) => ({ v, x: W * ((i + 0.5) / 3), y: H * 0.8 }));
         return {
           update(dt) { t += dt; },
           draw(ctx) { bg(ctx, W, H, '#1c2340', '#2f3b6b'); if (t < SHOW) for (const s of stars) glyph(ctx, '⭐', s.x, s.y, 34); else glyph(ctx, '☁️', W / 2, H * 0.3, 90, 0.8); for (const c of choices) { if (ctx) { ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.beginPath(); ctx.arc(c.x, c.y, 30, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#223'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(c.v), c.x, c.y); } } },
@@ -693,7 +698,7 @@
       } });
 
     // 38. かさ! — あめが ふりはじめたら うえへ スワイプ(はやすぎても ×)
-    def({ id: 'umbrella', cue: 'あめがきたらかさ！', say: 'あめがきたらかさ', dur: 4200, uses: ['swipe'], motif: 'てんき',
+    def({ id: 'umbrella', graceMs: RULES.GRACE_MS, cue: 'あめがきたらかさ！', say: 'あめがきたらかさ', dur: 4200, uses: ['swipe'], motif: 'てんき',
       create(g) {
         const W = g.W, H = g.H;
         const rainAt = rnd(0.9, 2.2); let t = 0, done = false; const drops = [];
@@ -707,7 +712,7 @@
       } });
 
     // 39. とれ! — はしる キャラが わくに はいったら タップ(しゃしん)
-    def({ id: 'shutter', cue: 'とれ！', say: 'とれ', dur: 3800, uses: ['tap'], motif: 'アルバム',
+    def({ id: 'shutter', graceMs: RULES.GRACE_MS, cue: 'とれ！', say: 'とれ', dur: 3800, uses: ['tap'], motif: 'アルバム',
       create(g) {
         const W = g.W, H = g.H;
         const frame = { x: W / 2, w: lerp(90, 60, (g.level - 1) / (RULES.MAX_LEVEL - 1)) };
@@ -722,7 +727,7 @@
       } });
 
     // 40. わけろ! — ごはんは ひだりへ、うんちは みぎへ スワイプ(2〜3こ)
-    def({ id: 'sort', cue: 'ごはんはひだり！', say: 'ごはんはひだり', dur: 4200, uses: ['swipe'], motif: 'おかたづけ',
+    def({ id: 'sort', graceMs: RULES.GRACE_MS, cue: 'ごはんはひだり！', say: 'ごはんはひだり', dur: 4200, uses: ['swipe'], motif: 'おかたづけ',
       create(g) {
         const W = g.W, H = g.H;
         const n = 2 + Math.min(1, g.extra); const queue = []; for (let i = 0; i < n; i++) queue.push(Math.random() < 0.5 ? { ch: pick(foods()), food: true } : { ch: '💩', food: false });
@@ -777,7 +782,7 @@
       } });
 
     // 44. つれ! — うきが しずんだら うえへ スワイプ(はやすぎると にげる)
-    def({ id: 'fish', cue: 'ひいたら つれ！', say: 'ひいたらつれ', dur: 4200, uses: ['swipe'], motif: 'つり',
+    def({ id: 'fish', graceMs: RULES.GRACE_MS, cue: 'ひいたら つれ！', say: 'ひいたらつれ', dur: 4200, uses: ['swipe'], motif: 'つり',
       create(g) {
         const W = g.W, H = g.H;
         const biteAt = rnd(0.9, 2.4); const window = lerp(0.9, 0.55, (g.level - 1) / (RULES.MAX_LEVEL - 1));
@@ -792,12 +797,15 @@
       } });
 
     // 45. つめ! — ゆれる ブロックが したの タワーの うえに きたら タップ
-    def({ id: 'stack', cue: 'つめ！', say: 'つめ', dur: 3800, uses: ['tap'], motif: 'つみあげタワー',
+    def({ id: 'stack', graceMs: RULES.GRACE_MS, cue: 'つめ！', say: 'つめ', dur: 3800, uses: ['tap'], motif: 'つみあげタワー',
       create(g) {
         const W = g.W, H = g.H;
         const tol = lerp(34, 18, (g.level - 1) / (RULES.MAX_LEVEL - 1)); const sp = (1.6 + 0.3 * g.extra) * g.speed;
+        // ゆれの はじまりは ランダム。さいしょは かならず タワーの うえから はずれた ところ(tol の そと)から
+        const edge = Math.asin(Math.min(0.95, tol * 1.6 / (W * 0.34)));
+        const phase = rnd(edge, Math.PI - edge) + (Math.random() < 0.5 ? Math.PI : 0);
         let t = 0, done = false, dropped = null;
-        const bx = () => W / 2 + Math.sin(t * sp) * W * 0.34;
+        const bx = () => W / 2 + Math.sin(phase + t * sp) * W * 0.34;
         return {
           update(dt) { t += dt; if (dropped) { dropped.y += 500 * dt; } },
           draw(ctx) { bg(ctx, W, H, '#fff3e0', '#ffe0b3'); glyph(ctx, '🟫', W / 2, H * 0.8, 60); glyph(ctx, '🟫', W / 2, H * 0.66, 60); if (dropped) glyph(ctx, '🟧', dropped.x, Math.min(dropped.y, H * 0.52), 60); else glyph(ctx, '🟧', bx(), H * 0.22, 60); glyph(ctx, sprite(), W * 0.85, H * 0.88, 34); },
@@ -920,7 +928,7 @@
             level = Math.min(RULES.MAX_LEVEL, 1 + Math.floor(index / LEVEL_EVERY));
             const k = level - 1;
             limit = Math.round(def.dur * Math.max(0.6, 1 - RULES.TIME_SHRINK * k));
-            pending = null;
+            pending = null; ptr = null; // まえの ゲームの ゆびは もちこさない(つぎの pointerdown から うけつける)
             cur = { W, H, level, speed: 1 + RULES.SPEED_UP * k, extra: Math.floor(k / 2), feint: level >= 3, win: () => judge(true), lose: () => judge(false) };
             game = def.create(cur);
             run.current = { game, def, cue: game.cue || def.cue, level, limit, startedAt: performance.now() };
@@ -969,6 +977,7 @@
           canvas.addEventListener('pointerdown', (e) => {
             if (e.preventDefault) e.preventDefault();
             if (!active()) return;
+            if (def.graceMs && performance.now() - startedAt < def.graceMs) return; // はじまった ちょくごの おしは むし
             const p = pos(e); ptr = { id: e.pointerId, x: p.x, y: p.y, sx: p.x, sy: p.y, t0: performance.now(), moved: 0, swiped: false, tapped: false };
             try { if (canvas.setPointerCapture && e.pointerId != null) canvas.setPointerCapture(e.pointerId); } catch (err) {}
             if (game.onPress) game.onPress(p.x, p.y);
