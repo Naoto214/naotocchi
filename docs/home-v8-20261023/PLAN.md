@@ -26,8 +26,8 @@ Spec: user's v7 iPhone QA follow-up, 2026-10-23.
 - [x] 1. Audit registration/visits, regression test all 26 companions plus partner, 2-body sizing/arrival/departure.
 - [x] 2. RED tests for city surfaces/routes, implement connected sidewalks/park and existing assets; forest/river unchanged.
 - [x] 3. RED help lifecycle/storage tests, controller integration, menu help, responsive collapse.
-- [ ] 4. Browser QA widths320/375/390/430, 70/80/90% two visitor types, interaction/help/notice evidence; full official suite and package validation; review.
-- [ ] 5. Exact source commit/push existing branch, PR update, owner-only Site v8 and publication verification.
+- [x] 4. Browser QA widths320/375/390/430, 70/80/90% two visitor types, interaction/help/notice evidence; full official suite and package validation; review.
+- [x] 5. Exact source commit/push existing branch, PR update, owner-only Site v8 and publication verification.
 
 ## Ledger
 - Research: relationship-life.createVisits has one visitor slot. homePresentCompanions filters this key; homePresentPartner checks same slot. partyMax2 belongs to Meguru invitations, not Home.
@@ -42,3 +42,9 @@ Spec: user's v7 iPhone QA follow-up, 2026-10-23.
 - Used a separate temporary-memory checkout without deleting user source.
 - Keyboard selection regression fixed RED→GREEN, independent review clean.
 - Main 76f32494 merged into draft workspace; original main remains unchanged.
+
+## Final resumption
+- GitHub source a2d07edc was already ahead of the earlier local workspace. Preserved the old local changes, switched to the remote HEAD, and made no runtime rollback.
+- Restored screenshot transfer; 22 captures plus 5 labelled comparison sheets saved. Published source 3d2c2cac re-opened for final guide/notification/drag QA.
+- All seven CI workflows on a2d07edc succeeded after retrying only cancelled pad-size and Naopoyo jobs. Focused Home tests 16/16 passed again.
+- Version 8 remains owner-only and Draft remains open. Physical iPhone Safari acceptance is pending.

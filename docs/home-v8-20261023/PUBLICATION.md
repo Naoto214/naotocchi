@@ -7,6 +7,7 @@
 - Pushed Site source: `3d2c2cacafdc4d8d7ac914ed928a500b678af55d`
 - GitHub runtime: `398e33c2292b8994061d33af54ed45e849dad5f1`
 - GitHub QA-only followup: `9071bcba8fc0d3bcd8526d6013a2c429fc4e6acb`。runtimeは不変。
+- 最新QA-only followup: `a2d07edcee29c28e97d3c5049a552fe24ae610f8`。実装HEADの7 CIワークフロー成功を確認。今回の再開では画像・記録のみ追加し、公開済みversion 8のruntimeを維持した。
 - 公開後access: custom / owner1 / users1 / groups0 / external0。本人限定を維持。
 - 公開URLのサインインゲートをブラウザーで確認。ログイン後の公開画面は未確認。実操作QAは同一sourceの管理プレビューで実施。
 - 本番と別origin・別save keyを維持。main未マージ、本番GitHub Pages未更新、Draft継続。
