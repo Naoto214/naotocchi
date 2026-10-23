@@ -1,6 +1,13 @@
 # CARD GAME 最小再開メモ
 
-## 最新状態 — 残る本人判断2件を正式裁定で解消し、全400行が診断完走（400/400・後退0）。本番は未起動（2026-10-22）
+## 最新状態 — 本番第4回は第1行完走後、第2行でコンテナ再起動により停止（2026-10-23）
+
+- 承認 `6356164698`（PR #408）を正式ゲートで照合・消費し、claim `babd88f7` を保存して supervisor を起動（edition `33cb2f85`、binding 公開 `609d525a`、出力先 `data/proxy-population-400-final-run-20261023/`）。
+- 第1行 group-001-A-first は completed（診断と play digest 一致）。第2行の開始直後にコンテナ再起動で消失。契約どおり停止扱い・resume/retry なし。停止記録は `data/proxy-population-400-final-run-20261023-stop/STOP.md`。
+- 本番累計：完走1・未完了1・未実施398。次の試行には新しい preflight（tested commit が本停止証拠を含む必要がある）・binding 公開・本人承認が必要。1行約22分のため直列400行は約6日。
+- main マージ・本番 Pages 更新はしていない。
+
+## 残る本人判断2件を正式裁定で解消し、全400行が診断完走（400/400・後退0）。本番は未起動（2026-10-22）
 
 - ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。報告書は `data/proxy-population-400-rediagnosis-20261022/REPORT.md`（既存の `proxy-population-400-restart-20261020/` 以下は不変）。
 - 裁定①（06 56・74–75行）：連鎖解決中に成立した誘発は連鎖終了後の新しい連鎖として、次の通常行動の前に提示する → `9fc01f20`/`44d54844`（trigger_window：台帳に未解決の発生が残る間は窓を活性のまま保つ）。6試合で13件の発生がすべて1回だけ提示され、合法候補0で `close_ineligible_triggers`。決定候補は増えていない。
