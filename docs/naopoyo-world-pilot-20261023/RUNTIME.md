@@ -27,3 +27,6 @@ Independent read-only review reproduced three Important issues, all fixed with t
 
 ## Deliberate limitations
 E is a comparison prototype with nonoperable official guests, not a completed large boss battle. Guest moving/rescue-goals/two-actor switches are design-only. No current/foam/ice/wind/warp yet. All five shipped levels currently use no gravity; gravity interactions are verified in synthetic runtime tests and existing v2 scenes. Eight-by-six control is a static cropped layout comparison, not a conversion of existing levels. iPhone Safari device behavior, address bar/safe area transitions and enjoyment require user QA.
+
+## Parallel work observed
+Open PRs include #429 Conversation postgame Pilot, #426 living Home, #425/#424/#423 quick games, #408/#409/#407 CARD GAME, #427 earlier v2, #422 expansion. This branch does not import or alter their work. Three unrelated untracked postgame files appeared in the local checkout; they were left untouched and never staged. Remote main remains outside this task's write scope.

@@ -33,3 +33,11 @@ Independent review3 Important findings reproduced and fixed RED→GREEN: Undo re
 
 ## Not complete
 Current/foam/wind/ice/warp, operable guest, guest rescue goals, two-guest coordination, large boss silhouette, formal100-stage balance, Safari hardware QA. No stage uses gravity yet; runtime+v2 gravity tests cover interaction behavior. No claim that all requested future features are already shipped.
+
+## Browser interaction and deployment evidence
+375px iframe: actual pointer drag from dog2 through dog1 and3門 to double spike produced3 separate1 actors while staying one gesture. Screenshot `evidence/mobile-layout.jpg`. This is desktop Chromium input, not touch hardware.
+Dedicated GitHub CI `Naopoyo World Pilot` run39901057719 succeeded on implementation HEAD86852681. Its command includes Pilot30 + v2 156 + formal205. No production deploy job exists in the new workflow.
+Private Site version1 deployment succeeded;48 runtime manifest hashes match packaged archive. Anonymous version.json returns401. Native access policy is owner1, editors/groups/external visitors0. Authenticated HTTP byte fetch was not independently performed (no new bypass token was requested or created). Do not overclaim byte-for-byte remote response verification.
+
+## Final full regression
+Full package.json test chain completed exit0, concurrency2, no omitted tests. Node test totals3390/3390, failures/skips/cancelled0. Additional smoke/dialogue/visual scripts also exited0. Elapsed summed runner time921057ms. Complete log: evidence/full.log.gz; command: evidence/full-test-command.sh.
