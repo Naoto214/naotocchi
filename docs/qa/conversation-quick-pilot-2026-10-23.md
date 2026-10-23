@@ -66,7 +66,13 @@ WebKit(Safari)はこの作業環境に無いため未確認。
 
 ## 4. 本人専用 iPhone 試遊版(本番 Pages は変更しない)
 
-(push 後の commit に固定したリンクを PR に記載)
+commit `9416dbb5` 固定。#419・#421 の会話も入っている。どれかが開かなければ次を試す。
+
+- https://rawcdn.githack.com/Naoto214/naotocchi/9416dbb55fb0b1882acffc2e302f5a5dff1ee66c/index.html?conv2=demo
+- https://cdn.jsdelivr.net/gh/Naoto214/naotocchi@9416dbb55fb0b1882acffc2e302f5a5dff1ee66c/index.html?conv2=demo
+- https://cdn.statically.io/gh/Naoto214/naotocchi/9416dbb55fb0b1882acffc2e302f5a5dff1ee66c/index.html?conv2=demo
+
+セーブは本番と別(本番のセーブコードを貼れば今の人生で試せる。手順は #419 の QA doc §5)。この作業環境からは CDN に接続できないため、開けるかどうかは未確認。
 
 `?conv2=demo` のとき、Pilot の対象なら毎回話す(休む回なし)。外すと本番と同じ頻度(約 4〜5 回に 1 回、続けては話さない)。
 
