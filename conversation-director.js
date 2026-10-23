@@ -37,6 +37,8 @@
     maxCountedGapMs: 60e3,      // これより長い空白(閉じていた・裏にいた)は Home 表示時間に数えない
     lineMemory: 512,
     saveEveryMs: 30e3,
+    // Conversation v2 の「ひとかたまり」(掛け合い・問いかけ)。行ではなく単位で鮮度を見る
+    unitCooldownMs: 45 * 60e3,
     storageKey: 'naotocchi-conversation-v1',
   });
   const VERSION = 1;
@@ -70,6 +72,8 @@
     const familyLast = new Map(); // familyId → clock
     const memoryLast = new Map(); // eventKey → clock
     const quietGenericLast = new Map(); // speakerKey → clock
+    const units = new Map();      // unitId → clock(掛け合い・問いかけを実際に始めた時刻)
+    const unitKinds = new Map();  // 'banter' | 'question' → clock
     let lastSpeaker = null, prevSpeaker = null, run = 0;
 
     function advance() {
@@ -215,6 +219,34 @@
     function noteAgeRecall(age) { lastAgeRecall = age; dirty = true; }
 
     function markInteraction() { advance(); lastInteraction = clock; }
+    function sinceInteraction() { advance(); return clock - lastInteraction; }
+
+    // Conversation v2: 掛け合い・問いかけは「一つの単位」として扱う。途中の beat は通常どおり noteShown される
+    // ids から、最近出ていないものを一つ。全部が cooldown 中なら null(同じ掛け合いの繰り返しより、出さないほうがよい)
+    function pickUnit(ids, {cooldownMs = cfg.unitCooldownMs} = {}) {
+      advance();
+      const fresh = [...new Set((ids || []).filter(id => typeof id === 'string' && id))]
+        .filter(id => { const t = units.get(id); return t == null || clock - t >= cooldownMs; });
+      if (!fresh.length) return null;
+      // まだ一度も出ていないものを先に。出たことがあるなら古いものほど出やすい
+      const unseen = fresh.filter(id => !units.has(id));
+      const pool = unseen.length ? unseen : fresh;
+      const weights = pool.map(id => units.has(id) ? Math.max(cfg.minWeight, Math.min(1, (clock - units.get(id)) / cfg.recoverMs)) : 1);
+      const total = weights.reduce((a, b) => a + b, 0);
+      let r = rnd() * total;
+      for (let i = 0; i < pool.length; i++) { r -= weights[i]; if (r < 0) return pool[i]; }
+      return pool[pool.length - 1];
+    }
+    function noteUnit(id, kind) {
+      if (!id) return;
+      advance();
+      units.delete(id); units.set(id, clock);
+      while (units.size > 256) units.delete(units.keys().next().value);
+      if (kind) unitKinds.set(String(kind), clock);
+      dirty = true;
+    }
+    // その種類の単位を、前回から gapMs 以上あけたか
+    function unitReady(kind, gapMs) { advance(); const t = unitKinds.get(String(kind)); return t == null || clock - t >= gapMs; }
     function nextIdleDelay() {
       advance();
       const p = cfg.pace;
@@ -228,7 +260,8 @@
     function snapshot() {
       return {v: VERSION, clock, seq, rareLast: Number.isFinite(rareLast) ? rareLast : null, ageRecall: lastAgeRecall,
         lines: [...lines].map(([k, r]) => [k, r.t, r.s]),
-        speakers: [...speakers], families: [...familyLast], memories: [...memoryLast]};
+        speakers: [...speakers], families: [...familyLast], memories: [...memoryLast],
+        units: [...units], unitKinds: [...unitKinds]};
     }
     function restore(data) {
       if (!data || data.v !== VERSION || !Array.isArray(data.lines)) return false;
@@ -242,6 +275,8 @@
       }
       const fill = (map, rows, limit) => { map.clear(); for (const row of (Array.isArray(rows) ? rows : []).slice(-limit)) if (Array.isArray(row) && typeof row[0] === 'string') map.set(row[0], num(row[1])); };
       fill(speakers, data.speakers, 64); fill(familyLast, data.families, 64); fill(memoryLast, data.memories, 64);
+      // v2 以前の履歴には units がない(空のまま始める)
+      fill(units, data.units, 256); fill(unitKinds, data.unitKinds, 8);
       lastInteraction = clock; lastSpeaker = null; prevSpeaker = null; run = 0;
       return true;
     }
@@ -263,13 +298,14 @@
     // 「ぜんぶ さいしょから」: 記憶も保存先も消す
     function reset() {
       clock = 0; seq = 0; rareLast = -Infinity; lastAgeRecall = null; lastInteraction = 0; lastSavedAt = 0;
-      lines.clear(); speakers.clear(); familyLast.clear(); memoryLast.clear(); quietGenericLast.clear();
+      lines.clear(); speakers.clear(); familyLast.clear(); memoryLast.clear(); quietGenericLast.clear(); units.clear(); unitKinds.clear();
       lastSpeaker = null; prevSpeaker = null; run = 0; dirty = false;
       if (storage) { try { storage.removeItem(cfg.storageKey); } catch (_) {} }
     }
 
     return {reset, pick, pickOwnOrShared, noteShown, orderSpeakers, visitorStaysQuiet, rareReady, noteRare, wantsMemory, wantsDialect,
-      memoryFresh, noteMemory, ageRecallAllowed, noteAgeRecall, markInteraction, nextIdleDelay, snapshot, restore, load, save,
+      memoryFresh, noteMemory, ageRecallAllowed, noteAgeRecall, markInteraction, sinceInteraction, nextIdleDelay,
+      pickUnit, noteUnit, unitReady, snapshot, restore, load, save,
       isQuiet: (key) => quiet.has(key), get clock() { return clock; }, config: cfg};
   }
 
