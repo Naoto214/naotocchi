@@ -8,6 +8,7 @@
 // ・かたい 物の 見た目は あたり(world.obstacles)から つくる(meguru.js の worldObjects3d)。見えない かべ も、とおれる 木 も つくらない。
 // ・WebGL が つかえない / context lost のときは すぐ 2D に もどる(その あとは この あそびの あいだ ずっと 2D)。
 // ・座標: せかいの (x, z) → three の (x, y, -z)。カメラは 2D と おなじ ピンホール(焦点 0.95W・地平線 30%・水平)。
+import {projectHomeOcclusion} from './home-occlusion.mjs';
 import * as THREE from './vendor/three-0.170.0/three.module.min.js';
 import { createSoftwareRenderer } from './world-software.mjs';
 import { installWind, drawProjectedLife, createAquaticLife } from './world-ambient.mjs';
@@ -1616,6 +1617,16 @@ function create3DRenderer(M, o, onLost) {
   }
   return {
     draw,
+    homeOcclusion(point){
+      if(!o.home||!built)return [];
+      const instances=[];
+      for(const [shape,i]of rayCandidates(built.rayGrid,camera.position.x,camera.position.z,point.x,-point.z)){
+        const it=built.inst[shape]?.[i],m=built.meshes[shape];if(!it||!m)continue;
+        tmp.position.set(it.x,it.y,it.z);tmp.rotation.set(it.rx||0,it.ry,it.rz||0);tmp.scale.set(it.sx,it.sy,it.sz);tmp.updateMatrix();
+        instances.push({geometry:m.geometry,matrix:tmp.matrix.clone()});
+      }
+      return projectHomeOcclusion(camera,W,H,instances,point);
+    },
     // 隠す まえに 1 かい 全面を けす(隠れた canvas に まえの frame を のこさない。v2 F2)
     show(on) { if (!on && !lost) { try { renderer.clear(true, true, true); } catch (_) { /* context が ない */ } } gl.style.display = on ? '' : 'none'; if (on) place(); },
     resize(n) { ctx = n.ctx || ctx; W = n.W || W; H = n.H || H; renderer.setSize(W, H, false); place(); },

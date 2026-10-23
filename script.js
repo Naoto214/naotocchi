@@ -11100,15 +11100,45 @@
     pushLifeLog('💊', 'びょうきをなおしてもらった');
   }
 
+  // Ephemeral display queue: rewards and event generation stay with their owners.
+  const homeNoticeQueue=[];
+  let homeNoticeLife=null,homeStoryCurrent=null,homeBirthdayCurrent=null,homeResultCurrent=null;
+  function terrainNoticeMode(){return !!homeDiorama && window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region);}
+  function queueHomeNotice(kind,payload){
+    if(homeNoticeLife!==state){homeNoticeQueue.length=0;homeNoticeLife=state;}
+    const priority=kind==='result'?4:kind==='birthday'?0:payload.author||payload.character?3:payload.environmentMoment?1:2;
+    homeNoticeQueue.push({kind,payload,priority});
+  }
+  function drainHomeNotices(){
+    if(homeNoticeLife!==state){homeNoticeQueue.length=0;homeNoticeLife=state;}
+    if(!terrainNoticeMode()||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)return;
+    homeNoticeQueue.sort((a,b)=>b.priority-a.priority);
+    const next=homeNoticeQueue.shift();if(!next)return;
+    if(next.kind==='result')showMinigameResultToast(next.payload);else if(next.kind==='birthday')setBirthdayToast(next.payload);else showStoryEvent(next.payload);
+  }
+
+  document.addEventListener('visibilitychange',()=>{
+    if(!terrainNoticeMode())return;
+    if(pageVisible()){drainHomeNotices();return;}
+    // Restart the interrupted display on return; no event or reward is generated here.
+    const interrupted=[];
+    if(storyFlashTimer){clearTimeout(storyFlashTimer);storyFlashTimer=null;el.storyFlash.classList.add('hidden');if(homeStoryCurrent)interrupted.push(['story',homeStoryCurrent]);homeStoryCurrent=null;}
+    if(birthdayToastTimer){clearTimeout(birthdayToastTimer);birthdayToastTimer=null;el.birthdayToast.classList.add('hidden');if(homeBirthdayCurrent)interrupted.push(['birthday',homeBirthdayCurrent]);homeBirthdayCurrent=null;}
+    if(mgResultToastTimer){if(homeResultCurrent)interrupted.push(['result',homeResultCurrent]);hideMinigameResultToast(false);}
+    for(const [kind,payload]of interrupted){queueHomeNotice(kind,payload);homeNoticeQueue.unshift(homeNoticeQueue.pop());}
+  });
+
   // 1さいごとの ちいさな トースト(操作を とめない)
   let birthdayToastTimer = null;
   function setBirthdayToast(text) {
     if (!el.birthdayToast) return;
+    if(terrainNoticeMode()&&(!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('birthday',text);return;}
+    homeBirthdayCurrent=text;
     setCommentText(el.birthdayToast, text, true);
     el.birthdayToast.classList.remove('hidden');
     clearTimeout(birthdayToastTimer);
     birthdayToastTimer = setTimeout(() => {
-      el.birthdayToast.classList.add('hidden');
+      el.birthdayToast.classList.add('hidden');birthdayToastTimer=null;homeBirthdayCurrent=null;drainHomeNotices();
     }, 1200);
   }
 
@@ -11213,6 +11243,8 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
+    if(terrainNoticeMode()&&(!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('story',event);return;}
+    homeStoryCurrent=event;
     invalidateCareAfterglow();
     clearPetExpression();
     audio.play('notify');
@@ -11233,8 +11265,9 @@
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
     clearTimeout(storyFlashTimer);
     storyFlashTimer = setTimeout(() => {
-      el.storyFlash.classList.add('hidden');
-      showIndividualityEvent();
+      el.storyFlash.classList.add('hidden');storyFlashTimer=null;homeStoryCurrent=null;
+      drainHomeNotices();
+      if(!storyFlashTimer)showIndividualityEvent();
       renderWorldScene();
       syncHomeEmotion();
       renderPetVisual();
@@ -14780,7 +14813,7 @@
     castMotion?.clear();
     const baseLayout = window.NaotocchiCast.layoutHomeCast(args);
     const layout = window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region) && ![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)
-      ? window.NaotocchiHomeDiorama.scaleLayout(baseLayout,args) : baseLayout;
+      ? window.NaotocchiHomeDiorama.layoutTerrainCast(args) : baseLayout;
     relationshipCastFrames={layout,recruited,args};
     for(const actor of homeCastActors())relationshipMotionTokens.delete(actor.node);
     const area=layout.conversation;
@@ -16571,13 +16604,15 @@
   }
 
   let mgResultToastTimer = null;
-  function hideMinigameResultToast() {
+  function hideMinigameResultToast(continueNotices=true) {
     clearTimeout(mgResultToastTimer);
-    mgResultToastTimer = null;
+    mgResultToastTimer = null;homeResultCurrent=null;
     el.mgResultToast?.classList.add('hidden');
+    if(continueNotices)drainHomeNotices();
   }
   function showMinigameResultToast(result) {
     if (!el.mgResultToast || !result) return;
+    if(terrainNoticeMode()&&!pageVisible()){queueHomeNotice('result',result);return 0;}
     let sub;
     let subClass = 'mg-result-sub';
     if (result.prevBest == null) sub = 'はじめての記録!';
@@ -16597,7 +16632,11 @@
     const duration = retry ? 6000 : 3600;
     el.mgResultToast.style.animationDuration = `${duration}ms`;
     // アニメーションを あたまから やりなおす ために いちど けして つけなおす
-    hideMinigameResultToast();
+    hideMinigameResultToast(false);homeResultCurrent=result;
+    if(terrainNoticeMode()){
+      if(storyFlashTimer){clearTimeout(storyFlashTimer);storyFlashTimer=null;el.storyFlash.classList.add('hidden');if(homeStoryCurrent)queueHomeNotice('story',homeStoryCurrent);homeStoryCurrent=null;}
+      if(birthdayToastTimer){clearTimeout(birthdayToastTimer);birthdayToastTimer=null;el.birthdayToast.classList.add('hidden');if(homeBirthdayCurrent)queueHomeNotice('birthday',homeBirthdayCurrent);homeBirthdayCurrent=null;}
+    }
     hideSpeechBubble();
     void el.mgResultToast.offsetWidth;
     el.mgResultToast.classList.remove('hidden');
@@ -17313,7 +17352,7 @@
     // タイトル/せつめい文(.mg-title など、がめん じょうぶ)と おなじ いちに
     // 重なって かくれてしまう ことが あった ので、ミニゲームが はじまる
     // しゅんかんに かならず とじる ようにする
-    clearTimeout(storyFlashTimer);
+    clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;
     el.storyFlash.classList.add('hidden');
     el.screenNormal.classList.add('hidden');
     el.minigameOverlay.classList.remove('hidden');
@@ -18766,7 +18805,7 @@
     // companionsRecruited/partnersRecorded/partnersMarried)は べつに
     // のこるので、これまで であった なかま/こいびとの コレクションじたいは
     // きえないが、つぎの いっしょうでは また いちから であいなおす ひつようが ある
-    clearTimeout(storyFlashTimer);
+    clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;
     el.storyFlash.classList.add('hidden');
     endingCelebrationShown = false;
     el.gameClearOverlay.querySelectorAll('.ending-particle').forEach((p) => p.remove());

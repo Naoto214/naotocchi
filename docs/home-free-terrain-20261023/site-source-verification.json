@@ -1,0 +1,13 @@
+{
+  "files": 4056,
+  "mismatches": [],
+  "save_family": "naotocchi-home-diorama-preview-v1",
+  "source_runtime_tree": "awaiting GitHub commit",
+  "transforms": [
+    "launcher index.html",
+    "game.html from index.html",
+    "script.js preview save family",
+    "comparison + width QA fixtures",
+    "seed and profile data"
+  ]
+}

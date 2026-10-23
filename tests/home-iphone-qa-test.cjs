@@ -41,3 +41,9 @@ test('fish render inside scene below transparent water, pooled geometry never gr
 test('right-facing unicorn and eagle are not mirrored on a rightward walk',()=>{
  for(const asset of ['assets/characters/companions/unicorn.png','assets/characters/partners/high_eagle.png']){assert.equal(api.facingScale({asset},1),1);assert.equal(api.facingScale({asset},-1),-1);}
 });
+test('new terrain cast size is constant when visitors arrive and leave',()=>{
+ assert.equal(typeof api.layoutTerrainCast,'function');
+ const args={width:350,height:300,conversationHeight:44,mainAsset:'assets/characters/dog/04.png',hasPartner:false,companions:[]};
+ const solo=api.layoutTerrainCast(args);const group=api.layoutTerrainCast({...args,hasPartner:true,partnerAsset:'assets/characters/partners/forest_bear.png',companions:['assets/characters/companions/shiba.png','assets/characters/companions/cat_friend.png','assets/characters/companions/snail.png']});
+ assert.equal(solo.main.w,group.main.w);assert.ok(group.companions.every(f=>f.w===group.companions[0].w));
+});

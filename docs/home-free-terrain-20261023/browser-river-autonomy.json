@@ -1,0 +1,138 @@
+{
+ "actors": [
+  {
+   "key": "pet:dog",
+   "x": 180.1875,
+   "y": 223.75,
+   "w": 144.375,
+   "h": 145.75,
+   "direction": 1,
+   "activity": "look"
+  },
+  {
+   "key": "partner:forest_bear",
+   "x": 204.09375,
+   "y": 128.25,
+   "w": 72.1875,
+   "h": 74.25,
+   "direction": 1,
+   "activity": "look"
+  },
+  {
+   "key": "companion:shiba",
+   "x": 124.8375,
+   "y": 92.86875,
+   "w": 81.67500000000001,
+   "h": 74.86875,
+   "direction": 1,
+   "activity": "solitude"
+  },
+  {
+   "key": "companion:cat_friend",
+   "x": 292.4089365597149,
+   "y": 130.47857275995253,
+   "w": 81.67500000000001,
+   "h": 66.55000000000001,
+   "direction": -1,
+   "activity": "look"
+  },
+  {
+   "key": "companion:snail",
+   "x": 101.65614879950668,
+   "y": 159.62789274180423,
+   "w": 84.70000000000002,
+   "h": 39.325,
+   "direction": -1,
+   "activity": "turn"
+  },
+  {
+   "key": "companion:penguin_friend",
+   "x": 300.72705572739557,
+   "y": 191.52068833902624,
+   "w": 83.18750000000001,
+   "h": 38.56875,
+   "direction": -1,
+   "activity": "walk"
+  }
+ ],
+ "frames": 1575,
+ "seconds": 1458,
+ "fps": 1.0241742680311858,
+ "heapBytes": 23410468,
+ "cast": {
+  "distance": 3372.628052320809,
+  "moves": 235,
+  "turns": 41,
+  "activities": {
+   "turn": 20,
+   "walk": 235,
+   "look": 46,
+   "observe": 28,
+   "solitude": 28,
+   "approach": 35,
+   "together": 69,
+   "sit": 21,
+   "rest": 21
+  },
+  "clock": 286.06649999999684
+ },
+ "world": {
+  "projectionRevision": 5,
+  "mode": "canvas-3d",
+  "region": "river_lake",
+  "life": {
+   "clock": 55.299900000000655,
+   "spawned": 15,
+   "distance": 22826.79123284388,
+   "active": 8,
+   "capacity": 8
+  },
+  "recoveryAttempts": 0,
+  "renderer": {
+   "mode": "canvas-3d",
+   "calls": 84,
+   "triangles": 2979,
+   "textures": 0,
+   "geometries": 20,
+   "objects": 35,
+   "actors": 1,
+   "drawMsAvg": 6.45172413778973,
+   "drawMsP95": 12.400000002235174,
+   "pixelRatio": 1,
+   "char3d": null,
+   "ghosts": {
+    "hiddenObjects": 0,
+    "owners": [],
+    "visible": 0,
+    "attached": 0,
+    "total": 0
+   },
+   "water": {
+    "kind": "river",
+    "meshes": [
+     "water:bank",
+     "water:river"
+    ],
+    "ponds": 0
+   },
+   "player": {
+    "mode": "dom",
+    "pixelVisibility": "DOM_QA_REQUIRED",
+    "applicable": false
+   },
+   "diag": {
+    "on": false,
+    "ray": {
+     "seen": 3,
+     "of": 3,
+     "blk": ""
+    },
+    "occlFrames": 0,
+    "rayChecks": 0,
+    "uploads": 0,
+    "longFrames": 2,
+    "dprSteps": []
+   }
+  }
+ }
+}

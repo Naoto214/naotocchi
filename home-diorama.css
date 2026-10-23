@@ -61,3 +61,32 @@ body:is([data-living-home="3d"],[data-living-home="canvas-3d"]) .device{position
 #castStage[data-diorama] [data-diorama-actor] .character-visual{transform-origin:var(--diorama-origin,50% 100%)}
 
 #castStage[data-diorama] [data-diorama-actor] > .partner-emoji > .character-visual{transform-origin:var(--diorama-origin,50% 100%)}
+/* Ordered normal-flow information; no absolute toast can cover basic facts. */
+.home-information,.home-event-slot{display:contents}
+body[data-home-terrain="true"] .device.ui-home-active:has(#screenNormal:not(.hidden)){grid-template-rows:auto minmax(0,1fr) auto auto;gap:3px}
+body[data-home-terrain="true"] .device.ui-home-active:has(#screenNormal:not(.hidden))>.screen-frame{grid-row:2}
+body[data-home-terrain="true"] #homeInformation{display:flex;flex-direction:column;gap:1px;flex:none;padding:0 2px}
+body[data-home-terrain="true"] #homeInformation .status-row{padding:0 6px;min-height:20px}
+body[data-home-terrain="true"] #homeInformation .sub-status-row{padding:0 6px;font-size:11px;flex-wrap:wrap;justify-content:center;gap:2px 8px}
+body[data-home-terrain="true"] #homeInformation .cast-heading{padding:1px 0;gap:1px}
+body[data-home-terrain="true"] #homeGestureGuide{min-height:14px;text-align:center;line-height:1.4}
+body[data-home-terrain="true"] #homeGestureGuide .diorama-hint{position:static;display:block;font-size:10px}
+body[data-home-terrain="true"] #homeEventSlot{display:flex;flex-direction:column;flex:none;gap:2px;min-height:0;max-height:84px;overflow:auto;scrollbar-width:thin;position:relative;z-index:5;touch-action:pan-y}
+body[data-home-terrain="true"] #homeEventSlot:has(>.story-flash:not(.hidden))>#message,
+body[data-home-terrain="true"] #homeEventSlot:has(>.mg-result-toast:not(.hidden))>#message,
+body[data-home-terrain="true"] #homeEventSlot:has(>.birthday-toast:not(.hidden))>#message{display:none}
+body[data-home-terrain="true"] #homeEventSlot>#message:empty{display:none}
+body[data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){position:relative;inset:auto;transform:none;width:auto;margin:0;min-height:0;height:auto;max-height:78px;flex-shrink:0;padding:5px 9px;border:0;border-radius:9px;font-size:12px;line-height:1.4;animation:none;background:#f5fcf0b8;box-shadow:none;overflow:auto}
+body[data-home-terrain="true"] #homeEventSlot>.story-flash{display:flex;align-items:center;gap:6px}
+body[data-home-terrain="true"] #homeEventSlot>.hidden{display:none}
+body[data-home-terrain="true"] #homeEventSlot .story-flash-emoji{font-size:22px;flex:0 0 26px;max-width:32px}
+body[data-home-terrain="true"] #homeEventSlot .story-flash-text{font-size:12px;text-align:left;line-height:1.4;overflow-wrap:anywhere}
+body[data-home-terrain="true"] #homeEventSlot:empty{display:none}
+body[data-home-terrain="true"] #castStage[data-diorama]{min-height:150px}
+@media(max-width:340px){body[data-home-terrain="true"] #homeInformation .status-row{font-size:12px}body[data-home-terrain="true"] #homeInformation .sub-status-row{font-size:10px}}
+/* Health stays visible in the care label/meters; the old warning halo must not
+   recreate a character-only oval floor over the shared terrain. */
+#castStage[data-diorama]::after{display:none!important}
+body[data-home-terrain="true"] #homeGestureGuide .diorama-hint{font-size:11px;opacity:1;color:#173e32;text-shadow:0 1px 2px #fff,0 0 5px #fff}
+body[data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message),
+body[data-home-terrain="true"] #homeEventSlot .story-flash-text{color:#173e32;text-shadow:none}

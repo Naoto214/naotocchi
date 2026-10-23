@@ -1,12 +1,12 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const {harness}=require('./helpers/runtime-harness.cjs');
 const M=harness({deterministic:true}).api.meguruMod;
-test('Home compositions reuse official geometry, preserve sources and keep cast foreground clear',async()=>{
+test('Home compositions reuse official geometry, preserve sources and match solid collision footprints',async()=>{
  const {composeHomeWorld}=await import('../home-world.mjs');
  for(const region of ['forest','river_lake','city']){
   const original=JSON.stringify(M.REGION3D[region]);const c=composeHomeWorld(M,region);
   assert.ok(c.objects.length>10);assert.ok(c.objects.every(o=>o.sourceId));
-  assert.ok(c.objects.filter(o=>o.solid).every(o=>o.z>=1000||Math.abs(o.x)>700));
+  assert.ok(c.objects.filter(o=>o.collision).every(o=>M.collidesAt(c.world,o.x,o.z,8)));
   assert.equal(JSON.stringify(M.REGION3D[region]),original);
   assert.ok(c.world.world3d);assert.ok(c.world.segments.length);
   if(region==='river_lake')assert.equal(c.world.terrain.kind,'river');
