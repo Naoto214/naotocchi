@@ -66,6 +66,13 @@
 
 ## GitHub・本人限定試遊版
 
-コード・検証記録をDraft PR #426へ保存する。本人限定試遊版の新しい公開情報は、この報告の追記で記録する。保存キーは `naotocchi-home-diorama-preview-v1` を継続。
+- GitHub runtime commit：`367046f2fd7bb1be1017bc2fe0c0def435d62fae`。検証したlocal tree `122ca6bdfd5bdbbc8413a17b46fe7b9bcd526e6c` と一致。旧PR headと最新main 4a70f2cを親に持つ。
+- Draft PR： https://github.com/Naoto214/naotocchi/pull/426 。push後 Draft/open/未マージ/mergeable=trueを確認。
+- 継続URL： https://naotocchi-home-diorama-20261022.kerzion214.chatgpt.site/
+- **Site version 3公開成功**。source `03e4c0ef611b6a5ae239bedbfefd734245ef3f32`、deployment `appgdep_6adac0b068608191bdb664ef7015ce1f`、2026-10-23 02:05:14 UTC。
+- owner 1名のみ、外部訪問者0。本人限定のアクセス設定を変更していない。
+- runtime 4,047ファイルを照合し、試遊入口・game.html・script.jsの保存キー置換だけが意図した差分。保存キー `naotocchi-home-diorama-preview-v1` を継続。本番キーへ書き込まない。
+- 公開後URLで認証ゲートを確認。ChatGPT認証先ではログインが必要なため、**認証後の公開画面・動作は未確認**。連続観察・操作結果は同じruntimeのmanaged previewのもの。公開成功とログイン後の実動作を混同しない。
+- この公開記録の追記は文書のみ。詳細な公開metadataは `publication.json`。
 
 新規PR作成なし。Draft #426を継続し、mainへのマージ・本番GitHub Pages更新は禁止を維持する。
