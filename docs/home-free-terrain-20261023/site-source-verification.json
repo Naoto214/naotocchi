@@ -2,12 +2,15 @@
   "files": 4056,
   "mismatches": [],
   "save_family": "naotocchi-home-diorama-preview-v1",
-  "source_runtime_tree": "awaiting GitHub commit",
+  "source_runtime_tree": "864857f2c6c68252c32032c1627368292700c3ce",
   "transforms": [
     "launcher index.html",
     "game.html from index.html",
     "script.js preview save family",
     "comparison + width QA fixtures",
     "seed and profile data"
-  ]
+  ],
+  "github_runtime_commit": "1ae634da90be19e9dd41233ae0ada8e423c24ece",
+  "site_source_commit": "5574c7dbdb0c585e3ade5c4c9380b697829fd63f",
+  "published_version": 7
 }

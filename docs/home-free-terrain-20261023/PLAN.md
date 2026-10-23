@@ -22,7 +22,7 @@ Spec: user's 13-section iPhone QA request, 2026-10-23, preserved in this session
 - [x] 2. Connect navigation to model/controller (sync, destination, waypoints, sweeps, resize). Preserve image state and gesture owners. Test cancellation, autonomy and multi-cast spacing.
 - [x] 3. Consolidate header information and event slot. Preserve existing story queue priorities; serialize lightweight notices. RED/GREEN regression tests for content and order, busy transitions and save invariance.
 - [x] 4. Compare stable cast sizes and 3-region/4-width browser screenshots. Choose a constant scale, document limitations and evidence. Validate full official package suite.
-- [ ] 5. Fresh whole-change review, address material findings, commit/push exact tree, update Draft #426, package and publish existing owner-private Site. Verify deployment and report.
+- [x] 5. Fresh whole-change review, address material findings, commit/push exact tree, update Draft #426, package and publish existing owner-private Site. Verify deployment and report.
 
 ## Progress / decisions
 - Authorization includes design, implementation, git save and private publication; no intermediate approval needed.
