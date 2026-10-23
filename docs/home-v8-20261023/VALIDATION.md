@@ -21,7 +21,7 @@
 runtime commitのNaopoyo official release / Pages runtime package / Naopoyo slide series / Naopoyo integration / pad-sizeは成功。
 Home layoutのMotion v2 32ケース、conversation/dialog layout、meguru landscape等は通過したが、camera-framing.cjsのcanvasCountが2 !== 1で失敗。Homeも共通rendererを保持するためdocument全体の数は2になり得る。`#mgrCanvas`の親内へ検査を限定し、めぐる内の重複canvas検出は維持した。
 
-検査修正commit `9071bcba8fc0d3bcd8526d6013a2c429fc4e6acb`。node --check成功。GitHub再実行中の時点ではCI全greenとしない。Runtime smoke / World visual qualityも完了結果を確認するまで保留。
+検査修正commit `9071bcba8fc0d3bcd8526d6013a2c429fc4e6acb`。node --check成功。GitHub再実行中の時点ではCI全greenとしない。Runtime smokeは成功。World visual qualityのFull package pipeline（Node並列数4）は**3482/3482 pass、0 fail、全コマンド成功**。World captures/corridor/visibility/smokeも成功。character-integrationのdefault-startupには同じglobal canvas計数、context-loss対象の取り違え、古いconstructor fault注入anchorがあり失敗。検査を#meguruOverlay内へ限定し、constructor注入は現行の一意anchorへ更新（Homeには故障を注入しない）。追加の既存契約テスト17/17 pass。これら検査側修正後のCIは保留。
 
 ## 画面と実機
 
