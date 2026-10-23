@@ -1,0 +1,7 @@
+import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';import {createHash} from 'node:crypto';import {spriteData} from '../naopoyo-rescue/sprite-data.mjs';
+const root=fileURLToPath(new URL('../../',import.meta.url)),out=path.resolve(process.argv[2]||'');if(!process.argv[2]||out===root)throw Error('Pass separate output directory');
+const files=['index.html','qa.html','style.css','app.mjs','render.mjs','engine.mjs','input.mjs','session.mjs','store.mjs','stages.mjs','solutions.json'].map(f=>'prototypes/naopoyo-v2/'+f);
+files.push(...['input.mjs','engine.mjs','conditions.mjs','sprites.mjs','sprite-data.mjs'].map(f=>'prototypes/naopoyo-rescue/'+f),...Object.entries(spriteData).filter(([key])=>!key.startsWith('owl')).map(([,v])=>v.path));
+const hashes={};for(const f of files){const dst=path.join(out,f);fs.mkdirSync(path.dirname(dst),{recursive:true});const buf=fs.readFileSync(path.join(root,f));fs.writeFileSync(dst,buf);hashes[f]=createHash('sha256').update(buf).digest('hex')}
+const index=fs.readFileSync(path.join(root,'prototypes/naopoyo-v2/index.html'),'utf8').replace('<head>','<head><base href="./prototypes/naopoyo-v2/">');fs.writeFileSync(path.join(out,'index.html'),index);hashes['index.html']=createHash('sha256').update(index).digest('hex');
+fs.writeFileSync(path.join(out,'version.json'),JSON.stringify({name:'NAOPOYO. v2',schema:3,base:'b3f8f4f7e3e0e87402c98d23657040d6e0df4bfb',files:hashes},null,2));console.log(JSON.stringify({out,files:Object.keys(hashes).length}));

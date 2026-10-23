@@ -1,0 +1,222 @@
+{
+  "method": "Same directional commands through real v1/v2 engines, one attempted drag; not equivalent goals when rules differ. No subjective rating or user error rate inferred.",
+  "rows": [
+    {
+      "id": "V01",
+      "path": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "old": {
+          "accepted": 0,
+          "rejected": 3
+        },
+        "v2": {
+          "accepted": 3,
+          "rejected": 0
+        }
+      },
+      "oldLevels": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "v2Levels": [
+        7
+      ],
+      "attemptedDrags": 1
+    },
+    {
+      "id": "V09",
+      "path": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "old": {
+          "accepted": 3,
+          "rejected": 0
+        },
+        "v2": {
+          "accepted": 3,
+          "rejected": 0
+        }
+      },
+      "oldLevels": [
+        1
+      ],
+      "v2Levels": [
+        1
+      ],
+      "attemptedDrags": 1
+    },
+    {
+      "id": "V10",
+      "path": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      "counts": {
+        "old": {
+          "accepted": 0,
+          "rejected": 5
+        },
+        "v2": {
+          "accepted": 5,
+          "rejected": 0
+        }
+      },
+      "oldLevels": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "v2Levels": [
+        6,
+        1
+      ],
+      "attemptedDrags": 1
+    },
+    {
+      "id": "V11",
+      "path": [
+        [
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "old": {
+          "accepted": 0,
+          "rejected": 1
+        },
+        "v2": {
+          "accepted": 1,
+          "rejected": 0
+        }
+      },
+      "oldLevels": [
+        2,
+        3
+      ],
+      "v2Levels": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "attemptedDrags": 1
+    },
+    {
+      "id": "V16",
+      "path": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "old": {
+          "accepted": 2,
+          "rejected": 0
+        },
+        "v2": {
+          "accepted": 2,
+          "rejected": 0
+        }
+      },
+      "oldLevels": [
+        3,
+        4,
+        3
+      ],
+      "v2Levels": [
+        3,
+        1,
+        1
+      ],
+      "attemptedDrags": 1
+    },
+    {
+      "id": "V17",
+      "path": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "old": {
+          "accepted": 2,
+          "rejected": 0
+        },
+        "v2": {
+          "accepted": 2,
+          "rejected": 0
+        }
+      },
+      "oldLevels": [
+        3,
+        4,
+        3
+      ],
+      "v2Levels": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "attemptedDrags": 1
+    }
+  ]
+}

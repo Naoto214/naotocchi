@@ -1,0 +1,33 @@
+name: Naopoyo Chapter 1
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-chapter1/**'
+      - 'prototypes/naopoyo-world/**'
+      - 'prototypes/naopoyo-v2/**'
+      - '.github/workflows/naopoyo-chapter1.yml'
+      - 'prototypes/naopoyo/index.html'
+      - 'tools/pages/**'
+      - 'tests/pages/**'
+      - 'conversation-away.js'
+      - 'script.js'
+  workflow_dispatch:
+jobs:
+  chapter-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/naopoyo-chapter1/tests/*.test.mjs prototypes/naopoyo-insight/tests/*.test.mjs prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
+      - run: node prototypes/naopoyo-chapter1/build-preview.mjs /tmp/chapter-preview
+
+  card-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs
