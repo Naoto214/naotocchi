@@ -1,0 +1,9 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {stages} from '../stages.mjs';
+for(const s of stages.filter(s=>s.gates.length))test(s.id+' gate barrier blocks every 8-direction bypass',()=>{const seen=new Set(),todo=s.actors.map(a=>[a.x,a.y]);while(todo.length){const [x,y]=todo.pop(),k=x+','+y;if(x<0||x>7||y<0||y>7||seen.has(k)||s.walls.some(p=>p[0]===x&&p[1]===y)||s.gates.some(p=>p.x===x&&p.y===y))continue;seen.add(k);for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++)if(dx||dy)todo.push([x+dx,y+dy]);}assert.ok(s.exits.every(e=>!seen.has(e.x+','+e.y)));assert.ok(s.spikes.every(e=>!seen.has(e.x+','+e.y)))});
+// Over-approximation: ignore positions, allow all merges and any matching exit. If even
+// this larger graph cannot empty, no geometric no-split solution exists.
+function arithmetic(levels,exits){const todo=[levels],seen=new Set();for(let i=0;i<todo.length;i++){const a=todo[i].sort((x,y)=>x-y),k=a.join(',');if(seen.has(k))continue;seen.add(k);if(!a.length)return true;for(let j=0;j<a.length;j++){if(exits.includes(a[j]))todo.push(a.filter((_,n)=>j!==n));for(let l=j+1;l<a.length;l++){if(a[j]===8&&a[l]===8)continue;const sum=a[j]+a[l];todo.push([...a.filter((_,n)=>n!==j&&n!==l),Math.min(8,sum),...(sum>8?[sum-8]:[])]);}}}return false}
+for(const n of [3,6,8])test(stages[n].id+' split necessary even in position-free relaxed graph',()=>assert.equal(arithmetic(stages[n].actors.map(a=>a.level),stages[n].exits.map(e=>e.exact)),false));
+test('owl trial: before gates only overflow can change 6+5; after passage 8+3 cannot reach 5+6 without split',()=>{const s=stages[9];assert.deepEqual(s.actors.map(a=>a.level),[6,5]);assert.deepEqual(s.gates.map(g=>g.exact),[8,3]);assert.equal(arithmetic([8,3],[5,6]),false)});
+
+test('order: mandatory 4 gate followed by exit2 requires splitting after passage',()=>{assert.equal(stages[7].gates[0].exact,4);assert.equal(arithmetic([4],[2]),false)});
