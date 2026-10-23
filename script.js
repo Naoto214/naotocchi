@@ -6529,6 +6529,8 @@
   // 鮮度・間隔は Director の unit 履歴で見る。セーブ本体には何も書かない。
   // 設計: docs/design/conversation-v2-pilot-2026-10-22.md
   const CONVERSATION_BANTER = globalThis.NaotocchiConversationBanter || null;
+  // ゲームのあとの掛け合い(Pilot)。結果の判定は minigame-reactions.js のものをそのまま受け取る
+  const CONVERSATION_POSTGAME = globalThis.NaotocchiConversationPostgame || null;
   // QA 用: ?conv2=demo で掛け合い・問いかけを出やすくする(保存しない。本人の試遊確認用)
   const CONV2_DEMO = (() => { try { return /[?&]conv2=demo(?:&|$)/.test(String(globalThis.location?.search || '')); } catch (_) { return false; } })();
   const CONV2 = Object.freeze({
@@ -6546,6 +6548,14 @@
     noAnswerLineChance: 0.5,
     replyDelayMs: 350,
     lastBeatHoldMs: 3200,                  // オチの一言は少し長く読めるように
+    // ゲームのあと(結果カードを読んだあとに始める。もういちど・お世話の操作が来たらやめる)
+    postgameGapMs: CONV2_DEMO ? 0 : 3 * 60e3,          // ゲームのあとの掛け合いは Home 時間で 3 分に 1 回まで
+    postgameChance: CONV2_DEMO ? 1 : 0.6,             // できごと(初クリア・自己ベスト・惜しい・連敗・くりかえし…)があったとき
+    postgamePlainChance: CONV2_DEMO ? 1 : 0.2,        // とくにできごとがない、よい/わるい結果のとき(ふつうの結果は今までどおり黙る)
+    postgamePreferredShare: 0.6,                      // 来ている相手との掛け合い・性格・すきな遊びの一言を少し優先
+    postgameQuestionShare: CONV2_DEMO ? 0.5 : 0.3,    // 候補に問いかけがあるとき、問いかけにする割合
+    postgameQuestionGapMs: 2 * 60e3,                  // ふつうの問いかけとゲームのあとの問いかけを続けない
+    postgameStartDelayMs: 300,
   });
   var conv2Unit = null;        // いま進行中の掛け合い・問いかけ {kind, id, startedAt, held, timers, visitorKey, question, awaiting}
   var conv2VisitCount = 0;
@@ -6679,6 +6689,7 @@
     if (!CONVERSATION_BANTER || !conversationDirector || !conv2CanStart()) return false;
     const director = conversationDirector;
     if (Date.now() - conv2BootAt < CONV2.questionGapMs || !director.unitReady('question', CONV2.questionGapMs)) return false;
+    if (!director.unitReady('postgame', CONV2.postgameQuestionGapMs)) return false;   // ゲームのあとの掛け合いの直後は聞かない
     if (director.sinceInteraction() > CONV2.questionActiveMs) return false;
     if (Math.random() >= CONV2.questionChance) return false;
     const visitorKey = conv2CurrentVisitorKey();
@@ -6691,16 +6702,59 @@
     if (!q || !conv2CanStart()) return false;
     const unit = conv2NewUnit('question', q.id, visitorKey);
     unit.question = q;
-    const ask = () => {
-      if (!conv2ContextOk()) { conv2Abort('context'); return; }
-      setSpeechBubble(q.ask, petSpeaker(), {holdMs:CONV2.answerWaitMs});
-      conv2ShowChoices(q);
-      unit.awaiting = true;
-      conversationBusyUntil = Math.max(conversationBusyUntil, Date.now() + CONV2.answerWaitMs);
-      conv2Later(unit, () => conv2NoAnswer(unit), CONV2.answerWaitMs);
-    };
+    const ask = () => conv2AskBeat(unit, q);
     if (q.lead.length) conv2Play(unit, q.lead, visitorKey, ask);
     else ask();
+    return true;
+  }
+  // 問いかけの一言を出して、選択肢を待つ
+  function conv2AskBeat(unit, q) {
+    if (conv2Unit !== unit) return;
+    if (!conv2ContextOk()) { conv2Abort('context'); return; }
+    setSpeechBubble(q.ask, petSpeaker(), {holdMs:CONV2.answerWaitMs});
+    conv2ShowChoices(q);
+    unit.awaiting = true;
+    conversationBusyUntil = Math.max(conversationBusyUntil, Date.now() + CONV2.answerWaitMs);
+    conv2Later(unit, () => conv2NoAnswer(unit), CONV2.answerWaitMs);
+  }
+
+  // ---- ゲームのあと ----
+  // finishMinigameInner から、結果カードを出した直後に呼ぶ。掛け合いを選んだら true(いつもの応援の一言の代わりに出す)。
+  // plan は minigame-reactions.js がすでに決めた結果(帯・できごと)。ここで点数や記録を判定し直さない
+  function conv2PostGame(input, plan, held, delayMs) {
+    if (!CONVERSATION_POSTGAME || !conversationDirector || !plan || conv2Unit || !input) return false;
+    if (input.source === 'companion' || input.recruited != null) return false;   // なかまの勧誘は、勧誘の会話のまま
+    if (!CONVERSATION_POSTGAME.PILOT_GAMES.includes(input.gameId)) return false;
+    const director = conversationDirector;
+    if (!director.unitReady('postgame', CONV2.postgameGapMs)) return false;
+    const moments = plan.moments || [];
+    const notable = moments.some(m => m !== 'plain');
+    if (!notable && input.band === 'mid') return false;
+    if (Math.random() >= (notable ? CONV2.postgameChance : CONV2.postgamePlainChance)) return false;
+    const visitorKey = conv2CurrentVisitorKey();
+    const ind = state.individuality;
+    const list = CONVERSATION_POSTGAME.candidates({gameId:input.gameId, genre:input.genre, band:input.band, moments,
+      visitorKind:visitorKey ? visitorKey.split(':')[0] : null, visitorQuiet:visitorKey ? director.isQuiet(visitorKey) : false,
+      temperament:ind?.temperament || null, favoriteGenre:ind?.preferences?.game?.current || null});
+    const askOk = director.unitReady('question', CONV2.postgameQuestionGapMs) && Math.random() < CONV2.postgameQuestionShare;
+    const pool = list.filter(u => u.kind !== 'question' || askOk);
+    const preferred = pool.filter(u => u.with || u.trait || u.favorite);
+    const def = conv2PickFrom(preferred, pool.filter(u => !preferred.includes(u)), CONV2.postgamePreferredShare);
+    if (!def) return false;
+    const unitVisitor = def.with ? visitorKey : null;
+    const unit = conv2NewUnit('postgame', def.id, unitVisitor);
+    // ゲームを終えた操作そのものは、この掛け合いを止める操作に数えない
+    unit.startedAt = Date.now() + 1;
+    unit.held.push(...(held || []));
+    const start = delayMs + CONV2.postgameStartDelayMs;
+    if (def.kind === 'question') {
+      director.noteUnit(def.id, 'question');
+      unit.question = def;
+      conversationBusyUntil = Math.max(conversationBusyUntil, Date.now() + start + CONV2.answerWaitMs);
+      conv2Later(unit, () => conv2AskBeat(unit, def), start);
+    } else {
+      conv2Play(unit, def.beats, unitVisitor, () => conv2Finish(unit), start);
+    }
     return true;
   }
   function conv2ShowChoices(q) {
@@ -6713,7 +6767,7 @@
   }
   function conv2Answer(index) {
     const unit = conv2Unit;
-    if (!unit || unit.kind !== 'question' || !unit.awaiting) return false;
+    if (!unit || !unit.question || !unit.awaiting) return false;
     const choice = unit.question.choices[index];
     if (!choice) return false;
     unit.awaiting = false;
@@ -17122,12 +17176,17 @@
     if (recentMinigameResults.length > 8) recentMinigameResults.shift();
     const heldSpeech = minigameResultSpeechHold || [];
     minigameResultSpeechHold = null;
-    dispatchMinigameReaction(minigameReactionPlan({
+    const reactionInput = {
       kind: 'normal', gameId: game.id, category: minigameCategoryOf.get(game) || null, genre: minigameGenreId(game),
       score: rawScore, band, record, playCount: minigamePlayCount(game), recent: recentMinigameResults,
       source: fromCompanion ? 'companion' : 'play', recruited: fromCompanion ? recruitedNow : null,
       hasPartner: !!state.partner, companionCount: state.companions.length,
-    }), heldSpeech, resultDuration, recruitedMotionTarget);
+    };
+    const reactionPlan = minigameReactionPlan(reactionInput);
+    // Conversation v2 Pilot: 対象のゲームでは、いつもの一言の代わりに、ゲームのあとの掛け合いになることがある
+    if (!conv2PostGame(reactionInput, reactionPlan, heldSpeech, resultDuration)) {
+      dispatchMinigameReaction(reactionPlan, heldSpeech, resultDuration, recruitedMotionTarget);
+    }
     audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
 
     // checkStoryEvents() no-ops while gameActive, so this must run after

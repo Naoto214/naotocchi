@@ -1,0 +1,8 @@
+{
+  "command": "package.json scripts.test; each node --test uses --test-concurrency=2",
+  "exit": 0,
+  "tests": 3435,
+  "pass": 3435,
+  "fail": 0,
+  "physicalIphone": "not tested"
+}

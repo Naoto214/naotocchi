@@ -1,5 +1,7 @@
 # PR #426 — 生きているホーム・3地域Pilot
 
+> 最新の追加修正・main統合・再検証・公開記録は [followup/REPORT.md](followup/REPORT.md) を参照。以下は最初のPilot完成時点の記録。
+
 採用判断は本人によるiPhone Safari試遊後。Draftを維持し、mainへのマージと本番GitHub Pages更新は行わない。
 
 ## 実装内容

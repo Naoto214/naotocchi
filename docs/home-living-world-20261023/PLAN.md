@@ -36,3 +36,7 @@ No main merge, Pages update, care rules, saved traits, relationship or attendanc
 - [x] Package exact source into existing owner-private Site and deploy version 2; verify deployment success and anonymous sign-in gate.
 - [ ] Authenticated post-deployment display/motion: blocked by sign-in; not counted as passed.
 - [ ] Human iPhone Safari acceptance: all real-device gates remain unverified.
+
+## 追加修正の完了記録
+
+接地補正・描画復帰・最新main 4a70f2c統合を完了。正式packageテスト3,435/3,435、統合45/45、なおぽよ205/205、配布HTTP4,047ファイル検証済み。実機と認証後公開画面は未確認として分離。詳細は followup/REPORT.md。

@@ -13,3 +13,7 @@ Three distinct regions, no old photo/island in supported Home; environmental lif
 
 ## Assumptions
 The supplied section 6 is truncated and sections 7–12 absent. Use the complete priorities, sections 13–18 and existing approved protection constraints as acceptance. No additional unprovided features inferred.
+
+## 接地・復帰境界の補足
+
+HomeはDOM足元の画面座標をrendererへ渡し、Home専用camera view offsetだけを補正する。探索カメラには適用しない。描画障害はHome境界で解放し、1/3/10秒の最大3回で再作成する。非表示・停止・破棄時は再試行せず、同地域の生活時計を保持する。実WebGL復帰は本人QA待ち。詳細は [追加報告](followup/REPORT.md)。

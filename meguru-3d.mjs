@@ -13,6 +13,17 @@ import { createSoftwareRenderer } from './world-software.mjs';
 import { installWind, drawProjectedLife } from './world-ambient.mjs';
 
 export const THREE_REVISION = THREE.REVISION;
+// Home's DOM cast owns its screen position. Align the clear ground beneath it,
+// without changing the exploration camera or inventing terrain collision.
+const homeGroundPoint = new THREE.Vector3();
+export function alignHomeGround(camera, width, height, anchorY) {
+  if (!Number.isFinite(anchorY)) return;
+  camera.updateProjectionMatrix(); camera.updateMatrixWorld();
+  homeGroundPoint.set(0, 0, -550).project(camera);
+  const projectedY = (1 - homeGroundPoint.y) * height / 2;
+  camera.setViewOffset(width, height, 0, projectedY - anchorY, width, height);
+  camera.updateProjectionMatrix();
+}
 // Upward ground leaves reuse the palm mesh with a proper rotation, never a
 // negative instance scale (which would invert Lambert normal/winding parity).
 export function frondPose(pt) {
@@ -1278,6 +1289,7 @@ function create3DRenderer(M, o, onLost) {
     camera.position.set(c.x - sinY * c.dist, camH + built.camY, -(c.z - cosY * c.dist)); camera.rotation.set(0, -c.yaw, 0);
     if(o.home){camera.clearViewOffset();camera.fov=46;camera.aspect=W/H;camera.position.set(0,1100,1350);camera.lookAt(0,0,-1000);}
     camera.updateProjectionMatrix();camera.updateMatrixWorld();
+    if(o.home)alignHomeGround(camera,W,H,view.homeGroundY);
     // ひかり(時間・天気・場所の きぶん)。2D の TIME_LIGHT / WEATHER_LIGHT を そのまま つかう
     const TL = M.TIME_LIGHT[env.time] || M.TIME_LIGHT.day, wl = M.WEATHER_LIGHT[env.weather] || 1;
     const light = Math.max(0.35, TL.light * wl * (mood.light || 1));

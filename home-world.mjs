@@ -23,20 +23,29 @@ export function composeHomeWorld(M,region){
  if(region!=='river_lake')world._streams3d=[];
  return {world,objects,routes:HOME_ROUTES[region],sourceRegion:region};
 }
-export function createHomeWorld({M,container,document:doc,window:win=window,onStatus=()=>{}}){
+export function createHomeWorld({M,container,document:doc,window:win=window,onStatus=()=>{},getGroundAnchor=()=>undefined,rendererFactory=createHomeEnvironmentRenderer}){
  const canvas=doc.createElement('canvas');canvas.className='home-world-overlay';container.appendChild(canvas);
  let renderer=null,composition=null,life=null,env={},time=0,width=0,height=0,dead=false,failed=false;
+ let recoveryAttempts=0,recoveryWait=0;const recoveryDelays=[1,3,10];
  function resize(){const r=container.getBoundingClientRect();width=Math.max(1,r.width);height=Math.max(1,r.height);canvas.width=width;canvas.height=height;canvas.style.width=width+'px';canvas.style.height=height+'px';renderer?.resize({W:width,H:height,ctx:canvas.getContext('2d')});}
- function setEnvironment(e){env={...e};if(composition?.sourceRegion===e.region)return;
-  renderer?.destroy();renderer=null;failed=false;composition=composeHomeWorld(M,e.region);life=createWorldLife(e.region);time=0;resize();
+ function release(){const old=renderer;renderer=null;try{old?.destroy();}catch(_){} }
+ function fail(error){failed=true;release();recoveryWait=recoveryDelays[recoveryAttempts]??Infinity;onStatus('unavailable',String(error?.message||error));}
+ function initialize(){
   const scoped=Object.create(M);scoped.worldObjects3d=()=>({objects:composition.objects,skipped:{},unresolved:[]});
-  try{renderer=createHomeEnvironmentRenderer(scoped,{canvas,ctx:canvas.getContext('2d'),W:width,H:height,home:true});onStatus(renderer.stats().mode==='canvas-3d'?'canvas-3d':'3d');}
-  catch(error){failed=true;onStatus('unavailable',String(error?.message||error));}
+  try{resize();renderer=rendererFactory(scoped,{canvas,ctx:canvas.getContext('2d'),W:width,H:height,home:true});failed=false;onStatus(renderer.stats().mode==='canvas-3d'?'canvas-3d':'3d');}
+  catch(error){fail(error);}
  }
- function draw(dt,flags={}){if(dead||failed||!renderer||flags.paused)return;resizeIfNeeded();if(!flags.reducedMotion){const elapsed=Math.min(1,dt);time+=elapsed*1000;for(let remaining=elapsed;remaining>1e-8;remaining-=.1)life.step(Math.min(.1,remaining),{...env,...flags});}renderer.setAnimLevel(flags.reducedMotion?0:flags.tier>=2?1:2);
-  try{renderer.draw({world:composition.world,player:{x:0,z:550,heading:0},camera:{x:0,z:550,dist:950,yaw:0,height:1},env,mood:{},frame:Math.floor(time/33),party:[],residents:[],homeLife:life.snapshot()},time);}
-  catch(error){failed=true;renderer.destroy();renderer=null;onStatus('unavailable',String(error?.message||error));}
+ function setEnvironment(e){if(dead)return;env={...e};if(composition?.sourceRegion===e.region)return;
+  release();failed=false;recoveryAttempts=0;recoveryWait=0;composition=composeHomeWorld(M,e.region);life=createWorldLife(e.region);time=0;initialize();
+ }
+ function draw(dt,flags={}){if(dead||flags.paused||!composition)return;
+  const elapsed=Number.isFinite(dt)?Math.max(0,Math.min(1,dt)):0;
+  if(failed){recoveryWait-=elapsed;if(recoveryAttempts>=recoveryDelays.length||recoveryWait>0)return;recoveryAttempts++;initialize();}
+  if(!renderer)return;
+  try{resizeIfNeeded();if(!flags.reducedMotion){time+=elapsed*1000;for(let remaining=elapsed;remaining>1e-8;remaining-=.1)life.step(Math.min(.1,remaining),{...env,...flags});}renderer.setAnimLevel(flags.reducedMotion?0:flags.tier>=2?1:2);
+   renderer.draw({world:composition.world,player:{x:0,z:550,heading:0},camera:{x:0,z:550,dist:950,yaw:0,height:1},homeGroundY:getGroundAnchor(),env,mood:{},frame:Math.floor(time/33),party:[],residents:[],homeLife:life.snapshot()},time);}
+  catch(error){fail(error);}
  }
  function resizeIfNeeded(){const r=container.getBoundingClientRect();if(Math.abs(r.width-width)>1||Math.abs(r.height-height)>1)resize();}
- return {setEnvironment,draw,stats:()=>({mode:failed?'unavailable':renderer?.stats().mode||'loading',region:composition?.sourceRegion,life:life?.metrics(),renderer:renderer?.stats()}),destroy(){dead=true;renderer?.destroy();renderer=null;canvas.remove();}};
+ return {setEnvironment,draw,stats:()=>({mode:failed?'unavailable':renderer?.stats().mode||'loading',region:composition?.sourceRegion,life:life?.metrics(),recoveryAttempts,renderer:renderer?.stats()}),destroy(){dead=true;release();canvas.remove();}};
 }

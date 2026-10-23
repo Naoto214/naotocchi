@@ -26,7 +26,9 @@
       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
       import('./home-world.mjs').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
-        world=mod.createHomeWorld({M,container:worldHost,document:doc,window:env,onStatus:(mode,error)=>{stage.dataset.worldRenderer=mode;if(error)stage.dataset.worldError=error;doc.body.dataset.livingHome=mode;}});
+        world=mod.createHomeWorld({M,container:worldHost,document:doc,window:env,
+          getGroundAnchor:()=>scene?stage.getBoundingClientRect().top-worldHost.getBoundingClientRect().top+(scene.groundTop+scene.floor)/2:undefined,
+          onStatus:(mode,error)=>{stage.dataset.worldRenderer=mode;if(error)stage.dataset.worldError=error;else delete stage.dataset.worldError;doc.body.dataset.livingHome=mode;}});
         worldLoading=false;world.setEnvironment(environment);
       }).catch(error=>{if(generation!==loadGeneration)return;worldLoading=false;stage.dataset.worldRenderer='unavailable';stage.dataset.worldError=String(error.message);});
     }
