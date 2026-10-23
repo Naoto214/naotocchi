@@ -6,12 +6,21 @@ const PG = require('../conversation-postgame.js');
 const R = require('../minigame-reactions.js');
 const {harness} = require('./helpers/runtime-harness.cjs');
 
-test('pilot data: well formed, short, only pilot games, moments known to minigame-reactions', () => {
+test('data: all 100 normal games have their own lines, well formed, short, moments known to minigame-reactions', () => {
   assert.deepEqual(PG.validate(), []);
-  assert.ok(PG.PILOT_GAMES.length >= 10 && PG.PILOT_GAMES.length <= 15, `${PG.PILOT_GAMES.length} games`);
+  const real = harness({deterministic:true}).api.games.map(g => g.id).filter(id => !String(id).startsWith('quick')).sort();
+  assert.equal(real.length, 100);
+  assert.equal(JSON.stringify([...PG.GAMES].sort()), JSON.stringify(real), 'every normal game is covered');
+  assert.ok(PG.PILOT_GAMES.every(g => PG.GAMES.includes(g)), 'the 12 pilot games are kept');
   const known = new Set(R.MOMENTS);
   for (const u of PG.UNITS) for (const m of u.moments) assert.ok(known.has(m), `${u.id}: ${m} is a moment minigame-reactions detects`);
-  for (const g of PG.PILOT_GAMES) assert.ok(PG.UNITS.some(u => u.games.includes(g) && u.games.length < PG.PILOT_GAMES.length), `${g} has its own lines`);
+  for (const g of PG.GAMES) {
+    const own = PG.UNITS.filter(u => u.games.length <= 2 && u.games.includes(g));   // さかなつり 2 本は台詞を共有
+    assert.ok(own.length >= 3, `${g} has its own lines (${own.length})`);
+    const plainUnit = u => !u.trait && !u.with && !u.favorite;   // 気質・来訪者に関係なく出せるもの
+    assert.ok(own.some(u => plainUnit(u) && u.moments.some(m => ['firstClear', 'firstS', 'newBest'].includes(m))), `${g}: a line for a good moment`);
+    assert.ok(own.some(u => plainUnit(u) && u.moments.some(m => ['plain', 'losingStreak', 'nearMiss'].includes(m)) && (!u.bands || u.bands.includes('bad'))), `${g}: a line for a bad result`);
+  }
   assert.ok(PG.UNITS.some(u => u.kind === 'banter' && u.with), 'some exchanges with a visitor');
   assert.ok(PG.UNITS.some(u => u.kind === 'question'), 'some questions');
   assert.ok(PG.UNITS.some(u => u.trait) && PG.UNITS.some(u => u.favorite), 'personality and favorite-game lines');
@@ -121,17 +130,18 @@ test('tapping もういちど on the result card starts the next game; the excha
   assert.equal(shown.length, 0, 'nothing said during the next game');
 });
 
-test('games outside the pilot keep exactly the old reaction; mid results without a moment stay quiet', () => {
+test('when the exchange is not picked, the old reaction stays exactly as before; mid results without a moment stay quiet', () => {
   const {h, s, shown} = boot({seed:6});
-  vm.runInContext('Math.random = () => 0.01', h.sandbox);
+  vm.runInContext('Math.random = () => 0.99', h.sandbox);   // 掛け合いを選ばない回
   const other = h.api.games.find(g => !h.api.conv2.postgame.PILOT_GAMES.includes(g.id) && !String(g.id).startsWith('quick'));
   s.lifetime.minigamePlayCounts[other.id] = 5;
   play(h, other.id, 95);
-  assert.equal(h.api.conv2.unit(), null, 'no post-game unit outside the pilot');
+  assert.equal(h.api.conv2.unit(), null, 'no post-game unit this time');
   settle(h, 9000);
   assert.ok(shown.length >= 1, 'the usual cheer is said');
   shown.length = 0;
   settle(h, 30000);
+  vm.runInContext('Math.random = () => 0.01', h.sandbox);
   // ふつうの帯・できごとなし(何度も遊んだ記録に近くもない)→ 今までどおり黙る
   s.lifetime.minigamePlayCounts['bowling-3d'] = 5;
   s.lifetime.minigameRecords['bowling-3d'] = {best:100, plays:5};
@@ -199,4 +209,39 @@ test('with the partner visiting, the partner really speaks its lines of the post
   const beats = shown.slice(0, def.beats.length);
   assert.deepEqual(beats.map(b => b.text), def.beats.map(b => b.text));
   assert.deepEqual(beats.map(b => b.kind), def.beats.map(b => b.role === 'pet' ? 'pet' : 'partner'));
+});
+
+test('every one of the 100 normal games plays its own exchange in the real game, for a good and a bad result', () => {
+  const {h, shown} = boot({seed:31});
+  vm.runInContext('Math.random = () => 0.01', h.sandbox);
+  const s = h.api.state();
+  s.lifetime.minigameRecords = s.lifetime.minigameRecords || {};
+  for (const id of h.api.conv2.postgame.GAMES) {
+    // 何度か遊んだあとのわるい結果と、(記録を消して)はじめてのよい結果。直前に同じゲームを続けると「くりかえし」になるので、わるい結果を先に
+    for (const [record, score] of [[{best:60, last:60}, 15], [null, 95]]) {
+      // 3 分の間隔と 45 分のくり返し防止は別のテストで見る。ここでは履歴だけ空にして、時間は進めない(年をとらない)
+      const d = h.api.conv2.director();
+      d.restore({...d.snapshot(), units:[], unitKinds:[]});
+      if (record) s.lifetime.minigameRecords[id] = {...record}; else delete s.lifetime.minigameRecords[id];
+      // ゲームのたびに「へんしん」メーター・わるい結果の命のメーターが動き、選ぶ画面やお別れが来ると会話はやめる(正しい動き)。ここでは出さない
+      Object.assign(s, {transformMeter:0, transformOptions:null, deathMeter:0, decline:0, energy:100, happiness:90});
+      shown.length = 0;
+      play(h, id, score);
+      // ストーリーのできごと(よい/わるい結果で 45%)が出たときは、そちらが優先で会話はやめる(既存どおり)。もう一度遊ぶ
+      for (let retry = 0; retry < 3 && !h.api.conv2.unit(); retry++) {
+        settle(h, 20000);
+        d.restore({...d.snapshot(), units:[], unitKinds:[]});
+        if (record) s.lifetime.minigameRecords[id] = {...record}; else delete s.lifetime.minigameRecords[id];
+        Object.assign(s, {transformMeter:0, transformOptions:null, deathMeter:0, decline:0, energy:100, happiness:90});
+        shown.length = 0;
+        play(h, id, score);
+      }
+      const unit = h.api.conv2.unit();
+      assert.equal(unit?.kind, 'postgame', `${id} (${score}): an exchange was chosen`);
+      const def = h.api.conv2.postgame.UNITS.find(u => u.id === unit.id);
+      assert.ok(def.games.includes(id), `${id}: ${def.id} belongs to this game`);
+      settle(h, 20000);
+      assert.ok(unitTexts(def).every(t => shown.some(x => x.text === t)), `${id}: the lines were shown (${def.id}: ${unitTexts(def).join('/')} | shown: ${shown.map(x => x.text).join('/')})`);
+    }
+  }
 });

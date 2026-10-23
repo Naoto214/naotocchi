@@ -10,24 +10,25 @@ function memoryStorage() {
   return {getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, value), removeItem: key => data.delete(key)};
 }
 
-test('pilot data: 5-10 real quick games with different result shapes, short lines, no questions', () => {
+test('data: all 50 quick games have their own lines (the first 8 pilot games had different result shapes), short lines, no questions', () => {
   const h = harness();
   const games = h.api.QUICK_GAMES;
   assert.equal(games.length, 50, 'the quick catalogue still has 50 games');
   assert.deepEqual(Q.validate(games.map(g => g.id)), []);
-  assert.ok(Q.PILOT_GAMES.length >= 5 && Q.PILOT_GAMES.length <= 10, `${Q.PILOT_GAMES.length} games`);
+  assert.equal(JSON.stringify([...Q.GAMES].sort()), JSON.stringify(games.map(g => g.id).sort()), 'every quick game is covered');
+  assert.ok(Q.PILOT_GAMES.length >= 5 && Q.PILOT_GAMES.length <= 10 && Q.PILOT_GAMES.every(id => Q.GAMES.includes(id)), `${Q.PILOT_GAMES.length} pilot games`);
   const defs = Q.PILOT_GAMES.map(id => games.find(g => g.id === id));
   // 結果の形がちがうものを含む: 時間切れで成功(よける・まつ)/ タップ / スワイプ / ドラッグ / 長おし以外の操作
   assert.ok(defs.some(d => d.survive) && defs.some(d => !d.survive), 'survive-type and act-type games');
   const uses = new Set(defs.flatMap(d => d.uses));
   for (const u of ['tap', 'drag', 'swipe', 'none']) assert.ok(uses.has(u), `a pilot game uses ${u}`);
-  for (const id of Q.PILOT_GAMES) {
+  for (const id of Q.GAMES) {
     assert.ok(Q.UNITS.some(u => u.games?.includes(id) && u.modes.includes('solo')), `${id} has its own solo lines`);
     assert.ok(Q.UNITS.some(u => u.games?.includes(id) && u.moments.includes('endedBy')), `${id} has a line when a mixed run ends on it`);
   }
   assert.ok(Q.UNITS.every(u => u.kind === 'quick'), 'no choice questions after quick');
   const long = Q.UNITS.filter(u => u.beats.length === 3);
-  assert.ok(Q.UNITS.every(u => u.beats.length <= 3) && long.length >= 1 && long.length <= 3, 'usually 1-2 lines, rarely 3');
+  assert.ok(Q.UNITS.every(u => u.beats.length <= 3) && long.length >= 1 && long.length <= Q.UNITS.length * 0.05, `usually 1-2 lines, rarely 3 (${long.length})`);
   assert.ok(Q.UNITS.some(u => u.with) && Q.UNITS.some(u => u.trait), 'visitor exchanges and personality lines');
   // 「すごい!」「残念!」だけの台詞にしない
   const flat = /^(すごい|やった|ざんねん|残念|おしい|がんばった)[!！。]?$/;
@@ -48,7 +49,8 @@ test('moments are read from the quick result only (perfect, zero, best, first, c
   assert.deepEqual(Q.moments({...mix, cleared:18}, {runs:5, best:15}), ['newBest', 'close', 'endedBy']);
   assert.deepEqual(Q.moments({...mix, cleared:20, lives:1, lastMiss:'eat'}, {runs:5, best:15}), ['perfect', 'newBest']);
   assert.equal(Q.isNotable(['endedBy', 'plain'], 'wait'), true, 'ended on a pilot game: worth a word');
-  assert.equal(Q.isNotable(['endedBy', 'plain'], 'catch'), false, 'ended on a game without lines: an ordinary result');
+  assert.equal(Q.isNotable(['endedBy', 'plain'], 'catch'), true, 'every quick game has lines now');
+  assert.equal(Q.isNotable(['endedBy', 'plain'], 'not-a-game'), false, 'ended on a game without lines: an ordinary result');
 });
 
 test('candidates follow the mode, the game, the visitor and the personality', () => {
@@ -57,14 +59,16 @@ test('candidates follow the mode, the game, the visitor and the personality', ()
   assert.ok(ids({temperament:{curiosity:5}}).includes('q-wait-what'), 'a curious one wonders');
   assert.ok(ids({temperament:{persistence:5}}).includes('q-any-again'));
   assert.ok(ids({temperament:{persistence:1}}).includes('q-any-fingers'));
-  assert.deepEqual(ids({soloId:'catch'}), [], 'solo games outside the pilot stay quiet');
+  assert.deepEqual(ids({soloId:'not-a-game'}), [], 'a solo game without lines stays quiet');
+  assert.ok(ids({soloId:'catch'}).length >= 1, 'a game added in the full rollout');
   assert.ok(ids({soloId:'stop', moments:['close']}).every(id => id !== 'q-stop-early'), 'the visitor line needs a visitor');
   assert.ok(ids({soloId:'stop', moments:['close'], visitorKind:'partner'}).includes('q-stop-early'));
   assert.ok(!ids({soloId:'stop', moments:['close'], visitorKind:'partner', visitorQuiet:true}).includes('q-stop-early'), 'a quiet visitor does not join');
   // まぜた 20 本: ゲームの台詞は、そのゲームで終わったときだけ
   const mix = ctx => Q.candidates({mode:'mix', temperament:null, ...ctx}).map(u => u.id).sort();
   assert.deepEqual(mix({moments:['endedBy', 'plain'], lastMiss:'wait'}), ['q-mix-talk', 'q-wait-itch']);
-  assert.deepEqual(mix({moments:['endedBy', 'plain'], lastMiss:'catch'}), ['q-mix-talk']);
+  assert.deepEqual(mix({moments:['endedBy', 'plain'], lastMiss:'not-a-game'}), ['q-mix-talk']);
+  assert.ok(mix({moments:['endedBy', 'plain'], lastMiss:'catch'}).includes('q-catch-serious'));
   assert.ok(!mix({moments:['plain'], lastMiss:'wait'}).includes('q-wait-itch'), 'a mid-run miss is not the ending');
   assert.deepEqual(mix({moments:['perfect']}), ['q-mix-perfect']);
 });
@@ -257,7 +261,7 @@ test('rewards and records are identical whether or not the talk happens', () => 
   assert.equal(talk.money, 100, 'a mixed 20/20 still pays 100 coins');
 });
 
-test('frequency: about one run in 3-5, never twice in a row, quiet for solo games outside the pilot', () => {
+test('frequency: about one run in 3-5, never twice in a row', () => {
   const {h} = boot({seed:21});
   // 本物の乱数(決まった種)で 300 回。結果はいろいろ(パーフェクト・0こ・ふつう…)
   let x = 12345;
@@ -265,10 +269,10 @@ test('frequency: about one run in 3-5, never twice in a row, quiet for solo game
   const results = [];
   let talks = 0, inRow = 0, prevTalked = false;
   for (let i = 0; i < 300; i++) {
-    const solo = Q.PILOT_GAMES[i % Q.PILOT_GAMES.length];
+    const solo = Q.GAMES[i % Q.GAMES.length];
     const mixed = i % 3 === 0;
     const cleared = Math.floor(rnd() * 11);
-    finishQuick(h, mixed ? null : solo, mixed ? {cleared:cleared * 2, total:20, maxCombo:Math.floor(rnd() * 9), lastMiss:Q.PILOT_GAMES[i % 8]} : {cleared, maxCombo:Math.floor(rnd() * 7)});
+    finishQuick(h, mixed ? null : solo, mixed ? {cleared:cleared * 2, total:20, maxCombo:Math.floor(rnd() * 9), lastMiss:Q.GAMES[(i * 7) % Q.GAMES.length]} : {cleared, maxCombo:Math.floor(rnd() * 7)});
     const talked = !!h.api.conv2.unit();
     if (talked) { talks++; if (prevTalked) inRow++; }
     prevTalked = talked;
@@ -280,10 +284,22 @@ test('frequency: about one run in 3-5, never twice in a row, quiet for solo game
   console.log(`# quick talk rate ${talks}/300 = ${rate.toFixed(3)}`);
   assert.ok(rate >= 1 / 5 && rate <= 1 / 3, `rate ${rate.toFixed(3)}`);
   assert.equal(inRow, 0, 'never two runs in a row');
-  // Pilot 以外の 1本ずつは 黙る
-  const {h: h2} = boot({seed:22});
-  always(h2);
-  for (let i = 0; i < 5; i++) { finishQuick(h2, 'catch', {cleared:0}); assert.equal(h2.api.conv2.unit(), null); settle(h2, 2000); }
+});
+
+test('every one of the 50 quick games can actually talk in the real game, about itself', () => {
+  const {h, shown} = boot({seed:22});
+  always(h);
+  for (const id of Q.GAMES) {
+    let def = null;
+    for (let tries = 0; tries < 3 && !def; tries++) {
+      finishQuick(h, id, {cleared:0, maxCombo:0});
+      def = unitDef(h);
+      settle(h, 12000);
+    }
+    assert.ok(def, `${id}: something is said`);
+    assert.ok(!def.games || def.games.includes(id), `${id}: the line is about this game (${def.id})`);
+    assert.ok(def.beats.every(b => shown.some(x => x.text === b.text)), `${id}: all lines shown`);
+  }
 });
 
 test('a visitor joins some exchanges as the visitor, and the quick talk keeps idle chatter and questions out', () => {

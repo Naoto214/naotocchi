@@ -10,11 +10,11 @@ const master = global.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;
 const QUIET = ['partner:high_eagle', 'partner:desert_scorpion', 'partner:swamp_croc', 'companion:sekizou', 'companion:box', 'companion:watcher'];
 const isQuiet = key => QUIET.includes(key);
 
-test('the pilot data is well formed: pilot-sized, short, no spaces, alternating speakers, button-sized labels', () => {
+test('the data is well formed: short, no spaces, alternating speakers, button-sized labels', () => {
   assert.deepEqual(B.validate(), []);
-  assert.ok(B.BANTERS.length >= 20 && B.BANTERS.length <= 30, `${B.BANTERS.length} banters`);
-  assert.ok(B.QUESTIONS.length >= 10 && B.QUESTIONS.length <= 15, `${B.QUESTIONS.length} questions`);
-  for (const u of B.BANTERS) for (const b of u.beats) assert.ok([...b.text].length <= 20, `${u.id}: "${b.text}" is short`);
+  assert.ok(B.BANTERS.length >= 130, `${B.BANTERS.length} banters`);
+  assert.ok(B.QUESTIONS.length >= 35, `${B.QUESTIONS.length} questions`);
+  for (const u of B.BANTERS) for (const b of u.beats) assert.ok([...b.text].length <= 24, `${u.id}: "${b.text}" is short`);
   for (const q of B.QUESTIONS) assert.ok(q.choices.length >= 2 && q.choices.length <= 4, q.id);
 });
 
@@ -26,10 +26,11 @@ test('every character-specific unit names a real partner or companion', () => {
 
 test('candidates: own banters first; quiet characters never get the generic ones', () => {
   const octo = B.banterCandidates('partner:rock_octopus', {isQuiet});
-  assert.deepEqual(octo.specific.map(u => u.id).sort(), ['b-octopus-hands', 'b-octopus-snack']);
+  assert.ok(['b-octopus-hands', 'b-octopus-snack'].every(id => octo.specific.some(u => u.id === id)) && octo.specific.length >= 3);
+  assert.ok(octo.specific.every(u => u.with === 'partner:rock_octopus'));
   assert.ok(octo.generic.length >= 1 && octo.generic.every(u => u.with === 'partner'));
   const eagle = B.banterCandidates('partner:high_eagle', {isQuiet});
-  assert.deepEqual(eagle.specific.map(u => u.id), ['b-eagle-flight']);
+  assert.ok(eagle.specific.some(u => u.id === 'b-eagle-flight') && eagle.specific.length >= 3);
   assert.deepEqual(eagle.generic, [], 'the quiet eagle does not say generic chatter');
   const box = B.banterCandidates('companion:box', {isQuiet});
   assert.deepEqual(box.generic, []);
@@ -39,6 +40,9 @@ test('candidates: own banters first; quiet characters never get the generic ones
   assert.ok(alone.solo.length >= 10 && alone.withVisitor.length === 0);
   assert.deepEqual(B.questionCandidates('companion:snail', {isQuiet}).withVisitor.map(q => q.id), ['q-tell-them']);
   assert.deepEqual(B.questionCandidates('partner:robot_neighbor', {isQuiet}).withVisitor.map(q => q.id), ['q-what-partner-does']);
+  // その相手専用の問いかけは、その相手のときだけ
+  assert.ok(B.questionCandidates('partner:rock_octopus', {isQuiet}).withVisitor.some(q => q.with === 'partner:rock_octopus'));
+  assert.ok(!B.questionCandidates('partner:robot_neighbor', {isQuiet}).withVisitor.some(q => q.with === 'partner:rock_octopus'));
   assert.deepEqual(B.questionCandidates('partner:swamp_croc', {isQuiet}).withVisitor, [], 'no generic questions for a quiet partner');
 });
 

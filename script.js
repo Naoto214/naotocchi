@@ -6531,6 +6531,8 @@
   // ゲームのあとの掛け合い(Pilot)。結果の判定は minigame-reactions.js のものをそのまま受け取る
   const CONVERSATION_POSTGAME = globalThis.NaotocchiConversationPostgame || null;
   const CONVERSATION_QUICK = globalThis.NaotocchiConversationQuick || null;
+  // なおぽよ。・CARD GAME から帰ってきたときの一言(各ゲームの記録を読むだけ)
+  const CONVERSATION_AWAY = globalThis.NaotocchiConversationAway || null;
   // QA 用: ?conv2=demo で掛け合い・問いかけを出やすくする(保存しない。本人の試遊確認用)
   const CONV2_DEMO = (() => { try { return /[?&]conv2=demo(?:&|$)/.test(String(globalThis.location?.search || '')); } catch (_) { return false; } })();
   const CONV2 = Object.freeze({
@@ -6564,6 +6566,11 @@
     quickStartDelayMs: 300,                           // 結果カードが消えてから(吹き出しはカードを閉じるので、カードの上には出さない)
     quickUnitCooldownMs: 3 * 60e3,                    // 同じ一言は Home 時間で 3 分あける(クイックは回数が多く、ゲーム中は Home 時間に数えないので短め)
     quickPreferredShare: 0.6,                         // 来ている相手との掛け合い・性格の一言を少し優先
+    // ほかのあそび(なおぽよ。・CARD GAME)から帰ってきたとき。新しいクリア・対戦があったときだけ、ときどき
+    awayChance: CONV2_DEMO ? 1 : 0.6,
+    awayGapMs: CONV2_DEMO ? 0 : 10 * 60e3,            // Home 時間で 10 分に 1 回まで
+    awayDelayMs: 2500,                                // 帰ってきて、画面が落ちついてから
+    awayRetries: 6,
   });
   var conv2Unit = null;        // いま進行中の掛け合い・問いかけ {kind, id, startedAt, held, timers, visitorKey, question, awaiting}
   var conv2VisitCount = 0;
@@ -6578,7 +6585,9 @@
     // 裏に回った・ページを離れた(なおぽよ・CARD GAME など)。戻ってきても、前の会話の続きは出さない
     document.addEventListener('visibilitychange', () => { if (!pageVisible()) conv2LeaveScene('hidden'); });
     window.addEventListener('pagehide', () => conv2LeaveScene('pagehide'));
-    window.addEventListener('pageshow', (e) => { if (e && e.persisted) conv2LeaveScene('pageshow'); });
+    window.addEventListener('pageshow', (e) => { if (e && e.persisted) { conv2LeaveScene('pageshow'); conv2CheckAway(); } });
+    document.addEventListener('visibilitychange', () => { if (pageVisible()) conv2CheckAway(); });
+    setTimeout(() => conv2CheckAway(), 0);   // 起動(ほかのページから戻ってきた・reload)
     el.speechChoices?.addEventListener('click', (e) => {
       const btn = e.target?.closest ? e.target.closest('[data-choice]') : e.target;
       if (btn?.dataset?.choice != null) conv2Answer(Number(btn.dataset.choice));
@@ -6718,7 +6727,7 @@
     if (director.sinceInteraction() > CONV2.questionActiveMs) return false;
     if (Math.random() >= CONV2.questionChance) return false;
     const visitorKey = conv2CurrentVisitorKey();
-    const {solo, withVisitor} = CONVERSATION_BANTER.questionCandidates(visitorKey, {isQuiet:key => director.isQuiet(key)});
+    const {solo, withVisitor} = CONVERSATION_BANTER.questionCandidates(visitorKey, {isQuiet:key => director.isQuiet(key), temperament:state.individuality?.temperament || null});
     const q = conv2PickFrom(withVisitor, solo, CONV2.visitorQuestionShare);
     if (!q) return false;
     return conv2Ask(q, q.with ? visitorKey : null);
@@ -6749,7 +6758,7 @@
   function conv2PostGame(input, plan, held, delayMs) {
     if (!CONVERSATION_POSTGAME || !conversationDirector || !plan || conv2Unit || !input) return false;
     if (input.source === 'companion' || input.recruited != null) return false;   // なかまの勧誘は、勧誘の会話のまま
-    if (!CONVERSATION_POSTGAME.PILOT_GAMES.includes(input.gameId)) return false;
+    if (!CONVERSATION_POSTGAME.GAMES.includes(input.gameId)) return false;
     const director = conversationDirector;
     if (!director.unitReady('postgame', CONV2.postgameGapMs)) return false;
     const moments = plan.moments || [];
@@ -6815,6 +6824,44 @@
     const note = unit.onShow;
     unit.onShow = () => { note(); conv2QuickRuns = 0; };
     conv2Play(unit, def.beats, unitVisitor, () => conv2Finish(unit), cardMs + CONV2.quickStartDelayMs);
+    return true;
+  }
+
+  // ---- ほかのあそびから帰ってきたとき ----
+  // なおぽよ。・CARD GAME が自分で保存している記録を読み、前に見たときから増えたものがあれば、ときどき一言。
+  // 「どこまで見たか」は会話側の別キーに覚える(本体のセーブには入れない)。はじめては覚えるだけで話さない
+  var conv2AwayToken = 0;
+  function conv2CheckAway() {
+    if (!CONVERSATION_AWAY || !conversationDirector) return false;
+    let marker = null, raws = null;
+    try {
+      marker = JSON.parse(localStorage.getItem(CONVERSATION_AWAY.MARKER_KEY) || 'null');
+      raws = {naopoyo:localStorage.getItem(CONVERSATION_AWAY.KEYS.naopoyo), card:localStorage.getItem(CONVERSATION_AWAY.KEYS.card)};
+    } catch (_) { return false; }
+    const {event, next} = CONVERSATION_AWAY.detect(marker, raws, Date.now());
+    try { localStorage.setItem(CONVERSATION_AWAY.MARKER_KEY, JSON.stringify(next)); } catch (_) { /* 覚えられなくても遊びには関係ない */ }
+    if (!event || !conversationDirector.unitReady('away', CONV2.awayGapMs) || Math.random() >= CONV2.awayChance) return false;
+    const token = ++conv2AwayToken;
+    let tries = 0;
+    const attempt = () => {
+      if (token !== conv2AwayToken) return;
+      if (!conv2StartAway(event) && ++tries < CONV2.awayRetries) setTimeout(attempt, CONV2.banterRetryMs);
+    };
+    setTimeout(attempt, CONV2.awayDelayMs);
+    return true;
+  }
+  // 話せる状態なら始める。言うことがなければ、それで終わり(true)。まだ話せない状態なら false(少し待ってもう一度)
+  function conv2StartAway(event) {
+    if (!conv2CanStart()) return false;
+    const visitorKey = conv2CurrentVisitorKey();
+    const list = CONVERSATION_AWAY.candidates(event, {visitorKind:visitorKey ? visitorKey.split(':')[0] : null,
+      visitorQuiet:visitorKey ? conversationDirector.isQuiet(visitorKey) : false});
+    const preferred = list.filter(u => u.with);
+    const def = conv2PickFrom(preferred, list.filter(u => !u.with), 0.5);
+    if (!def) return true;
+    const unitVisitor = def.with ? visitorKey : null;
+    const unit = conv2NewUnit('away', def.id, unitVisitor);
+    conv2Play(unit, def.beats, unitVisitor, () => conv2Finish(unit));
     return true;
   }
   function conv2ShowChoices(q) {

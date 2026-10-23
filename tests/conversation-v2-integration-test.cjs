@@ -130,13 +130,22 @@ test('a visit starts a banter a little after arrival; one visit in four stays qu
     for (let t = 0; t < 30000; t += 250) { settle(h, s, 250); const u = h.api.conv2.unit(); if (u?.kind === 'banter') id = u.id; }
     return id;
   };
-  // タコの掛け合いは専用 2 + こいびと汎用 1。4 回目の来訪は静かに過ごす回
-  const first = [visit(), visit(), visit(), visit()];
-  assert.equal(first.filter(Boolean).length, 3, first.join(','));
-  assert.equal(first[3], null, 'the 4th visit is a quiet one');
-  assert.equal(new Set(first.filter(Boolean)).size, 3, 'three different banters');
-  assert.equal(visit(), null, 'all of them were said recently: no repeat');
+  // タコの掛け合いは専用(全員展開で 3 件以上)+ こいびと汎用。4 回目ごとの来訪は静かに過ごす回
+  const pool = h.api.conv2.data.BANTERS.filter(u => u.with === 'partner:rock_octopus' || u.with === 'partner').length;
+  const said = [];
+  let n = 0, used = false;
+  while (n < pool * 2 + 4) {
+    n += 1;
+    const id = visit();
+    if (n % 4 === 0) { assert.equal(id, null, `visit ${n} is a quiet one`); continue; }
+    if (!id) { used = true; break; }
+    said.push(id);
+  }
+  assert.ok(used, 'the octopus runs out of things to say');
+  assert.equal(said.length, pool, said.join(','));
+  assert.equal(new Set(said).size, pool, 'all different banters');
   settle(h, s, 46 * 60e3);
+  if ((n + 1) % 4 === 0) { n += 1; visit(); }
   assert.ok(visit(), 'after a while a banter comes back');
 });
 
@@ -263,7 +272,8 @@ test('reload: the same banter does not come back right away; the save file and s
   const b = boot({store, resume:true, seed:61});
   b.h.api.setPresentCastFixture();
   const seen = [];
-  for (let i = 0; i < 3; i++) {
+  const pool = b.h.api.conv2.data.BANTERS.filter(u => u.with === 'partner:rock_octopus' || u.with === 'partner').length;
+  for (let i = 0; i < pool + 1; i++) {
     waitUntilFree(b.h, b.s);
     if (!b.h.api.conv2.startBanter('partner:rock_octopus')) break;
     seen.push(b.h.api.conv2.unit().id);
@@ -271,7 +281,7 @@ test('reload: the same banter does not come back right away; the save file and s
   }
   assert.ok(!seen.includes(first), `"${first}" did not come back after the reload (${seen.join(', ')})`);
   assert.ok(new Set(seen).size === seen.length, 'no repeats while cooling down');
-  assert.ok(seen.length <= 2, 'octopus: 2 left to say (1 own + 1 generic), then quiet');
+  assert.ok(seen.length <= pool - 1, `octopus: ${pool - 1} left to say, then quiet`);
 });
 
 test('every partner and companion with its own banter can actually play it in the real game', () => {
