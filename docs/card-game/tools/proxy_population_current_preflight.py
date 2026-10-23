@@ -12,7 +12,7 @@ from proxy_population_contract import _pairs,_nonfinite
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 VERIFY='data/proxy-population-effective-application/verification/'
-REPORT=VERIFY+'bounded-approval-reads-preflight.json'
+REPORT=VERIFY+'fixed400-final-preflight.json'
 PROGRESS={'plans/card-game-resume.md','plans/2026-10-08-preflight-remaining-work.md','data/proxy-population-effective-application/status.md'}
 COMPONENTS={
  'P01':['tools/proxy_population_challenge_lifetime.py','tools/proxy_population_challenge_operands.py'],
