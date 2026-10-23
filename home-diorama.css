@@ -99,3 +99,22 @@ body[data-home-terrain="true"] #homeGestureGuide{display:flex;align-items:center
 .home-guide-help summary{cursor:pointer;font-weight:700}
 .home-guide-help p{margin:7px 0}
 .home-guide-help button{font:inherit;padding:7px 12px;border:1px solid #98b6a9;border-radius:8px;background:#f9fff9;color:inherit}
+
+/* Both views keep every resident; only the illustration scale changes. */
+.diorama-view{position:absolute;right:5px;top:3px;z-index:1100;border:1px solid #97b5a6;border-radius:14px;background:#f8fff2e8;color:#244a45;font:11px system-ui;padding:7px 10px;min-height:36px;touch-action:manipulation}
+.diorama-selected-label{position:absolute;left:7px;top:5px;z-index:1100;max-width:52%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-radius:10px;background:#f8fff2e8;color:#244a45;font:12px system-ui;padding:6px 9px;pointer-events:none}
+.diorama-view[hidden],.diorama-selected-label[hidden]{display:none!important}
+#castStage[data-diorama] [data-diorama-selected="true"] .character-visual{filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #56b9c0)}
+
+/* A readable crowd may exceed a short viewport. Let the existing document scroll
+   instead of overflowing the cast into care meters or controls. */
+body[data-home-terrain="true"] .device.ui-home-active[data-home-household="crowded"][data-home-fixed="true"]:has(#screenNormal:not(.hidden)){grid-template-rows:auto minmax(min-content,1fr) auto auto}
+html:has(body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"]){overflow:auto;overscroll-behavior:auto}
+body.world-mode[data-home-terrain="true"]:has(.device[data-home-household="crowded"][data-home-fixed="true"]){height:auto;min-height:var(--app-height);overflow:auto;overscroll-behavior:auto}
+body[data-home-terrain="true"] .device.ui-home-active[data-home-household="crowded"][data-home-fixed="true"]{position:relative;inset:auto;min-height:min-content}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] .screen-frame{min-height:min-content;overflow:visible}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #screen{min-height:min-content}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #screenNormal{container-type:normal;min-height:min-content}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #petArea{min-height:300px}
+
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #castStage{touch-action:pan-y pinch-zoom}

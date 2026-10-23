@@ -14288,7 +14288,7 @@
   // 本体キャラの左右の列に表示する。話者の安定IDで短い反応を結びつける。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
-    const recruited = homePresentCompanions()
+    const recruited = homeResidentCompanions()
       .map((sc) => {
         const def = allCompanionsById(sc.id);
         return def ? {...def, ...relationshipVisual('companion',sc,def.asset)} : null;
@@ -14308,7 +14308,7 @@
   // 状態別のハートを添える。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
-    const p = !hide && homePresentPartner();
+    const p = !hide && homeResidentPartner();
     el.partnerCompanion.classList.toggle('hidden', !p);
     if (!p) {
       el.partnerCompanion.innerHTML = '';
@@ -14723,7 +14723,7 @@
   });
 
   function homeCastMotionRadius() {
-    const count = homePresentCompanions().filter(c=>allCompanionsById(c.id)).length;
+    const count = homeResidentCompanions().filter(c=>allCompanionsById(c.id)).length;
     return window.NaotocchiCastMotion?.motionRadiusFor(count) || 0;
   }
 
@@ -14838,13 +14838,14 @@
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
     const main = currentVisualStage();
-    const p = homePresentPartner();
+    const p = homeResidentPartner();
     const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[p?.id] || p?.id;
     const partnerAsset = WORLD_MASTER?.partners?.find(def => def.id === partnerId)?.asset;
-    const recruited = homePresentCompanions().map(sc => allCompanionsById(sc.id)).filter(Boolean);
+    const recruited = homeResidentCompanions().map(sc => allCompanionsById(sc.id)).filter(Boolean);
     // Let sparse scenes share more of the available height with the care keys.
     // Measure after changing this attribute, before starting a speech reaction.
     el.device.dataset.castCrowded = String(recruited.length > 0);
+    el.device.dataset.homeHousehold = 1 + Number(!!p) + recruited.length > 5 ? 'crowded' : 'small';
     const stageRect = el.castStage.getBoundingClientRect();
     const width = Math.floor(stageRect.width);
     const conversationHeight = el.speechSlot.getBoundingClientRect().height || 44;
@@ -14853,7 +14854,7 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const args = {width,height,conversationHeight,overview:homeDiorama?.overview()||false,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married, currentEnvironment().region, state.stage]);
     if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); renderHomeDiorama(); return; }
     homeCastLayoutKey = key;
@@ -14887,7 +14888,10 @@
       node.style.fontSize = Math.floor(frame.w * .8) + 'px';
     };
     el.castStage.style.height = height ? '' : layout.height + 'px';
-    el.castStage.style.minHeight = height && layout.height > height ? layout.height + 'px' : '';
+    // Keep the crowd floor applied at equality; clearing it here creates a
+    // shrink/grow ResizeObserver loop whenever notifications consume Home space.
+    const crowdFloor = window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region) && 1 + Number(hasPartner) + recruited.length > 5 && ![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage);
+    el.castStage.style.minHeight = crowdFloor ? '300px' : height && layout.height > height ? layout.height + 'px' : '';
     place(el.petSprite,layout.main);place(el.partnerCompanion,layout.partner);place(el.petAccessory,layout.accessory);
     el.petSprite.style.setProperty('--cast-art-offset-y',(layout.main.artOffsetY || 0) + 'px');
     // Attach illness marks to painted pixels, not the often-empty upper PNG
@@ -14927,7 +14931,7 @@
       if(!f)return null;
       const b=window.NaotocchiCastBounds?.[path]?.box||[0,0,128,128];
       const owner=a.kind==='partner'?el.partnerCompanion:a.node;
-      const label=a.kind==='pet'?'なおとっち':a.kind==='partner'?(state.partner?.label||'こいびと'):(recruited[i]?.label||'なかま');
+      const label=a.kind==='pet'?'なおとっち':a.kind==='partner'?(state.partner?.label||'こいびと'):(recruited[i]?.name||recruited[i]?.label||'なかま');
       const x=f.x+f.w*(b[0]+b[2])/256,y=f.y+f.h*b[3]/128+(f.artOffsetY||0);
       const w=f.w*(b[2]-b[0])/128,h=f.h*(b[3]-b[1])/128;
       const extras=(a.kind==='partner'?[layout.ring,...layout.hearts]:a.kind==='pet'?[layout.accessory]:[]).filter(Boolean);
@@ -14954,10 +14958,10 @@
       isVisible:()=>!gameActive&&!meguruActive&&!isAnyMenuOverlayOpen()&&!el.screenNormal.classList.contains('hidden'),
       getMeguru:()=>meguruMod,getProfile:region=>meguruMod?.REGION3D[region],getWorld:region=>meguruMod?.WORLDS[region],
       onGesture:(actor,mood)=>castMotion?.gesture(actor,mood),
+      onViewChange:()=>{homeCastLayoutKey='';renderHomeCast();},
       onPosition:(actor,dx)=>{
         const anchor=actor.kind==='pet'?homeSpeechAnchors?.pet:homeSpeechAnchors?.actors.find(a=>a.kind===actor.kind&&a.id===actor.id);
-        if(anchor)anchor.dioramaX=dx;
-        pointHomeSpeech();
+        if(anchor&&anchor.dioramaX!==dx){anchor.dioramaX=dx;pointHomeSpeech();}
       },
     });
     homeDiorama?.update(currentEnvironment(),{tier:mgPerfTier,available:![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)});
@@ -15421,13 +15425,24 @@
     },
   };
   // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
-  // Home is a static care stage: project visits into the existing cast, not a second movement AI.
+  // One special visit event; household rendering is independent of that event.
   var homeVisits = null, homeVisitLast = null, homeVisitLife = null;
   function homeInitiative(type,key) {
     const session=meguruMod?.socialSession;
     if(!session || !session.attempt(type,key))return false;
     session.emit(type,key,{context:'home',reason:'idle'});return true;
   }
+  // Membership renders residents. Visits remain the sole conversation/event gate.
+  // Deduplicate legacy aliases without writing back into gameplay state.
+  function homeResidentCompanions() {
+    const seen=new Set();
+    return state.companions.filter(c=>{
+      const id=canonicalCompanionId(c.id);
+      if(seen.has(id)||!allCompanionsById(id))return false;
+      seen.add(id);return true;
+    });
+  }
+  function homeResidentPartner() {return state.partner;}
   function homePresentCompanions() {
     const key=homeVisits?.current?.key;
     return state.companions.filter(c=>'companion:'+canonicalCompanionId(c.id)===key);

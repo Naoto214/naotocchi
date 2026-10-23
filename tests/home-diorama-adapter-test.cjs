@@ -67,3 +67,30 @@ test('keyboard selects and moves the focused actor without pointer coordinates',
  h.stage.listeners.keydown({key:'Enter',target:visitor,preventDefault(){}});assert.equal(h.c.model.selected(),'companion:shiba');
  h.stage.listeners.keydown({key:'ArrowRight',target:visitor,preventDefault(){}});assert.ok(h.c.model.snapshot().find(a=>a.key==='companion:shiba').target);h.c.destroy();
 });
+test('overview changes presentation mode and preserves all actors',()=>{
+ const h=setup();h.setActors(Array.from({length:6},(_,i)=>{const owner=node();return {key:'companion:'+i,kind:'companion',id:String(i),label:'仲間'+i,owner,node:owner,x:30+i*50,y:140,w:20,h:30};}));h.c.sync();
+ const toggle=h.stage.children.find(n=>n.className==='diorama-view');assert.ok(toggle);assert.equal(toggle.hidden,false);
+ toggle.listeners.click();assert.equal(h.c.overview(),true);assert.equal(h.c.model.snapshot().length,6);toggle.listeners.click();assert.equal(h.c.overview(),false);h.c.destroy();
+});
+test('resizing an actor around its unchanged foot repositions the terrain mask',async()=>{
+ const stage=node(),doc=node(),owner=node();let left=100;
+ doc.body=node();doc.visibilityState='visible';doc.createElement=()=>node();doc.createElementNS=()=>node();
+ owner.getBoundingClientRect=()=>({left,top:80,width:100,height:100});
+ const nav={unproject:p=>({x:p.x,z:p.y}),project:p=>({x:p.x,y:p.z}),nearest:p=>p,valid:()=>true};
+ const testWorld={navigation:()=>nav,stats:()=>({projectionRevision:1,renderer:{objects:1}}),
+  occlusion:()=>[[[10,10],[20,10],[20,20]]],setEnvironment(){},destroy(){}};
+ // Substitute only the asynchronous renderer dependency; exercise the real controller's update/sync/paint paths.
+ const module={exports:{}};
+ require('node:vm').runInNewContext(fs.readFileSync('home-diorama.js','utf8').replace("import('./home-world.mjs')",'Promise.resolve({createHomeWorld:()=>testWorld})'),{module,testWorld});
+ const env={NaotocchiHomeDioramaModel:model,matchMedia:()=>({matches:false,addEventListener(){},removeEventListener(){}}),requestAnimationFrame:()=>1,cancelAnimationFrame(){}};
+ let actors=[{key:'pet:dog',kind:'pet',id:'dog',node:owner,owner,x:170,y:145,w:60,h:75}];
+ const c=module.exports.createController({stage,document:doc,env,getActors:()=>actors,getMeguru:()=>({})});
+ try{
+  c.update({region:'forest'});await Promise.resolve();await Promise.resolve();
+  assert.equal(owner.style.maskPosition,'-100px -80px');
+  const before=c.model.snapshot()[0];left=120;actors=[{...actors[0],w:40,h:50}];c.sync();
+  assert.equal(c.model.snapshot()[0].x,before.x);assert.equal(c.model.snapshot()[0].y,before.y);
+  assert.equal(owner.style.maskPosition,'-120px -80px');
+  assert.equal(owner.style.webkitMaskPosition,'-120px -80px');
+ }finally{c.destroy();}
+});
