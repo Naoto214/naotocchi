@@ -32,3 +32,6 @@ Tech: native ES modules, Canvas2D, node:test, buildless private Sites.
 - Task 2 complete: mount設定/固定8×8/3段階ヒント、種族条件表示 RED→GREEN。新規34テスト成功。旧world/v2/rescue含む先行405テスト成功。
 - Task 3 complete: migration-audit旧24/24、同経路v2 17/24、7経路不一致。03算術不成立。DESIGN.mdに全体/面別計画。
 - Task 4 in progress: 専用CI・梱包追加、Chromium寸法検証、全体回帰実行中。独立レビューを依頼する。
+- Final review complete: Critical/Importantなし、I04波の表示行を5行目へ修正。追加検証でI05の合法別解を確認し保持。テーマ分類requiredをmechanicsへ改名し、必須性の証明と分離（メタデータのみ）。
+- 初回GitHub CI: Insight39909517921 / World39909517972ともsuccess。private Site version1公開成功、owner1/追加編集者0/group0/external0。
+- 作業中に別レーンでmainが76f32494へ更新（#431記録と#425クイック）。旧正式なおぽよファイルはacd4ece1との差分なしを確認。今回ブランチへmainを混ぜず、依存PR統合時の再base/回帰を計画する。
