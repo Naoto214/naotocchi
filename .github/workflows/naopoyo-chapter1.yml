@@ -46,3 +46,12 @@ jobs:
       - run: node prototypes/naopoyo-chapter1/tests/release-browser.cjs
         env:
           NODE_PATH: /tmp/chapter-browser/node_modules
+      - name: CARD GAME public UI and saved matches
+        env:
+          NODE_PATH: /tmp/chapter-browser/node_modules
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/card-http.log 2>&1 &
+          card_server_pid=$!
+          trap 'kill "$card_server_pid" 2>/dev/null || true' EXIT
+          node prototypes/card-game/tests/browser.cjs
+          node prototypes/card-game/tests/release-entry-browser.cjs

@@ -56,3 +56,20 @@ Runtime smoke、Pages build、パズル関連CIは成功を確認した。
 旧12面runtime/stages/store、正式カードdata/image、過去固定証跡は変更なし。
 飛行比較室とPilot画面は通常導線/Pages対象外を維持。PR #422は採用しない。
 正式版は第1章10面。飛行仕様は既存`FLIGHT-SPIKE-GRAVITY.md`を維持する。
+
+## 追加CARDブラウザ検査の現行UI対応
+
+旧browser harnessには、CPUが初期モードになった後もhotseat保存を無指定で復元、
+recordsMeta付き保存をraw engine.restoreで読み込む、宣言をbuttonとして探す、
+手札直後の400msクリック抑制中に次の操作を送る、という古い前提が残っていた。
+明示hotseat選択、本番decodeMatch経由の安全なprojection、実selectのoption選択、
+410ms後の次gestureへ更新。ゲームコードは変更していない。
+
+自動応答導入前の任意条件handoffs>20も、実際の非公開受け渡し、両席の操作、
+全受け渡し時のprivate DOM消去へ置換。対戦完了・30操作目の保存復帰・
+二重click1commitは維持。結果は89操作・20受け渡し、A/B両席、R10で対戦完了、
+page error 0。別のCPU入口検査でデッキ画面・新規対戦・保存復帰・表示画像を確認。
+どちらも隔離browserの合成saveを用い、既存400戦の入力/証跡は読込も再実行もしない。
+
+追加harness差分も独立レビューで承認。chapter-browser CIに第1章・CARD対人戦・
+CPU入口を組み込み、最終HEADで繰り返し検証する。
