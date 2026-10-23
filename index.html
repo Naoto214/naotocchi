@@ -78,14 +78,14 @@
   setTimeout(function () { if (!booted()) show(); }, 6000);
 })();
 </script>
-  <link rel="stylesheet" href="style.css?v=20261022-38021094">
+  <link rel="stylesheet" href="style.css?v=20261013-5a78d867">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20261021-459b8285">
+  <link rel="stylesheet" href="ui.css?v=20261022-3f196384">
   <link rel="stylesheet" href="design.css?v=20260929-ae1c4ad1">
   <link rel="stylesheet" href="egg-hatching.css?v=20260929-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260929-6a3b29a4">
   <link rel="stylesheet" href="ui-illustrations.css?v=20260929-0b4af9c3">
-  <link rel="stylesheet" href="world-scene.css?v=20260930-163e76b3">
+  <link rel="stylesheet" href="world-scene.css?v=20261022-94606d6f">
   <link rel="stylesheet" href="care-attention.css?v=20260929-c94a792d">
   <link rel="stylesheet" href="pet-expression.css?v=20260929-31f071f1">
   <link rel="stylesheet" href="home-care-colors.css?v=20260929-f78fe064">
@@ -164,7 +164,7 @@
             <div class="speech-slot" id="speechSlot"><div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
               <span class="speech-speaker" id="speechSpeaker"></span>
               <span class="speech-text" id="speechText" tabindex="0" aria-label="セリフ"></span>
-            </div></div>
+            </div><div class="speech-choices hidden" id="speechChoices" role="group" aria-label="こたえる"></div></div>
 
           </div>
 
@@ -879,7 +879,7 @@
   <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261016-2b3574b5"></template>
   <script src="relationship-life.js?v=20261014-7b5221c0"></script>
   <script src="meguru.js?v=20261016-fe7d14d5"></script>
-  <script src="quick.js?v=20261022-080818e4"></script>
+  <script src="quick.js?v=20261023-483ae293"></script>
   <script src="games.js?v=20261021-67504380"></script>
   <script src="audio.js?v=20260929-f12be965"></script>
   <script src="care-status.js?v=20260929-f881119b"></script>
@@ -892,12 +892,15 @@
   <script src="item-memories.js?v=20260929-1636293f"></script>
   <script src="item-system.js?v=20260929-b218da8f"></script>
   <script src="movie-dialogue.js?v=20260929-2b99e35a"></script>
-  <script src="conversation-director.js?v=20261021-68e06926"></script>
+  <script src="conversation-director.js?v=20261022-48197108"></script>
+  <script src="conversation-banter.js?v=20261022-846cde7a"></script>
+  <script src="conversation-postgame.js?v=20261022-c2e23a0b"></script>
+  <script src="conversation-quick.js?v=20261023-e9b3ef61"></script>
   <script src="life-stage-profiles.js?v=20260930-1a189f0f"></script>
   <script src="individuality-data.js?v=20261021-b9f59243"></script>
   <script src="individuality.js?v=20261021-fab004ae"></script>
   <script src="minigame-reactions.js?v=20261021-a2cbe8e5"></script>
-  <script src="script.js?v=20261022-a386cbfe"></script>
+  <script src="script.js?v=20261023-32a6bbc9"></script>
   <script src="home-touch.js?v=20260929-36be057a"></script>
 <div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
 </body>
