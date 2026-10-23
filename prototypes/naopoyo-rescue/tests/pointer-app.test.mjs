@@ -64,3 +64,14 @@ test('actual app reload keeps former terrain and Undo; retry creates new terrain
  assert.deepEqual(h.state().history,[]);assert.deepEqual(h.state().cleared,['01','02']);
  }
 });
+test('stage19 early foothold rescue blocks the planned ascent; Undo restores a complete solution',()=>{
+ const h=app(18,375),initial=h.state().state;
+ h.drag('a',[[1,3],[0,4]]);
+ assert.equal(h.state().state.actors.length,1);
+ assert.equal(h.state().state.rescued,2);
+ h.drag('r',[[2,3]]);
+ assert.deepEqual(h.state().state.actors.map(a=>[a.id,a.x,a.y]),[['r',1,4]]);
+ h.get('undo').onclick();assert.deepEqual(h.state().state,initial);
+ for(const d of solutions['19'])h.drag(d.id,d.path);
+ assert.ok(engine.complete(h.state().state));
+});

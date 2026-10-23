@@ -1,0 +1,67 @@
+{
+  "limit": 1500,
+  "stage21Limit": 20000,
+  "model": "real engine with merge and split rejected; actor switching before release is relaxed",
+  "results": [
+    {
+      "id": "13",
+      "status": "limit-unproved",
+      "visited": 1500
+    },
+    {
+      "id": "14",
+      "status": "exhausted-no-transform-solution",
+      "visited": 17
+    },
+    {
+      "id": "15",
+      "status": "exhausted-no-transform-solution",
+      "visited": 11
+    },
+    {
+      "id": "16",
+      "status": "exhausted-no-transform-solution",
+      "visited": 660
+    },
+    {
+      "id": "17",
+      "status": "limit-unproved",
+      "visited": 1500
+    },
+    {
+      "id": "18",
+      "status": "exhausted-no-transform-solution",
+      "visited": 341
+    },
+    {
+      "id": "19",
+      "status": "exhausted-no-transform-solution",
+      "visited": 190
+    },
+    {
+      "id": "20",
+      "status": "limit-unproved",
+      "visited": 1500
+    },
+    {
+      "id": "21",
+      "status": "exhausted-no-transform-solution",
+      "visited": 12316
+    },
+    {
+      "id": "22",
+      "status": "limit-unproved",
+      "visited": 1500
+    },
+    {
+      "id": "23",
+      "status": "limit-unproved",
+      "visited": 1500
+    },
+    {
+      "id": "24",
+      "status": "limit-unproved",
+      "visited": 1500
+    }
+  ]
+}
