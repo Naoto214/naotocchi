@@ -43,3 +43,8 @@ test('a 15-second held drag survives repeated normal render updates without auto
  const after=h.c.model.snapshot()[0];assert.equal(after.x,before.x);assert.equal(after.y,before.y);assert.equal(after.target,null);assert.equal(h.c.model.metrics().moves,0);
  h.stage.listeners.pointermove({...p,clientX:80,clientY:160});h.stage.listeners.pointerup({...p,clientX:80,clientY:160});assert.ok(h.c.model.snapshot()[0].target);h.c.destroy();
 });
+test('explicit visible actor target wins over a foreground actor padded touch area',()=>{
+ const h=setup(),back=node(),front=node();h.setActors([{key:'pet:back',kind:'pet',id:'back',owner:back,node:back,x:160,y:150,w:10,h:10},{key:'companion:front',kind:'companion',id:'front',owner:front,node:front,x:160,y:170,w:10,h:10}]);h.c.sync();
+ h.stage.listeners.pointerdown({pointerId:1,isPrimary:true,button:0,clientX:160,clientY:145,target:back,preventDefault(){}});
+ assert.equal(h.c.model.selected(),'pet:back');h.c.destroy();
+});

@@ -9,7 +9,8 @@
     return {left,right,top,bottom};
   }
   function limit(a,p,s){const b=bounds(a,s);return {x:clamp(p.x,b.left,b.right),y:clamp(p.y,b.top,b.bottom)};}
-  function separated(a,p,b){return Math.hypot((p.x-b.x)/((a.w+b.w)*.45+6),(p.y-b.y)/20)>=1;}
+  function clearance(a,p,b){return Math.hypot((p.x-b.x)/((a.w+b.w)*.5+10),(p.y-b.y)/((a.h+b.h)*.38+10));}
+  function separated(a,p,b){return clearance(a,p,b)>=1;}
   function privateRandom(){const bytes=new Uint32Array(1);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(bytes);let seed=bytes[0]||Date.now()>>>0||1;return ()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};}
   function createModel({random=privateRandom(),onEvent=()=>{}}={}){
     let actors=[],scene={},selected=null,clock=0,idleAt=5,paused=false;
@@ -44,7 +45,7 @@
       scene={...next,tags:(next.tags||[]).map(t=>({...t}))};
       actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map(a=>{
         const old=!changed&&actor(a.key),p=limit(a,old||a,scene);
-        return {...a,...p,temperament:{...a.temperament},target:old?.target||null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null};
+        return {...a,...p,temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null};
       });
       // Keep established actors stable; seat new/reshaped arrivals in the nearest free spot.
       const seated=[];
@@ -83,7 +84,7 @@
       const duration=(night?6:3)+random()*5+trait(a,'persistence')*.35;
       if(['turn','look','sit','rest'].includes(name)){activity(a,name);if(name==='turn'||name==='look'){a.direction*=-1;stats.turns++;emit('look',a);}defer(a,duration);return;}
       let p=null;a.faceKey=null;
-      if(['approach','together'].includes(name)&&social.length){const b=social[Math.floor(random()*social.length)%social.length];p={x:b.x+(b.x<scene.width/2?1:-1)*(a.w+b.w)*.6,y:b.y+22};a.faceKey=b.key;}
+      if(['approach','together'].includes(name)&&social.length){const b=social[Math.floor(random()*social.length)%social.length];p={x:b.x+(a.x<b.x?-1:1)*((a.w+b.w)*.55+14),y:b.y+(random()-.5)*32};a.faceKey=b.key;}
       else if(['observe','shelter'].includes(name)){const pool=tags.filter(t=>name!=='shelter'||t.tag==='shelter');p=pool[Math.floor(random()*pool.length)%pool.length];}
       else {const b=bounds(a,scene);p={x:b.left+random()*(b.right-b.left),y:b.top+random()*(b.bottom-b.top)};if(Math.abs(p.x-a.x)<35)p.x=a.x<scene.width/2?b.right:b.left;}
       a.after=name==='walk'?'look':name==='shelter'?'rest':name;
@@ -102,8 +103,8 @@
         const p=limit(a,{x:a.x+dx/dist*step,y:a.y+dy/dist*step},scene);
         // If a very crowded/short viewport cannot seat everyone, permit escape only
         // when every existing overlap shrinks; never enter a new overlap.
-        const clearance=(q,b)=>Math.hypot((q.x-b.x)/((a.w+b.w)*.45+6),(q.y-b.y)/20);
-        const safe=actors.every(b=>b===a||separated(a,p,b)||clearance(a,b)<1&&clearance(p,b)>clearance(a,b)+1e-6);
+        const distance=(q,b)=>clearance(a,q,b);
+        const safe=actors.every(b=>b===a||separated(a,p,b)||distance(a,b)<1&&distance(p,b)>distance(a,b)+1e-6);
         if(!safe){a.target=null;a.activity='look';defer(a,1+random()*2);continue;}
         stats.distance+=Math.hypot(p.x-a.x,p.y-a.y);a.x=p.x;a.y=p.y;if(Math.abs(dx)>.3)a.direction=dx<0?-1:1;
       }

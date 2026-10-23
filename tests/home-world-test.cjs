@@ -17,7 +17,7 @@ test('Living environment remains bounded with correct routes and pauses',async()
  const {createWorldLife}=await import('../world-life.mjs');
  for(const region of ['forest','river_lake','city']){
   const life=createWorldLife(region,()=>.37);let distance=0,last=life.snapshot();
-  for(let i=0;i<36000;i++){life.step(.1,{time:'day',weather:'sunny'});let now=life.snapshot();assert.ok(now.length<=12);for(let a of now){assert.ok(Number.isFinite(a.x+a.y+a.z));if(a.kind==='fish')assert.ok(a.z>=1380&&a.z<=1620);if(a.kind==='car')assert.equal(a.z,1400);}if(i<600)distance+=now.reduce((n,a,j)=>n+Math.abs(a.x-(last[j]?.x||a.x)),0);last=now;}
+  for(let i=0;i<36000;i++){life.step(.1,{time:'day',weather:'sunny'});let now=life.snapshot();assert.ok(now.length<=12);for(let a of now){assert.ok(Number.isFinite(a.x+a.y+a.z));if(a.kind==='fish')assert.ok(a.z>=1530&&a.z<=1770);if(a.kind==='car')assert.equal(a.z,1400);}if(i<600)distance+=now.reduce((n,a,j)=>n+Math.abs(a.x-(last[j]?.x||a.x)),0);last=now;}
   assert.ok(distance>100);const before=JSON.stringify(life.snapshot());life.step(40,{paused:true});assert.equal(JSON.stringify(life.snapshot()),before);assert.ok(life.metrics().spawned>2);
  }
 });

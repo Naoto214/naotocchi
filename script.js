@@ -14713,11 +14713,13 @@
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
-    const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
+    const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married, currentEnvironment().region, state.stage]);
     if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); renderHomeDiorama(); return; }
     homeCastLayoutKey = key;
     castMotion?.clear();
-    const layout = window.NaotocchiCast.layoutHomeCast(args);
+    const baseLayout = window.NaotocchiCast.layoutHomeCast(args);
+    const layout = window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region) && ![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)
+      ? window.NaotocchiHomeDiorama.scaleLayout(baseLayout,args) : baseLayout;
     relationshipCastFrames={layout,recruited,args};
     for(const actor of homeCastActors())relationshipMotionTokens.delete(actor.node);
     const area=layout.conversation;
@@ -14791,7 +14793,7 @@
       // Reserve original solver-owned attachments, including ring/heart motion clearance.
       const extent={left:w/2,right:w/2,top:h,bottom:0};
       for(const r of extras){extent.left=Math.max(extent.left,x-r.x+6);extent.right=Math.max(extent.right,r.x+r.w-x+6);extent.top=Math.max(extent.top,y-r.y+6);extent.bottom=Math.max(extent.bottom,r.y+r.h-y+6);}
-      return {key:a.kind+':'+a.id,kind:a.kind,id:a.id,label,node:a.node,owner,
+      return {key:a.kind+':'+a.id,kind:a.kind,id:a.id,label,node:a.node,owner,asset:path,originX:(b[0]+b[2])/256*100,
         temperament:a.kind==='pet'?{...state.individuality?.temperament}:null,
         attachments:a.kind==='pet'&&!el.petAccessory.classList.contains('hidden')?[el.petAccessory]:[],x,y,w,h,extent};
     }).filter(Boolean);
@@ -15487,7 +15489,7 @@
   // さんしょう)が、それぞれ すでに もっている category フィールドを
   // そのまま つかって minigameCategoryOf にも 登録しておく。こうしないと
   // これらの ゲームは minigameCategoryOf.get(game) が undefined に なり、
-  // pickRandomMinigame() の「同カテゴリ3連続回避」判定で undefined
+  // pickRandomMinigame() の「同系統3連続回避」判定で undefined
   // どうしが おなじ カテゴリと 誤判定されてしまう(fishing/downhill/
   // surfingのような まったく べつの あそび が、たまたま れんぞくで 出た
   // ときに 同カテゴリあつかいされる ばぐに つながる)。fishing/downhill/
@@ -16541,9 +16543,19 @@
   }
 
   let lastMinigame = null;
-  // 直近さいだい4かいぶんの カテゴリ(=ジャンル)を おぼえておいて、
-  // おなじ ジャンルが 3かい れんぞくしないように するための きろく
-  const recentMinigameCategories = [];
+  // 直近さいだい4かいぶんの 系統(minigameFamilyOf)を おぼえておいて、
+  // おなじ 系統が 3かい れんぞくしないように するための きろく
+  const recentMinigameFamilies = [];
+  // 3連続回避に つかう「系統」。カテゴリ(=ジャンル・個性の genre)は
+  // かえずに、おなじ 生成関数から できた カテゴリどうしを ここで まとめる
+  // (road と perspective3d は makeRoadGame、realFishing と fishing は
+  // makeRealFishingGame)。カテゴリ名が ちがうと 中身が おなじでも
+  // れんぞくを とめられなかった
+  const MINIGAME_FAMILY_OF_CATEGORY = { perspective3d: 'road', fishing: 'realFishing' };
+  function minigameFamilyOf(game) {
+    const category = minigameCategoryOf.get(game);
+    return MINIGAME_FAMILY_OF_CATEGORY[category] || category;
+  }
 
   // 各ゲームオブジェクトは 上の mg() で つくった その場で 固定の 文字列id
   // (game.id)を もっている。配列じょうの 位置には いっさい 依存しないので、
@@ -16739,22 +16751,22 @@
       }
     }
 
-    // おなじ ジャンル(カテゴリ)が 3かい れんぞくで 出てしまいそうなら、
-    // すぐ ちかく(=もうすぐ 出てくる ところ)に ちがう ジャンルが
+    // おなじ 系統(minigameFamilyOf)が 3かい れんぞくで 出てしまいそうなら、
+    // すぐ ちかく(=もうすぐ 出てくる ところ)に ちがう 系統が
     // あれば そちらを さきに 出す(なければ そのまま、むりには しない)
     let idx = minigameQueue.length - 1;
-    let category = minigameCategoryOf.get(currentMinigamePool[minigameQueue[idx]]);
+    let family = minigameFamilyOf(currentMinigamePool[minigameQueue[idx]]);
     if (
-      recentMinigameCategories.length >= 2 &&
-      recentMinigameCategories[recentMinigameCategories.length - 1] === category &&
-      recentMinigameCategories[recentMinigameCategories.length - 2] === category
+      recentMinigameFamilies.length >= 2 &&
+      recentMinigameFamilies[recentMinigameFamilies.length - 1] === family &&
+      recentMinigameFamilies[recentMinigameFamilies.length - 2] === family
     ) {
       const lookbackLimit = Math.max(0, minigameQueue.length - 8);
       for (let lookback = idx - 1; lookback >= lookbackLimit; lookback--) {
-        const altCategory = minigameCategoryOf.get(currentMinigamePool[minigameQueue[lookback]]);
-        if (altCategory !== category) {
+        const altFamily = minigameFamilyOf(currentMinigamePool[minigameQueue[lookback]]);
+        if (altFamily !== family) {
           [minigameQueue[lookback], minigameQueue[idx]] = [minigameQueue[idx], minigameQueue[lookback]];
-          category = altCategory;
+          family = altFamily;
           break;
         }
       }
@@ -16763,8 +16775,8 @@
     const game = currentMinigamePool[gameIdx];
     lastMinigame = game;
     recordMinigamePlay(game);
-    recentMinigameCategories.push(category);
-    if (recentMinigameCategories.length > 4) recentMinigameCategories.shift();
+    recentMinigameFamilies.push(family);
+    if (recentMinigameFamilies.length > 4) recentMinigameFamilies.shift();
     return game;
   }
 
@@ -17869,8 +17881,8 @@
       game = chosenGame;
       lastMinigame = game;
       recordMinigamePlay(game);
-      recentMinigameCategories.push(minigameCategoryOf.get(game));
-      if (recentMinigameCategories.length > 4) recentMinigameCategories.shift();
+      recentMinigameFamilies.push(minigameFamilyOf(game));
+      if (recentMinigameFamilies.length > 4) recentMinigameFamilies.shift();
     } else {
       game = pickRandomMinigame();
     }

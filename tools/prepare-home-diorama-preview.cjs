@@ -30,3 +30,5 @@ document.querySelectorAll('[data-region]').forEach(b=>b.onclick=()=>start(b.data
 </script></html>`;
 fs.writeFileSync(path.join(out,'index.html'),landing);
 console.log('Prepared preview-only launcher, separate save keys and real Home game.');
+
+fs.writeFileSync(path.join(out,'qa-phone.html'),`<!doctype html><html><meta charset="utf-8"><title>スマホ幅の配置比較</title><style>body{margin:0;background:#e5ece8}iframe{display:block;border:0;width:390px;height:844px;margin:0 auto}</style><iframe title="配置比較" src="cast-qa.html"></iframe></html>`);

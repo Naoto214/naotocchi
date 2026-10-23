@@ -45,14 +45,19 @@ body:is([data-living-home="3d"],[data-living-home="canvas-3d"]) .device{position
 #castStage[data-diorama] [data-diorama-activity="sit"] .character-visual{translate:0 4px;scale:var(--diorama-facing,1) .95;transform-origin:center bottom}
 #castStage[data-diorama] [data-diorama-activity="look"] .character-visual{rotate:1.5deg;transform-origin:center bottom}
 #castStage[data-diorama] [data-diorama-activity="rest"] .character-visual{scale:var(--diorama-facing,1) .99;transform-origin:center bottom}
-#castStage[data-diorama] [data-diorama-direction="-1"]{--diorama-facing:-1}
-#castStage[data-diorama][data-diorama-paused="true"] [data-diorama-actor] .character-visual{translate:none;rotate:none;scale:none}
+
+#castStage[data-diorama][data-diorama-paused="true"] [data-diorama-actor] .character-visual{translate:none;rotate:none;scale:var(--diorama-facing,1) 1}
 
 #castStage[data-diorama] [data-diorama-actor] .character-visual{scale:var(--diorama-facing,1) var(--diorama-squash,1)}
 #castStage[data-diorama] [data-diorama-activity="sit"]{--diorama-squash:.95}
 #castStage[data-diorama] [data-diorama-activity="rest"]{--diorama-squash:.99}
-#castStage[data-diorama][data-diorama-paused="true"] [data-diorama-actor] .character-visual{translate:none;rotate:none;scale:none}
+#castStage[data-diorama][data-diorama-paused="true"] [data-diorama-actor] .character-visual{translate:none;rotate:none;scale:var(--diorama-facing,1) 1}
 /* The legacy world layout placed poop children with viewport anchor variables.
    In Home they must be relative to the foreground row, not offset a second time. */
 #castStage[data-diorama] #poopRow{height:20px!important;display:flex;justify-content:center;gap:6px}
 #castStage[data-diorama] #poopRow>.care-icon{position:relative;left:auto;top:auto;width:18px;height:18px;flex:0 0 18px;margin:0;font-size:18px}
+
+/* Reflect around painted body center, not transparent PNG frame center. */
+#castStage[data-diorama] [data-diorama-actor] .character-visual{transform-origin:var(--diorama-origin,50% 100%)}
+
+#castStage[data-diorama] [data-diorama-actor] > .partner-emoji > .character-visual{transform-origin:var(--diorama-origin,50% 100%)}

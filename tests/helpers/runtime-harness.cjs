@@ -259,6 +259,8 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
       scheduleCompanionEncounter, scheduleEnvironmentMoment, scheduleIdleGreeting,
       drawRandomSticker, pickRandomMinigame, refillMinigameQueue,
       queue: () => minigameQueue.map(i => currentMinigamePool[i].id),
+      minigameFamilyOf, minigameCategoryOf: game => minigameCategoryOf.get(game),
+      setQueueIds: ids => { minigameQueue = ids.map(id => currentMinigamePool.findIndex(g => g.id === id)); },
       rankGameFixtures: games => {
         currentMinigamePool = games; minigameQueue = games.map((_, i) => i);
         minigameCrownFactors = ''; refreshCrownMinigameQueue();

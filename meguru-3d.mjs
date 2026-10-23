@@ -10,7 +10,7 @@
 // ・座標: せかいの (x, z) → three の (x, y, -z)。カメラは 2D と おなじ ピンホール(焦点 0.95W・地平線 30%・水平)。
 import * as THREE from './vendor/three-0.170.0/three.module.min.js';
 import { createSoftwareRenderer } from './world-software.mjs';
-import { installWind, drawProjectedLife } from './world-ambient.mjs';
+import { installWind, drawProjectedLife, createAquaticLife } from './world-ambient.mjs';
 
 export const THREE_REVISION = THREE.REVISION;
 // Home's DOM cast owns its screen position. Align the clear ground beneath it,
@@ -1106,11 +1106,11 @@ function create3DRenderer(M, o, onLost) {
       g.setAttribute('position', new THREE.BufferAttribute(data.positions, 3)); g.setAttribute('color', new THREE.BufferAttribute(data.colors, 3));
       if (data.uvs) g.setAttribute('uv', new THREE.BufferAttribute(data.uvs, 2));
       g.setIndex(data.index); g.computeVertexNormals();
-      const m = new THREE.Mesh(g, mat); m.name = name;m.userData.softwareSurface=name.startsWith('water:')?-1:0; m.frustumCulled = false; sc.add(m); return m;
+      const m = new THREE.Mesh(g, mat); m.name = name;m.userData.softwareSurface=name==='water:bank'||name==='water:creekbed'?-2:name.startsWith('water:')?-1:0; m.frustumCulled = false; sc.add(m); return m;
     };
     const waveTex = keep(waveTexture()); waveTex.repeat.set(3, 1);
     // 帯の 向き(折れ線の 進む 向き・岸の side)で 面の 表裏が かわる ので、水の material は 両面(DoubleSide)
-    const waterMat = keep(new THREE.MeshPhongMaterial({ vertexColors: true, map: waveTex, transparent: true, opacity: 0.94, shininess: 60, specular: '#cfe6ff', depthWrite: false, side: THREE.DoubleSide }));
+    const waterMat = keep(new THREE.MeshPhongMaterial({ vertexColors: true, map: waveTex, transparent: true, opacity: o.home && world.regionId==='river_lake' ? 0.58 : 0.94, shininess: 60, specular: '#cfe6ff', depthWrite: false, side: THREE.DoubleSide }));
     const bankMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide })));
     const foamMat = keep(new THREE.MeshBasicMaterial({ color: WC.foam, transparent: true, opacity: 0.55, depthWrite: false, side: THREE.DoubleSide }));
     const water = { kind: null, meshes: [] };
@@ -1226,7 +1226,8 @@ function create3DRenderer(M, o, onLost) {
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = GHOST_OPACITY; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
-    return { livingClock, homeCars, rid: world.regionId, motion: world.motion || null, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
+    const aquatic=o.home&&world.regionId==='river_lake'?createAquaticLife(THREE,sc,keep):null;
+    return { aquatic, livingClock, homeCars, rid: world.regionId, motion: world.motion || null, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
       setGroundColors: (cols) => { const k = cols ? cols.join(',') : ''; if ((groundOverride ? groundOverride.join(',') : '') === k) return; groundOverride = cols; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; },
       occluders, hidden: new Set(), ghostPool: [], ghostTint: new Map(), rayGrid: buildRayGrid(inst, NO_FADE), inst, terr, camY: null, ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
@@ -1393,6 +1394,7 @@ function create3DRenderer(M, o, onLost) {
     adaptDpr(now || 0);
     diag.frames++; diag.lastPlayer = player;
     if(o.home){
+      built.aquatic?.update(view.homeLife,animLv>0?(now||0)/1000:built.livingClock.value);
       built.livingClock.value=animLv>0?(now||0)/1000:built.livingClock.value;
       for(const m of built.water.meshes)if(m.name.includes('river')||m.name.includes('creek'))m.material.userData.livingWater=built.livingClock;
       const car=(view.homeLife||[]).find(a=>a.kind==='car');

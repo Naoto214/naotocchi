@@ -3,23 +3,23 @@ import { HOME_ROUTES,createWorldLife } from './world-life.mjs';
 // Layout is Home-owned. Mesh parts and materials are always the official Meguru source.
 const LAYOUTS={
  forest:[['bigtree',-750,1150],['bigtree',770,1330],['broadleaf',-480,1700],['broadleaf',460,1850],['conifer',-1000,2200],['conifer',900,2250],['bigtree',-250,2400],['broadleaf',300,2600],['log',-600,1050],['flower',540,1050],['mushrooms',-520,1120]],
- river_lake:[['broadleaf',-850,1100],['broadleaf',830,1900],['broadleaf',-450,2200],['broadleaf',550,2450],['rock',-800,1800],['rock',800,1150],['grass',-500,1220],['grass',550,1240],['flower',-650,1040],['flower',620,1050],['grass',-1000,1900]],
+ river_lake:[['broadleaf',-850,1100],['broadleaf',1030,2450],['broadleaf',-800,2500],['broadleaf',550,2450],['rock',-1050,1120],['rock',800,1150],['grass',-500,1220],['grass',550,1240],['flower',-650,1040],['flower',620,1050],['grass',-1000,1900]],
  city:[['house',-580,1900],['house',-250,1950],['house',400,1850],['tower',850,2200],['tower',-950,2300],['broadleaf',-740,1080],['broadleaf',740,1120],['lamp',-490,1140],['lamp',480,1140],['signal',-800,1510],['flower',630,1010],['flower',-620,1010]]
 };
 export function composeHomeWorld(M,region){
  if(!LAYOUTS[region])throw Error('Unsupported Home region');
  const source=M.buildWorld(region,M.buildRegistry(),{world3d:true});const catalogue=M.worldObjects3d(source).objects;
  const placements=[...LAYOUTS[region]];
- if(region!=='city')for(let i=0;i<12;i++)placements.push([i%3?'broadleaf':'conifer',-1700+i*310,2400+(i%3)*220]);
+ if(region!=='city')for(let i=0;i<12;i++)placements.push([i%3?'broadleaf':'conifer',-1700+i*310,(region==='river_lake'?2750:2400)+(i%3)*220]);
  const objects=placements.map(([type,x,z],i)=>{const candidates=catalogue.filter(o=>o.type===type),o=candidates[i%candidates.length];if(!o)return null;return {...o,id:'home:'+region+':'+i,sourceId:o.id,x,z,collision:o.collision?{...o.collision,x,z}:null,parts:o.parts.map(p=>{const q={...p};const k=['bigtree','broadleaf','conifer','house','tower'].includes(type)?1.9:1;for(const key of ['r','rx','rz','h','y','dx','dz','len','w'])if(typeof q[key]==='number')q[key]*=k;return q;})};}).filter(Boolean);
  // Low cover is reusable official geometry; leave the care clearing empty.
  const cover=catalogue.filter(o=>o.type==='grass'||o.type==='flower'||o.type==='dressing').slice(0,18);
- cover.forEach((o,i)=>objects.push({...o,id:'home:cover:'+i,sourceId:o.id,x:(i%2?-1:1)*(720+(i%4)*100),z:850+Math.floor(i/2)*140,solid:false,collision:null,parts:o.parts.map(p=>({...p}))}));
+ cover.forEach((o,i)=>objects.push({...o,id:'home:cover:'+i,sourceId:o.id,x:(i%2?-1:1)*(720+(i%4)*100),z:region==='river_lake'?880+(i%3)*55:850+Math.floor(i/2)*140,solid:false,collision:null,parts:o.parts.map(p=>({...p}))}));
  if(region==='city'){const car=catalogue.find(o=>o.type==='car');if(car)objects.push({...car,id:'home:car',sourceId:car.id,x:0,z:1400,solid:false,collision:null,parts:car.parts.map(p=>({...p}))});}
  const a={id:'home-front',x:0,z:0,r:650,kind:'plaza'},b={id:'home-back',x:0,z:900,r:550,kind:'plaza'};
  const segments=[{a,b,kind:'wide',half:400,len:900}];
  if(region==='city')segments.push({a:{x:-2000,z:1400},b:{x:2000,z:1400},kind:'wide',half:110,len:4000});
- const world={...source,len:3000,halfW:1800,minX:-1800,maxX:1800,spots:[a,b],segments,paths:[],props:[],marks:[],residents:[],areas:[],obstacles:objects.filter(o=>o.collision).map(o=>({...o.collision,role:'solid'})),_streams3d:undefined,terrain:region==='river_lake'?{kind:'river',half:160,pts:[[-2200,1500],[-700,1500],[700,1500],[2200,1500]]}:null};
+ const world={...source,len:3000,halfW:1800,minX:-1800,maxX:1800,spots:[a,b],segments,paths:[],props:[],marks:[],residents:[],areas:[],obstacles:objects.filter(o=>o.collision).map(o=>({...o.collision,role:'solid'})),_streams3d:undefined,terrain:region==='river_lake'?{kind:'river',half:620,pts:[[-2200,1650],[-700,1650],[700,1650],[2200,1650]]}:null};
  if(region!=='river_lake')world._streams3d=[];
  return {world,objects,routes:HOME_ROUTES[region],sourceRegion:region};
 }
