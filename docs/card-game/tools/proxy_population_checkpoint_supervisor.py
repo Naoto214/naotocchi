@@ -237,9 +237,11 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
    ref=store.append_row(index,target,entry)
    state.update(previous=entry['entry_sha256'],persisted=state['persisted']+1,last_ref=ref)
    row.update(persisted=True,checkpoint_entry_sha256=entry['entry_sha256'],results_commit=ref['commit'],resume_generation=plan['generation'])
-  except Exception as error:
+  except BaseException as error:
    # The row completed and its files stay in place; it is not counted as saved.
    row.update(execution_status='persist_failed',persisted=False,stop_reason=type(error).__name__+': '+str(error));halt(index)
+   if not isinstance(error,Exception):
+    state['interruption']=error;record_result(index,control);raise
   record_result(index,control)
  def dispatch(index):
   row=rows[index-1];target=destination/('attempt-'+str(index).zfill(4));row.update(execution_status='started',attempt_directory=target.name)
@@ -266,7 +268,7 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
    try:record_result(index,control)
    except BaseException:pass
  interruption=state['interruption'];persisted=state['persisted'];last_ref=state['last_ref']
- completed=sum(r['execution_status']=='completed' and r.get('persisted') for r in rows);reused=sum(r['execution_status']=='reused_verified_checkpoint' for r in rows)
+ completed=sum(r['execution_status']=='completed' and r.get('persisted') is True for r in rows);reused=sum(r['execution_status']=='reused_verified_checkpoint' for r in rows)
  report=dict(schema='fixed_population_checkpoint_supervisor_result.v1',attempt_id=resume['attempt_id'],resume_generation=plan['generation'],
   status='completed_fixed_schedule' if completed+reused==400 else 'stopped',planned_counts=dict(groups=200,matches=400),planned_rows=rows,planned_groups=groups,
   completed_rows=completed,reused_rows=reused,persisted_rows=persisted,not_executed_rows=sum(r['execution_status']=='not_executed' for r in rows),

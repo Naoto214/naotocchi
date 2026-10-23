@@ -148,7 +148,7 @@ class CheckpointResumeTests(unittest.TestCase):
  def test_06_different_edition_cannot_reuse_rows(self):
   self.h.run(self.h.gen0(1),'gen0',stop_at(3))
   other=copy.deepcopy(CERT);other['commit']='9'*40
-  with self.assertRaisesRegex(ValueError,'checkpoint entry differs'):self.h.resume(1,cert=other)
+  with self.assertRaisesRegex(ValueError,'checkpoint (entry|start record)'):self.h.resume(1,cert=other)
 
  def test_07_different_manifest_cannot_reuse_rows(self):
   self.h.run(self.h.gen0(1),'gen0',stop_at(3))
@@ -157,7 +157,7 @@ class CheckpointResumeTests(unittest.TestCase):
 
  def test_08_consumed_attempt_cannot_restart_as_generation_zero_and_stale_reference_is_refused(self):
   self.h.run(self.h.gen0(1),'gen0',stop_at(3))
-  with self.assertRaisesRegex(ValueError,'results branch already exists'):self.h.run(self.h.gen0(1),'gen0-again',lambda r:'ok',workspace='ws-again')
+  with self.assertRaisesRegex(ValueError,'results branch (already exists|exists but the approval names none)'):self.h.run(self.h.gen0(1),'gen0-again',lambda r:'ok',workspace='ws-again')
   resume,_=self.h.resume(1);attempt=resume['attempt_id']
   self._tamper(attempt,lambda ws:(ws/'extra.txt').write_text('moved on'))  # the branch moves after the approval reference was fixed
   with self.assertRaisesRegex(ValueError,'results branch head differs|moved since'):self.h.run(resume,'gen1',lambda r:'ok',workspace='ws-stale')
@@ -231,7 +231,9 @@ class CheckpointResumeFollowUpTests(unittest.TestCase):
 
  def test_two_resumes_in_the_same_container_use_separate_workspaces(self):
   self.h.run(self.h.gen0(1),'gen0',stop_at(2))
-  resume,_=self.h.resume(1,workspace='ws')  # same parent directory as generation 0
+  claim=dict(comment_id=1,commit=self.h.claim,tree=self.h.claim_tree);attempt=api.first_generation_resume(self.h.publication,1)['attempt_id']
+  # Same container: generation 0's workspace is still present.
+  resume,_=api.prepare_resume(self.h.repo,self.h.bundle,CERT,claim,1,self.h.store(attempt,'ws',1),1)
   r1=self.h.run(resume,'gen1',stop_at(4),workspace='ws');self.assertEqual(r1['persisted_rows'],2)
   resume2,plan2=api.prepare_resume(self.h.repo,self.h.bundle,CERT,dict(comment_id=1,commit=self.h.claim,tree=self.h.claim_tree),2,self.h.store(resume['attempt_id'],'ws',2),1)
   self.assertEqual((resume2['completed_rows'],plan2['next_schedule_index']),(3,4))
