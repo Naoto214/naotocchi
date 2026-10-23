@@ -1,0 +1,552 @@
+{
+  "main": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+  "expansion": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+  "method": "Read-only single-spike shape adapter and original absolute drag witness. v2 immediate gravity vs legacy release is intentionally preserved. Witness failure is NOT proof of unsolvability.",
+  "results": [
+    {
+      "id": "01",
+      "title": "ひかりの牢屋",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "02",
+      "title": "ふたりで、ひとつ",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "03",
+      "title": "ぷにっと連続合体",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": false,
+      "issue": {
+        "reason": "exit",
+        "id": "a",
+        "x": 6,
+        "y": 2,
+        "steps": 5
+      },
+      "remaining": [
+        {
+          "id": "a",
+          "n": 4,
+          "x": 5,
+          "y": 2
+        }
+      ],
+      "v2Solvable": "unproven-needs-redesign-or-new-witness",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "04",
+      "title": "とげで、ふたりに",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "05",
+      "title": "もう一度、ひとつに",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "06",
+      "title": "小さな抜け道",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "07",
+      "title": "魔法の門",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "08",
+      "title": "それぞれの帰り道",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "09",
+      "title": "なかまの階段",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "10",
+      "title": "みんなで帰ろう",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "11",
+      "title": "ペンギンの大きな約束",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": false,
+      "issue": {
+        "reason": "exit",
+        "id": "p",
+        "x": 6,
+        "y": 2,
+        "steps": 5
+      },
+      "remaining": [
+        {
+          "id": "p",
+          "n": 5,
+          "x": 5,
+          "y": 2
+        },
+        {
+          "id": "child1",
+          "n": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "v2Solvable": "unproven-needs-redesign-or-new-witness",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "12",
+      "title": "かえるの小さな鍵",
+      "source": "acd4ece17c293c9365a41216b0ac4492174ffcf5",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "13",
+      "title": "大きな鍵、小さな四人",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": false,
+      "issue": {
+        "reason": "gate",
+        "id": "a",
+        "x": 3,
+        "y": 2,
+        "steps": 3
+      },
+      "remaining": [
+        {
+          "id": "a",
+          "n": 4,
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "v2Solvable": "unproven-needs-redesign-or-new-witness",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "14",
+      "title": "四つにほどく約束",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": false,
+      "issue": {
+        "reason": "actor no longer exists",
+        "id": "child3",
+        "steps": 13
+      },
+      "remaining": [
+        {
+          "id": "child1",
+          "n": 2,
+          "x": 4,
+          "y": 1
+        },
+        {
+          "id": "child2",
+          "n": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "v2Solvable": "unproven-needs-redesign-or-new-witness",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "15",
+      "title": "小さく、大きく、小さく",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "16",
+      "title": "二重の番人",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": false,
+      "issue": {
+        "reason": "gate",
+        "id": "a",
+        "x": 5,
+        "y": 2,
+        "steps": 7
+      },
+      "remaining": [
+        {
+          "id": "a",
+          "n": 3,
+          "x": 4,
+          "y": 2
+        },
+        {
+          "id": "child1",
+          "n": 1,
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "v2Solvable": "unproven-needs-redesign-or-new-witness",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "17",
+      "title": "逆向きの約束",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "18",
+      "title": "三人の分かれ道",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "19",
+      "title": "ほどいて架ける階段",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "20",
+      "title": "上で待っている君",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "21",
+      "title": "最後の足場係",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "22",
+      "title": "三種族の鍵束",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": true,
+      "issue": null,
+      "remaining": [],
+      "v2Solvable": "witness-proven",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "23",
+      "title": "空中の大きな鍵",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": false,
+      "issue": {
+        "reason": "step",
+        "id": "child2",
+        "x": 6,
+        "y": 2,
+        "steps": 8
+      },
+      "remaining": [
+        {
+          "id": "f",
+          "n": 1,
+          "x": 3,
+          "y": 4
+        },
+        {
+          "id": "child1",
+          "n": 1,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "n": 1,
+          "x": 6,
+          "y": 2
+        }
+      ],
+      "v2Solvable": "unproven-needs-redesign-or-new-witness",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    },
+    {
+      "id": "24",
+      "title": "みんなの帰り道、最後の橋",
+      "source": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+      "dimensions": [
+        8,
+        6
+      ],
+      "legacyWitnessPassed": true,
+      "v2SameWitnessClears": false,
+      "issue": {
+        "reason": "step",
+        "id": "child2",
+        "x": 6,
+        "y": 2,
+        "steps": 8
+      },
+      "remaining": [
+        {
+          "id": "r",
+          "n": 1,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "id": "f",
+          "n": 1,
+          "x": 3,
+          "y": 4
+        },
+        {
+          "id": "child1",
+          "n": 1,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "n": 1,
+          "x": 6,
+          "y": 2
+        }
+      ],
+      "v2Solvable": "unproven-needs-redesign-or-new-witness",
+      "mechanicalAdapterOnly": true,
+      "shortcuts": "not exhaustively evaluated",
+      "resize": "per-stage redesign; never pad automatically"
+    }
+  ]
+}

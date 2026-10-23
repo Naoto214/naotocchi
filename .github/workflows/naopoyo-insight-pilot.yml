@@ -1,0 +1,19 @@
+name: Naopoyo Insight Pilot
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-insight/**'
+      - 'prototypes/naopoyo-world/**'
+      - 'prototypes/naopoyo-v2/**'
+      - '.github/workflows/naopoyo-insight-pilot.yml'
+  workflow_dispatch:
+jobs:
+  insight-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/naopoyo-insight/tests/*.test.mjs prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
+      - run: node prototypes/naopoyo-insight/build-preview.mjs /tmp/insight-preview
