@@ -83,6 +83,13 @@ class RealWorkerHarness:
   return results.Store(self.repo,api.first_generation_resume(self.publication,1)['attempt_id'],self.root/workspace,remote=str(self.remote),generation=generation)
  def resume(self,generation,parallelism):
   return api.prepare_resume(self.repo,self.bundle,self.cert,dict(comment_id=1,commit=self.claim,tree=self.claim_tree),generation,self.store(generation),parallelism)
+ def worker_output(self,destination,index):
+  """A failed row's returncode and stderr tail, for a diagnosable assertion message."""
+  import base64
+  path=self.card/'data'/destination/('result-'+str(index).zfill(4)+'.json')
+  if not path.exists():return 'no result file'
+  control=json.loads(path.read_text())
+  return dict(result=control.get('result'),returncode=control.get('returncode'),stderr_tail=base64.b64decode(control.get('stderr_base64','')).decode(errors='replace')[-4000:])
  def saved(self):
   store=self.store(0,'reader');head=store.remote_head()
   subprocess.run(['git','-C',str(self.repo),'fetch','-q',str(self.remote),'refs/heads/'+store.branch],check=True)
@@ -105,7 +112,7 @@ class RealWorkerTests(unittest.TestCase):
  def test_real_engine_row_checkpoint_and_two_resumes(self):
   # Generation 0: row 1 is the real engine (test-1A), row 2 a stand-in, row 3 crashes.
   report=self.h.run(api.first_generation_resume(self.h.publication,2),'gen0',{1:'engine',2:'stub',3:'crash'})
-  self.assertEqual([r['execution_status'] for r in report['planned_rows'][:3]],['completed','completed','record_unverified'],report['planned_rows'][:3])
+  self.assertEqual([r['execution_status'] for r in report['planned_rows'][:3]],['completed','completed','record_unverified'],self.h.worker_output('gen0',1))
   saved=self.h.saved();self.assertEqual(sorted(saved),[1,2])
   entry,receipt,compressed,start=saved[1]
   record=json.loads(gzip.decompress(compressed));self.assertTrue(record['completed']);self.assertEqual(record['binding']['match_id'],'test-1A')
