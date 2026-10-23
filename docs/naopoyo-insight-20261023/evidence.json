@@ -1,0 +1,578 @@
+{
+  "solutions": [
+    {
+      "stage": "I01",
+      "complete": true,
+      "mass": 3,
+      "commands": [
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 1
+        }
+      ],
+      "stats": {
+        "merged": 2,
+        "split": 1,
+        "overflow": 0,
+        "falls": 0
+      },
+      "moves": 11,
+      "time": 0,
+      "shortestProven": false
+    },
+    {
+      "stage": "I02",
+      "complete": true,
+      "mass": 11,
+      "commands": [
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "b",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "b",
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "id": "b",
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "id": "b",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "b",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "b",
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "stats": {
+        "merged": 5,
+        "split": 0,
+        "overflow": 3,
+        "falls": 0
+      },
+      "moves": 12,
+      "time": 0,
+      "shortestProven": false
+    },
+    {
+      "stage": "I03",
+      "complete": true,
+      "mass": 6,
+      "commands": [
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "stats": {
+        "merged": 0,
+        "split": 0,
+        "overflow": 0,
+        "falls": 5
+      },
+      "moves": 6,
+      "time": 0,
+      "shortestProven": false
+    },
+    {
+      "stage": "I04",
+      "complete": true,
+      "mass": 4,
+      "commands": [
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "wait": 3000
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "id": "child1",
+          "dx": -1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "stats": {
+        "merged": 3,
+        "split": 2,
+        "overflow": 0,
+        "falls": 0
+      },
+      "moves": 8,
+      "time": 3000,
+      "shortestProven": false
+    },
+    {
+      "stage": "I05",
+      "complete": true,
+      "mass": 5,
+      "commands": [
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "wait": 3000
+        },
+        {
+          "wait": 1800
+        },
+        {
+          "id": "a",
+          "dx": 0,
+          "dy": -1
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        }
+      ],
+      "stats": {
+        "merged": 1,
+        "split": 4,
+        "overflow": 0,
+        "falls": 0
+      },
+      "moves": 12,
+      "time": 4800,
+      "shortestProven": false
+    },
+    {
+      "stage": "I06",
+      "complete": true,
+      "mass": 6,
+      "commands": [
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "f",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child2",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child2",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child2",
+          "dx": 1,
+          "dy": 1
+        }
+      ],
+      "stats": {
+        "merged": 2,
+        "split": 2,
+        "overflow": 0,
+        "falls": 0
+      },
+      "moves": 20,
+      "time": 0,
+      "shortestProven": false
+    },
+    {
+      "stage": "I07",
+      "complete": true,
+      "mass": 5,
+      "commands": [
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "wait": 3000
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "wait": 1800
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "a",
+          "dx": 1,
+          "dy": -1
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 1
+        },
+        {
+          "id": "child1",
+          "dx": -1,
+          "dy": 1
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 0
+        },
+        {
+          "id": "child1",
+          "dx": 1,
+          "dy": 1
+        }
+      ],
+      "stats": {
+        "merged": 4,
+        "split": 4,
+        "overflow": 0,
+        "falls": 0
+      },
+      "moves": 9,
+      "time": 6300,
+      "shortestProven": false
+    }
+  ],
+  "ablations": [
+    {
+      "stage": "I04",
+      "disabled": "wave",
+      "scope": "Initial region; beam/spike is beyond the full-height wave-only gate barrier, so cannot activate before the forbidden crossing. Manual engine exhausts all reachable states.",
+      "status": "exhausted-no-solution",
+      "visited": 528,
+      "discovered": 528,
+      "limit": 50000
+    },
+    {
+      "stage": "I07",
+      "disabled": "wave",
+      "scope": "Initial region; beam/spike is beyond the full-height wave-only gate barrier, so cannot activate before the forbidden crossing. Manual engine exhausts all reachable states.",
+      "status": "exhausted-no-solution",
+      "visited": 1024,
+      "discovered": 1024,
+      "limit": 50000
+    },
+    {
+      "stage": "I02",
+      "disabled": "overflow",
+      "status": "exhausted-no-solution",
+      "visited": 992,
+      "discovered": 992,
+      "limit": 50000
+    },
+    {
+      "stage": "I05",
+      "disabled": "beam",
+      "status": "exhausted-no-solution",
+      "visited": 40,
+      "discovered": 40,
+      "limit": 50000
+    },
+    {
+      "stage": "I07",
+      "disabled": "beam-after-required-wave-crossing",
+      "scope": "At the only crossing, all mass is one fish5; absent beam there is no other split source. Manual exhaustive search starts immediately after that crossing.",
+      "status": "exhausted-no-solution",
+      "visited": 54,
+      "discovered": 54,
+      "limit": 50000
+    },
+    {
+      "stage": "I03",
+      "disabled": "support-rescued-first",
+      "scope": "Frog rescued immediately, then all remaining manual v2 states exhausted.",
+      "status": "exhausted-no-solution",
+      "visited": 28,
+      "discovered": 28,
+      "limit": 50000
+    }
+  ]
+}

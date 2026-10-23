@@ -1,9 +1,10 @@
-import { WorldSession, KEY, phase } from "./session.mjs";
-import { stages } from "./stages.mjs";
+import { WorldSession, KEY as defaultKey, phase } from "./session.mjs";
+import { stages as defaultStages } from "./stages.mjs";
 import { complete, mass } from "../naopoyo-v2/engine.mjs";
 import { loadSprites } from "../naopoyo-rescue/sprites.mjs";
 import { render, loadGuests, eventCaption } from "./render.mjs";
-export function mount() {
+export function mount({stages = defaultStages, key = defaultKey, fixedBoard = false, label = "操作改善版 r2", intro = false} = {}) {
+  const KEY = key, hintsSeen = new Map();
   const $ = (id) => document.getElementById(id),
     canvas = $("board");
   let raw;
@@ -53,8 +54,7 @@ export function mount() {
     $("title").textContent = q.stage.title;
     $("chapter").textContent =
       `PILOT ${q.stage.id} · ${comparison ? "表示比較のみ" : q.state.rescued + " / " + mass(q.state) + " おかえり"}`;
-    const e = q.stage.events[0];
-    $("clock").textContent = e ? eventCaption(e, q.time) : "TIMELESS";
+    $("clock").textContent = q.stage.events.length ? q.stage.events.map(e => eventCaption(e, q.time)).join(" / ") : q.stage.gravity ? "重力 ↓" : "TIMELESS";
     $("undo").disabled = !q.history.length && !q.active;
     $("compare").textContent = "8×" + rows;
     if (saveError)
@@ -80,7 +80,7 @@ export function mount() {
   }
   function storyHTML() {
     const n = q.stage.narrator;
-    return `<span class="tag">PILOT ${q.stage.id} · 操作改善版 r2</span><h2>${q.stage.title}</h2>${n ? `<img class="narrator" src="../../${n.asset}" alt="${n.name}">` : ""}<p>${q.stage.story}</p><p>${q.stage.lesson}</p><small>物語は「とじる」でスキップ。正式版と別の記録です。</small>`;
+    return `<span class="tag">PILOT ${q.stage.id} · ${label}</span><h2>${q.stage.title}</h2>${n ? `<img class="narrator" src="../../${n.asset}" alt="${n.name}">` : ""}<p>${q.stage.story}</p><p>${q.stage.lesson}</p><small>物語は「とじる」でスキップ。正式版と別の記録です。</small>`;
   }
   function choose(id) {
     q = new WorldSession(stages.find((s) => s.id === id));
@@ -129,8 +129,8 @@ export function mount() {
       $("status").textContent = r?.ok
         ? "指を離さず、そのまま。"
         : r
-          ? q.stage.id === "B"
-            ? "波3の門は、3になって波で通ろう。"
+          ? q.stage.gates.some(g => g.waveOnly)
+            ? "波の門は、表示の数字になって波で通ろう。"
             : "門・星の数字や、通れる地形を見てみよう。"
           : "キャラから、なぞってみよう";
     draw();
@@ -175,20 +175,27 @@ export function mount() {
     last = 0;
     draw();
   };
-  $("hint").onclick = () =>
+  const legacyHint = () =>
     show(
       `<h2>ほどくヒント</h2><p>${q.stage.hint}</p><p>同じ種族は足し算。8を超えた分は後ろに。トゲや光で1ずつ分裂。青い水中は魚だけ。</p><p>波や光は予告のあと自動で動きます。押されても指を離さず続けられます。「もどす」は時刻も一緒に戻します。</p>`,
     );
+  function showHint() {
+    if (!q.stage.hints) return legacyHint();
+    const count = hintsSeen.get(q.stage.id) || 1;
+    show(`<h2>ほどくヒント ${count} / 3</h2>` + q.stage.hints.slice(0, count).map((h, i) => `<p><b>ヒント${i + 1}</b><br>${h}</p>`).join("") + (count < 3 ? '<button class="primary" id="hintMore">もう一段だけ見る</button>' : '<small>ここから先は、自分の手でほどいてみよう。</small>'));
+    if (count < 3) $("hintMore").onclick = () => { hintsSeen.set(q.stage.id, count + 1); showHint(); };
+  }
+  $("hint").onclick = showHint;
   $("select").onclick = () => {
     show(
-      "<h2>5つの星の道</h2>" +
+      `<h2>${stages.length}つの星の道</h2>` +
         stages
           .map(
             (s) =>
-              `<button class="level" data-stage="${s.id}">${s.id}　${s.title}</button>`,
+              `<button class="level" data-stage="${s.id}">${s.id}　${s.title}${s.difficulty ? "　" + "★".repeat(s.difficulty) : ""}</button>`,
           )
           .join("") +
-        "<small>Dは順序パズル、Eは協力するタコの比較試作。操作改善版 r2。</small>",
+        `<small>${fixedBoard ? "どの面からでも遊べます。星は仮の難易度。全員脱出が目標です。" : "Dは順序パズル、Eは協力するタコの比較試作。操作改善版 r2。"}</small>`,
     );
     for (const b of dialog.querySelectorAll("[data-stage]"))
       b.onclick = () => choose(b.dataset.stage);
@@ -199,7 +206,9 @@ export function mount() {
     last = 0;
     draw();
   });
+  $("compare").hidden = fixedBoard;
   $("compare").onclick = () => {
+    if (fixedBoard) return;
     end();
     comparison = !comparison;
     rows = comparison ? 6 : 8;
@@ -278,6 +287,7 @@ export function mount() {
         "<p>この面の仕掛けを更新したため、最初から始めます。以前の試遊記録は別に保管しました。</p>",
     );
   }
+  if (intro && !raw) show(storyHTML());
   size();
   Promise.all([loadSprites(), loadGuests(stages)]).then(draw);
   pauseState();

@@ -2,6 +2,10 @@ import { drawSprite } from "../naopoyo-rescue/sprites.mjs";
 import { conditionLabel } from "../naopoyo-rescue/conditions.mjs";
 import { phase } from "./session.mjs";
 const images = new Map();
+export function conditionCaption(condition, showSpecies = false) {
+  const names = {dog:"犬",fish:"魚",penguin:"ペンギン",frog:"カエル"};
+  return (showSpecies && condition.species ? names[condition.species] + " " : "") + (condition.waveOnly ? "波" : "") + conditionLabel(condition);
+}
 export async function loadGuests(stages) {
   await Promise.all(
     [
@@ -238,7 +242,7 @@ export function render(canvas, q, { rows = 8, dpr = 1, hitUntil = 0 } = {}) {
     );
     text(
       c,
-      conditionLabel(e),
+      conditionCaption(e, s.showSpecies),
       (e.x + 0.5) * cell,
       (e.y + 0.88) * cell,
       cell * 0.23,
@@ -268,7 +272,7 @@ export function render(canvas, q, { rows = 8, dpr = 1, hitUntil = 0 } = {}) {
     if (!s.actors.some((a) => a.x === g.x && a.y === g.y))
       text(
         c,
-        (g.waveOnly ? "波" : "") + conditionLabel(g),
+        conditionCaption(g, s.showSpecies),
         (g.x + 0.5) * cell,
         (g.y + 0.22) * cell,
         cell * 0.29,
