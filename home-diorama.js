@@ -43,17 +43,28 @@
         {tag:'shelter',x:width*.22,y:Math.min(floor,back+25)},
         {tag:e.region==='river_lake'?'water':'flower',x:width*.78,y:Math.min(floor,back+32)}]};
   }
-  function createController({stage,document:doc,env=window,getActors,isBlocked=()=>false,isVisible=()=>true,onGesture=()=>{},onPosition=()=>{},getProfile=()=>({}),getWorld=()=>({}),getMeguru=()=>null}){
+  // Device UI preference only: never write the care save or relationship state.
+  function createGestureGuide({storage,key='naotocchi-home-guide-v1'}={}){
+    let completed=false,replaying=false;
+    try{completed=storage?.getItem(key)==='done';}catch(_){}
+    const finish=()=>{completed=true;replaying=false;try{storage?.setItem(key,'done');}catch(_){}};
+    return {visible:()=>!completed||replaying,replay(){replaying=true;},dismiss:finish,
+      drag({actor,success}){if(actor&&success)finish();}};
+  }
+  function createController({stage,document:doc,env=window,getActors,isBlocked=()=>false,isVisible=()=>true,onGesture=()=>{},onPosition=()=>{},getProfile=()=>({}),getWorld=()=>({}),getMeguru=()=>null,guideKey='naotocchi-home-guide-v1'}){
     const modelAPI=env.NaotocchiHomeDioramaModel;if(!stage||!modelAPI)return null;
     let enabled=false,dead=false,scene=null,environment=null,flags={},rows=new Map(),raf=0,last=0,gesture=null,sceneKey='',wasBlocked=false;
     let world=null,worldLoading=false,worldHost=null,activeTime=0,frames=0,frameGaps=[],loadGeneration=0;
     const movedNotices=[];
     function placeNotices(on){const slot=doc.getElementById?.('homeEventSlot');if(!slot)return;if(on&&!movedNotices.length){for(const id of ['storyFlash','message']){const n=doc.getElementById(id);if(n?.parentNode){movedNotices.push({n,parent:n.parentNode,next:n.nextSibling});slot.appendChild(n);}}}else if(!on){for(const {n,parent,next}of movedNotices)parent.insertBefore?parent.insertBefore(n,next?.parentNode===parent?next:null):parent.appendChild?.(n);movedNotices.length=0;}if(doc.body)doc.body.dataset.homeTerrain=on?'true':'';}
+    let guideStorage;try{guideStorage=env.localStorage;}catch(_){}
+    const guide=createGestureGuide({storage:guideStorage,key:guideKey});let guideWalk=null;
     const media=env.matchMedia?.('(prefers-reduced-motion: reduce)');
     const art=doc.createElement('div'),overlay=doc.createElement('div'),marker=doc.createElement('span'),hint=doc.createElement('span');
     art.className='diorama-art';overlay.className='diorama-overlay';marker.className='diorama-target';hint.className='diorama-hint';
     art.setAttribute('aria-hidden','true');overlay.setAttribute('aria-hidden','true');marker.hidden=true;hint.textContent='タップで選択・ドラッグでおさんぽ';
     stage.appendChild(art);stage.appendChild(overlay);overlay.appendChild(marker);(doc.getElementById?.('homeGestureGuide')||stage).appendChild(hint);
+    function showGuide(){const walking=guideWalk&&model.snapshot().some(a=>a.key===guideWalk&&a.target&&a.source==='drag');if(!walking)guideWalk=null;hint.hidden=!enabled||(!guide.visible()&&!walking);const slot=doc.getElementById?.('homeGestureGuide');if(slot)slot.hidden=hint.hidden;}
     function emit(event){if(event.type==='tap'||event.type==='environment')onGesture(event.actor,event.environmentTags.includes('tree')?'curious':'look');
       if(env.CustomEvent)stage.dispatchEvent(new env.CustomEvent('naotocchi:home-reaction',{detail:event}));}
     const model=modelAPI.createModel({onEvent:emit});
@@ -90,6 +101,7 @@
       rows=next;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent,temperament})),scene);paint();
     }
     function paint(){
+      showGuide();
       for(const a of model.snapshot()){
         const row=rows.get(a.key);if(!row)continue;
         const dx=a.x-row.x,dy=a.y-row.y;
@@ -131,9 +143,9 @@
     function update(e,f={}){
       environment=e;flags=f;
       const next=modelAPI.supported(e.region)&&f.available!==false;
-      if(!next){placeNotices(false);enabled=false;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
+      if(!next){placeNotices(false);enabled=false;showGuide();stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
       enabled=true;placeNotices(true);stage.dataset.diorama=e.region;stage.dataset.dioramaReduced=String(!!media?.matches);stage.dataset.dioramaTier=String(f.tier||0);stage.dataset.dioramaTime=e.time;stage.dataset.dioramaWeather=e.weather;
-      art.hidden=false;overlay.hidden=false;hint.hidden=false;
+      art.hidden=false;overlay.hidden=false;showGuide();
       const r=stage.getBoundingClientRect();scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
       const key=JSON.stringify([e,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
       ensureWorld();world?.setEnvironment(e);if(world)scene.navigation=world.navigation(stage.getBoundingClientRect());sync();stage.dataset.dioramaPaused=String(blocked());
@@ -144,7 +156,10 @@
     function hit(p,target){
       const items=model.snapshot().sort((a,b)=>b.y-a.y);
       const owner=target?.closest?.('[data-diorama-actor]');
-      for(const a of items){const row=rows.get(a.key);if(target===row.owner||owner===row.owner)return a.key;}
+      const bodyHit=a=>Math.abs(p.x-a.x)<=a.w/2&&p.y>=a.y-a.h&&p.y<=a.y;
+      // PNG frames include transparent padding. A foreground frame must not steal a visible visitor.
+      for(const a of items){const row=rows.get(a.key);if(bodyHit(a)&&(target===row.owner||owner===row.owner))return a.key;}
+      for(const a of items)if(bodyHit(a))return a.key;
       for(const a of items)if(Math.abs(p.x-a.x)<=Math.max(22,a.w/2)&&p.y>=a.y-Math.max(44,a.h)&&p.y<=a.y+10)return a.key;
       return null;
     }
@@ -157,9 +172,9 @@
       e.preventDefault();}
     function up(e){if(!gesture||gesture.pointerId!==e.pointerId)return;const g=gesture,p=point(e);clearGesture();if(blocked())return;
       if(g.key&&model.selected()!==g.key)model.select(g.key);
-      if(g.drag||!g.key)model.move(g.key||model.selected(),p,g.drag?'drag':'ground');
+      if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground');if(g.drag){if(g.key&&success&&guide.visible())guideWalk=g.key;guide.drag({actor:!!g.key,success});showGuide();}}
       paint();resume();e.preventDefault();}
-    function keydown(e){if(blocked())return;const key=hit({x:-999,y:-999},e.target);if(!key)return;
+    function keydown(e){if(blocked())return;const owner=e.target?.closest?.('[data-diorama-actor]');const key=[...rows.values()].find(row=>e.target===row.owner||owner===row.owner)?.key;if(!key)return;
       if(e.key==='Enter'||e.key===' '){model.select(key);paint();e.preventDefault();return;}
       const delta={ArrowLeft:[-24,0],ArrowRight:[24,0],ArrowUp:[0,-16],ArrowDown:[0,16]}[e.key];
       if(delta){const a=model.snapshot().find(a=>a.key===key);model.select(key);model.move(key,{x:a.x+delta[0],y:a.y+delta[1]},'keyboard');paint();resume();e.preventDefault();}}
@@ -168,7 +183,7 @@
     const listeners={pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
-    return {model,update,sync,interrupt,destroy(){placeNotices(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);art.remove();overlay.remove();hint.remove();clearStage();}};
+    return {model,update,sync,interrupt,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeNotices(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {sceneFor,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast};
+  return {sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast};
 });

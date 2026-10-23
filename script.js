@@ -14903,7 +14903,7 @@
   function renderHomeDiorama() {
     if (!window.NaotocchiHomeDiorama) return;
     if (!homeDiorama) homeDiorama=window.NaotocchiHomeDiorama.createController({
-      stage:el.castStage,document,env:window,getActors:dioramaActors,isBlocked:homeDioramaBlocked,
+      stage:el.castStage,document,env:window,guideKey:SAVE_KEY+':home-guide-v1',getActors:dioramaActors,isBlocked:homeDioramaBlocked,
       isVisible:()=>!gameActive&&!meguruActive&&!isAnyMenuOverlayOpen()&&!el.screenNormal.classList.contains('hidden'),
       getMeguru:()=>meguruMod,getProfile:region=>meguruMod?.REGION3D[region],getWorld:region=>meguruMod?.WORLDS[region],
       onGesture:(actor,mood)=>castMotion?.gesture(actor,mood),
@@ -18394,6 +18394,8 @@
     }
   }));
 
+  document.getElementById('homeGuideReplayBtn')?.addEventListener('click',()=>{closeOverlay('menu');render();homeDiorama?.replayGuide();render();});
+  document.getElementById('homeGuideDismissBtn')?.addEventListener('click',()=>{homeDiorama?.dismissGuide();render();});
   el.menuBtn.addEventListener('click', () => openExclusiveMenu('menu'));
   el.menuCloseBtn.addEventListener('click', () => { closeOverlay('menu'); render(); });
   el.worldBtn.addEventListener('click', () => openExclusiveMenu('world'));

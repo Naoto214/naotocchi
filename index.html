@@ -85,7 +85,7 @@
   <link rel="stylesheet" href="egg-hatching.css?v=20261022-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20261022-6a3b29a4">
   <link rel="stylesheet" href="ui-illustrations.css?v=20261022-0b4af9c3">
-  <link rel="stylesheet" href="home-diorama.css?v=20261023-5beff06f">
+  <link rel="stylesheet" href="home-diorama.css?v=20261023-e053fe10">
   <link rel="stylesheet" href="world-scene.css?v=20261022-94606d6f">
   <link rel="stylesheet" href="care-attention.css?v=20261022-c94a792d">
   <link rel="stylesheet" href="pet-expression.css?v=20261022-31f071f1">
@@ -152,7 +152,7 @@
             <div class="world-care-state" id="worldCareState" role="status" aria-live="polite"></div>
             <p class="world-description" id="worldDescription"></p>
           </div>
-          <div id="homeGestureGuide"></div>
+          <div id="homeGestureGuide" hidden><button type="button" id="homeGuideDismissBtn" aria-label="操作案内をとじる">とじる</button></div>
           </div>
           <div class="home-event-slot" id="homeEventSlot">
           <div class="birthday-toast hidden" id="birthdayToast" role="status" aria-live="polite"></div>
@@ -468,6 +468,7 @@
 
         <div class="dex-overlay hidden" id="menuOverlay" aria-label="メニュー" role="dialog" aria-modal="true">
           <div class="dex-header"><span class="dex-title">メニュー</span><button type="button" class="dex-close-btn" id="menuCloseBtn" aria-label="メニューをとじる">✕</button></div>
+          <details class="home-guide-help"><summary>あそびかた · ホームのそうさ</summary><p>タップで選択・ドラッグでおさんぽ</p><p>キャラをタップすると足もとにしるしが出るよ。地面をタップするか、キャラをドラッグして行き先を教えてね。じゃれる・きゅうあい・そうじは育成ボタンから。</p><p>仲間や恋人は、ひとりずつ遊びに来るよ。</p><button type="button" id="homeGuideReplayBtn">ホームで案内を見る</button></details>
           <div class="menu-grid">
             <button type="button" id="worldBtn"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i><span>せかい</span><small>じかん・てんき・きせつ</small></button>
             <button type="button" id="itemBtn"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i><span>あいてむ</span><small>もちもの・おみせ</small></button>
@@ -883,10 +884,10 @@
   <script src="display-illustrations.js?v=20261022-0eb0da4a"></script>
   <script src="canvas-illustrations.js?v=20261022-0c241de2"></script>
   <!-- めぐる 3D: script.js が通常起動で読み込む。URL の明示2D指定と失敗時は Canvas へ -->
-  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261023-b337977a"></template>
+  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261023-dc271bc8"></template>
   <script src="relationship-life.js?v=20261022-7b5221c0"></script>
   <script src="meguru.js?v=20261022-fe7d14d5"></script>
-  <script src="quick.js?v=20261023-c7f482c6"></script>
+  <script src="quick.js?v=20261023-483ae293"></script>
   <script src="games.js?v=20261022-67504380"></script>
   <script src="audio.js?v=20261022-f12be965"></script>
   <script src="care-status.js?v=20261022-f881119b"></script>
@@ -908,8 +909,8 @@
   <script src="individuality.js?v=20261022-fab004ae"></script>
   <script src="minigame-reactions.js?v=20261022-a2cbe8e5"></script>
   <script src="home-diorama-model.js?v=20261023-bc077f37"></script>
-  <script src="home-diorama.js?v=20261023-73a0cc38"></script>
-  <script src="script.js?v=20261023-932d562a"></script>
+  <script src="home-diorama.js?v=20261023-c0306b75"></script>
+  <script src="script.js?v=20261023-3d158f3e"></script>
   <script src="home-touch.js?v=20261022-36be057a"></script>
 <div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
 </body>

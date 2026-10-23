@@ -859,7 +859,7 @@ function create3DRenderer(M, o, onLost) {
     let groundOverride = null;   // 季節の 地面の いろ(山: 夏は 高原の みどり、冬は 雪)
     const paintGround = () => {
       // Art Direction v1: 3D だけ 地面の いろを 地域の profile(ground3d)で さしかえられる(まちの アスファルトを 明るい 灰に。2D は かわらない)
-      const g3 = groundOverride || (!world.corridor && prof0 && prof0.ground3d) || world.ground;
+      const g3 = groundOverride || (o.home && world.homeGround) || (!world.corridor && prof0 && prof0.ground3d) || world.ground;
       const gg = gc.getContext('2d'); gg.globalAlpha = 1; gg.fillStyle = g3[0]; gg.fillRect(0, 0, 128, 128);
       for (let i = 0; i < 90; i++) { gg.fillStyle = i % 3 ? g3[1] : g3[0]; gg.globalAlpha = 0.18; gg.beginPath(); gg.arc(hash01('gx' + i) * 128, hash01('gz' + i) * 128, 6 + hash01('gr' + i) * 14, 0, TAU); gg.fill(); }
     };
@@ -896,9 +896,10 @@ function create3DRenderer(M, o, onLost) {
       const tm = new THREE.Mesh(gg, keep(groundedMaterial(new THREE.MeshLambertMaterial({ map: gt2, vertexColors: true })))); tm.name = 'terrain';tm.userData.softwareSurface=-3; tm.frustumCulled = false; sc.add(tm);
     }
     // みち と スポット(道の 面)
-    const pathMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ color: world.path })));
+    const coloredPaths = o.home && world.regionId === 'city';
+    const pathMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ color: coloredPaths ? '#ffffff' : world.path })));
     let groundKey = world.ground[0] + world.ground[1] + world.path;
-    const refreshGround = () => { const k = world.ground[0] + world.ground[1] + world.path; if (k === groundKey) return; groundKey = k; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; pathMat.color.set(world.path); };
+    const refreshGround = () => { const k = world.ground[0] + world.ground[1] + world.path; if (k === groundKey) return; groundKey = k; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; pathMat.color.set(coloredPaths ? '#ffffff' : world.path); };
     const segs = world.segments || [];
     // Geometry pass: 小川 / 川 / 谷を 横切る ところは 道の 面を きる(橋 / 飛び石が かわりに 渡す。道の 板が 水の 上に のらない)
     const gaps = terr ? terr.crossings.concat(world._gullies3d || [], terr.wetSpots.concat(terr.ponds).map((q) => ({ x: q.x, z: q.z, w: q.r * 0.8, pathAng: 0, streamAng: Math.PI / 2 }))) : [];   // 池の くぼ地の 上にも 道の 板を のせない
@@ -915,8 +916,9 @@ function create3DRenderer(M, o, onLost) {
     pieces.forEach(([sg, ta, tb], i) => {
       const dx = sg.b.x - sg.a.x, dz = sg.b.z - sg.a.z, L = Math.hypot(dx, dz) || 1, tm = (ta + tb) / 2;
       // 箱の ながさ(ローカル z)を 道の むき(three では (dx, -dz))へ
-      tmp.position.set(sg.a.x + dx * tm / L, 0.6, -(sg.a.z + dz * tm / L)); tmp.rotation.set(0, Math.atan2(dx, -dz), 0);
-      tmp.scale.set(sg.half * 2, 1.2, Math.max(1, tb - ta)); tmp.updateMatrix(); road.setMatrixAt(i, tmp.matrix);
+      tmp.position.set(sg.a.x + dx * tm / L, (sg.height || 1.2) / 2, -(sg.a.z + dz * tm / L)); tmp.rotation.set(0, Math.atan2(dx, -dz), 0);
+      tmp.scale.set(sg.half * 2, sg.height || 1.2, Math.max(1, tb - ta)); tmp.updateMatrix(); road.setMatrixAt(i, tmp.matrix);
+      if (coloredPaths) road.setColorAt(i, new THREE.Color(sg.color || world.path));
     });
     road.count = pieces.length; sc.add(road);
     // スポット: 2D の worldLayers と おなじ わけかた(water の spot は 池、ほかは 道の 面)

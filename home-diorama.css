@@ -90,3 +90,12 @@ body[data-home-terrain="true"] #castStage[data-diorama]{min-height:150px}
 body[data-home-terrain="true"] #homeGestureGuide .diorama-hint{font-size:11px;opacity:1;color:#173e32;text-shadow:0 1px 2px #fff,0 0 5px #fff}
 body[data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message),
 body[data-home-terrain="true"] #homeEventSlot .story-flash-text{color:#173e32;text-shadow:none}
+
+/* Guide collapses entirely once learned; notifications follow information flow. */
+body[data-home-terrain="true"] #homeGestureGuide[hidden],.diorama-hint[hidden]{display:none!important}
+body[data-home-terrain="true"] #homeGestureGuide{display:flex;align-items:center;justify-content:center;gap:7px}
+#homeGuideDismissBtn{order:1;font:inherit;font-size:10px;padding:3px 5px;border:0;border-radius:6px;background:#ffffffb3;color:#294c40;min-height:26px}
+.home-guide-help{margin:8px 14px;padding:12px;border-radius:12px;background:#ffffffb3;font-size:13px;line-height:1.6;color:#244a45}
+.home-guide-help summary{cursor:pointer;font-weight:700}
+.home-guide-help p{margin:7px 0}
+.home-guide-help button{font:inherit;padding:7px 12px;border:1px solid #98b6a9;border-radius:8px;background:#f9fff9;color:inherit}

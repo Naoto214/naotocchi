@@ -48,3 +48,22 @@ test('explicit visible actor target wins over a foreground actor padded touch ar
  h.stage.listeners.pointerdown({pointerId:1,isPrimary:true,button:0,clientX:160,clientY:145,target:back,preventDefault(){}});
  assert.equal(h.c.model.selected(),'pet:back');h.c.destroy();
 });
+test('first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works',()=>{
+ const h=setup(),hint=h.stage.children.find(n=>n.className==='diorama-hint');assert.equal(hint.hidden,false);
+ const p={pointerId:1,isPrimary:true,button:0,clientX:170,clientY:120,target:h.owner,preventDefault(){}};
+ h.stage.listeners.pointerdown(p);h.stage.listeners.pointermove({...p,clientX:80});h.stage.listeners.pointercancel(p);assert.equal(hint.hidden,false);
+ h.stage.listeners.pointerdown(p);h.stage.listeners.pointerup(p);assert.equal(hint.hidden,false);
+ h.stage.listeners.pointerdown(p);h.stage.listeners.pointermove({...p,clientX:80,clientY:160});h.stage.listeners.pointerup({...p,clientX:80,clientY:160});assert.equal(hint.hidden,false,'first walk retains guide row until arrival');
+ for(let i=0;i<300;i++)h.c.model.step(.1,{autonomy:false});h.c.sync();assert.equal(hint.hidden,true);
+ h.c.replayGuide();assert.equal(hint.hidden,false);h.c.dismissGuide();assert.equal(hint.hidden,true);h.c.destroy();
+});
+test('transparent padding of foreground PNG does not steal a visible visitor tap',()=>{
+ const h=setup(),back=node(),front=node();h.setActors([{key:'pet:front',kind:'pet',id:'front',owner:front,node:front,x:170,y:210,w:60,h:75},{key:'partner:back',kind:'partner',id:'back',owner:back,node:back,x:150,y:125,w:50,h:50}]);h.c.sync();
+ h.stage.listeners.pointerdown({pointerId:1,isPrimary:true,button:0,clientX:150,clientY:90,target:front,preventDefault(){}});
+ assert.equal(h.c.model.selected(),'partner:back');h.c.destroy();
+});
+test('keyboard selects and moves the focused actor without pointer coordinates',()=>{
+ const h=setup(),visitor=node();h.setActors([{key:'pet:dog',kind:'pet',id:'dog',node:h.owner,owner:h.owner,x:170,y:145,w:60,h:75},{key:'companion:shiba',kind:'companion',id:'shiba',node:visitor,owner:visitor,x:90,y:145,w:30,h:40}]);h.c.sync();
+ h.stage.listeners.keydown({key:'Enter',target:visitor,preventDefault(){}});assert.equal(h.c.model.selected(),'companion:shiba');
+ h.stage.listeners.keydown({key:'ArrowRight',target:visitor,preventDefault(){}});assert.ok(h.c.model.snapshot().find(a=>a.key==='companion:shiba').target);h.c.destroy();
+});
