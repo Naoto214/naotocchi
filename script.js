@@ -6836,7 +6836,7 @@
     let marker = null, raws = null;
     try {
       marker = JSON.parse(localStorage.getItem(CONVERSATION_AWAY.MARKER_KEY) || 'null');
-      raws = {naopoyo:localStorage.getItem(CONVERSATION_AWAY.KEYS.naopoyo), card:localStorage.getItem(CONVERSATION_AWAY.KEYS.card)};
+      raws = {chapter:localStorage.getItem(CONVERSATION_AWAY.KEYS.chapter), naopoyo:localStorage.getItem(CONVERSATION_AWAY.KEYS.naopoyo), card:localStorage.getItem(CONVERSATION_AWAY.KEYS.card)};
     } catch (_) { return false; }
     const {event, next} = CONVERSATION_AWAY.detect(marker, raws, Date.now());
     try { localStorage.setItem(CONVERSATION_AWAY.MARKER_KEY, JSON.stringify(next)); } catch (_) { /* 覚えられなくても遊びには関係ない */ }

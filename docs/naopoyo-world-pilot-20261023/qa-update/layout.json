@@ -1,0 +1,224 @@
+[
+  {
+    "width": "375",
+    "height": "667",
+    "cell8": 43.375,
+    "cell6": 43.375,
+    "board8": {
+      "width": 347,
+      "height": 347
+    },
+    "scroll": false,
+    "controls": [
+      {
+        "text": "↶ もどす",
+        "width": 84.25,
+        "height": 46,
+        "bottom": 659
+      },
+      {
+        "text": "↻ やり直す",
+        "width": 84.25,
+        "height": 46,
+        "bottom": 659
+      },
+      {
+        "text": "✧ ヒント",
+        "width": 84.25,
+        "height": 46,
+        "bottom": 659
+      },
+      {
+        "text": "▦ えらぶ",
+        "width": 84.25,
+        "height": 46,
+        "bottom": 659
+      }
+    ]
+  },
+  {
+    "width": "390",
+    "height": "664",
+    "cell8": 45.25,
+    "cell6": 45.25,
+    "board8": {
+      "width": 362,
+      "height": 362
+    },
+    "scroll": false,
+    "controls": [
+      {
+        "text": "↶ もどす",
+        "width": 88,
+        "height": 46,
+        "bottom": 656
+      },
+      {
+        "text": "↻ やり直す",
+        "width": 88,
+        "height": 46,
+        "bottom": 656
+      },
+      {
+        "text": "✧ ヒント",
+        "width": 88,
+        "height": 46,
+        "bottom": 656
+      },
+      {
+        "text": "▦ えらぶ",
+        "width": 88,
+        "height": 46,
+        "bottom": 656
+      }
+    ]
+  },
+  {
+    "width": "430",
+    "height": "740",
+    "cell8": 50.25,
+    "cell6": 50.25,
+    "board8": {
+      "width": 402,
+      "height": 402
+    },
+    "scroll": false,
+    "controls": [
+      {
+        "text": "↶ もどす",
+        "width": 98,
+        "height": 46,
+        "bottom": 732
+      },
+      {
+        "text": "↻ やり直す",
+        "width": 98,
+        "height": 46,
+        "bottom": 732
+      },
+      {
+        "text": "✧ ヒント",
+        "width": 98,
+        "height": 46,
+        "bottom": 732
+      },
+      {
+        "text": "▦ えらぶ",
+        "width": 98,
+        "height": 46,
+        "bottom": 732
+      }
+    ]
+  },
+  {
+    "width": "375",
+    "height": "568",
+    "cell8": 43.375,
+    "cell6": 43.375,
+    "board8": {
+      "width": 347,
+      "height": 347
+    },
+    "scroll": false,
+    "controls": [
+      {
+        "text": "↶ もどす",
+        "width": 84.25,
+        "height": 46,
+        "bottom": 560
+      },
+      {
+        "text": "↻ やり直す",
+        "width": 84.25,
+        "height": 46,
+        "bottom": 560
+      },
+      {
+        "text": "✧ ヒント",
+        "width": 84.25,
+        "height": 46,
+        "bottom": 560
+      },
+      {
+        "text": "▦ えらぶ",
+        "width": 84.25,
+        "height": 46,
+        "bottom": 560
+      }
+    ]
+  },
+  {
+    "width": "390",
+    "height": "500",
+    "cell8": 37,
+    "cell6": 45.25,
+    "board8": {
+      "width": 296,
+      "height": 296
+    },
+    "scroll": false,
+    "controls": [
+      {
+        "text": "↶ もどす",
+        "width": 88,
+        "height": 46,
+        "bottom": 492
+      },
+      {
+        "text": "↻ やり直す",
+        "width": 88,
+        "height": 46,
+        "bottom": 492
+      },
+      {
+        "text": "✧ ヒント",
+        "width": 88,
+        "height": 46,
+        "bottom": 492
+      },
+      {
+        "text": "▦ えらぶ",
+        "width": 88,
+        "height": 46,
+        "bottom": 492
+      }
+    ]
+  },
+  {
+    "width": "667",
+    "height": "375",
+    "cell8": 43.875,
+    "cell6": 51.25,
+    "board8": {
+      "width": 351,
+      "height": 351
+    },
+    "scroll": false,
+    "controls": [
+      {
+        "text": "↶ もどす",
+        "width": 47.75,
+        "height": 46,
+        "bottom": 367
+      },
+      {
+        "text": "↻ やり直す",
+        "width": 47.75,
+        "height": 46,
+        "bottom": 367
+      },
+      {
+        "text": "✧ ヒント",
+        "width": 47.75,
+        "height": 46,
+        "bottom": 367
+      },
+      {
+        "text": "▦ えらぶ",
+        "width": 47.75,
+        "height": 46,
+        "bottom": 367
+      }
+    ]
+  }
+]

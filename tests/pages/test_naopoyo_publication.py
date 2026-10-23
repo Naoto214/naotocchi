@@ -15,8 +15,8 @@ class NaopoyoPublicationTests(unittest.TestCase):
     def test_public_entry_has_one_official_destination(self):
         portal = (ROOT / 'prototypes/naopoyo/index.html').read_text()
         self.assertIn('<title>なおぽよ。</title>', portal)
-        self.assertIn('url=../naopoyo-rescue/index.html', portal)
-        self.assertIn('href="../naopoyo-rescue/index.html"', portal)
+        self.assertIn('url=../naopoyo-chapter1/index.html', portal)
+        self.assertIn('href="../naopoyo-chapter1/index.html"', portal)
         self.assertNotIn('series.mjs', portal)
         main = (ROOT / 'index.html').read_text()
         self.assertIn('<span>なおぽよ。</span>', main)
@@ -49,3 +49,13 @@ class NaopoyoPublicationTests(unittest.TestCase):
         portal=(ROOT/'prototypes/naopoyo/index.html').read_text()
         self.assertNotIn('localStorage',portal)
         self.assertNotIn('<script',portal)
+
+    def test_chapter_runtime_ships_without_trial_pages(self):
+        for name in ['index.html','app.mjs','stages.mjs','progress.mjs','render.mjs','style.css']:
+            self.assertIn('prototypes/naopoyo-chapter1/'+name,self.files)
+        for path in ['prototypes/naopoyo-chapter1/qa.html','prototypes/naopoyo-chapter1/ability.html','prototypes/naopoyo-chapter1/ability-lab.mjs','prototypes/naopoyo-chapter1/ability-ui.mjs','prototypes/naopoyo-world/index.html','prototypes/naopoyo-insight/index.html','prototypes/naopoyo-v2/index.html']:
+            self.assertNotIn(path,self.files)
+        chapter=(ROOT/'prototypes/naopoyo-chapter1/index.html').read_text()
+        self.assertIn('href="../naopoyo-rescue/index.html"',chapter)
+        self.assertIn('href="../../"',chapter)
+        self.assertNotIn('正式版と別の記録', (ROOT/'prototypes/naopoyo-chapter1/app.mjs').read_text())

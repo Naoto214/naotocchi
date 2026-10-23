@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+  <meta charset="utf-8" /><title>なおぽよ。操作改善 r2 検証</title
+  ><style>
+    body {
+      font: 14px system-ui;
+      background: #edf3ee;
+      color: #294b47;
+      margin: 16px;
+    }
+    h1 {
+      font-size: 22px;
+    }
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    article {
+      width: 347px;
+    }
+    canvas {
+      width: 347px;
+      height: 347px;
+    }
+    pre {
+      font-size: 12px;
+      white-space: pre-wrap;
+    }
+    iframe {
+      border: 0;
+    }
+    button {
+      padding: 12px;
+    }
+    small {
+      display: block;
+    }
+  </style>
+  <h1>なおぽよ。操作改善 r2 — 実エンジンの状態比較</h1>
+  <p>
+    375px画面相当（セル43.375px）。黄色の枠と足元の輪が実際のマス。画像は固定時刻の検証用です。
+  </p>
+  <section id="scenes"></section>
+  <h2>実操作用375×667</h2>
+  <iframe width="375" height="667" src="./index.html"></iframe>
+  <script type="module">
+    import { WorldSession } from "./session.mjs";
+    import { stages } from "./stages.mjs";
+    import { render, loadGuests } from "./render.mjs";
+    import { loadSprites } from "../naopoyo-rescue/sprites.mjs";
+    await Promise.all([loadSprites(), loadGuests(stages)]);
+    function b() {
+      const q = new WorldSession(stages[1]);
+      q.state.actors = [{ id: "a", x: 3, y: 4, level: 3, species: "fish" }];
+      q.begin("a", { x: 3.5, y: 4.5 });
+      return q;
+    }
+    const before = b();
+    before.travel({ x: 4.5, y: 4.5 });
+    before.advance(2700);
+    const after = b();
+    after.travel({ x: 4.5, y: 4.5 });
+    after.advance(3220);
+    const continued = b();
+    continued.travel({ x: 4.5, y: 4.5 });
+    continued.advance(3220);
+    continued.travel({ x: 5.5, y: 4.5 });
+    const edge = new WorldSession(stages[0]);
+    edge.state.actors = [{ id: "a", x: 0, y: 0, level: 3, species: "dog" }];
+    edge.begin("a", { x: 0.5, y: 0.5 });
+    const host = new WorldSession(stages[4]);
+    host.advance(1500);
+    const hostOn = new WorldSession(stages[4]);
+    hostOn.advance(2250);
+    for (const [title, q] of [
+      ["① 門の前でつかんで待つ", before],
+      ["② 波で1マス進む・指は保持", after],
+      ["③ 指を続けて動かす→分裂", continued],
+      ["④ 最上段でも本体は同じマス", edge],
+      ["⑤ タコの合図→予告", host],
+      ["⑥ タコの合図→波と光", hostOn],
+    ]) {
+      const a = document.createElement("article"),
+        c = document.createElement("canvas");
+      a.innerHTML = `<h3>${title}</h3>`;
+      a.append(c);
+      document.querySelector("#scenes").append(a);
+      render(c, q, { dpr: 2, hitUntil: 4000 });
+      const p = document.createElement("pre");
+      p.textContent = JSON.stringify({
+        time: q.time,
+        active: q.active?.id,
+        actors: q.state.actors.map((a) => ({
+          id: a.id,
+          x: a.x,
+          y: a.y,
+          n: a.level,
+        })),
+      });
+      a.append(p);
+    }
+  </script>
+</html>

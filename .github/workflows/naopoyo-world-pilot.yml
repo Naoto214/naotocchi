@@ -1,0 +1,17 @@
+name: Naopoyo World Pilot
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-world/**'
+      - 'prototypes/naopoyo-v2/**'
+      - '.github/workflows/naopoyo-world-pilot.yml'
+  workflow_dispatch:
+jobs:
+  deterministic-pilot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
