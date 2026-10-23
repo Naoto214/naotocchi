@@ -15,6 +15,7 @@ import runpy
 import subprocess
 import sys
 from proxy_test_suite_manifest import count_historical_suite, count_current_suite
+from design_sources import verified_sources
 
 ROOT = Path(__file__).resolve().parents[3]
 DOCS = ROOT / "docs/card-game"
@@ -751,18 +752,20 @@ if terminology_history_path.exists():
           "118 terminology scope or provisional-name boundary changed")
 
 
+# Card forms belong to the fixed design source, not later pet-game renamings.
 # Execute only the master/catalog constructors, never game callbacks or script.js.
+design_master, legacy_item_script = verified_sources()
 source = json.loads(subprocess.check_output(["node", "-e", r"""
 const fs=require('fs'),vm=require('vm');
 const c={window:{}}; vm.createContext(c);
-vm.runInContext(fs.readFileSync('character-world-master.v1.js','utf8'),c);
+vm.runInContext(fs.readFileSync(process.argv[1],'utf8'),c);
 vm.runInContext(fs.readFileSync('games.js','utf8'),c);
 const g=c.installNaotocchiMinigames({SEASON:{SPRING:'spring',SUMMER:'summer',AUTUMN:'autumn',WINTER:'winter'}});
 const games=[...g.MINIGAMES.map(x=>({id:x.id,category:g.minigameCategoryOf.get(x),source:'general'})),
 ...Object.entries(g.REGION_MINIGAMES).flatMap(([context,a])=>a.map(x=>({id:x.game.id,category:x.category,source:'region',context}))),
 ...Object.entries(g.SEASONAL_MINIGAMES).flatMap(([context,a])=>a.map(x=>({id:x.game.id,category:x.category,source:'season',context})))];
 console.log(JSON.stringify({master:c.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1,games}));
-"""], cwd=ROOT, text=True))
+""", str(design_master)], cwd=ROOT, text=True))
 master, games = source["master"], source["games"]
 species = [s for rarity in ("normal", "rare", "secret") for s in master["playerSpecies"][rarity]]
 check(len(species) == 31 and all(len(s["stages"]) == 8 for s in species), "Main source: expected 31 x 8")
@@ -779,13 +782,13 @@ for prefix, number, count in (("C", 35, 26), ("P", 36, 18), ("W", 40, 13)):
 
 # Historical registered 38: the unmerged branch's source baseline.
 # Current main items are checked separately against the pinned 76 snapshot.
-script = (ROOT / "script.js").read_text()
+script = legacy_item_script
 item_ids = []
 item_groups = {}
 for name, count in (("SHOP_ITEMS", 15), ("NAOTO_ITEMS", 4), ("CONSUMABLE_ITEMS", 11), ("FUN_ITEMS", 7), ("RECOVERY_ITEMS", 1)):
     block = re.search(rf"  const {name} = \[\n(.*?)\n  \];", script, re.S)
     if not block:
-        raise ValueError(f"Cannot find current array {name}")
+        raise ValueError(f"Cannot find historical design array {name}")
     ids = re.findall(r"(?:\bid|\"id\"):\s*['\"]([^'\"]+)['\"]", block[1])
     check(len(ids) == count, f"{name}: expected {count}, got {len(ids)}")
     item_groups[name] = ids
