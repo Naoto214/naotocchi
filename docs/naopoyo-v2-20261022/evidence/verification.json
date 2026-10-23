@@ -1,0 +1,41 @@
+{
+  "codeHead": "840e45748d90b851785f82c98fbb0dc1ff0dc6f4",
+  "codeTree": "362d7db7dbab2ee2a9793972a59472148aa4f0c9",
+  "main": "f69310c79131f51ceed043417cf4c39cab925331",
+  "pr422": "88ab41e1fd1fdd8f4b1b33528e157b7e96fba444",
+  "addedFiles": 28,
+  "existingFilesChanged": 0,
+  "previewSourceHashMatch": true,
+  "verification": [
+    {
+      "command": "node --test prototypes/naopoyo-v2/tests/*.test.mjs",
+      "tests": 76,
+      "pass": 76,
+      "fail": 0
+    },
+    {
+      "command": "node --test prototypes/naopoyo-rescue/tests/*.test.mjs",
+      "tests": 205,
+      "pass": 205,
+      "fail": 0
+    },
+    {
+      "command": "npm test",
+      "groups": [
+        26,
+        24,
+        3212,
+        110
+      ],
+      "tests": 3372,
+      "pass": 3372,
+      "fail": 0,
+      "exitCode": 0
+    }
+  ],
+  "seededInputPaths": 1080,
+  "rescuedComparisonStages": 18,
+  "iPhoneSafariHardware": "not tested",
+  "reviewImportantFixed": 1,
+  "reviewMinorDeferred": 1
+}
