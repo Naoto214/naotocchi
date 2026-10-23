@@ -12,11 +12,12 @@ test_11_push_failure_stops_the_run_and_keeps_local_evidence (test_proxy_populati
 test_12_resumed_schedule_equals_an_uninterrupted_run (test_proxy_population_checkpoint_resume.CheckpointResumeTests.test_12_resumed_schedule_equals_an_uninterrupted_run) ... ok
 test_13_later_rows_after_a_stop_are_not_checkpointed_out_of_order (test_proxy_population_checkpoint_resume.CheckpointResumeTests.test_13_later_rows_after_a_stop_are_not_checkpointed_out_of_order) ... ok
 test_14_protected_originals_must_be_unmodified (test_proxy_population_checkpoint_resume.CheckpointResumeTests.test_14_protected_originals_must_be_unmodified) ... ok
+test_attempt_named_after_publication_not_claim (test_proxy_population_checkpoint_resume.ResumeRequestTests.test_attempt_named_after_publication_not_claim) ... ok
 test_first_generation_binding (test_proxy_population_checkpoint_resume.ResumeRequestTests.test_first_generation_binding) ... ok
 test_resume_binding_is_fail_closed (test_proxy_population_checkpoint_resume.ResumeRequestTests.test_resume_binding_is_fail_closed) ... ok
 test_v3_request_validates_and_has_a_distinct_digest (test_proxy_population_checkpoint_resume.ResumeRequestTests.test_v3_request_validates_and_has_a_distinct_digest) ... ok
 
 ----------------------------------------------------------------------
-Ran 17 tests in 358.128s
+Ran 18 tests in 361.432s
 
 OK
