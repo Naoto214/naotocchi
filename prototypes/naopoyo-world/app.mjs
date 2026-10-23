@@ -2,7 +2,7 @@ import { WorldSession, KEY, phase } from "./session.mjs";
 import { stages } from "./stages.mjs";
 import { complete, mass } from "../naopoyo-v2/engine.mjs";
 import { loadSprites } from "../naopoyo-rescue/sprites.mjs";
-import { render, loadGuests } from "./render.mjs";
+import { render, loadGuests, eventCaption } from "./render.mjs";
 export function mount() {
   const $ = (id) => document.getElementById(id),
     canvas = $("board");
@@ -54,9 +54,7 @@ export function mount() {
     $("chapter").textContent =
       `PILOT ${q.stage.id} · ${comparison ? "表示比較のみ" : q.state.rescued + " / " + mass(q.state) + " おかえり"}`;
     const e = q.stage.events[0];
-    $("clock").textContent = e
-      ? `${e.kind === "wave" ? "波" : "光"} ${phase(e, q.time) === "warn" ? "もうすぐ" : phase(e, q.time) === "on" ? "発動中" : "おやすみ"}`
-      : "TIMELESS";
+    $("clock").textContent = e ? eventCaption(e, q.time) : "TIMELESS";
     $("undo").disabled = !q.history.length && !q.active;
     $("compare").textContent = "8×" + rows;
     if (saveError)
@@ -80,6 +78,10 @@ export function mount() {
     pauseState();
     last = 0;
   }
+  function storyHTML() {
+    const n = q.stage.narrator;
+    return `<span class="tag">PILOT ${q.stage.id} · 操作改善版 r2</span><h2>${q.stage.title}</h2>${n ? `<img class="narrator" src="../../${n.asset}" alt="${n.name}">` : ""}<p>${q.stage.story}</p><p>${q.stage.lesson}</p><small>物語は「とじる」でスキップ。正式版と別の記録です。</small>`;
+  }
   function choose(id) {
     q = new WorldSession(stages.find((s) => s.id === id));
     won = false;
@@ -89,9 +91,7 @@ export function mount() {
     dialog.close();
     save();
     size();
-    show(
-      `<span class="tag">PILOT ${q.stage.id}</span><h2>${q.stage.title}</h2><p>${q.stage.story}</p><p>${q.stage.lesson}</p><small>物語は「とじる」でスキップ。正式版と別の記録です。</small>`,
-    );
+    show(storyHTML());
   }
   function point(e) {
     const r = canvas.getBoundingClientRect();
@@ -129,7 +129,9 @@ export function mount() {
       $("status").textContent = r?.ok
         ? "指を離さず、そのまま。"
         : r
-          ? "門・星の数字や、通れる地形を見てみよう。"
+          ? q.stage.id === "B"
+            ? "波3の門は、3になって波で通ろう。"
+            : "門・星の数字や、通れる地形を見てみよう。"
           : "キャラから、なぞってみよう";
     draw();
   }
@@ -186,7 +188,7 @@ export function mount() {
               `<button class="level" data-stage="${s.id}">${s.id}　${s.title}</button>`,
           )
           .join("") +
-        "<small>Dは順序パズル、Eはゲスト・ボスの比較試作。iPhone実機QAは未確認です。</small>",
+        "<small>Dは順序パズル、Eは協力するタコの比較試作。操作改善版 r2。</small>",
     );
     for (const b of dialog.querySelectorAll("[data-stage]"))
       b.onclick = () => choose(b.dataset.stage);
@@ -231,11 +233,20 @@ export function mount() {
       fraction -= delta;
       q.lastResults = [];
       q.advance(delta);
-      if (q.lastResults.some((r) => r.split)) {
+      const wave = q.lastWave;
+      if (wave && wave.at > q.time - delta) {
+        const moved = wave.outcomes.filter((o) => o.moved),
+          blocked = wave.outcomes.filter((o) => !o.moved);
+        hitUntil = q.time + 350;
+        $("status").textContent = moved.length
+          ? `波${wave.dx < 0 ? "←" : "→"} ${moved.length}体を押した${moved.some((o) => o.merged) ? "・合体！" : moved.some((o) => o.split) ? "・分裂！" : "。指はそのまま。"}`
+          : blocked.length
+            ? "波は届いたけれど、岩・門・地形で止まったよ。"
+            : "波が通過。色のついた横一列が波の通り道。";
+      } else if (q.lastResults.some((r) => r.split)) {
         hitUntil = q.time + 350;
         $("status").textContent = "光でほどけた。そのまま動かせるよ。";
-      } else if (q.lastResults.some((r) => r.ok))
-        $("status").textContent = "波にのった。そのまま指を動かそう。";
+      }
       if (Math.floor(q.time / 1000) !== Math.floor((q.time - delta) / 1000))
         save();
     }
@@ -255,6 +266,17 @@ export function mount() {
         );
     }
     requestAnimationFrame(frame);
+  }
+  if (raw && !q.restored) {
+    // Keep the old Pilot save before revising B/E; formal/v2 keys are untouched.
+    try {
+      if (!localStorage.getItem(KEY + ".before-qa-r2"))
+        localStorage.setItem(KEY + ".before-qa-r2", JSON.stringify(raw));
+    } catch {}
+    show(
+      storyHTML() +
+        "<p>この面の仕掛けを更新したため、最初から始めます。以前の試遊記録は別に保管しました。</p>",
+    );
   }
   size();
   Promise.all([loadSprites(), loadGuests(stages)]).then(draw);

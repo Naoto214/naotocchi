@@ -27,7 +27,9 @@ files.push(
   ...Object.entries(spriteData)
     .filter(([k]) => !k.startsWith("owl"))
     .map(([, v]) => v.path),
-  ...stages.flatMap((s) => s.guests.map((g) => g.asset)),
+  ...stages.flatMap((s) =>
+    [...s.guests, ...(s.narrator ? [s.narrator] : [])].map((g) => g.asset),
+  ),
 );
 const hashes = {};
 for (const f of new Set(files)) {
@@ -47,6 +49,7 @@ fs.writeFileSync(
   JSON.stringify(
     {
       name: "NAOPOYO. World Pilot",
+      build: "iphone-qa-20261023-r2",
       dependency: "f8094cd70be7eae052a84e228c4e0f9dadfef2cc",
       files: hashes,
     },

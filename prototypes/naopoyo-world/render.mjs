@@ -4,7 +4,15 @@ import { phase } from "./session.mjs";
 const images = new Map();
 export async function loadGuests(stages) {
   await Promise.all(
-    [...new Set(stages.flatMap((s) => s.guests.map((g) => g.asset)))].map(
+    [
+      ...new Set(
+        stages.flatMap((s) =>
+          [...s.guests, ...(s.narrator ? [s.narrator] : [])].map(
+            (g) => g.asset,
+          ),
+        ),
+      ),
+    ].map(
       (path) =>
         new Promise((resolve) => {
           const img = new Image();
@@ -35,6 +43,36 @@ const box = (c, x, y, w, h, r, color) => {
   c.roundRect(x, y, w, h, r);
   c.fill();
 };
+// Coordinates are in CSS pixels; the enlarged body stays in its logical row.
+export function actorLayout(a, held, cell, w, h) {
+  const scale = held ? 1.2 : 1,
+    bw = cell * 0.72 * scale,
+    bh = cell * 0.7 * scale;
+  const bx = Math.max(1, Math.min(w - bw - 1, (a.x + 0.5) * cell - bw / 2));
+  const by = Math.min(
+    (Math.floor(a.y) + 1) * cell - bh,
+    Math.max(
+      held ? cell * 0.38 : cell * 0.28,
+      Math.min(h - bh, (a.y + (held ? 0.54 : 0.56)) * cell - bh / 2),
+    ),
+  );
+  const numberSize = cell * (held ? 0.44 : 0.32);
+  return {
+    bx,
+    by,
+    bw,
+    bh,
+    numberY: Math.max(numberSize / 2 + 1, by - cell * 0.12),
+    numberSize,
+    footY: (a.y + 0.72) * cell,
+  };
+}
+export function eventCaption(e, time) {
+  const p = phase(e, time),
+    t = (((time - (e.offset || 0)) % e.period) + e.period) % e.period;
+  const direction = e.kind === "wave" ? (e.dx < 0 ? "←" : "→") : "";
+  return `${e.kind === "wave" ? "波" : "光"}${direction} ${p === "warn" ? Math.ceil((e.warn - t) / 1000) + "秒後" : p === "on" ? "発動！" : "次まで" + Math.ceil((e.period - t + e.warn) / 1000) + "秒"}`;
+}
 export function render(canvas, q, { rows = 8, dpr = 1, hitUntil = 0 } = {}) {
   const s = q.state,
     rect = canvas.getBoundingClientRect(),
@@ -77,7 +115,26 @@ export function render(canvas, q, { rows = 8, dpr = 1, hitUntil = 0 } = {}) {
     }
   for (const e of s.events) {
     const p = phase(e, q.time);
-    if (p === "off") continue;
+    if (p === "off") {
+      if (e.kind === "wave")
+        for (const y of e.rows) {
+          c.strokeStyle = "#438da677";
+          c.lineWidth = 1;
+          c.setLineDash([3, 5]);
+          c.strokeRect(2, y * cell + 2, w - 4, cell - 4);
+          c.setLineDash([]);
+          text(
+            c,
+            e.dx < 0 ? "←波の道" : "波の道→",
+            e.dx < 0 ? w - cell * 0.65 : cell * 0.65,
+            (y + 0.2) * cell,
+            cell * 0.17,
+            "#dff6fa",
+            "#43818e",
+          );
+        }
+      continue;
+    }
     if (e.kind === "beam") {
       for (const [x, y] of e.cells) {
         box(
@@ -92,21 +149,53 @@ export function render(canvas, q, { rows = 8, dpr = 1, hitUntil = 0 } = {}) {
         c.fillStyle = p === "warn" ? "#d5a349" : "#fffce5";
         c.fillRect((x + 0.47) * cell, y * cell, cell * 0.06, cell);
       }
-    } else
+    } else {
+      const elapsed =
+        ((((q.time - (e.offset || 0)) % e.period) + e.period) % e.period) -
+        e.warn;
       for (const y of e.rows) {
-        c.fillStyle = p === "warn" ? "#f8ed9b77" : "#e7ffff99";
+        c.fillStyle = p === "warn" ? "#f8ed9b55" : "#e7ffff55";
         c.fillRect(0, y * cell, w, cell);
-        for (let x = 0; x < 8; x++)
+        c.strokeStyle = p === "warn" ? "#dca94b" : "#ffffff";
+        c.lineWidth = 2;
+        c.strokeRect(2, y * cell + 2, w - 4, cell - 4);
+        if (p === "warn")
           text(
             c,
-            "›",
-            (x + 0.5) * cell,
-            (y + 0.5) * cell,
-            cell * 0.45,
-            p === "warn" ? "#fff0b0" : "#fff",
-            "#4f8f9a",
+            e.dx < 0 ? "← 波" : "波 →",
+            e.dx < 0 ? w - cell * 0.6 : cell * 0.6,
+            (y + 0.25) * cell,
+            cell * 0.22,
+            "#fff5bc",
+            "#477f89",
           );
+        else {
+          // Whole strip hits at onset. Moving foam is its trailing visual wake.
+          const progress = Math.min(1, elapsed / e.on),
+            front = (e.dx < 0 ? 1 - progress : progress) * w;
+          c.strokeStyle = "#edffff";
+          c.lineWidth = cell * 0.09;
+          c.beginPath();
+          c.moveTo(front, y * cell + 3);
+          c.quadraticCurveTo(
+            front - cell * 0.25,
+            (y + 0.5) * cell,
+            front,
+            (y + 1) * cell - 3,
+          );
+          c.stroke();
+          text(
+            c,
+            e.dx < 0 ? "←" : "→",
+            Math.max(cell * 0.3, Math.min(w - cell * 0.3, front)),
+            (y + 0.5) * cell,
+            cell * 0.4,
+            "#fff",
+            "#65a7b1",
+          );
+        }
       }
+    }
   }
   for (const [x, y] of s.walls) {
     box(
@@ -176,13 +265,14 @@ export function render(canvas, q, { rows = 8, dpr = 1, hitUntil = 0 } = {}) {
       cell * 0.16,
       "#d2dce0",
     );
-    text(
-      c,
-      conditionLabel(g),
-      (g.x + 0.5) * cell,
-      (g.y + 0.22) * cell,
-      cell * 0.29,
-    );
+    if (!s.actors.some((a) => a.x === g.x && a.y === g.y))
+      text(
+        c,
+        (g.waveOnly ? "波" : "") + conditionLabel(g),
+        (g.x + 0.5) * cell,
+        (g.y + 0.22) * cell,
+        cell * 0.29,
+      );
   }
   for (const p of s.spikes) {
     box(
@@ -205,34 +295,87 @@ export function render(canvas, q, { rows = 8, dpr = 1, hitUntil = 0 } = {}) {
     }
   }
   for (const g of s.guests) {
+    const controlled = s.events.filter((e) => e.host === g.id),
+      cue =
+        controlled.find((e) => phase(e, q.time) === "on") ||
+        controlled.find((e) => phase(e, q.time) === "warn");
+    const lift = cue ? Math.sin(q.time / 130) * cell * 0.035 : 0;
     const img = images.get(g.asset);
+    if (cue) {
+      c.strokeStyle = phase(cue, q.time) === "warn" ? "#e8bd5c" : "#efffff";
+      c.lineWidth = 3;
+      c.beginPath();
+      c.arc(
+        (g.x + 0.5) * cell,
+        (g.y + 0.5) * cell,
+        cell * 0.55,
+        0,
+        Math.PI * 2,
+      );
+      c.stroke();
+      c.setLineDash([4, 5]);
+      c.beginPath();
+      c.moveTo((g.x + 0.5) * cell, (g.y + 1) * cell);
+      const target =
+        cue.kind === "wave"
+          ? [0.5, cue.rows[0] + 0.5]
+          : [cue.cells[0][0] + 0.5, 2.8];
+      c.lineTo(target[0] * cell, target[1] * cell);
+      c.stroke();
+      c.setLineDash([]);
+    }
     if (img)
       c.drawImage(
         img,
         (g.x + 0.02) * cell,
-        g.y * cell,
+        g.y * cell - lift,
         cell * 0.96,
         cell * 0.96,
       );
-    text(
-      c,
-      g.role === "guide" ? "案内" : "試練",
-      (g.x + 0.5) * cell,
-      (g.y + 0.96) * cell,
-      cell * 0.18,
-    );
+    text(c, "波と光の係", (g.x + 0.5) * cell, (g.y + 1.12) * cell, cell * 0.19);
+    if (cue)
+      text(
+        c,
+        phase(cue, q.time) === "warn" ? "いくよ！" : "それっ！",
+        (g.x + 0.5) * cell,
+        (g.y - 0.12) * cell,
+        cell * 0.23,
+        "#fff2bd",
+      );
   }
   const ordered = [...s.actors].sort(
     (a, b) => (a.id === q.active?.id) - (b.id === q.active?.id),
   );
   for (const a of ordered) {
     const held = a.id === q.active?.id;
-    const cy = held ? Math.max(0.6, a.y - 0.45) : a.y + 0.56;
-    const scale = held ? 1.4 : 1;
+    const motion = q.waveMotion?.[a.id],
+      age = q.time - (motion?.at || 0);
+    const progress =
+      motion && age >= 0 && age < 220 ? 1 - Math.pow(1 - age / 220, 3) : 1;
+    const displayed =
+      progress < 1
+        ? {
+            x: motion.from.x + (a.x - motion.from.x) * progress,
+            y: motion.from.y + (a.y - motion.from.y) * progress,
+          }
+        : a;
+    const { bx, by, bw, bh, numberY, numberSize, footY } = actorLayout(
+      displayed,
+      held,
+      cell,
+      w,
+      h,
+    );
+    if (held) {
+      c.strokeStyle = "#e5b958";
+      c.lineWidth = 2;
+      c.strokeRect(a.x * cell + 2, a.y * cell + 2, cell - 4, cell - 4);
+    }
+
     c.beginPath();
     c.ellipse(
       (a.x + 0.5) * cell,
-      (a.y + 0.65) * cell,
+      (a.y + 0.72) * cell,
       cell * 0.32,
       cell * 0.16,
       0,
@@ -246,24 +389,20 @@ export function render(canvas, q, { rows = 8, dpr = 1, hitUntil = 0 } = {}) {
       c.lineWidth = 2;
       c.stroke();
     }
-    const bw = cell * 0.72 * scale,
-      bh = cell * 0.7 * scale,
-      bx = Math.max(1, Math.min(w - bw - 1, (a.x + 0.5) * cell - bw / 2)),
-      by = Math.max(2, Math.min(h - bh, cy * cell - bh / 2));
     if (!drawSprite(c, a.species, a.level, { x: bx, y: by, w: bw, h: bh }))
       text(
         c,
         { dog: "犬", fish: "魚", frog: "蛙", penguin: "ペ" }[a.species],
         (a.x + 0.5) * cell,
-        cy * cell,
+        by + bh / 2,
         cell * 0.4,
       );
     text(
       c,
       a.level,
-      (a.x + 0.5) * cell,
-      Math.max(cell * 0.19, by - cell * 0.11),
-      cell * (held ? 0.5 : 0.32),
+      (displayed.x + 0.5) * cell,
+      numberY,
+      numberSize,
       held ? "#ffefae" : "#fff",
     );
     if (held && hitUntil > q.time) {

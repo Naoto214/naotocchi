@@ -61,23 +61,25 @@ export const stages = [
   ),
   base(
     "B",
-    "あわの海 — 波にのって",
-    "青いマスは魚だけ。予告のあと、波が右へ1マス押す。",
-    [a("a", 1, 4, 1, "fish"), a("b", 3, 4, 2, "fish"), a("d", 1, 1, 1, "dog")],
+    "あわの海 — 波の門",
+    "魚1＋2で3に。色の帯へ運び、右向きの波で『波3』の門を通ろう。",
+    [a("a", 1, 5, 1, "fish"), a("b", 2, 5, 2, "fish")],
     {
+      revision: 2,
       theme: "shore",
       water: Array.from({ length: 32 }, (_, i) => [
         i % 8,
         3 + Math.floor(i / 8),
       ]),
-      events: [wave],
-      exits: [
-        { x: 7, y: 4, exact: 3, species: "fish" },
-        { x: 7, y: 1, species: "dog" },
-      ],
-      hint: "魚1と2を合体して3の星へ。いぬは上の陸の星へ。波で押されても指はそのまま。",
-      story: "海の中の道は、泳ぐ子に任せよう。",
-      ending: "波はじゃまものではなく、道しるべだった。",
+      walls: barrier(4, 4),
+      gates: [{ x: 4, y: 4, exact: 3, waveOnly: true }],
+      spikes: [{ x: 5, y: 4, power: 2 }],
+      events: [{ ...wave, warn: 3000, on: 600, rows: [4] }],
+      exits: [{ x: 7, y: 4, exact: 1, species: "fish" }],
+      hint: "1と2を合体し、波3の門のすぐ左へ。3秒の予告後、波が門へ1マス押します。門の先の2連トゲで1ずつに分かれ、星へ。波の帯は門と同じ横一列です。",
+      story:
+        "ものしりふくろうの豆知識：この門は、3になって波に乗ると通れるよ。つかんだ指は、そのままで大丈夫。",
+      ending: "集まって波に乗り、ほどけて帰る。海の道がつながった。",
     },
   ),
   base(
@@ -114,7 +116,7 @@ export const stages = [
   base(
     "E",
     "タコさんの波の試練",
-    "タコさんの波と光を借りよう。ふくろうは道案内。",
+    "タコさんが合図したら、波と光を借りて1に分かれよう。",
     [a("a", 1, 4, 3, "fish")],
     {
       theme: "shore",
@@ -122,21 +124,22 @@ export const stages = [
         i % 8,
         3 + Math.floor(i / 8),
       ]),
-      events: [wave, { ...beam, id: "boss-light", warn: 2000 }],
+      events: [
+        { ...wave, host: "rock_octopus" },
+        { ...beam, id: "boss-light", warn: 2000, host: "rock_octopus" },
+      ],
+      narrator: {
+        id: "owl",
+        name: "ものしりふくろう",
+        category: "companion",
+        asset: "assets/characters/companions/owl.png",
+      },
       guests: [
-        {
-          id: "owl",
-          name: "ふくろう",
-          role: "guide",
-          x: 1,
-          y: 1,
-          operable: false,
-          asset: "assets/characters/companions/owl.png",
-        },
         {
           id: "rock_octopus",
           name: "いわばのタコさん",
           role: "puzzle-host",
+          category: "partner",
           x: 5,
           y: 1,
           operable: false,
@@ -144,7 +147,8 @@ export const stages = [
         },
       ],
       hint: "波で光の列まで進み、照射で3つの1に。タコさんにHPはなく、全員脱出で成功。",
-      story: "「波をよく見て。急がなくても大丈夫」タコさんの協力試練。",
+      story:
+        "ものしりふくろう：タコさんが波と光の合図を出すよ。魚3を光でほどいて、みんなを星へ。タコさんは敵ではなく、試練を手伝う役だよ。",
       ending: "「上手にほどけたね」タコさんが次の海を教えてくれた。",
     },
   ),

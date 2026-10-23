@@ -5,7 +5,7 @@ import { WorldSession } from "../session.mjs";
 import { complete, move, clone } from "../../naopoyo-v2/engine.mjs";
 import fs from "node:fs";
 function step(q, id, dx, dy) {
-  (q.witness??=[]).push({time:q.time,id,dx,dy});
+  (q.witness ??= []).push({ time: q.time, id, dx, dy });
   const a = q.state.actors.find((a) => a.id === id);
   assert.ok(a);
   q.begin(id, { x: a.x + 0.5, y: a.y + 0.5 });
@@ -64,13 +64,32 @@ for (const stage of stages)
     }
     if (stage.id === "B") {
       route(q, "a", (s, a) => a?.level === 3);
+      route(q, "a", (s, a) => a?.x === 3 && a?.y === 4);
+      q.advance(3000);
+      assert.equal(q.state.actors.find((a) => a.id === "a").x, 4);
+      step(q, "a", 1, 0);
     }
     for (let i = 0; i < 12 && q.state.actors.length; i++) {
       const id = q.state.actors[0].id;
       route(q, id, (s, a) => !a);
     }
     assert.ok(complete(q.state));
-    if(process.env.WORLD_EVIDENCE_DIR)fs.writeFileSync(process.env.WORLD_EVIDENCE_DIR+"/solution-"+stage.id+".json",JSON.stringify({stage:stage.id,complete:true,moves:q.state.moves,time:q.time,commands:q.witness,shortestProven:false},null,2));
+    if (process.env.WORLD_EVIDENCE_DIR)
+      fs.writeFileSync(
+        process.env.WORLD_EVIDENCE_DIR + "/solution-" + stage.id + ".json",
+        JSON.stringify(
+          {
+            stage: stage.id,
+            complete: true,
+            moves: q.state.moves,
+            time: q.time,
+            commands: q.witness,
+            shortestProven: false,
+          },
+          null,
+          2,
+        ),
+      );
   });
 for (const stage of stages.filter((s) => s.gates.length))
   for (const gate of stage.gates)

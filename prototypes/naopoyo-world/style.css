@@ -240,3 +240,11 @@ dialog .primary {
     height: 100dvh;
   }
 }
+
+.narrator {
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin: 0 10px 4px 0;
+  image-rendering: pixelated;
+}

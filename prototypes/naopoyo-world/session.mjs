@@ -23,7 +23,7 @@ export class WorldSession {
     this.history = [];
     this.lastResults = [];
     this.reset();
-    if (saved) this.restore(saved);
+    this.restored = saved ? this.restore(saved) : false;
   }
   reset() {
     this.state = createState(this.stage);
@@ -31,11 +31,15 @@ export class WorldSession {
     this.fired = {};
     this.hits = {};
     this.lastResults = [];
+    this.lastWave = null;
+    this.waveMotion = {};
   }
-  policy() {
+  policy(source = "manual") {
     return {
       canEnter: (s, a, x, y) =>
         !s.guests?.some((g) => g.x === x && g.y === y) &&
+        (source !== "manual" ||
+          !s.gates.some((g) => g.waveOnly && g.x === x && g.y === y)) &&
         (!(s.water || []).some((p) => p[0] === x && p[1] === y) ||
           (this.stage.aquatic || ["fish"]).includes(a.species)),
     };
@@ -49,6 +53,8 @@ export class WorldSession {
     });
   }
   apply(s) {
+    this.lastWave = null;
+    this.waveMotion = {};
     this.state = clone(s.state);
     this.time = s.time;
     this.fired = clone(s.fired);
@@ -77,7 +83,7 @@ export class WorldSession {
         JSON.stringify(v.state.aquatic) ===
           JSON.stringify(this.stage.aquatic) &&
         v.state.actors.every((a) =>
-          this.policy().canEnter(v.state, a, a.x, a.y),
+          this.policy("validation").canEnter(v.state, a, a.x, a.y),
         ) &&
         JSON.stringify(v.state.water) === JSON.stringify(this.stage.water) &&
         JSON.stringify(v.state.guests) === JSON.stringify(this.stage.guests) &&
@@ -144,8 +150,10 @@ export class WorldSession {
         dy = y - py;
       const r = move(this.state, d.id, dx, dy, this.policy());
       this.lastResults.push(r);
+      // Consume pointer intent even when blocked: it must not replay after a wave.
+      d.cursor = { x, y };
       if (r.ok) {
-        d.cursor = { x, y };
+        delete this.waveMotion[d.id];
         this.rebase();
         this.beams();
       }
@@ -242,6 +250,14 @@ export class WorldSession {
               b.x * e.dx + b.y * e.dy - (a.x * e.dx + a.y * e.dy) ||
               a.id.localeCompare(b.id),
           );
+        const outcomes = [];
+        this.lastWave = {
+          id: e.id,
+          at: this.time,
+          dx: e.dx,
+          dy: e.dy,
+          outcomes,
+        };
         const consumed = new Set();
         for (const item of list) {
           const a = this.state.actors.find((v) => v.id === item.id);
@@ -249,14 +265,35 @@ export class WorldSession {
           const target = this.state.actors.find(
             (v) => v.x === a.x + e.dx && v.y === a.y + e.dy,
           );
+          const from = { x: a.x, y: a.y };
+          const beforeActors = clone(this.state.actors);
           const r = externalMove(
             this.state,
             a.id,
             e.dx,
             e.dy,
-            this.policy(),
+            this.policy("wave"),
             this.active?.id || a.id,
           );
+          outcomes.push({
+            id: a.id,
+            from,
+            to: { x: from.x + e.dx, y: from.y + e.dy },
+            moved: r.ok,
+            reason: r.reason,
+            merged: r.merged || 0,
+            split: r.split || 0,
+            rescued: r.rescued || 0,
+          });
+          for (const old of beforeActors) {
+            const now = this.state.actors.find((v) => v.id === old.id);
+            if (now && (old.x !== now.x || old.y !== now.y))
+              this.waveMotion[old.id] = {
+                from: { x: old.x, y: old.y },
+                to: { x: now.x, y: now.y },
+                at: this.time,
+              };
+          }
           consumed.add(a.id);
           if (r.ok && target) consumed.add(target.id);
           this.lastResults.push(r);
