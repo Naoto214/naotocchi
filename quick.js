@@ -893,6 +893,7 @@
           let running = true, rafId = null, last = null;
           let lives = RULES.LIVES, cleared = 0, index = 0, combo = 0, maxCombo = 0, level = 1;
           let phase = 'idle', phaseUntil = 0, cur = null, game = null, def = null, limit = 0, startedAt = 0, pending = null;
+          let lastMiss = null; // さいごに しっぱいした ゲームの id(けっかの よみとり よう。はんていには つかわない)
           const recent = []; const plays = {}; const clears = {};
           container.innerHTML = `
             <div class="mg-header qk-header"><span id="qkLives">${'❤️'.repeat(lives)}</span><span id="qkCount">✔ 0／${TOTAL}</span><span id="qkLevel">Lv1</span></div>
@@ -939,7 +940,7 @@
             pending = ok;
             index++;
             if (ok) { cleared++; combo++; maxCombo = Math.max(maxCombo, combo); clears[def.id] = (clears[def.id] || 0) + 1; sfx('good'); }
-            else { lives--; combo = 0; sfx('bad'); }
+            else { lives--; combo = 0; lastMiss = def.id; sfx('bad'); }
             hud();
             hide(cueEl);
             show(flashEl, ok ? '<span class="qk-ok">○</span><small>できた!</small>' : '<span class="qk-ng">✕</span><small>しっぱい…</small>');
@@ -950,7 +951,7 @@
             phase = 'final'; running = false; if (rafId) cancelAnimationFrame(rafId);
             hide(cueEl); hide(flashEl);
             const score = clamp(Math.round(cleared * PER_CLEAR), 0, 100);
-            const stats = { cleared, total: TOTAL, maxCombo, level, lives, plays, clears, score, solo: only ? only.id : null };
+            const stats = { cleared, total: TOTAL, maxCombo, level, lives, plays, clears, score, solo: only ? only.id : null, lastMiss };
             if (typeof S.onRunEnd === 'function') S.onRunEnd(stats);
             const perfect = cleared >= TOTAL;
             show(finalEl, `<div class="qk-final-title">${perfect ? '👑パーフェクト!' : lives <= 0 ? '💦ここまで!' : '🏁おしまい!'}</div><div class="qk-final-big">✔ ${cleared}<small>／${TOTAL}</small></div><div class="qk-final-sub">さいだい${maxCombo}れんぞく／Lv${level}まで</div>`);
