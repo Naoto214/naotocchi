@@ -32,7 +32,11 @@ def active_cards(cards):
  for physical,instances in groups.items():
   generations=sorted(int(life.INSTANCE_RE.fullmatch(s).group(2)) for s in instances)
   if generations!=list(range(1,len(instances)+1)):raise ValueError('missing incarnation metadata generation')
-  if any(life.digest(cards[s])!=life.digest(cards[physical+'#1']) for s in instances):raise ValueError('incarnation card definition changed')
+  # A single generation is its own #1, so its definition comparison is trivially
+  # equal; only reentered physicals need the per-instance digests.
+  if len(instances)>1:
+   first=life.digest(cards[physical+'#1'])
+   if any(life.digest(cards[s])!=first for s in instances):raise ValueError('incarnation card definition changed')
   active[physical]=physical+'#'+str(len(instances))
  return active
 

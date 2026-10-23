@@ -88,9 +88,47 @@ def rebinding_request(bundle,receipt,certificate,context,limit,destination):
  return request
 
 
+RESUME_ATTEMPT_RE=re.compile(r'fixed400-[0-9a-f]{12}')
+RESUME_BRANCH_PREFIX='fixed400-results/'
+RESUME_PARALLELISM=(1,4)
+
+
+def _resume_target(resume):
+ """Checkpoint/resume binding (2026-10-23 C案). Manual, owner-approved; never automatic."""
+ expected={'attempt_id','resume_generation','original_claim','results_ref','checkpoint_sha256','completed_rows','pending_schedule_indices_sha256','parallelism','owner_approved_manual_resume'}
+ if type(resume) is not dict or set(resume)!=expected:raise ValueError('resume binding shape differs')
+ if type(resume['attempt_id']) is not str or RESUME_ATTEMPT_RE.fullmatch(resume['attempt_id']) is None:raise ValueError('resume attempt identity differs')
+ generation=resume['resume_generation']
+ if type(generation) is not int or generation<0:raise ValueError('resume generation differs')
+ if resume['owner_approved_manual_resume'] is not True:raise ValueError('resume requires manual owner approval')
+ parallelism=resume['parallelism']
+ if type(parallelism) is not int or not RESUME_PARALLELISM[0]<=parallelism<=RESUME_PARALLELISM[1]:raise ValueError('resume parallelism differs')
+ _sha(resume['checkpoint_sha256'],64);_sha(resume['pending_schedule_indices_sha256'],64)
+ rows=resume['completed_rows']
+ if type(rows) is not int or not 0<=rows<=400:raise ValueError('resume completed row count differs')
+ claim=resume['original_claim'];ref=resume['results_ref']
+ if generation==0:
+  if claim is not None or ref is not None or rows!=0:raise ValueError('first generation carries no prior claim, results or rows')
+ else:
+  if type(claim) is not dict or set(claim)!={'comment_id','commit','tree'}:raise ValueError('resume original claim shape differs')
+  _comment_id(claim['comment_id']);_sha(claim['commit'],40);_sha(claim['tree'],40)
+  if type(ref) is not dict or set(ref)!={'branch','commit','tree'} or type(ref['branch']) is not str or ref['branch']!=RESUME_BRANCH_PREFIX+resume['attempt_id']:raise ValueError('resume results reference differs')
+  _sha(ref['commit'],40);_sha(ref['tree'],40)
+ return copy.deepcopy(resume)
+
+
+def resume_request(bundle,receipt,certificate,context,limit,destination,resume):
+ """v3: the v2 rebinding launch request plus an owner-approved checkpoint/resume binding."""
+ request=rebinding_request(bundle,receipt,certificate,context,limit,destination)
+ request['schema']='population_external_approval_request.v3'
+ request['target']['resume']=_resume_target(resume)
+ _validate_request(request)
+ return request
+
+
 def _validate_request(request):
  expected={'schema','repository','pull_request','authority_user_id','stage','edition','publication','destination','planned_groups','planned_matches','contract_sha256','target'}
- if type(request) is not dict or set(request)!=expected or request['schema'] not in ('population_external_approval_request.v1','population_external_approval_request.v2') or request['repository']!=REPOSITORY or type(request['pull_request']) is not int or request['pull_request']!=PR or type(request['authority_user_id']) is not int or request['authority_user_id']!=AUTHORITY:raise ValueError('approval request identity differs')
+ if type(request) is not dict or set(request)!=expected or request['schema'] not in ('population_external_approval_request.v1','population_external_approval_request.v2','population_external_approval_request.v3') or request['repository']!=REPOSITORY or type(request['pull_request']) is not int or request['pull_request']!=PR or type(request['authority_user_id']) is not int or request['authority_user_id']!=AUTHORITY:raise ValueError('approval request identity differs')
  if type(request['planned_groups']) is not int or request['planned_groups']!=200 or type(request['planned_matches']) is not int or request['planned_matches']!=400:raise ValueError('approval schedule differs')
  _destination(request['destination'])
  if set(request['edition'])!={'commit','tree','sha256'} or set(request['publication'])!={'commit','tree'}:raise ValueError('approval edition shape differs')
@@ -100,7 +138,7 @@ def _validate_request(request):
  if set(request['contract_sha256'])!=set(CONTRACTS):raise ValueError('approval contracts differ')
  for value in request['contract_sha256'].values():_sha(value,64)
  target=request['target']
- if request['schema']=='population_external_approval_request.v2' and request['stage']!='launch':raise ValueError('rebinding is launch only')
+ if request['schema'] in ('population_external_approval_request.v2','population_external_approval_request.v3') and request['stage']!='launch':raise ValueError('rebinding is launch only')
  if request['stage']=='generation':
   if set(target)!={'historical_registry_sha256','entropy_api','initial_order_and_policy_roots_separated','mirror_initial_order_shared','mirror_policy_randomness_separated'}:raise ValueError('generation target shape differs')
   _sha(target['historical_registry_sha256'],64)
@@ -108,8 +146,9 @@ def _validate_request(request):
  elif request['stage']=='launch':
   keys={'manifest_sha256','receipt_sha256','execution_order','reconstruction_step_limit','automatic_retry_allowed','automatic_resume_allowed'}
   hashes=['manifest_sha256','receipt_sha256']
-  if request['schema']=='population_external_approval_request.v2':
+  if request['schema'] in ('population_external_approval_request.v2','population_external_approval_request.v3'):
    hashes+=['execution_binding_sha256','binding_receipt_sha256','original_package_receipt_sha256'];keys.add('old_edition')
+   if request['schema']=='population_external_approval_request.v3':keys.add('resume');_resume_target(target.get('resume'))
    old=target.get('old_edition',{})
    if set(old)!={'commit','tree','sha256'}:raise ValueError('old edition identity missing')
    _sha(old['commit'],40);_sha(old['tree'],40);_sha(old['sha256'],64)

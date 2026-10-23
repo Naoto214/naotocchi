@@ -13,9 +13,18 @@ CATALOG='data/proxy-population-opportunity-ledger/start-sources.json'
 CATALOG_SHA='1957d8570eda5bd668aca7c4574480948862b758debbd80c31e44540257cdc64'
 
 
+_CATALOG=(None,None)
+
+
 def catalog():
-    raw=(ROOT/CATALOG).read_bytes()
-    if hashlib.sha256(raw).hexdigest()!=CATALOG_SHA:raise ValueError('start catalog changed')
+    # The catalog file is re-read and re-hashed on every call (cheap); only the
+    # expensive per-section text checks are reused, and only while the file's
+    # hash and CATALOG_SHA are unchanged. The edition is verified separately
+    # before and after each match.
+    global _CATALOG
+    raw=(ROOT/CATALOG).read_bytes();actual=hashlib.sha256(raw).hexdigest()
+    if actual!=CATALOG_SHA:raise ValueError('start catalog changed')
+    if _CATALOG[0]==(actual,CATALOG_SHA):return copy.deepcopy(_CATALOG[1])
     result=load_json(ROOT/CATALOG);fixture_raw=(ROOT/result['fixture_path']).read_bytes()
     if hashlib.sha256(fixture_raw).hexdigest()!=result['fixture_sha256']:raise ValueError('107 source changed')
     fixture=load_json(ROOT/result['fixture_path'])
@@ -25,6 +34,7 @@ def catalog():
         section,digest=rules.source_section(row['reference'])
         if digest!=row['source_raw_sha256'] or hashlib.sha256(section.encode()).hexdigest()!=row['section_sha256']:
             raise ValueError('start source text changed')
+    _CATALOG=((actual,CATALOG_SHA),copy.deepcopy(result))
     return result
 
 
