@@ -1,6 +1,16 @@
 # CARD GAME 最小再開メモ
 
-## 最新状態 — 本番第4回は第1行完走後、第2行でコンテナ再起動により停止（2026-10-23）
+## 最新状態 — C案（試合単位チェックポイント・本人承認付き再開・4並列）を実装・検証済み。正式400戦は未起動（2026-10-23）
+
+- 設計・契約変更：`plans/2026-10-23-fixed400-checkpoint-resume.md`。証跡：`data/proxy-population-400-attempt-design-20261023/REPORT.md`。
+- 実装：`proxy_population_checkpoint_ledger`／`results_store`／`checkpoint_supervisor`／`checkpoint_operator`、承認 request v3（`resume` 束縛、本文形式と本人・未編集・未取消・未消費・1回限りの検査は不変）。完走行ごとに `fixed400-results/<attempt>` ブランチへ1コミット追記・即 push。再開は新しい本人承認＋新 claim が必要で、保存済み行は保存バイトから全束縛を再計算できた場合だけ再利用。自動 retry／resume は無い。
+- テスト：中断復帰 14 シナリオ＋request 4 件 OK、関連 18 モジュール 106 件 OK。
+- 実行時間：001-A 再構成 570→358 s、独立再構成 604→393 s（出力同一のホットスポット修正2件）。1行約14.5分 CPU、4並列で400行 約24時間（従来 約147時間）。代表3試合（001-A・068-A・005-A）は diag31・本番第1試合と play 一致。
+- 次の正式起動（別承認）：設計書 §9（新 preflight → binding 公開 P → v3 世代0 request → 新コメント → claim → `checkpoint_operator.run`）。承認 `6356164698` は消費済み・再利用不可。main マージ・本番 Pages 更新はしていない。
+
+以下は過去時点の履歴。
+
+## 本番第4回は第1行完走後、第2行でコンテナ再起動により停止（2026-10-23）
 
 - 承認 `6356164698`（PR #408）を正式ゲートで照合・消費し、claim `babd88f7` を保存して supervisor を起動（edition `33cb2f85`、binding 公開 `609d525a`、出力先 `data/proxy-population-400-final-run-20261023/`）。
 - 第1行 group-001-A-first は completed（診断と play digest 一致）。第2行の開始直後にコンテナ再起動で消失。契約どおり停止扱い・resume/retry なし。停止記録は `data/proxy-population-400-final-run-20261023-stop/STOP.md`。

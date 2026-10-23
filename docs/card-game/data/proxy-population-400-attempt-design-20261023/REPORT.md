@@ -42,11 +42,27 @@
 
 ## 4. 実行時間（`verification/timing-comparison.json`、`verification/profile-group-001-A-first-80-steps.txt`）
 
-__TIMING__
+| 項目 | 修正前（edition `33cb2f85`） | 修正後（本 tree） |
+|---|---|---|
+| 対局再構成（group-001-A-first、1プロセス） | 570.0 s | **357.9 s**（−37%） |
+| 独立再構成による記録検証（同） | 604.2 s | **392.7 s**（−35%） |
+| 承認再照合（worker の preflight・binding・live 読取） | 約2分 | 約2分（省略しない） |
+| 1行あたり CPU 時間 | 約22分（第4回実測） | **約14.5分** |
+| 400行の見込み所要時間 | 約147時間（直列、実測ベース） | 直列 約97時間／**4並列 約24時間** |
+
+内訳：`active_cards` の自明な自己比較の省略（80 step で 227万回の digest を除去）、start catalog の section 検査の再利用（同 2680 回の再読込を除去）。どちらも出力は同一で、`test_proxy_population_active_cards_equivalence` が旧実装との同値・失敗経路の保持を検査する。worker の承認再照合・独立再構成・edition 前後検証はそのまま。並列化は supervisor の行単位（1行1プロセス、出力先独立、記録は予定順）。
 
 ## 5. 既存400戦との互換性
 
-__COMPAT__
+新 tree（`7d637133`）で代表3試合を診断実行し、前回の最終診断（`44d54844`、diag31）および本番第1試合の記録と、決定列・イベント列・最終盤面・勝敗の digest を比較した（`verification/timing-comparison.json`）。
+
+| 試合 | 新 tree | diag31 と play 一致 | 備考 |
+|---|---|---|---|
+| group-001-A-first | 完走 241 step / 307 event（383 s） | **一致** | 本番第1試合（`proxy-population-400-final-run-20261023/attempt-0001`）とも**一致** |
+| group-068-A-first | 完走 188 step / 244 event（277 s） | **一致** | 裁定②（R10・メイン不在の E-final-time）の対象行 |
+| group-005-A-first | 完走 181 step / 233 event（275 s） | **一致** | 裁定①（連鎖解決中の誘発）の対象行 |
+
+record の sha256 は edition 束縛フィールド（`connected_tools_sha256` 等）を含むため tree ごとに異なるが、対局内容は同一。400行全体の再診断は、修正が出力同一であることと代表行の一致を根拠に行っていない（次の正式起動の事前検証で改めて確認する）。
 
 ## 6. 次の正式起動に必要な本人承認
 
