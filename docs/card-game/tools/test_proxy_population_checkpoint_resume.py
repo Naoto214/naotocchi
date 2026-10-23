@@ -84,6 +84,7 @@ class Harness:
  def resume(self,generation,parallelism=2,cert=CERT,bundle=None,workspace='ws-fresh'):
   shutil.rmtree(self.root/'ws',ignore_errors=True) # a lost container keeps no workspace
   resume,plan=api.prepare_resume(self.repo,bundle or self.bundle,cert,dict(comment_id=1,commit=self.claim,tree=self.claim_tree),generation,self.store(api.first_generation_resume(self.publication,1)['attempt_id'],workspace),parallelism)
+  self.case.assertEqual(resume['previous_claim'],resume['original_claim'])
   return resume,plan
  def rows_on_branch(self,attempt):
   store=self.store(attempt,'reader');head=store.remote_head()
@@ -210,7 +211,7 @@ class CheckpointResumeTests(unittest.TestCase):
 class ResumeRequestTests(unittest.TestCase):
  def request(self):
  # A syntactically complete v3 launch request; the real builder is exercised by the launch-authorization tests.
-  resume=dict(attempt_id='fixed400-'+'a'*12,resume_generation=1,original_claim=dict(comment_id=5,commit='b'*40,tree='c'*40),results_ref=dict(branch='fixed400-results/fixed400-'+'a'*12,commit='d'*40,tree='e'*40),checkpoint_sha256='f'*64,completed_rows=3,pending_schedule_indices_sha256='1'*64,parallelism=4,owner_approved_manual_resume=True)
+  resume=dict(attempt_id='fixed400-'+'a'*12,resume_generation=1,original_claim=dict(comment_id=5,commit='b'*40,tree='c'*40),previous_claim=dict(comment_id=5,commit='b'*40,tree='c'*40),results_ref=dict(branch='fixed400-results/fixed400-'+'a'*12,commit='d'*40,tree='e'*40),checkpoint_sha256='f'*64,completed_rows=3,pending_schedule_indices_sha256='1'*64,parallelism=4,owner_approved_manual_resume=True)
   target=dict(manifest_sha256='2'*64,receipt_sha256='3'*64,execution_binding_sha256='4'*64,binding_receipt_sha256='5'*64,original_package_receipt_sha256='6'*64,old_edition=dict(commit='7'*40,tree='8'*40,sha256='9'*64),execution_order=['m'+str(i) for i in range(400)],reconstruction_step_limit=512,automatic_retry_allowed=False,automatic_resume_allowed=False,resume=resume)
   return dict(schema='population_external_approval_request.v3',repository=approval.REPOSITORY,pull_request=approval.PR,authority_user_id=approval.AUTHORITY,stage='launch',edition=dict(commit='a'*40,tree='b'*40,sha256='c'*64),publication=dict(commit='d'*40,tree='e'*40),destination='docs/card-game/data/x',planned_groups=200,planned_matches=400,contract_sha256={p:'0'*64 for p in approval.CONTRACTS},target=target)
  def test_v3_request_validates_and_has_a_distinct_digest(self):
@@ -223,10 +224,13 @@ class ResumeRequestTests(unittest.TestCase):
    r=copy.deepcopy(base);f(r['target']['resume']);return r
   bad=[mutate(lambda x:x.update(parallelism=5)),mutate(lambda x:x.update(parallelism=0)),mutate(lambda x:x.update(owner_approved_manual_resume=False)),mutate(lambda x:x.update(resume_generation=0)),
    mutate(lambda x:x.update(completed_rows=401)),mutate(lambda x:x.update(results_ref=dict(x['results_ref'],branch='other/branch'))),mutate(lambda x:x.pop('checkpoint_sha256')),mutate(lambda x:x.update(attempt_id='fixed400-zz')),
-   mutate(lambda x:x.update(original_claim=None))]
+   mutate(lambda x:x.update(original_claim=None)),mutate(lambda x:x.update(previous_claim=None)),mutate(lambda x:x.update(previous_claim=dict(comment_id=6,commit='7'*40,tree='8'*40)))]
   for r in bad:
    with self.assertRaises(ValueError):approval._validate_request(r)
-  gen0=mutate(lambda x:x.update(resume_generation=0,original_claim=None,results_ref=None,completed_rows=0));approval._validate_request(gen0)
+  gen0=mutate(lambda x:x.update(resume_generation=0,original_claim=None,previous_claim=None,results_ref=None,completed_rows=0));approval._validate_request(gen0)
+  gen2=mutate(lambda x:x.update(resume_generation=2,previous_claim=dict(comment_id=6,commit='7'*40,tree='8'*40)));approval._validate_request(gen2)
+  self.assertEqual(approval.pre_claim_head(gen0),gen0['publication']);self.assertEqual(approval.pre_claim_head(base),dict(commit='b'*40,tree='c'*40))
+  self.assertEqual(approval.pre_claim_head(gen2),dict(commit='7'*40,tree='8'*40))
   v2_with_resume=copy.deepcopy(base);v2_with_resume['schema']='population_external_approval_request.v2'
   with self.assertRaises(ValueError):approval._validate_request(v2_with_resume)
  def test_first_generation_binding(self):

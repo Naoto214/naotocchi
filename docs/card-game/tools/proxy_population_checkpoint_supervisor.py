@@ -77,7 +77,7 @@ def resume_plan(repository,bundle,certificate,resume,claim,store):
   checkpoint_sha256=plan['checkpoint_sha256'],last_entry_sha256=plan['last_entry_sha256'],reused_entries={str(i):e for i,e in plan['entries'].items()})
 
 
-def prepare_resume(repository,bundle,certificate,attempt_claim,generation,store,parallelism):
+def prepare_resume(repository,bundle,certificate,attempt_claim,generation,store,parallelism,previous_claim=None):
  """Operator helper: read the results branch head and build the `resume` binding for the next approval."""
  head=store.remote_head()
  if head is None:raise ValueError('results branch absent; nothing to resume')
@@ -88,7 +88,8 @@ def prepare_resume(repository,bundle,certificate,attempt_claim,generation,store,
  descriptor=ledger.attempt_descriptor(attempt_id_for_claim(repository,attempt_claim['commit']),bundle,certificate,attempt_claim)
  if store.attempt_id!=descriptor['attempt_id']:raise ValueError('results store belongs to another attempt')
  plan=ledger.verify_ledger(store.load_rows(head),descriptor,bundle)
- resume=dict(attempt_id=descriptor['attempt_id'],resume_generation=generation,original_claim=copy.deepcopy(attempt_claim),
+ previous=copy.deepcopy(attempt_claim if previous_claim is None else previous_claim)
+ resume=dict(attempt_id=descriptor['attempt_id'],resume_generation=generation,original_claim=copy.deepcopy(attempt_claim),previous_claim=previous,
   results_ref=dict(branch=store.branch,commit=head,tree=tree),checkpoint_sha256=plan['checkpoint_sha256'],completed_rows=plan['completed_rows'],
   pending_schedule_indices_sha256=plan['pending_schedule_indices_sha256'],parallelism=parallelism,owner_approved_manual_resume=True)
  external_approval._resume_target(resume)
@@ -102,7 +103,7 @@ def _has_commit(store,commit):
 def first_generation_resume(publication_commit,parallelism):
  """Generation 0 binding; the attempt is named after the approved publication (the claim's parent)."""
  empty=ledger.digest([])
- return dict(attempt_id=ledger.attempt_id(publication_commit),resume_generation=0,original_claim=None,results_ref=None,checkpoint_sha256=empty,completed_rows=0,
+ return dict(attempt_id=ledger.attempt_id(publication_commit),resume_generation=0,original_claim=None,previous_claim=None,results_ref=None,checkpoint_sha256=empty,completed_rows=0,
   pending_schedule_indices_sha256=ledger.digest(list(range(1,401))),parallelism=parallelism,owner_approved_manual_resume=True)
 
 

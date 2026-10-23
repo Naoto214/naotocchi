@@ -45,9 +45,10 @@ def first_generation_request(repository,context,destination,parallelism):
  return dict(resume=resume,request=request,request_sha256=approval.digest(request),approval_text=approval.approval_text(request))
 
 
-def next_generation_request(repository,context,destination,attempt_claim,generation,parallelism,workspace):
+def next_generation_request(repository,context,destination,attempt_claim,generation,parallelism,workspace,previous_claim=None):
+ """attempt_claim: generation 0's claim; previous_claim: the latest claim (the current PR head), defaults to attempt_claim."""
  store=results.Store(repository,supervisor.attempt_id_for_claim(repository,attempt_claim['commit']),workspace)
- resume,plan=supervisor.prepare_resume(repository,context['bundle'],context['certificate'],attempt_claim,generation,store,parallelism)
+ resume,plan=supervisor.prepare_resume(repository,context['bundle'],context['certificate'],attempt_claim,generation,store,parallelism,previous_claim)
  request=approval.resume_request(context['bundle'],context['manifest_receipt'],context['certificate'],context['execution_binding'],512,destination,resume)
  return dict(resume=resume,plan={k:v for k,v in plan.items() if k!='entries'},request=request,request_sha256=approval.digest(request),approval_text=approval.approval_text(request))
 

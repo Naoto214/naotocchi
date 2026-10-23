@@ -18,17 +18,41 @@ def _check_saved_approval(saved,request,comment_id,head):
  if saved['evidence']['observed_publication_commit']!=head:raise ValueError('saved approval publication differs')
 
 
+CLAIM_DIRECTORY='docs/card-game/data/proxy-population-approval-consumption/'
+
+
+def _parents(git,commit):
+ headers=git('cat-file','commit',commit).split(b'\n\n',1)[0].splitlines()
+ return [line[7:].decode() for line in headers if line.startswith(b'parent ')]
+
+
+def _require_claim_chain(git,request,head):
+ """A resumed generation's parent: claim-only commits from the approved publication.
+
+Every commit between the publication and the previous claim has one parent and adds
+exactly one new canonical claim file, and the first of them is the original claim.
+"""
+ resume=request['target']['resume'];publication=request['publication']['commit'];chain=[];cursor=head
+ while cursor!=publication:
+  parents=_parents(git,cursor)
+  if len(parents)!=1 or len(chain)>=64:raise ValueError('resume claim chain does not reach the approved publication')
+  changes=git('diff-tree','--no-commit-id','--name-status','--no-renames','-r','-z',parents[0],cursor).split(b'\0')
+  if len(changes)!=3 or changes[0]!=b'A' or not changes[1].decode().startswith(CLAIM_DIRECTORY) or changes[2]!=b'':raise ValueError('resume claim chain contains a non-claim commit')
+  chain.append(cursor);cursor=parents[0]
+ if not chain or chain[-1]!=resume['original_claim']['commit']:raise ValueError('resume claim chain does not start at the original claim')
+ return list(reversed(chain))
+
+
 def _read_committed_claim(repository,request,comment_id,commit,tree):
  """Local immutable claim proof only; callers must separately authenticate live use."""
  approval.approval_text(request);approval._comment_id(comment_id)
  approval._sha(commit,40);approval._sha(tree,40)
- parent=request['publication']['commit'];path='docs/card-game/data/proxy-population-approval-consumption/'+str(comment_id)+'.json'
+ head=approval.pre_claim_head(request);parent=head['commit'];path=CLAIM_DIRECTORY+str(comment_id)+'.json'
  def git(*args):return subprocess.check_output(['git','--no-replace-objects','-C',str(repository),*args],env=remote._environment(),stderr=subprocess.PIPE,timeout=30)
  if git('cat-file','-t',commit).strip()!=b'commit' or git('rev-parse',commit+'^{tree}').decode().strip()!=tree:raise ValueError('consumption commit/tree differs')
- headers=git('cat-file','commit',commit).split(b'\n\n',1)[0].splitlines()
- parents=[line[7:].decode() for line in headers if line.startswith(b'parent ')]
- if parents!=[parent]:raise ValueError('consumption must be a single direct child of approved publication')
- if git('rev-parse',parent+'^{tree}').decode().strip()!=request['publication']['tree']:raise ValueError('approved parent tree differs')
+ if _parents(git,commit)!=[parent]:raise ValueError('consumption must be a single direct child of approved publication')
+ if git('rev-parse',parent+'^{tree}').decode().strip()!=head['tree']:raise ValueError('approved parent tree differs')
+ if parent!=request['publication']['commit']:_require_claim_chain(git,request,parent)
  changes=git('diff-tree','--no-commit-id','--name-status','--no-renames','-r','-z',parent,commit)
  if changes!=b'A\0'+path.encode()+b'\0':raise ValueError('consumption commit must add only the exact claim')
  rows=git('ls-tree','-z',commit,'--',path).split(b'\0')

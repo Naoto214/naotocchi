@@ -59,7 +59,8 @@ def audit_launch(repository,bundle,receipt,certificate,package,limit,destination
    if canonical(saved.get('execution_binding'))!=canonical(execution_binding):raise ValueError('supervisor execution binding differs')
    if canonical(saved.get('resume'))!=canonical(resume):raise ValueError('supervisor resume binding differs')
    if canonical(saved.get('current_preparation'))!=canonical(prepared):raise ValueError('supervisor preparation edition differs')
-   if canonical(saved)!=raw or saved['schema']!='fixed_population_supervisor_start.v1' or evidence['launch_authorization_bound'] is not True or evidence['request']!=request or evidence['consumption']['binding']!=claim['binding']:raise ValueError('saved supervisor approval differs')
+   schema='fixed_population_supervisor_start.v1' if resume is None else 'fixed_population_checkpoint_supervisor_start.v1'
+   if canonical(saved)!=raw or saved['schema']!=schema or evidence['launch_authorization_bound'] is not True or evidence['request']!=request or evidence['consumption']['binding']!=claim['binding']:raise ValueError('saved supervisor approval differs')
   if not edition.verify(certificate,repository)['local_edition_verified']:raise ValueError('launch source changed during live approval checks')
  except (ValueError,TypeError,KeyError,IndexError,OSError) as error:
   errors.append(str(error))
@@ -91,7 +92,8 @@ def prevalidate_launch(repository,bundle,receipt,certificate,limit,destination,c
   request,_=_prepare_launch(repository,bundle,receipt,certificate,package,limit,destination,None,None,None,execution_binding,resume)
   live=approval.verify_live(request,comment_id)
   if not live['external_approval_verified']:raise ValueError('pre-consumption approval differs: '+approval.failure_text(live))
-  remote=publication.remote.verify(repository,request['publication']['commit'],request['publication']['tree'])
+  head=approval.pre_claim_head(request)
+  remote=publication.remote.verify(repository,head['commit'],head['tree'])
   if not remote['fresh_remote_head_verified']:raise ValueError('pre-consumption remote publication differs')
   if not edition.verify(certificate,repository)['local_edition_verified']:raise ValueError('source changed during pre-consumption checks')
  except (ValueError,TypeError,KeyError,IndexError,OSError) as error:errors.append(str(error))

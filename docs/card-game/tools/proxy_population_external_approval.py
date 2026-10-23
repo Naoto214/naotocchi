@@ -95,7 +95,7 @@ RESUME_PARALLELISM=(1,4)
 
 def _resume_target(resume):
  """Checkpoint/resume binding (2026-10-23 C案). Manual, owner-approved; never automatic."""
- expected={'attempt_id','resume_generation','original_claim','results_ref','checkpoint_sha256','completed_rows','pending_schedule_indices_sha256','parallelism','owner_approved_manual_resume'}
+ expected={'attempt_id','resume_generation','original_claim','previous_claim','results_ref','checkpoint_sha256','completed_rows','pending_schedule_indices_sha256','parallelism','owner_approved_manual_resume'}
  if type(resume) is not dict or set(resume)!=expected:raise ValueError('resume binding shape differs')
  if type(resume['attempt_id']) is not str or RESUME_ATTEMPT_RE.fullmatch(resume['attempt_id']) is None:raise ValueError('resume attempt identity differs')
  generation=resume['resume_generation']
@@ -106,15 +106,30 @@ def _resume_target(resume):
  _sha(resume['checkpoint_sha256'],64);_sha(resume['pending_schedule_indices_sha256'],64)
  rows=resume['completed_rows']
  if type(rows) is not int or not 0<=rows<=400:raise ValueError('resume completed row count differs')
- claim=resume['original_claim'];ref=resume['results_ref']
+ claim=resume['original_claim'];ref=resume['results_ref'];previous=resume['previous_claim']
  if generation==0:
-  if claim is not None or ref is not None or rows!=0:raise ValueError('first generation carries no prior claim, results or rows')
+  if claim is not None or previous is not None or ref is not None or rows!=0:raise ValueError('first generation carries no prior claim, results or rows')
  else:
-  if type(claim) is not dict or set(claim)!={'comment_id','commit','tree'}:raise ValueError('resume original claim shape differs')
-  _comment_id(claim['comment_id']);_sha(claim['commit'],40);_sha(claim['tree'],40)
+  for value in (claim,previous):
+   if type(value) is not dict or set(value)!={'comment_id','commit','tree'}:raise ValueError('resume claim shape differs')
+   _comment_id(value['comment_id']);_sha(value['commit'],40);_sha(value['tree'],40)
+  if generation==1 and previous!=claim:raise ValueError('first resume follows the original claim')
   if type(ref) is not dict or set(ref)!={'branch','commit','tree'} or type(ref['branch']) is not str or ref['branch']!=RESUME_BRANCH_PREFIX+resume['attempt_id']:raise ValueError('resume results reference differs')
   _sha(ref['commit'],40);_sha(ref['tree'],40)
  return copy.deepcopy(resume)
+
+
+def pre_claim_head(request):
+ """The PR head that must be live before this request's claim is consumed, and the claim's parent.
+
+Generation 0 (and every v1/v2 request) claims on the approved publication. A resumed
+generation claims on the previous generation's claim, so the PR branch only ever
+moves forward by claim-only commits; it is never rewritten.
+"""
+ if request.get('schema')=='population_external_approval_request.v3':
+  resume=request['target']['resume']
+  if resume['resume_generation']>0:return dict(commit=resume['previous_claim']['commit'],tree=resume['previous_claim']['tree'])
+ return dict(commit=request['publication']['commit'],tree=request['publication']['tree'])
 
 
 def resume_request(bundle,receipt,certificate,context,limit,destination,resume):
@@ -257,7 +272,7 @@ def _verify_live_at_head(request,comment_id,publication_commit):
  token=_read_deadline.set(deadline)
  try:
   _validate_request(request);_comment_id(comment_id)
-  expected_head=request['publication']['commit'] if publication_commit is None else _sha(publication_commit,40)
+  expected_head=pre_claim_head(request)['commit'] if publication_commit is None else _sha(publication_commit,40)
   for attempt in range(1,4):
    row=dict(attempt=attempt,started_at=datetime.now(timezone.utc).isoformat(),reads=[],outcome=None)
    audit['observations'].append(row)
