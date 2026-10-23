@@ -27,20 +27,38 @@ def _parents(git,commit):
 
 
 def _require_claim_chain(git,request,head):
- """A resumed generation's parent: claim-only commits from the approved publication.
+ """A resumed generation's parent: the claim chain from the approved publication.
 
-Every commit between the publication and the previous claim has one parent and adds
-exactly one new canonical claim file, and the first of them is the original claim.
+The chain holds exactly one claim per earlier generation (generation n has n), so the
+PR branch cannot be rewound to an earlier claim. Each commit has one parent and adds
+exactly one regular, canonical consumption record of this attempt's request at that
+generation, named after its own approval comment; the first is the original claim.
 """
  resume=request['target']['resume'];publication=request['publication']['commit'];chain=[];cursor=head
  while cursor!=publication:
   parents=_parents(git,cursor)
   if len(parents)!=1 or len(chain)>=64:raise ValueError('resume claim chain does not reach the approved publication')
   changes=git('diff-tree','--no-commit-id','--name-status','--no-renames','-r','-z',parents[0],cursor).split(b'\0')
-  if len(changes)!=3 or changes[0]!=b'A' or not changes[1].decode().startswith(CLAIM_DIRECTORY) or changes[2]!=b'':raise ValueError('resume claim chain contains a non-claim commit')
-  chain.append(cursor);cursor=parents[0]
- if not chain or chain[-1]!=resume['original_claim']['commit']:raise ValueError('resume claim chain does not start at the original claim')
- return list(reversed(chain))
+  if len(changes)!=3 or changes[0]!=b'A' or changes[2]!=b'':raise ValueError('resume claim chain contains a non-claim commit')
+  path=changes[1].decode();name=path[len(CLAIM_DIRECTORY):]
+  if not path.startswith(CLAIM_DIRECTORY) or not name.endswith('.json') or not name[:-5].isdigit() or '/' in name:raise ValueError('resume claim chain contains a non-claim commit')
+  chain.append((cursor,path,int(name[:-5])));cursor=parents[0]
+ chain.reverse()
+ if len(chain)!=resume['resume_generation']:raise ValueError('resume claim chain length differs from the generation')
+ if not chain or chain[0][0]!=resume['original_claim']['commit'] or chain[-1][0]!=resume['previous_claim']['commit']:raise ValueError('resume claim chain does not start at the original claim')
+ for position,(commit,path,comment_id) in enumerate(chain):
+  rows=git('ls-tree','-z',commit,'--',path).split(b'\0')
+  meta,_=rows[0].split(b'\t');mode,kind,blob=meta.decode().split()
+  if mode!='100644' or kind!='blob':raise ValueError('resume claim chain record is not a regular file')
+  body=git('cat-file','blob',blob);record=json.loads(body,object_pairs_hook=_pairs,parse_constant=_nonfinite)
+  if canonical(record)!=body or record.get('schema')!='population_local_approval_consumption.v1' or record.get('local_consumption_recorded') is not True:raise ValueError('resume claim chain record is not a consumption record')
+  earlier=record['request']
+  if earlier.get('schema')!='population_external_approval_request.v3' or earlier['target']['resume']['attempt_id']!=resume['attempt_id'] or earlier['target']['resume']['resume_generation']!=position or earlier['publication']!=request['publication']:raise ValueError('resume claim chain record belongs to another attempt or generation')
+  if record['approval'].get('comment_id')!=comment_id:raise ValueError('resume claim chain record comment differs')
+  expected_claim=resume['original_claim'] if position==0 else None
+  if expected_claim is not None and expected_claim['comment_id']!=comment_id:raise ValueError('resume original claim comment differs')
+  if position==len(chain)-1 and resume['previous_claim']['comment_id']!=comment_id:raise ValueError('resume previous claim comment differs')
+ return [c[0] for c in chain]
 
 
 def _read_committed_claim(repository,request,comment_id,commit,tree):
@@ -52,7 +70,7 @@ def _read_committed_claim(repository,request,comment_id,commit,tree):
  if git('cat-file','-t',commit).strip()!=b'commit' or git('rev-parse',commit+'^{tree}').decode().strip()!=tree:raise ValueError('consumption commit/tree differs')
  if _parents(git,commit)!=[parent]:raise ValueError('consumption must be a single direct child of approved publication')
  if git('rev-parse',parent+'^{tree}').decode().strip()!=head['tree']:raise ValueError('approved parent tree differs')
- if parent!=request['publication']['commit']:_require_claim_chain(git,request,parent)
+ if request.get('schema')=='population_external_approval_request.v3' and request['target']['resume']['resume_generation']>0:_require_claim_chain(git,request,parent)
  changes=git('diff-tree','--no-commit-id','--name-status','--no-renames','-r','-z',parent,commit)
  if changes!=b'A\0'+path.encode()+b'\0':raise ValueError('consumption commit must add only the exact claim')
  rows=git('ls-tree','-z',commit,'--',path).split(b'\0')

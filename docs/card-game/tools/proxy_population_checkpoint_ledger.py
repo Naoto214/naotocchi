@@ -64,8 +64,28 @@ def _row_bindings(index,match_id,bundle,descriptor,receipt_body,compressed):
  return row,receipt,record
 
 
-def build_entry(descriptor,index,match_id,bundle,generation,receipt_body,compressed,previous_entry_sha256):
+START_SCHEMA='conditional_population_attempt_start.v1'
+
+
+def _claim(value):
+ if type(value) is not dict or set(value)!={'comment_id','commit'} or type(value['comment_id']) is not int or value['comment_id']<=0 or type(value['commit']) is not str or re.fullmatch('[0-9a-f]{40}',value['commit']) is None:raise ValueError('checkpoint generation claim differs')
+ return dict(value)
+
+
+def _start_bindings(start_body,descriptor,match_id,generation_claim):
+ """The worker's own authorization record for this row: edition, manifest, row and claim."""
+ start=document(start_body)
+ if canonical(start)!=start_body or start.get('schema')!=START_SCHEMA or start.get('match_id')!=match_id:raise ValueError('checkpoint start record identity differs')
+ if start.get('supplied_bundle_sha256')!=descriptor['manifest_sha256'] or start.get('execution_edition_sha256')!=descriptor['edition']['sha256'] or start.get('reconstruction_step_limit')!=512:raise ValueError('checkpoint start record edition/manifest differs')
+ auth=start.get('launch_authorization') or {}
+ if auth.get('launch_authorization_bound') is not True or (auth.get('consumption') or {}).get('binding',{}).get('commit')!=generation_claim['commit'] or start.get('external_approval_verified') is not True:raise ValueError('checkpoint start record approval differs')
+ if (start.get('resume') or {}).get('attempt_id')!=descriptor['attempt_id']:raise ValueError('checkpoint start record attempt differs')
+ return start
+
+
+def build_entry(descriptor,index,match_id,bundle,generation,receipt_body,compressed,previous_entry_sha256,start_body,generation_claim):
  row,receipt,record=_row_bindings(index,match_id,bundle,descriptor,receipt_body,compressed)
+ generation_claim=_claim(generation_claim);_start_bindings(start_body,descriptor,match_id,generation_claim)
  if previous_entry_sha256 is not None:_hex(previous_entry_sha256)
  group=next((g for g in bundle['groups'] if g['group_id']==row['group_id']),None)
  if group is None:raise ValueError('checkpoint group absent from manifest')
@@ -74,7 +94,7 @@ def build_entry(descriptor,index,match_id,bundle,generation,receipt_body,compres
   input_sha256=row['input_sha256'],policy_input_sha256=row['policy_input_sha256'],policy_versions=copy.deepcopy(row['policy_versions']),
   seeds_sha256=digest({k:group[k] for k in ('seed_A','seed_B')}),
   edition=copy.deepcopy(descriptor['edition']),connected_tools_sha256=descriptor['connected_tools_sha256'],original_claim=copy.deepcopy(descriptor['original_claim']),
-  resume_generation=generation,receipt_sha256=hashlib.sha256(receipt_body).hexdigest(),record_sha256=receipt['record_sha256'],compressed_sha256=receipt['compressed_sha256'],
+  resume_generation=generation,generation_claim=generation_claim,start_sha256=hashlib.sha256(start_body).hexdigest(),receipt_sha256=hashlib.sha256(receipt_body).hexdigest(),record_sha256=receipt['record_sha256'],compressed_sha256=receipt['compressed_sha256'],
   play=play_summary(record),completed=True,previous_entry_sha256=previous_entry_sha256)
  entry['entry_sha256']=digest(entry)
  return entry
@@ -84,30 +104,36 @@ def _hex(value):
  if type(value) is not str or re.fullmatch('[0-9a-f]{64}',value) is None:raise ValueError('checkpoint digest differs')
 
 
-def verify_entry(entry,descriptor,index,bundle,receipt_body,compressed,previous_entry_sha256):
+def verify_entry(entry,descriptor,index,bundle,receipt_body,compressed,previous_entry_sha256,start_body):
  """Recompute every binding from the saved bytes; the stored entry is never trusted."""
  if type(entry) is not dict or entry.get('schema')!=SCHEMA or entry.get('completed') is not True:raise ValueError('checkpoint entry shape differs')
  if type(entry.get('resume_generation')) is not int or entry['resume_generation']<0:raise ValueError('checkpoint generation differs')
- expected=build_entry(descriptor,index,entry.get('match_id'),bundle,entry['resume_generation'],receipt_body,compressed,previous_entry_sha256)
+ expected=build_entry(descriptor,index,entry.get('match_id'),bundle,entry['resume_generation'],receipt_body,compressed,previous_entry_sha256,start_body,entry.get('generation_claim'))
  if canonical(expected)!=canonical(entry):raise ValueError('checkpoint entry differs from its saved evidence')
  return expected
 
 
 def verify_ledger(rows,descriptor,bundle):
- """rows: {schedule_index: (entry, receipt_body, compressed)}. Returns the verified plan."""
+ """rows: {schedule_index: (entry, receipt_body, compressed, start_body)}. Returns the verified plan.
+
+Saved records are bound by hash to the worker's receipt, whose admission verdict came
+from an independent source reconstruction at run time; they are not replayed here.
+"""
  if type(rows) is not dict:raise ValueError('ledger rows must be indexed')
  indices=sorted(rows)
  if any(type(i) is not int for i in indices) or len(set(indices))!=len(indices):raise ValueError('ledger indices differ')
  previous=None;verified={};matches=set()
  for index in indices:
-  entry,receipt_body,compressed=rows[index]
-  checked=verify_entry(entry,descriptor,index,bundle,receipt_body,compressed,previous)
+  entry,receipt_body,compressed,start_body=rows[index]
+  checked=verify_entry(entry,descriptor,index,bundle,receipt_body,compressed,previous,start_body)
   if checked['match_id'] in matches:raise ValueError('duplicate match in ledger')
   matches.add(checked['match_id']);verified[index]=checked;previous=checked['entry_sha256']
  pending=[i for i in range(1,401) if i not in verified]
+ if indices!=list(range(1,len(indices)+1)):raise ValueError('ledger rows are not a contiguous schedule prefix')
+ generation_claims=sorted({(e['resume_generation'],e['generation_claim']['commit']) for e in verified.values()})
  return dict(schema='fixed400_checkpoint_plan.v1',attempt_id=descriptor['attempt_id'],completed_indices=indices,completed_rows=len(indices),
   pending_schedule_indices=pending,next_schedule_index=pending[0] if pending else None,
-  checkpoint_sha256=checkpoint_digest(verified),pending_schedule_indices_sha256=digest(pending),last_entry_sha256=previous,entries=verified)
+  checkpoint_sha256=checkpoint_digest(verified),pending_schedule_indices_sha256=digest(pending),last_entry_sha256=previous,generation_claims=generation_claims,entries=verified)
 
 
 def checkpoint_digest(entries):

@@ -72,6 +72,38 @@ class ResumeClaimChainTests(unittest.TestCase):
   with self.assertRaisesRegex(ValueError,'start at the original claim'):self.read(wrong,19,c2)
 
 
+class ResumeClaimChainReviewTests(ResumeClaimChainTests):
+ """Review 2bfbe209: a rewound PR branch and a forged chain file are refused."""
+ def test_rewound_branch_cannot_claim_a_later_generation(self):
+  r1=v3(self.p,self.pt,1,self.c0,self.c0);self.claim(r1,18)
+  # PR branch reset back to the original claim; a generation-2 request naming it as previous.
+  self.git('checkout','-q','--detach',self.c0['commit'])
+  rewound=v3(self.p,self.pt,2,self.c0,self.c0)
+  c=self.claim(rewound,19)
+  with self.assertRaisesRegex(ValueError,'length differs from the generation'):self.read(rewound,19,c)
+  on_publication=v3(self.p,self.pt,2,self.c0,dict(comment_id=17,commit=self.p,tree=self.pt))
+  self.git('checkout','-q','--detach',self.p);c=self.claim(on_publication,20)
+  with self.assertRaises(ValueError):self.read(on_publication,20,c)
+
+ def test_chain_file_must_be_a_consumption_record_of_this_attempt(self):
+  self.git('checkout','-q','--detach',self.c0['commit'])
+  (self.root/'data/proxy-population-approval-consumption/99.json').write_text('{}');self.git('add','.');self.git('commit','-qm','forged claim')
+  forged=dict(comment_id=99,commit=self.git('rev-parse','HEAD'),tree=self.git('rev-parse','HEAD^{tree}'))
+  r2=v3(self.p,self.pt,2,self.c0,forged);c=self.claim(r2,21)
+  with self.assertRaisesRegex(ValueError,'not a consumption record'):self.read(r2,21,c)
+  # A genuine record of another attempt's request is refused too.
+  self.git('checkout','-q','--detach',self.c0['commit'])
+  foreign=self.claim(r1_like(self,self.c0),22)
+  r2b=v3(self.p,self.pt,2,self.c0,foreign);c=self.claim(r2b,23)
+  with self.assertRaisesRegex(ValueError,'another attempt or generation'):self.read(r2b,23,c)
+
+
+def r1_like(case,c0):
+ """A generation-1 request of a different attempt on the same publication commit (wrong attempt id)."""
+ r=v3(case.p,case.pt,1,c0,c0);r['target']['resume']['attempt_id']='fixed400-'+'0'*12;r['target']['resume']['results_ref']['branch']='fixed400-results/fixed400-'+'0'*12
+ approval._validate_request(r);return r
+
+
 class WorkerStartSchemaTests(unittest.TestCase):
  """The worker reads the supervisor start record; each contract accepts only its own schema."""
  def audit(self,schema,resume):

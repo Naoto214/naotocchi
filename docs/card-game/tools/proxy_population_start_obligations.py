@@ -16,16 +16,23 @@ CATALOG_SHA='1957d8570eda5bd668aca7c4574480948862b758debbd80c31e44540257cdc64'
 _CATALOG=(None,None)
 
 
+def _inputs_key(result):
+    """Hashes of every byte the catalog check reads: the catalog, its fixture and each referenced rules file."""
+    names=sorted({row['reference'].split('#',1)[0] for row in result['cards'].values()})
+    return (hashlib.sha256((ROOT/CATALOG).read_bytes()).hexdigest(),hashlib.sha256((ROOT/result['fixture_path']).read_bytes()).hexdigest(),
+            tuple((n,hashlib.sha256((rules.ROOT/n).read_bytes()).hexdigest()) for n in names))
+
+
 def catalog():
-    # The catalog file is re-read and re-hashed on every call (cheap); only the
-    # expensive per-section text checks are reused, and only while the file's
-    # hash and CATALOG_SHA are unchanged. The edition is verified separately
-    # before and after each match.
+    # The full section checks run once per distinct input; a later call reuses them only
+    # while the catalog, its fixture and every referenced rules file hash the same.
     global _CATALOG
-    raw=(ROOT/CATALOG).read_bytes();actual=hashlib.sha256(raw).hexdigest()
-    if actual!=CATALOG_SHA:raise ValueError('start catalog changed')
-    if _CATALOG[0]==(actual,CATALOG_SHA):return copy.deepcopy(_CATALOG[1])
-    result=load_json(ROOT/CATALOG);fixture_raw=(ROOT/result['fixture_path']).read_bytes()
+    raw=(ROOT/CATALOG).read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=CATALOG_SHA:raise ValueError('start catalog changed')
+    result=load_json(ROOT/CATALOG)
+    key=(CATALOG_SHA,)+_inputs_key(result)
+    if _CATALOG[0]==key:return copy.deepcopy(_CATALOG[1])
+    fixture_raw=(ROOT/result['fixture_path']).read_bytes()
     if hashlib.sha256(fixture_raw).hexdigest()!=result['fixture_sha256']:raise ValueError('107 source changed')
     fixture=load_json(ROOT/result['fixture_path'])
     ids={c['card_id'] for p in fixture['input']['players'] for c in p['deck_order_top_to_bottom']}
@@ -34,7 +41,7 @@ def catalog():
         section,digest=rules.source_section(row['reference'])
         if digest!=row['source_raw_sha256'] or hashlib.sha256(section.encode()).hexdigest()!=row['section_sha256']:
             raise ValueError('start source text changed')
-    _CATALOG=((actual,CATALOG_SHA),copy.deepcopy(result))
+    _CATALOG=(key,copy.deepcopy(result))
     return result
 
 

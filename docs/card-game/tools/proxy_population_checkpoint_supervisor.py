@@ -9,7 +9,7 @@ manual: it needs a new owner approval (request v3) and a new claim commit. No ro
 is retried automatically, no partial match is continued, and no unverified row
 is counted.
 """
-import base64,copy,gzip,hashlib,json,os,subprocess,sys,time
+import base64,copy,gzip,hashlib,json,os,subprocess,sys,threading,time
 from pathlib import Path
 import proxy_population_input_lock as lock
 import proxy_population_execution_edition as edition
@@ -33,6 +33,13 @@ POLL_SECONDS=2
 
 
 def digest(raw):return hashlib.sha256(raw).hexdigest()
+
+
+def verify_resume_reference(repository,bundle,certificate,resume,claim,workspace,results_remote='origin'):
+ """Read-only pre-consumption check: the results branch still equals the approved reference."""
+ store=results.Store(repository,resume['attempt_id'],workspace,remote=results_remote,generation=resume['resume_generation'])
+ plan=resume_plan(repository,bundle,certificate,resume,claim,store)
+ return {k:v for k,v in plan.items() if k!='reused_entries'}
 
 
 def verify_protected(repository,paths=PROTECTED):
@@ -64,12 +71,18 @@ def resume_plan(repository,bundle,certificate,resume,claim,store):
  original=claim if generation==0 else resume['original_claim']
  descriptor=ledger.attempt_descriptor(resume['attempt_id'],bundle,certificate,original)
  if descriptor['attempt_id']!=attempt_id_for_claim(repository,original['commit']):raise ValueError('attempt identity differs from its original claim')
- if generation==0:
+ ref=resume['results_ref']
+ if ref is None:
+  # Generation 0, or a resume after a stop before any row was saved: the branch must not exist.
+  if store.remote_head() is not None:raise ValueError('results branch exists but the approval names none')
   plan=ledger.verify_ledger({},descriptor,bundle);base=None
  else:
-  ref=resume['results_ref'];store.fetch_exact(ref['commit'],ref['tree'])
+  store.fetch_exact(ref['commit'],ref['tree'])
   rows=store.load_rows(ref['commit'])
   plan=ledger.verify_ledger(rows,descriptor,bundle);base=ref['commit']
+  # Every saved row ran under a claim of this attempt's chain (the current claim's ancestry).
+  for _,commit in plan['generation_claims']:
+   if subprocess.run(['git','-C',str(repository),'merge-base','--is-ancestor',commit,claim['commit']],stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode!=0:raise ValueError('saved row claim is not in this attempt claim chain')
  if plan['checkpoint_sha256']!=resume['checkpoint_sha256'] or plan['completed_rows']!=resume['completed_rows'] or plan['pending_schedule_indices_sha256']!=resume['pending_schedule_indices_sha256']:raise ValueError('approved checkpoint differs from the verified ledger')
  protected=verify_protected(repository)
  return dict(schema='fixed400_resume_plan.v1',descriptor=descriptor,generation=generation,results_base=base,protected=protected,
@@ -78,19 +91,25 @@ def resume_plan(repository,bundle,certificate,resume,claim,store):
 
 
 def prepare_resume(repository,bundle,certificate,attempt_claim,generation,store,parallelism,previous_claim=None):
- """Operator helper: read the results branch head and build the `resume` binding for the next approval."""
+ """Operator helper: read the results branch head and build the `resume` binding for the next approval.
+
+A stop before the first saved row leaves no results branch: the binding then names none
+and every row is pending.
+"""
+ if type(generation) is not int or generation<1:raise ValueError('a resume generation starts at 1')
  head=store.remote_head()
- if head is None:raise ValueError('results branch absent; nothing to resume')
- tree=store.git('rev-parse',head+'^{tree}') if _has_commit(store,head) else None
- if tree is None:
-  subprocess.run(['git','-C',str(store.repository),'fetch','--no-tags',store.remote,'refs/heads/'+store.branch],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=results._environment(),timeout=300)
-  tree=store.git('rev-parse',head+'^{tree}')
  descriptor=ledger.attempt_descriptor(attempt_id_for_claim(repository,attempt_claim['commit']),bundle,certificate,attempt_claim)
  if store.attempt_id!=descriptor['attempt_id']:raise ValueError('results store belongs to another attempt')
- plan=ledger.verify_ledger(store.load_rows(head),descriptor,bundle)
+ if head is None:
+  plan=ledger.verify_ledger({},descriptor,bundle);ref=None
+ else:
+  if not _has_commit(store,head):
+   subprocess.run(['git','-C',str(store.repository),'fetch','--no-tags',store.remote,'refs/heads/'+store.branch],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=results._environment(),timeout=300)
+  ref=dict(branch=store.branch,commit=head,tree=store.git('rev-parse',head+'^{tree}'))
+  plan=ledger.verify_ledger(store.load_rows(head),descriptor,bundle)
  previous=copy.deepcopy(attempt_claim if previous_claim is None else previous_claim)
  resume=dict(attempt_id=descriptor['attempt_id'],resume_generation=generation,original_claim=copy.deepcopy(attempt_claim),previous_claim=previous,
-  results_ref=dict(branch=store.branch,commit=head,tree=tree),checkpoint_sha256=plan['checkpoint_sha256'],completed_rows=plan['completed_rows'],
+  results_ref=ref,checkpoint_sha256=plan['checkpoint_sha256'],completed_rows=plan['completed_rows'],
   pending_schedule_indices_sha256=plan['pending_schedule_indices_sha256'],parallelism=parallelism,owner_approved_manual_resume=True)
  external_approval._resume_target(resume)
  return resume,plan
@@ -108,16 +127,30 @@ def first_generation_resume(publication_commit,parallelism):
 
 
 class _Worker:
- """One isolated child per row; stdin carries the request, stdout the receipt digest."""
+ """One isolated child per row; stdin carries the request, stdout the receipt digest.
+
+The request is delivered and both output pipes are drained by communicate(input=...)
+in one thread per worker, so a closed stdin is never flushed again (Python 3.12) and
+a child writing large output cannot block on a full pipe.
+"""
  def __init__(self,request,repository):
+  self.stdout=None;self.stderr=None;self.error=None
   self.process=subprocess.Popen([sys.executable,'-I','-c',CHILD,str(Path(__file__).resolve().parent)],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,cwd=repository)
-  self.process.stdin.write(canonical(request));self.process.stdin.close();self.stdout=None;self.stderr=None
- def poll(self):return self.process.poll()
+  payload=canonical(request)
+  def run():
+   try:self.stdout,self.stderr=self.process.communicate(input=payload)
+   except BaseException as error:self.error=error
+  self.thread=threading.Thread(target=run,daemon=True);self.thread.start()
+ def poll(self):
+  return None if self.thread.is_alive() else self.process.returncode
  def finish(self):
-  self.stdout,self.stderr=self.process.communicate();return self.process.returncode
+  self.thread.join()
+  if self.error is not None:raise ValueError('worker pipe failed: '+type(self.error).__name__+': '+str(self.error))
+  return self.process.returncode
  def terminate(self):
   try:self.process.kill()
   except OSError:pass
+  self.thread.join(timeout=60)
 
 
 def _launch(request,repository):return _Worker(request,repository)
@@ -131,7 +164,7 @@ def _verify_row(target,row,start,request):
  return body,compressed,record['execution_status']
 
 
-def run_after_external_approval(bundle,receipt,certificate,repository,limit,destination,approval_reference,*,comment_id,claim_commit,claim_tree,execution_binding,resume,store_workspace):
+def run_after_external_approval(bundle,receipt,certificate,repository,limit,destination,approval_reference,*,comment_id,claim_commit,claim_tree,execution_binding,resume,store_workspace,results_remote='origin'):
  if type(approval_reference) is not str or not approval_reference.strip():raise ValueError('external approval reference required; not an authentication token')
  preparation=external_approval.require_operation_ready('launch',repository=repository,certificate=certificate)
  if type(limit) is not int or limit!=512:raise ValueError('checkpoint supervisor requires the 512 step bound')
@@ -146,7 +179,7 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
  if not authenticated['launch_authorization_bound']:raise ValueError('launch approval unverified: '+str(authenticated['errors']))
  publication=authenticated['consumption']['remote_publication']
  claim=dict(comment_id=comment_id,commit=claim_commit,tree=claim_tree)
- store=results.Store(repository,resume['attempt_id'],store_workspace)
+ store=results.Store(repository,resume['attempt_id'],store_workspace,remote=results_remote,generation=resume['resume_generation'])
  plan=resume_plan(repository,bundle,certificate,resume,claim,store)
  groups=[dict(group_id=g['group_id'],match_ids=[r['match_id'] for r in bundle['matches'] if r['group_id']==g['group_id']]) for g in bundle['groups']]
  rows=[]
@@ -165,43 +198,48 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
  write_exclusive(destination/'start.json',start)
  base=plan['results_base']
  head=store.prepare(claim_commit if plan['generation']==0 else resume['original_claim']['commit'],expected_head=base)
- state=dict(previous=plan['last_entry_sha256'],persisted=0,last_ref=None,stop=False,interruption=None)
+ # stop_index: rows at or after it are never checkpointed in this generation; rows
+ # before it that are still running may finish and be checkpointed in order.
+ state=dict(previous=plan['last_entry_sha256'],persisted=0,last_ref=None,stop_index=None,interruption=None)
  pending=list(plan['pending_schedule_indices']);running={}
+ generation_claim=dict(comment_id=comment_id,commit=claim_commit)
+ def halt(index):
+  state['stop_index']=index if state['stop_index'] is None else min(state['stop_index'],index)
  def control_path(kind,index):return destination/(kind+'-'+str(index).zfill(4)+'.json')
  def record_result(index,control):
   control['result']=copy.deepcopy(rows[index-1])
   try:write_exclusive(control_path('result',index),control)
   except BaseException as error:
-   if not isinstance(error,Exception):state['interruption']=error
-   rows[index-1].update(execution_status='record_unverified',stop_reason=type(error).__name__+': '+str(error))
+   # A lost control file stops new dispatch; an interrupt propagates at once.
+   rows[index-1].update(result_file_error=type(error).__name__+': '+str(error));halt(index)
+   if not isinstance(error,Exception):state['interruption']=error;raise
  def finish(index):
   """Verify the lowest running row; checkpoint it only in strict schedule order."""
   row=rows[index-1];target=destination/('attempt-'+str(index).zfill(4));control=running.pop(index);worker=control.pop('worker')
   try:
-   code=worker.finish();control.update(returncode=code,stdout_base64=base64.b64encode(worker.stdout or b'').decode(),stderr_base64=base64.b64encode(worker.stderr or b'').decode())
+   code=worker.finish();control.update(returncode=code,stdout_base64=base64.b64encode(worker.stdout or b'').decode(),stderr_base64=base64.b64encode((worker.stderr or b'')[-65536:]).decode(),stderr_bytes=len(worker.stderr or b''))
    if code!=0:raise ValueError('worker process failed')
    if edition.verify(certificate,repository)['local_edition_verified'] is not True:raise ValueError('source edition changed before worker result acceptance')
    body,compressed,status=_verify_row(target,row,start,control)
    response=json.loads(worker.stdout,object_pairs_hook=_pairs,parse_constant=_nonfinite)
    if response!={'receipt_sha256':digest(body)}:raise ValueError('worker output/receipt binding differs')
    row.update(execution_status=status,receipt_sha256=digest(body))
-   if status!='completed':state['stop']=True;record_result(index,control);return
-  except BaseException as error:
-   if not isinstance(error,Exception):state['interruption']=error
-   row.update(execution_status='record_unverified',stop_reason=type(error).__name__+': '+str(error));state['stop']=True;record_result(index,control);return
-  if state['stop']:
-   # An earlier row stopped the schedule: this later row is complete but is not
-   # checkpointed out of order; a resume reruns it.
+   if status!='completed':halt(index);record_result(index,control);return
+  except Exception as error:
+   row.update(execution_status='record_unverified',stop_reason=type(error).__name__+': '+str(error));halt(index);record_result(index,control);return
+  if state['stop_index'] is not None and index>=state['stop_index']:
+   # A row at or before this one stopped the schedule: complete but not checkpointed
+   # out of order; a resume reruns it.
    row.update(execution_status='completed_not_saved',persisted=False);record_result(index,control);return
   try:
-   entry=ledger.build_entry(plan['descriptor'],index,row['match_id'],bundle,plan['generation'],body,compressed,state['previous'])
+   start_body=(target/'start.json').read_bytes()
+   entry=ledger.build_entry(plan['descriptor'],index,row['match_id'],bundle,plan['generation'],body,compressed,state['previous'],start_body,generation_claim)
    ref=store.append_row(index,target,entry)
    state.update(previous=entry['entry_sha256'],persisted=state['persisted']+1,last_ref=ref)
    row.update(persisted=True,checkpoint_entry_sha256=entry['entry_sha256'],results_commit=ref['commit'],resume_generation=plan['generation'])
-  except BaseException as error:
-   if not isinstance(error,Exception):state['interruption']=error
+  except Exception as error:
    # The row completed and its files stay in place; it is not counted as saved.
-   row.update(execution_status='persist_failed',persisted=False,stop_reason=type(error).__name__+': '+str(error));state['stop']=True
+   row.update(execution_status='persist_failed',persisted=False,stop_reason=type(error).__name__+': '+str(error));halt(index)
   record_result(index,control)
  def dispatch(index):
   row=rows[index-1];target=destination/('attempt-'+str(index).zfill(4));row.update(execution_status='started',attempt_directory=target.name)
@@ -211,28 +249,28 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
    write_exclusive(control_path('request',index),dict(control,execution_status='started'))
    if edition.verify(certificate,repository)['local_edition_verified'] is not True:raise ValueError('source edition changed before worker launch')
    control['worker']=_launch(request,repository);running[index]=control
-  except BaseException as error:
-   if not isinstance(error,Exception):state['interruption']=error
-   row.update(execution_status='record_unverified',stop_reason=type(error).__name__+': '+str(error));state['stop']=True;record_result(index,control)
+  except Exception as error:
+   row.update(execution_status='record_unverified',stop_reason=type(error).__name__+': '+str(error));halt(index);record_result(index,control)
  try:
   while True:
    if running:
     lowest=min(running)
     if running[lowest]['worker'].poll() is not None:finish(lowest);continue
-   if not state['stop'] and pending and len(running)<resume['parallelism']:dispatch(pending.pop(0));continue
-   if not running and (state['stop'] or not pending):break
+   if state['stop_index'] is None and pending and len(running)<resume['parallelism']:dispatch(pending.pop(0));continue
+   if not running and (state['stop_index'] is not None or not pending):break
    time.sleep(POLL_SECONDS)
  except BaseException as error:
   state['interruption']=error
   for index,control in list(running.items()):
    control.pop('worker').terminate();rows[index-1].update(execution_status='record_unverified',stop_reason=type(error).__name__+': '+str(error));running.pop(index)
-   record_result(index,control)
+   try:record_result(index,control)
+   except BaseException:pass
  interruption=state['interruption'];persisted=state['persisted'];last_ref=state['last_ref']
  completed=sum(r['execution_status']=='completed' and r.get('persisted') for r in rows);reused=sum(r['execution_status']=='reused_verified_checkpoint' for r in rows)
  report=dict(schema='fixed_population_checkpoint_supervisor_result.v1',attempt_id=resume['attempt_id'],resume_generation=plan['generation'],
   status='completed_fixed_schedule' if completed+reused==400 else 'stopped',planned_counts=dict(groups=200,matches=400),planned_rows=rows,planned_groups=groups,
   completed_rows=completed,reused_rows=reused,persisted_rows=persisted,not_executed_rows=sum(r['execution_status']=='not_executed' for r in rows),
-  unsaved_completed_rows=sum(r['execution_status']=='persist_failed' for r in rows),results_branch=store.branch,results_head=(last_ref or {}).get('commit',head),
+  unsaved_completed_rows=sum(r['execution_status'] in ('persist_failed','completed_not_saved') for r in rows),results_branch=store.branch,results_head=(last_ref or {}).get('commit',head),
   automatic_retry_allowed=False,automatic_resume_allowed=False,whole_set=dict(allowed=False,counts=None,rates=None,conclusion=None),
   external_approval_verified=False,input_lock_verified=False,ready_for_execution=False,policy_promoted=False,independent_balance_sample_count=0)
  write_exclusive(destination/'supervisor.json',report)

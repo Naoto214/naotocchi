@@ -27,9 +27,12 @@ def _environment():
 
 
 class Store:
- def __init__(self,repository,attempt_id,workspace,remote='origin'):
+ def __init__(self,repository,attempt_id,workspace,remote='origin',generation=0):
   self.repository=Path(repository).resolve();self.attempt_id=attempt_id;self.branch=branch_name(attempt_id);self.remote=remote
-  self.workspace=Path(workspace).resolve()/('results-'+attempt_id);self.prefix=row_prefix(attempt_id)
+  if type(generation) is not int or generation<0:raise ValueError('results generation differs')
+  # One workspace per generation: a resume in the same container never reuses the old one.
+  self.workspace=Path(workspace).resolve()/('results-'+attempt_id+'-g'+str(generation).zfill(3));self.prefix=row_prefix(attempt_id)
+  if self.workspace.is_relative_to(self.repository):raise ValueError('results workspace must be outside the repository checkout')
  def git(self,*args,cwd=None,timeout=120):
   return subprocess.check_output(['git','--no-replace-objects','-C',str(cwd or self.repository),*args],stderr=subprocess.PIPE,env=_environment(),timeout=timeout).decode().strip()
  def remote_head(self):
@@ -50,15 +53,14 @@ class Store:
   head=self.remote_head()
   if head is None:
    if expected_head is not None:raise ValueError('results branch absent for resume')
+   # Detached: the branch exists only remotely, so no worktree ever holds it checked out.
    self.git('worktree','add','--detach',str(self.workspace),base_commit)
-   self.git('checkout','-b',self.branch,cwd=self.workspace)
   else:
    if expected_head is None:raise ValueError('attempt results branch already exists; start a resume generation instead')
    if head!=expected_head:raise ValueError('results branch moved since the approved reference')
    subprocess.run(['git','-C',str(self.repository),'fetch','--no-tags',self.remote,'refs/heads/'+self.branch],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=_environment(),timeout=300)
    if subprocess.run(['git','-C',str(self.repository),'merge-base','--is-ancestor',base_commit,head],stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=_environment()).returncode!=0:raise ValueError('results branch does not descend from the attempt claim')
    self.git('worktree','add','--detach',str(self.workspace),head)
-   self.git('checkout','-B',self.branch,head,cwd=self.workspace)
   return self.git('rev-parse','HEAD',cwd=self.workspace)
  def has_row(self,index):
   return (self.workspace/self.prefix/str(index).zfill(4)).exists()
@@ -102,5 +104,5 @@ class Store:
    blob=lambda n:subprocess.check_output(['git','--no-replace-objects','-C',str(self.repository),'cat-file','blob',commit+':'+files[n]],stderr=subprocess.PIPE,env=_environment())
    entry_body=blob('checkpoint.json');entry=json.loads(entry_body,object_pairs_hook=_pairs,parse_constant=_nonfinite)
    if canonical(entry)!=entry_body:raise ValueError('row '+str(index)+' checkpoint is not canonical')
-   result[index]=(entry,blob('receipt.json'),blob('record.json.gz'))
+   result[index]=(entry,blob('receipt.json'),blob('record.json.gz'),blob('start.json'))
   return result

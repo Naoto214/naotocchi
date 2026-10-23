@@ -114,8 +114,12 @@ def _resume_target(resume):
    if type(value) is not dict or set(value)!={'comment_id','commit','tree'}:raise ValueError('resume claim shape differs')
    _comment_id(value['comment_id']);_sha(value['commit'],40);_sha(value['tree'],40)
   if generation==1 and previous!=claim:raise ValueError('first resume follows the original claim')
-  if type(ref) is not dict or set(ref)!={'branch','commit','tree'} or type(ref['branch']) is not str or ref['branch']!=RESUME_BRANCH_PREFIX+resume['attempt_id']:raise ValueError('resume results reference differs')
-  _sha(ref['commit'],40);_sha(ref['tree'],40)
+  if ref is None:
+   # A stop before the first saved row: nothing to reuse, every row is pending.
+   if rows!=0:raise ValueError('resume without a results reference reuses no rows')
+  else:
+   if type(ref) is not dict or set(ref)!={'branch','commit','tree'} or type(ref['branch']) is not str or ref['branch']!=RESUME_BRANCH_PREFIX+resume['attempt_id']:raise ValueError('resume results reference differs')
+   _sha(ref['commit'],40);_sha(ref['tree'],40)
  return copy.deepcopy(resume)
 
 

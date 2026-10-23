@@ -47,17 +47,24 @@ def first_generation_request(repository,context,destination,parallelism):
 
 def next_generation_request(repository,context,destination,attempt_claim,generation,parallelism,workspace,previous_claim=None):
  """attempt_claim: generation 0's claim; previous_claim: the latest claim (the current PR head), defaults to attempt_claim."""
- store=results.Store(repository,supervisor.attempt_id_for_claim(repository,attempt_claim['commit']),workspace)
+ store=results.Store(repository,supervisor.attempt_id_for_claim(repository,attempt_claim['commit']),workspace,generation=generation)
  resume,plan=supervisor.prepare_resume(repository,context['bundle'],context['certificate'],attempt_claim,generation,store,parallelism,previous_claim)
  request=approval.resume_request(context['bundle'],context['manifest_receipt'],context['certificate'],context['execution_binding'],512,destination,resume)
  return dict(resume=resume,plan={k:v for k,v in plan.items() if k!='entries'},request=request,request_sha256=approval.digest(request),approval_text=approval.approval_text(request))
 
 
-def prevalidate(repository,context,destination,comment_id,resume):
+def prevalidate(repository,context,destination,comment_id,resume,workspace=None):
+ """Read-only. A resume also re-verifies the results branch against the approval before any consumption."""
+ if resume['resume_generation']>0:
+  if workspace is None:raise ValueError('resume prevalidation requires a results workspace')
+  supervisor.verify_resume_reference(repository,context['bundle'],context['certificate'],resume,resume['previous_claim'],workspace)
  return authorization.prevalidate_launch(repository,context['bundle'],context['manifest_receipt'],context['certificate'],512,destination,comment_id,execution_binding=context['execution_binding'],resume=resume)
 
 
-def consume(repository,context,destination,comment_id,resume):
+def consume(repository,context,destination,comment_id,resume,workspace=None):
+ if resume['resume_generation']>0:
+  if workspace is None:raise ValueError('resume consumption requires a results workspace')
+  supervisor.verify_resume_reference(repository,context['bundle'],context['certificate'],resume,resume['previous_claim'],workspace)
  return authorization.consume_launch_after_prevalidation(repository,context['bundle'],context['manifest_receipt'],context['certificate'],512,destination,comment_id,execution_binding=context['execution_binding'],resume=resume)
 
 

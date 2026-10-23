@@ -45,6 +45,14 @@ def mock_record(request,completed=True):
   runtime=dict(decisions=decisions,events=events,final_envelope=dict(legacy_continuation=dict(game_state=final)),result=dict(winner='A' if seed%2 else 'B') if completed else None,stop=None if completed else dict(detail='mock stop')))
 
 
+def start_record(request):
+ """The worker's start record shape (attempt_runner), with a test-only authorization."""
+ return dict(schema='conditional_population_attempt_start.v1',match_id=request['match_id'],reconstruction_step_limit=512,
+  supplied_bundle_sha256=hashlib.sha256(canonical(request['bundle'])).hexdigest(),execution_edition_sha256=hashlib.sha256(canonical(request['certificate'])).hexdigest(),
+  launch_authorization=dict(launch_authorization_bound=True,consumption=dict(binding=dict(commit=request['claim_commit'])),test_only=True),
+  external_approval_verified=True,resume=request['resume'],test_only=True)
+
+
 class FakeWorker:
  def __init__(self,request,repository,behaviour):
   self.stdout=b'';self.stderr=b'';self.returncode=0;target=Path(request['destination'])
@@ -54,7 +62,7 @@ class FakeWorker:
   target.mkdir()
   if mode=='killed':(target/'partial.txt').write_text('killed mid-row');self.returncode=-9;self.stderr=b'Killed';return
   record=mock_record(request,completed=(mode!='incomplete'));raw=canonical(record);compressed=gzip.compress(raw,mtime=0)
-  (target/'start.json').write_bytes(canonical(dict(schema='conditional_population_attempt_start.v1',match_id=request['match_id'],test_only=True)))
+  (target/'start.json').write_bytes(canonical(start_record(request)))
   (target/'record.json.gz').write_bytes(compressed)
   receipt=dict(schema='conditional_population_attempt_receipt.v1',match_id=request['match_id'],execution_status='completed' if record['completed'] else 'incomplete',source_reconstructed=True,record_sha256=hashlib.sha256(raw).hexdigest(),compressed_sha256=hashlib.sha256(compressed).hexdigest(),admission=dict(test_only=True),external_approval_verified=False,input_lock_verified=False,ready_for_execution=False,policy_promoted=False,independent_balance_sample_count=0)
   body=canonical(receipt);(target/'receipt.json').write_bytes(body);self.stdout=canonical(dict(receipt_sha256=hashlib.sha256(body).hexdigest()))
@@ -79,11 +87,11 @@ class Harness:
   try:return api.run_after_external_approval(bundle or self.bundle,dict(commit='1'*40,tree='2'*40),cert,self.repo,512,self.card/'data'/destination,'unit-reference-not-approval',comment_id=1,claim_commit=self.claim,claim_tree=self.claim_tree,execution_binding=BINDING,resume=resume,store_workspace=self.root/workspace)
   finally:
    for p in ps:p.stop()
- def store(self,attempt,workspace='ws'):return results.Store(self.repo,attempt,self.root/workspace)
+ def store(self,attempt,workspace='ws',generation=0):return results.Store(self.repo,attempt,self.root/workspace,generation=generation)
  def gen0(self,parallelism=2):return api.first_generation_resume(self.publication,parallelism)
  def resume(self,generation,parallelism=2,cert=CERT,bundle=None,workspace='ws-fresh'):
   shutil.rmtree(self.root/'ws',ignore_errors=True) # a lost container keeps no workspace
-  resume,plan=api.prepare_resume(self.repo,bundle or self.bundle,cert,dict(comment_id=1,commit=self.claim,tree=self.claim_tree),generation,self.store(api.first_generation_resume(self.publication,1)['attempt_id'],workspace),parallelism)
+  resume,plan=api.prepare_resume(self.repo,bundle or self.bundle,cert,dict(comment_id=1,commit=self.claim,tree=self.claim_tree),generation,self.store(api.first_generation_resume(self.publication,1)['attempt_id'],workspace,generation),parallelism)
   self.case.assertEqual(resume['previous_claim'],resume['original_claim'])
   return resume,plan
  def rows_on_branch(self,attempt):
@@ -206,6 +214,66 @@ class CheckpointResumeTests(unittest.TestCase):
   ws=self.h.root/'tamper';git(self.h.repo,'fetch','-q','origin','refs/heads/'+results.branch_name(attempt))
   git(self.h.repo,'worktree','add','-q','--detach',str(ws),'FETCH_HEAD');mutate(ws)
   git(ws,'add','-A');git(ws,'-c','user.email=t@t','-c','user.name=t','commit','-q','-m','tamper');git(ws,'push','-q','origin','HEAD:refs/heads/'+results.branch_name(attempt))
+
+
+class CheckpointResumeFollowUpTests(unittest.TestCase):
+ """Review 2bfbe209 follow-ups: stop before the first save, same-container resumes, stop rules."""
+ def setUp(self):
+  self.directory=tempfile.TemporaryDirectory();self.h=Harness(self,self.directory.name);self.addCleanup(self.directory.cleanup)
+
+ def test_stop_before_any_saved_row_resumes_without_a_results_branch(self):
+  report=self.h.run(self.h.gen0(1),'gen0',stop_at(1))
+  self.assertEqual(report['persisted_rows'],0);self.assertIsNone(self.h.store(report['attempt_id']).remote_head())
+  resume,plan=self.h.resume(1)
+  self.assertIsNone(resume['results_ref']);self.assertEqual((resume['completed_rows'],plan['next_schedule_index']),(0,1))
+  self.h.calls.clear();report=self.h.run(resume,'gen1',stop_at(3),workspace='ws-fresh')
+  self.assertEqual(self.h.calls[:2],[1,2]);self.assertEqual(report['persisted_rows'],2)
+
+ def test_two_resumes_in_the_same_container_use_separate_workspaces(self):
+  self.h.run(self.h.gen0(1),'gen0',stop_at(2))
+  resume,_=self.h.resume(1,workspace='ws')  # same parent directory as generation 0
+  r1=self.h.run(resume,'gen1',stop_at(4),workspace='ws');self.assertEqual(r1['persisted_rows'],2)
+  resume2,plan2=api.prepare_resume(self.h.repo,self.h.bundle,CERT,dict(comment_id=1,commit=self.h.claim,tree=self.h.claim_tree),2,self.h.store(resume['attempt_id'],'ws',2),1)
+  self.assertEqual((resume2['completed_rows'],plan2['next_schedule_index']),(3,4))
+  r2=self.h.run(resume2,'gen2',stop_at(6),workspace='ws');self.assertEqual(r2['reused_rows'],3);self.assertEqual(r2['persisted_rows'],2)
+  self.assertTrue((self.h.root/'ws'/('results-'+resume['attempt_id']+'-g000')).exists());self.assertTrue((self.h.root/'ws'/('results-'+resume['attempt_id']+'-g002')).exists())
+
+ def test_workspace_inside_the_checkout_is_refused(self):
+  with self.assertRaisesRegex(ValueError,'outside the repository'):results.Store(self.h.repo,'fixed400-'+'a'*12,self.h.repo/'docs')
+
+ def test_lost_result_file_stops_new_dispatch(self):
+  real=api.write_exclusive
+  def write(path,value):
+   if path.name=='result-0001.json':raise OSError('disk full')
+   return real(path,value)
+  report=self.h.run(self.h.gen0(1),'gen0',lambda r:'ok',extra=[patch.object(api,'write_exclusive',side_effect=write)])
+  self.assertEqual(report['status'],'stopped');self.assertEqual(self.h.calls,[1]);self.assertIn('disk full',report['planned_rows'][0]['result_file_error'])
+  self.assertEqual(report['persisted_rows'],1)
+
+ def test_later_dispatch_failure_still_saves_earlier_running_rows(self):
+  calls=[]
+  def launch(request,repository):
+   calls.append(request['schedule_index'])
+   if request['schedule_index']==3:raise OSError('synthetic launch failure')
+   return FakeWorker(request,repository,lambda r:'ok')
+  ps=self.h.patches(lambda r:'ok')+[patch.object(api,'_launch',side_effect=launch)]
+  for p in ps:p.start()
+  try:report=api.run_after_external_approval(self.h.bundle,dict(commit='1'*40,tree='2'*40),CERT,self.h.repo,512,self.h.card/'data/gen0','unit-reference-not-approval',comment_id=1,claim_commit=self.h.claim,claim_tree=self.h.claim_tree,execution_binding=BINDING,resume=self.h.gen0(3),store_workspace=self.h.root/'ws')
+  finally:
+   for p in ps:p.stop()
+  self.assertEqual(sorted(self.h.rows_on_branch(report['attempt_id'])),[1,2]);self.assertEqual(report['planned_rows'][2]['execution_status'],'record_unverified')
+
+ def test_unsaved_count_includes_rows_completed_after_a_stop(self):
+  report=self.h.run(self.h.gen0(3),'gen0',stop_at(2))
+  saved_out_of_order=sum(r['execution_status']=='completed_not_saved' for r in report['planned_rows'])
+  self.assertEqual(report['unsaved_completed_rows'],saved_out_of_order)
+
+ def test_saved_row_with_a_foreign_start_record_is_refused(self):
+  self.h.run(self.h.gen0(1),'gen0',stop_at(3));attempt=api.first_generation_resume(self.h.publication,1)['attempt_id']
+  def mutate(ws):
+   path=ws/results.row_prefix(attempt)/'0002'/'start.json';start=json.loads(path.read_bytes());start['launch_authorization']['consumption']['binding']['commit']='0'*40;path.write_bytes(canonical(start))
+  CheckpointResumeTests._tamper(self,attempt,mutate)
+  with self.assertRaisesRegex(ValueError,'checkpoint'):self.h.resume(1)
 
 
 class ResumeRequestTests(unittest.TestCase):

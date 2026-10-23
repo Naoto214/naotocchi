@@ -47,3 +47,19 @@ class ActiveCardsEquivalenceTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class StartCatalogCacheTests(unittest.TestCase):
+ """The section checks are reused only while every input of the catalog hashes the same."""
+ def test_changed_fixture_or_rules_file_reruns_the_full_check(self):
+  import proxy_population_start_obligations as starts
+  first=starts.catalog()
+  with patch.object(starts.rules,'source_section',wraps=starts.rules.source_section) as sections:
+   self.assertEqual(starts.catalog(),first);self.assertEqual(sections.call_count,0)
+   real=starts._inputs_key
+   with patch.object(starts,'_inputs_key',side_effect=lambda result:real(result)[:2]+((('changed.md','0'*64),),)):
+    self.assertEqual(starts.catalog(),first)
+   self.assertEqual(sections.call_count,len(first['cards']))
+ def test_returned_catalog_cannot_mutate_the_cache(self):
+  import proxy_population_start_obligations as starts
+  a=starts.catalog();a['cards'].clear();self.assertTrue(starts.catalog()['cards'])
