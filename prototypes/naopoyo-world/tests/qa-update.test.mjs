@@ -117,3 +117,11 @@ test("held pointer waiting against wave gate continues one step after wave witho
   q.travel({ x: 5.5, y: 4.5 });
   assert.equal(q.state.actors.find((a) => a.id === "a").x, 5);
 });
+test("returning pointer from rejected numeric gate does not move or merge actor", () => {
+  const q = new WorldSession(stages[0]);
+  q.begin("b", { x: 1.5, y: 4.5 });
+  q.travel({ x: 2.5, y: 4.5 });
+  q.travel({ x: 1.5, y: 4.5 });
+  assert.equal(q.state.actors.length, 2);
+  assert.equal(q.state.actors.find((a) => a.id === "b").x, 1);
+});

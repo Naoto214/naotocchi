@@ -49,7 +49,7 @@ fs.writeFileSync(
   JSON.stringify(
     {
       name: "NAOPOYO. World Pilot",
-      build: "iphone-qa-20261023-r2",
+      build: "iphone-qa-20261023-r3",
       dependency: "f8094cd70be7eae052a84e228c4e0f9dadfef2cc",
       files: hashes,
     },

@@ -130,12 +130,21 @@ export class WorldSession {
       before: this.snapshot(),
       last: { ...p },
       cursor: { x: Math.floor(p.x), y: Math.floor(p.y) },
+      intent: { x: Math.floor(p.x), y: Math.floor(p.y) },
+      logical: { ...this.state.actors.find((a) => a.id === id) },
     };
     return true;
   }
-  rebase() {
+  rebase(external = false) {
     const a = this.state.actors.find((a) => a.id === this.active?.id);
-    if (a) this.active.logical = { x: a.x, y: a.y };
+    if (a) {
+      if (
+        external &&
+        (a.x !== this.active.logical.x || a.y !== this.active.logical.y)
+      )
+        this.active.cursor = { ...this.active.intent };
+      this.active.logical = { x: a.x, y: a.y };
+    }
   }
   travel(p) {
     this.lastResults = [];
@@ -143,6 +152,7 @@ export class WorldSession {
       return [];
     const d = this.active;
     for (const [x, y] of enteredCells(d.last, p)) {
+      d.intent = { x, y };
       const px = d.cursor.x,
         py = d.cursor.y;
       if (x === px && y === py) continue;
@@ -150,9 +160,8 @@ export class WorldSession {
         dy = y - py;
       const r = move(this.state, d.id, dx, dy, this.policy());
       this.lastResults.push(r);
-      // Consume pointer intent even when blocked: it must not replay after a wave.
-      d.cursor = { x, y };
       if (r.ok) {
+        d.cursor = { x, y };
         delete this.waveMotion[d.id];
         this.rebase();
         this.beams();
@@ -216,7 +225,7 @@ export class WorldSession {
         );
         this.hits[key].push(...r.children.map((c) => c.id));
         this.lastResults.push(r);
-        this.rebase();
+        this.rebase(true);
       }
     }
   }
@@ -297,7 +306,7 @@ export class WorldSession {
           consumed.add(a.id);
           if (r.ok && target) consumed.add(target.id);
           this.lastResults.push(r);
-          this.rebase();
+          this.rebase(true);
         }
       }
       this.beams();
