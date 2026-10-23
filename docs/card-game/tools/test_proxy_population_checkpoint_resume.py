@@ -27,7 +27,9 @@ def make_repo(root):
  repo=root/'repo';(repo/'docs/card-game/data/proxy-population-approval-consumption').mkdir(parents=True)
  (repo/'docs/card-game/data/proxy-population-approval-consumption/0.json').write_text('{}')
  git(repo,'init','-q','-b','work');git(repo,'config','user.email','t@t');git(repo,'config','user.name','t')
- git(repo,'add','.');git(repo,'commit','-q','-m','base')
+ git(repo,'add','.');git(repo,'commit','-q','-m','publication')
+ (repo/'docs/card-game/data/proxy-population-approval-consumption/1.json').write_text('{"claim":true}')
+ git(repo,'add','.');git(repo,'commit','-q','-m','claim')
  bare=root/'origin.git';git(root,'init','-q','--bare',str(bare));git(repo,'remote','add','origin',str(bare));git(repo,'push','-q','origin','work')
  return repo,git(repo,'rev-parse','HEAD')
 
@@ -64,7 +66,7 @@ class FakeWorker:
 class Harness:
  def __init__(self,case,root):
   self.case=case;self.root=Path(root);self.repo,self.claim=make_repo(self.root);self.card=self.repo/'docs/card-game';self.bundle=test_bundle();self.calls=[]
-  self.claim_tree=git(self.repo,'rev-parse','HEAD^{tree}')
+  self.claim_tree=git(self.repo,'rev-parse','HEAD^{tree}');self.publication=git(self.repo,'rev-parse','HEAD^')
  def patches(self,behaviour,extra=()):
   def launch(request,repository):self.calls.append(request['schedule_index']);return FakeWorker(request,repository,behaviour)
   return [patch.object(api,'ROOT',self.card),patch.object(api.external_approval,'require_operation_ready',return_value=dict(test_only=True)),
@@ -78,10 +80,10 @@ class Harness:
   finally:
    for p in ps:p.stop()
  def store(self,attempt,workspace='ws'):return results.Store(self.repo,attempt,self.root/workspace)
- def gen0(self,parallelism=2):return api.first_generation_resume(self.claim,parallelism)
+ def gen0(self,parallelism=2):return api.first_generation_resume(self.publication,parallelism)
  def resume(self,generation,parallelism=2,cert=CERT,bundle=None,workspace='ws-fresh'):
   shutil.rmtree(self.root/'ws',ignore_errors=True) # a lost container keeps no workspace
-  resume,plan=api.prepare_resume(self.repo,bundle or self.bundle,cert,dict(comment_id=1,commit=self.claim,tree=self.claim_tree),generation,self.store(api.first_generation_resume(self.claim,1)['attempt_id'],workspace),parallelism)
+  resume,plan=api.prepare_resume(self.repo,bundle or self.bundle,cert,dict(comment_id=1,commit=self.claim,tree=self.claim_tree),generation,self.store(api.first_generation_resume(self.publication,1)['attempt_id'],workspace),parallelism)
   return resume,plan
  def rows_on_branch(self,attempt):
   store=self.store(attempt,'reader');head=store.remote_head()
@@ -125,12 +127,12 @@ class CheckpointResumeTests(unittest.TestCase):
   rows=self.h.rows_on_branch(attempt);self.assertEqual(len(rows),400);self.assertEqual(rows[3][0]['resume_generation'],1);self.assertEqual(rows[3][0]['previous_entry_sha256'],rows[2][0]['entry_sha256'])
 
  def test_04_corrupted_saved_record_blocks_resume(self):
-  self.h.run(self.h.gen0(1),'gen0',stop_at(3));attempt=api.first_generation_resume(self.h.claim,1)['attempt_id']
+  self.h.run(self.h.gen0(1),'gen0',stop_at(3));attempt=api.first_generation_resume(self.h.publication,1)['attempt_id']
   self._tamper(attempt,lambda ws:(ws/results.row_prefix(attempt)/'0001'/'record.json.gz').write_bytes(gzip.compress(b'{"tampered":true}')))
   with self.assertRaisesRegex(ValueError,'checkpoint record bytes differ|checkpoint'):self.h.resume(1)
 
  def test_05_missing_evidence_file_blocks_resume(self):
-  self.h.run(self.h.gen0(1),'gen0',stop_at(3));attempt=api.first_generation_resume(self.h.claim,1)['attempt_id']
+  self.h.run(self.h.gen0(1),'gen0',stop_at(3));attempt=api.first_generation_resume(self.h.publication,1)['attempt_id']
   self._tamper(attempt,lambda ws:(ws/results.row_prefix(attempt)/'0002'/'receipt.json').unlink())
   with self.assertRaisesRegex(ValueError,'evidence incomplete'):self.h.resume(1)
 
@@ -152,7 +154,7 @@ class CheckpointResumeTests(unittest.TestCase):
   with self.assertRaisesRegex(ValueError,'results branch head differs|moved since'):self.h.run(resume,'gen1',lambda r:'ok',workspace='ws-stale')
 
  def test_09_duplicate_rows_are_refused(self):
-  self.h.run(self.h.gen0(1),'gen0',stop_at(3));attempt=api.first_generation_resume(self.h.claim,1)['attempt_id']
+  self.h.run(self.h.gen0(1),'gen0',stop_at(3));attempt=api.first_generation_resume(self.h.publication,1)['attempt_id']
   rows=self.h.rows_on_branch(attempt);duplicate=dict(rows);duplicate[7]=rows[1]
   descriptor=ledger.attempt_descriptor(attempt,self.h.bundle,CERT,dict(comment_id=1,commit=self.h.claim,tree=self.h.claim_tree))
   with self.assertRaisesRegex(ValueError,'not the scheduled match|duplicate'):ledger.verify_ledger(duplicate,descriptor,self.h.bundle)
@@ -170,7 +172,7 @@ class CheckpointResumeTests(unittest.TestCase):
   resume,plan=self.h.resume(1);self.assertEqual(plan['next_schedule_index'],2);self.assertEqual(resume['completed_rows'],1)
 
  def test_11_push_failure_stops_the_run_and_keeps_local_evidence(self):
-  attempt=api.first_generation_resume(self.h.claim,1)['attempt_id']
+  attempt=api.first_generation_resume(self.h.publication,1)['attempt_id']
   def break_remote(request):
    if request['schedule_index']==2:git(self.h.repo,'remote','set-url','origin',str(self.h.root/'missing.git'))
    return 'ok'
@@ -229,6 +231,10 @@ class ResumeRequestTests(unittest.TestCase):
   with self.assertRaises(ValueError):approval._validate_request(v2_with_resume)
  def test_first_generation_binding(self):
   r=api.first_generation_resume('ab'*20,2);approval._resume_target(r);self.assertEqual((r['resume_generation'],r['completed_rows'],r['attempt_id']),(0,0,'fixed400-'+'ab'*6))
+ def test_attempt_named_after_publication_not_claim(self):
+  with tempfile.TemporaryDirectory() as d:
+   repo,claim=make_repo(Path(d));publication=git(repo,'rev-parse','HEAD^')
+   self.assertEqual(api.attempt_id_for_claim(repo,claim),'fixed400-'+publication[:12]);self.assertNotEqual(api.attempt_id_for_claim(repo,claim),'fixed400-'+claim[:12])
 
 
 if __name__=='__main__':unittest.main()

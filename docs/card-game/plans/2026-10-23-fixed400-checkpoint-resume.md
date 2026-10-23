@@ -94,3 +94,13 @@ worker の承認再照合・独立再構成（記録検証）・edition 検証�
 ## 8. 今回の承認範囲と次の承認
 
 今回は設計・実装・テスト・時間比較・証跡保存まで。**新契約での正式400戦の起動は別途本人承認**（新 edition の preflight → binding 公開 → v3 世代0 の request → 承認コメント → claim → 起動）。main マージ・本番 Pages 更新は行わない。
+
+## 9. 次回の正式起動手順（新契約・別承認）
+
+1. **tested commit T**：`proxy_population_current_preflight.REPORT` の参照先を新しい報告ファイル名に更新する1行だけの commit（Python 追加はこの commit より前に済ませておく。preflight は tested commit 以降の `.py` 追加を拒否する）。
+2. **preflight 証拠 → edition E**：T の全 population/mandatory テスト、test-1A 接続実行、design 検査、独立レビューを `verification/` にだけ追加して commit。`require_operation_ready('launch')` が `preflight_ready: true` を返すこと。
+3. **publication P**：E の直接の子として binding.json と manifest.json の2ファイルだけを追加して push（`proxy_population_execution_binding.build`）。
+4. **request v3 世代0**：`proxy_population_checkpoint_operator.load_context(repo, P, <binding dir>)` → `first_generation_request(repo, context, <新しい出力先>, parallelism)`。`approval_text` を本人に提示し、PR #408 への新コメントを待つ。**P 以降、claim まで PR ブランチへ commit しない。**
+5. **照合・消費・起動**：コメント ID を受けて `prevalidate` → `consume`（claim 1ファイルを P の直接の子として commit・push）→ `run`。結果ブランチ `fixed400-results/fixed400-<P先頭12桁>` が行ごとに伸びる。
+6. **中断時**：`next_generation_request(repo, context, <新しい出力先>, {comment_id, commit, tree}=世代0の claim, generation=n, parallelism, workspace)` が結果ブランチを再検証して v3 世代 n の request を作る。本人の新コメント → `prevalidate` → `consume`（claim は現在の PR HEAD の直接の子）→ `run`。
+7. **完了後**：結果ブランチを PR ブランチへマージ（履歴保持・改変なし）し、最終分類・再現性比較・報告書を追加する。main マージ・本番 Pages 更新は別承認。

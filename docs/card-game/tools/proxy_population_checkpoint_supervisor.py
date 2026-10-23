@@ -50,16 +50,23 @@ def verify_protected(repository,paths=PROTECTED):
  return dict(head=head,checked=checked)
 
 
+def attempt_id_for_claim(repository,claim_commit):
+ """An attempt is named after the approved publication: the single parent of its first claim."""
+ out=subprocess.check_output(['git','--no-replace-objects','-C',str(repository),'rev-list','--parents','-n','1',claim_commit],stderr=subprocess.PIPE).decode().split()
+ if len(out)!=2:raise ValueError('attempt claim must have exactly one parent')
+ return ledger.attempt_id(out[1])
+
+
 def resume_plan(repository,bundle,certificate,resume,claim,store):
  """Verify the saved rows of the attempt and derive the pending schedule; fail closed."""
  external_approval._resume_target(resume)
  generation=resume['resume_generation']
  original=claim if generation==0 else resume['original_claim']
  descriptor=ledger.attempt_descriptor(resume['attempt_id'],bundle,certificate,original)
+ if descriptor['attempt_id']!=attempt_id_for_claim(repository,original['commit']):raise ValueError('attempt identity differs from its original claim')
  if generation==0:
   plan=ledger.verify_ledger({},descriptor,bundle);base=None
  else:
-  if descriptor['attempt_id']!=ledger.attempt_id(original['commit']):raise ValueError('attempt identity differs from its original claim')
   ref=resume['results_ref'];store.fetch_exact(ref['commit'],ref['tree'])
   rows=store.load_rows(ref['commit'])
   plan=ledger.verify_ledger(rows,descriptor,bundle);base=ref['commit']
@@ -78,7 +85,8 @@ def prepare_resume(repository,bundle,certificate,attempt_claim,generation,store,
  if tree is None:
   subprocess.run(['git','-C',str(store.repository),'fetch','--no-tags',store.remote,'refs/heads/'+store.branch],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=results._environment(),timeout=300)
   tree=store.git('rev-parse',head+'^{tree}')
- descriptor=ledger.attempt_descriptor(ledger.attempt_id(attempt_claim['commit']),bundle,certificate,attempt_claim)
+ descriptor=ledger.attempt_descriptor(attempt_id_for_claim(repository,attempt_claim['commit']),bundle,certificate,attempt_claim)
+ if store.attempt_id!=descriptor['attempt_id']:raise ValueError('results store belongs to another attempt')
  plan=ledger.verify_ledger(store.load_rows(head),descriptor,bundle)
  resume=dict(attempt_id=descriptor['attempt_id'],resume_generation=generation,original_claim=copy.deepcopy(attempt_claim),
   results_ref=dict(branch=store.branch,commit=head,tree=tree),checkpoint_sha256=plan['checkpoint_sha256'],completed_rows=plan['completed_rows'],
@@ -91,9 +99,10 @@ def _has_commit(store,commit):
  return subprocess.run(['git','-C',str(store.repository),'cat-file','-e',commit+'^{commit}'],stdout=subprocess.PIPE,stderr=subprocess.PIPE).returncode==0
 
 
-def first_generation_resume(claim_commit,parallelism):
+def first_generation_resume(publication_commit,parallelism):
+ """Generation 0 binding; the attempt is named after the approved publication (the claim's parent)."""
  empty=ledger.digest([])
- return dict(attempt_id=ledger.attempt_id(claim_commit),resume_generation=0,original_claim=None,results_ref=None,checkpoint_sha256=empty,completed_rows=0,
+ return dict(attempt_id=ledger.attempt_id(publication_commit),resume_generation=0,original_claim=None,results_ref=None,checkpoint_sha256=empty,completed_rows=0,
   pending_schedule_indices_sha256=ledger.digest(list(range(1,401))),parallelism=parallelism,owner_approved_manual_resume=True)
 
 
