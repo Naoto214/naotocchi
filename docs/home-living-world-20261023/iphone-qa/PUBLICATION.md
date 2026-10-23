@@ -1,10 +1,10 @@
 # Private trial publication
 
 - Existing URL: https://naotocchi-home-diorama-20261022.kerzion214.chatgpt.site
-- Final version: **5**. Deployment `appgdep_6adaea13757c8191af3ab89f853ce754`, succeeded at 2026-10-23T05:01:43.424172+00:00.
-- Site source: `d107dc8e46643d7aafc0f4f308d925aa67cb9747`.
-- Local verified runtime build commit: `25d0e2434de3f37859b9e7e57443f4c5aa4178d4`. Source checksum report records all package files. All 4,052 prepared preview files match the pushed Site source exactly.
-- Version 4 was an intermediate deployment of the same runtime before restoring the canonical asset-cache token format; version 5 supersedes it.
+- Final version: **6**. Deployment `appgdep_6adaec5cae9881919f9bb35237f84ac0`, succeeded at 2026-10-23T05:11:10.189754+00:00.
+- Site source: `b69599dced6d07cc2b97f2b023fb91302899403f`.
+- Local verified runtime build commit: `65a99750b16f7aa92f26f2f2b22b2b0a7182b964`. Source checksum report records all package files. All 4,053 prepared preview files match the pushed Site source exactly.
+- Version 4 was an intermediate deployment of the same runtime before restoring the canonical asset-cache token format; version 5 superseded it; version 6 additionally incorporates late main #429.
 - Access rechecked: custom, owner role, one owner, zero groups, zero external visitors. No audience expansion.
 - Save namespace stays `naotocchi-home-diorama-preview-v1`; actual attendance rules are unchanged.
 - No GitHub main merge, no GitHub Pages workflow/deployment, no ready-for-review transition.

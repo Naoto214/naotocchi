@@ -6531,6 +6531,7 @@
   const CONVERSATION_BANTER = globalThis.NaotocchiConversationBanter || null;
   // ゲームのあとの掛け合い(Pilot)。結果の判定は minigame-reactions.js のものをそのまま受け取る
   const CONVERSATION_POSTGAME = globalThis.NaotocchiConversationPostgame || null;
+  const CONVERSATION_QUICK = globalThis.NaotocchiConversationQuick || null;
   // QA 用: ?conv2=demo で掛け合い・問いかけを出やすくする(保存しない。本人の試遊確認用)
   const CONV2_DEMO = (() => { try { return /[?&]conv2=demo(?:&|$)/.test(String(globalThis.location?.search || '')); } catch (_) { return false; } })();
   const CONV2 = Object.freeze({
@@ -6556,16 +6557,29 @@
     postgameQuestionShare: CONV2_DEMO ? 0.5 : 0.3,    // 候補に問いかけがあるとき、問いかけにする割合
     postgameQuestionGapMs: 2 * 60e3,                  // ふつうの問いかけとゲームのあとの問いかけを続けない
     postgameStartDelayMs: 300,
+    // クイックのあと(結果カードが消えてから 1〜2 行。カードが出ているあいだは「もういちど」を優先して黙る。
+    // 次のゲーム・画面の移動・お世話で、その場でやめる)
+    quickChance: CONV2_DEMO ? 1 : 0.3,                // ふつうの結果のとき
+    quickNotableChance: CONV2_DEMO ? 1 : 0.45,        // パーフェクト・0こ・自己ベスト・あと少し・れんぞく・そのゲームで終わった…
+    quickRestRuns: CONV2_DEMO ? 0 : 1,                // 話した次の回は休む(続けて話さない)
+    quickStartDelayMs: 300,                           // 結果カードが消えてから(吹き出しはカードを閉じるので、カードの上には出さない)
+    quickUnitCooldownMs: 3 * 60e3,                    // 同じ一言は Home 時間で 3 分あける(クイックは回数が多く、ゲーム中は Home 時間に数えないので短め)
+    quickPreferredShare: 0.6,                         // 来ている相手との掛け合い・性格の一言を少し優先
   });
   var conv2Unit = null;        // いま進行中の掛け合い・問いかけ {kind, id, startedAt, held, timers, visitorKey, question, awaiting}
   var conv2VisitCount = 0;
   var conv2BootAt = Date.now();
+  var conv2QuickRuns = 99;     // クイックで最後に話してから終えた回数(メモリだけ。reload で数えなおす)
+  var quickLastRun = null;     // 直前のクイックの結果 {stats, prev}(結果カードを出すまでのあいだだけ持つ。セーブしない)
   var lastPlayerInputAt = 0;
   try {
     const markInput = () => { lastPlayerInputAt = Date.now(); };
     document.addEventListener('pointerdown', markInput, {capture:true, passive:true});
     document.addEventListener('keydown', markInput, true);
-    document.addEventListener('visibilitychange', () => { if (!pageVisible()) conv2Abort('hidden'); });
+    // 裏に回った・ページを離れた(なおぽよ・CARD GAME など)。戻ってきても、前の会話の続きは出さない
+    document.addEventListener('visibilitychange', () => { if (!pageVisible()) conv2LeaveScene('hidden'); });
+    window.addEventListener('pagehide', () => conv2LeaveScene('pagehide'));
+    window.addEventListener('pageshow', (e) => { if (e && e.persisted) conv2LeaveScene('pageshow'); });
     el.speechChoices?.addEventListener('click', (e) => {
       const btn = e.target?.closest ? e.target.closest('[data-choice]') : e.target;
       if (btn?.dataset?.choice != null) conv2Answer(Number(btn.dataset.choice));
@@ -6618,6 +6632,14 @@
     conv2HideChoices();
     unit.abortReason = reason;
   }
+  // 画面を移った(メニュー・めぐる・ゲーム・人生イベント・ページを離れた)。進行中の会話はその場でおしまい。
+  // 言いかけの吹き出しも閉じる(戻ってきたときに、前の画面の台詞が残っていないように)。あとから出し直さない
+  function conv2LeaveScene(reason) {
+    const unit = conv2Unit;
+    if (!unit) return;
+    conv2Abort(reason);
+    if (unit.shown) hideSpeechBubbleOnly();
+  }
   function conv2Finish(unit) {
     if (conv2Unit !== unit) return;
     conv2Unit = null;
@@ -6639,23 +6661,27 @@
         const speaker = b.role === 'pet' ? petSpeaker() : visitor;
         if (!speaker || (visitorKey && !visitor)) { conv2Abort('visitor_left'); return; }
         setSpeechBubble(b.text, speaker, {listener:b.role === 'pet' ? visitor : petSpeaker(), holdMs:hold});
+        unit.shown = true;
+        if (unit.onShow) { const onShow = unit.onShow; unit.onShow = null; onShow(); }
       }, at);
       at += hold;
     });
     conversationBusyUntil = Math.max(conversationBusyUntil, Date.now() + at);
     conv2Later(unit, () => done(), at);
   }
-  function conv2NewUnit(kind, id, visitorKey) {
+  // deferNote: 最初の一言を出したときに履歴へ入れる(出す前にやめた会話は「使った」に数えない)
+  function conv2NewUnit(kind, id, visitorKey, {deferNote = false} = {}) {
     conv2Unit = {kind, id, visitorKey, startedAt:Date.now(), held:[], timers:[], awaiting:false};
-    conversationDirector.noteUnit(id, kind);
+    if (deferNote) conv2Unit.onShow = () => conversationDirector.noteUnit(id, kind);
+    else conversationDirector.noteUnit(id, kind);
     return conv2Unit;
   }
-  function conv2PickFrom(specific, generic, share) {
+  function conv2PickFrom(specific, generic, share, pickOpts) {
     const director = conversationDirector;
     const ids = list => list.map(u => u.id);
     const first = specific.length && (!generic.length || Math.random() < share) ? specific : generic;
     const second = first === specific ? generic : specific;
-    const id = director.pickUnit(ids(first)) || director.pickUnit(ids(second));
+    const id = director.pickUnit(ids(first), pickOpts) || director.pickUnit(ids(second), pickOpts);
     return id ? [...specific, ...generic].find(u => u.id === id) : null;
   }
 
@@ -6755,6 +6781,41 @@
     } else {
       conv2Play(unit, def.beats, unitVisitor, () => conv2Finish(unit), start);
     }
+    return true;
+  }
+
+  // ---- クイックのあと ----
+  // finishMinigameInner のクイックの分岐から、結果カードを出した直後に呼ぶ。話すことにしたら true。
+  // 話すのはカードが消えてから。すぐ「もういちど」を押す人には何も言わない(待たせない)。
+  // 結果は quick.js が数えたもの(recordQuickRun が受け取った stats)を読むだけ。クリア・記録・コインは変えない。
+  // 問いかけ(選択肢)は使わない。カードの「もういちど」・次のゲーム・画面の移動・お世話の操作で、その場でやめる
+  function conv2Quick(game, run, cardMs = 0) {
+    if (!CONVERSATION_QUICK || !conversationDirector || !game || !run || conv2Unit || !conv2ContextOk()) return false;
+    const mode = game.id === 'quick-solo' ? 'solo' : 'mix';
+    const soloId = mode === 'solo' ? game.quickGameId : null;
+    if ((run.stats.solo || null) !== soloId) return false;   // 別の回の結果は読まない
+    if (!CONVERSATION_QUICK.covers(mode, soloId)) return false;   // Pilot 以外の 1本ずつは、今までどおり黙る
+    conv2QuickRuns += 1;
+    if (conv2QuickRuns <= CONV2.quickRestRuns) return false;
+    const moments = CONVERSATION_QUICK.moments(run.stats, run.prev);
+    const notable = CONVERSATION_QUICK.isNotable(moments, run.stats.lastMiss);
+    if (Math.random() >= (notable ? CONV2.quickNotableChance : CONV2.quickChance)) return false;
+    const director = conversationDirector;
+    const visitorKey = conv2CurrentVisitorKey();
+    const list = CONVERSATION_QUICK.candidates({mode, soloId, lastMiss:run.stats.lastMiss || null, moments,
+      visitorKind:visitorKey ? visitorKey.split(':')[0] : null, visitorQuiet:visitorKey ? director.isQuiet(visitorKey) : false,
+      temperament:state.individuality?.temperament || null});
+    const preferred = list.filter(u => u.with || u.trait);
+    const def = conv2PickFrom(preferred, list.filter(u => !preferred.includes(u)), CONV2.quickPreferredShare, {cooldownMs:CONV2.quickUnitCooldownMs});
+    if (!def) return false;
+    const unitVisitor = def.with ? visitorKey : null;
+    const unit = conv2NewUnit('quick', def.id, unitVisitor, {deferNote:true});
+    // ゲームを終えた操作そのものは、この会話を止める操作に数えない
+    unit.startedAt = Date.now() + 1;
+    unit.moments = moments;
+    const note = unit.onShow;
+    unit.onShow = () => { note(); conv2QuickRuns = 0; };
+    conv2Play(unit, def.beats, unitVisitor, () => conv2Finish(unit), cardMs + CONV2.quickStartDelayMs);
     return true;
   }
   function conv2ShowChoices(q) {
@@ -15455,6 +15516,9 @@
   let quickSoloPrev = null;
   function recordQuickRun(stats) {
     const q = quickStats();
+    // クイックのあとの一言(Conversation)が読む、この回の前の記録。読むだけで、セーブには入れない
+    const single = stats.solo ? q.single[stats.solo] : null;
+    quickLastRun = {stats:{...stats}, prev:stats.solo ? {runs:single?.runs || 0, best:single?.best || 0} : {runs:q.runs || 0, best:q.bestCleared || 0}};
     if (stats.solo) {
       const before = q.single[stats.solo];
       quickSoloPrev = { id: stats.solo, best: before && before.runs > 0 ? Math.round(before.best * 100 / (stats.total || 1)) : null };
@@ -17091,7 +17155,11 @@
       pendingCompanionId = null;
       setMessage((customMessage || resultMessageForScore(score)) + (coins ? '／100コインをもらった!' : ''));
       closeMinigameScreen();
-      showMinigameResultToast(quickSoloToastRecord(game, record));
+      const quickCardMs = showMinigameResultToast(quickSoloToastRecord(game, record)) || 0;
+      // Conversation v2 Pilot: ときどき、結果をきっかけに 1〜2 行だけ話す(カードが消えてから。カード・もういちどは そのまま)
+      const quickRun = quickLastRun;
+      quickLastRun = null;
+      conv2Quick(game, quickRun, quickCardMs);
       audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
       saveState(); // 実績・記録は残し、育成・勧誘・ストーリーの結果処理を通さない。
       render();
@@ -19724,6 +19792,8 @@
   function syncHistoryLayer() {
     historySyncQueued = false;
     syncModalInert();
+    // ホームの上に別の画面が開いた。進行中の会話はここでおしまい(閉じて戻っても続きは出さない)
+    if (historyLayerOpen()) conv2LeaveScene('scene');
     if (typeof history === 'undefined' || typeof history.pushState !== 'function') return;
     const open = historyLayerOpen();
     if (open && !historyLayer) { history.pushState({ nt: 'layer' }, ''); historyLayer = true; }

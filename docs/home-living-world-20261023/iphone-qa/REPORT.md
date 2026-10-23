@@ -46,3 +46,9 @@ Screenshots: `water-comparison.jpg` (version 3 before / wider river after), `siz
 Use the existing private trial URL. The landing page offers the three regions; “複数キャラの操作見本” opens the count/size fixture. Try 1/2/3/4/6, 100/90/80%, select different actors and left/right movement, care interruption and visitor return. Final adoption is the owner's iPhone Safari decision. Original save data and production Pages are untouched.
 
 Publication identifiers and access verification are in `PUBLICATION.md`.
+
+## Late main update: #429
+
+During final remote verification, main advanced to `acd4ece17c293c9365a41216b0ac4492174ffcf5` (quick postgame dialogue and scene-exit conversation cleanup). It was merged into the Draft branch, preserving both Home and quick behavior. Index/package/allowlist conflicts were resolved by retaining both sets of scripts/tests and recalculating only changed asset hashes.
+
+Final local build commit: `65a99750b16f7aa92f26f2f2b22b2b0a7182b964`. `main429-integration.log`: **105/105**, including Home, quick, postgame, Motion, relationship runtime and asset integrity. `package-report6.json`: 4,048 runtime files, 1,663 static / 2,954 dynamic references. Prepared preview 4,053 files matches Site source exactly. Version 6 supersedes version 5. Existing visual comparisons remain valid for the unchanged Home renderer/layout. A final browser reload reached another app on the shared preview port, so no new browser pass is claimed after #429; its integration is covered by the 105 automated tests.

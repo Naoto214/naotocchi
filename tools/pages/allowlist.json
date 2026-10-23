@@ -4053,7 +4053,8 @@
     "world-life.mjs",
     "world-scene.css",
     "world-scene.js",
-    "world-software.mjs"
+    "world-software.mjs",
+    "conversation-quick.js"
   ],
   "dynamic_families": [
     "assets/characters/**/*.png",
@@ -4115,7 +4116,7 @@
     "home-care-colors.css": "ea67edc0b0c27fd194993419c62e3863d5474a5613984488c6bf2e2b127775bc",
     "home-touch.js": "eda7deef505a69cd93e7e5ab4933c9791732ec351679eb6f0171a77c314e684f",
     "illustration-catalog.js": "75f714c1d6ddb429f2d2eebab23f468d976d8e4201dcbaa10b91adfc3c84da0d",
-    "index.html": "c83a0c1fd158927c6c90d9435f9b7b2f40f04503955c79d4a828501957fc3c30",
+    "index.html": "b20a57dfb2ebc269445d10a09ea380c0d6d1351fdb4d63c9382b1566d6e5af38",
     "item-memories.css": "8434fee41472c872e3c3ee168ee78335ce7ba091fb8a60a7c96fe35bec5e0eb8",
     "item-memories.js": "252a43fba4fce6890cd4eb74fe9c073bac676dad309130987dd2d512c273c369",
     "item-system.js": "75cfbf0b3e004a51d9c0f4a140aa679b4cb0ee3aeb4b68153c9c13b6ea34d598",
@@ -4201,11 +4202,11 @@
     "prototypes/naopoyo-rescue/style.css": "442045e7407d66467032f8e23186088fc559309374b8d7cd33a3b68718fa903a",
     "prototypes/naopoyo-rescue/themes.mjs": "65e1d0bee21fdaf8747dd95e6972dc09d08ce1e173f163d0300a19b7663a571f",
     "prototypes/naopoyo/index.html": "a2969d44aaa5924d4f3e7c8436e507d3b18b8afd16b15fa14bc6ecd72d1badc3",
-    "quick.js": "c2e295f45691699814c5a1e968c2ab0a080facf5e6399cf84fef76893b62bbfa",
+    "quick.js": "efc1f74ca797ed00a3fc2bb0c51f9fc7289da45b657d3831c2bc563aefb852d6",
     "relationship-expression.js": "5fdba60b9155f53f7a3f77c3acb307df2c2397c344e8b74a5e955bbb2eb85082",
     "relationship-life.js": "845ec0c9e35de4b47b0f8b56086d428433fa4407aa3e58adca0b85e6fabc3441",
     "resident-expression.js": "57387bc14ffffbb25a4838fb32b51d8c58ad73fca12ed1f783d886af6863911d",
-    "script.js": "9bc4326f061af55dd0807ee067dd014be0b072f6f02411d9fd34938edb58e03f",
+    "script.js": "6aab46b6c8b465b7608ab226dd649dcc8b8d883e1ad3a3ce6a3a8f891c99497c",
     "style.css": "50dbd9b14e78b98dae31aed50ae03ffed9290dd964161a19444f04de4a00b015",
     "ui-illustrations.css": "94f2a91665f90bfcfbd72b002c28aab5bdbef581c5d5d43e0cbb95159ff82f81",
     "ui-symbol-art.js": "dbdce7f8a51024f6de2e5cf60b5775f3fef307b8cb44474e1e9428fca5f68684",
@@ -4222,7 +4223,8 @@
     "home-world.mjs": "d0eef08cf7faa3eb7398859e5f9c4157bf8cf3e6e296e71c07ad73dbeadfd24a",
     "world-ambient.mjs": "42a96d5e90bd3412c39078fa47f0cca0673e16c9b063c211896f635682c2c406",
     "world-life.mjs": "2cf93ed4d95cab6f10c544a9bd0d915c326d2fc65b2deac71b33698c059648eb",
-    "world-software.mjs": "b0349e863631d157f9cbb6191a0c5a2ee8b2f02bada7c24056590741424ca6f6"
+    "world-software.mjs": "b0349e863631d157f9cbb6191a0c5a2ee8b2f02bada7c24056590741424ca6f6",
+    "conversation-quick.js": "041df8439c236026d6e27ba92f5fdf08c7a2b6d3c1214beabb8d78ad9c8c03ca"
   },
   "forbidden_patterns": [
     "^(?:docs|tests|tools|\\.github)/",
