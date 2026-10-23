@@ -61,12 +61,6 @@
           "dy": 1
         }
       ],
-      "stats": {
-        "merged": 2,
-        "split": 1,
-        "overflow": 0,
-        "falls": 0
-      },
       "moves": 11,
       "time": 0,
       "shortestProven": false
@@ -137,12 +131,6 @@
           "dy": 0
         }
       ],
-      "stats": {
-        "merged": 5,
-        "split": 0,
-        "overflow": 3,
-        "falls": 0
-      },
       "moves": 12,
       "time": 0,
       "shortestProven": false
@@ -183,12 +171,6 @@
           "dy": 0
         }
       ],
-      "stats": {
-        "merged": 0,
-        "split": 0,
-        "overflow": 0,
-        "falls": 5
-      },
       "moves": 6,
       "time": 0,
       "shortestProven": false
@@ -242,12 +224,6 @@
           "dy": 0
         }
       ],
-      "stats": {
-        "merged": 3,
-        "split": 2,
-        "overflow": 0,
-        "falls": 0
-      },
       "moves": 8,
       "time": 3000,
       "shortestProven": false
@@ -324,12 +300,6 @@
           "dy": 0
         }
       ],
-      "stats": {
-        "merged": 1,
-        "split": 4,
-        "overflow": 0,
-        "falls": 0
-      },
       "moves": 12,
       "time": 4800,
       "shortestProven": false
@@ -440,12 +410,6 @@
           "dy": 1
         }
       ],
-      "stats": {
-        "merged": 2,
-        "split": 2,
-        "overflow": 0,
-        "falls": 0
-      },
       "moves": 20,
       "time": 0,
       "shortestProven": false
@@ -510,12 +474,6 @@
           "dy": 1
         }
       ],
-      "stats": {
-        "merged": 4,
-        "split": 4,
-        "overflow": 0,
-        "falls": 0
-      },
       "moves": 9,
       "time": 6300,
       "shortestProven": false

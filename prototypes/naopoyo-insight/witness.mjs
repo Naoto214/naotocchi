@@ -10,9 +10,9 @@ export function execute(q,c){
  const r=q.travel({x:a.x+.5+c.dx,y:a.y+.5+c.dy});q.end();assert.equal(r.at(-1)?.ok,true,JSON.stringify(c));
 }
 export function solve(stage){
- const q=new WorldSession(stage),commands=[],stats={merged:0,split:0,overflow:0,falls:0},total=mass(q.state);
+ const q=new WorldSession(stage),commands=[],total=mass(q.state);
  function verify(){assert.equal(mass(q.state),total);assert.ok(validState(stage,q.state),stage.id+' valid');const restored=new WorldSession(stage,q.serialize());assert.ok(restored.restored,stage.id+' restores');assert.deepEqual(restored.snapshot(),q.snapshot())}
- function act(c){execute(q,c);commands.push(c);for(const r of q.lastResults){stats.merged+=r.merged||0;stats.split+=r.split||0;stats.overflow+=r.overflow||0;stats.falls+=r.falls?.length||0}verify()}
+ function act(c){execute(q,c);commands.push(c);verify()}
  function route(id,goal,label='route'){
   const nodes=[{s:clone(q.state),parent:-1}],seen=new Set();let found=-1;
   for(let i=0;i<nodes.length&&i<15000;i++){
@@ -44,5 +44,5 @@ export function solve(stage){
  }
  assert.ok(complete(q.state),stage.id);verify();
  const end=q.snapshot();assert.ok(q.undo());assert.ok(!complete(q.state));q.paused=false;const last=commands.at(-1);execute(q,last);assert.deepEqual(q.snapshot(),end,'final Undo replay');q.retry();assert.deepEqual(q.state,new WorldSession(stage).state);
- return {stage:stage.id,complete:true,mass:total,commands,stats,moves:end.state.moves,time:end.time,shortestProven:false};
+ return {stage:stage.id,complete:true,mass:total,commands,moves:end.state.moves,time:end.time,shortestProven:false};
 }

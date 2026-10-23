@@ -35,3 +35,5 @@ Tech: native ES modules, Canvas2D, node:test, buildless private Sites.
 - Final review complete: Critical/Importantなし、I04波の表示行を5行目へ修正。追加検証でI05の合法別解を確認し保持。テーマ分類requiredをmechanicsへ改名し、必須性の証明と分離（メタデータのみ）。
 - 初回GitHub CI: Insight39909517921 / World39909517972ともsuccess。private Site version1公開成功、owner1/追加編集者0/group0/external0。
 - 作業中に別レーンでmainが76f32494へ更新（#431記録と#425クイック）。旧正式なおぽよファイルはacd4ece1との差分なしを確認。今回ブランチへmainを混ぜず、依存PR統合時の再base/回帰を計画する。
+- Task 4 complete: 全体3390/3390 exit0、パズル438/438。Private Site version2成功。ランタイムHEAD5492035b両CI成功。最終証跡/報告を保存する。
+- 証跡の未使用stats集計に二重計上を確認したため削除。解答witness・必要性探索を再生成、全パズル回帰を再実行。ゲームengine/UIへの追加変更なし。
