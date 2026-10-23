@@ -1,0 +1,81 @@
+{
+  "stage": "B",
+  "complete": true,
+  "moves": 12,
+  "time": 0,
+  "commands": [
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "d",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "d",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "d",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "d",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "d",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "d",
+      "dx": 1,
+      "dy": 0
+    }
+  ],
+  "shortestProven": false
+}

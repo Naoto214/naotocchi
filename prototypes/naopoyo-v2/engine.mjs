@@ -8,28 +8,28 @@ export const wall=(s,x,y)=>x<0||y<0||x>=s.w||y>=s.h||s.walls.some(p=>p[0]===x&&p
 const special=(s,x,y)=>at(s.gates,x,y)||at(s.exits,x,y)||at(s.spikes,x,y);
 const ordinaryEmpty=(s,x,y)=>!wall(s,x,y)&&!special(s,x,y)&&!at(s.actors,x,y);
 const compass=[[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]];
-export function splitCandidates(s,x,y,dx,dy){
+export function splitCandidates(s,x,y,dx,dy,actor=null,policy={}){
  const f=compass.findIndex(p=>p[0]===dx&&p[1]===dy);if(f<0)return [];
  const directions=[4,-2,2,-3,3,-1,1,0].map(offset=>compass[(f+offset+8)%8]);
  const queue=[{x,y,distance:0}],seen=new Set([`${x},${y}`]),out=[];
  for(let i=0;i<queue.length;i++){
   const p=queue[i];if(p.distance===2)continue;
   for(const [vx,vy] of directions){const nx=p.x+vx,ny=p.y+vy,key=`${nx},${ny}`;
-   if(seen.has(key)||!ordinaryEmpty(s,nx,ny))continue;
+   if(seen.has(key)||!ordinaryEmpty(s,nx,ny)||(actor&&policy.canEnter&&!policy.canEnter(s,actor,nx,ny)))continue;
    seen.add(key);const candidate={x:nx,y:ny,distance:p.distance+1};out.push(candidate);queue.push(candidate);
   }
  }
  return out;
 }
 // Transient event state never enters a save or Undo snapshot.
-const context=activeId=>({activeId,fired:new Set(),families:new Map(),family:0,events:[]});
+const context=(activeId,policy={})=>({activeId,policy,fired:new Set(),families:new Map(),family:0,events:[]});
 function nextId(s){
  let id;do{id=`child${s.nextId}`;s.nextId=s.nextId===Number.MAX_SAFE_INTEGER?1:s.nextId+1}while(s.actors.some(a=>a.id===id));return id;
 }
 function split(s,a,spike,dx,dy,ctx,result){
  const key=`${spike.x},${spike.y}`;if(ctx.fired.has(key))return;
  ctx.fired.add(key);
- const positions=splitCandidates(s,a.x,a.y,dx,dy),k=Math.min(a.level-1,spike.power,positions.length);
+ const positions=splitCandidates(s,a.x,a.y,dx,dy,a,ctx.policy),k=Math.min(a.level-1,spike.power,positions.length);
  result.split=k;result.splitBlocked=k===0?(a.level===1?'minimum':'space'):null;
  if(!k)return;
  a.level-=k;const family=++ctx.family;ctx.families.set(a.id,family);
@@ -42,6 +42,7 @@ function split(s,a,spike,dx,dy,ctx,result){
 function enter(s,a,dx,dy,ctx,fall=false){
  const x=a.x+dx,y=a.y+dy,reject=reason=>({ok:false,reason});
  if(wall(s,x,y))return reject('wall');
+ if(ctx.policy?.canEnter&&!ctx.policy.canEnter(s,a,x,y))return reject('terrain');
  const target=at(s.actors,x,y),gate=at(s.gates,x,y),exit=at(s.exits,x,y),spike=at(s.spikes,x,y);
  if(target){
   if(target.species!==a.species)return reject('species');
@@ -90,11 +91,11 @@ export function settle(s,ctx=context()){
  return ctx.events.slice(start);
 }
 const support=(s,x,y,a)=>wall(s,x,y)||!!at(s.actors,x,y)||s.gates.some(g=>g.x===x&&g.y===y&&!matchesCondition(a,g));
-export function move(s,id,dx,dy){
+export function move(s,id,dx,dy,policy={}){
  const a=s.actors.find(a=>a.id===id),reject=reason=>({ok:false,reason});
  if(!a||!Number.isInteger(dx)||!Number.isInteger(dy)||Math.max(Math.abs(dx),Math.abs(dy))!==1)return reject('step');
  if(s.gravity&&dy<0&&(!(at(s.spikes,a.x,a.y)||support(s,a.x,a.y+1,a))||!(support(s,a.x-1,a.y,a)||support(s,a.x+1,a.y,a))))return reject('foothold');
- const ctx=context(id),result=enter(s,a,dx,dy,ctx);
+ const ctx=context(id,policy),result=enter(s,a,dx,dy,ctx);
  if(!result.ok)return result;
  s.moves++;result.falls=settle(s,ctx);result.events=ctx.events;return result;
 }
@@ -116,4 +117,16 @@ export function validState(stage,s){
   const actual=totals(s),expected=totals(createState(stage));
   return [...new Set([...Object.keys(actual),...Object.keys(expected)])].every(k=>(actual[k]||0)===(expected[k]||0));
  }catch{return false}
+}
+
+// Optional external-event entry points. Default move/settle semantics remain v2.
+export function externalMove(s,id,dx,dy,policy={},activeId=id){
+ const a=s.actors.find(a=>a.id===id);if(!a||!Number.isInteger(dx)||!Number.isInteger(dy)||Math.max(Math.abs(dx),Math.abs(dy))!==1)return {ok:false,reason:'step'};
+ const ctx=context(activeId,policy),result=enter(s,a,dx,dy,ctx);
+ if(result.ok){result.falls=settle(s,ctx);result.events=ctx.events}return result;
+}
+export function externalSplit(s,id,power,dx=1,dy=0,policy={},activeId=id){
+ const a=s.actors.find(a=>a.id===id);if(!a||!Number.isInteger(power)||power<1)return {ok:false,reason:'split'};
+ const ctx=context(activeId,policy),result={ok:true,id,split:0,children:[]};
+ split(s,a,{x:a.x,y:a.y,power},dx,dy,ctx,result);result.falls=settle(s,ctx);result.events=ctx.events;return result;
 }

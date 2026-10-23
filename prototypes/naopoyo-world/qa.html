@@ -1,0 +1,74 @@
+<!doctype html><meta charset="utf-8" /><title>World Pilot layout QA</title
+><style>
+  body {
+    font: 14px system-ui;
+    background: #eef3ef;
+  }
+  .cases {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  iframe {
+    border: 0;
+  }
+  pre {
+    white-space: pre-wrap;
+    max-height: 90px;
+    overflow: auto;
+  }
+</style>
+<h1>8×8 / 8×6 レイアウト実測</h1>
+<button id="measure">実測更新</button>
+<pre id="results"></pre>
+<div class="cases" id="cases"></div>
+<script>
+  const sizes = [
+    [375, 667],
+    [390, 664],
+    [430, 740],
+    [375, 568],
+    [390, 500],
+    [667, 375],
+  ];
+  for (const [w, h] of sizes) {
+    const d = document.createElement("div");
+    d.innerHTML = `<h2>${w} × ${h}</h2><iframe width="${w}" height="${h}" src="./index.html"></iframe>`;
+    cases.append(d);
+  }
+  measure.onclick = () => {
+    const results = [];
+    for (const f of document.querySelectorAll("iframe")) {
+      const d = f.contentDocument,
+        c = d.querySelector("canvas"),
+        btn = d.querySelector("#compare");
+      if (btn.textContent === "8×6") btn.click();
+      const b = c.getBoundingClientRect();
+      btn.click();
+      const b6 = c.getBoundingClientRect();
+      btn.click();
+      results.push({
+        width: f.width,
+        height: f.height,
+        cell8: b.width / 8,
+        cell6: b6.width / 8,
+        board8: { width: b.width, height: b.height },
+        scroll: d.documentElement.scrollHeight > +f.height,
+        controls: [...d.querySelectorAll("nav button")].map((x) => {
+          const r = x.getBoundingClientRect();
+          return {
+            text: x.textContent,
+            width: r.width,
+            height: r.height,
+            bottom: r.bottom,
+          };
+        }),
+      });
+    }
+    document.querySelector("#results").textContent = JSON.stringify(
+      results,
+      null,
+      2,
+    );
+  };
+</script>

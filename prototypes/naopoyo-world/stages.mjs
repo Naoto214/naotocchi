@@ -1,0 +1,151 @@
+const a = (id, x, y, level = 1, species = "dog") => ({
+  id,
+  x,
+  y,
+  level,
+  species,
+});
+const base = (id, title, lesson, actors, extra = {}) => ({
+  id,
+  title,
+  lesson,
+  w: 8,
+  h: 8,
+  theme: "grove",
+  walls: [],
+  spikes: [],
+  gates: [],
+  exits: [{ x: 7, y: 4, exact: 1 }],
+  gravity: false,
+  water: [],
+  guests: [],
+  events: [],
+  actors,
+  ...extra,
+});
+const barrier = (x, gap) =>
+  Array.from({ length: 8 }, (_, y) => [x, y]).filter((p) => p[1] !== gap);
+const wave = {
+  id: "tide",
+  kind: "wave",
+  period: 8000,
+  warn: 2000,
+  on: 800,
+  rows: [3, 4, 5],
+  dx: 1,
+  dy: 0,
+};
+const beam = {
+  id: "light",
+  kind: "beam",
+  period: 9000,
+  warn: 2500,
+  on: 2200,
+  cells: Array.from({ length: 8 }, (_, y) => [3, y]),
+  power: 2,
+};
+export const stages = [
+  base(
+    "A",
+    "ひかりの牢屋",
+    "集まって門を開けたら、トゲでほどこう。小さな星は1だけ。",
+    [a("a", 0, 4, 2), a("b", 1, 4, 1)],
+    {
+      gates: [{ x: 2, y: 4, exact: 3 }],
+      walls: barrier(2, 4),
+      spikes: [{ x: 4, y: 4, power: 2 }],
+      hint: "2＋1で3の門へ。右側の2連トゲで1を3体に。",
+      story: "散らばった星の道を、いっしょにほどこう。",
+      ending: "小さくわかれた光が、森への道を照らした。",
+    },
+  ),
+  base(
+    "B",
+    "あわの海 — 波にのって",
+    "青いマスは魚だけ。予告のあと、波が右へ1マス押す。",
+    [a("a", 1, 4, 1, "fish"), a("b", 3, 4, 2, "fish"), a("d", 1, 1, 1, "dog")],
+    {
+      theme: "shore",
+      water: Array.from({ length: 32 }, (_, i) => [
+        i % 8,
+        3 + Math.floor(i / 8),
+      ]),
+      events: [wave],
+      exits: [
+        { x: 7, y: 4, exact: 3, species: "fish" },
+        { x: 7, y: 1, species: "dog" },
+      ],
+      hint: "魚1と2を合体して3の星へ。いぬは上の陸の星へ。波で押されても指はそのまま。",
+      story: "海の中の道は、泳ぐ子に任せよう。",
+      ending: "波はじゃまものではなく、道しるべだった。",
+    },
+  ),
+  base(
+    "C",
+    "光のほどきかた",
+    "光をあえて浴びて、3を1・1・1に。光の予告は金色。",
+    [a("a", 2, 4, 3)],
+    {
+      theme: "cave",
+      events: [beam],
+      hint: "3列目の光に入って、予告後の照射を待つ。生まれた1をそれぞれ星へ。",
+      story: "閉じた扉の鍵は、光の中にあった。",
+      ending: "こわかった光が、帰り道をつくってくれた。",
+    },
+  ),
+  base(
+    "D",
+    "ほどいてから、通る",
+    "3の門と1の門。同じ姿では通り抜けられない。",
+    [a("a", 0, 4, 2), a("b", 1, 4, 1)],
+    {
+      theme: "snow",
+      walls: [...barrier(2, 4), ...barrier(5, 4)],
+      gates: [
+        { x: 2, y: 4, exact: 3 },
+        { x: 5, y: 4, exact: 1 },
+      ],
+      spikes: [{ x: 4, y: 4, power: 2 }],
+      hint: "左では集まり、真ん中でわかれる。先に3の門を通ってから2連トゲへ。",
+      story: "一緒に進む道と、ひとりずつ進む道。",
+      ending: "姿を変えても、みんな一緒に帰れる。",
+    },
+  ),
+  base(
+    "E",
+    "タコさんの波の試練",
+    "タコさんの波と光を借りよう。ふくろうは道案内。",
+    [a("a", 1, 4, 3, "fish")],
+    {
+      theme: "shore",
+      water: Array.from({ length: 32 }, (_, i) => [
+        i % 8,
+        3 + Math.floor(i / 8),
+      ]),
+      events: [wave, { ...beam, id: "boss-light", warn: 2000 }],
+      guests: [
+        {
+          id: "owl",
+          name: "ふくろう",
+          role: "guide",
+          x: 1,
+          y: 1,
+          operable: false,
+          asset: "assets/characters/companions/owl.png",
+        },
+        {
+          id: "rock_octopus",
+          name: "いわばのタコさん",
+          role: "puzzle-host",
+          x: 5,
+          y: 1,
+          operable: false,
+          asset: "assets/characters/partners/rock_octopus.png",
+        },
+      ],
+      hint: "波で光の列まで進み、照射で3つの1に。タコさんにHPはなく、全員脱出で成功。",
+      story: "「波をよく見て。急がなくても大丈夫」タコさんの協力試練。",
+      ending: "「上手にほどけたね」タコさんが次の海を教えてくれた。",
+    },
+  ),
+];
