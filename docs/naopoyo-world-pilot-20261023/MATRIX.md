@@ -1,3 +1,5 @@
+> 2026-10-23 iPhone QA追補：最新のB（波必須）・E（役割変更）・入力/表示・検証結果は [qa-update/REPORT.md](qa-update/REPORT.md) と [qa-update/DELIVERY.md](qa-update/DELIVERY.md) を参照。以下は初回Pilot公開時の記録です。
+
 # Pilot stage matrix / puzzle design
 
 難易度は仮。手数は保存解答証跡に記録（最短は未証明）。実装A〜Eはいずれも8×8。旧01〜24は変換しない。

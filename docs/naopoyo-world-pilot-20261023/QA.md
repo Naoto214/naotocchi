@@ -1,3 +1,5 @@
+> 2026-10-23 iPhone QA追補：最新のB（波必須）・E（役割変更）・入力/表示・検証結果は [qa-update/REPORT.md](qa-update/REPORT.md) と [qa-update/DELIVERY.md](qa-update/DELIVERY.md) を参照。以下は初回Pilot公開時の記録です。
+
 # Verification and iPhone QA
 
 ## Browser layout measurement
