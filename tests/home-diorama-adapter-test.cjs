@@ -114,3 +114,15 @@ test('resizing an actor around its unchanged foot repositions the terrain mask',
   assert.equal(owner.style.webkitMaskPosition,'-120px -80px');
  }finally{c.destroy();}
 });
+test('stationary sleep subtree replacement refreshes head shift for each actor role and clears on wake',()=>{
+ for(const kind of ['pet','companion','partner']){
+  const h=setup(),owner=h.owner;let transform=null;
+  owner.querySelector=()=>transform?{getAttribute:()=>transform}:null;
+  h.setActors([{key:kind+':dog',kind,id:'dog',asset:'assets/characters/dog/06.png',node:owner,owner,x:170,y:145,w:60,h:75,baseX:140,baseY:70,originX:48}]);h.c.sync();
+  assert.equal(owner.style['--diorama-sleep-shift'],'0%');
+  transform='translate(2 3)';h.c.sync();assert.equal(owner.style['--diorama-sleep-shift'],api.sleepAccentShift(transform,48,-1)+'%');
+  transform=null;h.c.sync();assert.equal(owner.style['--diorama-sleep-shift'],'0%');
+  transform='translate(-4 2)';h.c.sync();assert.equal(owner.style['--diorama-sleep-shift'],api.sleepAccentShift(transform,48,-1)+'%');
+  h.c.destroy();assert.equal(owner.style['--diorama-sleep-shift'],undefined);
+ }
+});

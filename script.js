@@ -3974,7 +3974,7 @@
       const pending = careMilestone; careMilestone = null; showCareFeedback(pending);
     }
     const display = urgent ? notice : visible && careFeedback
-      ? {kind:'change',severity:'info',icon:careFeedback.icon,text:[message,careFeedback.text].filter(Boolean).join('\n')}
+      ? {kind:'change',severity:'info',icon:careFeedback.icon,text:[message,terrainNoticeMode() ? CARE_STATUS.summary(careFeedback.text) : careFeedback.text].filter((text,index,all)=>text && all.indexOf(text)===index).join('\n')}
       : visible && !message ? notice : null;
     const text = display ? display.text || `${display.title}\n${display.detail}`
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
@@ -3984,7 +3984,7 @@
     el.message.dataset.careSeverity = display?.severity || '';
     el.message.dataset.careIcon = display?.icon || '';
     el.message.dataset.careTone = display?.kind === 'change'
-      ? display.text.includes('−') ? display.text.includes('+') ? 'mixed' : 'loss' : 'gain' : '';
+      ? careFeedback.text.includes('−') ? careFeedback.text.includes('+') ? 'mixed' : 'loss' : 'gain' : '';
     el.screen.dataset.careSeverity = visible ? notice?.severity || '' : '';
     for (const id of ['feedBtn','playBtn','cleanBtn','sleepBtn','medicineBtn','playWithBtn']) {
       const recommended = visible && notice?.action === id;
@@ -11369,7 +11369,7 @@
     else if (event.achievement) el.storyFlashEmoji.innerHTML = achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
-    setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
+    setCommentText(el.storyFlashText, compactJapaneseText(terrainNoticeMode() && event.environmentMoment ? CARE_STATUS.summary(event.message,true) : event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
     renderPetVisual();
     cancelEmotionCue(true);
@@ -14893,10 +14893,17 @@
     const {kind,speakerId} = el.speechBubble.dataset;
     const point = actors.find(a=>a.kind===kind && a.id===speakerId) || pet;
     if(terrainNoticeMode()&&window.NaotocchiHomeDiorama?.speechPlacement){
-      const r=el.castStage.getBoundingClientRect(),result=document.getElementById('homeChoiceResult'),bh=Math.max(el.speechBubble.getBoundingClientRect().height||0,result&&!result.classList.contains('hidden')?result.getBoundingClientRect().height:0,55);
+      const r=el.castStage.getBoundingClientRect(),result=document.getElementById('homeChoiceResult');
+      // Intrinsic sizing is independent of the last speaker/line's slot width.
+      const maxWidth=Math.min(340,r.width-12);
+      el.speechSlot.style.setProperty('--terrain-speech-max',maxWidth+'px');
+      const bubble=el.speechBubble.getBoundingClientRect();
+      const resultVisible=result&&!result.classList.contains('hidden');
+      const bh=Math.max((bubble.height||0)+(resultVisible?result.getBoundingClientRect().height:0),1);
       const choices=document.getElementById('speechChoices');if(choices)choices.style.maxHeight=Math.max(0,Math.min(160,r.height-bh-17))+'px';const ch=choices&&!choices.classList.contains('hidden')?(choices.getBoundingClientRect().height||100)+5:0;
-      const place=window.NaotocchiHomeDiorama.speechPlacement({speaker:{x:point.x+(point.dioramaX||0),y:point.y+(point.dioramaY||0),h:point.h||40},width:r.width,height:r.height,bubbleWidth:Math.min(340,r.width-12),bubbleHeight:bh,choicesHeight:ch});
+      const place=window.NaotocchiHomeDiorama.speechPlacement({speaker:{x:point.x+(point.dioramaX||0),y:point.y+(point.dioramaY||0),h:point.h||40},width:r.width,height:r.height,bubbleWidth:resultVisible?maxWidth:Math.max(1,bubble.width),bubbleHeight:bh,choicesHeight:ch});
       if(choices)choices.style.maxHeight=place.choicesMaxHeight+'px';
+      el.speechSlot.style.setProperty('--terrain-choice-offset',Math.max(6,Math.min(r.width-maxWidth-6,point.x+(point.dioramaX||0)-maxWidth/2))-place.x+'px');
       el.speechSlot.style.setProperty('--terrain-speech-x',place.x+'px');el.speechSlot.style.setProperty('--terrain-speech-y',place.y+'px');el.speechSlot.style.setProperty('--terrain-speech-w',place.w+'px');
       el.speechSlot.dataset.terrainSide=place.side;el.speechBubble.style.setProperty('--speech-tail-x',place.tail+'px');return;
     }

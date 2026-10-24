@@ -152,12 +152,18 @@ body[data-home-terrain="true"] #homeEventSlot .story-flash-text{font-size:12px;l
 
 /* Speech is a clamped speaker overlay; empty conversation no longer reserves ground. */
 body[data-home-terrain="true"] #petArea{position:relative}
-body[data-home-terrain="true"] #speechSlot{position:absolute;left:var(--terrain-speech-x,6px);top:var(--terrain-speech-y,30px);width:var(--terrain-speech-w,calc(100% - 12px));height:auto;min-height:0;padding:0;z-index:1200;pointer-events:none}
-body[data-home-terrain="true"] #speechBubble{box-sizing:border-box;width:100%;max-width:100%;pointer-events:auto}
+body[data-home-terrain="true"] #speechSlot{flex-direction:column;align-items:center;position:absolute;left:var(--terrain-speech-x,6px);top:var(--terrain-speech-y,30px);width:var(--terrain-speech-w,calc(100% - 12px));height:auto;min-height:0;padding:0;z-index:1200;pointer-events:none}
+body[data-home-terrain="true"] #speechBubble{box-sizing:border-box;width:max-content;max-width:var(--terrain-speech-max,calc(100vw - 44px));flex:none;min-height:0;margin:0;padding:4px 7px;font-size:14px;line-height:1.4;pointer-events:auto}
+body[data-home-terrain="true"] .speech-text{max-height:4.2em}
+body[data-home-terrain="true"] .device[data-text-size="large"] #speechBubble{font-size:15px}
 body[data-home-terrain="true"] #speechSlot[data-terrain-side="above"] #speechBubble::before{top:auto;bottom:-6px;transform:rotate(225deg)}
-body[data-home-terrain="true"] #speechChoices{width:100%;max-height:160px;overflow:auto}
+body[data-home-terrain="true"] #speechChoices{left:var(--terrain-choice-offset,0px);transform:none;width:var(--terrain-speech-max,100%);max-height:160px;overflow:auto}
 /* Count and cleaning stay canonical. Only the temporary ground coordinates change. */
 #castStage[data-diorama] #poopRow{inset:0!important;width:100%;height:100%!important;display:block;z-index:1000!important}
 #castStage[data-diorama] #poopRow>.care-icon{position:absolute;left:0;top:0;width:18px;height:18px;margin:0}
 
-body[data-home-terrain="true"] #homeChoiceResult{position:relative;left:auto;bottom:auto;transform:none;width:100%;max-height:120px;pointer-events:auto}
+body[data-home-terrain="true"] #homeChoiceResult{position:relative;left:auto;bottom:auto;transform:none;width:var(--terrain-speech-max,100%);flex:none;max-height:120px;pointer-events:auto}
+
+/* Reflect the approved emission coordinate about the same bounds center as
+   the image. SVG glyphs and Motion v2 wrappers remain unmirrored. */
+#castStage[data-diorama] [data-diorama-actor] .pet-expression-accent--sleeping{translate:var(--diorama-sleep-shift,0%) 0}

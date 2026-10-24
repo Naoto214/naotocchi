@@ -85,6 +85,14 @@
     const attached=(f,old,next)=>f&&old&&next?{...f,x:next.x+(f.x-old.x)*next.w/old.w,y:next.y+(f.y-old.y)*next.w/old.w,w:f.w*next.w/old.w,h:f.h*next.w/old.w}:null;
     return {...raw,height,dioramaScale:k,main,partner,accessory:attached(raw.accessory,raw.main,main),ring:attached(raw.ring,raw.partner,partner),hearts:raw.hearts.map(f=>attached(f,raw.partner,partner)),companions:raw.companions.map((f,i)=>frame(f,args.companions[i],.55))};
   }
+  // The accent renderer owns per-stage placement. Read its approved translation
+  // in 104-unit SVG coordinates rather than duplicating its private anchor table.
+  function sleepAccentShift(transform, originX=50, facing=1) {
+    const match=typeof transform==='string'&&transform.match(/^translate\(\s*([-\d.]+)/);
+    if(facing!==-1||!match||!Number.isFinite(Number(match[1])))return 0;
+    const anchor=(71+Number(match[1]))/104*100;
+    return (1-facing)*(originX-anchor);
+  }
   // Transient overlay geometry; neither helper receives or changes a saved entity.
   function speechPlacement({speaker,width,height,bubbleWidth,bubbleHeight,choicesHeight=0}){
     const w=Math.min(bubbleWidth,width-12),h=Math.min(bubbleHeight,height-12),ch=Math.min(choicesHeight,Math.max(0,height-h-12));
@@ -161,7 +169,7 @@
     function clearGesture(){if(gesture){try{stage.releasePointerCapture(gesture.pointerId);}catch(_){}gesture=null;}marker.hidden=true;}
     function interrupt(){clearGesture();model.cancel();paint();}
     function clearStage(){const poop=doc.getElementById?.('poopRow');if(poop){delete poop.dataset.groundKey;for(const n of [...poop.children]){n.style.left='';n.style.top='';n.style.visibility='';}}for(const k of Object.keys(stage.dataset))if(k.startsWith('diorama')||k.startsWith('world')||k==='livingMetrics')delete stage.dataset[k];}
-    function restore(row){onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');}
+    function restore(row){onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');n.style.removeProperty('--diorama-sleep-shift');}
       for(const [k,v]of Object.entries(row.original||{}))v===null?row.owner.removeAttribute?.(k):row.owner.setAttribute(k,v);row.shadow.remove();}
     const occlusionCache=new Map();
     function polygonsAt(p){
@@ -202,6 +210,9 @@
       for(const a of snapshot){
         const row=rows.get(a.key);if(!row)continue;
         const dx=a.x-row.x,dy=a.y-row.y;
+        // A visual can be replaced on sleep/wake without moving its actor.
+        const sleep=row.owner.querySelector?.('.pet-expression-accent--sleeping > svg > g');
+        row.owner.style.setProperty('--diorama-sleep-shift',sleepAccentShift(sleep?.getAttribute?.('transform'),row.originX??50,facingScale(row,a.direction))+'%');
         const stamp=[dx.toFixed(2),dy.toFixed(2),a.activity,a.direction,!!a.target,model.selected()===a.key,isPaused,revision,row.x,row.y,row.w,row.h].join(':');
         if(row.paintStamp===stamp){onPosition(a,dx,dy);continue;}row.paintStamp=stamp;
         for(const n of [row.owner,...(row.attachments||[])])n.style.translate=`${dx.toFixed(2)}px ${dy.toFixed(2)}px`;
@@ -298,5 +309,5 @@
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeNotices(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,speechPlacement,placeGroundProps};
+  return {sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,speechPlacement,placeGroundProps};
 });
