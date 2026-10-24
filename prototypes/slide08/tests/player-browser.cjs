@@ -191,7 +191,12 @@ const assert = require("node:assert/strict"),
       .locator("#dialogChoices")
       .getByRole("button", { name: "モード選択へ戻る", exact: true })
       .click();
-    await page.waitForURL('**/prototypes/naopoyo-rescue/index.html');
+    await page.waitForURL('**/prototypes/naopoyo-chapter1/index.html');
+      await page.locator('#board').waitFor();
+      assert.equal(await page.title(), 'なおぽよ。｜ひかりの牢屋');
+      // The separate old twelve-stage runtime and saved continuation stay reachable.
+      await page.locator('a[href="../naopoyo-rescue/index.html"]').click();
+      await page.waitForURL('**/prototypes/naopoyo-rescue/index.html');
     await page.locator('#stageSelect').waitFor();
     await page.goto('http://127.0.0.1:8765/prototypes/naopoyo/legacy.html');
     await page

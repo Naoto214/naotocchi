@@ -1,0 +1,57 @@
+name: Naopoyo Chapter 1
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-chapter1/**'
+      - 'prototypes/naopoyo-world/**'
+      - 'prototypes/naopoyo-v2/**'
+      - '.github/workflows/naopoyo-chapter1.yml'
+      - 'prototypes/naopoyo/index.html'
+      - 'tools/pages/**'
+      - 'tests/pages/**'
+      - 'conversation-away.js'
+      - 'script.js'
+      - 'prototypes/card-game/**'
+      - 'docs/card-game/**'
+  workflow_dispatch:
+jobs:
+  chapter-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/naopoyo-chapter1/tests/*.test.mjs prototypes/naopoyo-insight/tests/*.test.mjs prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
+      - run: node prototypes/naopoyo-chapter1/build-preview.mjs /tmp/chapter-preview
+
+  card-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs
+
+  chapter-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix /tmp/chapter-browser --no-save --package-lock=false playwright@1.51.1
+      - run: /tmp/chapter-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: node prototypes/naopoyo-chapter1/tests/release-browser.cjs
+        env:
+          NODE_PATH: /tmp/chapter-browser/node_modules
+      - name: CARD GAME public UI and saved matches
+        env:
+          NODE_PATH: /tmp/chapter-browser/node_modules
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/card-http.log 2>&1 &
+          card_server_pid=$!
+          trap 'kill "$card_server_pid" 2>/dev/null || true' EXIT
+          node prototypes/card-game/tests/browser.cjs
+          node prototypes/card-game/tests/release-entry-browser.cjs

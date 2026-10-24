@@ -1,0 +1,12 @@
+{
+  "browser": "Chromium cloud browser, iframe viewport measurement",
+  "physicalIphoneSafari": "not tested",
+  "visibleGallery": "All seven boards rendered with official character sprites and host; water, waves, beams, numeric/species conditions visible",
+  "viewports": [
+    {"width":375,"height":667,"cell":43.375,"board":[14,170,347,347],"scroll":false,"controlsFit":true},
+    {"width":390,"height":664,"cell":45.25,"board":[14,161,362,362],"scroll":false,"controlsFit":true},
+    {"width":430,"height":740,"cell":50.25,"board":[14,179,402,402],"scroll":false,"controlsFit":true},
+    {"width":375,"height":520,"cell":42.25,"board":[18.5,98,338,338],"scroll":false,"controlsFit":true}
+  ],
+  "limit": "Safe-area physical dimensions and Safari toolbar/touch remain unverified; below 40 CSS px per cell needs hands-on evaluation. 375x460 fixture exists but has not been observed. Shared preview server was replaced by a concurrent home-pilot task, so no further live-browser verification was claimed."
+}

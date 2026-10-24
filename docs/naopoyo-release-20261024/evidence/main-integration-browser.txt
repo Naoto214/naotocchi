@@ -1,0 +1,7 @@
+PASS main menu -> independent player; main save unchanged 320x568
+PASS main menu -> independent player; main save unchanged 390x844
+PASS restore after dex expansion: labels, targets and canonical IDs agree
+PASS standard/trials isolation, reload and geometry 320x568
+PASS standard/trials isolation, reload and geometry 375x667
+PASS standard/trials isolation, reload and geometry 390x844
+PASS standard/trials isolation, reload and geometry 430x932

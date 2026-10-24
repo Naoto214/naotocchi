@@ -1,0 +1,35 @@
+{
+  "note": "Container CPU, not iPhone; concurrent full regression load",
+  "result": [
+    {
+      "stage": "A",
+      "frames": 500,
+      "p95ms": 0.48681200000000047,
+      "maxMs": 4.705162000000001
+    },
+    {
+      "stage": "B",
+      "frames": 500,
+      "p95ms": 0.5761259999999879,
+      "maxMs": 3.7785499999999956
+    },
+    {
+      "stage": "C",
+      "frames": 500,
+      "p95ms": 0.32636999999999716,
+      "maxMs": 0.6246390000000019
+    },
+    {
+      "stage": "D",
+      "frames": 500,
+      "p95ms": 0.40352600000005623,
+      "maxMs": 1.676019999999994
+    },
+    {
+      "stage": "E",
+      "frames": 500,
+      "p95ms": 0.7529520000000502,
+      "maxMs": 8.17485899999997
+    }
+  ]
+}
