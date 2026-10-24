@@ -8,5 +8,5 @@ for(const stage of stages.filter(s=>s.number<=13))test(`${stage.id}: stable init
 test('11 cannot finish without a gravity event',()=>assert.equal(solve(stages[0],{filter:(_s,_n,r)=>!r.events.some(e=>e.type==='fall')}).status,'exhausted'));
 const stacked=s=>s.actors.some(a=>s.actors.some(b=>a.x===b.x&&a.y+1===b.y));
 for(const i of [1,2])test(`${i+11} cannot finish without using a companion as a vertical support`,()=>assert.equal(solve(stages[i],{filter:(_s,n)=>!stacked(n)}).status,'exhausted'));
-test('13 cannot rescue the 8 before the 4: exhaustive state graph',()=>assert.equal(solve(stages[2],{filter:(s,_n,r)=>!r.events.some(e=>e.type==='rescue'&&e.level===4&&s.rescued<8)}).status,'exhausted'));
+test('13 legal alternate: incompatible 8-exit can support 4 after 8 departs',()=>assert.equal(solve(stages[2],{filter:(s,_n,r)=>!r.events.some(e=>e.type==='rescue'&&e.level===4&&s.rescued<8)}).status,'solved'));
 test('solver reports capped exploration as unproven',()=>assert.equal(solve(stages[2],{limit:2}).status,'limit'));

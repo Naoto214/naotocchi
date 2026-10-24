@@ -1,4 +1,4 @@
-// Authored mechanism candidates; see expansion-audit.json for search limits.
+// Authored stage definitions; new-physics evidence: docs/naopoyo-gravity-20261024/
 export const expansionStages=[
   {
     "id": "komorebi-fall-order",
@@ -145,15 +145,15 @@ export const expansionStages=[
     "showSpecies": false,
     "difficulty": 4,
     "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
-    "lesson": "ほどける場所にも、立っていられる。",
+    "lesson": "トゲは仕掛け。その下の岩が足場。",
     "story": "岩の切れ目に、二本のトゲが光っていた。",
-    "ending": "こわかった場所が、渡るための足場になった。",
+    "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
     "hints": [
-      "トゲのマスでは、分かれた本体が止まる。",
+      "トゲは足場にならない。このトゲの下には岩があるよ。",
       "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
       "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
     ],
-    "hint": "トゲのマスでは、分かれた本体が止まる。"
+    "hint": "トゲは足場にならない。このトゲの下には岩があるよ。"
   },
   {
     "id": "komorebi-woven-path",
@@ -355,6 +355,10 @@ export const expansionStages=[
       [
         7,
         6
+      ],
+      [
+        4,
+        7
       ]
     ],
     "gates": [
@@ -422,7 +426,7 @@ export const expansionStages=[
     "hints": [
       "全員で16。星は3と5だけ。",
       "二つの8で門を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
-      "左端の6を右上へ動かして落下合体。8を右の4へ動かすと、上に余った4も下へ集まる。"
+      "まず二つの8を作り、下の門へ。門から右上のトゲへは、その下の岩を足場に登れるよ。"
     ],
     "hint": "全員で16。星は3と5だけ。"
   },
@@ -553,6 +557,14 @@ export const expansionStages=[
       [
         7,
         6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        4
       ]
     ],
     "gates": [
@@ -635,7 +647,7 @@ export const expansionStages=[
     "hints": [
       "下の門は8。上の門は3と4。でも上の星は7。",
       "7は上の門を通れない。門の向こうで3＋4を組もう。その材料を残しつつ、下の3の星から先に仲間を帰そう。",
-      "まず左端の6を右上へ重ねて落とす。できた8を右の4へ動かし、二つの8にしてから下の門を渡ろう。"
+      "二つの8で下の門を通り、岩に支えられたトゲで分けよう。上の作業場で7を作ったら、左上の岩へ登って星へ。"
     ],
     "hint": "下の門は8。上の門は3と4。でも上の星は7。",
     "narrator": {

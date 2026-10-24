@@ -1,0 +1,104 @@
+✔ stage 1: unsupported upper spike is not a foothold (3.094117ms)
+✔ stage 1: rock diagonal step and destination-only corner crossing (0.568179ms)
+✔ stage 1: unrelated side rock cannot grant diagonal air ascent (0.131754ms)
+✔ stage 1: airborne departure cannot ascend even onto a ledge (1.330073ms)
+✔ stage 2: unsupported upper spike is not a foothold (0.280805ms)
+✔ stage 2: rock diagonal step and destination-only corner crossing (0.242968ms)
+✔ stage 2: unrelated side rock cannot grant diagonal air ascent (0.205013ms)
+✔ stage 2: airborne departure cannot ascend even onto a ledge (0.447831ms)
+✔ stage 3: unsupported upper spike is not a foothold (0.267144ms)
+✔ stage 3: rock diagonal step and destination-only corner crossing (0.285631ms)
+✔ stage 3: unrelated side rock cannot grant diagonal air ascent (0.146286ms)
+✔ stage 3: airborne departure cannot ascend even onto a ledge (0.08757ms)
+✔ stage 4: unsupported upper spike is not a foothold (0.09485ms)
+✔ stage 4: rock diagonal step and destination-only corner crossing (0.186025ms)
+✔ stage 4: unrelated side rock cannot grant diagonal air ascent (0.090133ms)
+✔ stage 4: airborne departure cannot ascend even onto a ledge (0.055482ms)
+✔ stage 5: unsupported upper spike is not a foothold (0.17585ms)
+✔ stage 5: rock diagonal step and destination-only corner crossing (0.125555ms)
+✔ stage 5: unrelated side rock cannot grant diagonal air ascent (0.05374ms)
+✔ stage 5: airborne departure cannot ascend even onto a ledge (0.045938ms)
+✔ stage 6: unsupported upper spike is not a foothold (0.080889ms)
+✔ stage 6: rock diagonal step and destination-only corner crossing (0.123722ms)
+✔ stage 6: unrelated side rock cannot grant diagonal air ascent (0.076383ms)
+✔ stage 6: airborne departure cannot ascend even onto a ledge (0.046048ms)
+✔ stage 7: unsupported upper spike is not a foothold (0.070504ms)
+✔ stage 7: rock diagonal step and destination-only corner crossing (0.075752ms)
+✔ stage 7: unrelated side rock cannot grant diagonal air ascent (0.111284ms)
+✔ stage 7: airborne departure cannot ascend even onto a ledge (0.116362ms)
+✔ stage 8: unsupported upper spike is not a foothold (0.130262ms)
+✔ stage 8: rock diagonal step and destination-only corner crossing (0.18297ms)
+✔ stage 8: unrelated side rock cannot grant diagonal air ascent (0.139286ms)
+✔ stage 8: airborne departure cannot ascend even onto a ledge (0.088431ms)
+✔ spike occupant and fragments fall during same event (0.893989ms)
+✔ initial unsupported spike occupant falls without triggering a new entry (0.132596ms)
+✔ 8 on 1..7 is legal ascent followed by automatic merge/overflow; 8 on 8 stays (0.636479ms)
+✔ rule version cannot be injected or omitted in saved state (0.336276ms)
+✔ power 1: all-direction entry (0,-1) uses v2 calculation (0.35907ms)
+✔ power 1: all-direction entry (1,-1) uses v2 calculation (1.656615ms)
+✔ power 1: all-direction entry (1,0) uses v2 calculation (0.195689ms)
+✔ power 1: all-direction entry (1,1) uses v2 calculation (0.308005ms)
+✔ power 1: all-direction entry (0,1) uses v2 calculation (0.1899ms)
+✔ power 1: all-direction entry (-1,1) uses v2 calculation (0.430666ms)
+✔ power 1: all-direction entry (-1,0) uses v2 calculation (0.42001ms)
+✔ power 1: all-direction entry (-1,-1) uses v2 calculation (0.203581ms)
+✔ power 2: all-direction entry (0,-1) uses v2 calculation (0.195979ms)
+✔ power 2: all-direction entry (1,-1) uses v2 calculation (0.186175ms)
+✔ power 2: all-direction entry (1,0) uses v2 calculation (0.208788ms)
+✔ power 2: all-direction entry (1,1) uses v2 calculation (0.210281ms)
+✔ power 2: all-direction entry (0,1) uses v2 calculation (0.163321ms)
+✔ power 2: all-direction entry (-1,1) uses v2 calculation (0.159825ms)
+✔ power 2: all-direction entry (-1,0) uses v2 calculation (0.180416ms)
+✔ power 2: all-direction entry (-1,-1) uses v2 calculation (0.201678ms)
+✔ power 3: all-direction entry (0,-1) uses v2 calculation (0.229889ms)
+✔ power 3: all-direction entry (1,-1) uses v2 calculation (0.146807ms)
+✔ power 3: all-direction entry (1,0) uses v2 calculation (0.102592ms)
+✔ power 3: all-direction entry (1,1) uses v2 calculation (0.077835ms)
+✔ power 3: all-direction entry (0,1) uses v2 calculation (0.072367ms)
+✔ power 3: all-direction entry (-1,1) uses v2 calculation (0.136051ms)
+✔ power 3: all-direction entry (-1,0) uses v2 calculation (0.07478ms)
+✔ power 3: all-direction entry (-1,-1) uses v2 calculation (0.06757ms)
+✔ supported spike fires once while stationary, again after leaving and reentering (0.207697ms)
+✔ level 1 and blocked/partial split can pass legally (0.420831ms)
+✔ separate actors entering the same spike in one cascade each split (0.204292ms)
+✔ a closed exit physically blocks falling and provides the same ascent support (0.369936ms)
+✔ overflow remaining on its original spike is not a new entry (0.499467ms)
+✖ external split rolls back a detected gravity cycle atomically (guard fault injection) (0.504315ms)
+✔ new rules retain old normal/QA saves byte for byte and import progress only (2.496164ms)
+✔ every chapter2 board explicitly selects supported physics (0.172665ms)
+✔ newborn fragments animate from placement to their gravity landing (4.368367ms)
+✖ shipped stage19 transient child is visible between its birth and absorption (10.67813ms)
+ℹ tests 70
+ℹ suites 0
+ℹ pass 68
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 146.298993
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:63:1
+✖ external split rolls back a detected gravity cycle atomically (guard fault injection) (0.504315ms)
+  Error: gravity-cycle
+      at Object.canFall (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:65:53)
+      at settle (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-v2/engine.mjs:107:40)
+      at externalSplit (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-v2/engine.mjs:167:63)
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:65:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs:19:1
+✖ shipped stage19 transient child is visible between its birth and absorption (10.67813ms)
+  AssertionError [ERR_ASSERTION]: transient child child6
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs:23:227)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

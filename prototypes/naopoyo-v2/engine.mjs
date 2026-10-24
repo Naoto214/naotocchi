@@ -29,8 +29,9 @@ function nextId(s){
  let id;do{id=`child${s.nextId}`;s.nextId=s.nextId===Number.MAX_SAFE_INTEGER?1:s.nextId+1}while(s.actors.some(a=>a.id===id));return id;
 }
 function split(s,a,spike,dx,dy,ctx,result){
- const key=`${spike.x},${spike.y}`;if(ctx.fired.has(key))return;
- ctx.fired.add(key);
+ const key=`${spike.x},${spike.y}`;
+ // New physics dispatches on actual entry, not once per tile per cascade.
+ if(!supportedGravity(s)){if(ctx.fired.has(key))return;ctx.fired.add(key);}
  const positions=splitCandidates(s,a.x,a.y,dx,dy,a,ctx.policy),k=Math.min(a.level-1,spike.power,positions.length);
  result.split=k;result.splitBlocked=k===0?(a.level===1?'minimum':'space'):null;
  if(!k)return;
@@ -39,7 +40,7 @@ function split(s,a,spike,dx,dy,ctx,result){
   const child={id:nextId(s),species:a.species,level:1,x:p.x,y:p.y};
   s.actors.push(child);ctx.families.set(child.id,family);result.children.push(clone(child));
  }
- ctx.events.push({type:'split',id:a.id,x:a.x,y:a.y,count:k});
+ ctx.events.push({type:'split',id:a.id,x:a.x,y:a.y,count:k,...(supportedGravity(s)?{children:clone(result.children)}:{})});
 }
 function enter(s,a,dx,dy,ctx,fall=false){
  const x=a.x+dx,y=a.y+dy,reject=reason=>({ok:false,reason});
@@ -64,36 +65,44 @@ function enter(s,a,dx,dy,ctx,fall=false){
  }
  if(exit&&!matchesCondition({...a,level},exit))return reject('exit');
  const result={ok:true,id:ctx.activeId||a.id,merged:target?.level||0,overflow:Math.max(0,combined-8),split:0,children:[],rescued:0,falls:[]};
- const from={x:a.x,y:a.y};let body=a;
+ const from={x:a.x,y:a.y};let body=a;let overflowActor=null;
  if(target){
   body=target.id===ctx.activeId?target:a;
   const remainder=body===a?target:a;
   ctx.families.delete(a.id);ctx.families.delete(target.id);
-  if(combined>8){Object.assign(remainder,from,{level:combined-8})}
+  const absorbed=combined<=8?[clone(remainder)]:[];
+  if(combined>8){Object.assign(remainder,from,{level:combined-8});overflowActor=remainder}
   else s.actors=s.actors.filter(v=>v!==remainder);
-  ctx.events.push({type:'merge',id:body.id,x,y,level,overflow:result.overflow,fall});
+  ctx.events.push({type:'merge',id:body.id,x,y,level,overflow:result.overflow,fall,...(supportedGravity(s)?{absorbed}:{})});
  }
+ const entered=body===a;
  Object.assign(body,{x,y,level});
  if(gate)gate.open=true;
  if(exit){
   s.rescued+=body.level;s.rescuedBySpecies[body.species]=(s.rescuedBySpecies[body.species]||0)+body.level;
   s.actors=s.actors.filter(v=>v!==body);ctx.families.delete(body.id);result.rescued=body.level;
   ctx.events.push({type:'rescue',id:body.id,x,y,level:body.level});
- }else if(spike)split(s,body,spike,dx,dy,ctx,result);
+ }else if(spike&&(!supportedGravity(s)||entered))split(s,body,spike,dx,dy,ctx,result);
+ if(supportedGravity(s)&&overflowActor&&entered){const originSpike=at(s.spikes,from.x,from.y);if(originSpike)split(s,overflowActor,originSpike,-dx,-dy,ctx,{split:0,children:[]});}
  if(fall)ctx.events.push({type:'fall',id:body.id,from:from.y,to:y,x});
  return result;
 }
 export function settle(s,ctx=context()){
  if(!s.gravity)return [];
  const start=ctx.events.length;
- // A spike is a traversable ledge: entering it can split, its occupant stays on it.
- // Each spike fires at most once per cascade. Between firings, weighted height
- // strictly increases (or mass exits); a saturated contact never executes.
- let changed=true;
+ // Legacy ledges remain versioned. New spikes never stop gravity.
+ // Repeated physical state (including temporary family groups) is a cycle,
+ // not a stable board. Never return a partially settled board.
+ let changed=true;const seen=new Set();
  while(changed){
+  if(supportedGravity(s)){
+   const sorted=[...s.actors].sort((a,b)=>a.y-b.y||a.x-b.x),groups=new Map();
+   const signature=JSON.stringify(sorted.map(a=>{const f=ctx.families.get(a.id);if(f!==undefined&&!groups.has(f))groups.set(f,groups.size+1);return [a.x,a.y,a.level,a.species,f===undefined?0:groups.get(f)]}));
+   if(seen.has(signature))throw new Error('gravity-cycle');seen.add(signature);
+  }
   changed=false;
   for(const snapshot of [...s.actors].sort((a,b)=>b.y-a.y||a.x-b.x||(a.id<b.id?-1:a.id>b.id?1:0))){
-   const a=s.actors.find(v=>v.id===snapshot.id);if(!a||at(s.spikes,a.x,a.y))continue;
+   const a=s.actors.find(v=>v.id===snapshot.id);if(!a||(!supportedGravity(s)&&at(s.spikes,a.x,a.y)))continue;
    // Fall eligibility is separate from terrain and split-child placement.
    // The default v2 policy has no capability-dependent gravity.
    if(ctx.policy?.canFall&&!ctx.policy.canFall(s,a))continue;
@@ -102,19 +111,35 @@ export function settle(s,ctx=context()){
  }
  return ctx.events.slice(start);
 }
-const support=(s,x,y,a)=>wall(s,x,y)||!!at(s.actors,x,y)||s.gates.some(g=>g.x===x&&g.y===y&&!matchesCondition(a,g));
+// Versioned physics: omitted rule preserves published v2 boards.
+export const supportedGravity=s=>s.gravityRules==='supported-v1';
+export function supportsAt(s,x,y,a,excludeId=null){
+ return wall(s,x,y)||s.actors.some(v=>v.x===x&&v.y===y&&v.id!==excludeId)||s.gates.some(g=>g.x===x&&g.y===y&&!matchesCondition(a,g))||(supportedGravity(s)&&s.exits.some(e=>e.x===x&&e.y===y&&!matchesCondition(a,e)));
+}
+export function canAscend(s,a,dx,dy){
+ if(!s.gravity||dy>=0)return true;
+ if(!supportedGravity(s))return !!(at(s.spikes,a.x,a.y)||supportsAt(s,a.x,a.y+1,a))&&!!(supportsAt(s,a.x-1,a.y,a)||supportsAt(s,a.x+1,a.y,a));
+ // Grounded departure + real support below the destination. The moving actor
+ // cannot support itself. Passability/contact remain enter()'s responsibility.
+ return supportsAt(s,a.x,a.y+1,a,a.id)&&supportsAt(s,a.x+dx,a.y+dy+1,a,a.id);
+}
 export function move(s,id,dx,dy,policy={}){
  const a=s.actors.find(a=>a.id===id),reject=reason=>({ok:false,reason});
  if(!a||!Number.isInteger(dx)||!Number.isInteger(dy)||Math.max(Math.abs(dx),Math.abs(dy))!==1)return reject('step');
- if(s.gravity&&dy<0&&(!(at(s.spikes,a.x,a.y)||support(s,a.x,a.y+1,a))||!(support(s,a.x-1,a.y,a)||support(s,a.x+1,a.y,a))))return reject('foothold');
- const ctx=context(id,policy),result=enter(s,a,dx,dy,ctx);
- if(!result.ok)return result;
- s.moves++;result.falls=settle(s,ctx);result.events=ctx.events;return result;
+ if(!canAscend(s,a,dx,dy))return reject('foothold');
+ return resolvedStep(s,a,dx,dy,policy,id,true);
+}
+const rollbackSnapshot=s=>supportedGravity(s)?{actors:s.actors.map(a=>({...a})),gates:s.gates.map(g=>({...g})),rescuedBySpecies:{...s.rescuedBySpecies},rescued:s.rescued,nextId:s.nextId,moves:s.moves}:null;
+function resolvedStep(s,a,dx,dy,policy,activeId,countMove){
+ const before=rollbackSnapshot(s),ctx=context(activeId,policy);
+ try{const result=enter(s,a,dx,dy,ctx);if(!result.ok)return result;
+  if(countMove)s.moves++;result.falls=settle(s,ctx);result.events=ctx.events;return result;
+ }catch(error){if(before&&error.message==='gravity-cycle'){Object.assign(s,before);return {ok:false,reason:'gravity-cycle'}}throw error;}
 }
 export function totals(s){const result={...s.rescuedBySpecies};for(const a of s.actors)result[a.species]=(result[a.species]||0)+a.level;return result}
 export function validState(stage,s){
  try{
-  if(!s||s.id!==stage.id||s.w!==stage.w||s.h!==stage.h||s.occupiedSpikeMode!==stage.occupiedSpikeMode)return false;
+  if(!s||s.id!==stage.id||s.w!==stage.w||s.h!==stage.h||s.occupiedSpikeMode!==stage.occupiedSpikeMode||s.gravityRules!==stage.gravityRules)return false;
   for(const key of ['rescued','moves'])if(!Number.isSafeInteger(s[key])||s[key]<0)return false;
   if(!Number.isSafeInteger(s.nextId)||s.nextId<1)return false;
   for(const key of ['walls','spikes','exits','gravity'])if(JSON.stringify(s[key])!==JSON.stringify(stage[key]))return false;
@@ -134,13 +159,13 @@ export function validState(stage,s){
 // Optional external-event entry points. Default move/settle semantics remain v2.
 export function externalMove(s,id,dx,dy,policy={},activeId=id){
  const a=s.actors.find(a=>a.id===id);if(!a||!Number.isInteger(dx)||!Number.isInteger(dy)||Math.max(Math.abs(dx),Math.abs(dy))!==1)return {ok:false,reason:'step'};
- const ctx=context(activeId,policy),result=enter(s,a,dx,dy,ctx);
- if(result.ok){result.falls=settle(s,ctx);result.events=ctx.events}return result;
+ return resolvedStep(s,a,dx,dy,policy,activeId,false);
 }
 export function externalSplit(s,id,power,dx=1,dy=0,policy={},activeId=id){
  const a=s.actors.find(a=>a.id===id);if(!a||!Number.isInteger(power)||power<1)return {ok:false,reason:'split'};
  const remaining=a.level-Math.min(a.level-1,power,splitCandidates(s,a.x,a.y,dx,dy,a,policy).length);
  if(!gateAllows(s,{...a,level:remaining},a.x,a.y))return {ok:false,reason:'gate',children:[]};
- const ctx=context(activeId,policy),result={ok:true,id,split:0,children:[]};
- split(s,a,{x:a.x,y:a.y,power},dx,dy,ctx,result);result.falls=settle(s,ctx);result.events=ctx.events;return result;
+ const before=rollbackSnapshot(s),ctx=context(activeId,policy),result={ok:true,id,split:0,children:[]};
+ try{split(s,a,{x:a.x,y:a.y,power},dx,dy,ctx,result);result.falls=settle(s,ctx);result.events=ctx.events;return result;}
+ catch(error){if(before&&error.message==='gravity-cycle'){Object.assign(s,before);return {ok:false,reason:'gravity-cycle',children:[]}}throw error;}
 }

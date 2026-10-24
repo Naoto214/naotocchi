@@ -129,18 +129,20 @@ export function mount({qa = false} = {}) {
       : [e])
       q.travel(point(sample));
     const r = q.lastResults.at(-1);
+    // A pointerup without another cell crossing must retain the last outcome.
+    if(!r){draw();return;}
     if (r?.split) {
       hitUntil = q.time + 350;
       $("status").textContent = `${r.split}つにほどけた。そのまま続けよう。`;
     } else
       $("status").textContent = r?.ok
-        ? "指を離さず、そのまま。"
+        ? r.events?.some(e=>e.type==="merge"&&e.overflow) ? "合体して8に。余った仲間は元の場所へ、支えがなければ落ちるよ。" : "指を離さず、そのまま。"
         : r?.reason === "gate"
           ? "門の数字に合う仲間だけが通れるよ。余った仲間の戻る場所も確かめよう。"
           : r
           ? q.stage.gates.some(g => g.waveOnly)
             ? "波の門は、表示の数字になって波で通ろう。"
-            : "上へ登るには、下の足場と横の支えが必要だよ。"
+            : "上へ登るには、今いる場所と行き先の下に足場が必要だよ。トゲは足場にならないよ。"
           : "キャラから、なぞってみよう";
     draw();
   }

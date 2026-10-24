@@ -31,10 +31,19 @@ export class ForestSession extends WorldSession {
 export function visualActors(q){
  const f=q.motion[0];if(!f)return q.state.actors.map(a=>({...a,opacity:1,landing:0}));
  const t=Math.min(1,f.elapsed/f.duration),hasFall=f.events.some(e=>e.type==='fall'),manualEnd=hasFall?.28:1;
- const ids=new Set([...f.before.actors,...f.after.actors].map(a=>a.id));
+ const births=f.events.flatMap(e=>e.children||[]);
+ const ids=new Set([...f.before.actors,...f.after.actors,...births].map(a=>a.id));
  return [...ids].map(id=>{
   const old=f.before.actors.find(a=>a.id===id),now=f.after.actors.find(a=>a.id===id);
-  if(!old)return {...now,opacity:Math.min(1,t*3),landing:0};
+  if(!old){
+   const born=births.find(a=>a.id===id);
+   if(!born)return {...now,opacity:Math.min(1,t*3),landing:0};
+   const absorption=f.events.find(e=>e.absorbed?.some(a=>a.id===id));
+   const rescued=f.events.find(e=>e.type==='rescue'&&e.id===id);
+   const target=now||absorption||rescued||born;
+   const p=Math.max(0,(t-manualEnd)/(1-manualEnd||1)),ease=p*p*(3-2*p);
+   return {...(now||born),x:born.x+(target.x-born.x)*ease,y:born.y+(target.y-born.y)*ease,opacity:Math.min(1,t*3)*(now?1:1-p),landing:0};
+  }
   let start={x:old.x,y:old.y};const manual=id===f.id?{x:old.x+f.dx,y:old.y+f.dy}:(!f.events.some(e=>e.type==='fall'&&e.id===id)&&now?{x:now.x,y:now.y}:start);
   const falls=f.events.filter(e=>e.type==='fall'&&e.id===id);
   const target=now||f.events.find(e=>e.id===id&&(e.type==='rescue'||e.type==='merge'))||manual;
