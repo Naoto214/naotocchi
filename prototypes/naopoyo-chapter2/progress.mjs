@@ -4,6 +4,17 @@ import {stages} from './stages.mjs';
 export const KEY='naopoyo.komorebi.pilot.20261024.v1',QA_KEY=KEY+'.qa';
 export const allStages=[...chapter1,...stages];
 export class ForestProgress extends Progress{
+ merge(raw,restore=false){
+  super.merge(raw,restore);
+  // A completed old Pilot must open its newly appended successor, including
+  // clears recovered from append-only markers after a stale tab writes.
+  if(this.qa||this.future)return;
+  for(const id of this.data.cleared){
+   if(!this.order.includes(id))continue;
+   const next=this.next(id);
+   if(next&&!this.data.unlocked.includes(next))this.data.unlocked.push(next);
+  }
+ }
  board(id,value){
   if(!this.allowed(id))return false;
   try{

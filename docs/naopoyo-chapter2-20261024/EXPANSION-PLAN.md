@@ -16,10 +16,10 @@ Spec: user request in this Work, 2026-10-24; existing DESIGN-AND-AUDIT.md and NE
 Authored structural candidates + exact real-engine search is selected under the user's autonomous authorization. Random board generation would optimize search effort rather than insight. BFS proves shortest paths for bounded boards; larger candidates use a bounded best-first witness search and separately report lack of optimality proof. IDA* without a strong admissible heuristic repeats expensive transitions; constraints-only solving would duplicate engine semantics.
 
 ## Tasks
-- [ ] 1. Gate repair. `prototypes/naopoyo-v2/engine.mjs`, new `tests/gates.test.mjs`: RED for overflow returning 4 to exact-8 source gate, manual/external/fall/diagonal paths, save validation, resulting merge on gate. GREEN with common gate predicate and preflight; existing puzzle suite.
-- [ ] 2. Search/design. `prototypes/naopoyo-chapter2/solve.mjs`, candidate generator/auditor and fixtures. Verify canonical state keys against ID-sensitive fall order, bound exploration, replay positional witnesses. Compare structurally distinct stage-20 candidates and mechanism ablations; retain rejected candidates.
-- [ ] 3. Stages 14–20. `stages.mjs`, witness JSON and tests. Distinct core insights, stable initial states, invariant mass/gate legality, complete witness, three hints, constrained artwork. No new later-chapter mechanics.
-- [ ] 4. Pilot progression and layout. Existing dynamic stage list plus regression for 13→20, restored unlocks, QA separation, interrupted drag/Undo/Retry, narrow viewport and safe area. Keep prior saves, backup invalid gate snapshots.
+- [x] 1. Gate repair. `prototypes/naopoyo-v2/engine.mjs`, new `tests/gates.test.mjs`: RED for overflow returning 4 to exact-8 source gate, manual/external/fall/diagonal paths, save validation, resulting merge on gate. GREEN with common gate predicate and preflight; existing puzzle suite.
+- [x] 2. Search/design. `prototypes/naopoyo-chapter2/solve.mjs`, candidate generator/auditor and fixtures. Verify canonical state keys against ID-sensitive fall order, bound exploration, replay positional witnesses. Compare structurally distinct stage-20 candidates and mechanism ablations; retain rejected candidates.
+- [x] 3. Stages 14–20. `stages.mjs`, witness JSON and tests. Distinct core insights, stable initial states, invariant mass/gate legality, complete witness, three hints, constrained artwork. No new later-chapter mechanics.
+- [x] 4. Pilot progression and layout. Existing dynamic stage list plus regression for 13→20, restored unlocks, QA separation, interrupted drag/Undo/Retry, narrow viewport and safe area. Keep prior saves, backup invalid gate snapshots.
 - [ ] 5. Validation/review. All puzzle suites, npm test, CARD, Pages, existing CI. One independent final review; fix material findings with RED→GREEN. Record exact limits and iPhone hardware not tested.
 - [ ] 6. Save/deploy. Commit/push #436, update body/CI. Rebuild private Site through supported Sites flow, preserve owner-only audience and URL; verify version/hash and stage entry.
 
@@ -30,3 +30,5 @@ Overflow-induced source gate changes; restored invalid gate snapshots with valid
 - Latest main 92ac654; #436 cd66a7a, draft and mergeable; no AGENTS.md found.
 - Reproduced: 8 enters (2,7), merges right into 4, remainder 4 placed on exact-8 gate; validState accepts. No diagonal corner-rule change needed.
 - Ruling: use fresh isolated checkout + fix branch, then integrate existing PR; user explicitly authorized isolated engine fixes and no intermediate approvals.
+
+引き継ぎ後の再検証・追加修正はRESUMPTION.md、最終CIと配信はPR #436本文を参照。

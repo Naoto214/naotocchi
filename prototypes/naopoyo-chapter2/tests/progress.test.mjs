@@ -28,3 +28,13 @@ test('damaged board slot is preserved before writing a replacement',()=>{
  const s=memory(),id='komorebi-fall';s.setItem(KEY,JSON.stringify({version:1,unlocked:[id],boards:{}}));s.setItem(KEY+'.board.'+id,'{broken board');
  const p=new ForestProgress(s);p.board(id,{version:1});assert.equal(s.getItem(KEY+'.board.'+id+'.damaged'),'{broken board');
 });
+for(const source of ['whole-save','append-only-marker'])test(`completed old Pilot unlocks new 14 from ${source} without replaying 13`,()=>{
+ const s=memory(),oldIds=allStages.slice(0,13).map(s=>s.id),last=oldIds.at(-1),next=allStages[13].id;
+ s.setItem(KEY,JSON.stringify({version:1,unlocked:oldIds,cleared:source==='whole-save'?oldIds:oldIds.slice(0,-1),current:'komorebi-fall',boards:{sentinel:{keep:true}},hints:{[last]:2},read:[last]}));
+ if(source==='append-only-marker')s.setItem(KEY+'.cleared.'+last,'1');
+ const p=new ForestProgress(s);assert.ok(p.allowed(next));assert.equal(p.allowed(allStages[14].id),false);assert.equal(p.data.current,'komorebi-fall');assert.equal(p.data.hints[last],2);assert.deepEqual(p.data.boards.sentinel,{keep:true});
+ p.select(next);assert.ok(new ForestProgress(s).allowed(next));assert.equal(s.getItem(OLD),null);assert.equal(s.getItem(QA_KEY),null);
+});
+test('uncleared final Pilot stage does not unlock 14',()=>{
+ const s=memory(),ids=allStages.slice(0,13).map(s=>s.id);s.setItem(KEY,JSON.stringify({version:1,unlocked:ids,cleared:ids.slice(0,-1),current:ids.at(-1)}));assert.equal(new ForestProgress(s).allowed(allStages[13].id),false);
+});
