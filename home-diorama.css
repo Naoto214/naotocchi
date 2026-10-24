@@ -1,0 +1,169 @@
+/* Position belongs to the diorama; WAAPI transform remains Motion v2-owned. */
+#castStage[data-diorama] {touch-action:pan-y pinch-zoom;--diorama-light:1}
+#castStage[data-diorama] .cast-sway {animation:none!important;transform:none!important;z-index:2}
+#castStage[data-diorama] [data-diorama-actor] {pointer-events:auto;touch-action:none;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;outline-offset:3px}
+#castStage[data-diorama] [data-diorama-actor]:focus-visible {outline:2px solid #e2f7ff;border-radius:20px}
+#castStage[data-diorama] .pet-accessory {pointer-events:none}
+.diorama-art,.diorama-overlay {position:absolute;inset:0;pointer-events:none}
+.diorama-art {z-index:0;filter:brightness(var(--diorama-light));overflow:hidden}
+.diorama-overlay {z-index:1}
+.diorama-landscape {width:100%;height:100%;overflow:visible}
+.diorama-shadow {position:absolute;height:9px;background:radial-gradient(ellipse,#203a3960,transparent 70%);border-radius:50%;transform:translate(-50%,-50%)}
+.diorama-shadow[data-selected="true"] {outline:2px solid #d2eeff;box-shadow:0 0 0 3px #3a7f9b70;background:#c5efff45}
+.diorama-target {position:absolute;width:24px;height:10px;transform:translate(-50%,-50%);border:2px dashed #e5f7ff;border-radius:50%;background:#71b4c56b;box-shadow:0 0 0 1px #285b6966}
+.diorama-hint {position:absolute;top:0;left:0;right:0;text-align:center;font-size:10px;color:var(--world-ink,#244b46);text-shadow:var(--world-text-halo);opacity:.76;pointer-events:none;z-index:3}
+.diorama-leaves,.diorama-grass {transform-box:fill-box;transform-origin:center bottom;animation:diorama-sway 7s ease-in-out infinite alternate}
+.diorama-ripples {animation:diorama-water 6s ease-in-out infinite alternate}
+.diorama-cloud {animation:diorama-cloud 35s ease-in-out infinite alternate}
+.diorama-light {animation:diorama-light 18s ease-in-out infinite alternate}
+/* Most of this cycle is quiet; occasional fauna is not constant motion. */
+.diorama-visitor {opacity:0;animation:diorama-visit 32s ease-in-out infinite}
+#castStage[data-diorama-time="night"] {--diorama-light:.72}
+#castStage[data-diorama-weather="rain"] {--diorama-light:.78}
+#castStage[data-diorama-weather="rain"] .diorama-visitor,#castStage[data-diorama-weather="snow"] .diorama-visitor {display:none}
+#castStage[data-diorama-tier="2"] :is(.diorama-far,.diorama-visitor,.diorama-cloud) {display:none}
+#castStage[data-diorama][data-diorama-paused="true"] *,#castStage[data-diorama][data-diorama-reduced="true"] * {animation-play-state:paused!important}
+#castStage[data-diorama][data-diorama-reduced="true"] .diorama-visitor {display:none}
+@keyframes diorama-sway {from{transform:rotate(-1deg)}to{transform:rotate(1.5deg)}}
+@keyframes diorama-water {from{transform:translateX(-4px);opacity:.25}to{transform:translateX(4px);opacity:.65}}
+@keyframes diorama-cloud {to{transform:translateX(30px)}}
+@keyframes diorama-light {to{opacity:.025;transform:translateX(14px)}}
+@keyframes diorama-visit {0%,72%,100%{opacity:0;transform:translate(-20px,5px)}77%{opacity:.75}90%{opacity:.75;transform:translate(38px,-15px)}95%{opacity:0;transform:translate(50px,-20px)}}
+@media(prefers-reduced-motion:reduce){.diorama-art *{animation:none!important}.diorama-visitor{display:none}}
+
+#castStage[data-diorama] [data-diorama-walking="true"] > .character-visual,#castStage[data-diorama] [data-diorama-walking="true"] > .partner-emoji > .character-visual {animation:diorama-walk .5s ease-in-out infinite alternate;transform-origin:center bottom}
+@keyframes diorama-walk {from{translate:0 0;rotate:-.6deg}to{translate:0 -1px;rotate:.6deg}}
+/* A full viewport of the SAME Meguru terrain replaces the photograph and island. */
+.home-living-world{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#aec5b4}
+.home-living-world canvas{position:absolute!important;inset:0;width:100%;height:100%;pointer-events:none}
+body:is([data-living-home="3d"],[data-living-home="canvas-3d"]) .world-scene{display:none}
+body:is([data-living-home="3d"],[data-living-home="canvas-3d"]){background:#aec5b4}
+body:is([data-living-home="3d"],[data-living-home="canvas-3d"]) .device{position:relative;z-index:1}
+#castStage[data-diorama]{touch-action:none}
+#castStage[data-diorama] .diorama-art{display:none}
+#castStage[data-diorama] .poop-row{position:absolute!important;bottom:8px!important;top:auto!important;left:14px!important;right:14px;z-index:1000!important;transform:none!important;pointer-events:none;text-align:center;filter:drop-shadow(0 3px 2px #253d3c55)}
+#castStage[data-diorama] [data-diorama-activity="sit"] .character-visual{translate:0 4px;scale:1 .95;transform-origin:center bottom}
+#castStage[data-diorama] [data-diorama-activity="look"] .character-visual{rotate:1.5deg;transform-origin:center bottom}
+#castStage[data-diorama] [data-diorama-activity="rest"] .character-visual{scale:1 .99;transform-origin:center bottom}
+
+#castStage[data-diorama][data-diorama-paused="true"] [data-diorama-actor] .character-visual{translate:none;rotate:none;scale:1 1}
+
+#castStage[data-diorama] [data-diorama-actor] .character-visual{scale:1 var(--diorama-squash,1)}
+#castStage[data-diorama] [data-diorama-activity="sit"]{--diorama-squash:.95}
+#castStage[data-diorama] [data-diorama-activity="rest"]{--diorama-squash:.99}
+#castStage[data-diorama][data-diorama-paused="true"] [data-diorama-actor] .character-visual{translate:none;rotate:none;scale:1 1}
+/* The legacy world layout placed poop children with viewport anchor variables.
+   In Home they must be relative to the foreground row, not offset a second time. */
+#castStage[data-diorama] #poopRow{height:20px!important;display:flex;justify-content:center;gap:6px}
+#castStage[data-diorama] #poopRow>.care-icon{position:relative;left:auto;top:auto;width:18px;height:18px;flex:0 0 18px;margin:0;font-size:18px}
+
+/* Reflect around painted body center, not transparent PNG frame center. */
+#castStage[data-diorama] [data-diorama-actor] .character-visual{transform-origin:var(--diorama-origin,50% 100%)}
+
+#castStage[data-diorama] [data-diorama-actor] > .partner-emoji > .character-visual{transform-origin:var(--diorama-origin,50% 100%)}
+/* Ordered normal-flow information; no absolute toast can cover basic facts. */
+.home-information,.home-event-slot{display:contents}
+body[data-home-terrain="true"] .device.ui-home-active:has(#screenNormal:not(.hidden)){grid-template-rows:auto minmax(0,1fr) auto auto;gap:3px}
+body[data-home-terrain="true"] .device.ui-home-active:has(#screenNormal:not(.hidden))>.screen-frame{grid-row:2}
+body[data-home-terrain="true"] #homeInformation{display:flex;flex-direction:column;gap:1px;flex:none;padding:0 2px}
+body[data-home-terrain="true"] #homeInformation .status-row{padding:0 6px;min-height:20px}
+body[data-home-terrain="true"] #homeInformation .sub-status-row{padding:0 6px;font-size:11px;flex-wrap:wrap;justify-content:center;gap:2px 8px}
+body[data-home-terrain="true"] #homeInformation .cast-heading{padding:1px 0;gap:1px}
+body[data-home-terrain="true"] #homeGestureGuide{min-height:14px;text-align:center;line-height:1.4}
+body[data-home-terrain="true"] #homeGestureGuide .diorama-hint{position:static;display:block;font-size:10px}
+body[data-home-terrain="true"] #homeEventSlot{display:flex;flex-direction:column;flex:none;gap:2px;min-height:0;max-height:84px;overflow:auto;scrollbar-width:thin;position:relative;z-index:5;touch-action:pan-y}
+body[data-home-terrain="true"] #homeEventSlot:has(>.story-flash:not(.hidden))>#message,
+body[data-home-terrain="true"] #homeEventSlot:has(>.mg-result-toast:not(.hidden))>#message,
+body[data-home-terrain="true"] #homeEventSlot:has(>.birthday-toast:not(.hidden))>#message{display:none}
+body[data-home-terrain="true"] #homeEventSlot>#message:empty{display:none}
+body[data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){position:relative;inset:auto;transform:none;width:auto;margin:0;min-height:0;height:auto;max-height:78px;flex-shrink:0;padding:5px 9px;border:0;border-radius:9px;font-size:12px;line-height:1.4;animation:none;background:#f5fcf0b8;box-shadow:none;overflow:auto}
+body[data-home-terrain="true"] #homeEventSlot>.story-flash{display:flex;align-items:center;gap:6px}
+body[data-home-terrain="true"] #homeEventSlot>.hidden{display:none}
+body[data-home-terrain="true"] #homeEventSlot .story-flash-emoji{font-size:22px;flex:0 0 26px;max-width:32px}
+body[data-home-terrain="true"] #homeEventSlot .story-flash-text{font-size:12px;text-align:left;line-height:1.4;overflow-wrap:anywhere}
+body[data-home-terrain="true"] #homeEventSlot:empty{display:none}
+body[data-home-terrain="true"] #castStage[data-diorama]{min-height:150px}
+@media(max-width:340px){body[data-home-terrain="true"] #homeInformation .status-row{font-size:12px}body[data-home-terrain="true"] #homeInformation .sub-status-row{font-size:10px}}
+/* Health stays visible in the care label/meters; the old warning halo must not
+   recreate a character-only oval floor over the shared terrain. */
+#castStage[data-diorama]::after{display:none!important}
+body[data-home-terrain="true"] #homeGestureGuide .diorama-hint{font-size:11px;opacity:1;color:#173e32;text-shadow:0 1px 2px #fff,0 0 5px #fff}
+body[data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message),
+body[data-home-terrain="true"] #homeEventSlot .story-flash-text{color:#173e32;text-shadow:none}
+
+/* Guide collapses entirely once learned; notifications follow information flow. */
+body[data-home-terrain="true"] #homeGestureGuide[hidden],.diorama-hint[hidden]{display:none!important}
+body[data-home-terrain="true"] #homeGestureGuide{display:flex;align-items:center;justify-content:center;gap:7px}
+#homeGuideDismissBtn{order:1;font:inherit;font-size:10px;padding:3px 5px;border:0;border-radius:6px;background:#ffffffb3;color:#294c40;min-height:26px}
+.home-guide-help{margin:8px 14px;padding:12px;border-radius:12px;background:#ffffffb3;font-size:13px;line-height:1.6;color:#244a45}
+.home-guide-help summary{cursor:pointer;font-weight:700}
+.home-guide-help p{margin:7px 0}
+.home-guide-help button{font:inherit;padding:7px 12px;border:1px solid #98b6a9;border-radius:8px;background:#f9fff9;color:inherit}
+
+/* Both views keep every resident; only the illustration scale changes. */
+.diorama-view{position:absolute;right:5px;top:3px;z-index:1100;border:1px solid #97b5a6;border-radius:14px;background:#f8fff2e8;color:#244a45;font:11px system-ui;padding:7px 10px;min-height:36px;touch-action:manipulation}
+.diorama-selected-label{position:absolute;left:7px;top:5px;z-index:1100;max-width:52%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-radius:10px;background:#f8fff2e8;color:#244a45;font:12px system-ui;padding:6px 9px;pointer-events:none}
+.diorama-view[hidden],.diorama-selected-label[hidden]{display:none!important}
+#castStage[data-diorama] [data-diorama-selected="true"] .character-visual{filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #56b9c0)}
+
+/* A readable crowd may exceed a short viewport. Let the existing document scroll
+   instead of overflowing the cast into care meters or controls. */
+body[data-home-terrain="true"] .device.ui-home-active[data-home-household="crowded"][data-home-fixed="true"]:has(#screenNormal:not(.hidden)){grid-template-rows:auto minmax(min-content,1fr) auto auto}
+html:has(body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"]){overflow:auto;overscroll-behavior:auto}
+body.world-mode[data-home-terrain="true"]:has(.device[data-home-household="crowded"][data-home-fixed="true"]){height:auto;min-height:var(--app-height);overflow:auto;overscroll-behavior:auto}
+body[data-home-terrain="true"] .device.ui-home-active[data-home-household="crowded"][data-home-fixed="true"]{position:relative;inset:auto;min-height:min-content}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] .screen-frame{min-height:min-content;overflow:visible}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #screen{min-height:min-content}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #screenNormal{container-type:normal;min-height:min-content}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #petArea{min-height:300px}
+
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #castStage{touch-action:pan-y pinch-zoom}
+
+/* V12: fixed notice reservation; content never changes terrain/care geometry. */
+body[data-home-terrain="true"] #homeEventSlot{display:block;box-sizing:border-box;height:48px;min-height:48px;max-height:48px;flex:0 0 48px;overflow:hidden}
+body[data-home-terrain="true"] #homeEventSlot:empty{display:block}
+body[data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){box-sizing:border-box;height:46px;max-height:46px;margin:0;padding:4px 9px;align-items:flex-start;overflow:auto;overscroll-behavior:contain}
+body[data-home-terrain="true"] #homeEventSlot .story-flash-emoji{font-size:18px;flex-basis:22px}
+body[data-home-terrain="true"] #homeEventSlot .story-flash-text{font-size:12px;line-height:1.35}
+/* All Home variants use the same 5+4 order, including QA and large text. */
+.device.ui-home-active #careActions{grid-template-columns:repeat(20,minmax(0,1fr));gap:5px 4px;margin-top:6px}
+.device.ui-home-active #careActions>button{grid-column:span 4;min-height:48px;min-width:0;flex-direction:column;gap:2px;padding:4px 1px;font-size:18px}
+.device.ui-home-active #careActions>button:nth-child(n+6){grid-column:span 5}
+.device.ui-home-active #careActions>button span{font-size:12px;line-height:1.25;white-space:nowrap;overflow-wrap:normal}
+.device.ui-home-active[data-text-size="large"] #careActions>button span{font-size:14px;white-space:normal}
+.device.ui-home-active #sleepBtn .care-icon{transform:none;scale:1;rotate:0;translate:none}
+/* Choices float above the stable speech reservation, away from care controls. */
+.device.ui-home-active #speechSlot.is-asking{z-index:1200}
+.device.ui-home-active #speechChoices{top:auto;bottom:calc(100% + 5px);width:min(340px,calc(100% - 12px));box-sizing:border-box;grid-auto-flow:row;grid-template-columns:1fr 1fr;gap:6px;padding:7px;border:1px solid #9db9ac;border-radius:15px;background:#f8fff5f2;box-shadow:0 3px 12px #204a3530;pointer-events:auto}
+.device.ui-home-active #speechChoices[data-count="1"]{grid-template-columns:1fr}
+.device.ui-home-active #speechChoices .speech-choice{min-height:44px;padding:6px;font-size:13px;border-width:1px;border-radius:10px}
+/* Existing individuality choice: no dimming, no full-screen hit layer. */
+.individual-dialog.home-choice-popup{inset:auto;position:fixed;left:50%;top:var(--home-choice-top,40%);transform:translateX(-50%);width:min(340px,calc(100vw - 24px));max-height:45dvh;padding:0;background:transparent;display:block;pointer-events:none;z-index:1400}
+.individual-dialog.home-choice-popup .individual-panel{box-sizing:border-box;width:100%;max-height:45dvh;padding:12px 14px;border:1px solid #9db9ac;border-radius:16px;background:#f8fff5f5;box-shadow:0 5px 18px #204a3530;pointer-events:auto;overflow:auto}
+.individual-dialog.home-choice-popup h2{font-size:15px;margin:0 0 6px}
+.individual-dialog.home-choice-popup p{font-size:13px;line-height:1.5;margin:6px 0}
+.individual-dialog.home-choice-popup button{min-height:44px;margin:6px 0;padding:7px 9px;font-size:13px;border-radius:10px}
+#homeChoiceResult{position:absolute;bottom:0;left:50%;transform:translateX(-50%);box-sizing:border-box;width:min(340px,96%);max-height:100%;overflow:auto;padding:6px 10px;border:1px solid #9db9ac;border-radius:14px;background:#f8fff5;color:#244a45;font-size:13px;line-height:1.4;z-index:1201;box-shadow:0 2px 7px #204a3520}
+#homeChoiceResult.hidden{display:none}
+
+/* Reflection is owned exclusively by pixels, never the wrapper containing Zzz.
+   Motion v2 still animates the wrapper. SVG marks and relationship UI stay readable. */
+#castStage[data-diorama] [data-diorama-actor] .character-visual > :is(.character-asset,.character-emoji-fallback){scale:var(--diorama-facing,1) 1;transform-origin:var(--diorama-origin,50% 100%)}
+
+/* Speech is a clamped speaker overlay; empty conversation no longer reserves ground. */
+body[data-home-terrain="true"] #petArea{position:relative}
+body[data-home-terrain="true"] #speechSlot{flex-direction:column;align-items:center;position:absolute;left:var(--terrain-speech-x,6px);top:var(--terrain-speech-y,30px);width:var(--terrain-speech-w,calc(100% - 12px));height:auto;min-height:0;padding:0;z-index:1200;pointer-events:none}
+body[data-home-terrain="true"] #speechBubble{box-sizing:border-box;width:max-content;max-width:var(--terrain-speech-max,calc(100vw - 44px));flex:none;min-height:0;margin:0;padding:4px 7px;font-size:14px;line-height:1.4;pointer-events:auto}
+body[data-home-terrain="true"] .speech-text{max-height:4.2em}
+body[data-home-terrain="true"] .device[data-text-size="large"] #speechBubble{font-size:15px}
+body[data-home-terrain="true"] #speechSlot[data-terrain-side="above"] #speechBubble::before{top:auto;bottom:-6px;transform:rotate(225deg)}
+body[data-home-terrain="true"] #speechChoices{left:var(--terrain-choice-offset,0px);transform:none;width:var(--terrain-speech-max,100%);max-height:160px;overflow:auto}
+/* Count and cleaning stay canonical. Only the temporary ground coordinates change. */
+#castStage[data-diorama] #poopRow{inset:0!important;width:100%;height:100%!important;display:block;z-index:1000!important}
+#castStage[data-diorama] #poopRow>.care-icon{position:absolute;left:0;top:0;width:18px;height:18px;margin:0}
+
+body[data-home-terrain="true"] #homeChoiceResult{position:relative;left:auto;bottom:auto;transform:none;width:var(--terrain-speech-max,100%);flex:none;max-height:120px;pointer-events:auto}
+
+/* Reflect the approved emission coordinate about the same bounds center as
+   the image. SVG glyphs and Motion v2 wrappers remain unmirrored. */
+#castStage[data-diorama] [data-diorama-actor] .pet-expression-accent--sleeping{translate:var(--diorama-sleep-shift,0%) 0}

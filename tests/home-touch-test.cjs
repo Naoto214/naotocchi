@@ -91,3 +91,9 @@ test('home touch setup leaves the home height available after the fun strip reti
   assert.notEqual(h.get('screenNormal').style.paddingBottom, '38px');
   assert.notEqual(h.get('itemsRow').style.position, 'absolute');
 });
+
+test('crowded terrain home allows document scrolling while other fixed homes remain locked',()=>{
+ const {h,device,target,touch}=home(),e=target('homeMeters');device.dataset.homeHousehold='crowded';h.document.body.dataset.homeTerrain='true';
+ touch(e,'touchstart',300);assert.equal(touch(e,'touchmove',200),false);
+ device.dataset.homeHousehold='small';touch(e,'touchstart',300);assert.equal(touch(e,'touchmove',200),true);
+});

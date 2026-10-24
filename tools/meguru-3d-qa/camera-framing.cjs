@@ -39,7 +39,9 @@ async function measure(page){return page.evaluate(async()=>{
   feet:screen(p.x,ground,p.z),horizon:screen(p.x,ground,p.z+1e9),road:[300,900,1800].map(d=>({distance:d,...screen(p.x,ground,p.z+d)})),
   nominalGroundFraction:1-screen(p.x,ground,p.z+1e9).y,
   playerVisibility:r.renderer.playerVisible,stats:r.renderer.stats3d(),party:r.party.map(a=>[a.x,a.z]),
-  obstacleCount:r.world.obstacles.length,canvasCount:document.querySelectorAll('.meguru-3d-canvas').length};
+  // Home retains its own shared-renderer canvas while Meguru is open.
+  // Count the scene under test so duplicate Meguru canvases still fail.
+  obstacleCount:r.world.obstacles.length,canvasCount:document.querySelector('#mgrCanvas').parentElement.querySelectorAll('.meguru-3d-canvas').length};
  });}
 (async()=>{
  fs.mkdirSync(OUT,{recursive:true});const result={physicalIPhone:'NOT_RUN',environment:'Chromium software WebGL',refs,rows:[],errors:[]};

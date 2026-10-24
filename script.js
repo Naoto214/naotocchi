@@ -5,6 +5,7 @@
   const SAVE_KEY = 'naotocchi-save-v1';
   const INDIVIDUALITY = window.NaotocchiIndividuality;
   let individualityDialogOpen=false, individualityDeferred=false, individualityDialogLife=null;
+  let individualityPopupSerial=0, individualityPopupFocus=null, homeChoiceResultTimer=null;
   let individualGameLifeId=null;
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const LIFE_STAGE_RULES = window.NaotocchiLifeStages || null;
@@ -25,6 +26,7 @@
   });
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
+  let homeDiorama = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   // じどうバックアップ: 20分いじょう あいだが あいた セーブを 3つまで
   // のこし、プロフィールの「もどす」で その時点に もどせる
@@ -3972,7 +3974,7 @@
       const pending = careMilestone; careMilestone = null; showCareFeedback(pending);
     }
     const display = urgent ? notice : visible && careFeedback
-      ? {kind:'change',severity:'info',icon:careFeedback.icon,text:[message,careFeedback.text].filter(Boolean).join('\n')}
+      ? {kind:'change',severity:'info',icon:careFeedback.icon,text:[message,terrainNoticeMode() ? CARE_STATUS.summary(careFeedback.text) : careFeedback.text].filter((text,index,all)=>text && all.indexOf(text)===index).join('\n')}
       : visible && !message ? notice : null;
     const text = display ? display.text || `${display.title}\n${display.detail}`
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
@@ -3982,7 +3984,7 @@
     el.message.dataset.careSeverity = display?.severity || '';
     el.message.dataset.careIcon = display?.icon || '';
     el.message.dataset.careTone = display?.kind === 'change'
-      ? display.text.includes('−') ? display.text.includes('+') ? 'mixed' : 'loss' : 'gain' : '';
+      ? careFeedback.text.includes('−') ? careFeedback.text.includes('+') ? 'mixed' : 'loss' : 'gain' : '';
     el.screen.dataset.careSeverity = visible ? notice?.severity || '' : '';
     for (const id of ['feedBtn','playBtn','cleanBtn','sleepBtn','medicineBtn','playWithBtn']) {
       const recommended = visible && notice?.action === id;
@@ -6588,9 +6590,17 @@
     window.addEventListener('pageshow', (e) => { if (e && e.persisted) { conv2LeaveScene('pageshow'); conv2CheckAway(); } });
     document.addEventListener('visibilitychange', () => { if (pageVisible()) conv2CheckAway(); });
     setTimeout(() => conv2CheckAway(), 0);   // 起動(ほかのページから戻ってきた・reload)
+    // Home choices belong to the conversation, never to the terrain gesture.
+    // Keep click activation for native keyboard and assistive-technology input.
+    for (const type of ['pointerdown', 'pointerup']) el.speechChoices?.addEventListener(type, (e) => {
+      if (el.device.classList.contains('ui-home-active')) e.stopPropagation();
+    });
     el.speechChoices?.addEventListener('click', (e) => {
+      if (el.device.classList.contains('ui-home-active')) e.stopPropagation();
       const btn = e.target?.closest ? e.target.closest('[data-choice]') : e.target;
-      if (btn?.dataset?.choice != null) conv2Answer(Number(btn.dataset.choice));
+      // Reject an obsolete button after timeout, scene change or a later ask.
+      if (btn?.dataset?.choice != null && Array.from(el.speechChoices.children).includes(btn)
+          && !el.speechChoices.classList.contains('hidden')) conv2Answer(Number(btn.dataset.choice));
     });
   } catch (_) { /* 会話の演出は best effort */ }
 
@@ -6628,6 +6638,7 @@
     el.speechChoices.classList.add('hidden');
     el.speechChoices.innerHTML = '';
     el.speechSlot?.classList.remove('is-asking');
+    pointHomeSpeech();
   }
   // 途中でやめる。言いかけの続きは出さない。ためていた自動の会話も捨てる
   // (やめる理由はケア操作・メニュー・ゲームなどで、v2 以前でもその会話はそこで上書きされていた。
@@ -6871,6 +6882,7 @@
     el.speechChoices.dataset.count = String(q.choices.length);
     el.speechChoices.classList.remove('hidden');
     el.speechSlot?.classList.add('is-asking');
+    pointHomeSpeech();
   }
   function conv2Answer(index) {
     const unit = conv2Unit;
@@ -10851,35 +10863,89 @@
     const hearts=Object.entries(d.hearts).map(([k,n])=>`${n}${'★'.repeat(s.hearts[k])}`).join('／');
     return `<div class="lifecard-line">${escapeHtml(traits)}<br>${escapeHtml(hearts)}<br>すき：${escapeHtml((s.place?findRegion(s.place)?.label:null)||'まだ わからない')}／${escapeHtml(d.games[s.game]||'まだ わからない')}</div>`;
   }
+  function homeIndividualityPopupVisible() {
+    return individualityDialogOpen && document.getElementById('individualityDialog')?.classList.contains('home-choice-popup');
+  }
+  function hideHomeChoiceResult() {
+    if (homeChoiceResultTimer) clearTimeout(homeChoiceResultTimer);
+    homeChoiceResultTimer=null;
+    document.getElementById('homeChoiceResult')?.classList.add('hidden');
+  }
+  function showHomeChoiceResult(text) {
+    const result=document.getElementById('homeChoiceResult');
+    if (!result) return;
+    hideHomeChoiceResult();
+    // Exchange reactions are existing narration, never attributed as new dialogue.
+    result.textContent=text;
+    result.setAttribute('role','status');
+    result.classList.remove('hidden');
+    pointHomeSpeech();
+    homeChoiceResultTimer=setTimeout(hideHomeChoiceResult,MESSAGE_DURATION_MS);
+  }
+  function prepareIndividualityPopup(dialog) {
+    const home=el.device.classList.contains('ui-home-active') && !gameActive && !meguruActive;
+    dialog.classList.toggle('home-choice-popup',home);
+    dialog.setAttribute('aria-modal',String(!home));
+    individualityPopupFocus=home ? document.activeElement : null;
+    hideHomeChoiceResult();
+    if (!dialog.dataset.choiceInputBound) {
+      for (const type of ['pointerdown','pointerup','click']) dialog.addEventListener(type,e=>{
+        if (dialog.classList.contains('home-choice-popup')) e.stopPropagation();
+      });
+      dialog.dataset.choiceInputBound='true';
+    }
+    return ++individualityPopupSerial;
+  }
+  function individualityPopupAction(serial,fn) {
+    return event => {
+      // Stop before the action removes the popup class from the ancestor.
+      if (homeIndividualityPopupVisible()) event?.stopPropagation?.();
+      return individualityDialogOpen && serial===individualityPopupSerial ? fn() : false;
+    };
+  }
+  function resetIndividualityPopup(restoreFocus=false) {
+    const dialog=document.getElementById('individualityDialog');
+    dialog?.classList.remove('home-choice-popup');
+    dialog?.setAttribute('aria-modal','true');
+    individualityPopupSerial++;
+    const focus=individualityPopupFocus;individualityPopupFocus=null;
+    if (restoreFocus && focus?.isConnected) focus.focus?.();
+  }
   function closeIndividualityDialog(defer=true) {
     individualityDialogOpen=false;individualityDeferred=defer;
     document.getElementById('individualityDialog')?.classList.add('hidden');
     render();
+    resetIndividualityPopup(true);
   }
   function chooseIndividualityEvent(age,heart,lifeId) {
     if (!individualityWritable(lifeId) || !INDIVIDUALITY.choose(state.individuality,age,heart,lifeId)) return false;
+    const homeResult=homeIndividualityPopupVisible();
     const e=INDIVIDUALITY.data.events.find(e=>e.age===age),choice=e.choices.find(c=>c.heart===heart);
     pushLifeLog('🌱',`${age}さい：${choice.label}`);
-    closeIndividualityDialog(false);saveState();setMessage('その気持ちを、思い出にしまった。');render();return true;
+    closeIndividualityDialog(false);saveState();setMessage('その気持ちを、思い出にしまった。');render();
+    if(homeResult)showHomeChoiceResult('その気持ちを、思い出にしまった。');return true;
   }
   function showIndividualityEvent(force=false) {
     if(force)individualityDeferred=false;
     if (!individualityWritable() || individualityDeferred || individualityDialogOpen || gameActive || isAnyMenuOverlayOpen() || state.transformOptions || !el.storyFlash.classList.contains('hidden')) return false;
     const e=INDIVIDUALITY.pending(state.individuality)[0];if(!e)return false;
     const dialog=document.getElementById('individualityDialog');if(!dialog)return false;
+    const popupSerial=prepareIndividualityPopup(dialog);
     individualityDialogLife=state.individuality.lifeId;individualityDialogOpen=true;
     document.getElementById('individualityTitle').textContent=`${e.age}さい・${e.title}`;
     document.getElementById('individualityText').textContent='この子は、どんな気持ちで過ごすだろう。';
     const choices=document.getElementById('individualityChoices');choices.innerHTML='';
-    for(const choice of e.choices){const b=document.createElement('button');b.type='button';b.textContent=choice.label;const lifeId=individualityDialogLife;b.onclick=()=>chooseIndividualityEvent(e.age,choice.heart,lifeId);choices.appendChild(b);}
-    document.getElementById('individualityLater').onclick=()=>closeIndividualityDialog(true);
+    for(const choice of e.choices){const b=document.createElement('button');b.type='button';b.textContent=choice.label;const lifeId=individualityDialogLife;b.onclick=individualityPopupAction(popupSerial,()=>chooseIndividualityEvent(e.age,choice.heart,lifeId));choices.appendChild(b);}
+    document.getElementById('individualityLater').onclick=individualityPopupAction(popupSerial,()=>closeIndividualityDialog(true));
     dialog.classList.remove('hidden');scheduleHistoryLayerSync();choices.querySelector?.('button')?.focus?.();return true;
   }
   function chooseIndividualExchange(id,lifeId) {
     const e=INDIVIDUALITY.data.exchanges.find(e=>e.id===id);
     if(!e || !individualityWritable(lifeId) || !state.companions.some(c=>c.id===e.companion))return false;
     if(!individualExperience('kindness',e.category,e.id,lifeId))return false;
-    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();setMessage(e.reaction);render();return true;
+    const homeResult=homeIndividualityPopupVisible();
+    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();setMessage(e.reaction);render();
+    if(homeResult)showHomeChoiceResult(e.reaction);return true;
   }
   function maybeIndividualExchange() {
     if(!individualityWritable() || individualityDialogOpen || gameActive || isAnyMenuOverlayOpen() || state.isSick || state.isSleeping || INDIVIDUALITY.pending(state.individuality).length)return false;
@@ -10888,10 +10954,11 @@
     if(!pool.length)return false;const e=pool[Math.floor(Math.random()*pool.length)],lifeId=s.lifeId;
     s.lastCompanion=e.companion;s.lastExchangeAge=age;saveState();
     const dialog=document.getElementById('individualityDialog');if(!dialog)return false;
+    const popupSerial=prepareIndividualityPopup(dialog);
     individualityDialogOpen=true;individualityDialogLife=lifeId;
     document.getElementById('individualityTitle').textContent='なかまと、ひととき';document.getElementById('individualityText').textContent=e.text;
-    const choices=document.getElementById('individualityChoices');choices.innerHTML='';const b=document.createElement('button');b.type='button';b.textContent=e.label;b.onclick=()=>chooseIndividualExchange(e.id,lifeId);choices.appendChild(b);
-    document.getElementById('individualityLater').onclick=()=>closeIndividualityDialog(true);dialog.classList.remove('hidden');scheduleHistoryLayerSync();b.focus?.();return true;
+    const choices=document.getElementById('individualityChoices');choices.innerHTML='';const b=document.createElement('button');b.type='button';b.textContent=e.label;b.onclick=individualityPopupAction(popupSerial,()=>chooseIndividualExchange(e.id,lifeId));choices.appendChild(b);
+    document.getElementById('individualityLater').onclick=individualityPopupAction(popupSerial,()=>closeIndividualityDialog(true));dialog.classList.remove('hidden');scheduleHistoryLayerSync();b.focus?.();return true;
   }
   function individualityLines() {
     const s=state.individuality;if(!s)return [];
@@ -11146,15 +11213,45 @@
     pushLifeLog('💊', 'びょうきをなおしてもらった');
   }
 
+  // Ephemeral display queue: rewards and event generation stay with their owners.
+  const homeNoticeQueue=[];
+  let homeNoticeLife=null,homeStoryCurrent=null,homeBirthdayCurrent=null,homeResultCurrent=null;
+  function terrainNoticeMode(){return !!homeDiorama && window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region);}
+  function queueHomeNotice(kind,payload){
+    if(homeNoticeLife!==state){homeNoticeQueue.length=0;homeNoticeLife=state;}
+    const priority=kind==='result'?4:kind==='birthday'?0:payload.author||payload.character?3:payload.environmentMoment?1:2;
+    homeNoticeQueue.push({kind,payload,priority});
+  }
+  function drainHomeNotices(){
+    if(homeNoticeLife!==state){homeNoticeQueue.length=0;homeNoticeLife=state;}
+    if(!terrainNoticeMode()||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)return;
+    homeNoticeQueue.sort((a,b)=>b.priority-a.priority);
+    const next=homeNoticeQueue.shift();if(!next)return;
+    if(next.kind==='result')showMinigameResultToast(next.payload);else if(next.kind==='birthday')setBirthdayToast(next.payload);else showStoryEvent(next.payload);
+  }
+
+  document.addEventListener('visibilitychange',()=>{
+    if(!terrainNoticeMode())return;
+    if(pageVisible()){drainHomeNotices();return;}
+    // Restart the interrupted display on return; no event or reward is generated here.
+    const interrupted=[];
+    if(storyFlashTimer){clearTimeout(storyFlashTimer);storyFlashTimer=null;el.storyFlash.classList.add('hidden');if(homeStoryCurrent)interrupted.push(['story',homeStoryCurrent]);homeStoryCurrent=null;}
+    if(birthdayToastTimer){clearTimeout(birthdayToastTimer);birthdayToastTimer=null;el.birthdayToast.classList.add('hidden');if(homeBirthdayCurrent)interrupted.push(['birthday',homeBirthdayCurrent]);homeBirthdayCurrent=null;}
+    if(mgResultToastTimer){if(homeResultCurrent)interrupted.push(['result',homeResultCurrent]);hideMinigameResultToast(false);}
+    for(const [kind,payload]of interrupted){queueHomeNotice(kind,payload);homeNoticeQueue.unshift(homeNoticeQueue.pop());}
+  });
+
   // 1さいごとの ちいさな トースト(操作を とめない)
   let birthdayToastTimer = null;
   function setBirthdayToast(text) {
     if (!el.birthdayToast) return;
+    if(terrainNoticeMode()&&(!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('birthday',text);return;}
+    homeBirthdayCurrent=text;
     setCommentText(el.birthdayToast, text, true);
     el.birthdayToast.classList.remove('hidden');
     clearTimeout(birthdayToastTimer);
     birthdayToastTimer = setTimeout(() => {
-      el.birthdayToast.classList.add('hidden');
+      el.birthdayToast.classList.add('hidden');birthdayToastTimer=null;homeBirthdayCurrent=null;drainHomeNotices();
     }, 1200);
   }
 
@@ -11259,6 +11356,8 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
+    if(terrainNoticeMode()&&(!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('story',event);return;}
+    homeStoryCurrent=event;
     invalidateCareAfterglow();
     clearPetExpression();
     audio.play('notify');
@@ -11270,7 +11369,7 @@
     else if (event.achievement) el.storyFlashEmoji.innerHTML = achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
-    setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
+    setCommentText(el.storyFlashText, compactJapaneseText(terrainNoticeMode() && event.environmentMoment ? CARE_STATUS.summary(event.message,true) : event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
     renderPetVisual();
     cancelEmotionCue(true);
@@ -11279,8 +11378,9 @@
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
     clearTimeout(storyFlashTimer);
     storyFlashTimer = setTimeout(() => {
-      el.storyFlash.classList.add('hidden');
-      showIndividualityEvent();
+      el.storyFlash.classList.add('hidden');storyFlashTimer=null;homeStoryCurrent=null;
+      drainHomeNotices();
+      if(!storyFlashTimer)showIndividualityEvent();
       renderWorldScene();
       syncHomeEmotion();
       renderPetVisual();
@@ -12537,6 +12637,8 @@
     el.infiniteBtn.title = state.infinite ? 'この子のいっしょうにもどる' : '♾️のせかいへ';
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
+    el.sleepBtn.title = state.isSleeping ? 'おきる' : 'ねる';
+    el.sleepBtn.dataset.sleeping = String(state.isSleeping);
     el.playWithBtn.querySelector('span').textContent = isEgg ? 'あたためる' : 'じゃれる';
     el.playWithBtn.title = isEgg ? 'たまごをあたためる' : 'じゃれる';
     el.playWithBtn.querySelector('i').dataset.careIcon = isEgg ? 'egg' : 'play';
@@ -12604,13 +12706,16 @@
     // そうさを おもんじる かくオーバーレイ)を ひらいている あいだ とめる。
     // はいけいエフェクト(region-decor/season-bg-fx)は デバイスの うしろに
     // かくれた ままなので、ここでは とめない
-    const suppressFrontFx = gameActive || hasTransformChoice || lifeCardVisible || isAnyMenuOverlayOpen();
+    // A compact Home choice pauses gameplay without replacing the Home layout.
+    // Keep this visual exception separate from the authoritative pause guards.
+    const homeCoveringOverlay = isAnyMenuOverlayOpen() && !homeIndividualityPopupVisible();
+    const suppressFrontFx = gameActive || hasTransformChoice || lifeCardVisible || homeCoveringOverlay;
     el.seasonFrontFx.classList.toggle('suppressed', suppressFrontFx);
     if (el.weatherFx) el.weatherFx.classList.toggle('suppressed', suppressFrontFx);
     if (el.timeTint) el.timeTint.classList.toggle('suppressed', gameActive);
 
     el.device.classList.toggle('ui-game-active', gameActive || meguruActive);
-    el.device.classList.toggle('ui-menu-open', isAnyMenuOverlayOpen());
+    el.device.classList.toggle('ui-menu-open', homeCoveringOverlay);
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
@@ -12652,6 +12757,7 @@
     if(individualityDialogOpen) {
       individualityDialogOpen=false;individualityDeferred=true;
       document.getElementById('individualityDialog')?.classList.add('hidden');
+      resetIndividualityPopup();
     }
     restoreFocusToMenu();
     activeOverlay = null;
@@ -14254,7 +14360,7 @@
   // 本体キャラの左右の列に表示する。話者の安定IDで短い反応を結びつける。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
-    const recruited = homePresentCompanions()
+    const recruited = homeResidentCompanions()
       .map((sc) => {
         const def = allCompanionsById(sc.id);
         return def ? {...def, ...relationshipVisual('companion',sc,def.asset)} : null;
@@ -14274,7 +14380,7 @@
   // 状態別のハートを添える。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
-    const p = !hide && homePresentPartner();
+    const p = !hide && homeResidentPartner();
     el.partnerCompanion.classList.toggle('hidden', !p);
     if (!p) {
       el.partnerCompanion.innerHTML = '';
@@ -14689,7 +14795,7 @@
   });
 
   function homeCastMotionRadius() {
-    const count = homePresentCompanions().filter(c=>allCompanionsById(c.id)).length;
+    const count = homeResidentCompanions().filter(c=>allCompanionsById(c.id)).length;
     return window.NaotocchiCastMotion?.motionRadiusFor(count) || 0;
   }
 
@@ -14786,9 +14892,25 @@
     const {area,pet,actors,poop} = homeSpeechAnchors;
     const {kind,speakerId} = el.speechBubble.dataset;
     const point = actors.find(a=>a.kind===kind && a.id===speakerId) || pet;
+    if(terrainNoticeMode()&&window.NaotocchiHomeDiorama?.speechPlacement){
+      const r=el.castStage.getBoundingClientRect(),result=document.getElementById('homeChoiceResult');
+      // Intrinsic sizing is independent of the last speaker/line's slot width.
+      const maxWidth=Math.min(340,r.width-12);
+      el.speechSlot.style.setProperty('--terrain-speech-max',maxWidth+'px');
+      const bubble=el.speechBubble.getBoundingClientRect();
+      const resultVisible=result&&!result.classList.contains('hidden');
+      const bh=Math.max((bubble.height||0)+(resultVisible?result.getBoundingClientRect().height:0),1);
+      const choices=document.getElementById('speechChoices');if(choices)choices.style.maxHeight=Math.max(0,Math.min(160,r.height-bh-17))+'px';const ch=choices&&!choices.classList.contains('hidden')?(choices.getBoundingClientRect().height||100)+5:0;
+      const place=window.NaotocchiHomeDiorama.speechPlacement({speaker:{x:point.x+(point.dioramaX||0),y:point.y+(point.dioramaY||0),h:point.h||40},width:r.width,height:r.height,bubbleWidth:resultVisible?maxWidth:Math.max(1,bubble.width),bubbleHeight:bh,choicesHeight:ch});
+      if(choices)choices.style.maxHeight=place.choicesMaxHeight+'px';
+      el.speechSlot.style.setProperty('--terrain-choice-offset',Math.max(6,Math.min(r.width-maxWidth-6,point.x+(point.dioramaX||0)-maxWidth/2))-place.x+'px');
+      el.speechSlot.style.setProperty('--terrain-speech-x',place.x+'px');el.speechSlot.style.setProperty('--terrain-speech-y',place.y+'px');el.speechSlot.style.setProperty('--terrain-speech-w',place.w+'px');
+      el.speechSlot.dataset.terrainSide=place.side;el.speechBubble.style.setProperty('--speech-tail-x',window.NaotocchiHomeDiorama.speechTail(place.tail,place.w,bubble.width)+'px');return;
+    }
     // Only constrain the tail when the completed poop row is at its height.
     // A row below the bubble must not pull even the main speaker's tail aside.
-    let x = clamp(point.x-area.x,12,area.w-12);
+    const pointX = point.x+(point.dioramaX||0);
+    let x = clamp(pointX-area.x,12,area.w-12);
     if (poop.y<area.y+1 && poop.y+poop.h>area.y-5) {
       const left=poop.x-area.x-9,right=poop.x+poop.w-area.x+9;
       if(x>left && x<right) {
@@ -14797,19 +14919,20 @@
       }
     }
     el.speechBubble.style.setProperty('--speech-tail-x',x+'px');
-    el.speechBubble.style.setProperty('--speech-tail-tip',point.x<area.x+area.w/2-16?'0%':point.x>area.x+area.w/2+16?'100%':'50%');
+    el.speechBubble.style.setProperty('--speech-tail-tip',pointX<area.x+area.w/2-16?'0%':pointX>area.x+area.w/2+16?'100%':'50%');
   }
 
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
     const main = currentVisualStage();
-    const p = homePresentPartner();
+    const p = homeResidentPartner();
     const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[p?.id] || p?.id;
     const partnerAsset = WORLD_MASTER?.partners?.find(def => def.id === partnerId)?.asset;
-    const recruited = homePresentCompanions().map(sc => allCompanionsById(sc.id)).filter(Boolean);
+    const recruited = homeResidentCompanions().map(sc => allCompanionsById(sc.id)).filter(Boolean);
     // Let sparse scenes share more of the available height with the care keys.
     // Measure after changing this attribute, before starting a speech reaction.
     el.device.dataset.castCrowded = String(recruited.length > 0);
+    el.device.dataset.homeHousehold = 1 + Number(!!p) + recruited.length > 5 ? 'crowded' : 'small';
     const stageRect = el.castStage.getBoundingClientRect();
     const width = Math.floor(stageRect.width);
     const conversationHeight = el.speechSlot.getBoundingClientRect().height || 44;
@@ -14818,12 +14941,14 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
-    const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
-    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); return; }
+    const args = {width,height,conversationHeight,overview:homeDiorama?.overview()||false,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married, currentEnvironment().region, state.stage]);
+    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); renderHomeDiorama(); return; }
     homeCastLayoutKey = key;
     castMotion?.clear();
-    const layout = window.NaotocchiCast.layoutHomeCast(args);
+    const baseLayout = window.NaotocchiCast.layoutHomeCast(args);
+    const layout = window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region) && ![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)
+      ? window.NaotocchiHomeDiorama.layoutTerrainCast(args) : baseLayout;
     relationshipCastFrames={layout,recruited,args};
     for(const actor of homeCastActors())relationshipMotionTokens.delete(actor.node);
     const area=layout.conversation;
@@ -14836,7 +14961,7 @@
     el.petArea.style.setProperty('--home-poop-step',(layout.poops[1].x-layout.poops[0].x)+'px');
     const anchor=(frame,path)=>{
       const b=window.NaotocchiCastBounds?.[path]?.box || [0,0,128,128];
-      return {x:frame.x+frame.w*(b[0]+b[2])/256};
+      return {x:frame.x+frame.w*(b[0]+b[2])/256,y:frame.y+frame.h*b[3]/128+(frame.artOffsetY||0),h:frame.h*(b[3]-b[1])/128};
     };
     homeSpeechAnchors={area,poop:{...layout.poops[0],w:layout.poops[3].x+layout.poops[3].w-layout.poops[0].x},pet:anchor(layout.main,args.mainAsset),actors:[
       ...(layout.partner?[{kind:'partner',id:p.id,...anchor(layout.partner,args.partnerAsset)}]:[]),
@@ -14850,7 +14975,10 @@
       node.style.fontSize = Math.floor(frame.w * .8) + 'px';
     };
     el.castStage.style.height = height ? '' : layout.height + 'px';
-    el.castStage.style.minHeight = height && layout.height > height ? layout.height + 'px' : '';
+    // Keep the crowd floor applied at equality; clearing it here creates a
+    // shrink/grow ResizeObserver loop whenever notifications consume Home space.
+    const crowdFloor = window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region) && 1 + Number(hasPartner) + recruited.length > 5 && ![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage);
+    el.castStage.style.minHeight = crowdFloor ? '300px' : height && layout.height > height ? layout.height + 'px' : '';
     place(el.petSprite,layout.main);place(el.partnerCompanion,layout.partner);place(el.petAccessory,layout.accessory);
     el.petSprite.style.setProperty('--cast-art-offset-y',(layout.main.artOffsetY || 0) + 'px');
     // Attach illness marks to painted pixels, not the often-empty upper PNG
@@ -14876,6 +15004,54 @@
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
     renderRelationshipReactions();
+    renderHomeDiorama();
+  }
+
+  // This bridge supplies visual copies only: attendance, art and save stay owned above.
+  function dioramaActors() {
+    if (!relationshipCastFrames) return [];
+    const {layout,recruited,args}=relationshipCastFrames;
+    return homeCastActors().filter(a=>a.kind!=='accessory').map(a=>{
+      const i=recruited.findIndex(c=>c.id===a.id);
+      const f=a.kind==='pet'?layout.main:a.kind==='partner'?layout.partner:layout.companions[i];
+      const path=a.kind==='pet'?args.mainAsset:a.kind==='partner'?args.partnerAsset:args.companions[i];
+      if(!f)return null;
+      const b=window.NaotocchiCastBounds?.[path]?.box||[0,0,128,128];
+      const owner=a.kind==='partner'?el.partnerCompanion:a.node;
+      const label=a.kind==='pet'?(currentVisualStage().label||SPECIES_DISPLAY_NAMES[currentVisualForm().line]||currentStageLabel()):a.kind==='partner'?(state.partner?.label||'こいびと'):(recruited[i]?.name||recruited[i]?.label||'なかま');
+      const x=f.x+f.w*(b[0]+b[2])/256,y=f.y+f.h*b[3]/128+(f.artOffsetY||0);
+      const w=f.w*(b[2]-b[0])/128,h=f.h*(b[3]-b[1])/128;
+      const extras=(a.kind==='partner'?[layout.ring,...layout.hearts]:a.kind==='pet'?[layout.accessory]:[]).filter(Boolean);
+      // Reserve original solver-owned attachments, including ring/heart motion clearance.
+      const extent={left:w/2,right:w/2,top:h,bottom:0};
+      for(const r of extras){extent.left=Math.max(extent.left,x-r.x+6);extent.right=Math.max(extent.right,r.x+r.w-x+6);extent.top=Math.max(extent.top,y-r.y+6);extent.bottom=Math.max(extent.bottom,r.y+r.h-y+6);}
+      return {key:a.kind+':'+a.id,kind:a.kind,id:a.id,label,node:a.node,owner,asset:path,originX:(b[0]+b[2])/256*100,
+        temperament:a.kind==='pet'?{...state.individuality?.temperament}:null,
+        attachments:a.kind==='pet'&&!el.petAccessory.classList.contains('hidden')?[el.petAccessory]:[],x,y,w,h,extent};
+    }).filter(Boolean);
+  }
+  function homeDioramaBlocked() {
+    return gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()
+      || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || speechActive || conversationIsBusy()
+      || !el.lifeCardOverlay.classList.contains('hidden') || !el.storyFlash.classList.contains('hidden')
+      || document.body.classList.contains('movie-active') || el.screenNormal.classList.contains('hidden')
+      || !!el.castResponse.dataset.reaction
+      || homeCastActors().some(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction));
+  }
+  function renderHomeDiorama() {
+    if (!window.NaotocchiHomeDiorama) return;
+    if (!homeDiorama) homeDiorama=window.NaotocchiHomeDiorama.createController({
+      stage:el.castStage,document,env:window,guideKey:SAVE_KEY+':home-guide-v1',getActors:dioramaActors,isBlocked:homeDioramaBlocked,
+      isVisible:()=>!gameActive&&!meguruActive&&(!isAnyMenuOverlayOpen()||homeIndividualityPopupVisible())&&!el.screenNormal.classList.contains('hidden'),
+      getMeguru:()=>meguruMod,getProfile:region=>meguruMod?.REGION3D[region],getWorld:region=>meguruMod?.WORLDS[region],
+      onGesture:(actor,mood)=>castMotion?.gesture(actor,mood),
+      onViewChange:()=>{homeCastLayoutKey='';renderHomeCast();},
+      onPosition:(actor,dx,dy)=>{
+        const anchor=actor.kind==='pet'?homeSpeechAnchors?.pet:homeSpeechAnchors?.actors.find(a=>a.kind===actor.kind&&a.id===actor.id);
+        if(anchor&&(anchor.dioramaX!==dx||anchor.dioramaY!==dy)){anchor.dioramaX=dx;anchor.dioramaY=dy;pointHomeSpeech();}
+      },
+    });
+    homeDiorama?.update(currentEnvironment(),{tier:mgPerfTier,available:![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)});
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {
@@ -15336,13 +15512,24 @@
     },
   };
   // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
-  // Home is a static care stage: project visits into the existing cast, not a second movement AI.
+  // One special visit event; household rendering is independent of that event.
   var homeVisits = null, homeVisitLast = null, homeVisitLife = null;
   function homeInitiative(type,key) {
     const session=meguruMod?.socialSession;
     if(!session || !session.attempt(type,key))return false;
     session.emit(type,key,{context:'home',reason:'idle'});return true;
   }
+  // Membership renders residents. Visits remain the sole conversation/event gate.
+  // Deduplicate legacy aliases without writing back into gameplay state.
+  function homeResidentCompanions() {
+    const seen=new Set();
+    return state.companions.filter(c=>{
+      const id=canonicalCompanionId(c.id);
+      if(seen.has(id)||!allCompanionsById(id))return false;
+      seen.add(id);return true;
+    });
+  }
+  function homeResidentPartner() {return state.partner;}
   function homePresentCompanions() {
     const key=homeVisits?.current?.key;
     return state.companions.filter(c=>'companion:'+canonicalCompanionId(c.id)===key);
@@ -16566,13 +16753,15 @@
   }
 
   let mgResultToastTimer = null;
-  function hideMinigameResultToast() {
+  function hideMinigameResultToast(continueNotices=true) {
     clearTimeout(mgResultToastTimer);
-    mgResultToastTimer = null;
+    mgResultToastTimer = null;homeResultCurrent=null;
     el.mgResultToast?.classList.add('hidden');
+    if(continueNotices)drainHomeNotices();
   }
   function showMinigameResultToast(result) {
     if (!el.mgResultToast || !result) return;
+    if(terrainNoticeMode()&&!pageVisible()){queueHomeNotice('result',result);return 0;}
     let sub;
     let subClass = 'mg-result-sub';
     if (result.prevBest == null) sub = 'はじめての記録!';
@@ -16592,7 +16781,11 @@
     const duration = retry ? 6000 : 3600;
     el.mgResultToast.style.animationDuration = `${duration}ms`;
     // アニメーションを あたまから やりなおす ために いちど けして つけなおす
-    hideMinigameResultToast();
+    hideMinigameResultToast(false);homeResultCurrent=result;
+    if(terrainNoticeMode()){
+      if(storyFlashTimer){clearTimeout(storyFlashTimer);storyFlashTimer=null;el.storyFlash.classList.add('hidden');if(homeStoryCurrent)queueHomeNotice('story',homeStoryCurrent);homeStoryCurrent=null;}
+      if(birthdayToastTimer){clearTimeout(birthdayToastTimer);birthdayToastTimer=null;el.birthdayToast.classList.add('hidden');if(homeBirthdayCurrent)queueHomeNotice('birthday',homeBirthdayCurrent);homeBirthdayCurrent=null;}
+    }
     hideSpeechBubble();
     void el.mgResultToast.offsetWidth;
     el.mgResultToast.classList.remove('hidden');
@@ -17308,7 +17501,7 @@
     // タイトル/せつめい文(.mg-title など、がめん じょうぶ)と おなじ いちに
     // 重なって かくれてしまう ことが あった ので、ミニゲームが はじまる
     // しゅんかんに かならず とじる ようにする
-    clearTimeout(storyFlashTimer);
+    clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;
     el.storyFlash.classList.add('hidden');
     el.screenNormal.classList.add('hidden');
     el.minigameOverlay.classList.remove('hidden');
@@ -17764,6 +17957,7 @@
 
   function withFeedback(fn, afterRender) {
     return () => {
+      homeDiorama?.interrupt();
       const reactionSerial = invalidateCareAfterglow();
       clearPetExpression();
       clearConversationTimers();
@@ -18349,6 +18543,8 @@
     }
   }));
 
+  document.getElementById('homeGuideReplayBtn')?.addEventListener('click',()=>{closeOverlay('menu');render();homeDiorama?.replayGuide();render();});
+  document.getElementById('homeGuideDismissBtn')?.addEventListener('click',()=>{homeDiorama?.dismissGuide();render();});
   el.menuBtn.addEventListener('click', () => openExclusiveMenu('menu'));
   el.menuCloseBtn.addEventListener('click', () => { closeOverlay('menu'); render(); });
   el.worldBtn.addEventListener('click', () => openExclusiveMenu('world'));
@@ -18760,7 +18956,7 @@
     // companionsRecruited/partnersRecorded/partnersMarried)は べつに
     // のこるので、これまで であった なかま/こいびとの コレクションじたいは
     // きえないが、つぎの いっしょうでは また いちから であいなおす ひつようが ある
-    clearTimeout(storyFlashTimer);
+    clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;
     el.storyFlash.classList.add('hidden');
     endingCelebrationShown = false;
     el.gameClearOverlay.querySelectorAll('.ending-particle').forEach((p) => p.remove());
@@ -19778,7 +19974,7 @@
   // (Tab で うしろに 行かない・読み上げで 読まない)。下の ボタンの 列と ヘッダーは パネルの きりかえに つかう ので そのまま
   function syncModalInert() {
     if (!el.screenNormal) return;
-    const modal = isAnyMenuOverlayOpen() && !meguruActive || !!state.transformOptions
+    const modal = isAnyMenuOverlayOpen() && !meguruActive && !homeIndividualityPopupVisible() || !!state.transformOptions
       || !el.wipeConfirmOverlay.classList.contains('hidden') || !el.wipeOverlay.classList.contains('hidden')
       || !el.lifeCardOverlay.classList.contains('hidden');
     if (el.screenNormal.inert !== modal) el.screenNormal.inert = modal;
@@ -19787,7 +19983,7 @@
     historySyncQueued = false;
     syncModalInert();
     // ホームの上に別の画面が開いた。進行中の会話はここでおしまい(閉じて戻っても続きは出さない)
-    if (historyLayerOpen()) conv2LeaveScene('scene');
+    if (historyLayerOpen()) { hideHomeChoiceResult(); conv2LeaveScene('scene'); }
     if (typeof history === 'undefined' || typeof history.pushState !== 'function') return;
     const open = historyLayerOpen();
     if (open && !historyLayer) { history.pushState({ nt: 'layer' }, ''); historyLayer = true; }

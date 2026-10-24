@@ -1,0 +1,37 @@
+Started: 2026-10-24T03:19:27.165774+00:00
+Command: node --test --test-concurrency=2 tests/individuality-test.cjs tests/individuality-runtime-test.cjs
+
+✔ hatching creates four traits, profile and new guest data (117.289568ms)
+✔ real minigame result grows C and B on first B; quick and repeats do not grow (45.315885ms)
+✔ real travel deduplicates natural experience (20.621233ms)
+✔ legacy personality removed from fresh save and registered achievements (29.641055ms)
+✔ twelve real age transitions queue one choice each, preserve midlife effects and 90 guard (97.945469ms)
+✔ pending choice reload and other-tab takeover reject stale choice (54.274151ms)
+✔ exchange handler supplies 10 experiences with four companions and 15 with five without romance (68.823166ms)
+✔ real completed B games supply natural-only perseverance, without A/S or permanent-best dependency (41.562047ms)
+✔ real travel, scenery and encounters reach natural-only wonder/courage without meguru (46.825702ms)
+✔ transform and infinity preserve individuality, ended life rejects all growth (48.708731ms)
+✔ old adult save keeps permanent progress and only future events (32.982269ms)
+✔ closing menus dismisses the choice dialog and permits later resumption (16.266037ms)
+✔ automatic dialog synchronizes modal inert before the next user action (26.944211ms)
+✔ all fifty quick solo wrappers and the mixed run complete without changing individuality (82.692097ms)
+✔ registered achievement total is 92 and removed IDs cannot fill new heart slots (21.70415ms)
+✔ each heart reaches exactly 60 through ten adapter experiences and five legal age choices (254.888164ms)
+✔ next life keeps permanent achievements and full prior choices but starts hearts and choices anew (37.779246ms)
+✔ individuality exposes the life-scoped core (1.104099ms)
+✔ twelve fixed three-choice milestones supply 10/8/10/8 opportunities (0.869183ms)
+✔ experience derives capped points, duplicate and stale life rejection (0.740573ms)
+✔ choices persist beyond their cap and pending choices survive normalization (1.048927ms)
+✔ all hearts allow 10 natural plus 5 legal choices or 15 natural only (0.699371ms)
+✔ normalization retains valid temperament, ignores corrupt experience and does not backfill old milestones (0.435573ms)
+✔ preferences require three experiences and do not count duplicates (0.390977ms)
+✔ three draw distributions agree with their specified exact quantiles (31.607621ms)
+✔ preference switching requires two distinct confirmations; long play stays finite (4.448813ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1194.605673

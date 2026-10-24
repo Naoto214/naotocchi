@@ -1,0 +1,41 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/74ab9ab340a5/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/74ab9ab340a5/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home removes dedicated plaza pads and rebuilds canonical collision grid (2979.289282ms)
+✔ terrain navigation routes around a solid, rejects water and cannot cut corners (6.385983ms)
+✔ real terrain projection roundtrips and water/road remain unavailable (2839.661585ms)
+✔ model follows routed waypoints and cancels the entire path on care (2.752996ms)
+✔ occlusion uses actual projected triangles only in front of the illustration (1.783878ms)
+✖ UI reflow preserves a settled actor world position instead of recentering (5.619052ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6026.676382
+
+✖ failing tests:
+
+test at tests/home-terrain-navigation-test.cjs:38:1
+✖ UI reflow preserves a settled actor world position instead of recentering (5.619052ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(before.x-after.x)<.01)
+  
+      at TestContext.<anonymous> (/workspace/scratch/74ab9ab340a5/naotocchi/tests/home-terrain-navigation-test.cjs:40:350)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

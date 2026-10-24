@@ -1,0 +1,56 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/74ab9ab340a5/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/74ab9ab340a5/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ Home removes dedicated plaza pads and rebuilds canonical collision grid (1356.352946ms)
+✔ terrain navigation routes around a solid, rejects water and cannot cut corners (8.3067ms)
+✔ real terrain projection roundtrips and water/road remain unavailable (2797.627323ms)
+✖ model follows routed waypoints and cancels the entire path on care (2.112269ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 2
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4348.156395
+
+✖ failing tests:
+
+test at tests/home-terrain-navigation-test.cjs:4:1
+✖ Home removes dedicated plaza pads and rebuilds canonical collision grid (1356.352946ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(M.collidesAt(c.world,o.x,o.z,8))
+  
+      at TestContext.<anonymous> (/workspace/scratch/74ab9ab340a5/naotocchi/tests/home-terrain-navigation-test.cjs:6:156)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/home-terrain-navigation-test.cjs:24:1
+✖ model follows routed waypoints and cancels the entire path on care (2.112269ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  130 !== 200
+  
+      at TestContext.<anonymous> (/workspace/scratch/74ab9ab340a5/naotocchi/tests/home-terrain-navigation-test.cjs:28:43)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 130,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

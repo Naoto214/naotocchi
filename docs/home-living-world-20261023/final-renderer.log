@@ -1,0 +1,57 @@
+✔ index.html asset references exist and carry cache tokens (2.036644ms)
+✔ the bump tool rewrites only cache tokens (0.240575ms)
+(node:23) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0edf4eb086ab/diorama-worktree/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0edf4eb086ab/diorama-worktree/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ groundY: presenter follows signed world height each frame without mutating actor or input (112.68835ms)
+✔ groundY: omitted and nonfinite heights reset to legacy zero after elevated frame (1.183856ms)
+✔ groundY: world offset is unscaled and preserves hover animation and isolated fallback (35.210841ms)
+✔ 1. pilot species は master 由来(id・8 段の 画像が ある)。archetype 再利用の なかまも master 由来 (0.518315ms)
+✔ 2. 全 species inventory: master の 全 player line × 8 段・なかま・こいびと・作者 が ぜんぶ ある(画像も ある) (1.755389ms)
+✔ 3. species → archetype の coverage: つかう archetype は 定義ずみ。pilot の archetype には builder が ある (0.60996ms)
+✔ 4. pilot の 全 species / 全 stage に 正しい 3D spec(組める・顔が ある・予算の なか) (521.43571ms)
+✔ 5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり の 段も おなじ (0.72572ms)
+✔ 6. 段の ちがいは 一様な 拡大縮小 だけでは ない(体の 比率・部品・archetype が かわる) (0.481039ms)
+✔ 7. normal: まるい 目(または 2D の おだやかな とじ目)・にこり・しるし なし・はねない (4.325401ms)
+✔ 8. positive: ^ ^ の 目・ひらいた 口・ほお・はねる・きらきら (2.128991ms)
+✔ 9. dislike: まゆ(内がわ が さがる)・とがった 口・そっぽ・くも (10.982041ms)
+✔ 10. tired: 半目・あたまが さがる・ゆっくり・ねむい しるし (2.728025ms)
+✔ 11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つめたい しるし (2.743016ms)
+✔ 12. canonical emotion と 意味が 一致(#368 の 語彙・Home の Expression PNG の 対応) (6.695648ms)
+✔ 13. flag なし: 2D billboard の まま(character module を よまない・立て看板の 経路は そのまま) (1.182425ms)
+✔ 14. Character 3D defaults on; URL char3d=0 explicitly selects billboard (5.208133ms)
+✔ 15. flag・QA の 状態は セーブしない(schema も そのまま) (104.045024ms)
+✔ 16. actor の 状態は 2D / 3D で 共通(presenter は actor を かきかえない) (2.012869ms)
+✔ 17. reviewed World integration source is pinned; Character runtime cannot move actors (1.579571ms)
+✔ 18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D (17.67159ms)
+✔ 19. 1 体の 失敗で world renderer 全体を 2D に おとさない(present は throw しない・hybrid の fail へ つながない) (13.876031ms)
+✔ 20. geometry / material / template を 共有(おなじ species の actor を ふやしても ふえない) (3.87088ms)
+✔ 21. 表情の きりかえで texture / material を つくりなおさない (28.162487ms)
+✔ 22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱) (11.021469ms)
+✔ 23. 地域の きりかえ(scene の つくりなおし)で 3D を のこさない (23.684992ms)
+✔ 24. 2D → 3D → 2D: 古い model / 顔 / かげ を のこさない (16.298755ms)
+✔ 25. player は いつも えがく(frustum culling で きえない・表情 / 段が かわっても 1 つ) (15.388582ms)
+✔ 26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D (19.964253ms)
+✔ 27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。#368 の expr が あれば それを 優先 (2.580597ms)
+✔ 28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分) (1.906964ms)
+✔ 29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。module は そろって いる (2.504215ms)
+✔ 30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない (85.972722ms)
+✔ 31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし) (24.790392ms)
+✔ 32. 統合 World 3D: 地域・corridor は明示許可、force2d / failure は fallback (1.160352ms)
+✔ 33. Home Expression の 回帰: pet-expression.js の 解決は そのまま(3D adapter は Home を よまない) (1.080705ms)
+✔ 34. Relationship Expression の 回帰: relationship-expression.js は そのまま (0.336287ms)
+(node:38) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0edf4eb086ab/diorama-worktree/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0edf4eb086ab/diorama-worktree/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home compositions reuse official geometry, preserve sources and keep cast foreground clear (3589.918414ms)
+✔ Living environment remains bounded with correct routes and pauses (118.226217ms)
+ℹ tests 41
+ℹ suites 0
+ℹ pass 41
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4031.223233

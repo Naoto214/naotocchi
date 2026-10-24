@@ -1,0 +1,60 @@
+✔ landmarks use the real Meguru profile and stage bounds (97.836192ms)
+✔ tap selects, release after drag sets destination without teleport (3.067752ms)
+✔ cancel and lost capture never dispatch a movement (0.690658ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.574063ms)
+✔ Pilot exit restores original actor styles and input ownership (0.340582ms)
+✔ departed actor cannot receive stale drag release (0.387602ms)
+✔ leaving a paused Pilot removes all animation pause state (0.393041ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (4.132482ms)
+(node:39) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (144.376006ms)
+✔ live attendance is unchanged; display only existing visitors (35.150823ms)
+✔ care button still runs official feeding and stops movement (2684.898443ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (1271.112437ms)
+✔ routine live render preserves a user walking destination (18.63163ms)
+✔ only three official Pilot regions (1.018862ms)
+✔ movement is gradual and clamps extreme commands inside safe ground (1.613256ms)
+✔ roster sync never creates absent actors or mutates input state (1.783831ms)
+✔ blocked care interrupts destination; no delayed resume or command (0.19293ms)
+✔ reduced motion disables idle travel but intentional movement works (0.600393ms)
+✔ swept movement cannot pass through another actor (1.347836ms)
+✔ resize and region switch reset destinations within safe bounds (1.101756ms)
+✔ events are frozen context only, rate limited and no automatic speech (0.231639ms)
+✔ invalid inputs and absent actors are ignored (0.21304ms)
+✔ rain autonomy prefers tagged shelter and night has slower activity (0.470548ms)
+✔ an arriving visitor cannot trap an already moved pet (1.984554ms)
+✔ movement reserves asymmetric attachment bounds (0.399882ms)
+✔ frequent presentation sync does not starve life; actions diversify and stay ephemeral (4.410551ms)
+✔ repeated busy updates yield once, then manual and autonomous activity resume (0.645781ms)
+✔ held pointer keeps only the selected actor from choosing a new autonomous action (0.284428ms)
+(node:41) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native artwork facing produces correct left and right body scales across expressions (2.440429ms)
+✔ presentation scaling preserves all cast ratios and attachment offsets without modifying source (13.213354ms)
+✔ river width is visible and swimming geometry remains submerged inside shared stream (744.575322ms)
+✔ body-size separation prevents one large actor hiding another on adjacent depth rows (1.352183ms)
+✔ fish render inside scene below transparent water, pooled geometry never grows (5.897666ms)
+(node:42) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home compositions reuse official geometry, preserve sources and keep cast foreground clear (3039.867873ms)
+✔ Living environment remains bounded with correct routes and pauses (110.625278ms)
+✔ Home recovers the same region after lost GPU without resetting its life clock (1258.264703ms)
+✔ Home renderer recovery is bounded, pauses while hidden and stops on destroy (2324.439596ms)
+✔ Home contains resize errors so the frame loop can recover (1209.417374ms)
+✔ Home contains level errors so the frame loop can recover (1186.899416ms)
+✔ Home ground follows the cast feet on portrait and wide viewports; river stays behind (2.303894ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9375.0961
