@@ -193,6 +193,9 @@
       rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent,temperament})),scene);paint();
     }
     function paint(){
+      // Care and visibility changes can interrupt before activation or after exit.
+      // In those states the legacy Home owns the cast and poop presentation.
+      if(dead||!enabled||!scene)return;
       showGuide();
       const snapshot=model.snapshot(),chosen=snapshot.find(a=>a.key===model.selected()),isPaused=blocked(),revision=world?.stats().projectionRevision||0;
       selectedLabel.hidden=!chosen||!enabled;selectedLabel.textContent=chosen?(rows.get(chosen.key)?.label||chosen.id):'';

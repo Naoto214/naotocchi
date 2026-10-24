@@ -65,7 +65,8 @@
     // ---- ゲーム(1つ 3〜6びょう)。それぞれ:
     //  cue: 指示の 文字、say: こえ、dur: せいげん時間(ms、レベルで みじかくなる)
     //  survive: true なら 時間切れ = せいこう(よける・まもる 系)
-    //  create(g) → { update(dt, t), draw(ctx), onTap(x,y), onDrag(x,y,dx,dy), onSwipe(dir), onPress(x,y), onRelease(x,y) }
+    //  create(g) → { update(dt, t), draw(ctx), onTap(x,y), onDrag(x,y,dx,dy), onSwipe(dir), onPress(x,y), onRelease(x,y), anim(dt) }
+    //  anim(dt): ○/× を 見せている あいだ(update は とまる)だけ よばれる。絵を うごかす だけで、はんてい・こうかおんは しない
     //  g: { W, H, level, speed, extra, feint, win(), lose(), t: keisoku }
     const GAMES = [];
     const def = (game) => { GAMES.push(game); return game; };
@@ -140,6 +141,7 @@
         let taps = 0, glow = 0;
         return {
           update(dt) { glow = Math.max(0, glow - dt * 4); },
+          anim(dt) { glow = Math.max(0, glow - dt * 4); },
           draw(ctx) {
             bg(ctx, W, H, '#f1e5ff', '#e2ccff');
             if (ctx) { const bw = W * 0.7, bx = (W - bw) / 2, by = H * 0.2; ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fillRect(bx, by, bw, 18); ctx.fillStyle = '#c07bff'; ctx.fillRect(bx, by, bw * clamp(taps / need, 0, 1), 18); ctx.fillStyle = '#fff'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(`${Math.min(taps, need)}/${need}`, W / 2, by + 9); }
@@ -160,6 +162,7 @@
         const trail = [];
         return {
           update(dt) { for (const p of trail) p.life -= dt; while (trail.length && trail[0].life <= 0) trail.shift(); },
+          anim(dt) { for (const p of trail) p.life -= dt; while (trail.length && trail[0].life <= 0) trail.shift(); },
           draw(ctx) { bg(ctx, W, H, '#fff3d6', '#f3dcae'); for (const p of trail) glyph(ctx, '✨', p.x, p.y, 16, clamp(p.life * 2, 0, 1)); for (const p of poops) if (!p.gone) glyph(ctx, '💩', p.x, p.y, 42, p.hp >= 2 ? 1 : 0.55); glyph(ctx, sprite(), W - 36, H - 36, 36); },
           // うんちの うえを なぞった きょり(px)で けす(その場で こすっても、おうふくしても OK)
           onDrag(x, y, dx, dy) {
@@ -251,17 +254,18 @@
       create(g) {
         const W = g.W, H = g.H;
         const lo = 0.62, hi = lerp(0.9, 0.78, (g.level - 1) / (RULES.MAX_LEVEL - 1));
-        let fill = 0, holding = false, done = false, jumpY = 0;
+        let fill = 0, holding = false, done = false, jumped = false, jumpY = 0;
         const rate = (0.55 + 0.1 * g.extra) * g.speed;
         return {
-          update(dt) { if (holding && !done) { fill += rate * dt; if (fill >= 1) { done = true; sfx('bad'); g.lose(); } } if (done && jumpY < 60) jumpY += dt * 240; },
+          update(dt) { if (holding && !done) { fill += rate * dt; if (fill >= 1) { done = true; sfx('bad'); g.lose(); } } },
+          anim(dt) { if (jumped && jumpY < 60) jumpY += dt * 240; },
           draw(ctx) {
             bg(ctx, W, H, '#e8fff1', '#c8f2d8');
             if (ctx) { const bx = W * 0.15, bw = W * 0.7, by = H * 0.22; ctx.fillStyle = 'rgba(0,0,0,.15)'; ctx.fillRect(bx, by, bw, 20); ctx.fillStyle = '#6fd37a'; ctx.fillRect(bx + bw * lo, by, bw * (hi - lo), 20); ctx.fillStyle = '#ffb347'; ctx.fillRect(bx, by + 4, bw * clamp(fill, 0, 1), 12); }
             glyph(ctx, sprite(), W / 2, H * 0.72 - jumpY, 52 + fill * 10); glyph(ctx, holding ? '💪' : '👆', W / 2 + 40, H * 0.72 - 30, 24);
           },
           onPress() { if (!done) holding = true; },
-          onRelease() { if (done || !holding) return; holding = false; done = true; if (fill >= lo && fill <= hi) { sfx('jump'); g.win(); } else { sfx('bad'); g.lose(); } },
+          onRelease() { if (done || !holding) return; holding = false; done = true; if (fill >= lo && fill <= hi) { jumped = true; sfx('jump'); g.win(); } else { sfx('bad'); g.lose(); } },
           target() { return { kind: 'hold', x: W / 2, y: H / 2, release: fill >= (lo + hi) / 2 }; },
         };
       } });
@@ -290,11 +294,13 @@
     def({ id: 'season', cue: 'きせつは？', say: 'きせつ', dur: 3600, uses: ['tap'], motif: '世界・季節',
       create(g) {
         const W = g.W, H = g.H;
-        const SEASONS = { spring: ['はるは？', 'はるは', '🌸'], summer: ['なつは？', 'なつは', '🌻'], autumn: ['あきは？', 'あきは', '🍁'], winter: ['ふゆは？', 'ふゆは', '⛄'] };
+        // 答えの 絵は きせつごとの プールから 毎回 1つ(絵で おぼえず「きせつ」で えらぶ)。
+        // プールは たがいに かぶらず、どの きせつか まよう 絵(いちご・こいのぼり・ただの はな など)は 入れない
+        const SEASONS = { spring: ['はるは？', 'はるは', ['🌸', '🐣', '🍡']], summer: ['なつは？', 'なつは', ['🌻', '🍉', '🎆']], autumn: ['あきは？', 'あきは', ['🍁', '🎃', '🌰']], winter: ['ふゆは？', 'ふゆは', ['⛄', '🧤', '🧣']] };
         const keys = Object.keys(SEASONS);
         const cur = SEASONS[season()] ? season() : pick(keys);
         const want = Math.random() < 0.6 ? cur : pick(keys);
-        const items = shuffle(keys).map((k, i) => ({ k, ch: SEASONS[k][2], x: W * (0.2 + 0.6 * (i % 2)), y: H * (0.3 + 0.36 * Math.floor(i / 2)) }));
+        const items = shuffle(keys).map((k, i) => ({ k, ch: pick(SEASONS[k][2]), x: W * (0.2 + 0.6 * (i % 2)), y: H * (0.3 + 0.36 * Math.floor(i / 2)) }));
         let done = false;
         return {
           cue: SEASONS[want][0], say: SEASONS[want][1],
@@ -349,6 +355,7 @@
         let rubbed = 0, done = false; const hearts = []; const needPx = need * 55;
         return {
           update(dt) { for (const h of hearts) { h.y -= 40 * dt; h.life -= dt; } while (hearts.length && hearts[0].life <= 0) hearts.shift(); },
+          anim(dt) { for (const h of hearts) { h.y -= 40 * dt; h.life -= dt; } while (hearts.length && hearts[0].life <= 0) hearts.shift(); },
           draw(ctx) { bg(ctx, W, H, '#fff0f5', '#ffe0ea'); glyph(ctx, sprite(), me.x, me.y, 64); glyph(ctx, '🖐️', me.x + 50, me.y - 40, 26, 0.8); for (const h of hearts) glyph(ctx, '💗', h.x, h.y, 22, clamp(h.life, 0, 1)); if (ctx) { ctx.fillStyle = 'rgba(0,0,0,.15)'; ctx.fillRect(W * 0.2, H * 0.12, W * 0.6, 14); ctx.fillStyle = '#ff7eb6'; ctx.fillRect(W * 0.2, H * 0.12, W * 0.6 * clamp(rubbed / needPx, 0, 1), 14); } },
           // キャラの うえを なぞった きょり(px)で すすむ。むきは とわない
           onDrag(x, y, dx, dy) { if (done) return; if (!hit(x, y, me.x, me.y, 66)) return; const before = Math.floor(rubbed / 55); rubbed += Math.hypot(dx, dy); if (Math.floor(rubbed / 55) > before) { hearts.push({ x, y: y - 20, life: 0.8 }); sfx('tap'); } if (rubbed >= needPx) { done = true; sfx('love'); g.win(); } },
@@ -417,7 +424,8 @@
         const edge = W * 0.78, zone = lerp(70, 44, (g.level - 1) / (RULES.MAX_LEVEL - 1));
         const me = { x: 30, v: (150 + 30 * g.extra) * g.speed }; let done = false, fell = false;
         return {
-          update(dt) { if (done) { if (fell) me.y = (me.y || 0) + 300 * dt; return; } me.x += me.v * dt; if (me.x >= edge) { done = true; fell = true; sfx('bad'); g.lose(); } },
+          update(dt) { if (done) return; me.x += me.v * dt; if (me.x >= edge) { done = true; fell = true; sfx('bad'); g.lose(); } },
+          anim(dt) { if (fell) me.y = (me.y || 0) + 300 * dt; },
           draw(ctx) { bg(ctx, W, H, '#e6f7ff', '#ffffff'); if (ctx) { ctx.fillStyle = '#9ad48a'; ctx.fillRect(0, H * 0.62, edge, H * 0.38); ctx.fillStyle = '#6fd37a'; ctx.fillRect(edge - zone, H * 0.62, zone, 8); ctx.fillStyle = '#7a4f2a'; ctx.fillRect(0, H * 0.62 + 8, edge, 6); } glyph(ctx, '⛰️', W * 0.9, H * 0.55, 40); glyph(ctx, sprite(), me.x, H * 0.62 - 22 + (me.y || 0), 44); },
           onTap() { if (done) return; done = true; if (me.x >= edge - zone) { sfx('good'); g.win(); } else { sfx('bad'); g.lose(); } },
           target() { return { kind: 'tap', x: W / 2, y: H / 2, ready: !done && me.x >= edge - zone + 6 }; },
@@ -507,6 +515,7 @@
         const times = []; for (let i = 0; i < need; i++) times.push(0.5 + i * 0.9);
         return {
           update(dt) { t += dt; while (times.length && t >= times[0]) { times.shift(); fruits.push({ x: rnd(60, W - 60), y: H + 20, vy: -(360 + 20 * q.extra), vx: rnd(-30, 30), ch: pick(['🍉', '🍎', '🍊', '🍌']), cut: false }); } for (const f of fruits) { f.vy += 420 * dt; f.y += f.vy * dt; f.x += f.vx * dt; } },
+          anim(dt) { for (const f of fruits) { f.vy += 420 * dt; f.y += f.vy * dt; f.x += f.vx * dt; } },
           draw(ctx) { bg(ctx, W, H, '#fff5ee', '#ffe3d0'); for (const f of fruits) glyph(ctx, f.cut ? '💥' : f.ch, f.x, f.y, 46, f.cut ? 0.6 : 1); glyph(ctx, sprite(), W * 0.15, H * 0.9, 36); glyph(ctx, '🔪', W * 0.15 + 26, H * 0.9 - 20, 22); },
           onDrag(x, y, dx, dy) { if (Math.hypot(dx, dy) < 2) return; for (const f of fruits) if (!f.cut && hit(x, y, f.x, f.y, 36)) { f.cut = true; cut++; sfx('whoosh'); if (cut >= need) { sfx('good'); q.win(); } } },
           target() { const f = fruits.find((k) => !k.cut && k.y < H); return f ? { kind: 'drag', x: f.x - 40, y: f.y, to: { x: f.x + 40, y: f.y }, repeat: true } : { kind: 'drag', x: W / 2, y: H / 2, to: { x: W / 2 + 10, y: H / 2 }, repeat: true }; },
@@ -580,6 +589,7 @@
         let taps = 0, wig = 0;
         return {
           update(dt) { me.x += me.vx * dt; if (me.x < 70 || me.x > W - 70) me.vx = -me.vx; wig = Math.max(0, wig - dt * 6); },
+          anim(dt) { wig = Math.max(0, wig - dt * 6); },
           draw(ctx) { bg(ctx, W, H, '#fffbe6', '#fff0b3'); glyph(ctx, sprite(), me.x + Math.sin(wig * 40) * wig * 6, me.y, 76); ring(ctx, me.x, me.y + 18, 30, 'rgba(255,140,180,.7)', 3); if (ctx) { ctx.fillStyle = '#333'; ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(`${taps}／${need}`, W / 2, H * 0.12); } if (wig > 0.5) glyph(ctx, '😆', me.x + 40, me.y - 40, 26); },
           onTap(x, y) { if (hit(x, y, me.x, me.y + 18, 40)) { taps++; wig = 1; sfx('pop'); if (taps >= need) { sfx('love'); g.win(); } } },
           target() { return { kind: 'tap', x: me.x, y: me.y + 18, repeat: true }; },
@@ -605,14 +615,16 @@
     def({ id: 'color', cue: 'いろは？', say: 'いろ', dur: 3600, uses: ['tap'], motif: 'ずかん',
       create(g) {
         const W = g.W, H = g.H;
-        const COLORS = [['あかは？', 'あかは', '🍎'], ['きいろは？', 'きいろは', '🍋'], ['みどりは？', 'みどりは', '🥦'], ['あおは？', 'あおは', '🫐'], ['むらさきは？', 'むらさきは', '🍇']];
+        // いろごとに 3つの 絵の プールから 毎回 1つ(いろが はっきりした 絵だけ。
+        // ブルーベリーは ぶどう と まぎれるので つかわない)。プールは たがいに かぶらない
+        const COLORS = [['あかは？', 'あかは', ['🍎', '🍓', '🍅']], ['きいろは？', 'きいろは', ['🍋', '🍌', '🐥']], ['みどりは？', 'みどりは', ['🥦', '🍀', '🌿']], ['あおは？', 'あおは', ['🐳', '💧', '🧢']], ['むらさきは？', 'むらさきは', ['🍇', '☂️', '🔮']]];
         const n = 3 + Math.min(2, g.extra + (g.level >= 3 ? 1 : 0));
         const set = shuffle(COLORS).slice(0, n); const want = pick(set);
-        const items = set.map((c, i) => ({ c, x: W * (0.18 + 0.64 * (i % 3) / 2), y: H * (0.32 + 0.3 * Math.floor(i / 3)) }));
+        const items = set.map((c, i) => ({ c, ch: pick(c[2]), x: W * (0.18 + 0.64 * (i % 3) / 2), y: H * (0.32 + 0.3 * Math.floor(i / 3)) }));
         let done = false;
         return {
           cue: want[0], say: want[1],
-          draw(ctx) { bg(ctx, W, H, '#fffaf0', '#fff0d6'); for (const it of items) { ring(ctx, it.x, it.y, 36, 'rgba(255,255,255,.9)', 3); glyph(ctx, it.c[2], it.x, it.y, 44); } glyph(ctx, sprite(), W / 2, H * 0.88, 36); },
+          draw(ctx) { bg(ctx, W, H, '#fffaf0', '#fff0d6'); for (const it of items) { ring(ctx, it.x, it.y, 36, 'rgba(255,255,255,.9)', 3); glyph(ctx, it.ch, it.x, it.y, 44); } glyph(ctx, sprite(), W / 2, H * 0.88, 36); },
           onTap(x, y) { if (done) return; for (const it of items) if (hit(x, y, it.x, it.y, 40)) { done = true; if (it.c === want) { sfx('coin'); g.win(); } else { sfx('bad'); g.lose(); } return; } },
           target() { const it = items.find((k) => k.c === want); return { kind: 'tap', x: it.x, y: it.y }; },
         };
@@ -719,7 +731,8 @@
         const me = { x: -30, v: (170 + 30 * g.extra) * g.speed, dir: 1 }; let done = false, flash = 0;
         const inFrame = () => Math.abs(me.x - frame.x) <= frame.w / 2;
         return {
-          update(dt) { if (done) { flash = Math.max(0, flash - dt * 3); return; } me.x += me.v * me.dir * dt; if (me.x > W + 30) { me.dir = -1; } if (me.x < -30 && me.dir < 0) { me.dir = 1; } },
+          update(dt) { if (done) return; me.x += me.v * me.dir * dt; if (me.x > W + 30) { me.dir = -1; } if (me.x < -30 && me.dir < 0) { me.dir = 1; } },
+          anim(dt) { flash = Math.max(0, flash - dt * 3); },
           draw(ctx) { bg(ctx, W, H, '#fdfbe6', '#f5efc4'); if (ctx) { ctx.strokeStyle = '#333'; ctx.lineWidth = 3; ctx.setLineDash([8, 6]); ctx.strokeRect(frame.x - frame.w / 2, H * 0.32, frame.w, H * 0.42); ctx.setLineDash([]); } glyph(ctx, sprite(), me.x, H * 0.55, 46); glyph(ctx, '📷', W * 0.85, H * 0.15, 34); if (flash > 0 && ctx) { ctx.fillStyle = `rgba(255,255,255,${flash})`; ctx.fillRect(0, 0, W, H); } },
           onTap() { if (done) return; done = true; flash = 1; if (inFrame()) { sfx('coin'); g.win(); } else { sfx('bad'); g.lose(); } },
           target() { return { kind: 'tap', x: W / 2, y: H / 2, ready: inFrame() && Math.abs(me.x - frame.x) < frame.w / 2 - 12 }; },
@@ -734,6 +747,7 @@
         let cur = queue.shift(), done = 0, fly = null;
         return {
           update(dt) { if (fly) { fly.x += fly.vx * dt; if (fly.x < -40 || fly.x > W + 40) fly = null; } },
+          anim(dt) { if (fly) { fly.x += fly.vx * dt; if (fly.x < -40 || fly.x > W + 40) fly = null; } },
           draw(ctx) { bg(ctx, W, H, '#f3fff0', '#dcf5d0'); glyph(ctx, '🍽️', W * 0.14, H * 0.5, 48); glyph(ctx, '🗑️', W * 0.86, H * 0.5, 48); if (cur) glyph(ctx, cur.ch, W / 2, H * 0.5, 54); if (fly) glyph(ctx, fly.ch, fly.x, H * 0.5, 44); glyph(ctx, sprite(), W / 2, H * 0.86, 40); if (ctx) { ctx.fillStyle = '#333'; ctx.font = 'bold 16px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(`${done}／${n}`, W / 2, H * 0.14); } },
           onSwipe(dir) { if (!cur) return; const ok = (dir === 'left' && cur.food) || (dir === 'right' && !cur.food); if (!ok) { sfx('bad'); g.lose(); cur = null; return; } fly = { ch: cur.ch, x: W / 2, vx: dir === 'left' ? -600 : 600 }; sfx('whoosh'); done++; cur = queue.shift() || null; if (done >= n) { sfx('good'); g.win(); } },
           target() { return cur ? { kind: 'swipe', dir: cur.food ? 'left' : 'right', repeat: true } : { kind: 'swipe', dir: 'left', ready: false }; },
@@ -807,7 +821,8 @@
         let t = 0, done = false, dropped = null;
         const bx = () => W / 2 + Math.sin(phase + t * sp) * W * 0.34;
         return {
-          update(dt) { t += dt; if (dropped) { dropped.y += 500 * dt; } },
+          update(dt) { t += dt; },
+          anim(dt) { if (dropped) dropped.y += 500 * dt; },
           draw(ctx) { bg(ctx, W, H, '#fff3e0', '#ffe0b3'); glyph(ctx, '🟫', W / 2, H * 0.8, 60); glyph(ctx, '🟫', W / 2, H * 0.66, 60); if (dropped) glyph(ctx, '🟧', dropped.x, Math.min(dropped.y, H * 0.52), 60); else glyph(ctx, '🟧', bx(), H * 0.22, 60); glyph(ctx, sprite(), W * 0.85, H * 0.88, 34); },
           onTap() { if (done) return; done = true; const x = bx(); dropped = { x, y: H * 0.22 }; if (Math.abs(x - W / 2) <= tol) { sfx('coin'); g.win(); } else { sfx('bad'); g.lose(); } },
           target() { return { kind: 'tap', x: W / 2, y: H / 2, ready: Math.abs(bx() - W / 2) <= tol * 0.5 }; },
@@ -876,13 +891,15 @@
     def({ id: 'weather', cue: 'てんきは？', say: 'てんき', dur: 3600, uses: ['tap'], motif: 'てんき',
       create(g) {
         const W = g.W, H = g.H;
-        const KINDS = [['はれは？', 'はれは', '🕶️', '☀️'], ['あめは？', 'あめは', '☂️', '🌧️'], ['ゆきは？', 'ゆきは', '🧣', '❄️']];
+        // あう ものは てんきごとの プールから 毎回 1つ(ながぐつ・パラソルは ほかの てんきとも まよう ので 入れない)。
+        // プールは たがいに かぶらない。☔ は あめの 絵(🌧️)と おなじ 絵に なるので つかわない
+        const KINDS = [['はれは？', 'はれは', ['🕶️', '🧢'], '☀️'], ['あめは？', 'あめは', ['☂️', '🐌'], '🌧️'], ['ゆきは？', 'ゆきは', ['🧣', '🧤'], '❄️']];
         const want = pick(KINDS);
-        const items = shuffle(KINDS).map((k, i) => ({ k, x: W * ((i + 0.5) / 3), y: H * 0.6 }));
+        const items = shuffle(KINDS).map((k, i) => ({ k, ch: pick(k[2]), x: W * ((i + 0.5) / 3), y: H * 0.6 }));
         let done = false;
         return {
           cue: want[0], say: want[1],
-          draw(ctx) { bg(ctx, W, H, '#eef8ff', '#d7ecff'); glyph(ctx, want[3], W / 2, H * 0.22, 70); for (const it of items) { ring(ctx, it.x, it.y, 38, 'rgba(255,255,255,.9)', 3); glyph(ctx, it.k[2], it.x, it.y, 44); } glyph(ctx, sprite(), W / 2, H * 0.9, 32); },
+          draw(ctx) { bg(ctx, W, H, '#eef8ff', '#d7ecff'); glyph(ctx, want[3], W / 2, H * 0.22, 70); for (const it of items) { ring(ctx, it.x, it.y, 38, 'rgba(255,255,255,.9)', 3); glyph(ctx, it.ch, it.x, it.y, 44); } glyph(ctx, sprite(), W / 2, H * 0.9, 32); },
           onTap(x, y) { if (done) return; for (const it of items) if (hit(x, y, it.x, it.y, 42)) { done = true; if (it.k === want) { sfx('coin'); g.win(); } else { sfx('bad'); g.lose(); } return; } },
           target() { const it = items.find((k) => k.k === want); return { kind: 'tap', x: it.x, y: it.y }; },
         };
@@ -938,11 +955,14 @@
             phase = 'play'; phaseUntil = startedAt + RULES.CUE_MS;
             hud();
             show(cueEl, escapeHtml(game.cue || def.cue));
+            // ながい cue(8〜9もじ)は 1ぎょうに おさまるよう 文字を ちいさく(375pt はばで おりかえさない)
+            if (cueEl.style && cueEl.style.setProperty) cueEl.style.setProperty('--qk-cue-size', cueSize(game.cue || def.cue) + 'px');
             cueEl.classList.remove('pop'); void (cueEl.offsetWidth); cueEl.classList.add('pop');
             hintEl.textContent = (game.cue || def.cue) + '（' + def.motif + '）';
             // こえが 出る ときは チャイムを かさねない(ことばの あたまが きこえなくなる)
             if (!voice(String(game.say || def.say), { question: /[？?]$/.test(String(game.cue || def.cue)) })) sfx('notify');
           }
+          function cueSize(text) { const n = Array.from(String(text)).length; return n <= 7 ? 40 : n === 8 ? 32 : 28; }
           function judge(ok) {
             if (phase !== 'play' || pending != null) return;
             pending = ok;
@@ -951,7 +971,7 @@
             else { lives--; combo = 0; lastMiss = def.id; sfx('bad'); }
             hud();
             hide(cueEl);
-            show(flashEl, ok ? '<span class="qk-ok">○</span><small>できた!</small>' : '<span class="qk-ng">✕</span><small>しっぱい…</small>');
+            show(flashEl, ok ? '<span class="qk-badge"><span class="qk-ok">○</span><small>できた!</small></span>' : '<span class="qk-badge"><span class="qk-ng">✕</span><small>しっぱい…</small></span>');
             flashEl.classList.toggle('ng', !ok); flashEl.classList.toggle('ok', ok);
             phase = 'result'; phaseUntil = performance.now() + RULES.RESULT_MS;
           }
@@ -1012,6 +1032,8 @@
               if (game.update) game.update(dt, now);
               if (pending == null && el >= limit) judge(game.onTimeout ? !!game.onTimeout() : !!def.survive);
             } else if (phase === 'result') {
+              // update は よばない(はんてい・こうかおんが 2かい おきないように)。絵だけ すすめる
+              if (game && game.anim) game.anim(dt);
               if (now >= phaseUntil) {
                 hide(flashEl);
                 if (lives <= 0 || index >= TOTAL) { finishRun(); return; }

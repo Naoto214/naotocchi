@@ -16,15 +16,35 @@ function node(){return {style:{setProperty(k,v){this[k]=v;},removeProperty(k){de
  setAttribute(k,v){this.attrs[k]=v;},removeAttribute(k){delete this.attrs[k];},getAttribute(k){return this.attrs[k]??null;},appendChild(n){this.children.push(n);n.parentNode=this;},remove(){this.isConnected=false;},
  listeners:{},addEventListener(k,f){this.listeners[k]=f;},removeEventListener(k){delete this.listeners[k];},setPointerCapture(){},releasePointerCapture(){},
  getBoundingClientRect(){return {x:0,y:0,left:0,top:0,width:350,height:240};},querySelector(){return null;},closest(){return null;}};}
-function setup(){
+function setup({region='forest',poops=0}={}){
  assert.equal(typeof api.createController,'function');const stage=node(),doc=node(),owner=node(),events=[],raf=new Map();let serial=0,hidden=false,blocked=false;
  doc.createElement=()=>node();Object.defineProperty(doc,'visibilityState',{get:()=>hidden?'hidden':'visible'});
+ const poop=node();for(let i=0;i<poops;i++)poop.appendChild(node());doc.getElementById=id=>id==='poopRow'?poop:null;
  const env={NaotocchiHomeDioramaModel:model,matchMedia:()=>({matches:false,addEventListener(){},removeEventListener(){}}),requestAnimationFrame:f=>{raf.set(++serial,f);return serial;},cancelAnimationFrame:id=>raf.delete(id),CustomEvent:class{constructor(t,v){this.type=t;this.detail=v.detail;}}};
  let actors=[{key:'pet:dog',kind:'pet',id:'dog',node:owner,owner,x:170,y:145,w:60,h:75,baseX:140,baseY:70}];
  stage.dispatchEvent=e=>events.push(e);const c=api.createController({stage,document:doc,env,getActors:()=>actors,isBlocked:()=>blocked,onGesture:()=>{},onPosition:()=>{}});
- c.update({region:'forest',width:350,height:240,season:'summer',weather:'sunny',time:'day'},{});
- return {stage,doc,owner,c,raf,events,setHidden:v=>{hidden=v;doc.listeners.visibilitychange();},setBlocked:v=>blocked=v,setActors:v=>actors=v};
+ if(region)c.update({region,width:350,height:240,season:'summer',weather:'sunny',time:'day'},{});
+ return {stage,doc,owner,c,raf,events,poop,setHidden:v=>{hidden=v;doc.listeners.visibilitychange();},setBlocked:v=>blocked=v,setActors:v=>actors=v};
 }
+test('interrupt before a terrain scene exists leaves the legacy poop row untouched',()=>{
+ for(const region of [null,'home']){
+  const h=setup({region,poops:4}),before=JSON.stringify(h.poop.children.map(n=>n.style));
+  assert.doesNotThrow(()=>h.c.interrupt(),'care/conversation can interrupt an inactive controller');
+  assert.doesNotThrow(()=>h.setHidden(true),'backgrounding before terrain initialization is safe');
+  assert.equal(JSON.stringify(h.poop.children.map(n=>n.style)),before);
+  assert.equal(h.poop.dataset.groundKey,undefined);assert.equal(h.raf.size,0);h.c.destroy();
+ }
+});
+test('leaving terrain preserves legacy poop visibility through interruption and permits reentry',()=>{
+ const h=setup({poops:4});assert.ok(h.poop.children.every(n=>n.style.visibility==='visible'));
+ h.c.update({region:'home'});const before=JSON.stringify(h.poop.children.map(n=>n.style));
+ h.c.interrupt();
+ assert.equal(JSON.stringify(h.poop.children.map(n=>n.style)),before,'inactive paint must not hide or reposition the legacy row');
+ h.setHidden(true);assert.equal(JSON.stringify(h.poop.children.map(n=>n.style)),before,'backgrounding preserves the legacy row');h.setHidden(false);
+ assert.equal(h.poop.dataset.groundKey,undefined);
+ h.c.update({region:'forest'});assert.ok(h.poop.children.every(n=>n.style.visibility==='visible'&&n.style.left&&n.style.top));
+ assert.ok(h.poop.dataset.groundKey);h.c.destroy();
+});
 test('tap selects, release after drag sets destination without teleport',()=>{
  const h=setup(),pointer=(x,y)=>({pointerId:1,isPrimary:true,button:0,clientX:x,clientY:y,target:h.owner,preventDefault(){}});
  h.stage.listeners.pointerdown(pointer(170,120));h.stage.listeners.pointerup(pointer(170,120));assert.equal(h.c.model.selected(),'pet:dog');
