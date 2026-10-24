@@ -12,8 +12,8 @@ test('read-only chapter-one completion seeds trial; all writes are isolated',()=
  const p=new ForestProgress(s);assert.ok(p.allowed('komorebi-fall'));p.clear('komorebi-fall');p.board('komorebi-support',{sentinel:1});
  for(const [k,v]of before)assert.equal(s.getItem(k),v);assert.deepEqual(new ForestProgress(s).data.boards['komorebi-support'],{sentinel:1});
 });
-test('QA unlocks only 11–13 and never modifies normal progress',()=>{
- const s=memory(),normal=new ForestProgress(s);normal.flush();const saved=s.getItem(KEY);const q=new ForestProgress(s,{qa:true});assert.equal(q.ids.length,3);assert.ok(q.ids.every(id=>q.allowed(id)));q.clear(q.ids[2]);assert.equal(s.getItem(KEY),saved);assert.notEqual(KEY,QA_KEY);
+test('QA unlocks only 11–20 and never modifies normal progress',()=>{
+ const s=memory(),normal=new ForestProgress(s);normal.flush();const saved=s.getItem(KEY);const q=new ForestProgress(s,{qa:true});assert.equal(q.ids.length,10);assert.ok(q.ids.every(id=>q.allowed(id)));q.clear(q.ids[2]);assert.equal(s.getItem(KEY),saved);assert.notEqual(KEY,QA_KEY);
 });
 test('unknown future save is preserved and corruption backup stays in pilot namespace',()=>{
  const s=memory();s.setItem(KEY,JSON.stringify({version:99}));const p=new ForestProgress(s);p.flush();assert.equal(JSON.parse(s.getItem(KEY)).version,99);

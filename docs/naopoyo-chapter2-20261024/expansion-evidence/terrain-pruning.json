@@ -1,0 +1,30 @@
+[
+  {
+    "number": 18,
+    "before": 10,
+    "after": 6,
+    "noGateTransit": {
+      "status": "exhausted",
+      "visited": 25,
+      "expanded": 25,
+      "edges": 254,
+      "shortestProven": false,
+      "elapsedMs": 5,
+      "method": "bfs"
+    }
+  },
+  {
+    "number": 20,
+    "before": 10,
+    "after": 6,
+    "noGateTransit": {
+      "status": "exhausted",
+      "visited": 25,
+      "expanded": 25,
+      "edges": 254,
+      "shortestProven": false,
+      "elapsedMs": 3,
+      "method": "bfs"
+    }
+  }
+]

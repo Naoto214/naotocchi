@@ -1,3 +1,4 @@
+import {expansionStages} from './expansion-stages.mjs';
 const dog=(id,x,y,level)=>({id,x,y,level,species:'dog'});
 const cat={name:'きまぐれなねこ',asset:'assets/characters/companions/cat_friend.png'};
 const stage=(slug,number,title,actors,extra)=>({id:'komorebi-'+slug,number,title:`${number} ${title}`,w:8,h:8,revision:1,theme:'forest',showSpecies:false,gravity:true,walls:[],gates:[],spikes:[],exits:[],water:[],guests:[],events:[],actors,...extra,hint:extra.hints[0]});
@@ -21,4 +22,5 @@ export const stages=[
   hints:['8を先に帰すと、4は高い星へ届かない。','まず4を左の岩の上へ。8だけが、岩の下の門を通れるよ。','4を岩の上に残し、8を門の右のすきまへ運ぶ。4をその上に落として右上の星へ。最後に8を下の星へ。']
  })
 ];
+stages.push(...expansionStages);
 export const ids=stages.map(s=>s.id);

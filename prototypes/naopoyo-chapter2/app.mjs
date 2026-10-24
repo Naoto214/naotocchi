@@ -135,7 +135,9 @@ export function mount({qa = false} = {}) {
     } else
       $("status").textContent = r?.ok
         ? "指を離さず、そのまま。"
-        : r
+        : r?.reason === "gate"
+          ? "門の数字に合う仲間だけが通れるよ。余った仲間の戻る場所も確かめよう。"
+          : r
           ? q.stage.gates.some(g => g.waveOnly)
             ? "波の門は、表示の数字になって波で通ろう。"
             : "上へ登るには、下の足場と横の支えが必要だよ。"
@@ -196,7 +198,7 @@ export function mount({qa = false} = {}) {
   $("hint").onclick = showHint;
   function selectScreen(){
     progress.merge(progress.load());
-    show(`<span class="tag">CHAPTER 02 PILOT</span><h2>こもれびの森</h2><p>${qa?"11〜13面を直接試せるQAモード。":"第1章10クリアで11を開放。本番と別のセーブです。"}</p><div class="stage-grid">`+stages.map((s,i)=>{
+    show(`<span class="tag">CHAPTER 02 PILOT</span><h2>こもれびの森</h2><p>${qa?"11〜20面を直接試せるQAモード。":"第1章10クリアで11を開放。本番と別のセーブです。"}</p><div class="stage-grid">`+stages.map((s,i)=>{
       const cleared=progress.data.cleared.includes(s.id),open=progress.allowed(s.id);
       return `<button class="level ${cleared?'cleared':open?'available':'locked'}" data-stage="${s.id}" ${open?'':'disabled'}><b>${String(s.number||i+1).padStart(2,'0')}</b><span>${cleared?'★ クリア':open?'✧ 挑戦できる':'🔒 未開放'}</span><small>${open?s.title.slice(3):'ひらく前の道'}</small></button>`;
     }).join('')+`</div><small>開いた道には、いつでも戻れます。</small><p class="game-links"><a href="${qa?'index.html':'qa.html'}">${qa?'通常の順次開放へ':'QA全開放へ'}</a></p><button id="storyAgain">この面のお話を読む</button>`);
@@ -272,7 +274,7 @@ export function mount({qa = false} = {}) {
       const fresh=progress.clear(q.stage.id),next=stages.find(s=>s.id===progress.next(q.stage.id));
       const endingKey=q.stage.id+':ending',seen=progress.data.read.includes(endingKey);
       progress.read(endingKey);
-      show(`<div class="victory-star">★</div><h2>${next?'みんな、おかえり。':'こもれびの森 Pilot クリア！'}</h2>${seen?'':`<p>${q.stage.ending}</p>`}${fresh?'<p class="unlock">✧ 新しい星の道が開きました</p>':''}${next?'<button class="primary" id="nextStage">次の星の道へ →</button>':'<p>14面から先は、試遊の感想をもとに制作します。</p><button class="primary" id="chapterMap">星の道をふりかえる</button>'}`);
+      show(`<div class="victory-star">★</div><h2>${next?'みんな、おかえり。':'こもれびの森 Pilot クリア！'}</h2>${seen?'':`<p>${q.stage.ending}</p>`}${fresh?'<p class="unlock">✧ 新しい星の道が開きました</p>':''}${next?'<button class="primary" id="nextStage">次の星の道へ →</button>':'<p>森の試練をほどきました。難しさや気づいたことを聞かせてください。</p><button class="primary" id="chapterMap">星の道をふりかえる</button>'}`);
       if(next)$("nextStage").onclick=()=>choose(next.id);
       else $("chapterMap").onclick=selectScreen;
     }
