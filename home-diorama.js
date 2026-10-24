@@ -101,6 +101,9 @@
     const y=Math.max(6+ch,Math.min(height-h-6,above>=6+ch?above:speaker.y+12));
     return {x,y,w,side:y+h<=speaker.y-speaker.h?'above':'below',choicesMaxHeight:Math.max(0,ch-5),tail:Math.max(12,Math.min(w-12,speaker.x-x))};
   }
+  function speechTail(slotTail,slotWidth,bubbleWidth){
+    return Math.max(12,Math.min(bubbleWidth-12,slotTail-Math.max(0,(slotWidth-bubbleWidth)/2)));
+  }
   function placeGroundProps(count,actors,scene){
     const pet=actors.find(a=>a.kind==='pet');if(!pet||!count)return [];
     const points=[],size=18,limits={left:16,right:scene.width-16,top:Math.max(24,scene.groundTop||24),bottom:scene.height-12};
@@ -309,5 +312,5 @@
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeNotices(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,speechPlacement,placeGroundProps};
+  return {sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,speechPlacement,speechTail,placeGroundProps};
 });

@@ -14905,7 +14905,7 @@
       if(choices)choices.style.maxHeight=place.choicesMaxHeight+'px';
       el.speechSlot.style.setProperty('--terrain-choice-offset',Math.max(6,Math.min(r.width-maxWidth-6,point.x+(point.dioramaX||0)-maxWidth/2))-place.x+'px');
       el.speechSlot.style.setProperty('--terrain-speech-x',place.x+'px');el.speechSlot.style.setProperty('--terrain-speech-y',place.y+'px');el.speechSlot.style.setProperty('--terrain-speech-w',place.w+'px');
-      el.speechSlot.dataset.terrainSide=place.side;el.speechBubble.style.setProperty('--speech-tail-x',place.tail+'px');return;
+      el.speechSlot.dataset.terrainSide=place.side;el.speechBubble.style.setProperty('--speech-tail-x',window.NaotocchiHomeDiorama.speechTail(place.tail,place.w,bubble.width)+'px');return;
     }
     // Only constrain the tail when the completed poop row is at its height.
     // A row below the bubble must not pull even the main speaker's tail aside.

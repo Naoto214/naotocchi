@@ -58,3 +58,11 @@ test('result narration has independent width before measurement and mixed tone k
  assert.equal(care.summary('げんき +2 / ごきげん −3'),'少しげんきになった / 少ししょんぼり');
  assert.equal(care.summary('はしゃぎすぎちゃった。げんき-2',true),'はしゃぎすぎちゃった。');
 });
+test('short dialogue tail is local to its centered bubble beside result narration',()=>{
+ assert.equal(typeof home.speechTail,'function');
+ for(const slotWidth of [275,340])for(const bubbleWidth of [70,100,118,slotWidth])for(const slotTail of [12,slotWidth/2,slotWidth-12]){
+  const tail=home.speechTail(slotTail,slotWidth,bubbleWidth);
+  assert.ok(tail>=12&&tail<=bubbleWidth-12);
+  if(slotTail===slotWidth/2)assert.equal(tail,bubbleWidth/2);
+ }
+});
