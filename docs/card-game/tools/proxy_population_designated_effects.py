@@ -52,6 +52,10 @@ def audit(before,after,event,decisions,registry):
    expected=copy.deepcopy(before);expected['event_seq']=seq;ec=expected['legacy_continuation'];ec['game_state']=life.restore_game(registry,g,applied['local_after_game_state'])
    if final:ec['game_state']['players'][actor]['discard'].append(source)
    tail.finish(expected,before,event)
+   if final and ec['activation_zone'] and g['phase']=='post_placement_response':
+    # The frozen quick.resolve relabels a post-placement window as response_window
+    # for406's allowed phase; with outer links left,406 keeps that label.
+    ec['game_state']['phase']='response_window'
    if canonical(after)!=canonical(expected):raise ValueError('designated effect full envelope differs')
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_designated_effect_semantics.v1',applicable=applicable,errors=errors,supplied_designated_effect_verified=applicable and not errors,choice_contract_id=kind,required_choice_count=choice_count,

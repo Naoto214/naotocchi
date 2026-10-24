@@ -1,0 +1,7 @@
+test_forged_origin_missing_origin_transition_or_tampered_delta_fails_closed (test_proxy_population_hand_timing_replay.HandTimingReplayTests.test_forged_origin_missing_origin_transition_or_tampered_delta_fails_closed) ... ok
+test_hand_reaction_gets_its_provenance_row_from_the_hand_timing_audits (test_proxy_population_hand_timing_replay.HandTimingReplayTests.test_hand_reaction_gets_its_provenance_row_from_the_hand_timing_audits) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.815s
+
+OK

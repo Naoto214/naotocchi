@@ -1,0 +1,19 @@
+{"error": "missing incarnation metadata generation", "non_first": ["A-035#2"], "keys": 80, "first_missing": ["A-035#1"]}
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_challenge_window.py", line 52, in step
+    result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_runtime.py", line 96, in _step
+    old._verify_generated(state.current(prior),state.current(after),[raw])
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_resource_value_trajectory.py", line 449, in _verify_generated
+    extension._verify_extended_step(before,after,events)
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 234, in verify
+    return prior_verify(b,a,private)
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_normal_action_extension.py", line 297, in _verify_extended_step
+    restart_122._verify_step(before,after,generated)
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 169, in final_comparison
+    if len(events)!=1 or events[0].get('action_type')!='r10_final_comparison' or all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_step(before,after,events)
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_incarnation_runtime.py", line 169, in <genexpr>
+    if len(events)!=1 or events[0].get('action_type')!='r10_final_comparison' or all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_step(before,after,events)
+  File "$SCRATCH/diag_trace.py", line 12, in wrapped
+    with out.open('a') as f:f.write(json.dumps(dict(error=str(e),non_first=ids,keys=len(cards),first_missing=sorted(k.split('#')[0]+'#1' for k in ids if k.split('#')[0]+'#1' not in cards)))+'\n'+''.join(traceback.format_stack()[-8:])+'\n----\n')
+
+----

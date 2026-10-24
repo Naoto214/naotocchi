@@ -1,5 +1,65 @@
 # CARD GAME 最小再開メモ
 
+## 最新状態 — 固定400戦の本番が 400/400 完走（2026-10-24）
+
+- 承認 `6365642150`（PR #408、P `e8e7202a`、request `39925d9c…`）を正式ゲートで照合して1回だけ消費し、claim `99237d90` を P の直接の子として保存。C案 supervisor を世代0・4並列で起動（2026-10-23T13:17Z → 10-24T13:13Z、約23.9時間）。
+- 結果：`completed_fixed_schedule`、完走400・保存400・未保存0・未実施0、中断・resume・retry なし。結果ブランチ `fixed400-results/fixed400-e8e7202ac717`（head `ca8017b7`、1行1コミット）。勝敗 A 194・B 173・引き分け 33。全体結論は null のまま（balance 標本0）。
+- 検証：結果ブランチを取り直して `verify_ledger` で400行合格。手元1200ファイルと結果ブランチの blob が全一致。play digest は診断400戦 diag31 と 400/400、baseline 完走155行と 155/155 一致。
+- 証跡：`data/proxy-population-400-checkpoint-run-20261023-evidence/REPORT.md`。制御ファイルは `data/proxy-population-400-checkpoint-run-20261023/`、行ごとの record は結果ブランチ。
+- 承認 `6365642150` は消費済みで再利用しない。main マージ・本番 Pages 更新はしていない。
+
+以下は過去時点の履歴。
+
+## C案（試合単位チェックポイント・本人承認付き再開・4並列）を実装・検証済み。正式400戦は未起動（2026-10-23）
+
+- 設計・契約変更：`plans/2026-10-23-fixed400-checkpoint-resume.md`。証跡：`data/proxy-population-400-attempt-design-20261023/REPORT.md`。
+- 実装：`proxy_population_checkpoint_ledger`／`results_store`／`checkpoint_supervisor`／`checkpoint_operator`、承認 request v3（`resume` 束縛、本文形式と本人・未編集・未取消・未消費・1回限りの検査は不変）。完走行ごとに `fixed400-results/<attempt>` ブランチへ1コミット追記・即 push。再開は新しい本人承認＋新 claim が必要で、保存済み行は保存バイトから全束縛を再計算できた場合だけ再利用。自動 retry／resume は無い。
+- テスト：中断復帰 14 シナリオ＋request 4 件 OK、関連 18 モジュール 106 件 OK。
+- 実行時間：001-A 再構成 570→358 s、独立再構成 604→393 s（出力同一のホットスポット修正2件）。1行約14.5分 CPU、4並列で400行 約24時間（従来 約147時間）。代表3試合（001-A・068-A・005-A）は diag31・本番第1試合と play 一致。
+- 次の正式起動（別承認）：設計書 §9（新 preflight → binding 公開 P → v3 世代0 request → 新コメント → claim → `checkpoint_operator.run`）。承認 `6356164698` は消費済み・再利用不可。main マージ・本番 Pages 更新はしていない。
+
+以下は過去時点の履歴。
+
+## 本番第4回は第1行完走後、第2行でコンテナ再起動により停止（2026-10-23）
+
+- 承認 `6356164698`（PR #408）を正式ゲートで照合・消費し、claim `babd88f7` を保存して supervisor を起動（edition `33cb2f85`、binding 公開 `609d525a`、出力先 `data/proxy-population-400-final-run-20261023/`）。
+- 第1行 group-001-A-first は completed（診断と play digest 一致）。第2行の開始直後にコンテナ再起動で消失。契約どおり停止扱い・resume/retry なし。停止記録は `data/proxy-population-400-final-run-20261023-stop/STOP.md`。
+- 本番累計：完走1・未完了1・未実施398。次の試行には新しい preflight（tested commit が本停止証拠を含む必要がある）・binding 公開・本人承認が必要。1行約22分のため直列400行は約6日。
+- main マージ・本番 Pages 更新はしていない。
+
+## 残る本人判断2件を正式裁定で解消し、全400行が診断完走（400/400・後退0）。本番は未起動（2026-10-22）
+
+- ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。報告書は `data/proxy-population-400-rediagnosis-20261022/REPORT.md`（既存の `proxy-population-400-restart-20261020/` 以下は不変）。
+- 裁定①（06 56・74–75行）：連鎖解決中に成立した誘発は連鎖終了後の新しい連鎖として、次の通常行動の前に提示する → `9fc01f20`/`44d54844`（trigger_window：台帳に未解決の発生が残る間は窓を活性のまま保つ）。6試合で13件の発生がすべて1回だけ提示され、合法候補0で `close_ineligible_triggers`。決定候補は増えていない。
+- 裁定②（91 E-final-time「メイン⑧ **または** R10」「R10ならたまごでも条件可」）：R10・メイン不在でも使用可 → `0bbad6f1`（`proxy_population_final_time_round.py`：凍結121 adjudicator の `required_own_main_absent` をその条件だけ外す scope）。068-A は旧記録213 event まで一致、seq 215 の在庫に E-final-time 候補が加わった。
+- 全400行再診断（HEAD `44d54844`、同一派生manifest、4並列）：正常完走400・本人判断0・未証明0・異常終了0・未実行0（`diagnostics/final-classification-v2.json`）。前回 executable 393 行は play digest 全行一致、baseline 155 行も全行一致（後退0）。比較は `diagnostics/previous-final-vs-v2-comparison.json`。
+- 本番400戦・mainマージ・本番Pages更新は今回の作業に含めず未実施。承認 request・消費・supervisor・worker・retry・resume は引き続き0。累計は着手1・完走0・未完了1・未実施399。起動には `44d54844` 以降（tools不変）の HEAD への本人承認と承認ゲート経由が必要。
+- 診断の長時間実行中はMonitorを張り続ける（セッション待機でコンテナが回収される）。
+
+以下は過去時点の履歴。
+
+## 全400行の診断分類が完了（393完走・本人判断7・未証明0）。本番は未起動（2026-10-22 前半）
+
+- ブランチ `claude/fixed400-restart-20261020`（PR #408 Draft）。承認権威は #408 へ移行済み（`7a4d71f2`）。10-21〜22の検証基盤修復は29件（`f74b3a89` から `d4595213` まで）。一覧と証跡は `data/proxy-population-400-restart-20261020/REPORT.md` §8。
+- baseline census（凍結木 c1966ae4）：完走155・境界停止216・例外29（`diagnostics/census.json`）。
+- 最終分類（固定木 c2e418b9、200-A のみ d4595213）：実行可能393、本人判断7（連鎖解決中の誘発提示 6行：005-A・030-B・044-B・063-B・106-A・136-B／R10・メイン不在の E-final-time 列挙 1行：068-A）、未証明0（`diagnostics/final-classification.json`）。凍結木で完走した155行は最終木でも全行完走し、対局内容が一致（後退0）。
+- 本番は no-go。本人判断7行が残り、現状なら予定第9行（005-A）で止まる。本人判断の反映 → 最終headで全行診断 → 本人承認 → 承認ゲート経由、の順でのみ起動する。
+- 本番400戦・承認request・消費・supervisor・worker・retry・resumeは引き続き0。累計は着手1・完走0・未完了1・未実施399。
+- 診断の長時間実行は、セッションが待機するとコンテナが回収されて止まる。実行中はMonitorを張り続ける。
+
+以下は過去時点の履歴。
+
+## 第4の停止原因（R10最終比較のincarnation zone検査）を修正、本番は未起動（2026-10-20）
+
+ブランチ `claude/fixed400-restart-20261020` は `0a9df8f0` から作成。mainの `f76c5866`（01/02のたまご表示改訂）は468 source anchorと一致しないため起点にしない。詳細は `data/proxy-population-400-restart-20261020/REPORT.md`。
+
+- 2ec0c668版の第1戦の診断：R10最終比較で `RouteIntegrityStop: instance_zone_duplicate_or_missing` の例外。退役前身 `A-035#1` の保持が原因。`aee9186d` で、incarnation scope内のR10最終比較に限りregistryで束縛した現役ビューを渡すよう修正。215モジュール/1156テストPASS（Python 3.12.14完全一致）。
+- 診断（本番外・算入しない）：group-001の鏡像2戦は完走し、record SHA-256は2回とも一致。先頭22行は完走8・境界停止13・例外1。本番を起動すると第3行 group-002-B-first（W-city predicate coverage）で停止する見込み。
+- 承認ゲート：`external_approval.py` が `PR=259` のopen/draft/未マージを要求する。PR #259はマージ済みなので、どの承認でもfail-closedになる。承認権威の移転は本人判断が必要で、未変更。request・承認・消費・supervisorはいずれも0。
+- 累計は引き続き着手1・完走0・未完了1・未実施399。balance標本0、全体結論null。
+
+以下は過去時点の履歴。
+
 ## 最新状態 — 新edition 400戦は第1戦R10で規定停止（2026-10-13）
 
 本人コメント `6127373548` をGitHub APIで認証し、開始承認request `6f65a4befc71db7b5b7684c5a6342f7ba62981010d4dd49ca2a5109915e3ecca` の消費記録を `e1467d68480fc2650f4ad45f4765d1d1c94ef7b6` に単独保存。再消費禁止。execution editionは `bd514e5c1830a0f7e599643024358d5b7b6beae3`、binding/派生manifest公開は `7ff9524989d507bcf12f9bd82386c43a0306226d`。旧・新preflight、旧独立checkout生成来歴、公開binding再構成の実監査が成立してから、一度だけsupervisorを起動した。

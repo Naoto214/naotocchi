@@ -1,0 +1,46 @@
+test_frozen_next_turn_inside_the_connected_scope_reaches_the_next_start (test_proxy_population_next_board.ConnectedNextTurnTests.test_frozen_next_turn_inside_the_connected_scope_reaches_the_next_start) ... ERROR
+test_catalog_change_or_start_kind_fails_closed_and_scope_restores (test_proxy_population_next_board.NextBoardTests.test_catalog_change_or_start_kind_fails_closed_and_scope_restores) ... ok
+test_discarded_companion_refusal_is_classified_from_the_start_catalog (test_proxy_population_next_board.NextBoardTests.test_discarded_companion_refusal_is_classified_from_the_start_catalog) ... ok
+test_unrefused_boards_and_other_errors_keep_the_frozen_result (test_proxy_population_next_board.NextBoardTests.test_unrefused_boards_and_other_errors_keep_the_frozen_result) ... ok
+
+======================================================================
+ERROR: test_frozen_next_turn_inside_the_connected_scope_reaches_the_next_start (test_proxy_population_next_board.ConnectedNextTurnTests.test_frozen_next_turn_inside_the_connected_scope_reaches_the_next_start)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_next_board.py", line 70, in test_frozen_next_turn_inside_the_connected_scope_reaches_the_next_start
+    run_current(run)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_predicates.py", line 25, in run_current
+    with connected.contract_scope():return runtime.operation(initial(),callback)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_next_board.py", line 65, in run
+    result=boundary.next_turn(state.current(e),i,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_turn_boundary.py", line 21, in next_turn
+    inventory=old.reached.classify_next_board(after['game_state'],next_actor)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_reached_mixed_contracts_401.py", line 257, in classify_next_board
+    reason=board_reason(game,actor,instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_reached_mixed_contracts_401.py", line 54, in board_reason
+    raise ValueError('reached cat target needs separate proof')
+ValueError: reached cat target needs separate proof
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.120s
+
+FAILED (errors=1)

@@ -1,0 +1,54 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = baseline census tree (c1966ae4); after = tree 831c8fe6 where the E-final-time timing verdict is backed by the record-level designated full-delta audit (deferred_application_audit verified, 1 distinct event per row). group-101-A-first passed through replacement-origin, replacement row shape and start-source negative stops before reaching the E-final-time stop at 321.",
+ "rows": [
+  {
+   "match_id": "group-006-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "timing occurrence differs: ['timing requires current typed application evidence']",
+     "phase": "post_placement_response"
+    },
+    "steps": 205,
+    "events": 272,
+    "record_sha256": "625e650d67a91ad5273067c4a51803353947cf60fed5d0321326c45650572d59",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 240,
+    "events": 318,
+    "record_sha256": "eafdac01880c3f391752ea298ac69d764d6c405214071b76ae700e45f12a6728",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-101-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "replacement origin effect unclassified",
+     "phase": "response_window"
+    },
+    "steps": 192,
+    "events": 247,
+    "record_sha256": "4bc3ba710b194db80605d6ee6390250b685e663562469c68cc9d0404e4e2f660",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 267,
+    "events": 346,
+    "record_sha256": "4e390965b76f52fd0e608a3e071d7d40e99ba40ff0d64bd0564019cc630c371b",
+    "error": null
+   }
+  }
+ ]
+}

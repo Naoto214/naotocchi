@@ -7,7 +7,7 @@ import os,re,subprocess,tempfile
 from datetime import datetime,timezone
 
 REMOTE='https://github.com/Naoto214/naotocchi.git'
-REF='refs/heads/design/card-pool-master-20260914'
+REF='refs/heads/claude/fixed400-restart-20261020'  # follows approval PR #408 (2026-10-20)
 
 
 def _environment():

@@ -1,0 +1,31 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = baseline census tree (c1966ae4) where group-032-B-first stopped at 'concealed response timing unclassified: activate_main_ability'; after = tree b1df7af2 with the concealed-origin projection (42d02877), the I-bond1 replacement row (5df9538b) and the prepared-coverage origin binding (b1df7af2). On 42d02877 alone it advanced to 'current predicate coverage incomplete: [B-034#1]'.",
+ "rows": [
+  {
+   "match_id": "group-032-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "concealed response timing unclassified: activate_main_ability",
+     "phase": "response_window"
+    },
+    "steps": 88,
+    "events": 108,
+    "record_sha256": "227fa98177d5ce20ebbfc776fad001059dd994c4f7f4ca490522dcfa562932a3",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 240,
+    "events": 313,
+    "record_sha256": "40e6139f63a68cea3165dc0234158d58064018bf2dba1ef73d304de310d2ca26",
+    "error": null
+   }
+  }
+ ]
+}

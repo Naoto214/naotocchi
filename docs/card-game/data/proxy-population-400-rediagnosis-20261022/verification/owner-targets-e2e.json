@@ -1,0 +1,145 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before: final diagnosis tree c2e418b9 (diag28); after: 9fc01f20 (both rulings applied). Diagnostic only, not production.",
+ "rows": [
+  {
+   "match_id": "group-005-A-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "ordinary processing before pending source obligation (after segment stop: unfinished trigger occurrence at turn boundary)"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 181,
+    "events": 233,
+    "record_sha256": "9899b32b0d638b182762df3a97bd71e8df4449b6dfe6ab35360b1b5914f15573",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-030-B-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "ordinary processing before pending source obligation (after segment stop: unfinished trigger occurrence at turn boundary)"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 226,
+    "events": 296,
+    "record_sha256": "457aba8f066548d2e3abc1b9d12c9b680f3c7684620e4b6567380f15bb831b09",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-044-B-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "ordinary processing before pending source obligation (after segment stop: unfinished trigger occurrence at turn boundary)"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 265,
+    "events": 355,
+    "record_sha256": "c33821ec515f5c64c15993400dcd4a22f63c4f2b47e05832d530f60f432fe1a6",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-063-B-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "ordinary processing before pending source obligation (after segment stop: unfinished trigger occurrence at turn boundary)"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 231,
+    "events": 302,
+    "record_sha256": "1d9bb767e122ac03f2ea5a945465016ffe34122b550c56492aa9b9afd5053cde",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-068-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "normal payment operands differ: source predicates",
+     "phase": "normal_action"
+    },
+    "steps": 165,
+    "events": 213,
+    "record_sha256": "c8fc88fd899b5404bb13735982b5528e57e5ddbb4d39050d50aa1a3fdfdfb046",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 188,
+    "events": 244,
+    "record_sha256": "0b8badf6fa5eb6875b6e2ec678bcd54198a70ef1e720825d3c9b73a2669ee224",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-106-A-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "ordinary processing before pending source obligation"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 212,
+    "events": 282,
+    "record_sha256": "01ee7df0d19e9d499e54edb0b8f9bedaa6e147c2e5ab0feb3351191c976f2199",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-136-B-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "ordinary processing before pending source obligation (after segment stop: unfinished trigger occurrence at turn boundary)"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 218,
+    "events": 280,
+    "record_sha256": "29f40ead5719be026523dab6ef6a1d64e423d34999183a50e318d69e47219cea",
+    "error": null
+   }
+  }
+ ]
+}

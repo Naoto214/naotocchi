@@ -1,0 +1,85 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree 0bfc7bde (first-date/incarnation fixes) where group-014-A-first raised 'saved trigger ledger differs from execution' at event 81 (masking 'current predicate coverage incomplete: A-010#1'); after = tree 0a1f2edd adding the end-window observation on the active path and the start-window arrival closure. group-013-B-first/group-016-B-first stopped at 'historical quick activation absent from complete inventory' before the hand-timing replay fix.",
+ "rows": [
+  {
+   "match_id": "group-014-A-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "saved trigger ledger differs from execution"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 259,
+    "events": 334,
+    "record_sha256": "3171c2ae349a6f899794dd0e67cc1a0aeba621822c8f387d1b317994bde36f60",
+    "error": null
+   },
+   "intermediate_b3750727": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "response group closure differs: ['closed-group source reoffered']",
+     "phase": "response_window"
+    },
+    "steps": 150,
+    "events": 192,
+    "record_sha256": "a9e751fc379e231e5dda4d7c82be6e557eaa2be37fc3323102045e7dd0562c1f"
+   },
+   "note": "before: coverage audit exception (error field); intermediate: end window observed, run advanced to the start-window reoffer at 192; after: completed"
+  },
+  {
+   "match_id": "group-013-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "historical quick activation absent from complete inventory",
+     "phase": "turn_end"
+    },
+    "steps": 231,
+    "events": 299,
+    "record_sha256": "a78c621280b32a01fed6ff11d74d34dbdc217964fedabc6c63c151f72eb55eec",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 253,
+    "events": 329,
+    "record_sha256": "4a1dae5a7fa4722dfa73d3849c32f3900c14d3f0c5a75d7131931158b6293c7e",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-016-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "historical quick activation absent from complete inventory",
+     "phase": "turn_end"
+    },
+    "steps": 233,
+    "events": 307,
+    "record_sha256": "5bf9f5f42ef6aa04683e82c5991de2e4cff70996219614132c9cf1bb9d62ec55",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 249,
+    "events": 328,
+    "record_sha256": "bc6ef7d338cefed49b7c604fc551e2162891070251f48ee3672d4e519b42eae2",
+    "error": null
+   }
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+{
+ "reviewed_commit": "efa46a3acce1ba71e5d8c568a0c05a19da65cffb",
+ "base_commit": "2bfbe209215a142b96dea1038adade043cb3039a",
+ "files_reviewed": [
+  "docs/card-game/tools/proxy_population_approval_publication.py",
+  "docs/card-game/tools/proxy_population_checkpoint_ledger.py",
+  "docs/card-game/tools/proxy_population_checkpoint_operator.py",
+  "docs/card-game/tools/proxy_population_checkpoint_supervisor.py",
+  "docs/card-game/tools/proxy_population_external_approval.py",
+  "docs/card-game/tools/proxy_population_results_store.py",
+  "docs/card-game/tools/proxy_population_start_obligations.py"
+ ],
+ "earlier_findings": [
+  {
+   "id": 1,
+   "verdict": "resolved",
+   "note": "communicate(input=...) in a per-worker thread; verified on 3.12.14: 5 MiB request delivered, 1 MiB stdout + 3 MiB stderr drained, rc 0/5/-9 correct, terminate kills and joins. Residual minor N1 (pipe error before wait() hangs)."
+  },
+  {
+   "id": 2,
+   "verdict": "resolved",
+   "note": "Chain always required for v3 generation>=1; length==generation, first==original_claim, last==previous_claim; P or C0 as previous_claim at generation 2 refused."
+  },
+  {
+   "id": 3,
+   "verdict": "resolved",
+   "note": "Each chain commit adds one regular canonical consumption record of a v3 request of the same attempt/publication at that generation. Residual minor N4."
+  },
+  {
+   "id": 4,
+   "verdict": "resolved",
+   "note": "Binding resolved: start_sha256 and generation_claim in entry; start record schema/match/manifest/edition/512/claim commit/attempt re-checked; saved row claim must be an ancestor of current claim. Replay accepted (design scope). Residual minor N3 (ancestry broader than chain)."
+  },
+  {
+   "id": 5,
+   "verdict": "resolved",
+   "note": "Result-file failure halts dispatch via stop_index; interrupt re-raised immediately; row status no longer overwritten."
+  },
+  {
+   "id": 6,
+   "verdict": "resolved",
+   "note": "stop_index lets lower running rows save in order; finish/dispatch catch only Exception so interrupts reach the handler that terminates all running workers. Residual minor N2."
+  },
+  {
+   "id": 7,
+   "verdict": "resolved",
+   "note": "Pipes drained concurrently; no hang with 3 MiB stderr."
+  },
+  {
+   "id": 8,
+   "verdict": "resolved",
+   "note": "unsaved_completed_rows counts persist_failed and completed_not_saved."
+  },
+  {
+   "id": 9,
+   "verdict": "resolved",
+   "note": "results_ref may be None for generation>=1 only with 0 rows and an absent branch; operator prevalidate/consume re-verify the results reference before consumption. Residual minor N5 (chain not checked pre-consumption)."
+  },
+  {
+   "id": 10,
+   "verdict": "resolved",
+   "note": "Per-generation workspace results-<attempt>-gNNN, detached worktrees only, workspace inside repository refused (before destination mkdir)."
+  },
+  {
+   "id": 11,
+   "verdict": "accepted",
+   "note": "No runtime change; justification (canonical manifest-derived states, equivalence test) holds."
+  },
+  {
+   "id": 12,
+   "verdict": "resolved",
+   "note": "Cache key covers catalog, fixture and every referenced rules file hash; ~1.8 ms per hit, informational only."
+  }
+ ],
+ "findings": [
+  {
+   "file": "docs/card-game/tools/proxy_population_checkpoint_supervisor.py",
+   "line": 144,
+   "severity": "minor",
+   "summary": "_Worker.poll() returns None forever if communicate() raised before wait(): the recorded pipe error is never surfaced",
+   "failure_scenario": "A non-BrokenPipe OSError inside _communicate on the lowest row leaves returncode None; poll() stays None, finish() is never called, supervisor sleeps indefinitely without a stop record (reproduced with communicate patched to raise). Hang, not a wrong result; practically unreachable on Linux."
+  },
+  {
+   "file": "docs/card-game/tools/proxy_population_checkpoint_supervisor.py",
+   "line": 218,
+   "severity": "minor",
+   "summary": "Interrupt during verification of the row being finished leaves it 'started' with no result file; narrow leak window between _launch and running[index] in dispatch (line 253)",
+   "failure_scenario": "KeyboardInterrupt during edition.verify/_verify_row: row already popped from running, so the outer handler does not record it; nothing counted. An interrupt exactly after _launch returns leaves one child untracked."
+  },
+  {
+   "file": "docs/card-game/tools/proxy_population_checkpoint_supervisor.py",
+   "line": 84,
+   "severity": "minor",
+   "summary": "Saved-row claim check uses merge-base ancestry (accepts publication P and all prior history) and does not bind generation_claim.comment_id or resume_generation to the chain position (ledger _start_bindings line 77-85)",
+   "failure_scenario": "A self-consistent forged row on the results branch whose generation_claim.commit and start.json binding name P passes resume verification; requires results-branch push access and is within the accepted no-replay scope."
+  },
+  {
+   "file": "docs/card-game/tools/proxy_population_approval_publication.py",
+   "line": 43,
+   "severity": "minor",
+   "summary": "Chain record checks looser than the claim's own checks: filename via isdigit/int (leading zeros, non-ASCII digits), record key set not exact, embedded approval not re-checked with _check_saved_approval, previous_claim linkage between records not checked",
+   "failure_scenario": "A hand-made chain commit with a fabricated but schema-valid record passes the structure check for a later generation; the later generation is still live-approved for that exact previous_claim and no row can have run under the fabricated claim."
+  },
+  {
+   "file": "docs/card-game/tools/proxy_population_checkpoint_operator.py",
+   "line": 56,
+   "severity": "minor",
+   "summary": "Claim chain / generation-number validity is checked only after the claim exists (_read_committed_claim), not in prevalidate/consume",
+   "failure_scenario": "Operator passes a wrong generation (e.g. 2 with previous_claim=C0 after an unpublished generation-1 consumption); owner approves, consume writes the claim, run then fails 'chain length differs from the generation'. Fail-closed but the approval is spent."
+  }
+ ]
+}

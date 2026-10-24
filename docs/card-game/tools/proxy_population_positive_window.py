@@ -27,6 +27,20 @@ from proxy_mandatory_policy_contract import canonical
 _LOCK=Lock()
 
 
+def captured_rows(captures,event):
+ """Occurrences captured for this activation's source and origin, one per ledger identity.
+
+ A resolution is captured on the raw resolver output and again on the final
+ normalized event, so the same occurrence can appear twice; distinct
+ occurrences stay distinct and are still refused by the callers.
+ """
+ rows={}
+ for capture in captures.values():
+  for r in capture['occurrences']:
+   if r['source_instance_id']==event['source_instance_id'] and r['origin_event_seq']==event['trigger_origin_event_seq']:rows.setdefault(ledger.identity(r),r)
+ return list(rows.values())
+
+
 def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
  if not _LOCK.acquire(blocking=False):raise ValueError('positive connection concurrency/reentry forbidden')
  original_operation=base.operation;original_step=base._step;original_observe=observation.observe;original_adapter=observation.Adapter;original_replay=replay.scope;original_recovery=window.recovery.scope
@@ -89,14 +103,14 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
     card=before['legacy_continuation']['game_state']['cards'].get(event.get('source_instance_id'),{}).get('card_id')
     if card in hand_timing.DESCRIPTORS and event['action_type']=='activate_response':
      try:
-      rows=[r for p in captures.values() for r in p['occurrences'] if r['source_instance_id']==event['source_instance_id'] and r['origin_event_seq']==event['trigger_origin_event_seq']]
+      rows=captured_rows(captures,event)
       if len(rows)!=1:return False
       return hand_timing.verify_activation(before,after,event,rows[0],history or [],initial)
      except (ValueError,KeyError,TypeError,StopIteration,IndexError):return False
     if card not in latching.CARDS:return original(before,after,event,history) if original else False
     try:
      if event['action_type']=='activate_response':
-      rows=[r for p in captures.values() for r in p['occurrences'] if r['source_instance_id']==event['source_instance_id'] and r['origin_event_seq']==event['trigger_origin_event_seq']]
+      rows=captured_rows(captures,event)
       if len(rows)!=1:return False
       row=rows[0];action=next(a for a in latching.current_actions(before,row)[0] if a['candidate_id']==event['selected_candidate']);expected,generated=effects.activate(before,action,row)
      elif event['action_type']=='resolve_board_ability':

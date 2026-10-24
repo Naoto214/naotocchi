@@ -1,0 +1,31 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = baseline census tree (c1966ae4) where group-023-B-first stopped at 'concealed response timing unclassified: activate_companion_ability'; after = tree c8da1007 (concealed origin, frozen replacement row shape a416162f, start-source negative c8da1007). Intermediate stops: 'replacement origin effect unclassified', 'replacement exclusion coverage differs', 'current predicate coverage incomplete: [A-015#1]'.",
+ "rows": [
+  {
+   "match_id": "group-023-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "concealed response timing unclassified: activate_companion_ability",
+     "phase": "response_window"
+    },
+    "steps": 141,
+    "events": 186,
+    "record_sha256": "f5d281413f70b632b8c0b618bb41e865c6da22fd0734fbcf2694285e33000cf8",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 223,
+    "events": 295,
+    "record_sha256": "34b6c1ebac1fc6c86b646e098062788f6eb0abb5d9436f5d060e73a1db86f27a",
+    "error": null
+   }
+  }
+ ]
+}

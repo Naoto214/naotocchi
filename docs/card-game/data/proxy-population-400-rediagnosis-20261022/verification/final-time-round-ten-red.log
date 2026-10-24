@@ -1,0 +1,44 @@
+.F....FF
+======================================================================
+FAIL: test_hand_text_audit_agrees_only_with_the_text_bound_inventory (test_proxy_population_final_time_round.FinalTimeRoundTenTests.test_hand_text_audit_agrees_only_with_the_text_bound_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_time_round.py", line 47, in test_hand_text_audit_agrees_only_with_the_text_bound_inventory
+    self.assertEqual(hand.audit_normal(e,h,final_rows(e,h))['errors'],[])
+AssertionError: Lists differ: ['hand activation disposition differs: ["h[85 chars]"]]'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'hand activation disposition differs: ["hand_card_action","hand","B-039#1","use_event","each_legal_discard_non_main",["B-033#1"]]'
+
++ []
+- ['hand activation disposition differs: '
+-  '["hand_card_action","hand","B-039#1","use_event","each_legal_discard_non_main",["B-033#1"]]']
+
+======================================================================
+FAIL: test_round_ten_without_main_is_a_legal_candidate (test_proxy_population_final_time_round.FinalTimeRoundTenTests.test_round_ten_without_main_is_a_legal_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_time_round.py", line 38, in test_round_ten_without_main_is_a_legal_candidate
+    self.assertEqual(self.units(inv),[(f'candidate-use_event-{source}-target-B-033#1',[])])
+AssertionError: Lists differ: [(None, ['required_own_main_absent'])] != [('candidate-use_event-B-039#1-target-B-033#1', [])]
+
+First differing element 0:
+(None, ['required_own_main_absent'])
+('candidate-use_event-B-039#1-target-B-033#1', [])
+
+- [(None, ['required_own_main_absent'])]
++ [('candidate-use_event-B-039#1-target-B-033#1', [])]
+
+======================================================================
+FAIL: test_scope_restores_and_rejects_reentry (test_proxy_population_final_time_round.FinalTimeRoundTenTests.test_scope_restores_and_rejects_reentry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_time_round.py", line 84, in test_scope_restores_and_rejects_reentry
+    self.assertIsNot(candidate_121.adjudicate_units,native)
+AssertionError: unexpectedly identical: <function adjudicate_units at 0x7fcd00ff63e0>
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.297s
+
+FAILED (failures=3)

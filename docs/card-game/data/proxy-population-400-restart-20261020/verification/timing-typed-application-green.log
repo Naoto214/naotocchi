@@ -1,0 +1,12 @@
+test_goat_requires_actual_different_world_and_same_non_egg_partner (test_proxy_population_timing_occurrence.OtherTimingCrossAuditTests.test_goat_requires_actual_different_world_and_same_non_egg_partner) ... ok
+test_play_timing_captures_main_and_companion_before_current_targets (test_proxy_population_timing_occurrence.OtherTimingCrossAuditTests.test_play_timing_captures_main_and_companion_before_current_targets) ... ok
+test_independent_check_binds_negative_classifications_and_positive_rows (test_proxy_population_timing_occurrence.TimingOccurrenceTests.test_independent_check_binds_negative_classifications_and_positive_rows) ... ok
+test_real_entry_does_not_accept_consistently_omitted_producer_occurrence (test_proxy_population_timing_occurrence.TimingOccurrenceTests.test_real_entry_does_not_accept_consistently_omitted_producer_occurrence) ... ok
+test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_created_typed_row_is_certified_by_creation_audit_not_receipt_keys) ... ok
+test_target_recheck_failure_is_not_applied_only_with_474_evidence (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_target_recheck_failure_is_not_applied_only_with_474_evidence) ... ok
+test_untyped_non_creation_receipts_stay_unproved (test_proxy_population_timing_occurrence.TypedCreationApplicationTests.test_untyped_non_creation_receipts_stay_unproved) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.100s
+
+OK

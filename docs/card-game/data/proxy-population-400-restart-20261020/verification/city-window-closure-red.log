@@ -1,0 +1,118 @@
+test_second_play_inside_window_is_closed_by_its_actual_decline_receipt (test_proxy_population_city_window_closure.CityWindowClosureTests.test_second_play_inside_window_is_closed_by_its_actual_decline_receipt) ... FAIL
+test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) ... 
+  test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='boundary') ... FAIL
+  test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='board_play') ... FAIL
+  test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='history') ... FAIL
+  test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='record') ... FAIL
+  test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='reoffer') ... FAIL
+  test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='unbound_collection') ... FAIL
+test_window_origin_second_play_keeps_the_current_origin_path (test_proxy_population_city_window_closure.CityWindowClosureTests.test_window_origin_second_play_keeps_the_current_origin_path) ... ok
+
+======================================================================
+FAIL: test_second_play_inside_window_is_closed_by_its_actual_decline_receipt (test_proxy_population_city_window_closure.CityWindowClosureTests.test_second_play_inside_window_is_closed_by_its_actual_decline_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 67, in test_second_play_inside_window_is_closed_by_its_actual_decline_receipt
+    self.run_case(run)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 46, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 133, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 46, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                                                                     ^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 57, in run
+    self.assertEqual(p['errors'],[]);self.assertEqual(p['verified_source_ids'],[source]);self.assertEqual(p['unproved_sources'],[])
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['A-020#1']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'A-020#1'
+
+- []
++ ['A-020#1']
+
+======================================================================
+FAIL: test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='boundary')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 86, in run
+    self.assertEqual([u['reason'] for u in out['unproved_sources']],['current_group_consumption_unproved' if mode=='pending' else 'city_window_occurrence_unproved'])
+AssertionError: Lists differ: ['current_group_consumption_unproved'] != ['city_window_occurrence_unproved']
+
+First differing element 0:
+'current_group_consumption_unproved'
+'city_window_occurrence_unproved'
+
+- ['current_group_consumption_unproved']
++ ['city_window_occurrence_unproved']
+
+======================================================================
+FAIL: test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='board_play')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 86, in run
+    self.assertEqual([u['reason'] for u in out['unproved_sources']],['current_group_consumption_unproved' if mode=='pending' else 'city_window_occurrence_unproved'])
+AssertionError: Lists differ: ['current_group_consumption_unproved'] != ['city_window_occurrence_unproved']
+
+First differing element 0:
+'current_group_consumption_unproved'
+'city_window_occurrence_unproved'
+
+- ['current_group_consumption_unproved']
++ ['city_window_occurrence_unproved']
+
+======================================================================
+FAIL: test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='history')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 98, in run
+    else:self.assertTrue(api.audit(*bad)['errors'],mode)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true : history
+
+======================================================================
+FAIL: test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='record')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 98, in run
+    else:self.assertTrue(api.audit(*bad)['errors'],mode)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true : record
+
+======================================================================
+FAIL: test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='reoffer')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 98, in run
+    else:self.assertTrue(api.audit(*bad)['errors'],mode)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true : reoffer
+
+======================================================================
+FAIL: test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) (mode='unbound_collection')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_city_window_closure.py", line 97, in run
+    self.assertIn('city window collection unbound',out['errors'])
+AssertionError: 'city window collection unbound' not found in []
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.393s
+
+FAILED (failures=7)

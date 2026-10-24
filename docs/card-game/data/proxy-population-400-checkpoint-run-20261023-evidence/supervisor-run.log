@@ -1,0 +1,2 @@
+start 2026-10-23T13:17:52.303822+00:00 pid 1025
+end 2026-10-24T13:13:58.151146+00:00 86165.8 {"status": "completed_fixed_schedule", "completed_rows": 400, "reused_rows": 0, "persisted_rows": 400, "not_executed_rows": 0, "unsaved_completed_rows": 0, "results_branch": "fixed400-results/fixed400-e8e7202ac717", "results_head": "ca8017b7182a554aadc58e1e3dfe955d75b18b6a"}

@@ -1,0 +1,7 @@
+test_forged_actor_origin_or_delta_fails_closed (test_proxy_population_group_actor_replay.GroupActorReplayTests.test_forged_actor_origin_or_delta_fails_closed) ... ok
+test_group_activation_by_the_non_priority_actor_gets_its_provenance_row (test_proxy_population_group_actor_replay.GroupActorReplayTests.test_group_activation_by_the_non_priority_actor_gets_its_provenance_row) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.353s
+
+OK

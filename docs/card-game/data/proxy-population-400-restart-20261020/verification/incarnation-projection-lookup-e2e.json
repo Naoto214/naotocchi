@@ -1,0 +1,92 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = the tree on which each row last stopped at \"incarnation metadata registry absent or ambiguous\" (baseline, first-date tree, or bowtie-provenance tree); after = tree adding the active-projection registry lookup (plus the challenge-return fix)",
+ "rows": [
+  {
+   "match_id": "group-015-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "incarnation metadata registry absent or ambiguous",
+     "phase": "turn_end_response"
+    },
+    "steps": 224,
+    "events": 289,
+    "record_sha256": "b7b48a7e0098f2cf6c7aab3863ba465e897f10655c2972223455f858bc5b292c"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 284,
+    "events": 368,
+    "record_sha256": "52faa68a6dc1e8ac6caa988c31686e152a063676a6d80b52a801ef74c394fa12"
+   }
+  },
+  {
+   "match_id": "group-007-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "incarnation metadata registry absent or ambiguous",
+     "phase": "response_window"
+    },
+    "steps": 240,
+    "events": 309,
+    "record_sha256": "0daab4c47bcf9ebd1b0e9451dc53ef24e980a925faf3a71694c0f3b6093af866"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 249,
+    "events": 322,
+    "record_sha256": "b13ee76c1d02046104c9300cf248be735f17bcc9093aee7fb1a5cc0aacc6fe57"
+   }
+  },
+  {
+   "match_id": "group-019-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "incarnation metadata registry absent or ambiguous",
+     "phase": "response_window"
+    },
+    "steps": 252,
+    "events": 325,
+    "record_sha256": "d82b20c5e42e512029bb42bd21e3d7c21704323744844c46d757fea235a78ff9"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 260,
+    "events": 336,
+    "record_sha256": "076e6bda9c7a2e00c42a270eea0e97cb276584cd96bf85dd58133166d79dda38"
+   }
+  },
+  {
+   "match_id": "group-004-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "incarnation metadata registry absent or ambiguous",
+     "phase": "response_window"
+    },
+    "steps": 198,
+    "events": 251,
+    "record_sha256": "76a2568a355a8be4362c1792f034a1e3f8c51a226a6542fc27f44be0fbfc1a13"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 218,
+    "events": 276,
+    "record_sha256": "f3d644da5e5ff34c49b3b45e990b4fccae83db1f6c6ca3ce37bb5b167f622b98"
+   }
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "error": "deferred timing application unproved: ['14c985a5a9f354303e1157b30765b241bb3e3d65128b56db1a5f1ef691c7e1b1']",
+ "obligations": [
+  {
+   "contract": "designated_full_delta_required",
+   "card_id": "E-final-time",
+   "event_seq": 235,
+   "event_sha256": "0142e9bce5349ca2e14cb5b2d1efccd86f16a1bc08ec8498635c6bc7473668c1",
+   "verdict": true,
+   "source_reference": "91-event-21-card-text-draft.md#E-final-time",
+   "section_sha256": "53903bdea55bc89432f49328db3116882aaaaa95c0afd07b2e1ef9df557351eb"
+  },
+  {
+   "contract": "designated_full_delta_required",
+   "card_id": "E-final-time",
+   "event_seq": 235,
+   "event_sha256": "14c985a5a9f354303e1157b30765b241bb3e3d65128b56db1a5f1ef691c7e1b1",
+   "verdict": true,
+   "source_reference": "91-event-21-card-text-draft.md#E-final-time",
+   "section_sha256": "53903bdea55bc89432f49328db3116882aaaaa95c0afd07b2e1ef9df557351eb"
+  },
+  {
+   "contract": "designated_full_delta_required",
+   "card_id": "E-final-time",
+   "event_seq": 235,
+   "event_sha256": "0142e9bce5349ca2e14cb5b2d1efccd86f16a1bc08ec8498635c6bc7473668c1",
+   "verdict": true,
+   "source_reference": "91-event-21-card-text-draft.md#E-final-time",
+   "section_sha256": "53903bdea55bc89432f49328db3116882aaaaa95c0afd07b2e1ef9df557351eb"
+  }
+ ],
+ "designated": [
+  {
+   "event_sha256": "6c3f34cfbcab2b5aeae3842f161d75d0c1b95761eeb26c5fb9644fd1a2af487b",
+   "supplied_designated_effect_verified": true,
+   "choice_contract_id": "ability_topdeck_order",
+   "applicable": true
+  },
+  {
+   "event_sha256": "0142e9bce5349ca2e14cb5b2d1efccd86f16a1bc08ec8498635c6bc7473668c1",
+   "supplied_designated_effect_verified": true,
+   "choice_contract_id": "final_time_hand_bottom",
+   "applicable": true
+  }
+ ],
+ "matched_runtime_events": {
+  "0142e9bce5349ca2e14cb5b2d1efccd86f16a1bc08ec8498635c6bc7473668c1": {
+   "seq": 235,
+   "action_type": "resolve_event",
+   "actor": "A",
+   "source_instance_id": "A-039#1",
+   "chain_link_id": "response-link-229-A-039#1"
+  },
+  "14c985a5a9f354303e1157b30765b241bb3e3d65128b56db1a5f1ef691c7e1b1": null
+ },
+ "final_time_events": [
+  {
+   "seq": 235,
+   "action_type": "resolve_event",
+   "actor": "A",
+   "source_instance_id": "A-039#1",
+   "chain_link_id": "response-link-229-A-039#1",
+   "digest": "0142e9bce5349ca2e14cb5b2d1efccd86f16a1bc08ec8498635c6bc7473668c1"
+  }
+ ]
+}

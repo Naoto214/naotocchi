@@ -1,0 +1,47 @@
+test_paid_draw_origin_is_bound_and_the_concealed_exclusion_verified (test_proxy_population_prepared_activation_origin.PreparedActivationOriginTests.test_paid_draw_origin_is_bound_and_the_concealed_exclusion_verified) ... FAIL
+test_unbound_or_forged_activation_origin_stays_unproved (test_proxy_population_prepared_activation_origin.PreparedActivationOriginTests.test_unbound_or_forged_activation_origin_stays_unproved) ... ok
+
+======================================================================
+FAIL: test_paid_draw_origin_is_bound_and_the_concealed_exclusion_verified (test_proxy_population_prepared_activation_origin.PreparedActivationOriginTests.test_paid_draw_origin_is_bound_and_the_concealed_exclusion_verified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_prepared_activation_origin.py", line 31, in test_paid_draw_origin_is_bound_and_the_concealed_exclusion_verified
+    self.run_case(run)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_prepared_activation_origin.py", line 21, in run_case
+    with connected.contract_scope():base.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 137, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 136, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),concealed_origin.scope(),response_context.scope(),loss_reward.scope(),next_board.scope():return callback(forced)
+                                                                                                                                                                                                                                              ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_prepared_activation_origin.py", line 20, in run
+    def run(forced):callback();return {}
+                    ^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_prepared_activation_origin.py", line 28, in run
+    self.assertEqual(proof['errors'],[]);self.assertEqual(proof['unproved_public_effects'],[])
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [{'reason': 'origin_effect_not_bound_to_cu[38 chars]: 4}] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+{'reason': 'origin_effect_not_bound_to_current_public_link', 'origin_event_seq': 4}
+
++ []
+- [{'origin_event_seq': 4,
+-   'reason': 'origin_effect_not_bound_to_current_public_link'}]
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.180s
+
+FAILED (failures=1)

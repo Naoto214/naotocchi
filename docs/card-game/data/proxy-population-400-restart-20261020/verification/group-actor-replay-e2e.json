@@ -1,0 +1,54 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = baseline census tree (c1966ae4) where the row stopped at 'second-card public source differs'; after = tree 3e0574c3 adding the event-actor/origin bridge to both replay paths (all earlier 10-21 fixes included). group-002-A-first is a completed control row.",
+ "rows": [
+  {
+   "match_id": "group-022-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "second-card public source differs",
+     "phase": "turn_end"
+    },
+    "steps": 223,
+    "events": 290,
+    "record_sha256": "24d3f25c2046531d3aa211ae06e2d7dbc0604fdfa15553edfb12e36aa8c7f2b7",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 252,
+    "events": 329,
+    "record_sha256": "d02bbe6fb296dca8b0891eb0894685be8e0d5322897e32b1cadf66225613d89d",
+    "error": null
+   }
+  },
+  {
+   "match_id": "group-002-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+     "phase": "post_placement_response"
+    },
+    "steps": 112,
+    "events": 141,
+    "record_sha256": "06f3d9a8d85cd43d943d0e772917347123fbe17bc377481b4ed81d00ec19dccf",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 221,
+    "events": 287,
+    "record_sha256": "d3401efa2351e47ddb344cc1c858fd2dc5864ea24f49820f1529650e129434d0",
+    "error": null
+   }
+  }
+ ]
+}

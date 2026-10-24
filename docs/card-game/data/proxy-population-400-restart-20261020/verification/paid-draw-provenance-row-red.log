@@ -1,0 +1,36 @@
+test_activation_row_carries_card_id_for_the_frozen_registry (test_proxy_population_paid_draw_provenance_row.PaidDrawProvenanceRowTests.test_activation_row_carries_card_id_for_the_frozen_registry) ... FAIL
+
+======================================================================
+FAIL: test_activation_row_carries_card_id_for_the_frozen_registry (test_proxy_population_paid_draw_provenance_row.PaidDrawProvenanceRowTests.test_activation_row_carries_card_id_for_the_frozen_registry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_paid_draw_provenance_row.py", line 29, in test_activation_row_carries_card_id_for_the_frozen_registry
+    base.operation(initial(),run)
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_paid_draw_provenance_row.py", line 23, in run
+    self.assertEqual([(p['event_seq'],p['kind'],p.get('card_id'),p['certain_growth_difference'],p['duration']) for p in proofs],[(raw['seq'],'paid_draw_activation','M-antlion-02',0,'activation_until_resolution')])
+AssertionError: Lists differ: [(4, 'paid_draw_activation', None, 0, 'activation_until_resolution')] != [(4, 'paid_draw_activation', 'M-antlion-02', 0, 'activation_until_resolution')]
+
+First differing element 0:
+(4, 'paid_draw_activation', None, 0, 'activation_until_resolution')
+(4, 'paid_draw_activation', 'M-antlion-02', 0, 'activation_until_resolution')
+
+- [(4, 'paid_draw_activation', None, 0, 'activation_until_resolution')]
+?                              ^  ^
+
++ [(4, 'paid_draw_activation', 'M-antlion-02', 0, 'activation_until_resolution')]
+?                              ^^^^^^^^  ^^^^
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.093s
+
+FAILED (failures=1)

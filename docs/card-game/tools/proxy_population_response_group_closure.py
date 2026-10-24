@@ -45,8 +45,47 @@ def _latched_window(envelope,history,journal,trace,source,actor):
  return matching,dict(origin_event_seq=origin,event_sha256=[event_digest(e) for e in events],timing_audits=checks,occurrence_count=len(expected),history_authenticated=False)
 
 
+def _city_window(envelope,history,journal,trace,source,actor):
+ """Re-derive W-city second-own-card occurrences inside the current window.
+
+ 89 W-city triggers on the actor's second card play of the turn, which can be a
+ response-window hand play after the window origin. Each of the actor's hand
+ card plays in [origin,last] is re-collected at its actual after-boundary through
+ the existing adapter inside the predicate scope (native collect bound by
+ _collection/audit_city, 67/89 source-pinned). Unavailable boundaries and
+ windows without a certified occurrence stay unproved; this never certifies a
+ negative by itself.
+ """
+ import proxy_continuation_batch as batch
+ import proxy_population_trigger_existing as existing
+ c=envelope['legacy_continuation'];ctx=c['response_context'];g=c['game_state'];origin=ctx['origin_event_seq'];last=envelope['event_seq']
+ if type(origin) is not int or origin<1:raise ValueError('city window origin differs')
+ if g['cards'][source]['card_id']!='W-city' or g['players'][actor]['board']['world']!=source:raise ValueError('city window current world differs')
+ events=[e for e in history if origin<=e['seq']<=last]
+ if [e['seq'] for e in events]!=list(range(origin,last+1)):raise ValueError('city window event coverage differs')
+ boundaries={e['event_seq']:e for e in trace}
+ if len(boundaries)!=len(trace):raise ValueError('city window boundary duplicated')
+ expected={};checks=[]
+ for event in events:
+  if event['actor']!=actor or event['action_type'] not in batch.NORMAL_CARD_EVENTS or event.get('source_zone') in ('board','prepared'):continue
+  seq=event['seq']
+  if seq not in boundaries:return None,None
+  after=boundaries[seq];prior=[e for e in history if e['seq']<=seq]
+  proof=existing.ExistingAdapter(prior).proof(after,seq)
+  check=proof.get('current_collection_audit')
+  if type(check) is not dict or check.get('schema')!='current_native_source_collection.v1' or check.get('current_source_collection_bound') is not True or check.get('current_envelope_sha256')!=state.canonical_sha256(after):raise ValueError('city window collection unbound')
+  if canonical(after['legacy_continuation']['game_state']['cards'].get(source))!=canonical(g['cards'][source]):raise ValueError('city window physical source differs')
+  checks.append(dict(event_seq=seq,event_sha256=event_digest(event),after_envelope_sha256=check['current_envelope_sha256'],collection_audit=check))
+  for occurrence in proof['occurrences']:
+   if occurrence['source_instance_id']==source and occurrence['actor']==actor and occurrence['origin_event_seq']==seq:expected[ledger.identity(occurrence)]=occurrence
+ if not expected:return None,None
+ matching=[(key,row) for key,row in journal['occurrences'].items() if row['occurrence']['source_instance_id']==source and row['occurrence']['actor']==actor and origin<=row['occurrence']['origin_event_seq']<=last]
+ if set(key for key,row in matching)!=set(expected) or any(canonical(row['occurrence'])!=canonical(expected[key]) for key,row in matching):raise ValueError('city window journal occurrences differ')
+ return matching,dict(origin_event_seq=origin,event_sha256=[event_digest(e) for e in events],collection_audits=checks,occurrence_count=len(expected),history_authenticated=False)
+
+
 def audit(envelope,history,inventory,journal,records,trace,wanted):
- errors=[];verified=[];unproved=[];receipts={};latched={}
+ errors=[];verified=[];unproved=[];receipts={};latched={};city={}
  try:
   state.validate(envelope);sequential.audit_ledger(journal)
   c=envelope['legacy_continuation'];g=c['game_state'];ctx=c['response_context'];actor=ctx['priority_actor'];p=g['players'][actor];b=p['board']
@@ -65,6 +104,13 @@ def audit(envelope,history,inventory,journal,records,trace,wanted):
     if matching is None:
      unproved.append(dict(source_instance_id=source,reason='latched_window_boundaries_unproved'));continue
     latched[source]=proof
+   elif card=='W-city' and not any(row['occurrence']['source_instance_id']==source and row['occurrence']['actor']==actor and row['occurrence']['origin_event_seq']==ctx['origin_event_seq'] for row in journal['occurrences'].values()):
+    # 89 second-play occurrences raised by a response hand play inside this
+    # window carry that play's origin, never the window origin.
+    matching,proof=_city_window(envelope,history,journal,trace,source,actor)
+    if matching is None:
+     unproved.append(dict(source_instance_id=source,reason='city_window_occurrence_unproved'));continue
+    city[source]=proof
    else:
     matching=[(key,row) for key,row in journal['occurrences'].items() if row['occurrence']['source_instance_id']==source and row['occurrence']['actor']==actor and row['occurrence']['origin_event_seq']==ctx['origin_event_seq']]
     if len(matching)!=1:
@@ -103,4 +149,4 @@ def audit(envelope,history,inventory,journal,records,trace,wanted):
    verified.append(source)
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='response_closed_group_predicates.v1',response_group_closure_verified=not errors,errors=errors,verified_source_ids=sorted(verified),unproved_sources=unproved,closure_delta_audits=[v for v in receipts.values() if v['schema']=='supplied_trigger_closure_delta.v1'],activation_delta_audits=[v for v in receipts.values() if v['schema']!='supplied_trigger_closure_delta.v1'],
-  current_envelope_sha256=state.canonical_sha256(envelope),scope='current_origin_or_verified_latched_window_public_sources_only',latched_window_audits=latched,occurrence_origin_authenticated=False,choice_origin_authenticated=False,history_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
+  current_envelope_sha256=state.canonical_sha256(envelope),scope='current_origin_or_verified_latched_window_public_sources_only',latched_window_audits=latched,**(dict(city_window_audits=city) if city else {}),occurrence_origin_authenticated=False,choice_origin_authenticated=False,history_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
