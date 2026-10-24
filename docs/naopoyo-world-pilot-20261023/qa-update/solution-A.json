@@ -1,0 +1,93 @@
+{
+  "stage": "A",
+  "complete": true,
+  "moves": 14,
+  "time": 0,
+  "commands": [
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "a",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "child1",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "child1",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "child1",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "child1",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "child2",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "child2",
+      "dx": 1,
+      "dy": 0
+    },
+    {
+      "time": 0,
+      "id": "child2",
+      "dx": 1,
+      "dy": 1
+    }
+  ],
+  "shortestProven": false
+}

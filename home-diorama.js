@@ -32,6 +32,7 @@
     const cast=typeof module==='object'&&module.exports?require('./cast-layout.js'):window.NaotocchiCast;
     const raw=cast.layoutHomeCast(args),boxes=typeof module==='object'&&module.exports?require('./cast-bounds.js'):window.NaotocchiCastBounds;
     const count=1+Number(!!args.hasPartner)+(args.companions?.length||0),crowded=count>5;
+    const mainScale=Number.isFinite(args.mainScale)?Math.max(.8,Math.min(1,args.mainScale)):(crowded?1:.85),curved=args.formation!=='distributed';
     const size=Math.min(220,args.width*.62)*k,view=args.overview?.84:1;
     const box=path=>boxes?.[path]?.box||[0,0,128,128];
     const resized=(f,w,path,point)=>{if(!f)return null;const b=box(path),fx=f.x+f.w*(b[0]+b[2])/256,fy=f.y+f.h*b[3]/128+(f.artOffsetY||0),r=w/f.w;return {...f,x:(point?.x??fx)+(f.x-fx)*r,y:(point?.y??fy)+(f.y-fy)*r,w:f.w*r,h:f.h*r,...(f.artOffsetY!==undefined?{artOffsetY:f.artOffsetY*r}:{})};};
@@ -40,16 +41,23 @@
     const cw=(args.width-32)/columns,ch=usable/rows,slots=[];
     for(let row=0;row<rows;row++){
       const n=Math.min(columns,count-row*columns),offset=(args.width-n*cw)/2;
-      for(let col=0;col<n;col++)slots.push({x:offset+(col+.5)*cw+(row%2?2:-2),y:top+(row+1)*ch-3,depth:row/Math.max(1,rows-1)});
+      for(let col=0;col<n;col++)slots.push({x:offset+(col+.5)*cw+(row%2?2:-2),y:top+(row+1)*ch-3-(curved?Math.min(9,ch*.12)*(1-Math.pow((col+.5)/n*2-1,2)):0),depth:row/Math.max(1,rows-1)});
     }
     // Foreground centre belongs to the protagonist, then the current partner.
     slots.sort((a,b)=>(bottom-a.y)*2+Math.abs(a.x-args.width/2)-((bottom-b.y)*2+Math.abs(b.x-args.width/2)));
     let index=0;
     function frame(f,path,relative){
-      if(!crowded)return resized(f,size*relative*view,path);
+      if(!crowded){
+        const order=index++,factor=relative===1?mainScale:1;
+        // Keep established small casts stable as visitors arrive or leave.
+        const density=1;
+        const n=count-1,slot=order===0?null:(order-1),angle=n<=1?-.75:Math.PI*(.12+.76*slot/Math.max(1,n-1));
+        const point=!curved?null:order===0?{x:args.width/2,y:bottom-12}:{x:args.width/2+Math.cos(angle)*Math.min(args.width*.32,120),y:bottom-28-Math.sin(Math.abs(angle))*Math.min(usable*.26,70)};
+        return resized(f,size*relative*view*density*factor,path,point);
+      }
       const q=slots[index++],b=box(path),body=Math.max(b[2]-b[0],b[3]-b[1])/128;
       const target=Math.min(cw-10,ch-7)*(relative===1?1:.80)*(.94+.06*q.depth)*view;
-      return resized(f,target/Math.max(.1,body),path,q);
+      return resized(f,target/Math.max(.1,body)*(relative===1?mainScale:1),path,q);
     }
     const main=frame(raw.main,args.mainAsset,1),partner=raw.partner?frame(raw.partner,args.partnerAsset,.5):null;
     const attached=(f,old,next)=>f&&old&&next?{...f,x:next.x+(f.x-old.x)*next.w/old.w,y:next.y+(f.y-old.y)*next.w/old.w,w:f.w*next.w/old.w,h:f.h*next.w/old.w}:null;

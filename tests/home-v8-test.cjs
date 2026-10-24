@@ -33,7 +33,7 @@ test('all 26 registered companions and a partner still visit one at a time; form
  for(const width of [288,343,358,398])for(const k of [.7,.8,.9]){
  const args={width,height:300,mainAsset:'assets/characters/dog/04.png',companions:[]};const solo=home.layoutTerrainCast(args,k);
  for(const extra of [{hasPartner:true,partnerAsset:'assets/characters/partners/cat_ceo.png'},{companions:['assets/characters/companions/shiba.png']}])assert.ok(Math.abs(home.layoutTerrainCast({...args,...extra},k).main.w-solo.main.w)<1e-8);
- if(width===358&&k===.8)assert.equal(solo.main.w,176);
+ if(width===358&&k===.8)assert.equal(solo.main.w,149.6);
  }
 });
 test('runtime attendance with every registered companion never truncates relationships or renders more than one visitor',()=>{

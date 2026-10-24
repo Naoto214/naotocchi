@@ -78,23 +78,23 @@
   setTimeout(function () { if (!booted()) show(); }, 6000);
 })();
 </script>
-  <link rel="stylesheet" href="style.css?v=20261022-5a78d867">
+  <link rel="stylesheet" href="style.css?v=20261024-5a78d867">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20261022-3f196384">
-  <link rel="stylesheet" href="design.css?v=20261022-ae1c4ad1">
-  <link rel="stylesheet" href="egg-hatching.css?v=20261022-8449f9f9">
-  <link rel="stylesheet" href="care-status.css?v=20261022-6a3b29a4">
-  <link rel="stylesheet" href="ui-illustrations.css?v=20261022-0b4af9c3">
-  <link rel="stylesheet" href="home-diorama.css?v=20261024-7df299ce">
-  <link rel="stylesheet" href="world-scene.css?v=20261022-94606d6f">
-  <link rel="stylesheet" href="care-attention.css?v=20261022-c94a792d">
-  <link rel="stylesheet" href="pet-expression.css?v=20261022-31f071f1">
-  <link rel="stylesheet" href="home-care-colors.css?v=20261022-f78fe064">
-  <link rel="stylesheet" href="movie.css?v=20261022-8fb81468">
+  <link rel="stylesheet" href="ui.css?v=20261024-3f196384">
+  <link rel="stylesheet" href="design.css?v=20261024-ae1c4ad1">
+  <link rel="stylesheet" href="egg-hatching.css?v=20261024-8449f9f9">
+  <link rel="stylesheet" href="care-status.css?v=20261024-6a3b29a4">
+  <link rel="stylesheet" href="ui-illustrations.css?v=20261024-0b4af9c3">
+  <link rel="stylesheet" href="home-diorama.css?v=20261024-b7ac9ddf">
+  <link rel="stylesheet" href="world-scene.css?v=20261024-94606d6f">
+  <link rel="stylesheet" href="care-attention.css?v=20261024-c94a792d">
+  <link rel="stylesheet" href="pet-expression.css?v=20261024-31f071f1">
+  <link rel="stylesheet" href="home-care-colors.css?v=20261024-f78fe064">
+  <link rel="stylesheet" href="movie.css?v=20261024-8fb81468">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
-  <link rel="stylesheet" href="item-memories.css?v=20261022-fb95bab5">
+  <link rel="stylesheet" href="item-memories.css?v=20261024-fb95bab5">
 </head>
 <body>
   <div class="world-scene" id="worldScene" aria-hidden="true" hidden>
@@ -171,7 +171,7 @@
             <div class="speech-slot" id="speechSlot"><div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
               <span class="speech-speaker" id="speechSpeaker"></span>
               <span class="speech-text" id="speechText" tabindex="0" aria-label="セリフ"></span>
-            </div><div class="speech-choices hidden" id="speechChoices" role="group" aria-label="こたえる"></div></div>
+            </div><div class="speech-choices hidden" id="speechChoices" role="group" aria-label="こたえる"></div><div id="homeChoiceResult" class="home-choice-result hidden" role="status" aria-live="polite"></div></div>
 
           </div>
 
@@ -847,14 +847,14 @@
     </div>
     <div class="message" id="message" role="status" aria-live="polite" tabindex="0" aria-label="おしらせ">たまごがやってきた…</div>
     <nav class="buttons" id="careActions" aria-label="お世話とメニュー">
-      <button id="feedBtn" title="ごはん"><i class="care-icon" data-care-icon="food" aria-hidden="true"></i><span>ごはん</span></button>
       <button id="playBtn" title="あそぶ"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>あそぶ</span></button>
+      <button id="feedBtn" title="ごはん"><i class="care-icon" data-care-icon="food" aria-hidden="true"></i><span>ごはん</span></button>
       <button id="cleanBtn" title="そうじ"><i class="care-icon" data-care-icon="clean" aria-hidden="true"></i><span>そうじ</span></button>
       <button id="sleepBtn" title="ねる"><i class="care-icon" data-care-icon="sleep" aria-hidden="true"></i><span>ねる</span></button>
       <button id="medicineBtn" title="くすり"><i class="care-icon" data-care-icon="medicine" aria-hidden="true"></i><span>くすり</span></button>
       <button id="playWithBtn" title="じゃれる"><i class="care-icon" data-care-icon="play" aria-hidden="true"></i><span>じゃれる</span></button>
-      <button id="travelBtn" title="たび">🧭<span>たび</span></button>
       <button id="courtBtn" title="きゅうあい"><i class="care-icon" data-care-icon="love" aria-hidden="true"></i><span>きゅうあい</span></button>
+      <button id="travelBtn" title="たび">🧭<span>たび</span></button>
       <button id="menuBtn" title="メニュー">☰<span>メニュー</span></button>
     </nav>
     <div class="life-actions">
@@ -870,48 +870,48 @@
   <div class="season-front-fx" id="seasonFrontFx"></div>
   <div class="weather-fx" id="weatherFx"></div>
 
-  <script src="character-world-master.v1.js?v=20261022-12e308e0"></script>
-  <script src="cast-bounds.js?v=20261022-19da126a"></script>
-  <script src="cast-motion.js?v=20261022-af3b60ed"></script>
-  <script src="cast-layout.js?v=20261022-f833e6ed"></script>
-  <script src="local-scenery.js?v=20261022-0bea5d7b"></script>
-  <script src="world-environment.js?v=20261022-d0a39f28"></script>
-  <script src="world-scene.js?v=20261022-99152e94"></script>
-  <script src="prop-illustrations.js?v=20261022-26ae95a3"></script>
-  <script src="game-symbol-art.js?v=20261022-0f1dd37d"></script>
-  <script src="ui-symbol-art.js?v=20261022-0f1c55e4"></script>
-  <script src="illustration-catalog.js?v=20261022-f072008f"></script>
-  <script src="display-illustrations.js?v=20261022-0eb0da4a"></script>
-  <script src="canvas-illustrations.js?v=20261022-0c241de2"></script>
+  <script src="character-world-master.v1.js?v=20261024-12e308e0"></script>
+  <script src="cast-bounds.js?v=20261024-19da126a"></script>
+  <script src="cast-motion.js?v=20261024-af3b60ed"></script>
+  <script src="cast-layout.js?v=20261024-f833e6ed"></script>
+  <script src="local-scenery.js?v=20261024-0bea5d7b"></script>
+  <script src="world-environment.js?v=20261024-d0a39f28"></script>
+  <script src="world-scene.js?v=20261024-99152e94"></script>
+  <script src="prop-illustrations.js?v=20261024-26ae95a3"></script>
+  <script src="game-symbol-art.js?v=20261024-0f1dd37d"></script>
+  <script src="ui-symbol-art.js?v=20261024-0f1c55e4"></script>
+  <script src="illustration-catalog.js?v=20261024-f072008f"></script>
+  <script src="display-illustrations.js?v=20261024-0eb0da4a"></script>
+  <script src="canvas-illustrations.js?v=20261024-0c241de2"></script>
   <!-- めぐる 3D: script.js が通常起動で読み込む。URL の明示2D指定と失敗時は Canvas へ -->
-  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261023-dc271bc8"></template>
-  <script src="relationship-life.js?v=20261022-7b5221c0"></script>
-  <script src="meguru.js?v=20261022-fe7d14d5"></script>
-  <script src="quick.js?v=20261023-483ae293"></script>
-  <script src="games.js?v=20261022-67504380"></script>
-  <script src="audio.js?v=20261022-f12be965"></script>
-  <script src="care-status.js?v=20261022-f881119b"></script>
-  <script src="emotion-state.js?v=20261022-0c9ca245"></script>
-  <script src="relationship-expression.js?v=20261022-dedbb693"></script>
-  <script src="pet-expression.js?v=20261022-77a295ed"></script>
+  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261024-dc271bc8"></template>
+  <script src="relationship-life.js?v=20261024-7b5221c0"></script>
+  <script src="meguru.js?v=20261024-fe7d14d5"></script>
+  <script src="quick.js?v=20261024-483ae293"></script>
+  <script src="games.js?v=20261024-67504380"></script>
+  <script src="audio.js?v=20261024-f12be965"></script>
+  <script src="care-status.js?v=20261024-f881119b"></script>
+  <script src="emotion-state.js?v=20261024-0c9ca245"></script>
+  <script src="relationship-expression.js?v=20261024-dedbb693"></script>
+  <script src="pet-expression.js?v=20261024-77a295ed"></script>
   <!-- めぐる 住民の 表情(Home の Expression System を そのまま つかう。resolver は 複製しない) -->
-  <script src="resident-expression.js?v=20261022-6fba3749"></script>
-  <script src="expression-presentation.js?v=20261022-9b5dcd4d"></script>
-  <script src="item-memories.js?v=20261022-1636293f"></script>
-  <script src="item-system.js?v=20261022-b218da8f"></script>
-  <script src="movie-dialogue.js?v=20261022-2b99e35a"></script>
-  <script src="conversation-director.js?v=20261022-48197108"></script>
-  <script src="conversation-banter.js?v=20261023-7348be1c"></script>
-  <script src="conversation-postgame.js?v=20261023-d01bc93c"></script>
-  <script src="conversation-quick.js?v=20261023-6ead2930"></script>
-  <script src="conversation-away.js?v=20261023-80595fff"></script>
-  <script src="life-stage-profiles.js?v=20261022-1a189f0f"></script>
-  <script src="individuality-data.js?v=20261022-b9f59243"></script>
-  <script src="individuality.js?v=20261022-fab004ae"></script>
-  <script src="minigame-reactions.js?v=20261022-a2cbe8e5"></script>
-  <script src="home-diorama-model.js?v=20261024-929d1355"></script>
-  <script src="home-diorama.js?v=20261024-72949a21"></script>
-  <script src="script.js?v=20261024-28f083c9"></script>
+  <script src="resident-expression.js?v=20261024-6fba3749"></script>
+  <script src="expression-presentation.js?v=20261024-9b5dcd4d"></script>
+  <script src="item-memories.js?v=20261024-1636293f"></script>
+  <script src="item-system.js?v=20261024-b218da8f"></script>
+  <script src="movie-dialogue.js?v=20261024-2b99e35a"></script>
+  <script src="conversation-director.js?v=20261024-48197108"></script>
+  <script src="conversation-banter.js?v=20261024-7348be1c"></script>
+  <script src="conversation-postgame.js?v=20261024-d01bc93c"></script>
+  <script src="conversation-quick.js?v=20261024-6ead2930"></script>
+  <script src="conversation-away.js?v=20261024-c3159f69"></script>
+  <script src="life-stage-profiles.js?v=20261024-1a189f0f"></script>
+  <script src="individuality-data.js?v=20261024-b9f59243"></script>
+  <script src="individuality.js?v=20261024-fab004ae"></script>
+  <script src="minigame-reactions.js?v=20261024-a2cbe8e5"></script>
+  <script src="home-diorama-model.js?v=20261024-cec87d10"></script>
+  <script src="home-diorama.js?v=20261024-5ad2f2a5"></script>
+  <script src="script.js?v=20261024-b2b83afb"></script>
   <script src="home-touch.js?v=20261024-814949d4"></script>
 <div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
 </body>

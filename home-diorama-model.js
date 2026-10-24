@@ -49,7 +49,7 @@
       actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map(a=>{
         const reflow=list.length>5&&(next.width!==previousScene.width||next.height!==previousScene.height||list.length!==previousActors.length||list.some(a=>previousActors.find(b=>b.key===a.key)?.w!==a.w));
         const old=!changed&&!reflow&&actor(a.key),previous=!reflow&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
-        return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null};
+        return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null};
       });
       // Keep established actors stable; seat new/reshaped arrivals in the nearest free spot.
       const seated=[];
@@ -68,9 +68,11 @@
       if(!actor(selected))selected=null;
       if(changed){cancel();cooldown.clear();}
     }
-    function select(key){const a=actor(key);if(!a||paused)return false;selected=key;a.target=null;a.route=[];defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
+    function select(key){const a=actor(key);if(!a||paused)return false;selected=key;a.target=null;a.route=[];a.manualUntil=clock+12;defer(a,4);emit('tap',a,'tap');idleAt=clock+4;return true;}
     function move(key,p,source='tap'){
       const a=actor(key);if(!a||paused||!Number.isFinite(p?.x+p?.y))return false;
+      if(source==='ambient'&&(clock<a.manualUntil||a.target&&a.source!=='ambient'))return false;
+      if(source!=='ambient')a.manualUntil=clock+12;
       if(source==='ambient'&&actors.filter(b=>b.target&&b.source==='ambient').length>=(actors.length>15?2:actors.length>5?3:5))return false;
       const q=destination(a,p);if(!q)return false;
       if(Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
@@ -79,21 +81,28 @@
     }
     function idle(a){
       const rain=['rain','snow'].includes(scene.weather),night=scene.time==='night';
-      const social=actors.filter(b=>b!==a),tags=scene.tags||[];
+      const social=actors.filter(b=>b!==a),tags=scene.tags||[],pet=a.kind==='partner'?actors.find(b=>b.kind==='pet'):null;
+      const apart=pet&&Math.hypot(a.x-pet.x,a.y-pet.y)>Math.max(110,(a.w+pet.w)*.8+40);
       let choices=[['walk',1+trait(a,'boldness')*.4],['turn',1],['look',1],['sit',night?3:1],['rest',night?3:1],['observe',trait(a,'curiosity')],['solitude',6-trait(a,'sociability')]];
-      if(social.length)choices.push(['approach',trait(a,'sociability')],['together',trait(a,'sociability')]);
+      if(social.length)choices.push(['approach',trait(a,'sociability')+(apart?12:0)],['together',trait(a,'sociability')+(apart?18:0)]);
       if(rain)choices.push(['shelter',8]);
       choices=choices.filter(([k])=>!a.recent.includes(k));
       let roll=random()*choices.reduce((n,c)=>n+c[1],0),name=choices[0]?.[0]||'look';
       for(const [k,w]of choices){roll-=w;if(roll<=0){name=k;break;}}
       const dense=actors.length>15,medium=actors.length>5;
-      if(clock-a.lastWalk>(dense?70:medium?35:18))name='walk';
+      if(clock-a.lastWalk>(dense?70:medium?35:18))name=apart?'together':'walk';
       const budget=dense?2:medium?3:5;
       if(actors.filter(b=>b.target&&b.source==='ambient').length>=budget)name=['rest','look','sit','turn'][Math.floor(random()*4)];
       const duration=(dense?9:medium?5:night?6:3)+random()*(dense?12:5)+trait(a,'persistence')*.35;
       if(['turn','look','sit','rest'].includes(name)){activity(a,name);if(name==='turn'||name==='look'){a.direction*=-1;stats.turns++;emit('look',a);}defer(a,duration);return;}
       let p=null;a.faceKey=null;
-      if(['approach','together'].includes(name)&&social.length){const b=social[Math.floor(random()*social.length)%social.length];p={x:b.x+(a.x<b.x?-1:1)*((a.w+b.w)*.55+14),y:b.y+(random()-.5)*32};a.faceKey=b.key;}
+      if(['approach','together'].includes(name)&&pet){
+        // Choose a comfortable place near the pet; the usual route/collision code
+        // still decides whether it is reachable. Other idle choices remain free.
+        const angle=random()*Math.PI*2,space=1.2+random()*.65;
+        p={x:pet.x+Math.cos(angle)*((a.w+pet.w)*.5+10)*space,y:pet.y+Math.sin(angle)*((a.h+pet.h)*.38+10)*space};a.faceKey=pet.key;
+      }
+      else if(['approach','together'].includes(name)&&social.length){const b=social[Math.floor(random()*social.length)%social.length];p={x:b.x+(a.x<b.x?-1:1)*((a.w+b.w)*.55+14),y:b.y+(random()-.5)*32};a.faceKey=b.key;}
       else if(['observe','shelter'].includes(name)){const pool=tags.filter(t=>name!=='shelter'||t.tag==='shelter');p=pool[Math.floor(random()*pool.length)%pool.length];}
       else {const b=bounds(a,scene);p={x:b.left+random()*(b.right-b.left),y:b.top+random()*(b.bottom-b.top)};if(Math.abs(p.x-a.x)<35)p.x=a.x<scene.width/2?b.right:b.left;}
       a.after=name==='walk'?'look':name==='shelter'?'rest':name;
@@ -104,12 +113,12 @@
       dt=Math.min(.1,dt);paused=!!flags.blocked;
       if(paused){cancel();return;}
       clock+=dt;
-      if(!flags.reducedMotion&&flags.autonomy!==false)for(const a of actors)if(!a.target&&a.key!==flags.heldActor&&clock>=a.nextAt)idle(a);
+      if(!flags.reducedMotion&&flags.autonomy!==false)for(const a of actors)if(!a.target&&a.key!==flags.heldActor&&clock>=a.nextAt&&clock>=a.manualUntil)idle(a);
       for(const a of actors){
         if(flags.reducedMotion&&a.source==='ambient'){a.target=null;a.route=[];}
         if(!a.target)continue;
         const dx=a.target.x-a.x,dy=a.target.y-a.y,dist=Math.hypot(dx,dy),speed=(flags.reducedMotion?28:42)*(scene.time==='night'?.75:1),step=Math.min(dist,speed*dt);
-        if(dist<.5){if(a.route?.length){a.target=a.route.shift();continue;}a.target=null;activity(a,a.source==='ambient'?a.after:'rest');defer(a,3+random()*5);if(a.faceKey){const b=actor(a.faceKey);if(b){a.direction=b.x<a.x?-1:1;if(!b.target&&b.source==='ambient'){b.direction=-a.direction;activity(b,'together');defer(b,4);}}}emit('arrive',a,a.source);if(tagsAt(a).length)emit('environment',a);if(actors.some(b=>b!==a&&Math.hypot(a.x-b.x,a.y-b.y)<100))emit('proximity',a);continue;}
+        if(dist<.5){if(a.route?.length){a.target=a.route.shift();continue;}a.target=null;activity(a,a.source==='ambient'?a.after:'rest');defer(a,3+random()*5);if(a.faceKey){const b=actor(a.faceKey);if(b){a.direction=b.x<a.x?-1:1;if(!b.target&&b.source==='ambient'&&clock>=b.manualUntil&&b.key!==flags.heldActor){b.direction=-a.direction;activity(b,'together');defer(b,4);}}}emit('arrive',a,a.source);if(tagsAt(a).length)emit('environment',a);if(actors.some(b=>b!==a&&Math.hypot(a.x-b.x,a.y-b.y)<100))emit('proximity',a);continue;}
         const p=limit(a,{x:a.x+dx/dist*step,y:a.y+dy/dist*step},scene);
         // If a very crowded/short viewport cannot seat everyone, permit escape only
         // when every existing overlap shrinks; never enter a new overlap.

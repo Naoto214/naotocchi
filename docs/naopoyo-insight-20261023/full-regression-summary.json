@@ -1,0 +1,18 @@
+{
+  "command": "package.json scripts.test, every node --test run with --test-concurrency=2; no targets omitted",
+  "exitCode": 0,
+  "testGroups": [
+    26,
+    24,
+    3212,
+    128
+  ],
+  "tests": 3390,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "auxiliary": "smoke/dialogue/visual QA all exited 0 (shell && sequence completed)",
+  "logSHA256": "eeadca02981cd44b1aa2f82632c2955a926ffb700346d16ae5671b77e3551f3a",
+  "logArchive": "full-regression.log.gz",
+  "treeScope": "#430 dependency branch; not a merge with latest main"
+}

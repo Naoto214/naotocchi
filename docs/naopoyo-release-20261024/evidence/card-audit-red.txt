@@ -1,0 +1,93 @@
+✖ approved soft design is global for every face, not a study opt-in (6.027923ms)
+✔ cost ink cannot inherit a white heading color (0.330585ms)
+✔ all 452 faces preserve formal colors, marks, and unique dedicated art at both resolutions (318.201069ms)
+✔ hidden cards retain the blue-silver back without front content (0.234531ms)
+Traceback (most recent call last):
+  File "/workspace/scratch/e3341be2859f/naotocchi/docs/card-game/tools/check-design-data.py", line 788, in <module>
+    raise ValueError(f"Cannot find current array {name}")
+ValueError: Cannot find current array FUN_ITEMS
+Traceback (most recent call last):
+  File "/workspace/scratch/e3341be2859f/naotocchi/prototypes/card-game/build_full_catalog.py", line 96, in <module>
+    content = build()
+              ^^^^^^^
+  File "/workspace/scratch/e3341be2859f/naotocchi/prototypes/card-game/build_full_catalog.py", line 35, in build
+    audit = json.loads(subprocess.check_output(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', '/workspace/scratch/e3341be2859f/naotocchi/docs/card-game/tools/check-design-data.py', '--catalog']' returned non-zero exit status 1.
+✔ canonical catalog contains all452 current cards, including explicit vanilla (2.713081ms)
+✔ every source is real, exact text is preserved, and content hashes match (43.893283ms)
+✔ 95/96 current revisions and canonical names survive export (0.28088ms)
+✖ regeneration is deterministic and read-only in check mode (2070.733126ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2228.146405
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/adopted-color-design.test.mjs:11:1
+✖ approved soft design is global for every face, not a study opt-in (6.027923ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert.ok(!adopted.includes('.card-back'))
+
+      at TestContext.<anonymous> (file:///workspace/scratch/e3341be2859f/naotocchi/prototypes/card-game/tests/adopted-color-design.test.mjs:15:60)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/catalog.test.mjs:58:1
+✖ regeneration is deterministic and read-only in check mode (2070.733126ms)
+  Error: Command failed: python /workspace/scratch/e3341be2859f/naotocchi/prototypes/card-game/build_full_catalog.py --check
+  Traceback (most recent call last):
+    File "/workspace/scratch/e3341be2859f/naotocchi/docs/card-game/tools/check-design-data.py", line 788, in <module>
+      raise ValueError(f"Cannot find current array {name}")
+  ValueError: Cannot find current array FUN_ITEMS
+  Traceback (most recent call last):
+    File "/workspace/scratch/e3341be2859f/naotocchi/prototypes/card-game/build_full_catalog.py", line 96, in <module>
+      content = build()
+                ^^^^^^^
+    File "/workspace/scratch/e3341be2859f/naotocchi/prototypes/card-game/build_full_catalog.py", line 35, in build
+      audit = json.loads(subprocess.check_output(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+      return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+      raise CalledProcessError(retcode, process.args,
+  subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', '/workspace/scratch/e3341be2859f/naotocchi/docs/card-game/tools/check-design-data.py', '--catalog']' returned non-zero exit status 1.
+
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at TestContext.<anonymous> (file:///workspace/scratch/e3341be2859f/naotocchi/prototypes/card-game/tests/catalog.test.mjs:61:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12) {
+    status: 1,
+    signal: null,
+    output: [ null, <Buffer >, <Buffer 54 72 61 63 65 62 61 63 6b 20 28 6d 6f 73 74 20 72 65 63 65 6e 74 20 63 61 6c 6c 20 6c 61 73 74 29 3a 0a 20 20 46 69 6c 65 20 22 2f 77 6f 72 6b 73 70 ... 1297 more bytes> ],
+    pid: 39,
+    stdout: <Buffer >,
+    stderr: <Buffer 54 72 61 63 65 62 61 63 6b 20 28 6d 6f 73 74 20 72 65 63 65 6e 74 20 63 61 6c 6c 20 6c 61 73 74 29 3a 0a 20 20 46 69 6c 65 20 22 2f 77 6f 72 6b 73 70 ... 1297 more bytes>
+  }

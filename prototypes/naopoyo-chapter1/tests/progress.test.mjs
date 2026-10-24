@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {Progress,KEY,QA_KEY} from '../progress.mjs';
+const ids=['light-arrival','light-together','light-addition'];
+const memory=()=>{const m=new Map();return {getItem:k=>m.get(k)||null,setItem:(k,v)=>m.set(k,v)}};
+test('only first unlocked and locked entry refused',()=>{const p=new Progress(ids,memory());assert.deepEqual(p.data.unlocked,[ids[0]]);assert.equal(p.select(ids[2]),false)});
+test('clear unlocks next, replay cannot relock; unknown ID refused',()=>{const p=new Progress(ids,memory());p.clear(ids[0]);p.select(ids[1]);p.clear(ids[1]);p.select(ids[0]);assert.equal(p.data.unlocked.length,3);assert.equal(p.clear('unknown'),false)});
+test('stale tab merges permanent progress before save',()=>{const s=memory(),a=new Progress(ids,s),b=new Progress(ids,s);a.clear(ids[0]);a.clear(ids[1]);b.select(ids[0]);assert.equal(new Progress(ids,s).data.unlocked.length,3)});
+test('display reorder retains IDs, boards and story/hints separate',()=>{const s=memory(),p=new Progress(ids,s);p.clear(ids[0]);p.board(ids[0],{state:'x'});p.hint(ids[0],2);p.read('intro');const q=new Progress([...ids].reverse(),s);assert.ok(q.data.cleared.includes(ids[0]));assert.deepEqual(q.data.boards[ids[0]],{state:'x'});assert.equal(q.data.hints[ids[0]],2);assert.ok(q.data.read.includes('intro'))});
+test('QA and normal records are independent',()=>{const s=memory(),q=new Progress(ids,s,{qa:true});assert.equal(q.data.unlocked.length,3);q.clear(ids[2]);assert.notEqual(KEY,QA_KEY);assert.deepEqual(new Progress(ids,s).data.unlocked,[ids[0]])});
+test('damaged board does not discard unlocks; future IDs retained',()=>{const s=memory();s.setItem(KEY,JSON.stringify({version:1,unlocked:[ids[0],ids[1],'future'],cleared:[ids[0]],boards:null}));const p=new Progress(ids,s);assert.ok(p.data.unlocked.includes(ids[1]));p.flush();assert.ok(p.data.unlocked.includes('future'))});
+test('stale tab saves cannot discard another stage midway board',()=>{const s=memory(),a=new Progress(ids,s);a.clear(ids[0]);const b=new Progress(ids,s);a.board(ids[1],{turn:12});b.board(ids[0],{turn:1});assert.deepEqual(new Progress(ids,s).data.boards[ids[1]],{turn:12})});
+test('display reorder neither unlocks last stage nor changes canonical successor',()=>{const s=memory(),p=new Progress(ids,s);p.clear(ids[0]);const q=new Progress([...ids].reverse(),s);assert.equal(q.allowed(ids[2]),false);q.clear(ids[1]);assert.equal(q.allowed(ids[2]),true)});

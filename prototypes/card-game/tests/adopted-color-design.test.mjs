@@ -8,11 +8,35 @@ import {cardMarkup} from '../ui-presentation.mjs';
 import {cardArtColors} from '../art-pilot/approved-colors.mjs';
 const css=readFileSync(new URL('../style.css',import.meta.url),'utf8');
 const approved=['#F17D9D','#95603C','#27D3C5','#2878E8','#F2D12E','#269451','#B58BE3','#35316E','#C68A32','#C04479','#568A9D','#EF9860','#B7A48C','#9298A5'];
-test('approved soft design is global for every face, not a study opt-in',()=>{
- const adopted=css.split('/* Adopted AB-soft: PR #397')[1];assert.ok(adopted);
+function auditAdoptedDesign(source){
+ // Explicit paired boundaries own only the approved front design. Subsequent
+ // shared slot sizing may legitimately address both front and back surfaces.
+ const start='/* Adopted AB-soft: PR #397 0f6f9bcb, approved 2026-10-19. */';
+ const end='/* End adopted AB-soft. */';
+ assert.equal(source.split(start).length,2,'one adopted design start');
+ assert.equal(source.split(end).length,2,'one adopted design end');
+ assert.ok(source.indexOf(end)>source.indexOf(start),'ordered design boundaries');
+ const adopted=source.slice(source.indexOf(start)+start.length,source.indexOf(end));
+ const selectors=[...adopted.matchAll(/([^{}]+)\{[^{}]*\}/g)].map(m=>m[1].trim());
+ assert.deepEqual(selectors,['.card-face','.card-face::before','.card-face .card-heading','.card-face .card-stats>span','.card-face::after']);
  assert.match(adopted,/\.card-face\s*\{--study-frame:1\.4cqw;--study-band:55%;--band-ink:#211d18/);
  for(const s of ['.card-face::before','.card-face .card-heading','.card-face .card-stats>span','.card-face::after'])assert.ok(adopted.includes(s));
  assert.ok(!adopted.includes('data-study-variant'));assert.ok(!adopted.includes('.card-back'));
+}
+test('approved soft design is global for every face, not a study opt-in',()=>{
+ auditAdoptedDesign(css);
+});
+test('design audit permits shared layout but detects back styling, opt-in, lost rules and boundaries',()=>{
+ auditAdoptedDesign(css+'\n.card-back{width:100%;height:100%}');
+ const start=css.indexOf('/* Adopted AB-soft:');
+ const before=css.slice(0,start),design=css.slice(start);
+ for(const changed of [
+  design.replace('.card-face{','.card-face,.card-back{'),
+  design.replace('.card-face{','[data-study-variant="soft"] .card-face{'),
+  design.replace('.card-face::before{','.card-face::missing{'),
+  design.replace('--study-band:55%','--study-band:0%'),
+  design.replace('/* End adopted AB-soft. */',''),
+ ]) assert.throws(()=>auditAdoptedDesign(before+changed));
 });
 test('cost ink cannot inherit a white heading color',()=>{
  assert.match(css,/\.card-face \.card-cost\s*\{color:#211d18\}/);
