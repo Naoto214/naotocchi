@@ -1,6 +1,16 @@
 # CARD GAME 最小再開メモ
 
-## 最新状態 — C案（試合単位チェックポイント・本人承認付き再開・4並列）を実装・検証済み。正式400戦は未起動（2026-10-23）
+## 最新状態 — 固定400戦の本番が 400/400 完走（2026-10-24）
+
+- 承認 `6365642150`（PR #408、P `e8e7202a`、request `39925d9c…`）を正式ゲートで照合して1回だけ消費し、claim `99237d90` を P の直接の子として保存。C案 supervisor を世代0・4並列で起動（2026-10-23T13:17Z → 10-24T13:13Z、約23.9時間）。
+- 結果：`completed_fixed_schedule`、完走400・保存400・未保存0・未実施0、中断・resume・retry なし。結果ブランチ `fixed400-results/fixed400-e8e7202ac717`（head `ca8017b7`、1行1コミット）。勝敗 A 194・B 173・引き分け 33。全体結論は null のまま（balance 標本0）。
+- 検証：結果ブランチを取り直して `verify_ledger` で400行合格。手元1200ファイルと結果ブランチの blob が全一致。play digest は診断400戦 diag31 と 400/400、baseline 完走155行と 155/155 一致。
+- 証跡：`data/proxy-population-400-checkpoint-run-20261023-evidence/REPORT.md`。制御ファイルは `data/proxy-population-400-checkpoint-run-20261023/`、行ごとの record は結果ブランチ。
+- 承認 `6365642150` は消費済みで再利用しない。main マージ・本番 Pages 更新はしていない。
+
+以下は過去時点の履歴。
+
+## C案（試合単位チェックポイント・本人承認付き再開・4並列）を実装・検証済み。正式400戦は未起動（2026-10-23）
 
 - 設計・契約変更：`plans/2026-10-23-fixed400-checkpoint-resume.md`。証跡：`data/proxy-population-400-attempt-design-20261023/REPORT.md`。
 - 実装：`proxy_population_checkpoint_ledger`／`results_store`／`checkpoint_supervisor`／`checkpoint_operator`、承認 request v3（`resume` 束縛、本文形式と本人・未編集・未取消・未消費・1回限りの検査は不変）。完走行ごとに `fixed400-results/<attempt>` ブランチへ1コミット追記・即 push。再開は新しい本人承認＋新 claim が必要で、保存済み行は保存バイトから全束縛を再計算できた場合だけ再利用。自動 retry／resume は無い。
