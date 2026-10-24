@@ -267,7 +267,9 @@
         const say = (t, ms = 800) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { scoreEl.textContent = `だん${blocks.length - 1}／✨ ${perfects}`; };
         blocks.push({ x: (W - BASE_W) / 2, w: BASE_W, y: GROUND - BLOCK_H, color: colors[0], wob: 0 });
-        swing.w = BASE_W; swing.x = 0;
+        // ゆれの はじめの いちと むきは 毎回 らんすう。ただし まんなか(ぴったり)から MIN_OFF 以上 はなして、
+        // 開始 ちょくごに おすだけで パーフェクトに ならないように する
+        swing.w = BASE_W; { const lo = 4, hi = W - 4 - BASE_W, mid = (W - BASE_W) / 2, MIN_OFF = Math.min(16, (hi - lo) / 2); const side = Math.random() < 0.5 ? -1 : 1, off = MIN_OFF + Math.random() * Math.max(0, (hi - lo) / 2 - MIN_OFF); swing.x = clamp(mid + side * off, lo, hi); swing.dir = Math.random() < 0.5 ? -1 : 1; }
         const topY = () => blocks[blocks.length - 1].y;
         function drop() { if (!running || falling || over || performance.now() < startTime) return; falling = { x: swing.x, w: swing.w, y: topY() - BLOCK_H * 3.2 - camY * 0 - 60, vy: 0, color: colors[blocks.length % colors.length] }; falling.y = camTop() + 26; }
         const camTop = () => topY() - H * 0.62 + 40; // カメラの うえはし(ワールド座標)
@@ -921,12 +923,15 @@
   function makeBentoBoxGame({ title }) {
     return {
       start(container, onComplete) {
+        // 見本の はいち(どの 具が どの わくか)は 毎回 まぜる(4!=24とおり)。わくの いちと かずは おなじ
+        const SLOTS = [[26, 30], [74, 30], [26, 68], [74, 68]];
+        for (let i = SLOTS.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [SLOTS[i], SLOTS[j]] = [SLOTS[j], SLOTS[i]]; }
         const ITEMS_DEF = [
-          { key: 'rice', emoji: '🍙', left: 26, top: 30 },
-          { key: 'egg', emoji: '🥚', left: 74, top: 30 },
-          { key: 'shrimp', emoji: '🍤', left: 26, top: 68 },
-          { key: 'broccoli', emoji: '🥦', left: 74, top: 68 },
-        ];
+          { key: 'rice', emoji: '🍙' },
+          { key: 'egg', emoji: '🥚' },
+          { key: 'shrimp', emoji: '🍤' },
+          { key: 'broccoli', emoji: '🥦' },
+        ].map((it, i) => ({ ...it, left: SLOTS[i][0], top: SLOTS[i][1] }));
         const PREVIEW_MS = 2200;
         const TIME_LIMIT_MS = mgDuration(11000);
         let placedCount = 0;
