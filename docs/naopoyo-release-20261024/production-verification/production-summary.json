@@ -1,0 +1,22 @@
+{
+  "source_head": "92ac654644351a169b9661e2319b0cd81670c497",
+  "base_url": "https://naoto214.github.io/naotocchi/",
+  "started_at": "2026-10-24T00:54:16Z",
+  "completed_at": "2026-10-24T00:54:46Z",
+  "expected_files": 4053,
+  "checked_files": 4053,
+  "matched_files": 4052,
+  "expected_bytes": 213456803,
+  "received_bytes": 213456803,
+  "failed": [
+    {
+      "path": ".nojekyll",
+      "errors": [
+        "HTTP 404",
+        "HTTP 404",
+        "HTTP 404"
+      ]
+    }
+  ],
+  "package_report_sha256": "a3d8690bf4c41e3db19c91dbe137e8357ccc694baad4b0fc2b6b88decac8c16e"
+}

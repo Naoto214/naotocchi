@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://naoto214.github.io/naotocchi/",
+    "status": 200,
+    "sha256": "04ef11b639d62090a9aa4de845f7617208827a2d31be5f15c1e22674912e1d70"
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/card-game/",
+    "status": 200,
+    "sha256": "65f86f906cab7d50cd9ac7f05d4c99bcf77dd2b6347943c9f4fa7a8551b8a457"
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo/",
+    "status": 200,
+    "sha256": "75777a0b027ed0f912005104a9684713a1a16e539ff77d70fc50961240d58514"
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-chapter1/",
+    "status": 200,
+    "sha256": "f15fa6b8db46264f1d015f48fc636f040b091431bbe3bbf989d840aed46adf35"
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-rescue/",
+    "status": 200,
+    "sha256": "1a0a730e86452ab9e084c09217ceb9883156a8b0805d46fea55751e0330ee4e9"
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-chapter1/qa.html",
+    "status": 404,
+    "excluded": true
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-chapter1/ability.html",
+    "status": 404,
+    "excluded": true
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-chapter1/ability-lab.mjs",
+    "status": 404,
+    "excluded": true
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-chapter1/ability-ui.mjs",
+    "status": 404,
+    "excluded": true
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-world/index.html",
+    "status": 404,
+    "excluded": true
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-insight/index.html",
+    "status": 404,
+    "excluded": true
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-v2/index.html",
+    "status": 404,
+    "excluded": true
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo/legacy.html",
+    "status": 404,
+    "excluded": true
+  },
+  {
+    "url": "https://naoto214.github.io/naotocchi/tools/pages/allowlist.json",
+    "status": 404,
+    "excluded": true
+  }
+]

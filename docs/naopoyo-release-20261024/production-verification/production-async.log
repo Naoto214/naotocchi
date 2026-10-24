@@ -1,0 +1,74 @@
+500/4053; failed=0
+600/4053; failed=0
+700/4053; failed=0
+800/4053; failed=0
+900/4053; failed=0
+1000/4053; failed=0
+1100/4053; failed=0
+1200/4053; failed=0
+1300/4053; failed=0
+1400/4053; failed=0
+1500/4053; failed=0
+1600/4053; failed=0
+1700/4053; failed=0
+1800/4053; failed=0
+1900/4053; failed=0
+2000/4053; failed=0
+2100/4053; failed=0
+2200/4053; failed=0
+2300/4053; failed=0
+2400/4053; failed=0
+2500/4053; failed=0
+2600/4053; failed=0
+2700/4053; failed=0
+2800/4053; failed=0
+2900/4053; failed=0
+3000/4053; failed=0
+3100/4053; failed=0
+3200/4053; failed=0
+3300/4053; failed=0
+3400/4053; failed=0
+3500/4053; failed=0
+3600/4053; failed=0
+3700/4053; failed=0
+3800/4053; failed=0
+3900/4053; failed=0
+4000/4053; failed=0
+{
+  "source_head": "92ac654644351a169b9661e2319b0cd81670c497",
+  "base_url": "https://naoto214.github.io/naotocchi/",
+  "started_at": "2026-10-24T00:54:16Z",
+  "completed_at": "2026-10-24T00:54:46Z",
+  "expected_files": 4053,
+  "checked_files": 4053,
+  "matched_files": 4052,
+  "expected_bytes": 213456803,
+  "received_bytes": 213456803,
+  "failed": [
+    {
+      "path": ".nojekyll",
+      "errors": [
+        "HTTP 404",
+        "HTTP 404",
+        "HTTP 404"
+      ]
+    }
+  ],
+  "package_report_sha256": "a3d8690bf4c41e3db19c91dbe137e8357ccc694baad4b0fc2b6b88decac8c16e"
+}
+Traceback (most recent call last):
+  File "/workspace/scratch/210eb386f655/verification/check-production-async.py", line 66, in <module>
+    asyncio.run(main())
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/210eb386f655/verification/check-production-async.py", line 64, in main
+    assert not failed and total==report['bytes']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
