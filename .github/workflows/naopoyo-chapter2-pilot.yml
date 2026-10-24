@@ -1,0 +1,35 @@
+name: Naopoyo Chapter 2 Pilot
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-chapter2/**'
+      - 'docs/naopoyo-chapter2-20261024/**'
+      - '.github/workflows/naopoyo-chapter2-pilot.yml'
+  workflow_dispatch:
+jobs:
+  puzzle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/naopoyo-chapter2/tests/*.test.mjs prototypes/naopoyo-chapter1/tests/*.test.mjs prototypes/naopoyo-insight/tests/*.test.mjs prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
+      - run: node prototypes/naopoyo-chapter2/audit.mjs /tmp/chapter2-solutions.json
+      - run: node prototypes/naopoyo-chapter2/build-preview.mjs /tmp/chapter2-preview
+  card:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs
+  main-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test

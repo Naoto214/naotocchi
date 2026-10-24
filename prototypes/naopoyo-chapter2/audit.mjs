@@ -1,0 +1,6 @@
+import fs from 'node:fs';
+import {stages} from './stages.mjs';import {solve} from './solve.mjs';
+const stacked=s=>s.actors.some(a=>s.actors.some(b=>a.x===b.x&&a.y+1===b.y));
+const result={base:'92ac654644351a169b9661e2319b0cd81670c497',limit:100000,method:'BFS over all legal 8-direction real-v2-engine steps; board key ignores IDs and gate open cosmetic flag. No split tiles in these three boards, so no ID-sensitive family states are collapsed.',stages:stages.map(s=>({id:s.id,witness:solve(s),noFall:solve(s,{filter:(_s,_n,r)=>!r.events.some(e=>e.type==='fall')}),noVerticalCompanionSupport:solve(s,{filter:(_s,n)=>!stacked(n)}),gravityDisabled:solve({...s,gravity:false},{limit:100000})})),lastFriendEarlyRescue:solve(stages[2],{filter:(s,_n,r)=>!r.events.some(e=>e.type==='rescue'&&e.level===4&&s.rescued<8)})};
+const out=process.argv[2];if(out)fs.writeFileSync(out,JSON.stringify(result,null,2));
+console.log(JSON.stringify({stages:result.stages.map(s=>({id:s.id,witness:{status:s.witness.status,visited:s.witness.visited,depth:s.witness.depth},noFall:s.noFall.status,noSupport:s.noVerticalCompanionSupport.status,gravityDisabled:s.gravityDisabled.status})),earlyRescue:result.lastFriendEarlyRescue}));
