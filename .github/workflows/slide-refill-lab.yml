@@ -1,0 +1,38 @@
+name: Slide refill comparison (unadopted)
+on:
+  pull_request:
+    paths: ['prototypes/slide08/refill-20261015/**', 'prototypes/slide08/search.mjs', '.github/workflows/slide-refill-lab.yml']
+permissions:
+  contents: read
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm --prefix prototypes/slide08 install --package-lock=false
+      - run: npx --prefix prototypes/slide08 playwright install --with-deps chromium
+      - name: Rules, certificates, regressions and mutations
+        run: |
+          npm --prefix prototypes/slide08 test
+          node --test prototypes/slide08/refill-20261015/*.test.mjs
+          node prototypes/slide08/refill-20261015/mutation.mjs
+          node prototypes/slide08/refill-20261015/ui-dom.cjs
+          tar -xzf prototypes/slide08/refill-20261015/results.tar.gz -C prototypes/slide08/refill-20261015
+          node prototypes/slide08/refill-20261015/post-run-dom.cjs
+          node prototypes/slide08/refill-20261015/replay.mjs
+          node prototypes/slide08/verify-all.mjs
+          node prototypes/slide08/balance-20261015/verify.mjs
+      - name: Comparison iPhone sizes (Chromium emulation, not Human QA)
+        run: |
+          python3 -m http.server 8765 > /tmp/slide-refill-http.log 2>&1 &
+          export CHROME_PATH="$(node -e "console.log(require('./prototypes/slide08/node_modules/playwright').chromium.executablePath())")"
+          node prototypes/slide08/refill-20261015/browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: slide-refill-screens
+          path: prototypes/slide08/refill-20261015/screens
