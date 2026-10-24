@@ -225,6 +225,10 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     NaotocchiMinigameReactions: require('../../minigame-reactions.js'),
     NaotocchiRelationshipLife: require('../../relationship-life.js'),
     NaotocchiConversationDirector: require('../../conversation-director.js'),
+    NaotocchiConversationBanter: require('../../conversation-banter.js'),
+    NaotocchiConversationPostgame: require('../../conversation-postgame.js'),
+    NaotocchiConversationQuick: require('../../conversation-quick.js'),
+    NaotocchiConversationAway: require('../../conversation-away.js'),
     NaotocchiRelationshipExpression: require('../../relationship-expression.js'),
     NaotocchiResidentExpression: require('../../resident-expression.js'),
     NaotocchiExpressionPresentation: require('../../expression-presentation.js'),
@@ -254,6 +258,8 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
       scheduleCompanionEncounter, scheduleEnvironmentMoment, scheduleIdleGreeting,
       drawRandomSticker, pickRandomMinigame, refillMinigameQueue,
       queue: () => minigameQueue.map(i => currentMinigamePool[i].id),
+      minigameFamilyOf, minigameCategoryOf: game => minigameCategoryOf.get(game),
+      setQueueIds: ids => { minigameQueue = ids.map(id => currentMinigamePool.findIndex(g => g.id === id)); },
       rankGameFixtures: games => {
         currentMinigamePool = games; minigameQueue = games.map((_, i) => i);
         minigameCrownFactors = ''; refreshCrownMinigameQueue();
@@ -294,6 +300,10 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
       enterInfinite, exitInfinite, openDexDetail, currentStageLabel,
       showPendingClownfishTransition, renderCommOverlay,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion, currentEnvironment,
+      conv2: {startBanter:conv2StartBanter, scheduleBanter:conv2ScheduleBanter, ask:conv2Ask, answer:conv2Answer, visitorKey:conv2CurrentVisitorKey,
+        canStart:conv2CanStart, unit:() => conv2Unit && {kind:conv2Unit.kind, id:conv2Unit.id, awaiting:conv2Unit.awaiting, held:conv2Unit.held.length},
+        data:CONVERSATION_BANTER, postgame:CONVERSATION_POSTGAME, quick:CONVERSATION_QUICK, away:CONVERSATION_AWAY, checkAway:conv2CheckAway, quickRuns:() => conv2QuickRuns, recordQuickRun, lastQuickRun:() => quickLastRun, leaveScene:conv2LeaveScene, syncLayer:syncHistoryLayer, director:() => conversationDirector, config:CONV2,
+        visitorLeaves:() => {homePresentPartner=()=>null;homePresentCompanions=()=>[];}, pools:() => CONVERSATION_POOLS, setLifeEventOpen:v => {individualityDialogOpen=!!v;}},
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, scheduleIdleGreeting, scheduleItemContextMessage, renderHomeCast,
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       achievementIconHTML: (...args) => achievementIconHTML(...args),

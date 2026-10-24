@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import * as view from '../../naopoyo-world/render.mjs';
+test('species-restricted gates/exits disclose species as well as number',()=>{assert.equal(typeof view.conditionCaption,'function');assert.equal(view.conditionCaption({species:'dog',exact:2},true),'犬 =2');assert.equal(view.conditionCaption({species:'fish',exact:3,waveOnly:true},true),'魚 波=3');assert.equal(view.conditionCaption({species:'dog',exact:2},false),'=2')});
