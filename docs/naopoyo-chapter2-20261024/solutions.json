@@ -1,0 +1,1163 @@
+{
+  "base": "92ac654644351a169b9661e2319b0cd81670c497",
+  "limit": 100000,
+  "method": "BFS over all legal 8-direction real-v2-engine steps; board key ignores IDs and gate open cosmetic flag. No split tiles in these three boards, so no ID-sensitive family states are collapsed.",
+  "stages": [
+    {
+      "id": "komorebi-fall",
+      "witness": {
+        "status": "solved",
+        "visited": 42,
+        "depth": 5,
+        "path": [
+          {
+            "id": "a",
+            "at": [
+              1,
+              2
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              2,
+              2
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 2,
+                "to": 3,
+                "x": 3
+              },
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 3,
+                "to": 4,
+                "x": 3
+              },
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 4,
+                "to": 5,
+                "x": 3
+              },
+              {
+                "type": "merge",
+                "id": "a",
+                "x": 3,
+                "y": 6,
+                "level": 3,
+                "overflow": 0,
+                "fall": true
+              },
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 5,
+                "to": 6,
+                "x": 3
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              3,
+              6
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 6,
+                "to": 7,
+                "x": 4
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              4,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": [
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 6,
+                "to": 7,
+                "x": 5
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              5,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "a",
+                "x": 6,
+                "y": 7,
+                "level": 3
+              }
+            ]
+          }
+        ]
+      },
+      "noFall": {
+        "status": "exhausted",
+        "visited": 12
+      },
+      "noVerticalCompanionSupport": {
+        "status": "solved",
+        "visited": 42,
+        "depth": 5,
+        "path": [
+          {
+            "id": "a",
+            "at": [
+              1,
+              2
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              2,
+              2
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 2,
+                "to": 3,
+                "x": 3
+              },
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 3,
+                "to": 4,
+                "x": 3
+              },
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 4,
+                "to": 5,
+                "x": 3
+              },
+              {
+                "type": "merge",
+                "id": "a",
+                "x": 3,
+                "y": 6,
+                "level": 3,
+                "overflow": 0,
+                "fall": true
+              },
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 5,
+                "to": 6,
+                "x": 3
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              3,
+              6
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 6,
+                "to": 7,
+                "x": 4
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              4,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": [
+              {
+                "type": "fall",
+                "id": "a",
+                "from": 6,
+                "to": 7,
+                "x": 5
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              5,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "a",
+                "x": 6,
+                "y": 7,
+                "level": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gravityDisabled": {
+        "status": "solved",
+        "visited": 2390,
+        "depth": 7,
+        "path": [
+          {
+            "id": "a",
+            "at": [
+              1,
+              2
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              2,
+              2
+            ],
+            "d": [
+              1,
+              1
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              3,
+              3
+            ],
+            "d": [
+              0,
+              1
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              3,
+              4
+            ],
+            "d": [
+              1,
+              1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              3,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": [
+              {
+                "type": "merge",
+                "id": "b",
+                "x": 4,
+                "y": 5,
+                "level": 3,
+                "overflow": 0,
+                "fall": false
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "at": [
+              4,
+              5
+            ],
+            "d": [
+              1,
+              1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              5,
+              6
+            ],
+            "d": [
+              1,
+              1
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "b",
+                "x": 6,
+                "y": 7,
+                "level": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "komorebi-support",
+      "witness": {
+        "status": "solved",
+        "visited": 24,
+        "depth": 5,
+        "path": [
+          {
+            "id": "c",
+            "at": [
+              0,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": [
+              {
+                "type": "merge",
+                "id": "c",
+                "x": 1,
+                "y": 7,
+                "level": 6,
+                "overflow": 0,
+                "fall": true
+              },
+              {
+                "type": "fall",
+                "id": "c",
+                "from": 6,
+                "to": 7,
+                "x": 1
+              }
+            ]
+          },
+          {
+            "id": "c",
+            "at": [
+              1,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": [
+              {
+                "type": "merge",
+                "id": "c",
+                "x": 2,
+                "y": 7,
+                "level": 8,
+                "overflow": 2,
+                "fall": true
+              },
+              {
+                "type": "fall",
+                "id": "c",
+                "from": 6,
+                "to": 7,
+                "x": 2
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "at": [
+              2,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              3,
+              5
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "b",
+                "x": 4,
+                "y": 5,
+                "level": 2
+              }
+            ]
+          },
+          {
+            "id": "c",
+            "at": [
+              2,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "c",
+                "x": 3,
+                "y": 7,
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "noFall": {
+        "status": "solved",
+        "visited": 24,
+        "depth": 6,
+        "path": [
+          {
+            "id": "a",
+            "at": [
+              1,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "merge",
+                "id": "a",
+                "x": 2,
+                "y": 7,
+                "level": 8,
+                "overflow": 0,
+                "fall": false
+              }
+            ]
+          },
+          {
+            "id": "c",
+            "at": [
+              0,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "c",
+            "at": [
+              1,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "c",
+            "at": [
+              2,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              2,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "a",
+                "x": 3,
+                "y": 7,
+                "level": 8
+              }
+            ]
+          },
+          {
+            "id": "c",
+            "at": [
+              3,
+              5
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "c",
+                "x": 4,
+                "y": 5,
+                "level": 2
+              }
+            ]
+          }
+        ]
+      },
+      "noVerticalCompanionSupport": {
+        "status": "exhausted",
+        "visited": 13
+      },
+      "gravityDisabled": {
+        "status": "solved",
+        "visited": 3487,
+        "depth": 6,
+        "path": [
+          {
+            "id": "a",
+            "at": [
+              1,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "merge",
+                "id": "a",
+                "x": 2,
+                "y": 7,
+                "level": 8,
+                "overflow": 0,
+                "fall": false
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              2,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "a",
+                "x": 3,
+                "y": 7,
+                "level": 8
+              }
+            ]
+          },
+          {
+            "id": "c",
+            "at": [
+              0,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "c",
+            "at": [
+              1,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "c",
+            "at": [
+              2,
+              5
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "c",
+            "at": [
+              3,
+              4
+            ],
+            "d": [
+              1,
+              1
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "c",
+                "x": 4,
+                "y": 5,
+                "level": 2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "komorebi-last-friend",
+      "witness": {
+        "status": "solved",
+        "visited": 67,
+        "depth": 10,
+        "path": [
+          {
+            "id": "b",
+            "at": [
+              0,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              1,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              1,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              2,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              2,
+              5
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "fall",
+                "id": "b",
+                "from": 5,
+                "to": 6,
+                "x": 3
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "at": [
+              3,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "b",
+                "x": 4,
+                "y": 5,
+                "level": 4
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              3,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              4,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              5,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              6,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "a",
+                "x": 7,
+                "y": 7,
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "noFall": {
+        "status": "solved",
+        "visited": 64,
+        "depth": 10,
+        "path": [
+          {
+            "id": "b",
+            "at": [
+              0,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              1,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              1,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              2,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              2,
+              5
+            ],
+            "d": [
+              1,
+              1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              3,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "b",
+                "x": 4,
+                "y": 5,
+                "level": 4
+              }
+            ]
+          },
+          {
+            "id": "a",
+            "at": [
+              3,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              4,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              5,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              6,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "a",
+                "x": 7,
+                "y": 7,
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "noVerticalCompanionSupport": {
+        "status": "exhausted",
+        "visited": 57
+      },
+      "gravityDisabled": {
+        "status": "solved",
+        "visited": 2474,
+        "depth": 10,
+        "path": [
+          {
+            "id": "a",
+            "at": [
+              1,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              2,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              3,
+              6
+            ],
+            "d": [
+              1,
+              1
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              4,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              5,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": []
+          },
+          {
+            "id": "a",
+            "at": [
+              6,
+              7
+            ],
+            "d": [
+              1,
+              0
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "a",
+                "x": 7,
+                "y": 7,
+                "level": 8
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "at": [
+              0,
+              7
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              1,
+              6
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              2,
+              5
+            ],
+            "d": [
+              1,
+              -1
+            ],
+            "events": []
+          },
+          {
+            "id": "b",
+            "at": [
+              3,
+              4
+            ],
+            "d": [
+              1,
+              1
+            ],
+            "events": [
+              {
+                "type": "rescue",
+                "id": "b",
+                "x": 4,
+                "y": 5,
+                "level": 4
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "lastFriendEarlyRescue": {
+    "status": "exhausted",
+    "visited": 68
+  }
+}

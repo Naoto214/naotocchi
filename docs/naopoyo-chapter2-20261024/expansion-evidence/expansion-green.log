@@ -1,0 +1,17 @@
+✔ all seven persistent stages exist exactly once with three hints (2.010838ms)
+✔ 13→20 unlocks survive reload/retry and QA never changes normal records (7.826763ms)
+✔ 14 real session pointer steps, save/undo/retry and all-rescued witness (18.043713ms)
+✔ 15 real session pointer steps, save/undo/retry and all-rescued witness (16.897831ms)
+✔ 16 real session pointer steps, save/undo/retry and all-rescued witness (17.564215ms)
+✔ 17 real session pointer steps, save/undo/retry and all-rescued witness (15.242289ms)
+✔ 18 real session pointer steps, save/undo/retry and all-rescued witness (75.027242ms)
+✔ 19 real session pointer steps, save/undo/retry and all-rescued witness (51.024369ms)
+✔ 20 real session pointer steps, save/undo/retry and all-rescued witness (107.872542ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 417.058248
