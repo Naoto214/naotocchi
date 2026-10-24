@@ -1,0 +1,20 @@
+Started: 2026-10-24T03:37:02.216461+00:00
+Command: node --test --test-concurrency=2 tests/conversation-full-rollout-test.cjs
+
+✔ coverage: all 44 characters have at least 3 exchanges of their own; no unknown characters (1.655793ms)
+✔ coverage: 100 normal games and 50 quick games, each with lines of its own (98.183542ms)
+✔ existing lines are kept: the pilot units of #419 / #421 / #429 are still there word for word (0.623429ms)
+✔ quality: no line is used twice, nothing is a near copy of another, no plain praise, no harsh words (182.97273ms)
+✔ quiet characters stay quiet: short replies, mostly silences (0.576651ms)
+✔ questions: more and varied; every choice gets a different reply; temperament questions only for that temperament (0.848983ms)
+✔ away: the saved records of naopoyo and CARD GAME are read, never written; the first look only remembers (1.085071ms)
+✔ away in the real home: coming back from CARD GAME brings one line; the game records are untouched; it is said once (21.852444ms)
+✔ away: a menu or a game in front of home keeps the line from starting, and it does not wait for later (18.173376ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 449.59977

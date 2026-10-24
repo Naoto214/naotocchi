@@ -1,0 +1,53 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (58.587725ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (33.279054ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (136.127053ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.705751ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (52.011118ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (143.706886ms)
+✔ index.html asset references exist and carry cache tokens (1.907034ms)
+✔ the bump tool rewrites only cache tokens (0.286042ms)
+✔ Home choice DOM input consumes exactly once and presents the existing reply/reaction (163.804079ms)
+✔ timed-out and scene-hidden choices cannot replay; non-Home choices keep native bubbling (23.705932ms)
+✔ a detached choice cannot answer a later question, even when its index is valid (18.318834ms)
+✔ Home selected pet uses its official current stage name (21.940327ms)
+✔ sleep action label, tooltip and presentation state follow sleep/wake (19.856344ms)
+✔ screenshot exchange opens a compact Home popup and shows its existing narrative exactly once (35.287587ms)
+✔ Home exchange later rejects its stale callback and keeps the original later effects (16.767756ms)
+✔ age choices reuse Home presentation with unchanged effects; non-Home remains modal (32.575446ms)
+✔ Home choice keeps fixed cast and care presentation across renders while gameplay stays paused (21.674775ms)
+✔ A: small-cast protagonist uses 85 percent with attachments following the painted foot (3.7554ms)
+✔ A: QA comparison supports all four protagonist scales without changing companion scale (16.9672ms)
+✔ D: curved depth placement differs from previous grid and retains everyone (1.796801ms)
+✔ B: care order follows approved keyboard and visual order (0.580216ms)
+partner-life deterministic 4 × 600-second results [{"kind":"companion","near":503,"samples":2400,"far":1582,"returns":29,"distances":9},{"kind":"partner","near":1513,"samples":2400,"far":600,"returns":43,"distances":9}]
+(node:71) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ manual selection suppresses autonomous movement for at least twelve seconds (3.761379ms)
+✔ manual drag grace survives arrival, frequent sync, resize and care cancellation (2.090113ms)
+✔ a fresh ground command renews grace and ambient commands cannot replace it (0.377006ms)
+✔ same-sized roles share exact bounds and manual navigation destinations (53.304556ms)
+✔ partner returns near the pet more often while still roaming with varied distances (94.364464ms)
+✔ reduced motion, held input, care/conversation/sleep blocking stop partner autonomy (1.074165ms)
+✔ 5/3/2 crowded movement budgets and collision safety survive long seeded simulations (93.353658ms)
+✔ an in-flight player route remains authoritative even after twelve seconds (0.289377ms)
+✔ crowded roster and body-size reflow retain the player grace deadline (1.657576ms)
+✔ social arrival does not turn or animate a player-controlled pet (0.445186ms)
+✔ partner autonomous return takes the shared terrain detour without crossing a solid (51.570588ms)
+(node:81) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ guide only completes after successful actor drag; separate namespace, replay and denied storage (0.843704ms)
+✔ city has connected pedestrian paving, separate curbs and traffic, no foreground asphalt spur (1254.937936ms)
+✔ all 26 registered companions and a partner still visit one at a time; formal maximum is 2 (32.009185ms)
+✔ runtime attendance with every registered companion never truncates relationships or renders more than one visitor (123.355888ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2128.241575

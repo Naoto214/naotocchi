@@ -1,0 +1,11 @@
+{
+  "base": "e7fef44b",
+  "remote_main_reviewed": "92ac6546",
+  "home_v12_premerge": "261e2921",
+  "merged_head": "9a5e3be62ceb6804b2ba4708e7e905d9cc001446",
+  "shared_paths": [
+    "index.html",
+    "script.js",
+    "tools/pages/allowlist.json"
+  ]
+}

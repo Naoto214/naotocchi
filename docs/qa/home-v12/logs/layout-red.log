@@ -1,0 +1,122 @@
+✖ A: small-cast protagonist uses 85 percent with attachments following the painted foot (8.946139ms)
+✖ A: QA comparison supports all four protagonist scales without changing companion scale (1.066154ms)
+✖ D: curved depth placement differs from previous grid and retains everyone (4.073003ms)
+✖ B: care order follows approved keyboard and visual order (1.026656ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 120.067364
+
+✖ failing tests:
+
+test at tests/home-v12-layout-test.cjs:6:1
+✖ A: small-cast protagonist uses 85 percent with attachments following the painted foot (8.946139ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(l.main.w-149.6)<.01)
+  
+      at TestContext.<anonymous> (/workspace/scratch/9a3496550164/naotocchi/tests/home-v12-layout-test.cjs:6:174)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/home-v12-layout-test.cjs:7:1
+✖ A: QA comparison supports all four protagonist scales without changing companion scale (1.066154ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(l.main.w/base.main.w-scale)<.001)
+  
+      at TestContext.<anonymous> (/workspace/scratch/9a3496550164/naotocchi/tests/home-v12-layout-test.cjs:7:298)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/home-v12-layout-test.cjs:8:1
+✖ D: curved depth placement differs from previous grid and retains everyone (4.073003ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" not to be strictly deep-equal to:
+  
+  [
+    174.6688888888889,
+    174.6688888888889,
+    174.6688888888889,
+    173.6909433962264,
+    109.22666666666666,
+    108.26867924528302,
+    109.22666666666666,
+    104.6109090909091,
+    39.264848484848486,
+    43.784444444444446,
+    43.784444444444446,
+    44.68836363636364
+  ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/9a3496550164/naotocchi/tests/home-v12-layout-test.cjs:8:235)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 174.6688888888889, 174.6688888888889, 174.6688888888889, 173.6909433962264, 109.22666666666666, 108.26867924528302, 109.22666666666666, 104.6109090909091, 39.264848484848486, 43.784444444444446, 43.784444444444446, 44.68836363636364 ],
+    expected: [ 174.6688888888889, 174.6688888888889, 174.6688888888889, 173.6909433962264, 109.22666666666666, 108.26867924528302, 109.22666666666666, 104.6109090909091, 39.264848484848486, 43.784444444444446, 43.784444444444446, 44.68836363636364 ],
+    operator: 'notDeepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-v12-layout-test.cjs:9:1
+✖ B: care order follows approved keyboard and visual order (1.026656ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'feedBtn',
+      'playBtn',
+  -   'feedBtn',
+      'cleanBtn',
+      'sleepBtn',
+      'medicineBtn',
+      'playWithBtn',
+  +   'travelBtn',
+      'courtBtn',
+  -   'travelBtn',
+      'menuBtn'
+    ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/9a3496550164/naotocchi/tests/home-v12-layout-test.cjs:9:173)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'feedBtn', 'playBtn', 'cleanBtn', 'sleepBtn', 'medicineBtn', 'playWithBtn', 'travelBtn', 'courtBtn', 'menuBtn' ],
+    expected: [ 'playBtn', 'feedBtn', 'cleanBtn', 'sleepBtn', 'medicineBtn', 'playWithBtn', 'courtBtn', 'travelBtn', 'menuBtn' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

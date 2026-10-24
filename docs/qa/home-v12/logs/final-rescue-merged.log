@@ -1,0 +1,791 @@
+2026-10-24T03:44:56.365700+00:00
+node --test --test-concurrency=2 prototypes/naopoyo-rescue/tests/*.test.mjs
+✔ penguin survives save validation and movement (1.0843ms)
+✔ frog survives save validation and movement (0.167617ms)
+✔ all four official species have a playable stage (0.141809ms)
+✔ old gate-stage progress and undo are preserved with old terrain (1.626762ms)
+✔ unknown changed terrain is not accepted as legacy (0.198974ms)
+✔ gate exact 1: all levels and species (2.397689ms)
+✔ gate exact 2: all levels and species (1.213361ms)
+✔ gate exact 3: all levels and species (0.165895ms)
+✔ gate exact 4: all levels and species (0.366711ms)
+✔ gate exact 5: all levels and species (0.213505ms)
+✔ gate exact 6: all levels and species (0.146957ms)
+✔ gate exact 7: all levels and species (0.549661ms)
+✔ gate exact 8: all levels and species (0.167587ms)
+✔ gate min 1: all levels and species (0.336727ms)
+✔ gate min 2: all levels and species (0.272912ms)
+✔ gate min 3: all levels and species (0.408613ms)
+✔ gate min 4: all levels and species (0.136341ms)
+✔ gate min 5: all levels and species (0.157552ms)
+✔ gate min 6: all levels and species (0.16245ms)
+✔ gate min 7: all levels and species (0.190451ms)
+✔ gate min 8: all levels and species (0.534899ms)
+✔ gate max 1: all levels and species (0.229659ms)
+✔ gate max 2: all levels and species (0.129892ms)
+✔ gate max 3: all levels and species (0.109882ms)
+✔ gate max 4: all levels and species (0.104514ms)
+✔ gate max 5: all levels and species (1.648033ms)
+✔ gate max 6: all levels and species (0.124023ms)
+✔ gate max 7: all levels and species (0.09489ms)
+✔ gate max 8: all levels and species (0.090344ms)
+✔ exit exact 1: all levels and species (0.302487ms)
+✔ exit exact 2: all levels and species (0.17578ms)
+✔ exit exact 3: all levels and species (0.129351ms)
+✔ exit exact 4: all levels and species (0.096483ms)
+✔ exit exact 5: all levels and species (0.085967ms)
+✔ exit exact 6: all levels and species (0.174017ms)
+✔ exit exact 7: all levels and species (0.125526ms)
+✔ exit exact 8: all levels and species (0.370517ms)
+✔ exit min 1: all levels and species (0.137112ms)
+✔ exit min 2: all levels and species (0.119416ms)
+✔ exit min 3: all levels and species (0.103062ms)
+✔ exit min 4: all levels and species (0.096663ms)
+✔ exit min 5: all levels and species (0.08768ms)
+✔ exit min 6: all levels and species (0.080028ms)
+✔ exit min 7: all levels and species (0.112536ms)
+✔ exit min 8: all levels and species (0.080098ms)
+✔ exit max 1: all levels and species (0.078256ms)
+✔ exit max 2: all levels and species (0.082462ms)
+✔ exit max 3: all levels and species (0.079137ms)
+✔ exit max 4: all levels and species (0.204111ms)
+✔ exit max 5: all levels and species (0.353572ms)
+✔ exit max 6: all levels and species (0.116943ms)
+✔ exit max 7: all levels and species (0.158534ms)
+✔ exit max 8: all levels and species (0.140227ms)
+✔ condition label distinguishes equality and both limits (0.145354ms)
+✔ previously used gate rejects mismatching species (0.150843ms)
+✔ same exit rescues multiple actors (0.150001ms)
+✔ opened gate and closed undo snapshot survive save restore (0.583982ms)
+✔ species only condition uses the same matcher (0.071436ms)
+✔ all diagonal orientations cross two rock corners in both directions, regardless of sampling (10.821725ms)
+✔ blocked destinations reject atomically in all eight directions (0.903804ms)
+✔ gate ALL/species/exact/min/max conditions use destination only from all eight sides (0.830666ms)
+✔ destination-only diagonals retain supported gravity ascent and landing (0.212053ms)
+✔ 702721a save 7: terrain, actors, Undo and cleared records round-trip exactly (0.743297ms)
+✔ 702721a save 10: terrain, actors, Undo and cleared records round-trip exactly (0.262076ms)
+✔ 702721a save 12: terrain, actors, Undo and cleared records round-trip exactly (0.246523ms)
+✔ stage07: slightly off-axis diagonal past spike does not enter or split on its corner (4.175754ms)
+✔ diagonal entry into spike splits at actual origin; save and undo retain both states (0.752371ms)
+✔ fast diagonal ignores side obstacles but cannot skip a blocked destination (0.364087ms)
+✔ pointer solution 01, slow/fast, save and Undo (2.477637ms)
+✔ pointer solution 02, slow/fast, save and Undo (0.848773ms)
+✔ pointer solution 03, slow/fast, save and Undo (0.65729ms)
+✔ pointer solution 04, slow/fast, save and Undo (1.425704ms)
+✔ pointer solution 05, slow/fast, save and Undo (1.001008ms)
+✔ pointer solution 06, slow/fast, save and Undo (1.142917ms)
+✔ pointer solution 07, slow/fast, save and Undo (1.330684ms)
+✔ pointer solution 08, slow/fast, save and Undo (0.757949ms)
+✔ pointer solution 09, slow/fast, save and Undo (1.576828ms)
+✔ pointer solution 10, slow/fast, save and Undo (1.184899ms)
+✔ pointer solution 11, slow/fast, save and Undo (0.79938ms)
+✔ pointer solution 12, slow/fast, save and Undo (0.552155ms)
+✔ gravity arrow is drawn only in gravity stages without changing state (0.411587ms)
+✔ all eight spike entries split at origin and all eight departures preserve mass (0.890785ms)
+✔ diagonal matching gate permits entry, mismatching gate rejects it for slow/fast input (0.478406ms)
+✔ edge drag remains in bounds and cannot skip an intermediate spike at speed (0.221246ms)
+✔ all eight directions work (1.091421ms)
+✔ diagonal merge and split retain active id and mass (0.748195ms)
+✔ diagonal gate and exit use conditions (0.436224ms)
+✔ gate permission rechecked even after a valid passage (0.341194ms)
+✔ destination-only diagonals ignore one/two side walls and denied side gates (0.228918ms)
+✔ gravity blocks unsupported diagonal ascent (0.193135ms)
+✔ diagonal pointer samples are eight-way (0.228047ms)
+✔ continuous pointer path is invariant under sample subdivision (0.401953ms)
+✔ old stage10 save gains fish passage without losing actors or undo (4.277494ms)
+✔ passage animation events are transient and include fast crossings (0.450275ms)
+✔ migration round-trips when an old actor or Undo occupies new fish gate (0.585444ms)
+✔ blocked continuous drag produces same engine state for slow and fast samples (1.055708ms)
+✔ equal merge preserves id and mass (1.174613ms)
+✔ unequal, other species and max level collide (0.198393ms)
+✔ split puts second child in previous cell (0.652413ms)
+✔ exit rejects wrong stage and records rescued mass (0.336076ms)
+✔ gate opens without consuming actor (0.190582ms)
+✔ fall merges, stops on floor and preserves mass (0.330738ms)
+✔ unsupported upward movement is rejected (0.25708ms)
+✔ fall through spike splits then settles (0.204992ms)
+✔ 07 merges to 08, 01 spike passes, wrong species gate blocks (0.232493ms)
+✔ walls stop fast path without teleporting (0.982481ms)
+✔ gravity rescues into matching exit and stops at blocking actor (0.328565ms)
+✔ deterministic mixed actions preserve mass and bounded occupancy (9.434917ms)
+✔ stage 7: actual dog2 gate exit and return, pointer offsets and sampling (17.076727ms)
+✔ stage 10: actual dog2 gate exit and return, pointer offsets and sampling (2.789328ms)
+✔ stage07: actual spike entry splits and a now-ineligible child cannot re-enter gate (1.330714ms)
+✔ stage12: frog1 can leave and return diagonally on the spike side; frog2 still denied (1.566813ms)
+✔ pre-clearance v1 saves and Undo remain byte-equivalent, including occupants of new wall cells (0.841452ms)
+✔ stage09 arrow ink envelope is clear of fixed obstacles and remains anchored as actors move (0.457986ms)
+✔ fast swipe expands every crossed cell (1.974304ms)
+✔ diagonal route stays adjacent and bounded (0.300824ms)
+✔ save restores state and undo (1.082548ms)
+✔ corrupt and tampered saves rejected (0.406089ms)
+✔ string index and nonboolean gate open are rejected (0.442233ms)
+✔ actors cannot restore on exits or closed gates (0.442583ms)
+✔ board uses available width and height without clipping any of the 8x6 cells (0.945716ms)
+✔ solution 01: ひかりの牢屋 (2.171315ms)
+✔ solution 02: ふたりで、ひとつ (0.454661ms)
+✔ solution 03: ぷにっと連続合体 (0.286292ms)
+✔ solution 04: とげで、ふたりに (0.427852ms)
+✔ solution 05: もう一度、ひとつに (0.209079ms)
+✔ solution 06: 小さな抜け道 (0.272282ms)
+✔ solution 07: 魔法の門 (0.36574ms)
+✔ solution 08: それぞれの帰り道 (1.200732ms)
+✔ solution 09: なかまの階段 (0.415964ms)
+✔ solution 10: みんなで帰ろう (0.503143ms)
+✔ solution 11: ペンギンの大きな約束 (0.252032ms)
+✔ solution 12: かえるの小さな鍵 (0.192133ms)
+✔ A/B changes actual sprite drawing by 10 CSS px only, release restores A and no owl is drawn (5.827733ms)
+✔ condition icons use at least 16px of visible extent and remain centered in the 42px cell (0.421643ms)
+✔ all twelve solutions through pointer movement and A/B rendering preserve identical saved states (57.209923ms)
+✔ sealed gate prevents ANY rescue: 07 (23.203512ms)
+✔ sealed gate prevents ANY rescue: 10 (577.362ms)
+✔ sealed gate prevents ANY rescue: 11 (31.040041ms)
+✔ sealed gate prevents ANY rescue: 12 (17.61008ms)
+✔ search catches the old stage 07 bypass even with victory gate flags removed (93.198246ms)
+✔ search cap is unproved, never impossible (0.336116ms)
+✔ stage10 cannot complete when only gate 0 is sealed (1653.919627ms)
+✔ stage10 cannot complete when only gate 1 is sealed (2556.351596ms)
+✔ search detects every former 702721a shifted-wall bypass under destination-only movement (5155.332514ms)
+✔ actual app pointer listeners: stage07 gate round trip, no split, Undo and reload at phone widths (37.791115ms)
+✔ actual app pointer listeners: solution 01 in fast, slow and coalesced streams (10.814703ms)
+✔ actual app pointer listeners: solution 02 in fast, slow and coalesced streams (7.747637ms)
+✔ actual app pointer listeners: solution 03 in fast, slow and coalesced streams (8.215198ms)
+✔ actual app pointer listeners: solution 04 in fast, slow and coalesced streams (13.339154ms)
+✔ actual app pointer listeners: solution 05 in fast, slow and coalesced streams (15.346639ms)
+✔ actual app pointer listeners: solution 06 in fast, slow and coalesced streams (16.879743ms)
+✔ actual app pointer listeners: solution 07 in fast, slow and coalesced streams (11.379873ms)
+✔ actual app pointer listeners: solution 08 in fast, slow and coalesced streams (12.040988ms)
+✔ actual app pointer listeners: solution 09 in fast, slow and coalesced streams (12.107025ms)
+✔ actual app pointer listeners: solution 10 in fast, slow and coalesced streams (19.332824ms)
+✔ actual app pointer listeners: solution 11 in fast, slow and coalesced streams (12.8553ms)
+✔ actual app pointer listeners: solution 12 in fast, slow and coalesced streams (22.517558ms)
+✔ actual app reload keeps former terrain and Undo; retry creates new terrain without erasing clears (2.766335ms)
+✔ unrestricted any draws ALL (0.979456ms)
+✔ unrestricted dog draws ALL (0.231953ms)
+✔ unrestricted fish draws ALL (0.10159ms)
+✔ unrestricted penguin draws ALL (0.208047ms)
+✔ unrestricted frog draws ALL (0.107719ms)
+✔ drag enlargement stays inside board at all four edges without changing actor coordinates (0.33162ms)
+✔ renderer enlarges only while dragging, follows current cell immediately, then shrinks without changing state (8.3301ms)
+✖ dog 1: official PNG is intact and fitted inside tile (1.635595ms)
+✖ dog 2: official PNG is intact and fitted inside tile (0.132897ms)
+✖ dog 3: official PNG is intact and fitted inside tile (0.128289ms)
+✖ dog 4: official PNG is intact and fitted inside tile (0.262427ms)
+✖ dog 5: official PNG is intact and fitted inside tile (0.138614ms)
+✖ dog 6: official PNG is intact and fitted inside tile (0.093949ms)
+✖ dog 7: official PNG is intact and fitted inside tile (0.224942ms)
+✖ dog 8: official PNG is intact and fitted inside tile (0.101349ms)
+✖ fish 1: official PNG is intact and fitted inside tile (0.127919ms)
+✖ fish 2: official PNG is intact and fitted inside tile (0.260234ms)
+✖ fish 3: official PNG is intact and fitted inside tile (0.220595ms)
+✖ fish 4: official PNG is intact and fitted inside tile (0.199725ms)
+✖ fish 5: official PNG is intact and fitted inside tile (0.180687ms)
+✖ fish 6: official PNG is intact and fitted inside tile (0.124053ms)
+✖ fish 7: official PNG is intact and fitted inside tile (0.107058ms)
+✖ fish 8: official PNG is intact and fitted inside tile (0.149851ms)
+✖ penguin 1: official PNG is intact and fitted inside tile (0.972386ms)
+✖ penguin 2: official PNG is intact and fitted inside tile (0.165805ms)
+✖ penguin 3: official PNG is intact and fitted inside tile (0.268947ms)
+✖ penguin 4: official PNG is intact and fitted inside tile (0.136862ms)
+✖ penguin 5: official PNG is intact and fitted inside tile (0.10147ms)
+✖ penguin 6: official PNG is intact and fitted inside tile (0.092567ms)
+✖ penguin 7: official PNG is intact and fitted inside tile (0.065487ms)
+✖ penguin 8: official PNG is intact and fitted inside tile (0.102341ms)
+✖ frog 1: official PNG is intact and fitted inside tile (0.099096ms)
+✖ frog 2: official PNG is intact and fitted inside tile (0.186616ms)
+✖ frog 3: official PNG is intact and fitted inside tile (0.082902ms)
+✖ frog 4: official PNG is intact and fitted inside tile (0.114078ms)
+✖ frog 5: official PNG is intact and fitted inside tile (0.079958ms)
+✖ frog 6: official PNG is intact and fitted inside tile (0.076162ms)
+✖ frog 7: official PNG is intact and fitted inside tile (0.061701ms)
+✖ frog 8: official PNG is intact and fitted inside tile (0.060028ms)
+✔ owl is the official companion, missing species is rejected (0.587988ms)
+✔ all twelve stages belong to the three requested areas (1.161926ms)
+✔ gate reacts to the active actor in all eight directions and uses actual passage conditions (2.39743ms)
+✔ active actor wins over nearby bystanders; leaving or fast actor switching clears stale reactions (0.159445ms)
+✔ measured condition group is centered and glyph ink aligns with cropped icon at 42px (0.576301ms)
+✔ split child already inside a gate can leave: door stays open and gate permits departure (0.329296ms)
+✔ occupied doorway stays open for its occupant while rejecting a different approaching actor (0.163361ms)
+ℹ tests 205
+ℹ suites 0
+ℹ pass 173
+ℹ fail 32
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10697.964518
+
+✖ failing tests:
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ dog 1: official PNG is intact and fitted inside tile (1.635595ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/01.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/01.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ dog 2: official PNG is intact and fitted inside tile (0.132897ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/02.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/02.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ dog 3: official PNG is intact and fitted inside tile (0.128289ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/03.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/03.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ dog 4: official PNG is intact and fitted inside tile (0.262427ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/04.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/04.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ dog 5: official PNG is intact and fitted inside tile (0.138614ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/05.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/05.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ dog 6: official PNG is intact and fitted inside tile (0.093949ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/06.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/06.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ dog 7: official PNG is intact and fitted inside tile (0.224942ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/07.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/07.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ dog 8: official PNG is intact and fitted inside tile (0.101349ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/08.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/dog/08.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ fish 1: official PNG is intact and fitted inside tile (0.127919ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/01.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/01.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ fish 2: official PNG is intact and fitted inside tile (0.260234ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/02.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/02.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ fish 3: official PNG is intact and fitted inside tile (0.220595ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/03.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/03.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ fish 4: official PNG is intact and fitted inside tile (0.199725ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/04.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/04.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ fish 5: official PNG is intact and fitted inside tile (0.180687ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/05.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/05.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ fish 6: official PNG is intact and fitted inside tile (0.124053ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/06.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/06.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ fish 7: official PNG is intact and fitted inside tile (0.107058ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/07.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/07.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ fish 8: official PNG is intact and fitted inside tile (0.149851ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/08.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/clownfish/08.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ penguin 1: official PNG is intact and fitted inside tile (0.972386ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/01.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/01.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ penguin 2: official PNG is intact and fitted inside tile (0.165805ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/02.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/02.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ penguin 3: official PNG is intact and fitted inside tile (0.268947ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/03.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/03.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ penguin 4: official PNG is intact and fitted inside tile (0.136862ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/04.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/04.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ penguin 5: official PNG is intact and fitted inside tile (0.10147ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/05.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/05.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ penguin 6: official PNG is intact and fitted inside tile (0.092567ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/06.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/06.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ penguin 7: official PNG is intact and fitted inside tile (0.065487ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/07.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/07.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ penguin 8: official PNG is intact and fitted inside tile (0.102341ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/08.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/penguin/08.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ frog 1: official PNG is intact and fitted inside tile (0.099096ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/01.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/01.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ frog 2: official PNG is intact and fitted inside tile (0.186616ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/02.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/02.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ frog 3: official PNG is intact and fitted inside tile (0.082902ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/03.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/03.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ frog 4: official PNG is intact and fitted inside tile (0.114078ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/04.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/04.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ frog 5: official PNG is intact and fitted inside tile (0.079958ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/05.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/05.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ frog 6: official PNG is intact and fitted inside tile (0.076162ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/06.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/06.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ frog 7: official PNG is intact and fitted inside tile (0.061701ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/07.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/07.png'
+  }
+
+test at prototypes/naopoyo-rescue/tests/sprites.test.mjs:5:87
+✖ frog 8: official PNG is intact and fitted inside tile (0.060028ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/08.png'
+      at Object.openSync (node:fs:622:18)
+      at Object.readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/9a3496550164/naotocchi/prototypes/naopoyo-rescue/tests/sprites.test.mjs:7:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/9a3496550164/naotocchi/assets/characters/frog/08.png'
+  }
