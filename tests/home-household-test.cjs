@@ -5,7 +5,7 @@ const ids=[...master.companions.normal,...master.companions.rare].map(c=>c.id);
 const home=require('../home-diorama.js'),model=require('../home-diorama-model.js'),boxes=require('../cast-bounds.js');
 function layoutActors(width,count,overview=false,height=300){
  const paths=['assets/characters/dog/04.png','assets/characters/partners/cat_ceo.png',...ids.slice(0,count-2).map(id=>'assets/characters/companions/'+id+'.png')];
- const layout=home.layoutTerrainCast({width,height,conversationHeight:44,mainAsset:paths[0],partnerAsset:paths[1],hasPartner:true,hasRing:true,companions:paths.slice(2),overview});
+ const layout=home.layoutTerrainCast({width,height,conversationHeight:44,formation:'arc',mainAsset:paths[0],partnerAsset:paths[1],hasPartner:true,hasRing:true,companions:paths.slice(2),overview});
  return [layout.main,layout.partner,...layout.companions].map((f,i)=>{const b=boxes[paths[i]]?.box||[0,0,128,128];return {key:i===0?'pet:dog':i===1?'partner:cat_ceo':'companion:'+ids[i-2],kind:i===0?'pet':i===1?'partner':'companion',id:String(i),x:f.x+f.w*(b[0]+b[2])/256,y:f.y+f.h*b[3]/128+(f.artOffsetY||0),w:f.w*(b[2]-b[0])/128,h:f.h*(b[3]-b[1])/128};});
 }
 for(const width of [288,343,358,398])test(`crowded terrain layout fits all visible bodies at ${width}px`,()=>{

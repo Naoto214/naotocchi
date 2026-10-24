@@ -4,7 +4,7 @@
   const supported=region=>['forest','river_lake','city'].includes(region);
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   function bounds(a,s){
-    const ext=a.extent||{},bottom=Math.max(24,s.height-54-(ext.bottom||0)),top=Math.min(bottom,Math.max((ext.top||a.h)+18,s.groundTop||s.height*.51));
+    const ext=a.extent||{},bottom=Math.max(24,s.height-12-(ext.bottom||0)),top=Math.min(bottom,Math.max((ext.top||a.h)+18,s.groundTop||s.height*.51));
     const left=Math.min(s.width/2,(ext.left||a.w/2)+12),right=Math.max(left,s.width-(ext.right||a.w/2)-12);
     return {left,right,top,bottom};
   }
@@ -46,9 +46,18 @@
       const previousScene=scene,previousActors=actors;
       const retained=new Set(next.region===scene.region?actors.map(a=>a.key):[]);
       scene={...next,tags:(next.tags||[]).map(t=>({...t}))};
+      // Centre first seating in the actually walkable band (water/roads may cut
+      // away the upper screen). Never re-centre an established player's position.
+      let terrainCentre=null;
+      const main=list.find(a=>a.kind==='pet');
+      if(scene.centerInitialCast&&scene.navigation&&main&&(!previousActors.length||previousScene.region!==scene.region)){
+        const b=bounds(main,scene),points=[];
+        for(let y=b.top;y<=b.bottom;y+=12)for(let x=b.left;x<=b.right;x+=20)if(scene.navigation.valid({x,y})&&visible(main,{x,y}))points.push({x,y});
+        if(points.length){const ys=points.map(p=>p.y);terrainCentre=scene.navigation.nearest({x:scene.width/2,y:(Math.min(...ys)+Math.max(...ys))/2},b,p=>visible(main,p));}
+      }
       actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map(a=>{
         const reflow=list.length>5&&(next.width!==previousScene.width||next.height!==previousScene.height||list.length!==previousActors.length||list.some(a=>previousActors.find(b=>b.key===a.key)?.w!==a.w));
-        const old=!changed&&!reflow&&actor(a.key),previous=!reflow&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
+        const old=!changed&&!reflow&&actor(a.key),previous=!reflow&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||(a.kind==='pet'&&terrainCentre)||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
         return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null};
       });
       // Keep established actors stable; seat new/reshaped arrivals in the nearest free spot.

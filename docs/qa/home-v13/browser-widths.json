@@ -1,0 +1,413 @@
+[
+  {
+    "r": "forest",
+    "w": "320",
+    "h": "568",
+    "measurement": {
+      "buttons": [
+        {
+          "id": "playBtn",
+          "rect": {
+            "bottom": 660.859375,
+            "height": 49,
+            "left": 9,
+            "right": 63.1875,
+            "top": 611.859375,
+            "width": 54.1875,
+            "x": 9,
+            "y": 611.859375
+          }
+        },
+        {
+          "id": "feedBtn",
+          "rect": {
+            "bottom": 660.859375,
+            "height": 49,
+            "left": 67.1875,
+            "right": 121.390625,
+            "top": 611.859375,
+            "width": 54.203125,
+            "x": 67.1875,
+            "y": 611.859375
+          }
+        },
+        {
+          "id": "cleanBtn",
+          "rect": {
+            "bottom": 660.859375,
+            "height": 49,
+            "left": 125.390625,
+            "right": 179.59375,
+            "top": 611.859375,
+            "width": 54.203125,
+            "x": 125.390625,
+            "y": 611.859375
+          }
+        },
+        {
+          "id": "sleepBtn",
+          "rect": {
+            "bottom": 660.859375,
+            "height": 49,
+            "left": 183.59375,
+            "right": 237.796875,
+            "top": 611.859375,
+            "width": 54.203125,
+            "x": 183.59375,
+            "y": 611.859375
+          }
+        },
+        {
+          "id": "medicineBtn",
+          "rect": {
+            "bottom": 660.859375,
+            "height": 49,
+            "left": 241.796875,
+            "right": 296,
+            "top": 611.859375,
+            "width": 54.203125,
+            "x": 241.796875,
+            "y": 611.859375
+          }
+        },
+        {
+          "id": "playWithBtn",
+          "rect": {
+            "bottom": 714.859375,
+            "height": 49,
+            "left": 9,
+            "right": 77.75,
+            "top": 665.859375,
+            "width": 68.75,
+            "x": 9,
+            "y": 665.859375
+          }
+        },
+        {
+          "id": "courtBtn",
+          "rect": {
+            "bottom": 714.859375,
+            "height": 49,
+            "left": 81.75,
+            "right": 150.5,
+            "top": 665.859375,
+            "width": 68.75,
+            "x": 81.75,
+            "y": 665.859375
+          }
+        },
+        {
+          "id": "travelBtn",
+          "rect": {
+            "bottom": 714.859375,
+            "height": 49,
+            "left": 154.5,
+            "right": 223.25,
+            "top": 665.859375,
+            "width": 68.75,
+            "x": 154.5,
+            "y": 665.859375
+          }
+        },
+        {
+          "id": "menuBtn",
+          "rect": {
+            "bottom": 714.859375,
+            "height": 49,
+            "left": 227.25,
+            "right": 296,
+            "top": 665.859375,
+            "width": 68.75,
+            "x": 227.25,
+            "y": 665.859375
+          }
+        }
+      ],
+      "images": 28,
+      "stage": {
+        "bottom": 485.890625,
+        "height": 300,
+        "left": 9,
+        "right": 296,
+        "top": 185.890625,
+        "width": 287,
+        "x": 9,
+        "y": 185.890625
+      }
+    }
+  },
+  {
+    "r": "river_lake",
+    "w": "375",
+    "h": "844",
+    "measurement": {
+      "buttons": [
+        {
+          "id": "playBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 16,
+            "right": 81.390625,
+            "top": 720,
+            "width": 65.390625,
+            "x": 16,
+            "y": 720
+          }
+        },
+        {
+          "id": "feedBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 85.390625,
+            "right": 150.796875,
+            "top": 720,
+            "width": 65.40625,
+            "x": 85.390625,
+            "y": 720
+          }
+        },
+        {
+          "id": "cleanBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 154.796875,
+            "right": 220.1875,
+            "top": 720,
+            "width": 65.390625,
+            "x": 154.796875,
+            "y": 720
+          }
+        },
+        {
+          "id": "sleepBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 224.1875,
+            "right": 289.59375,
+            "top": 720,
+            "width": 65.40625,
+            "x": 224.1875,
+            "y": 720
+          }
+        },
+        {
+          "id": "medicineBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 293.59375,
+            "right": 359,
+            "top": 720,
+            "width": 65.40625,
+            "x": 293.59375,
+            "y": 720
+          }
+        },
+        {
+          "id": "playWithBtn",
+          "rect": {
+            "bottom": 831,
+            "height": 53,
+            "left": 16,
+            "right": 98.75,
+            "top": 778,
+            "width": 82.75,
+            "x": 16,
+            "y": 778
+          }
+        },
+        {
+          "id": "courtBtn",
+          "rect": {
+            "bottom": 831,
+            "height": 53,
+            "left": 102.75,
+            "right": 185.5,
+            "top": 778,
+            "width": 82.75,
+            "x": 102.75,
+            "y": 778
+          }
+        },
+        {
+          "id": "travelBtn",
+          "rect": {
+            "bottom": 831,
+            "height": 53,
+            "left": 189.5,
+            "right": 272.25,
+            "top": 778,
+            "width": 82.75,
+            "x": 189.5,
+            "y": 778
+          }
+        },
+        {
+          "id": "menuBtn",
+          "rect": {
+            "bottom": 831,
+            "height": 53,
+            "left": 276.25,
+            "right": 359,
+            "top": 778,
+            "width": 82.75,
+            "x": 276.25,
+            "y": 778
+          }
+        }
+      ],
+      "images": 28,
+      "stage": {
+        "bottom": 569.734375,
+        "height": 334.859375,
+        "left": 16,
+        "right": 359,
+        "top": 234.875,
+        "width": 343,
+        "x": 16,
+        "y": 234.875
+      }
+    }
+  },
+  {
+    "r": "city",
+    "w": "430",
+    "h": "844",
+    "measurement": {
+      "buttons": [
+        {
+          "id": "playBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 16,
+            "right": 92.390625,
+            "top": 720,
+            "width": 76.390625,
+            "x": 16,
+            "y": 720
+          }
+        },
+        {
+          "id": "feedBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 96.390625,
+            "right": 172.796875,
+            "top": 720,
+            "width": 76.40625,
+            "x": 96.390625,
+            "y": 720
+          }
+        },
+        {
+          "id": "cleanBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 176.796875,
+            "right": 253.1875,
+            "top": 720,
+            "width": 76.390625,
+            "x": 176.796875,
+            "y": 720
+          }
+        },
+        {
+          "id": "sleepBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 257.1875,
+            "right": 333.59375,
+            "top": 720,
+            "width": 76.40625,
+            "x": 257.1875,
+            "y": 720
+          }
+        },
+        {
+          "id": "medicineBtn",
+          "rect": {
+            "bottom": 773,
+            "height": 53,
+            "left": 337.59375,
+            "right": 414,
+            "top": 720,
+            "width": 76.40625,
+            "x": 337.59375,
+            "y": 720
+          }
+        },
+        {
+          "id": "playWithBtn",
+          "rect": {
+            "bottom": 831,
+            "height": 53,
+            "left": 16,
+            "right": 112.5,
+            "top": 778,
+            "width": 96.5,
+            "x": 16,
+            "y": 778
+          }
+        },
+        {
+          "id": "courtBtn",
+          "rect": {
+            "bottom": 831,
+            "height": 53,
+            "left": 116.5,
+            "right": 213,
+            "top": 778,
+            "width": 96.5,
+            "x": 116.5,
+            "y": 778
+          }
+        },
+        {
+          "id": "travelBtn",
+          "rect": {
+            "bottom": 831,
+            "height": 53,
+            "left": 217,
+            "right": 313.5,
+            "top": 778,
+            "width": 96.5,
+            "x": 217,
+            "y": 778
+          }
+        },
+        {
+          "id": "menuBtn",
+          "rect": {
+            "bottom": 831,
+            "height": 53,
+            "left": 317.5,
+            "right": 414,
+            "top": 778,
+            "width": 96.5,
+            "x": 317.5,
+            "y": 778
+          }
+        }
+      ],
+      "images": 28,
+      "stage": {
+        "bottom": 569.734375,
+        "height": 334.859375,
+        "left": 16,
+        "right": 414,
+        "top": 234.875,
+        "width": 398,
+        "x": 16,
+        "y": 234.875
+      }
+    }
+  }
+]

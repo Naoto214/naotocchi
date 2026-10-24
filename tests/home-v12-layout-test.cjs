@@ -1,7 +1,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
 const home=require('../home-diorama.js'),boxes=require('../cast-bounds.js');
 const ids=['shiba','cat_friend','squirrel','owl','rabbit_friend','tanuki','parrot','hamster','hedgehog','sheep','chicken','penguin_friend','seal','otter','monkey','bat','snail','chameleon','panda','unicorn','clock','box','punyu','sekizou','kinoko','watcher'];
-function args(n,width=358){return {width,height:360,mainAsset:'assets/characters/dog/04.png',companions:ids.slice(0,n-1).map(id=>'assets/characters/companions/'+id+'.png')}}
+function args(n,width=358){return {width,height:360,mainAsset:'assets/characters/dog/04.png',formation:'arc',companions:ids.slice(0,n-1).map(id=>'assets/characters/companions/'+id+'.png')}}
 function foot(f,path){const b=boxes[path].box;return {x:f.x+f.w*(b[0]+b[2])/256,y:f.y+f.h*b[3]/128};}
 test('A: small-cast protagonist uses 85 percent with attachments following the painted foot',()=>{for(const n of [1,2,3]){const a=args(n),l=home.layoutTerrainCast(a);assert.ok(Math.abs(l.main.w-149.6)<.01);const base=home.layoutTerrainCast({...a,mainScale:1});assert.ok(Math.abs(l.main.w/base.main.w-.85)<.001);}});
 test('A: QA comparison supports all four protagonist scales without changing companion scale',()=>{for(const n of [1,2,3,6,13,28]){const a=args(n);const base=home.layoutTerrainCast({...a,mainScale:1});for(const scale of [1,.9,.85,.8]){const l=home.layoutTerrainCast({...a,mainScale:scale});assert.ok(Math.abs(l.main.w/base.main.w-scale)<.001);assert.equal(l.companions[0]?.w,base.companions[0]?.w);}}});

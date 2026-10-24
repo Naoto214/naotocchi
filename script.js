@@ -6638,6 +6638,7 @@
     el.speechChoices.classList.add('hidden');
     el.speechChoices.innerHTML = '';
     el.speechSlot?.classList.remove('is-asking');
+    pointHomeSpeech();
   }
   // 途中でやめる。言いかけの続きは出さない。ためていた自動の会話も捨てる
   // (やめる理由はケア操作・メニュー・ゲームなどで、v2 以前でもその会話はそこで上書きされていた。
@@ -6881,6 +6882,7 @@
     el.speechChoices.dataset.count = String(q.choices.length);
     el.speechChoices.classList.remove('hidden');
     el.speechSlot?.classList.add('is-asking');
+    pointHomeSpeech();
   }
   function conv2Answer(index) {
     const unit = conv2Unit;
@@ -10877,6 +10879,7 @@
     result.textContent=text;
     result.setAttribute('role','status');
     result.classList.remove('hidden');
+    pointHomeSpeech();
     homeChoiceResultTimer=setTimeout(hideHomeChoiceResult,MESSAGE_DURATION_MS);
   }
   function prepareIndividualityPopup(dialog) {
@@ -14889,6 +14892,14 @@
     const {area,pet,actors,poop} = homeSpeechAnchors;
     const {kind,speakerId} = el.speechBubble.dataset;
     const point = actors.find(a=>a.kind===kind && a.id===speakerId) || pet;
+    if(terrainNoticeMode()&&window.NaotocchiHomeDiorama?.speechPlacement){
+      const r=el.castStage.getBoundingClientRect(),result=document.getElementById('homeChoiceResult'),bh=Math.max(el.speechBubble.getBoundingClientRect().height||0,result&&!result.classList.contains('hidden')?result.getBoundingClientRect().height:0,55);
+      const choices=document.getElementById('speechChoices');if(choices)choices.style.maxHeight=Math.max(0,Math.min(160,r.height-bh-17))+'px';const ch=choices&&!choices.classList.contains('hidden')?(choices.getBoundingClientRect().height||100)+5:0;
+      const place=window.NaotocchiHomeDiorama.speechPlacement({speaker:{x:point.x+(point.dioramaX||0),y:point.y+(point.dioramaY||0),h:point.h||40},width:r.width,height:r.height,bubbleWidth:Math.min(340,r.width-12),bubbleHeight:bh,choicesHeight:ch});
+      if(choices)choices.style.maxHeight=place.choicesMaxHeight+'px';
+      el.speechSlot.style.setProperty('--terrain-speech-x',place.x+'px');el.speechSlot.style.setProperty('--terrain-speech-y',place.y+'px');el.speechSlot.style.setProperty('--terrain-speech-w',place.w+'px');
+      el.speechSlot.dataset.terrainSide=place.side;el.speechBubble.style.setProperty('--speech-tail-x',place.tail+'px');return;
+    }
     // Only constrain the tail when the completed poop row is at its height.
     // A row below the bubble must not pull even the main speaker's tail aside.
     const pointX = point.x+(point.dioramaX||0);
@@ -14943,7 +14954,7 @@
     el.petArea.style.setProperty('--home-poop-step',(layout.poops[1].x-layout.poops[0].x)+'px');
     const anchor=(frame,path)=>{
       const b=window.NaotocchiCastBounds?.[path]?.box || [0,0,128,128];
-      return {x:frame.x+frame.w*(b[0]+b[2])/256};
+      return {x:frame.x+frame.w*(b[0]+b[2])/256,y:frame.y+frame.h*b[3]/128+(frame.artOffsetY||0),h:frame.h*(b[3]-b[1])/128};
     };
     homeSpeechAnchors={area,poop:{...layout.poops[0],w:layout.poops[3].x+layout.poops[3].w-layout.poops[0].x},pet:anchor(layout.main,args.mainAsset),actors:[
       ...(layout.partner?[{kind:'partner',id:p.id,...anchor(layout.partner,args.partnerAsset)}]:[]),
@@ -15028,9 +15039,9 @@
       getMeguru:()=>meguruMod,getProfile:region=>meguruMod?.REGION3D[region],getWorld:region=>meguruMod?.WORLDS[region],
       onGesture:(actor,mood)=>castMotion?.gesture(actor,mood),
       onViewChange:()=>{homeCastLayoutKey='';renderHomeCast();},
-      onPosition:(actor,dx)=>{
+      onPosition:(actor,dx,dy)=>{
         const anchor=actor.kind==='pet'?homeSpeechAnchors?.pet:homeSpeechAnchors?.actors.find(a=>a.kind===actor.kind&&a.id===actor.id);
-        if(anchor&&anchor.dioramaX!==dx){anchor.dioramaX=dx;pointHomeSpeech();}
+        if(anchor&&(anchor.dioramaX!==dx||anchor.dioramaY!==dy)){anchor.dioramaX=dx;anchor.dioramaY=dy;pointHomeSpeech();}
       },
     });
     homeDiorama?.update(currentEnvironment(),{tier:mgPerfTier,available:![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)});

@@ -30,7 +30,7 @@ test('same-sized roles share exact bounds and manual navigation destinations',as
  let reference;
  for(const kind of ['pet','companion','partner']){
   const row={...partner,key:kind+':a',kind,x:200,y:180,extent:{left:24,right:38,top:62,bottom:8}},m=make([row],{...scene,navigation});
-  assert.deepEqual(m.bounds(actor(m,row.key)),{left:36,right:590,top:100,bottom:378});
+  assert.deepEqual(m.bounds(actor(m,row.key)),{left:36,right:590,top:100,bottom:420});
   assert.ok(m.move(row.key,{x:999,y:-999},'drag'));const route=actor(m,row.key);assert.ok(route.route.length>1,'solid forces routed detour');
   advance(m,30,{autonomy:false});const a=actor(m,row.key);assert.ok(a.x>340,'all roles cross around obstacle');assert.ok(navigation.valid(a));
   const position={x:a.x,y:a.y};if(reference)assert.deepEqual(position,reference);else reference=position;
@@ -87,7 +87,7 @@ test('crowded roster and body-size reflow retain the player grace deadline',()=>
 });
 test('social arrival does not turn or animate a player-controlled pet',()=>{
  for(const held of [false,true]){
-  const m=make([pet,{...partner,x:250}],scene,8);if(!held)m.select(pet.key);
+  const m=make([pet,{...partner,x:250}],{...scene,height:398},8);if(!held)m.select(pet.key);
   advance(m,11,held?{heldActor:pet.key}:{});assert.equal(actor(m).faceKey,pet.key);assert.equal(actor(m).activity,'together');
   const main=actor(m,pet.key);assert.equal(main.activity,'rest');assert.equal(main.direction,1);assert.equal(main.x,150);
  }

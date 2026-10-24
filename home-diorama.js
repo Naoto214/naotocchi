@@ -32,7 +32,7 @@
     const cast=typeof module==='object'&&module.exports?require('./cast-layout.js'):window.NaotocchiCast;
     const raw=cast.layoutHomeCast(args),boxes=typeof module==='object'&&module.exports?require('./cast-bounds.js'):window.NaotocchiCastBounds;
     const count=1+Number(!!args.hasPartner)+(args.companions?.length||0),crowded=count>5;
-    const mainScale=Number.isFinite(args.mainScale)?Math.max(.8,Math.min(1,args.mainScale)):(crowded?1:.85),curved=args.formation!=='distributed';
+    const mainScale=Number.isFinite(args.mainScale)?Math.max(.8,Math.min(1,args.mainScale)):(crowded?1:.85),curved=args.formation!=='distributed',natural=!args.formation||args.formation==='natural';
     const size=Math.min(220,args.width*.62)*k,view=args.overview?.84:1;
     const box=path=>boxes?.[path]?.box||[0,0,128,128];
     const resized=(f,w,path,point)=>{if(!f)return null;const b=box(path),fx=f.x+f.w*(b[0]+b[2])/256,fy=f.y+f.h*b[3]/128+(f.artOffsetY||0),r=w/f.w;return {...f,x:(point?.x??fx)+(f.x-fx)*r,y:(point?.y??fy)+(f.y-fy)*r,w:f.w*r,h:f.h*r,...(f.artOffsetY!==undefined?{artOffsetY:f.artOffsetY*r}:{})};};
@@ -45,6 +45,22 @@
     }
     // Foreground centre belongs to the protagonist, then the current partner.
     slots.sort((a,b)=>(bottom-a.y)*2+Math.abs(a.x-args.width/2)-((bottom-b.y)*2+Math.abs(b.x-args.width/2)));
+    const sizingSlots=slots.map(p=>({...p}));
+    if(natural&&crowded){
+      const low=height-16,high=top+ch-3;
+      for(const q of slots){const row=q.depth*(rows-1);q.y=rows===1?(high+low)/2:high+(low-high)*q.depth;
+        q.x+=row%2?2:-2;q.y+=Math.sin(q.x*.09+row)*2;}
+      const centre={x:args.width/2,y:(high+low)/2};
+      slots.sort((a,b)=>Math.hypot(a.x-centre.x,(a.y-centre.y)*1.1)-Math.hypot(b.x-centre.x,(b.y-centre.y)*1.1));
+      if(count===6){
+        const maxBody=Math.min(cw-10,ch-7),upper=maxBody*.8+8,cy=Math.max(height*.6,upper+maxBody+4),rx=(args.width-32)*.37;
+        const points=[{x:args.width/2,y:cy},{x:args.width/2-rx,y:cy},{x:args.width/2+rx,y:cy},
+          {x:args.width/2,y:upper},{x:args.width/2-rx*.65,y:height-16},{x:args.width/2+rx*.65,y:height-16}];
+        slots.splice(0,slots.length,...points);
+      }
+      // Assign the partner next to the protagonist. The other seats span all depths.
+      if(args.hasPartner){const pet=slots[0],rest=slots.splice(1);rest.sort((a,b)=>Math.hypot(a.x-pet.x,a.y-pet.y)-Math.hypot(b.x-pet.x,b.y-pet.y));slots.push(...rest);}
+    }
     let index=0;
     function frame(f,path,relative){
       if(!crowded){
@@ -52,20 +68,46 @@
         // Keep established small casts stable as visitors arrive or leave.
         const density=1;
         const n=count-1,slot=order===0?null:(order-1),angle=n<=1?-.75:Math.PI*(.12+.76*slot/Math.max(1,n-1));
-        const point=!curved?null:order===0?{x:args.width/2,y:bottom-12}:{x:args.width/2+Math.cos(angle)*Math.min(args.width*.32,120),y:bottom-28-Math.sin(Math.abs(angle))*Math.min(usable*.26,70)};
+        let point=!curved?null:order===0?{x:args.width/2,y:bottom-12}:{x:args.width/2+Math.cos(angle)*Math.min(args.width*.32,120),y:bottom-28-Math.sin(Math.abs(angle))*Math.min(usable*.26,70)};
+        if(natural){
+          const cy=Math.max(size*.72, height*.55),rx=Math.min(args.width*.32,120);
+          const angles=[.28,Math.PI+ .3,-.85,Math.PI*.72];
+          const theta=angles[Math.max(0,order-1)];
+          point=order===0?{x:args.width/2,y:cy}:{x:args.width/2+Math.cos(theta)*rx,y:cy+Math.sin(theta)*Math.min(65,height*.22)};
+        }
         return resized(f,size*relative*view*density*factor,path,point);
       }
-      const q=slots[index++],b=box(path),body=Math.max(b[2]-b[0],b[3]-b[1])/128;
-      const target=Math.min(cw-10,ch-7)*(relative===1?1:.80)*(.94+.06*q.depth)*view;
+      const sizeSlot=sizingSlots[index],q=slots[index++],b=box(path),body=Math.max(b[2]-b[0],b[3]-b[1])/128;
+      const target=Math.min(cw-10,ch-7)*(relative===1?1:.80)*(.94+.06*sizeSlot.depth)*view;
       return resized(f,target/Math.max(.1,body)*(relative===1?mainScale:1),path,q);
     }
     const main=frame(raw.main,args.mainAsset,1),partner=raw.partner?frame(raw.partner,args.partnerAsset,.5):null;
     const attached=(f,old,next)=>f&&old&&next?{...f,x:next.x+(f.x-old.x)*next.w/old.w,y:next.y+(f.y-old.y)*next.w/old.w,w:f.w*next.w/old.w,h:f.h*next.w/old.w}:null;
     return {...raw,height,dioramaScale:k,main,partner,accessory:attached(raw.accessory,raw.main,main),ring:attached(raw.ring,raw.partner,partner),hearts:raw.hearts.map(f=>attached(f,raw.partner,partner)),companions:raw.companions.map((f,i)=>frame(f,args.companions[i],.55))};
   }
+  // Transient overlay geometry; neither helper receives or changes a saved entity.
+  function speechPlacement({speaker,width,height,bubbleWidth,bubbleHeight,choicesHeight=0}){
+    const w=Math.min(bubbleWidth,width-12),h=Math.min(bubbleHeight,height-12),ch=Math.min(choicesHeight,Math.max(0,height-h-12));
+    const x=Math.max(6,Math.min(width-w-6,speaker.x-w/2));
+    const above=speaker.y-speaker.h-h-12;
+    const y=Math.max(6+ch,Math.min(height-h-6,above>=6+ch?above:speaker.y+12));
+    return {x,y,w,side:y+h<=speaker.y-speaker.h?'above':'below',choicesMaxHeight:Math.max(0,ch-5),tail:Math.max(12,Math.min(w-12,speaker.x-x))};
+  }
+  function placeGroundProps(count,actors,scene){
+    const pet=actors.find(a=>a.kind==='pet');if(!pet||!count)return [];
+    const points=[],size=18,limits={left:16,right:scene.width-16,top:Math.max(24,scene.groundTop||24),bottom:scene.height-12};
+    const valid=p=>p.x>=limits.left&&p.x<=limits.right&&p.y>=limits.top&&p.y<=limits.bottom&&(!scene.navigation||scene.navigation.valid(p))&&(!scene.visible||scene.visible(p,{w:size,h:size}));
+    const free=p=>valid(p)&&actors.every(a=>Math.abs(p.x-a.x)>a.w/2+10||p.y<a.y-a.h-2||p.y-size>a.y+2)&&points.every(q=>Math.hypot(p.x-q.x,p.y-q.y)>size+4);
+    const candidates=[];
+    for(let r=28;r<=150;r+=20)for(let i=0;i<16;i++)candidates.push({x:pet.x+Math.cos(i*Math.PI/8)*r,y:pet.y+Math.sin(i*Math.PI/8)*r});
+    for(let y=limits.bottom;y>=limits.top;y-=20)for(let x=limits.left;x<=limits.right;x+=20)candidates.push({x,y});
+    candidates.sort((a,b)=>Math.hypot(a.x-pet.x,a.y-pet.y)-Math.hypot(b.x-pet.x,b.y-pet.y));
+    for(const p of candidates)if(free(p)){points.push(p);if(points.length>=count)break;}
+    return points;
+  }
   function sceneFor(e,width,height,profile={},world={}){
-    const floor=Math.max(45,height-54),back=Math.max(32,height*.48);
-    return {...e,width,height,floor,back,groundTop:24,crown:profile.foliage?.crown?.[1]||'#58a666',crownLight:profile.foliage?.crown?.[2]||'#7cc082',
+    const floor=Math.max(45,height-12),back=Math.max(32,height*.48);
+    return {...e,width,height,floor,back,groundTop:24,centerInitialCast:true,crown:profile.foliage?.crown?.[1]||'#58a666',crownLight:profile.foliage?.crown?.[2]||'#7cc082',
       water:profile.water?.shallow||'#8fd0da',waterDeep:profile.water?.deep||'#2a6f98',ground:profile.ground3d?.[0]||world.ground?.[0]||'#7fb26b',
       path:world.path||'#b7a27a',wall:profile.arch?.palette?.[0]||'#e9e2d4',flowers:profile.cover?.flowers||['#f2a6c0','#ffffff'],
       tags:[{tag:e.region==='city'?'building':'tree',x:width*.22,y:Math.min(floor,back+25)},
@@ -83,7 +125,7 @@
   function createController({stage,document:doc,env=window,getActors,isBlocked=()=>false,isVisible=()=>true,onGesture=()=>{},onPosition=()=>{},onViewChange=()=>{},getProfile=()=>({}),getWorld=()=>({}),getMeguru=()=>null,guideKey='naotocchi-home-guide-v1'}){
     const modelAPI=env.NaotocchiHomeDioramaModel;if(!stage||!modelAPI)return null;
     let enabled=false,dead=false,scene=null,environment=null,flags={},rows=new Map(),raf=0,last=0,gesture=null,sceneKey='',wasBlocked=false;
-    let world=null,worldLoading=false,worldHost=null,activeTime=0,frames=0,frameGaps=[],loadGeneration=0;
+    let propNodes=[],world=null,worldLoading=false,worldHost=null,activeTime=0,frames=0,frameGaps=[],loadGeneration=0;
     const movedNotices=[];
     function placeNotices(on){const slot=doc.getElementById?.('homeEventSlot');if(!slot)return;if(on&&!movedNotices.length){for(const id of ['storyFlash','message']){const n=doc.getElementById(id);if(n?.parentNode){movedNotices.push({n,parent:n.parentNode,next:n.nextSibling});slot.appendChild(n);}}}else if(!on){for(const {n,parent,next}of movedNotices)parent.insertBefore?parent.insertBefore(n,next?.parentNode===parent?next:null):parent.appendChild?.(n);movedNotices.length=0;}if(doc.body)doc.body.dataset.homeTerrain=on?'true':'';}
     let guideStorage;try{guideStorage=env.localStorage;}catch(_){}
@@ -118,7 +160,7 @@
     const blocked=()=>!enabled||doc.visibilityState==='hidden'||!!flags.paused||isBlocked();
     function clearGesture(){if(gesture){try{stage.releasePointerCapture(gesture.pointerId);}catch(_){}gesture=null;}marker.hidden=true;}
     function interrupt(){clearGesture();model.cancel();paint();}
-    function clearStage(){for(const k of Object.keys(stage.dataset))if(k.startsWith('diorama')||k.startsWith('world')||k==='livingMetrics')delete stage.dataset[k];}
+    function clearStage(){const poop=doc.getElementById?.('poopRow');if(poop){delete poop.dataset.groundKey;for(const n of [...poop.children]){n.style.left='';n.style.top='';n.style.visibility='';}}for(const k of Object.keys(stage.dataset))if(k.startsWith('diorama')||k.startsWith('world')||k==='livingMetrics')delete stage.dataset[k];}
     function restore(row){onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');}
       for(const [k,v]of Object.entries(row.original||{}))v===null?row.owner.removeAttribute?.(k):row.owner.setAttribute(k,v);row.shadow.remove();}
     const occlusionCache=new Map();
@@ -180,6 +222,16 @@
         }
         onPosition(a,dx,dy);
       }
+      const poop=doc.getElementById?.('poopRow');
+      if(poop?.children?.length){
+        const key=[revision,scene.width,scene.height,poop.children.length,...snapshot.map(a=>[a.key,Math.round(a.x/4),Math.round(a.y/4),a.w,a.h].join(','))].join(':');
+        if(poop.dataset.groundKey!==key||propNodes.length!==poop.children.length||propNodes.some((n,i)=>n!==poop.children[i])){
+          propNodes=[...poop.children];
+          poop.dataset.groundKey=key;const points=placeGroundProps(poop.children.length,snapshot,scene);
+          [...poop.children].forEach((n,i)=>{const p=points[i];n.style.visibility=p?'visible':'hidden';if(p){n.style.left=(p.x-9)+'px';n.style.top=(p.y-18)+'px';}});
+        }
+      }
+      if(poop&&!poop.children.length){propNodes=[];delete poop.dataset.groundKey;}
       const selected=chosen;
       if(!gesture?.drag&&selected?.target){marker.hidden=false;marker.style.left=selected.target.x+'px';marker.style.top=selected.target.y+'px';}else if(!gesture?.drag)marker.hidden=true;
     }
@@ -243,5 +295,5 @@
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeNotices(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast};
+  return {sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,speechPlacement,placeGroundProps};
 });
