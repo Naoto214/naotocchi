@@ -5,6 +5,8 @@ export const mass=s=>s.rescued+s.actors.reduce((n,a)=>n+a.level,0);
 export const complete=s=>s.actors.length===0;
 export const at=(list,x,y)=>list.find(a=>a.x===x&&a.y===y);
 export const wall=(s,x,y)=>x<0||y<0||x>=s.w||y>=s.h||s.walls.some(p=>p[0]===x&&p[1]===y);
+// Gate open is presentation only; every resulting occupant must still qualify.
+export const gateAllows=(s,a,x,y)=>{const g=at(s.gates,x,y);return !g||matchesCondition(a,g)};
 const special=(s,x,y)=>at(s.gates,x,y)||at(s.exits,x,y)||at(s.spikes,x,y);
 const ordinaryEmpty=(s,x,y)=>!wall(s,x,y)&&!special(s,x,y)&&!at(s.actors,x,y);
 const compass=[[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]];
@@ -51,8 +53,15 @@ function enter(s,a,dx,dy,ctx,fall=false){
   if(fall&&target.level===8)return reject('saturated');
   if(fall&&ctx.families.has(a.id)&&ctx.families.get(a.id)===ctx.families.get(target.id))return reject('split-family');
  }
- if(gate&&!matchesCondition(a,gate))return reject('gate');
+ if(!gateAllows(s,a,x,y))return reject('gate');
  const combined=a.level+(target?.level||0),level=Math.min(8,combined);
+ if(!gateAllows(s,{...a,level},x,y))return reject('gate');
+ // Overflow places the remainder on the origin: validate before either actor changes.
+ if(combined>8){
+  const remainder={...a,level:combined-8};
+  if(!gateAllows(s,remainder,a.x,a.y))return reject('gate');
+  if(ctx.policy?.canEnter&&!ctx.policy.canEnter(s,remainder,a.x,a.y))return reject('terrain');
+ }
  if(exit&&!matchesCondition({...a,level},exit))return reject('exit');
  const result={ok:true,id:ctx.activeId||a.id,merged:target?.level||0,overflow:Math.max(0,combined-8),split:0,children:[],rescued:0,falls:[]};
  const from={x:a.x,y:a.y};let body=a;
@@ -112,7 +121,7 @@ export function validState(stage,s){
   if(s.gates.length!==stage.gates.length||s.gates.some((g,i)=>(g.open!==undefined&&typeof g.open!=='boolean')||JSON.stringify({...g,open:false})!==JSON.stringify({...stage.gates[i],open:false})))return false;
   const ids=new Set(),cells=new Set();
   for(const a of s.actors){const key=`${a.x},${a.y}`;
-   if(typeof a.id!=='string'||!a.id||ids.has(a.id)||cells.has(key)||!['dog','fish','penguin','frog'].includes(a.species)||!Number.isInteger(a.level)||a.level<1||a.level>8||!Number.isInteger(a.x)||!Number.isInteger(a.y)||wall(s,a.x,a.y)||at(s.exits,a.x,a.y)||s.gates.some(g=>g.x===a.x&&g.y===a.y&&!g.open))return false;
+   if(typeof a.id!=='string'||!a.id||ids.has(a.id)||cells.has(key)||!['dog','fish','penguin','frog'].includes(a.species)||!Number.isInteger(a.level)||a.level<1||a.level>8||!Number.isInteger(a.x)||!Number.isInteger(a.y)||wall(s,a.x,a.y)||at(s.exits,a.x,a.y)||s.gates.some(g=>g.x===a.x&&g.y===a.y&&(!g.open||!gateAllows(s,a,a.x,a.y))))return false;
    ids.add(a.id);cells.add(key);
   }
   if(!s.rescuedBySpecies||Object.entries(s.rescuedBySpecies).some(([k,v])=>!['dog','fish','penguin','frog'].includes(k)||!Number.isSafeInteger(v)||v<0))return false;
@@ -130,6 +139,8 @@ export function externalMove(s,id,dx,dy,policy={},activeId=id){
 }
 export function externalSplit(s,id,power,dx=1,dy=0,policy={},activeId=id){
  const a=s.actors.find(a=>a.id===id);if(!a||!Number.isInteger(power)||power<1)return {ok:false,reason:'split'};
+ const remaining=a.level-Math.min(a.level-1,power,splitCandidates(s,a.x,a.y,dx,dy,a,policy).length);
+ if(!gateAllows(s,{...a,level:remaining},a.x,a.y))return {ok:false,reason:'gate',children:[]};
  const ctx=context(activeId,policy),result={ok:true,id,split:0,children:[]};
  split(s,a,{x:a.x,y:a.y,power},dx,dy,ctx,result);result.falls=settle(s,ctx);result.events=ctx.events;return result;
 }
