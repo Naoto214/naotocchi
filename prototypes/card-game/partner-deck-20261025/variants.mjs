@@ -18,4 +18,15 @@ export const VARIANTS=Object.freeze({
  L4:{lovers:{'P-grove_deer':2,'P-high_eagle':2},note:'2種4枚',cards:build({'P-grove_deer':2,'P-high_eagle':2},6)},
  L2:{lovers:{'P-grove_deer':1,'P-high_eagle':1},note:'2種2枚',cards:build({'P-grove_deer':1,'P-high_eagle':1},8)},
 });
+// Second round (after the first results): separate the lover count from G-connect-four, and drop the
+// third I-c_match that the CPU almost never plays (0.01-0.16 per game in the first round).
+const custom=(lovers,extra)=>[...BASE,...x(lovers),...x(extra)];
+export const CONTROLS=Object.freeze({
+ L8cf:{lovers:{'P-grove_deer':3,'P-high_eagle':3,'P-robot_neighbor':2},note:'3種8枚＋コネクトフォー2（コネクトフォーだけの効果）',cards:custom({'P-grove_deer':3,'P-high_eagle':3,'P-robot_neighbor':2},{'G-connect-four':2})},
+ L6n:{lovers:{'P-grove_deer':3,'P-high_eagle':3},note:'2種6枚、コネクトフォーなし（枚数だけの効果）',cards:custom({'P-grove_deer':3,'P-high_eagle':3},{'E-new-encounter':1,'I-bowtie':2,'C-chicken':1})},
+ L6cf:{lovers:{'P-grove_deer':3,'P-high_eagle':3},note:'2種6枚＋であい1・コネクトフォー2・おべんとう1',cards:custom({'P-grove_deer':3,'P-high_eagle':3},{'E-new-encounter':1,'G-connect-four':2,'I-bowtie':1})},
+ L4cf:{lovers:{'P-grove_deer':2,'P-high_eagle':2},note:'2種4枚＋であい1・コネクトフォー2・おべんとう2・ニワトリ1',cards:custom({'P-grove_deer':2,'P-high_eagle':2},{'E-new-encounter':1,'G-connect-four':2,'I-bowtie':2,'C-chicken':1})},
+});
+for(const [k,v] of Object.entries(CONTROLS)){validateDeck(v.cards);const n=v.cards.filter(c=>c.startsWith('P-')).length,want=Object.values(v.lovers).reduce((a,b)=>a+b,0);if(n!==want||v.cards.length!==40)throw Error('variant '+k);}
 for(const [k,v] of Object.entries(VARIANTS)){validateDeck(v.cards);const n=v.cards.filter(c=>c.startsWith('P-')).length,want=Object.values(v.lovers).reduce((a,b)=>a+b,0);if(n!==want||v.cards.length!==40)throw Error('variant '+k);}
+export const ALL_VARIANTS=Object.freeze({...VARIANTS,...CONTROLS});
