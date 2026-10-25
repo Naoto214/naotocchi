@@ -19,7 +19,7 @@
   // Display-only sizing. The browser supplies font measurements, not character counts.
   function textLayout(text,width,kind,measure){
     width=Math.max(1,width);text=String(text||'');
-    const candidates=kind==='speech'?[[20,1],[17,2],[14,3]]:[[18,1],[16,2],[14,2],[13,2]];
+    const candidates=kind==='speech'?[[18,1],[17,1],[16,1],[17,2],[16,3],[14,3]]:[[17,1],[16,1],[15,1],[15,2],[14,2],[13,2]];
     let size=candidates[candidates.length-1][0],lines=1;
     for(const [font,maxLines]of candidates){
       let count=1,line='';
@@ -31,39 +31,73 @@
     return {size,lines,width:Math.min(width,natural+2),compact:lines===1};
   }
   function createLaneTypography(doc,env){
-    // Headless runtime harness has no layout engine. CSS remains the safe fallback.
-    if(!env.MutationObserver||!env.getComputedStyle)return {schedule(){},destroy(){}};
+    if(!env.MutationObserver||!env.getComputedStyle||!doc.createRange)return {schedule(){},destroy(){}};
     const notice=doc.getElementById('homeEventSlot'),slot=doc.getElementById('speechSlot');
-    const canvas=doc.createElement('canvas'),ctx=canvas.getContext?.('2d');
-    if(!notice||!slot||!ctx)return {schedule(){},destroy(){}};
+    if(!notice||!slot)return {schedule(){},destroy(){}};
     let frame=0,active=true;
     const visible=n=>n&&!n.classList.contains('hidden')&&n.getBoundingClientRect().width>0;
-    function fit(panel,text,kind,extra){
+    const px=v=>parseFloat(v)||0;
+    // Measure final DOM, including inline art, real fonts and CSS letter spacing.
+    // No text is copied/re-written and no guessed speaker/padding allowance is used.
+    function ink(node){
+      const r=doc.createRange();r.selectNodeContents(node);
+      const rects=Array.from(r.getClientRects()).filter(r=>r.width>0&&r.height>0);
+      return {width:rects.length?Math.max(...rects.map(r=>r.right))-Math.min(...rects.map(r=>r.left)):0,
+        lines:new Set(rects.map(r=>Math.round(r.top))).size};
+    }
+    function fit(panel,text,kind){
       if(!visible(panel)||!text)return;
-      const lane=kind==='speech'?slot:notice,width=lane.clientWidth-(kind==='speech'?8:0);
-      const style=env.getComputedStyle(text);
-      const measure=(value,size)=>{ctx.font=style.fontWeight+' '+size+'px '+style.fontFamily;return ctx.measureText(value).width;};
-      const result=textLayout(text.textContent,Math.max(1,width-extra),kind,measure);
-      panel.style.setProperty('--lane-font',result.size+'px');
-      panel.style.setProperty('--lane-width',Math.min(width,result.compact?Math.ceil(result.width+extra):width)+'px');
-      panel.dataset.laneCompact=String(result.compact);
+      const lane=kind==='notice'?notice:slot,ls=env.getComputedStyle(lane);
+      const width=lane.clientWidth-px(ls.paddingLeft)-px(ls.paddingRight);
+      panel.style.setProperty('--lane-width',width+'px');
+      text.style.whiteSpace='pre';text.style.textWrap='nowrap';
+      const candidates=kind==='notice'?[17,16,15]:[18,17,16];
+      let compact=false,size=candidates[0],natural=0;
+      for(const font of candidates){
+        panel.style.setProperty('--lane-font',font+'px');
+        natural=ink(text).width;size=font;
+        if(!text.textContent.includes('\n')&&natural<=text.clientWidth-.5){compact=true;break;}
+      }
+      if(compact){
+        // Layout at full available width first; only then shrink the background.
+        // clientWidth includes the text's own padding, so account for it as well.
+        const ts=env.getComputedStyle(text),extra=panel.getBoundingClientRect().width-text.clientWidth+px(ts.paddingLeft)+px(ts.paddingRight);
+        panel.style.setProperty('--lane-width',Math.min(width,Math.ceil(natural+extra+2))+'px');
+        if(text.scrollWidth>text.clientWidth+1)panel.style.setProperty('--lane-width',width+'px');
+      }else{
+        text.style.whiteSpace='pre-wrap';text.style.textWrap='pretty';
+        const fonts=kind==='notice'?[15,14,13]:[17,16,15,14],maxLines=kind==='notice'?2:3;
+        for(const font of fonts){
+          size=font;panel.style.setProperty('--lane-font',font+'px');
+          const ts=env.getComputedStyle(text),line=px(ts.lineHeight)||font*1.3;
+          if(text.scrollHeight<=line*maxLines+1&&text.scrollHeight<=text.clientHeight+1&&text.scrollWidth<=text.clientWidth+1)break;
+        }
+        // Balance a short wrapped paragraph so a trailing character/particle is
+        // not left on a line alone. Long paragraphs keep normal word wrapping.
+        const line=px(env.getComputedStyle(text).lineHeight)||size*1.3;
+        if(text.scrollHeight<=line*3+1&&!text.textContent.includes('\n'))text.style.textWrap='balance';
+      }
+      panel.dataset.laneCompact=String(compact);
+      panel.dataset.laneLines=String(Math.max(1,Math.round(text.scrollHeight/(px(env.getComputedStyle(text).lineHeight)||size*1.3))));
     }
     function update(){frame=0;if(!active||doc.body.dataset.homeTerrain!=='true')return;
       for(const panel of notice.children){
         if(!visible(panel))continue;
-        const body=panel.querySelector('.story-flash-text')||panel;
-        fit(panel,body,'notice',body===panel?20:54);
+        fit(panel,panel.querySelector('.story-flash-text')||panel,'notice');
       }
-      const bubble=doc.getElementById('speechBubble'),text=doc.getElementById('speechText'),speaker=doc.getElementById('speechSpeaker');
-      if(!slot.classList.contains('is-asking'))fit(bubble,text,'speech',(speaker?.getBoundingClientRect().width||38)+25);
-      const result=doc.getElementById('homeChoiceResult');fit(result,result,'speech',18);
+      const bubble=doc.getElementById('speechBubble');
+      if(!slot.classList.contains('is-asking'))fit(bubble,doc.getElementById('speechText'),'speech');
+      fit(doc.getElementById('homeChoiceResult'),doc.getElementById('homeChoiceText'),'speech');
     }
-    function schedule(){if(active&&!frame)frame=env.requestAnimationFrame(update);}
+    function schedule(){if(active&&!frame){frame=1;Promise.resolve().then(update);}}
     const observer=new env.MutationObserver(schedule);
     for(const lane of [notice,slot])observer.observe(lane,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class','data-label']});
     const resize=env.ResizeObserver?new env.ResizeObserver(schedule):null;
     resize?.observe(notice);resize?.observe(slot);doc.fonts?.ready?.then(schedule);
-    return {schedule,destroy(){active=false;observer.disconnect();resize?.disconnect();if(frame)env.cancelAnimationFrame(frame);}};
+    doc.fonts?.addEventListener?.('loadingdone',schedule);
+    doc.addEventListener?.('visibilitychange',schedule);
+    notice.addEventListener?.('load',schedule,true);slot.addEventListener?.('load',schedule,true);
+    return {schedule,destroy(){active=false;observer.disconnect();resize?.disconnect();doc.fonts?.removeEventListener?.('loadingdone',schedule);notice.removeEventListener?.('load',schedule,true);slot.removeEventListener?.('load',schedule,true);doc.removeEventListener?.('visibilitychange',schedule);}};
   }
 
   // Native direction of the approved PNGs; frontal art remains frontal.

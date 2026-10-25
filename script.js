@@ -3840,18 +3840,44 @@
   }
   function commentActorVisual(speaker) {
     let visual;
-    if (speaker.kind==='pet') visual=currentVisualStage();
-    else if (speaker.kind==='companion') visual=allCompanionsById(speaker.id);
+    if (speaker.kind==='pet') {
+      visual=currentVisualStage();
+      const expression=el.petSprite?.dataset.expression;
+      if(visual?.asset&&expression)visual={...visual,asset:PET_EXPRESSION?.assetFor(visual.asset,expression)||visual.asset};
+    }
+    else if (speaker.kind==='companion') {
+      visual=allCompanionsById(speaker.id);
+      const entity=state.companions.find(c=>canonicalCompanionId(c.id)===canonicalCompanionId(speaker.id));
+      if(entity&&visual?.asset)visual={...visual,...relationshipVisual('companion',entity,visual.asset)};
+    }
     else if (speaker.kind==='partner') {
       const id=speaker.id||state.partner?.id;
       visual=WORLD_MASTER?.partners?.find(p=>p.id===(WORLD_MASTER.compatibility?.partnerAliases?.[id]||id));
+      if(visual?.asset&&state.partner&&canonicalPartnerId(state.partner.id)===canonicalPartnerId(id))visual={...visual,...relationshipVisual('partner',state.partner,visual.asset)};
     }
+    else if(speaker.kind==='author')visual=WORLD_MASTER?.playerSpecies?.author;
     return visual?.asset ? {...visual,emoji:speaker.emoji||visual.emoji,label:speaker.label||visual.label||visual.name} : null;
   }
   function commentSpeakerHTML(speaker) {
     const visual=commentActorVisual(speaker),emoji=speaker.emoji||'💬';
     return visual?.asset ? commentPictureHTML(visual.asset,emoji,compactJapaneseText(speaker.label))
       : commentIconHTML(emoji)||escapeHtml(emoji);
+  }
+  // Presentation only: identity is supplied by the originating beat/event.
+  // A system outcome has no actor. Exchange prose remains narration about its
+  // companion; it is never rewritten as a quotation or assigned to the player.
+  function renderLaneSpeaker(node, speaker, container) {
+    if(!node)return;
+    const visual=speaker&&commentActorVisual(speaker);
+    node.innerHTML=visual?.asset?commentPictureHTML(visual.asset,'',compactJapaneseText(speaker.label)):'';
+    node.dataset.label=visual?compactJapaneseText(speaker.label):'';
+    node.title=node.dataset.label;
+    node.classList.toggle('hidden',!visual);
+    if(container){container.dataset.kind=visual?speaker.kind:'';container.dataset.speakerId=visual?(speaker.id||'pet'):'';}
+  }
+  function exchangeSpeaker(exchange) {
+    const def=allCompanionsById(exchange.companion);
+    return def?{kind:'companion',id:def.id,label:def.name,emoji:def.emoji}:null;
   }
   const DISPLAY_CATALOG = globalThis.NaotocchiIllustrationCatalog?.create({
     knownHTML:commentIconHTML, symbolKeys:COMMENT_SYMBOL_KEYS, symbols:COMMENT_SYMBOLS,
@@ -4236,11 +4262,9 @@
     if (speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
     if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
     hideMinigameResultToast();
+    hideHomeChoiceResult();
     if (speechTimer) clearTimeout(speechTimer);
     speechActive = true;
-    el.speechSpeaker.innerHTML = commentSpeakerHTML(speaker);
-    el.speechSpeaker.title = compactJapaneseText(speaker.label);
-    el.speechSpeaker.dataset.label = compactJapaneseText(speaker.label);
     setCommentText(el.speechText, compactJapaneseText(text), true);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.dataset.speakerId = speaker.id || '';
@@ -4253,6 +4277,7 @@
       const expression = PET_EXPRESSION?.reactionFor(reaction.event);
       if (expression) startPetExpression(expression,SPEECH_DURATION_MS);
     }
+    renderLaneSpeaker(el.speechSpeaker,speaker,el.speechBubble);
     renderHomeCast();
     stopActiveEmotionCue();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
@@ -6889,6 +6914,8 @@
     el.speechChoices.dataset.count = String(q.choices.length);
     el.speechChoices.classList.remove('hidden');
     el.speechSlot?.classList.add('is-asking');
+    if(el.speechSlot)el.speechSlot.scrollTop=0;
+    el.speechText.style.whiteSpace='';el.speechText.style.textWrap='';
     pointHomeSpeech();
   }
   function conv2Answer(index) {
@@ -10876,16 +10903,20 @@
   function hideHomeChoiceResult() {
     if (homeChoiceResultTimer) clearTimeout(homeChoiceResultTimer);
     homeChoiceResultTimer=null;
-    document.getElementById('homeChoiceResult')?.classList.add('hidden');
+    const result=document.getElementById('homeChoiceResult');
+    result?.classList.add('hidden');
+    renderLaneSpeaker(document.getElementById('homeChoiceSpeaker'),null,result);
   }
-  function showHomeChoiceResult(text) {
+  function showHomeChoiceResult(text, speaker = null) {
     const result=document.getElementById('homeChoiceResult');
     if (!result) return;
     hideHomeChoiceResult();
-    // Exchange reactions are existing narration, never attributed as new dialogue.
-    result.textContent=text;
+    // Same authored narration and duration; show the actual subject alongside.
+    renderLaneSpeaker(document.getElementById('homeChoiceSpeaker'),speaker,result);
+    document.getElementById('homeChoiceText').textContent=text;
     result.setAttribute('role','status');
     result.classList.remove('hidden');
+    result.scrollTop=0;document.getElementById('homeChoiceText').scrollTop=0;
     pointHomeSpeech();
     homeChoiceResultTimer=setTimeout(hideHomeChoiceResult,MESSAGE_DURATION_MS);
   }
@@ -10895,6 +10926,8 @@
     dialog.setAttribute('aria-modal',String(!home));
     individualityPopupFocus=home ? document.activeElement : null;
     hideHomeChoiceResult();
+    renderLaneSpeaker(document.getElementById('individualitySpeaker'),null,dialog);
+    dialog.scrollTop=0;if(el.speechSlot)el.speechSlot.scrollTop=0;
     if (!dialog.dataset.choiceInputBound) {
       for (const type of ['pointerdown','pointerup','click']) dialog.addEventListener(type,e=>{
         if (dialog.classList.contains('home-choice-popup')) e.stopPropagation();
@@ -10944,7 +10977,7 @@
     const choices=document.getElementById('individualityChoices');choices.innerHTML='';
     for(const choice of e.choices){const b=document.createElement('button');b.type='button';b.textContent=choice.label;const lifeId=individualityDialogLife;b.onclick=individualityPopupAction(popupSerial,()=>chooseIndividualityEvent(e.age,choice.heart,lifeId));choices.appendChild(b);}
     document.getElementById('individualityLater').onclick=individualityPopupAction(popupSerial,()=>closeIndividualityDialog(true));
-    dialog.classList.remove('hidden');scheduleHistoryLayerSync();choices.querySelector?.('button')?.focus?.();return true;
+    dialog.classList.remove('hidden');scheduleHistoryLayerSync();choices.querySelector?.('button')?.focus?.({preventScroll:true});dialog.scrollTop=0;return true;
   }
   function chooseIndividualExchange(id,lifeId) {
     const e=INDIVIDUALITY.data.exchanges.find(e=>e.id===id);
@@ -10952,7 +10985,7 @@
     if(!individualExperience('kindness',e.category,e.id,lifeId))return false;
     const homeResult=homeIndividualityPopupVisible();
     individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();setMessage(e.reaction);render();
-    if(homeResult)showHomeChoiceResult(e.reaction);return true;
+    if(homeResult)showHomeChoiceResult(e.reaction,exchangeSpeaker(e));return true;
   }
   function maybeIndividualExchange() {
     if(!individualityWritable() || individualityDialogOpen || gameActive || isAnyMenuOverlayOpen() || state.isSick || state.isSleeping || INDIVIDUALITY.pending(state.individuality).length)return false;
@@ -10963,9 +10996,10 @@
     const dialog=document.getElementById('individualityDialog');if(!dialog)return false;
     const popupSerial=prepareIndividualityPopup(dialog);
     individualityDialogOpen=true;individualityDialogLife=lifeId;
+    renderLaneSpeaker(document.getElementById('individualitySpeaker'),exchangeSpeaker(e),dialog);
     document.getElementById('individualityTitle').textContent='なかまと、ひととき';document.getElementById('individualityText').textContent=e.text;
     const choices=document.getElementById('individualityChoices');choices.innerHTML='';const b=document.createElement('button');b.type='button';b.textContent=e.label;b.onclick=individualityPopupAction(popupSerial,()=>chooseIndividualExchange(e.id,lifeId));choices.appendChild(b);
-    document.getElementById('individualityLater').onclick=individualityPopupAction(popupSerial,()=>closeIndividualityDialog(true));dialog.classList.remove('hidden');scheduleHistoryLayerSync();b.focus?.();return true;
+    document.getElementById('individualityLater').onclick=individualityPopupAction(popupSerial,()=>closeIndividualityDialog(true));dialog.classList.remove('hidden');scheduleHistoryLayerSync();b.focus?.({preventScroll:true});dialog.scrollTop=0;return true;
   }
   function individualityLines() {
     const s=state.individuality;if(!s)return [];
@@ -11376,6 +11410,9 @@
     else if (event.achievement) el.storyFlashEmoji.innerHTML = achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
+    const noticeSpeaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.petReaction?petSpeaker():event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:null;
+    if(noticeSpeaker)renderLaneSpeaker(el.storyFlashEmoji,noticeSpeaker,el.storyFlash);
+    else {el.storyFlashEmoji.dataset.label='';el.storyFlash.dataset.speakerId='';el.storyFlash.dataset.kind='';el.storyFlashEmoji.classList.remove('hidden');}
     setCommentText(el.storyFlashText, compactJapaneseText(terrainNoticeMode() && event.environmentMoment ? window.NaotocchiHomeDiorama.homeText(event.message) : event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
     renderPetVisual();
