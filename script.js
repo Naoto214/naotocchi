@@ -4265,6 +4265,11 @@
     hideHomeChoiceResult();
     if (speechTimer) clearTimeout(speechTimer);
     speechActive = true;
+    if (speaker.kind === 'pet') {
+      const expression = PET_EXPRESSION?.reactionFor(reaction.event);
+      if (expression) startPetExpression(expression,SPEECH_DURATION_MS);
+    }
+    renderLaneSpeaker(el.speechSpeaker,speaker);
     setCommentText(el.speechText, compactJapaneseText(text), true);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.dataset.speakerId = speaker.id || '';
@@ -4273,11 +4278,6 @@
     conversationDirector?.noteShown(compactJapaneseText(text), conversationSpeakerKey(speaker));
     // A display:none ancestor has no scroll box; reset after revealing it.
     el.speechText.scrollTop = 0;
-    if (speaker.kind === 'pet') {
-      const expression = PET_EXPRESSION?.reactionFor(reaction.event);
-      if (expression) startPetExpression(expression,SPEECH_DURATION_MS);
-    }
-    renderLaneSpeaker(el.speechSpeaker,speaker,el.speechBubble);
     renderHomeCast();
     stopActiveEmotionCue();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});

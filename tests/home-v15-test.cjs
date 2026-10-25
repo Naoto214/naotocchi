@@ -94,15 +94,18 @@ test('infinite mode preserves the formerly hidden life gauge after its move',()=
   assert.equal(h.get('deathMeterItem').classList.contains('hidden'),infinite);
  }
 });
-test('choice narration and a subsequent authored medicine response both remain readable',()=>{
+test('choice narration then an authored medicine response remain readable in the shared lane',()=>{
  const h=harness({deterministic:true,resume:true});h.api.hatchEgg();
  const s=h.api.state();Object.assign(s,{ageTicks:80,companions:[{id:'shiba',bond:80}],isSleeping:false,isSick:false});
  h.api.clearConversationTimers();h.api.closeAllMenuOverlays();h.get('storyFlash').classList.add('hidden');
  h.get('screenNormal').classList.remove('hidden');h.get('device').classList.add('ui-home-active');
  s.individuality.natural.kindness[0].push('shiba-walk');s.individuality.natural.kindness[2].push('shiba-pace');
  assert.ok(h.api.maybeIndividualExchange());h.get('individualityChoices').children[0].onclick({stopPropagation(){}});
- h.dispatch(h.get('medicineBtn'),'click');h.advance(1);
  assert.equal(h.get('homeChoiceResult').classList.contains('hidden'),false);
+ assert.equal(h.get('homeChoiceResult').dataset.speakerId,'shiba');
+ assert.ok(h.get('homeChoiceText').textContent);
+ h.dispatch(h.get('medicineBtn'),'click');h.advance(1);
+ assert.equal(h.get('homeChoiceResult').classList.contains('hidden'),true);
  assert.equal(h.get('speechBubble').classList.contains('hidden'),false);
  assert.match(h.get('speechText').textContent,/薬|くすり/);
  const css=fs.readFileSync('home-diorama.css','utf8');
