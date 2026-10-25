@@ -2,9 +2,10 @@
 // the 30 non-lover cards of the current deck stay. Freed slots are filled in a fixed order with cards that
 // fit the dating/marriage plan, so a smaller lover count always contains the previous candidate's additions.
 import {validateDeck} from '../engine.mjs';
-import {cpuDeck} from '../cpu-decks.mjs';
+import {CPU_DECK_HISTORY} from '../cpu-decks.mjs';
 const x=spec=>Object.entries(spec).flatMap(([id,n])=>Array(n).fill(id));
-const CURRENT=cpuDeck('partner').cards;
+// The list in use when the comparison was planned (now kept as the deck's earlier version).
+const CURRENT=[...CPU_DECK_HISTORY.partner.find(v=>v.version==='2026-10-22').cards];
 const BASE=CURRENT.filter(id=>!id.startsWith('P-'));
 // Fill order: lover search first (more useful with fewer lovers), then a board-completion reward that
 // needs main+companion+lover+face-up item, an item that can sit on the lover, a companion, a higher cat.

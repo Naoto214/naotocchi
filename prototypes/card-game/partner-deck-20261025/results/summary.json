@@ -1,12 +1,22 @@
 {
  "schema": "partner_deck_comparison.v1",
- "manifest_counts": {
-  "variants": 6,
-  "opponents": 6,
-  "groups": 1080,
-  "matches": 2160
- },
- "completed_matches": 2160,
+ "manifest_counts": [
+  {
+   "experiment": "partner-deck-20261025",
+   "variants": 6,
+   "opponents": 6,
+   "groups": 1080,
+   "matches": 2160
+  },
+  {
+   "experiment": "partner-deck-20261025-round2",
+   "variants": 4,
+   "opponents": 6,
+   "groups": 720,
+   "matches": 1440
+  }
+ ],
+ "completed_matches": 3600,
  "abnormal": [],
  "by_variant": {
   "L10": {
@@ -164,6 +174,110 @@
    "married_if_opening_lover": 1,
    "married_if_no_opening_lover": 0.638,
    "deck_distinct_used": 18
+  },
+  "L8cf": {
+   "seats": 360,
+   "score_rate": 0.581,
+   "win_rate": 0.539,
+   "draw_rate": 0.083,
+   "mean_growth": 71.208,
+   "mean_growth_diff": 3.194,
+   "placed_rate": 1,
+   "married_rate": 0.986,
+   "married_rate_of_placed": 0.986,
+   "lovers_drawn": 4.703,
+   "lovers_hand_end": 3.053,
+   "surplus_rate": 0.986,
+   "lover_activations": 2.064,
+   "search_played": 1.003,
+   "search_hand_end": 0.775,
+   "dating_support_played": 1.758,
+   "hand_end_total": 10.05,
+   "distinct_cards_used": 9.164,
+   "opening_has_lover": 0.683,
+   "score_if_opening_lover": 0.579,
+   "score_if_no_opening_lover": 0.583,
+   "married_if_opening_lover": 1,
+   "married_if_no_opening_lover": 0.956,
+   "deck_distinct_used": 17
+  },
+  "L6n": {
+   "seats": 360,
+   "score_rate": 0.458,
+   "win_rate": 0.417,
+   "draw_rate": 0.083,
+   "mean_growth": 64.917,
+   "mean_growth_diff": -4.014,
+   "placed_rate": 0.997,
+   "married_rate": 0.978,
+   "married_rate_of_placed": 0.981,
+   "lovers_drawn": 3.742,
+   "lovers_hand_end": 2.328,
+   "surplus_rate": 0.942,
+   "lover_activations": 2.725,
+   "search_played": 1.406,
+   "search_hand_end": 0.9,
+   "dating_support_played": 1.792,
+   "hand_end_total": 9.883,
+   "distinct_cards_used": 9.658,
+   "opening_has_lover": 0.55,
+   "score_if_opening_lover": 0.475,
+   "score_if_no_opening_lover": 0.438,
+   "married_if_opening_lover": 1,
+   "married_if_no_opening_lover": 0.951,
+   "deck_distinct_used": 16
+  },
+  "L6cf": {
+   "seats": 360,
+   "score_rate": 0.572,
+   "win_rate": 0.525,
+   "draw_rate": 0.094,
+   "mean_growth": 71.917,
+   "mean_growth_diff": 3,
+   "placed_rate": 0.997,
+   "married_rate": 0.975,
+   "married_rate_of_placed": 0.978,
+   "lovers_drawn": 3.8,
+   "lovers_hand_end": 2.389,
+   "surplus_rate": 0.947,
+   "lover_activations": 2.694,
+   "search_played": 1.519,
+   "search_hand_end": 0.831,
+   "dating_support_played": 1.858,
+   "hand_end_total": 9.706,
+   "distinct_cards_used": 9.978,
+   "opening_has_lover": 0.55,
+   "score_if_opening_lover": 0.591,
+   "score_if_no_opening_lover": 0.549,
+   "married_if_opening_lover": 1,
+   "married_if_no_opening_lover": 0.944,
+   "deck_distinct_used": 17
+  },
+  "L4cf": {
+   "seats": 360,
+   "score_rate": 0.549,
+   "win_rate": 0.503,
+   "draw_rate": 0.092,
+   "mean_growth": 70.917,
+   "mean_growth_diff": 1.417,
+   "placed_rate": 0.986,
+   "married_rate": 0.933,
+   "married_rate_of_placed": 0.946,
+   "lovers_drawn": 2.486,
+   "lovers_hand_end": 1.267,
+   "surplus_rate": 0.786,
+   "lover_activations": 2.456,
+   "search_played": 1.436,
+   "search_hand_end": 0.936,
+   "dating_support_played": 1.761,
+   "hand_end_total": 8.947,
+   "distinct_cards_used": 10.119,
+   "opening_has_lover": 0.4,
+   "score_if_opening_lover": 0.552,
+   "score_if_no_opening_lover": 0.546,
+   "married_if_opening_lover": 1,
+   "married_if_no_opening_lover": 0.889,
+   "deck_distinct_used": 17
   }
  },
  "paired_vs_L10": {
@@ -206,6 +320,38 @@
    "better": 75,
    "worse": 44,
    "same": 241
+  },
+  "L8cf": {
+   "pairs": 360,
+   "mean_score_diff_vs_L10": 0.099,
+   "se": 0.023,
+   "better": 74,
+   "worse": 31,
+   "same": 255
+  },
+  "L6n": {
+   "pairs": 360,
+   "mean_score_diff_vs_L10": -0.024,
+   "se": 0.021,
+   "better": 41,
+   "worse": 57,
+   "same": 262
+  },
+  "L6cf": {
+   "pairs": 360,
+   "mean_score_diff_vs_L10": 0.09,
+   "se": 0.024,
+   "better": 81,
+   "worse": 38,
+   "same": 241
+  },
+  "L4cf": {
+   "pairs": 360,
+   "mean_score_diff_vs_L10": 0.067,
+   "se": 0.024,
+   "better": 72,
+   "worse": 44,
+   "same": 244
   }
  },
  "by_opponent": {
@@ -239,6 +385,26 @@
     "score_rate": 0.467,
     "married_rate": 0.783,
     "surplus_rate": 0.45
+   },
+   "L8cf": {
+    "score_rate": 0.483,
+    "married_rate": 0.983,
+    "surplus_rate": 1
+   },
+   "L6n": {
+    "score_rate": 0.333,
+    "married_rate": 0.95,
+    "surplus_rate": 0.95
+   },
+   "L6cf": {
+    "score_rate": 0.383,
+    "married_rate": 0.95,
+    "surplus_rate": 0.95
+   },
+   "L4cf": {
+    "score_rate": 0.483,
+    "married_rate": 0.917,
+    "surplus_rate": 0.867
    }
   },
   "companion": {
@@ -271,6 +437,26 @@
     "score_rate": 0.533,
     "married_rate": 0.683,
     "surplus_rate": 0.45
+   },
+   "L8cf": {
+    "score_rate": 0.608,
+    "married_rate": 1,
+    "surplus_rate": 0.95
+   },
+   "L6n": {
+    "score_rate": 0.408,
+    "married_rate": 0.983,
+    "surplus_rate": 0.883
+   },
+   "L6cf": {
+    "score_rate": 0.633,
+    "married_rate": 1,
+    "surplus_rate": 0.9
+   },
+   "L4cf": {
+    "score_rate": 0.558,
+    "married_rate": 0.95,
+    "surplus_rate": 0.767
    }
   },
   "challenge": {
@@ -303,6 +489,26 @@
     "score_rate": 0.567,
     "married_rate": 0.633,
     "surplus_rate": 0.383
+   },
+   "L8cf": {
+    "score_rate": 0.575,
+    "married_rate": 1,
+    "surplus_rate": 1
+   },
+   "L6n": {
+    "score_rate": 0.492,
+    "married_rate": 1,
+    "surplus_rate": 0.95
+   },
+   "L6cf": {
+    "score_rate": 0.542,
+    "married_rate": 1,
+    "surplus_rate": 0.95
+   },
+   "L4cf": {
+    "score_rate": 0.45,
+    "married_rate": 0.933,
+    "surplus_rate": 0.833
    }
   },
   "growth": {
@@ -335,6 +541,26 @@
     "score_rate": 0.592,
     "married_rate": 0.783,
     "surplus_rate": 0.417
+   },
+   "L8cf": {
+    "score_rate": 0.517,
+    "married_rate": 0.967,
+    "surplus_rate": 1
+   },
+   "L6n": {
+    "score_rate": 0.45,
+    "married_rate": 0.967,
+    "surplus_rate": 0.95
+   },
+   "L6cf": {
+    "score_rate": 0.592,
+    "married_rate": 0.933,
+    "surplus_rate": 0.933
+   },
+   "L4cf": {
+    "score_rate": 0.558,
+    "married_rate": 0.95,
+    "surplus_rate": 0.783
    }
   },
   "item": {
@@ -367,6 +593,26 @@
     "score_rate": 0.567,
     "married_rate": 0.65,
     "surplus_rate": 0.25
+   },
+   "L8cf": {
+    "score_rate": 0.567,
+    "married_rate": 1,
+    "surplus_rate": 0.967
+   },
+   "L6n": {
+    "score_rate": 0.492,
+    "married_rate": 1,
+    "surplus_rate": 0.967
+   },
+   "L6cf": {
+    "score_rate": 0.592,
+    "married_rate": 1,
+    "surplus_rate": 0.967
+   },
+   "L4cf": {
+    "score_rate": 0.575,
+    "married_rate": 0.95,
+    "surplus_rate": 0.7
    }
   },
   "balance": {
@@ -399,6 +645,26 @@
     "score_rate": 0.65,
     "married_rate": 0.767,
     "surplus_rate": 0.367
+   },
+   "L8cf": {
+    "score_rate": 0.733,
+    "married_rate": 0.967,
+    "surplus_rate": 1
+   },
+   "L6n": {
+    "score_rate": 0.575,
+    "married_rate": 0.967,
+    "surplus_rate": 0.95
+   },
+   "L6cf": {
+    "score_rate": 0.692,
+    "married_rate": 0.967,
+    "surplus_rate": 0.983
+   },
+   "L4cf": {
+    "score_rate": 0.667,
+    "married_rate": 0.9,
+    "surplus_rate": 0.767
    }
   }
  },
@@ -532,6 +798,77 @@
     "played": 143,
     "activated": 266,
     "handEnd": 75
+   }
+  },
+  "L8cf": {
+   "P-robot_neighbor": {
+    "deck": 720,
+    "drawn": 417,
+    "played": 98,
+    "activated": 0,
+    "handEnd": 250
+   },
+   "P-grove_deer": {
+    "deck": 1080,
+    "drawn": 640,
+    "played": 115,
+    "activated": 230,
+    "handEnd": 451
+   },
+   "P-high_eagle": {
+    "deck": 1080,
+    "drawn": 636,
+    "played": 147,
+    "activated": 513,
+    "handEnd": 398
+   }
+  },
+  "L6n": {
+   "P-grove_deer": {
+    "deck": 1080,
+    "drawn": 671,
+    "played": 176,
+    "activated": 348,
+    "handEnd": 429
+   },
+   "P-high_eagle": {
+    "deck": 1080,
+    "drawn": 676,
+    "played": 183,
+    "activated": 633,
+    "handEnd": 409
+   }
+  },
+  "L6cf": {
+   "P-grove_deer": {
+    "deck": 1080,
+    "drawn": 692,
+    "played": 177,
+    "activated": 352,
+    "handEnd": 447
+   },
+   "P-high_eagle": {
+    "deck": 1080,
+    "drawn": 676,
+    "played": 182,
+    "activated": 618,
+    "handEnd": 413
+   }
+  },
+  "L4cf": {
+   "P-grove_deer": {
+    "deck": 720,
+    "drawn": 459,
+    "played": 167,
+    "activated": 323,
+    "handEnd": 242
+   },
+   "P-high_eagle": {
+    "deck": 720,
+    "drawn": 436,
+    "played": 188,
+    "activated": 561,
+    "handEnd": 214
    }
   }
  }

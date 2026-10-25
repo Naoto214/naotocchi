@@ -1,8 +1,10 @@
-// Aggregates the partner-deck comparison. Usage: node analyze.mjs runs/PD-manifest.json runs/PD-shard*.jsonl.gz > results/summary.json
+// Aggregates the partner-deck comparison. Usage: node analyze.mjs <manifest[,manifest2]> runs/PD*-shard*.jsonl.gz > results/summary.json
+// Several manifests can be combined; their groups share base seeds, so every variant is paired with L10.
 // Opening hands are rebuilt from the manifest seeds exactly as run.mjs builds the initial orders.
 import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';
 import {permutations,apply} from '../balance-verification-20261020/lib.mjs';
-const [mp,...files]=process.argv.slice(2);const M=JSON.parse(readFileSync(mp,'utf8'));const G=Object.fromEntries(M.groups.map(g=>[g.group,g]));
+const [mp,...files]=process.argv.slice(2);const MS=mp.split(',').map(f=>JSON.parse(readFileSync(f,'utf8')));
+const M={decks:Object.assign({},...MS.map(m=>m.decks)),groups:MS.flatMap(m=>m.groups),counts:MS.map(m=>({experiment:m.experiment,...m.counts}))};const G=Object.fromEntries(M.groups.map(g=>[g.group,g]));
 const rows=files.flatMap(f=>{const b=readFileSync(f);return (f.endsWith('.gz')?gunzipSync(b):b).toString().split('\n').filter(Boolean).map(l=>JSON.parse(l));});
 const isLover=id=>id.startsWith('P-');
 const seats=[];const abnormal=[];
