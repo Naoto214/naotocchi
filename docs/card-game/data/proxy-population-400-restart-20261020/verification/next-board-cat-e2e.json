@@ -1,0 +1,31 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree 93281ed2 where group-034-B-first stopped at 'reached cat target needs separate proof' (frozen next_turn classification with C-cat_friend on board and a companion in discard); after = tree e9adca68 classifying C-cat_friend from the text-bound start catalog.",
+ "rows": [
+  {
+   "match_id": "group-034-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "reached cat target needs separate proof",
+     "phase": "turn_end"
+    },
+    "steps": 129,
+    "events": 160,
+    "record_sha256": "079b59b3635bd929565eeddee6c03736c311638284bac6377fa6f8f0afbb86ff",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 267,
+    "events": 336,
+    "record_sha256": "e34f1f8dee72febf7b3a75c219f5c714e616a72277ecd595998fa14178b842ad",
+    "error": null
+   }
+  }
+ ]
+}

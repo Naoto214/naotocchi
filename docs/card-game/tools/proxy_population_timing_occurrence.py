@@ -10,10 +10,73 @@ import proxy_continuation_state as state
 import proxy_continuation_triggers as triggers
 import proxy_continuation_rules as rules
 import proxy_population_start_obligations as sources
+import proxy_population_effect_creation as creation
+import proxy_population_effect_application_runtime as ruling
+import proxy_continuation_payments as payments
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 KINDS={'M-antlion-03':'after_opponent_quick_play','M-antlion-06':'after_own_quick_effect_applied','C-bat':'after_own_quick_on_opponent_turn','P-cliff_goat':'different_name_world_change'}
 QUICK=frozenset(('use_item','use_play','use_event'))
+TYPED_CREATION_EVENT='resolve_payment_modifier'
+# 91 E-final-time: 対象を山札の一番下に置く。そうしたなら… — the effect applies
+# exactly when the target is still valid. The receipt field is certified later
+# by the designated full-delta audit (policy_journal.audit_opportunities).
+FINAL_TIME=('E-final-time','53903bdea55bc89432f49328db3116882aaaaa95c0afd07b2e1ef9df557351eb')
+
+
+def application(before,after,event,link,obligations=None):
+ """474 verdict of the resolved own hand quick card; untyped receipts stay unproved.
+
+ A typed receipt is read as before. A quick typed-creation route (payment,
+ stat or conditional row) is certified by the existing creation full-delta
+ audit: a created reservation is an application (474/67); zero creation must
+ carry the 474 not_applied evidence. Nothing is inferred from receipt keys.
+ """
+ receipt=event.get('created_effect',event.get('result'))
+ if type(receipt) is dict and type(receipt.get('effect_applied')) is bool:return receipt['effect_applied']
+ card=link['card_id']
+ if event.get('action_type')==TYPED_CREATION_EVENT and (card in payments.PAYMENT_CARDS or card in payments.STAT_CARDS or card in payments.CONDITIONAL_CARDS):
+  proof=creation.audit(before,after,event)
+  if proof['errors'] or proof['typed_creation_verified'] is not True or proof['created_effect_count'] not in (0,1):raise ValueError('timing requires current typed application evidence: '+str(proof['errors']))
+  if proof['created_effect_count']==1:return True
+  if 'application_evidence' in event and ruling.status(event)=='not_applied':return False
+ if card==FINAL_TIME[0] and event.get('action_type')=='resolve_event' and obligations is not None:
+  verdict=receipt.get('target_valid_at_resolution') if type(receipt) is dict else None
+  row=sources.catalog()['cards'][card]
+  if type(verdict) is not bool or row['section_sha256']!=FINAL_TIME[1]:raise ValueError('timing requires current typed application evidence')
+  from proxy_population_resolution_semantics import event_digest
+  # Conditional: the record is accepted only if the designated full-delta audit
+  # verifies this exact event (and so this receipt) — see require_deferred.
+  obligations.append(dict(contract='designated_full_delta_required',card_id=card,event_seq=event['seq'],event_sha256=event_digest(event),verdict=verdict,source_instance_id=event.get('source_instance_id'),chain_link_id=event.get('chain_link_id'),source_reference=row['reference'],section_sha256=row['section_sha256']))
+  return verdict
+ raise ValueError('timing requires current typed application evidence')
+
+
+def require_deferred(record,opportunities):
+ """Every conditional timing verdict must be backed by a verified designated full-delta audit.
+
+ The positive window also captures the raw resolver output before the result
+ adapter rebinds its hash fields, so an obligation may name that intermediate
+ event. It is accepted only through the actual trace event at the same sequence:
+ same source and chain link, the same receipt verdict, and that event verified.
+ """
+ from proxy_population_resolution_semantics import event_digest
+ runtime=record['runtime'];rows=[]
+ for proof in (runtime.get('supported_trigger_coverage') or {}).get('timing_occurrence_audits',[]):rows.extend(proof.get('deferred_application_obligations',[]))
+ for capture in runtime.get('positive_timing_proofs',[]):rows.extend(capture.get('independent_timing_audit',{}).get('deferred_application_obligations',[]))
+ verified={a['event_sha256'] for a in opportunities['designated_effect_audits'] if a.get('supplied_designated_effect_verified') is True and a.get('choice_contract_id')=='final_time_hand_bottom'}
+ trace={}
+ for event in runtime.get('events',[]):trace.setdefault(event['seq'],[]).append(event)
+ missing=set();rebound=set()
+ for row in rows:
+  if row['event_sha256'] in verified:continue
+  actual=trace.get(row['event_seq'],[])
+  if len(actual)!=1 or event_digest(actual[0]) not in verified:missing.add(row['event_sha256']);continue
+  e=actual[0];receipt=e.get('result') if type(e.get('result')) is dict else {}
+  if e.get('action_type')!='resolve_event' or e.get('source_instance_id')!=row.get('source_instance_id') or e.get('chain_link_id')!=row.get('chain_link_id') or receipt.get('target_valid_at_resolution') is not row['verdict']:missing.add(row['event_sha256']);continue
+  rebound.add(row['event_sha256'])
+ if missing:raise ValueError('deferred timing application unproved: '+str(sorted(missing)))
+ return dict(schema='deferred_timing_application_audit.v1',deferred_application_verified=True,obligation_count=len(rows),distinct_event_count=len({r['event_sha256'] for r in rows}),intermediate_capture_count=len(rebound),backing_contract='supplied_designated_effect_semantics.v1')
 
 
 def audit_hand(before,after,event,capture):
@@ -57,7 +120,7 @@ def audit_hand(before,after,event,capture):
 
 
 def audit(before,after,event,capture):
- errors=[];expected=[];classified=[]
+ errors=[];expected=[];classified=[];obligations=[]
  try:
   state.validate(before);state.validate(after)
   if type(event['seq']) is not int or event['seq']!=before['event_seq']+1 or event['seq']!=after['event_seq']:raise ValueError('timing sequence differs')
@@ -87,10 +150,7 @@ def audit(before,after,event,capture):
      links=[r for r in prior['activation_zone'] if r['link_id']==event.get('chain_link_id') and r['source_instance_id']==event.get('source_instance_id')]
      if len(links)!=1:raise ValueError('timing resolved link absent or ambiguous')
      link=links[0]
-     if link['actor']==actor and link['action_type'] in QUICK and link.get('source_zone','hand')=='hand':
-      receipt=event.get('created_effect',event.get('result'))
-      if type(receipt) is not dict or type(receipt.get('effect_applied')) is not bool:raise ValueError('timing requires current typed application evidence')
-      met=receipt['effect_applied']
+     if link['actor']==actor and link['action_type'] in QUICK and link.get('source_zone','hand')=='hand':met=application(before,after,event,link,obligations)
     elif card=='P-cliff_goat' and event['action_type']=='place_world' and event['actor']==actor:
      old=board['world'];new=current['game_state']['players'][actor]['board']['world']
      if event.get('previous_world_instance_id')!=old or event.get('source_instance_id')!=new:raise ValueError('timing world receipt differs')
@@ -105,4 +165,4 @@ def audit(before,after,event,capture):
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_four_source_timing_occurrences.v1',supplied_timing_occurrences_verified=not errors,errors=errors,
   expected_occurrence_count=len(expected),classified_source_count=len(classified),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),event_sha256=state.canonical_sha256(event),
-  source_catalog_sha256=sources.CATALOG_SHA,scope=sorted(KINDS),effect_application_truth_proven=False,current_legal_actions_proven=False,information_use_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
+  source_catalog_sha256=sources.CATALOG_SHA,scope=sorted(KINDS),deferred_application_obligations=obligations,effect_application_truth_proven=False,current_legal_actions_proven=False,information_use_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)

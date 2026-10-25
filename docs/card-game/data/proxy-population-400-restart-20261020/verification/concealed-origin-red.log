@@ -1,0 +1,41 @@
+test_other_origins_forged_links_and_changed_text_fail_closed (test_proxy_population_concealed_origin.ConcealedOriginTests.test_other_origins_forged_links_and_changed_text_fail_closed) ... ok
+test_paid_draw_origin_runs_the_frozen_projection (test_proxy_population_concealed_origin.ConcealedOriginTests.test_paid_draw_origin_runs_the_frozen_projection) ... ok
+test_projection_equals_the_frozen_function_for_a_listed_origin (test_proxy_population_concealed_origin.ConcealedOriginTests.test_projection_equals_the_frozen_function_for_a_listed_origin) ... ok
+test_connected_scope_admits_the_paid_draw_origin (test_proxy_population_concealed_origin.ConnectedConcealedOriginTests.test_connected_scope_admits_the_paid_draw_origin) ... ERROR
+
+======================================================================
+ERROR: test_connected_scope_admits_the_paid_draw_origin (test_proxy_population_concealed_origin.ConnectedConcealedOriginTests.test_connected_scope_admits_the_paid_draw_origin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_concealed_origin.py", line 85, in test_connected_scope_admits_the_paid_draw_origin
+    with connected.contract_scope():base.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 136, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope(),next_board.scope():return callback(forced)
+                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_concealed_origin.py", line 82, in run
+    result=preparation.response_inventory(after,initial(),history,delegate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_response_context.py", line 27, in inventory
+    return original(envelope,initial,events,preserved)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_preparation.py", line 58, in response_inventory
+    raise ValueError('concealed response timing unclassified: '+origin['action_type'])
+ValueError: concealed response timing unclassified: activate_main_ability
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.254s
+
+FAILED (errors=1)

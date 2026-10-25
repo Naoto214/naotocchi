@@ -1,0 +1,42 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = baseline census tree (c1966ae4) where group-012-B-first stopped at 'closed-group source reoffered' (turn-start window, declined W-city arrival group reoffered); after = tree 93281ed2 adding the start-window arrival closure (0a1f2edd) and the start-closure replay (93281ed2). On 0a1f2edd alone the row advanced to the turn-end verification after event 253 and stopped at 'equipment start activation/resolution adapter unavailable' (recorded as intermediate).",
+ "rows": [
+  {
+   "match_id": "group-012-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+     "phase": "response_window"
+    },
+    "steps": 189,
+    "events": 245,
+    "record_sha256": "af5c77d2809276d3b338f727b27bebf4c7f54cb144cdaf1f25374bf1c6720386",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 251,
+    "events": 325,
+    "record_sha256": "8b901b7639ddad0630f50dd7f5ef2c74aefb7ec9be93c59684768c4d51215be5",
+    "error": null
+   },
+   "intermediate_0a1f2edd": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "equipment start activation/resolution adapter unavailable",
+     "phase": "turn_end"
+    },
+    "steps": 196,
+    "events": 253,
+    "record_sha256": "6178e28858f1d01709741052d97c233aa770ea1281ea454d17539ba2acaef4c4"
+   }
+  }
+ ]
+}

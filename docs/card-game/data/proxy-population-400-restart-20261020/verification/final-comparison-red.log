@@ -1,0 +1,72 @@
+test_hash_chain_still_checked_on_full_state (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_hash_chain_still_checked_on_full_state) ... ok
+test_missing_active_instance_and_forged_retired_metadata_fail_closed (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_missing_active_instance_and_forged_retired_metadata_fail_closed) ... ok
+test_other_transitions_keep_legacy_zone_failure (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_other_transitions_keep_legacy_zone_failure) ... ok
+test_retained_predecessor_metadata_passes_registry_bound_final_comparison (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_retained_predecessor_metadata_passes_registry_bound_final_comparison) ... ERROR
+test_scope_restores_legacy_verifier (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_scope_restores_legacy_verifier) ... FAIL
+test_unchanged_legacy_check_still_rejects_without_scope (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_unchanged_legacy_check_still_rejects_without_scope) ... ok
+
+======================================================================
+ERROR: test_retained_predecessor_metadata_passes_registry_bound_final_comparison (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_retained_predecessor_metadata_passes_registry_bound_final_comparison)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_comparison_incarnation.py", line 36, in test_retained_predecessor_metadata_passes_registry_bound_final_comparison
+    self.exercise(check)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_comparison_incarnation.py", line 29, in exercise
+    host.exercise('I-sleepboost1',wrapped)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 41, in exercise
+    with history_replay.scope():runtime.operation(initial(),run)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 39, in run
+    saved=copy.deepcopy((before,after,event));check(before,after,event,history);self.assertEqual((before,after,event),saved)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_comparison_incarnation.py", line 28, in wrapped
+    check(current,retired)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_comparison_incarnation.py", line 34, in check
+    restart_122._verify_step(current,after,events)
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_normal_action_seeded_restart.py", line 316, in _verify_step
+    raise response_120.RouteIntegrityStop(
+proxy_response_window_seeded_restart.RouteIntegrityStop: instance_zone_duplicate_or_missing
+
+======================================================================
+FAIL: test_scope_restores_legacy_verifier (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_scope_restores_legacy_verifier)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_comparison_incarnation.py", line 70, in test_scope_restores_legacy_verifier
+    self.exercise(lambda current,retired:self.assertIsNot(restart_122._verify_step,incarnation.LEGACY_VERIFY_STEP))
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_comparison_incarnation.py", line 29, in exercise
+    host.exercise('I-sleepboost1',wrapped)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 41, in exercise
+    with history_replay.scope():runtime.operation(initial(),run)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 39, in run
+    saved=copy.deepcopy((before,after,event));check(before,after,event,history);self.assertEqual((before,after,event),saved)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_comparison_incarnation.py", line 28, in wrapped
+    check(current,retired)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_final_comparison_incarnation.py", line 70, in <lambda>
+    self.exercise(lambda current,retired:self.assertIsNot(restart_122._verify_step,incarnation.LEGACY_VERIFY_STEP))
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly identical: <function _verify_step at 0x7fd6ee6d4360>
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.615s
+
+FAILED (failures=1, errors=1)

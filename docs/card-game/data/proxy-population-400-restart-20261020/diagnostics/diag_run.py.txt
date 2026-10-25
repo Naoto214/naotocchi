@@ -1,0 +1,33 @@
+"""Diagnostic-only reconstruction of one fixed-schedule row (never production).
+
+Usage: python -I diag_run.py <checkout> <bundle.json> <match_id> <out_dir> [limit]
+No approval, claim, supervisor or production destination is touched. The output
+directory must be outside the checkout. The result is not a fixed-400 completion.
+"""
+import sys,json,gzip,hashlib,time,traceback,datetime
+from pathlib import Path
+checkout=Path(sys.argv[1]).resolve();bundle_path=Path(sys.argv[2]);match_id=sys.argv[3];out=Path(sys.argv[4]);limit=int(sys.argv[5]) if len(sys.argv)>5 else 512
+assert not out.resolve().is_relative_to(checkout)
+sys.path.insert(0,str(checkout/'docs/card-game/tools'))
+import proxy_population_connected_entry as connected
+from proxy_mandatory_policy_contract import canonical
+out.mkdir(parents=True,exist_ok=False)
+raw_bundle=bundle_path.read_bytes();bundle=json.loads(raw_bundle)
+summary=dict(schema='fixed400_diagnostic_run.v1',diagnostic_only=True,counts_toward_fixed400=False,match_id=match_id,limit=limit,
+ python=sys.version,bundle_file_sha256=hashlib.sha256(raw_bundle).hexdigest(),bundle_canonical_sha256=hashlib.sha256(canonical(bundle)).hexdigest(),
+ tools_fingerprint_before=connected.fingerprint(),started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat())
+t=time.monotonic()
+try:
+ record=connected.reconstruct(bundle,match_id,limit)
+ raw=canonical(record)
+ (out/'record.json.gz').write_bytes(gzip.compress(raw,mtime=0))
+ rt=record['runtime']
+ summary.update(outcome='returned',completed=record['completed'],record_sha256=hashlib.sha256(raw).hexdigest(),
+  stop=rt.get('stop'),steps=len(rt.get('decisions',[])),events=len(rt.get('events',[])) if isinstance(rt.get('events'),list) else None,
+  runtime_keys=sorted(rt))
+except BaseException as error:
+ summary.update(outcome='exception',error_type=type(error).__name__,error=str(error)[:4000])
+ (out/'traceback.txt').write_text(traceback.format_exc())
+summary.update(elapsed_seconds=time.monotonic()-t,tools_fingerprint_after=connected.fingerprint())
+(out/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,sort_keys=True,default=str))
+print(json.dumps({k:summary.get(k) for k in ('match_id','outcome','completed','stop','steps','events','error_type','error','elapsed_seconds')},ensure_ascii=False,default=str)[:3000])

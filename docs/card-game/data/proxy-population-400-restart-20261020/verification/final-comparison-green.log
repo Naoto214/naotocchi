@@ -1,0 +1,12 @@
+test_hash_chain_still_checked_on_full_state (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_hash_chain_still_checked_on_full_state) ... ok
+test_missing_active_instance_and_forged_retired_metadata_fail_closed (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_missing_active_instance_and_forged_retired_metadata_fail_closed) ... ok
+test_other_transitions_keep_legacy_zone_failure (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_other_transitions_keep_legacy_zone_failure) ... ok
+test_retained_predecessor_metadata_passes_registry_bound_final_comparison (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_retained_predecessor_metadata_passes_registry_bound_final_comparison) ... ok
+test_scope_restores_legacy_verifier (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_scope_restores_legacy_verifier) ... ok
+test_state_already_projected_by_extended_verifier_uses_legacy_check (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_state_already_projected_by_extended_verifier_uses_legacy_check) ... ok
+test_unchanged_legacy_check_still_rejects_without_scope (test_proxy_population_final_comparison_incarnation.FinalComparisonIncarnationTests.test_unchanged_legacy_check_still_rejects_without_scope) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.673s
+
+OK

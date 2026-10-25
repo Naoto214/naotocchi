@@ -1,0 +1,11 @@
+{
+ "schema": "fixed400_python_identity.v1",
+ "required_sys_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+ "observed_sys_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+ "implementation": "CPython",
+ "cache_tag": "cpython-312",
+ "source_url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260825/cpython-3.12.14+20260825-x86_64-unknown-linux-gnu-install_only.tar.gz",
+ "archive_sha256": "cbdd2f0cf02f941bc5c81e546f377275e322733abffe805ac29d2b7e8a58f7e3",
+ "environment_default_python": "3.12.3 (rejected by edition identity check)",
+ "note": "Identity string match only; the build's provenance relative to the original Codex runtime is not otherwise proven."
+}

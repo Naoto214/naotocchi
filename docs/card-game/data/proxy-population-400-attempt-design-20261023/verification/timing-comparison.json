@@ -1,0 +1,76 @@
+{
+ "schema": "fixed400_checkpoint_design_timing.v1",
+ "diagnostic_only": true,
+ "production_executed": false,
+ "tree_head": "7d637133",
+ "before": {
+  "source": "group-001-A-first, edition 33cb2f85 (work33), single process, other load present",
+  "reconstruct_seconds": 570.0,
+  "admission_seconds": 604.2,
+  "production_row_1": {
+   "gate_recheck_minutes": 2,
+   "reconstruct_minutes": 9,
+   "admission_minutes": 10,
+   "wall_minutes": 22,
+   "source": "proxy-population-400-final-run-20261023 attempt-0001 timestamps"
+  }
+ },
+ "after": {
+  "match": "group-001-A-first",
+  "reconstruct_seconds": 357.9,
+  "completed": true,
+  "record_sha256": "f828f66a633f9cfe978dab9ec063d56e06f607b3d97ef5e49ca96f3b91779f96",
+  "decisions": 241,
+  "events": 307,
+  "admission_seconds": 392.7,
+  "execution_status": "completed"
+ },
+ "per_row_cpu_estimate_minutes": {
+  "gate_recheck": 2,
+  "reconstruct": 6.0,
+  "admission": 6.5,
+  "total": 14.5
+ },
+ "wall_estimate_hours": {
+  "sequential": 96.7,
+  "parallel_4": 24.2,
+  "before_sequential_observed": 146.7
+ },
+ "representative_matches": [
+  {
+   "match_id": "group-001-A-first",
+   "completed": true,
+   "steps": 241,
+   "events": 307,
+   "elapsed_seconds": 382.6,
+   "diag31_elapsed_seconds": 427.1,
+   "new_tree_record_sha256": "f828f66a633f9cfe978dab9ec063d56e06f607b3d97ef5e49ca96f3b91779f96",
+   "diag31_record_sha256": "5866ca027fff84e9be9ae92f02ca4572293f3e7ed5e16cefa7685474286d16c4",
+   "play_equal_diag31": true,
+   "play_equal_production_row1": true
+  },
+  {
+   "match_id": "group-068-A-first",
+   "completed": true,
+   "steps": 188,
+   "events": 244,
+   "elapsed_seconds": 276.7,
+   "diag31_elapsed_seconds": 317.6,
+   "new_tree_record_sha256": "9cd8894d74a964342474c0c730d43f23d808821c2bda58fa8674eea932424a4a",
+   "diag31_record_sha256": "863ff9ceb3aae2765435d2f0f55bc19181fae45ba6e9a4ca7f627300aa4c7c70",
+   "play_equal_diag31": true
+  },
+  {
+   "match_id": "group-005-A-first",
+   "completed": true,
+   "steps": 181,
+   "events": 233,
+   "elapsed_seconds": 274.9,
+   "diag31_elapsed_seconds": 277.5,
+   "new_tree_record_sha256": "49783beae17c1a2da7b05a452e6b3d42b7cef86f639ec05b35cb683b366bb85c",
+   "diag31_record_sha256": "ecbede7d595c9e7c0739268434d3e3b9dee024432e823450d279768624fbc1fa",
+   "play_equal_diag31": true
+  }
+ ],
+ "note": "before: old edition single process; after: new tree single process while other diagnostics ran. The supervisor runs up to 4 rows in parallel; wall time per 400 rows ~ 400 x per-row CPU / 4."
+}

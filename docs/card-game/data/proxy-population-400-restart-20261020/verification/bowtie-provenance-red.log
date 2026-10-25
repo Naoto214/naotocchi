@@ -1,0 +1,68 @@
+test_missing_receipt_tampered_delta_or_duplicate_provenance_fails_closed (test_proxy_population_bowtie_provenance.BowtieProvenanceTests.test_missing_receipt_tampered_delta_or_duplicate_provenance_fails_closed) ... FAIL
+test_start_draw_events_get_certified_rows_from_existing_audits (test_proxy_population_bowtie_provenance.BowtieProvenanceTests.test_start_draw_events_get_certified_rows_from_existing_audits) ... FAIL
+
+======================================================================
+FAIL: test_missing_receipt_tampered_delta_or_duplicate_provenance_fails_closed (test_proxy_population_bowtie_provenance.BowtieProvenanceTests.test_missing_receipt_tampered_delta_or_duplicate_provenance_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_provenance.py", line 71, in test_missing_receipt_tampered_delta_or_duplicate_provenance_fails_closed
+    with connected.contract_scope():base.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_provenance.py", line 55, in run
+    with self.assertRaises(ValueError):verify([],[activation,resolution],trace)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_start_draw_events_get_certified_rows_from_existing_audits (test_proxy_population_bowtie_provenance.BowtieProvenanceTests.test_start_draw_events_get_certified_rows_from_existing_audits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_provenance.py", line 47, in test_start_draw_events_get_certified_rows_from_existing_audits
+    with connected.contract_scope():base.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_provenance.py", line 43, in run
+    self.assertEqual([(p['event_seq'],p['kind'],p['card_id'],p['certain_growth_difference'],p['duration']) for p in proofs],
+AssertionError: Lists differ: [] != [(3, 'activate_response', 'I-bowtie', 0, '[78 chars]ne')]
+
+Second list contains 2 additional elements.
+First extra element 0:
+(3, 'activate_response', 'I-bowtie', 0, 'activation_until_resolution')
+
+- []
++ [(3, 'activate_response', 'I-bowtie', 0, 'activation_until_resolution'),
++  (6, 'resolve_board_ability', 'I-bowtie', 0, 'none')]
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.335s
+
+FAILED (failures=2)

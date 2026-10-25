@@ -1,0 +1,20 @@
+"""Diagnostic-only derived manifest: original fixed manifest with source_versions of the checkout edition.
+Uses the existing derive()/require_equivalent() so every non-source key must match exactly."""
+import sys,json,hashlib,subprocess
+from pathlib import Path
+F=Path(sys.argv[1]);out=Path(sys.argv[2])
+sys.path.insert(0,str(F/'docs/card-game/tools'))
+import proxy_population_execution_edition as edition
+import proxy_population_execution_binding as b
+from proxy_mandatory_policy_contract import canonical
+D=F/'docs/card-game/data/proxy-population-400-20261012'
+rd=lambda n:json.loads((D/n).read_bytes())
+original=rd('manifest.json');old=rd('edition.json');material=rd('material.json');registry=rd('historical-registry.json')
+head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=F).decode().strip()
+new=edition.capture(F,head)
+delta=b.source_delta(old,new)
+derived=b.derive(original,material,registry,old,new,delta)
+b.require_equivalent(original,derived)
+out.write_bytes(canonical(derived))
+(out.parent/'diag-edition.json').write_bytes(canonical(new))
+print(json.dumps(dict(head=head,tree=new['tree'],python=new['python'],delta_files=len(delta),delta_py=sorted(n for n in delta if n.endswith('.py')),derived_sha256=hashlib.sha256(canonical(derived)).hexdigest(),files=len(new['files']))))

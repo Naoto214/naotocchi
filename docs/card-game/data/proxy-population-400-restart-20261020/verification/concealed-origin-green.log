@@ -1,0 +1,9 @@
+test_other_origins_forged_links_and_changed_text_fail_closed (test_proxy_population_concealed_origin.ConcealedOriginTests.test_other_origins_forged_links_and_changed_text_fail_closed) ... ok
+test_paid_draw_origin_runs_the_frozen_projection (test_proxy_population_concealed_origin.ConcealedOriginTests.test_paid_draw_origin_runs_the_frozen_projection) ... ok
+test_projection_equals_the_frozen_function_for_a_listed_origin (test_proxy_population_concealed_origin.ConcealedOriginTests.test_projection_equals_the_frozen_function_for_a_listed_origin) ... ok
+test_connected_scope_admits_the_paid_draw_origin (test_proxy_population_concealed_origin.ConnectedConcealedOriginTests.test_connected_scope_admits_the_paid_draw_origin) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.344s
+
+OK

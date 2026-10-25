@@ -67,6 +67,8 @@ def reconstruct(bundle,match_id,limit):
   opportunities=policy_journal.audit_opportunities(result)
   if not opportunities['designated_opportunities_covered']:raise ValueError('actual mandatory opportunities differ: '+str(opportunities['errors']))
   result['mandatory_opportunity_audit']=opportunities
+  import proxy_population_timing_occurrence as timing_occurrence
+  result['deferred_application_audit']=timing_occurrence.require_deferred(result,opportunities)
   semantic=semantics.audit(result)
   if not semantic['supplied_resolution_semantics_joined']:raise ValueError('actual resolution semantics differ: '+str(semantic['errors']))
   result['resolution_semantics_audit']=semantic

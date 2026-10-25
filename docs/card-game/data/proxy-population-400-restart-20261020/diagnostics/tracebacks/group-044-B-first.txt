@@ -1,0 +1,59 @@
+Traceback (most recent call last):
+  File "$SCRATCH/diag_run.py", line 21, in <module>
+    record=connected.reconstruct(bundle,match_id,limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_connected_entry.py", line 51, in reconstruct
+    runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_runtime_entry.py", line 50, in reconstruct
+    result=runtime.segment(envelope,initial,prefix['events'],shots,[envelope],limit,session=session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_connected_entry.py", line 44, in dispatch
+    result=connected.segment(prepared['envelope'],initial,events,shots,envelopes,limit,prepared['proof'],session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_challenge_window.py", line 144, in segment
+    result=incarnation.segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_incarnation_window.py", line 23, in segment
+    try:return _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_incarnation_window.py", line 43, in _segment
+    result=positive.segment(envelope,initial,events,shots,envelopes,limit,proof,converted)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_positive_window.py", line 150, in segment
+    result=window.segment(envelope,initial,events,shots,runtime,limit,proof,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_trigger_window.py", line 185, in segment
+    try:return original_operation(initial,scoped)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_positive_window.py", line 147, in operation
+    return original_operation(supplied,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_challenge_window.py", line 133, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_positive_window.py", line 145, in connected
+    return callback(forced_connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_trigger_window.py", line 182, in scoped
+    result['supported_trigger_coverage']=coverage.audit(result,events,proof,initial,shots)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_trigger_coverage.py", line 230, in audit
+    proof['processing_order']=order.audit(result,expected)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$SCRATCH/frozen/docs/card-game/tools/proxy_population_opportunity_order.py", line 29, in audit
+    if record is None:raise ValueError('ordinary processing before pending source obligation')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: ordinary processing before pending source obligation

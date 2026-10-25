@@ -1,0 +1,31 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = baseline census tree (c1966ae4) where the row stopped at 'historical quick activation absent from complete inventory'; after = tree b3750727 verifying a hand-timing reaction through its own occurrence audits (all earlier 10-21 fixes included).",
+ "rows": [
+  {
+   "match_id": "group-013-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "historical quick activation absent from complete inventory",
+     "phase": "turn_end"
+    },
+    "steps": 231,
+    "events": 299,
+    "record_sha256": "bd16f3f4f932ceee0665c0edda2748965759db4cb4294b62a08392ea429ec954",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 253,
+    "events": 329,
+    "record_sha256": "daecd3b049b539b86c8722384f089acf85ac24d4ac5f8bb0e790a2e9dac96289",
+    "error": null
+   }
+  }
+ ]
+}

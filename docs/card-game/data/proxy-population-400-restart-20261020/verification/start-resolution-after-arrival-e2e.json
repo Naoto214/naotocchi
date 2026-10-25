@@ -1,0 +1,31 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree 93281ed2 where group-031-B-first stopped at 'start effect processing origin differs' (C-chicken resolution at 219 after a W-city arrival group at 211 moved the context origin to 210); after = tree 157a05b3 binding the start effect to its window.",
+ "rows": [
+  {
+   "match_id": "group-031-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "start effect processing origin differs",
+     "phase": "response_window"
+    },
+    "steps": 168,
+    "events": 217,
+    "record_sha256": "940d5af724c0ac44d9cee3029cecb78c1b15ef52bce8d7b23929872ff8253396",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 233,
+    "events": 303,
+    "record_sha256": "4e81d588092103cecd2ecf01f1ee174d426c58d7b54d828e4c5c383e748b2055",
+    "error": null
+   }
+  }
+ ]
+}

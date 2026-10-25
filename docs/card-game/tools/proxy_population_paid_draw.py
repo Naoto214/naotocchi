@@ -114,7 +114,7 @@ def scope():
    if previous['legacy_continuation']['game_state']['cards'].get(event.get('source_instance_id'),{}).get('card_id') not in DESCRIPTORS:continue
    raw={k:v for k,v in event.items() if k not in end.BIND_KEYS}
    if not runtime_verify(previous,byseq[event['seq']],raw,[e for e in events if e['seq']<event['seq']]):raise ValueError('paid activation replay differs')
-   cap=batch.classification(previous['legacy_continuation']['game_state']['cards'][event['source_instance_id']]['card_id']);proofs.append(dict(event_seq=event['seq'],kind='paid_draw_activation',source_reference=cap['reference'],source_raw_sha256=cap['source_raw_sha256'],certain_growth_difference=0,duration='activation_until_resolution'))
+   card=previous['legacy_continuation']['game_state']['cards'][event['source_instance_id']]['card_id'];cap=batch.classification(card);proofs.append(dict(event_seq=event['seq'],kind='paid_draw_activation',card_id=card,source_reference=cap['reference'],source_raw_sha256=cap['source_raw_sha256'],certain_growth_difference=0,duration='activation_until_resolution'))
   return proofs
  try:
   candidates.UNIT_ADJUDICATOR=adjudicate;candidates.select=select;actions.apply=apply;end.RUNTIME_TRANSITION_VERIFIER=runtime_verify;end.verify_new_events=verify;triggers.board_candidates=boards;triggers.activate=activate;triggers.DRAW_EFFECTS=dict(old_draws,**{c:1 for c in DESCRIPTORS});triggers.SUPPORTED_EFFECTS=old_supported|set(DESCRIPTORS)

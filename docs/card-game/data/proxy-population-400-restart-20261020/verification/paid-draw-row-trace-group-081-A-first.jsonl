@@ -1,0 +1,2 @@
+{"count": 48, "bad": [{"event_seq": 198, "kind": "paid_draw_activation", "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-02", "source_raw_sha256": "8108f781d2e02b45139fdf7d1d573c7ac839f14cd2b8361983ecb891320f8c28", "certain_growth_difference": 0, "duration": "activation_until_resolution"}], "events": [{"seq": 198, "action_type": "activate_main_ability", "actor": "A", "source_instance_id": "A-002#1"}]}
+----

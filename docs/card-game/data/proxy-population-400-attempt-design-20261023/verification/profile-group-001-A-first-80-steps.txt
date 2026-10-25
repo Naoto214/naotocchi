@@ -1,0 +1,120 @@
+steps 78 completed False
+elapsed 330.8
+         635509443 function calls (510286102 primitive calls) in 330.814 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1845 to 70 due to restriction <70>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.002    0.002  330.840  330.840 proxy_population_connected_entry.py:30(reconstruct)
+        1    0.001    0.001  310.239  310.239 proxy_population_runtime_entry.py:30(reconstruct)
+        1    0.000    0.000  295.840  295.840 proxy_population_connected_entry.py:33(dispatch)
+        1    0.000    0.000  295.644  295.644 proxy_population_challenge_window.py:146(segment)
+        1    0.003    0.003  295.643  295.643 proxy_population_incarnation_window.py:20(segment)
+        1    0.004    0.004  295.640  295.640 proxy_population_incarnation_window.py:26(_segment)
+        2    0.000    0.000  294.409  147.204 proxy_population_runtime.py:16(operation)
+        2    0.000    0.000  294.408  147.204 proxy_continuation_batch_runner.py:19(run_route)
+        2    0.000    0.000  294.358  147.179 proxy_population_runtime.py:28(driver)
+        1    0.000    0.000  294.314  294.314 proxy_population_positive_window.py:44(segment)
+        1    0.000    0.000  294.314  294.314 proxy_population_trigger_window.py:122(segment)
+        1    0.000    0.000  294.314  294.314 proxy_population_positive_window.py:131(operation)
+        1    0.000    0.000  294.314  294.314 proxy_population_challenge_window.py:133(operation)
+        1    0.000    0.000  294.295  294.295 proxy_population_challenge_window.py:134(connected)
+        1    0.000    0.000  294.295  294.295 proxy_population_positive_window.py:132(connected)
+        1    0.007    0.007  294.294  294.294 proxy_population_trigger_window.py:127(scoped)
+        1    0.000    0.000  235.957  235.957 proxy_population_runtime.py:109(segment)
+        1    0.000    0.000  235.957  235.957 proxy_population_trigger_window.py:131(reuse)
+        1    0.001    0.001  235.957  235.957 proxy_population_runtime.py:130(scoped)
+        1    0.034    0.034  235.595  235.595 proxy_population_runtime.py:111(reconstruct)
+       80    0.002    0.000  233.401    2.918 proxy_population_trigger_window.py:209(step)
+       80    0.170    0.002  233.193    2.915 proxy_population_trigger_window.py:177(step_body)
+       77    0.072    0.001  225.612    2.930 proxy_population_positive_window.py:89(step)
+       77    0.029    0.000  177.850    2.310 proxy_population_challenge_window.py:54(step)
+78871453/212167   81.329    0.000  171.415    0.001 copy.py:118(deepcopy)
+8493371/195854   32.080    0.000  170.441    0.001 copy.py:217(_deepcopy_dict)
+    13945    0.546    0.000  143.457    0.010 proxy_population_incarnation_runtime.py:225(validate)
+       77    0.026    0.000  136.539    1.773 proxy_population_runtime.py:62(_step)
+    13949    0.246    0.000   87.186    0.006 proxy_continuation_board_links.py:38(validate)
+27891/13946    0.447    0.000   80.303    0.006 proxy_population_activation_reference.py:55(references)
+     4956    0.122    0.000   78.960    0.016 proxy_continuation_state.py:91(current)
+       13    0.000    0.000   69.566    5.351 proxy_population_positive_window.py:150(forced_connected)
+       13    0.001    0.000   69.565    5.351 proxy_continuation_batch_runner.py:38(forced)
+  2336014    2.939    0.000   63.754    0.000 proxy_mandatory_policy_contract.py:12(canonical)
+        1    0.068    0.068   58.230   58.230 proxy_population_trigger_coverage.py:70(audit)
+       13    0.001    0.000   57.524    4.425 proxy_continuation_batch_runner.py:21(forced_body)
+    14225    3.751    0.000   56.250    0.004 proxy_population_incarnation_runtime.py:28(active_cards)
+       10    0.000    0.000   55.895    5.590 proxy_population_end_victory.py:67(forced)
+       10    0.002    0.000   55.893    5.589 proxy_continuation_end.py:193(forced)
+  2289629    2.286    0.000   54.785    0.000 proxy_population_incarnation.py:9(digest)
+    13945    0.265    0.000   53.618    0.004 proxy_population_discard_recovery.py:165(references)
+12120/5591    0.026    0.000   49.593    0.009 {built-in method builtins.next}
+ 2171/447    0.003    0.000   49.548    0.111 contextlib.py:132(__enter__)
+       20    0.001    0.000   48.802    2.440 proxy_continuation_end.py:131(end_scope)
+       10    0.000    0.000   48.651    4.865 proxy_population_positive_provenance.py:84(verify_history)
+       10    0.000    0.000   48.650    4.865 proxy_population_trigger_replay.py:92(verify_history)
+       10    0.000    0.000   48.625    4.862 proxy_population_paid_draw.py:109(verify)
+       10    0.000    0.000   48.625    4.862 proxy_population_discard_recovery.py:189(verify)
+       10    0.000    0.000   48.624    4.862 proxy_population_growth_runtime.py:91(verify)
+       10    0.000    0.000   48.424    4.842 proxy_continuation_challenge.py:152(verify)
+       10    0.001    0.000   48.423    4.842 proxy_continuation_preparation.py:130(verify)
+       10    0.008    0.001   48.417    4.842 proxy_population_history_replay.py:119(verify)
+1224236/1220085    1.102    0.000   46.987    0.000 {built-in method builtins.any}
+  2276000    1.510    0.000   44.991    0.000 proxy_population_incarnation_runtime.py:35(<genexpr>)
+      368    0.009    0.000   44.596    0.121 proxy_population_incarnation_runtime.py:246(bind)
+      131    0.044    0.000   42.978    0.328 proxy_population_positive_window.py:49(remember)
+35705007/2336014   31.934    0.000   39.014    0.000 proxy_mandatory_policy_contract.py:13(check)
+     2680    0.612    0.000   37.842    0.014 proxy_population_start_obligations.py:16(catalog)
+       10    0.004    0.000   37.172    3.717 proxy_population_history_replay.py:69(verify)
+  2493625    3.926    0.000   34.887    0.000 json/__init__.py:183(dumps)
+       10    0.008    0.001   32.473    3.247 proxy_continuation_batch.py:275(verify)
+    18407    0.075    0.000   32.356    0.002 proxy_normal_decision_seeded_restart.py:406(_stop_state_sha256)
+      412    0.040    0.000   32.276    0.078 proxy_population_incarnation_runtime.py:102(capture)
+   114922    0.927    0.000   32.129    0.000 proxy_continuation_rules.py:28(source_section)
+    18410    0.149    0.000   31.027    0.002 proxy_normal_decision_seeded_restart.py:309(_canonical_stop_state)
+  2493625    4.173    0.000   30.160    0.000 json/encoder.py:183(encode)
+161894327   25.704    0.000   25.704    0.000 {method 'get' of 'dict' objects}
+       64    0.001    0.000   25.258    0.395 proxy_population_instance_boundary.py:23(apply)
+       64    0.001    0.000   25.218    0.394 proxy_population_paid_draw.py:88(apply)
+       64    0.001    0.000   25.217    0.394 /tm
+         635509443 function calls (510286102 primitive calls) in 330.814 seconds
+
+   Ordered by: internal time
+   List reduced from 1845 to 40 due to restriction <40>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+78871453/212167   81.329    0.000  171.415    0.001 copy.py:118(deepcopy)
+8493371/195854   32.080    0.000  170.441    0.001 copy.py:217(_deepcopy_dict)
+35705007/2336014   31.934    0.000   39.014    0.000 proxy_mandatory_policy_contract.py:13(check)
+161894327   25.704    0.000   25.704    0.000 {method 'get' of 'dict' objects}
+  2483911   18.043    0.000   18.341    0.000 json/encoder.py:205(iterencode)
+ 99478637   12.461    0.000   12.461    0.000 {built-in method builtins.id}
+  2617032   12.209    0.000   12.209    0.000 {built-in method _hashlib.openssl_sha256}
+   114923    7.483    0.000    7.483    0.000 {method 'search' of 're.Pattern' objects}
+ 33156480    7.085    0.000    7.085    0.000 {method 'encode' of 'str' objects}
+ 68795043    6.078    0.000    6.078    0.000 copy.py:172(_deepcopy_atomic)
+ 10075758    5.713    0.000    8.981    0.000 copy.py:231(_keep_alive)
+   127226    4.655    0.000    4.655    0.000 {built-in method _codecs.utf_8_decode}
+1578597/1548078    4.257    0.000   20.343    0.000 copy.py:191(_deepcopy_list)
+  2493625    4.173    0.000   30.160    0.000 json/encoder.py:183(encode)
+  2493625    3.926    0.000   34.887    0.000 json/__init__.py:183(dumps)
+    14225    3.751    0.000   56.250    0.004 proxy_population_incarnation_runtime.py:28(active_cards)
+   282179    3.656    0.000    7.680    0.000 {built-in method _io.open}
+ 18662205    3.205    0.000    3.205    0.000 {method 'append' of 'list' objects}
+  2336014    2.939    0.000   63.754    0.000 proxy_mandatory_policy_contract.py:12(canonical)
+ 13472920    2.721    0.000    2.721    0.000 {method 'items' of 'dict' objects}
+ 15497898    2.395    0.000    2.410    0.000 {built-in method builtins.isinstance}
+7805316/4697790    2.390    0.000    4.189    0.000 json/encoder.py:334(_iterencode_dict)
+  2289629    2.286    0.000   54.785    0.000 proxy_population_incarnation.py:9(digest)
+  2617032    2.025    0.000    2.025    0.000 {method 'hexdigest' of '_hashlib.HASH' objects}
+   127226    1.905    0.000    6.712    0.000 {method 'read' of '_io.TextIOWrapper' objects}
+  4464320    1.566    0.000    2.522    0.000 proxy_continuation_state.py:56(<genexpr>)
+    15732    1.543    0.000    2.776    0.000 proxy_population_incarnation.py:33(identities)
+    13951    1.528    0.000    5.590    0.000 proxy_continuation_state.py:25(validate)
+  2276000    1.510    0.000   44.991    0.000 proxy_population_incarnation_runtime.py:35(<genexpr>)
+  2276000    1.328    0.000    2.346    0.000 proxy_population_incarnation_runtime.py:33(<genexpr>)
+4658394/3115194    1.323    0.000    3.471    0.000 json/encoder.py:278(_iterencode_list)
+   253355    1.313    0.000    2.559    0.000 pathlib.py:387(_parse_path)
+  2418680    1.282    0.000    1.282    0.000 {method 'fullmatch' of 're.Pattern' objects}
+  4704990    1.271    0.000    6.113    0.000 json/encoder.py:414(_iterencode)
+    11084    1.193    0.000    1.420    0.000 json/decoder.py:344(raw_decode)
+   155044    1.189    0.000    1.189    0.000 {method 'read' of '_io.BufferedReader' objects}

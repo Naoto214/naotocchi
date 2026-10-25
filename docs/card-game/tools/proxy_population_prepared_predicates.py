@@ -130,7 +130,10 @@ def audit(envelope,events,inventory):
    origin=origins[0];links=c['activation_zone']
    if origin['action_type'] not in NONACTIVATIONS:
     matches=[l for l in links if l['link_id']==origin.get('chain_link_id') and l['source_instance_id']==origin.get('source_instance_id') and l['actor']==origin['actor']]
-    if origin['action_type'] not in ('activate_response','use_item','use_play','use_event') or len(matches)!=1:unproved.append(dict(reason='origin_effect_not_bound_to_current_public_link',origin_event_seq=origin['seq']))
+    # Main/companion activations (paid draw, C-cat_friend) open a public link
+    # exactly like a response activation; the same strict link binding applies
+    # and the link's own effect route is still checked below.
+    if origin['action_type'] not in ('activate_response','use_item','use_play','use_event','activate_main_ability','activate_companion_ability') or len(matches)!=1:unproved.append(dict(reason='origin_effect_not_bound_to_current_public_link',origin_event_seq=origin['seq']))
    concealed_ids={s for _,_,s in concealed}
    for l in links:
     if l['source_instance_id'] in concealed_ids:raise ValueError('public activation source still concealed')

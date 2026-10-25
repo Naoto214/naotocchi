@@ -1,0 +1,16 @@
+"""Diagnostic-only: rerun one row, log stack + card keys when active_cards rejects generations."""
+import sys,json,runpy,traceback
+from pathlib import Path
+F=Path(sys.argv[1]);out=Path(sys.argv[2])
+sys.path.insert(0,str(F/'docs/card-game/tools'))
+import proxy_population_incarnation_runtime as inc
+orig=inc.active_cards
+def wrapped(cards):
+ try:return orig(cards)
+ except ValueError as e:
+  ids=sorted(k for k in cards if '#' in k and not k.endswith('#1'))
+  with out.open('a') as f:f.write(json.dumps(dict(error=str(e),non_first=ids,keys=len(cards),first_missing=sorted(k.split('#')[0]+'#1' for k in ids if k.split('#')[0]+'#1' not in cards)))+'\n'+''.join(traceback.format_stack()[-8:])+'\n----\n')
+  raise
+inc.active_cards=wrapped
+sys.argv=['diag_run.py']+sys.argv[3:]
+runpy.run_path(str(Path(__file__).parent/'diag_run.py'),run_name='__main__')

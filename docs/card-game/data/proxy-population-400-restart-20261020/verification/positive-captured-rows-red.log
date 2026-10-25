@@ -1,0 +1,25 @@
+test_distinct_occurrences_or_other_origins_stay_distinct (test_proxy_population_positive_captured_rows.CapturedRowsTests.test_distinct_occurrences_or_other_origins_stay_distinct) ... ERROR
+test_raw_and_normalized_captures_collapse_to_one_occurrence (test_proxy_population_positive_captured_rows.CapturedRowsTests.test_raw_and_normalized_captures_collapse_to_one_occurrence) ... ERROR
+
+======================================================================
+ERROR: test_distinct_occurrences_or_other_origins_stay_distinct (test_proxy_population_positive_captured_rows.CapturedRowsTests.test_distinct_occurrences_or_other_origins_stay_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_positive_captured_rows.py", line 19, in test_distinct_occurrences_or_other_origins_stay_distinct
+    self.assertEqual(len(api.captured_rows(captures,event)),2)
+                         ^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_positive_window' has no attribute 'captured_rows'
+
+======================================================================
+ERROR: test_raw_and_normalized_captures_collapse_to_one_occurrence (test_proxy_population_positive_captured_rows.CapturedRowsTests.test_raw_and_normalized_captures_collapse_to_one_occurrence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_positive_captured_rows.py", line 14, in test_raw_and_normalized_captures_collapse_to_one_occurrence
+    self.assertEqual(api.captured_rows(captures,event),[occurrence()])
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_positive_window' has no attribute 'captured_rows'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (errors=2)

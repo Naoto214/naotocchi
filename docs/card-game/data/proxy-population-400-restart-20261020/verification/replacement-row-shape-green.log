@@ -1,0 +1,13 @@
+test_paid_draw_origin_is_bound_and_the_concealed_exclusion_verified (test_proxy_population_prepared_activation_origin.PreparedActivationOriginTests.test_paid_draw_origin_is_bound_and_the_concealed_exclusion_verified) ... ok
+test_unbound_or_forged_activation_origin_stays_unproved (test_proxy_population_prepared_activation_origin.PreparedActivationOriginTests.test_unbound_or_forged_activation_origin_stays_unproved) ... ok
+test_bond_exclusion_for_the_paid_draw_origin_passes_the_coverage_audit (test_proxy_population_prepared_activation_origin.ReplacementCoverageTests.test_bond_exclusion_for_the_paid_draw_origin_passes_the_coverage_audit) ... ok
+test_other_origins_forged_links_and_changed_text_fail_closed (test_proxy_population_concealed_origin.ConcealedOriginTests.test_other_origins_forged_links_and_changed_text_fail_closed) ... ok
+test_paid_draw_origin_runs_the_frozen_projection (test_proxy_population_concealed_origin.ConcealedOriginTests.test_paid_draw_origin_runs_the_frozen_projection) ... ok
+test_projection_equals_the_frozen_function_for_a_listed_origin (test_proxy_population_concealed_origin.ConcealedOriginTests.test_projection_equals_the_frozen_function_for_a_listed_origin) ... ok
+test_connected_scope_admits_the_paid_draw_origin (test_proxy_population_concealed_origin.ConnectedConcealedOriginTests.test_connected_scope_admits_the_paid_draw_origin) ... ok
+test_bond_replacement_is_classified_for_the_paid_draw_origin (test_proxy_population_concealed_origin.ReplacementOriginTests.test_bond_replacement_is_classified_for_the_paid_draw_origin) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.642s
+
+OK

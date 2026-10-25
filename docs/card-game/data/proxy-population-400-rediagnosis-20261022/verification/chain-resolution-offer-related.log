@@ -1,0 +1,7 @@
+.........................................................................................
+----------------------------------------------------------------------
+Ran 89 tests in 794.907s
+
+OK
+# tests:
+test_proxy_population_chain_resolution_offer test_proxy_population_trigger_window test_proxy_population_trigger_sequential test_proxy_population_opportunity_ledger test_proxy_population_opportunity_order test_proxy_population_trigger_coverage test_proxy_population_trigger_observation test_proxy_population_positive_window test_proxy_population_positive_captured_rows test_proxy_population_end_window_after_arrival test_proxy_population_start_window_arrival_closure test_proxy_population_start_window_quick_replay test_proxy_population_start_resolution_after_arrival test_proxy_population_city_window_closure test_proxy_population_response_group_closure test_proxy_population_response_composition test_proxy_population_trigger_multiturn test_proxy_population_trigger_connection test_proxy_population_turn_boundary_result test_proxy_population_group_actor_replay test_proxy_population_hand_timing_replay test_proxy_population_trigger_replay test_proxy_population_challenge_window test_proxy_population_connected_entry test_proxy_population_information_use test_proxy_population_trigger_latching test_proxy_population_timing_occurrence test_proxy_population_final_time_round
