@@ -176,8 +176,22 @@
     const modelAPI=env.NaotocchiHomeDioramaModel;if(!stage||!modelAPI)return null;
     let enabled=false,dead=false,scene=null,environment=null,flags={},rows=new Map(),raf=0,last=0,gesture=null,sceneKey='',wasBlocked=false;
     let propNodes=[],world=null,worldLoading=false,worldHost=null,activeTime=0,frames=0,frameGaps=[],loadGeneration=0;
-    const movedNotices=[];
-    function placeNotices(on){const slot=doc.getElementById?.('homeEventSlot');if(!slot)return;if(on&&!movedNotices.length){for(const id of ['storyFlash','message']){const n=doc.getElementById(id);if(n?.parentNode){movedNotices.push({n,parent:n.parentNode,next:n.nextSibling});slot.appendChild(n);}}}else if(!on){for(const {n,parent,next}of movedNotices)parent.insertBefore?parent.insertBefore(n,next?.parentNode===parent?next:null):parent.appendChild?.(n);movedNotices.length=0;}if(doc.body)doc.body.dataset.homeTerrain=on?'true':'';}
+    const movedHomeElements=[];
+    function placeHomeSlots(on){
+      const slot=doc.getElementById?.('homeEventSlot');if(!slot)return;
+      if(on&&!movedHomeElements.length){
+        // The shared markup keeps the legacy 4+5 meter layout. Only terrain
+        // presentation moves the same life node into its daily 5+4 row.
+        for(const [id,target]of [['storyFlash',slot],['message',slot],['deathMeterItem',doc.getElementById('careMeters')]]){
+          const n=doc.getElementById(id);
+          if(n?.parentNode&&target){movedHomeElements.push({n,parent:n.parentNode,next:n.nextSibling});target.appendChild(n);}
+        }
+      }else if(!on){
+        for(const {n,parent,next}of movedHomeElements)parent.insertBefore?parent.insertBefore(n,next?.parentNode===parent?next:null):parent.appendChild?.(n);
+        movedHomeElements.length=0;
+      }
+      if(doc.body)doc.body.dataset.homeTerrain=on?'true':'';
+    }
     let guideStorage;try{guideStorage=env.localStorage;}catch(_){}
     const guide=createGestureGuide({storage:guideStorage,key:guideKey});let guideWalk=null;
     const media=env.matchMedia?.('(prefers-reduced-motion: reduce)');
@@ -308,8 +322,8 @@
     function update(e,f={}){
       environment=e;flags=f;
       const next=modelAPI.supported(e.region)&&f.available!==false;
-      if(!next){placeNotices(false);enabled=false;view.hidden=true;selectedLabel.hidden=true;showGuide();stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
-      enabled=true;placeNotices(true);stage.dataset.diorama=e.region;stage.dataset.dioramaReduced=String(!!media?.matches);stage.dataset.dioramaTier=String(f.tier||0);stage.dataset.dioramaTime=e.time;stage.dataset.dioramaWeather=e.weather;
+      if(!next){placeHomeSlots(false);enabled=false;view.hidden=true;selectedLabel.hidden=true;showGuide();stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
+      enabled=true;placeHomeSlots(true);stage.dataset.diorama=e.region;stage.dataset.dioramaReduced=String(!!media?.matches);stage.dataset.dioramaTier=String(f.tier||0);stage.dataset.dioramaTime=e.time;stage.dataset.dioramaWeather=e.weather;
       art.hidden=false;overlay.hidden=false;showGuide();
       const r=stage.getBoundingClientRect();scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
       const key=JSON.stringify([e,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
@@ -350,7 +364,7 @@
     const listeners={pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
-    return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeNotices(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
+    return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
   return {homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });

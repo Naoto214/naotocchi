@@ -30,10 +30,36 @@ test('terrain runtime suppresses daily numeric feedback without mutating state; 
  const before=JSON.stringify(s);h.api.showStoryEvent({emoji:'🏆',message:'コイン +50'});assert.equal(JSON.stringify(s),before);h.advance(15000);h.api.render();assert.match(h.get('message').textContent,/びょうき/);
  assert.doesNotMatch(h.get('badges').innerHTML,/data-care-icon="sick"/);
 });
-test('semantic meter order is daily five then lifetime four',()=>{
+test('legacy markup retains four daily meters and five lifetime meters before terrain activation',()=>{
  const html=fs.readFileSync('index.html','utf8'),part=html.slice(html.indexOf('id="careMeters"'),html.indexOf('<div class="minigame-overlay'));
  const ids=[...part.matchAll(/id="(hunger|happiness|energy|health|death|evo|devo|transform|goal)Bar"/g)].map(m=>m[1]);
- assert.deepEqual(ids,['hunger','happiness','energy','health','death','evo','devo','transform','goal']);
+ assert.deepEqual(ids,['hunger','happiness','energy','health','evo','devo','death','transform','goal']);
+});
+test('terrain owns the five-plus-four meter move and restores legacy order on exit and destruction',()=>{
+ const h=harness({deterministic:true,worldScene:true,homeDiorama:true});
+ const daily=h.get('careMeters'),life=h.get('lifeMeterRow'),death=h.get('deathMeterItem');
+ const named=id=>({id,parentNode:null});
+ daily.children=['hunger','happiness','energy','health'].map(named);
+ life.children=[named('evo'),named('devo'),death,named('transform'),named('goal')];
+ for(const parent of [daily,life]){
+  for(const n of parent.children)n.parentNode=parent;
+  parent.insertBefore=function(n,next){
+   if(n.parentNode){const old=n.parentNode.children;old.splice(old.indexOf(n),1);}
+   this.children.splice(next?this.children.indexOf(next):this.children.length,0,n);n.parentNode=this;return n;
+  };
+  parent.appendChild=function(n){return this.insertBefore(n,null);};
+ }
+ Object.defineProperty(death,'nextSibling',{get(){return death.parentNode?.children[death.parentNode.children.indexOf(death)+1]||null;}});
+ const s=h.api.state();Object.assign(s,{stage:'growing',speciesLine:'dog',regionId:'forest',isSleeping:false,isSick:false,dying:false});
+ for(const region of ['forest','home','city','mountain','river_lake']){
+  s.regionId=region;h.api.render();h.api.render();
+  const terrain=['forest','city','river_lake'].includes(region);
+  assert.deepEqual(daily.children.map(n=>n.id),['hunger','happiness','energy','health',...(terrain?['deathMeterItem']:[])]);
+  assert.deepEqual(life.children.map(n=>n.id),['evo','devo',...(!terrain?['deathMeterItem']:[]),'transform','goal']);
+ }
+ h.api.homeDiorama().destroy();
+ assert.deepEqual(daily.children.map(n=>n.id),['hunger','happiness','energy','health']);
+ assert.deepEqual(life.children.map(n=>n.id),['evo','devo','deathMeterItem','transform','goal']);
 });
 test('long partner names open existing profile details by tapping the header',()=>{
  const h=harness({deterministic:true,worldScene:true,homeDiorama:true});h.api.setPresentCastFixture();h.api.render();
