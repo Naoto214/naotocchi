@@ -3,7 +3,8 @@ import {stages as chapter1} from '../naopoyo-chapter1/stages.mjs';
 import {stages} from './stages.mjs';
 export const LEGACY_KEY='naopoyo.komorebi.pilot.20261024.v1';
 export const PREVIOUS_KEY='naopoyo.komorebi.supported.20261024.v1';
-export const KEY='naopoyo.komorebi.contact.20261025.v1',QA_KEY=KEY+'.qa';
+export const CONTACT_KEY='naopoyo.komorebi.contact.20261025.v1';
+export const KEY='naopoyo.komorebi.magic-rock.20261025.v1',QA_KEY=KEY+'.qa';
 export const allStages=[...chapter1,...stages];
 export class ForestProgress extends Progress{
  merge(raw,restore=false){
@@ -38,7 +39,7 @@ export class ForestProgress extends Progress{
   this.actualKey=target;
   // Physics changes never reinterpret or overwrite old boards/Undo snapshots.
   // Read progress/append-only markers, but leave legacy storage entirely intact.
-  for(const legacyKey of [LEGACY_KEY,PREVIOUS_KEY])try{
+  for(const legacyKey of [LEGACY_KEY,PREVIOUS_KEY,CONTACT_KEY])try{
    const oldKey=legacyKey+(qa?'.qa':''),old=JSON.parse(storage.getItem(oldKey)||'null');
    if(!old||old.version===1){
     const cleared=[...(old?.cleared||[])],unlocked=[...(old?.unlocked||[])];

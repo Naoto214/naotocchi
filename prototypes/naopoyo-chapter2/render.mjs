@@ -1,5 +1,6 @@
+import {drawStone,drawMagicRock} from './stone.mjs';
 import {drawSprite} from '../naopoyo-rescue/sprites.mjs';
-import {drawGate,drawExit,drawCondition} from '../naopoyo-rescue/fixtures.mjs';
+import {drawExit,drawCondition} from '../naopoyo-rescue/fixtures.mjs';
 import {render as chapterRender} from '../naopoyo-chapter1/render.mjs';
 import {visualActors} from './session.mjs';
 export {loadGuests,eventCaption} from '../naopoyo-world/render.mjs';
@@ -23,15 +24,11 @@ export function render(canvas,q,{dpr=1}={}){
  const actors=visualActors(q),arrow=arrowPosition(s,[...s.actors,...actors]);
  if(arrow){c.fillStyle='#315c4c30';c.font='700 2.3px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText('↓',arrow.x+.5,arrow.y+.5);}
  // Root/stone upper edges exist only where a wall is actually solid.
- for(const [x,y]of s.walls){
-  c.fillStyle='#4b655a';c.beginPath();c.roundRect(x+.025,y+.055,.95,.93,.13);c.fill();
-  c.fillStyle='#8c9c85';c.beginPath();c.roundRect(x+.05,y+.045,.90,.72,.12);c.fill();
-  c.fillStyle='#b5c798';c.fillRect(x+.14,y+.075,.70,.065);
-  c.strokeStyle='#65735f';c.lineWidth=.04;c.beginPath();c.moveTo(x+.13,y+.55);c.lineTo(x+.47,y+.46);c.lineTo(x+.67,y+.68);c.stroke();
- }
+ for(const [x,y]of s.walls)drawStone(c,x,y);
  c.fillStyle='#617d50';c.fillRect(0,7.96,8,.04);
  for(const e of s.exits){drawExit(c,e);drawCondition(c,e);}
- for(const g of s.gates){drawGate(c,g,s.actors.some(a=>a.x===g.x&&a.y===g.y)?1:0);drawCondition(c,g);}
+ const phase=q.motion[0];
+ for(const g of s.gates){const entered=phase?.events.some(e=>e.type==='phase'&&e.x===g.x&&e.y===g.y);drawMagicRock(c,g,{occupied:s.actors.some(a=>a.x===g.x&&a.y===g.y),pulse:entered?Math.sin(Math.PI*Math.min(1,phase.elapsed/phase.duration)):0});}
  for(const p of s.spikes){c.fillStyle='#ac7089';c.fillRect(p.x+.1,p.y+.75,.8,.13);for(let n=0;n<p.power;n++){const x=p.x+.5+(n-(p.power-1)/2)*.23;c.beginPath();c.moveTo(x-.11,p.y+.75);c.lineTo(x,p.y+.32);c.lineTo(x+.11,p.y+.75);c.fill();}}
  c.restore();
  for(const a of actors){

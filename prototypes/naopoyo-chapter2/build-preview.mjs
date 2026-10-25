@@ -18,4 +18,4 @@ for(const s of stages)if(s.narrator)copy(s.narrator.asset);
 copy('assets/characters/companions/owl.png');copy('assets/world/forest-v1.webp');
 const html=fs.readFileSync(path.join(root,'prototypes/naopoyo-chapter2/index.html'),'utf8').replace('<head>','<head><base href="./prototypes/naopoyo-chapter2/">');fs.writeFileSync(path.join(out,'index.html'),html);hashes['index.html']=createHash('sha256').update(html).digest('hex');
 const commit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
-fs.writeFileSync(path.join(out,'version.json'),JSON.stringify({name:'NAOPOYO. こもれびの森 Pilot',sourceCommit:commit,base:'92ac654644351a169b9661e2319b0cd81670c497',files:hashes},null,2));console.log(JSON.stringify({out,files:Object.keys(hashes).length,sourceCommit:commit}));
+fs.writeFileSync(path.join(out,'version.json'),JSON.stringify({name:'NAOPOYO. こもれびの森',version:6,terrainRules:'magic-rock-v1',sourceCommit:commit,base:'92ac654644351a169b9661e2319b0cd81670c497',files:hashes},null,2));console.log(JSON.stringify({out,files:Object.keys(hashes).length,sourceCommit:commit}));

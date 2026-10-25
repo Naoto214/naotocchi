@@ -9,7 +9,7 @@ test('13→20 unlocks survive reload/retry and QA never changes normal records',
  const normal=new ForestProgress(storage);for(const id of normal.ids){assert.ok(normal.allowed(id));normal.clear(id);}const saved=m.get(KEY);p.clear(stages.at(-1).id);assert.equal(m.get(KEY),saved);assert.notEqual(KEY,QA_KEY);const restored=new ForestProgress(storage);assert.ok(restored.allowed(stages.at(-1).id));restored.select(stages[0].id);assert.ok(restored.allowed(stages.at(-1).id));
 });
 for(const n of [14,15,16,17,18,19,20])test(`${n} real session pointer steps, save/undo/retry and all-rescued witness`,()=>{
- const s=newStages.find(s=>s.number===n);assert.ok(s,`stage ${n} exists`);const witnesses=JSON.parse(fs.readFileSync(new URL('../../../docs/naopoyo-contact-20261025/solutions.json',import.meta.url)));const witness=witnesses.stages.find(w=>w.id===s.id);assert.ok(witness?.path.length);
+ const s=newStages.find(s=>s.number===n);assert.ok(s,`stage ${n} exists`);const witnesses=JSON.parse(fs.readFileSync(new URL('../../../docs/naopoyo-magic-rock-20261025/solutions.json',import.meta.url)));const witness=witnesses.stages.find(w=>w.id===s.id);assert.ok(witness?.path.length);
  let q=new ForestSession(s);const initial=structuredClone(q.state),total=mass(q.state);assert.deepEqual(q.state,createState(s));
  for(const [i,p]of witness.path.entries()){
   const a=q.state.actors.find(a=>a.x===p.at[0]&&a.y===p.at[1]);assert.ok(a);const before=structuredClone(q.state);
@@ -26,6 +26,6 @@ test('20 held drag survives fall, overflow and gate entry; one Undo restores ent
 });
 test('20 selected candidate factory preserves the audited geometry',async()=>{
  const {generateLedgeCandidates}=await import('../design/final-candidates.mjs'),c=generateLedgeCandidates().find(s=>s.id==='ledge-lift-3-4'),s=stages.find(s=>s.number===20);
- c.walls=c.walls.filter(p=>!['4,5'].includes(p.toString()));c.walls.push([5,3]);
+ c.walls=c.walls.filter(p=>!['4,5','4,4'].includes(p.toString()));c.walls.push([5,3]);
  for(const k of ['walls','gates','exits','spikes','actors'])assert.deepEqual(c[k],s[k]);
 });

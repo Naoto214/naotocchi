@@ -137,12 +137,12 @@ export function mount({qa = false} = {}) {
       $("status").textContent = r?.ok
         ? r.swapped ? "すれ違って場所を交換。そのまま続けよう。" : r.events?.some(e=>e.type==="merge"&&e.overflow) ? "合体して8に。余った仲間は元の場所へ、支えがなければ落ちるよ。" : "指を離さず、そのまま。"
         : r?.reason === "gate"
-          ? "門の数字に合う仲間だけが通れるよ。余った仲間の戻る場所も確かめよう。"
+          ? "魔法岩の数字に合う仲間だけが通れるよ。余った仲間の戻る場所も確かめよう。"
           : r?.reason === "corner"
             ? "両側が岩で閉じた角は通り抜けられないよ。"
           : r
           ? q.stage.gates.some(g => g.waveOnly)
-            ? "波の門は、表示の数字になって波で通ろう。"
+            ? "波の魔法岩は、表示の数字になって波で通ろう。"
             : "上へ登るには、今いる場所と行き先の下に足場が必要だよ。星とトゲは足場にならないよ。"
           : "キャラから、なぞってみよう";
     draw();
@@ -260,7 +260,7 @@ export function mount({qa = false} = {}) {
         $("status").textContent = moved.length
           ? `波${wave.dx < 0 ? "←" : "→"} ${moved.length}体を押した${moved.some((o) => o.merged) ? "・合体！" : moved.some((o) => o.split) ? "・分裂！" : "。指はそのまま。"}`
           : blocked.length
-            ? "波は届いたけれど、岩・門・地形で止まったよ。"
+            ? "波は届いたけれど、岩・魔法岩・地形で止まったよ。"
             : "波が通過。色のついた横一列が波の通り道。";
       } else if (q.lastResults.some((r) => r.split)) {
         hitUntil = q.time + 350;

@@ -1,0 +1,29 @@
+✔ rock8 horizontal and gravity passage/support level1 (3.727657ms)
+✔ rock and mismatched magic rock share ascent level1 (0.469132ms)
+✔ rock8 horizontal and gravity passage/support level2 (0.257859ms)
+✔ rock and mismatched magic rock share ascent level2 (0.92608ms)
+✔ rock8 horizontal and gravity passage/support level3 (0.241902ms)
+✔ rock and mismatched magic rock share ascent level3 (0.431563ms)
+✔ rock8 horizontal and gravity passage/support level4 (0.198386ms)
+✔ rock and mismatched magic rock share ascent level4 (0.128202ms)
+✔ rock8 horizontal and gravity passage/support level5 (0.141501ms)
+✔ rock and mismatched magic rock share ascent level5 (1.330964ms)
+✔ rock8 horizontal and gravity passage/support level6 (0.384235ms)
+✔ rock and mismatched magic rock share ascent level6 (0.117508ms)
+✔ rock8 horizontal and gravity passage/support level7 (0.127119ms)
+✔ rock and mismatched magic rock share ascent level7 (0.113446ms)
+✔ rock8 horizontal and gravity passage/support level8 (0.670335ms)
+✔ rock and mismatched magic rock share ascent level8 (0.152808ms)
+✔ corner uses moving number and legacy contact remains unchanged (0.347002ms)
+✔ reverse exchange has its own corner number (0.233889ms)
+✔ split level1 cannot escape a parent8-only rock corner (0.285957ms)
+✔ restore rejects old terrain rules and invalid rock occupants (0.304482ms)
+✔ merge overflow and external split cannot change rock qualification (0.62199ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 139.847622

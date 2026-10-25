@@ -9,7 +9,9 @@ export const wall=(s,x,y)=>x<0||y<0||x>=s.w||y>=s.h||s.walls.some(p=>p[0]===x&&p
 export const gateAllows=(s,a,x,y)=>{const g=at(s.gates,x,y);return !g||matchesCondition(a,g)};
 // Explicit opt-in: published boards retain their original contact semantics.
 export const contactRules=s=>s.movementRules==='contact-v1';
-export const cornerBlocked=(s,x,y,dx,dy)=>contactRules(s)&&dx!==0&&dy!==0&&wall(s,x+dx,y)&&wall(s,x,y+dy);
+export const magicRockRules=s=>s.terrainRules==='magic-rock-v1';
+export const terrainBlocks=(s,a,x,y)=>wall(s,x,y)||!gateAllows(s,a,x,y);
+export const cornerBlocked=(s,x,y,dx,dy,a=null)=>contactRules(s)&&dx!==0&&dy!==0&&(magicRockRules(s)&&a?terrainBlocks(s,a,x+dx,y)&&terrainBlocks(s,a,x,y+dy):wall(s,x+dx,y)&&wall(s,x,y+dy));
 const special=(s,x,y)=>at(s.gates,x,y)||at(s.exits,x,y)||at(s.spikes,x,y);
 const ordinaryEmpty=(s,x,y)=>!wall(s,x,y)&&!special(s,x,y)&&!at(s.actors,x,y);
 const compass=[[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]];
@@ -20,7 +22,7 @@ export function splitCandidates(s,x,y,dx,dy,actor=null,policy={}){
  for(let i=0;i<queue.length;i++){
   const p=queue[i];if(p.distance===2)continue;
   for(const [vx,vy] of directions){const nx=p.x+vx,ny=p.y+vy,key=`${nx},${ny}`;
-   if(seen.has(key)||cornerBlocked(s,p.x,p.y,vx,vy)||!ordinaryEmpty(s,nx,ny)||(actor&&policy.canEnter&&!policy.canEnter(s,actor,nx,ny)))continue;
+   if(seen.has(key)||cornerBlocked(s,p.x,p.y,vx,vy,actor?{...actor,level:1}:null)||!ordinaryEmpty(s,nx,ny)||(actor&&policy.canEnter&&!policy.canEnter(s,actor,nx,ny)))continue;
    seen.add(key);const candidate={x:nx,y:ny,distance:p.distance+1};out.push(candidate);queue.push(candidate);
   }
  }
@@ -47,7 +49,7 @@ function split(s,a,spike,dx,dy,ctx,result){
 }
 function arrival(s,a,dx,dy,ctx,result,entered=true){
  const gate=at(s.gates,a.x,a.y),exit=at(s.exits,a.x,a.y),spike=at(s.spikes,a.x,a.y);
- if(gate)gate.open=true;
+ if(gate){gate.open=true;if(magicRockRules(s)&&entered)ctx.events.push({type:'phase',id:a.id,x:a.x,y:a.y,level:a.level});}
  if(exit&&matchesCondition(a,exit)){
   s.rescued+=a.level;s.rescuedBySpecies[a.species]=(s.rescuedBySpecies[a.species]||0)+a.level;
   s.actors=s.actors.filter(v=>v!==a);ctx.families.delete(a.id);result.rescued+=a.level;
@@ -61,7 +63,7 @@ function exchange(s,a,b,dx,dy,ctx){
  // All checks see the same pre-exchange board; no partial mutations on refusal.
  for(const [v,vx,vy] of [[a,dx,dy],[b,-dx,-dy]]){
   if(wall(s,v.x+vx,v.y+vy))return {ok:false,reason:'wall'};
-  if(cornerBlocked(s,v.x,v.y,vx,vy))return {ok:false,reason:'corner'};
+  if(cornerBlocked(s,v.x,v.y,vx,vy,v))return {ok:false,reason:'corner'};
   if(!canAscend(s,v,vx,vy))return {ok:false,reason:'foothold'};
   if(!gateAllows(s,v,v.x+vx,v.y+vy))return {ok:false,reason:'gate'};
   if(ctx.policy?.canEnter&&!ctx.policy.canEnter(s,v,v.x+vx,v.y+vy))return {ok:false,reason:'terrain'};
@@ -76,7 +78,7 @@ function exchange(s,a,b,dx,dy,ctx){
 function enter(s,a,dx,dy,ctx,fall=false){
  const x=a.x+dx,y=a.y+dy,reject=reason=>({ok:false,reason});
  if(wall(s,x,y))return reject('wall');
- if(cornerBlocked(s,a.x,a.y,dx,dy))return reject('corner');
+ if(cornerBlocked(s,a.x,a.y,dx,dy,a))return reject('corner');
  if(ctx.policy?.canEnter&&!ctx.policy.canEnter(s,a,x,y))return reject('terrain');
  const target=at(s.actors,x,y),gate=at(s.gates,x,y),exit=at(s.exits,x,y),spike=at(s.spikes,x,y);
  if(target){
@@ -152,7 +154,7 @@ export function settle(s,ctx=context()){
 // Versioned physics: omitted rule preserves published v2 boards.
 export const supportedGravity=s=>s.gravityRules==='supported-v1';
 export function supportsAt(s,x,y,a,excludeId=null){
- return wall(s,x,y)||s.actors.some(v=>v.x===x&&v.y===y&&v.id!==excludeId)||s.gates.some(g=>g.x===x&&g.y===y&&!matchesCondition(a,g))||(supportedGravity(s)&&!contactRules(s)&&s.exits.some(e=>e.x===x&&e.y===y&&!matchesCondition(a,e)));
+ return terrainBlocks(s,a,x,y)||s.actors.some(v=>v.x===x&&v.y===y&&v.id!==excludeId)||(supportedGravity(s)&&!contactRules(s)&&s.exits.some(e=>e.x===x&&e.y===y&&!matchesCondition(a,e)));
 }
 export function canAscend(s,a,dx,dy){
  if(!s.gravity||dy>=0)return true;
@@ -177,7 +179,7 @@ function resolvedStep(s,a,dx,dy,policy,activeId,countMove){
 export function totals(s){const result={...s.rescuedBySpecies};for(const a of s.actors)result[a.species]=(result[a.species]||0)+a.level;return result}
 export function validState(stage,s){
  try{
-  if(!s||s.id!==stage.id||s.w!==stage.w||s.h!==stage.h||s.occupiedSpikeMode!==stage.occupiedSpikeMode||s.gravityRules!==stage.gravityRules||s.movementRules!==stage.movementRules)return false;
+  if(!s||s.id!==stage.id||s.w!==stage.w||s.h!==stage.h||s.occupiedSpikeMode!==stage.occupiedSpikeMode||s.gravityRules!==stage.gravityRules||s.movementRules!==stage.movementRules||s.terrainRules!==stage.terrainRules)return false;
   for(const key of ['rescued','moves'])if(!Number.isSafeInteger(s[key])||s[key]<0)return false;
   if(!Number.isSafeInteger(s.nextId)||s.nextId<1)return false;
   for(const key of ['walls','spikes','exits','gravity'])if(JSON.stringify(s[key])!==JSON.stringify(stage[key]))return false;
