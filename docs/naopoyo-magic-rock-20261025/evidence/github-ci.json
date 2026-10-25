@@ -1,47 +1,7 @@
 {
-  "observedAt": "2026-10-25T07:57:07.864Z",
+  "observedAt": "2026-10-25T08:11:43.218Z",
   "implementationCommit": "73e358df74d70a805682c5e4538233e6f61c7929",
   "workflow_runs": [
-    {
-      "id": 40173929296,
-      "name": "Runtime smoke test",
-      "status": "in_progress",
-      "conclusion": null,
-      "run_number": 1667,
-      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929296/jobs",
-      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929296/logs",
-      "workflow_id": 351596585
-    },
-    {
-      "id": 40173929261,
-      "name": "World visual quality",
-      "status": "in_progress",
-      "conclusion": null,
-      "run_number": 269,
-      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929261/jobs",
-      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929261/logs",
-      "workflow_id": 374398717
-    },
-    {
-      "id": 40173929267,
-      "name": "Home layout",
-      "status": "in_progress",
-      "conclusion": null,
-      "run_number": 1145,
-      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929267/jobs",
-      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929267/logs",
-      "workflow_id": 355795733
-    },
-    {
-      "id": 40173929260,
-      "name": "Naopoyo Chapter 2 Pilot",
-      "status": "in_progress",
-      "conclusion": null,
-      "run_number": 6,
-      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929260/jobs",
-      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929260/logs",
-      "workflow_id": 394796547
-    },
     {
       "id": 40173929264,
       "name": "Naopoyo official release",
@@ -91,6 +51,46 @@
       "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929263/jobs",
       "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929263/logs",
       "workflow_id": 393756683
+    },
+    {
+      "id": 40173929296,
+      "name": "Runtime smoke test",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1667,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929296/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929296/logs",
+      "workflow_id": 351596585
+    },
+    {
+      "id": 40173929260,
+      "name": "Naopoyo Chapter 2 Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 6,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929260/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929260/logs",
+      "workflow_id": 394796547
+    },
+    {
+      "id": 40173929261,
+      "name": "World visual quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 269,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929261/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929261/logs",
+      "workflow_id": 374398717
+    },
+    {
+      "id": 40173929267,
+      "name": "Home layout",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1145,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929267/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40173929267/logs",
+      "workflow_id": 355795733
     }
   ]
 }

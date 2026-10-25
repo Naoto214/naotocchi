@@ -45,14 +45,14 @@
 
 ## GitHub CI
 
-観測時刻: 2026-10-25T07:57:07.864Z。対象は実装commit `73e358df74d70a805682c5e4538233e6f61c7929`。5成功・4実行中、失敗の報告なし。第2章puzzle/cardジョブも成功。以下は観測時点の記録で、最新状態は各runとPR説明を参照。
+観測時刻: 2026-10-25T08:11:43.218Z。対象は実装commit `73e358df74d70a805682c5e4538233e6f61c7929`。**9/9ワークフロー成功、失敗・実行中0**。第2章puzzle/card/main-regression、Worldの全ジョブ、Homeの両ジョブも成功。
 
 |ワークフロー|状態|
 |---|---|
-|[Runtime smoke test](https://github.com/Naoto214/naotocchi/actions/runs/40173929296)|in_progress|
-|[World visual quality](https://github.com/Naoto214/naotocchi/actions/runs/40173929261)|in_progress|
-|[Home layout](https://github.com/Naoto214/naotocchi/actions/runs/40173929267)|in_progress|
-|[Naopoyo Chapter 2 Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40173929260)|in_progress|
+|[Runtime smoke test](https://github.com/Naoto214/naotocchi/actions/runs/40173929296)|success|
+|[World visual quality](https://github.com/Naoto214/naotocchi/actions/runs/40173929261)|success|
+|[Home layout](https://github.com/Naoto214/naotocchi/actions/runs/40173929267)|success|
+|[Naopoyo Chapter 2 Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40173929260)|success|
 |[Naopoyo official release](https://github.com/Naoto214/naotocchi/actions/runs/40173929264)|success|
 |[Pages runtime package](https://github.com/Naoto214/naotocchi/actions/runs/40173929286)|success|
 |[Naopoyo World Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40173929290)|success|
@@ -69,3 +69,4 @@
 - 最短性は11〜14だけBFSで証明。15〜20の手数は解答存在の証拠。
 - 19の余剰分離なし探索は上限に達したため必要性未証明。20は分裂・合体・余剰分離それぞれが必要と全探索で確認。
 - Cloud Chromeで比較表示・19盤面・QA選択・8の実ドラッグ透過を確認。最終公開URLでログイン後の全操作は未確認。配信一致とsession自動検証で補完するが、実機QAの代用とはしない。
+- 追加の独立した小画面ブラウザ実行は、ローカルにChromium/WebKit実行ファイルがなく未実施。既存の自動テスト成功件数へ含めない。
