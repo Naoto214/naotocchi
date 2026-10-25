@@ -50,7 +50,7 @@ edge15.onclick=async()=>{
   await start();for(let n=0;n<100&&!f.contentWindow.HomeV15QA;n++)await new Promise(r=>setTimeout(r,100));const api=f.contentWindow.HomeV15QA;
   for(const action of ['prepare','married','noPartner','infinite']){
    api[action]();await new Promise(r=>setTimeout(r,150));const d=f.contentDocument,dev=d.getElementById('device').getBoundingClientRect(),header=d.querySelector('.device-header').getBoundingClientRect(),actions=d.querySelector('.header-actions').getBoundingClientRect(),badges=d.querySelector('.cast-badges');
-   const row={width,height,action,deviceRight:dev.right,headerRight:header.right,actionsRight:actions.right,badges:d.querySelectorAll('.ending-badge').length,badgeViewport:badges.clientWidth,badgeContent:badges.scrollWidth,lifeHidden:d.getElementById('deathMeterItem').classList.contains('hidden')};rows.push(row);
+   const row={width,height,action,deviceRight:dev.right,headerRight:header.right,actionsRight:actions.right,badges:d.querySelectorAll('.ending-badge').length,badgeViewport:badges.clientWidth,badgeContent:badges.scrollWidth,lifeHidden:getComputedStyle(d.getElementById('deathMeterItem')).display==='none'};rows.push(row);
    if(actions.right>dev.right+1||header.right>dev.right+1)errors.push({...row,reason:'header clips menu'});
    if(action==='married'&&row.badges!==5)errors.push({...row,reason:'badge missing'});
    if(action==='infinite'&&!row.lifeHidden)errors.push({...row,reason:'infinite life visible'});

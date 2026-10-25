@@ -246,3 +246,6 @@ body[data-home-terrain="true"] .device[data-home-fixed="true"] #petArea{min-heig
 }
 
 body[data-home-terrain="true"] .device .home-meters #careMeters:has(#deathMeterItem.hidden){grid-template-columns:repeat(4,minmax(0,1fr))}
+
+/* The moved life gauge retains the legacy infinite-mode visibility contract. */
+#deathMeterItem.hidden{display:none!important}
