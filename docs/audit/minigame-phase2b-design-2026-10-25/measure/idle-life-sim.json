@@ -1,0 +1,260 @@
+{
+ "order": [
+  "mini-golf-physics",
+  "connect-four",
+  "gomoku-9",
+  "sugoroku-race",
+  "hang-glider-3d",
+  "submarine-3d",
+  "reversi-6",
+  "falling-block-puzzle",
+  "plane-landing",
+  "curling-ice",
+  "sky-shooter",
+  "tilt-maze-3d",
+  "ring-flight-3d",
+  "air-hockey",
+  "downhill-snow"
+ ],
+ "log": [
+  {
+   "id": "mini-golf-physics",
+   "last": 64,
+   "rank": "B",
+   "stars": {
+    "wonder": 1,
+    "courage": 1,
+    "kindness": 1,
+    "perseverance": 2
+   },
+   "favoriteGenre": null
+  },
+  {
+   "id": "connect-four",
+   "last": 55,
+   "rank": "B",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 3
+   },
+   "favoriteGenre": null
+  },
+  {
+   "id": "gomoku-9",
+   "last": 55,
+   "rank": "B",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 3
+   },
+   "favoriteGenre": null
+  },
+  {
+   "id": "sugoroku-race",
+   "last": 72,
+   "rank": "B",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 4
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "hang-glider-3d",
+   "last": 66,
+   "rank": "B",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 4
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "submarine-3d",
+   "last": 18,
+   "rank": "D",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 4
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "reversi-6",
+   "last": 50,
+   "rank": "C",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "falling-block-puzzle",
+   "last": 36,
+   "rank": "C",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "plane-landing",
+   "last": 47,
+   "rank": "C",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "curling-ice",
+   "last": 45,
+   "rank": "C",
+   "stars": {
+    "wonder": 1,
+    "courage": 2,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "sky-shooter",
+   "last": 35,
+   "rank": "C",
+   "stars": {
+    "wonder": 1,
+    "courage": 3,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "tilt-maze-3d",
+   "last": 15,
+   "rank": "D",
+   "stars": {
+    "wonder": 1,
+    "courage": 3,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "ring-flight-3d",
+   "last": 56,
+   "rank": "B",
+   "stars": {
+    "wonder": 1,
+    "courage": 3,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "air-hockey",
+   "last": 50,
+   "rank": "C",
+   "stars": {
+    "wonder": 1,
+    "courage": 3,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  },
+  {
+   "id": "downhill-snow",
+   "last": 47,
+   "rank": "C",
+   "stars": {
+    "wonder": 1,
+    "courage": 3,
+    "kindness": 1,
+    "perseverance": 5
+   },
+   "favoriteGenre": "board"
+  }
+ ],
+ "natural": {
+  "courage": [
+   [
+    "genre:sports",
+    "genre:board",
+    "genre:drive3d",
+    "genre:puzzle",
+    "genre:action"
+   ],
+   [],
+   []
+  ],
+  "perseverance": [
+   [
+    "game:mini-golf-physics",
+    "game:connect-four",
+    "game:gomoku-9",
+    "game:sugoroku-race",
+    "game:hang-glider-3d",
+    "game:reversi-6"
+   ],
+   [
+    "game:mini-golf-physics",
+    "game:connect-four",
+    "game:gomoku-9",
+    "game:sugoroku-race",
+    "game:hang-glider-3d",
+    "game:ring-flight-3d"
+   ],
+   [
+    "game:connect-four",
+    "game:gomoku-9",
+    "game:sugoroku-race",
+    "game:hang-glider-3d",
+    "game:reversi-6",
+    "game:falling-block-puzzle"
+   ]
+  ]
+ },
+ "points": {
+  "courage": 20,
+  "perseverance": 72
+ },
+ "summary": {
+  "temperament": {
+   "curiosity": 3,
+   "boldness": 3,
+   "sociability": 3,
+   "persistence": 3
+  },
+  "hearts": {
+   "wonder": 1,
+   "courage": 3,
+   "kindness": 1,
+   "perseverance": 5
+  },
+  "place": null,
+  "game": "board"
+ }
+}

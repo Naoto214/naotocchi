@@ -1,0 +1,11 @@
+const fs=require('fs');const P=__dirname;
+const recs=fs.readdirSync(P+'/raw').filter(f=>f.endsWith('.jsonl')).flatMap(f=>fs.readFileSync(P+'/raw/'+f,'utf8').trim().split('\n').map(JSON.parse));
+const by={};for(const r of recs){(by[r.id]??={id:r.id,idle:[],random:[],mash:[],onetap:[]})[r.cond].push(r);}
+const genre=JSON.parse(fs.readFileSync(P+'/genres.json','utf8'));
+const st=a=>{const s=a.filter(r=>r.score!==null).map(r=>Math.round(r.score));return{n:a.length,ended:a.filter(r=>r.ended).length,err:a.filter(r=>r.error).length,min:s.length?Math.min(...s):null,max:s.length?Math.max(...s):null,avg:s.length?+(s.reduce((x,y)=>x+y,0)/s.length).toFixed(1):null,c:s.filter(x=>x>=35).length,b:s.filter(x=>x>=55).length,scores:s,endMs:a.map(r=>Math.round(r.endMs/100)/10),inputs:a.map(r=>r.inputs),targets:Math.max(...a.map(r=>r.targets)),errors:[...new Set(a.map(r=>r.error).filter(Boolean))]};};
+const rows=Object.values(by).map(g=>({id:g.id,cat:genre[g.id][0],genre:genre[g.id][1],idle:st(g.idle),random:st(g.random),mash:st(g.mash),onetap:st(g.onetap)}));
+fs.writeFileSync(P+'/summary.json',JSON.stringify(rows,null,1));
+const csv=['id,category,genre,idle_scores,idle_ended,idle_endSec,rand_scores,rand_avg,rand_max,rand_C,rand_B,rand_ended,rand_targets,mash_scores,mash_avg,mash_max,mash_C,mash_B,mash_ended,onetap_scores,onetap_ended,errors'];
+for(const r of rows)csv.push([r.id,r.cat,r.genre,r.idle.scores.join(' '),`${r.idle.ended}/${r.idle.n}`,r.idle.endMs.join(' '),r.random.scores.join(' '),r.random.avg,r.random.max,r.random.c,r.random.b,`${r.random.ended}/${r.random.n}`,r.random.targets,r.mash.scores.join(' '),r.mash.avg,r.mash.max,r.mash.c,r.mash.b,`${r.mash.ended}/${r.mash.n}`,r.onetap.scores.join(' '),`${r.onetap.ended}/${r.onetap.n}`,[...r.idle.errors,...r.random.errors,...r.mash.errors,...r.onetap.errors].join('|').replace(/,/g,';')].join(','));
+fs.writeFileSync(P+'/summary.csv',csv.join('\n'));
+for(const r of rows)console.log(r.id.padEnd(21),r.genre.padEnd(8),'I',(r.idle.scores.join('/')||'-').padEnd(15),r.idle.ended+'/'+r.idle.n,'R avg',String(r.random.avg).padEnd(5),'max',String(r.random.max).padEnd(4),'C',r.random.c,'B',r.random.b,'end',r.random.ended,'| M avg',String(r.mash.avg).padEnd(5),'max',String(r.mash.max).padEnd(4),'C',r.mash.c,'B',r.mash.b,'end',r.mash.ended,r.idle.errors.concat(r.random.errors,r.mash.errors).join('|'));
