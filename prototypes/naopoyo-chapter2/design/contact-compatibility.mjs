@@ -1,0 +1,4 @@
+import fs from 'node:fs';import {stages} from '../../naopoyo-chapter1/stages.mjs';import {createState,move,complete,settle} from '../../naopoyo-v2/engine.mjs';
+const witnesses=JSON.parse(fs.readFileSync('docs/naopoyo-chapter1-20261023/solutions.json')),rows=[];
+for(const stage of stages){const witness=witnesses.find(w=>w.stage===stage.id),row={id:stage.id};for(const mode of ['published','hypotheticalContact']){const s=createState(mode==='published'?stage:{...stage,movementRules:'contact-v1'});settle(s);let error=null;for(const [i,c]of witness.commands.entries()){const r=move(s,c.id,c.dx,c.dy);if(!r.ok){error={step:i,reason:r.reason};break;}}row[mode]={complete:complete(s),error};}rows.push(row);}
+fs.writeFileSync('docs/naopoyo-contact-20261025/evidence/chapter1-comparison.json',JSON.stringify(rows,null,2));console.log(JSON.stringify(rows));

@@ -19,9 +19,9 @@ export const stages=[
   difficulty:4,walls:[[2,6],[4,6],[5,6],[6,6]],gates:[{x:2,y:7,exact:8}],exits:[{x:4,y:5,exact:4},{x:7,y:7,exact:8}],
   discovery:'足場を残して先へ渡り、下の道から同じ足場を運び直す。最後に足場役を回収する。',
   lesson:'先へ進む仲間と、あとに残る仲間。',story:'星は見える。でも岩と岩のあいだには、もう一つのすきまがあった。「あとで、迎えにくるね」',ending:'最後のひとりも、星の向こうへ。森の奥で、木の葉が小さく揺れた。',
-  hints:['8を支えにする道と、8だけが入れる星を支えにする道があるよ。','まず4を左の岩の上へ。8だけが、岩の下の門を通れるよ。','4を岩の上に残し、8を門の右のすきまへ運ぶ。4をその上に落として右上の星へ。最後に8を下の星へ。']
+  hints:['星は足場にならないよ。4を渡すために、8を支えとして残そう。','まず4を左の岩の上へ。8だけが、岩の下の門を通れるよ。','4を岩の上に残し、8を門の右のすきまへ運ぶ。4をその上に落として右上の星へ。最後に8を下の星へ。']
  })
 ];
 stages.push(...expansionStages);
-for(const s of stages){s.gravityRules='supported-v1';s.revision=2;}
+for(const s of stages){s.gravityRules='supported-v1';s.movementRules='contact-v1';s.revision=3;}
 export const ids=stages.map(s=>s.id);

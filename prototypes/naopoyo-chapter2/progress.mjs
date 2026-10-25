@@ -2,7 +2,8 @@ import {Progress,KEY as ORIGINAL_KEY,QA_KEY as ORIGINAL_QA} from '../naopoyo-cha
 import {stages as chapter1} from '../naopoyo-chapter1/stages.mjs';
 import {stages} from './stages.mjs';
 export const LEGACY_KEY='naopoyo.komorebi.pilot.20261024.v1';
-export const KEY='naopoyo.komorebi.supported.20261024.v1',QA_KEY=KEY+'.qa';
+export const PREVIOUS_KEY='naopoyo.komorebi.supported.20261024.v1';
+export const KEY='naopoyo.komorebi.contact.20261025.v1',QA_KEY=KEY+'.qa';
 export const allStages=[...chapter1,...stages];
 export class ForestProgress extends Progress{
  merge(raw,restore=false){
@@ -37,8 +38,8 @@ export class ForestProgress extends Progress{
   this.actualKey=target;
   // Physics changes never reinterpret or overwrite old boards/Undo snapshots.
   // Read progress/append-only markers, but leave legacy storage entirely intact.
-  try{
-   const oldKey=LEGACY_KEY+(qa?'.qa':''),old=JSON.parse(storage.getItem(oldKey)||'null');
+  for(const legacyKey of [LEGACY_KEY,PREVIOUS_KEY])try{
+   const oldKey=legacyKey+(qa?'.qa':''),old=JSON.parse(storage.getItem(oldKey)||'null');
    if(!old||old.version===1){
     const cleared=[...(old?.cleared||[])],unlocked=[...(old?.unlocked||[])];
     for(const id of this.ids){if(storage.getItem(oldKey+'.cleared.'+id)==='1')cleared.push(id);if(storage.getItem(oldKey+'.unlocked.'+id)==='1')unlocked.push(id);}

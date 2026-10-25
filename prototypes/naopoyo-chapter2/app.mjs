@@ -1,4 +1,4 @@
-import {ForestSession as WorldSession} from "./session.mjs";
+import {ForestSession as WorldSession, pointerActor} from "./session.mjs";
 import { stages as defaultStages } from "./stages.mjs";
 import { complete, mass } from "../naopoyo-v2/engine.mjs";
 import { loadSprites } from "../naopoyo-rescue/sprites.mjs";
@@ -111,12 +111,11 @@ export function mount({qa = false} = {}) {
     };
   }
   canvas.addEventListener("pointerdown", (e) => {
-    if (pointer !== null || q.paused || complete(q.state) || q.motion.length) return;
+    if (pointer !== null || q.paused || complete(q.state)) return;
     const p = point(e),
-      a = q.state.actors.find(
-        (a) => a.x === Math.floor(p.x) && a.y === Math.floor(p.y),
-      );
+      a = pointerActor(q,p);
     if (a && q.begin(a.id, p)) {
+      q.motion=[];
       e.preventDefault();
       pointer = e.pointerId;
       canvas.setPointerCapture(pointer);
@@ -136,13 +135,15 @@ export function mount({qa = false} = {}) {
       $("status").textContent = `${r.split}つにほどけた。そのまま続けよう。`;
     } else
       $("status").textContent = r?.ok
-        ? r.events?.some(e=>e.type==="merge"&&e.overflow) ? "合体して8に。余った仲間は元の場所へ、支えがなければ落ちるよ。" : "指を離さず、そのまま。"
+        ? r.swapped ? "すれ違って場所を交換。そのまま続けよう。" : r.events?.some(e=>e.type==="merge"&&e.overflow) ? "合体して8に。余った仲間は元の場所へ、支えがなければ落ちるよ。" : "指を離さず、そのまま。"
         : r?.reason === "gate"
           ? "門の数字に合う仲間だけが通れるよ。余った仲間の戻る場所も確かめよう。"
+          : r?.reason === "corner"
+            ? "両側が岩で閉じた角は通り抜けられないよ。"
           : r
           ? q.stage.gates.some(g => g.waveOnly)
             ? "波の門は、表示の数字になって波で通ろう。"
-            : "上へ登るには、今いる場所と行き先の下に足場が必要だよ。トゲは足場にならないよ。"
+            : "上へ登るには、今いる場所と行き先の下に足場が必要だよ。星とトゲは足場にならないよ。"
           : "キャラから、なぞってみよう";
     draw();
   }

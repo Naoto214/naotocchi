@@ -1,4 +1,4 @@
-// Authored stage definitions; new-physics evidence: docs/naopoyo-gravity-20261024/
+// Authored definitions; contact-v1 evidence: docs/naopoyo-contact-20261025/
 export const expansionStages=[
   {
     "id": "komorebi-fall-order",
@@ -65,7 +65,7 @@ export const expansionStages=[
     ],
     "number": 14,
     "title": "14 落とす順番",
-    "revision": 1,
+    "revision": 3,
     "theme": "forest",
     "showSpecies": false,
     "difficulty": 3,
@@ -78,7 +78,9 @@ export const expansionStages=[
       "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
       "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
     ],
-    "hint": "星は4と8。いまいるのは5と5と2。"
+    "hint": "星は4と8。いまいるのは5と5と2。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1"
   },
   {
     "id": "komorebi-thorn-ledge",
@@ -140,7 +142,7 @@ export const expansionStages=[
     ],
     "number": 15,
     "title": "15 ほどける足場",
-    "revision": 1,
+    "revision": 3,
     "theme": "forest",
     "showSpecies": false,
     "difficulty": 4,
@@ -153,7 +155,9 @@ export const expansionStages=[
       "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
       "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
     ],
-    "hint": "トゲは足場にならない。このトゲの下には岩があるよ。"
+    "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1"
   },
   {
     "id": "komorebi-woven-path",
@@ -224,7 +228,7 @@ export const expansionStages=[
     ],
     "number": 16,
     "title": "16 小さな橋を編む",
-    "revision": 1,
+    "revision": 3,
     "theme": "forest",
     "showSpecies": false,
     "difficulty": 4,
@@ -237,7 +241,9 @@ export const expansionStages=[
       "分かれた1は、数を足す材料にも、次の仲間が届く足場にもなる。",
       "左の8を右上へ重ねて上下を作り、8を中央のトゲへ。残った5も岩の上へ運ぼう。"
     ],
-    "hint": "上の8を先に帰すには、トゲの向こうで8を作る必要がある。"
+    "hint": "上の8を先に帰すには、トゲの向こうで8を作る必要がある。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1"
   },
   {
     "id": "komorebi-relay-foothold",
@@ -311,7 +317,7 @@ export const expansionStages=[
     ],
     "number": 17,
     "title": "17 支える役を交代",
-    "revision": 1,
+    "revision": 3,
     "theme": "forest",
     "showSpecies": false,
     "difficulty": 5,
@@ -324,7 +330,9 @@ export const expansionStages=[
       "トゲを越えただけでは届かない。途中の岩の高さと、支える8の場所を考えよう。",
       "左の8を右上へ。上下に分かれてからトゲへ入り、右側に運ぶ仲間と残す仲間を選ぼう。"
     ],
-    "hint": "3の星は、これまでより一段高い。"
+    "hint": "3の星は、これまでより一段高い。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1"
   },
   {
     "id": "komorebi-remainder-lift",
@@ -341,10 +349,6 @@ export const expansionStages=[
         5
       ],
       [
-        3,
-        6
-      ],
-      [
         5,
         6
       ],
@@ -359,12 +363,16 @@ export const expansionStages=[
       [
         4,
         7
+      ],
+      [
+        3,
+        7
       ]
     ],
     "gates": [
       {
         "x": 3,
-        "y": 7,
+        "y": 6,
         "exact": 8
       }
     ],
@@ -415,7 +423,7 @@ export const expansionStages=[
     ],
     "number": 18,
     "title": "18 あまりを上へ",
-    "revision": 1,
+    "revision": 3,
     "theme": "forest",
     "showSpecies": false,
     "difficulty": 6,
@@ -426,9 +434,11 @@ export const expansionStages=[
     "hints": [
       "全員で16。星は3と5だけ。",
       "二つの8で門を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
-      "まず二つの8を作り、下の門へ。門から右上のトゲへは、その下の岩を足場に登れるよ。"
+      "二つの8を作ろう。下の岩へ登って8の門を渡り、右隣のトゲで分けよう。"
     ],
-    "hint": "全員で16。星は3と5だけ。"
+    "hint": "全員で16。星は3と5だけ。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1"
   },
   {
     "id": "komorebi-reverse-stars",
@@ -505,7 +515,7 @@ export const expansionStages=[
     ],
     "number": 19,
     "title": "19 星から逆算",
-    "revision": 1,
+    "revision": 3,
     "theme": "forest",
     "showSpecies": false,
     "difficulty": 7,
@@ -518,7 +528,9 @@ export const expansionStages=[
       "全員で16。3を二回、5を二回帰す形を考えよう。5を門の上へ上げる横の支えを残して。",
       "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
     ],
-    "hint": "8の門は、5を通さない。上から落ちる5もそこで止まれる。"
+    "hint": "8の門は、5を通さない。上から落ちる5もそこで止まれる。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1"
   },
   {
     "id": "komorebi-forest-trial",
@@ -548,10 +560,6 @@ export const expansionStages=[
       ],
       [
         4,
-        5
-      ],
-      [
-        4,
         4
       ],
       [
@@ -559,12 +567,8 @@ export const expansionStages=[
         6
       ],
       [
-        4,
-        7
-      ],
-      [
         5,
-        4
+        3
       ]
     ],
     "gates": [
@@ -636,24 +640,26 @@ export const expansionStages=[
     ],
     "number": 20,
     "title": "20 森の結び目",
-    "revision": 1,
+    "revision": 3,
     "theme": "forest",
     "showSpecies": false,
     "difficulty": 8,
-    "discovery": "8で下の門を通り、左右で3と4を作って上の作業場へ運び7にする。残る9を3ずつ回収する。",
+    "discovery": "二つの8で門を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
     "lesson": "支える場所も、分かれる順番も、きみたちで。",
     "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
     "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
     "hints": [
-      "下の門は8。上の門は3と4。でも上の星は7。",
-      "7は上の門を通れない。門の向こうで3＋4を組もう。その材料を残しつつ、下の3の星から先に仲間を帰そう。",
-      "二つの8で下の門を通り、岩に支えられたトゲで分けよう。上の作業場で7を作ったら、左上の岩へ登って星へ。"
+      "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+      "下の門の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+      "3の門の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
     ],
-    "hint": "下の門は8。上の門は3と4。でも上の星は7。",
+    "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
     "narrator": {
       "id": "owl",
       "name": "ものしりふくろう",
       "asset": "assets/characters/companions/owl.png"
-    }
+    },
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1"
   }
 ];

@@ -1,0 +1,325 @@
+[
+  {
+    "id": "komorebi-thorn-ledge",
+    "number": 15,
+    "stage": {
+      "id": "komorebi-thorn-ledge",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 15,
+      "title": "15 ほどける足場",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+      "lesson": "トゲは仕掛け。その下の岩が足場。",
+      "story": "岩の切れ目に、二本のトゲが光っていた。",
+      "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+      "hints": [
+        "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+        "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+      ],
+      "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "complete": true
+    },
+    "result": {
+      "status": "limit",
+      "visited": 96301,
+      "expanded": 68411,
+      "edges": 1012758,
+      "shortestProven": false,
+      "elapsedMs": 25001,
+      "method": "bfs"
+    }
+  },
+  {
+    "id": "komorebi-remainder-lift",
+    "number": 18,
+    "stage": {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、門の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "門には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で門を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "まず二つの8を作り、下の門へ。門から右上のトゲへは、その下の岩を足場に登れるよ。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "error": "witness rejected 4: corner"
+    },
+    "result": {
+      "status": "exhausted",
+      "visited": 34,
+      "expanded": 34,
+      "edges": 221,
+      "shortestProven": false,
+      "elapsedMs": 9,
+      "method": "bfs"
+    }
+  },
+  {
+    "id": "komorebi-reverse-stars",
+    "number": 19,
+    "stage": {
+      "id": "komorebi-reverse-stars",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 2,
+          "y": 7,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "number": 19,
+      "title": "19 星から逆算",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 7,
+      "discovery": "3と5の出口から必要な組み合わせを逆算し、8の門が小さい仲間を止める性質を足場として使う。",
+      "lesson": "行き止まりに見える場所が、支えになる。",
+      "story": "右の星は高い。足もとには、8しか通れない門があった。",
+      "ending": "帰り道を決めてから、支える場所を選んだ。",
+      "hints": [
+        "8の門は、5を通さない。上から落ちる5もそこで止まれる。",
+        "全員で16。3を二回、5を二回帰す形を考えよう。5を門の上へ上げる横の支えを残して。",
+        "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+      ],
+      "hint": "8の門は、5を通さない。上から落ちる5もそこで止まれる。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "error": "witness rejected 18: foothold"
+    },
+    "result": {
+      "status": "limit",
+      "visited": 119186,
+      "expanded": 69681,
+      "edges": 1005297,
+      "shortestProven": false,
+      "elapsedMs": 25001,
+      "method": "bfs"
+    }
+  }
+]
