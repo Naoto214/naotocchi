@@ -4,8 +4,9 @@ before_v1 : stage-4 V1 round robin as run (old partner list, V1 seeds).
 before_pd : V1 games without the partner deck + partner games of the old list (L10) from the
             partner-deck comparison (PD seeds).
 after     : V1 games without the partner deck + partner games of the adopted list (L6cf, same PD seeds).
+after_all : after + the adopted list's games on the independent seeds of the extra check (runs/X-shard*, X1).
 before_pd and after differ only in the partner deck's 40 cards. Mirror games are excluded from deck
-score rates. Usage: crossdeck.py <out.json> [extra.jsonl.gz ...]
+score rates. Usage: crossdeck.py <out.json>
 """
 import json,gzip,sys,os,collections,math
 H=os.path.dirname(os.path.abspath(__file__));VR=os.path.join(H,'../balance-verification-20261022-variety/runs');PR=os.path.join(H,'../partner-deck-20261025/runs')
@@ -41,9 +42,11 @@ def table(gs):
 base=[g for g in games(v1) if 'partner' not in (g['A'],g['B'])]
 res=dict(schema='cpu_seven_deck_balance.v1',sources=dict(v1='balance-verification-20261022-variety/runs/V1-shard*.jsonl.gz',pd_L10='partner-deck-20261025/runs/PD-shard*.jsonl.gz (L10)',pd_L6cf='partner-deck-20261025/runs/PD2-shard*.jsonl.gz (L6cf)'),
  before_v1=table(games(v1)),before_pd=table(base+games(pd['L10'])),after=table(base+games(pd['L6cf'])))
+xr=[r for k in range(4) for r in load(f'{H}/runs/X-shard{k}.jsonl.gz') if r['group'].endswith(':X1')]
+if xr:res['after_all']=table(base+games(pd['L6cf'])+games(xr));res['sources']['x1']='deck-balance-20261025/runs/X-shard*.jsonl.gz (X1)'
 json.dump(res,open(sys.argv[1],'w'),indent=1,ensure_ascii=False)
-for k in ('before_v1','before_pd','after'):
+for k in [k for k in ('before_v1','before_pd','after','after_all') if k in res]:
   t=res[k];print(k,t['games'],'first',t['first_player_score'],'range',t['range'])
   for d,v in t['decks'].items():print('  ',d.ljust(10),v)
 print('partner vs each (before_pd -> after):')
-for o in ['main','companion','challenge','growth','item','balance']:print('  ',o,res['before_pd']['pairs'][f'partner|{o}'],'->',res['after']['pairs'][f'partner|{o}'],' v1:',res['before_v1']['pairs'][f'partner|{o}'])
+for o in ['main','companion','challenge','growth','item','balance']:print('  ',o,res['before_pd']['pairs'][f'partner|{o}'],'->',res['after']['pairs'][f'partner|{o}'],' all:',res.get('after_all',{}).get('pairs',{}).get(f'partner|{o}'),' v1:',res['before_v1']['pairs'][f'partner|{o}'])

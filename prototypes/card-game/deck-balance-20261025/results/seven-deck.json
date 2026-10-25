@@ -3,7 +3,8 @@
  "sources": {
   "v1": "balance-verification-20261022-variety/runs/V1-shard*.jsonl.gz",
   "pd_L10": "partner-deck-20261025/runs/PD-shard*.jsonl.gz (L10)",
-  "pd_L6cf": "partner-deck-20261025/runs/PD2-shard*.jsonl.gz (L6cf)"
+  "pd_L6cf": "partner-deck-20261025/runs/PD2-shard*.jsonl.gz (L6cf)",
+  "x1": "deck-balance-20261025/runs/X-shard*.jsonl.gz (X1)"
  },
  "before_v1": {
   "decks": {
@@ -692,6 +693,236 @@
    "partner|main": {
     "games": 60,
     "score": 0.383
+   }
+  }
+ },
+ "after_all": {
+  "decks": {
+   "main": {
+    "games": 420,
+    "score_rate": 0.557,
+    "se": 0.024,
+    "first": 0.564,
+    "second": 0.55
+   },
+   "companion": {
+    "games": 420,
+    "score_rate": 0.456,
+    "se": 0.024,
+    "first": 0.45,
+    "second": 0.462
+   },
+   "partner": {
+    "games": 720,
+    "score_rate": 0.56,
+    "se": 0.018,
+    "first": 0.569,
+    "second": 0.551
+   },
+   "challenge": {
+    "games": 420,
+    "score_rate": 0.494,
+    "se": 0.024,
+    "first": 0.533,
+    "second": 0.455
+   },
+   "growth": {
+    "games": 420,
+    "score_rate": 0.392,
+    "se": 0.024,
+    "first": 0.36,
+    "second": 0.424
+   },
+   "item": {
+    "games": 420,
+    "score_rate": 0.565,
+    "se": 0.024,
+    "first": 0.569,
+    "second": 0.562
+   },
+   "balance": {
+    "games": 420,
+    "score_rate": 0.432,
+    "se": 0.024,
+    "first": 0.424,
+    "second": 0.44
+   }
+  },
+  "range": {
+   "min": 0.392,
+   "max": 0.565,
+   "width": 0.173
+  },
+  "first_player_score": 0.511,
+  "games": 1980,
+  "pairs": {
+   "balance|challenge": {
+    "games": 60,
+    "score": 0.508
+   },
+   "balance|companion": {
+    "games": 60,
+    "score": 0.45
+   },
+   "balance|growth": {
+    "games": 60,
+    "score": 0.633
+   },
+   "balance|item": {
+    "games": 60,
+    "score": 0.417
+   },
+   "balance|main": {
+    "games": 60,
+    "score": 0.4
+   },
+   "balance|partner": {
+    "games": 120,
+    "score": 0.308
+   },
+   "challenge|balance": {
+    "games": 60,
+    "score": 0.492
+   },
+   "challenge|companion": {
+    "games": 60,
+    "score": 0.383
+   },
+   "challenge|growth": {
+    "games": 60,
+    "score": 0.608
+   },
+   "challenge|item": {
+    "games": 60,
+    "score": 0.517
+   },
+   "challenge|main": {
+    "games": 60,
+    "score": 0.367
+   },
+   "challenge|partner": {
+    "games": 120,
+    "score": 0.546
+   },
+   "companion|balance": {
+    "games": 60,
+    "score": 0.55
+   },
+   "companion|challenge": {
+    "games": 60,
+    "score": 0.617
+   },
+   "companion|growth": {
+    "games": 60,
+    "score": 0.45
+   },
+   "companion|item": {
+    "games": 60,
+    "score": 0.308
+   },
+   "companion|main": {
+    "games": 60,
+    "score": 0.558
+   },
+   "companion|partner": {
+    "games": 120,
+    "score": 0.354
+   },
+   "growth|balance": {
+    "games": 60,
+    "score": 0.367
+   },
+   "growth|challenge": {
+    "games": 60,
+    "score": 0.392
+   },
+   "growth|companion": {
+    "games": 60,
+    "score": 0.55
+   },
+   "growth|item": {
+    "games": 60,
+    "score": 0.275
+   },
+   "growth|main": {
+    "games": 60,
+    "score": 0.433
+   },
+   "growth|partner": {
+    "games": 120,
+    "score": 0.362
+   },
+   "item|balance": {
+    "games": 60,
+    "score": 0.583
+   },
+   "item|challenge": {
+    "games": 60,
+    "score": 0.483
+   },
+   "item|companion": {
+    "games": 60,
+    "score": 0.692
+   },
+   "item|growth": {
+    "games": 60,
+    "score": 0.725
+   },
+   "item|main": {
+    "games": 60,
+    "score": 0.45
+   },
+   "item|partner": {
+    "games": 120,
+    "score": 0.512
+   },
+   "main|balance": {
+    "games": 60,
+    "score": 0.6
+   },
+   "main|challenge": {
+    "games": 60,
+    "score": 0.633
+   },
+   "main|companion": {
+    "games": 60,
+    "score": 0.442
+   },
+   "main|growth": {
+    "games": 60,
+    "score": 0.567
+   },
+   "main|item": {
+    "games": 60,
+    "score": 0.55
+   },
+   "main|partner": {
+    "games": 120,
+    "score": 0.554
+   },
+   "partner|balance": {
+    "games": 120,
+    "score": 0.692
+   },
+   "partner|challenge": {
+    "games": 120,
+    "score": 0.454
+   },
+   "partner|companion": {
+    "games": 120,
+    "score": 0.646
+   },
+   "partner|growth": {
+    "games": 120,
+    "score": 0.637
+   },
+   "partner|item": {
+    "games": 120,
+    "score": 0.487
+   },
+   "partner|main": {
+    "games": 120,
+    "score": 0.446
    }
   }
  }
