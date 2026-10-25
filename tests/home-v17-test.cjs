@@ -15,6 +15,7 @@ test('exchange carries canonical companion identity through question and reactio
  const result=h.get('homeChoiceResult');assert.equal(result.dataset.speakerId,'shiba');assert.equal(result.dataset.kind,'companion');
  assert.match(h.get('homeChoiceSpeaker').innerHTML,/assets\/characters\/companions\/shiba/);
  assert.equal(h.get('homeChoiceText').textContent,'言葉がなくても、気持ちよさが伝わった。');
+ assert.notEqual(h.get('message').textContent,h.get('homeChoiceText').textContent,'character reaction is not duplicated as an anonymous notice');
  const after=JSON.stringify(h.api.state().individuality);assert.equal(b.onclick(),false);assert.equal(JSON.stringify(h.api.state().individuality),after);
 });
 test('system age outcome clears prior actor identity',()=>{

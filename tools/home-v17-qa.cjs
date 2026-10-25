@@ -17,7 +17,7 @@ fixture=fixture.replace('function(text){choiceResult15(text);','function(text,sp
 fixture=fixture.replace(/\}\)\(\);\s*$/,`
 window.HomeV17QA=HomeV16QA;
 Object.assign(HomeV17QA,{
- named(text,kind='pet'){this.prepare();const speaker=kind==='pet'?petSpeaker():kind==='partner'?partnerSpeaker():{kind:'companion',id:'shiba',label:allCompanionsById('shiba').name};setSpeechBubble(text,speaker,{holdMs:600000});},
+ named(text,kind='pet'){this.prepare();const speaker=kind==='pet'?{...petSpeaker(),label:currentVisualStage().label}:kind==='partner'?partnerSpeaker():{kind:'companion',id:'shiba',label:allCompanionsById('shiba').name};setSpeechBubble(text,speaker,{holdMs:600000});},
  noticeText(text){this.prepare();setMessage(text);},
  questionTwo(){this.question();el.speechText.textContent='いっしょに歩く？';el.speechChoices.lastElementChild.remove();el.speechChoices.dataset.count='2';},
  reaction(){this.prepare();this.exchange();document.getElementById('individualityChoices').querySelector('button').click();clearTimeout(homeChoiceResultTimer);},

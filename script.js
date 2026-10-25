@@ -10962,7 +10962,7 @@
     const homeResult=homeIndividualityPopupVisible();
     const e=INDIVIDUALITY.data.events.find(e=>e.age===age),choice=e.choices.find(c=>c.heart===heart);
     pushLifeLog('🌱',`${age}さい：${choice.label}`);
-    closeIndividualityDialog(false);saveState();setMessage('その気持ちを、思い出にしまった。');render();
+    closeIndividualityDialog(false);saveState();if(!homeResult)setMessage('その気持ちを、思い出にしまった。');render();
     if(homeResult)showHomeChoiceResult('その気持ちを、思い出にしまった。');return true;
   }
   function showIndividualityEvent(force=false) {
@@ -10984,7 +10984,7 @@
     if(!e || !individualityWritable(lifeId) || !state.companions.some(c=>c.id===e.companion))return false;
     if(!individualExperience('kindness',e.category,e.id,lifeId))return false;
     const homeResult=homeIndividualityPopupVisible();
-    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();setMessage(e.reaction);render();
+    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();if(!homeResult)setMessage(e.reaction);render();
     if(homeResult)showHomeChoiceResult(e.reaction,exchangeSpeaker(e));return true;
   }
   function maybeIndividualExchange() {
