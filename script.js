@@ -17081,9 +17081,38 @@
     el.mgQuitYesBtn.addEventListener('click', () => retireMinigame());
   }
 
-  function finishMinigame(score, customMessage) {
+  // T7: 実質的に 参加して いない プレイは MG_IDLE_CAP 点を こえない(D)。ゲームが そうさの 量
+  // (games.js の mgPlayMeter: acts=状態を かえた そうさの 回数、spans/cover=そうさの あった 4びょう区切りの
+  // かず/わりあい)を わたせば それで みる(区切り 2つ いじょう かつ 2わり いじょう。1区切りで おわった ゲームは その 1つで よい)。
+  // わたさない ゲームは「ゲームの がめんで 意図した 入力が あったか」で みる。
+  // 通常の 100本だけ(Quick・テスト用の ゲームは 対象外)。点は ここで 1かいだけ かえ、記録・コイン・
+  // そだち・個性・会話は その 点から きまる(セーブの 形は かえない。じこベストは 下げない)
+  const MG_IDLE_CAP = 25, MG_IDLE_COVER = 0.2;
+  let mgPlayInputs = 0, mgPlayLaunched = 0, mgPlayIds = null;
+  function mgCountPlayInput(e) {
+    if (!gameActive || !mgSession || mgPlayLaunched !== mgSession || e.isTrusted === false || e.key === 'Escape') return;
+    const t = e.target;
+    if (t && typeof t.closest === 'function' && t.closest('#mgQuit, #mgHelpOverlay')) return;
+    mgPlayInputs += 1;
+  }
+  for (const type of ['pointerdown', 'touchstart', 'mousedown', 'keydown']) document.addEventListener(type, mgCountPlayInput, true);
+  function mgParticipated(play) {
+    if (play && Number.isFinite(play.acts)) return play.acts > 0 && (!Number.isFinite(play.cover) || (play.cover >= MG_IDLE_COVER && (play.cover >= 1 || !(play.spans < 2))));
+    return !!play && play.inputs > 0;
+  }
+  function mgIdleCappedScore(game, score, play) {
+    if (!play || !game || !game.id) return score;
+    if (!mgPlayIds) mgPlayIds = new Set(buildMinigamePool().map((g) => g.id));
+    if (!mgPlayIds.has(game.id) || score <= MG_IDLE_CAP || mgParticipated(play)) return score;
+    return MG_IDLE_CAP;
+  }
+
+  function finishMinigame(score, customMessage, play) {
     const game = activeMinigame;
     if (!gameActive || !game || !Number.isFinite(score)) return;
+    // T7 の 上限は 記録・コイン・そだち・個性・会話より まえに 1かいだけ(play は onComplete から くる)
+    const capped = mgIdleCappedScore(game, score, play);
+    if (capped !== score) { score = capped; customMessage = `${resultMessageForScore(score)}（そうさが少なかったので${MG_IDLE_CAP}点まで）`; }
     // ここから さきの ふつうの がめんの タイマー(えもーと/ふきだし など)に
     // ゲームの セッションの しるしが つかない よう、いったん「ゲームの
     // コードの そと」に 出る(finally で もとに もどす ので、この あとに
@@ -17334,12 +17363,14 @@
     showMinigameQuit();
     // ゲームがわから おくれて/2かい よばれても、その セッションが もう
     // おわっていれば なにも しない
-    const onComplete = (result, message) => {
+    // 3つめの detail は ゲームが わたす そうさの 量(T7。finishMinigame の 上限で つかう)
+    const onComplete = (result, message, detail) => {
       if (session !== mgSession || !gameActive) return;
-      finishMinigame(result, message);
+      finishMinigame(result, message, { inputs: mgPlayInputs, ...(detail && typeof detail === 'object' ? detail : {}) });
     };
     const launch = () => {
       if (session !== mgSession || !gameActive) return;
+      mgPlayInputs = 0; mgPlayLaunched = session;
       el.minigameOverlay.innerHTML = '';
       mgRunTagged(session, () => game.start(el.minigameOverlay, onComplete), null, []);
       arrangeMinigameControls(el.minigameOverlay);
