@@ -1,6 +1,21 @@
 /* Lightweight Home adapter. Existing code owns attendance, art and all care. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.NaotocchiHomeDiorama=api;})(typeof window!=='undefined'?window:null,function(){
   'use strict';
+  // Home presentation boundary. Raw feedback, history and state remain canonical.
+  function homeText(text) {
+    return String(text || '')
+      .replace(/そだち\s*[+＋−-]\s*\d+(?:\.\d+)?[：:]\s*(?:せいちょうした|おとろえでさがった)/g, '')
+      .replace(/(?:おなか|ごきげん|げんき|けんこう|いのち|せいちょう|おとろえ|へんしん|そだち)\s*(?:[+＋−-]|[↑↓])\s*\d+(?:\.\d+)?\s*[%％]?/g, '')
+      .replace(/(?:\s*[/／、]\s*){2,}/g, ' / ').replace(/^[\s/／、]+|[\s/／、]+$/g, '').trim();
+  }
+  function homeWarnings(state, current) {
+    if (!state || ['egg','dead','farewell'].includes(state.stage)) return '';
+    const lines=[];
+    if (current && ['life','health'].includes(current.kind)) lines.push(current.title+'。'+current.detail);
+    if (state.isSick) lines.push('びょうき。くすりでなおそう');
+    return lines.join('\n');
+  }
+
   // Native direction of the approved PNGs; frontal art remains frontal.
   // Expression assets inherit their base silhouette, never a global right-facing assumption.
   function facingScale(a,direction){
@@ -93,6 +108,30 @@
     const anchor=(71+Number(match[1]))/104*100;
     return (1-facing)*(originX-anchor);
   }
+  function effectPosition(anchor,origin,facing){return origin+(anchor-origin)*(facing<0?-1:1);}
+  function effectTrajectory(distance,direction){return distance*(direction<0?-1:1);}
+  // Use the existing approved SVG placement; never reflect glyph outlines.
+  const accentCenters={sleeping:71,sick:80.5,sulky:79,happy:82,strained:26,hungry:80,tired:80,weak:77.5,critical:76.5,wantsPlay:82};
+  const effectPaints=new WeakMap();
+  function placeActorEffects(owner,origin,facing,direction){
+    const first=owner.querySelector?.('.pet-expression-accent'),old=effectPaints.get(owner);
+    if(old&&old.first===first&&old.origin===origin&&old.facing===facing&&old.direction===direction)return;
+    effectPaints.set(owner,{first,origin,facing,direction});
+    for(const accent of owner.querySelectorAll?.('.pet-expression-accent')||[]){
+      const kind=Object.keys(accentCenters).find(k=>accent.classList.contains('pet-expression-accent--'+k));
+      const group=accent.querySelector('svg > g'),match=group?.getAttribute('transform')?.match(/^translate\(\s*([-\d.]+)/);
+      if(!kind||!match)continue;
+      const anchor=(accentCenters[kind]+Number(match[1]))/104*100;
+      accent.style.translate=(effectPosition(anchor,origin,facing)-anchor)+'% 0';
+      if(kind==='sleeping'){
+        const paths=group.querySelectorAll('path');
+        paths.forEach((path,i)=>path.setAttribute('transform','translate('+((direction<0?-2:0)*[0,11,22.5][Math.floor(i/2)])+' 0)'));
+        accent.style.setProperty('--sleep-drift',effectTrajectory(3,direction)+'px');
+      }
+    }
+    owner.dataset.effectFlipped=String(facing<0);
+    owner.style.setProperty('--effect-reflect-offset',(2*origin-100)+'%');
+  }
   // Transient overlay geometry; neither helper receives or changes a saved entity.
   function speechPlacement({speaker,width,height,bubbleWidth,bubbleHeight,choicesHeight=0}){
     const w=Math.min(bubbleWidth,width-12),h=Math.min(bubbleHeight,height-12),ch=Math.min(choicesHeight,Math.max(0,height-h-12));
@@ -172,7 +211,7 @@
     function clearGesture(){if(gesture){try{stage.releasePointerCapture(gesture.pointerId);}catch(_){}gesture=null;}marker.hidden=true;}
     function interrupt(){clearGesture();model.cancel();paint();}
     function clearStage(){const poop=doc.getElementById?.('poopRow');if(poop){delete poop.dataset.groundKey;for(const n of [...poop.children]){n.style.left='';n.style.top='';n.style.visibility='';}}for(const k of Object.keys(stage.dataset))if(k.startsWith('diorama')||k.startsWith('world')||k==='livingMetrics')delete stage.dataset[k];}
-    function restore(row){onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');n.style.removeProperty('--diorama-sleep-shift');}
+    function restore(row){effectPaints.delete(row.owner);for(const accent of row.owner.querySelectorAll?.('.pet-expression-accent')||[]){accent.style.translate='';accent.style.removeProperty('--sleep-drift');for(const path of accent.querySelectorAll('path'))path.removeAttribute('transform');}delete row.owner.dataset.effectFlipped;row.owner.style.removeProperty('--effect-reflect-offset');onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');n.style.removeProperty('--diorama-sleep-shift');}
       for(const [k,v]of Object.entries(row.original||{}))v===null?row.owner.removeAttribute?.(k):row.owner.setAttribute(k,v);row.shadow.remove();}
     const occlusionCache=new Map();
     function polygonsAt(p){
@@ -201,7 +240,7 @@
         next.set(a.key,row);
       }
       for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key)clearGesture();}
-      rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent,temperament})),scene);paint();
+      rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),scene);paint();
     }
     function paint(){
       // Care and visibility changes can interrupt before activation or after exit.
@@ -216,6 +255,7 @@
         // A visual can be replaced on sleep/wake without moving its actor.
         const sleep=row.owner.querySelector?.('.pet-expression-accent--sleeping > svg > g');
         row.owner.style.setProperty('--diorama-sleep-shift',sleepAccentShift(sleep?.getAttribute?.('transform'),row.originX??50,facingScale(row,a.direction))+'%');
+        placeActorEffects(row.owner,row.originX??50,facingScale(row,a.direction),a.direction);
         const stamp=[dx.toFixed(2),dy.toFixed(2),a.activity,a.direction,!!a.target,model.selected()===a.key,isPaused,revision,row.x,row.y,row.w,row.h].join(':');
         if(row.paintStamp===stamp){onPosition(a,dx,dy);continue;}row.paintStamp=stamp;
         for(const n of [row.owner,...(row.attachments||[])])n.style.translate=`${dx.toFixed(2)}px ${dy.toFixed(2)}px`;
@@ -312,5 +352,5 @@
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeNotices(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,speechPlacement,speechTail,placeGroundProps};
+  return {homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });

@@ -1,0 +1,61 @@
+✔ index.html asset references exist and carry cache tokens (2.872485ms)
+✔ the bump tool rewrites only cache tokens (0.378212ms)
+(node:22) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/2d83dcd79fd2/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/2d83dcd79fd2/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ multiple Home story notices retain their text and show in order (372.053853ms)
+✔ Home information contains ordered status/environment/name/gesture then event slot (13.251616ms)
+✔ hidden Home retains active and pending notices until visible (1556.301398ms)
+✔ Home choice DOM input consumes exactly once and presents the existing reply/reaction (408.178394ms)
+✔ timed-out and scene-hidden choices cannot replay; non-Home choices keep native bubbling (39.986738ms)
+✔ a detached choice cannot answer a later question, even when its index is valid (74.664804ms)
+✔ Home selected pet uses its official current stage name (51.294864ms)
+✔ sleep action label, tooltip and presentation state follow sleep/wake (41.806703ms)
+✔ screenshot exchange opens a compact Home popup and shows its existing narrative exactly once (58.139321ms)
+✔ Home exchange later rejects its stale callback and keeps the original later effects (26.245196ms)
+✔ age choices reuse Home presentation with unchanged effects; non-Home remains modal (65.361627ms)
+✔ Home choice keeps fixed cast and care presentation across renders while gameplay stays paused (62.628098ms)
+✔ central household and lower seats at 288 (150.458512ms)
+✔ central household and lower seats at 343 (103.034626ms)
+✔ central household and lower seats at 358 (117.40856ms)
+✔ central household and lower seats at 398 (149.354753ms)
+✔ shared role bounds permit ground/drag moves into lower strip and no UI overflow (6.551965ms)
+✔ facing belongs to image children, not the expression SVG wrapper (6.760024ms)
+✔ speaker overlays remain within the stage including choices at each edge (1.013914ms)
+✔ poop seats on unoccupied safe terrain near the protagonist, without save coordinates (3.565158ms)
+✔ short stages return the actual choices cap and keep result narration sized (0.476718ms)
+✔ initial terrain centering respects safe ground band without recentering manual actors (1.259841ms)
+(node:35) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/2d83dcd79fd2/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/2d83dcd79fd2/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ sleep emission reflects the approved per-stage small-Z center without changing expression artwork (9.079835ms)
+✔ routine care summary preserves numeric canonical feedback and important costs (1.402505ms)
+✔ small measured bubble dimensions survive edge clamping for each phone width (1.111ms)
+✔ terrain dialogue measures intrinsic size and removes the 55px minimum (15.986599ms)
+✔ important story reward text remains intact and numeric state stays unchanged (360.815912ms)
+✔ ambient story hides only trailing routine deltas while preserving authored narration and rewards (8.615089ms)
+✔ result narration has independent width before measurement and mixed tone keeps original signs (2364.705911ms)
+✔ short dialogue tail is local to its centered bubble beside result narration (0.450774ms)
+(node:36) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/2d83dcd79fd2/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/2d83dcd79fd2/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ home suppresses every routine delta family but retains meaningful outcomes and rewards (2.268534ms)
+✔ persistent warning combines life and illness without ordinary hunger/sleep messages (0.707635ms)
+✔ effect anchors reflect around artwork bounds while directional travel is independent of native facing (0.453532ms)
+✔ terrain runtime suppresses daily numeric feedback without mutating state; illness returns after event (425.854605ms)
+✔ semantic meter order is daily five then lifetime four (14.326713ms)
+✔ long partner names open existing profile details by tapping the header (2367.329735ms)
+✔ actual effect adapter keeps every Z upright and reflects all approved stage anchors (8.003345ms)
+✔ infinite mode preserves the formerly hidden life gauge after its move (24.300205ms)
+✔ choice narration and a subsequent authored medicine response both remain readable (24.891853ms)
+ℹ tests 41
+ℹ suites 0
+ℹ pass 41
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3683.557581

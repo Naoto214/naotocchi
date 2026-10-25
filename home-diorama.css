@@ -167,3 +167,82 @@ body[data-home-terrain="true"] #homeChoiceResult{position:relative;left:auto;bot
 /* Reflect the approved emission coordinate about the same bounds center as
    the image. SVG glyphs and Motion v2 wrappers remain unmirrored. */
 #castStage[data-diorama] [data-diorama-actor] .pet-expression-accent--sleeping{translate:var(--diorama-sleep-shift,0%) 0}
+
+/* V15: fixed presentation lanes. The cast-stage is the entire safe living area;
+   notifications and speech are sibling boxes, never actors' movement targets. */
+body[data-home-terrain="true"] .device .device-header{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;padding:0 2px;min-height:34px;min-width:0;width:100%;box-sizing:border-box}
+body[data-home-terrain="true"] .device .header-title{display:flex!important;flex-direction:row;align-items:center;gap:4px;flex:1;min-width:0;padding:0}
+body[data-home-terrain="true"] .name-plate{font-size:18px;white-space:nowrap;flex:none}
+body[data-home-terrain="true"] .cast-badges{display:flex;flex-wrap:nowrap;min-width:0;overflow-x:auto;flex:1;gap:2px;scrollbar-width:thin}
+body[data-home-terrain="true"] .ending-badges{display:flex!important;flex-wrap:nowrap;gap:0;min-width:0;overflow:visible;order:0!important;flex:none!important}
+body[data-home-terrain="true"] .ending-badge{flex:0 0 24px;min-width:24px;min-height:30px;padding:1px}
+body[data-home-terrain="true"] .header-actions{flex:none;gap:3px}
+body[data-home-terrain="true"] .header-button{min-width:42px;min-height:34px;padding:3px;font-size:11px;gap:2px}
+body[data-home-terrain="true"] .device #homeInformation{gap:1px;padding:0}
+body[data-home-terrain="true"] #homeInformation .status-row{font-size:13px;line-height:1.4;min-height:21px;padding:0 3px;gap:4px;flex-wrap:nowrap}
+body[data-home-terrain="true"] .age-status{display:flex;gap:8px;min-width:0;white-space:nowrap;font-weight:750}
+body[data-home-terrain="true"] #moneyLabel{margin-left:auto;white-space:nowrap;font-size:12px}
+body[data-home-terrain="true"] #homeInformation .sub-status-row{flex-wrap:nowrap;justify-content:center;gap:5px;padding:0;min-height:19px;font-size:11px;white-space:nowrap}
+body[data-home-terrain="true"] #worldStatus{display:flex;flex-wrap:nowrap;gap:5px}
+body[data-home-terrain="true"] #homeInformation .cast-heading{display:block;padding:0}
+body[data-home-terrain="true"] #homeInformation .cast-names{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:5px;padding:0 3px;min-height:23px}
+body[data-home-terrain="true"] .cast-title-line{display:flex;align-items:baseline;gap:5px;min-width:0;flex:0 1 48%;white-space:nowrap;font-size:11px}
+body[data-home-terrain="true"] #mainNameLabel{font-size:12px;flex:none}
+body[data-home-terrain="true"] .stage-name-row{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}
+body[data-home-terrain="true"] #partnerLabel{display:flex;align-items:center;justify-content:flex-end;gap:2px;min-width:0;max-width:54%;margin:0;font-size:11px;white-space:nowrap}
+body[data-home-terrain="true"] .partner-name{min-width:0;overflow:hidden;text-overflow:ellipsis}
+body[data-home-terrain="true"] .partner-affection{flex:none;font-size:10px}
+body[data-home-terrain="true"] :is(#worldCareState,#worldDescription){display:none!important}
+body[data-home-terrain="true"] #homeEventSlot{height:42px;min-height:42px;max-height:42px;flex-basis:42px}
+body[data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){height:40px;max-height:40px;font-size:12px;line-height:1.35;padding:3px 7px;overflow:auto;white-space:pre-line}
+body[data-home-terrain="true"] #homeEventSlot>#message:empty{display:none}
+body[data-home-terrain="true"] #petArea{display:flex;flex-direction:column;gap:0}
+body[data-home-terrain="true"] #speechSlot{position:relative;inset:auto;width:100%;height:76px;min-height:76px;max-height:76px;flex:0 0 76px;box-sizing:border-box;display:flex;justify-content:flex-end;align-items:flex-start;padding:2px 4px;overflow:visible;pointer-events:none;--terrain-speech-max:100%}
+body[data-home-terrain="true"] #speechBubble{max-width:100%;width:max-content;max-height:72px;padding:4px 7px;align-items:flex-start;gap:5px;overflow:hidden;font-size:14px;line-height:1.4}
+body[data-home-terrain="true"] #speechBubble::before{display:none}
+body[data-home-terrain="true"] #speechSpeaker{display:flex;flex-direction:column;align-items:center;max-width:68px;flex:0 0 auto;gap:1px}
+body[data-home-terrain="true"] #speechSpeaker::after{content:attr(data-label);font:10px/1.2 system-ui;max-width:68px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body[data-home-terrain="true"] #speechSpeaker .comment-picture{width:24px;height:24px}
+body[data-home-terrain="true"] #speechText{min-width:0;max-height:4.2em;overflow:auto;overflow-wrap:anywhere;white-space:pre-wrap}
+body[data-home-terrain="true"] #speechChoices{left:4px;right:4px;bottom:calc(100% + 3px);width:calc(100% - 8px);max-height:160px!important;transform:none;overflow:auto}
+body[data-home-terrain="true"] #speechSlot:has(#homeChoiceResult:not(.hidden)){padding-bottom:26px}
+/* Keep authored speech visible if a care action occurs during choice narration. */
+body[data-home-terrain="true"] #speechSlot:has(#homeChoiceResult:not(.hidden)) #speechBubble:not(.hidden){max-height:48px;align-self:flex-start}
+body[data-home-terrain="true"] #speechSlot:has(#homeChoiceResult:not(.hidden)) #speechText{max-height:2.8em}
+body[data-home-terrain="true"] #speechSlot:has(#speechBubble:not(.hidden)) #homeChoiceResult:not(.hidden){max-height:22px;padding:1px 7px;overflow:auto;white-space:nowrap}
+body[data-home-terrain="true"] #homeChoiceResult{position:absolute;left:4px;right:4px;bottom:2px;width:auto;max-height:72px;margin:0;font-size:14px;line-height:1.4}
+body[data-home-terrain="true"] .device .home-meters{padding:3px 5px;gap:4px;margin:0}
+body[data-home-terrain="true"] .device .home-meters #careMeters{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+body[data-home-terrain="true"] .device .home-meters #lifeMeterRow{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;padding:0;margin:0}
+body[data-home-terrain="true"] .device .home-meters .bars .bar-line{grid-column:auto;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:14px 6px 14px;gap:2px;min-width:0}
+body[data-home-terrain="true"] .device .home-meters .bar-label{grid-column:1;grid-row:1;text-align:center;font-size:11px;line-height:14px;white-space:nowrap;font-weight:500}
+body[data-home-terrain="true"] .device .home-meters .bar{grid-column:1;grid-row:2;height:6px}
+body[data-home-terrain="true"] .device .home-meters .bar-value{grid-column:1;grid-row:3;text-align:center;font-size:10px;line-height:14px;white-space:nowrap}
+body[data-home-terrain="true"] .device[data-home-household="crowded"][data-home-fixed="true"] #petArea{min-height:376px}
+#castStage[data-diorama] .pet-expression-accent--sleeping>svg{animation:home-sleep-drift 3.6s ease-in-out infinite}
+@keyframes home-sleep-drift{0%,100%{translate:0 0;opacity:.8}50%{translate:var(--sleep-drift,3px) -3px;opacity:1}}
+/* Original sweat anchors swap about the painted origin, while droplets stay upright. */
+#castStage[data-diorama] [data-effect-flipped="true"]#petSprite::before{left:calc(var(--care-sweat-right) + var(--effect-reflect-offset,0%));right:auto}
+#castStage[data-diorama] [data-effect-flipped="true"]#petSprite::after{right:calc(var(--care-sweat-left) - var(--effect-reflect-offset,0%));left:auto}
+@media(max-width:340px){body[data-home-terrain="true"] .name-plate{font-size:16px}body[data-home-terrain="true"] .age-status{gap:5px}body[data-home-terrain="true"] #homeInformation .status-row{font-size:12px}body[data-home-terrain="true"] #homeInformation .sub-status-row{font-size:10px}}
+@media(prefers-reduced-motion:reduce){#castStage[data-diorama] .pet-expression-accent--sleeping>svg{animation:none}}
+body[data-home-terrain="true"] :is(#ageLabel,#sodachiLabel){font-weight:750}
+body[data-home-terrain="true"] .cast-title-line{justify-content:flex-start;text-align:left}
+body[data-home-terrain="true"] .stage-name-row{justify-content:flex-start;text-align:left}
+#partnerLabel{border:0;background:none;color:inherit;font:inherit;cursor:pointer;text-align:inherit;padding:0}
+#partnerLabel:empty{display:none!important}
+#partnerLabel:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+/* Short screens scroll as a document; all six lanes keep their minimum size. */
+body[data-home-terrain="true"] .device .home-meters #lifeMeterRow .bar-line:nth-child(n){grid-column:auto}
+body[data-home-terrain="true"] .device[data-home-fixed="true"] #petArea{min-height:226px;flex:1 0 226px}
+@media(max-height:700px){
+ html:has(body[data-home-terrain="true"] .device[data-home-fixed="true"]){overflow:auto;overscroll-behavior:auto}
+ body.world-mode[data-home-terrain="true"]:has(.device[data-home-fixed="true"]){height:auto;min-height:var(--app-height);overflow:auto;overscroll-behavior:auto}
+ body[data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]{position:relative;inset:auto;min-height:min-content}
+ body[data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]:has(#screenNormal:not(.hidden)){grid-template-rows:auto minmax(min-content,1fr) auto auto}
+ body[data-home-terrain="true"] .device[data-home-fixed="true"] .screen-frame{min-height:min-content;overflow:visible}
+ body[data-home-terrain="true"] .device[data-home-fixed="true"] #screen{min-height:min-content}
+ body[data-home-terrain="true"] .device[data-home-fixed="true"] #screenNormal{container-type:normal;min-height:min-content}
+}
+
+body[data-home-terrain="true"] .device .home-meters #careMeters:has(#deathMeterItem.hidden){grid-template-columns:repeat(4,minmax(0,1fr))}

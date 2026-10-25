@@ -3928,7 +3928,7 @@
     const titles = {none:'',normal:'いのち おだやか',caution:'すこし気をつけよう'};
     const title = severity ? notice.title : titles[level] || '';
     const icon = sick ? 'sick' : level === 'normal' ? 'recovery' : 'danger';
-    setHTMLIfChanged(document.getElementById('worldCareState'), title
+    setHTMLIfChanged(document.getElementById('worldCareState'), !terrainNoticeMode() && title
       ? careIconHTML(icon) + `<span>${escapeHtml(title)}</span>` : '');
   }
 
@@ -3976,9 +3976,16 @@
     const display = urgent ? notice : visible && careFeedback
       ? {kind:'change',severity:'info',icon:careFeedback.icon,text:[message,terrainNoticeMode() ? CARE_STATUS.summary(careFeedback.text) : careFeedback.text].filter((text,index,all)=>text && all.indexOf(text)===index).join('\n')}
       : visible && !message ? notice : null;
-    const text = display ? display.text || `${display.title}\n${display.detail}`
+    let text = display ? display.text || `${display.title}\n${display.detail}`
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
         : state.stage === STAGE.EGG ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
+    if (terrainNoticeMode() && state.stage === STAGE.GROWING) {
+      const eventText=window.NaotocchiHomeDiorama.homeText(message);
+      const warnings=visible ? window.NaotocchiHomeDiorama.homeWarnings(state,notice) : '';
+      // Ephemeral events take the one slot; the warning is re-derived after expiry.
+      text=eventText || warnings;
+      el.message.title=warnings;
+    }
     if (setCommentText(el.message, text)) el.message.scrollTop = 0;
     el.message.dataset.careKind = display?.kind || '';
     el.message.dataset.careSeverity = display?.severity || '';
@@ -11369,7 +11376,7 @@
     else if (event.achievement) el.storyFlashEmoji.innerHTML = achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
-    setCommentText(el.storyFlashText, compactJapaneseText(terrainNoticeMode() && event.environmentMoment ? CARE_STATUS.summary(event.message,true) : event.message), true, inlineVisual);
+    setCommentText(el.storyFlashText, compactJapaneseText(terrainNoticeMode() && event.environmentMoment ? window.NaotocchiHomeDiorama.homeText(event.message) : event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
     renderPetVisual();
     cancelEmotionCue(true);
@@ -12520,6 +12527,7 @@
     updateMeter(el.deathBar, hideLife ? 100 : 100 - state.deathMeter, 'death');
     updateMeter(el.transformBar, hideLife ? 0 : state.transformMeter, 'transform');
     el.lifeMeterRow.classList.toggle('hidden', state.infinite);
+    document.getElementById('deathMeterItem')?.classList.toggle('hidden', state.infinite);
 
     const goalAge = currentAge();
     updateMeter(el.goalBar, isDead ? 0 : goalAge, 'goal');
@@ -12531,8 +12539,8 @@
     el.poopRow.setAttribute('aria-hidden', String(state.poopCount === 0));
 
     const badges = [];
-    if (state.isSick && !isEgg && !isOver) badges.push(careIconHTML('sick', compactJapaneseText(state.sicknessType || 'びょうき'), '🤒'));
-    if (state.isSleeping && !isOver) badges.push(careIconHTML('sleep', 'ねむっている', '😴'));
+    if (!terrainNoticeMode() && state.isSick && !isEgg && !isOver) badges.push(careIconHTML('sick', compactJapaneseText(state.sicknessType || 'びょうき'), '🤒'));
+    if (!terrainNoticeMode() && state.isSleeping && !isOver) badges.push(careIconHTML('sleep', 'ねむっている', '😴'));
     if (state.boostTicks > 0 && !isEgg && !isOver) badges.push(`<span class="badge badge-boost" title="せいちょう2ばい（あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}分）">✨2ばい</span>`);
     const badgesHTML = badges.join('');
     if (el.badges.innerHTML !== badgesHTML) el.badges.innerHTML = badgesHTML;
@@ -12573,10 +12581,10 @@
     const seasonInfo = SEASON_INFO[effectiveSeason];
     setHTMLIfChanged(el.seasonLabel, seasonInfo ? `${environmentIconHTML('season',effectiveSeason,seasonInfo.emoji)} ${escapeHtml(seasonInfo.label)}` : '');
     setHTMLIfChanged(el.partnerLabel, state.partner
-      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
+      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> <span class="partner-name">${escapeHtml(compactJapaneseText(state.partner.label))}</span>${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
       : '');
     el.partnerLabel.title = state.partner
-      ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender, state.partner.attractedTo)}・${state.partner.married ? '夫婦' : 'こいびと'}`
+      ? `${compactJapaneseText(state.partner.label)}・${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender, state.partner.attractedTo)}・${state.partner.married ? '夫婦' : 'こいびと'}`
       : '';
     el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
     el.profileBtn.classList.toggle('hidden', isEgg || isOver);
@@ -14889,6 +14897,11 @@
   let homeSpeechAnchors = null;
   function pointHomeSpeech() {
     if (!homeSpeechAnchors || !el.speechBubble) return;
+    if (terrainNoticeMode() && document.body.dataset.homeTerrain==='true') {
+      // Stable bottom slot: speech changes no actor, camera or navigation geometry.
+      el.speechSlot.style.setProperty('--terrain-speech-max','100%');
+      return;
+    }
     const {area,pet,actors,poop} = homeSpeechAnchors;
     const {kind,speakerId} = el.speechBubble.dataset;
     const point = actors.find(a=>a.kind===kind && a.id===speakerId) || pet;
@@ -14935,7 +14948,7 @@
     el.device.dataset.homeHousehold = 1 + Number(!!p) + recruited.length > 5 ? 'crowded' : 'small';
     const stageRect = el.castStage.getBoundingClientRect();
     const width = Math.floor(stageRect.width);
-    const conversationHeight = el.speechSlot.getBoundingClientRect().height || 44;
+    const conversationHeight = terrainNoticeMode() ? 44 : el.speechSlot.getBoundingClientRect().height || 44;
     const height = el.device.classList.contains('ui-home-active') ? Math.max(108+conversationHeight,Math.floor(stageRect.height)) : undefined;
     if (width < 240) return;
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
@@ -19229,6 +19242,7 @@
   }
 
   el.profileBtn.addEventListener('click', () => openExclusiveMenu('profile'));
+  el.partnerLabel.addEventListener('click', () => openExclusiveMenu('profile'));
 
   el.profileCloseBtn.addEventListener('click', () => {
     closeOverlay('profile');
