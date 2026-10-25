@@ -116,7 +116,7 @@ mainのマージ、GitHub Pagesの本番更新、第1章の直接変更は実施
 
 ## GitHub CIとレビュー
 
-実装commit `403379e2116225cc2654ae9096f9715715c1ad00` の9 workflowを確認しています。最終状態は [CI記録](evidence/ci.json) とPR #436説明に記録します。資料だけの後続commitに実装検査結果を流用していることを明示し、実装SHAと資料HEADを区別します。
+実装commit `403379e2116225cc2654ae9096f9715715c1ad00` の **9/9 workflowが完走・成功**（2026-10-25 16:06 UTC確認）。失敗・実行中0。第2章のpuzzle/card/main-regression、Home layoutの両ジョブを含め成功しました。[CI記録](evidence/ci.json) に各runを保存しています。資料だけの後続commitは `[skip ci]` とし、実装SHAと資料HEADを区別します。既存テストや実装CIの停止・無効化はしていません。
 
 [独立コードレビュー](REVIEW.md)：斜め通過時の数字重なり1件を修正し、回帰テスト追加。未対応のコード指摘なし。
 
