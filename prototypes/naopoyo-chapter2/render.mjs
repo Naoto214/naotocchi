@@ -1,4 +1,7 @@
-import {drawStone,drawMagicRock} from './stone.mjs';
+import {drawStone} from './stone.mjs';
+import {drawGate} from './gate-art.mjs';
+import {GateEffects} from './gate-effects.mjs';
+const gateEffects=new WeakMap();
 import {drawSprite} from '../naopoyo-rescue/sprites.mjs';
 import {drawExit,drawCondition} from '../naopoyo-rescue/fixtures.mjs';
 import {render as chapterRender} from '../naopoyo-chapter1/render.mjs';
@@ -11,7 +14,7 @@ export function arrowPosition(s,actors=s.actors){
  for(const p of [{x:5,y:2},{x:1,y:1},{x:5,y:4},{x:3,y:1}])if(!occupied.some(a=>Math.abs(a.x-p.x)<1.4&&Math.abs(a.y-p.y)<1.4))return p;
  return null;
 }
-export function render(canvas,q,{dpr=1}={}){
+export function render(canvas,q,{dpr=1,reducedMotion=globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false}={}){
  if(!q.stage.id.startsWith('komorebi-'))return chapterRender(canvas,q,{dpr});
  const width=canvas.getBoundingClientRect().width,cell=width/8,c=canvas.getContext('2d'),s=q.state;
  canvas.width=Math.round(width*dpr);canvas.height=Math.round(width*dpr);c.setTransform(dpr,0,0,dpr,0,0);
@@ -27,8 +30,9 @@ export function render(canvas,q,{dpr=1}={}){
  for(const [x,y]of s.walls)drawStone(c,x,y);
  c.fillStyle='#617d50';c.fillRect(0,7.96,8,.04);
  for(const e of s.exits){drawExit(c,e);drawCondition(c,e);}
- const phase=q.motion[0];
- for(const g of s.gates){const entered=phase?.events.some(e=>e.type==='phase'&&e.x===g.x&&e.y===g.y);drawMagicRock(c,g,{occupied:s.actors.some(a=>a.x===g.x&&a.y===g.y),pulse:entered?Math.sin(Math.PI*Math.min(1,phase.elapsed/phase.duration)):0});}
+ if(!gateEffects.has(q))gateEffects.set(q,new GateEffects());
+ const gates=gateEffects.get(q).sample(q,actors,q.time,reducedMotion);
+ for(const g of gates)drawGate(c,g);
  for(const p of s.spikes){c.fillStyle='#ac7089';c.fillRect(p.x+.1,p.y+.75,.8,.13);for(let n=0;n<p.power;n++){const x=p.x+.5+(n-(p.power-1)/2)*.23;c.beginPath();c.moveTo(x-.11,p.y+.75);c.lineTo(x,p.y+.32);c.lineTo(x+.11,p.y+.75);c.fill();}}
  c.restore();
  for(const a of actors){
@@ -40,5 +44,6 @@ export function render(canvas,q,{dpr=1}={}){
   c.font=`900 ${cell*(held?.36:.31)}px system-ui`;c.textAlign='center';c.textBaseline='middle';c.lineWidth=3.5;c.strokeStyle='#355144';c.strokeText(a.level,(a.x+.5)*cell,(a.y+.18)*cell);c.fillStyle=held?'#fff2ae':'#fff';c.fillText(a.level,(a.x+.5)*cell,(a.y+.18)*cell);
   c.restore();
  }
+ c.save();c.scale(cell,cell);for(const g of gates)drawGate(c,g,{front:true});c.restore();
  const f=q.motion[0];if(f){const t=f.elapsed/f.duration;for(const e of f.events.filter(e=>['merge','split','rescue'].includes(e.type))){c.globalAlpha=Math.max(0,1-t);c.strokeStyle='#bc8c3a';c.lineWidth=2;c.beginPath();c.arc((e.x+.5)*cell,(e.y+.5)*cell,(.15+t*.38)*cell,0,Math.PI*2);c.stroke();}c.globalAlpha=1;}
 }
