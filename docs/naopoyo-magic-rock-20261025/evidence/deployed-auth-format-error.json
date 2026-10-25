@@ -1,0 +1,908 @@
+{
+  "files": 64,
+  "mismatches": [
+    {
+      "path": "prototypes/naopoyo-chapter2/index.html",
+      "status": 401,
+      "sha256": "741e4a5296707fa0f11088b315d31ad16ffe9d878b756f5ea8dcfd5cf90a03fb",
+      "expected": "5e1bbb210b437e3b81a15ac3bea14b3687daba7587d785894a102bf5733f57c8",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/style.css",
+      "status": 401,
+      "sha256": "b8a0ed8ffdf4b3fc856f8b49581d79b89183f26b0988b22914a8d299a23abec1",
+      "expected": "f850cd99b93748a0f204d0609a50a942c7f71897d47db1d65462bcebef711e89",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/style.css",
+      "status": 401,
+      "sha256": "7d0cc376daff7ebe660a677059e634a6590b3c989ce98630e98ef5d8e812c652",
+      "expected": "78cf833da2621d66854d8b460704eb96624470e9d01f752d2d6cfa9d38a721ae",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-world/style.css",
+      "status": 401,
+      "sha256": "287ea55622010af74a0fb12575b0a2bd305b1f2ae326edb8c0ed4eb179dc8445",
+      "expected": "f107980bda29fdfb72d48c8f6b23583d322365dac225c778b386c56a34d5bfc9",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/app.mjs",
+      "status": 401,
+      "sha256": "461b7601763b95b895163dd886aef105f07ccb6ef95388cc7b4210d6c60410ba",
+      "expected": "2b521f765617f7f74e50c92e079ce55f6a5d50b252951b9dc8ca75c8d99b4d1e",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/session.mjs",
+      "status": 401,
+      "sha256": "b1d6b581b461d2e0174ede3d7acca21a7141ecc627994b0b5aeb1f6e0ae8f9cc",
+      "expected": "4fc6c3d72503a5184ea03dcc245cc0be40d05364f2029ba4493695c9b841ce8a",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-world/session.mjs",
+      "status": 401,
+      "sha256": "81253e8c97091d73d91c77f8a0f1e5131e2d9ad106d9184ce492c458c2a0c9a3",
+      "expected": "00f7bfff5b9451617f4c3fa77eb9046538079ad99a8c9aeb36015dd1dea7ab7d",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-v2/engine.mjs",
+      "status": 401,
+      "sha256": "98a31688aae474064d63ec67d5e1c40bc26f0b01e49f1b852a381efeb8e8fc5f",
+      "expected": "b195ec60840bf2d979e2ce63ecbb44cc84cfa72fa5bc69f0ff8735541e622920",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/conditions.mjs",
+      "status": 401,
+      "sha256": "e5fc2ac210ddea0b5c0ade5d073b8a123e82c42f8b237b51765989acb2baaee9",
+      "expected": "2bb6f3dc0a2e6e020a37509dc9197e59d61713ddebc2d0c13708fff81051849c",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-v2/input.mjs",
+      "status": 401,
+      "sha256": "abee871443ae620db038b77911131423a0a913adc5f4914241ec614a32dc01d7",
+      "expected": "91e1ea3812556f70a2f7b85317d157eb2d41572e554c80bfeae870e714afce78",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/input.mjs",
+      "status": 401,
+      "sha256": "79547b89edf011112298d2e5e76516e8cab073c59db0804142cd29fb8628c8fd",
+      "expected": "627dfda45814d1d8063bd8f0ef41f21470fe844be905572b5dfbe1828a779f8b",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/engine.mjs",
+      "status": 401,
+      "sha256": "884bab4baa47008aba45ab3d7a83d0214bb6425a7b7a42f5dd6271279e73b912",
+      "expected": "70eca38a1734e7ce7642655cb6cf86bd009a481f5186ee77d7a7320d26bc1ed3",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/stages.mjs",
+      "status": 401,
+      "sha256": "b667db44e5e690df079767a07d9cdc59eea3c28c6a635d6ed320f0ceaeffaef4",
+      "expected": "5ebd450e52d66781dbbb4a979e0801b0a1eb9530b2cec8dfb3994484265be9fe",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/expansion-stages.mjs",
+      "status": 401,
+      "sha256": "711121dc98dfba23113a56bd6a516a556b510037dd9c2b2a7a8b384e9fcf6254",
+      "expected": "01fe59364c950ce61e365bbd220e59b1bb12f996055e869d1272a1b6e1de9c0a",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprites.mjs",
+      "status": 401,
+      "sha256": "fe4923a054aa54d652d410a3ccb6b89d4db94bcdbb903edb5d6b9eb5dd1829cb",
+      "expected": "9ed13fbd6d711ff3e60baf118aae84570af9633ea3dc21805ef6e6a45e5ff342",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprite-data.mjs",
+      "status": 401,
+      "sha256": "7308a5cfaac716006c1b13b12eb499e6b485e10d06e519888f4c60b3bbdca915",
+      "expected": "105c314c6428c10fda58566fd08169fb712fc47412a2d7e214a20560a5b51d42",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/render.mjs",
+      "status": 401,
+      "sha256": "8e9b1e164f0bdba1200502b0e62e13b33a012fe4bb117a391498fb7cac78ebbc",
+      "expected": "4cdc4337322a61b7b2fa1fbc84e009b1542feeb4b5cb9c2d628a717e3faded0f",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/stone.mjs",
+      "status": 401,
+      "sha256": "158e44852c0f95c555d2c0d2123ba341c8c032419d1b69596d55517537385254",
+      "expected": "37d5dc9152b4deafaa20a10e77a2b170b555e6955a34c5c6bf665d451031addd",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/fixtures.mjs",
+      "status": 401,
+      "sha256": "7680ef4f22b404b5d969c45d67414a29049b8a95e2b12b53cad3e13356429bbd",
+      "expected": "fb8645c06971c43317247eecdc71a87ab24dd881270ff8207ae7b88c13ffbe06",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/render.mjs",
+      "status": 401,
+      "sha256": "b7e3653f2c98111b4f73693cf02a5710e192f266f604623797af5eea0c4ad846",
+      "expected": "2711210c4497ba539fe4a9240151bb9f3bc81b30383345b053effeeaaceae5a0",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/themes.mjs",
+      "status": 401,
+      "sha256": "7da078d7f35810de33c49abea5eb148756a323c78fd368179ceb054469ff0aa3",
+      "expected": "65e1d0bee21fdaf8747dd95e6972dc09d08ce1e173f163d0300a19b7663a571f",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-world/render.mjs",
+      "status": 401,
+      "sha256": "4ffe64102743e566f676da50106e63cee750f2349d53fe1f053d3265325cb71c",
+      "expected": "10156c30edcd6ae4e5d9c40e14115710f9df98ce91b31d65470a0661375d936c",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/progress.mjs",
+      "status": 401,
+      "sha256": "3325e73a4c478ef14a5580e96c656d7a92ed040d1c7d56b44e55194a9ea84efc",
+      "expected": "c32c0455d65014aad54be0b7faccfc3d9b1dadc689b467bb3051dfaee75c22af",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/progress.mjs",
+      "status": 401,
+      "sha256": "568a55daf4925bfe3f221733a3e7ff2c5c3c7f22f833e311dc416ef9533924ac",
+      "expected": "6af0d8f6f00f929919c4b975c5af0b2a73734f5b1d607260b99e3370c1dc3d11",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/stages.mjs",
+      "status": 401,
+      "sha256": "f2857d2473cfb6ed2a5fed94678892b2c78cae8ec5c1a21de8c7a32af1107a8d",
+      "expected": "e586d396cfe2dbb4dcf02dbe863602b91f0e0ec50d61dd162cc9b81a0b9dc32a",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/qa.html",
+      "status": 401,
+      "sha256": "6b9cb111ffd1485ad587ef01231cbe5d557aba3dd4c78167ddfd04cdf0a0ab61",
+      "expected": "a40b66d4cb5baf8d24083fcd1727445365c4f4cdca326258af8c75e22fcf4ce2",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/01.png",
+      "status": 401,
+      "sha256": "5eb7598a93f0eab21b5928bb830e3489a22f6fc65e08bccbcd68a084d6bf289d",
+      "expected": "bd9097cf21d9e7eff29109a1bfc6cdb2331307057e1b86bcd24b15e46d163436",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/02.png",
+      "status": 401,
+      "sha256": "55928c3d208f52185477717726f8f593e299861a4703b77ff9f8221810a41a84",
+      "expected": "3c05811dac91954f3a2e7946c698f8b8c4a0a67395aa559deca916551fdf3c28",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/03.png",
+      "status": 401,
+      "sha256": "112aa47ad987281ddd288098a36a0acc9453c1b49d6d83f3193e38076020f203",
+      "expected": "b8fadf6e358928f8dbf46753bf53d0b421334dcf45d322873d24cc262de10641",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/04.png",
+      "status": 401,
+      "sha256": "ea13903488e3dde41157ae476d71e658caf6773365e25dc8f702bca24e87c093",
+      "expected": "b4939fe1cfcee1e23be5719769f250f6cabae2316bc643195e6a64ab8703c2e1",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/05.png",
+      "status": 401,
+      "sha256": "a1075ac67fb8410c1cbbc8bd5a4fc214c7dc0a8e29b7c76401930e2ef04648f4",
+      "expected": "dcdfc0da83f513c105799088b9bf5ca47170a5d9dc2e0b9f6acb76a43fb3a5d8",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/06.png",
+      "status": 401,
+      "sha256": "1b840b61cc581a911656b760cebcf9a673be852cacdd3551349cb526b025989f",
+      "expected": "1219ced10749edb37c456e334d55fe931ce47e8232b141407599f3dda75ac75f",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/07.png",
+      "status": 401,
+      "sha256": "c0a9fb21d18ea8ae59c0ea6d939e918a03c13a9f81a154acbf9bf26150a9644f",
+      "expected": "222fbe861cbb11c44fe2119b9888d3ad3b020e0c0a1767f12335c9aa88179e7c",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/08.png",
+      "status": 401,
+      "sha256": "3ad24be3c783be31a8b22c5bb2df980e469ef8ff37847b7a07e3ac02d2ca3867",
+      "expected": "205f15a7c3603f020604dbdc39e7d38335381162c34b23a507f143ec7f67570a",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/companions/owl.png",
+      "status": 401,
+      "sha256": "55f2ea587f397bf1816014978283bf948390beef792e464abd1c7bce550f17f7",
+      "expected": "943c2809d0394bc8b155e68eb8c701797530813de6bc4209166089fb78ad7a61",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/01.png",
+      "status": 401,
+      "sha256": "37f4fd481f24f8bafe56bae737fb26f1b3e6694d14d4c276d30f37dd1e076cf0",
+      "expected": "0b4fbe1b5d39e7d3de9df99abf177613a11cdd727274e52dbf2b6d802961419e",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/02.png",
+      "status": 401,
+      "sha256": "10710af28db24cb96b1279e3121a499e02641ef691f06ec32b379e62e41cc14f",
+      "expected": "7e8f25a1006e957a4f7d12ab0199f480f6f0121d2eed09542ee30735ce0dcfc2",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/03.png",
+      "status": 401,
+      "sha256": "c874eccae7d74f226460ef3f5e2e3da7bc4179222f73a69c0a9053bdaa65a113",
+      "expected": "539fb6b30e43d39c7e08b4f48ac07aed8b431748ecd6aadb923559f96334a472",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/04.png",
+      "status": 401,
+      "sha256": "e785db4701c6d7de7ab14b0f55a45d6c06daa0a6a97e8ca48b7fa529bf6ac07d",
+      "expected": "2a30a664493e6e6e4ad6539255a75381cd86f0f35acb4d8c6bc80b85de31abe7",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/05.png",
+      "status": 401,
+      "sha256": "dd95ef18dc71cd73e29fe00c7b4ac7602a081e44c165f21da91a6e0d84628e66",
+      "expected": "5176f315bf90341b3a0354c13f11f5d1ca7e3813b33893518fae094a4adc96f7",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/06.png",
+      "status": 401,
+      "sha256": "b14ec5c85bce5918303b997ec86ce11e84d9c46389ea3952cf264a0e70549f6e",
+      "expected": "377669ea5b91689dbbb85ace4e19a93fd44aa07e0f0e289b9c1b0d080de40d20",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/07.png",
+      "status": 401,
+      "sha256": "542f100c8f3e9fd9bed93726db611b8608bbed9c12c4a1b003232795c28f26fa",
+      "expected": "21a1af296e0e9ebd530db0ad7e8e500f0bba5daefd83a18f184ffab77741cded",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/08.png",
+      "status": 401,
+      "sha256": "cb972b317f353fe9242722c90b1f5f90b2d6955103ea7b226591c5dd4184227a",
+      "expected": "5d944d8e799dc3702f1f2e155264e9a56f581b2c28d1c3bd22ce3396d284a62f",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/01.png",
+      "status": 401,
+      "sha256": "21eda8a82e427d2a1f8b9eccca41103b1bd4c901cfa22c5fe04b547052075b5c",
+      "expected": "db197004b609bb0f93f273135968de0deff0d6993b02ee94dbd3eb010147ff7f",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/02.png",
+      "status": 401,
+      "sha256": "6e87bf28166968ec8b32e6bfc7543690087450d123db82b0db2904daf127ed7d",
+      "expected": "af8c08619432eb34e8f8a3fb1213e13bb17582b3e1734ba6692101833dc96952",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/03.png",
+      "status": 401,
+      "sha256": "733b4bd14588ef428f3f6e78d415cf66c6954a437675b0775081e6208c217496",
+      "expected": "5c0a95b75490414289cffb6902a31378f40e2a1b0c232dbcfcdbfa536de8d1b7",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/04.png",
+      "status": 401,
+      "sha256": "78c21198fcebc7edeaf22b172f6f993d7b143ccdd8f2a82d0897f1a382cd9b11",
+      "expected": "7a553a48da43cccbd82a7a0b34ce7b685c0bad3e299ac0d879527c758c202571",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/05.png",
+      "status": 401,
+      "sha256": "ac06209a96adc0b1f275bce5e295cfd60e038d65dcec0cf24fe43b111bb48017",
+      "expected": "ea712f67c95fd017e39a6bf751440cdb8c37a558d77ab1e3315fcb0aa5c40ebf",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/06.png",
+      "status": 401,
+      "sha256": "65a7d5fb86d6cee89e014f94b639a83cf216dcf95a2ef0b323e4527e6a05be3b",
+      "expected": "06704d5b03eb541b45c50896c6460740b3fcf89e772d16c1da2d0157ad3cfcf0",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/07.png",
+      "status": 401,
+      "sha256": "8cc771e5c5ae08d7ee1b41a5a8d3f08cf28d152bdf4efa0180330accc7eb4506",
+      "expected": "2d6325b799c26cfbb1da78d51c052aa8eac50b62be58eb90b90f63f3f15da28b",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/08.png",
+      "status": 401,
+      "sha256": "1d240b7db7f0a94343201079b44794b51b138972f7621eb72d31ecfee3e39f1a",
+      "expected": "92da93f109a6e69843bec823895b10720ace19f471baabfceef5c65b71659264",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/01.png",
+      "status": 401,
+      "sha256": "79535fc923510461e3e801cc683e26076af7178003cf139ee3c5a578793be6bf",
+      "expected": "1e3c09920dc8edb3f7d6cf107a67c883bf3948d2f1934f777142dd5733111b8e",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/02.png",
+      "status": 401,
+      "sha256": "80ec4193f14211428f8135cee05388e64c2d9b0c1b5a7e9ec58f438d7b7ee16a",
+      "expected": "94a64c31f5554661704315e01bb0bb9450e6bac405bc538f3c90ca630bcbe104",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/03.png",
+      "status": 401,
+      "sha256": "4f3124d485c368a8e13b556225040210b76c4925a5ce1603e9417cd0f8e63312",
+      "expected": "135c59c912ca9870f3113b4b35d40bca5d35980a418f84d27fe57a83ead842b6",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/04.png",
+      "status": 401,
+      "sha256": "1a79ec70406251a68a63980ae99635fbb74ee6d367ea0896513a078e05e2878e",
+      "expected": "826a374b27a0741e12e6e1d4d15eef4b614a230f0c658009aea942bdb071adba",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/05.png",
+      "status": 401,
+      "sha256": "d9205696c34ef806fbf659dd33b83959005bd370aed4cc6c37169704e4175716",
+      "expected": "ff18675618304f5e2429ff85578302c6b04fe97e47109379bd72f2dc5f5226a1",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/06.png",
+      "status": 401,
+      "sha256": "5efdd9801c467328313f5a49147bc336d21adc61df75d962540b58dd77fff15f",
+      "expected": "444e6fa64916da93dd5c5a7fc5c20ebbe63f688bc28b237432199829ac8cd610",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/07.png",
+      "status": 401,
+      "sha256": "ca7c9336ec88d89d1268c143ed20f3b0c929ba02ca9c0fe913b920fc033df315",
+      "expected": "f35e007ac80eaa8914a5356abc826267d6f7102ac98229f8c92f5f79198d203d",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/08.png",
+      "status": 401,
+      "sha256": "0dbeb9c03e964c7be313570bc3e839c1ec188ba3c12170a66f0d4e31df427e5a",
+      "expected": "d7cc3627e011384258d6b6e47bf1cb646b308eddfa843096b9fc2182e05c6577",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/relationship/owl/positive.png",
+      "status": 401,
+      "sha256": "3e9430f68e21c8962bfb27c3f2721a33a42ab02a9ac6cdc0d78aca8af1569287",
+      "expected": "eb23932210414f34b46fa6bfe16f0ca3d5adaa1de8bc9adb53d5cb0c4d8e2960",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/assets/owl-sulky-v1.png",
+      "status": 401,
+      "sha256": "9dd6f5ef77685e5836dcc43a0190e0e84fdf3762e5194b238e9e7e2635384004",
+      "expected": "89157c43cc1fa7afbc13a1ee363af31200ba159085bbaac3ad6c47e540f75549",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/companions/cat_friend.png",
+      "status": 401,
+      "sha256": "ab656fe5f464a669ebc2078cd74fe533dcbfeaad587d6a1f8c8ab16094ab1789",
+      "expected": "223734ac14fc26bdbedae1073063855001382706c89675c4c7705045b04ea5b0",
+      "ok": false
+    },
+    {
+      "path": "assets/world/forest-v1.webp",
+      "status": 401,
+      "sha256": "76f342ddaf196ecb9bf8d2ad7abd5fde973757e465cb188841e0fa1a2c19c992",
+      "expected": "1ed6e041295dcd19f5aad7b772f98fea37167f1bdd5afc8d9f478f03715ad1bf",
+      "ok": false
+    },
+    {
+      "path": "index.html",
+      "status": 401,
+      "sha256": "216bb6e9da944b296825f0c73e12575cd9817d4b8f0ef8e0109c3a9e6854ac72",
+      "expected": "8c6bcb0bb9ce8013a6d918072c6457f00f003a2667404808047ce138c1dad9fb",
+      "ok": false
+    }
+  ],
+  "rows": [
+    {
+      "path": "prototypes/naopoyo-chapter2/index.html",
+      "status": 401,
+      "sha256": "741e4a5296707fa0f11088b315d31ad16ffe9d878b756f5ea8dcfd5cf90a03fb",
+      "expected": "5e1bbb210b437e3b81a15ac3bea14b3687daba7587d785894a102bf5733f57c8",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/style.css",
+      "status": 401,
+      "sha256": "b8a0ed8ffdf4b3fc856f8b49581d79b89183f26b0988b22914a8d299a23abec1",
+      "expected": "f850cd99b93748a0f204d0609a50a942c7f71897d47db1d65462bcebef711e89",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/style.css",
+      "status": 401,
+      "sha256": "7d0cc376daff7ebe660a677059e634a6590b3c989ce98630e98ef5d8e812c652",
+      "expected": "78cf833da2621d66854d8b460704eb96624470e9d01f752d2d6cfa9d38a721ae",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-world/style.css",
+      "status": 401,
+      "sha256": "287ea55622010af74a0fb12575b0a2bd305b1f2ae326edb8c0ed4eb179dc8445",
+      "expected": "f107980bda29fdfb72d48c8f6b23583d322365dac225c778b386c56a34d5bfc9",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/app.mjs",
+      "status": 401,
+      "sha256": "461b7601763b95b895163dd886aef105f07ccb6ef95388cc7b4210d6c60410ba",
+      "expected": "2b521f765617f7f74e50c92e079ce55f6a5d50b252951b9dc8ca75c8d99b4d1e",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/session.mjs",
+      "status": 401,
+      "sha256": "b1d6b581b461d2e0174ede3d7acca21a7141ecc627994b0b5aeb1f6e0ae8f9cc",
+      "expected": "4fc6c3d72503a5184ea03dcc245cc0be40d05364f2029ba4493695c9b841ce8a",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-world/session.mjs",
+      "status": 401,
+      "sha256": "81253e8c97091d73d91c77f8a0f1e5131e2d9ad106d9184ce492c458c2a0c9a3",
+      "expected": "00f7bfff5b9451617f4c3fa77eb9046538079ad99a8c9aeb36015dd1dea7ab7d",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-v2/engine.mjs",
+      "status": 401,
+      "sha256": "98a31688aae474064d63ec67d5e1c40bc26f0b01e49f1b852a381efeb8e8fc5f",
+      "expected": "b195ec60840bf2d979e2ce63ecbb44cc84cfa72fa5bc69f0ff8735541e622920",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/conditions.mjs",
+      "status": 401,
+      "sha256": "e5fc2ac210ddea0b5c0ade5d073b8a123e82c42f8b237b51765989acb2baaee9",
+      "expected": "2bb6f3dc0a2e6e020a37509dc9197e59d61713ddebc2d0c13708fff81051849c",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-v2/input.mjs",
+      "status": 401,
+      "sha256": "abee871443ae620db038b77911131423a0a913adc5f4914241ec614a32dc01d7",
+      "expected": "91e1ea3812556f70a2f7b85317d157eb2d41572e554c80bfeae870e714afce78",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/input.mjs",
+      "status": 401,
+      "sha256": "79547b89edf011112298d2e5e76516e8cab073c59db0804142cd29fb8628c8fd",
+      "expected": "627dfda45814d1d8063bd8f0ef41f21470fe844be905572b5dfbe1828a779f8b",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/engine.mjs",
+      "status": 401,
+      "sha256": "884bab4baa47008aba45ab3d7a83d0214bb6425a7b7a42f5dd6271279e73b912",
+      "expected": "70eca38a1734e7ce7642655cb6cf86bd009a481f5186ee77d7a7320d26bc1ed3",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/stages.mjs",
+      "status": 401,
+      "sha256": "b667db44e5e690df079767a07d9cdc59eea3c28c6a635d6ed320f0ceaeffaef4",
+      "expected": "5ebd450e52d66781dbbb4a979e0801b0a1eb9530b2cec8dfb3994484265be9fe",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/expansion-stages.mjs",
+      "status": 401,
+      "sha256": "711121dc98dfba23113a56bd6a516a556b510037dd9c2b2a7a8b384e9fcf6254",
+      "expected": "01fe59364c950ce61e365bbd220e59b1bb12f996055e869d1272a1b6e1de9c0a",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprites.mjs",
+      "status": 401,
+      "sha256": "fe4923a054aa54d652d410a3ccb6b89d4db94bcdbb903edb5d6b9eb5dd1829cb",
+      "expected": "9ed13fbd6d711ff3e60baf118aae84570af9633ea3dc21805ef6e6a45e5ff342",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprite-data.mjs",
+      "status": 401,
+      "sha256": "7308a5cfaac716006c1b13b12eb499e6b485e10d06e519888f4c60b3bbdca915",
+      "expected": "105c314c6428c10fda58566fd08169fb712fc47412a2d7e214a20560a5b51d42",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/render.mjs",
+      "status": 401,
+      "sha256": "8e9b1e164f0bdba1200502b0e62e13b33a012fe4bb117a391498fb7cac78ebbc",
+      "expected": "4cdc4337322a61b7b2fa1fbc84e009b1542feeb4b5cb9c2d628a717e3faded0f",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/stone.mjs",
+      "status": 401,
+      "sha256": "158e44852c0f95c555d2c0d2123ba341c8c032419d1b69596d55517537385254",
+      "expected": "37d5dc9152b4deafaa20a10e77a2b170b555e6955a34c5c6bf665d451031addd",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/fixtures.mjs",
+      "status": 401,
+      "sha256": "7680ef4f22b404b5d969c45d67414a29049b8a95e2b12b53cad3e13356429bbd",
+      "expected": "fb8645c06971c43317247eecdc71a87ab24dd881270ff8207ae7b88c13ffbe06",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/render.mjs",
+      "status": 401,
+      "sha256": "b7e3653f2c98111b4f73693cf02a5710e192f266f604623797af5eea0c4ad846",
+      "expected": "2711210c4497ba539fe4a9240151bb9f3bc81b30383345b053effeeaaceae5a0",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/themes.mjs",
+      "status": 401,
+      "sha256": "7da078d7f35810de33c49abea5eb148756a323c78fd368179ceb054469ff0aa3",
+      "expected": "65e1d0bee21fdaf8747dd95e6972dc09d08ce1e173f163d0300a19b7663a571f",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-world/render.mjs",
+      "status": 401,
+      "sha256": "4ffe64102743e566f676da50106e63cee750f2349d53fe1f053d3265325cb71c",
+      "expected": "10156c30edcd6ae4e5d9c40e14115710f9df98ce91b31d65470a0661375d936c",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/progress.mjs",
+      "status": 401,
+      "sha256": "3325e73a4c478ef14a5580e96c656d7a92ed040d1c7d56b44e55194a9ea84efc",
+      "expected": "c32c0455d65014aad54be0b7faccfc3d9b1dadc689b467bb3051dfaee75c22af",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/progress.mjs",
+      "status": 401,
+      "sha256": "568a55daf4925bfe3f221733a3e7ff2c5c3c7f22f833e311dc416ef9533924ac",
+      "expected": "6af0d8f6f00f929919c4b975c5af0b2a73734f5b1d607260b99e3370c1dc3d11",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/stages.mjs",
+      "status": 401,
+      "sha256": "f2857d2473cfb6ed2a5fed94678892b2c78cae8ec5c1a21de8c7a32af1107a8d",
+      "expected": "e586d396cfe2dbb4dcf02dbe863602b91f0e0ec50d61dd162cc9b81a0b9dc32a",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/qa.html",
+      "status": 401,
+      "sha256": "6b9cb111ffd1485ad587ef01231cbe5d557aba3dd4c78167ddfd04cdf0a0ab61",
+      "expected": "a40b66d4cb5baf8d24083fcd1727445365c4f4cdca326258af8c75e22fcf4ce2",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/01.png",
+      "status": 401,
+      "sha256": "5eb7598a93f0eab21b5928bb830e3489a22f6fc65e08bccbcd68a084d6bf289d",
+      "expected": "bd9097cf21d9e7eff29109a1bfc6cdb2331307057e1b86bcd24b15e46d163436",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/02.png",
+      "status": 401,
+      "sha256": "55928c3d208f52185477717726f8f593e299861a4703b77ff9f8221810a41a84",
+      "expected": "3c05811dac91954f3a2e7946c698f8b8c4a0a67395aa559deca916551fdf3c28",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/03.png",
+      "status": 401,
+      "sha256": "112aa47ad987281ddd288098a36a0acc9453c1b49d6d83f3193e38076020f203",
+      "expected": "b8fadf6e358928f8dbf46753bf53d0b421334dcf45d322873d24cc262de10641",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/04.png",
+      "status": 401,
+      "sha256": "ea13903488e3dde41157ae476d71e658caf6773365e25dc8f702bca24e87c093",
+      "expected": "b4939fe1cfcee1e23be5719769f250f6cabae2316bc643195e6a64ab8703c2e1",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/05.png",
+      "status": 401,
+      "sha256": "a1075ac67fb8410c1cbbc8bd5a4fc214c7dc0a8e29b7c76401930e2ef04648f4",
+      "expected": "dcdfc0da83f513c105799088b9bf5ca47170a5d9dc2e0b9f6acb76a43fb3a5d8",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/06.png",
+      "status": 401,
+      "sha256": "1b840b61cc581a911656b760cebcf9a673be852cacdd3551349cb526b025989f",
+      "expected": "1219ced10749edb37c456e334d55fe931ce47e8232b141407599f3dda75ac75f",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/07.png",
+      "status": 401,
+      "sha256": "c0a9fb21d18ea8ae59c0ea6d939e918a03c13a9f81a154acbf9bf26150a9644f",
+      "expected": "222fbe861cbb11c44fe2119b9888d3ad3b020e0c0a1767f12335c9aa88179e7c",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/clownfish/08.png",
+      "status": 401,
+      "sha256": "3ad24be3c783be31a8b22c5bb2df980e469ef8ff37847b7a07e3ac02d2ca3867",
+      "expected": "205f15a7c3603f020604dbdc39e7d38335381162c34b23a507f143ec7f67570a",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/companions/owl.png",
+      "status": 401,
+      "sha256": "55f2ea587f397bf1816014978283bf948390beef792e464abd1c7bce550f17f7",
+      "expected": "943c2809d0394bc8b155e68eb8c701797530813de6bc4209166089fb78ad7a61",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/01.png",
+      "status": 401,
+      "sha256": "37f4fd481f24f8bafe56bae737fb26f1b3e6694d14d4c276d30f37dd1e076cf0",
+      "expected": "0b4fbe1b5d39e7d3de9df99abf177613a11cdd727274e52dbf2b6d802961419e",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/02.png",
+      "status": 401,
+      "sha256": "10710af28db24cb96b1279e3121a499e02641ef691f06ec32b379e62e41cc14f",
+      "expected": "7e8f25a1006e957a4f7d12ab0199f480f6f0121d2eed09542ee30735ce0dcfc2",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/03.png",
+      "status": 401,
+      "sha256": "c874eccae7d74f226460ef3f5e2e3da7bc4179222f73a69c0a9053bdaa65a113",
+      "expected": "539fb6b30e43d39c7e08b4f48ac07aed8b431748ecd6aadb923559f96334a472",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/04.png",
+      "status": 401,
+      "sha256": "e785db4701c6d7de7ab14b0f55a45d6c06daa0a6a97e8ca48b7fa529bf6ac07d",
+      "expected": "2a30a664493e6e6e4ad6539255a75381cd86f0f35acb4d8c6bc80b85de31abe7",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/05.png",
+      "status": 401,
+      "sha256": "dd95ef18dc71cd73e29fe00c7b4ac7602a081e44c165f21da91a6e0d84628e66",
+      "expected": "5176f315bf90341b3a0354c13f11f5d1ca7e3813b33893518fae094a4adc96f7",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/06.png",
+      "status": 401,
+      "sha256": "b14ec5c85bce5918303b997ec86ce11e84d9c46389ea3952cf264a0e70549f6e",
+      "expected": "377669ea5b91689dbbb85ace4e19a93fd44aa07e0f0e289b9c1b0d080de40d20",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/07.png",
+      "status": 401,
+      "sha256": "542f100c8f3e9fd9bed93726db611b8608bbed9c12c4a1b003232795c28f26fa",
+      "expected": "21a1af296e0e9ebd530db0ad7e8e500f0bba5daefd83a18f184ffab77741cded",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/dog/08.png",
+      "status": 401,
+      "sha256": "cb972b317f353fe9242722c90b1f5f90b2d6955103ea7b226591c5dd4184227a",
+      "expected": "5d944d8e799dc3702f1f2e155264e9a56f581b2c28d1c3bd22ce3396d284a62f",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/01.png",
+      "status": 401,
+      "sha256": "21eda8a82e427d2a1f8b9eccca41103b1bd4c901cfa22c5fe04b547052075b5c",
+      "expected": "db197004b609bb0f93f273135968de0deff0d6993b02ee94dbd3eb010147ff7f",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/02.png",
+      "status": 401,
+      "sha256": "6e87bf28166968ec8b32e6bfc7543690087450d123db82b0db2904daf127ed7d",
+      "expected": "af8c08619432eb34e8f8a3fb1213e13bb17582b3e1734ba6692101833dc96952",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/03.png",
+      "status": 401,
+      "sha256": "733b4bd14588ef428f3f6e78d415cf66c6954a437675b0775081e6208c217496",
+      "expected": "5c0a95b75490414289cffb6902a31378f40e2a1b0c232dbcfcdbfa536de8d1b7",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/04.png",
+      "status": 401,
+      "sha256": "78c21198fcebc7edeaf22b172f6f993d7b143ccdd8f2a82d0897f1a382cd9b11",
+      "expected": "7a553a48da43cccbd82a7a0b34ce7b685c0bad3e299ac0d879527c758c202571",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/05.png",
+      "status": 401,
+      "sha256": "ac06209a96adc0b1f275bce5e295cfd60e038d65dcec0cf24fe43b111bb48017",
+      "expected": "ea712f67c95fd017e39a6bf751440cdb8c37a558d77ab1e3315fcb0aa5c40ebf",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/06.png",
+      "status": 401,
+      "sha256": "65a7d5fb86d6cee89e014f94b639a83cf216dcf95a2ef0b323e4527e6a05be3b",
+      "expected": "06704d5b03eb541b45c50896c6460740b3fcf89e772d16c1da2d0157ad3cfcf0",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/07.png",
+      "status": 401,
+      "sha256": "8cc771e5c5ae08d7ee1b41a5a8d3f08cf28d152bdf4efa0180330accc7eb4506",
+      "expected": "2d6325b799c26cfbb1da78d51c052aa8eac50b62be58eb90b90f63f3f15da28b",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/frog/08.png",
+      "status": 401,
+      "sha256": "1d240b7db7f0a94343201079b44794b51b138972f7621eb72d31ecfee3e39f1a",
+      "expected": "92da93f109a6e69843bec823895b10720ace19f471baabfceef5c65b71659264",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/01.png",
+      "status": 401,
+      "sha256": "79535fc923510461e3e801cc683e26076af7178003cf139ee3c5a578793be6bf",
+      "expected": "1e3c09920dc8edb3f7d6cf107a67c883bf3948d2f1934f777142dd5733111b8e",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/02.png",
+      "status": 401,
+      "sha256": "80ec4193f14211428f8135cee05388e64c2d9b0c1b5a7e9ec58f438d7b7ee16a",
+      "expected": "94a64c31f5554661704315e01bb0bb9450e6bac405bc538f3c90ca630bcbe104",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/03.png",
+      "status": 401,
+      "sha256": "4f3124d485c368a8e13b556225040210b76c4925a5ce1603e9417cd0f8e63312",
+      "expected": "135c59c912ca9870f3113b4b35d40bca5d35980a418f84d27fe57a83ead842b6",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/04.png",
+      "status": 401,
+      "sha256": "1a79ec70406251a68a63980ae99635fbb74ee6d367ea0896513a078e05e2878e",
+      "expected": "826a374b27a0741e12e6e1d4d15eef4b614a230f0c658009aea942bdb071adba",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/05.png",
+      "status": 401,
+      "sha256": "d9205696c34ef806fbf659dd33b83959005bd370aed4cc6c37169704e4175716",
+      "expected": "ff18675618304f5e2429ff85578302c6b04fe97e47109379bd72f2dc5f5226a1",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/06.png",
+      "status": 401,
+      "sha256": "5efdd9801c467328313f5a49147bc336d21adc61df75d962540b58dd77fff15f",
+      "expected": "444e6fa64916da93dd5c5a7fc5c20ebbe63f688bc28b237432199829ac8cd610",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/07.png",
+      "status": 401,
+      "sha256": "ca7c9336ec88d89d1268c143ed20f3b0c929ba02ca9c0fe913b920fc033df315",
+      "expected": "f35e007ac80eaa8914a5356abc826267d6f7102ac98229f8c92f5f79198d203d",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/penguin/08.png",
+      "status": 401,
+      "sha256": "0dbeb9c03e964c7be313570bc3e839c1ec188ba3c12170a66f0d4e31df427e5a",
+      "expected": "d7cc3627e011384258d6b6e47bf1cb646b308eddfa843096b9fc2182e05c6577",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/relationship/owl/positive.png",
+      "status": 401,
+      "sha256": "3e9430f68e21c8962bfb27c3f2721a33a42ab02a9ac6cdc0d78aca8af1569287",
+      "expected": "eb23932210414f34b46fa6bfe16f0ca3d5adaa1de8bc9adb53d5cb0c4d8e2960",
+      "ok": false
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/assets/owl-sulky-v1.png",
+      "status": 401,
+      "sha256": "9dd6f5ef77685e5836dcc43a0190e0e84fdf3762e5194b238e9e7e2635384004",
+      "expected": "89157c43cc1fa7afbc13a1ee363af31200ba159085bbaac3ad6c47e540f75549",
+      "ok": false
+    },
+    {
+      "path": "assets/characters/companions/cat_friend.png",
+      "status": 401,
+      "sha256": "ab656fe5f464a669ebc2078cd74fe533dcbfeaad587d6a1f8c8ab16094ab1789",
+      "expected": "223734ac14fc26bdbedae1073063855001382706c89675c4c7705045b04ea5b0",
+      "ok": false
+    },
+    {
+      "path": "assets/world/forest-v1.webp",
+      "status": 401,
+      "sha256": "76f342ddaf196ecb9bf8d2ad7abd5fde973757e465cb188841e0fa1a2c19c992",
+      "expected": "1ed6e041295dcd19f5aad7b772f98fea37167f1bdd5afc8d9f478f03715ad1bf",
+      "ok": false
+    },
+    {
+      "path": "index.html",
+      "status": 401,
+      "sha256": "216bb6e9da944b296825f0c73e12575cd9817d4b8f0ef8e0109c3a9e6854ac72",
+      "expected": "8c6bcb0bb9ce8013a6d918072c6457f00f003a2667404808047ce138c1dad9fb",
+      "ok": false
+    }
+  ],
+  "versionStatus": 401,
+  "versionMatches": false,
+  "sourceCommit": "73e358df74d70a805682c5e4538233e6f61c7929",
+  "version": 6,
+  "unauthenticatedStatus": 403
+}

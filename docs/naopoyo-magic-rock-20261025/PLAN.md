@@ -24,7 +24,7 @@ C 透明紋章: 岩の厚みが曖昧。比較資料のみ。
 - [x] 1. engine.mjs: terrainBlocksを共用、actorをcornerBlockedに渡す。条件一致／不一致、落下、空中上昇、双方交換、子配置、保存のRED→GREEN。旧ルール保持。
 - [x] 2. 第2章stages revision4、terrainRules opt-in。progress新keyでcontact-v1進捗のみread-only移行。render自然石＋刻印、通過eventに短い光。A/B/C比較ページ。
 - [x] 3. 全10面新規探索・実エンジン再生、旧19の42手監査、20新規探索。必要なら最小地形変更。全解答をsession保存/Undo/Retryで検査。
-- [ ] 4. 合同パズル、本編npm test、CARD、Pages。独立レビュー、GitHub commit/push・Draft更新、本人限定v6配信hash照合。
+- [x] 4. 合同パズル、本編npm test、CARD、Pages。独立レビュー、GitHub commit/push・Draft更新、本人限定v6配信hash照合。リモートCIの観測結果はRELEASE.mdに記録。
 
 ## 監査の出発点
 main=0b3bb1fe77f7b9829e94f2284ce2b56eb3fe1e0e、PR436=6e7521c39b9ec1a15d0351cd009f1f3688aa5020、435 merged。
