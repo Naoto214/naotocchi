@@ -3027,7 +3027,9 @@
     { emoji: '🐙', name: 'たこ', size: 1.6, value: 48, pull: 1.7, speed: 22 },
     { emoji: '🦈', name: 'さめ', size: 2.2, value: 70, pull: 2.4, speed: 50 },
   ];
-  function makeRealFishingGame({ title, species = FISHING_SPECIES, waterTop = '#3fa6e8', waterBottom = '#0b3f7a' }) {
+  // hotspot:'flock' … 🐦の むれの 下で 魚が よりやすい(むれは ときどき うごく)。reach … 遠いほど 大物が より、
+  // 巻くのも はやい(近い=小物で はやい)。recast … あたりが ないとき「あわせる」で 回収して 投げなおせる。どれも 既定は なし
+  function makeRealFishingGame({ title, species = FISHING_SPECIES, waterTop = '#3fa6e8', waterBottom = '#0b3f7a', hotspot = null, reach = false, recast = false }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
@@ -3047,6 +3049,12 @@
         const WATER_Y = H * 0.34, SHORE_X = 28;
         const timerEl = container.querySelector('#rfTimer'), scoreEl = container.querySelector('#rfScore'), hint = container.querySelector('#rfHint'), mainBtn = container.querySelector('#rfMain');
         const say = (t, ms = 1400) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        // むれ: x へ ゆっくり とんでいき、at を すぎたら つぎの 場所(tx)を きめる
+        const FLOCK_R = 34, FLOCK_IN = 2.2, FLOCK_OUT = 0.03, FLOCK_OUT_FAR = 0.3, FLOCK_SLOW = 0.35, FLOCK_PULL = 200, REACH_MIN = 1.1, REACH_K = 1.2, REEL_REACH = 1000;
+        const underFlock = () => flock && Math.abs(lureX - flock.x) < FLOCK_R;
+        const reachU = () => clamp((lureX - SHORE_X - 50) / (W - SHORE_X - 70), 0, 1);
+        const flock = hotspot === 'flock' ? { x: 0, tx: 0, at: startTime + 6500 } : null;
+        if (flock) { flock.x = flock.tx = 70 + Math.random() * (W - 100); hint.textContent = 'ためて投げる。🐦の群れの下に魚が集まる!あたりがないときは「あわせる」で回収'; }
         const fishes = [];
         function spawnFish() {
           const sp = species[Math.min(species.length - 1, Math.floor(Math.pow(Math.random(), 1.6 - difficulty * 0.5) * species.length))];
@@ -3086,7 +3094,7 @@
             setPhase('fight'); sfx('hit'); say('🎣ヒット!' + hooked.sp.name + 'だ!糸の張りに注意', 1600);
           } else {
             const nib = fishes.find((f) => f.state === 'nibble' || f.state === 'approach');
-            if (nib) { nib.state = 'flee'; say('早すぎ!魚がにげた…'); } else say('まだあたりがない…', 800);
+            if (nib) { nib.state = 'flee'; say('早すぎ!魚がにげた…'); } else if (recast) { setPhase('ready'); say('しかけを回収。投げなおそう', 900); } else say('まだあたりがない…', 800);
           }
         }
         function landFish() {
@@ -3101,13 +3109,18 @@
         }
         function update(dt, now) {
           if (charging) charge = Math.min(1, charge + dt / 1.1);
+          if (flock) {
+            if (now > flock.at) { let nx; do nx = 70 + Math.random() * (W - 100); while (Math.abs(nx - flock.x) < 60); flock.tx = nx; flock.at = now + 6000 + Math.random() * 2500; }
+            flock.x += clamp(flock.tx - flock.x, -55 * dt, 55 * dt);
+          }
           for (const f of fishes) {
             f.wobble += dt * 6;
             if (f.state === 'swim' || f.state === 'flee') {
-              const sp = f.state === 'flee' ? f.speed * 2.2 : f.speed;
+              // むれの 下では 魚が ゆっくり およいで あつまる
+              const sp = f.state === 'flee' ? f.speed * 2.2 : f.speed * (flock && Math.abs(f.x - flock.x) < FLOCK_R ? FLOCK_SLOW : 1);
               f.x += f.dir * sp * dt; f.y += Math.sin(f.wobble) * 6 * dt;
               if (f.x < -40 || f.x > W + 40) { const i = fishes.indexOf(f); fishes.splice(i, 1); spawnFish(); }
-              if (f.state === 'swim' && phase === 'wait' && !fishes.some((o) => o.state === 'approach' || o.state === 'nibble' || o.state === 'bite') && Math.hypot(f.x - lureX, f.y - lureY) < 90 && Math.random() < dt * 0.9) f.state = 'approach';
+              if (f.state === 'swim' && phase === 'wait' && !fishes.some((o) => o.state === 'approach' || o.state === 'nibble' || o.state === 'bite') && Math.hypot(f.x - lureX, f.y - lureY) < (underFlock() ? FLOCK_PULL : 90) && (!reach || underFlock() || f.sp.size <= REACH_MIN + REACH_K * reachU()) && Math.random() < dt * 0.9 * (flock ? (underFlock() ? FLOCK_IN : FLOCK_OUT + (reach ? FLOCK_OUT_FAR * reachU() : 0)) : 1)) f.state = 'approach';
             } else if (f.state === 'approach') {
               const dx = lureX - f.x, dy = lureY - f.y, d = Math.hypot(dx, dy);
               if (d < 14) { f.state = 'nibble'; nibbleUntil = now + 700 + Math.random() * 900; }
@@ -3134,7 +3147,7 @@
             if (now > dashUntil && Math.random() < dt * 0.55) { dashUntil = now + 500 + Math.random() * 500; }
             const dashing = now < dashUntil;
             const pull = f.sp.pull * (dashing ? 1 : 0.35);
-            if (reeling) { lineLen -= 55 * dt; tension += (28 + pull * 34) * dt; slackMs = 0; }
+            if (reeling) { lineLen -= 55 * dt * (reach ? 1 + lineLen / REEL_REACH : 1); tension += (28 + pull * 34) * dt; slackMs = 0; }
             else { tension -= 42 * dt; lineLen += pull * 14 * dt; slackMs += dt * 1000; }
             tension = clamp(tension, 0, 100);
             lureX = SHORE_X + lineLen; lureY = f.y;
@@ -3155,6 +3168,15 @@
           ctx.font = '26px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(currentSprite(), SHORE_X - 6, WATER_Y - 16);
           const rodTipX = SHORE_X + 26, rodTipY = WATER_Y - 62;
           ctx.strokeStyle = '#5b3a1e'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(SHORE_X + 4, WATER_Y - 22); ctx.lineTo(rodTipX, rodTipY); ctx.stroke();
+          if (flock) {
+            // むれの 下の 水面に 小さな しぶき(なぶら)。羽ばたきも しぶきも now から きめる(乱数は つかわない)
+            ctx.strokeStyle = 'rgba(255,255,255,.75)'; ctx.lineWidth = 1.5;
+            for (let i = 0; i < 3; i++) { const k = (now / 700 + i / 3) % 1, sx = flock.x + (i - 1) * 16; ctx.beginPath(); ctx.arc(sx, WATER_Y + 3, 3 + k * 7, Math.PI * 1.1, Math.PI * 1.9); ctx.stroke(); }
+            ctx.font = '15px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            for (let i = 0; i < 3; i++) {
+              ctx.fillText('🐦', flock.x + (i - 1) * 15 + Math.sin(now / 650 + i * 2) * 4, WATER_Y - 30 - (i === 1 ? 10 : 0) + Math.sin(now / 160 + i * 1.7) * 2);
+            }
+          }
           for (const f of fishes) {
             const sh = f.state === 'hooked' ? 1 : 0.55;
             ctx.globalAlpha = sh; ctx.font = `${f.size}px sans-serif`; ctx.textBaseline = 'middle';
@@ -3170,7 +3192,9 @@
             if (phase === 'wait' && lureY > WATER_Y + 4) { ctx.fillStyle = '#ffd257'; ctx.beginPath(); ctx.arc(lureX, lureY, 3, 0, Math.PI * 2); ctx.fill(); }
             if (biting) { ctx.font = 'bold 15px sans-serif'; ctx.fillStyle = '#ff3b5c'; ctx.shadowColor = '#fff'; ctx.shadowBlur = 6; ctx.fillText('あたり!いま!', lureX, WATER_Y - 18); ctx.shadowBlur = 0; }
           }
-          if (charging) { ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(W / 2 - 60, 12, 120, 12); ctx.fillStyle = charge > 0.8 ? '#ff5c8a' : '#8de0a0'; ctx.fillRect(W / 2 - 60, 12, 120 * charge, 12); ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.textBaseline = 'top'; ctx.fillText('遠くへ投げる', W / 2, 26); }
+          if (charging) { ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(W / 2 - 60, 12, 120, 12); ctx.fillStyle = charge > 0.8 ? '#ff5c8a' : '#8de0a0'; ctx.fillRect(W / 2 - 60, 12, 120 * charge, 12); ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.textBaseline = 'top'; ctx.fillText('遠くへ投げる', W / 2, 26);
+            // むれの 真下に おちる ためかたの 印(cast の 式の ぎゃく)
+            if (flock) { const c = clamp(((flock.x - SHORE_X) / 0.98 - 40) / (W - 80), 0, 1), gx = W / 2 - 60 + 120 * c; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(gx - 4, 6); ctx.lineTo(gx + 4, 6); ctx.lineTo(gx, 12); ctx.closePath(); ctx.fill(); ctx.fillRect(gx - 0.5, 12, 1, 12); } }
           if (phase === 'fight') {
             ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(10, 10, W - 20, 30);
             ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('テンション', 14, 13);
@@ -10400,7 +10424,7 @@
       { category: 'downhill', game: mg('downhill-snow', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
     ],
     sea: [
-      { category: 'fishing', game: mg('fishing-sea', makeRealFishingGame({ title: 'うみでほんかくさかなつり!合わせて、巻いて、つり上げろ' })) },
+      { category: 'fishing', game: mg('fishing-sea', makeRealFishingGame({ title: 'うみでほんかくさかなつり!鳥の群れの下をねらえ', hotspot: 'flock', reach: true, recast: true })) },
     ],
     deepsea: [
       { category: 'fishing', game: mg('fishing-deepsea', makeRealFishingGame({ title: 'しんかいフィッシング!何がかかるかわからない', species: DEEPSEA_FISH, waterTop: '#1d5a8a', waterBottom: '#03122a' })) },
