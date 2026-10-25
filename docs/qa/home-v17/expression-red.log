@@ -1,0 +1,37 @@
+✔ v17 uses restrained fonts and tries readable single-line sizes before wrapping (6.843352ms)
+✔ exchange carries canonical companion identity through question and reaction without changing narrative or effects (1252.769393ms)
+✔ system age outcome clears prior actor identity (32.331041ms)
+✔ ordinary speech uses an official asset and updates identity per actual beat (23.115875ms)
+✔ new authored speech takes the lane after an exchange reaction (36.700595ms)
+✖ speech portrait resolves the expression started by this beat (23.999861ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2270.076877
+
+✖ failing tests:
+
+test at tests/home-v17-test.cjs:33:1
+✖ speech portrait resolves the expression started by this beat (23.999861ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /06-happy/. Input:
+  
+  '<span class="comment-picture" role="img" aria-label="いぬ"><img class="comment-asset" src="assets/characters/expressions/dog/06-hungry.png" alt="" width="128" height="128" decoding="async" draggable="false"></span>'
+  
+      at TestContext.<anonymous> (/workspace/scratch/53f8f12fa93e/repo/tests/home-v17-test.cjs:37:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<span class="comment-picture" role="img" aria-label="いぬ"><img class="comment-asset" src="assets/characters/expressions/dog/06-hungry.png" alt="" width="128" height="128" decoding="async" draggable="false"></span>',
+    expected: /06-happy/,
+    operator: 'match',
+    diff: 'simple'
+  }

@@ -23,6 +23,7 @@ Object.assign(HomeV17QA,{
  reaction(){this.prepare();this.exchange();document.getElementById('individualityChoices').querySelector('button').click();clearTimeout(homeChoiceResultTimer);},
  longName(){this.prepare();if(state.partner){state.partner.label='とても長い名前のもりのクマさん';setSpeechBubble('いっしょに歩こう',partnerSpeaker(),{holdMs:600000});}},
  storyPet(){this.prepare();showStoryEvent({petReaction:true,message:'あくびの途中でねた'});},
+ holdFrame(){clearTimeout(speechTimer);if(conv2Unit)conv2Unit.timers.forEach(t=>clearTimeout(t));},
  fontReload(){document.fonts.dispatchEvent(new Event('loadingdone'));},
 });
 })();`);
