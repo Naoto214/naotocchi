@@ -193,7 +193,7 @@ test('every game can be played on its own: a solo run repeats one game 10 times 
   h.advance(R.FINAL_MS + 100);
   assert.equal(s.lifetime.minigameRecords['quick-solo'].last, 100, '10 clears of 10 points');
   assert.equal(s.lifetime.minigamesPlayed, 1, 'one completed solo run settles as one game');
-  assert.equal(s.minigameCount, 1, 'one completed solo run applies one result');
+  assert.equal(s.minigameCount, 0, 'Quick results stay out of avgSkill (T9)');
   assert.equal(s.energy, 100, 'Quick preserves energy after an equipment swap');
   assert.equal(s.lifetime.money, 0, 'a solo run pays no coins');
   assert.equal(s.sodachi, 55, 'Quick preserves growth');
