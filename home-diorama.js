@@ -16,6 +16,56 @@
     return lines.join('\n');
   }
 
+  // Display-only sizing. The browser supplies font measurements, not character counts.
+  function textLayout(text,width,kind,measure){
+    width=Math.max(1,width);text=String(text||'');
+    const candidates=kind==='speech'?[[20,1],[17,2],[14,3]]:[[18,1],[16,2],[14,2],[13,2]];
+    let size=candidates[candidates.length-1][0],lines=1;
+    for(const [font,maxLines]of candidates){
+      let count=1,line='';
+      for(const char of text){if(char==='\n'){count++;line='';continue;}
+        if(line&&measure(line+char,font)>width){count++;line=char;}else line+=char;}
+      size=font;lines=count;if(count<=maxLines)break;
+    }
+    const natural=Math.max(1,...text.split('\n').map(t=>measure(t,size)));
+    return {size,lines,width:Math.min(width,natural+2),compact:lines===1};
+  }
+  function createLaneTypography(doc,env){
+    // Headless runtime harness has no layout engine. CSS remains the safe fallback.
+    if(!env.MutationObserver||!env.getComputedStyle)return {schedule(){},destroy(){}};
+    const notice=doc.getElementById('homeEventSlot'),slot=doc.getElementById('speechSlot');
+    const canvas=doc.createElement('canvas'),ctx=canvas.getContext?.('2d');
+    if(!notice||!slot||!ctx)return {schedule(){},destroy(){}};
+    let frame=0,active=true;
+    const visible=n=>n&&!n.classList.contains('hidden')&&n.getBoundingClientRect().width>0;
+    function fit(panel,text,kind,extra){
+      if(!visible(panel)||!text)return;
+      const lane=kind==='speech'?slot:notice,width=lane.clientWidth-(kind==='speech'?8:0);
+      const style=env.getComputedStyle(text);
+      const measure=(value,size)=>{ctx.font=style.fontWeight+' '+size+'px '+style.fontFamily;return ctx.measureText(value).width;};
+      const result=textLayout(text.textContent,Math.max(1,width-extra),kind,measure);
+      panel.style.setProperty('--lane-font',result.size+'px');
+      panel.style.setProperty('--lane-width',Math.min(width,result.compact?Math.ceil(result.width+extra):width)+'px');
+      panel.dataset.laneCompact=String(result.compact);
+    }
+    function update(){frame=0;if(!active||doc.body.dataset.homeTerrain!=='true')return;
+      for(const panel of notice.children){
+        if(!visible(panel))continue;
+        const body=panel.querySelector('.story-flash-text')||panel;
+        fit(panel,body,'notice',body===panel?20:54);
+      }
+      const bubble=doc.getElementById('speechBubble'),text=doc.getElementById('speechText'),speaker=doc.getElementById('speechSpeaker');
+      if(!slot.classList.contains('is-asking'))fit(bubble,text,'speech',(speaker?.getBoundingClientRect().width||38)+25);
+      const result=doc.getElementById('homeChoiceResult');fit(result,result,'speech',18);
+    }
+    function schedule(){if(active&&!frame)frame=env.requestAnimationFrame(update);}
+    const observer=new env.MutationObserver(schedule);
+    for(const lane of [notice,slot])observer.observe(lane,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class','data-label']});
+    const resize=env.ResizeObserver?new env.ResizeObserver(schedule):null;
+    resize?.observe(notice);resize?.observe(slot);doc.fonts?.ready?.then(schedule);
+    return {schedule,destroy(){active=false;observer.disconnect();resize?.disconnect();if(frame)env.cancelAnimationFrame(frame);}};
+  }
+
   // Native direction of the approved PNGs; frontal art remains frontal.
   // Expression assets inherit their base silhouette, never a global right-facing assumption.
   function facingScale(a,direction){
@@ -124,9 +174,10 @@
       const anchor=(accentCenters[kind]+Number(match[1]))/104*100;
       accent.style.translate=(effectPosition(anchor,origin,facing)-anchor)+'% 0';
       if(kind==='sleeping'){
+        // Native art keeps the approved right-up design. Reflect positions, not glyphs.
         const paths=group.querySelectorAll('path');
-        paths.forEach((path,i)=>path.setAttribute('transform','translate('+((direction<0?-2:0)*[0,11,22.5][Math.floor(i/2)])+' 0)'));
-        accent.style.setProperty('--sleep-drift',effectTrajectory(3,direction)+'px');
+        paths.forEach((path,i)=>path.setAttribute('transform','translate('+((facing<0?-2:0)*[0,11,22.5][Math.floor(i/2)])+' 0)'));
+        accent.style.setProperty('--sleep-drift',effectTrajectory(3,facing)+'px');
       }
     }
     owner.dataset.effectFlipped=String(facing<0);
@@ -177,20 +228,22 @@
     let enabled=false,dead=false,scene=null,environment=null,flags={},rows=new Map(),raf=0,last=0,gesture=null,sceneKey='',wasBlocked=false;
     let propNodes=[],world=null,worldLoading=false,worldHost=null,activeTime=0,frames=0,frameGaps=[],loadGeneration=0;
     const movedHomeElements=[];
+    const typography=createLaneTypography(doc,env);
     function placeHomeSlots(on){
       const slot=doc.getElementById?.('homeEventSlot');if(!slot)return;
-      if(on&&!movedHomeElements.length){
+      if(on){
         // The shared markup keeps the legacy 4+5 meter layout. Only terrain
         // presentation moves the same life node into its daily 5+4 row.
-        for(const [id,target]of [['storyFlash',slot],['message',slot],['deathMeterItem',doc.getElementById('careMeters')]]){
+        for(const [id,target]of [['storyFlash',slot],['message',slot],['deathMeterItem',doc.getElementById('careMeters')],['individualityDialog',doc.getElementById('speechSlot')]]){
           const n=doc.getElementById(id);
-          if(n?.parentNode&&target){movedHomeElements.push({n,parent:n.parentNode,next:n.nextSibling});target.appendChild(n);}
+          if(n?.parentNode&&target&&!movedHomeElements.some(row=>row.n===n)){movedHomeElements.push({n,parent:n.parentNode,next:n.nextSibling});target.appendChild(n);}
         }
       }else if(!on){
         for(const {n,parent,next}of movedHomeElements)parent.insertBefore?parent.insertBefore(n,next?.parentNode===parent?next:null):parent.appendChild?.(n);
         movedHomeElements.length=0;
       }
       if(doc.body)doc.body.dataset.homeTerrain=on?'true':'';
+      if(on)typography.schedule();
     }
     let guideStorage;try{guideStorage=env.localStorage;}catch(_){}
     const guide=createGestureGuide({storage:guideStorage,key:guideKey});let guideWalk=null;
@@ -364,7 +417,7 @@
     const listeners={pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
-    return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
+    return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){typography.destroy();placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
+  return {textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });

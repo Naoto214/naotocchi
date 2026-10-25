@@ -1,0 +1,116 @@
+✖ sleep preserves native right-up design for left-facing dog; reflection reverses only trajectory (2.08583ms)
+✖ text fitting prefers large short lines and preserves readable floors for Japanese/English (0.244588ms)
+✖ terrain reparents the same individuality dialog into shared lane and restores it on exit (267.453672ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 551.608819
+
+✖ failing tests:
+
+test at tests/home-v16-test.cjs:5:1
+✖ sleep preserves native right-up design for left-facing dog; reflection reverses only trajectory (2.08583ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'translate(-22 0)'
+  - 'translate(0 0)'
+               ^
+  
+      at TestContext.<anonymous> (/workspace/scratch/17489c673f9b/naotocchi/tests/home-v16-test.cjs:8:61)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'translate(-22 0)',
+    expected: 'translate(0 0)',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-v16-test.cjs:13:1
+✖ text fitting prefers large short lines and preserves readable floors for Japanese/English (0.244588ms)
+  TypeError [Error]: home.textLayout is not a function
+      at TestContext.<anonymous> (/workspace/scratch/17489c673f9b/naotocchi/tests/home-v16-test.cjs:14:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests/home-v16-test.cjs:21:1
+✖ terrain reparents the same individuality dialog into shared lane and restores it on exit (267.453672ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be reference-equal to "expected":
+  + actual - expected
+  
+    {
+  +   appendChild: [Function: appendChild],
+  +   insertBefore: [Function: insertBefore]
+  -   addEventListener: [Function: addEventListener],
+  -   animate: [Function: animate],
+  -   animations: [],
+  -   appendChild: [Function (anonymous)],
+  -   children: [],
+  -   classList: {
+  -     add: [Function: add],
+  -     contains: [Function: contains],
+  -     remove: [Function: remove],
+  -     toggle: [Function: toggle]
+  -   },
+  -   clientHeight: 300,
+  -   clientWidth: 300,
+  -   closest: [Function: closest],
+  -   dataset: {
+  -     terrainSide: 'below'
+  -   },
+  -   disabled: false,
+  -   dispatchEvent: [Function: dispatchEvent],
+  -   focus: [Function: focus],
+  -   getBoundingClientRect: [Function: getBoundingClientRect],
+  -   getContext: [Function: getContext],
+  -   id: 'speechSlot',
+  -   isConnected: true,
+  -   listeners: [],
+  -   querySelector: [Function: querySelector],
+  -   querySelectorAll: [Function: querySelectorAll],
+  -   releasePointerCapture: [Function: noop],
+  -   remove: [Function: remove],
+  -   removeChild: [Function: removeChild],
+  -   removeEventListener: [Function: removeEventListener],
+  -   scrollIntoView: [Function: noop],
+  -   setAttribute: [Function: setAttribute],
+  -   setPointerCapture: [Function: noop],
+  -   style: {
+  -     '--terrain-choice-offset': '0px',
+  -     '--terrain-speech-max': '100%',
+  -     '--terrain-speech-w': '288px',
+  -     '--terrain-speech-x': '6px',
+  -     '--terrain-speech-y': '6px',
+  -     removeProperty: [Function: removeProperty],
+  -     setProperty: [Function: setProperty]
+  -   },
+  -   textContent: '',
+  -   value: ''
+    }
+  
+      at TestContext.<anonymous> (/workspace/scratch/17489c673f9b/naotocchi/tests/home-v16-test.cjs:23:137)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Object],
+    expected: [Object],
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
