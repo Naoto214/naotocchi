@@ -3000,9 +3000,13 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const playedPar = holes.reduce((a, h) => a + h.par, 0);
-          const over = totalStrokes - playedPar + (holeIdx < holes.length ? (holes.length - holeIdx) * 4 : 0);
+          // 終わらなかった ホール(いまの ホールも ふくむ)は「打数オーバー」と おなじ MAX_STROKES 打と かぞえる。
+          // まえは 遊んでいない ホールの パーまで ひいていたので、なにも しなくても 55〜73点に なっていた
+          const doneStrokes = holeIdx < holes.length ? totalStrokes - strokes : totalStrokes;
+          const counted = doneStrokes + holes.slice(holeIdx).length * MAX_STROKES;
+          const over = counted - playedPar;
           const score = clamp(100 - Math.max(0, over) * 9 + Math.min(0, over) * -4, 15, 100);
-          say(over <= 0 ? `🏆 ${totalStrokes}打数(パー${playedPar})すばらしい!` : `${totalStrokes}打数(パー${playedPar}) +${over}`, 2000);
+          say(over <= 0 ? `🏆 ${counted}打数(パー${playedPar})すばらしい!` : `${counted}打数(パー${playedPar}) +${over}`, 2000);
           render(performance.now());
           setTimeout(() => onComplete(Math.round(score)), 900);
         }
@@ -9969,7 +9973,9 @@
           { name: 'ペンギン', emoji: '🐧', pos: 0, skip: 0, color: '#4a90e2', cpu: true },
           { name: 'キツネ', emoji: '🦊', pos: 0, skip: 0, color: '#f28c28', cpu: true },
         ];
-        const rankOf = () => { const order = [...players].sort((a, b) => b.pos - a.pos); const fin = finished.indexOf(players[0]); return fin >= 0 ? fin + 1 : finished.length + order.filter((p) => !finished.includes(p)).indexOf(players[0]) + 1; };
+        // おなじ マスに ならんだら、わたしは うしろの じゅんいに する(だれも うごかない まま
+        // 時間切れに なったとき、ならべた じゅんで わたしが 1いに なっていた)
+        const rankOf = () => { const order = [...players].sort((a, b) => b.pos - a.pos || (a.cpu === b.cpu ? 0 : a.cpu ? -1 : 1)); const fin = finished.indexOf(players[0]); return fin >= 0 ? fin + 1 : finished.length + order.filter((p) => !finished.includes(p)).indexOf(players[0]) + 1; };
         const hud = () => { scoreEl.textContent = `💰 ${coins}／順位${rankOf()}い`; };
         // ます: ヘビじゅんに おりかえす みち。ゴールは さいご
         const cells = [];
