@@ -1,0 +1,105 @@
+{
+ "schema": "deck_balance_extra.v1",
+ "completed": 480,
+ "abnormal_or_replay_mismatch": [],
+ "X1": {
+  "overall": {
+   "games": 360,
+   "score_rate": 0.549,
+   "se": 0.026,
+   "first": 0.542,
+   "second": 0.556,
+   "placed_rate": 1.0,
+   "married_rate": 0.994,
+   "lovers_hand_end": 2.525,
+   "surplus_rate": 0.972,
+   "lover_activations": 2.667,
+   "connect_four_played": 0.586
+  },
+  "by_opponent": {
+   "main": {
+    "games": 60,
+    "score_rate": 0.508,
+    "se": 0.065,
+    "first": 0.517,
+    "second": 0.5,
+    "placed_rate": 1.0,
+    "married_rate": 1.0,
+    "lovers_hand_end": 2.383,
+    "surplus_rate": 0.967,
+    "lover_activations": 2.517,
+    "connect_four_played": 0.467
+   },
+   "companion": {
+    "games": 60,
+    "score_rate": 0.658,
+    "se": 0.061,
+    "first": 0.633,
+    "second": 0.683,
+    "placed_rate": 1.0,
+    "married_rate": 0.967,
+    "lovers_hand_end": 2.267,
+    "surplus_rate": 0.983,
+    "lover_activations": 2.367,
+    "connect_four_played": 0.75
+   },
+   "challenge": {
+    "games": 60,
+    "score_rate": 0.367,
+    "se": 0.062,
+    "first": 0.383,
+    "second": 0.35,
+    "placed_rate": 1.0,
+    "married_rate": 1.0,
+    "lovers_hand_end": 2.983,
+    "surplus_rate": 1.0,
+    "lover_activations": 2.717,
+    "connect_four_played": 0.55
+   },
+   "growth": {
+    "games": 60,
+    "score_rate": 0.683,
+    "se": 0.06,
+    "first": 0.633,
+    "second": 0.733,
+    "placed_rate": 1.0,
+    "married_rate": 1.0,
+    "lovers_hand_end": 2.417,
+    "surplus_rate": 0.933,
+    "lover_activations": 2.75,
+    "connect_four_played": 0.583
+   },
+   "item": {
+    "games": 60,
+    "score_rate": 0.383,
+    "se": 0.063,
+    "first": 0.417,
+    "second": 0.35,
+    "placed_rate": 1.0,
+    "married_rate": 1.0,
+    "lovers_hand_end": 2.733,
+    "surplus_rate": 1.0,
+    "lover_activations": 2.867,
+    "connect_four_played": 0.483
+   },
+   "balance": {
+    "games": 60,
+    "score_rate": 0.692,
+    "se": 0.06,
+    "first": 0.667,
+    "second": 0.717,
+    "placed_rate": 1.0,
+    "married_rate": 1.0,
+    "lovers_hand_end": 2.367,
+    "surplus_rate": 0.95,
+    "lover_activations": 2.783,
+    "connect_four_played": 0.683
+   }
+  }
+ },
+ "X2": {
+  "games": 120,
+  "intermediate_score": 0.517,
+  "note": "stage-4 V2 partner mirror (old list): 0.500"
+ }
+}
