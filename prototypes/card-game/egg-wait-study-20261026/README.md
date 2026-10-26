@@ -1,5 +1,7 @@
 # たまご待機戦略・0/0ちょうせん案 調査（2026-10-26、実験専用）
 
+正式決定：[DECISION.md](DECISION.md)（たまごの共通ルールは現行維持、0/0案は不採用）。
+
 考察は [REPORT.md](REPORT.md)、事前固定条件は [PLAN.md](PLAN.md)、集計は [results/](results/)。
 このディレクトリは正式ランタイムから参照されず、`tools/pages/allowlist.json` にも含まれません。正式エンジン・CPU・カード定義は読み取りのみです。
 
