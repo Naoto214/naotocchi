@@ -9,9 +9,26 @@ export const wall=(s,x,y)=>x<0||y<0||x>=s.w||y>=s.h||s.walls.some(p=>p[0]===x&&p
 export const gateAllows=(s,a,x,y)=>{const g=at(s.gates,x,y);return !g||matchesCondition(a,g)};
 // Explicit opt-in: published boards retain their original contact semantics.
 export const contactRules=s=>s.movementRules==='contact-v1';
-export const magicRockRules=s=>s.terrainRules==='magic-rock-v1';
+export const gateSurfaceRules=s=>s.terrainRules==='magic-gate-v2';
+export const magicRockRules=s=>s.terrainRules==='magic-rock-v1'||gateSurfaceRules(s);
 export const terrainBlocks=(s,a,x,y)=>wall(s,x,y)||!gateAllows(s,a,x,y);
-export const cornerBlocked=(s,x,y,dx,dy,a=null)=>contactRules(s)&&dx!==0&&dy!==0&&(magicRockRules(s)&&a?terrainBlocks(s,a,x+dx,y)&&terrainBlocks(s,a,x,y+dy):wall(s,x+dx,y)&&wall(s,x,y+dy));
+// A gate occupies (x,y), while its upper contact face separates (x,y-1)
+// from (x,y). Occupancy permission and crossing that face are independent.
+export const gateTopAt=(s,x,y)=>gateSurfaceRules(s)&&!!at(s.gates,x,y);
+const crossesGateTop=(s,x,y,nx,ny)=>x===nx&&Math.abs(ny-y)===1&&gateTopAt(s,x,Math.max(y,ny));
+const routeEdgeBlocked=(s,a,x,y,nx,ny)=>terrainBlocks(s,a,nx,ny)||crossesGateTop(s,x,y,nx,ny);
+export function cornerBlocked(s,x,y,dx,dy,a=null){
+ if(!contactRules(s)||dx===0||dy===0)return false;
+ if(gateSurfaceRules(s)&&a){
+  // At a diagonal corner either orthogonal route must be open. The roof
+  // closes one route even for a matching actor; an adjacent rock closes the
+  // other. This is symmetric for reverse exchanges and falling split children.
+  const nx=x+dx,ny=y+dy;
+  return (routeEdgeBlocked(s,a,x,y,nx,y)||routeEdgeBlocked(s,a,nx,y,nx,ny))&&
+   (routeEdgeBlocked(s,a,x,y,x,ny)||routeEdgeBlocked(s,a,x,ny,nx,ny));
+ }
+ return magicRockRules(s)&&a?terrainBlocks(s,a,x+dx,y)&&terrainBlocks(s,a,x,y+dy):wall(s,x+dx,y)&&wall(s,x,y+dy);
+}
 const special=(s,x,y)=>at(s.gates,x,y)||at(s.exits,x,y)||at(s.spikes,x,y);
 const ordinaryEmpty=(s,x,y)=>!wall(s,x,y)&&!special(s,x,y)&&!at(s.actors,x,y);
 const compass=[[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]];
@@ -63,6 +80,7 @@ function exchange(s,a,b,dx,dy,ctx){
  // All checks see the same pre-exchange board; no partial mutations on refusal.
  for(const [v,vx,vy] of [[a,dx,dy],[b,-dx,-dy]]){
   if(wall(s,v.x+vx,v.y+vy))return {ok:false,reason:'wall'};
+  if(crossesGateTop(s,v.x,v.y,v.x+vx,v.y+vy))return {ok:false,reason:'gate-top'};
   if(cornerBlocked(s,v.x,v.y,vx,vy,v))return {ok:false,reason:'corner'};
   if(!canAscend(s,v,vx,vy))return {ok:false,reason:'foothold'};
   if(!gateAllows(s,v,v.x+vx,v.y+vy))return {ok:false,reason:'gate'};
@@ -78,6 +96,7 @@ function exchange(s,a,b,dx,dy,ctx){
 function enter(s,a,dx,dy,ctx,fall=false){
  const x=a.x+dx,y=a.y+dy,reject=reason=>({ok:false,reason});
  if(wall(s,x,y))return reject('wall');
+ if(crossesGateTop(s,a.x,a.y,x,y))return reject('gate-top');
  if(cornerBlocked(s,a.x,a.y,dx,dy,a))return reject('corner');
  if(ctx.policy?.canEnter&&!ctx.policy.canEnter(s,a,x,y))return reject('terrain');
  const target=at(s.actors,x,y),gate=at(s.gates,x,y),exit=at(s.exits,x,y),spike=at(s.spikes,x,y);
@@ -154,7 +173,7 @@ export function settle(s,ctx=context()){
 // Versioned physics: omitted rule preserves published v2 boards.
 export const supportedGravity=s=>s.gravityRules==='supported-v1';
 export function supportsAt(s,x,y,a,excludeId=null){
- return terrainBlocks(s,a,x,y)||s.actors.some(v=>v.x===x&&v.y===y&&v.id!==excludeId)||(supportedGravity(s)&&!contactRules(s)&&s.exits.some(e=>e.x===x&&e.y===y&&!matchesCondition(a,e)));
+ return gateTopAt(s,x,y)||terrainBlocks(s,a,x,y)||s.actors.some(v=>v.x===x&&v.y===y&&v.id!==excludeId)||(supportedGravity(s)&&!contactRules(s)&&s.exits.some(e=>e.x===x&&e.y===y&&!matchesCondition(a,e)));
 }
 export function canAscend(s,a,dx,dy){
  if(!s.gravity||dy>=0)return true;

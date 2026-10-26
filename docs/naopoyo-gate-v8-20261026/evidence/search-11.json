@@ -1,0 +1,199 @@
+{
+  "number": 11,
+  "id": "komorebi-fall",
+  "stage": {
+    "id": "komorebi-fall",
+    "number": 11,
+    "title": "11 落ちる森",
+    "w": 8,
+    "h": 8,
+    "revision": 5,
+    "theme": "forest",
+    "showSpecies": false,
+    "gravity": true,
+    "walls": [
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "gates": [],
+    "spikes": [],
+    "exits": [
+      {
+        "x": 6,
+        "y": 7,
+        "exact": 3
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 1,
+        "y": 2,
+        "level": 1,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 3,
+        "y": 6,
+        "level": 2,
+        "species": "dog"
+      }
+    ],
+    "difficulty": 2,
+    "discovery": "岩を離れ、落下先の仲間と自動合体する。",
+    "lesson": "岩の先には、下へ続く道。",
+    "story": "森の灯りをたどると、足もとの岩が途切れていた。下で仲間が、こちらを見上げている。",
+    "ending": "落ちた先で、ふたつの光がひとつになった。",
+    "hints": [
+      "触れる前から、重力は下向き。岩の上では止まるよ。",
+      "1の下にいる2と合わせたい。岩の右端を見よう。",
+      "上の1を右へ2マス。落ちて3になったら、右下の星へ。"
+    ],
+    "hint": "触れる前から、重力は下向き。岩の上では止まるよ。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1",
+    "terrainRules": "magic-gate-v2"
+  },
+  "attempts": [
+    {
+      "status": "solved",
+      "visited": 52,
+      "expanded": 42,
+      "edges": 179,
+      "depth": 5,
+      "path": [
+        {
+          "at": [
+            1,
+            2
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            2
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "shortestProven": true,
+      "elapsedMs": 161,
+      "method": "bfs"
+    }
+  ],
+  "path": [
+    {
+      "at": [
+        1,
+        2
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        2,
+        2
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        3,
+        6
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        4,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        5,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    }
+  ],
+  "shortestProven": true,
+  "replayed": true
+}

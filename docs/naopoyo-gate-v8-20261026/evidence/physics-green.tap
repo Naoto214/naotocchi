@@ -1,0 +1,322 @@
+TAP version 13
+# Subtest: gate roof supports and permits grounded ascent for level 1
+ok 1 - gate roof supports and permits grounded ascent for level 1
+  ---
+  duration_ms: 10.120123
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 1
+ok 2 - gate landing is stable and lateral entry is qualified for level 1
+  ---
+  duration_ms: 2.058046
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 1
+ok 3 - roof does not allow airborne ascent or closed corner for level 1
+  ---
+  duration_ms: 1.888824
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 2
+ok 4 - gate roof supports and permits grounded ascent for level 2
+  ---
+  duration_ms: 0.832774
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 2
+ok 5 - gate landing is stable and lateral entry is qualified for level 2
+  ---
+  duration_ms: 0.577796
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 2
+ok 6 - roof does not allow airborne ascent or closed corner for level 2
+  ---
+  duration_ms: 1.582823
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 3
+ok 7 - gate roof supports and permits grounded ascent for level 3
+  ---
+  duration_ms: 0.498344
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 3
+ok 8 - gate landing is stable and lateral entry is qualified for level 3
+  ---
+  duration_ms: 5.02085
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 3
+ok 9 - roof does not allow airborne ascent or closed corner for level 3
+  ---
+  duration_ms: 0.583616
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 4
+ok 10 - gate roof supports and permits grounded ascent for level 4
+  ---
+  duration_ms: 1.043307
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 4
+ok 11 - gate landing is stable and lateral entry is qualified for level 4
+  ---
+  duration_ms: 0.578332
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 4
+ok 12 - roof does not allow airborne ascent or closed corner for level 4
+  ---
+  duration_ms: 0.802167
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 5
+ok 13 - gate roof supports and permits grounded ascent for level 5
+  ---
+  duration_ms: 0.817305
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 5
+ok 14 - gate landing is stable and lateral entry is qualified for level 5
+  ---
+  duration_ms: 0.55154
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 5
+ok 15 - roof does not allow airborne ascent or closed corner for level 5
+  ---
+  duration_ms: 0.496773
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 6
+ok 16 - gate roof supports and permits grounded ascent for level 6
+  ---
+  duration_ms: 1.166344
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 6
+ok 17 - gate landing is stable and lateral entry is qualified for level 6
+  ---
+  duration_ms: 0.548031
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 6
+ok 18 - roof does not allow airborne ascent or closed corner for level 6
+  ---
+  duration_ms: 0.346192
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 7
+ok 19 - gate roof supports and permits grounded ascent for level 7
+  ---
+  duration_ms: 0.311213
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 7
+ok 20 - gate landing is stable and lateral entry is qualified for level 7
+  ---
+  duration_ms: 0.391039
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 7
+ok 21 - roof does not allow airborne ascent or closed corner for level 7
+  ---
+  duration_ms: 0.348582
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 8
+ok 22 - gate roof supports and permits grounded ascent for level 8
+  ---
+  duration_ms: 0.66071
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 8
+ok 23 - gate landing is stable and lateral entry is qualified for level 8
+  ---
+  duration_ms: 2.871725
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 8
+ok 24 - roof does not allow airborne ascent or closed corner for level 8
+  ---
+  duration_ms: 0.8533
+  type: 'test'
+  ...
+# Subtest: stage19 right pocket: rock and roof stop diagonal, matching side passage remains legal
+ok 25 - stage19 right pocket: rock and roof stop diagonal, matching side passage remains legal
+  ---
+  duration_ms: 7.441945
+  type: 'test'
+  ...
+# Subtest: gate interior can fall out below, but a falling actor above stops on roof
+ok 26 - gate interior can fall out below, but a falling actor above stops on roof
+  ---
+  duration_ms: 1.305861
+  type: 'test'
+  ...
+# Subtest: reverse diagonal exchange cannot cut a closed roof-rock corner
+ok 27 - reverse diagonal exchange cannot cut a closed roof-rock corner
+  ---
+  duration_ms: 1.178366
+  type: 'test'
+  ...
+# Subtest: exchange and overflow preserve interior qualification transactionally
+ok 28 - exchange and overflow preserve interior qualification transactionally
+  ---
+  duration_ms: 4.177574
+  type: 'test'
+  ...
+# Subtest: roof version cannot restore old terrain snapshots
+ok 29 - roof version cannot restore old terrain snapshots
+  ---
+  duration_ms: 2.052267
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level1
+ok 30 - rock8 horizontal and gravity passage/support level1
+  ---
+  duration_ms: 15.551121
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level1
+ok 31 - rock and mismatched magic rock share ascent level1
+  ---
+  duration_ms: 1.55804
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level2
+ok 32 - rock8 horizontal and gravity passage/support level2
+  ---
+  duration_ms: 1.043758
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level2
+ok 33 - rock and mismatched magic rock share ascent level2
+  ---
+  duration_ms: 0.8257
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level3
+ok 34 - rock8 horizontal and gravity passage/support level3
+  ---
+  duration_ms: 2.154903
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level3
+ok 35 - rock and mismatched magic rock share ascent level3
+  ---
+  duration_ms: 0.789866
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level4
+ok 36 - rock8 horizontal and gravity passage/support level4
+  ---
+  duration_ms: 0.456605
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level4
+ok 37 - rock and mismatched magic rock share ascent level4
+  ---
+  duration_ms: 0.792832
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level5
+ok 38 - rock8 horizontal and gravity passage/support level5
+  ---
+  duration_ms: 1.650289
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level5
+ok 39 - rock and mismatched magic rock share ascent level5
+  ---
+  duration_ms: 2.97727
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level6
+ok 40 - rock8 horizontal and gravity passage/support level6
+  ---
+  duration_ms: 1.230003
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level6
+ok 41 - rock and mismatched magic rock share ascent level6
+  ---
+  duration_ms: 0.946492
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level7
+ok 42 - rock8 horizontal and gravity passage/support level7
+  ---
+  duration_ms: 0.595542
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level7
+ok 43 - rock and mismatched magic rock share ascent level7
+  ---
+  duration_ms: 0.152068
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level8
+ok 44 - rock8 horizontal and gravity passage/support level8
+  ---
+  duration_ms: 1.780949
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level8
+ok 45 - rock and mismatched magic rock share ascent level8
+  ---
+  duration_ms: 1.72709
+  type: 'test'
+  ...
+# Subtest: corner uses moving number and legacy contact remains unchanged
+ok 46 - corner uses moving number and legacy contact remains unchanged
+  ---
+  duration_ms: 2.067197
+  type: 'test'
+  ...
+# Subtest: reverse exchange has its own corner number
+ok 47 - reverse exchange has its own corner number
+  ---
+  duration_ms: 1.010875
+  type: 'test'
+  ...
+# Subtest: split level1 cannot escape a parent8-only rock corner
+ok 48 - split level1 cannot escape a parent8-only rock corner
+  ---
+  duration_ms: 1.931743
+  type: 'test'
+  ...
+# Subtest: restore rejects old terrain rules and invalid rock occupants
+ok 49 - restore rejects old terrain rules and invalid rock occupants
+  ---
+  duration_ms: 0.747289
+  type: 'test'
+  ...
+# Subtest: merge overflow and external split cannot change rock qualification
+ok 50 - merge overflow and external split cannot change rock qualification
+  ---
+  duration_ms: 2.037185
+  type: 'test'
+  ...
+# Subtest: all eight entry directions use the same rock qualification
+ok 51 - all eight entry directions use the same rock qualification
+  ---
+  duration_ms: 3.140397
+  type: 'test'
+  ...
+# Subtest: stage19 reported level3 climb is blocked in old corner and legal through redesigned opening
+ok 52 - stage19 reported level3 climb is blocked in old corner and legal through redesigned opening
+  ---
+  duration_ms: 13.223753
+  type: 'test'
+  ...
+1..52
+# tests 52
+# suites 0
+# pass 52
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1053.044049

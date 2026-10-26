@@ -38,3 +38,12 @@ for(const source of ['whole-save','append-only-marker'])test(`completed old Pilo
 test('uncleared final Pilot stage does not unlock 14',()=>{
  const s=memory(),ids=allStages.slice(0,13).map(s=>s.id);s.setItem(KEY,JSON.stringify({version:1,unlocked:ids,cleared:ids.slice(0,-1),current:ids.at(-1)}));assert.equal(new ForestProgress(s).allowed(allStages[13].id),false);
 });
+test('VERSION 7 progress survives migration without rewriting board or undo history',()=>{
+ for(const qa of [false,true]){
+  const s=memory(),oldKey='naopoyo.komorebi.magic-rock.20261025.v1'+(qa?'.qa':''),id='komorebi-reverse-stars';
+  const raw=JSON.stringify({version:1,cleared:[id],unlocked:[id],boards:{[id]:{version:1,oldPhysics:true}}});
+  s.setItem(oldKey,raw);s.setItem(oldKey+'.board.'+id,'old-history');const p=new ForestProgress(s,{qa});
+  assert.notEqual(p.actualKey,oldKey);assert.ok(p.data.cleared.includes(id));assert.equal(p.data.boards[id],undefined);
+  p.clear(id);assert.equal(s.getItem(oldKey),raw);assert.equal(s.getItem(oldKey+'.board.'+id),'old-history');
+ }
+});

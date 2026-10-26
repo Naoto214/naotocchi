@@ -25,8 +25,8 @@ test('gate overlap follows interpolated actors, not the already committed final 
  const q=new ForestSession(fixture()),f=effects();sample(f,q,0);q.begin('a',{x:1.5,y:4.5});q.travel({x:3.5,y:4.5});assert.equal(sample(f,q,0).find(g=>g.x===3).occupied,false);q.animate(70);assert.equal(sample(f,q,70).find(g=>g.x===2).occupied,true);
 });
 
-test('gravity passage waits until the visible fall reaches the gate',()=>{
- const b={...fixture(),gravity:true,walls:[[1,3]],gates:[{x:2,y:4,exact:8}],actors:[{id:'a',species:'dog',x:1,y:2,level:8}]};
+test('legacy gravity passage waits until the visible fall reaches the gate',()=>{
+ const b={...fixture(),terrainRules:'magic-rock-v1',gravity:true,walls:[[1,3]],gates:[{x:2,y:4,exact:8}],actors:[{id:'a',species:'dog',x:1,y:2,level:8}]};
  const q=new ForestSession(b),f=effects();sample(f,q,0);q.begin('a',{x:1.5,y:2.5});assert.ok(q.travel({x:2.5,y:2.5})[0].ok);
  assert.ok(q.motion[0].events.some(e=>e.type==='phase'));assert.equal(pulse(sample(f,q,20),2),0);q.animate(200);sample(f,q,200);assert.ok(pulse(sample(f,q,230),2)>0);
 });
@@ -35,13 +35,9 @@ test('legal position exchange emits a pulse; compressed queued passages are not 
  const q=new ForestSession(b),f=effects();sample(f,q,0);q.begin('a',{x:1.5,y:4.5});assert.ok(q.travel({x:2.5,y:4.5})[0].swapped);q.animate(120);sample(f,q,120);assert.ok(pulse(sample(f,q,150),2)>0);
  const r=new ForestSession(fixture()),h=effects();sample(h,r,0);r.begin('a',{x:1.5,y:4.5});r.travel({x:3.5,y:4.5});sample(h,r,0);r.animate(1000);sample(h,r,1000);assert.ok(pulse(sample(h,r,1050),2)>0);assert.ok(pulse(sample(h,r,1050),3)>0);
 });
-test('upward diagonal entry keeps the gate condition away from the actor head number',()=>{
- const b={...fixture(),gates:[{x:2,y:3,exact:8}]},q=new ForestSession(b),f=effects();sample(f,q,0);q.begin('a',{x:1.5,y:4.5});q.travel({x:2.5,y:3.5});q.animate(66);
- const gate=sample(f,q,66)[0];assert.equal(gate.occupied,true);assert.deepEqual(gate.numberAnchor,{x:.855,y:.58});
- const a=visualActors(q)[0];assert.ok(Math.abs(gate.x+gate.numberAnchor.x-(a.x+.5))>.3);
-});
-test('overlap keeps the left-jamb default when clear and uses the lower arch for two head numbers',()=>{
- const f=effects(),q=new ForestSession(fixture());
- let g=f.sample(q,[{x:2,y:4,opacity:1}],0)[0];assert.deepEqual(g.numberAnchor,{x:.145,y:.58});
- g=f.sample(q,[{x:1.645,y:4.4,opacity:1},{x:2.355,y:4.4,opacity:1}],10)[0];assert.deepEqual(g.numberAnchor,{x:.5,y:.83});
+test('roof landing emits no passage pulse while lateral entry still does',()=>{
+ const b={...fixture(),gravity:true,walls:[[1,3]],gates:[{x:2,y:4,exact:8}],actors:[{id:'a',species:'dog',x:1,y:2,level:8}]};
+ const q=new ForestSession(b),f=effects();sample(f,q,0);q.begin('a',{x:1.5,y:2.5});assert.ok(q.travel({x:2.5,y:2.5})[0].ok);
+ assert.equal(q.state.actors[0].y,3);assert.ok(!q.motion[0].events.some(e=>e.type==='phase'));
+ q.animate(200);assert.equal(pulse(sample(f,q,230),2),0);
 });

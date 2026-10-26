@@ -1,5 +1,5 @@
 // A stone arch adapted from PR #445, designs.mjs @ 2b50389d.
-// One-cell Canvas art only; collision remains the unchanged v6 full cell.
+// One-cell Canvas art; occupancy and upper contact face are engine rules.
 const tau=Math.PI*2;
 function path(c,pts,fill,stroke){c.beginPath();pts.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();if(fill){c.fillStyle=fill;c.fill()}if(stroke){c.strokeStyle=stroke;c.lineWidth=.018;c.stroke()}}
 function rr(c,x,y,w,h,r,col){c.fillStyle=col;c.beginPath();c.roundRect(x,y,w,h,r);c.fill()}
@@ -13,10 +13,9 @@ function number(c,n,x=.50,y=.48,size=.46,col='#f3efd2'){
 function arch(c){
  c.beginPath();c.moveTo(.075,.92);c.lineTo(.075,.42);c.bezierCurveTo(.075,.14,.23,.055,.50,.055);c.bezierCurveTo(.77,.055,.925,.14,.925,.42);c.lineTo(.925,.92);c.lineTo(.72,.92);c.lineTo(.72,.44);c.bezierCurveTo(.72,.31,.64,.27,.50,.27);c.bezierCurveTo(.36,.27,.28,.31,.28,.44);c.lineTo(.28,.92);c.closePath();
 }
-export function drawGate(c,g,{front=false}={}) {
+export function drawGate(c,g) {
  const {pulse=0,occupied=false}=g;
  c.save();c.translate(g.x,g.y);c.beginPath();c.rect(.015,.015,.97,.97);c.clip();
- if(!front){
   c.save();c.globalAlpha*=1-(occupied?.62:pulse*.42);
   oval(c,.50,.93,.44,.043,'#354e463d');
   c.save();c.translate(.025,.045);arch(c);c.fillStyle='#4b655a';c.fill();c.restore();
@@ -34,12 +33,7 @@ export function drawGate(c,g,{front=false}={}) {
    c.save();c.globalAlpha*=pulse*.28;c.fillStyle='#efffe0';
    c.beginPath();c.roundRect(.285,.30,.43,.61,[.20,.20,.025,.025]);c.fill();c.restore();
   }
-  // The condition stays opaque even while the stone becomes translucent.
-  if(!occupied)number(c,g.exact,.50,.57,.49,'#fff2d0');
- } else if(occupied) {
-  // Cream condition on the jamb; the actor keeps its white number above its head.
-  const anchor=g.numberAnchor||{x:.145,y:.58};
-  number(c,g.exact,anchor.x,anchor.y,.30,'#fff2b7');
- }
+  // Always behind the actor at exactly the same central position and size.
+  number(c,g.exact,.50,.57,.49,'#fff2d0');
  c.restore();
 }

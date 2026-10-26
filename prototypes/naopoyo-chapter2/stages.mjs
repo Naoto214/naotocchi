@@ -23,5 +23,5 @@ export const stages=[
  })
 ];
 stages.push(...expansionStages);
-for(const s of stages){s.gravityRules='supported-v1';s.movementRules='contact-v1';s.terrainRules='magic-rock-v1';s.revision=4;}
+for(const s of stages){s.gravityRules='supported-v1';s.movementRules='contact-v1';s.terrainRules='magic-gate-v2';s.revision=5;}
 export const ids=stages.map(s=>s.id);

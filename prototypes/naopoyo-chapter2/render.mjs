@@ -44,6 +44,5 @@ export function render(canvas,q,{dpr=1,reducedMotion=globalThis.matchMedia?.('(p
   c.font=`900 ${cell*(held?.36:.31)}px system-ui`;c.textAlign='center';c.textBaseline='middle';c.lineWidth=3.5;c.strokeStyle='#355144';c.strokeText(a.level,(a.x+.5)*cell,(a.y+.18)*cell);c.fillStyle=held?'#fff2ae':'#fff';c.fillText(a.level,(a.x+.5)*cell,(a.y+.18)*cell);
   c.restore();
  }
- c.save();c.scale(cell,cell);for(const g of gates)drawGate(c,g,{front:true});c.restore();
  const f=q.motion[0];if(f){const t=f.elapsed/f.duration;for(const e of f.events.filter(e=>['merge','split','rescue'].includes(e.type))){c.globalAlpha=Math.max(0,1-t);c.strokeStyle='#bc8c3a';c.lineWidth=2;c.beginPath();c.arc((e.x+.5)*cell,(e.y+.5)*cell,(.15+t*.38)*cell,0,Math.PI*2);c.stroke();}c.globalAlpha=1;}
 }
