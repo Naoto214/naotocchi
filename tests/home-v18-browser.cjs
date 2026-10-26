@@ -11,6 +11,13 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const {chromium,webkit}=require('playwright');try{
  for(const [name,engine]of Object.entries({chromium,webkit})){const browser=await engine.launch({headless:true});try{const page=await browser.newPage({viewport:{width:1000,height:1100}});
  await page.goto(`http://127.0.0.1:${server.address().port}/v18-qa.html`);await page.frameLocator('#game').locator('[data-diorama-actor]').first().waitFor();
+ // Keep the original strict geometry assertion; capture ancestors on both baseline and candidate.
+ const rotationDiagnostic=[];
+ for(const version of ['v18-before.html','qa-v18-game.html']){
+  await page.locator('#version').selectOption(version);await page.locator('#width').selectOption('375');await page.locator('#height').selectOption('844');
+  rotationDiagnostic.push(await page.evaluate(async()=>{await boot();await actions['短文9']();await wait(500);const before=inspect();await actions['縦横復帰']();await wait(500);return {version:document.getElementById('version').value,before,after:inspect()};}));
+ }
+ fs.writeFileSync(path.join(output,name+'-rotation.json'),JSON.stringify(rotationDiagnostic,null,2));
  await page.getByRole('button',{name:'自動検証',exact:true}).click();await page.locator('#rawReport').waitFor({state:'attached',timeout:240000});
  const report=JSON.parse(await page.locator('#rawReport').textContent());fs.writeFileSync(path.join(output,name+'.json'),JSON.stringify(report,null,2));
  await page.locator('#width').selectOption('320');for(const action of ['短文8','短文9','実機通知','長文','2択','返答','Reaction','長い名前']){await page.getByRole('button',{name:action,exact:true}).click();await page.waitForTimeout(650);await page.screenshot({path:path.join(output,name+'-'+action+'.png'),fullPage:true});}
