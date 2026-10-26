@@ -44,6 +44,10 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium webkit
+      - name: v18 intrinsic typography and glyph clipping (Chromium and WebKit)
+        run: |
+          git fetch --depth=1 origin 264e0a7d0a893f5d993da7d3c8b3087a3baaa91f
+          node tests/home-v18-browser.cjs
       - name: v17 typography and actor identity (Chromium and WebKit)
         run: |
           git fetch --depth=1 origin 479de0388cab0898beb8f7524c6da70055a4bab6

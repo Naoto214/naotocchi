@@ -30,76 +30,6 @@
     const natural=Math.max(1,...text.split('\n').map(t=>measure(t,size)));
     return {size,lines,width:Math.min(width,natural+2),compact:lines===1};
   }
-  function createLaneTypography(doc,env){
-    if(!env.MutationObserver||!env.getComputedStyle||!doc.createRange)return {schedule(){},destroy(){}};
-    const notice=doc.getElementById('homeEventSlot'),slot=doc.getElementById('speechSlot');
-    if(!notice||!slot)return {schedule(){},destroy(){}};
-    let frame=0,active=true;
-    const visible=n=>n&&!n.classList.contains('hidden')&&n.getBoundingClientRect().width>0;
-    const px=v=>parseFloat(v)||0;
-    // Measure final DOM, including inline art, real fonts and CSS letter spacing.
-    // No text is copied/re-written and no guessed speaker/padding allowance is used.
-    function ink(node){
-      const r=doc.createRange();r.selectNodeContents(node);
-      const rects=Array.from(r.getClientRects()).filter(r=>r.width>0&&r.height>0);
-      return {width:rects.length?Math.max(...rects.map(r=>r.right))-Math.min(...rects.map(r=>r.left)):0,
-        lines:new Set(rects.map(r=>Math.round(r.top))).size};
-    }
-    function fit(panel,text,kind){
-      if(!visible(panel)||!text)return;
-      const lane=kind==='notice'?notice:slot,ls=env.getComputedStyle(lane);
-      const width=lane.clientWidth-px(ls.paddingLeft)-px(ls.paddingRight);
-      panel.style.setProperty('--lane-width',width+'px');
-      text.style.whiteSpace='pre';text.style.textWrap='nowrap';
-      const candidates=kind==='notice'?[17,16,15]:[18,17,16];
-      let compact=false,size=candidates[0],natural=0;
-      for(const font of candidates){
-        panel.style.setProperty('--lane-font',font+'px');
-        natural=ink(text).width;size=font;
-        if(!text.textContent.includes('\n')&&natural<=text.clientWidth-.5){compact=true;break;}
-      }
-      if(compact){
-        // Layout at full available width first; only then shrink the background.
-        // clientWidth includes the text's own padding, so account for it as well.
-        const ts=env.getComputedStyle(text),extra=panel.getBoundingClientRect().width-text.clientWidth+px(ts.paddingLeft)+px(ts.paddingRight);
-        panel.style.setProperty('--lane-width',Math.min(width,Math.ceil(natural+extra+2))+'px');
-        if(text.scrollWidth>text.clientWidth+1)panel.style.setProperty('--lane-width',width+'px');
-      }else{
-        text.style.whiteSpace='pre-wrap';text.style.textWrap='pretty';
-        const fonts=kind==='notice'?[15,14,13]:[17,16,15,14],maxLines=kind==='notice'?2:3;
-        for(const font of fonts){
-          size=font;panel.style.setProperty('--lane-font',font+'px');
-          const ts=env.getComputedStyle(text),line=px(ts.lineHeight)||font*1.3;
-          if(text.scrollHeight<=line*maxLines+1&&text.scrollHeight<=text.clientHeight+1&&text.scrollWidth<=text.clientWidth+1)break;
-        }
-        // Balance a short wrapped paragraph so a trailing character/particle is
-        // not left on a line alone. Long paragraphs keep normal word wrapping.
-        const line=px(env.getComputedStyle(text).lineHeight)||size*1.3;
-        if(text.scrollHeight<=line*3+1&&!text.textContent.includes('\n'))text.style.textWrap='balance';
-      }
-      panel.dataset.laneCompact=String(compact);
-      panel.dataset.laneLines=String(Math.max(1,Math.round(text.scrollHeight/(px(env.getComputedStyle(text).lineHeight)||size*1.3))));
-    }
-    function update(){frame=0;if(!active||doc.body.dataset.homeTerrain!=='true')return;
-      for(const panel of notice.children){
-        if(!visible(panel))continue;
-        fit(panel,panel.querySelector('.story-flash-text')||panel,'notice');
-      }
-      const bubble=doc.getElementById('speechBubble');
-      if(!slot.classList.contains('is-asking'))fit(bubble,doc.getElementById('speechText'),'speech');
-      fit(doc.getElementById('homeChoiceResult'),doc.getElementById('homeChoiceText'),'speech');
-    }
-    function schedule(){if(active&&!frame){frame=1;Promise.resolve().then(update);}}
-    const observer=new env.MutationObserver(schedule);
-    for(const lane of [notice,slot])observer.observe(lane,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class','data-label']});
-    const resize=env.ResizeObserver?new env.ResizeObserver(schedule):null;
-    resize?.observe(notice);resize?.observe(slot);doc.fonts?.ready?.then(schedule);
-    doc.fonts?.addEventListener?.('loadingdone',schedule);
-    doc.addEventListener?.('visibilitychange',schedule);
-    notice.addEventListener?.('load',schedule,true);slot.addEventListener?.('load',schedule,true);
-    return {schedule,destroy(){active=false;observer.disconnect();resize?.disconnect();doc.fonts?.removeEventListener?.('loadingdone',schedule);notice.removeEventListener?.('load',schedule,true);slot.removeEventListener?.('load',schedule,true);doc.removeEventListener?.('visibilitychange',schedule);}};
-  }
-
   // Native direction of the approved PNGs; frontal art remains frontal.
   // Expression assets inherit their base silhouette, never a global right-facing assumption.
   function facingScale(a,direction){
@@ -262,7 +192,6 @@
     let enabled=false,dead=false,scene=null,environment=null,flags={},rows=new Map(),raf=0,last=0,gesture=null,sceneKey='',wasBlocked=false;
     let propNodes=[],world=null,worldLoading=false,worldHost=null,activeTime=0,frames=0,frameGaps=[],loadGeneration=0;
     const movedHomeElements=[];
-    const typography=createLaneTypography(doc,env);
     function placeHomeSlots(on){
       const slot=doc.getElementById?.('homeEventSlot');if(!slot)return;
       if(on){
@@ -277,7 +206,6 @@
         movedHomeElements.length=0;
       }
       if(doc.body)doc.body.dataset.homeTerrain=on?'true':'';
-      if(on)typography.schedule();
     }
     let guideStorage;try{guideStorage=env.localStorage;}catch(_){}
     const guide=createGestureGuide({storage:guideStorage,key:guideKey});let guideWalk=null;
@@ -451,7 +379,7 @@
     const listeners={pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
-    return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){typography.destroy();placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
+    return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
   return {textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
