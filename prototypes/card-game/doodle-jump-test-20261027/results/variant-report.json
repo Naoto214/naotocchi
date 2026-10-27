@@ -1,0 +1,56 @@
+{
+ "sources": {
+  "advanced-equipment.mjs": "cedaf38d64c5f4c46b24551d6d385c95e30167b963151248548287c34036cf15",
+  "auto-capabilities.mjs": "ca806bedbe86e01cbede12829726084ac325ebdf07efbdbf53b17671df7fbaf3",
+  "auto-progress.mjs": "466e25507e5cbe3d91ddb837af3e707d879fcf1f088182acf49c16966ee6b83c",
+  "cpu-observation.mjs": "9136ac93ee140a5ffbebc05d1a6eeb3c0ec03e2b43f6492759b6cf558d342b43",
+  "effects.mjs": "e7a87fef819a2d80510d4a0f0a2fce8406328726b40131d85fd5d312be0d114c",
+  "engine.mjs": "6712c0347d544c0660f6f94771f05bffdb4ed81e87aef9bb2ebd2fca9060f29b",
+  "late-conditions.mjs": "3610e87155d00ccb58b0322dbedcfcb1efd5d726982cb82496746e59f5a5a202",
+  "remaining-rules.mjs": "99235409eac06d739a005e8875f6968d1dd931a4b6fbe78f334d90c45eba85dd",
+  "replacements.mjs": "63b5313fa654c1a95c4e766dc3585ef88deb29ffd1ad91d71c7a0ebd27af75f6",
+  "rules.mjs": "bde3a32930f9c2b2acf9764561cb19c908600dfda067d57aa5e58a0ae4a55c3b",
+  "selection.mjs": "a0b1a39293701945d114dae0461f0c5b0e3773ce9bbd6022e261040e6478430c"
+ },
+ "variants": {
+  "B": {
+   "advanced-equipment.mjs": "597d494febe3e5d1d7b951499532f07b701b32304ffccf80fe068a2dec6ac645",
+   "auto-capabilities.mjs": "2d2cdf200686a0a40b9a06b58548543b008942b9700ad2f0e5cae165ef26ef51",
+   "auto-progress.mjs": "2c98b1a5df032d559f148336967cc86e397141dfbab72809cd26be82afb6c87e",
+   "cpu-observation.mjs": "e308676f5ef71e7b027ee1de7d6a69316fb4a08fe36b46e7872a71ab0616d3ad",
+   "effects.mjs": "b1471a0f9e22d4552ea9e56e78b67c89dc2c1a136a08df75f832344774b531e4",
+   "engine.mjs": "0beac5270363fa08c2a46bbf31be587bc625401692df495d0d1ffb7399916728",
+   "late-conditions.mjs": "e8d2962f2a0574bf5065796a080cc5f0fd4ddff560b0c668c37ebd6f4fb3f6cb",
+   "remaining-rules.mjs": "faa2eb020e284f548ed36c073bc62bba08542e23a24c7884c6620c6b1b4a5567",
+   "replacements.mjs": "e6cb44b2f1dadac2d86c362fc8d224dcff543c593a19bad8794f10fe1140e810",
+   "rules.mjs": "e040729c6b56fdcff6806c4e67767cce240be59e2785d9d0055a4c8db144d5c9",
+   "selection.mjs": "c58203cff4cad44541d32bc43c71090811630db3f57bb255f4f8b086c0966d38"
+  },
+  "null": {
+   "advanced-equipment.mjs": "aee9b1b05abe62f3a9dba0a45ac9b32ddea7b2457f716aeee781f92a20ed2202",
+   "auto-capabilities.mjs": "6d97a97edf7d4ef2f8d794d9dd1fcc212bfade3dda26a301b1db374bccf71d4e",
+   "auto-progress.mjs": "2516a685d33959ce1dfa27e78d73eecc0c43039b03da34e6efd1efaa7f345050",
+   "cpu-observation.mjs": "d486b69ca8ade5b08041cbc72e1397dde1ab9fcde7e784d17d4dc9b74441699c",
+   "effects.mjs": "d6006bbca2a16a09e4c0b33b765889151e2d1eea004e9b40bacb144710fea005",
+   "engine.mjs": "dcbe15ece206285d385bd9bf651c71753459a2cb383ee91b82b2743964ccc517",
+   "late-conditions.mjs": "40d409922f4f921e3d7167c590825c6b5a810fef2e93bbbc5f2692c7732de9ca",
+   "remaining-rules.mjs": "7283a5d0198885ebfb8ed7b3b762e6b9bb3ea857d65bbb56b1ebf38ca3be71ef",
+   "replacements.mjs": "a5db67ebf47c4247dbaa365d1e1ed5b5ece2bfb277f9a096d24a8c19e00e8203",
+   "rules.mjs": "e90c0e863f4a482dd300c6625f121f60e4991e610452b39eb6ad7a256b4b3ddb",
+   "selection.mjs": "eb593443ab5135c345808d5127dc4ec3cba52288dcaf02a5e16072ebfafe8222"
+  }
+ },
+ "copied": [
+  "advanced-equipment.mjs",
+  "auto-capabilities.mjs",
+  "auto-progress.mjs",
+  "cpu-observation.mjs",
+  "effects.mjs",
+  "engine.mjs",
+  "late-conditions.mjs",
+  "remaining-rules.mjs",
+  "replacements.mjs",
+  "rules.mjs",
+  "selection.mjs"
+ ]
+}
