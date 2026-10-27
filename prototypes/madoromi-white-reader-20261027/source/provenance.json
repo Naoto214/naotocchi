@@ -1,0 +1,42 @@
+{
+  "canonical_edition": "第三十八稿・川岸描写修正版",
+  "approved_edits": [
+    {
+      "index": 268,
+      "before": "やがて、二匹は向こう岸へたどり着いた。",
+      "after": "やがて、二匹は川の反対側へたどり着いた。"
+    },
+    {
+      "index": 276,
+      "before": "それから、ふと顔を上げた。",
+      "after": "それから、なおとの方へ向き直った。"
+    }
+  ],
+  "historical_pdf_sha256": "223a56946527739ba55bded2717ad73b32666f7ad899e95f719879a1a70349ba",
+  "paragraph_records": 395,
+  "rendered_pdf_lines": 426,
+  "chapters": 6,
+  "line_policy": "PDFのTj各行を改行として保持。段落はBT/ET単位。ページ番号のみ除外。",
+  "illustrations": [
+    [
+      "absence",
+      "art-dream-absence.png",
+      "かえるがいなくなった川辺。空いた石の縁と、水の動き。"
+    ],
+    [
+      "first-grass",
+      "art-dream-birth.png",
+      "卵から生まれた犬が、前足で草に触れる。"
+    ],
+    [
+      "chu",
+      "art-dream-kiss.png",
+      "ペンギンが、かめの鼻先にそっとくちばしをつける。"
+    ],
+    [
+      "white-flowers",
+      "art-dream-flower.png",
+      "川沿いの道端に、小さな白い花が咲いている。"
+    ]
+  ]
+}
