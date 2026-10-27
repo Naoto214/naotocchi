@@ -1,0 +1,69 @@
+{
+ "schema_version": 1,
+ "document": "476-lover-text-implementation-alignment.md",
+ "audit": "PR #446 (prototypes/card-game/lover-text-audit-20261026/)",
+ "base_main": "9e3929da9e53fc94edfce85c2a3fc5ff8d596fe7",
+ "changed_cards": [
+  {
+   "id": "P-rock_octopus",
+   "name": "いわばのタコさん",
+   "before": "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。",
+   "after": "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。",
+   "unchanged": [
+    "meaning",
+    "effect",
+    "targets",
+    "cost",
+    "once_per_turn"
+   ],
+   "before_chars": 124,
+   "after_chars": 132
+  }
+ ],
+ "implementation_alignment": [
+  {
+   "id": "P-knitting_spider",
+   "text_changed": false,
+   "ruling": "3→結婚は「交際段階が進んだ時」に含まない（01:176-180、66、67、74、75 P16）",
+   "before": "progress と marriage の両方で誘発",
+   "after": "progress（0→1、1→2、2→3）だけで誘発。marriage は hotseat-2 の保存再生だけ"
+  },
+  {
+   "id": "P-desert_scorpion",
+   "text_changed": false,
+   "ruling": "伏せたしかけ配置では条件を満たさない（74、75 P17）",
+   "before": "あいてむは表向きか確かめない",
+   "after": "表向きでプレイしたあいてむだけを数える。伏せたあいてむも数える旧動作は hotseat-2 の保存再生だけ"
+  }
+ ],
+ "save_compatibility": {
+  "new_matches": "hotseat-3",
+  "replayed_unchanged": [
+   "hotseat-1",
+   "hotseat-2"
+  ]
+ },
+ "validation": {
+  "catalog_records_sha256": "705e2f618d1d06c1b324fd5df1a91fd714d557e9bf4e8d411c222cae5dd4172f",
+  "catalog_records": 452,
+  "changed_records": 1,
+  "unchanged_text_records": 451
+ },
+ "unchanged_text_and_implementation": [
+  "P-anglerfish",
+  "P-cat_ceo",
+  "P-cliff_goat",
+  "P-field_cow",
+  "P-forest_bear",
+  "P-gentle_gorilla",
+  "P-grove_deer",
+  "P-high_eagle",
+  "P-oasis_cactus",
+  "P-robot_neighbor",
+  "P-sea_mermaid",
+  "P-snow_spirit",
+  "P-snowman",
+  "P-sunflower_partner",
+  "P-swamp_croc"
+ ]
+}
