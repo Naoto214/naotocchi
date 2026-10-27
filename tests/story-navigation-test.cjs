@@ -7,8 +7,8 @@ const root=path.resolve(__dirname,'..');
 function run({search='?from=game',type='navigate',state=null}={}) {
   const links=[];
   const history={state,replaceState(value){this.state=value;}};
-  const nav={append(link){links.push(link);}};
-  const context={URLSearchParams,location:{search},history,performance:{getEntriesByType:()=>[{type}]},document:{querySelector:()=>nav,createElement:()=>({})}};
+  const cover={style:{},prepend(link){links.push(link);}};
+  const context={URLSearchParams,location:{search},history,performance:{getEntriesByType:()=>[{type}]},document:{querySelector:(selector)=>selector === '.title-page' ? cover : null,createElement:()=>({style:{}})}};
   vm.runInNewContext(fs.readFileSync(path.join(root,'story-navigation.js'),'utf8'),context);
   return {links,history};
 }

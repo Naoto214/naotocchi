@@ -6,7 +6,7 @@ Base: `55c33221571faf16cea518cb9d91fc033d018631` (PR #453 version 19 merged).
 - 2列の既存10項目を指定順へ配置。既存の各要素は全文一致、既存ゲームJSに変更なし。
 - 最下段に2列分の「ものがたり」。本の線画・背景 #FCFBF9・文字/アイコン #414C50・枠 #D8D8D2、高さ112px・角丸16px。
 - 正式パス `prototypes/madoromi-white-reader-20261027/dist/?from=game#top`。公開後は `https://naoto214.github.io/naotocchi/prototypes/madoromi-white-reader-20261027/dist/?from=game#top`。
-- ゲーム経由のみ表紙から入り、目次に「ゲームにもどる」を追加。保存済み位置は「続きから読む」で復元。直接閲覧、reload、back/forwardの既存動作を維持。
+- ゲーム経由のみ表紙から入り、表紙左上に「ゲームにもどる」を追加。保存済み位置は「続きから読む」で復元。直接閲覧、reload、back/forwardの既存動作を維持。
 - 本文・装丁CSS・white-reader.jsは変更なし。読書HTMLの変更は任意ナビゲーションスクリプト読込み1箇所のみ。
 - mainに存在した読書ページがPages配信リストから漏れていたため、正式HTML/CSS/JSと接続スクリプトを配信対象へ追加。本人限定URLへの依存なし。
 
@@ -29,3 +29,11 @@ Sites version 1, owner-only deployment succeeded. 最新mainベースの専用�
 ![320px 最下段](menu-320-bottom.jpg)
 
 mainへのマージ・GitHub Pages本番公開は未実施。
+
+## 表紙への復帰リンク移動
+- ユーザー指定により目次内から表紙左上へ移動。目次を開かず、スクロールなしで復帰できる。
+- 320/375/390/430px幅でリンクのtop70px・高さ44pxを確認。表紙作品名と重ならず、本文のレイアウトは不変。
+- 表紙リンクのタップでゲームへ戻ることをChromiumで確認。ナビゲーション・読書位置の既存6件、Pagesユニット16件成功。
+- 本文・white-reader.css・white-reader.jsは引き続き変更なし。
+
+![表紙のゲーム復帰リンク・390px](cover-return-390.jpg)
