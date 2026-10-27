@@ -63,13 +63,13 @@ test('他のときおくり関連カード（しばいぬ）は変わらない',
  assert.ok(s.phase==='trigger'&&s.pending.some(r=>s.cards[r.source].cardId==='C-shiba'),'しばいぬの誘発');
 });
 
-test('新規対戦は新しい版、旧版（hotseat-2）を指定した対戦は旧効果のまま',()=>{
- assert.notEqual(e.VERSION,'hotseat-2');assert.ok(e.RULE_VERSIONS.includes('hotseat-2'));assert.ok(e.RULE_VERSIONS.includes(e.VERSION));
+test('新規対戦は hotseat-4、旧版（hotseat-2・hotseat-3）を指定した対戦は旧効果のまま',()=>{
+ assert.equal(e.VERSION,'hotseat-4');assert.deepEqual([...e.RULE_VERSIONS],['hotseat-2','hotseat-3','hotseat-4']);assert.ok(e.RULE_VERSIONS.includes(e.VERSION));
  assert.equal(e.createGame(1).version,e.VERSION);
- let {s,targets:[two,three]}=setup('hotseat-2',{to:['M-dog-02','M-dog-03']});s=playDJ(s);
- const g0=s.players.A.growth,h0=s.players.A.hand.length;s=skipTo(s,two);
- assert.equal(s.players.A.growth,g0,'旧効果：1回目は+5なし');assert.equal(s.players.A.hand.length,h0,'旧効果：1回目は1枚引く');
- s=skipTo(s,three);assert.equal(s.players.A.growth,g0+5,'旧効果：2回目に+5');
+ for(const version of ['hotseat-2','hotseat-3']){let {s,targets:[two,three]}=setup(version,{to:['M-dog-02','M-dog-03']});s=playDJ(s);
+  const g0=s.players.A.growth,h0=s.players.A.hand.length;s=skipTo(s,two);
+  assert.equal(s.players.A.growth,g0,version+' 旧効果：1回目は+5なし');assert.equal(s.players.A.hand.length,h0,version+' 旧効果：1回目は1枚引く');
+  s=skipTo(s,three);assert.equal(s.players.A.growth,g0+5,version+' 旧効果：2回目に+5');}
 });
 
 const saves=JSON.parse(readFileSync(new URL('./doodle-jump-hotseat2-saves.json',import.meta.url)));
@@ -124,7 +124,7 @@ test('カタログ：変わったのはぴょんぴょんジャンプの本文�
  const norm=c=>{const x={...c};delete x.source_sha256;if(x.id==='G-doodle-jump')delete x.text;return x;};
  const dig=createHash('sha256').update(JSON.stringify(Object.keys(CATALOG).sort().map(k=>norm(CATALOG[k])))).digest('hex');
  assert.equal(Object.keys(CATALOG).length,452);
- assert.equal(dig,'fbf40a3adbefa7c5838c94191646173ba481e71b60c2c72e57355fa66f3c34dc','main 9e3929da と同じ（本文1件と出典hashを除く）');
+ assert.equal(dig,'8b5081a639cb6ac36308cb1251a585fb8a95c34b9abaeb65790568415c4ceec2','main 518037d6（PR #449 統合後）と同じ（本文1件と出典hashを除く）');
 });
 
 // --- 新しい版の保存・途中復帰（実際の対戦の操作列） ---

@@ -30,5 +30,5 @@
 ## 保存の互換
 
 - 新規対戦は版 `hotseat-4`（新本文）。旧本文で遊んだ保存（`hotseat-2`）は旧効果のまま再生します。保存を新しい版へ変換しません。
-- `hotseat-3` は PR #449（こいびと修正）が使う版名です。この改訂では使わず、`hotseat-3` でもぴょんぴょんジャンプは旧効果とします。
+- `hotseat-3` は PR #449（こいびと修正）の版です。`hotseat-3` の保存でも、ぴょんぴょんジャンプは旧効果のまま再生します。`hotseat-4` はこいびと修正＋この改訂です。
 - 証跡：[data/doodle-jump-text-revision-20261027.json](data/doodle-jump-text-revision-20261027.json)。96/97の固定カタログhashは、この改訂前の本文に戻して照合します（`tools/check-design-data.py`）。

@@ -2,7 +2,7 @@
  "schema_version": 1,
  "document": "477-doodle-jump-text-revision.md",
  "research": "PR #448 (prototypes/card-game/early-birth-value-20261027/), PR #451 (prototypes/card-game/doodle-jump-test-20261027/)",
- "base_main": "9e3929da9e53fc94edfce85c2a3fc5ff8d596fe7",
+ "base_main": "518037d6 (main after PR #449; originally 9e3929da)",
  "changed_cards": [
   {
    "id": "G-doodle-jump",
@@ -32,9 +32,9 @@
    "hotseat-2",
    "hotseat-3"
   ],
-  "note": "hotseat-3 is the rule version used by PR #449 (lover fixes); ぴょんぴょんジャンプ keeps its old effect there."
+  "note": "hotseat-3 = PR #449 lover fixes with the old ぴょんぴょんジャンプ; hotseat-4 = lover fixes + improvement B."
  },
  "validation": {
-  "catalog_records_sha256": "52b5b21761fc94089afb831a95d97aa9443c3e213b633aceaf0172b55ce4ad58"
+  "catalog_records_sha256": "ed40f19bb2d0c8d9cda232c8109733291263e81823fea29ba29ed3378df10fed"
  }
 }
