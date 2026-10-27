@@ -1,5 +1,6 @@
 export {projectHomeOcclusion} from './home-occlusion.mjs';
 // Presentation-only routes. Screen bounds protect UI; world geometry decides traversability.
+import {configureHomeCamera} from './home-scenery.mjs';
 import * as THREE from './vendor/three-0.170.0/three.module.min.js';
 import {terrainGrid,alignHomeGround} from './meguru-3d.mjs';
 export function createTerrainNavigation({width,height,project,unproject,walkable,cell=12}){
@@ -34,7 +35,7 @@ export function createTerrainNavigation({width,height,project,unproject,walkable
 }
 export function createHomeNavigation(M,composition,{width,height,anchorY,offsetX=0,offsetY=0,stageWidth=width,stageHeight=height}){
  const {world,objects}=composition,terr=terrainGrid(world,M,objects),camera=new THREE.PerspectiveCamera(46,width/height,20,12000);
- camera.position.set(0,1100,1350);camera.lookAt(0,0,-1000);alignHomeGround(camera,width,height,anchorY);camera.updateMatrixWorld();
+ configureHomeCamera(camera,width,height,composition.scenery?.camera);alignHomeGround(camera,width,height,anchorY);camera.updateMatrixWorld();
  const v=new THREE.Vector3(),ray=new THREE.Raycaster();
  const project=p=>{v.set(p.x,terr.walkY(p.x,p.z),-p.z).project(camera);return {x:(v.x+1)*width/2-offsetX,y:(1-v.y)*height/2-offsetY};};
  const unproject=p=>{
@@ -49,7 +50,7 @@ export function createHomeNavigation(M,composition,{width,height,anchorY,offsetX
   if(p.x<world.minX+24||p.x>world.maxX-24||p.z<0||p.z>world.len)return false;
   const water=terr.sDist(p.x,p.z);if(water.d<water.w+48)return false;
   if(terr.ponds.some(q=>Math.hypot(q.x-p.x,q.z-p.z)<q.r+24))return false;
-  if(world.regionId==='city'&&Math.abs(p.z-1400)<155)return false;
+  if(world.regionId==='city'&&(Math.abs(p.z-1400)<155||p.z>1400&&Math.abs(p.x-230)<150))return false;
   return !M.collidesAt(world,p.x,p.z,28);
  };
  return {...createTerrainNavigation({width:stageWidth,height:stageHeight,project,unproject,walkable}),terrain:terr,camera};

@@ -1,3 +1,4 @@
+import {configureHomeCamera,rotateWheelPoint} from './home-scenery.mjs';
 // なおとっち — めぐる 3D prototype(forest だけ・?meguru3d=1 の ときだけ よみこむ)。
 //
 // ・せかい / シミュレーション(meguru.js)は そのまま。ここは sim.view() を うけとって えがく だけ(view は かきかえない)。
@@ -646,6 +647,7 @@ function create3DRenderer(M, o, onLost) {
   camera.rotation.order = 'YXZ';
   const texCache = new Map();
   let sceneOf = null, scene = null, built = null;
+  const wheelRotation=new THREE.Quaternion(),wheelAxis=new THREE.Vector3(0,0,-1);
   const tmp = new THREE.Object3D(), col = new THREE.Color(), FOGC = new THREE.Color(), TMPC = new THREE.Color();   // まい frame の いろは つかいまわす(GC で カクつかない)
 
   function canvasTexture(c) {
@@ -992,7 +994,8 @@ function create3DRenderer(M, o, onLost) {
     const MAT_ALIAS = { wtrunk: 'wbox', wnut: 'wbox', snowcap: 'snowcone', trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wpanel: 'wbox', nut8: 'nut', gable: 'wroof', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
     const livingClock = {value:0};
     if(o.home) for(const shape of ['crown','cone','blade','kelp','petal']) if(MAT[shape]) installWind(MAT[shape],livingClock,shape==='crown'?4:2);
-    const homeCars=[];
+    const homeCars=[],homeWheels=[];
+    if(o.home){GEO_ALIAS.homewindowwpanel='wpanel';GEO_ALIAS.homewindowwbox='box';MAT.homewindowwbox=MAT.homewindowwpanel=keep(new THREE.MeshLambertMaterial({color:'#b8d8e5',emissive:'#ffd796',emissiveIntensity:0}));}
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
@@ -1003,8 +1006,10 @@ function create3DRenderer(M, o, onLost) {
     let curOy = 0;
     const jungle3d = world.regionId === 'jungle';   // 2D: ジャングルの 木は 秋でも みどり
     const push = (shape, it) => {
+      if(o.home&&cur?.part?.homeWindow&&['wpanel','wbox'].includes(shape))shape='homewindow'+shape;
       if (curOy) it.y = (it.y || 0) + curOy;   // Terrain v1: 物は 地形の 高さに すわる
       const l = inst[shape] || (inst[shape] = []);
+      if(o.home&&cur?.ob.type==='wheel'&&['trunk','box'].includes(cur.part?.shape)){const arch=cur.ob.parts.find(p=>p.shape==='arch');homeWheels.push({shape,i:l.length,it:{...it},pivot:{y:curOy+(arch?.y||0),z:cur.ob.x}});}
       if(o.home && cur?.ob.type==='car')homeCars.push({shape,i:l.length,it:{...it},origin:cur.ob});
       if (cur && !NO_FADE.has(shape)) {
         cur.refs.push({ shape, i: l.length, it });
@@ -1027,6 +1032,7 @@ function create3DRenderer(M, o, onLost) {
       // あたりの 箱の hw 軸(せかい (sin a, cos a))を ローカル x へ: three では θ = π/2 − a
       const t = hash01(ob.id), ry = Math.PI / 2 - (ob.rot || 0);
       for (const pt of ob.parts) {
+        if(cur)cur.part=pt;
         const px = ob.x + (pt.dx || 0), pz = -(ob.z + (pt.dz || 0));
         if (gr.part) curOy = gr.part(pt);
         switch (pt.shape) {
@@ -1230,7 +1236,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
     const aquatic=o.home&&world.regionId==='river_lake'?createAquaticLife(THREE,sc,keep):null;
-    return { aquatic, livingClock, homeCars, rid: world.regionId, motion: world.motion || null, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
+    return { aquatic, livingClock, homeCars, homeWheels, homeWindowMaterial:MAT.homewindowwpanel, rid: world.regionId, motion: world.motion || null, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
       setGroundColors: (cols) => { const k = cols ? cols.join(',') : ''; if ((groundOverride ? groundOverride.join(',') : '') === k) return; groundOverride = cols; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; },
       occluders, hidden: new Set(), ghostPool: [], ghostTint: new Map(), rayGrid: buildRayGrid(inst, NO_FADE), inst, terr, camY: null, ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
@@ -1291,7 +1297,7 @@ function create3DRenderer(M, o, onLost) {
     const pyT = built.terr ? built.terr.walkY(view.player.x, view.player.z) : 0;
     built.camY = built.camY == null ? pyT : built.camY + (pyT - built.camY) * 0.15;
     camera.position.set(c.x - sinY * c.dist, camH + built.camY, -(c.z - cosY * c.dist)); camera.rotation.set(0, -c.yaw, 0);
-    if(o.home){camera.clearViewOffset();camera.fov=46;camera.aspect=W/H;camera.position.set(0,1100,1350);camera.lookAt(0,0,-1000);}
+    if(o.home)configureHomeCamera(camera,W,H,world.homeCamera);
     camera.updateProjectionMatrix();camera.updateMatrixWorld();
     if(o.home)alignHomeGround(camera,W,H,view.homeGroundY);
     // ひかり(時間・天気・場所の きぶん)。2D の TIME_LIGHT / WEATHER_LIGHT を そのまま つかう
@@ -1397,9 +1403,18 @@ function create3DRenderer(M, o, onLost) {
     adaptDpr(now || 0);
     diag.frames++; diag.lastPlayer = player;
     if(o.home){
+      if(built.homeWindowMaterial)built.homeWindowMaterial.emissiveIntensity=env.time==='night'?.85:env.time==='evening'?.4:0;
       built.aquatic?.update(view.homeLife,animLv>0?(now||0)/1000:built.livingClock.value);
       built.livingClock.value=animLv>0?(now||0)/1000:built.livingClock.value;
       for(const m of built.water.meshes)if(m.name.includes('river')||m.name.includes('creek'))m.material.userData.livingWater=built.livingClock;
+      const wheelAngle=built.livingClock.value*.32;
+      wheelRotation.setFromAxisAngle(wheelAxis,wheelAngle);
+      for(const rf of built.homeWheels){
+        const it=rf.it,m=built.meshes[rf.shape];if(!m)continue;
+        const p=rotateWheelPoint({y:it.y,z:it.x},rf.pivot,wheelAngle);tmp.position.set(p.z,p.y,it.z);
+        tmp.rotation.set(it.rx||0,it.ry||0,it.rz||0);tmp.quaternion.premultiply(wheelRotation);tmp.scale.set(it.sx,it.sy,it.sz);tmp.updateMatrix();
+        m.setMatrixAt(rf.i,tmp.matrix);m.instanceMatrix.needsUpdate=true;
+      }
       const car=(view.homeLife||[]).find(a=>a.kind==='car');
       for(const rf of built.homeCars){
         const it=rf.it,m=built.meshes[rf.shape];if(!m)continue;

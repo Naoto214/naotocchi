@@ -44,6 +44,8 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium webkit
+      - name: v19 scenery, safe terrain and fixed UI (Chromium and WebKit)
+        run: node tests/home-v19-browser.cjs
       - name: v18 intrinsic typography and glyph clipping (Chromium and WebKit)
         run: |
           git fetch --depth=1 origin 264e0a7d0a893f5d993da7d3c8b3087a3baaa91f
