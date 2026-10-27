@@ -11,7 +11,9 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const {chromium,webkit}=require('playwright');try{
  for(const [name,engine]of Object.entries({chromium,webkit})){const browser=await engine.launch({headless:true});try{const page=await browser.newPage({viewport:{width:1000,height:1100}});
  await page.goto(`http://127.0.0.1:${server.address().port}/home-v19-qa.html`);await page.frameLocator('#game').locator('[data-diorama-actor]').first().waitFor();
- await page.getByRole('button',{name:'全幅検証',exact:true}).click();await page.locator('#rawReport').waitFor({state:'attached',timeout:240000});
+ await page.getByRole('button',{name:'全幅検証',exact:true}).click();// Bound each case independently and retain diagnostics if a case stalls.
+ for(let completed=1;completed<=24;completed++)await page.waitForFunction(n=>Number(document.getElementById('run').dataset.completed)>=n,completed,{timeout:60000});
+ await page.locator('#rawReport').waitFor({state:'attached',timeout:60000});
  const report=JSON.parse(await page.locator('#rawReport').textContent());fs.writeFileSync(path.join(output,name+'.json'),JSON.stringify(report,null,2));
  for(const count of ['6','28'])for(const region of ['forest','river_lake','city']){
   await page.locator('#width').selectOption('390');await page.locator('#count').selectOption(count);await page.locator('#region').selectOption(region);await page.locator('#apply').click();await page.waitForTimeout(2500);

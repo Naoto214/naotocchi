@@ -12,7 +12,7 @@ async function run(){
   const qa=frame.contentWindow.HomeV19QA,initial=measure(),glyphs=[];
   for(const text of ['びょうきじゃないって！','いまのぼく、ちょっとできる子']){qa.sayText(text);await wait(100);glyphs.push(glyphCheck());}
   qa.prepare();const moved=qa.moveTest();await wait(1000);const after=qa.detail();qa.live();await wait(1000);const live=qa.detail();qa.freeze();
-  const row={width,region,count,initial,after,live,moved,glyphs};rows.push(row);
+  const row={width,region,count,initial,after,live,moved,glyphs};rows.push(row);$('run').dataset.completed=String(rows.length);
   const pet0=initial.actors.find(a=>a.key.startsWith('pet:')),pet1=after.actors.find(a=>a.key.startsWith('pet:'));
   if(!moved||Math.hypot(pet1.x-pet0.x,pet1.y-pet0.y)<.2)errors.push({width,region,count,kind:'movement'});
   if(initial.region!==region||initial.actors.length!==count)errors.push({width,region,count,kind:'cast'});

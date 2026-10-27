@@ -50,14 +50,16 @@
       // away the upper screen). Never re-centre an established player's position.
       let terrainCentre=null;
       const main=list.find(a=>a.kind==='pet');
-      if(scene.centerInitialCast&&scene.navigation&&main&&(!previousActors.length||previousScene.region!==scene.region)){
+      if(scene.centerInitialCast&&scene.navigation&&!scene.navigation.initialPoint&&main&&(!previousActors.length||previousScene.region!==scene.region)){
         const b=bounds(main,scene),points=[];
         for(let y=b.top;y<=b.bottom;y+=12)for(let x=b.left;x<=b.right;x+=20)if(scene.navigation.valid({x,y})&&visible(main,{x,y}))points.push({x,y});
         if(points.length){const ys=points.map(p=>p.y);terrainCentre=scene.navigation.nearest({x:scene.width/2,y:(Math.min(...ys)+Math.max(...ys))/2},b,p=>visible(main,p));}
       }
-      actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map(a=>{
+      actors=list.filter(a=>['pet','companion','partner'].includes(a.kind)&&Number.isFinite(a.x+a.y+a.w+a.h)).map((a,index)=>{
         const reflow=list.length>5&&(next.width!==previousScene.width||next.height!==previousScene.height||list.length!==previousActors.length||list.some(a=>previousActors.find(b=>b.key===a.key)?.w!==a.w));
-        const old=!changed&&!reflow&&actor(a.key),previous=!reflow&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||(a.kind==='pet'&&terrainCentre)||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
+        const initial=scene.navigation?.initialPoint&&(!previousScene.navigation||previousScene.region!==scene.region||(list.length>5&&list.length!==previousActors.length)||!previousActors.some(b=>b.key===a.key));
+        const seed=initial?scene.navigation.initialPoint(index,list.length):null;
+        const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
         return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
       });
       // Keep established actors stable; seat new/reshaped arrivals in the nearest free spot.
@@ -65,12 +67,15 @@
       for(const a of [...actors].sort((a,b)=>Number(retained.has(b.key))-Number(retained.has(a.key)))){
         const fits=p=>(!scene.navigation||scene.navigation.valid(p))&&seated.every(b=>separated(a,p,b))&&visible(a,p);
         if(!fits(a)){
-          const b=bounds(a,scene);let best=null,distance=Infinity;
+          const b=bounds(a,scene),candidates=[];
           for(let y=b.top;y<=b.bottom+7;y+=8)for(let x=b.left;x<=b.right+7;x+=8){
-            const p=limit(a,{x,y},scene),d=Math.hypot(p.x-a.x,p.y-a.y);
-            if(d<distance&&fits(p)){best=p;distance=d;}
+            const p=limit(a,{x,y},scene);candidates.push({...p,d:Math.hypot(p.x-a.x,p.y-a.y)});
           }
-          if(best){Object.assign(a,best);a.target=null;a.activity='rest';}
+          // Test nearest candidates first. Visibility involves projected mesh
+          // triangles; scanning every closer candidate from the top was costly
+          // for 28 residents, while the chosen nearest legal seat is identical.
+          candidates.sort((a,b)=>a.d-b.d);const best=candidates.find(fits);
+          if(best){Object.assign(a,{x:best.x,y:best.y});a.target=null;a.activity='rest';}
         }
         seated.push(a);
       }
@@ -85,7 +90,10 @@
       if(source==='ambient'&&actors.filter(b=>b.target&&b.source==='ambient').length>=(actors.length>15?2:actors.length>5?3:5))return false;
       const q=destination(a,p);if(!q)return false;
       if(Math.hypot(q.x-a.x,q.y-a.y)<3)return false;
-      const path=scene.navigation?scene.navigation.route(a,q,bounds(a,scene),p=>free(a,p)):[q];if(!path.length)return false;
+      // A cramped fallback seat may already overlap. Allow only escape that
+      // does not worsen that overlap; step() still requires strict improvement.
+      const routeFree=p=>visible(a,p)&&actors.every(b=>b===a||separated(a,p,b)||clearance(a,a,b)<1&&clearance(a,p,b)>=clearance(a,a,b)-1e-9);
+      const path=scene.navigation?scene.navigation.route(a,q,bounds(a,scene),routeFree):[q];if(!path.length)return false;
       a.route=path.slice(1);a.target=path[0];a.source=source;if(source!=='ambient'){a.faceKey=null;a.visualReaction=undefined;a.visualTarget=null;}activity(a,'walk');a.lastWalk=clock;stats.moves++;defer(a,4);idleAt=clock+4;emit('move',a,source);return true;
     }
     function idle(a){

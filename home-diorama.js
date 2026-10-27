@@ -240,7 +240,7 @@
     function clearGesture(){if(gesture){try{stage.releasePointerCapture(gesture.pointerId);}catch(_){}gesture=null;}marker.hidden=true;}
     function interrupt(){clearGesture();model.cancel();paint();}
     function clearStage(){const poop=doc.getElementById?.('poopRow');if(poop){delete poop.dataset.groundKey;for(const n of [...poop.children]){n.style.left='';n.style.top='';n.style.visibility='';}}for(const k of Object.keys(stage.dataset))if(k.startsWith('diorama')||k.startsWith('world')||k==='livingMetrics')delete stage.dataset[k];}
-    function restore(row){effectPaints.delete(row.owner);for(const accent of row.owner.querySelectorAll?.('.pet-expression-accent')||[]){accent.style.translate='';accent.style.removeProperty('--sleep-drift');for(const path of accent.querySelectorAll('path'))path.removeAttribute('transform');}delete row.owner.dataset.effectFlipped;row.owner.style.removeProperty('--effect-reflect-offset');onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');n.style.removeProperty('--diorama-sleep-shift');}
+    function restore(row){effectPaints.delete(row.owner);for(const accent of row.owner.querySelectorAll?.('.pet-expression-accent')||[]){accent.style.translate='';accent.style.removeProperty('--sleep-drift');for(const path of accent.querySelectorAll('path'))path.removeAttribute('transform');}delete row.owner.dataset.effectFlipped;row.owner.style.removeProperty('--effect-reflect-offset');onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.scale='';n.style.transformOrigin='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');n.style.removeProperty('--diorama-sleep-shift');}
       for(const [k,v]of Object.entries(row.original||{}))v===null?row.owner.removeAttribute?.(k):row.owner.setAttribute(k,v);row.shadow.remove();}
     const occlusionCache=new Map();
     function polygonsAt(p){
@@ -280,21 +280,27 @@
       selectedLabel.hidden=!chosen||!enabled;selectedLabel.textContent=chosen?(rows.get(chosen.key)?.label||chosen.id):'';
       for(const a of snapshot){
         const row=rows.get(a.key);if(!row)continue;
-        const dx=a.x-row.x,dy=a.y-row.y;
+        const dx=a.x-row.x,dy=a.y-row.y,depthScale=scene.navigation?.depthScale?.(a)||1;
         // A visual can be replaced on sleep/wake without moving its actor.
         const sleep=row.owner.querySelector?.('.pet-expression-accent--sleeping > svg > g');
         row.owner.style.setProperty('--diorama-sleep-shift',sleepAccentShift(sleep?.getAttribute?.('transform'),row.originX??50,facingScale(row,a.direction))+'%');
         placeActorEffects(row.owner,row.originX??50,facingScale(row,a.direction),a.direction);
-        const stamp=[dx.toFixed(2),dy.toFixed(2),a.activity,a.direction,!!a.target,model.selected()===a.key,isPaused,revision,row.x,row.y,row.w,row.h].join(':');
+        const stamp=[depthScale.toFixed(4),dx.toFixed(2),dy.toFixed(2),a.activity,a.direction,!!a.target,model.selected()===a.key,isPaused,revision,row.x,row.y,row.w,row.h].join(':');
         if(row.paintStamp===stamp){onPosition(a,dx,dy);continue;}row.paintStamp=stamp;
-        for(const n of [row.owner,...(row.attachments||[])])n.style.translate=`${dx.toFixed(2)}px ${dy.toFixed(2)}px`;
+        for(const n of [row.owner,...(row.attachments||[])]){
+          n.style.translate=`${dx.toFixed(2)}px ${dy.toFixed(2)}px`;
+          // Individual scale composes with Motion v2's transform. Pin every
+          // sibling attachment to the same painted foot in stage coordinates.
+          n.style.transformOrigin=(row.x-(parseFloat(n.style.left)||0))+'px '+(row.y-(parseFloat(n.style.top)||0))+'px';
+          n.style.scale=String(depthScale);
+        }
         row.owner.style.zIndex=String(Math.round(a.y));
         row.owner.dataset.dioramaSelected=String(model.selected()===a.key);row.owner.setAttribute('aria-pressed',String(model.selected()===a.key));
         row.owner.dataset.dioramaActivity=a.activity;
         row.owner.style.setProperty('--diorama-facing',String(facingScale(row,a.direction)));
         row.owner.style.setProperty('--diorama-origin',(row.originX??50)+'% 100%');
         row.owner.dataset.dioramaWalking=String(!!a.target&&!isPaused&&!media?.matches);row.owner.dataset.dioramaDirection=String(a.direction);
-        row.shadow.style.left=a.x+'px';row.shadow.style.top=a.y+'px';row.shadow.style.width=Math.max(20,a.w*.8)+'px';row.shadow.dataset.selected=String(model.selected()===a.key);
+        row.shadow.style.left=a.x+'px';row.shadow.style.top=a.y+'px';row.shadow.style.width=Math.max(20,a.w*.8*depthScale)+'px';row.shadow.dataset.selected=String(model.selected()===a.key);
         if(world&&scene.navigation&&doc.createElementNS&&world.stats().renderer?.objects>0){
           const point=scene.navigation.unproject(a),host=worldHost.getBoundingClientRect();
           const cacheKey=point?[Math.round(point.x/24),Math.round(point.z/24),host.width,host.height,scene.region,world.stats().projectionRevision,scene.groundTop,scene.floor].join(':'):'';
@@ -302,9 +308,9 @@
             row.maskKey=cacheKey;const polygons=polygonsAt(a);
             row.maskURL=polygons.length?'url("data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="'+host.width+'" height="'+host.height+'"><defs><mask id="m"><rect width="100%" height="100%" fill="white"/>'+polygons.map(ps=>'<polygon fill="black" points="'+ps.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ')+'"/>').join('')+'</mask></defs><rect width="100%" height="100%" fill="white" mask="url(#m)"/></svg>')+'")':'';
           }
-          const maskPose=[cacheKey,dx.toFixed(2),dy.toFixed(2),row.x,row.y,row.w,row.h].join(':');
+          const maskPose=[depthScale.toFixed(4),cacheKey,dx.toFixed(2),dy.toFixed(2),row.x,row.y,row.w,row.h].join(':');
           if(row.lastMaskPose!==maskPose){row.lastMaskPose=maskPose;
-          for(const n of [row.owner,...(row.attachments||[])]){const r=n.getBoundingClientRect();n.style.maskImage=n.style.webkitMaskImage=row.maskURL||'';n.style.maskSize=n.style.webkitMaskSize=host.width+'px '+host.height+'px';n.style.maskPosition=n.style.webkitMaskPosition=(host.left-r.left)+'px '+(host.top-r.top)+'px';n.style.maskRepeat=n.style.webkitMaskRepeat='no-repeat';n.style.maskClip=n.style.webkitMaskClip='no-clip';}}
+          for(const n of [row.owner,...(row.attachments||[])]){const r=n.getBoundingClientRect();n.style.maskImage=n.style.webkitMaskImage=row.maskURL||'';n.style.maskSize=n.style.webkitMaskSize=(host.width/depthScale)+'px '+(host.height/depthScale)+'px';n.style.maskPosition=n.style.webkitMaskPosition=((host.left-r.left)/depthScale)+'px '+((host.top-r.top)/depthScale)+'px';n.style.maskRepeat=n.style.webkitMaskRepeat='no-repeat';n.style.maskClip=n.style.webkitMaskClip='no-clip';}}
         }
         onPosition(a,dx,dy);
       }

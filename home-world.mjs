@@ -13,10 +13,15 @@ export function composeHomeWorld(M,region){
  // The official bridge was built for its original crossing. Rotate its long
  // axis across this Home river and extend the deck to both banks, not the art style.
  for(const ob of objects.filter(o=>o.type==='bridge')){
-  const axis=ob.parts.find(p=>p.len)?.ang||0,turn=-axis,cs=Math.cos(turn),sn=Math.sin(turn);
-  for(const p of ob.parts){const x=p.dx||0,z=p.dz||0;p.dx=x*cs+z*sn;p.dz=-x*sn+z*cs;if(p.ang!=null)p.ang+=turn;}
-  const reach=1200,span=Math.max(...ob.parts.map(p=>p.len||0)),k=reach/span;
-  for(const p of ob.parts){if(p.len)p.len*=k;p.dz=(p.dz||0)*k;}
+  const axis=ob.parts.find(p=>p.len)?.ang||0,angle=-Math.atan(scenery.river?.slope||0),turn=angle-axis;
+  const reach=2*(scenery.river?.half||540)+120,span=Math.max(...ob.parts.map(p=>p.len||0)),k=reach/span;
+  for(const p of ob.parts){
+   // Undo the catalogue angle before stretching the longitudinal coordinate.
+   // Scaling world dz would shear posts sideways away from the deck.
+   const x=p.dx||0,z=p.dz||0,lx=x*Math.cos(axis)-z*Math.sin(axis),lz=(x*Math.sin(axis)+z*Math.cos(axis))*k;
+   p.dx=lx*Math.cos(angle)+lz*Math.sin(angle);p.dz=-lx*Math.sin(angle)+lz*Math.cos(angle);
+   if(p.len)p.len*=k;if(p.ang!=null)p.ang+=turn;
+  }
  }
  // Turn the official waterwheel face toward the Home camera (its original
  // catalogue orientation is edge-on here). Rotating parts retain their pivot.
@@ -48,9 +53,13 @@ export function composeHomeWorld(M,region){
  if(controls.length)pathPoints.push(controls.at(-1));
  const segments=pathPoints.slice(1).map(([x,z],i)=>{const a={x:pathPoints[i][0],z:pathPoints[i][1]},b={x,z};return {a,b,kind:'wide',half:scenery.pathHalf,len:Math.hypot(b.x-a.x,b.z-a.z)};});
  if(region==='city'){
-  // Connected pocket park and sidewalks. Only the middle asphalt strip is a road.
+  // A transverse traffic lane and a connected avenue from foreground to horizon.
   const strip=(x,z,X,Z,half,surface,color,height=1.2)=>segments.push({a:{x,z},b:{x:X,z:Z},kind:'wide',half,len:Math.hypot(X-x,Z-z),surface,color,height});
   strip(-2000,1400,2000,1400,110,'road','#657178');
+  strip(-650,-350,230,1400,100,'distant-road','#657178');
+  strip(-440,-350,-190,1180,85,'sidewalk','#d8cbb1');
+  strip(470,-350,470,1190,105,'sidewalk','#d8cbb1');
+  strip(-190,240,470,240,130,'park-walk','#d9c5a1');
   strip(230,1400,230,3200,105,'distant-road','#657178');
   for(const x of [55,405])strip(x,1650,x,3200,65,'sidewalk','#d8cbb1');
   for(let x=-220;x<=60;x+=48)strip(x,1300,x,1500,14,'crosswalk','#f3ecd9',1.5);
@@ -65,7 +74,7 @@ export function composeHomeWorld(M,region){
   for(let x=-1700;x<1800;x+=170)for(const z of [1150,1650])strip(x,z-120,x,z+120,1,'joint','#b7ab94',1.4);
   for(let x=-1800;x<1800;x+=190)strip(x,1400,x+85,1400,3,'marking','#f3ecd9',1.4);
  }
- const world={...source,...(region==='city'?{homeGround:['#c1bba6','#b4ae9a']}:{}),homeCamera:scenery.camera,len:3400,halfW:1800,minX:-1800,maxX:1800,spots:[],segments,paths:[],props:[],marks:[],residents:[],areas:[],collision:null,obstacles:objects.filter(o=>o.collision).map(o=>({...o.collision,r:Math.hypot(o.collision.hw,o.collision.hd),role:'solid'})),_streams3d:undefined,terrain:region==='river_lake'?{kind:'river',half:620,pts:[[-2200,1650],[-700,1650],[700,1650],[2200,1650]]}:null};
+ const world={...source,...(region==='city'?{homeGround:['#c1bba6','#b4ae9a']}:{}),homeCamera:scenery.camera,len:3400,halfW:1800,minX:-1800,maxX:1800,spots:[],segments,paths:[],props:[],marks:[],residents:[],areas:[],collision:null,obstacles:objects.filter(o=>o.collision).map(o=>({...o.collision,r:Math.hypot(o.collision.hw,o.collision.hd),role:'solid'})),_streams3d:undefined,terrain:scenery.river?{kind:'river',half:scenery.river.half,pts:[-2200,-700,700,2200].map(x=>[x,scenery.river.center+scenery.river.slope*x])}:null};
  world.collision=M.buildCollisionGrid(world.obstacles);
  if(region!=='river_lake')world._streams3d=[];
  return {world,objects,routes:HOME_ROUTES[region],sourceRegion:region,scenery};
@@ -91,7 +100,7 @@ export function createHomeWorld({M,container,document:doc,window:win=window,onSt
   if(failed){recoveryWait-=elapsed;if(recoveryAttempts>=recoveryDelays.length||recoveryWait>0)return;recoveryAttempts++;initialize();}
   if(!renderer)return;
   try{resizeIfNeeded();if(!flags.reducedMotion){time+=elapsed*1000;for(let remaining=elapsed;remaining>1e-8;remaining-=.1)life.step(Math.min(.1,remaining),{...env,...flags});}renderer.setAnimLevel(flags.reducedMotion?0:flags.tier>=2?1:2);
-   renderer.draw({world:composition.world,player:{x:0,z:550,heading:0},camera:{x:0,z:550,dist:950,yaw:0,height:1},homeGroundY:getGroundAnchor(),env,mood:{},frame:Math.floor(time/33),party:[],residents:[],homeLife:life.snapshot()},time);
+   renderer.draw({world:composition.world,player:{x:0,z:550,heading:0},camera:{x:0,z:550,dist:950,yaw:0,height:1},homeGroundY:getGroundAnchor(),env,mood:{},frame:Math.floor(time/33),party:[],residents:[],homeLife:life.snapshot().map(a=>composition.scenery.river&&a.domain==='water'?{...a,z:a.z+composition.scenery.river.center-1650+composition.scenery.river.slope*a.x}:a)},time);
    const key=JSON.stringify([width,height,getGroundAnchor(),composition.sourceRegion,recoveryAttempts]);if(key!==projectionKey){projectionKey=key;projectionRevision++;}}
   catch(error){fail(error);}
  }

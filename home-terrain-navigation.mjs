@@ -5,7 +5,7 @@ import * as THREE from './vendor/three-0.170.0/three.module.min.js';
 import {terrainGrid,alignHomeGround} from './meguru-3d.mjs';
 export function createTerrainNavigation({width,height,project,unproject,walkable,cell=12}){
  const valid=p=>{const q=unproject(p);return !!q&&Number.isFinite(q.x+q.y+q.z)&&walkable(q);};
- const segmentSafe=(a,b)=>{const n=Math.max(1,Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)/3));for(let i=0;i<=n;i++)if(!valid({x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n}))return false;return true;};
+ const segmentSafe=(a,b,predicate=()=>true)=>{const n=Math.max(1,Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)/3));for(let i=0;i<=n;i++){const p={x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n};if(!predicate(p)||!valid(p))return false;}return true;};
  const cache=new Map();
  function grid(bounds){const key=JSON.stringify(bounds);if(cache.has(key))return cache.get(key);const nodes=[];
   for(let y=bounds.top;y<=bounds.bottom;y+=cell)for(let x=bounds.left;x<=bounds.right;x+=cell)if(valid({x,y}))nodes.push({x,y});
@@ -16,20 +16,21 @@ export function createTerrainNavigation({width,height,project,unproject,walkable
  function nearest(p,bounds,predicate=()=>true){const q={x:Math.max(bounds.left,Math.min(bounds.right,p.x)),y:Math.max(bounds.top,Math.min(bounds.bottom,p.y))};if(valid(q)&&predicate(q))return q;let best=null,d=Infinity;for(const n of grid(bounds).nodes){const dist=Math.hypot(n.x-q.x,n.y-q.y);if(dist<d&&predicate(n)){best=n;d=dist;}}return best?{...best}:null;}
  function route(from,to,bounds,predicate=()=>true){
   if(!valid(from))return [];
+  const safe=(a,b)=>segmentSafe(a,b,predicate);
   const goal=nearest(to,bounds,predicate);if(!goal)return [];
-  if(segmentSafe(from,goal))return [goal];
+  if(safe(from,goal))return [goal];
   const {nodes,edges}=grid(bounds),dist=new Float64Array(nodes.length).fill(Infinity),prev=new Int32Array(nodes.length).fill(-1),open=new Set();
   const starts=nodes.map((p,i)=>({i,d:Math.hypot(p.x-from.x,p.y-from.y)})).sort((a,b)=>a.d-b.d).slice(0,12);
-  for(const s of starts)if(segmentSafe(from,nodes[s.i])){dist[s.i]=s.d;open.add(s.i);}
+  for(const s of starts)if(safe(from,nodes[s.i])){dist[s.i]=s.d;open.add(s.i);}
   let end=-1;
   while(open.size){let k=-1,best=Infinity;for(const i of open){const f=dist[i]+Math.hypot(nodes[i].x-goal.x,nodes[i].y-goal.y);if(f<best){best=f;k=i;}}open.delete(k);
-   if(Math.hypot(nodes[k].x-goal.x,nodes[k].y-goal.y)<cell*2&&segmentSafe(nodes[k],goal)){end=k;break;}
-   for(const j of edges[k]){const d=dist[k]+Math.hypot(nodes[k].x-nodes[j].x,nodes[k].y-nodes[j].y);if(d+1e-5<dist[j]){dist[j]=d;prev[j]=k;open.add(j);}}
+   if(Math.hypot(nodes[k].x-goal.x,nodes[k].y-goal.y)<cell*2&&safe(nodes[k],goal)){end=k;break;}
+   for(const j of edges[k]){if(!predicate(nodes[j])||!safe(nodes[k],nodes[j]))continue;const d=dist[k]+Math.hypot(nodes[k].x-nodes[j].x,nodes[k].y-nodes[j].y);if(d+1e-5<dist[j]){dist[j]=d;prev[j]=k;open.add(j);}}
   }
   if(end<0)return [];
   const path=[goal];for(let i=end;i>=0;i=prev[i])path.push(nodes[i]);path.reverse();
   // Only remove a waypoint when the complete replacement segment is safe.
-  const smooth=[];let a=from;for(let i=0;i<path.length;){let j=path.length-1;while(j>i&&!segmentSafe(a,path[j]))j--;smooth.push({...path[j]});a=path[j];i=j+1;}return smooth;
+  const smooth=[];let a=from;for(let i=0;i<path.length;){let j=path.length-1;while(j>i&&!safe(a,path[j]))j--;smooth.push({...path[j]});a=path[j];i=j+1;}return smooth;
  }
  return {project,unproject,valid,segmentSafe,nearest,route,width,height};
 }
@@ -50,8 +51,21 @@ export function createHomeNavigation(M,composition,{width,height,anchorY,offsetX
   if(p.x<world.minX+24||p.x>world.maxX-24||p.z<0||p.z>world.len)return false;
   const water=terr.sDist(p.x,p.z);if(water.d<water.w+48)return false;
   if(terr.ponds.some(q=>Math.hypot(q.x-p.x,q.z-p.z)<q.r+24))return false;
-  if(world.regionId==='city'&&(Math.abs(p.z-1400)<155||p.z>1400&&Math.abs(p.x-230)<150))return false;
+  if(world.regionId==='city'&&world.segments.some(s=>['road','distant-road'].includes(s.surface)&&distanceToSegment(p,s)<s.half+45))return false;
   return !M.collidesAt(world,p.x,p.z,28);
  };
- return {...createTerrainNavigation({width:stageWidth,height:stageHeight,project,unproject,walkable}),terrain:terr,camera};
+ const seats=composition.scenery?.seats||[[0,550]];
+ const initialPoint=(index,count)=>{
+  if(index===0||count<=6){const [x,z]=seats[index%seats.length];return project({x,z});}
+  // Depth-first staggered seats; the existing visible/safe separation solver
+  // selects the nearest legal point for each individual body and attachment.
+  const columns=Math.ceil(Math.sqrt(count)),row=Math.floor(index/columns),col=index%columns;
+  const depth=[550,1250,100,900,300,1650][row%6];
+  return project({x:(col-(columns-1)/2)*230+(row%2?65:-25),z:depth});
+ };
+ const reference=new THREE.Vector3(0,0,-550).applyMatrix4(camera.matrixWorldInverse).z;
+ const depthScale=p=>{const q=unproject(p);if(!q)return 1;const z=new THREE.Vector3(q.x,q.y,-q.z).applyMatrix4(camera.matrixWorldInverse).z;return Math.max(.8,Math.min(1,reference/z));};
+ return {...createTerrainNavigation({width:stageWidth,height:stageHeight,project,unproject,walkable}),initialPoint,depthScale,terrain:terr,camera};
 }
+
+function distanceToSegment(p,s){const dx=s.b.x-s.a.x,dz=s.b.z-s.a.z,t=Math.max(0,Math.min(1,((p.x-s.a.x)*dx+(p.z-s.a.z)*dz)/(dx*dx+dz*dz||1)));return Math.hypot(p.x-s.a.x-dx*t,p.z-s.a.z-dz*t);}

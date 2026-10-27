@@ -168,9 +168,11 @@ body[data-home-terrain="true"] #homeChoiceResult{position:relative;left:auto;bot
    the image. SVG glyphs and Motion v2 wrappers remain unmirrored. */
 #castStage[data-diorama] [data-diorama-actor] .pet-expression-accent--sleeping{translate:var(--diorama-sleep-shift,0%) 0}
 
+/* Header buttons have a 40px intrinsic border box. Keep their grid row at that
+   minimum after landscape compact mode; 34px let the row shrink under them. */
 /* V15: fixed presentation lanes. The cast-stage is the entire safe living area;
    notifications and speech are sibling boxes, never actors' movement targets. */
-body[data-home-terrain="true"] .device .device-header{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;padding:0 2px;min-height:34px;min-width:0;width:100%;box-sizing:border-box}
+body[data-home-terrain="true"] .device .device-header{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;padding:0 2px;min-height:40px;min-width:0;width:100%;box-sizing:border-box}
 body[data-home-terrain="true"] .device .header-title{display:flex!important;flex-direction:row;align-items:center;gap:4px;flex:1;min-width:0;padding:0}
 body[data-home-terrain="true"] .name-plate{font-size:18px;white-space:nowrap;flex:none}
 body[data-home-terrain="true"] .cast-badges{display:flex;flex-wrap:nowrap;min-width:0;overflow-x:auto;flex:1;gap:2px;scrollbar-width:thin}
