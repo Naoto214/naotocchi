@@ -60,3 +60,7 @@ test('v19 environmental gaze ends with the next unrelated idle activity',()=>{
  for(let i=0;i<10000;i++){m.step(.1);const a=m.snapshot()[0];if(a.visualReaction)observed=true;if(observed&&!a.visualReaction){assert.equal(a.visualTarget,null);ended=true;break;}}
  assert.ok(observed&&ended);
 });
+test('v19 turned waterwheel collision follows its visible face',async()=>{
+ const {composeHomeWorld}=await import('../home-world.mjs');const c=composeHomeWorld(M,'river_lake'),wheel=c.objects.find(o=>o.type==='wheel');
+ assert.equal(wheel.collision.ang,wheel.parts.find(p=>p.shape==='arch').ang);
+});

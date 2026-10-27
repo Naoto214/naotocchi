@@ -8,6 +8,6 @@ for(const name of ['scheduleCompanionEncounter','scheduleIdleGreeting','schedule
 fs.writeFileSync(path.join(out,'qa-v19-script.js'),src+fixture.replace(/\}\)\(\);\s*$/,'')+extra+'\n})();');
 fs.writeFileSync(path.join(out,'qa-v19-diorama.js'),fs.readFileSync('home-diorama.js','utf8').replace('return {model,update,sync,interrupt,','return {inspectScene:()=>scene,model,update,sync,interrupt,'));
 fs.writeFileSync(path.join(out,'qa-v19-model.js'),fs.readFileSync('home-diorama-model.js','utf8').replace('move,step,cancel','move,step:(dt,opts)=>step(dt,{...opts,autonomy:window.HomeV13Autonomy===true}),cancel').replace('return {metrics:()=>','return {setFacing:(kind,direction)=>{for(const a of actors)if(a.kind===kind)a.direction=direction;},metrics:()=>'));
-fs.writeFileSync(path.join(out,'qa-v19-game.html'),fs.readFileSync('index.html','utf8').replace(/src="script.js[^\"]*"/,'src="qa-v19-script.js"').replace(/src="home-diorama.js[^\"]*"/,'src="qa-v19-diorama.js"').replace(/src="home-diorama-model.js[^\"]*"/,'src="qa-v19-model.js"'));
+fs.writeFileSync(path.join(out,'qa-v19-game.html'),fs.readFileSync('index.html','utf8').replaceAll('naotocchi-save-v1','naotocchi-home-v19-qa-v1').replace(/src="script.js[^\"]*"/,'src="qa-v19-script.js"').replace(/src="home-diorama.js[^\"]*"/,'src="qa-v19-diorama.js"').replace(/src="home-diorama-model.js[^\"]*"/,'src="qa-v19-model.js"'));
 for(const f of ['home-v19-qa.html','home-v19-browser-check.js'])fs.copyFileSync('tools/'+f,path.join(out,f));
 console.log('v19 isolated fixture generated');

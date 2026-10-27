@@ -20,9 +20,12 @@ export function composeHomeWorld(M,region){
  }
  // Turn the official waterwheel face toward the Home camera (its original
  // catalogue orientation is edge-on here). Rotating parts retain their pivot.
- for(const ob of objects.filter(o=>o.type==='wheel'))for(const p of ob.parts){
+ for(const ob of objects.filter(o=>o.type==='wheel')){
+  if(ob.collision)ob.collision.ang=(ob.collision.ang||0)+Math.PI/2;
+  for(const p of ob.parts){
   const x=p.dx||0,z=p.dz||0;p.dx=z;p.dz=-x;if(p.ang!=null)p.ang+=Math.PI/2;
   if(p.toward)p.toward=[p.toward[1],-p.toward[0]];
+  }
  }
  // Reorient existing shopfront parts so their doors face the street, keeping collision aligned.
  if(region==='city')for(const ob of objects.filter(o=>o.type==='house')){

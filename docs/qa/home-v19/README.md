@@ -8,8 +8,11 @@ See [thirteen-region design](../../design/home-v19-regions.md). Three home-only 
 ## Evidence
 - New failing-first tests: region configuration/landmarks, safe projection, environmental gaze, wheel radius/glass selection.
 - Focused final home/navigation/adapter/v8/v17/v19: **49 passed, 0 failed**.
+- Follow-up wheel collider orientation: failing reproduction → fixed; v19/navigation **15 passed, 0 failed** after the fix. QA inline rescue now uses the same isolated key as the synthetic game.
+- Runtime package: **4,063 files, 213,606,230 bytes**, allowlist and references accepted.
 - Complete shared geometry/terrain test file: **13 passed, 0 failed**.
 - Independent read-only review: corrected unreachable bridge rest point; cleared stale gaze; strengthened movement, live and post-rotation browser checks. Two reproduction tests RED → GREEN.
+- Reviewed cloud Chromium matrix ([raw report](reviewed-chromium.json)): **24 combinations, 24 accepted/displaced moves, all initial/after/live/post-rotation actors on safe ground, 48 glyph checks, 0 errors**. Rotation deltas 0 or -6px; unchanged slot heights. This tests reviewed code before the wheel collider-only follow-up, which passed its targeted navigation tests. Metrics are sampled/cached and cloud scheduling is throttled; do not use them as a regional performance benchmark.
 - Initial cloud Chromium matrix: **24 combinations (4 widths × 3 regions × 1/28 actors), 0 scenery/glyph/slot errors**. Both owner-reported phrases checked through final glyph rectangles. This initial run predates the review fixes and is retained as such.
 - Local full `npm test` was interrupted after finding the old GT-3 thin-panel source guard failure; fixed without modifying the test and reran the full 13-test geometry file successfully. **Do not call the interrupted full run a pass.** Full fresh suite delegated to GitHub CI on the pushed code.
 - CI browser runner uses Chromium and WebKit, records 24 combinations, saves 6/28 comparison images. Existing strict v18 check is retained afterward.
@@ -20,3 +23,10 @@ The diagnostic artifact from v18 CI run40268612760 proves **both frozen v17 and 
 Cloud preview uses `canvas-3d` software fallback, so its FPS is **not an iPhone GPU measurement**. Actual Safari touch drag/scroll, memory/heat, background return, long sessions, fonts and formal v18/v19 adoption still require owner device QA. Main merge and production publishing remain prohibited.
 
 Owner-private deployment retains one allowed owner, no groups/external viewers; save key `naotocchi-home-diorama-preview-v1`. Comparison QA uses synthetic `naotocchi-home-v19-qa-v1`; never reads or resets production saves.
+
+## Matching visual comparison
+390×844, summer, sunny day, six official characters; cloud Chromium canvas-3d fallback. Left to right: forest / river / city. Screenshots capture the reviewed renderer; the following wheel collider alignment does not change pixels.
+
+![Matching three-region comparison](comparison-390-6.jpg)
+
+[Scenery with region labels excluded](scenery-without-region-labels.jpg). Individual [forest](forest-390-6.jpg), [river](river_lake-390-6.jpg), [city](city-390-6.jpg). Pre-change [river](before-river_lake.jpg) and [city](before-city.jpg) are supplementary, not a matched before/after pair.
