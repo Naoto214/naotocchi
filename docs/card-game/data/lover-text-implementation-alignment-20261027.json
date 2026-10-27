@@ -65,5 +65,17 @@
   "P-snowman",
   "P-sunflower_partner",
   "P-swamp_croc"
- ]
+ ],
+ "doc74_versions": {
+  "frozen": {
+   "sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0",
+   "retrieve": "git show 9e3929da9e53fc94edfce85c2a3fc5ff8d596fe7:docs/card-game/74-partner-18-card-text-draft.md",
+   "bound_by": "固定400戦・468以前の Python 検証基盤の証拠（start-sources.json ほか26件）。上書きしない"
+  },
+  "current": {
+   "sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e",
+   "used_by": "JS 実装のカタログ（full-catalog.mjs）と check-design-data.py の 476 照合"
+  },
+  "python_verifier": "凍結版に束縛したまま。現行の作業ツリーでは文書74の束縛検査で fail-closed に止まる（分類 B）。凍結版の検証は凍結版の commit で行う"
+ }
 }
