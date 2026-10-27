@@ -5853,7 +5853,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分のメインが自分からちょうせんする時、自分のセカイが「しんかい」である場合、発動できる。このちょうせんの間、そのメインのちから+2。",
     "source": "74-partner-18-card-text-draft.md#P-anglerfish — ひかるチョウチンアンコウ",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-cat_ceo": {
     "id": "P-cat_ceo",
@@ -5863,7 +5863,7 @@ export const CATALOG = {
     "rare": false,
     "text": "このこいびとと交際を始めた時、発動する。手札1枚を山札の一番下に置く。そうしたなら、1枚引く。",
     "source": "74-partner-18-card-text-draft.md#P-cat_ceo — ビルのねこ社長",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-cliff_goat": {
     "id": "P-cliff_goat",
@@ -5873,7 +5873,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分が名前の異なるセカイへ変更した時、発動できる。このターン、自分が次にこのこいびととの交際を進めるための時を1少なくする。",
     "source": "74-partner-18-card-text-draft.md#P-cliff_goat — がけのヤギさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-desert_scorpion": {
     "id": "P-desert_scorpion",
@@ -5883,7 +5883,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分のターン終了時、このターン自分が「あそび」と「あいてむ」のカードをそれぞれ1枚以上表向きでプレイしていた場合、発動できる。1枚引く。",
     "source": "74-partner-18-card-text-draft.md#P-desert_scorpion — さばくのサソリさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-field_cow": {
     "id": "P-field_cow",
@@ -5893,7 +5893,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分のターン終了時、このカードがこのターン開始時からこいびと枠にあり続け、このターン自分の交際段階が進むことも結婚が成立することもなかった場合、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
     "source": "74-partner-18-card-text-draft.md#P-field_cow — のはらのうしさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-forest_bear": {
     "id": "P-forest_bear",
@@ -5903,7 +5903,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ラウンドに1回。自分のメインが相手の効果で捨て札に置かれるなら、このカードにみにつけられたカード1枚を捨て札に置くことで、代わりにそのメインをメイン枠に残してもよい。",
     "source": "74-partner-18-card-text-draft.md#P-forest_bear — もりのクマさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-gentle_gorilla": {
     "id": "P-gentle_gorilla",
@@ -5913,7 +5913,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分のメインが自分からちからでちょうせんする時、そのメインのちからが相手の参加メインのちからより低い場合、手札1枚を山札の一番下に置いて発動できる。このちょうせんの間、その自分のメインのちから+2。",
     "source": "74-partner-18-card-text-draft.md#P-gentle_gorilla — やさしいゴリラ",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-grove_deer": {
     "id": "P-grove_deer",
@@ -5923,7 +5923,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。このカードとの交際段階が2か3へ進んだ時、発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
     "source": "74-partner-18-card-text-draft.md#P-grove_deer — こだちのシカ",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-high_eagle": {
     "id": "P-high_eagle",
@@ -5933,7 +5933,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分のターン開始時、このカードと結婚している場合、発動できる。1枚引く。",
     "source": "74-partner-18-card-text-draft.md#P-high_eagle — たかねのワシ",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-knitting_spider": {
     "id": "P-knitting_spider",
@@ -5943,7 +5943,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ラウンドに1回。自分の交際段階が進んだ時、発動できる。このラウンド、自分が次に「みにつける」か「しかける」でアクションカードをプレイするための時を1少なくする。",
     "source": "74-partner-18-card-text-draft.md#P-knitting_spider — あみものがすきなクモさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-oasis_cactus": {
     "id": "P-oasis_cactus",
@@ -5953,7 +5953,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ラウンドに1回。このカードにカードがみにつけられていない間、このカードが相手の効果で手札に戻るなら、その移動を防いでもよい。",
     "source": "74-partner-18-card-text-draft.md#P-oasis_cactus — オアシスのサボテンさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-robot_neighbor": {
     "id": "P-robot_neighbor",
@@ -5963,7 +5963,7 @@ export const CATALOG = {
     "rare": false,
     "text": "このカードとの交際段階が1か2である間、自分のメインのちえ+1。交際段階が3、またはこのカードと結婚している間は、代わりにちから+1。",
     "source": "74-partner-18-card-text-draft.md#P-robot_neighbor — となりまちのロボット",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-rock_octopus": {
     "id": "P-rock_octopus",
@@ -5971,9 +5971,9 @@ export const CATALOG = {
     "type": "partner",
     "cost": 0,
     "rare": false,
-    "text": "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。",
+    "text": "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。",
     "source": "74-partner-18-card-text-draft.md#P-rock_octopus — いわばのタコさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-sea_mermaid": {
     "id": "P-sea_mermaid",
@@ -5983,7 +5983,7 @@ export const CATALOG = {
     "rare": false,
     "text": "このこいびとと結婚した時、自分の捨て札のセカイカード1枚を対象として発動できる。そのカードを手札に戻す。",
     "source": "74-partner-18-card-text-draft.md#P-sea_mermaid — うみのにんぎょ",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-snow_spirit": {
     "id": "P-snow_spirit",
@@ -5993,7 +5993,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分のメインがときおくりで⑦か⑧になった時、このカードがこのターン開始時からこいびと枠にあり続けている場合、自分の捨て札のメイン1枚を対象として発動できる。そのカードを手札に戻す。",
     "source": "74-partner-18-card-text-draft.md#P-snow_spirit — ゆきのせいれい",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-snowman": {
     "id": "P-snowman",
@@ -6003,7 +6003,7 @@ export const CATALOG = {
     "rare": false,
     "text": "このカードが相手の効果でこいびと枠から手札または捨て札に移動し、このカードとの交際または結婚が終了した時、自分のメインがたまごでない場合、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
     "source": "74-partner-18-card-text-draft.md#P-snowman — とけないゆきだるま",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-sunflower_partner": {
     "id": "P-sunflower_partner",
@@ -6013,7 +6013,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分のメインがへんしんでメイン枠に置かれた時、そのメインを対象として発動できる。このターン、そのメインのちえ+1。",
     "source": "74-partner-18-card-text-draft.md#P-sunflower_partner — はたけのひまわりさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "P-swamp_croc": {
     "id": "P-swamp_croc",
@@ -6023,7 +6023,7 @@ export const CATALOG = {
     "rare": false,
     "text": "1ターンに1回。自分のメインが相手から受けたちょうせんに負けた時、発動できる。1枚引く。",
     "source": "74-partner-18-card-text-draft.md#P-swamp_croc — ぬまのワニさん",
-    "source_sha256": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0"
+    "source_sha256": "d57245c1d60a14ea5c90c854c5e18f3764d766f92dc5396dc1bc9fb52d2c150e"
   },
   "W-city": {
     "id": "W-city",

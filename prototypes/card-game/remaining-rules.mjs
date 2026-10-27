@@ -106,7 +106,8 @@ Object.assign(REMAINING_RULES,{
  'M-venus_flytrap-06':trig('activation',[{op:'negate'}],{condition:all(not('ownTurn'),'eventSecondQuick'),opponent:true,once:true,cost:1,select:[pay('ownPrepared',{faceDown:true},1,'discard')]}),
  'M-woman-08':trig('departure',[{op:'reorderTop',n:3},draw()],{target:undefined,condition:'departedTransition',once:true}),
  'P-gentle_gorilla':{mode:'partner',triggers:[{when:'challenge',condition:all('ownChallenge','challengePower','mainPowerLower'),target:'ownMain',once:true,handCost:{destination:'bottom'},steps:[stat(2,0,'challenge')]}]},
- 'P-knitting_spider':{mode:'partner',triggers:['progress','marriage'].map(when=>({when,limitGroup:'relationship',limit:'round',steps:[discount('equipOrTrap',1,{duration:'round'})]}))},
+ // PR #446 D-1: 3→結婚は「交際段階が進んだ時」に含まない。結婚時の誘発は修正前の保存（hotseat-2）の再生にだけ残す。
+ 'P-knitting_spider':{mode:'partner',triggers:[['progress'],['marriage',['hotseat-2']]].map(([when,onlyVersions])=>({when,...(onlyVersions?{onlyVersions}:{}),limitGroup:'relationship',limit:'round',steps:[discount('equipOrTrap',1,{duration:'round'})]}))},
  'P-snowman':{mode:'partner',triggers:[{when:'departure',condition:'ownPartnerOpponentMove',steps:[{op:'search',n:2,min:1,max:1}]}]},
  'W-jungle':{mode:'world',triggers:[{when:'challenge',condition:all('ownChallenge',v('companions','gte',1),v('plays','gt',0)),once:true,steps:[reserveWin([growth(5)],{challenge:true})]}]},
 });

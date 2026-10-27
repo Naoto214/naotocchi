@@ -1,14 +1,14 @@
 // Shared orchestration only. Every transition is an official engine command.
-import {VERSION,actor,act,legalActions,validate,supported,createGame} from './engine.mjs';
+import {RULE_VERSIONS,actor,act,legalActions,validate,supported,createGame} from './engine.mjs';
 import {certifySelectionCapabilities} from './auto-capabilities.mjs';
 import * as legacy from './legacy-engine.mjs';
 import {CARDS as BASE} from './cards.mjs';
 const windows=new Set(['start','normal','end_request','end','compare','challenge_end']);
 const semantic=s=>{const {revision,commands,log,...rest}=s;return JSON.stringify(rest);};
 function certify(s){
- if(![VERSION,legacy.VERSION].includes(s.version))throw Error('Unsupported runtime');
+ if(![...RULE_VERSIONS,legacy.VERSION].includes(s.version))throw Error('Unsupported runtime');
  validate(s);certifySelectionCapabilities(s);
- for(const c of Object.values(s.cards))if(s.version===VERSION?!supported(c.cardId):!BASE[c.cardId])throw Error('Unsupported card');
+ for(const c of Object.values(s.cards))if(s.version!==legacy.VERSION?!supported(c.cardId):!BASE[c.cardId])throw Error('Unsupported card');
  if(!windows.has(s.window)||!['A','B'].includes(actor(s)))throw Error('Unknown response boundary');
 }
 function inventory(s,enumerate){
@@ -44,7 +44,7 @@ export function advanceResponses(state,{limit=64,enumerate=legalActions,transiti
 // Reconstruct public no-response pass records from formal replay commands. Older
 // manually passed saves are accurately described as "応答なしのパス", not fabricated automation.
 export function responsePassLog(state){
- let s=state.version===legacy.VERSION?legacy.createGame(state.seed):createGame(state.seed,state.decks);const rows=[];
+ let s=state.version===legacy.VERSION?legacy.createGame(state.seed):createGame(state.seed,state.decks,state.version);const rows=[];
  for(const id of state.commands){
   let forced=false;
   if(s.phase==='response'&&!s.choice&&!s.pending?.length){certify(s);const actions=inventory(s,legalActions);forced=actions.length===1&&actions[0].id===id;}

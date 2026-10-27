@@ -1,5 +1,5 @@
 // Trusted adapter. The policy never receives engine state or command JSON.
-import {actor,view,legalActions,VERSION} from './engine.mjs';
+import {actor,view,legalActions,RULE_VERSIONS} from './engine.mjs';
 import {RULES} from './rules.mjs';
 import {effectiveRule} from './ability-copy.mjs';
 import {visibleCards} from './ui-context.mjs';
@@ -57,7 +57,7 @@ function challengeKit(s,seat){
 }
 const op=(name,n)=>({op:name,n,power:0,wisdom:0,to:'self',destination:null,duration:null,steps:[]});
 export function observeCpu(s,seat){
- if(s.version!==VERSION||!['A','B'].includes(seat)||actor(s)!==seat)throw Error('CPU observation requires current supported actor');
+ if(!RULE_VERSIONS.includes(s.version)||!['A','B'].includes(seat)||actor(s)!==seat)throw Error('CPU observation requires current supported actor');
  const v=view(s,seat),safe=new Map(visibleCards(v).filter(c=>!c.hidden).map(c=>[c.id,c]));
  const raw=legalActions(s),q=s.choice,d=s.activationDraft,spec=d?.rule?.select?.[d.index]??q?.spec;
  const reference=id=>safe.get(id)??null,deck=ownDeck(s,seat),me=v.players[seat],mb=me.board;

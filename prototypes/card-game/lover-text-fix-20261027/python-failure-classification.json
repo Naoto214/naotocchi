@@ -1,0 +1,2813 @@
+{
+ "scope": "docs/card-game/tools の93テストモジュール（文書74・固定400戦の束縛を読むモジュールと、以前の11モジュール）",
+ "runs": {
+  "main": "9e3929da",
+  "branch": "8f8b153e",
+  "branch_with_frozen_doc74": "8f8b153e + 文書74を d323f89a… に戻した作業ツリー"
+ },
+ "tests_ran": 622,
+ "failures_on_main": 206,
+ "failures_on_branch": 348,
+ "classes": {
+  "A": 166,
+  "A+B": 40,
+  "B": 142,
+  "C": 0
+ },
+ "isolation": {
+  "modules": 21,
+  "result": "文書74だけを凍結版に戻すと、21モジュール96テストの失敗45件が main と完全一致（新規0・消失0・内容の差0）"
+ },
+ "failures": [
+  {
+   "test": "test_proxy_continuation_batch.test_growth_frontier_limits_pair_inventory",
+   "kind": "ERROR",
+   "message": "ValueError: relationship canonical rule changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_continuation_batch.test_relationship_full_inventory_preserved_in_scores",
+   "kind": "ERROR",
+   "message": "ValueError: relationship canonical rule changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_continuation_batch.test_relationship_payment_flag_and_response_are_atomic",
+   "kind": "ERROR",
+   "message": "ValueError: relationship canonical rule changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_continuation_batch.test_relationship_problem_uses_public_partner_identity",
+   "kind": "ERROR",
+   "message": "ValueError: relationship canonical rule changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_cycle_draws_after_return_and_partner_requires_return",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_draw_then_return_and_final_target_move_keep_order",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_draw_two_uses_actual_intermediate_state_and_partial_draw",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_egg_bottom_and_preserve_every_unrelated_field",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_egg_draw_precedes_complete_physical_hand",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_final_time_rechecks_target_before_conditional_draw",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_information_view_excludes_opponent_and_unseen_deck",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_partner_egg_suppression_and_no_choice_are_not_seeded",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_return_then_draw_does_not_include_future_draw_in_choices",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_top_and_bottom_have_exact_permutations_without_equivalence",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_choice_boundary.test_top_bottom_remain_two_options_even_with_single_card",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_population_input.test_all_rows_bind_shared_orders_to_side_separated_policy_material",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : ['boundary source differs: 01-core-rules.md']",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_population_input.test_match_side_and_chooser_root_are_derived_from_bundle",
+   "kind": "ERROR",
+   "message": "ValueError: bundle structure invalid: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_population_input.test_root_coincidences_and_zero_do_not_trigger_unauthorized_redraw",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_population_input.test_structure_rejects_changed_validation_dependency",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_mandatory_population_input.test_swap_bundle_match_evidence_or_unsupported_scope_is_rejected",
+   "kind": "ERROR",
+   "message": "ValueError: bundle structure invalid: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_active_cards_equivalence.test_changed_fixture_or_rules_file_reruns_the_full_check",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_active_cards_equivalence.test_returned_catalog_cannot_mutate_the_cache",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_approval_read_retry.test_same_supervisor_read_recovery_dispatches_one_worker_and_keeps_schedule",
+   "kind": "ERROR",
+   "message": "ValueError: manifest structure unverified",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_arrival_predicates.test_prepared_conditions_and_same_occurrence_use",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true : ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_arrival_predicates.test_resolving_observation_can_prove_empty_but_cannot_offer_activation",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_arrival_predicates.test_scope_attaches_fresh_audit_and_restores_adapter",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_arrival_predicates.test_source_variants_full_physical_targets_and_mutations",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true : ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_bowtie_provenance.test_missing_receipt_tampered_delta_or_duplicate_provenance_fails_closed",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_bowtie_provenance.test_start_draw_events_get_certified_rows_from_existing_audits",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_bowtie_resolution_choice.test_catalog_or_fragment_drift_fails_closed",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_bowtie_resolution_choice.test_connected_step_resolves_start_draw",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_bowtie_resolution_choice.test_start_draw_rejects_extra_record_and_malformed_links",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_bowtie_resolution_choice.test_start_draw_resolution_is_source_proven_no_choice",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_actual_values_bound_but_history_not_promoted",
+   "kind": "ERROR",
+   "message": "ValueError: challenge stat floor source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_every_current_main_printed_pair_and_unknown_rejection",
+   "kind": "ERROR",
+   "message": "ValueError: challenge numeric source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_final_zero_floor_changes_exact_difference_reward",
+   "kind": "ERROR",
+   "message": "ValueError: challenge stat floor source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_floor_is_after_all_positive_continuous_contributions",
+   "kind": "ERROR",
+   "message": "ValueError: challenge stat floor source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_hidden_card_contents_do_not_change_public_arithmetic",
+   "kind": "ERROR",
+   "message": "ValueError: challenge numeric source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_public_world_hand_threshold_and_chameleon_stacking",
+   "kind": "ERROR",
+   "message": "ValueError: challenge numeric source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_scope_restores_native_and_preserves_historical_source_anchor",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_self_consistent_forged_comparison_is_rejected",
+   "kind": "ERROR",
+   "message": "ValueError: challenge stat floor source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_challenge_operands.test_typed_sum_target_and_scope_with_mutation_rejection",
+   "kind": "ERROR",
+   "message": "ValueError: challenge numeric source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_departure.test_departure_discards_start_trigger_equipment_without_firing_it",
+   "kind": "ERROR",
+   "message": "ValueError: atomic departure canonical source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_departure.test_existing114_upper_priorities_exclude_paid_action_before_pure116",
+   "kind": "ERROR",
+   "message": "ValueError: atomic departure canonical source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_departure.test_full_board_replacement_is_atomic_and_preserves_all_three_targets",
+   "kind": "ERROR",
+   "message": "ValueError: atomic departure canonical source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_departure.test_known_upper_priority_unique_winner_is_not_stopped_by_replacement",
+   "kind": "ERROR",
+   "message": "ValueError: atomic departure canonical source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_departure.test_scope_connects_current_selector_apply_and_runtime_replay",
+   "kind": "ERROR",
+   "message": "ValueError: atomic departure canonical source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_challenge_restart_and_wrong_partner_egg_output",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "main でも失敗（ValueError: challenge stat floor source changed）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-02', mode='departed']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-02', mode='empty']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-02', mode='end']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-02', mode='normal']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-02', mode='outer']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-02', mode='start']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-05', mode='departed']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-05', mode='empty']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-05', mode='end']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-05', mode='normal']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-05', mode='outer']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-05', mode='start']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-08', mode='departed']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-08', mode='empty']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-08', mode='end']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-08', mode='normal']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-08', mode='outer']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='M-antlion-08', mode='start']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='P-desert_scorpion', mode='departed']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='P-desert_scorpion', mode='empty']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='P-desert_scorpion', mode='end']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='P-desert_scorpion', mode='normal']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='P-desert_scorpion', mode='outer']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_real_five_handlers_empty_deck_outer_stack_departure_and_restart [card='P-desert_scorpion', mode='start']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_draw_effects.test_self_consistent_wrong_card_count_refund_reservation_and_outer_changes_rejected",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_effect_application_runtime.test_real_resolution_cap_zero_keeps_resolution_without_M06_M07_basis",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_end_dispatch.test_native_opens_eligible_source_before_expiry_or_finish",
+   "kind": "FAIL",
+   "message": "AssertionError: 'unopened eligible end source' not found in \"['end dispatch source changed']\" : ('M-beetle-02', 'expire_payment_modifiers')",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_end_dispatch.test_no_eligible_source_is_proved_without_native_empty_inventory",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['end dispatch source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_end_dispatch.test_past_open_requires_its_actual_delta_and_cannot_reopen",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['end dispatch source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_end_predicates.test_all_four_sources_and_forged_alternatives",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true : ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_end_predicates.test_end_conditions_are_current_and_turn_bounded",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_end_predicates.test_resolving_end_source_observation_retains_empty_scan",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_end_predicates.test_scope_and_missing_occurrence_membership",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_end_predicates.test_sleep_challenge_use_and_prior_turn_play_boundaries",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_end_window_effect.test_actual_four_source_windows_and_complete_classifications",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['end window source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_end_window_effect.test_missing_false_classifications_and_added_effects_are_refused",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['end window source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_entry_history.test_all_six_native_entries_reenter_through_outer_guard [kind='attach_item']",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_entry_history.test_all_six_native_entries_reenter_through_outer_guard [kind='place_partner']",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_entry_history.test_all_six_native_entries_reenter_through_outer_guard [kind='play_main']",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_entry_history.test_all_six_native_entries_reenter_through_outer_guard [kind='set_item']",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_activation_predicate_does_not_reuse_native_target_enumeration",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation",
+   "kind": "ERROR",
+   "message": "ValueError: challenge stat floor source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation [mode='comparing']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation [mode='departed']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation [mode='end']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation [mode='hidden']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation [mode='normal']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation [mode='outer']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation [mode='start']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_current_targets_contexts_and_world_activation_separation [mode='world']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_equipment_effects.test_printed_cost_not_paid_cost_and_current107_no_high_equipment",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_execution_binding.setUpClass",
+   "kind": "ERROR",
+   "message": "ValueError: supplied manifest projection differs: ['boundary source differs: 01-core-rules.md']",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_execution_binding.test_actual_old_status_is_mutable_but_immutable_data_stays_frozen",
+   "kind": "ERROR",
+   "message": "?",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_execution_binding.test_claims_stop_records_and_all_prior_data_reject_change_and_deletion",
+   "kind": "ERROR",
+   "message": "?",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_execution_binding.test_immutable_roundtrip_reconstructs_proof_and_rejects_forged_fields",
+   "kind": "ERROR",
+   "message": "ValueError: supplied manifest projection differs: ['boundary source differs: 01-core-rules.md']",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_execution_binding.test_old_package_is_audited_by_old_code_and_never_consumed_again",
+   "kind": "ERROR",
+   "message": "?",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_hand_activation_effect.test_normal_response_and_prior_pass",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['hand activation source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_hand_activation_effect.test_payment_link_and_unrelated_changes_rejected",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_hand_predicates.test_current_quick_sources_and_forged_dispositions",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : ('E-big-illness', 0, ['hand predicate source changed'])",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_hand_predicates.test_populated_targets_thresholds_and_public_conditions",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : ('E-big-illness', ['hand predicate source changed'])",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_hand_predicates.test_source_drift_and_entry_binding",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_hand_prepared_trigger.test_actual_hand_row_is_excluded_and_composes_without_claiming_replacement_reachability",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['hand predicate source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_history_incarnation_dispatch.test_frozen_sources_and_authenticated_contract_unchanged_in_scope",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : {'valid': False, 'errors': ['source differs: 01-core-rules.md', 'source differs: 02-main-system.md'], 'checks_scope': 'contr",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_incarnation_policy.test_existing_board_handler_keeps_full_state_and_scopes_restore",
+   "kind": "FAIL",
+   "message": "AssertionError: \"duplicate physical\" does not match \"boundary source differs: 01-core-rules.md\"",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_incarnation_policy.test_full_local_application_and_rng_match_active_projection",
+   "kind": "FAIL",
+   "message": "AssertionError: \"duplicate physical\" does not match \"boundary source differs: 01-core-rules.md\"",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_initial_obligations.test_both_mirrors_join_source_order_to_first_opportunity_without_promotion",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_initial_obligations.test_both_runtime_roots_and_no_event_upgrade_are_exact",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_initial_obligations.test_connected_gate_rejects_unverified_fresh_initial_audit",
+   "kind": "FAIL",
+   "message": "AssertionError: \"initial obligations\" does not match \"runtime source differs: 01-core-rules.md\"",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_initial_obligations.test_connected_gate_rejects_unverified_runtime_root",
+   "kind": "FAIL",
+   "message": "AssertionError: \"initial runtime root\" does not match \"runtime source differs: 01-core-rules.md\"",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_initial_obligations.test_runtime_upgrade_cannot_introduce_an_uncreated_effect",
+   "kind": "FAIL",
+   "message": "AssertionError: \"initial.*(runtime|obligation)\" does not match \"runtime source differs: 01-core-rules.md\"",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_initial_obligations.test_shared_initial_dealer_cannot_substitute_manifest_top_card",
+   "kind": "FAIL",
+   "message": "AssertionError: \"initial.*(deal|obligation)\" does not match \"runtime source differs: 01-core-rules.md\"",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_loss_reward.test_departed_main_normal_and_response_selection_through_verified_apply",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_main_routes.test_antlion01_birth_and_transform_use_existing_batch_handler",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['movement price source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_main_routes.test_existing_legacy_birth_receipt_is_also_bound",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : {'schema': 'typed_payment_consumption.v2', 'applicable': True, 'full_delta_applicable': False, 'supplied_relationship_verifi",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_main_routes.test_positive_discount_and_insufficient_or_malformed_time",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['movement price source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_main_routes.test_scope_restores_registry_and_historical_anchor",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_movement_lifetime.test_actual_native_reentry_binds_previous_hand_instance_to_new_main",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['movement price source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_movement_lifetime.test_time_skip_removes_old_target_and_birth_preserves_other_target",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['movement price source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_city_collection_retains_second_play_origin_after_earlier_scan_anchor",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_early_negative_cannot_suppress_a_met_forced_obligation",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_negative_relationship_gets_fresh_semantic_audit",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_projection_and_current_proof_mutations_fail_closed [mode='actor']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_projection_and_current_proof_mutations_fail_closed [mode='category']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_projection_and_current_proof_mutations_fail_closed [mode='condition']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_projection_and_current_proof_mutations_fail_closed [mode='duplicate']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_projection_and_current_proof_mutations_fail_closed [mode='missing']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_projection_and_current_proof_mutations_fail_closed [mode='proof']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_projection_cannot_rebind_occurrence_to_another_supplied_event",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_source_omission_and_duplicate_are_rejected_at_collect [mutation='duplicate']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_source_omission_and_duplicate_are_rejected_at_collect [mutation='omit']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_native_collection.test_source_omission_and_duplicate_are_rejected_at_collect [mutation='outside']",
+   "kind": "FAIL",
+   "message": "AssertionError: \"collection\" does not match \"start source text changed\"",
+   "cause": "main でも失敗（AssertionError: \"collection\" does not match \"trigger current predicates differ: ['trigger ）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_next_board.test_catalog_change_or_start_kind_fails_closed_and_scope_restores",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_next_board.test_discarded_companion_refusal_is_classified_from_the_start_catalog",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_next_board.test_frozen_next_turn_inside_the_connected_scope_reaches_the_next_start",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: boundary source differs: 01-core-rules.md）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_opening.test_changed_origin_intermediate_draw_omission_lookup_or_chain_is_rejected",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_opening.test_initial_state_retains_owner_decks_and_five_card_hands",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_opening.test_mirror_changes_first_player_without_swapping_owner_identities",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_opening.test_mirror_uses_other_first_owner_and_side_but_same_initial_state",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_opening.test_read_only_cli_pending_and_malformed_exit",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_opening.test_reconstruction_verified_but_following_response_and_match_unproved",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_opening.test_saved_choice_is_not_used_as_an_input_or_legacy_reclassified",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_opening.test_snapshot_and_continuation_hashes_bind_states_without_mutation",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_opening.test_two_draws_seven_physical_candidates_and_rule_derived_address",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_partner_draw.test_current_forced_keeps_resolution_but_does_not_draw_while_egg",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_partner_draw.test_live_partner_still_draws_and_non_partner_draws_even_while_egg",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_partner_draw.test_scope_and_temporary_descriptor_restore_even_on_native_failure",
+   "kind": "FAIL",
+   "message": "AssertionError: \"native probe failure\" does not match \"start source text changed\"",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_pass_end_unknown.test_current_eligible_end_growth_keeps_pass_unknown_at_actual_entry",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_pass_end_unknown.test_paid_candidate_is_not_excluded_by_unproved_pass_zero",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_pass_end_unknown.test_placing_currently_eligible_end_growth_source_keeps_comparison_unknown",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_pass_end_unknown.test_world_placement_keeps_actual_handler_and_current_negative_conditions [count=0]",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_pass_end_unknown.test_world_placement_keeps_actual_handler_and_current_negative_conditions [count=1]",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_pass_end_unknown.test_world_placement_keeps_actual_handler_and_current_negative_conditions [count=2]",
+   "kind": "ERROR",
+   "message": "ValueError: normal payment operands differ: source predicates",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_permitted_inputs.test_actual_entry_requires_bound_read_responsibilities",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_permitted_inputs.test_sequential_address_uses_actual_group_and_ordinal_not_state_hash",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-bat', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-bat', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-box', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-box', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-cat_friend', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-cat_friend', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-chameleon', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-chameleon', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-chicken', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='C-chicken', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='P-anglerfish', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='P-anglerfish', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='P-cat_ceo', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='P-cat_ceo', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='P-cliff_goat', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='P-cliff_goat', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='P-desert_scorpion', egg=False]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_current_people_cat_egg_legacy_and_replacement [card='P-desert_scorpion', egg=True]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_full_delta_and_event_tampering_refused",
+   "kind": "ERROR",
+   "message": "ValueError: atomic departure canonical source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_reentry_identity_and_cat_pending_generation",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['person placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_person_placement_effect.test_replacement_typed_departure_and_wrong_discard_order",
+   "kind": "ERROR",
+   "message": "ValueError: atomic departure canonical source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_bridge.test_each_registered_kind_checks_intermediate_complete_choices_and_application",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_bridge.test_existing_board_handlers_use_bound_policy_and_restore_all_callbacks",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_bridge.test_final_time_handler_binds_return_draw_choice_and_cleanup",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_bridge.test_no_choice_requires_zero_callbacks_and_preserves_boundary",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_bridge.test_no_origin_rebinding_out_of_turn_and_cross_turn_replay",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_bridge.test_origin_counts_rule_occurrences_including_no_choice_and_retries",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_journal.test_entry_exports_actual_opening_and_runtime_callbacks",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_journal.test_existing_unit_trace_binds_all_turns_and_designated_choice_entries",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_journal.test_exports_complete_local_entries_without_promoting_origin_or_policy",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_policy_journal.test_missing_duplicate_root_and_origin_changes_are_rejected",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_positive_saved_history.test_saved_stop_history_has_complete_positive_end_provenance",
+   "kind": "ERROR",
+   "message": "ValueError: relationship canonical rule changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_public_sources.test_all_board_slots_and_both_owners_are_checked",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_public_sources.test_arrival_collection_rejects_shared_source_omission",
+   "kind": "FAIL",
+   "message": "AssertionError: \"public source\" does not match \"start source text changed\"",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_public_sources.test_connected_scope_requires_the_challenge_source_registration",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_public_sources.test_hidden_prepared_identity_is_not_read_or_promoted",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_public_sources.test_registration_gate_rejects_every_missing_or_extra_source_and_restores",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_public_sources.test_scope_restores_source_function_after_exception",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_public_sources.test_source_metadata_and_classification_cannot_change_together",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_public_sources.test_start_capture_and_collection_reject_shared_source_omission",
+   "kind": "FAIL",
+   "message": "AssertionError: \"public source\" does not match \"start source text changed\"",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_contexts_preserve_outer_and_restart_responses",
+   "kind": "ERROR",
+   "message": "ValueError: challenge stat floor source changed",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_contexts_preserve_outer_and_restart_responses [card='I-c_coin2', mode='comparing']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_contexts_preserve_outer_and_restart_responses [card='I-c_coin2', mode='end']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_contexts_preserve_outer_and_restart_responses [card='I-c_coin2', mode='outer']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_contexts_preserve_outer_and_restart_responses [card='I-c_coin2', mode='start']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='G-hit-blow', size='empty', kind='main', growth=0]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='G-hit-blow', size='empty', kind='main', growth=100]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='G-hit-blow', size='empty', kind='world', growth=0]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='G-hit-blow', size='empty', kind='world', growth=100]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='G-hit-blow', size='one', kind='main', growth=0]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='G-hit-blow', size='one', kind='main', growth=100]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='G-hit-blow', size='one', kind='world', growth=0]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='G-hit-blow', size='one', kind='world', growth=100]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='I-c_coin2', size='empty', kind='main', growth=0]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='I-c_coin2', size='empty', kind='main', growth=100]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='I-c_coin2', size='empty', kind='world', growth=0]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='I-c_coin2', size='empty', kind='world', growth=100]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='I-c_coin2', size='one', kind='main', growth=0]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='I-c_coin2', size='one', kind='main', growth=100]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='I-c_coin2', size='one', kind='world', growth=0]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_empty_singleton_and_growth_cap [card='I-c_coin2', size='one', kind='world', growth=100]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='companion', declared='companion']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='companion', declared='event']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='companion', declared='item']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='companion', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='companion', declared='partner']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='companion', declared='play']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='companion', declared='world']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='event', declared='companion']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='event', declared='event']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='event', declared='item']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='event', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='event', declared='partner']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='event', declared='play']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='event', declared='world']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='item', declared='companion']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='item', declared='event']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='item', declared='item']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='item', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='item', declared='partner']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='item', declared='play']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='item', declared='world']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='main', declared='companion']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='main', declared='event']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='main', declared='item']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='main', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='main', declared='partner']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='main', declared='play']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='main', declared='world']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='partner', declared='companion']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='partner', declared='event']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='partner', declared='item']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='partner', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='partner', declared='partner']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='partner', declared='play']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='partner', declared='world']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='play', declared='companion']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='play', declared='event']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='play', declared='item']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='play', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='play', declared='partner']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='play', declared='play']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='play', declared='world']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='world', declared='companion']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='world', declared='event']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='world', declared='item']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='world', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='world', declared='partner']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='world', declared='play']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='G-hit-blow', kind='world', declared='world']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='I-c_coin2', kind='companion', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='I-c_coin2', kind='event', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='I-c_coin2', kind='item', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='I-c_coin2', kind='main', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='I-c_coin2', kind='partner', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='I-c_coin2', kind='play', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_quick_reveal.test_every_printed_type_and_declared_match_branch [card='I-c_coin2', kind='world', declared='main']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['start source text changed'] != []",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_rebinding_launch.test_supervisor_forwards_binding_to_worker_before_game",
+   "kind": "ERROR",
+   "message": "ValueError: manifest structure unverified",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_resolution_choices.test_designated_family_requires_separate_journal_proof",
+   "kind": "FAIL",
+   "message": "AssertionError: 'unproved' != 'designated_465_journal_required'",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_board_predicates.test_actual_entry_exports_narrow_board_predicate_scope",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_board_predicates.test_all_person_world_sources_are_verified_or_explicitly_unproved",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : ('C-bat', ['response board predicate source changed'])",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_board_predicates.test_paid_sources_costs_usage_and_turn_owner",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : ('M-antlion-02', 'allowed', ['response board predicate source changed'])",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_board_predicates.test_prepared_source_stays_unproved_without_capability_lookup",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : ['response board predicate source changed']",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_board_predicates.test_recovery_current_source_targets_and_response_use",
+   "kind": "FAIL",
+   "message": "AssertionError: False is not true : ['response board predicate source changed']",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_end_predicates.test_actual_non_end_scorpion_is_bound_to_existing_end_negative",
+   "kind": "ERROR",
+   "message": "ValueError: response hand predicates differ: ['response hand predicate source changed']",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_end_predicates.test_four_negative_sources_reoffers_and_incomplete_history",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['response board predicate source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_end_predicates.test_positive_end_absence_or_closed_reason_is_not_negative_proof",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['response board predicate source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_pass_effect.test_both_passes_at_start_placement_end_challenge_and_building_chain",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_pass_effect.test_coverage_refuses_added_growth_with_rebound_hashes",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_response_pass_effect.test_wrong_priority_early_resolution_and_extra_state_changes_refused",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_reveal_effects.test_all_outcomes_and_outer_chain",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_reveal_effects.test_coverage_rejects_rebound_false_reveal",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_reveal_effects.test_forged_reveal_movement_and_unrelated_state_rejected",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_runtime.test_chain_resolution_uses_existing_handler_before_end_history_gate",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: [] != ['activate_response', 'response_pass', 're[68 chars]ass']",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_runtime.test_existing_normal_candidates_and_selector_are_used_after_window",
+   "kind": "FAIL",
+   "message": "AssertionError: {'code': 'unsupported_contract_boundary', 'detail': 'start window source differs: 01-core-rules.md', 'phase': 'response_window'} is not None",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_runtime.test_existing_response_fallback_is_executed_but_never_admitted_or_renamed",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_runtime.test_step_hashes_and_lookup_are_bound_and_invalid_limit_rejected",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_runtime.test_supplied_historical_unit_order_continues_through_next_turn",
+   "kind": "ERROR",
+   "message": "ValueError: opening source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_runtime.test_unique_responses_continue_together_to_normal_boundary",
+   "kind": "FAIL",
+   "message": "AssertionError: 0 != 2",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_runtime_entry.test_complete_record_is_reconstructed_from_inputs_including_policy_and_lookup",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_condition_history.test_actual_start_with_three_cards_does_not_block_ordinary_response",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: {'code': 'unsupported_contract_boundary', 'detail': \"response hand predica）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_start_condition_history.test_missing_or_changed_origin_evidence_never_certifies_a_negative",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: 'A-032#1' not found in []）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_start_condition_history.test_original_start_count_not_current_count_controls_the_negative",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: Lists differ: ['response board predicate source changed'] != []）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_start_obligations.test_catalog_exactly_covers_existing107_and_preserves_literal_sources",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_start_obligations.test_chicken_empty_deck_is_not_an_added_activation_condition",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_start_obligations.test_equipment_remaining_hand_condition_and_opponent_owner_are_separate",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_start_obligations.test_sources_cannot_join_retroactively_and_unknown_cards_fail_closed",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_all_41_cards_at_zero_time_have_explicit_second_actor_disposition",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_all_record_fields_types_and_unresolved_boundaries_are_bound",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_bundle_reconstruction_binds_prefix_and_lookup_without_changing_466",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_cli_is_strict_read_only_and_never_admits_a_match",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_legacy_and_full_envelope_hash_chains_are_independently_checkable",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_multiple_candidates_stop_before_any_pass_or_future_opportunity",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_multiple_response_alternatives_never_gain_a_value_or_random_choice",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_reconstruction_verification_does_not_grant_any_population_gate",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_selection_information_is_independent_of_hidden_orders",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_singleton_uses_existing_response_unique_not_mandatory_policy",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window.test_two_unique_passes_reach_normal_with_both_opportunities_and_preserved_resources",
+   "kind": "ERROR",
+   "message": "ValueError: start window source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_start_window_quick_replay.test_turn_start_quick_activation_replays_under_the_start_closure",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_trigger_connection.test_actual_sources_stack_resolve_reverse_then_both_receive_response",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_trigger_connection.test_proof_cannot_rebind_to_different_start_source_or_hash",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_trigger_multiturn.test_actual_next_start_captures_pre_draw_sources_across_turns",
+   "kind": "ERROR",
+   "message": "ValueError: runtime source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_trigger_predicates.test_all_latched_cards_check_full_alternatives_and_reject_mutations",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true : ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_trigger_predicates.test_current_usage_turn_departure_and_no_cost_are_negative_not_unknown",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_trigger_predicates.test_scope_is_connected_and_rejects_corrupt_native_inventory",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_trigger_predicates.test_start_adapter_audit_is_connected_to_real_inventory",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（ValueError: trigger current predicates differ: ['trigger predicate source changed']）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_trigger_predicates.test_start_collection_checks_negative_sources_identity_and_restores_scope",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_trigger_predicates.test_start_producer_and_replay_cannot_agree_on_missing_occurrence",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "文書74の生バイトのハッシュが凍結版 d323f89a… と異なる（start-sources.json が束縛）。文書74を凍結版に戻すと main と同一の結果",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "B"
+  },
+  {
+   "test": "test_proxy_population_trigger_predicates.test_start_threshold_empty_deck_and_occurrence_identity",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_trigger_predicates.test_wrong_turn_hidden_visibility_and_egg_suppress_current_actions",
+   "kind": "ERROR",
+   "message": "ValueError: start source text changed",
+   "cause": "main でも失敗（AssertionError: False is not true）。修正後は先に文書74の束縛検査で止まる。文書74を凍結版に戻すと main と同じ理由に戻る",
+   "action": "検証条件は変えない。凍結版は過去の証拠に束縛したまま",
+   "class": "A+B"
+  },
+  {
+   "test": "test_proxy_population_turn_boundary.test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_turn_boundary.test_empty_deck_has_no_invented_choice_or_loss",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_turn_boundary.test_real_six_stage_proof_r10_both_seats_and_tie_without_135_lookup",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_turn_egg_incarnation.test_egg_choice_keeps_the_full_card_map_after_reentry",
+   "kind": "ERROR",
+   "message": "ValueError: boundary source differs: 01-core-rules.md",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-city', previous='W-countryside']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-city', previous='W-deepsea']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-city', previous=None]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-countryside', previous='W-city']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-countryside', previous='W-deepsea']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-countryside', previous=None]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-deepsea', previous='W-city']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-deepsea', previous='W-countryside']",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  },
+  {
+   "test": "test_proxy_population_world_placement_effect.test_three_worlds_initial_replacement_current107_single_copy_and_reentry [card='W-deepsea', previous=None]",
+   "kind": "FAIL",
+   "message": "AssertionError: Lists differ: ['world placement core source changed'] != []",
+   "cause": "main 9e3929da でも同じ失敗（凍結版からの既存の出典変化。主に 01/02 等）",
+   "action": "対応不要（今回の範囲外）",
+   "class": "A"
+  }
+ ],
+ "class_definitions": {
+  "A": "main から存在する失敗",
+  "A+B": "main でも失敗しているが、修正後は文書74の束縛検査が先に失敗する",
+  "B": "文書74の本文・出典ハッシュ変更だけによる想定内の失敗",
+  "C": "実質的な不整合（なし）"
+ }
+}

@@ -1342,6 +1342,28 @@ revision_96_expected = {
     "G-p3-drive": "自分のメイン1枚を対象として発動できる。このターン、そのメインが相手の効果で捨て札に置かれるなら、1回だけ、代わりに場に残す。このターン、自分が次に手札からセカイを通常の方法で変更するための時を1少なくする。",
 }
 revision_96_catalog = {r["id"]: r for group in current_catalog_groups.values() for r in group}
+# 476 (PR #446 follow-up) clarifies only the octopus move destination.
+revision_476_expected = {
+    "P-rock_octopus": (
+        "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。",
+        "1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。"),
+}
+for card_id, (_before_text, after_text) in revision_476_expected.items():
+    check(revision_96_catalog.get(card_id, {}).get("text") == after_text,
+          f"476 lover text revision mismatch: {card_id}")
+revision_476_doc = DOCS / "476-lover-text-implementation-alignment.md"
+revision_476_data_path = DOCS / "data/lover-text-implementation-alignment-20261027.json"
+check(revision_476_doc.exists(), "476 revision document missing")
+check(revision_476_data_path.exists(), "476 revision evidence missing")
+if revision_476_data_path.exists():
+    revision_476_data = json.loads(revision_476_data_path.read_text())
+    check({r["id"]: (r.get("before"), r.get("after")) for r in revision_476_data.get("changed_cards", [])}
+          == revision_476_expected, "476 changed card before/after")
+    revision_476_hash = hashlib.sha256(json.dumps(
+        normalize_provisional_terminology(sorted(revision_96_catalog.values(), key=lambda r: r["id"])),
+        ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    check(revision_476_data.get("validation", {}).get("catalog_records_sha256") == revision_476_hash,
+          "476 current catalog hash")
 for card_id, expected_text in revision_96_expected.items():
     check(revision_96_catalog.get(card_id, {}).get("text") == expected_text,
           f"96 removal/defense revision mismatch: {card_id}")
@@ -1359,8 +1381,13 @@ if revision_96_data_path.exists():
     revision_96_cases = revision_96_data.get("manual_cases", [])
     check(len(revision_96_cases) == len({r.get("id") for r in revision_96_cases}) == 28,
           "96 manual case count/IDs")
+    # 96/97 hashes are historical pins.  Later approved wording changes (476)
+    # are reversed here so the 96/97 evidence still verifies byte-for-byte.
+    revision_96_era = {k: dict(v) for k, v in revision_96_catalog.items()}
+    for card_id, (before_text, _after_text) in revision_476_expected.items():
+        revision_96_era[card_id]["text"] = before_text
     revision_96_sorted = normalize_provisional_terminology(
-        sorted(revision_96_catalog.values(), key=lambda r: r["id"])
+        sorted(revision_96_era.values(), key=lambda r: r["id"])
     )
     revision_96_catalog_hash = hashlib.sha256(json.dumps(
         revision_96_sorted, ensure_ascii=False, sort_keys=True,
