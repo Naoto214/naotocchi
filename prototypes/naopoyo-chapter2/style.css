@@ -5,3 +5,5 @@ nav button{white-space:nowrap;padding:6px 3px;font-size:12px}nav button span{fon
 main{grid-template-columns:minmax(0,1fr);padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}
 header,.intro,.arena,nav,.intro>div{min-width:0}.intro h1{max-width:100%;overflow:hidden;text-overflow:ellipsis}.intro>div{gap:5px;letter-spacing:0}#chapter{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#clock{flex-shrink:0;font-size:9px}nav{grid-template-columns:repeat(4,minmax(0,1fr))}nav button{min-width:0}dialog .stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}dialog .level{min-width:0;overflow-wrap:anywhere}
 @media(orientation:landscape) and (max-height:550px){main{grid-template-columns:minmax(150px,1fr) minmax(0,2fr)}.intro>div{flex-wrap:wrap}}
+.status-line{min-width:0;display:flex;align-items:center;justify-content:center;text-align:center}
+#split-preview-note{color:#d9f5f3;font-size:11px;line-height:1.25}

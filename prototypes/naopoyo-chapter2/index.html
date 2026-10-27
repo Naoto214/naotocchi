@@ -14,13 +14,13 @@
     <main>
       <header>
         <div class="brand">
-          なおぽよ<span>。</span><small>NAOPOYO. / CHAPTER 02 · VERSION 8</small>
+          なおぽよ<span>。</span><small>NAOPOYO. / CHAPTER 02 · VERSION 9</small>
         </div>
         <button id="compare" aria-label="8×8盤面">8×8</button
         ><button id="pause" aria-label="一時停止">Ⅱ</button>
       </header>
       <section class="intro">
-        <div><span id="chapter">CHAPTER 02 · VERSION 8</span><span id="clock"></span></div>
+        <div><span id="chapter">CHAPTER 02 · VERSION 9</span><span id="clock"></span></div>
         <h1 id="title"></h1>
       </section>
       <section class="arena">
@@ -32,7 +32,7 @@
           ひとやすみ<br /><small>右上の ▶ でつづける</small>
         </div>
       </section>
-      <div id="status" role="status">キャラから、なぞってみよう</div>
+      <div class="status-line"><div id="status" role="status">キャラから、なぞってみよう</div><div id="split-preview-note" hidden aria-live="polite">分裂予告：点線は落下・合体後／小さな輪は出現位置</div></div>
       <nav>
         <button id="undo">↶ <span>もどす</span></button
         ><button id="retry">↻ <span>やり直す</span></button
@@ -45,7 +45,7 @@
         <span>こもれびの森</span><button id="close">とじる</button>
       </div>
       <div id="content"></div>
-      <p class="game-links"><a href="qa.html">11〜20面を直接試す</a> · <a href="index.html">通常の順次開放</a><br>魔法ゲートは同じ数字だけ中を通れ、上にはどの数字も乗れます。合体できない仲間は8方向に交換。星はだれでも通れ、数字が合えば脱出。星とトゲは足場になりません。<br>この試遊版は本番の記録を書き換えません。</p>
+      <p class="game-links"><a href="qa.html">11〜20面を直接試す</a> · <a href="index.html">通常の順次開放</a><br>魔法ゲートは同じ数字だけ中を通れ、上にはどの数字も乗れます。合体できない仲間は8方向に交換。星はだれでも通れ、数字が合えば脱出。星とトゲは足場になりません。<br>トゲに向かってゆっくりなぞると、分裂・落下・合体後の一手予告が出ます。速くなぞると、そのまま進みます。<br>この試遊版は本番の記録を書き換えません。</p>
     </dialog>
     <script type="module">
       import { mount } from "./app.mjs";

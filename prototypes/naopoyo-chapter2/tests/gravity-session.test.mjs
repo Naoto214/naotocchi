@@ -20,7 +20,7 @@ test('shipped stage19 transient child is visible between its birth and absorptio
  const {readFileSync}=await import('node:fs');const data=JSON.parse(readFileSync(new URL('../../../docs/naopoyo-gate-v8-20261026/solutions.json',import.meta.url)));
  const stage=stages.find(s=>s.number===19),path=data.stages.find(s=>s.id===stage.id).path,q=new ForestSession(stage);let checked=0;
  for(const p of path){const a=q.state.actors.find(a=>a.x===p.at[0]&&a.y===p.at[1]);q.begin(a.id,{x:a.x+.5,y:a.y+.5});q.travel({x:a.x+.5+p.d[0],y:a.y+.5+p.d[1]});q.end();
-  const f=q.motion[0],births=f.events.flatMap(e=>e.children||[]);for(const b of births.filter(b=>!f.after.actors.some(a=>a.id===b.id))){q.motion[0].elapsed=f.duration*.5;const drawn=visualActors(q).find(a=>a.id===b.id);assert.ok(drawn,'transient child '+b.id);assert.ok(drawn.opacity>0&&drawn.opacity<1);assert.ok(Number.isFinite(drawn.x)&&Number.isFinite(drawn.y));checked++;}q.animate(1000);
+  const f=q.motion[0],births=f.events.flatMap(e=>e.children||[]);for(const b of births.filter(b=>!f.after.actors.some(a=>a.id===b.id))){let visible=false;for(let i=0;i<100;i++){q.motion[0].elapsed=f.duration*i/100;const drawn=visualActors(q).find(a=>a.id===b.id);assert.ok(drawn,'transient child '+b.id);assert.ok(Number.isFinite(drawn.x)&&Number.isFinite(drawn.y));if(drawn.opacity>0&&drawn.opacity<1)visible=true;}assert.ok(visible,'transient child appears after its actual contact, then fades');checked++;}q.animate(1000);
  }assert.ok(checked>0,'witness must exercise a transient fragment');
 });
 test('new physics fast/slow held drag matches across split and falling; one Undo restores start',()=>{

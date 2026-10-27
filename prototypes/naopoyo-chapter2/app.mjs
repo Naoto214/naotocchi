@@ -27,6 +27,7 @@ export function mount({qa = false} = {}) {
     userPaused = false,
     saveError = false;
   const dialog = $("dialog");
+  const previewNote=$('split-preview-note');
   function save() {
     try {
       progress.board(q.stage.id, JSON.parse(q.serialize()));
@@ -53,6 +54,8 @@ export function mount({qa = false} = {}) {
       dpr: Math.min(devicePixelRatio || 1, 2),
       hitUntil,
     });
+    previewNote.hidden=!q.preview;
+    $("status").hidden=!!q.preview;
     $("title").textContent = q.stage.title;
     $("chapter").textContent =
       `${qa ? "QA専用 · " : "独立セーブ · "}${q.stage.id.startsWith("komorebi-")?"第2章":"第1章"}　${q.state.rescued} / ${mass(q.state)} おかえり`;
@@ -132,7 +135,7 @@ export function mount({qa = false} = {}) {
     if(!r){draw();return;}
     if (r?.split) {
       hitUntil = q.time + 350;
-      $("status").textContent = `${r.split}つにほどけた。そのまま続けよう。`;
+      $("status").textContent = "分裂！ 支えがないと落ちるよ。";
     } else
       $("status").textContent = r?.ok
         ? r.swapped ? "すれ違って場所を交換。そのまま続けよう。" : r.events?.some(e=>e.type==="merge"&&e.overflow) ? "合体して8に。余った仲間は元の場所へ、支えがなければ落ちるよ。" : "指を離さず、そのまま。"
