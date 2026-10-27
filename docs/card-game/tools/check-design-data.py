@@ -1342,6 +1342,28 @@ revision_96_expected = {
     "G-p3-drive": "自分のメイン1枚を対象として発動できる。このターン、そのメインが相手の効果で捨て札に置かれるなら、1回だけ、代わりに場に残す。このターン、自分が次に手札からセカイを通常の方法で変更するための時を1少なくする。",
 }
 revision_96_catalog = {r["id"]: r for group in current_catalog_groups.values() for r in group}
+# 477 (PR #448/#451 follow-up) changes only the +5 condition of ぴょんぴょんジャンプ.
+revision_477_expected = {
+    "G-doodle-jump": (
+        "このターン、自分が次にときおくりを行った時に1枚引き、その次にときおくりを行った時に自分のそだち+5。",
+        "このターン、自分が次にときおくりを行った時、1枚引く。そのときおくりで段階が1つだけ上がった場合、さらに自分のそだち+5。"),
+}
+for card_id, (_before_text, after_text) in revision_477_expected.items():
+    check(revision_96_catalog.get(card_id, {}).get("text") == after_text,
+          f"477 doodle-jump text revision mismatch: {card_id}")
+revision_477_doc = DOCS / "477-doodle-jump-text-revision.md"
+revision_477_data_path = DOCS / "data/doodle-jump-text-revision-20261027.json"
+check(revision_477_doc.exists(), "477 revision document missing")
+check(revision_477_data_path.exists(), "477 revision evidence missing")
+if revision_477_data_path.exists():
+    revision_477_data = json.loads(revision_477_data_path.read_text())
+    check({r["id"]: (r.get("before"), r.get("after")) for r in revision_477_data.get("changed_cards", [])}
+          == revision_477_expected, "477 changed card before/after")
+    revision_477_hash = hashlib.sha256(json.dumps(
+        normalize_provisional_terminology(sorted(revision_96_catalog.values(), key=lambda r: r["id"])),
+        ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    check(revision_477_data.get("validation", {}).get("catalog_records_sha256") == revision_477_hash,
+          "477 current catalog hash")
 for card_id, expected_text in revision_96_expected.items():
     check(revision_96_catalog.get(card_id, {}).get("text") == expected_text,
           f"96 removal/defense revision mismatch: {card_id}")
@@ -1359,8 +1381,13 @@ if revision_96_data_path.exists():
     revision_96_cases = revision_96_data.get("manual_cases", [])
     check(len(revision_96_cases) == len({r.get("id") for r in revision_96_cases}) == 28,
           "96 manual case count/IDs")
+    # 96/97 hashes are historical pins.  Later approved wording changes (477)
+    # are reversed here so the 96/97 evidence still verifies byte-for-byte.
+    revision_96_era = {k: dict(v) for k, v in revision_96_catalog.items()}
+    for card_id, (before_text, _after_text) in revision_477_expected.items():
+        revision_96_era[card_id]["text"] = before_text
     revision_96_sorted = normalize_provisional_terminology(
-        sorted(revision_96_catalog.values(), key=lambda r: r["id"])
+        sorted(revision_96_era.values(), key=lambda r: r["id"])
     )
     revision_96_catalog_hash = hashlib.sha256(json.dumps(
         revision_96_sorted, ensure_ascii=False, sort_keys=True,

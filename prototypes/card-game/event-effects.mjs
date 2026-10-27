@@ -4,6 +4,8 @@ export function lifetime(s,a,duration='turn'){
  return {duration,...(duration==='nextStart'||duration==='nextEnd'?{until:s.serial+(s.turn===a?2:1)}:{})};
 }
 export function reserve(s,l,e){
+ // A reservation whose effect changed keeps its earlier form for saves of the listed rule versions.
+ if(e.legacy){const {legacy,...current}=e;e=legacy.versions.includes(s.version)?{...current,steps:legacy.steps,sequence:legacy.sequence}:current;}
  if(e.challenge&&(!s.challenge||s.challenge.ended||s.challenge.aborted))return false;
  s.effects.push({kind:'reservation',actor:l.actor,...lifetime(s,l.actor,e.duration),rule:structuredClone(e),link:{...structuredClone(l),createdRevision:s.revision},remaining:e.count??e.sequence?.length??1,index:0,...(e.challenge?{challenge:s.challenge.id}:{})});return true;
 }

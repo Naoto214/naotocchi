@@ -27,7 +27,8 @@ Object.assign(REMAINING_RULES,{
  'G-chain-puzzle':quick([move('hand')],{onceName:true,condition:'priorTwoItems',target:'ownDiscardItem'}),
  'G-darts-board':quick([{op:'selectedMove',key:'equipment',destination:'discard'}],{select:[pay('ownHand',{types:['play','item','event']},1,'discard',{reveal:true}),{key:'equipment',zone:'opponentEquipment',count:1,filter:{sameCostAs:'payment'}}]}),
  'G-domino-run':{mode:'trap',triggers:[{when:'cardPlayed',condition:'eventItemFaceUp',steps:[reserve('cardPlayed',[growth(5),draw()],{condition:'eventFaceUpPlay'})]}]},
- 'G-doodle-jump':quick([reserve('time_skip',[],{sequence:[[draw()],[growth(5)]]})]),
+ // PR #448・#451：+5は「そのときおくりで段階が1つだけ上がった場合」。旧効果（次で1枚、その次で+5）は hotseat-2 の保存再生にだけ残す。
+ 'G-doodle-jump':quick([reserve('time_skip',[draw(),iff('singleStageTimeSkip',[growth(5)])],{legacy:{versions:['hotseat-2','hotseat-3'],steps:[],sequence:[[draw()],[growth(5)]]}})]),
  'G-downhill-snow':{mode:'trap',triggers:[{when:'challengeResult',condition:all('won','eventOwnChallenge',{world:'W-snow'}),target:'ownMain',steps:[stat(1,1,'nextEnd')]}]},
  'G-dragDecorate-bento':quick([{op:'reorderTop',n:2},{op:'declareType',steps:[{op:'schedule',timing:'start',steps:[{op:'declaredTop'}]}]}]),
  'G-frogger-road':{mode:'trap',triggers:[{when:'worldChange',condition:'normalWorldChange',target:'ownPrepared',steps:[{op:'protect',to:['hand','discard'],replace:'stay'}]}]},
