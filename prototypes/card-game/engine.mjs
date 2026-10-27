@@ -211,8 +211,11 @@ export function validate(s){
  located.push(...s.chain.filter(l=>!l.ability).map(l=>l.source));if(located.length!==80||new Set(located).size!==80||located.some(id=>!s.cards[id]))throw Error('カード保存則が破れました');
  return true;
 }
+// hotseat-1 keeps its legacy rules and card text. The current card face also needs the display-only
+// attribute/form of the same card ID, which the legacy 15-card table predates; nothing else is added.
+function legacyDisplay(v){v=structuredClone(v);const walk=x=>{if(Array.isArray(x))x.forEach(walk);else if(x&&typeof x==='object'){if(typeof x.cardId==='string'&&Object.hasOwn(CARDS,x.cardId))for(const k of ['attribute','form'])if(x[k]===undefined&&CARDS[x.cardId][k]!==undefined)x[k]=CARDS[x.cardId][k];Object.values(x).forEach(walk);}};walk(v);return v;}
 export function view(s,viewer){
- if(s.version===legacy.VERSION)return legacy.view(s,viewer);
+ if(s.version===legacy.VERSION)return legacyDisplay(legacy.view(s,viewer));
  if(!['A','B',null].includes(viewer))throw Error('閲覧者が不正です');
  const describe=id=>({...card(s,id),cardId:card(s,id).id,id,name:title(s,id)});
  const players={};for(const a of ['A','B']){const p=s.players[a],b=p.board;players[a]={time:p.time,growth:p.growth,relationship:p.relationship,handCount:p.hand.length,deckCount:p.deck.length,discard:p.discard.map(describe),stats:stats(s,a),board:{main:b.main?describe(b.main):null,partner:b.partner?describe(b.partner):null,world:b.world?describe(b.world):null,companions:b.companions.map(describe),prepared:b.prepared.map((e,i)=>e.faceDown&&a!==viewer?{id:'hidden:'+a+':'+i,name:'しかけたカード',text:'相手の伏せ札は確認できません',hidden:true}:{...describe(e.id),target:e.faceDown?'しかける':title(s,e.target)})}};if(a===viewer)players[a].hand=p.hand.map(describe);}

@@ -1,0 +1,143 @@
+[
+ {
+  "case": "hotseat-1 途中",
+  "msg": "保存を検証して復帰しました（旧形式のため戦績には記録しません）",
+  "board": {
+   "mains": 2,
+   "fallbacks": 13
+  },
+  "before": {
+   "version": "hotseat-1",
+   "commands": 160,
+   "hasMeta": false,
+   "records": 0,
+   "overflow": false
+  },
+  "tapped": "ターン終了を申し出る",
+  "afterAction": {
+   "version": "hotseat-1",
+   "commands": 166,
+   "hasMeta": false,
+   "records": 0,
+   "overflow": false
+  },
+  "reRestoreMsg": "保存を検証して復帰しました（旧形式のため戦績には記録しません）",
+  "afterReRestore": {
+   "version": "hotseat-1",
+   "commands": 166,
+   "hasMeta": false,
+   "records": 0,
+   "overflow": false
+  },
+  "errors": []
+ },
+ {
+  "case": "hotseat-1 決着済み",
+  "msg": "保存を検証して復帰しました（旧形式のため戦績には記録しません）",
+  "state": {
+   "version": "hotseat-1",
+   "commands": 320,
+   "hasMeta": false,
+   "records": 0,
+   "overflow": false
+  },
+  "errors": []
+ },
+ {
+  "case": "hotseat-1 決着済み 再復帰",
+  "msg": "保存を検証して復帰しました（旧形式のため戦績には記録しません）",
+  "state": {
+   "version": "hotseat-1",
+   "commands": 320,
+   "hasMeta": false,
+   "records": 0,
+   "overflow": false
+  }
+ },
+ {
+  "case": "戦績画面",
+  "visible": "NAOTOCCHI · MATCH RECORDS 戦績 戻る × 総合 CPU別 デッキ 履歴 カード 総合戦績 この端末の決着済み対戦：0戦 CPU対戦 · 自分の戦績 0戦 · 0勝 0敗 0分 · 勝率 — 同じ端末で2人対戦 · 0戦 A席 0戦 · 0勝 0敗 0分 · 勝率 — B席 0戦 · 0勝 0敗",
+  "errors": []
+ },
+ {
+  "case": "hotseat-2 決着済み knitting-spider-marriage-trigger",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-2",
+   "commands": 246,
+   "hasMeta": true,
+   "records": 1,
+   "overflow": false
+  },
+  "errors": []
+ },
+ {
+  "case": "hotseat-2 途中 knitting-spider-marriage-trigger",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-2",
+   "commands": 169,
+   "hasMeta": true,
+   "records": 1,
+   "overflow": false
+  }
+ },
+ {
+  "case": "hotseat-2 決着済み desert-scorpion-face-down-item",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-2",
+   "commands": 325,
+   "hasMeta": true,
+   "records": 1,
+   "overflow": false
+  },
+  "errors": []
+ },
+ {
+  "case": "hotseat-2 途中 desert-scorpion-face-down-item",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-2",
+   "commands": 212,
+   "hasMeta": true,
+   "records": 1,
+   "overflow": false
+  }
+ },
+ {
+  "case": "hotseat-3 途中",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-3",
+   "commands": 41,
+   "hasMeta": true,
+   "records": 0,
+   "overflow": false
+  }
+ },
+ {
+  "case": "hotseat-3 決着済み",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-3",
+   "commands": 281,
+   "hasMeta": true,
+   "records": 1,
+   "overflow": false
+  },
+  "winner": "B"
+ },
+ {
+  "case": "hotseat-3 決着済み 再復帰（二重計上なし）",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-3",
+   "commands": 281,
+   "hasMeta": true,
+   "records": 1,
+   "overflow": false
+  },
+  "errors": []
+ }
+]
