@@ -1,0 +1,692 @@
+{
+ "matches": 1280,
+ "completed": 1280,
+ "abnormal": [],
+ "replay_mismatch": [],
+ "E1": {
+  "score_diff_B_minus_A": {
+   "diff": 0.007,
+   "ci95": [
+    -0.002,
+    0.018
+   ],
+   "groups": 140
+  },
+  "A": {
+   "n": 280,
+   "score": 0.38,
+   "win": 0.329,
+   "test_growth": 61.04,
+   "opp_growth": 66.86,
+   "by_opponent": {
+    "main": 0.263,
+    "companion": 0.125,
+    "partner": 0.4,
+    "challenge": 0.662,
+    "growth": 0.362,
+    "item": 0.487,
+    "balance": 0.362
+   },
+   "by_opening_dj": {
+    "0": {
+     "n": 206,
+     "score": 0.352
+    },
+    "1": {
+     "n": 74,
+     "score": 0.459
+    }
+   },
+   "by_opening_mains": {
+    "0": {
+     "n": 20,
+     "score": 0.325
+    },
+    "1": {
+     "n": 56,
+     "score": 0.402
+    },
+    "2": {
+     "n": 204,
+     "score": 0.38
+    }
+   },
+   "dj": {
+    "seats": 280,
+    "drawn": 247,
+    "plays": 0,
+    "play_per_draw": 0.0,
+    "opportunity_turns": 127,
+    "opportunity_with_single_step": 67,
+    "used_on_opportunity": 0,
+    "plays_without_opportunity": 0,
+    "opportunities_not_used": 127,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": null,
+    "plus5_per_opportunity_use": null,
+    "expired_unfired": 0,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 280
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.707,
+    "single_step_skips_per_seat": 0.707,
+    "jump_dist": {
+     "1": 198,
+     "2": 163,
+     "3": 90,
+     "4": 19,
+     "5": 5,
+     "6": 3
+    },
+    "double_skip_turns": 18,
+    "synergy_cards_played_on_fire_turns": {}
+   },
+   "observational": {
+    "used_on_opportunity": {
+     "n": 0,
+     "score": null
+    },
+    "drawn_never_played": {
+     "n": 191,
+     "score": 0.393
+    }
+   }
+  },
+  "B": {
+   "n": 280,
+   "score": 0.388,
+   "win": 0.332,
+   "test_growth": 60.89,
+   "opp_growth": 66.7,
+   "by_opponent": {
+    "main": 0.3,
+    "companion": 0.125,
+    "partner": 0.412,
+    "challenge": 0.662,
+    "growth": 0.35,
+    "item": 0.487,
+    "balance": 0.375
+   },
+   "by_opening_dj": {
+    "0": {
+     "n": 206,
+     "score": 0.354
+    },
+    "1": {
+     "n": 74,
+     "score": 0.48
+    }
+   },
+   "by_opening_mains": {
+    "0": {
+     "n": 20,
+     "score": 0.35
+    },
+    "1": {
+     "n": 56,
+     "score": 0.402
+    },
+    "2": {
+     "n": 204,
+     "score": 0.387
+    }
+   },
+   "dj": {
+    "seats": 280,
+    "drawn": 251,
+    "plays": 215,
+    "play_per_draw": 0.857,
+    "opportunity_turns": 52,
+    "opportunity_with_single_step": 25,
+    "used_on_opportunity": 29,
+    "plays_without_opportunity": 186,
+    "opportunities_not_used": 23,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": 0.0,
+    "plus5_per_opportunity_use": 0.0,
+    "expired_unfired": 211,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 280
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.693,
+    "single_step_skips_per_seat": 0.689,
+    "jump_dist": {
+     "1": 193,
+     "2": 164,
+     "3": 90,
+     "4": 18,
+     "5": 6,
+     "6": 3
+    },
+    "double_skip_turns": 17,
+    "synergy_cards_played_on_fire_turns": {}
+   },
+   "observational": {
+    "used_on_opportunity": {
+     "n": 29,
+     "score": 0.362
+    },
+    "drawn_never_played": {
+     "n": 23,
+     "score": 0.522
+    }
+   }
+  },
+  "by_opponent_diff": {
+   "main": 0.037,
+   "companion": 0.0,
+   "partner": 0.013,
+   "challenge": 0.0,
+   "growth": -0.013,
+   "item": 0.0,
+   "balance": 0.013
+  }
+ },
+ "E1F": {
+  "score_diff_B_minus_A": {
+   "diff": 0.018,
+   "ci95": [
+    0.009,
+    0.029
+   ],
+   "groups": 140
+  },
+  "A": {
+   "n": 280,
+   "score": 0.386,
+   "win": 0.329,
+   "test_growth": 61.04,
+   "opp_growth": 66.91,
+   "by_opponent": {
+    "main": 0.275,
+    "companion": 0.113,
+    "partner": 0.4,
+    "challenge": 0.65,
+    "growth": 0.4,
+    "item": 0.487,
+    "balance": 0.375
+   },
+   "by_opening_dj": {
+    "0": {
+     "n": 206,
+     "score": 0.362
+    },
+    "1": {
+     "n": 74,
+     "score": 0.453
+    }
+   },
+   "by_opening_mains": {
+    "0": {
+     "n": 20,
+     "score": 0.325
+    },
+    "1": {
+     "n": 56,
+     "score": 0.402
+    },
+    "2": {
+     "n": 204,
+     "score": 0.387
+    }
+   },
+   "dj": {
+    "seats": 280,
+    "drawn": 254,
+    "plays": 100,
+    "play_per_draw": 0.394,
+    "opportunity_turns": 100,
+    "opportunity_with_single_step": 54,
+    "used_on_opportunity": 100,
+    "plays_without_opportunity": 0,
+    "opportunities_not_used": 0,
+    "draw_fires": 100,
+    "plus5_fires": 4,
+    "plus5_per_play": 0.04,
+    "plus5_per_opportunity_use": 0.04,
+    "expired_unfired": 0,
+    "expired_after_draw": 93,
+    "growth_from_card_per_seat": {
+     "0": 276,
+     "5": 4
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.789,
+    "single_step_skips_per_seat": 0.8,
+    "jump_dist": {
+     "1": 224,
+     "2": 169,
+     "3": 90,
+     "4": 10,
+     "5": 5,
+     "6": 3
+    },
+    "double_skip_turns": 23,
+    "synergy_cards_played_on_fire_turns": {
+     "E-mirror": 18,
+     "E-fateful-transform": 1,
+     "P-snow_spirit": 6,
+     "C-shiba": 7,
+     "W-snow": 7
+    }
+   },
+   "observational": {
+    "used_on_opportunity": {
+     "n": 90,
+     "score": 0.428
+    },
+    "drawn_never_played": {
+     "n": 101,
+     "score": 0.376
+    }
+   }
+  },
+  "B": {
+   "n": 280,
+   "score": 0.404,
+   "win": 0.35,
+   "test_growth": 61.82,
+   "opp_growth": 66.95,
+   "by_opponent": {
+    "main": 0.275,
+    "companion": 0.15,
+    "partner": 0.412,
+    "challenge": 0.65,
+    "growth": 0.438,
+    "item": 0.5,
+    "balance": 0.4
+   },
+   "by_opening_dj": {
+    "0": {
+     "n": 206,
+     "score": 0.374
+    },
+    "1": {
+     "n": 74,
+     "score": 0.486
+    }
+   },
+   "by_opening_mains": {
+    "0": {
+     "n": 20,
+     "score": 0.35
+    },
+    "1": {
+     "n": 56,
+     "score": 0.429
+    },
+    "2": {
+     "n": 204,
+     "score": 0.402
+    }
+   },
+   "dj": {
+    "seats": 280,
+    "drawn": 254,
+    "plays": 100,
+    "play_per_draw": 0.394,
+    "opportunity_turns": 100,
+    "opportunity_with_single_step": 54,
+    "used_on_opportunity": 100,
+    "plays_without_opportunity": 0,
+    "opportunities_not_used": 0,
+    "draw_fires": 100,
+    "plus5_fires": 48,
+    "plus5_per_play": 0.48,
+    "plus5_per_opportunity_use": 0.48,
+    "expired_unfired": 0,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 234,
+     "5": 44,
+     "10": 2
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.789,
+    "single_step_skips_per_seat": 0.8,
+    "jump_dist": {
+     "1": 224,
+     "2": 169,
+     "3": 90,
+     "4": 10,
+     "5": 5,
+     "6": 3
+    },
+    "double_skip_turns": 23,
+    "synergy_cards_played_on_fire_turns": {
+     "E-mirror": 18,
+     "E-fateful-transform": 1,
+     "P-snow_spirit": 6,
+     "C-shiba": 7,
+     "W-snow": 7
+    }
+   },
+   "observational": {
+    "used_on_opportunity": {
+     "n": 90,
+     "score": 0.483
+    },
+    "drawn_never_played": {
+     "n": 101,
+     "score": 0.376
+    }
+   }
+  },
+  "by_opponent_diff": {
+   "main": 0.0,
+   "companion": 0.037,
+   "partner": 0.013,
+   "challenge": 0.0,
+   "growth": 0.037,
+   "item": 0.013,
+   "balance": 0.025
+  }
+ },
+ "E2": {
+  "A_early:A": {
+   "n": 40,
+   "score": 0.688,
+   "test_growth": 53.88,
+   "dj_test_seat": {
+    "seats": 40,
+    "drawn": 27,
+    "plays": 0,
+    "play_per_draw": 0.0,
+    "opportunity_turns": 4,
+    "opportunity_with_single_step": 2,
+    "used_on_opportunity": 0,
+    "plays_without_opportunity": 0,
+    "opportunities_not_used": 4,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": null,
+    "plus5_per_opportunity_use": null,
+    "expired_unfired": 0,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 40
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.625,
+    "single_step_skips_per_seat": 0.575,
+    "jump_dist": {
+     "1": 23,
+     "2": 19,
+     "3": 10,
+     "4": 7,
+     "5": 2,
+     "6": 4
+    },
+    "double_skip_turns": 5,
+    "synergy_cards_played_on_fire_turns": {}
+   },
+   "dj_both_seats": {
+    "seats": 80,
+    "drawn": 67,
+    "plays": 0,
+    "play_per_draw": 0.0,
+    "opportunity_turns": 28,
+    "opportunity_with_single_step": 14,
+    "used_on_opportunity": 0,
+    "plays_without_opportunity": 0,
+    "opportunities_not_used": 28,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": null,
+    "plus5_per_opportunity_use": null,
+    "expired_unfired": 0,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 80
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.725,
+    "single_step_skips_per_seat": 0.713,
+    "jump_dist": {
+     "1": 57,
+     "2": 41,
+     "3": 26,
+     "4": 8,
+     "5": 2,
+     "6": 4
+    },
+    "double_skip_turns": 8,
+    "synergy_cards_played_on_fire_turns": {}
+   }
+  },
+  "A_early:B": {
+   "n": 40,
+   "score": 0.637,
+   "test_growth": 53.88,
+   "dj_test_seat": {
+    "seats": 40,
+    "drawn": 26,
+    "plays": 21,
+    "play_per_draw": 0.808,
+    "opportunity_turns": 4,
+    "opportunity_with_single_step": 2,
+    "used_on_opportunity": 4,
+    "plays_without_opportunity": 17,
+    "opportunities_not_used": 0,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": 0.0,
+    "plus5_per_opportunity_use": 0.0,
+    "expired_unfired": 21,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 40
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.625,
+    "single_step_skips_per_seat": 0.575,
+    "jump_dist": {
+     "1": 23,
+     "2": 19,
+     "3": 10,
+     "4": 6,
+     "5": 2,
+     "6": 5
+    },
+    "double_skip_turns": 5,
+    "synergy_cards_played_on_fire_turns": {}
+   },
+   "dj_both_seats": {
+    "seats": 80,
+    "drawn": 66,
+    "plays": 57,
+    "play_per_draw": 0.864,
+    "opportunity_turns": 11,
+    "opportunity_with_single_step": 8,
+    "used_on_opportunity": 8,
+    "plays_without_opportunity": 49,
+    "opportunities_not_used": 3,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": 0.0,
+    "plus5_per_opportunity_use": 0.0,
+    "expired_unfired": 56,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 80
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.712,
+    "single_step_skips_per_seat": 0.725,
+    "jump_dist": {
+     "1": 58,
+     "2": 39,
+     "3": 26,
+     "4": 7,
+     "5": 2,
+     "6": 5
+    },
+    "double_skip_turns": 8,
+    "synergy_cards_played_on_fire_turns": {}
+   }
+  },
+  "C_late7:A": {
+   "n": 40,
+   "score": 0.6,
+   "test_growth": 38.12,
+   "dj_test_seat": {
+    "seats": 40,
+    "drawn": 36,
+    "plays": 0,
+    "play_per_draw": 0.0,
+    "opportunity_turns": 1,
+    "opportunity_with_single_step": 1,
+    "used_on_opportunity": 0,
+    "plays_without_opportunity": 0,
+    "opportunities_not_used": 1,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": null,
+    "plus5_per_opportunity_use": null,
+    "expired_unfired": 0,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 40
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 0.2,
+    "single_step_skips_per_seat": 0.2,
+    "jump_dist": {
+     "1": 8
+    },
+    "double_skip_turns": 0,
+    "synergy_cards_played_on_fire_turns": {}
+   },
+   "dj_both_seats": {
+    "seats": 80,
+    "drawn": 76,
+    "plays": 0,
+    "play_per_draw": 0.0,
+    "opportunity_turns": 25,
+    "opportunity_with_single_step": 14,
+    "used_on_opportunity": 0,
+    "plays_without_opportunity": 0,
+    "opportunities_not_used": 25,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": null,
+    "plus5_per_opportunity_use": null,
+    "expired_unfired": 0,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 80
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.012,
+    "single_step_skips_per_seat": 0.537,
+    "jump_dist": {
+     "1": 43,
+     "2": 20,
+     "3": 17,
+     "4": 1
+    },
+    "double_skip_turns": 3,
+    "synergy_cards_played_on_fire_turns": {}
+   }
+  },
+  "C_late7:B": {
+   "n": 40,
+   "score": 0.55,
+   "test_growth": 38.12,
+   "dj_test_seat": {
+    "seats": 40,
+    "drawn": 37,
+    "plays": 20,
+    "play_per_draw": 0.541,
+    "opportunity_turns": 0,
+    "opportunity_with_single_step": 0,
+    "used_on_opportunity": 0,
+    "plays_without_opportunity": 20,
+    "opportunities_not_used": 0,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": 0.0,
+    "plus5_per_opportunity_use": null,
+    "expired_unfired": 19,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 40
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 0.175,
+    "single_step_skips_per_seat": 0.175,
+    "jump_dist": {
+     "1": 7
+    },
+    "double_skip_turns": 0,
+    "synergy_cards_played_on_fire_turns": {}
+   },
+   "dj_both_seats": {
+    "seats": 80,
+    "drawn": 77,
+    "plays": 56,
+    "play_per_draw": 0.727,
+    "opportunity_turns": 8,
+    "opportunity_with_single_step": 6,
+    "used_on_opportunity": 5,
+    "plays_without_opportunity": 51,
+    "opportunities_not_used": 3,
+    "draw_fires": 0,
+    "plus5_fires": 0,
+    "plus5_per_play": 0.0,
+    "plus5_per_opportunity_use": 0.0,
+    "expired_unfired": 54,
+    "expired_after_draw": 0,
+    "growth_from_card_per_seat": {
+     "0": 80
+    },
+    "seats_over_15_from_card": 0,
+    "time_skips_per_seat": 1.012,
+    "single_step_skips_per_seat": 0.512,
+    "jump_dist": {
+     "1": 41,
+     "2": 22,
+     "3": 17,
+     "4": 1
+    },
+    "double_skip_turns": 3,
+    "synergy_cards_played_on_fire_turns": {}
+   }
+  },
+  "gap_A_minus_C:A": {
+   "diff": 0.087,
+   "ci95": [
+    -0.15,
+    0.325
+   ]
+  },
+  "gap_A_minus_C:B": {
+   "diff": 0.087,
+   "ci95": [
+    -0.175,
+    0.35
+   ]
+  },
+  "gap_change_B_minus_A": {
+   "diff": 0.0,
+   "ci95": [
+    -0.163,
+    0.163
+   ],
+   "groups": 20
+  }
+ },
+ "verdict": {
+  "too_strong": false,
+  "no_effect": false,
+  "removes_waiting": false,
+  "stop": false,
+  "adoptable": true
+ }
+}
