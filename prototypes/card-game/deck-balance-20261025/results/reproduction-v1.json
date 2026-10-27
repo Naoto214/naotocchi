@@ -1,0 +1,28 @@
+{
+ "source": "balance-verification-20261022-variety/runs/V1",
+ "rerun": 21,
+ "identical": 21,
+ "matches": [
+  "V1-rr-int-int:main~main:001:X-first",
+  "V1-rr-int-int:main~companion:001:X-first",
+  "V1-rr-int-int:main~challenge:001:X-first",
+  "V1-rr-int-int:main~growth:001:X-first",
+  "V1-rr-int-int:main~item:001:X-first",
+  "V1-rr-int-int:main~balance:001:X-first",
+  "V1-rr-int-int:companion~companion:001:X-first",
+  "V1-rr-int-int:companion~challenge:001:X-first",
+  "V1-rr-int-int:companion~growth:001:X-first",
+  "V1-rr-int-int:companion~item:001:X-first",
+  "V1-rr-int-int:companion~balance:001:X-first",
+  "V1-rr-int-int:challenge~challenge:001:X-first",
+  "V1-rr-int-int:challenge~growth:001:X-first",
+  "V1-rr-int-int:challenge~item:001:X-first",
+  "V1-rr-int-int:challenge~balance:001:X-first",
+  "V1-rr-int-int:growth~growth:001:X-first",
+  "V1-rr-int-int:growth~item:001:X-first",
+  "V1-rr-int-int:growth~balance:001:X-first",
+  "V1-rr-int-int:item~item:001:X-first",
+  "V1-rr-int-int:item~balance:001:X-first",
+  "V1-rr-int-int:balance~balance:001:X-first"
+ ]
+}

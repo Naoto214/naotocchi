@@ -1,0 +1,63 @@
+{
+ "humanA": {
+  "cpuSeat": "B",
+  "label": {
+   "mode": "choose",
+   "id": "partner",
+   "name": "こいびと・交際",
+   "seed": null
+  },
+  "list": "current",
+  "lovers": 6,
+  "restored": true,
+  "restoredList": "current",
+  "restoredSameCards": true
+ },
+ "humanB": {
+  "cpuSeat": "A",
+  "label": {
+   "mode": "choose",
+   "id": "partner",
+   "name": "こいびと・交際",
+   "seed": null
+  },
+  "list": "current",
+  "lovers": 6,
+  "restored": true,
+  "restoredList": "current",
+  "restoredSameCards": true
+ },
+ "guideFixed": "前回と同じ「こいびと・交際」で練習します。カードの並びは毎回変わります。",
+ "fixed": {
+  "label": {
+   "mode": "fixed",
+   "id": "partner",
+   "name": "こいびと・交際",
+   "seed": null
+  },
+  "list": "current"
+ },
+ "auto": {
+  "label": {
+   "mode": "auto",
+   "id": "main",
+   "name": "メイン成長",
+   "seed": 2334851733
+  },
+  "seedRecorded": true
+ },
+ "oldSave": {
+  "label": {
+   "mode": "choose",
+   "id": "partner",
+   "name": "こいびと・交際",
+   "seed": null
+  },
+  "difficulty": "beginner",
+  "list": "2026-10-22",
+  "lovers": 10,
+  "commands": 138
+ },
+ "horizontalOverflow": false,
+ "pageErrors": []
+}
