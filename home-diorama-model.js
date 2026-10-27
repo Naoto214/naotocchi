@@ -62,10 +62,29 @@
         const old=!initial&&!changed&&!reflow&&actor(a.key),previous=!initial&&previousScene.region===scene.region?previousActors.find(b=>b.key===a.key):null,worldPoint=previous&&previousScene.navigation?.unproject(previous),preserved=worldPoint&&scene.navigation?scene.navigation.project(worldPoint):previous,limited=limit(a,old||preserved||seed||(a.kind==='pet'&&terrainCentre)||a,scene),p=scene.navigation?.nearest(limited,bounds(a,scene))||limited;
         return {...a,...p,route:old?.route?.map(p=>({...p}))||[],temperament:{...a.temperament},target:old&&old.w===a.w&&old.h===a.h&&old.target?limit(a,old.target,scene):null,activity:old?.activity||'rest',direction:old?.direction||1,source:old?.source||'ambient',manualUntil:previousActors.find(b=>b.key===a.key)?.manualUntil??0,nextAt:old?.nextAt??clock+1+random()*3,lastWalk:old?.lastWalk??clock-12,recent:old?.recent||[],after:old?.after||'observe',faceKey:old?.faceKey||null,visualReaction:old?.visualReaction,visualTarget:old?.visualTarget,nextVisualAt:old?.nextVisualAt||0};
       });
+      // At capacity, individually separated seats can still form a closed ring
+      // around the main character. Reserve one short, terrain-safe exit while
+      // arranging a new/reflowed cast. Ordinary syncs never move established
+      // residents merely to recreate this initial corridor.
+      let exit=[];
+      const lead=actors.find(a=>a.kind==='pet');
+      const arrange=changed||actors.length!==previousActors.length||actors.some(a=>{const b=previousActors.find(b=>b.key===a.key);return !b||a.w!==b.w||a.h!==b.h;});
+      if(lead&&actors.length>5&&arrange&&scene.navigation?.segmentSafe){
+        const length=Math.max(40,lead.w*1.2),options=[];
+        for(let i=0;i<8;i++){
+          const end=limit(lead,{x:lead.x+Math.cos(i*Math.PI/4)*length,y:lead.y+Math.sin(i*Math.PI/4)*length},scene);
+          if(Math.hypot(end.x-lead.x,end.y-lead.y)<length*.8||!scene.navigation.segmentSafe(lead,end,p=>visible(lead,p)))continue;
+          const points=[];
+          // Sample the same three-pixel spacing used by terrain routes.
+          for(let j=0,n=Math.ceil(length/3);j<=n;j++)points[j]={x:lead.x+(end.x-lead.x)*j/n,y:lead.y+(end.y-lead.y)*j/n};
+          options.push({points,cost:actors.filter(a=>a!==lead&&points.some(p=>!separated(lead,p,a))).length});
+        }
+        options.sort((a,b)=>a.cost-b.cost);exit=options[0]?.points||[];
+      }
       // Keep established actors stable; seat new/reshaped arrivals in the nearest free spot.
       const seated=[];
       for(const a of [...actors].sort((a,b)=>Number(retained.has(b.key))-Number(retained.has(a.key)))){
-        const fits=p=>(!scene.navigation||scene.navigation.valid(p))&&seated.every(b=>separated(a,p,b))&&visible(a,p);
+        const fits=p=>(!scene.navigation||scene.navigation.valid(p))&&seated.every(b=>separated(a,p,b))&&visible(a,p)&&(a===lead||exit.every(q=>separated(lead,q,{...a,x:p.x,y:p.y})));
         if(!fits(a)){
           const b=bounds(a,scene),candidates=[];
           for(let y=b.top;y<=b.bottom+7;y+=8)for(let x=b.left;x<=b.right+7;x+=8){

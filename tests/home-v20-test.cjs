@@ -67,3 +67,19 @@ test('finding a nearest safe seat does not build unused path edges',async()=>{
  assert.deepEqual(nav.nearest({x:10,y:50},{left:0,right:100,top:0,bottom:100}),{x:30,y:50});
  assert.ok(checks<=122,'nearest needs one validity sample per node, not all sampled graph edges');
 });
+
+test('375px river cast leaves the main character a walkable exit at 28 residents',async()=>{
+ const {composeHomeWorld,createHomeNavigation}=await import('../home-world.mjs');
+ const {createModel}=require('../home-diorama-model.js');
+ const list=require('./fixtures/home-v20-river-crowded.json').map(a=>({...a,kind:a.key.split(':')[0],id:a.key.split(':')[1],extent:{top:a.h+12}}));
+ const nav=createHomeNavigation(M,composeHomeWorld(M,'river_lake'),{width:375,height:844,anchorY:170+362*.8,offsetX:16,offsetY:170,stageWidth:343,stageHeight:374});
+ // Preserve the actual failing CI positions rather than replacing them with a new seed.
+ delete nav.initialPoint;
+ const model=createModel({random:()=>.5});model.sync(list,{region:'river_lake',width:343,height:374,groundTop:24,navigation:nav});
+ const a=model.snapshot()[0],b=model.bounds(a);assert.equal(model.snapshot().length,28);
+ assert.ok(Math.hypot(a.x-list[0].x,a.y-list[0].y)<.01,'main focal position stays put');
+ const targets=[{x:b.right,y:b.bottom-5},{x:b.left,y:b.bottom-5},{x:a.x+40,y:a.y},{x:a.x-40,y:a.y},{x:a.x,y:a.y+35},{x:a.x,y:a.y-35}];
+ assert.ok(targets.some(p=>model.move(a.key,p,'ground')),'a nearby legal walk must be possible');
+ for(let i=0;i<20;i++){model.step(.1,{autonomy:false});assert.ok(model.snapshot().every(p=>nav.valid(p)),'every resident stays on safe ground');}
+ const after=model.snapshot()[0];assert.ok(Math.hypot(after.x-a.x,after.y-a.y)>10,'walk proceeds beyond a tiny nudge');
+});
