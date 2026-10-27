@@ -1,5 +1,5 @@
 {
-  "canonical_edition": "第三十八稿・川岸描写修正版",
+  "canonical_edition": "第三十八稿＋川岸2修正＋version 19承認済み2か所修正",
   "approved_edits": [
     {
       "index": 268,
@@ -13,7 +13,7 @@
     }
   ],
   "historical_pdf_sha256": "223a56946527739ba55bded2717ad73b32666f7ad899e95f719879a1a70349ba",
-  "paragraph_records": 395,
+  "paragraph_records": 396,
   "rendered_pdf_lines": 426,
   "chapters": 6,
   "line_policy": "PDFのTj各行を改行として保持。段落はBT/ET単位。ページ番号のみ除外。",
@@ -38,5 +38,7 @@
       "art-dream-flower.png",
       "川沿いの道端に、小さな白い花が咲いている。"
     ]
-  ]
+  ],
+  "version19_edits": "approved-edits-v19.json",
+  "reader_source_ids": "reader-source-ids.json"
 }
