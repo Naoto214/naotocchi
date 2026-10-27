@@ -45,3 +45,8 @@ Owner iPhone Safari QA still required: touch/drag, small-width28 visibility and 
 
 ## Full-suite completion
 The bounded-concurrency4 command (same package.json test list, no skipped tests) exited0:3,659 Node tests across7 blocks, all0 failures, plus smoke/dialogue/visual scripts. It started before the final Home route/escape follow-ups; the final affected Home/navigation/adapter/asset suite was rerun separately:60/60. Therefore final-HEAD CI is still required; this is not a fresh full-suite run of that final HEAD. [Full log](full-suite.log.gz) · [Final focused log](focused.log).
+
+## Crowded river follow-up
+A synchronous hotspot was isolated: nearest-seat queries eagerly constructed every routing edge for each different actor bound. Nodes are now cached independently; edges are materialized only for an actual route. The exact320px river/28-bounds benchmark dropped115,108→4,916 terrain checks and2,570→138ms with identical seat outputs (Node development environment, not iPhone). New regression failed before and passes after. Final focused suite61/61.
+
+320px river28 now renders; all28 are on valid terrain. Two conservative visibility probes report partial occlusion near the wheel/rock, while the protagonist remains central and visible. This dense view needs owner QA. [Screenshot](river-320-28.jpg). Continuous48-case validation is rerunning; do not infer a pass until its final report.

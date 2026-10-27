@@ -9,9 +9,11 @@ export function createTerrainNavigation({width,height,project,unproject,walkable
  const cache=new Map();
  function grid(bounds){const key=JSON.stringify(bounds);if(cache.has(key))return cache.get(key);const nodes=[];
   for(let y=bounds.top;y<=bounds.bottom;y+=cell)for(let x=bounds.left;x<=bounds.right;x+=cell)if(valid({x,y}))nodes.push({x,y});
+  let edges;const buildEdges=()=>{if(edges)return edges;
   const byKey=new Map(nodes.map((p,i)=>[Math.round((p.x-bounds.left)/cell)+','+Math.round((p.y-bounds.top)/cell),i]));
-  const edges=nodes.map(p=>{const out=[],gx=Math.round((p.x-bounds.left)/cell),gy=Math.round((p.y-bounds.top)/cell);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const i=byKey.get((gx+dx)+','+(gy+dy));if(i!==undefined&&segmentSafe(p,nodes[i]))out.push(i);}return out;});
-  const g={nodes,edges};if(cache.size>16)cache.clear();cache.set(key,g);return g;
+  edges=nodes.map(p=>{const out=[],gx=Math.round((p.x-bounds.left)/cell),gy=Math.round((p.y-bounds.top)/cell);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const i=byKey.get((gx+dx)+','+(gy+dy));if(i!==undefined&&segmentSafe(p,nodes[i]))out.push(i);}return out;});
+  return edges;};
+  const g={nodes,get edges(){return buildEdges();}};if(cache.size>16)cache.clear();cache.set(key,g);return g;
  }
  function nearest(p,bounds,predicate=()=>true){const q={x:Math.max(bounds.left,Math.min(bounds.right,p.x)),y:Math.max(bounds.top,Math.min(bounds.bottom,p.y))};if(valid(q)&&predicate(q))return q;let best=null,d=Infinity;for(const n of grid(bounds).nodes){const dist=Math.hypot(n.x-q.x,n.y-q.y);if(dist<d&&predicate(n)){best=n;d=dist;}}return best?{...best}:null;}
  function route(from,to,bounds,predicate=()=>true){

@@ -61,3 +61,9 @@ test('crowded fallback overlap can escape without worsening separation',async()=
  for(let i=0;i<30;i++){m.step(.1,{autonomy:false});const [a,b]=m.snapshot(),distance=Math.hypot(b.x-a.x,b.y-a.y);assert.ok(distance>=previous);previous=distance;}
  assert.equal(m.snapshot()[1].x,110);
 });
+test('finding a nearest safe seat does not build unused path edges',async()=>{
+ const {createTerrainNavigation}=await import('../home-terrain-navigation.mjs');let checks=0;
+ const nav=createTerrainNavigation({width:100,height:100,project:p=>p,unproject:p=>({...p,z:0}),walkable:p=>{checks++;return p.x>20;},cell:10});
+ assert.deepEqual(nav.nearest({x:10,y:50},{left:0,right:100,top:0,bottom:100}),{x:30,y:50});
+ assert.ok(checks<=122,'nearest needs one validity sample per node, not all sampled graph edges');
+});
