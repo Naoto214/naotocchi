@@ -47,7 +47,9 @@ function stepValue(steps,o,a,prof=PROFILES.intermediate){
  case 'handBottom':case 'handTop':v=-3;break;
  case 'schedule':v=stepValue(s.steps,o,a,prof)*(o.round===10?.1:.65);break;
  // targetPresent re-checks the action's own target, which is on the field whenever the action is offered.
- case 'if':v=stepValue(s.steps,o,a,prof)*(s.condition==='targetPresent'&&a.target?1:.45);break;
+ case 'if':v=stepValue(s.steps,o,a,prof)*(s.condition==='targetPresent'&&a.target?1:s.condition==='singleStageTimeSkip'?(a.timeSkipAfter?.includes(1)?1:0):.45);break;
+ // A reserved time-skip effect is only worth something when a time-skip is still affordable this turn after paying for it.
+ case 'reserve':v=s.when==='time_skip'?(a.timeSkipAfter?.length?stepValue(s.steps,o,a,prof):-20):s.steps?.length?stepValue(s.steps,o,a,prof)*.5:1;break;
  case 'chance':v=stepValue(s.steps,o,a,prof)*Math.max(0,Math.min(1,Number(s.p)||0));break;
  case 'coin':v=5;break;
  case 'growthVariant':v=Math.min(5,a.variant==='opponent'?opp.growth:100-p.growth)*(o.round>=8?2.2:1.6);break;
@@ -84,7 +86,7 @@ export function scoreCpuAction(a,o,spendOf=legacySpend,prof=PROFILES.intermediat
  if(a.kind==='skip')return -0.1;
  const spend=spendOf(a,o);
  if(a.kind==='place'){
-  if(a.slot==='main'){if(a.variant==='birth')return 40+Math.max(c?.power??0,c?.wisdom??0)-spend;const improvement=Math.max(c?.power??0,c?.wisdom??0)-Math.max(p.stats?.power??0,p.stats?.wisdom??0);return (a.variant==='time_skip'?13:0)+improvement*2+(c?.stage??0)-(b.main?.stage??0)-spend;}
+  if(a.slot==='main'){if(a.variant==='birth')return 40+Math.max(c?.power??0,c?.wisdom??0)-spend;const improvement=Math.max(c?.power??0,c?.wisdom??0)-Math.max(p.stats?.power??0,p.stats?.wisdom??0);return (a.variant==='time_skip'?13+Math.min(a.timeSkipBonus??0,100-p.growth)*growthMult(o):0)+improvement*2+(c?.stage??0)-(b.main?.stage??0)-spend;}
   if(a.slot==='partner')return 20+(b.main?6:0);
   if(a.slot==='companions')return a.target?cardValue(c,o)-cardValue(a.target,o)-2:15;
   if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;
@@ -104,6 +106,8 @@ export function scoreCpuAction(a,o,spendOf=legacySpend,prof=PROFILES.intermediat
  if(a.costCard)value-=cardValue(a.costCard,o)*.25;
  if(['play','programPlay'].includes(a.kind))value-=3;
  value-=spend;
+ // Play a reserved time-skip effect before the time-skip it waits for: the pair is worth at least the best such time-skip.
+ if(a.timeSkipAfter?.length){const left=(p.time??0)-(a.cost??0);value+=Math.max(0,...o.actions.filter(x=>x.kind==='place'&&x.variant==='time_skip'&&(x.cost??0)<=left).map(x=>scoreCpuAction(x,o,spendOf,prof)));}
  if(a.mandatory)return Math.max(1,value);
  if(!['programPlay','play','programAbility','ability','trigger'].includes(a.kind))throw Error('Unknown CPU action kind: '+a.kind);
  return value;
@@ -115,7 +119,9 @@ export function timeOpportunity(o,prof=PROFILES.intermediate){
  const own=o.turn===o.seat;if(prof.time!=='opportunity'||!(own&&o.phase==='normal')&&own)return null;
  const t=o.players[o.seat].time??0,base=o.actions.map(a=>scoreCpuAction(a,o,()=>0,prof));
  return o.actions.map((a,i)=>{const c=a.cost??0;if(c<=0)return base[i];const left=t-c;
-  let alt=0;o.actions.forEach((b,j)=>{if(j!==i&&(b.cost??0)>left&&(b.cost??0)>0&&!(a.card&&b.card?.id===a.card.id)&&!['pass','choose','skip'].includes(b.kind))alt=Math.max(alt,base[j]);});
+  // A reserved time-skip effect does not give up a time-skip that is still affordable afterwards (e.g. a cheaper quote of it).
+  const keptSkip=b=>a.timeSkipAfter?.length&&b.kind==='place'&&b.variant==='time_skip'&&o.actions.some(x=>x.kind==='place'&&x.variant==='time_skip'&&x.card?.id===b.card?.id&&(x.cost??0)<=left);
+  let alt=0;o.actions.forEach((b,j)=>{if(j!==i&&(b.cost??0)>left&&(b.cost??0)>0&&!(a.card&&b.card?.id===a.card.id)&&!['pass','choose','skip'].includes(b.kind)&&!keptSkip(b))alt=Math.max(alt,base[j]);});
   const reserve=own&&(o.reactive??[]).some(r=>r.id!==a.card?.id&&r.cost<=t&&r.cost>left)?3:0;
   return base[i]-Math.max(alt,reserve);});
 }

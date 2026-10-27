@@ -532,7 +532,7 @@ export const CATALOG = {
     "rare": false,
     "text": "たまごを除く自分の場のカードが7枚以上なら、自分のそだち+10。9枚あるなら、さらに自分のそだち+5。",
     "source": "85-play-batch-4-card-text-draft.md#G-area-claim — じんとり",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-asteroids-classic": {
@@ -576,7 +576,7 @@ export const CATALOG = {
     "rare": false,
     "text": "このターンに自分のなかまの能力の効果が適用されている場合に発動できる。自分のメイン1枚を対象とし、このターンちから+2。",
     "source": "85-play-batch-4-card-text-draft.md#G-beach-volley — ビーチバレー",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-billiards-6": {
@@ -675,7 +675,7 @@ export const CATALOG = {
     "rare": false,
     "text": "このターン自分がちょうせんで勝っている場合に発動できる。相手のしかけてあるカード1枚と相手の装備カード1枚を対象とする。しかけてある対象を手札に戻す。戻したなら、装備の対象も手札に戻す。",
     "source": "85-play-batch-4-card-text-draft.md#G-checkers-6 — チェッカー",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-connect-four": {
@@ -708,7 +708,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分がちょうせんで引き分けた時に発動できる。自分のそだち+5し、1枚引く。",
     "source": "85-play-batch-4-card-text-draft.md#G-curling-ice — カーリング",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "しかける"
   },
   "G-curling-winter": {
@@ -741,7 +741,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分があいてむを表向きでプレイした時に発動できる。このターン、自分が次にあそびを表向きでプレイした時、自分のそだち+5し、1枚引く。",
     "source": "85-play-batch-4-card-text-draft.md#G-domino-run — ドミノたおし",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "しかける"
   },
   "G-doodle-jump": {
@@ -750,9 +750,9 @@ export const CATALOG = {
     "type": "play",
     "cost": 1,
     "rare": false,
-    "text": "このターン、自分が次にときおくりを行った時に1枚引き、その次にときおくりを行った時に自分のそだち+5。",
+    "text": "このターン、自分が次にときおくりを行った時、1枚引く。そのときおくりで段階が1つだけ上がった場合、さらに自分のそだち+5。",
     "source": "85-play-batch-4-card-text-draft.md#G-doodle-jump — ぴょんぴょんジャンプ",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-dot-eater": {
@@ -763,7 +763,7 @@ export const CATALOG = {
     "rare": false,
     "text": "2枚引く。その後、相手のそだち+5。",
     "source": "85-play-batch-4-card-text-draft.md#G-dot-eater — ドットイーター",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-downhill-mountain": {
@@ -928,7 +928,7 @@ export const CATALOG = {
     "rare": false,
     "text": "ちょうせん中、このカードより前にこのターン自分があそびを2枚以上表向きでプレイしている場合に発動できる。自分の参加メインを対象とし、この勝負中ちから+3。この勝負で自分が負けた時、自分のそだち-5。",
     "source": "85-play-batch-4-card-text-draft.md#G-halfpipe-skate — ハーフパイプ",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-hang-glider-3d": {
@@ -972,7 +972,7 @@ export const CATALOG = {
     "rare": false,
     "text": "発動コストとして自分の準備枠のカード1枚を持ち主の手札に戻す。自分の準備枠にカードが2枚あるなら2枚引き、そうでなければ1枚引く。",
     "source": "85-play-batch-4-card-text-draft.md#G-jenga-tower — ジェンガ",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-jump-quest": {
@@ -994,7 +994,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分の準備枠のカード1枚と自分のセカイ1枚を対象とし、それぞれ持ち主の手札に戻す。両方戻したなら、1枚引く。",
     "source": "85-play-batch-4-card-text-draft.md#G-lights-out — ライツアウト",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-line-trace": {
@@ -1005,7 +1005,7 @@ export const CATALOG = {
     "rare": false,
     "text": "お互いのたまごではないメインが同じ段階なら発動できる。自分のそだち+5。お互いのメインに書かれたちからも同じなら、1枚引く。",
     "source": "85-play-batch-4-card-text-draft.md#G-line-trace — せんなぞり",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-lunar-lander": {
@@ -1016,7 +1016,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。",
     "source": "85-play-batch-4-card-text-draft.md#G-lunar-lander — ルナランダー",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-mancala-kalah": {
@@ -1027,7 +1027,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分の捨て札の異なるカード種3枚を対象とし、発動時に手札・山札の一番上・一番下へ置く1枚ずつを決める。手札、山札上、山札下の順で、対象を決めた先へ移す。",
     "source": "85-play-batch-4-card-text-draft.md#G-mancala-kalah — マンカラ",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-match-3": {
@@ -1049,7 +1049,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分の捨て札の同名のカード2枚を対象とする。対象の2枚がどちらも捨て札にあるなら、1枚を選んで山札の一番下に置く。置いたなら、もう1枚を手札に戻す。",
     "source": "85-play-batch-4-card-text-draft.md#G-memory-cards — しんけいすいじゃく",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-minesweeper-8": {
@@ -1082,7 +1082,7 @@ export const CATALOG = {
     "rare": false,
     "text": "相手が時コスト2以下のアクションカードを発動し、自分の場のカードを対象にした時に発動できる。その発動を対象とし、効果を無効にする。このカードの発動時、その発動が自分の場のカード2枚以上を対象としていたなら、1枚引く。",
     "source": "85-play-batch-4-card-text-draft.md#G-missile-command — ミサイルコマンド",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "しかける"
   },
   "G-p3-drive": {
@@ -1115,7 +1115,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分のメイン1枚を対象とする。対象がメイン枠にいるなら山札上4枚を公開し、その中から対象と同じ属性で段階が1つ高いメイン1枚までを手札に加える。残りを好きな順で山札下へ置く。",
     "source": "85-play-batch-4-card-text-draft.md#G-picross-5 — ピクロス",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-pinball-physics": {
@@ -1159,7 +1159,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分のターンに発動できる。このターン終了時、自分の手札がちょうど2枚なら、自分のそだち+10。",
     "source": "85-play-batch-4-card-text-draft.md#G-plane-landing — ひこうき着陸",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-push-puzzle": {
@@ -1478,7 +1478,7 @@ export const CATALOG = {
     "rare": false,
     "text": "自分の捨て札のカード種がすべて異なる5枚を対象とし、好きな順で山札の一番下に置く。5枚すべてを置いたなら、自分のそだち+10。",
     "source": "85-play-batch-4-card-text-draft.md#G-sudoku-mini — ナンプレ",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-sugoroku-race": {
@@ -1566,7 +1566,7 @@ export const CATALOG = {
     "rare": false,
     "text": "このラウンド、自分が参加したちからのちょうせんとちえのちょうせんが、それぞれ1回以上完了している場合に発動できる。自分のそだち+10し、1枚引く。",
     "source": "85-play-batch-4-card-text-draft.md#G-track-field — りくじょう",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "G-voxel-mine": {
@@ -1588,7 +1588,7 @@ export const CATALOG = {
     "rare": false,
     "text": "山札の上から3枚を見て候補にする。候補1枚を山札下へ置き、代わりに山札上1枚を候補にする操作を2回まで行ってよい。最後に候補1枚までを手札に加え、残りを好きな順で山札下へ置く。",
     "source": "85-play-batch-4-card-text-draft.md#G-yacht-dice — ヨット",
-    "source_sha256": "a27d727e0254953b012edc9a47a643990640982bb7f00ecdc2b50b454701c24b",
+    "source_sha256": "058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a3fb5",
     "method": "すぐつかう"
   },
   "I-bond1": {
