@@ -1,5 +1,5 @@
 const mount=document.getElementById('mount'),out=document.getElementById('out');
-const settle=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+const settle=()=>new Promise(r=>setTimeout(r,25));
 async function frame(width,hash=''){mount.replaceChildren();const f=document.createElement('iframe');f.style.cssText=`width:${width}px;height:844px;border:0`;mount.append(f);await new Promise(r=>{f.onload=r;f.src='index.html'+hash});f.contentDocument.documentElement.style.scrollbarWidth='none';await f.contentDocument.fonts.ready;await settle();return f}
 document.getElementById('cover').onclick=()=>{out.hidden=true;return frame(390)};
 document.getElementById('prose').onclick=()=>{out.hidden=true;return frame(390,'#chapter-1')};
@@ -27,7 +27,14 @@ document.getElementById('run').onclick=async()=>{
   const p=ps[0].getBoundingClientRect(),cs=w.getComputedStyle(ps[0]);
   const menu=d.getElementById('reader-menu');menu.open=true;d.querySelector('nav a[href="#chapter-6"]').click();await settle();
   const h=d.querySelector('#chapter-6 h2').getBoundingClientRect(),bar=d.querySelector('.toolbar').getBoundingClientRect();
-  results.push({width,viewport:w.innerWidth,size,computedSize:cs.fontSize,textOK:JSON.stringify(actual)===JSON.stringify(expected.slice(2).map(x=>x.text)),chapters:d.querySelectorAll('.chapter').length,images:d.querySelectorAll('img,figure,picture').length,overflow:d.documentElement.scrollWidth>w.innerWidth,left:p.left,right:w.innerWidth-p.right,wrap:cs.textWrap,indent:cs.textIndent,clipped,badStart,badEnd,orphans,menuClosed:!menu.open,chapterVisible:h.top>=bar.bottom&&h.top<bar.bottom+80});
+  const headings=[];
+  for(const heading of d.querySelectorAll('.chapter h2')){
+   d.querySelector('nav a[href="#'+heading.closest('.chapter').id+'"]').click();await settle();
+   const hr=heading.getBoundingClientRect(),nr=heading.querySelector('.chapter-number').getBoundingClientRect(),tr=heading.querySelector('.chapter-title').getBoundingClientRect();
+   headings.push({text:heading.textContent,gap:tr.left-nr.right,oneLine:hr.height<40,left:hr.left,right:hr.right,visible:hr.top>=d.querySelector('.toolbar').getBoundingClientRect().bottom,clipped:tr.right>w.innerWidth||tr.left<0});
+  }
+  const title=d.querySelector('h1'),ts=w.getComputedStyle(title),paper=w.getComputedStyle(d.documentElement).backgroundColor;
+  results.push({headings,paper,titleColor:ts.color,titleWidth:title.getBoundingClientRect().width,width,viewport:w.innerWidth,size,computedSize:cs.fontSize,textOK:JSON.stringify(actual)===JSON.stringify(expected.slice(2).map(x=>x.text)),chapters:d.querySelectorAll('.chapter').length,images:d.querySelectorAll('img,figure,picture').length,overflow:d.documentElement.scrollWidth>w.innerWidth,left:p.left,right:w.innerWidth-p.right,wrap:cs.textWrap,indent:cs.textIndent,clipped,badStart,badEnd,orphans,menuClosed:!menu.open,chapterVisible:h.top>=bar.bottom&&h.top<bar.bottom+80});
   out.textContent=JSON.stringify({complete:false,results},null,2);
  }
  out.textContent=JSON.stringify({complete:true,total:results.length,results},null,2);
