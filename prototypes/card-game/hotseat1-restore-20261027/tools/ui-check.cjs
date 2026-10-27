@@ -28,14 +28,16 @@ const RK='naotocchi-card-records-v1';
  // 3 hotseat-2 mid/finished
  for(const r of h2){p=await open();R.push({case:'hotseat-2 決着済み '+r.case,msg:await restore(p,JSON.stringify(r.save)),state:await state(p),errors:p.errs});
   R.push({case:'hotseat-2 途中 '+r.case,msg:await restore(p,JSON.stringify({...r.save,commands:r.save.commands.slice(0,r.triggerRevision-5)})),state:await state(p)});await p.context().close();}
- // 4 hotseat-3 mid/finished with records metadata: finished records exactly once
+ // 4 hotseat-3 and the current version: mid/finished with records metadata; finished records exactly once each
  p=await open();
- const h3=await p.evaluate(async()=>{const e=await import('./engine.mjs');const {newMetadata,encodeMatch}=await import('./records-match.mjs');const decks={A:{id:null,name:'A',cards:[...e.DEFAULT_DECK]},B:{id:null,name:'B',cards:[...e.DEFAULT_DECK]}};
-  let s=e.createGame(34);for(let i=0;i<5000&&s.phase!=='finished';i++){const a=e.legalActions(s);s=e.act(s,e.actor(s),s.revision,a[Math.floor(i*104729%a.length)].id);}
-  const mid=e.restore(JSON.stringify({...JSON.parse(e.save(s)),commands:s.commands.slice(0,40)}));
-  return {fin:encodeMatch(e.save(s),newMetadata({mode:'hotseat',decks})),mid:encodeMatch(e.save(mid),newMetadata({mode:'hotseat',decks})),winner:s.result.winner};});
- R.push({case:'hotseat-3 途中',msg:await restore(p,h3.mid),state:await state(p)});
- R.push({case:'hotseat-3 決着済み',msg:await restore(p,h3.fin),state:await state(p),winner:h3.winner});
- R.push({case:'hotseat-3 決着済み 再復帰（二重計上なし）',msg:await restore(p,h3.fin),state:await state(p),errors:p.errs});
+ const versions=await p.evaluate(async()=>{const e=await import('./engine.mjs');return [...new Set(['hotseat-3',e.VERSION])];});
+ for(const [i,version] of versions.entries()){
+  const h3=await p.evaluate(async ({version,seed})=>{const e=await import('./engine.mjs');const {newMetadata,encodeMatch}=await import('./records-match.mjs');const decks={A:{id:null,name:'A',cards:[...e.DEFAULT_DECK]},B:{id:null,name:'B',cards:[...e.DEFAULT_DECK]}};
+   let s=e.createGame(seed,undefined,version);for(let i=0;i<5000&&s.phase!=='finished';i++){const a=e.legalActions(s);s=e.act(s,e.actor(s),s.revision,a[Math.floor(i*104729%a.length)].id);}
+   const mid=e.restore(JSON.stringify({...JSON.parse(e.save(s)),commands:s.commands.slice(0,40)}));
+   return {fin:encodeMatch(e.save(s),newMetadata({mode:'hotseat',decks})),mid:encodeMatch(e.save(mid),newMetadata({mode:'hotseat',decks})),winner:s.result.winner};},{version,seed:34+i});
+  R.push({case:version+' 途中',msg:await restore(p,h3.mid),state:await state(p)});
+  R.push({case:version+' 決着済み',msg:await restore(p,h3.fin),state:await state(p),winner:h3.winner});
+  R.push({case:version+' 決着済み 再復帰（二重計上なし）',msg:await restore(p,h3.fin),state:await state(p),errors:p.errs});}
  await p.screenshot({path:OUT+'/hotseat3-finished.png'});
  console.log(JSON.stringify(R,null,1));await b.close();})();

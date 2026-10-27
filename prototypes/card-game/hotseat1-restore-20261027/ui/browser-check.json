@@ -139,5 +139,40 @@
    "overflow": false
   },
   "errors": []
+ },
+ {
+  "case": "hotseat-4 途中",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-4",
+   "commands": 42,
+   "hasMeta": true,
+   "records": 1,
+   "overflow": false
+  }
+ },
+ {
+  "case": "hotseat-4 決着済み",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-4",
+   "commands": 299,
+   "hasMeta": true,
+   "records": 2,
+   "overflow": false
+  },
+  "winner": "A"
+ },
+ {
+  "case": "hotseat-4 決着済み 再復帰（二重計上なし）",
+  "msg": "保存を検証して復帰しました",
+  "state": {
+   "version": "hotseat-4",
+   "commands": 299,
+   "hasMeta": true,
+   "records": 2,
+   "overflow": false
+  },
+  "errors": []
  }
 ]

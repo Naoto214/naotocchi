@@ -1,10 +1,10 @@
-# GREEN: node --test prototypes/card-game/tests/hotseat1-restore.test.mjs
+# GREEN: node --test prototypes/card-game/tests/hotseat1-restore.test.mjs（main 983c7db0 取り込み後）
 ok 1 - hotseat-1 途中保存：続きから復帰でき、操作列・seed は変わらない
 ok 2 - hotseat-1 途中保存：復帰後に合法な操作ができ、再保存・再復帰できる
 ok 3 - hotseat-1 決着済み保存：復帰でき、戦績には記録しない（二重計上もしない）
 ok 4 - hotseat-1 の破損・改変は拒否する
 ok 5 - hotseat-2：途中・決着済みとも従来どおり（デッキ不明の旧セーブとして戦績に接続）
-ok 6 - hotseat-3：途中・決着済みとも保存と戦績が従来どおり、A/B 席別に集計し、二重計上しない
+ok 6 - hotseat-3・現行版：途中・決着済みとも保存と戦績が従来どおり、A/B 席別に集計し、二重計上しない
 ok 7 - CPU 初級・中級：保存・復帰で設定と戦績情報を保つ
 ok 8 - 戦績の台帳（書き出し・読み込み・バックアップ）は hotseat-1 の復帰で変わらない
 ok 9 - hotseat-1 の表示：現行のカード面に必要な属性・姿だけを補い、ルール・本文・状態は変えない
@@ -13,4 +13,4 @@ ok 9 - hotseat-1 の表示：現行のカード面に必要な属性・姿だけ
 # fail 0
 
 # node --test prototypes/card-game/tests/*.test.mjs
-# tests 445 / pass 445 / fail 0
+# tests 467 / pass 467 / fail 0

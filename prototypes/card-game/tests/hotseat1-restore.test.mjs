@@ -56,17 +56,19 @@ test('hotseat-2：途中・決着済みとも従来どおり（デッキ不明�
   assert.equal(decodeMatch(JSON.stringify(save)).metadata.id,metadata.id,'同じ旧セーブは同じIDになる');}}
 });
 
-function playHotseat(seed,limit){let s=e.createGame(seed);for(let i=0;i<limit&&s.phase!=='finished';i++){const a=e.legalActions(s);s=e.act(s,e.actor(s),s.revision,(a.find(x=>x.kind!=='pass')??a[0]).id);}return s;}
-test('hotseat-3：途中・決着済みとも保存と戦績が従来どおり、A/B 席別に集計し、二重計上しない',()=>{
+function playHotseat(seed,limit,version=e.VERSION){let s=e.createGame(seed,undefined,version);for(let i=0;i<limit&&s.phase!=='finished';i++){const a=e.legalActions(s);s=e.act(s,e.actor(s),s.revision,(a.find(x=>x.kind!=='pass')??a[0]).id);}return s;}
+test('hotseat-3・現行版：途中・決着済みとも保存と戦績が従来どおり、A/B 席別に集計し、二重計上しない',()=>{
+ for(const version of [...new Set(['hotseat-3',e.VERSION])]){
  const decks={A:{id:'deck-a',name:'Aデッキ',cards:[...e.DEFAULT_DECK]},B:{id:'deck-b',name:'Bデッキ',cards:[...e.DEFAULT_DECK]}};
- const mid=playHotseat(31,30),meta=newMetadata({mode:'hotseat',decks});const r1=decodeMatch(encodeMatch(e.save(mid),meta));assert.equal(r1.metadata.id,meta.id);assert.equal(r1.session.finished,false);
- let fin=e.createGame(32);for(let i=0;i<5000&&fin.phase!=='finished';i++){const a=e.legalActions(fin);fin=e.act(fin,e.actor(fin),fin.revision,a[Math.floor(i*7919%a.length)].id);}
- assert.equal(fin.phase,'finished');const m2=newMetadata({mode:'hotseat',decks});const r2=decodeMatch(encodeMatch(e.save(fin),m2));assert.equal(JSON.parse(r2.session.save()).version,'hotseat-3');
+ const mid=playHotseat(31,30,version),meta=newMetadata({mode:'hotseat',decks});const r1=decodeMatch(encodeMatch(e.save(mid),meta));assert.equal(r1.metadata.id,meta.id);assert.equal(r1.session.finished,false);
+ let fin=e.createGame(32,undefined,version);for(let i=0;i<5000&&fin.phase!=='finished';i++){const a=e.legalActions(fin);fin=e.act(fin,e.actor(fin),fin.revision,a[Math.floor(i*7919%a.length)].id);}
+ assert.equal(fin.phase,'finished');const m2=newMetadata({mode:'hotseat',decks});const r2=decodeMatch(encodeMatch(e.save(fin),m2));assert.equal(JSON.parse(r2.session.save()).version,version);assert.equal(JSON.parse(r1.session.save()).version,version);
  const store=new RecordsStore(new Mem()),seen=new Set();assert.equal(recordFinished(store,r2.session,r2.metadata,seen),true);
  assert.equal(recordFinished(store,r2.session,r2.metadata,seen),false);store.add(buildRecord(e.restore(r2.session.save()),r2.metadata,Date.now()));
  assert.equal(store.records.length,1,'同じ対戦IDは1件');
  const sum=summarize(store.records,{scope:'hotseat-A'}),w=fin.result.winner;assert.equal(sum.hotseat.total,1);
  assert.equal(sum.hotseat.A.wins,w==='A'?1:0);assert.equal(sum.hotseat.B.wins,w==='B'?1:0);assert.equal(sum.hotseat.A.total,1);assert.equal(sum.hotseat.B.total,1);assert.equal(sum.cpu.total,0);
+}
 });
 
 test('CPU 初級・中級：保存・復帰で設定と戦績情報を保つ',()=>{

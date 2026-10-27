@@ -1,0 +1,3045 @@
+[
+ {
+  "id": "C-shiba",
+  "name": "ひとなつっこいしばいぬ",
+  "type": "companion",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 0,
+  "rare": false,
+  "text": "1ターンに1回。自分がときおくりを行った時、発動できる。このターン、自分が次に「みにつける」でカードをプレイするための時を1少なくする。",
+  "trigger": "skip_related",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "ときおくりを行うターンに得る（低段階から育てるほど機会が多い）",
+  "wait_loss": "待機中は機会がない",
+  "direct_high": "直接高段階では機会が減る",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1221,
+   "play_per_draw": 0.931,
+   "activate_per_play": 1.048,
+   "stuck_per_draw": 0.037
+  }
+ },
+ {
+  "id": "E-fateful-transform",
+  "name": "うんめいのへんしん",
+  "type": "event",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "自分のメインがいる場合に発動できる。このターン、自分が次にへんしんするための時を2少なくする。",
+  "trigger": "transform_related",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "メインがいる時のへんしんに得る",
+  "wait_loss": "待機中は不成立",
+  "direct_high": "中立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 946,
+   "play_per_draw": 0.46,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.035
+  }
+ },
+ {
+  "id": "E-midlife-album",
+  "name": "昔のアルバム",
+  "type": "event",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "自分の捨て札に、互いに段階が異なるメインが3枚以上ある場合に発動できる。山札上3枚を見て、その中から2枚までを手札に加える。残りを好きな順で山札の一番下に置く。その後、手札1枚を山札の一番下に置く。",
+  "trigger": "stage_ref",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": null
+ },
+ {
+  "id": "E-mirror",
+  "name": "としをとったじぶん",
+  "type": "event",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 1,
+  "rare": false,
+  "text": "自分のメイン1枚を対象として発動できる。山札上5枚を見る。対象が自分のメイン枠にいる場合、その中から対象と同じ種族で、対象より段階が高いメイン1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "stage_ref",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 4140,
+   "drawn": 4730,
+   "play_per_draw": 0.347,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.493
+  }
+ },
+ {
+  "id": "G-connect-four",
+  "name": "コネクトフォー",
+  "type": "play",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "自分の場にたまごではないメイン・なかま・こいびと・表向きのあいてむが1枚以上ずつある場合に発動できる。自分のそだち+10。",
+  "trigger": "egg_ref",
+  "gives": [
+   "そだち"
+  ],
+  "early_gain": "たまご中に使う／たまごでないメインを要求",
+  "wait_loss": "カードにより逆",
+  "direct_high": "中立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 5880,
+   "drawn": 6301,
+   "play_per_draw": 0.436,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.31
+  }
+ },
+ {
+  "id": "G-doodle-jump",
+  "name": "ぴょんぴょんジャンプ",
+  "type": "play",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 1,
+  "rare": false,
+  "text": "このターン、自分が次にときおくりを行った時に1枚引き、その次にときおくりを行った時に自分のそだち+5。",
+  "trigger": "skip_related",
+  "gives": [
+   "そだち"
+  ],
+  "early_gain": "ときおくりを行うターンに得る（低段階から育てるほど機会が多い）",
+  "wait_loss": "待機中は機会がない",
+  "direct_high": "直接高段階では機会が減る",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 369,
+   "play_per_draw": 0,
+   "activate_per_play": null,
+   "stuck_per_draw": 0.851
+  }
+ },
+ {
+  "id": "G-downhill-mountain",
+  "name": "やまの岩場のぼり",
+  "type": "play",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 1,
+  "rare": false,
+  "text": "自分からのちょうせん中、自分のセカイが「やま」で、自分の参加メインより相手の参加メインの段階が高い場合に発動できる。自分の参加メインを対象とし、この勝負中ちから・ちえ+3。",
+  "trigger": "stage_ref",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 391,
+   "play_per_draw": 0.041,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.847
+  }
+ },
+ {
+  "id": "G-hang-glider-3d",
+  "name": "ハンググライダー3D",
+  "type": "play",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 1,
+  "rare": false,
+  "text": "このターン自分が通常のセカイ変更を行っている場合に発動できる。このターン、次に自分が行うときおくりの時コストを2少なくする。",
+  "trigger": "skip_related",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "ときおくりを行うターンに得る（低段階から育てるほど機会が多い）",
+  "wait_loss": "待機中は機会がない",
+  "direct_high": "直接高段階では機会が減る",
+  "usage": null
+ },
+ {
+  "id": "G-jump-quest",
+  "name": "ジャンプクエスト",
+  "type": "play",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 1,
+  "rare": false,
+  "text": "このターン自分がときおくりを2回以上行っている場合に発動できる。自分の捨て札の①〜③のメイン1枚を対象とし、手札に戻す。戻したなら、自分のそだち+5。",
+  "trigger": "skip_related",
+  "gives": [
+   "そだち",
+   "手札"
+  ],
+  "early_gain": "ときおくりを行うターンに得る（低段階から育てるほど機会が多い）",
+  "wait_loss": "待機中は機会がない",
+  "direct_high": "直接高段階では機会が減る",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 206,
+   "play_per_draw": 0.005,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.845
+  }
+ },
+ {
+  "id": "G-line-trace",
+  "name": "せんなぞり",
+  "type": "play",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 1,
+  "rare": false,
+  "text": "お互いのたまごではないメインが同じ段階なら発動できる。自分のそだち+5。お互いのメインに書かれたちからも同じなら、1枚引く。",
+  "trigger": "stage_ref",
+  "gives": [
+   "そだち",
+   "手札",
+   "能力値"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": null
+ },
+ {
+  "id": "G-picross-5",
+  "name": "ピクロス",
+  "type": "play",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 1,
+  "rare": false,
+  "text": "自分のメイン1枚を対象とする。対象がメイン枠にいるなら山札上4枚を公開し、その中から対象と同じ属性で段階が1つ高いメイン1枚までを手札に加える。残りを好きな順で山札下へ置く。",
+  "trigger": "stage_ref",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 396,
+   "play_per_draw": 0,
+   "activate_per_play": null,
+   "stuck_per_draw": 0.828
+  }
+ },
+ {
+  "id": "G-solitaire-klondike",
+  "name": "ソリティア",
+  "type": "play",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "自分の捨て札の、同じ種族で段階が3つ連続するメインを1枚ずつ、計3枚対象とし、段階の低い順に山札の一番下へ置く。3枚すべて置いたなら、2枚引く。",
+  "trigger": "stage_ref",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": null
+ },
+ {
+  "id": "I-c_egg_normal",
+  "name": "ふしぎなたまご",
+  "type": "item",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 1,
+  "rare": false,
+  "text": "自分のメイン枠がたまごの場合に発動できる。山札上5枚を見る。その中から、れんくん以外の通常のメインで①か②のカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "egg_ref",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "たまご中に使う／たまごでないメインを要求",
+  "wait_loss": "カードにより逆",
+  "direct_high": "中立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1076,
+   "play_per_draw": 0.093,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.66
+  }
+ },
+ {
+  "id": "I-c_egg_rare",
+  "name": "レアなたまご",
+  "type": "item",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 3,
+  "rare": false,
+  "text": "自分のメイン枠がたまごの場合に発動できる。山札上7枚を見る。その中からレアのメイン1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "egg_ref",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "たまご中に使う／たまごでないメインを要求",
+  "wait_loss": "カードにより逆",
+  "direct_high": "中立",
+  "usage": null
+ },
+ {
+  "id": "I-c_time_back",
+  "name": "ときのチケット・まえ",
+  "type": "item",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "自分のメイン1枚を対象として発動できる。対象がメイン枠にいる場合、手札から、対象と同種族で段階が1つ低いメイン1枚を選んで公開する。そうしたなら、このターン、対象のちから・ちえを公開したカードに書かれた値にする。",
+  "trigger": "stage_ref",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": null
+ },
+ {
+  "id": "I-c_time_forward",
+  "name": "ときのチケット・あと",
+  "type": "item",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "自分のメイン1枚を対象として発動できる。対象がメイン枠にいる場合、手札から、対象と同種族で段階が1つ高いメイン1枚を選んで公開する。そうしたなら、このターン、対象のちから・ちえを公開したカードに書かれた値にする。",
+  "trigger": "stage_ref",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 206,
+   "play_per_draw": 0,
+   "activate_per_play": null,
+   "stuck_per_draw": 0.558
+  }
+ },
+ {
+  "id": "I-c_transform",
+  "name": "へんしんチケット",
+  "type": "item",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 3,
+  "rare": false,
+  "text": "自分のメイン1枚を対象として発動できる。山札上3枚を見る。対象がメイン枠にいる場合、その中から対象と異なる種族のメイン1枚を選んで公開し、手札に加える。そうしたなら、このターン、自分が次にへんしんするための時を1少なくする。残りを好きな順で山札の一番下に置く。",
+  "trigger": "transform_related",
+  "gives": [
+   "時",
+   "手札"
+  ],
+  "early_gain": "メインがいる時のへんしんに得る",
+  "wait_loss": "待機中は不成立",
+  "direct_high": "中立",
+  "usage": null
+ },
+ {
+  "id": "M-antlion-01",
+  "name": "アリジゴク①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 1,
+  "rare": false,
+  "text": "1ターンに1回。自分が「しかける」でカードをプレイする時、そのカードをプレイするための時を1少なくしてもよい。",
+  "trigger": "ongoing",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 1020,
+   "play_per_draw": 0.408,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.257
+  }
+ },
+ {
+  "id": "M-antlion-02",
+  "name": "アリジゴク②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 4,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターンに、自分の準備枠の伏せたカード1枚を山札の一番下に置いて発動できる。1枚引く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-antlion-03",
+  "name": "アリジゴク③",
+  "type": "main",
+  "stage": 3,
+  "power": 5,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。相手のターンに、相手が「すぐつかう」でカードをプレイした時、自分の準備枠に伏せたカードがある場合、発動できる。このターン、このメインのちからかちえを1つ選び+1する。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-antlion-04",
+  "name": "アリジゴク④",
+  "type": "main",
+  "stage": 4,
+  "power": 1,
+  "wisdom": 5,
+  "cost": 4,
+  "rare": false,
+  "text": "このメインがこの段階になった時、自分の準備枠に伏せたカードがない場合、自分の捨て札の「すぐつかう」でプレイできるカード1枚を対象として発動できる。そのカードを山札の一番上に置く。",
+  "trigger": "arrival_any",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-antlion-05",
+  "name": "アリジゴク⑤",
+  "type": "main",
+  "stage": 5,
+  "power": 2,
+  "wisdom": 5,
+  "cost": 5,
+  "rare": false,
+  "text": "このメインがときおくりでこの段階になった時、自分の準備枠にカードがない場合、発動できる。1枚引く。",
+  "trigger": "skip_arrival",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "低段階で出しておき、ときおくりで到達した時だけ得る",
+  "wait_loss": "待機して直接出すと得られない",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": null
+ },
+ {
+  "id": "M-beetle-01",
+  "name": "カブトムシ①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。手札1枚を山札の一番下に置く。その後1枚引く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1486,
+   "play_per_draw": 0.324,
+   "activate_per_play": 0.956,
+   "stuck_per_draw": 0.674
+  }
+ },
+ {
+  "id": "M-beetle-02",
+  "name": "カブトムシ②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 2,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、このターンこのメインがときおくりでこの段階になっていない場合、発動できる。山札上1枚を見て、一番上か一番下に置く。",
+  "trigger": "stay",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 420,
+   "play_per_draw": 0.31,
+   "activate_per_play": 1.192,
+   "stuck_per_draw": 0.69
+  }
+ },
+ {
+  "id": "M-beetle-03",
+  "name": "カブトムシ③",
+  "type": "main",
+  "stage": 3,
+  "power": 5,
+  "wisdom": 3,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分のターンに発動できる。このターンこのメインからときおくりしないことを選ぶ。そうしたなら、このターンこのメインのちから+1。",
+  "trigger": "stay",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 739,
+   "play_per_draw": 0.34,
+   "activate_per_play": 4.53,
+   "stuck_per_draw": 0.66
+  }
+ },
+ {
+  "id": "M-beetle-04",
+  "name": "カブトムシ④",
+  "type": "main",
+  "stage": 4,
+  "power": 1,
+  "wisdom": 4,
+  "cost": 4,
+  "rare": false,
+  "text": "このメインからときおくりする時、そのときおくりで支払う時を1少なくしてもよい。この軽減を適用したときおくりを終えた後、このターン自分はもうときおくりできない。",
+  "trigger": "skip_related",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "ときおくりを行うターンに得る（低段階から育てるほど機会が多い）",
+  "wait_loss": "待機中は機会がない",
+  "direct_high": "直接高段階では機会が減る",
+  "usage": null
+ },
+ {
+  "id": "M-beetle-05",
+  "name": "カブトムシ⑤",
+  "type": "main",
+  "stage": 5,
+  "power": 5,
+  "wisdom": 3,
+  "cost": 5,
+  "rare": false,
+  "text": "このメインがこのターン、ときおくりでこの段階になった時、発動できる。山札上2枚を見て1枚を一番上、残りを一番下に置く。",
+  "trigger": "skip_arrival",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "低段階で出しておき、ときおくりで到達した時だけ得る",
+  "wait_loss": "待機して直接出すと得られない",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 399,
+   "play_per_draw": 0.155,
+   "activate_per_play": 0.742,
+   "stuck_per_draw": 0.674
+  }
+ },
+ {
+  "id": "M-beetle-06",
+  "name": "カブトムシ⑥",
+  "type": "main",
+  "stage": 6,
+  "power": 8,
+  "wisdom": 4,
+  "cost": 6,
+  "rare": false,
+  "text": "1ターンに1回。このメインが自分からちょうせんする時、このターンこのメインがときおくりでこの段階になっていた場合、発動できる。このちょうせんの間ちから+1。",
+  "trigger": "skip_arrival",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "低段階で出しておき、ときおくりで到達した時だけ得る",
+  "wait_loss": "待機して直接出すと得られない",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 761,
+   "play_per_draw": 0.474,
+   "activate_per_play": 0.014,
+   "stuck_per_draw": 0.489
+  }
+ },
+ {
+  "id": "M-butterfly-01",
+  "name": "ちょう①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、手札のアクションカード1枚を公開して山札の一番下に置いて発動できる。次の自分のターン開始時、1枚引く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-butterfly-02",
+  "name": "ちょう②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 2,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分が「みにつける」か「しかける」でカードをプレイした時、手札1枚を山札の一番下に置いて発動できる。1枚引く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-butterfly-03",
+  "name": "ちょう③",
+  "type": "main",
+  "stage": 3,
+  "power": 5,
+  "wisdom": 3,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。このメインが自分から行ったちょうせんに勝った時、このメインがこのターン開始時からメイン枠にあり、自分の準備枠にカードがある場合、発動できる。1枚引く。",
+  "trigger": "stay",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-butterfly-06",
+  "name": "ちょう⑥",
+  "type": "main",
+  "stage": 6,
+  "power": 7,
+  "wisdom": 5,
+  "cost": 6,
+  "rare": false,
+  "text": "このメインがときおくりでこの段階になった時、自分の準備枠のカード1枚を対象として発動できる。そのカードを手札に戻す。そうしたなら、このターン、自分が次に「すぐつかう」でプレイするカードの時を1少なくする。",
+  "trigger": "skip_arrival",
+  "gives": [
+   "時",
+   "手札"
+  ],
+  "early_gain": "低段階で出しておき、ときおくりで到達した時だけ得る",
+  "wait_loss": "待機して直接出すと得られない",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": null
+ },
+ {
+  "id": "M-butterfly-08",
+  "name": "ちょう⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 4,
+  "wisdom": 8,
+  "cost": 8,
+  "rare": false,
+  "text": "この名前の能力は1ターンに1回。このメインがへんしんでメイン枠から捨て札に置かれた時、手札1枚を山札の一番下に置いて発動できる。次の自分のターン開始時、2枚引く。",
+  "trigger": "leave_by_move",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "このメインから先へ進む時に得る（成長途中の報酬）",
+  "wait_loss": "待機中は得られない",
+  "direct_high": "直接高段階の後は不成立",
+  "usage": null
+ },
+ {
+  "id": "M-cat-01",
+  "name": "ねこ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。山札上2枚を見る。その2枚を好きな順で山札の一番上に戻す。",
+  "trigger": "birth",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 4920,
+   "drawn": 7537,
+   "play_per_draw": 0.325,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.673
+  }
+ },
+ {
+  "id": "M-cat-02",
+  "name": "ねこ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、このターンこのメインが自分からちょうせんしていない場合、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 4920,
+   "drawn": 5066,
+   "play_per_draw": 0.375,
+   "activate_per_play": 1.273,
+   "stuck_per_draw": 0.625
+  }
+ },
+ {
+  "id": "M-cat-03",
+  "name": "ねこ③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "能力なし。",
+  "trigger": "vanilla",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "能力なし（能力値だけ）",
+  "wait_loss": "—",
+  "direct_high": "—",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 4920,
+   "drawn": 5182,
+   "play_per_draw": 0.424,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.576
+  }
+ },
+ {
+  "id": "M-cicada-01",
+  "name": "セミ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 3,
+  "cost": 1,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、このターン自分がちょうせんしておらず、手札が2枚以下の場合、発動できる。1枚引く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-cicada-02",
+  "name": "セミ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 4,
+  "cost": 2,
+  "rare": false,
+  "text": "自分のターン開始時、発動できる。このターン、このメインのちえ+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-cicada-03",
+  "name": "セミ③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 5,
+  "cost": 3,
+  "rare": false,
+  "text": "自分のターン開始時、発動できる。このターンの終了時、このターン自分がセミへときおくりしていた場合、1枚引く。",
+  "trigger": "skip_related",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "ときおくりを行うターンに得る（低段階から育てるほど機会が多い）",
+  "wait_loss": "待機中は機会がない",
+  "direct_high": "直接高段階では機会が減る",
+  "usage": null
+ },
+ {
+  "id": "M-cicada-04",
+  "name": "セミ④",
+  "type": "main",
+  "stage": 4,
+  "power": 4,
+  "wisdom": 4,
+  "cost": 4,
+  "rare": false,
+  "text": "このメインがときおくりでこの段階になった時、発動できる。山札上3枚を見る。その中から⑤〜⑧のセミ1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "skip_arrival",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "低段階で出しておき、ときおくりで到達した時だけ得る",
+  "wait_loss": "待機して直接出すと得られない",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": null
+ },
+ {
+  "id": "M-clownfish-01",
+  "name": "カクレクマノミ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがへんしんでこの段階になった時、発動できる。このターン、自分が次に「みにつける」でカードをプレイするための時を1少なくする。",
+  "trigger": "arrival_any",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-clownfish-02",
+  "name": "カクレクマノミ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターンに、手札のメイン1枚を公開して山札の一番下に置いて発動できる。山札上2枚を見る。その中から1枚を選んで手札に加え、残りを山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-clownfish-03",
+  "name": "カクレクマノミ③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。相手がこのメインだけを対象にする効果を発動した時、時1を払い、その効果の適正な対象である自分のなかま1枚を対象として発動できる。その相手の効果の対象を、そのなかまへ変更する。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-clownfish-05",
+  "name": "カクレクマノミ⑤",
+  "type": "main",
+  "stage": 5,
+  "power": 7,
+  "wisdom": 5,
+  "cost": 5,
+  "rare": false,
+  "text": "このメインに、このターン開始時からみにつけられ続けているカードがある間、このメインのちえ+1。",
+  "trigger": "stay",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-clownfish-07",
+  "name": "カクレクマノミ⑦",
+  "type": "main",
+  "stage": 7,
+  "power": 7,
+  "wisdom": 7,
+  "cost": 7,
+  "rare": false,
+  "text": "このメインがこの段階になった時、自分のなかままたはこいびとにみにつけられており、このメインにも適正にみにつけられるカード1枚を対象として発動できる。そのカードをこのメインへつけ替える。",
+  "trigger": "arrival_any",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-coral-01",
+  "name": "サンゴ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 3,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、自分にセカイがある場合、発動できる。山札上2枚を見る。その中からなかまカード1枚を選んで公開し、山札の一番上に置く。残りを好きな順で山札の一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-coral-02",
+  "name": "サンゴ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 4,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分の盤面にメイン以外のカードが1枚だけある場合、自分のターンに発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-coral-03",
+  "name": "サンゴ③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 5,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分の盤面に、カード種類が異なる表向きのメイン以外のカードが2種類以上ある場合、自分のターンに発動できる。このターン、このメインのちからかちえを1つ選び+1する。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-dandelion-01",
+  "name": "タンポポ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 3,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。次の自分のターン終了時まで、自分のセカイ枠が空いている時に次にセカイを出すための時を1少なくする。",
+  "trigger": "birth",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-dandelion-02",
+  "name": "タンポポ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "自分のターン中、自分のセカイがこのターン開始時からセカイ枠にあり続けている場合、このメインのちえ+1。",
+  "trigger": "stay",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-dandelion-03",
+  "name": "タンポポ③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分のなかまが出た時、自分にセカイがある場合、手札1枚を捨て札に置いて発動できる。1枚引く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-dandelion-05",
+  "name": "タンポポ⑤",
+  "type": "main",
+  "stage": 5,
+  "power": 6,
+  "wisdom": 5,
+  "cost": 5,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、自分のセカイ1枚を対象として発動できる。次の自分のターン開始時まで、そのカードが自分のセカイ枠にあり続けていた場合、その開始時に1枚引く。",
+  "trigger": "stay",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-dandelion-06",
+  "name": "タンポポ⑥",
+  "type": "main",
+  "stage": 6,
+  "power": 7,
+  "wisdom": 5,
+  "cost": 6,
+  "rare": false,
+  "text": "このメインがこの段階になった時、自分のセカイがこのターン開始時からセカイ枠にあり続けている場合、発動できる。1枚引く。",
+  "trigger": "arrival_any",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-dog-01",
+  "name": "いぬ①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 1,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、自分になかまがいる場合、発動できる。このターン、自分が次に「あそび」カードを表向きでプレイするための時を1少なくする。",
+  "trigger": "birth",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1831,
+   "play_per_draw": 0.352,
+   "activate_per_play": 0.234,
+   "stuck_per_draw": 0.658
+  }
+ },
+ {
+  "id": "M-dog-02",
+  "name": "いぬ②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 2,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分が「あそび」カードを表向きでプレイした時、発動できる。このターン、自分のメインが次に自分からちょうせんする時、そのちょうせんの間、そのメインの使用する能力値+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1082,
+   "play_per_draw": 0.397,
+   "activate_per_play": 0.133,
+   "stuck_per_draw": 0.616
+  }
+ },
+ {
+  "id": "M-dog-03",
+  "name": "いぬ③",
+  "type": "main",
+  "stage": 3,
+  "power": 5,
+  "wisdom": 3,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。このメインが自分から行ったちょうせんに負けた時、発動できる。山札上2枚を見る。その中からメイン以外のカード1枚を選んで公開し、山札の一番上に置く。残りを好きな順で山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1231,
+   "play_per_draw": 0.385,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.557
+  }
+ },
+ {
+  "id": "M-dog-08",
+  "name": "いぬ⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 3,
+  "wisdom": 7,
+  "cost": 8,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、このメインと自分のこいびとがこのターン開始時からそれぞれの枠にあり続け、自分がそのこいびとと結婚している場合、発動できる。自分のそだち+5。",
+  "trigger": "stay",
+  "gives": [
+   "そだち"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-dragon-01",
+  "name": "りゅう①",
+  "type": "main",
+  "stage": 1,
+  "power": 3,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": true,
+  "text": "1ターンに1回。自分のターン終了時、手札が4枚以上ある場合、発動できる。山札上2枚を見て、好きな順で山札の一番上に戻す。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 630,
+   "play_per_draw": 0.403,
+   "activate_per_play": 1.591,
+   "stuck_per_draw": 0.589
+  }
+ },
+ {
+  "id": "M-dragon-02",
+  "name": "りゅう②",
+  "type": "main",
+  "stage": 2,
+  "power": 5,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": true,
+  "text": "1ターンに1回。自分のターン終了時、時2を払って発動できる。次の自分のターン開始時に1枚引く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 571,
+   "play_per_draw": 0.457,
+   "activate_per_play": 2.356,
+   "stuck_per_draw": 0.541
+  }
+ },
+ {
+  "id": "M-dragon-03",
+  "name": "りゅう③",
+  "type": "main",
+  "stage": 3,
+  "power": 7,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": true,
+  "text": "1ターンに1回。このメインが自分からちょうせんする時、手札が4枚以上ある場合、時1を払って発動できる。このちょうせんの間、このメインの使用する能力値+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "type": "main",
+  "stage": 4,
+  "power": 8,
+  "wisdom": 4,
+  "cost": 4,
+  "rare": true,
+  "text": "このメインがこの段階になった時、手札のアクションカード1枚を公開して山札の一番下に置いて発動できる。山札上3枚を見る。その中から「みにつける」の使用方法を持つカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "arrival_any",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-frog-01",
+  "name": "かえる①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、自分の手札が相手より少ない場合、発動できる。1枚引く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-frog-02",
+  "name": "かえる②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "自分にセカイがない間、このメインのちえ+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-frog-03",
+  "name": "かえる③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分にセカイがある時、自分が手札からセカイカードを通常の方法で出すための時を1少なくする。",
+  "trigger": "ongoing",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-ghost-01",
+  "name": "おばけ①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 4,
+  "cost": 1,
+  "rare": true,
+  "text": "1ターンに1回。このメインがメイン枠から捨て札に置かれた時、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-ghost-02",
+  "name": "おばけ②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 5,
+  "cost": 2,
+  "rare": true,
+  "text": "1ターンに1回。相手のターンに、相手が「みにつける」でカードをプレイした時、時1を払って発動できる。このターン、相手が次にアクションカードをプレイするための時を1多くする。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-ghost-03",
+  "name": "おばけ③",
+  "type": "main",
+  "stage": 3,
+  "power": 5,
+  "wisdom": 5,
+  "cost": 3,
+  "rare": true,
+  "text": "1ターンに1回。自分のターンに、自分が「すぐつかう」でプレイしたカードの効果が適用された時、相手のメイン1枚を対象として発動できる。次の自分のターン開始時まで、そのメインのちえ-1。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-god-01",
+  "name": "かみさま①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 5,
+  "cost": 1,
+  "rare": true,
+  "text": "このメインがたんじょうした時、自分になかまもこいびともいない場合、発動できる。発動時に次のどちらかを選ぶ。「山札上1枚を見て、山札の一番上か一番下に置く」「自分の捨て札のメイン以外のカード1枚を選び、山札の一番下に置く」。",
+  "trigger": "birth",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-god-02",
+  "name": "かみさま②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 6,
+  "cost": 2,
+  "rare": true,
+  "text": "1ターンに1回。このメインがちょうせんに負けた時、自分の手札が2枚以下の場合、発動できる。山札上3枚を見る。その中からメイン以外のカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 7,
+  "cost": 3,
+  "rare": true,
+  "text": "1ターンに1回。自分のターンに、発動時に「なかま」「こいびと」「セカイ」から自分の盤面にない1種類を選び、時1を払って発動できる。山札上3枚を見る。その中から選んだ種類のカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "type": "main",
+  "stage": 6,
+  "power": 6,
+  "wisdom": 10,
+  "cost": 6,
+  "rare": true,
+  "text": "この名前の能力は1ターンに1回。このメインがこの段階になった時、自分のそだちが相手より10以上低い場合、時2を払い、手札1枚を山札の一番下に置き、自分の捨て札のカード種類が異なるメイン以外のカード2枚を対象として発動できる。その対象を手札に戻す。",
+  "trigger": "arrival_any",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-hermit_crab-01",
+  "name": "ヤドカリ①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。山札上3枚を見る。その中から「みにつける」の使用方法を持つカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 675,
+   "play_per_draw": 0.439,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.363
+  }
+ },
+ {
+  "id": "M-hermit_crab-02",
+  "name": "ヤドカリ②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。このメインに、手札からのプレイまたはつけ替えによってカードがみにつけられた時、発動できる。このターン、このメインのちからかちえを1つ選び+1する。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 471,
+   "play_per_draw": 0.393,
+   "activate_per_play": 0.308,
+   "stuck_per_draw": 0.367
+  }
+ },
+ {
+  "id": "M-hermit_crab-03",
+  "name": "ヤドカリ③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分のターンに、このメインにみにつけられているカード1枚を捨て札に置いて発動できる。1枚引き、その後手札1枚を山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 471,
+   "play_per_draw": 0.505,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.308
+  }
+ },
+ {
+  "id": "M-jellyfish-01",
+  "name": "クラゲ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 3,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、自分にセカイがある場合、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-jellyfish-02",
+  "name": "クラゲ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターンに、自分の盤面に表向きのメイン以外の同じカード種類のカードが2枚以上ある場合、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-jellyfish-03",
+  "name": "クラゲ③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "このメインがときおくりでこの段階になった時、発動できる。手札1枚を山札の一番下に置き、その後1枚引く。",
+  "trigger": "skip_arrival",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "低段階で出しておき、ときおくりで到達した時だけ得る",
+  "wait_loss": "待機して直接出すと得られない",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": null
+ },
+ {
+  "id": "M-jellyfish-04",
+  "name": "クラゲ④",
+  "type": "main",
+  "stage": 4,
+  "power": 4,
+  "wisdom": 5,
+  "cost": 4,
+  "rare": false,
+  "text": "このメインがこの段階になった時、発動できる。このターン、自分が次にプレイするアクションカードの時を1少なくする。",
+  "trigger": "arrival_any",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-jellyfish-08",
+  "name": "クラゲ⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 4,
+  "wisdom": 8,
+  "cost": 8,
+  "rare": false,
+  "text": "1ターンに1回。このメインがときおくりまたはへんしんでメイン枠から捨て札に置かれた時、発動できる。このターン、自分の盤面のメイン以外のカードが次に効果で手札または捨て札へ移動した時、1枚引き、その後手札1枚を山札の一番下に置く。",
+  "trigger": "leave_by_move",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "このメインから先へ進む時に得る（成長途中の報酬）",
+  "wait_loss": "待機中は得られない",
+  "direct_high": "直接高段階の後は不成立",
+  "usage": null
+ },
+ {
+  "id": "M-man-01",
+  "name": "おとこのひと①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 1,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。山札上3枚を見る。その中からメイン以外1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-man-02",
+  "name": "おとこのひと②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 2,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分が「あそび」カードを表向きでプレイした時、発動できる。このターン、このメインのちからかちえを1つ選び+1する。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-man-03",
+  "name": "おとこのひと③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 3,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分のターンに発動できる。ちからかちえを1つ選ぶ。このターン、このメインの選んだ能力値+2、もう一方-1。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-man-08",
+  "name": "おとこのひと⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 3,
+  "wisdom": 9,
+  "cost": 8,
+  "rare": false,
+  "text": "1ターンに1回。このメインがときおくりまたはへんしんでメイン枠から捨て札に置かれた時、発動できる。自分の捨て札のメイン以外1枚を選び山札の一番下に置く。その後1枚引く。",
+  "trigger": "leave_by_move",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "このメインから先へ進む時に得る（成長途中の報酬）",
+  "wait_loss": "待機中は得られない",
+  "direct_high": "直接高段階の後は不成立",
+  "usage": null
+ },
+ {
+  "id": "M-mushroom-01",
+  "name": "キノコ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 4,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。山札上2枚を見る。その中から1枚を選んで捨て札に置き、残りを山札の一番上に置く。",
+  "trigger": "birth",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1765,
+   "play_per_draw": 0.501,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.498
+  }
+ },
+ {
+  "id": "M-mushroom-02",
+  "name": "キノコ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 5,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターンに、手札のメイン以外のカード1枚を公開して山札の一番下に置き、それと同じカード種類の自分の捨て札のカード1枚を対象として発動できる。そのカードを山札の一番上に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1206,
+   "play_per_draw": 0.454,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.546
+  }
+ },
+ {
+  "id": "M-mushroom-03",
+  "name": "キノコ③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 5,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分の盤面にメイン以外のカードが表向きで出た時、自分の捨て札にそのカードと同名のカードがある場合、発動できる。1枚引き、その後手札1枚を山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1377,
+   "play_per_draw": 0.519,
+   "activate_per_play": 0.036,
+   "stuck_per_draw": 0.479
+  }
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 3,
+  "wisdom": 9,
+  "cost": 8,
+  "rare": false,
+  "text": "この名前の能力は1ターンに1回。このメインがへんしんでメイン枠から捨て札に置かれた時、発動できる。次の自分のターン終了時まで、自分の盤面にメイン以外のカードが表向きで出て、自分の捨て札にそのカードと同名のカードがある時、1回だけ1枚引く。",
+  "trigger": "leave_by_move",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "このメインから先へ進む時に得る（成長途中の報酬）",
+  "wait_loss": "待機中は得られない",
+  "direct_high": "直接高段階の後は不成立",
+  "usage": null
+ },
+ {
+  "id": "M-penguin-01",
+  "name": "ペンギン①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "1ラウンドに1回。このメインが相手からちょうせんされた時、自分になかままたはこいびとがある場合、発動できる。このちょうせんの間、このメインの使用する能力値+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-penguin-02",
+  "name": "ペンギン②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のなかままたはこいびとが自分の盤面に置かれた時、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-penguin-03",
+  "name": "ペンギン③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分のターンに、自分になかままたはこいびとがある場合、手札1枚を山札の一番下に置いて発動できる。その後1枚引く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-phoenix-01",
+  "name": "フェニックス①",
+  "type": "main",
+  "stage": 1,
+  "power": 3,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": true,
+  "text": "このメインがたんじょうした時、手札1枚を捨て札に置いて発動できる。このターン、このメインのちえ+2。",
+  "trigger": "birth",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 202,
+   "play_per_draw": 0.554,
+   "activate_per_play": 0.536,
+   "stuck_per_draw": 0.446
+  }
+ },
+ {
+  "id": "M-phoenix-02",
+  "name": "フェニックス②",
+  "type": "main",
+  "stage": 2,
+  "power": 5,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": true,
+  "text": "1ターンに1回。このメインが自分からちょうせんする時、このメインの使用する能力値が相手より低い場合、時1を払って発動できる。このちょうせんの間、このメインの使用する能力値+2。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "旧試験デッキ",
+   "seats": 480,
+   "drawn": 205,
+   "play_per_draw": 0.605,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.395
+  }
+ },
+ {
+  "id": "M-phoenix-03",
+  "name": "フェニックス③",
+  "type": "main",
+  "stage": 3,
+  "power": 7,
+  "wisdom": 3,
+  "cost": 3,
+  "rare": true,
+  "text": "1ターンに1回。自分のターンに、時2を払い、手札2枚を好きな順で山札の一番下に置いて発動できる。3枚引く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-phoenix-08",
+  "name": "フェニックス⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 9,
+  "wisdom": 8,
+  "cost": 8,
+  "rare": true,
+  "text": "このメインがときおくりでこの段階になった時、ときおくり直前のメインがフェニックス⑦だった場合、時1を払い、自分の捨て札のメイン以外のカード1枚を対象として発動できる。そのカードを手札に戻す。",
+  "trigger": "skip_arrival",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "低段階で出しておき、ときおくりで到達した時だけ得る",
+  "wait_loss": "待機して直接出すと得られない",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": null
+ },
+ {
+  "id": "M-plush-01",
+  "name": "ぬいぐるみ①",
+  "type": "main",
+  "stage": 1,
+  "power": 6,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": true,
+  "text": "このメインがたんじょうした時、自分の捨て札にカードがない場合、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-plush-02",
+  "name": "ぬいぐるみ②",
+  "type": "main",
+  "stage": 2,
+  "power": 7,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": true,
+  "text": "1ターンに1回。自分または相手がこのメインを対象にする効果を発動した時、発動できる。次の自分のターン終了時まで、自分が次に「みにつける」でカードをプレイするための時を1少なくする。",
+  "trigger": "ongoing",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-plush-03",
+  "name": "ぬいぐるみ③",
+  "type": "main",
+  "stage": 3,
+  "power": 7,
+  "wisdom": 5,
+  "cost": 3,
+  "rare": true,
+  "text": "1ラウンドに1回。このメインにカードがみにつけられている場合、相手の効果でこのメインのちえが下がる時、その下がる量を1少なくする。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-plush-08",
+  "name": "ぬいぐるみ⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 2,
+  "wisdom": 10,
+  "cost": 8,
+  "rare": true,
+  "text": "1ターンに1回。自分のターン終了時、このメインのちからが2以下で、自分の捨て札に段階が異なる「ぬいぐるみ」のメインが3枚以上ある場合、発動できる。自分のそだち+5。",
+  "trigger": "stage_ref",
+  "gives": [
+   "そだち",
+   "能力値"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": null
+ },
+ {
+  "id": "M-ren-01",
+  "name": "れんくん①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 1,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。山札上3枚を見る。その中から「あそび」カード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-ren-02",
+  "name": "れんくん②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 2,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分が「あそび」カードを表向きでプレイした時、発動できる。このターン、自分が次に「あそび」カードを表向きでプレイするための時を1少なくする。",
+  "trigger": "ongoing",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-ren-03",
+  "name": "れんくん③",
+  "type": "main",
+  "stage": 3,
+  "power": 5,
+  "wisdom": 3,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分が「あそび」カードを表向きでプレイした時、このターン、自分がそれより前に「あそび」カードを表向きでプレイしていた場合、発動できる。1枚引き、その後手札1枚を山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-sakura-01",
+  "name": "サクラ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 3,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。次の自分のターン、自分が最初に「みにつける」でカードをプレイするための時を1少なくする。",
+  "trigger": "birth",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1802,
+   "play_per_draw": 0.361,
+   "activate_per_play": 0.932,
+   "stuck_per_draw": 0.592
+  }
+ },
+ {
+  "id": "M-sakura-02",
+  "name": "サクラ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、自分のセカイがこのターン開始時からセカイ枠にあり続けている場合、発動できる。山札上2枚を見て、好きな順で山札の一番上に戻す。",
+  "trigger": "stay",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1231,
+   "play_per_draw": 0.382,
+   "activate_per_play": 0.249,
+   "stuck_per_draw": 0.576
+  }
+ },
+ {
+  "id": "M-sakura-03",
+  "name": "サクラ③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分のなかまが自分の盤面に置かれた時、時1を払い、自分の捨て札の「みにつける」の使用方法を持つカード1枚を対象として発動できる。そのカードを山札の一番上に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1299,
+   "play_per_draw": 0.358,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.589
+  }
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "type": "main",
+  "stage": 6,
+  "power": 9,
+  "wisdom": 5,
+  "cost": 6,
+  "rare": false,
+  "text": "このメインがこの段階になった時、発動できる。自分の準備枠のカード1枚を選ぶ。このターン、選んだ後にそのカードまたはそのカードの能力が発動し、その効果の一部が解決時に適用された時に1回だけ、自分のそだち+5。選んだカードが発動のために準備枠から発動領域へ移動した場合も、その発動を参照する。",
+  "trigger": "arrival_any",
+  "gives": [
+   "そだち"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 703,
+   "play_per_draw": 0.969,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0
+  }
+ },
+ {
+  "id": "M-salmon-01",
+  "name": "さけ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。山札上3枚を見る。その中からセカイカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 2213,
+   "play_per_draw": 0.33,
+   "activate_per_play": 1,
+   "stuck_per_draw": 0.487
+  }
+ },
+ {
+  "id": "M-salmon-02",
+  "name": "さけ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、このターン自分がセカイを変更していない場合、手札のセカイカード1枚を公開して山札の一番下に置いて発動できる。1枚引く。",
+  "trigger": "ongoing",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1479,
+   "play_per_draw": 0.372,
+   "activate_per_play": 0.011,
+   "stuck_per_draw": 0.454
+  }
+ },
+ {
+  "id": "M-salmon-03",
+  "name": "さけ③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分が手札からセカイカードを通常の方法で出した時、その配置前から自分にセカイがあった場合、発動できる。1枚引き、その後手札1枚を山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1696,
+   "play_per_draw": 0.394,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.453
+  }
+ },
+ {
+  "id": "M-stagbeetle-01",
+  "name": "クワガタムシ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 1,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。山札上2枚を見る。そのうち1枚を山札の一番上、残りを山札の一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-stagbeetle-02",
+  "name": "クワガタムシ②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 2,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分がこのターン最初のアクションカードをプレイする時、相手の準備枠にカードがない場合、そのカードをプレイするための時を1少なくする。",
+  "trigger": "ongoing",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-stagbeetle-03",
+  "name": "クワガタムシ③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 2,
+  "cost": 3,
+  "rare": false,
+  "text": "自分ターン終了時、このターンに時を2以上残していたなら発動できる。次の自分ターン、自分が最初にプレイするアクションカードの時を1少なくする。",
+  "trigger": "ongoing",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-star-01",
+  "name": "ほし①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 4,
+  "cost": 1,
+  "rare": true,
+  "text": "このメインがたんじょうした時、発動できる。山札上3枚を見る。その中から①〜③のメイン1枚を選んで公開し、山札の一番上に置く。残りを好きな順で山札の一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-star-02",
+  "name": "ほし②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 5,
+  "cost": 2,
+  "rare": true,
+  "text": "1ターンに1回。自分のターンに、自分の捨て札の、段階が異なる①〜③のメイン2枚を好きな順で山札の一番下に置いて発動できる。1枚引く。",
+  "trigger": "stage_ref",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": null
+ },
+ {
+  "id": "M-star-03",
+  "name": "ほし③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 5,
+  "cost": 3,
+  "rare": true,
+  "text": "このメインから手札の①〜③のメインへへんしんする時、そのへんしんで支払う時を1少なくしてもよい。",
+  "trigger": "transform_related",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "メインがいる時のへんしんに得る",
+  "wait_loss": "待機中は不成立",
+  "direct_high": "中立",
+  "usage": null
+ },
+ {
+  "id": "M-star-07",
+  "name": "ほし⑦",
+  "type": "main",
+  "stage": 7,
+  "power": 10,
+  "wisdom": 3,
+  "cost": 7,
+  "rare": true,
+  "text": "この名前の能力は1ターンに1回。このメインがときおくりでメイン枠から捨て札に置かれた時、自分の捨て札の、印刷されたちからがちえより高いメイン2枚を好きな順で山札の一番下に置いて発動できる。自分のそだち+5。",
+  "trigger": "leave_by_move",
+  "gives": [
+   "そだち",
+   "能力値"
+  ],
+  "early_gain": "このメインから先へ進む時に得る（成長途中の報酬）",
+  "wait_loss": "待機中は得られない",
+  "direct_high": "直接高段階の後は不成立",
+  "usage": null
+ },
+ {
+  "id": "M-starfish-01",
+  "name": "ヒトデ①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "能力なし。",
+  "trigger": "vanilla",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "能力なし（能力値だけ）",
+  "wait_loss": "—",
+  "direct_high": "—",
+  "usage": null
+ },
+ {
+  "id": "M-starfish-02",
+  "name": "ヒトデ②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分の捨て札にメイン以外のカードがある場合、自分のターンに発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-starfish-03",
+  "name": "ヒトデ③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分の捨て札のメイン以外のカード1枚を山札の一番下に置いて発動できる。このターン、このメインのちからかちえを1つ選び+1する。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-turtle-01",
+  "name": "かめ①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": false,
+  "text": "能力なし。",
+  "trigger": "vanilla",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "能力なし（能力値だけ）",
+  "wait_loss": "—",
+  "direct_high": "—",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 2036,
+   "play_per_draw": 0.367,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.56
+  }
+ },
+ {
+  "id": "M-turtle-02",
+  "name": "かめ②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ラウンドに1回。このメインが相手からちょうせんされた時、発動できる。このちょうせんの間、このメインの使用する能力値+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1352,
+   "play_per_draw": 0.468,
+   "activate_per_play": 1.85,
+   "stuck_per_draw": 0.49
+  }
+ },
+ {
+  "id": "M-turtle-03",
+  "name": "かめ③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、このターン自分がセカイを変更していない場合、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1456,
+   "play_per_draw": 0.517,
+   "activate_per_play": 2.999,
+   "stuck_per_draw": 0.446
+  }
+ },
+ {
+  "id": "M-unknown-01",
+  "name": "？？？①",
+  "type": "main",
+  "stage": 1,
+  "power": 2,
+  "wisdom": 2,
+  "cost": 1,
+  "rare": true,
+  "text": "このメインがたんじょうした時、自分の盤面にメイン以外のカードがない場合、発動できる。このターン、自分が次に「しかける」でカードをプレイするための時を1少なくする。",
+  "trigger": "birth",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-unknown-02",
+  "name": "？？？②",
+  "type": "main",
+  "stage": 2,
+  "power": 4,
+  "wisdom": 2,
+  "cost": 2,
+  "rare": true,
+  "text": "1ターンに1回。このメインが自分からちえによるちょうせんをする時、このメインのちえが相手のメインより低い場合、発動できる。そのちょうせんが引き分けになった時、自分のそだち+5。",
+  "trigger": "ongoing",
+  "gives": [
+   "そだち",
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-unknown-03",
+  "name": "？？？③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 6,
+  "cost": 3,
+  "rare": true,
+  "text": "1ターンに1回。自分のターンに、自分の準備枠のカード1枚を対象として発動できる。そのカードを山札の一番上に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-unknown-04",
+  "name": "？？？④",
+  "type": "main",
+  "stage": 4,
+  "power": 2,
+  "wisdom": 8,
+  "cost": 4,
+  "rare": true,
+  "text": "このメインがこの段階になった時、発動時に相手の捨て札にあるカード種類を1つ選んで発動できる。山札上2枚を公開する。その中から選んだ種類のカード1枚を選んで手札に加える。残りを好きな順で山札の一番下に置く。",
+  "trigger": "arrival_any",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-unknown-08",
+  "name": "？？？⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 5,
+  "wisdom": 5,
+  "cost": 8,
+  "rare": true,
+  "text": "このメインがこの段階になった時、手札の①のメイン1枚を公開して山札の一番下に置き、自分の捨て札の、印刷されたちからかちえが10のメイン1枚を対象として発動できる。そのカードを手札に戻す。",
+  "trigger": "arrival_any",
+  "gives": [
+   "手札",
+   "能力値"
+  ],
+  "early_gain": "経路を問わず到達時に得る",
+  "wait_loss": "待機しても直接たんじょうで得られる（損失なし）",
+  "direct_high": "直接高段階でも成立（中立）",
+  "usage": null
+ },
+ {
+  "id": "M-venus_flytrap-01",
+  "name": "ハエトリグサ①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 3,
+  "cost": 1,
+  "rare": false,
+  "text": "1ターンに1回。相手のターンに、相手がそのターン2枚目のアクションカードをプレイした時、発動できる。1枚引き、その後手札1枚を山札の一番下に置く。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1647,
+   "play_per_draw": 0.49,
+   "activate_per_play": 0.135,
+   "stuck_per_draw": 0.379
+  }
+ },
+ {
+  "id": "M-venus_flytrap-02",
+  "name": "ハエトリグサ②",
+  "type": "main",
+  "stage": 2,
+  "power": 3,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。相手のターンに、相手がアクションカードをプレイした時、相手がこのターン、それより前に同じプレイ方法でアクションカードをプレイしていた場合、発動できる。このターン、このメインのちから+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1266,
+   "play_per_draw": 0.48,
+   "activate_per_play": 0.112,
+   "stuck_per_draw": 0.411
+  }
+ },
+ {
+  "id": "M-venus_flytrap-03",
+  "name": "ハエトリグサ③",
+  "type": "main",
+  "stage": 3,
+  "power": 4,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "相手のターン中、このターンに自分がしかけていたカードの効果が1度でも適用されていた場合、このメインのちえ+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1196,
+   "play_per_draw": 0.482,
+   "activate_per_play": 0,
+   "stuck_per_draw": 0.417
+  }
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 1,
+  "cost": 1,
+  "rare": false,
+  "text": "このメインがたんじょうした時、発動できる。山札上2枚を公開する。公開したカードが2枚あり、そのカード種類が異なる場合、その中から1枚を選んで手札に加え、残りを山札の一番下に置く。それ以外の場合、公開したカードを好きな順で山札の一番下に置く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 3,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分がアクションカードを表向きでプレイした時、このターン、自分がそれより前に「あそび」「あいてむ」「できごと」のうち別の種類のアクションカードを表向きでプレイしていた場合、発動できる。このターン、このメインのちからかちえを1つ選び+1する。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-woman-03",
+  "name": "おんなのひと③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 4,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分の手札からカード種類が異なる2枚を公開して発動できる。このターン、このメインのちから・ちえ+1。",
+  "trigger": "ongoing",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-woman-08",
+  "name": "おんなのひと⑧",
+  "type": "main",
+  "stage": 8,
+  "power": 5,
+  "wisdom": 8,
+  "cost": 8,
+  "rare": false,
+  "text": "1ターンに1回。このメインがときおくりまたはへんしんでメイン枠から捨て札に置かれた時、発動できる。山札上3枚を見る。好きな順で山札の一番上に戻し、その後1枚引く。",
+  "trigger": "leave_by_move",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "このメインから先へ進む時に得る（成長途中の報酬）",
+  "wait_loss": "待機中は得られない",
+  "direct_high": "直接高段階の後は不成立",
+  "usage": null
+ },
+ {
+  "id": "M-world_tree-01",
+  "name": "世界樹①",
+  "type": "main",
+  "stage": 1,
+  "power": 1,
+  "wisdom": 4,
+  "cost": 1,
+  "rare": true,
+  "text": "このメインがたんじょうした時、自分の準備枠にカードがある場合、手札1枚を山札の一番下に置いて発動できる。1枚引く。",
+  "trigger": "birth",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "①〜③で早く出せば必ず得る（たんじょう時だけ）",
+  "wait_loss": "高段階で直接たんじょうすると得られない",
+  "direct_high": "直接高段階では不成立",
+  "usage": null
+ },
+ {
+  "id": "M-world_tree-02",
+  "name": "世界樹②",
+  "type": "main",
+  "stage": 2,
+  "power": 2,
+  "wisdom": 5,
+  "cost": 2,
+  "rare": true,
+  "text": "1ターンに1回。自分にセカイがある場合、自分が交際を進めるための時を1少なくしてもよい。",
+  "trigger": "ongoing",
+  "gives": [
+   "時"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "M-world_tree-03",
+  "name": "世界樹③",
+  "type": "main",
+  "stage": 3,
+  "power": 3,
+  "wisdom": 6,
+  "cost": 3,
+  "rare": true,
+  "text": "1ラウンドに1回。自分のなかま1枚が相手の効果で捨て札に置かれるなら、自分の準備枠のカード1枚を山札の一番下に置くことで、そのなかまを代わりに手札に戻してもよい。",
+  "trigger": "ongoing",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "場にいるターン数だけ使える（早いほど回数が多い）",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": null
+ },
+ {
+  "id": "P-snow_spirit",
+  "name": "ゆきのせいれい",
+  "type": "partner",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 0,
+  "rare": false,
+  "text": "1ターンに1回。自分のメインがときおくりで⑦か⑧になった時、このカードがこのターン開始時からこいびと枠にあり続けている場合、自分の捨て札のメイン1枚を対象として発動できる。そのカードを手札に戻す。",
+  "trigger": "skip_arrival",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "低段階で出しておき、ときおくりで到達した時だけ得る",
+  "wait_loss": "待機して直接出すと得られない",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1432,
+   "play_per_draw": 0.797,
+   "activate_per_play": 0.048,
+   "stuck_per_draw": 0.159
+  }
+ },
+ {
+  "id": "P-sunflower_partner",
+  "name": "はたけのひまわりさん",
+  "type": "partner",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 0,
+  "rare": false,
+  "text": "1ターンに1回。自分のメインがへんしんでメイン枠に置かれた時、そのメインを対象として発動できる。このターン、そのメインのちえ+1。",
+  "trigger": "transform_arrival",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "へんしんで出た時に得る",
+  "wait_loss": "たまごからでは不成立",
+  "direct_high": "直接たんじょうでは不成立",
+  "usage": null
+ },
+ {
+  "id": "W-city",
+  "name": "とかい",
+  "type": "world",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分がこのターンに、手札から通常のたんじょう・ときおくり・へんしん、なかま・こいびと・セカイの通常配置、またはアクションカードのプレイで出したカードの合計が2枚になった時、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。このカード自身を出した場合も数える。",
+  "trigger": "transform_related",
+  "gives": [
+   "山札操作"
+  ],
+  "early_gain": "メインがいる時のへんしんに得る",
+  "wait_loss": "待機中は不成立",
+  "direct_high": "中立",
+  "usage": null
+ },
+ {
+  "id": "W-mountain",
+  "name": "やま",
+  "type": "world",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のメインが自分からちょうせんする時、相手の参加メインの段階が自分の参加メインより高い場合、自分の参加メインを対象として発動できる。この勝負で比べる能力を、この勝負中+1する。",
+  "trigger": "stage_ref",
+  "gives": [
+   "なし"
+  ],
+  "early_gain": "段階の関係で得る",
+  "wait_loss": "状況次第",
+  "direct_high": "状況次第",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1182,
+   "play_per_draw": 0.829,
+   "activate_per_play": 0.286,
+   "stuck_per_draw": 0.114
+  }
+ },
+ {
+  "id": "W-snow",
+  "name": "ゆきぐに",
+  "type": "world",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 2,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、このターン開始時からたまごではない同じメインが自分のメイン枠にあり続けている場合、そのメインを対象として発動できる。次の自分ターン開始時まで、対象のちえ+1。",
+  "trigger": "stay",
+  "gives": [
+   "能力値"
+  ],
+  "early_gain": "同じメインが場にいる時間が長いほど得る",
+  "wait_loss": "待機分だけ回数が減る",
+  "direct_high": "中立（出した後は同じ）",
+  "usage": {
+   "source": "CPU7デッキ",
+   "seats": 1380,
+   "drawn": 1145,
+   "play_per_draw": 0.805,
+   "activate_per_play": 4.69,
+   "stuck_per_draw": 0.102
+  }
+ },
+ {
+  "id": "W-star_stop",
+  "name": "ほしぞらのていりゅうじょ",
+  "type": "world",
+  "stage": null,
+  "power": null,
+  "wisdom": null,
+  "cost": 3,
+  "rare": false,
+  "text": "1ターンに1回。自分のターン終了時、このターン自分がときおくりもへんしんもしていない場合、手札1枚を山札の一番下に置いて発動できる。次の自分ターン開始時、山札上3枚を見て、その中の2枚までを手札に加える。残りを好きな順で山札下へ置く。",
+  "trigger": "transform_related",
+  "gives": [
+   "手札"
+  ],
+  "early_gain": "メインがいる時のへんしんに得る",
+  "wait_loss": "待機中は不成立",
+  "direct_high": "中立",
+  "usage": null
+ }
+]
