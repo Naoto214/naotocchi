@@ -1,0 +1,324 @@
+{
+ "schema": "cpu_lover_metrics.v1",
+ "summary": {
+  "sources": [
+   "E1",
+   "E2",
+   "E3",
+   "V1",
+   "V2"
+  ],
+  "files": [
+   "../balance-verification-20261022-variety/runs/E1-shard0.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E1-shard1.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E1-shard2.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E1-shard3.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E2-shard0.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E2-shard1.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E2-shard2.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E2-shard3.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E3-shard0.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E3-shard1.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E3-shard2.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/E3-shard3.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/V1-shard0.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/V1-shard1.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/V1-shard2.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/V1-shard3.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/V2-shard0.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/V2-shard1.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/V2-shard2.jsonl.gz",
+   "../balance-verification-20261022-variety/runs/V2-shard3.jsonl.gz"
+  ],
+  "records_skipped": {},
+  "seats": 11200,
+  "games": 5600,
+  "seats_with_lover_in_deck": 9440,
+  "placed": 8110,
+  "placed_rate_of_lover_decks": 0.859,
+  "relationship_steps_reached_if_placed": {
+   "1": 245,
+   "2": 315,
+   "3": 321,
+   "married": 7229
+  },
+  "marriages": 7229,
+  "marriage_rate_of_placed": 0.891,
+  "lover_drawn_but_never_placed": 6,
+  "lover_never_drawn": 1324,
+  "seats_ending_with_unusable_lover_in_hand": 3670,
+  "by_outcome": {
+   "married": {
+    "seats": 7229,
+    "win_rate": 0.495,
+    "draw_rate": 0.094,
+    "mean_growth": 65.41
+   },
+   "placed_not_married": {
+    "seats": 881,
+    "win_rate": 0.354,
+    "draw_rate": 0.104,
+    "mean_growth": 59.77
+   },
+   "lover_in_deck_not_placed": {
+    "seats": 1330,
+    "win_rate": 0.394,
+    "draw_rate": 0.108,
+    "mean_growth": 60.31
+   },
+   "no_lover_in_deck": {
+    "seats": 1760,
+    "win_rate": 0.377,
+    "draw_rate": 0.074,
+    "mean_growth": 45.31
+   }
+  },
+  "by_source": {
+   "E1": {
+    "seats": 3360,
+    "placed": 2033,
+    "married": 1843
+   },
+   "E2": {
+    "seats": 1680,
+    "placed": 991,
+    "married": 895
+   },
+   "E3": {
+    "seats": 1120,
+    "placed": 645,
+    "married": 600
+   },
+   "V1": {
+    "seats": 3360,
+    "placed": 2984,
+    "married": 2594
+   },
+   "V2": {
+    "seats": 1680,
+    "placed": 1457,
+    "married": 1297
+   }
+  }
+ },
+ "by_deck": {
+  "E|D0_standard": {
+   "seats": 880,
+   "lover_copies": 3,
+   "placed_rate": 0.932,
+   "married_rate": 0.845,
+   "mean_steps_if_placed": 3.85,
+   "unusable_lover_in_hand_at_end": 0.394,
+   "win_rate": 0.284
+  },
+  "E|D1_main_growth": {
+   "seats": 880,
+   "lover_copies": 2,
+   "placed_rate": 0.631,
+   "married_rate": 0.532,
+   "mean_steps_if_placed": 3.72,
+   "unusable_lover_in_hand_at_end": 0.126,
+   "win_rate": 0.524
+  },
+  "E|D3_partner": {
+   "seats": 880,
+   "lover_copies": 10,
+   "placed_rate": 1.0,
+   "married_rate": 0.998,
+   "mean_steps_if_placed": 4.0,
+   "unusable_lover_in_hand_at_end": 0.99,
+   "win_rate": 0.632
+  },
+  "E|D4_challenge": {
+   "seats": 880,
+   "lover_copies": 3,
+   "placed_rate": 0.857,
+   "married_rate": 0.764,
+   "mean_steps_if_placed": 3.78,
+   "unusable_lover_in_hand_at_end": 0.37,
+   "win_rate": 0.486
+  },
+  "E|D5_growth_gain": {
+   "seats": 880,
+   "lover_copies": 2,
+   "placed_rate": 0.75,
+   "married_rate": 0.655,
+   "mean_steps_if_placed": 3.72,
+   "unusable_lover_in_hand_at_end": 0.202,
+   "win_rate": 0.51
+  },
+  "V1|balance": {
+   "seats": 480,
+   "lover_copies": 3,
+   "placed_rate": 0.983,
+   "married_rate": 0.915,
+   "mean_steps_if_placed": 3.88,
+   "unusable_lover_in_hand_at_end": 0.537,
+   "win_rate": 0.427
+  },
+  "V1|challenge": {
+   "seats": 480,
+   "lover_copies": 3,
+   "placed_rate": 0.863,
+   "married_rate": 0.762,
+   "mean_steps_if_placed": 3.79,
+   "unusable_lover_in_hand_at_end": 0.292,
+   "win_rate": 0.442
+  },
+  "V1|companion": {
+   "seats": 480,
+   "lover_copies": 2,
+   "placed_rate": 0.917,
+   "married_rate": 0.769,
+   "mean_steps_if_placed": 3.7,
+   "unusable_lover_in_hand_at_end": 0.221,
+   "win_rate": 0.46
+  },
+  "V1|growth": {
+   "seats": 480,
+   "lover_copies": 2,
+   "placed_rate": 0.758,
+   "married_rate": 0.635,
+   "mean_steps_if_placed": 3.68,
+   "unusable_lover_in_hand_at_end": 0.175,
+   "win_rate": 0.348
+  },
+  "V1|item": {
+   "seats": 480,
+   "lover_copies": 2,
+   "placed_rate": 0.894,
+   "married_rate": 0.694,
+   "mean_steps_if_placed": 3.52,
+   "unusable_lover_in_hand_at_end": 0.154,
+   "win_rate": 0.512
+  },
+  "V1|main": {
+   "seats": 480,
+   "lover_copies": 2,
+   "placed_rate": 0.802,
+   "married_rate": 0.633,
+   "mean_steps_if_placed": 3.57,
+   "unusable_lover_in_hand_at_end": 0.106,
+   "win_rate": 0.519
+  },
+  "V1|partner": {
+   "seats": 480,
+   "lover_copies": 10,
+   "placed_rate": 1.0,
+   "married_rate": 0.996,
+   "mean_steps_if_placed": 4.0,
+   "unusable_lover_in_hand_at_end": 0.996,
+   "win_rate": 0.435
+  },
+  "V2|balance": {
+   "seats": 240,
+   "lover_copies": 3,
+   "placed_rate": 0.992,
+   "married_rate": 0.938,
+   "mean_steps_if_placed": 3.92,
+   "unusable_lover_in_hand_at_end": 0.579,
+   "win_rate": 0.475
+  },
+  "V2|challenge": {
+   "seats": 240,
+   "lover_copies": 3,
+   "placed_rate": 0.762,
+   "married_rate": 0.658,
+   "mean_steps_if_placed": 3.74,
+   "unusable_lover_in_hand_at_end": 0.358,
+   "win_rate": 0.483
+  },
+  "V2|companion": {
+   "seats": 240,
+   "lover_copies": 2,
+   "placed_rate": 0.929,
+   "married_rate": 0.838,
+   "mean_steps_if_placed": 3.84,
+   "unusable_lover_in_hand_at_end": 0.233,
+   "win_rate": 0.438
+  },
+  "V2|growth": {
+   "seats": 240,
+   "lover_copies": 2,
+   "placed_rate": 0.688,
+   "married_rate": 0.567,
+   "mean_steps_if_placed": 3.68,
+   "unusable_lover_in_hand_at_end": 0.183,
+   "win_rate": 0.396
+  },
+  "V2|item": {
+   "seats": 240,
+   "lover_copies": 2,
+   "placed_rate": 0.858,
+   "married_rate": 0.658,
+   "mean_steps_if_placed": 3.54,
+   "unusable_lover_in_hand_at_end": 0.2,
+   "win_rate": 0.463
+  },
+  "V2|main": {
+   "seats": 240,
+   "lover_copies": 2,
+   "placed_rate": 0.842,
+   "married_rate": 0.746,
+   "mean_steps_if_placed": 3.76,
+   "unusable_lover_in_hand_at_end": 0.138,
+   "win_rate": 0.45
+  },
+  "V2|partner": {
+   "seats": 240,
+   "lover_copies": 10,
+   "placed_rate": 1.0,
+   "married_rate": 1.0,
+   "mean_steps_if_placed": 4.0,
+   "unusable_lover_in_hand_at_end": 1.0,
+   "win_rate": 0.467
+  }
+ },
+ "cards": {
+  "P-cat_ceo": {
+   "placements": 302,
+   "marriages": 301,
+   "activations": 109
+  },
+  "P-cliff_goat": {
+   "placements": 820,
+   "marriages": 744,
+   "activations": 0
+  },
+  "P-field_cow": {
+   "placements": 1189,
+   "marriages": 1017,
+   "activations": 3374
+  },
+  "P-gentle_gorilla": {
+   "placements": 1351,
+   "marriages": 1196,
+   "activations": 136
+  },
+  "P-grove_deer": {
+   "placements": 1617,
+   "marriages": 1494,
+   "activations": 3144
+  },
+  "P-high_eagle": {
+   "placements": 690,
+   "marriages": 672,
+   "activations": 2343
+  },
+  "P-knitting_spider": {
+   "placements": 635,
+   "marriages": 491,
+   "activations": 2240
+  },
+  "P-robot_neighbor": {
+   "placements": 364,
+   "marriages": 363,
+   "activations": 0
+  },
+  "P-snow_spirit": {
+   "placements": 1142,
+   "marriages": 951,
+   "activations": 45
+  }
+ }
+}
