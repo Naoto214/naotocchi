@@ -22,3 +22,10 @@ write('home-art-browser-check.js',read('home-v22-browser-check.js').replaceAll('
 write('home-art-qa.html',read('home-v22-qa.html').replace('home-v22-browser-check.js','home-art-browser-check.js').replace('Home v22 景観比較','Home art 2.5D 検証'));
 for(const [src,dest]of [['tools/home-art-gallery.html','index.html'],['tools/home-art-gallery.js','home-art-gallery.js']])fs.copyFileSync(src,path.join(out,dest));
 console.log('Built independent art experiment; real play and both QA save families isolated.');
+
+fs.copyFileSync('tools/home-art-report.html',path.join(out,'report.html'));
+if(fs.existsSync('docs/design/home-art-evidence'))fs.cpSync('docs/design/home-art-evidence',path.join(out,'comparison'),{recursive:true});
+
+// Wait for actual art navigation readiness, not a fixed cold-load delay.
+// The complete failure still surfaces if image or model initialization stalls.
+write('home-art-browser-check.js',read('home-art-browser-check.js').replace('await wait(1500);',`await wait(1500);let artReady=false;for(let n=0;n<150;n++){const q=frame.contentWindow.HomeV22QA,e=q.environment(),d=q.detail();if(e?.mode==='art-25d'&&e.loaded&&d.region===$('region').value&&d.actors.length===Number($('count').value)&&d.actors.every(a=>a.ground)){artReady=true;break;}await wait(100);}if(!artReady)throw Error('Art navigation did not become ready');`));
