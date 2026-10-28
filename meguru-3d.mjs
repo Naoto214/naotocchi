@@ -786,7 +786,7 @@ function create3DRenderer(M, o, onLost) {
   // 岩の かたまり(mound): 半分 うまった だ円。頂点を 内がわへ すこし ずらして ごつごつ(あたりの まる の そとへ 出ない)
   function ruggedMound() {
     const g0 = new THREE.IcosahedronGeometry(1, 1), pos = g0.attributes.position;
-    for (let i = 0; i < pos.count; i++) { const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i), k = 1 - 0.12 * hash01(Math.round(x * 1000) + ',' + Math.round(y * 1000) + ',' + Math.round(z * 1000)); pos.setXYZ(i, x * k, y * k, z * k); }
+    for (let i = 0; i < pos.count; i++) { const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i), k = 1 - 0.12 * hash01(Math.round(x * 1000) + ',' + Math.round(y * 1000) + ',' + Math.round(z * 1000)); pos.setXYZ(i, x * k, o.home?Math.max(0,y*k):y*k, z * k); }
     // Geometry pass(予算): 地面の 下に うまる 三角形(3 頂点とも y < −0.15)は つくらない(80 → 約 45)
     const keepTri = []; for (let f = 0; f < pos.count; f += 3) if (!(pos.getY(f) < -0.15 && pos.getY(f + 1) < -0.15 && pos.getY(f + 2) < -0.15)) for (let k = 0; k < 3; k++) keepTri.push(pos.getX(f + k), pos.getY(f + k), pos.getZ(f + k));
     g0.dispose();
