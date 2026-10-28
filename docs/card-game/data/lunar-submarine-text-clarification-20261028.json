@@ -1,0 +1,65 @@
+{
+ "schema_version": 1,
+ "document": "478-lunar-submarine-text-clarification.md",
+ "research": "PR #459 (prototypes/card-game/full-audit-20261028/), PR #460 (prototypes/card-game/followup-20261028/03-text-candidates-7.md)",
+ "base_main": "eb97817d",
+ "changed_cards": [
+  {
+   "id": "G-lunar-lander",
+   "name": "ルナランダー",
+   "before": "自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。",
+   "after": "解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。",
+   "unchanged": [
+    "cost",
+    "method",
+    "draw",
+    "growth_amount",
+    "condition_time_exactly_2",
+    "check_timing_resolution",
+    "copies_limit",
+    "rarity",
+    "illustration",
+    "program"
+   ],
+   "changed": [
+    "wording_states_resolution_timing"
+   ],
+   "ruling_source": "85-play-batch-4-card-text-draft.md#G-lunar-lander 接続",
+   "before_chars": 29,
+   "after_chars": 33
+  },
+  {
+   "id": "G-submarine-3d",
+   "name": "サブマリン3D",
+   "before": "発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、3に選んだ数の2倍を足した枚数を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。",
+   "after": "発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、選んだ数が0なら3枚、1なら5枚、2なら7枚を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。",
+   "unchanged": [
+    "cost",
+    "method",
+    "choice_0_1_2",
+    "extra_time_equals_choice",
+    "look_count_3_5_7",
+    "take_up_to_1",
+    "rest_bottom_any_order",
+    "copies_limit",
+    "rarity",
+    "illustration",
+    "program"
+   ],
+   "changed": [
+    "wording_of_look_count"
+   ],
+   "ruling_source": "83-play-batch-3-card-text-draft.md#G-submarine-3d 接続",
+   "before_chars": 92,
+   "after_chars": 99
+  }
+ ],
+ "save_compatibility": {
+  "rule_version": "hotseat-4",
+  "new_rule_version": null,
+  "note": "Wording only. Saves hold version/seed/decks/commands and no card text; the programs in rules.mjs are unchanged, so every existing save (hotseat-1..4) replays identically. No new version is added."
+ },
+ "validation": {
+  "catalog_records_sha256": "ae5c770801022988a0e23cf2c299fe409042d8a698f2a6133b9ece1b7b5dd643"
+ }
+}
