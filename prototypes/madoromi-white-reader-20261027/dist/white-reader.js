@@ -2,6 +2,8 @@
   'use strict';
   const menu=document.getElementById('reader-menu'), toolbar=document.querySelector('.toolbar');
   const nodes=[...document.querySelectorAll('.source[data-source-index]')];
+  const signature=document.getElementById('signature');
+  if(signature)nodes.push(signature);
   const sizes=[...document.querySelectorAll('[data-size]')];
   const fontKey='madoromi38-font-size-v4',positionKey='madoromi38-reading-position-v6';
   const persistent=window.self===window.top;
@@ -12,6 +14,7 @@
   const edge=()=>toolbar.getBoundingClientRect().bottom+12;
   const measure=()=>document.documentElement.style.setProperty('--bar-height',`${toolbar.offsetHeight}px`);
   function capture(){
+    if(signature)document.body.classList.toggle('signature-visible',signature.getBoundingClientRect().top<window.innerHeight*.5);
     if(window.scrollY<8)return {index:'0',offset:0,top:true,hash:location.hash};
     const y=edge(),el=nodes.find(n=>n.getBoundingClientRect().bottom>y);
     if(!el)return held;
@@ -28,7 +31,7 @@
   function updateResume(){
     if(!bookmark||Number(bookmark.index)<2)return;
     const el=nodes.find(n=>n.dataset.sourceIndex===String(bookmark.index));if(!el)return;
-    resume.hidden=false;resume.href=`#${el.closest('.chapter').id}`;
+    resume.hidden=false;resume.href=`#${el.closest('.chapter')?.id||el.id}`;
   }
   function save(){
     if(!ready||restoring)return;held=capture();if(!held)return;

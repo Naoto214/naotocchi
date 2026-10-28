@@ -19,7 +19,7 @@ class NaopoyoPublicationTests(unittest.TestCase):
         self.assertIn('href="../naopoyo-chapter1/index.html"', portal)
         self.assertNotIn('series.mjs', portal)
         main = (ROOT / 'index.html').read_text()
-        self.assertIn('<span>なおぽよ。</span>', main)
+        self.assertRegex(main, r'<span(?:\s[^>]*)?>なおぽよ。</span>')
         self.assertNotIn('スライド・ドロップ', main)
 
     def test_legacy_runtime_is_not_published_but_sources_are_retained(self):
