@@ -8,6 +8,7 @@ export const wall=(s,x,y)=>x<0||y<0||x>=s.w||y>=s.h||s.walls.some(p=>p[0]===x&&p
 // Gate open is presentation only; every resulting occupant must still qualify.
 export const gateAllows=(s,a,x,y)=>{const g=at(s.gates,x,y);return !g||matchesCondition(a,g)};
 // Explicit opt-in: published boards retain their original contact semantics.
+export const recombineOnceRules=s=>s.splitRules==='recombine-once-v1';
 export const contactRules=s=>s.movementRules==='contact-v1';
 export const gateSurfaceRules=s=>s.terrainRules==='magic-gate-v2';
 export const magicRockRules=s=>s.terrainRules==='magic-rock-v1'||gateSurfaceRules(s);
@@ -52,11 +53,13 @@ function nextId(s){
 }
 function split(s,a,spike,dx,dy,ctx,result){
  const key=`${spike.x},${spike.y}`;
- // New physics dispatches on actual entry, not once per tile per cascade.
- if(!supportedGravity(s)){if(ctx.fired.has(key))return;ctx.fired.add(key);}
+ // B-once spends only successful splits, within this resolved one-cell step.
+ if(recombineOnceRules(s)){if(ctx.fired.has(key))return;}
+ else if(!supportedGravity(s)){if(ctx.fired.has(key))return;ctx.fired.add(key);}
  const positions=splitCandidates(s,a.x,a.y,dx,dy,a,ctx.policy),k=Math.min(a.level-1,spike.power,positions.length);
  result.split=k;result.splitBlocked=k===0?(a.level===1?'minimum':'space'):null;
  if(!k)return;
+ if(recombineOnceRules(s))ctx.fired.add(key);
  a.level-=k;const family=++ctx.family;ctx.families.set(a.id,family);
  for(const p of positions.slice(0,k)){
   const child={id:nextId(s),species:a.species,level:1,x:p.x,y:p.y};
@@ -106,7 +109,7 @@ function enter(s,a,dx,dy,ctx,fall=false){
   if(a.level===8&&target.level===8)return reject('saturated');
   // A lower 8 already contains the maximal amount: no physical change, no ID swap.
   if(fall&&target.level===8)return reject('saturated');
-  if(fall&&ctx.families.has(a.id)&&ctx.families.get(a.id)===ctx.families.get(target.id))return reject('split-family');
+  if(fall&&!recombineOnceRules(s)&&ctx.families.has(a.id)&&ctx.families.get(a.id)===ctx.families.get(target.id))return reject('split-family');
  }
  if(!gateAllows(s,a,x,y))return reject('gate');
  const combined=a.level+(target?.level||0),level=Math.min(8,combined);
@@ -156,8 +159,9 @@ export function settle(s,ctx=context()){
  while(changed){
   if(supportedGravity(s)){
    const sorted=[...s.actors].sort((a,b)=>a.y-b.y||a.x-b.x),groups=new Map();
-   const signature=JSON.stringify(sorted.map(a=>{const f=ctx.families.get(a.id);if(f!==undefined&&!groups.has(f))groups.set(f,groups.size+1);return [a.x,a.y,a.level,a.species,f===undefined?0:groups.get(f)]}));
-   if(seen.has(signature))throw new Error('gravity-cycle');seen.add(signature);
+   const signature=JSON.stringify(sorted.map(a=>{const f=recombineOnceRules(s)?undefined:ctx.families.get(a.id);if(f!==undefined&&!groups.has(f))groups.set(f,groups.size+1);return [a.x,a.y,a.level,a.species,f===undefined?0:groups.get(f)]}));
+   const cycleKey=recombineOnceRules(s)?signature+'#fired:'+JSON.stringify([...ctx.fired].sort()):signature;
+   if(seen.has(cycleKey))throw new Error('gravity-cycle');seen.add(cycleKey);
   }
   changed=false;
   for(const snapshot of [...s.actors].sort((a,b)=>b.y-a.y||a.x-b.x||(a.id<b.id?-1:a.id>b.id?1:0))){
@@ -198,7 +202,7 @@ function resolvedStep(s,a,dx,dy,policy,activeId,countMove){
 export function totals(s){const result={...s.rescuedBySpecies};for(const a of s.actors)result[a.species]=(result[a.species]||0)+a.level;return result}
 export function validState(stage,s){
  try{
-  if(!s||s.id!==stage.id||s.w!==stage.w||s.h!==stage.h||s.occupiedSpikeMode!==stage.occupiedSpikeMode||s.gravityRules!==stage.gravityRules||s.movementRules!==stage.movementRules||s.terrainRules!==stage.terrainRules)return false;
+  if(!s||s.id!==stage.id||s.w!==stage.w||s.h!==stage.h||s.occupiedSpikeMode!==stage.occupiedSpikeMode||s.gravityRules!==stage.gravityRules||s.movementRules!==stage.movementRules||s.terrainRules!==stage.terrainRules||s.splitRules!==stage.splitRules)return false;
   for(const key of ['rescued','moves'])if(!Number.isSafeInteger(s[key])||s[key]<0)return false;
   if(!Number.isSafeInteger(s.nextId)||s.nextId<1)return false;
   for(const key of ['walls','spikes','exits','gravity'])if(JSON.stringify(s[key])!==JSON.stringify(stage[key]))return false;

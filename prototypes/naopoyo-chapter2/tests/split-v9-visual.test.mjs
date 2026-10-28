@@ -28,7 +28,7 @@ test('falling body shows its split number after contact, not the pre-split numbe
 test('a gravity-triggered split waits until the animated body reaches its actual spike',async()=>{
  const {stages}=await import('../stages.mjs'),{default:fs}=await import('node:fs');
  const paths=JSON.parse(fs.readFileSync(new URL('../../../docs/naopoyo-gate-v8-20261026/solutions.json',import.meta.url)));
- const q=new ForestSession(stages.find(s=>s.number===18));
+ const q=new ForestSession({...stages.find(s=>s.number===18),splitRules:undefined,revision:5});
  for(const step of paths.stages.find(s=>s.number===18).path.slice(0,13)){
   q.animate(1000);const a=q.state.actors.find(a=>a.x===step.at[0]&&a.y===step.at[1]);q.begin(a.id,{x:a.x+.5,y:a.y+.5});q.travel({x:a.x+.5+step.d[0],y:a.y+.5+step.d[1]});q.end();
  }
@@ -46,7 +46,7 @@ test('invisible newborns cannot intercept a regrab at birth or final cell',()=>{
 test('coincident split and later merge keep the intermediate number until the donor arrives',async()=>{
  const {stages}=await import('../stages.mjs'),{default:fs}=await import('node:fs');
  const paths=JSON.parse(fs.readFileSync(new URL('../../../docs/naopoyo-gate-v8-20261026/solutions.json',import.meta.url)));
- const q=new ForestSession(stages.find(s=>s.number===18));
+ const q=new ForestSession({...stages.find(s=>s.number===18),splitRules:undefined,revision:5});
  for(const step of paths.stages.find(s=>s.number===18).path.slice(0,6)){
   q.animate(1000);const a=q.state.actors.find(a=>a.x===step.at[0]&&a.y===step.at[1]);q.begin(a.id,{x:a.x+.5,y:a.y+.5});q.travel({x:a.x+.5+step.d[0],y:a.y+.5+step.d[1]});q.end();
  }

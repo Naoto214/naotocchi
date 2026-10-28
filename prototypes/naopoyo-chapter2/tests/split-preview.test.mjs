@@ -7,9 +7,9 @@ const simulate=(...args)=>{assert.equal(typeof api.simulateSplit,'function');ret
 test('one-step prediction shows settled body and children without mutating its source',()=>{
  const s=createState(fixture()),before=structuredClone(s),p=simulate(s,'a',1,0);
  assert.deepEqual(s,before);assert.ok(p);assert.equal(p.births.length,3);
- assert.deepEqual(p.state.actors.map(a=>[a.id,a.x,a.y,a.level]),[['a',3,6,3],['child1',2,4,1],['child2',3,5,1],['child3',3,7,1]]);
+ assert.deepEqual(p.state.actors.map(a=>[a.id,a.x,a.y,a.level]),[['a',3,7,5],['child1',2,4,1]]);
  const real=structuredClone(s);assert.ok(move(real,'a',1,0).ok);assert.deepEqual(p.state,real);
- assert.ok(p.actors.some(a=>a.id==='a'&&a.y===6&&a.level===3));
+ assert.ok(p.actors.some(a=>a.id==='a'&&a.y===7&&a.level===5));
 });
 test('illegal moves, non-splitting moves and level-one spike passage have no preview',()=>{
  const s=createState(fixture());assert.equal(simulate(s,'a',0,-1),null);assert.equal(simulate(s,'a',-1,0),null);
@@ -38,7 +38,7 @@ test('relative drag after gravity previews from the logical actor, not the point
  q.travel({x:3.82,y:4.5});assert.ok(q.preview);const p=structuredClone(q.preview.state);q.travel({x:4.1,y:4.5});assert.deepEqual(q.state,p);
 });
 test('all shipped witness split/merge/overflow/rescue/gate outcomes use exact engine results',()=>{
- const data=JSON.parse(fs.readFileSync(new URL('../../../docs/naopoyo-gate-v8-20261026/solutions.json',import.meta.url)));let split=0,merge=0,overflow=0,rescue=0;
+ const data=JSON.parse(fs.readFileSync(new URL('../../../docs/naopoyo-v10-20261028/solutions.json',import.meta.url)));let split=0,merge=0,overflow=0,rescue=0;
  for(const stage of stages){const s=createState(stage);settle(s);
   for(const step of data.stages.find(v=>v.number===stage.number).path){const a=s.actors.find(a=>a.x===step.at[0]&&a.y===step.at[1]),saved=JSON.stringify(s),p=simulate(s,a.id,...step.d);assert.equal(JSON.stringify(s),saved);const r=move(s,a.id,...step.d);assert.ok(r.ok);
    if(r.events.some(e=>e.type==='split')){assert.ok(p);assert.deepEqual(p.state,s);assert.deepEqual(p.events,r.events);split++;merge+=r.events.filter(e=>e.type==='merge').length;overflow+=r.events.filter(e=>e.type==='merge'&&e.overflow).length;rescue+=r.events.filter(e=>e.type==='rescue').length;}else assert.equal(p,null);

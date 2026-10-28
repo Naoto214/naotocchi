@@ -1,0 +1,572 @@
+<!doctype html><meta charset="utf-8"><title>VERSION 10 browser QA — local only</title>
+<style>body{font:14px system-ui;background:#e8eee8;color:#193d30}button,select{padding:9px;margin:4px}iframe{border:2px solid #517461}pre{white-space:pre-wrap;font-size:12px}#layout{display:flex;gap:16px;align-items:flex-start}#results{max-width:680px}</style>
+<h1>VERSION 10 browser QA — local only</h1>
+<label>Viewport <select id="size"><option>390x844</option><option>320x568</option><option>375x667</option><option>430x932</option><option>320x480</option><option>390x650</option><option>390x750</option></select></label>
+<button id="measure">Measure all viewports</button><button id="repro">Stage 20 parent/child</button><button id="play">Play split → fall → merge</button><button id="verify">Run browser checks</button><label>Motion <input id="time" type="range" min="0" max="100" value="0"></label>
+<div id="layout"><iframe id="game" width="390" height="844" src="/prototypes/naopoyo-chapter2/qa.html"></iframe><pre id="results">Loading</pre></div>
+<script type="module">
+import * as E from '/prototypes/naopoyo-v2/engine.mjs';import {stages} from '/prototypes/naopoyo-chapter2/stages.mjs';import {ForestSession,visualActors} from '/prototypes/naopoyo-chapter2/session.mjs';import {simulateSplit} from '/prototypes/naopoyo-chapter2/split-preview.mjs';import {render} from '/prototypes/naopoyo-chapter2/render.mjs';
+const $=s=>document.getElementById(s),frame=$('game'),result=$('results'),evidence={browser:navigator.userAgent,viewportMode:'real Chrome iframe CSS viewport; not iPhone Safari emulation'},wait=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));let motion=null,qa=null;
+const out=()=>result.textContent=JSON.stringify(evidence,null,2),close=()=>{const b=frame.contentDocument.getElementById('close');if(frame.contentDocument.getElementById('dialog').open)b.click();};
+frame.onload=()=>{close();result.textContent='Ready';};
+$('size').onchange=async()=>{const [w,h]=$('size').value.split('x').map(Number);frame.width=w;frame.height=h;await wait();};
+$('measure').onclick=async()=>{evidence.viewports=[];for(const [w,h,safe] of [[320,568,0],[375,667,0],[390,844,0],[430,932,0],[320,480,0],[390,650,0],[390,750,0],[390,844,1]]){frame.width=w;frame.height=h;const doc=frame.contentDocument,main=doc.querySelector('main');main.style.paddingTop=safe?'47px':'';main.style.paddingBottom=safe?'34px':'';await wait();const b=doc.querySelector('#board').getBoundingClientRect(),n=doc.querySelector('nav').getBoundingClientRect();evidence.viewports.push({w,h,safeAreaEquivalent:!!safe,horizontalOverflow:doc.documentElement.scrollWidth>w,board:{x:b.x,y:b.y,width:b.width,height:b.height},navBottom:n.bottom,allControlsWithinHeight:n.bottom<=h});}frame.contentDocument.querySelector('main').style.paddingTop='';frame.contentDocument.querySelector('main').style.paddingBottom='';out();};
+$('repro').onclick=async()=>{const data={
+  "stage": {
+    "id": "komorebi-forest-trial",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "gates": [
+      {
+        "x": 3,
+        "y": 7,
+        "exact": 8
+      },
+      {
+        "x": 5,
+        "y": 5,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "exact": 4
+      }
+    ],
+    "exits": [
+      {
+        "x": 6,
+        "y": 3,
+        "exact": 7
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "exact": 3
+      }
+    ],
+    "spikes": [
+      {
+        "x": 4,
+        "y": 6,
+        "power": 3
+      },
+      {
+        "x": 6,
+        "y": 6,
+        "power": 2
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 0,
+        "y": 7,
+        "level": 6,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 1,
+        "y": 7,
+        "level": 6,
+        "species": "dog"
+      },
+      {
+        "id": "c",
+        "x": 2,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      }
+    ],
+    "number": 20,
+    "title": "20 森の結び目",
+    "revision": 5,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 8,
+    "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+    "lesson": "支える場所も、分かれる順番も、きみたちで。",
+    "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+    "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+    "hints": [
+      "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+      "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+      "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+    ],
+    "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1",
+    "terrainRules": "magic-gate-v2"
+  },
+  "before": {
+    "id": "komorebi-forest-trial",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "gates": [
+      {
+        "x": 3,
+        "y": 7,
+        "exact": 8,
+        "open": true
+      },
+      {
+        "x": 5,
+        "y": 5,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "exact": 4
+      }
+    ],
+    "exits": [
+      {
+        "x": 6,
+        "y": 3,
+        "exact": 7
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "exact": 3
+      }
+    ],
+    "spikes": [
+      {
+        "x": 4,
+        "y": 6,
+        "power": 3
+      },
+      {
+        "x": 6,
+        "y": 6,
+        "power": 2
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "number": 20,
+    "title": "20 森の結び目",
+    "revision": 5,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 8,
+    "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+    "lesson": "支える場所も、分かれる順番も、きみたちで。",
+    "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+    "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+    "hints": [
+      "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+      "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+      "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+    ],
+    "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1",
+    "terrainRules": "magic-gate-v2",
+    "rescued": 0,
+    "rescuedBySpecies": {},
+    "nextId": 1,
+    "moves": 6
+  },
+  "action": {
+    "at": [
+      3,
+      7
+    ],
+    "level": 8,
+    "d": [
+      1,
+      -1
+    ]
+  },
+  "result": {
+    "ok": true,
+    "id": "b",
+    "merged": 0,
+    "overflow": 0,
+    "split": 3,
+    "children": [
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 5
+      },
+      {
+        "id": "child3",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 0,
+    "falls": [],
+    "splitBlocked": null,
+    "events": [
+      {
+        "type": "split",
+        "id": "b",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      }
+    ]
+  },
+  "after": {
+    "id": "komorebi-forest-trial",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "gates": [
+      {
+        "x": 3,
+        "y": 7,
+        "exact": 8,
+        "open": true
+      },
+      {
+        "x": 5,
+        "y": 5,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "exact": 4
+      }
+    ],
+    "exits": [
+      {
+        "x": 6,
+        "y": 3,
+        "exact": 7
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "exact": 3
+      }
+    ],
+    "spikes": [
+      {
+        "x": 4,
+        "y": 6,
+        "power": 3
+      },
+      {
+        "x": 6,
+        "y": 6,
+        "power": 2
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 4,
+        "y": 6,
+        "level": 5,
+        "species": "dog"
+      },
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 5
+      },
+      {
+        "id": "child3",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "number": 20,
+    "title": "20 森の結び目",
+    "revision": 5,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 8,
+    "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+    "lesson": "支える場所も、分かれる順番も、きみたちで。",
+    "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+    "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+    "hints": [
+      "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+      "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+      "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+    ],
+    "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1",
+    "terrainRules": "magic-gate-v2",
+    "rescued": 0,
+    "rescuedBySpecies": {},
+    "nextId": 4,
+    "moves": 7
+  },
+  "path": [
+    {
+      "at": [
+        0,
+        7
+      ],
+      "level": 6,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    {
+      "at": [
+        1,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        2,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        1,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        3,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        2,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        3,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        -1
+      ]
+    }
+  ]
+};frame.contentWindow.pilot.choose(stages[9].id);close();qa=frame.contentWindow.pilot.session;qa.state={...data.before,splitRules:'recombine-once-v1',revision:6};qa.motion=[];qa.paused=true;const id=qa.state.actors.find(a=>a.x===data.action.at[0]&&a.y===data.action.at[1]).id,before=E.clone(qa.state),preview=simulateSplit(before,id,...data.action.d),after=E.clone(before),r=E.move(after,id,...data.action.d);motion={before,after,events:r.events,id,dx:data.action.d[0],dy:data.action.d[1],elapsed:0,duration:340};qa.state=after;qa.motion=[motion];qa.preview=preview;render(frame.contentDocument.querySelector('canvas'),qa,{rows:8,dpr:1});evidence.reproduction={split:r.events.filter(e=>e.type==='split').map(e=>e.count),mergeLevels:r.events.filter(e=>e.type==='merge').map(e=>e.level),previewMatches:JSON.stringify(preview.state)===JSON.stringify(after),final:after.actors.map(a=>[a.x,a.y,a.level])};out();};
+$('time').oninput=()=>{if(!motion)return;qa.motion=[motion];motion.elapsed=motion.duration*Number($('time').value)/100;render(frame.contentDocument.querySelector('canvas'),qa,{rows:8,dpr:1});};
+$('play').onclick=()=>{if(!motion)return;qa.preview=null;const start=performance.now();const tick=t=>{motion.elapsed=Math.min(340,t-start);qa.motion=motion.elapsed<340?[motion]:[];render(frame.contentDocument.querySelector('canvas'),qa,{rows:8,dpr:1});if(motion.elapsed<340)requestAnimationFrame(tick);};requestAnimationFrame(tick);};
+$('verify').onclick=async()=>{try{const witnesses=await fetch('/qa-solutions.json').then(r=>r.json());let moves=0,previews=0;for(const w of witnesses.stages){const st=stages.find(s=>s.number===w.number),q=new ForestSession(st);for(const p of w.path){q.animate(10000);const a=q.state.actors.find(a=>a.x===p.at[0]&&a.y===p.at[1]&&a.level===p.level);if(!a)throw Error('actor');const prediction=simulateSplit(q.state,a.id,...p.d);q.begin(a.id,{x:a.x+.5,y:a.y+.5});q.travel({x:a.x+.5+p.d[0],y:a.y+.5+p.d[1]});q.end();if(!q.lastResults[0].ok)throw Error('move');moves++;if(prediction){previews++;if(JSON.stringify(prediction.state)!==JSON.stringify(q.state))throw Error('preview');}const saved=q.serialize(),restored=new ForestSession(st,saved);if(!restored.restored||JSON.stringify(restored.state)!==JSON.stringify(q.state))throw Error('restore');q.animate(1,true);if(q.motion.length)throw Error('reduced motion');}if(!E.complete(q.state))throw Error('complete');}evidence.browserEngine={passed:true,moves,previews,stages:10,reducedMotion:true,saveRestore:true};out();}catch(e){evidence.error=String(e);out();}};
+</script>

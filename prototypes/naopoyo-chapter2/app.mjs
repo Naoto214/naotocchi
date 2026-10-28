@@ -135,7 +135,7 @@ export function mount({qa = false} = {}) {
     if(!r){draw();return;}
     if (r?.split) {
       hitUntil = q.time + 350;
-      $("status").textContent = "分裂！ 支えがないと落ちるよ。";
+      $("status").textContent = "分裂！ 落ちて仲間に触れると合体するよ。";
     } else
       $("status").textContent = r?.ok
         ? r.swapped ? "すれ違って場所を交換。そのまま続けよう。" : r.events?.some(e=>e.type==="merge"&&e.overflow) ? "合体して8に。余った仲間は元の場所へ、支えがなければ落ちるよ。" : "指を離さず、そのまま。"
@@ -194,7 +194,7 @@ export function mount({qa = false} = {}) {
   };
   const legacyHint = () =>
     show(
-      `<h2>ほどくヒント</h2><p>${q.stage.hint}</p><p>同じ種族は足し算。8を超えた分は後ろに。トゲや光で1ずつ分裂。青い水中は魚だけ。</p><p>波や光は予告のあと自動で動きます。押されても指を離さず続けられます。「もどす」は時刻も一緒に戻します。</p>`,
+      `<h2>ほどくヒント</h2><p>${q.stage.hint}</p><p>同じ種族は足し算。8を超えた分は後ろに。各トゲは1マスの1手につき1回だけ分裂。分裂した仲間も、落ちて触れたら合体。青い水中は魚だけ。</p><p>波や光は予告のあと自動で動きます。押されても指を離さず続けられます。「もどす」は時刻も一緒に戻します。</p>`,
     );
   function showHint() {
     if (!q.stage.hints) return legacyHint();

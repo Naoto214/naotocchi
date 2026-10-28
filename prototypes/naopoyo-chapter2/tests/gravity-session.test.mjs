@@ -17,7 +17,7 @@ test('newborn fragments animate from placement to their gravity landing',()=>{
  const shown=visualActors(q).find(a=>a.id===falling.id);assert.equal(shown.y,falling.y);q.animate(400);assert.equal(visualActors(q).find(a=>a.id===falling.id).y,q.state.actors.find(a=>a.id===falling.id).y);
 });
 test('shipped stage19 transient child is visible between its birth and absorption',async()=>{
- const {readFileSync}=await import('node:fs');const data=JSON.parse(readFileSync(new URL('../../../docs/naopoyo-gate-v8-20261026/solutions.json',import.meta.url)));
+ const {readFileSync}=await import('node:fs');const data=JSON.parse(readFileSync(new URL('../../../docs/naopoyo-v10-20261028/solutions.json',import.meta.url)));
  const stage=stages.find(s=>s.number===19),path=data.stages.find(s=>s.id===stage.id).path,q=new ForestSession(stage);let checked=0;
  for(const p of path){const a=q.state.actors.find(a=>a.x===p.at[0]&&a.y===p.at[1]);q.begin(a.id,{x:a.x+.5,y:a.y+.5});q.travel({x:a.x+.5+p.d[0],y:a.y+.5+p.d[1]});q.end();
   const f=q.motion[0],births=f.events.flatMap(e=>e.children||[]);for(const b of births.filter(b=>!f.after.actors.some(a=>a.id===b.id))){let visible=false;for(let i=0;i<100;i++){q.motion[0].elapsed=f.duration*i/100;const drawn=visualActors(q).find(a=>a.id===b.id);assert.ok(drawn,'transient child '+b.id);assert.ok(Number.isFinite(drawn.x)&&Number.isFinite(drawn.y));if(drawn.opacity>0&&drawn.opacity<1)visible=true;}assert.ok(visible,'transient child appears after its actual contact, then fades');checked++;}q.animate(1000);
