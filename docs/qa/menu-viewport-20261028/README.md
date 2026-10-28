@@ -30,3 +30,18 @@ nav-a11y, viewport-design). Runtime allowlist package: 4057 files, 213538522 byt
 1685 static references and 2954 dynamic references checked successfully.
 Full npm test was attempted; environment disk exhaustion interrupted the log,
 so no complete-suite success is claimed. No main merge or production deployment.
+
+
+## Final verification and private trial
+
+The story link opened 微睡みの箱庭 and displayed its cover, chapter text and return-to-game link.
+Owner-private Site version 5 deployed successfully at https://naotocchi-menu-story-20261027.kerzion214.chatgpt.site . Runtime source is GitHub commit 03874aef88f0dd05cf9aab5a9a156ab2393aa33c; later changes to this report do not change runtime bytes.
+
+A repeated full-suite run was stopped after observing seven failures outside the menu scope. A bounded rerun of the five affected files completed: 68 pass / 7 fail. These arise from files omitted by the sparse, runtime-focused checkout, and are not asserted to be upstream defects:
+- character-3d-quality-test.cjs:117: Claude QA adapter; missing docs/qa/character-3d-quality-2026-10-02/claude/runtime.mjs.
+- character-3d-rollout-inventory-test.cjs:27,40,49: three legacy board review tests; missing docs/qa/character-3d-full-v0/legacy-four-view-review.json.
+- character-3d-test.cjs:424: asset integrity; absent gallery.html.
+- item-art-unification-test.cjs:16: missing assets/items/unified/manifest.json.
+- meguru-3d-art-direction-test.cjs:280: missing docs/qa/meguru-3d-art-direction-v1-status.md.
+
+The menu-specific 51 tests were rerun after packaging and all passed. iPhone Safari owner QA is still required; no main merge or public production release was performed.
