@@ -4129,7 +4129,7 @@
     "home-care-colors.css": "ea67edc0b0c27fd194993419c62e3863d5474a5613984488c6bf2e2b127775bc",
     "home-touch.js": "eda7deef505a69cd93e7e5ab4933c9791732ec351679eb6f0171a77c314e684f",
     "illustration-catalog.js": "75f714c1d6ddb429f2d2eebab23f468d976d8e4201dcbaa10b91adfc3c84da0d",
-    "index.html": "e7aed4cc14c2f9b502f267f1f14f3c4a436421ff81331d1d1d37f5008407ed9d",
+    "index.html": "9b1bcc548c7513029bd4bf30974dda5c70e0c83126edfc2362ae65ed242d7f97",
     "individuality-data.js": "7ff3ee9eb91c7a0c7c19ee9582f07ad2fce8269c43d8b5d89a5359e804f87ec3",
     "individuality.js": "58f2b79761d45917fb07eaf8d48c1c2ae0f85e618e85b7bf2729e7691504679a",
     "item-memories.css": "8434fee41472c872e3c3ee168ee78335ce7ba091fb8a60a7c96fe35bec5e0eb8",
@@ -4236,15 +4236,15 @@
     "style.css": "a858199187246e3b58499ce2a921c0de6e265ed30098465a9adfaf4d7e2beb63",
     "ui-illustrations.css": "94f2a91665f90bfcfbd72b002c28aab5bdbef581c5d5d43e0cbb95159ff82f81",
     "ui-symbol-art.js": "dbdce7f8a51024f6de2e5cf60b5775f3fef307b8cb44474e1e9428fca5f68684",
-    "ui.css": "9ff4b428eaa64518ca675bb9027e90ca60a62fc2296a6d2f8f749052e3ca8d61",
+    "ui.css": "10988ad67fc5843e6ae155844572845efdfbf8956086c7af2feb6b482f3431ec",
     "vendor/three-0.170.0/three.module.min.js": "08fd7545d13d2c7fb65ab691530a802dafefd638596501854f267d0fb13c39e7",
     "world-environment.js": "f35a8b6f77859fd7b6b629a0e26e79c2392ac808ec6d4fc3a6277601057c354a",
     "world-scene.css": "8d25726d737d42de574bcbe67966a2e128440fc7d90ec1bfa89736acc78596e8",
     "world-scene.js": "a3c7451223d34c4092aed67750487dc62e075a83d5bbdaa58e81937c35a3dc6d",
     "story-navigation.js": "4a3e1969fbdd063d62f511312de9653bdcac2d10e472e61c11025a5777905018",
-    "prototypes/madoromi-white-reader-20261027/dist/index.html": "ab0b423806b6186c72e7c282f15d7774196b2ecfb7fd1849aaff5ea100274a93",
-    "prototypes/madoromi-white-reader-20261027/dist/white-reader.css": "1b3b5b2c4ac40fa1205018f8673b355160bb14ac3c1a0dd388fa275c1ef8ab0a",
-    "prototypes/madoromi-white-reader-20261027/dist/white-reader.js": "76781e847599170b6ea3fbdc9481b0a5b24ce6e0f1a430d2b2f7b350469ce10a"
+    "prototypes/madoromi-white-reader-20261027/dist/index.html": "358522e33cf8f2682be9a5376c84be9dd3c8278ed405415f060640bdf1c87d02",
+    "prototypes/madoromi-white-reader-20261027/dist/white-reader.css": "f5d5473dfc5ca92f375eae1fa6a4faf4fa4410935a66c45dbfcb9fffc844f0db",
+    "prototypes/madoromi-white-reader-20261027/dist/white-reader.js": "9a4e0feecbb3965a63f7a85e0dcd90846bb08ddbbbe7ff8ecb05e1187f391085"
   },
   "forbidden_patterns": [
     "^(?:docs|tests|tools|\\.github)/",
