@@ -1,5 +1,5 @@
 // Phase 2 第3弾 採点の 共通仕様の 回帰テスト。
-// T7: 実質的に 参加して いない プレイ(無操作・さいしょに 1かい さわって ほうち)は 25点を こえない。
+// T7: 実質的に 参加して いない プレイ(無操作・さいしょに 1かい さわって ほうち)は「途中で やめた」と おなじ(記録しない)。
 // T1: 対戦の 点は 決着 > 判定(時間切れで 優劣あり) > 時間切れ・未決着。正当な 引き分けと 時間切れを わける。
 // DOM と 時計・canvas は ハーネスの 代用品(ブラウザの 描画や 指の 入力の 証拠では ない)。
 const {test} = require('node:test');
@@ -27,14 +27,14 @@ function play(id, {seed = 1, before, during} = {}) {
   if (before) before(h, s);
   const game = h.api.games.find((g) => g.id === id);
   assert.ok(game, id);
-  let box = null, raw = null, final = null;
+  let box = null, raw = null, final = null, counted = null;
   h.api.startMinigame({id, start(c, done) {
     box = c;
-    return game.start(c, (sc, ...rest) => { if (raw !== null) return; raw = sc; const b = s.minigameScoreSum; done(sc, ...rest); final = s.minigameScoreSum - b; });
+    return game.start(c, (sc, ...rest) => { if (raw !== null) return; raw = sc; const b = s.minigameScoreSum, n = s.minigameCount; done(sc, ...rest); final = s.minigameScoreSum - b; counted = s.minigameCount - n; });
   }});
   for (let t = 0; raw === null && t < 240000; t += 100) { if (during) during(h, t, box); h.advance(100); }
   assert.notEqual(raw, null, id + ' ends');
-  return {h, s, raw, final};
+  return {h, s, raw, final, counted};
 }
 
 // games.js の 共通ヘルパーを 直接 よぶ(本体の S の かわりに 最小の スタブ)
@@ -45,54 +45,77 @@ function helpers() {
 }
 
 // ---------------- T7 ----------------
+// 案B(2026-10-28 承認): 参加なしの プレイは「途中で やめた」と おなじ。点・記録・コイン・そだち・個性・会話に 入れない。
+// 遊んで 低い 点だった(失敗)ときは いままでどおりの 採点と ペナルティ
+const IDLE_TEXT = 'そうさがなかったので、今回は記録しないよ';
 // 03 の 実測で 無操作 C〜B だった 代表(対戦の 時間切れ・自動で すすむ・不具合で 高い もの)
 const IDLE_HIGH = ['connect-four', 'gomoku-9', 'reversi-6', 'hang-glider-3d', 'sky-shooter', 'plane-landing', 'falling-block-puzzle', 'ring-flight-3d', 'downhill-snow', 'tilt-maze-3d', 'air-hockey', 'curling-ice', 'mini-golf-physics', 'sugoroku-race'];
-for (const id of IDLE_HIGH) test(`T7: ${id} を 無操作で おえると 25点を こえない`, () => {
-  const {final} = play(id);
-  assert.ok(final <= 25, `${id}: ${final}`);
+for (const id of IDLE_HIGH) test(`T7: ${id} を 無操作で おえると 記録しない`, () => {
+  const {h, s, counted} = play(id);
+  assert.equal(counted, 0, id);
+  assert.equal(s.lifetime.minigameRecords[id], undefined, id + ' record');
+  assert.ok(h.api.getMessage().includes(IDLE_TEXT), h.api.getMessage());
 });
 
-test('T7: 自動で すすむ ゲームは さいしょに 1かい さわって ほうちしても 25点を こえない', () => {
+test('T7: 自動で すすむ ゲームは さいしょに 1かい さわって ほうちしても 記録しない', () => {
   for (const id of ['hang-glider-3d', 'sky-shooter', 'falling-block-puzzle', 'road-city', 'reversi-6']) {
-    const {raw, final} = play(id, {during: (h, t, box) => { if (t === 1000) { const n = box.querySelector('canvas') || box; h.dispatch(n, 'pointerdown', {pointerId: 1, clientX: 150, clientY: 150, button: 0}); h.dispatch(n, 'pointermove', {pointerId: 1, clientX: 170, clientY: 140}); h.dispatch(n, 'pointerup', {pointerId: 1, clientX: 170, clientY: 140}); } }});
-    assert.ok(final <= 25, `${id}: raw ${raw} -> ${final}`);
+    const {raw, counted} = play(id, {during: (h, t, box) => { if (t === 1000) { const n = box.querySelector('canvas') || box; h.dispatch(n, 'pointerdown', {pointerId: 1, clientX: 150, clientY: 150, button: 0}); h.dispatch(n, 'pointermove', {pointerId: 1, clientX: 170, clientY: 140}); h.dispatch(n, 'pointerup', {pointerId: 1, clientX: 170, clientY: 140}); } }});
+    assert.equal(counted, 0, `${id}: raw ${raw}`);
   }
 });
 
 // 結果処理の 入口だけを みる(ゲームの 点は そのまま わたす)
-function finishWith(id, score, detail, {input = false} = {}) {
-  const h = harness(); const s = h.api.state(); Object.assign(s, {isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80});
+function finishWith(id, score, detail, {input = false, before} = {}) {
+  const h = harness(); const s = h.api.state(); Object.assign(s, {isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, happiness: 50});
+  if (before) before(h, s);
   let done = null, box = null;
   h.api.startMinigame({id, start(c, d) { box = c; done = d; }});
   if (input) h.dispatch(box, 'pointerdown', {pointerId: 1, clientX: 10, clientY: 10});
-  const money = s.lifetime.money, sum = s.minigameScoreSum;
+  const was = {money: s.lifetime.money, sum: s.minigameScoreSum, count: s.minigameCount, played: s.lifetime.minigamesPlayed, energy: s.energy, happiness: s.happiness, decline: s.decline, death: s.deathMeter, transform: s.transformMeter, individuality: JSON.stringify(s.individuality)};
   done(score, null, detail);
-  return {h, s, final: s.minigameScoreSum - sum, coins: s.lifetime.money - money, record: s.lifetime.minigameRecords[id]};
+  return {h, s, final: s.minigameScoreSum - was.sum, counted: s.minigameCount - was.count, coins: s.lifetime.money - was.money, record: s.lifetime.minigameRecords[id], was};
 }
 
-test('T7: ふつうに 操作した プレイの 点は かわらない(上限は 参加の ない ときだけ)', () => {
+test('T7: ふつうに 操作した プレイの 点は かわらない(判定は 参加の ない ときだけ)', () => {
   assert.equal(finishWith('reversi-6', 90, {acts: 12, cover: 0.7}).final, 90);
   assert.equal(finishWith('hang-glider-3d', 82, {acts: 300, cover: 0.9}).final, 82);
   assert.equal(finishWith('dot-eater', 60, undefined, {input: true}).final, 60, '量を わたさない ゲームは ゲームの がめんの 入力で みる');
-  assert.equal(finishWith('dot-eater', 60, undefined).final, 25);
-  assert.equal(finishWith('reversi-6', 90, {acts: 0, cover: 0}, {input: true}).final, 25, '入力が あっても 状態を かえて いなければ 参加なし');
-  assert.equal(finishWith('hang-glider-3d', 82, {acts: 3, cover: 0.05}, {input: true}).final, 25, 'さいしょだけ さわって ほうち');
-  assert.equal(finishWith('road-city', 41, {acts: 1, spans: 1, cover: 0.2}, {input: true}).final, 25, '1つの 区切りだけ(みじかい ゲームでも 2区切り いじょう)');
+  assert.equal(finishWith('dot-eater', 60, undefined).counted, 0);
+  assert.equal(finishWith('reversi-6', 90, {acts: 0, cover: 0}, {input: true}).counted, 0, '入力が あっても 状態を かえて いなければ 参加なし');
+  assert.equal(finishWith('hang-glider-3d', 82, {acts: 3, cover: 0.05}, {input: true}).counted, 0, 'さいしょだけ さわって ほうち');
+  assert.equal(finishWith('road-city', 41, {acts: 1, spans: 1, cover: 0.2}, {input: true}).counted, 0, '1つの 区切りだけ(みじかい ゲームでも 2区切り いじょう)');
   assert.equal(finishWith('road-city', 41, {acts: 4, spans: 2, cover: 0.4}, {input: true}).final, 41);
   assert.equal(finishWith('sky-shooter', 30, {acts: 2, spans: 1, cover: 1}, {input: true}).final, 30, '1区切りで おわった ゲームは その 1つで よい');
-  assert.equal(finishWith('reversi-6', 20, {acts: 0}).final, 20, '25点 いかの 点は そのまま');
+  assert.equal(finishWith('reversi-6', 20, {acts: 0}).counted, 0, '低い 点でも 参加なしなら 記録しない');
 });
 
-test('T7: 上限は 記録・コイン・会話の 帯より まえに かかり、じこベストは 巻き戻さない', () => {
+test('T7: 参加なしは「途中で やめた」と おなじ(元気-6・きげん+2 だけ。記録・コイン・そだち・個性に 入れない)', () => {
   const r = finishWith('hang-glider-3d', 82, {acts: 0, cover: 0}, {});
-  assert.equal(r.record.last, 25);
-  assert.equal(r.coins, 0, '25点は 失敗の 帯(30未満)なので コインなし');
-  const k = harness(); const s = k.api.state(); Object.assign(s, {isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80});
-  s.lifetime.minigameRecords['hang-glider-3d'] = {best: 82, last: 82};
-  let done; k.api.startMinigame({id: 'hang-glider-3d', start(c, d) { done = d; }});
-  done(91, null, {acts: 0, cover: 0});
-  assert.deepEqual({...s.lifetime.minigameRecords['hang-glider-3d']}, {best: 82, last: 25});
-  assert.ok(k.api.getMessage().includes('25点まで'), k.api.getMessage());
+  assert.equal(r.counted, 0, 'avgSkill に 入れない');
+  assert.equal(r.record, undefined, '記録しない');
+  assert.equal(r.coins, 0);
+  assert.equal(r.s.lifetime.minigamesPlayed, r.was.played);
+  assert.equal(r.s.energy, r.was.energy - 6);
+  assert.equal(r.s.happiness, r.was.happiness + 2);
+  assert.equal(r.s.decline, r.was.decline, '衰えの ペナルティなし');
+  assert.equal(r.s.deathMeter, r.was.death, '寿命の ペナルティなし');
+  assert.equal(r.s.transformMeter, r.was.transform);
+  assert.equal(JSON.stringify(r.s.individuality), r.was.individuality, '個性は かわらない');
+  assert.ok(r.h.api.getMessage().includes(IDLE_TEXT), r.h.api.getMessage());
+  // まえの 記録は そのまま(じこベストも 前回も)
+  const k = finishWith('hang-glider-3d', 91, {acts: 0, cover: 0}, {before: (h, s) => { s.lifetime.minigameRecords['hang-glider-3d'] = {best: 82, last: 70}; }});
+  assert.deepEqual({...k.s.lifetime.minigameRecords['hang-glider-3d']}, {best: 82, last: 70});
+});
+
+test('T7: 遊んで 低い 点だった ときは いままでの 採点と ペナルティ(失敗)のまま', () => {
+  const r = finishWith('reversi-6', 20, {acts: 12, cover: 0.7});
+  assert.equal(r.final, 20);
+  assert.equal(r.counted, 1);
+  assert.equal(r.coins, 0);
+  assert.equal(r.record.last, 20);
+  assert.equal(r.s.lifetime.minigamesPlayed, r.was.played + 1);
+  assert.ok(r.s.deathMeter > r.was.death, '寿命の ペナルティは のこる');
+  assert.ok(!r.h.api.getMessage().includes(IDLE_TEXT));
 });
 
 test('T7: Quick と テスト用の ゲームには かからない', () => {
