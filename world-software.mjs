@@ -27,6 +27,7 @@ export function createSoftwareRenderer(canvas){
       let light=1;if(!mat.isMeshBasicMaterial&&normals){n.fromBufferAttribute(normals,ia).transformDirection(model);light=.68+.32*Math.max(0,n.dot(new THREE.Vector3(-.35,.85,.4).normalize()));}
       let r=baseColor.r,gg=baseColor.g,bb=baseColor.b;if(mat.vertexColors&&colors){r*=colors.getX(ia);gg*=colors.getY(ia);bb*=colors.getZ(ia);}if(mat.userData.livingWater){light*=1+.08*Math.sin(mat.userData.livingWater.value*1.2+(a[0]+b[0]+c[0])*.008);}
       const col=new THREE.Color(r*light,gg*light,bb*light);
+      if(mat.userData.homeNightLight&&mat.emissive)col.add(mat.emissive.clone().multiplyScalar(mat.emissiveIntensity||0));
       triangles.push({layer:mesh.userData.softwareSurface??mat.userData.softwareSurface??0,a,b,c,z:(a[2]+b[2]+c[2])/3,color:'#'+col.getHexString(),alpha:mat.transparent?mat.opacity:1});
     }
    }info.render.calls++;

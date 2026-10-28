@@ -53,7 +53,7 @@ export function createHomeNavigation(M,composition,{width,height,anchorY,offsetX
   if(p.x<world.minX+24||p.x>world.maxX-24||p.z<0||p.z>world.len)return false;
   const water=terr.sDist(p.x,p.z);if(water.d<water.w+48)return false;
   if(terr.ponds.some(q=>Math.hypot(q.x-p.x,q.z-p.z)<q.r+24))return false;
-  if(world.regionId==='city'&&world.segments.some(s=>['road','distant-road'].includes(s.surface)&&distanceToSegment(p,s)<s.half+45))return false;
+  if(world.regionId==='city'&&world.segments.some(s=>['road','distant-road'].includes(s.surface)&&(world.homeCityParcels?distanceToRoadRectangle(p,s)<45:distanceToSegment(p,s)<s.half+45)))return false;
   return !M.collidesAt(world,p.x,p.z,28);
  };
  const seats=composition.scenery?.seats||[[0,550]];
@@ -71,3 +71,7 @@ export function createHomeNavigation(M,composition,{width,height,anchorY,offsetX
 }
 
 function distanceToSegment(p,s){const dx=s.b.x-s.a.x,dz=s.b.z-s.a.z,t=Math.max(0,Math.min(1,((p.x-s.a.x)*dx+(p.z-s.a.z)*dz)/(dx*dx+dz*dz||1)));return Math.hypot(p.x-s.a.x-dx*t,p.z-s.a.z-dz*t);}
+
+// Distance to the finite road footprint, not rounded segment caps. At the
+// raised pedestrian crossing a character can approach the real pavement edge.
+function distanceToRoadRectangle(p,s){const dx=s.b.x-s.a.x,dz=s.b.z-s.a.z,L=Math.hypot(dx,dz)||1,x=p.x-(s.a.x+s.b.x)/2,z=p.z-(s.a.z+s.b.z)/2;return Math.hypot(Math.max(0,Math.abs((x*dx+z*dz)/L)-L/2),Math.max(0,Math.abs((x*dz-z*dx)/L)-s.half));}

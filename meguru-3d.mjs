@@ -902,7 +902,7 @@ function create3DRenderer(M, o, onLost) {
     const pathMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ color: coloredPaths ? '#ffffff' : world.path })));
     let groundKey = world.ground[0] + world.ground[1] + world.path;
     const refreshGround = () => { const k = world.ground[0] + world.ground[1] + world.path; if (k === groundKey) return; groundKey = k; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; pathMat.color.set(coloredPaths ? '#ffffff' : world.path); };
-    const segs = world.segments || [];
+    const segs = o.home && world.homeCityParcels || world.segments || [];
     // Geometry pass: 小川 / 川 / 谷を 横切る ところは 道の 面を きる(橋 / 飛び石が かわりに 渡す。道の 板が 水の 上に のらない)
     const gaps = terr ? terr.crossings.concat(world._gullies3d || [], terr.wetSpots.concat(terr.ponds).map((q) => ({ x: q.x, z: q.z, w: q.r * 0.8, pathAng: 0, streamAng: Math.PI / 2 }))) : [];   // 池の くぼ地の 上にも 道の 板を のせない
     const pieces = [];
@@ -914,11 +914,12 @@ function create3DRenderer(M, o, onLost) {
       cut.sort((a, b) => a[0] - b[0]);
       let t0 = 0; for (const [a, b] of cut) { if (a > t0) pieces.push([sg, t0, Math.min(a, L)]); t0 = Math.max(t0, b); } if (t0 < L) pieces.push([sg, t0, L]);
     }
-    const road = new THREE.InstancedMesh(keep(new THREE.BoxGeometry(1, 1, 1)), pathMat, Math.max(1, pieces.length));
+    const parcelFloor = o.home && world.homeCityParcels;
+    const road = new THREE.InstancedMesh(keep(parcelFloor ? new THREE.PlaneGeometry(1,1).rotateX(-Math.PI/2) : new THREE.BoxGeometry(1, 1, 1)), pathMat, Math.max(1, pieces.length));
     pieces.forEach(([sg, ta, tb], i) => {
       const dx = sg.b.x - sg.a.x, dz = sg.b.z - sg.a.z, L = Math.hypot(dx, dz) || 1, tm = (ta + tb) / 2;
       // 箱の ながさ(ローカル z)を 道の むき(three では (dx, -dz))へ
-      tmp.position.set(sg.a.x + dx * tm / L, (sg.height || 1.2) / 2, -(sg.a.z + dz * tm / L)); tmp.rotation.set(0, Math.atan2(dx, -dz), 0);
+      tmp.position.set(sg.a.x + dx * tm / L, (sg.height || 1.2) / (parcelFloor ? 1 : 2), -(sg.a.z + dz * tm / L)); tmp.rotation.set(0, Math.atan2(dx, -dz), 0);
       tmp.scale.set(sg.half * 2, sg.height || 1.2, Math.max(1, tb - ta)); tmp.updateMatrix(); road.setMatrixAt(i, tmp.matrix);
       if (coloredPaths) road.setColorAt(i, new THREE.Color(sg.color || world.path));
     });
@@ -995,7 +996,7 @@ function create3DRenderer(M, o, onLost) {
     const livingClock = {value:0};
     if(o.home) for(const shape of ['crown','cone','blade','kelp','petal']) if(MAT[shape]) installWind(MAT[shape],livingClock,shape==='crown'?4:2);
     const homeCars=[],homeWheels=[];
-    if(o.home){GEO_ALIAS.homewindowwpanel='wpanel';GEO_ALIAS.homewindowwbox='box';MAT.homewindowwbox=MAT.homewindowwpanel=keep(new THREE.MeshLambertMaterial({color:'#b8d8e5',emissive:'#ffd796',emissiveIntensity:0}));}
+    if(o.home){GEO_ALIAS.homewindowwpanel='wpanel';GEO_ALIAS.homewindowwbox='box';MAT.homewindowwbox=MAT.homewindowwpanel=keep(new THREE.MeshLambertMaterial({color:'#b8d8e5',emissive:'#ffd796',emissiveIntensity:0}));MAT.homewindowwpanel.userData.homeNightLight=true;}
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)

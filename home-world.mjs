@@ -2,14 +2,34 @@ import { createHomeNavigation } from './home-terrain-navigation.mjs';
 export {createHomeNavigation,createTerrainNavigation} from './home-terrain-navigation.mjs';
 import { createHomeEnvironmentRenderer } from './meguru-3d.mjs';
 import { HOME_ROUTES,createWorldLife } from './world-life.mjs';
-// Layout is Home-owned. Mesh parts and materials are always the official Meguru source.
-import {HOME_SCENERY} from './home-scenery.mjs';
+// Home-owned layout reuses official Meguru meshes; benches use the same box kit.
+import {HOME_SCENERY,cityGroundParcels} from './home-scenery.mjs';
 export function composeHomeWorld(M,region){
  const scenery=HOME_SCENERY[region];if(scenery?.status!=='pilot')throw Error('Unsupported Home region');
- const source=M.buildWorld(region,M.buildRegistry(),{world3d:true});const catalogue=M.worldObjects3d(source).objects;
+ const source=M.buildWorld(region,M.buildRegistry(),{world3d:true});const catalogue=[...M.worldObjects3d(source).objects];
+ // No bench exists in the city catalogue. A six-part Home bench uses the
+ // established low-poly box primitive and wood/metal palette (no new textures).
+ if(region==='city')catalogue.push({id:'home-kit:bench-v1',type:'bench',solid:true,collision:{hw:66,hd:27,ang:0},parts:[
+  {shape:'box',rx:62,rz:20,h:7,y:30,ang:Math.PI/2,color:'#aa7951'},
+  {shape:'box',rx:62,rz:4,h:25,y:39,dz:19,ang:Math.PI/2,color:'#aa7951'},
+  ...[-46,46].flatMap(dx=>[{shape:'box',rx:5,rz:18,h:30,y:0,dx,ang:Math.PI/2,color:'#57686b'},{shape:'box',rx:4,rz:4,h:34,y:30,dx,dz:19,ang:Math.PI/2,color:'#57686b'}])
+ ]});
  const placements=[...scenery.placements];
  if(region!=='city')for(let i=0;i<12;i++)placements.push([i%3?'broadleaf':'conifer',-1700+i*310,(region==='river_lake'?3100:2850)+(i%3)*220,1.3+(i%3)*.25]);
- const objects=placements.map(([type,x,z,k=1],i)=>{const candidates=catalogue.filter(o=>o.type===type),o=candidates[i%candidates.length];if(!o)return null;return {...o,id:'home:'+region+':'+i,sourceId:o.id,x,z,collision:o.collision?{...o.collision,x,z,hw:o.collision.hw*k,hd:o.collision.hd*k}:null,parts:o.parts.map(p=>{const q={...p};if(region==='city'&&['house','tower'].includes(type)&&['#b8d8e5','#cfe6f2'].includes(q.color))q.homeWindow=true;for(const key of ['r','rx','rz','h','y','dx','dz','len','w'])if(typeof q[key]==='number')q[key]*=k;return q;})};}).filter(Boolean);
+ const objects=placements.map(([type,x,z,k=1,variant],i)=>{let candidates=catalogue.filter(o=>o.type===type);if(variant){const selected=candidates.filter(o=>{const f=o.parts[0]?.fl||0;return variant==='high'?f>=5:variant==='mid'?f===4:f<=3;});if(selected.length)candidates=selected;}const o=candidates[i%candidates.length];if(!o)return null;return {...o,id:'home:'+region+':'+i,sourceId:o.id,x,z,collision:o.collision?{...o.collision,x,z,hw:o.collision.hw*k,hd:o.collision.hd*k}:null,parts:o.parts.map(p=>{const q={...p};if(region==='city'&&['house','tower'].includes(type)&&['#b8d8e5','#cfe6f2'].includes(q.color))q.homeWindow=true;if(region==='city'&&q.win){q.homeWindow=true;q.color='#b8d8e5';}for(const key of ['r','rx','rz','h','y','dx','dz','len','w'])if(typeof q[key]==='number')q[key]*=k;return q;})};}).filter(Boolean);
+ // Repeat the formal framed-window pair between existing levels for taller
+ // Home buildings; bounded geometry, no textures or catalogue mutation.
+ if(region==='city')for(const ob of objects.filter(o=>o.type==='tower')){
+  const height=Math.max(...ob.parts.map(p=>(p.y||0)+(p.h||0)));
+  if(height<=700)continue;
+  const windows=ob.parts.filter(p=>p.win),levels=[...new Set(windows.map(p=>p.y))].sort((a,b)=>a-b);
+  if(levels.length<2)continue;
+  const step=(levels[1]-levels[0])/2,extra=[];
+  for(const p of windows){const y=p.y+step;if(y+p.h>height-28)continue;
+   extra.push({...p,rx:p.rx+3,rz:Math.max(.8,p.rz-.4),y:y-2,h:p.h+4,win:false,homeWindow:false,color:'#f1ebe0'}, {...p,y});
+  }
+  ob.parts.push(...extra);
+ }
  // The official bridge was built for its original crossing. Rotate its long
  // axis across this Home river and extend the deck to both banks, not the art style.
  for(const ob of objects.filter(o=>o.type==='bridge')){
@@ -33,7 +53,7 @@ export function composeHomeWorld(M,region){
   }
  }
  // Reorient existing shopfront parts so their doors face the street, keeping collision aligned.
- if(region==='city')for(const ob of objects.filter(o=>o.type==='house')){
+ if(region==='city')for(const ob of objects.filter(o=>o.type==='house'||o.type==='tower')){
   const door=ob.parts.find(p=>p.door);if(!door)continue;
   const a=door.ang||0,sign=(door.dx||0)*Math.cos(a)-(door.dz||0)*Math.sin(a)>=0?1:-1;
   const turn=sign*Math.PI/2-a,cs=Math.cos(turn),sn=Math.sin(turn);
@@ -41,7 +61,7 @@ export function composeHomeWorld(M,region){
   ob.rot=(ob.rot||0)+turn;if(ob.collision)ob.collision.ang=(ob.collision.ang||0)+turn;
  }
  // Low cover is reusable official geometry; leave the care clearing empty.
- const cover=catalogue.filter(o=>o.type==='grass'||o.type==='flower'||o.type==='dressing').slice(0,18);
+ const cover=(region==='city'?[]:catalogue).filter(o=>o.type==='grass'||o.type==='flower'||o.type==='dressing').slice(0,18);
  cover.forEach((o,i)=>objects.push({...o,id:'home:cover:'+i,sourceId:o.id,x:(i%2?-1:1)*(720+(i%4)*100),z:region==='river_lake'?880+(i%3)*55:850+Math.floor(i/2)*140,solid:false,collision:null,parts:o.parts.map(p=>({...p}))}));
 
  const controls=scenery.path,pathPoints=[];
@@ -53,28 +73,19 @@ export function composeHomeWorld(M,region){
  if(controls.length)pathPoints.push(controls.at(-1));
  const segments=pathPoints.slice(1).map(([x,z],i)=>{const a={x:pathPoints[i][0],z:pathPoints[i][1]},b={x,z};return {a,b,kind:'wide',half:scenery.pathHalf,len:Math.hypot(b.x-a.x,b.z-a.z)};});
  if(region==='city'){
-  // A transverse traffic lane and a connected avenue from foreground to horizon.
-  const strip=(x,z,X,Z,half,surface,color,height=1.2)=>segments.push({a:{x,z},b:{x:X,z:Z},kind:'wide',half,len:Math.hypot(X-x,Z-z),surface,color,height});
-  strip(-2000,1400,2000,1400,110,'road','#657178');
-  strip(-650,-350,230,1400,100,'distant-road','#657178');
-  strip(-440,-350,-190,1180,85,'sidewalk','#d8cbb1');
-  strip(470,-350,470,1190,105,'sidewalk','#d8cbb1');
-  strip(-190,240,470,240,130,'park-walk','#d9c5a1');
-  strip(230,1400,230,3200,105,'distant-road','#657178');
-  for(const x of [55,405])strip(x,1650,x,3200,65,'sidewalk','#d8cbb1');
-  for(let x=-220;x<=60;x+=48)strip(x,1300,x,1500,14,'crosswalk','#f3ecd9',1.5);
-  strip(-1800,1150,1800,1150,125,'sidewalk','#d8cbb1');
-  strip(-1800,1650,1800,1650,130,'sidewalk','#d8cbb1');
-  for(const ob of objects.filter(o=>o.type==='house')){const d=ob.parts.find(p=>p.door);if(d)strip(ob.x+d.dx,1770,ob.x+d.dx,ob.z+d.dz,28,'entry','#d8cbb1');}
-  for(const z of [1280,1520])strip(-1800,z,1800,z,10,'curb','#eee4ce',6);
-  strip(-400,850,400,850,150,'park-lawn','#86a46d',.8);
-  strip(-1050,620,1050,620,100,'park-walk','#d9c5a1');
-  for(const x of [-470,470])strip(x,620,x,1050,55,'park-walk','#d9c5a1');
-  // Joint lines and lane markings use the same Meguru segment mesh, not a new layer.
-  for(let x=-1700;x<1800;x+=170)for(const z of [1150,1650])strip(x,z-120,x,z+120,1,'joint','#b7ab94',1.4);
-  for(let x=-1800;x<1800;x+=190)strip(x,1400,x+85,1400,3,'marking','#f3ecd9',1.4);
+  // Logical streets are independent of paving tessellation. The raised crossing
+  // at z1150 keeps the official pedestrian route clear across the side avenue.
+  const strip=(x,z,X,Z,half,surface)=>segments.push({a:{x,z},b:{x:X,z:Z},kind:'wide',half,len:Math.hypot(X-x,Z-z),surface});
+  strip(-2200,1400,2200,1400,110,'road');
+  strip(-700,-400,-700,1070,110,'distant-road');
+  strip(-700,1510,-700,4400,110,'distant-road');
+  strip(-2200,1150,2200,1150,80,'sidewalk');
+  strip(-2200,1650,2200,1650,80,'sidewalk');
+  strip(-2200,1260,2200,1260,30,'curb');
+  strip(-2200,1540,2200,1540,30,'curb');
  }
- const world={...source,...(region==='city'?{homeGround:['#c1bba6','#b4ae9a']}:{}),homeCamera:scenery.camera,len:3400,halfW:1800,minX:-1800,maxX:1800,spots:[],segments,paths:[],props:[],marks:[],residents:[],areas:[],collision:null,obstacles:objects.filter(o=>o.collision).map(o=>({...o.collision,r:Math.hypot(o.collision.hw,o.collision.hd),role:'solid'})),_streams3d:undefined,terrain:scenery.river?{kind:'river',half:scenery.river.half,pts:[-2200,-700,700,2200].map(x=>[x,scenery.river.center+scenery.river.slope*x])}:null};
+
+ const world={...source,...(region==='city'?{homeGround:['#bec5b9','#bdc3b9'],homeCityParcels:cityGroundParcels()}:{}),homeCamera:scenery.camera,len:region==='city'?4400:3400,halfW:1800,minX:-1800,maxX:1800,spots:[],segments,paths:[],props:[],marks:[],residents:[],areas:[],collision:null,obstacles:objects.filter(o=>o.collision).map(o=>({...o.collision,r:Math.hypot(o.collision.hw,o.collision.hd),role:'solid'})),_streams3d:undefined,terrain:scenery.river?{kind:'river',half:scenery.river.half,pts:[-2200,-700,700,2200].map(x=>[x,scenery.river.center+scenery.river.slope*x])}:null};
  world.collision=M.buildCollisionGrid(world.obstacles);
  if(region!=='river_lake')world._streams3d=[];
  return {world,objects,routes:HOME_ROUTES[region],sourceRegion:region,scenery};
