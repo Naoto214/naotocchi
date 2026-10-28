@@ -17117,6 +17117,7 @@
     try { on = /[?&]t7check\b/.test(String((globalThis.location && globalThis.location.search) || '')); } catch (e) { on = false; }
     if (!on || !play || !game || !mgPlayIds || !mgPlayIds.has(game.id)) return '';
     const verdict = mgParticipated(play) ? '参加あり' : '参加なし';
+    if (Number.isFinite(play.maxGap)) return `［試遊版チェック: ${verdict}／手${play.acts}回・いちばん長い間${Math.round(play.maxGap / 1000)}秒（30秒いないで参加）${play.decided ? '・決着' : '・時間切れ'}］`;
     const detail = Number.isFinite(play.acts) ? `そうさ${play.acts}回` + (Number.isFinite(play.cover) ? `・区切り${play.spans}・わりあい${Math.round(play.cover * 100)}%（20%いじょうで参加）` : '') : `画面の入力${play.inputs || 0}回`;
     return `［試遊版チェック: ${verdict}／${detail}］`;
   }
