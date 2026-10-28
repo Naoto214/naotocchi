@@ -1,0 +1,582 @@
+[
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 99,
+   "copyScroll": 99,
+   "clipped": false,
+   "fontPx": 8.15,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 53,
+   "scrollH": 53,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 99,
+   "copyScroll": 99,
+   "clipped": false,
+   "fontPx": 8.15,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 57,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 124,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 116,
+   "copyScroll": 116,
+   "clipped": false,
+   "fontPx": 9.57,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 53,
+   "scrollH": 53,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 116,
+   "copyScroll": 116,
+   "clipped": false,
+   "fontPx": 9.57,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 102,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 124,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 121,
+   "copyScroll": 121,
+   "clipped": false,
+   "fontPx": 9.95,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 53,
+   "scrollH": 53,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 121,
+   "copyScroll": 121,
+   "clipped": false,
+   "fontPx": 9.95,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 106,
+   "scrollH": 106,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 125,
+   "copyScroll": 125,
+   "clipped": false,
+   "fontPx": 10.28,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 53,
+   "scrollH": 53,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 125,
+   "copyScroll": 125,
+   "clipped": false,
+   "fontPx": 10.28,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 106,
+   "scrollH": 106,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 844,
+  "height": 390,
+  "screen": "collection",
+  "tag": "landscape-844x390",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 103,
+   "copyScroll": 103,
+   "clipped": false,
+   "fontPx": 8.5,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 240
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 27,
+   "scrollH": 27,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 844,
+  "height": 390,
+  "screen": "collection",
+  "tag": "landscape-844x390",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 103,
+   "copyScroll": 103,
+   "clipped": false,
+   "fontPx": 8.5,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 240
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 80,
+   "scrollH": 80,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "G-lunar-lander",
+  "name": "ルナランダー",
+  "width": 844,
+  "height": 390,
+  "screen": "match-dialog",
+  "tag": "landscape-844x390",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 200
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 52,
+   "effectScroll": 52,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "G-submarine-3d",
+  "name": "サブマリン3D",
+  "width": 844,
+  "height": 390,
+  "screen": "match-dialog",
+  "tag": "landscape-844x390",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 138,
+   "copyScroll": 138,
+   "clipped": false,
+   "fontPx": 11.35,
+   "inlineSize": null,
+   "longCopy": false,
+   "faceW": 200
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 52,
+   "effectScroll": 79,
+   "overflowY": "auto"
+  },
+  "errors": []
+ }
+]

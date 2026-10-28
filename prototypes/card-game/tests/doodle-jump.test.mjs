@@ -121,7 +121,9 @@ test('CPU：予約中は1段階だけのときおくりに+5の価値を見込�
 
 // --- 正式カタログの保護 ---
 test('カタログ：変わったのはぴょんぴょんジャンプの本文と、同じ設計正本（85）の出典hashだけ',()=>{
- const norm=c=>{const x={...c};delete x.source_sha256;if(x.id==='G-doodle-jump')delete x.text;return x;};
+ // 478（ルナランダー・サブマリン3Dの書き方だけの明確化）より前の固定値なので、その2枚は改訂前の本文に戻して照合する。
+ const before478={'G-lunar-lander':'自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。','G-submarine-3d':'発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、3に選んだ数の2倍を足した枚数を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。'};
+ const norm=c=>{const x={...c};delete x.source_sha256;if(x.id==='G-doodle-jump')delete x.text;if(before478[x.id])x.text=before478[x.id];return x;};
  const dig=createHash('sha256').update(JSON.stringify(Object.keys(CATALOG).sort().map(k=>norm(CATALOG[k])))).digest('hex');
  assert.equal(Object.keys(CATALOG).length,452);
  assert.equal(dig,'8b5081a639cb6ac36308cb1251a585fb8a95c34b9abaeb65790568415c4ceec2','main 518037d6（PR #449 統合後）と同じ（本文1件と出典hashを除く）');

@@ -1,0 +1,72 @@
+{
+ "schema_version": 1,
+ "document": "478-lunar-submarine-text-clarification.md",
+ "research": "PR #459 (prototypes/card-game/full-audit-20261028/), PR #460 (prototypes/card-game/followup-20261028/03-text-candidates-7.md)",
+ "base_main": "eb97817d",
+ "changed_cards": [
+  {
+   "id": "G-lunar-lander",
+   "name": "ルナランダー",
+   "source": "85-play-batch-4-card-text-draft.md",
+   "before": "自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。",
+   "after": "解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。",
+   "unchanged": [
+    "cost",
+    "method",
+    "condition_time_exactly_2",
+    "check_timing_resolution",
+    "draw",
+    "growth_amount",
+    "copies_limit",
+    "rarity",
+    "illustration",
+    "rule_program"
+   ],
+   "changed": [
+    "wording_only"
+   ],
+   "before_chars": 29,
+   "after_chars": 33,
+   "ruling": "85 §3 接続 / 86 P16・X18: 残り時は支払いと反応を経た解決時に見る"
+  },
+  {
+   "id": "G-submarine-3d",
+   "name": "サブマリン3D",
+   "source": "83-play-batch-3-card-text-draft.md",
+   "before": "発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、3に選んだ数の2倍を足した枚数を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。",
+   "after": "発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、選んだ数が0なら3枚、1なら5枚、2なら7枚を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。",
+   "unchanged": [
+    "cost",
+    "method",
+    "variant_range_0_1_2",
+    "extra_time_equals_variant",
+    "look_count_3_5_7",
+    "take_up_to_1",
+    "rest_to_bottom_any_order",
+    "copies_limit",
+    "rarity",
+    "illustration",
+    "rule_program"
+   ],
+   "changed": [
+    "wording_only"
+   ],
+   "before_chars": 92,
+   "after_chars": 99,
+   "ruling": "83 §3 接続 / 84 P07・X11: 選んだ数0/1/2で3/5/7枚。実際の支払額から逆算しない"
+  }
+ ],
+ "save_compatibility": {
+  "new_rule_version": null,
+  "rule_versions": [
+   "hotseat-1 (legacy, own 15-card table)",
+   "hotseat-2",
+   "hotseat-3",
+   "hotseat-4"
+  ],
+  "note": "Saves hold only version, seed, decks and commands; card text is never stored or hashed in a save, and neither card's rule program changed. Replays of every existing version are therefore byte-identical, so no new rule version is added."
+ },
+ "validation": {
+  "catalog_records_sha256": "ae5c770801022988a0e23cf2c299fe409042d8a698f2a6133b9ece1b7b5dd643"
+ }
+}

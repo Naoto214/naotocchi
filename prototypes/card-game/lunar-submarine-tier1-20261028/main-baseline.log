@@ -1,0 +1,277 @@
+TAP version 13
+# Subtest: 正式本文：ルナランダーは「解決時に」を明記、サブマリン3Dは0／1／2→3／5／7枚の書き方
+not ok 1 - 正式本文：ルナランダーは「解決時に」を明記、サブマリン3Dは0／1／2→3／5／7枚の書き方
+  ---
+  duration_ms: 1.808058
+  type: 'test'
+  location: 'prototypes/card-game/tests/lunar-submarine-text.test.mjs:19:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+    - '解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  actual: '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://prototypes/card-game/tests/lunar-submarine-text.test.mjs:20:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: カタログ：2枚の本文と出典hash以外は main eb97817d と同一（452枚）
+ok 2 - カタログ：2枚の本文と出典hash以外は main eb97817d と同一（452枚）
+  ---
+  duration_ms: 2.524688
+  type: 'test'
+  ...
+# Subtest: ルールプログラムは不変：ルナランダーは解決時の残り時2、サブマリンは3＋2×選んだ数（旧本文の式＝新本文の枚数）
+ok 3 - ルールプログラムは不変：ルナランダーは解決時の残り時2、サブマリンは3＋2×選んだ数（旧本文の式＝新本文の枚数）
+  ---
+  duration_ms: 0.925539
+  type: 'test'
+  ...
+# Subtest: ルナランダー：残り時3で使う→支払い後の解決時に2なので、1枚引いてそだち+5
+ok 4 - ルナランダー：残り時3で使う→支払い後の解決時に2なので、1枚引いてそだち+5
+  ---
+  duration_ms: 11.467541
+  type: 'test'
+  ...
+# Subtest: ルナランダー：使う前に残り時2でも、支払い後の解決時は1なので効果なし（使うことはできる）
+ok 5 - ルナランダー：使う前に残り時2でも、支払い後の解決時は1なので効果なし（使うことはできる）
+  ---
+  duration_ms: 2.97332
+  type: 'test'
+  ...
+# Subtest: ルナランダー：反応でさらに時1を払うと、解決時は残り時1で効果なし（P16）
+ok 6 - ルナランダー：反応でさらに時1を払うと、解決時は残り時1で効果なし（P16）
+  ---
+  duration_ms: 4.969503
+  type: 'test'
+  ...
+# Subtest: サブマリン3D：選べる数は0・1・2だけで、時コストはその数だけ増える（2／3／4）
+ok 7 - サブマリン3D：選べる数は0・1・2だけで、時コストはその数だけ増える（2／3／4）
+  ---
+  duration_ms: 0.604042
+  type: 'test'
+  ...
+# Subtest: サブマリン3D：見る枚数は 0→3枚、1→5枚、2→7枚。1枚までを手札、残りは選んだ順で山札の一番下
+ok 8 - サブマリン3D：見る枚数は 0→3枚、1→5枚、2→7枚。1枚までを手札、残りは選んだ順で山札の一番下
+  ---
+  duration_ms: 11.08375
+  type: 'test'
+  ...
+# Subtest: サブマリン3D：山札が足りなければある分だけ見る（数2で山札4枚→4枚）
+ok 9 - サブマリン3D：山札が足りなければある分だけ見る（数2で山札4枚→4枚）
+  ---
+  duration_ms: 1.891621
+  type: 'test'
+  ...
+# Subtest: 旧保存：本文変更前に作った hotseat-2・3・4 の保存6件が、版を変えずに同じ盤面・結果で再生される（新しい版は作らない）
+not ok 10 - 旧保存：本文変更前に作った hotseat-2・3・4 の保存6件が、版を変えずに同じ盤面・結果で再生される（新しい版は作らない）
+  ---
+  duration_ms: 0.612195
+  type: 'test'
+  location: 'prototypes/card-game/tests/lunar-submarine-text.test.mjs:75:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected "actual" to be strictly unequal to:
+    
+    '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  actual: '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  operator: 'notStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://prototypes/card-game/tests/lunar-submarine-text.test.mjs:77:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 旧保存：違いは発動記録（history）にある本文の写しだけで、新しい本文になる（ルール・CPU・戦績は読まない）
+not ok 11 - 旧保存：違いは発動記録（history）にある本文の写しだけで、新しい本文になる（ルール・CPU・戦績は読まない）
+  ---
+  duration_ms: 292.577946
+  type: 'test'
+  location: 'prototypes/card-game/tests/lunar-submarine-text.test.mjs:86:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   '発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、3に選んだ数の2倍を足した枚数を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。',
+    +   '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+    -   '発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、選んだ数が0なら3枚、1なら5枚、2なら7枚を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。',
+    -   '解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: '発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、選んだ数が0なら3枚、1なら5枚、2なら7枚を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。'
+    1: '解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  actual:
+    0: '発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、3に選んだ数の2倍を足した枚数を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。'
+    1: '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://prototypes/card-game/tests/lunar-submarine-text.test.mjs:89:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: キノコ⑧：へんしんで捨て札へ置かれた時だけ誘発し、予約は次の自分のターン終了まで
+ok 12 - キノコ⑧：へんしんで捨て札へ置かれた時だけ誘発し、予約は次の自分のターン終了まで
+  ---
+  duration_ms: 20.949748
+  type: 'test'
+  ...
+# Subtest: キノコ⑧：表向きで出たメイン以外のカードと同名が捨て札にある時、1回だけ1枚引く（同名なし・2回目は引かない）
+ok 13 - キノコ⑧：表向きで出たメイン以外のカードと同名が捨て札にある時、1回だけ1枚引く（同名なし・2回目は引かない）
+  ---
+  duration_ms: 11.283085
+  type: 'test'
+  ...
+# Subtest: キノコ⑧：伏せてしかけた札は「表向きで出た」に当たらない
+ok 14 - キノコ⑧：伏せてしかけた札は「表向きで出た」に当たらない
+  ---
+  duration_ms: 5.064274
+  type: 'test'
+  ...
+# Subtest: サクラ⑥：選んだ伏せ札（しかける）が準備枠から発動し、効果が適用されたら+5を1回
+ok 15 - サクラ⑥：選んだ伏せ札（しかける）が準備枠から発動し、効果が適用されたら+5を1回
+  ---
+  duration_ms: 8.386544
+  type: 'test'
+  ...
+# Subtest: サクラ⑥：選ばなかった札の発動では得ず、選んだ札がこのターンの終了時に発動すれば得る
+ok 16 - サクラ⑥：選ばなかった札の発動では得ず、選んだ札がこのターンの終了時に発動すれば得る
+  ---
+  duration_ms: 10.554068
+  type: 'test'
+  ...
+# Subtest: サクラ⑥：選んだ札がこのターンに発動しなければ、予約はターン終了で失効する
+ok 17 - サクラ⑥：選んだ札がこのターンに発動しなければ、予約はターン終了で失効する
+  ---
+  duration_ms: 6.315033
+  type: 'test'
+  ...
+# Subtest: サボテン：相手の効果で手札へ戻るのを防ぐかを選べる（任意）。防いだら交際も続く
+ok 18 - サボテン：相手の効果で手札へ戻るのを防ぐかを選べる（任意）。防いだら交際も続く
+  ---
+  duration_ms: 5.14291
+  type: 'test'
+  ...
+# Subtest: サボテン：1ラウンドに1回。同じラウンドの2回目は防げない（使わない選択も手札へ戻る）
+ok 19 - サボテン：1ラウンドに1回。同じラウンドの2回目は防げない（使わない選択も手札へ戻る）
+  ---
+  duration_ms: 17.593075
+  type: 'test'
+  ...
+# Subtest: サボテン：使用回数はターンではなくラウンド単位（自分のターンに使えば、同じラウンドの相手のターンには防げない。次のラウンドは防げる）
+ok 20 - サボテン：使用回数はターンではなくラウンド単位（自分のターンに使えば、同じラウンドの相手のターンには防げない。次のラウンドは防げる）
+  ---
+  duration_ms: 40.322554
+  type: 'test'
+  ...
+# Subtest: サボテン：このカードにカードがみにつけられている間は防がない
+ok 21 - サボテン：このカードにカードがみにつけられている間は防がない
+  ---
+  duration_ms: 4.011032
+  type: 'test'
+  ...
+# Subtest: サンゴ⑦：3種類そろう間、相手の効果で捨て札になるメイン以外の1枚を強制で場に残す。1ラウンドに1回
+ok 22 - サンゴ⑦：3種類そろう間、相手の効果で捨て札になるメイン以外の1枚を強制で場に残す。1ラウンドに1回
+  ---
+  duration_ms: 7.102258
+  type: 'test'
+  ...
+# Subtest: サンゴ⑦：回数はラウンド単位（自分のターンに相手の応答で使えば、同じラウンドの相手のターンには残さない）
+ok 23 - サンゴ⑦：回数はラウンド単位（自分のターンに相手の応答で使えば、同じラウンドの相手のターンには残さない）
+  ---
+  duration_ms: 13.679913
+  type: 'test'
+  ...
+# Subtest: サンゴ⑦：セカイがなく3種類がそろわなければ置換しない
+ok 24 - サンゴ⑦：セカイがなく3種類がそろわなければ置換しない
+  ---
+  duration_ms: 3.82254
+  type: 'test'
+  ...
+# Subtest: おばけ⑤：準備枠のカードがなければ発動できない（コストを払えない）。払ったカードは山札の一番下
+ok 25 - おばけ⑤：準備枠のカードがなければ発動できない（コストを払えない）。払ったカードは山札の一番下
+  ---
+  duration_ms: 3.17142
+  type: 'test'
+  ...
+# Subtest: おばけ⑤：自分からのちょうせんでは使わず、次に相手からちょうせんされた間だけ相手の能力値-2（1回のみ）
+ok 26 - おばけ⑤：自分からのちょうせんでは使わず、次に相手からちょうせんされた間だけ相手の能力値-2（1回のみ）
+  ---
+  duration_ms: 14.214031
+  type: 'test'
+  ...
+# Subtest: おばけ⑤：相手がちょうせんしないまま次の自分のターン開始時を迎えると失効する
+ok 27 - おばけ⑤：相手がちょうせんしないまま次の自分のターン開始時を迎えると失効する
+  ---
+  duration_ms: 8.059993
+  type: 'test'
+  ...
+# Subtest: おばけ⑦：捨て札のメインだけをコストにでき、それを山札の一番下へ置く
+ok 28 - おばけ⑦：捨て札のメインだけをコストにでき、それを山札の一番下へ置く
+  ---
+  duration_ms: 3.125161
+  type: 'test'
+  ...
+# Subtest: おばけ⑦：次になかま／こいびとを出した時、山札上2枚から1枚を手札、残りを一番下。1回だけで、期限は次の自分のターン終了
+ok 29 - おばけ⑦：次になかま／こいびとを出した時、山札上2枚から1枚を手札、残りを一番下。1回だけで、期限は次の自分のターン終了
+  ---
+  duration_ms: 20.458811
+  type: 'test'
+  ...
+# Subtest: 保存再生：おばけ⑤の予約（次の自分のターン開始時まで）が復帰後も残り、相手のちょうせんで-2になる
+ok 30 - 保存再生：おばけ⑤の予約（次の自分のターン開始時まで）が復帰後も残り、相手のちょうせんで-2になる
+  ---
+  duration_ms: 191.47728
+  type: 'test'
+  ...
+# Subtest: 保存再生：おばけ⑦の予約（なかま登場で探索）が相手のターンをまたいで復帰後も残る
+ok 31 - 保存再生：おばけ⑦の予約（なかま登場で探索）が相手のターンをまたいで復帰後も残る
+  ---
+  duration_ms: 108.152605
+  type: 'test'
+  ...
+# Subtest: 保存再生：サクラ⑥で選んだ伏せ札の予約が復帰後も同じ札を指し、+5が1回
+ok 32 - 保存再生：サクラ⑥で選んだ伏せ札の予約が復帰後も同じ札を指し、+5が1回
+  ---
+  duration_ms: 67.232536
+  type: 'test'
+  ...
+# Subtest: 保存再生：サボテンの「1ラウンドに1回」の使用が復帰後も残り、同じラウンドの2回目は防げない
+ok 33 - 保存再生：サボテンの「1ラウンドに1回」の使用が復帰後も残り、同じラウンドの2回目は防げない
+  ---
+  duration_ms: 72.114136
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 30
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 826.15074
