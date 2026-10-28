@@ -1,0 +1,23 @@
+{
+ "guideChoose": "こいびと・交際：こいびとと交際を進めて結婚をめざす。デートや記念日、なかま・こいびと・あいてむをそろえるコネクトフォーでそだちを積み上げる。",
+ "newLabel": {
+  "mode": "choose",
+  "id": "partner",
+  "name": "こいびと・交際",
+  "seed": null
+ },
+ "newMatchUsesCurrentList": "current",
+ "newMatchLovers": 6,
+ "oldSaveRestored": true,
+ "oldSaveLabel": {
+  "mode": "choose",
+  "id": "partner",
+  "name": "こいびと・交際",
+  "seed": null
+ },
+ "oldSaveKeepsEarlierList": "2026-10-22",
+ "oldSaveLovers": 10,
+ "oldSaveCommands": 88,
+ "horizontalOverflow": false,
+ "pageErrors": []
+}

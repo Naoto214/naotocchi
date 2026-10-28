@@ -20,6 +20,9 @@ import proxy_continuation_preparation as preparation
 import proxy_continuation_quick as quick
 import proxy_resource_value_trajectory as old
 import proxy_response_window_contract as response_contract
+import proxy_normal_action_seeded_restart as restart_122
+from proxy_mandatory_policy_contract import canonical
+LEGACY_VERIFY_STEP=restart_122._verify_step
 
 
 def active_cards(cards):
@@ -29,9 +32,21 @@ def active_cards(cards):
  for physical,instances in groups.items():
   generations=sorted(int(life.INSTANCE_RE.fullmatch(s).group(2)) for s in instances)
   if generations!=list(range(1,len(instances)+1)):raise ValueError('missing incarnation metadata generation')
-  if any(life.digest(cards[s])!=life.digest(cards[physical+'#1']) for s in instances):raise ValueError('incarnation card definition changed')
+  # A single generation is its own #1, so its definition comparison is trivially
+  # equal; only reentered physicals need the per-instance digests.
+  if len(instances)>1:
+   first=life.digest(cards[physical+'#1'])
+   if any(life.digest(cards[s])!=first for s in instances):raise ValueError('incarnation card definition changed')
   active[physical]=physical+'#'+str(len(instances))
  return active
+
+
+def retains_predecessor(cards):
+ # A full reentry state keeps physical#n-1 metadata beside physical#n.
+ for source in cards:
+  match=life.INSTANCE_RE.fullmatch(source)
+  if match and int(match.group(2))>1 and match.group(1)+'#'+str(int(match.group(2))-1) in cards:return True
+ return False
 
 
 def verify_hashes(before,after,events):
@@ -78,7 +93,14 @@ class Connection:
   if key!=self.root:raise ValueError('field-entry selected history incomplete')
   return record
  def registry(self,game):
-  found=[r for r in self.records.values() if life.digest(r['metadata'])==life.digest(game['cards'])]
+  key=life.digest(game['cards'])
+  found=[r for r in self.records.values() if life.digest(r['metadata'])==key]
+  if not found:
+   # A465 local frame already projected to the active copies (incarnation_policy
+   # hands the projected frame to the shared prepare) resolves to the full record
+   # whose active projection it is; disagreeing full records stay ambiguous.
+   found=[r for r in self.records.values() if life.digest({s:r['metadata'][s] for s in r['active'].values()})==key]
+   if any(life.digest(r['metadata'])!=life.digest(found[0]['metadata']) for r in found[1:]):raise ValueError('incarnation metadata registry absent or ambiguous')
   if not found or any(r['active']!=found[0]['active'] for r in found):raise ValueError('incarnation metadata registry absent or ambiguous')
   return copy.deepcopy(found[0])
  def capture(self,before,after,event):
@@ -122,6 +144,26 @@ class Connection:
   prior_guard=guard.require_initial_entry;prior_departure=departure.replace_companion;prior_transition=batch.transition;prior_apply=actions.apply;prior_bind=actions.bind_event;prior_verify=old.extension._verify_extended_step;prior_validate=state.validate;prior_detail=response_contract._instance_detail;prior_set=preparation.set_card;prior_attach=actions.attach
   prior_placement=history_replay.legacy_placement
   prior_final_verify=quick.final_time.verify_transition
+  prior_step=restart_122._verify_step
+  import proxy_population_turn_boundary as turn_boundary
+  prior_turn_prepare=turn_boundary.prepare;prior_turn_apply=turn_boundary.apply_choice
+  # The frozen next_turn builds its egg-exchange frame from the full state. After a
+  # reentry that map keeps the retired predecessor, which the465 boundary refuses
+  # as a duplicate copy. Run the unchanged465 operation on the registry-bound
+  # active view and restore the full card map, exactly the shape the record-level
+  # egg_choice_effect audit expects (life.restore_game).
+  def turn_frame(frame):
+   full=frame['game_state']
+   if not retains_predecessor(full['cards']):return None,frame
+   record=self.registry(full);projected=copy.deepcopy(frame);projected['game_state']=life.project_game(record,full);return record,projected
+  def turn_prepare(frame):
+   record,local=turn_frame(frame)
+   if record is None:return prior_turn_prepare(frame)
+   result=prior_turn_prepare(local);return dict(result,choice_game_state=life.restore_game(record,frame['game_state'],result['choice_game_state']))
+  def turn_apply(frame,selected):
+   record,local=turn_frame(frame)
+   if record is None:return prior_turn_apply(frame,selected)
+   result=prior_turn_apply(local,selected);return dict(result,local_after_game_state=life.restore_game(record,frame['game_state'],result['local_after_game_state']))
   def final_verify(row,after,event):
    before=quick.final_time.contracts.current(row)
    outer_board=[link for link in before['activation_zone'][:-1] if link.get('source_zone')=='board']
@@ -158,6 +200,32 @@ class Connection:
     checker._snapshot_instance_errors=snapshot
     return prior_final_verify(row,after,event)
    finally:checker._snapshot_instance_errors=prior_snapshot
+  def final_comparison(before,after,events):
+   # turn_boundary's R10 final comparison calls the unchanged 122 verifier
+   # directly. Only that transition receives the registry-bound active view;
+   # every other caller, every non-reentry game and every state already
+   # projected by verify() above keeps the legacy check.
+   # The 196 C-chicken start resolution calls the same verifier directly with
+   # its single-link projection; it receives the same registry-bound view.
+   if len(events)!=1 or not any(retains_predecessor(c['game_state']['cards']) for c in (before,after)):return prior_step(before,after,events)
+   kind=events[0].get('action_type');links=before['activation_zone']
+   if kind=='r10_final_comparison':
+    if before['game_state']['round']!=10 or after['game_state']['phase']!='completed' or canonical(before['game_state']['cards'])!=canonical(after['game_state']['cards']):raise ValueError('R10 incarnation final comparison state differs')
+   elif kind=='resolve_board_ability' and len(links)==1 and links[0].get('card_id')=='C-chicken':
+    link=links[0];event=events[0]
+    if event.get('chain_link_id')!=link['link_id'] or event.get('source_instance_id')!=link['source_instance_id'] or before['game_state']['cards'].get(link['source_instance_id'],{}).get('card_id')!='C-chicken' or canonical(before['game_state']['cards'])!=canonical(after['game_state']['cards']):raise ValueError('incarnation chicken resolution state differs')
+   else:return prior_step(before,after,events)
+   record=self.registry(before['game_state'])
+   for current in (before,after):life.check(record,dict(legacy_continuation=current))
+   r=restart_122.response_120;event=events[0]
+   # Prove the full-state step first; the legacy zone check then sees active cards only.
+   if after['last_event_seq']!=before['last_event_seq']+1 or after['continuation_state_sha256']!=r.continuation_state_sha256(r._continuation_payload(after)):raise r.RouteIntegrityStop('event_hash_discontinuity',restart_122._snapshot(before),{'field':'continuation_state_sha256'})
+   if event['seq']!=after['last_event_seq'] or event['game_state_before_sha256']!=r.game_state_sha256(before['game_state']) or event['continuation_state_before_sha256']!=before['continuation_state_sha256'] or event['game_state_after_sha256']!=r.game_state_sha256(after['game_state']) or event['continuation_state_after_sha256']!=after['continuation_state_sha256']:raise r.RouteIntegrityStop('event_hash_discontinuity',restart_122._snapshot(before),{'seq':event.get('seq')})
+   def project(c):
+    p=copy.deepcopy(c);p['game_state']=life.project_game(record,c['game_state']);p['continuation_state_sha256']=r.continuation_state_sha256(r._continuation_payload(p));return p
+   b=project(before);a=project(after);private=copy.deepcopy(events)
+   private[0].update(game_state_before_sha256=r.game_state_sha256(b['game_state']),continuation_state_before_sha256=b['continuation_state_sha256'],game_state_after_sha256=r.game_state_sha256(a['game_state']),continuation_state_after_sha256=a['continuation_state_sha256'])
+   return prior_step(b,a,private)
   def validate(e):
    prior_validate(e);active=active_cards(life.game(e)['cards'])
    # Existing information-only projections deliberately omit inactive hidden
@@ -214,8 +282,8 @@ class Connection:
   try:
    history_replay.legacy_placement=legacy_placement
    quick.final_time.verify_transition=final_verify
-   preparation.set_card=set_card;actions.attach=attach;state.validate=validate;response_contract._instance_detail=detail;guard.require_initial_entry=require;departure.replace_companion=replaced;batch.transition=transition;actions.apply=apply;actions.bind_event=bind;old.extension._verify_extended_step=verify;yield
+   preparation.set_card=set_card;actions.attach=attach;state.validate=validate;response_contract._instance_detail=detail;guard.require_initial_entry=require;departure.replace_companion=replaced;batch.transition=transition;actions.apply=apply;actions.bind_event=bind;old.extension._verify_extended_step=verify;restart_122._verify_step=final_comparison;turn_boundary.prepare=turn_prepare;turn_boundary.apply_choice=turn_apply;yield
   finally:
    history_replay.legacy_placement=prior_placement
    quick.final_time.verify_transition=prior_final_verify
-   preparation.set_card=prior_set;actions.attach=prior_attach;state.validate=prior_validate;response_contract._instance_detail=prior_detail;guard.require_initial_entry=prior_guard;departure.replace_companion=prior_departure;batch.transition=prior_transition;actions.apply=prior_apply;actions.bind_event=prior_bind;old.extension._verify_extended_step=prior_verify;_SCOPE_LOCK.release()
+   preparation.set_card=prior_set;actions.attach=prior_attach;state.validate=prior_validate;response_contract._instance_detail=prior_detail;guard.require_initial_entry=prior_guard;departure.replace_companion=prior_departure;batch.transition=prior_transition;actions.apply=prior_apply;actions.bind_event=prior_bind;old.extension._verify_extended_step=prior_verify;restart_122._verify_step=prior_step;turn_boundary.prepare=prior_turn_prepare;turn_boundary.apply_choice=prior_turn_apply;_SCOPE_LOCK.release()

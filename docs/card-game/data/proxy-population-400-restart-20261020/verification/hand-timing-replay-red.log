@@ -1,0 +1,91 @@
+test_forged_origin_missing_origin_transition_or_tampered_delta_fails_closed (test_proxy_population_hand_timing_replay.HandTimingReplayTests.test_forged_origin_missing_origin_transition_or_tampered_delta_fails_closed) ... ERROR
+test_hand_reaction_gets_its_provenance_row_from_the_hand_timing_audits (test_proxy_population_hand_timing_replay.HandTimingReplayTests.test_hand_reaction_gets_its_provenance_row_from_the_hand_timing_audits) ... ERROR
+
+======================================================================
+ERROR: test_forged_origin_missing_origin_transition_or_tampered_delta_fails_closed (test_proxy_population_hand_timing_replay.HandTimingReplayTests.test_forged_origin_missing_origin_transition_or_tampered_delta_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 62, in test_forged_origin_missing_origin_transition_or_tampered_delta_fails_closed
+    self.run_case(run)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 34, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),run)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 33, in run
+    def run(forced):callback();return {}
+                    ^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 58, in run
+    with self.assertRaises(ValueError):self.verify(history+[dict(reaction,selected_candidate='response-pass')],[before,after,activated])
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 37, in verify
+    return api.quick_verifier(lambda events,shots,runtime:[],initial())(events,[],envelopes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_history_replay.py", line 49, in verify
+    expected, generated = quick.activate(prior, record, dict(public_events=history), initial, verify_record=False)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_activation_legality.py", line 67, in apply
+    return activate(e,r,i,initial,verify_record) if r['selected_action']['card_id'] in CARDS else prior_activate(e,r,i,initial,verify_record)
+                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_quick.py", line 73, in activate
+    cap=batch.classification(card);cost=payments.QUICK_CARDS[card]['base_time_cost'] if card in payments.QUICK_CARDS else 2 if card=='E-final-time' else 1
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch.py", line 30, in classification
+    if card not in CAPABILITIES:raise ValueError('batch capability unproved: '+card)
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+TypeError: can only concatenate str (not "NoneType") to str
+
+======================================================================
+ERROR: test_hand_reaction_gets_its_provenance_row_from_the_hand_timing_audits (test_proxy_population_hand_timing_replay.HandTimingReplayTests.test_hand_reaction_gets_its_provenance_row_from_the_hand_timing_audits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 49, in test_hand_reaction_gets_its_provenance_row_from_the_hand_timing_audits
+    self.run_case(run)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 34, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),run)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 33, in run
+    def run(forced):callback();return {}
+                    ^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 42, in run
+    proofs=self.verify(history+[reaction],[before,after,activated])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_hand_timing_replay.py", line 37, in verify
+    return api.quick_verifier(lambda events,shots,runtime:[],initial())(events,[],envelopes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_history_replay.py", line 47, in verify
+    raise ValueError('historical quick activation absent from complete inventory')
+ValueError: historical quick activation absent from complete inventory
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.711s
+
+FAILED (errors=2)

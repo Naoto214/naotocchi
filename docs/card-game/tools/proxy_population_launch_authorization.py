@@ -14,7 +14,7 @@ from proxy_population_contract import _pairs,_nonfinite
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 
-def _prepare_launch(repository,bundle,receipt,certificate,package,limit,destination,launch_destination,schedule_index,match_id,execution_binding):
+def _prepare_launch(repository,bundle,receipt,certificate,package,limit,destination,launch_destination,schedule_index,match_id,execution_binding,resume=None):
  repository=Path(repository).resolve();destination=Path(destination)
  if repository!=ROOT.parents[1].resolve():raise ValueError('launch repository differs from current source')
  batch=destination if launch_destination is None else Path(launch_destination)
@@ -35,16 +35,19 @@ def _prepare_launch(repository,bundle,receipt,certificate,package,limit,destinat
  else:
   binding=rebinding.audit(execution_binding,bundle,receipt,certificate,repository)
   prepared=binding['current_preparation']
-  request=approval.rebinding_request(bundle,receipt,certificate,execution_binding,limit,batch.relative_to(repository).as_posix())
+  destination_posix=batch.relative_to(repository).as_posix()
+  if resume is None:request=approval.rebinding_request(bundle,receipt,certificate,execution_binding,limit,destination_posix)
+  else:request=approval.resume_request(bundle,receipt,certificate,execution_binding,limit,destination_posix,resume)
+ if resume is not None and execution_binding is None:raise ValueError('checkpoint resume requires an execution binding')
  return request,prepared
 
 
 def audit_launch(repository,bundle,receipt,certificate,package,limit,destination,comment_id,commit,tree,
-                 *,launch_destination=None,schedule_index=None,match_id=None,execution_binding=None):
- bundle,receipt,certificate,package,execution_binding=copy.deepcopy((bundle,receipt,certificate,package,execution_binding))
+                 *,launch_destination=None,schedule_index=None,match_id=None,execution_binding=None,resume=None):
+ bundle,receipt,certificate,package,execution_binding,resume=copy.deepcopy((bundle,receipt,certificate,package,execution_binding,resume))
  errors=[];request=None;claim=None
  try:
-  request,prepared=_prepare_launch(repository,bundle,receipt,certificate,package,limit,destination,launch_destination,schedule_index,match_id,execution_binding)
+  request,prepared=_prepare_launch(repository,bundle,receipt,certificate,package,limit,destination,launch_destination,schedule_index,match_id,execution_binding,resume)
   repository=Path(repository).resolve();batch=Path(destination) if launch_destination is None else Path(launch_destination)
   claim=publication.audit_committed_consumption(repository,request,comment_id,commit,tree)
   if not claim['remote_consumption_bound']:raise ValueError('launch approval publication differs: '+str(claim['errors']))
@@ -54,8 +57,10 @@ def audit_launch(repository,bundle,receipt,certificate,package,limit,destination
    raw=start.read_bytes();saved=json.loads(raw,object_pairs_hook=_pairs,parse_constant=_nonfinite)
    evidence=saved['launch_authorization']
    if canonical(saved.get('execution_binding'))!=canonical(execution_binding):raise ValueError('supervisor execution binding differs')
+   if canonical(saved.get('resume'))!=canonical(resume):raise ValueError('supervisor resume binding differs')
    if canonical(saved.get('current_preparation'))!=canonical(prepared):raise ValueError('supervisor preparation edition differs')
-   if canonical(saved)!=raw or saved['schema']!='fixed_population_supervisor_start.v1' or evidence['launch_authorization_bound'] is not True or evidence['request']!=request or evidence['consumption']['binding']!=claim['binding']:raise ValueError('saved supervisor approval differs')
+   schema='fixed_population_supervisor_start.v1' if resume is None else 'fixed_population_checkpoint_supervisor_start.v1'
+   if canonical(saved)!=raw or saved['schema']!=schema or evidence['launch_authorization_bound'] is not True or evidence['request']!=request or evidence['consumption']['binding']!=claim['binding']:raise ValueError('saved supervisor approval differs')
   if not edition.verify(certificate,repository)['local_edition_verified']:raise ValueError('launch source changed during live approval checks')
  except (ValueError,TypeError,KeyError,IndexError,OSError) as error:
   errors.append(str(error))
@@ -77,17 +82,18 @@ def _preclaim_package(repository,bundle,receipt,certificate,execution_binding):
  return package
 
 
-def prevalidate_launch(repository,bundle,receipt,certificate,limit,destination,comment_id,*,execution_binding=None):
+def prevalidate_launch(repository,bundle,receipt,certificate,limit,destination,comment_id,*,execution_binding=None,resume=None):
  """Read-only pre-consumption checks; never a token for later dispatch."""
- bundle,receipt,certificate,execution_binding=copy.deepcopy((bundle,receipt,certificate,execution_binding))
+ bundle,receipt,certificate,execution_binding,resume=copy.deepcopy((bundle,receipt,certificate,execution_binding,resume))
  request=None;live=None;remote=None;errors=[]
  try:
   approval.require_operation_ready('launch',repository=repository,certificate=certificate)
   package=_preclaim_package(repository,bundle,receipt,certificate,execution_binding)
-  request,_=_prepare_launch(repository,bundle,receipt,certificate,package,limit,destination,None,None,None,execution_binding)
+  request,_=_prepare_launch(repository,bundle,receipt,certificate,package,limit,destination,None,None,None,execution_binding,resume)
   live=approval.verify_live(request,comment_id)
   if not live['external_approval_verified']:raise ValueError('pre-consumption approval differs: '+approval.failure_text(live))
-  remote=publication.remote.verify(repository,request['publication']['commit'],request['publication']['tree'])
+  head=approval.pre_claim_head(request)
+  remote=publication.remote.verify(repository,head['commit'],head['tree'])
   if not remote['fresh_remote_head_verified']:raise ValueError('pre-consumption remote publication differs')
   if not edition.verify(certificate,repository)['local_edition_verified']:raise ValueError('source changed during pre-consumption checks')
  except (ValueError,TypeError,KeyError,IndexError,OSError) as error:errors.append(str(error))
@@ -95,13 +101,13 @@ def prevalidate_launch(repository,bundle,receipt,certificate,limit,destination,c
   errors=errors,request=request,live_approval=live,remote_publication=remote,ready_for_execution=False)
 
 
-def consume_launch_after_prevalidation(repository,bundle,receipt,certificate,limit,destination,comment_id,*,execution_binding=None):
+def consume_launch_after_prevalidation(repository,bundle,receipt,certificate,limit,destination,comment_id,*,execution_binding=None,resume=None):
  """Future operator entry: all read-only checks before exactly one consumption.
 
 No publication, supervisor or worker launch here. An error is terminal to this
 call. A consumed ID remains consumed even if subsequent publication/start fails.
 """
- checked=prevalidate_launch(repository,bundle,receipt,certificate,limit,destination,comment_id,execution_binding=execution_binding)
+ checked=prevalidate_launch(repository,bundle,receipt,certificate,limit,destination,comment_id,execution_binding=execution_binding,resume=resume)
  if not checked['preconsumption_verified']:raise ValueError('launch pre-consumption failed: '+canonical(checked).decode())
  try:consumption=approval.consume_live(checked['request'],comment_id)
  except (ValueError,OSError) as error:

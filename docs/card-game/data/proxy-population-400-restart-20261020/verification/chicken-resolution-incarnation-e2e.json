@@ -1,0 +1,27 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = baseline census tree (c1966ae4) where group-081-A-first raised KeyError 'card_id' (paid-draw provenance row); after = tree e022c53a with the paid-draw row card_id (3b1948f2) and the C-chicken registry-bound view (e022c53a). On 3b1948f2 alone the row advanced to 'instance_zone_duplicate_or_missing' at a C-chicken resolution after a reentry.",
+ "rows": [
+  {
+   "match_id": "group-081-A-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "'card_id'"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 256,
+    "events": 330,
+    "record_sha256": "f92f57ef5b29885b2606c82ab4bb23a1a073bcc9992bd372b3730d8cf35f84db",
+    "error": null
+   }
+  }
+ ]
+}

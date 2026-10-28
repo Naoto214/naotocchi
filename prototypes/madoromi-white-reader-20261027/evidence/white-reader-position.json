@@ -1,0 +1,68 @@
+{
+  "complete": true,
+  "results": [
+    {
+      "test": "chapter6",
+      "pass": true
+    },
+    {
+      "test": "back",
+      "pass": true,
+      "before": {
+        "index": "185",
+        "offset": 0.11947368421052632,
+        "y": 9895
+      },
+      "after": {
+        "index": "185",
+        "offset": 0.11947368421052632,
+        "y": 9895
+      }
+    },
+    {
+      "test": "font-anchor",
+      "pass": true,
+      "after": {
+        "index": "185",
+        "offset": 0.11202976436544027,
+        "y": 13130
+      }
+    },
+    {
+      "test": "cover",
+      "pass": true
+    },
+    {
+      "test": "resume",
+      "pass": true,
+      "before": {
+        "index": "185",
+        "offset": 0.11202976436544027,
+        "y": 13130
+      },
+      "after": {
+        "index": "185",
+        "offset": 0.11202976436544027,
+        "y": 13130
+      }
+    },
+    {
+      "test": "same-hash-resume",
+      "pass": true
+    },
+    {
+      "test": "reload",
+      "pass": true,
+      "before": {
+        "index": "185",
+        "offset": 0.11202976436544027,
+        "y": 13130
+      },
+      "after": {
+        "index": "185",
+        "offset": 0.11202976436544027,
+        "y": 13130
+      }
+    }
+  ]
+}

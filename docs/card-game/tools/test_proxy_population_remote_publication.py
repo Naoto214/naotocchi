@@ -21,7 +21,7 @@ class RemotePublicationTests(unittest.TestCase):
  def test_transport_pins_remote_and_isolates_git_config_with_timeout(self):
   self.assertIsNotNone(api)
   def transport(command,**kwargs):
-   self.assertEqual(command[-2:],['https://github.com/Naoto214/naotocchi.git','refs/heads/design/card-pool-master-20260914'])
+   self.assertEqual(command[-2:],['https://github.com/Naoto214/naotocchi.git','refs/heads/claude/fixed400-restart-20261020'])
    self.assertEqual(kwargs['timeout'],30)
    self.assertTrue(Path(kwargs['cwd']).is_dir());self.assertFalse((Path(kwargs['cwd'])/'.git').exists())
    self.assertNotIn('GIT_DIR',kwargs['env']);self.assertNotIn('GIT_CONFIG_COUNT',kwargs['env'])
@@ -37,14 +37,14 @@ class RemotePublicationTests(unittest.TestCase):
    git('init');git('config','user.name','fixture');git('config','user.email','fixture@example.invalid')
    Path(temp,'synthetic.txt').write_text('no production inputs');git('add','.');git('commit','-m','fixture')
    commit=git('rev-parse','HEAD');tree=git('rev-parse','HEAD^{tree}')
-   raw=(commit+'\trefs/heads/design/card-pool-master-20260914\n').encode()
+   raw=(commit+'\trefs/heads/claude/fixed400-restart-20261020\n').encode()
    with patch.object(api,'_query_remote',return_value=raw):
     result=api.verify(temp,commit,tree)
    self.assertTrue(result['fresh_remote_head_verified'],result['errors'])
    self.assertEqual(result['observed_commit'],commit);self.assertEqual(result['tree'],tree)
    for key in ('external_approval_verified','input_lock_verified','pre_outcome_ordering_verified','ready_for_execution'):
     self.assertFalse(result[key])
-   for response in (b'',raw+raw,raw.replace(commit.encode(),b'0'*40),raw.replace(b'card-pool-master',b'other-pool-master'),b'garbage'):
+   for response in (b'',raw+raw,raw.replace(commit.encode(),b'0'*40),raw.replace(b'fixed400-restart',b'other400-restart'),b'garbage'):
     with patch.object(api,'_query_remote',return_value=response):
      self.assertFalse(api.verify(temp,commit,tree)['fresh_remote_head_verified'])
    with patch.object(api,'_query_remote',side_effect=OSError('transport unavailable')):

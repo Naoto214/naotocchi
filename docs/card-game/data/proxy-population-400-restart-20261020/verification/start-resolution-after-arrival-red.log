@@ -1,0 +1,29 @@
+test_origin_before_the_capture_other_window_or_other_turn_player_still_fails (test_proxy_population_start_resolution_after_arrival.StartResolutionAfterArrivalTests.test_origin_before_the_capture_other_window_or_other_turn_player_still_fails) ... ok
+test_rebased_origin_within_the_window_resolves_like_the_start_origin (test_proxy_population_start_resolution_after_arrival.StartResolutionAfterArrivalTests.test_rebased_origin_within_the_window_resolves_like_the_start_origin) ... ERROR
+
+======================================================================
+ERROR: test_rebased_origin_within_the_window_resolves_like_the_start_origin (test_proxy_population_start_resolution_after_arrival.StartResolutionAfterArrivalTests.test_rebased_origin_within_the_window_resolves_like_the_start_origin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_start_resolution_after_arrival.py", line 41, in test_rebased_origin_within_the_window_resolves_like_the_start_origin
+    runtime.operation(initial(),run)
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_start_resolution_after_arrival.py", line 33, in run
+    expected=api.resolve(same,initial());actual=api.resolve(moved,initial())
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_trigger_connection.py", line 63, in resolve
+    raise ValueError('start effect processing origin differs')
+ValueError: start effect processing origin differs
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.582s
+
+FAILED (errors=1)

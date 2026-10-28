@@ -1,0 +1,8 @@
+test_second_play_inside_window_is_closed_by_its_actual_decline_receipt (test_proxy_population_city_window_closure.CityWindowClosureTests.test_second_play_inside_window_is_closed_by_its_actual_decline_receipt) ... ok
+test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed (test_proxy_population_city_window_closure.CityWindowClosureTests.test_unconsumed_unbounded_or_forged_city_occurrence_stays_closed) ... ok
+test_window_origin_second_play_keeps_the_current_origin_path (test_proxy_population_city_window_closure.CityWindowClosureTests.test_window_origin_second_play_keeps_the_current_origin_path) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.724s
+
+OK

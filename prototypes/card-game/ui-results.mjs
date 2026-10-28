@@ -86,4 +86,4 @@ export function captureResult(before,after){
 }
 export function appendResult(journal,before,after){const result=captureResult(before,after);if(result)journal.push(result);}
 export function projectResults(journal,viewer){return structuredClone(journal.map(r=>r[viewer??'public']));}
-export function replayResults(state){let s=state.version===legacy.VERSION?legacy.createGame(state.seed):createGame(state.seed,state.decks);const journal=[];appendResult(journal,null,s);for(const id of state.commands){const next=act(s,actor(s),s.revision,id);appendResult(journal,s,next);s=next;}return journal;}
+export function replayResults(state){let s=state.version===legacy.VERSION?legacy.createGame(state.seed):createGame(state.seed,state.decks,state.version);const journal=[];appendResult(journal,null,s);for(const id of state.commands){const next=act(s,actor(s),s.revision,id);appendResult(journal,s,next);s=next;}return journal;}

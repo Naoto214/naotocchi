@@ -10,10 +10,12 @@ from urllib.request import Request,HTTPRedirectHandler,build_opener
 from proxy_population_contract import _pairs,_nonfinite
 
 API='https://api.github.com/repos/Naoto214/naotocchi'
+# Current owner-approval PR (2026-10-20 owner decision; #259 merged, historical only).
+PULL_REQUEST=408
 
 
 def allowed(path):
- if type(path) is not str or re.fullmatch(r'|/pulls/259|/issues/comments/[1-9][0-9]*|/issues/259/comments\?per_page=100&page=[1-9][0-9]*',path) is None:raise ValueError('unapproved GitHub API path')
+ if type(path) is not str or re.fullmatch(r'|/pulls/'+str(PULL_REQUEST)+r'|/issues/comments/[1-9][0-9]*|/issues/'+str(PULL_REQUEST)+r'/comments\?per_page=100&page=[1-9][0-9]*',path) is None:raise ValueError('unapproved GitHub API path')
 
 
 class ReadFailure(ValueError):

@@ -1,0 +1,31 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree 831c8fe6 where group-042-A-first stopped at 'duplicate physical copy identity' (frozen next_turn egg frame after a reentry; on the baseline it stopped earlier at 'start effect processing origin differs'); after = tree c64a889e running the egg choice on the active view and restoring the full map.",
+ "rows": [
+  {
+   "match_id": "group-042-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "duplicate physical copy identity",
+     "phase": "turn_end"
+    },
+    "steps": 91,
+    "events": 113,
+    "record_sha256": "1c372161a050700010978c54f6a222f252775b41826bee4d8a7c82372b1a18a8",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 248,
+    "events": 318,
+    "record_sha256": "630841e83e1c4126689c6fc83bfd641e941d7d161527ed26e51806590fd8bbf5",
+    "error": null
+   }
+  }
+ ]
+}

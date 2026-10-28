@@ -1,0 +1,54 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree with the I-bowtie resolution-choice fix (both rows stopped at turn_end: no provenance row for the I-bowtie activation/draw); after = tree adding start-draw provenance rows",
+ "rows": [
+  {
+   "match_id": "group-004-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "steps": 192,
+    "events": 242,
+    "record_sha256": "6a403f44d1c76d133b2ed147d324e7785568bf9bbeeead9106b99c0020a74fda"
+   },
+   "after": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "incarnation metadata registry absent or ambiguous",
+     "phase": "response_window"
+    },
+    "steps": 198,
+    "events": 251,
+    "record_sha256": "76a2568a355a8be4362c1792f034a1e3f8c51a226a6542fc27f44be0fbfc1a13"
+   }
+  },
+  {
+   "match_id": "group-021-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "steps": 215,
+    "events": 283,
+    "record_sha256": "ee7cf1a075f33d6ebb5df15a2086e729be72def1d160a80ac25ec26d272b631c"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 240,
+    "events": 317,
+    "record_sha256": "3e672e7c0662c11f587ac09cd18a206cc1ae95dd70b52d80c13263c176d796a6"
+   }
+  }
+ ]
+}

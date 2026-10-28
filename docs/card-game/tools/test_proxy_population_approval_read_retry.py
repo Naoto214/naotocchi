@@ -35,7 +35,7 @@ class ReadRetryTests(unittest.TestCase):
   self.assertEqual(proof['read_audit']['outcome'],'verified')
   self.assertEqual([x['outcome'] for x in proof['read_audit']['observations']],['retry','verified'])
   row=proof['read_audit']['observations'][0]['reads'][-1]
-  self.assertEqual((row['endpoint'],row['attempt'],row['http_status']),(api.API+'/issues/259/comments?per_page=100&page=1',1,502))
+  self.assertEqual((row['endpoint'],row['attempt'],row['http_status']),(api.API+'/issues/408/comments?per_page=100&page=1',1,502))
   for key in ('started_at','finished_at','reason'):self.assertTrue(row[key])
  def test_exact_retryable_failures_and_three_attempt_limit(self):
   for failure in [HTTPError(api.API,code,'synthetic',{},None) for code in (502,503,504)]+[TimeoutError('timed out'),URLError(TimeoutError('timed out'))]:
@@ -69,7 +69,7 @@ class ReadRetryTests(unittest.TestCase):
   req=request();get,c,r,p=replies(req);r['owner']['id']=1;calls=[]
   def read(path):
    calls.append(path)
-   if path=='/pulls/259':raise TimeoutError('later failure')
+   if path=='/pulls/408':raise TimeoutError('later failure')
    return get(path)
   proof,clock=self.observe(read,req)
   self.assertEqual(calls,['']);self.assertEqual(clock.waits,[]);self.assertFalse(proof['external_approval_verified'])
@@ -160,13 +160,13 @@ class TransportTests(unittest.TestCase):
   t=api.transport
   for status in (502,503,504,401,302):
    with patch.object(t.subprocess,'run',return_value=SimpleNamespace(returncode=0,stdout=json.dumps(dict(kind='http',status=status)).encode())) as run:
-    with self.assertRaises(HTTPError) as raised:t.read('/pulls/259',7)
+    with self.assertRaises(HTTPError) as raised:t.read('/pulls/408',7)
     self.assertEqual(raised.exception.code,status);self.assertEqual(run.call_count,1);self.assertEqual(run.call_args.kwargs['timeout'],7)
   with patch.object(t.subprocess,'run',side_effect=subprocess.TimeoutExpired('reader',0.01)) as run:
    with self.assertRaises(TimeoutError):t.read('',0.01)
    self.assertEqual(run.call_count,1)
   with patch.object(t.subprocess,'run') as run:
-   for path in ('/git/refs','/pulls/259?x=1','https://other.invalid'):
+   for path in ('/git/refs','/pulls/408?x=1','/pulls/259','/issues/259/comments?per_page=100&page=1','https://other.invalid'):
     with self.assertRaises(ValueError):t.read(path,30)
    run.assert_not_called()
  def test_total_deadline_reaches_transport_and_malformed_json_is_terminal(self):

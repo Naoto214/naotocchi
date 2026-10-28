@@ -11,6 +11,7 @@ import proxy_population_chain_resolution as chain
 import proxy_population_growth_runtime as growth
 import proxy_population_partner_draw as partner_draw
 import proxy_population_challenge_arithmetic as arithmetic
+import proxy_population_challenge_return as challenge_return
 import proxy_population_runtime as runtime
 import proxy_population_end_victory as victory
 import proxy_population_unproved_priority as unresolved
@@ -38,6 +39,9 @@ import proxy_population_response_composition as response_composition
 import proxy_population_payment_operands as payment_operands
 import proxy_population_response_operands as response_operands
 import proxy_population_departure_order as departure_order
+import proxy_population_next_board as next_board
+import proxy_population_final_time_round as final_time_round
+import proxy_population_concealed_origin as concealed_origin
 import proxy_population_history_projection as history_projection
 from proxy_mandatory_policy_contract import canonical
 
@@ -130,7 +134,7 @@ def contract_scope():
   def connected(forced):
    # Install after native scopes so verified actual deltas replace their
    # historical constant-growth provenance, never the opposite order.
-   with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+   with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),concealed_origin.scope(),response_context.scope(),loss_reward.scope(),next_board.scope(),final_time_round.scope():return callback(forced)
   return prior_operation(initial,connected)
  try:
   runtime.operation=operation;runtime._step=step

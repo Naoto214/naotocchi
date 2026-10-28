@@ -1,0 +1,28 @@
+{
+ "A": {
+  "dups": [],
+  "in_zone_not_in_cards": [],
+  "in_cards_not_in_zone": [
+   "A-035#1"
+  ],
+  "active_view": null
+ },
+ "B": {
+  "dups": [],
+  "in_zone_not_in_cards": [],
+  "in_cards_not_in_zone": [],
+  "active_view": null
+ },
+ "active_count": 80,
+ "card_keys": 81,
+ "retired_detail": {
+  "A-035#1": {
+   "card_id": "I-sleepboost1",
+   "card_copy_id": "A-035",
+   "initial_instance_id": "A-035#1"
+  }
+ },
+ "round": 10,
+ "turn_player": "B",
+ "error": "instance_zone_duplicate_or_missing"
+}

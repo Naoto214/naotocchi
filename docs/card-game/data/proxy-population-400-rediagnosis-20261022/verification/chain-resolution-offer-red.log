@@ -1,0 +1,41 @@
+EEEE
+======================================================================
+ERROR: test_closed_ledger_lets_the_window_go_inactive (test_proxy_population_chain_resolution_offer.ChainResolutionOfferTests.test_closed_ledger_lets_the_window_go_inactive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_chain_resolution_offer.py", line 37, in test_closed_ledger_lets_the_window_go_inactive
+    self.assertFalse(window.unresolved_occurrence(self.journal()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_trigger_window' has no attribute 'unresolved_occurrence'
+
+======================================================================
+ERROR: test_deferred_then_released_occurrence_is_still_owed (test_proxy_population_chain_resolution_offer.ChainResolutionOfferTests.test_deferred_then_released_occurrence_is_still_owed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_chain_resolution_offer.py", line 23, in test_deferred_then_released_occurrence_is_still_owed
+    self.assertIsNone(ledger.offer(j));self.assertTrue(window.unresolved_occurrence(j))
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_trigger_window' has no attribute 'unresolved_occurrence'
+
+======================================================================
+ERROR: test_offered_once_then_closed_either_way (test_proxy_population_chain_resolution_offer.ChainResolutionOfferTests.test_offered_once_then_closed_either_way)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_chain_resolution_offer.py", line 31, in test_offered_once_then_closed_either_way
+    self.assertFalse(window.unresolved_occurrence(activated));self.assertIsNone(ledger.offer(activated))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_trigger_window' has no attribute 'unresolved_occurrence'
+
+======================================================================
+ERROR: test_window_reactivates_only_after_observation_on_return_to_ordinary_phase (test_proxy_population_chain_resolution_offer.ChainResolutionOfferTests.test_window_reactivates_only_after_observation_on_return_to_ordinary_phase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_chain_resolution_offer.py", line 42, in test_window_reactivates_only_after_observation_on_return_to_ordinary_phase
+    deactivate=body.index("else 'normal_action'):active=False");observe=body.index('r=observe_existing(r,e,history)',deactivate);keep=body.index('if not active and unresolved_occurrence(current_ledger):active=True',observe)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: substring not found
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+FAILED (errors=4)

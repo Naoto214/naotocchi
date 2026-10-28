@@ -1,0 +1,4015 @@
+{
+ "summary": {
+  "results_branch": "fixed400-results/fixed400-e8e7202ac717",
+  "results_head": "ca8017b7182a554aadc58e1e3dfe955d75b18b6a",
+  "saved_rows": 400,
+  "ledger_completed_rows": 400,
+  "statuses": {
+   "completed": 400
+  },
+  "play_equal_diag31": 400,
+  "last_entry_sha256": "713f2f061d165f19fd44b08ba3476aa902daae5b0a5c73035cf14f202944a456"
+ },
+ "rows": [
+  {
+   "schedule_index": 1,
+   "match_id": "group-001-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 307,
+   "entry_sha256": "3055d99be734cbc0199f9e4b3c09cac445bd1d51ffda1127470264d1246543de",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 2,
+   "match_id": "group-001-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 250,
+   "entry_sha256": "fd75f266cf19b6adc2b6aaa1566308db1465b1ca3f3daa7215ecc2d626091945",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 3,
+   "match_id": "group-002-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 269,
+   "entry_sha256": "4b98e4057ca63ec83ee63bc8457ec06ae979f2f9ffbf4db38ab16033fe4011dd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 4,
+   "match_id": "group-002-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 287,
+   "entry_sha256": "3a24b79473b17872e9a8bba64a5362d57941529f3c548118b55c95d74e64f962",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 5,
+   "match_id": "group-003-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 247,
+   "entry_sha256": "90e2ef0558cb4a7de29e7aa4e477216fa5267d5ab98a1315c1fbb6c0b38105f8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 6,
+   "match_id": "group-003-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 247,
+   "entry_sha256": "d6b3b3f85cf375711880445268462e4db1932c9acafdc54f24804b3c08d68f7a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 7,
+   "match_id": "group-004-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 305,
+   "entry_sha256": "9ef62878210851f1740f536348a9410624ace0e22d4357dfbe90dc5e07ee4075",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 8,
+   "match_id": "group-004-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 276,
+   "entry_sha256": "bdbe05e21bc0f3ad38842b4102ee15eb67d64268c7290c6971fec07ab564330a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 9,
+   "match_id": "group-005-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 233,
+   "entry_sha256": "733202c2bb38e371e2c547c73029b2eea26a17890f1f3d1bfa30cb7329c54da4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 10,
+   "match_id": "group-005-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 258,
+   "entry_sha256": "ddd9ec6d1503ab8c0755be3308cd31ec4d1c0023c96ccc14dcbd1c590b399717",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 11,
+   "match_id": "group-006-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 301,
+   "entry_sha256": "0dd5d9f53f98a34e19aa8b510a656ebc4aae8146daeb8b676b504bdfa10768e4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 12,
+   "match_id": "group-006-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 318,
+   "entry_sha256": "abf3d5171800e9f593d658f6380c7170f1d2088071e264cbce0f0c0edddd2195",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 13,
+   "match_id": "group-007-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 295,
+   "entry_sha256": "826deeff7ebb7284faa9328baef1710b173f983c215f4c982c32d555dfc307a7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 14,
+   "match_id": "group-007-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 322,
+   "entry_sha256": "b450bd92e774d57498dbcfc803584a599c6567f4cb3f0890c2fff2033040e87d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 15,
+   "match_id": "group-008-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 326,
+   "entry_sha256": "e5884704fa0be20575e094da2b494855b4baa1417654dc8c80de0b43f5d04102",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 16,
+   "match_id": "group-008-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 270,
+   "entry_sha256": "36960b1e5ffc90d22a35e5dace1cf8f72b40b4f10118d40093790243f673e6dd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 17,
+   "match_id": "group-009-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 302,
+   "entry_sha256": "e3476ee29591a9998defe717161dd2d72e7fe01768ed7dda36457100b0a7a34b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 18,
+   "match_id": "group-009-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 277,
+   "entry_sha256": "e4975161f209e8a616afcba1887296862c2385c2357fb604d66f0cafd31e8c3f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 19,
+   "match_id": "group-010-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 259,
+   "entry_sha256": "1930f280dfeee3b0058b456f7eda695026f27035663c19c87c522f82896c4e58",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 20,
+   "match_id": "group-010-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 326,
+   "entry_sha256": "987e22f45d4c62c31085f612a6005b56cc8259611cf326a6503e582a26866dc2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 21,
+   "match_id": "group-011-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 278,
+   "entry_sha256": "6a4006e8e2050253ecfb1cb2f632565ced681b85718e00218bab6b482717703b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 22,
+   "match_id": "group-011-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 290,
+   "entry_sha256": "446b4e2eca5e295ce6d5ec333383bbffe4d0f41f8f62d5a0f7483a1115b4c489",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 23,
+   "match_id": "group-012-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 325,
+   "entry_sha256": "7808f704d24a7ac5f1d7e8a247c1c2c9672beaaaa2488c222c657cd94115e0fd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 24,
+   "match_id": "group-012-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 342,
+   "entry_sha256": "8370088295e86de07a12b31c2afa6e8541d2693e93da555f0d38dab8d08b9224",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 25,
+   "match_id": "group-013-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 289,
+   "entry_sha256": "455372f88ded4a42c0f6f7c16e664f7b8ed2dca4edeaf4e1a6da543bb0201bb5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 26,
+   "match_id": "group-013-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 329,
+   "entry_sha256": "939c93c216eae1791d1fe788996ce921b4a56a276848718a35ddac3783f5ca0e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 27,
+   "match_id": "group-014-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 341,
+   "entry_sha256": "bea476216400f369312f6ff62ebf9293d8c7276747593297c6b0ea0bc721a1f1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 28,
+   "match_id": "group-014-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 334,
+   "entry_sha256": "0c7b3b9364dad9813d8b7d8f99691b31b953464ec479577bcff37317509f9449",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 29,
+   "match_id": "group-015-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 368,
+   "entry_sha256": "9a63261869ac8fe23ef18ebc5ee69b31884f9ce7fdfdc6f7c78f7b82b97ef861",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 30,
+   "match_id": "group-015-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 322,
+   "entry_sha256": "88843f6dc257baff56e0539d3ad1d42600d8bf3f486a0e590ee9e4213c08f812",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 31,
+   "match_id": "group-016-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 328,
+   "entry_sha256": "af49074f5260b2099bf5ab56983c0425b14b6d16cb39c3782500417a1e7fabaf",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 32,
+   "match_id": "group-016-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 233,
+   "entry_sha256": "e772d5ff3228ff3edf4d5da2d1af2a20808c44d1d92bb9b323fd9772108c84a8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 33,
+   "match_id": "group-017-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 301,
+   "entry_sha256": "7ef356e7b39fca1774f56cb7ce6014e9bcbe403850ce76f7d748f9bf2a5059fe",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 34,
+   "match_id": "group-017-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 321,
+   "entry_sha256": "f94201c6de39fd68da3152d6a4ed9de120066ac3956e983274211ca5cdda60b1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 35,
+   "match_id": "group-018-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 295,
+   "entry_sha256": "6a1e280a58b4dc71c2bd0e73f6d61a2698282e3213494fd84ea77309d669f7cf",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 36,
+   "match_id": "group-018-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 322,
+   "entry_sha256": "ad04ec00b816e636f438f3d2a52c4bfc1113abe4ddca87ff262c1385475266b1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 37,
+   "match_id": "group-019-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 336,
+   "entry_sha256": "0e3f6e7506ee84a55361f60708847c15c589d28e19512960db0c23e51845d128",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 38,
+   "match_id": "group-019-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 280,
+   "entry_sha256": "6e401e976ad887d256a8b7449ce5e97a03fdb120745804df72fd57685bc863ce",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 39,
+   "match_id": "group-020-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 351,
+   "entry_sha256": "ca258c62615a0258ce7112af3e5b6960501b2d49b02452f30971bc613309bd5f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 40,
+   "match_id": "group-020-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 274,
+   "entry_sha256": "b9d85ec53d5b0febf834538b6635abe76a0c2714670fab7caf1cf73414b6913e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 41,
+   "match_id": "group-021-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 269,
+   "entry_sha256": "ae0fce1236161db3159c3d1c7d81dd3bb5204e7ecd5619a29073d1ba9024a651",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 42,
+   "match_id": "group-021-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 317,
+   "entry_sha256": "fbb2f14a99caf07c9b628c49a7b1d367ec229169c3aebf067593ac252eb1948f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 43,
+   "match_id": "group-022-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 360,
+   "entry_sha256": "1a9d34c4092cb1dd07f11a014eecfd8c82d34e86634af9cfab17cf59c8832f2a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 44,
+   "match_id": "group-022-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 329,
+   "entry_sha256": "d176085411e750bc9e8db9c3a2004bded1f0deecfa0773748b07e2f699a460b5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 45,
+   "match_id": "group-023-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 320,
+   "entry_sha256": "95c2846c29b5adc14cf625c4ca9dccf964158fe7b50612c56448e84c37e169d5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 46,
+   "match_id": "group-023-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 295,
+   "entry_sha256": "4ea3e00407e1a0bd952d89a49ce6b0cde0eda3a2544cd2af2bc5625119710277",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 47,
+   "match_id": "group-024-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 296,
+   "entry_sha256": "4e3c3e6f09d488a2c538d76eb4f94323892fb245df7039985d7ef846bc8a2cf2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 48,
+   "match_id": "group-024-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 234,
+   "entry_sha256": "ec8f60ac75e4b1b1bba233af6319d466fb0b5685986eae42c2a01a745d0f521b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 49,
+   "match_id": "group-025-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 285,
+   "entry_sha256": "6a14204bcfd6b84eefccce52801d5b7ff45e1c7147e66c68c7b9dda634011414",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 50,
+   "match_id": "group-025-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 249,
+   "entry_sha256": "7c16da838771a5a2228a1610c765bff7a351d6ad9fd76e1164574e42a7958ad4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 51,
+   "match_id": "group-026-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 335,
+   "entry_sha256": "acf77fbc1f8e484a267be1ce58f76aaa151bded3d1fdacf5c66ff9c6d28e1567",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 52,
+   "match_id": "group-026-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 338,
+   "entry_sha256": "09a50d225d584e76cb99ef41af78954b3205b585b06adb991a38dad0a93fdcd6",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 53,
+   "match_id": "group-027-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 266,
+   "entry_sha256": "0df3fdc75e71c732853856b5cafa6d7ace0bbaebf43a71684e58bc60194bcd62",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 54,
+   "match_id": "group-027-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 335,
+   "entry_sha256": "670973ef484b7e28ee00f8edb58c38c1bfc80e389014f11613dfa3a020ec6fda",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 55,
+   "match_id": "group-028-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 353,
+   "entry_sha256": "cace1a58b5377c8b168abdb5e1c4b8758bfbcb19eeec629ee6eabf0769b5a2fa",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 56,
+   "match_id": "group-028-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 290,
+   "entry_sha256": "692b50a4b6fa93aecb3460a6709b07bedf3f18c062fb21dc6e51d372adf455b5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 57,
+   "match_id": "group-029-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 380,
+   "entry_sha256": "fb996290a3e7120a38f2496903ca0fc0dfe7083ccef2124cfb75370396b0f6ff",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 58,
+   "match_id": "group-029-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 280,
+   "entry_sha256": "87d3124ba45c666ce5e6bf83ea3188e68f3b7f02e13585e1d318f6cbad6f3763",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 59,
+   "match_id": "group-030-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 296,
+   "entry_sha256": "a28cbf193ae89dbb973ef990988f187686594ac7239e4b23d121d36903b1c2d3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 60,
+   "match_id": "group-030-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 336,
+   "entry_sha256": "854ebd3f2e0131c5dc4049e7fd461ebb7ba539254e0a97273422f3790eb321a0",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 61,
+   "match_id": "group-031-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 296,
+   "entry_sha256": "f028dce0b2649ce18506801874fb6f1694b4a9f9999a7f32bed70f83193d4a63",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 62,
+   "match_id": "group-031-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 303,
+   "entry_sha256": "a4dfb5ee687af9e44432ba606f3b3298d3fe714e866c062cd5429d95f8478f5a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 63,
+   "match_id": "group-032-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 313,
+   "entry_sha256": "b55b0ec1249a7904e10a0a8b8ca6a270907c333e6e2cbe693660685b96aa78d8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 64,
+   "match_id": "group-032-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 301,
+   "entry_sha256": "230b061edd482d5d9450e103785e75fc9d3bafeedc8870e27bd2d5176fbac953",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 65,
+   "match_id": "group-033-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 295,
+   "entry_sha256": "8e97184b83fce2792f243c89fe1ebfeee61ba46246c6a347eaf66708d242d4b0",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 66,
+   "match_id": "group-033-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 317,
+   "entry_sha256": "f5a6fe7dd164b89a4817bbc699fc78ae32bdae5cff03b2317e89cb5f4bd79556",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 67,
+   "match_id": "group-034-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 336,
+   "entry_sha256": "9431b6296f2eaa1fb335e252f3be544fecf6a0e0e3050654cd11ce38e6000d38",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 68,
+   "match_id": "group-034-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 347,
+   "entry_sha256": "d9d9c6c12f036d0697b5e12ea1436da66cd3d3376a6ce1a272047c424528fa78",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 69,
+   "match_id": "group-035-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 258,
+   "entry_sha256": "7077404f191be23761da93f99eaff6724bbbad2b34685f27b0755dc97c033f1c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 70,
+   "match_id": "group-035-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 299,
+   "entry_sha256": "b9b98d646ac04e3945fd098ed1a5235c5a977b2a036dc8a29c3243f060e7311b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 71,
+   "match_id": "group-036-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 295,
+   "entry_sha256": "95c69cbd7e36d533ef896f03d1ab2aae1022bb6d3dd0faaa1cbe3c90713f56d9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 72,
+   "match_id": "group-036-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 298,
+   "entry_sha256": "28ed4eb6a063e2170e91567bcc919aecbd059d166a98b4b8a954ff03127bb132",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 73,
+   "match_id": "group-037-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 314,
+   "entry_sha256": "1cb69e31d7302fd5478becb8399f2f80bef22ac11539165102408f630f1af781",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 74,
+   "match_id": "group-037-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 295,
+   "entry_sha256": "c1c9fe1afc814272be8ca0655e878568742817e3df40dd1c029f0e91accdf2ed",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 75,
+   "match_id": "group-038-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 317,
+   "entry_sha256": "3a114e27cf84a38e92111c85748ca14124e25f3f07feb1fa787bd7edda2f6d05",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 76,
+   "match_id": "group-038-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 373,
+   "entry_sha256": "3edc8ab3ff9f446954a2c1719e97e6bc8961e3f267d0bb0df641f1f28c47eb8b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 77,
+   "match_id": "group-039-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 259,
+   "entry_sha256": "221ed37f8d2fdd66f90033086e239d12f0a518d8bfd3f66a8c806ed18349004f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 78,
+   "match_id": "group-039-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 252,
+   "entry_sha256": "0aec1159ccee9a0ac6f797137115b2ed8e602e8d0f966662c38d59e2a41dc4fb",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 79,
+   "match_id": "group-040-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 298,
+   "entry_sha256": "5aa10daf23342b03945afdd72d531554774cd712d1e514906033748165249c45",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 80,
+   "match_id": "group-040-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 273,
+   "entry_sha256": "954fba4331f3c965eee6d084fbe56013bbdd49c48b341c9b7bd12fc2b06bb039",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 81,
+   "match_id": "group-041-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 372,
+   "entry_sha256": "05bf214ab4486408cd1bd397bd6c22cb9f97fc47f61ac82d809edd6e92936870",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 82,
+   "match_id": "group-041-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 346,
+   "entry_sha256": "f011b6ee6be4990728c232a8376aafc99db8032b84a41a06562670c3630fc101",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 83,
+   "match_id": "group-042-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 305,
+   "entry_sha256": "8f8e9ac287f254986df5b6a3390dd14a0bbc2b6ab05185062ca89fc37d7fd281",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 84,
+   "match_id": "group-042-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 318,
+   "entry_sha256": "1432ca0e8351f8bc0054f1e25650df6146320c8c8c18703f9548aeb0b264be85",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 85,
+   "match_id": "group-043-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 317,
+   "entry_sha256": "e18f2dda975cf0a124603fab470ec37131eeb625a0415768d7e58b7a1ca7c967",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 86,
+   "match_id": "group-043-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 324,
+   "entry_sha256": "a93fb6efe24b6495bfc92ebc59ae4949a8f02e34809237866df473ccd7cbd17b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 87,
+   "match_id": "group-044-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 355,
+   "entry_sha256": "d8eabc1ca89807fc9fa8de78aa228bfa8834135dd06231948bbd04ad85b73448",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 88,
+   "match_id": "group-044-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 392,
+   "entry_sha256": "db242e6508d00bfedc9f501c40ef36baeec47c8c32df7e0df56a006818157928",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 89,
+   "match_id": "group-045-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 339,
+   "entry_sha256": "e7330cd05529cdad26531c61983e92eb722abe9c0ba3fdc44b6ce3839ac99e1c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 90,
+   "match_id": "group-045-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 343,
+   "entry_sha256": "18361b9e1aba189b576ad882b126f74705378d2379ff4577b07b5b68f0188129",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 91,
+   "match_id": "group-046-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 305,
+   "entry_sha256": "56abd4bc17667c89d59551d461f3a9c8406e6ee319a2a2809b04472af9584dcf",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 92,
+   "match_id": "group-046-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 288,
+   "entry_sha256": "4fa83ffafe14d24dbbfca38f51de4f67265e67df4ba5afcb36fae4323d2520c7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 93,
+   "match_id": "group-047-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 274,
+   "entry_sha256": "7ca7b8f7ef2a21b73883cc59b2f9c9439a04496fb1ec0558cd31a1bd1a64ef55",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 94,
+   "match_id": "group-047-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 276,
+   "entry_sha256": "aec8e5cd1c82df07d832760f98c7bb9d330af7692ef09a7e22bbb24a018d3f56",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 95,
+   "match_id": "group-048-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 356,
+   "entry_sha256": "05d869023c25050b90ea28eb07c3f3ca48e111e1d8aadee0e8cc03e8a0fa69bd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 96,
+   "match_id": "group-048-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 332,
+   "entry_sha256": "a65de542c26a9fd8c05c3eedefc7148491911510cd995943a1ee24f4ee385320",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 97,
+   "match_id": "group-049-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 281,
+   "entry_sha256": "f0e67a36441dbd4f7e7b8f754ce5bac78c1d9e30a615a825971f5d812d1ba393",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 98,
+   "match_id": "group-049-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 294,
+   "entry_sha256": "0778edd15c24feae215b55faf4aba2fcfe830130267aeb6304916143e2284f85",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 99,
+   "match_id": "group-050-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 306,
+   "entry_sha256": "838fd71101bade5c5c19507a9d276fa62373482f57832514708fcb314160345e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 100,
+   "match_id": "group-050-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 276,
+   "entry_sha256": "0efa60fdd6006d50933e3908d1ccb2942b031d78cb82d3fbc68bf13065900e4b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 101,
+   "match_id": "group-051-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 400,
+   "entry_sha256": "c6e85f435ee438097ad92cfaa58947323fc59700625013fff94cc068ca95d090",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 102,
+   "match_id": "group-051-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 365,
+   "entry_sha256": "023a189df8a8b70fc927a8cc4438d9fab412b2e6232f97bd12ee003e19c07f65",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 103,
+   "match_id": "group-052-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 247,
+   "entry_sha256": "b91ccbadffa62a8c72aad1fff5971b6b1aec8653bc3f0ac91a2dfd61379e7df3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 104,
+   "match_id": "group-052-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 309,
+   "entry_sha256": "7812424bde0e992d387003b49cb5a11b2daed6edf1db8a7621cbe17909ac54c7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 105,
+   "match_id": "group-053-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 298,
+   "entry_sha256": "15ad0d1583e0f70df9697c372d60ebef08c419e96db2cd8d70b2df5d269a2c35",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 106,
+   "match_id": "group-053-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 260,
+   "entry_sha256": "b90ad642d8fe8184cbc7d429a9b6b31b80c9579656d291869be9d006f5c2ff2c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 107,
+   "match_id": "group-054-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 286,
+   "entry_sha256": "0fd00dcd6be5ea5cf372b7c6e07ea628d100d6a8b3571c45d84ee9cbe623df7c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 108,
+   "match_id": "group-054-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 295,
+   "entry_sha256": "3cf237ca510b3453fd31d281ad3c78c21a67f7454299719ebde2a404ed69bb79",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 109,
+   "match_id": "group-055-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 327,
+   "entry_sha256": "2435580e6465007adc90071f6d226b6280ba6a572076bdddbfb5cd27ea30e574",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 110,
+   "match_id": "group-055-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 378,
+   "entry_sha256": "50ae80dd7d82856f25d8697a2877a7bb50d7283ffdb9dc27b16cd4f714dcf510",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 111,
+   "match_id": "group-056-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 327,
+   "entry_sha256": "95a4fa9596dc71e64d2b36db46a1988e7851b86bcaf5e62a5090242203833048",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 112,
+   "match_id": "group-056-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 268,
+   "entry_sha256": "7633fa45d121fd5ed1933344609fa0299481d92d0697a93b294707701716f06c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 113,
+   "match_id": "group-057-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 264,
+   "entry_sha256": "650a7c594ab3bb78476fa50de089ac44e11f289ca8ca354eae4c85f03d1f814b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 114,
+   "match_id": "group-057-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 247,
+   "entry_sha256": "06744d4047fa780c42acf27b0742e7bac11c2aa01b85eb8758bf92db1a6ddafb",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 115,
+   "match_id": "group-058-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 292,
+   "entry_sha256": "bfb6fa3098fea39519d7da5679a139c1ca561b0d3b290a4884ec0a00065304db",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 116,
+   "match_id": "group-058-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 319,
+   "entry_sha256": "815cb2408edbb5ca63dbb0c0ac824944dcf2d00da5e7e9bf5b94c8e263dc6ca0",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 117,
+   "match_id": "group-059-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 233,
+   "entry_sha256": "b569bbcbc5b70e309a23fe35732052b1fbad2d7f025ffa0502d51371ef763854",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 118,
+   "match_id": "group-059-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 242,
+   "entry_sha256": "9efba76f73ebe42b7e5ee7420e5264541ddb56c55d42994c8444a573ecab724d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 119,
+   "match_id": "group-060-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 282,
+   "entry_sha256": "f91f53fbf9ab03bd21c135cee6f0794b854b64b65e08a605213b6564f0320a69",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 120,
+   "match_id": "group-060-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 287,
+   "entry_sha256": "a9d16cc1e5aa69f2b84ea705c4fb9f3da964f999b6eb6330b378c40f0bf5237c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 121,
+   "match_id": "group-061-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 312,
+   "entry_sha256": "7f35a3132ec9330625587d57e98bcb195aaf4541fe98a0df5034189a451276f3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 122,
+   "match_id": "group-061-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 305,
+   "entry_sha256": "1ae96d5a715978d99b470ea174a110971758da46300e69c3761c6838afed9a73",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 123,
+   "match_id": "group-062-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 315,
+   "entry_sha256": "1523024ab68d0d3abcac63fa62ed4dd7888623f9e10a841b9f5c2e4731921911",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 124,
+   "match_id": "group-062-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 303,
+   "entry_sha256": "d48811f9867ff3cd9d53c59324967d88f48d15172d6d36621300c773593d5473",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 125,
+   "match_id": "group-063-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 349,
+   "entry_sha256": "931f7a5c96af19041f928ee1bf43d28d77526814b3b974eeffc1b6e5375a40a7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 126,
+   "match_id": "group-063-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 302,
+   "entry_sha256": "3f5a72ee642312bc9f67922836be9046de3e47ab50356d0b592428d6a6b44def",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 127,
+   "match_id": "group-064-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 292,
+   "entry_sha256": "89760973e175607f43f2cebe6e8784e9c76ded666270d1a2d87f673793816b49",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 128,
+   "match_id": "group-064-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 304,
+   "entry_sha256": "c5ea29f0d992c680f551820741d531fc1530e7b64c4c70cdbbba928b1940ead6",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 129,
+   "match_id": "group-065-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 255,
+   "entry_sha256": "93c93629216e0b0efa6469bde184708848bd0b0565e8b7cfbf64579dd6990aaf",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 130,
+   "match_id": "group-065-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 289,
+   "entry_sha256": "da07bdee9037243e9ec786f31841eb575ab0fa0ceb059968d429d7eb58a0e31c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 131,
+   "match_id": "group-066-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 319,
+   "entry_sha256": "36e980b59f52568324ee0bb91b0ddb461f35078abdc6eb838b4db27dbdbe7cc2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 132,
+   "match_id": "group-066-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 232,
+   "entry_sha256": "bece97e9d7d207f5836c6d07800a88591ab5c90e8005d0d971f75e35fbd7b4d7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 133,
+   "match_id": "group-067-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 356,
+   "entry_sha256": "b61dd33219cc88d4105a7e390400b7c8f8d4ac3cdedd6a66417f7f768f0fdb79",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 134,
+   "match_id": "group-067-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 312,
+   "entry_sha256": "2bd3bdc6c39dc0e2ea92122f1a0a02b1fa3881ab2d849060c3e2a0c871bb6b08",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 135,
+   "match_id": "group-068-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 239,
+   "entry_sha256": "951aa06d23b9eb4c03a614c634ce83eb8c47087e7cb807d29fa8ca7669968815",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 136,
+   "match_id": "group-068-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 244,
+   "entry_sha256": "377972083269ab1e11d127e86d68503a4c75ae26789cb48e4252df5848fb4bd6",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 137,
+   "match_id": "group-069-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 361,
+   "entry_sha256": "003ebe0673f9b85a2fd29d4583a063ba8721359b2f0eb64ec5fa55ba387edd5c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 138,
+   "match_id": "group-069-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 323,
+   "entry_sha256": "77dd8ebdfb9070502fe154538615ad8a8f08d03a1caa008ca737eeef608a1318",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 139,
+   "match_id": "group-070-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 325,
+   "entry_sha256": "880cb6fb43d3542b223a88859ec93c00bca7f83acd77bbaaac5ef3550d53b15c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 140,
+   "match_id": "group-070-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 302,
+   "entry_sha256": "c82420c3224e89d5c9f272fd6d22db9babdd885b5c20f7cf589e46738e79c8d9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 141,
+   "match_id": "group-071-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 197,
+   "entry_sha256": "77147389763745d9a45756c3af5e5d4e81fc610a56a5463687f12b4eb78b96f0",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 142,
+   "match_id": "group-071-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 278,
+   "entry_sha256": "16986106706557a1ed5bd151cb6ecef05b9a6b53f42f80e4073deb9946e8753c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 143,
+   "match_id": "group-072-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 334,
+   "entry_sha256": "fc4f57bdcc43c04925d274b4285ed25d3617bd42db5bc33b04cedd742a28863b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 144,
+   "match_id": "group-072-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 319,
+   "entry_sha256": "064904fb2e7dabf49c5eba29b74fe7155068bf46ba0a0e45d5cf93956b6e09fd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 145,
+   "match_id": "group-073-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 317,
+   "entry_sha256": "e142a17a11c8b5249832ff7891740b70de8617268bf8a7bd126673dddc427035",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 146,
+   "match_id": "group-073-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 388,
+   "entry_sha256": "f5de209776461d10165a340eb363284be7a2b70cd67cbfb734efab62486c7bad",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 147,
+   "match_id": "group-074-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 265,
+   "entry_sha256": "ff16b187918b355c9a49b61857e53bcdba4ef9d6113cdd27e65cf0a2dcc0343a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 148,
+   "match_id": "group-074-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 350,
+   "entry_sha256": "6c095b17efb433e0faa9cbec055b067d0e05cf6a3a05f9d3ee7de5bf2e25bdd4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 149,
+   "match_id": "group-075-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 315,
+   "entry_sha256": "d6846c004caaff0b4df43275f687f7866dbf506069eecf308145c2061aad85bb",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 150,
+   "match_id": "group-075-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 326,
+   "entry_sha256": "ac1ef81685daa0e8ddaa0cceab135535725d6756b8b2a9faa956d35da4849541",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 151,
+   "match_id": "group-076-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 316,
+   "entry_sha256": "d432d466392759f8fbceeff91c472195cce5dafd8658be7e1e921fb459ff0de9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 152,
+   "match_id": "group-076-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 328,
+   "entry_sha256": "ccfd9f704a0c9a114914593557545cbb3946e215df587ab4271ea891d6b5ac50",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 153,
+   "match_id": "group-077-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 339,
+   "entry_sha256": "41035789a91d310156c7bf78956e81396545461d3a42a12f17a3260f43cbaee9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 154,
+   "match_id": "group-077-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 357,
+   "entry_sha256": "0ee00d48635f90392aaa4d0f23b260327fe72c969246599df6e6e99576f3bc23",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 155,
+   "match_id": "group-078-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 227,
+   "entry_sha256": "f8df7521fa20cde1e384a9abd0432822b6ae2d416afea473fb288e9f840bb93e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 156,
+   "match_id": "group-078-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 266,
+   "entry_sha256": "1489168f47138e109203cfd3a1de1899b234e1ddc92325e53ea5fe32fbbe4720",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 157,
+   "match_id": "group-079-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 297,
+   "entry_sha256": "e30ea846364040f9f704b3d8ec6f9c8d2deb304496c98b05b7e998823fd4bde3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 158,
+   "match_id": "group-079-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 339,
+   "entry_sha256": "c1e0ae6b1bfeab70047d8e41a39ab2d4dcf0147ccf2b0961e2ec295c3258e5b5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 159,
+   "match_id": "group-080-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 267,
+   "entry_sha256": "bb5ccc9d456ed31ba77de3401e3297b03a6d2db300d1b0003d8876a9de51e9c7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 160,
+   "match_id": "group-080-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 382,
+   "entry_sha256": "e78726480e3861c258ee591067d45c167f084527f8b868b85638a672e2cbfca1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 161,
+   "match_id": "group-081-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 330,
+   "entry_sha256": "79cb6cdba0a66004051a73a0eacb9547f244c3e340eeba08a55b51f73c92c2b5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 162,
+   "match_id": "group-081-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 292,
+   "entry_sha256": "aab58a0354c6fced9654a96a3e36a2f90ae012e8cc3d8d53554b1ef4dbd1559e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 163,
+   "match_id": "group-082-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 325,
+   "entry_sha256": "77ef68d289c160c70097da003e874b037f746b53c5c15ac0dd04a4f10260fba0",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 164,
+   "match_id": "group-082-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 270,
+   "entry_sha256": "54f0e16d46d0e271951eede7eecb72675d40e5998a4ab6727ffd72c8b971d615",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 165,
+   "match_id": "group-083-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 300,
+   "entry_sha256": "f6500b67fcf8b26a7895684e5a2f9cc82ab6849a33f3814d441e5dc62730c965",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 166,
+   "match_id": "group-083-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 238,
+   "entry_sha256": "b20b5ee93b2e19a6071381f7d54e65acd9620edd57054f091af6e171de1c9f4b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 167,
+   "match_id": "group-084-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 328,
+   "entry_sha256": "410a7c21efa4ef1dcf85353a26b98143c98a8ff0fcf01192e4b7825aa633686f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 168,
+   "match_id": "group-084-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 363,
+   "entry_sha256": "14a237205da26b2ff7c7ee2e82880183f5853e8d71ffc576e9eda9253af2b806",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 169,
+   "match_id": "group-085-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 294,
+   "entry_sha256": "10cfda495cca2dffee53b63c46c374dd020b3d6dbd8e70d6f6c151bc9c505d67",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 170,
+   "match_id": "group-085-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 297,
+   "entry_sha256": "0b191ded29dd54c5662cfafddcc698843b3deebfccebd729e2ea475ac8474043",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 171,
+   "match_id": "group-086-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 268,
+   "entry_sha256": "5cdd64482c68ceda3de5a1c223bf153dbd7b0871c8c77522e1801044ad764a0c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 172,
+   "match_id": "group-086-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 219,
+   "entry_sha256": "5e86d9f02b4c1cf197741ee9d33f519eb3edd9d13e458f61097816e9edce68e5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 173,
+   "match_id": "group-087-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 212,
+   "entry_sha256": "1aaa9ba74bfe41ff531e6dbb15b85907955d2382381cd9d6855e5904049ca384",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 174,
+   "match_id": "group-087-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 243,
+   "entry_sha256": "ef34389bd495d3ca07690b50b213ea1347dfcf9f8cc5442318d0020f4bb10f6c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 175,
+   "match_id": "group-088-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 294,
+   "entry_sha256": "439edf0820b1a28a47564dd4c10aa24548e9b33221d591c030f8474f7ac0ecca",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 176,
+   "match_id": "group-088-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 359,
+   "entry_sha256": "09dcec7c59fad118e2a7613d3e2f46e831a5dd27f42186f684f381509388b696",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 177,
+   "match_id": "group-089-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 278,
+   "entry_sha256": "7837dcf2295365ce801eaabdbf7b8d75a8faa7bbbed039f550efa8b2f266e7ed",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 178,
+   "match_id": "group-089-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 326,
+   "entry_sha256": "f4662f8d8806f55e0c0b7d15715b0b6e5eebb2ac0450f3b9a96dce5f10b2c95f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 179,
+   "match_id": "group-090-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 318,
+   "entry_sha256": "d9af4bdf920619b92be66c1f872a2a0d03bad4d12dc8515c937809c26399b9ac",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 180,
+   "match_id": "group-090-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 355,
+   "entry_sha256": "785f6f8e80119e77b9462a0ea2a39d17cd21d597a7f4c224c2a196bfe6975e31",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 181,
+   "match_id": "group-091-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 292,
+   "entry_sha256": "8147824dd12425069842697223b95c9d579653afe56443f9c2d037ee75fcbf36",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 182,
+   "match_id": "group-091-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 266,
+   "entry_sha256": "5aa8430e0321697bf929a7610b89fdfee4d450f0a847014070960bbcb1c49d6f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 183,
+   "match_id": "group-092-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 295,
+   "entry_sha256": "e0c16ae9a39a106d75d4ee28aa9421162965bc9bdc48ca5d7906a8c404deba94",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 184,
+   "match_id": "group-092-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 327,
+   "entry_sha256": "812278ee88436e8308d558220c286bf70cf9e23ea18a1ae6609f9eb63adda598",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 185,
+   "match_id": "group-093-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 313,
+   "entry_sha256": "f22606d074f63803f8a6c668cbf79217c3f4a4bb1d555fad7612c9e1257f9818",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 186,
+   "match_id": "group-093-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 361,
+   "entry_sha256": "5b68156dec4bd5e8ddf82a6fd8662c4a26aa0ab2603bb32e0893bb58c58e5147",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 187,
+   "match_id": "group-094-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 282,
+   "entry_sha256": "077f9cdb801d78b741736acddb086792b8cef436943959ddc9682e688c4c11de",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 188,
+   "match_id": "group-094-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 296,
+   "entry_sha256": "7e4a63d2f4f3736dfc72cbe8051623f890e187dbbbd1691850be938c1f9cbb75",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 189,
+   "match_id": "group-095-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 285,
+   "entry_sha256": "8f04dcf4a4849508e9c7789f2653796da0fd655f22d5b75fe9fe6b3827bc7c08",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 190,
+   "match_id": "group-095-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 262,
+   "entry_sha256": "67dd53858c43597a8358731bbc2e951a97082a0cfca4feecbaf5c64aef3c810d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 191,
+   "match_id": "group-096-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 294,
+   "entry_sha256": "a4a8b27f34909f5d37b62f853c9f218ad20ec66e715eb08c4e71f9442056f7ab",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 192,
+   "match_id": "group-096-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 322,
+   "entry_sha256": "5252fc5e121385997250030b3ed3cfde6eaaa6ef50560724f61114f6f9072e26",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 193,
+   "match_id": "group-097-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 341,
+   "entry_sha256": "ec3a71f3d2be042fd670ebbfa49109c3cd9f60ae76e808f3918144efbc52ef7b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 194,
+   "match_id": "group-097-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 306,
+   "entry_sha256": "50a15f68ccc41afac1568987b0760ecb48081488745efcc9e7478a07acb8d1d2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 195,
+   "match_id": "group-098-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 371,
+   "entry_sha256": "285d35a91dcca74dfd75e5d5e1b8c30c3298f3dfe7d4858ad47694ccd140eff8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 196,
+   "match_id": "group-098-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 374,
+   "entry_sha256": "ab9b54acb045182576511c79218eeb35bffabb3f12f78ad818acc2beaddc691e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 197,
+   "match_id": "group-099-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 298,
+   "entry_sha256": "5e82b4b049235edf1878d501d999c8adb8a7f2da88ed14c91de45c65c13c486d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 198,
+   "match_id": "group-099-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 270,
+   "entry_sha256": "661ccac3c267cf044b7b209e0d3ec1378e72b4ae88c85d510f9d23194f97412c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 199,
+   "match_id": "group-100-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 273,
+   "entry_sha256": "85474315740c370aa75149dd2e83157735e32b74eb5f06ed7c5ec0522fbb8b0b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 200,
+   "match_id": "group-100-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 306,
+   "entry_sha256": "7bf113b53856d3a0f70526c75d9ee9c4af107e5d5f7a9d113e1cbdc092325149",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 201,
+   "match_id": "group-101-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 346,
+   "entry_sha256": "f903a838052c5e10524d69a9b37b1f25721167e97582fdf424a9680e6a5e3353",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 202,
+   "match_id": "group-101-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 321,
+   "entry_sha256": "c7e6925a9c2e36d1448fd00dac95d09efdac9c9aaf9ffc7569748eab426d46c8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 203,
+   "match_id": "group-102-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 359,
+   "entry_sha256": "48ffd3a465234ca862a8208b4411620d5b0f2640581e3f8bc7fe7cbb71083f46",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 204,
+   "match_id": "group-102-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 299,
+   "entry_sha256": "818a915296a6d8c1b918dd0112b73de5ba23d8a683e9373e7b47aa3103928470",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 205,
+   "match_id": "group-103-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 295,
+   "entry_sha256": "a6a18aceaf1c0f2c44356a5b1c7bc41895ffb905838aa920acb1cda4735beb09",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 206,
+   "match_id": "group-103-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 328,
+   "entry_sha256": "6ccba8604aae1c0dd0f395dc5a220c00d18d5a1f156284cb98162286e378897c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 207,
+   "match_id": "group-104-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 342,
+   "entry_sha256": "b2657551e996be92d6ed26223c32fcaa869da00966c9cc756f7a656aa1fc1eea",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 208,
+   "match_id": "group-104-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 353,
+   "entry_sha256": "ca38de50994f810bd0c06eddbc54104f6b7f73e9c2df69ccd59319a20da85e1e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 209,
+   "match_id": "group-105-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 217,
+   "entry_sha256": "5a0dbcffbf3dbaf2535713a8fcc894ed018249ba8edadda4798639bb7520bdf7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 210,
+   "match_id": "group-105-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 248,
+   "entry_sha256": "b85b53629c865a7b9d970db214c2c4bcff1d74bb18fe9e9dfd97e444b4aa00c7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 211,
+   "match_id": "group-106-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 285,
+   "entry_sha256": "16d682ab176a629b5d9ac2a698f8c0cd2ef137654e4df65fd44306eca605c358",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 212,
+   "match_id": "group-106-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 282,
+   "entry_sha256": "284200579b6c0148ae6eafbe455f3d28017f4b9861b4eb58eb03eed1760bef33",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 213,
+   "match_id": "group-107-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 280,
+   "entry_sha256": "121405bedeb30583dc28396a4910cb839024dac78f3fe6bc6fb199c7771081d4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 214,
+   "match_id": "group-107-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 279,
+   "entry_sha256": "b8e5903883edf690400c050534e3fe51d7d854d41227956c850318516ca5c795",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 215,
+   "match_id": "group-108-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 319,
+   "entry_sha256": "1af677acb8f8a4e1635964e7fbdcb07de624c0d4c16b96006e59c71a4ef8bfb2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 216,
+   "match_id": "group-108-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 300,
+   "entry_sha256": "17581898d83950212d595a5c476d18438cdb08b1507e864d49ce0a92ae57a57c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 217,
+   "match_id": "group-109-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 274,
+   "entry_sha256": "9586c0035baac45338e3536eeec70f694a7d15f2dbb82e5a868cbb7147d6151b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 218,
+   "match_id": "group-109-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 320,
+   "entry_sha256": "1c46030049b3bc17eaaa6f54352ee1ea8dd08891501d296576163f4e8045f0b5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 219,
+   "match_id": "group-110-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 308,
+   "entry_sha256": "0dd10180a2acaaaa28d91c7fd79411d19593986dd5f317cc7e1f2d0d899ae911",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 220,
+   "match_id": "group-110-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 321,
+   "entry_sha256": "db3d69b9199fd9cc86aac7e68b15d094f03a463e21324d3e4cefd6e007b14681",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 221,
+   "match_id": "group-111-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 259,
+   "entry_sha256": "d6f8d2da2fa4a331622eb29a102b353fc3c8d7912539cdf41ee22fd51635d39a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 222,
+   "match_id": "group-111-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 307,
+   "entry_sha256": "ea25781355645b82b7f706d07d8a819bd086bf3ffbf9ddb2565803b955532300",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 223,
+   "match_id": "group-112-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 273,
+   "entry_sha256": "c923c54237c854a0704f6916cc021767867c6888156179919283bd17439a6ef3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 224,
+   "match_id": "group-112-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 313,
+   "entry_sha256": "16ded7fc3a2a1351904af41989a49fe99011305403ac476df07e75925db51374",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 225,
+   "match_id": "group-113-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 281,
+   "entry_sha256": "e71ff81c9aa0e6831834c5b4fc9771e8500871057e467ea8f77d046a849b0d16",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 226,
+   "match_id": "group-113-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 288,
+   "entry_sha256": "7eaee05bd606f274178a56a235ba530abd1fd7b34d1acc5e24a0803f40ab0616",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 227,
+   "match_id": "group-114-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 314,
+   "entry_sha256": "37160163254ba32e6995a0a52cac048dcc13fe539f1d1642d67a64951a8b843b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 228,
+   "match_id": "group-114-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 327,
+   "entry_sha256": "4bdc0b4279ee168b42f1554824f84559a93fc54e64fe83906defb459d2ac47ee",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 229,
+   "match_id": "group-115-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 341,
+   "entry_sha256": "b6f43550a83c4724e25bdd7b137db7974231869b471c18bf82f296abf5d7fc97",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 230,
+   "match_id": "group-115-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 348,
+   "entry_sha256": "7404314225bf519c48e3641d948b119fcf91bbe62dd6420be41632851c7b3b7a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 231,
+   "match_id": "group-116-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 329,
+   "entry_sha256": "ec0250967de6ca758c841d65054d7f88bdb78aee1ba288ce4d1c1a023da21ab3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 232,
+   "match_id": "group-116-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 331,
+   "entry_sha256": "2f89b3d5a74f99b5a037982fcb6db833593bf899a7cc17a79dbe0c4f83c24cb9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 233,
+   "match_id": "group-117-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 295,
+   "entry_sha256": "1ec8a257249fa24142c62d6101a8c5ba79f63d6c7935de30a3528a47f5f81309",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 234,
+   "match_id": "group-117-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 342,
+   "entry_sha256": "41eb38a2926f0107e5245ff1a6a3e81a615001468af9fdeb713fb13bd7676af4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 235,
+   "match_id": "group-118-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 254,
+   "entry_sha256": "cfe35ea804db761e1805799ef6f307507d71db5528f0610d49f479d4abcad66e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 236,
+   "match_id": "group-118-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 313,
+   "entry_sha256": "4f602836b460806bc325f9ec77e43aa4f6bf5556c877aefef281287ff328a58c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 237,
+   "match_id": "group-119-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 360,
+   "entry_sha256": "23bd28e3b6cde755dda2d8abc3b1f8f3d117e1964328f356396b9e14bfe06242",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 238,
+   "match_id": "group-119-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 326,
+   "entry_sha256": "39a467a4cf71e19266e7d53bb389c5b6c2dcf866930e4d81af35871d28128f32",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 239,
+   "match_id": "group-120-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 301,
+   "entry_sha256": "ada24201944d0255c57aa54dc9c461708eb17a942c7881eb8768e932fa5a4970",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 240,
+   "match_id": "group-120-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 304,
+   "entry_sha256": "b9930c08297c4d7f60e91e7dadb3f2f0f2145e6b1fdffb7b45f4da116addd15d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 241,
+   "match_id": "group-121-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 239,
+   "entry_sha256": "d9896859740eafafc8431e9b7d89f8740417f47c2a413ee134887c298df64a00",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 242,
+   "match_id": "group-121-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 276,
+   "entry_sha256": "78a444fc45130dc840f5b9253ab1000cae2e183e11e50e11a003ae3576d58733",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 243,
+   "match_id": "group-122-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 293,
+   "entry_sha256": "7ae2aad845bde384ddf1672128b48bb4265675603de7030816195f2e5fa5fd64",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 244,
+   "match_id": "group-122-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 325,
+   "entry_sha256": "a740509372c6a53cbd1f6f3bc035b99c63db115e78399d4c7fea3348fb70a347",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 245,
+   "match_id": "group-123-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 341,
+   "entry_sha256": "cf1889197caa4990ce29fdb9087bcb16d9e4a030ab625842fd5524903eb95aa9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 246,
+   "match_id": "group-123-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 269,
+   "entry_sha256": "c92a5810cc13af7a663ce270ad117bad9587a40524be68df464ff24e8ba8e6a1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 247,
+   "match_id": "group-124-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 255,
+   "entry_sha256": "2543952c87404514156408ec4010e22c608e5015dfb0242669d190315a57a680",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 248,
+   "match_id": "group-124-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 335,
+   "entry_sha256": "2cf7326c27b66952b864f0089ca56573b1b6fbdd1e637d574f44b296dd67a500",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 249,
+   "match_id": "group-125-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 259,
+   "entry_sha256": "a74b7d11b48491eb7cd6b93c9ecc1ef3f910ed7484d5579f9e31f9ae3aa9409e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 250,
+   "match_id": "group-125-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 286,
+   "entry_sha256": "78da95dd7664255040181599ebde41867de34ad7c34981bf61f3b81bc46eff4b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 251,
+   "match_id": "group-126-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 267,
+   "entry_sha256": "3a6bab51970165c87edf5aa27c318f08dfdd7a501fde6caeceb4cac356ba75b7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 252,
+   "match_id": "group-126-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 293,
+   "entry_sha256": "e9bef405100ec8ca67f6b6fad5068291d5dece04f66c56cebd94efe5f9ec8334",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 253,
+   "match_id": "group-127-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 247,
+   "entry_sha256": "250440753a69c65bf0cdec251d3408c7f66494b503edff1a2800aaa0581773b0",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 254,
+   "match_id": "group-127-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 275,
+   "entry_sha256": "71f104f6011f6092a7a313e9026e251cedc12704997f43147053b750d07c7f67",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 255,
+   "match_id": "group-128-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 304,
+   "entry_sha256": "851fe2f95633c8ec79e365c1964fa52f9092d8c3a4984425a27cf07d6de41ade",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 256,
+   "match_id": "group-128-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 330,
+   "entry_sha256": "cde61ed710de46e7804161c31ebb543edca8757b9e20f241e3025fc2cd514b67",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 257,
+   "match_id": "group-129-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 337,
+   "entry_sha256": "afa6d814568c513336c621c6c66e5627cacb470e8b464590840a7febe6ed9143",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 258,
+   "match_id": "group-129-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 356,
+   "entry_sha256": "2825937ce3ce5e5fd55262e35f381de9bc44f658e14e89d73a398517a005a9f4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 259,
+   "match_id": "group-130-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 346,
+   "entry_sha256": "25298b78045570f1ac5e34f563675e7f615736effa50846dc198142b72d1ae68",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 260,
+   "match_id": "group-130-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 282,
+   "entry_sha256": "ff552bbe3cd1afd22b211895277d66332fd5f9d6b136b537a6a7af6d001a9a64",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 261,
+   "match_id": "group-131-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 291,
+   "entry_sha256": "d45ec9b61f92bf431499a7bdec85bb5b9644b7a345e0560f5dd10b2be97fbd37",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 262,
+   "match_id": "group-131-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 299,
+   "entry_sha256": "8dda5318e3ecc5de802448dbe1cf627f9028a5092811d53c83d3210d2bf812c2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 263,
+   "match_id": "group-132-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 306,
+   "entry_sha256": "0b3ccbbdd592129af779afe74ec0923dd190b8c2197ba2d88437c10cf6e7e081",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 264,
+   "match_id": "group-132-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 299,
+   "entry_sha256": "1bf35eb1ea58333b183bf35ecdf79d2f4a79d48cd2fe63a3b6ad9ea8d31d8c78",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 265,
+   "match_id": "group-133-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 323,
+   "entry_sha256": "7fcc9c3d335dcdb3456a2a325bd98cf05dcb404f894618ca06066f8190980c2a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 266,
+   "match_id": "group-133-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 321,
+   "entry_sha256": "a3357889fba320b3807fcea2e75251699432303c73c0daedcab28d39eb55b333",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 267,
+   "match_id": "group-134-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 323,
+   "entry_sha256": "9139b5b8f27caead0e9487bd97ab03a54b5370ceefa166581218de6a31955ffe",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 268,
+   "match_id": "group-134-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 344,
+   "entry_sha256": "a1e2b1d35a752954180623104b81280095a16797a9d746dbb9526d983e7a9ddb",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 269,
+   "match_id": "group-135-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 349,
+   "entry_sha256": "006bdb62bc9b79eabe8b4adfa5a557a08166486d4a722e97f27a66b516837448",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 270,
+   "match_id": "group-135-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 335,
+   "entry_sha256": "1daa44c2c558286d5fc85e450b5442f3eb375caa13e7b258099e6576a75a2f4b",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 271,
+   "match_id": "group-136-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 280,
+   "entry_sha256": "810e75f008f093c0fb576f3b6e8612c75d7e9394edd289525cb0b52dc8905031",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 272,
+   "match_id": "group-136-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 278,
+   "entry_sha256": "6ca0e6a117ec35d996ae9e6f3c6ca5e4923e102501e95ff3e371a94ed47fd4ac",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 273,
+   "match_id": "group-137-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 309,
+   "entry_sha256": "dac1d8e126022c51e8be6d73bf7689cc75211b4e2b47212a41a91cf81e15be2d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 274,
+   "match_id": "group-137-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 283,
+   "entry_sha256": "629bf99e683f778910569feb719267965eac595000ee32a6e2062d7913a26f63",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 275,
+   "match_id": "group-138-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 266,
+   "entry_sha256": "de6e7de2fa3240efe5e766e7e40d1b114b3ce3ca0a977dd785e0260b72870e2d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 276,
+   "match_id": "group-138-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 281,
+   "entry_sha256": "3e83135ce6af595c0753f6bee1e3163696966054a27816c3ac10df6906d9d9e3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 277,
+   "match_id": "group-139-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 334,
+   "entry_sha256": "089e2c0010b68d237f288825e0ee67e3d671983bb60e2e919ceb030c05323a79",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 278,
+   "match_id": "group-139-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 318,
+   "entry_sha256": "f67ba3542d6c39266e0ac7d909767669dc6a4688d6972a7386c7ec6015d96e13",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 279,
+   "match_id": "group-140-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 273,
+   "entry_sha256": "f2e8edaf5539a79e692602feaecadcb258f555469b869250bee9a3ac415731a6",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 280,
+   "match_id": "group-140-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 280,
+   "entry_sha256": "eaea7cb09d21f7b3bfeb28721b1677eb464b46f856660973219f80bcafd2d813",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 281,
+   "match_id": "group-141-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 296,
+   "entry_sha256": "739cdaf03385e27b7d30e1fd9db3d5f5c72177662ae77f588e029033132edaac",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 282,
+   "match_id": "group-141-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 353,
+   "entry_sha256": "2b290d3745cad4c593995c6a34011935ca5ddbaaedbc73d4f0ac35ee52cd6dae",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 283,
+   "match_id": "group-142-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 298,
+   "entry_sha256": "98e914704badb6e4c2a0a5db72b5d33e913f4c69e5e16183bd43a224b45880cf",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 284,
+   "match_id": "group-142-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 285,
+   "entry_sha256": "4294e5e62246f9bfeeb3f82b0d4c49af81d64cfb2a1c0ae2d46072f7930865ec",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 285,
+   "match_id": "group-143-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 272,
+   "entry_sha256": "b70302752d38c2068dfcc8d7d0d05fbf2a608699e9ce41769e1651e1b2ffe073",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 286,
+   "match_id": "group-143-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 351,
+   "entry_sha256": "e37b3da71608b8f8982d6cf7034c6ce24385cb394001e885faff84638f6bad12",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 287,
+   "match_id": "group-144-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 251,
+   "entry_sha256": "8086f402b2ac68eea00a0f834f1773ae3edc2367601cd676d499ca0a7ce38ebd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 288,
+   "match_id": "group-144-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 285,
+   "entry_sha256": "b4bf15eb2db95b706dc1a93d065ead811cb16fefa54a35864072fcc49e4f933e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 289,
+   "match_id": "group-145-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 286,
+   "entry_sha256": "5898755038ad729f3ae7bf6e441ed3d456590a4ffde4d8bcc7b5ac9016bf70c1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 290,
+   "match_id": "group-145-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 336,
+   "entry_sha256": "b9828b208609194386678fc8201f259036115c04575f3341de1020fbbc5d64f5",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 291,
+   "match_id": "group-146-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 280,
+   "entry_sha256": "5c00cbb6ebaf08b53e0cb4c3a720420014a8a74afe359da411f312275fd1e092",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 292,
+   "match_id": "group-146-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 346,
+   "entry_sha256": "8f438aa589b41e2b468149e9367d447442dda7eee3553028062bbb8235da0b7e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 293,
+   "match_id": "group-147-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 270,
+   "entry_sha256": "4b4890be2a37888433fd1de7debaef0848d2f28484be888ec3917b83c5b9e47e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 294,
+   "match_id": "group-147-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 275,
+   "entry_sha256": "0eb5cb728df4a0648cb712e6a4c907d235c95aa035fe4c2caebf970807c0791d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 295,
+   "match_id": "group-148-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 304,
+   "entry_sha256": "74aeb97e527e896c605015b0416700e4cba7c5cc3f11cc3dcc3cd43be6ea2135",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 296,
+   "match_id": "group-148-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 269,
+   "entry_sha256": "a6731c8594c7326dea8a60d8863e66e67ff3bf4e05a853085604862e549231c2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 297,
+   "match_id": "group-149-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 268,
+   "entry_sha256": "bd5e9239f17798fde8d3ee9b78f6911cf64d2e9590de5af595c1062151bc99ae",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 298,
+   "match_id": "group-149-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 294,
+   "entry_sha256": "54715118a5fab3ddf22a0deb600bdb6ec291020162e0f863510f6c15ab9a69bd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 299,
+   "match_id": "group-150-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 292,
+   "entry_sha256": "21b7417488bd7927da104fea1d8088f8295712188f5d56d1d7dff9d33f25888f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 300,
+   "match_id": "group-150-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 249,
+   "entry_sha256": "0bbcd0e2c28abc891885b0006dbf019e45001f11d246d57759cca0db4d903419",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 301,
+   "match_id": "group-151-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 294,
+   "entry_sha256": "acf06b89f9cc0eecd0b3f1f8b8e164b05fd9b229d8c46e89e63215c4b676ac52",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 302,
+   "match_id": "group-151-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 343,
+   "entry_sha256": "af5168cbd27098bf0b969a441903e26d00a0acd8d2689b4448c27c2e4593bb7e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 303,
+   "match_id": "group-152-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 312,
+   "entry_sha256": "3caef6073e63ff58cf0fdf5fa247bd8d835d3691ed7f54b85ecfda8aadf85653",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 304,
+   "match_id": "group-152-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 274,
+   "entry_sha256": "1acc05039dd8d24f4f458d1df7b8ff7d82c47373fd3da8b4b12e2241d2dbfacd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 305,
+   "match_id": "group-153-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 310,
+   "entry_sha256": "a074021f3cf460439b65f053f9915d4c36cb27461306bfca1fe068cd4f303783",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 306,
+   "match_id": "group-153-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 295,
+   "entry_sha256": "1481aa53c5ddb58606e50f6d7aa2bf60846e009feba9ae5a0732f76a10ec8857",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 307,
+   "match_id": "group-154-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 330,
+   "entry_sha256": "3549d7579294dd4ff69ddc6dc9f8f83f54084a2ab92713f8176dd3f6f2b41c37",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 308,
+   "match_id": "group-154-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 290,
+   "entry_sha256": "bba8f41587f7bb0c5b436f624aa7d54c8efe7b6b1ad7278b1273c9d1ba584d69",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 309,
+   "match_id": "group-155-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 285,
+   "entry_sha256": "3f5a084b0122aa39b73c74558e73c72d8ec61deb68ec3a53a68037e59bb3df88",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 310,
+   "match_id": "group-155-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 279,
+   "entry_sha256": "704b56d6a0633ca88b53c899b8c7e46e2920245ad57175f9d6c59012454f6ecd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 311,
+   "match_id": "group-156-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 248,
+   "entry_sha256": "44949ee620c4c101197aed45e0874d69ed88f5de73655b13e97bd995a17d3ed0",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 312,
+   "match_id": "group-156-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 349,
+   "entry_sha256": "4b1342925dbe919acce028b29058c306797e48844f6fea14039dc200bf4877ed",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 313,
+   "match_id": "group-157-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 321,
+   "entry_sha256": "db1a32c820987e524820e094f98b355cfc493e8dfbc2b2aaf915d9f9feec55a8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 314,
+   "match_id": "group-157-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 341,
+   "entry_sha256": "017098063b03e1f5d37e29cac5b835c350251e8e628111457419c7dfd4588eca",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 315,
+   "match_id": "group-158-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 209,
+   "entry_sha256": "9da8119087cb9f94572c3aa811262668b82f6c2512d9326519a5ae58530d893e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 316,
+   "match_id": "group-158-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 271,
+   "entry_sha256": "984aa465b84f51fc612e6b93289384051d769631449c5c7eed421b3b13a88ac7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 317,
+   "match_id": "group-159-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 311,
+   "entry_sha256": "2c9155fd8776b7e3fb023b1e9a950f32b5c0b6e250240ff499b9254c19070d30",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 318,
+   "match_id": "group-159-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 276,
+   "entry_sha256": "9d399bb0879de54b5debc8b9b3ef1eb57e19e534c1849eab2b75e3b8e5fc4331",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 319,
+   "match_id": "group-160-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 316,
+   "entry_sha256": "0dee3c0827e2881cbbad7b8470ebac25bad0ad7e70475de6d0f2bf2b05efcf1c",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 320,
+   "match_id": "group-160-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 275,
+   "entry_sha256": "b7db0ddecf5d41a86d8b9aad1445a273a517af12212ab7f36d263538c2b667ef",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 321,
+   "match_id": "group-161-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 261,
+   "entry_sha256": "d45a2b58517d4541983016986ac060d47286aad948b6ae63af01bdc788b7486f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 322,
+   "match_id": "group-161-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 323,
+   "entry_sha256": "64374e039583ff8e595a090340aac450f161b329f1d428a8bfde2a410338f809",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 323,
+   "match_id": "group-162-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 303,
+   "entry_sha256": "535b9189882736e7260b9b528cc6df9c6e6cf993f0404e85d42bccc9a19cc7c1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 324,
+   "match_id": "group-162-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 255,
+   "entry_sha256": "1b9426c7567ec9b9fbb649bcef7f2df5cfe6b9639b6fe88ef91ae1c382d15a39",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 325,
+   "match_id": "group-163-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 292,
+   "entry_sha256": "ada03a42004756807bfc0923006d7f7860cc7cdadf0534a06b2cdc76145e075e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 326,
+   "match_id": "group-163-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 242,
+   "entry_sha256": "ca09e091e3be9fcdcc0b8f3e1e5a79c4801831a14de51099ad674d7d44ea7782",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 327,
+   "match_id": "group-164-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 316,
+   "entry_sha256": "06715c3ec5ce39a066182be4601a572552120499e1c1a298f1064c73c342bbde",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 328,
+   "match_id": "group-164-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 209,
+   "entry_sha256": "f55dea9bc484e17aeb5d5d7523b5a8f340fd40aa072caa6c8ae9f0a7bf020025",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 329,
+   "match_id": "group-165-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 285,
+   "entry_sha256": "a12a5ee71fdfd9dbedec14f2f881896d765a585497f21bc581b70ea5466351c3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 330,
+   "match_id": "group-165-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 325,
+   "entry_sha256": "386d354dbb9e340ddf6d053d7566f53035d0d1288019a54599400f1b6ccb6793",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 331,
+   "match_id": "group-166-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 381,
+   "entry_sha256": "e03f51c946267172f06f50a57cf574750724f0bb8ddb37e0d5735d5e42eab054",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 332,
+   "match_id": "group-166-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 321,
+   "entry_sha256": "77fd18717932500c08a7a27994dd3a6995c1975a6f43fc1f02d2541ba8e4b78f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 333,
+   "match_id": "group-167-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 349,
+   "entry_sha256": "f470865d8d86f128f17123b891756427ebf6314c8ab7af9cddf74deeb687e8c7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 334,
+   "match_id": "group-167-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 284,
+   "entry_sha256": "01c5e3fbb58ed74abd9cd727723756c0911b32c9725823a57aee660e9eb49a46",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 335,
+   "match_id": "group-168-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 335,
+   "entry_sha256": "8d3b369aa62a55b1db202365b53a22cb8eafdbd8e5f8c7198738f200a4e26edb",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 336,
+   "match_id": "group-168-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 275,
+   "entry_sha256": "8aa7b33d35605a61c5d4296b376046e4d1e32e7cef803dcc7b7c497305d4ef23",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 337,
+   "match_id": "group-169-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 370,
+   "entry_sha256": "1b18db532fa785e800ae0c2ee026006ec9970ebac58d296c50f9c13fd3b34a5f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 338,
+   "match_id": "group-169-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 280,
+   "entry_sha256": "7a6c0130c3a783473286f2a237d298534c27038167d0a88c9befbae60a60f068",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 339,
+   "match_id": "group-170-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 311,
+   "entry_sha256": "410580da596b0d7656c2d1467a16bad3aa0883e6c6c693fd5e42cef5e4a2a655",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 340,
+   "match_id": "group-170-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 244,
+   "entry_sha256": "68ee2f976601c26579635308e6c864efb540807987719fb33a0a612cef3d8e42",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 341,
+   "match_id": "group-171-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 282,
+   "entry_sha256": "99d078eb8c675448e7e7db459c7d5783e55a632353fe831398b4d6f90fddc1bf",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 342,
+   "match_id": "group-171-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 329,
+   "entry_sha256": "c101209f1c4b9a444379bacdc5463df73da567b56df794a8cc0320d5e67249b1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 343,
+   "match_id": "group-172-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 342,
+   "entry_sha256": "f91e0f5d759414a8e362d5227c29669429f90813ca39fc5b36ea94a694fca6d9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 344,
+   "match_id": "group-172-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 344,
+   "entry_sha256": "866acaf2f3517d2841479b428d33c2ef0a5d054da16a963c682fea4dc043ae43",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 345,
+   "match_id": "group-173-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 318,
+   "entry_sha256": "a23ebbb8fde42e310cd9fcbe4f3c1e808452c04e777b6da192e0611c3ae6d931",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 346,
+   "match_id": "group-173-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 314,
+   "entry_sha256": "bdfa33623c1917953e93508fe6f6ca9f89071c1f176e52485287a462c1c542d2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 347,
+   "match_id": "group-174-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 353,
+   "entry_sha256": "8125ebab37dd40aa63d2e80f97ea7c9a1fbb11ce36338e514d02c0ec9844f70f",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 348,
+   "match_id": "group-174-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 303,
+   "entry_sha256": "18bc10bb03d08e060a80b96c63562ee7ec0cdd38817f3531cd8554cdba87e42a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 349,
+   "match_id": "group-175-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 302,
+   "entry_sha256": "23d8bbc53429511be28231c576154e415a469437b9df7cae22ba2cf93e14f454",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 350,
+   "match_id": "group-175-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 258,
+   "entry_sha256": "40cae7feb837796551ab970905a58a9003bc245d8489605183f00af94ddc61bc",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 351,
+   "match_id": "group-176-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 253,
+   "entry_sha256": "7335a52cb1054f019ad1d6a5675f11b1200f67d65d61e772e76b1703954585b4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 352,
+   "match_id": "group-176-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 364,
+   "entry_sha256": "342f959f94561b0fc0e208e18d015ab9ca9753f5e5714584d5a4c6382b9a72ce",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 353,
+   "match_id": "group-177-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 387,
+   "entry_sha256": "d2b332afb2d9dd3322e20e965937763a45cbd11ff1cedf959268a7eea0c06500",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 354,
+   "match_id": "group-177-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 280,
+   "entry_sha256": "928ec90b1bc2a0d121b8f65d2cc26dcc1cca7c7e7468170f9ce42adb5c224865",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 355,
+   "match_id": "group-178-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 297,
+   "entry_sha256": "0afa5bebd9ee24b211fda00590082116ee7767ed031903ce703dc60a2416d163",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 356,
+   "match_id": "group-178-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 329,
+   "entry_sha256": "dc3968c3e3d6027acf8304026814ad7d9ce77ab442dabbdf4846d1327ae734ad",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 357,
+   "match_id": "group-179-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 338,
+   "entry_sha256": "b95b247ca2b9be7811fb749844f470281bb9d78fb36e02a80b88200e6b106f93",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 358,
+   "match_id": "group-179-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 278,
+   "entry_sha256": "3c2a2c27b13777a11c2e7d57f9f188ee470e8ca8c09fde45909f4081a266d5e4",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 359,
+   "match_id": "group-180-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 290,
+   "entry_sha256": "88c6cb59956ea6cf2368d45b3580663921bbc4c4b584c9b98d38f6a3483cc9e9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 360,
+   "match_id": "group-180-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 311,
+   "entry_sha256": "6c9c4f4e9426179685b5bd81d98efb60464c149af0c1b5d6cc585406c1ca5e9d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 361,
+   "match_id": "group-181-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 331,
+   "entry_sha256": "e3e40bff324ef41b6e7acff7e04d6063fb1feb4eafa9b58cdc00c274153fec5a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 362,
+   "match_id": "group-181-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 288,
+   "entry_sha256": "26487716b94ffed433a8cda7cb0181eb5d25112acc0b1aa244b9021404fa083a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 363,
+   "match_id": "group-182-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 313,
+   "entry_sha256": "5f343c46facc7c89952d465adc2e6b06581f3e40d01f20749f053c04e42cf774",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 364,
+   "match_id": "group-182-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 385,
+   "entry_sha256": "c3855eb75acdaf961d93b26b5f5c02a6853354b913c9c5453a437b15a4ea7fb8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 365,
+   "match_id": "group-183-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 280,
+   "entry_sha256": "b0816a964edaa8610a390370d2c4ff44ee67bb684751ccd72bfe40ca160ce674",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 366,
+   "match_id": "group-183-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 302,
+   "entry_sha256": "c733184fc45d58e3caa7287a1cc13213250a7f3d4f152b141fc9d82530b038aa",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 367,
+   "match_id": "group-184-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 309,
+   "entry_sha256": "67efac3d10d518d7176d611ca13cf483f2d45813467c0b658dff597d8d5cc20a",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 368,
+   "match_id": "group-184-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 282,
+   "entry_sha256": "fd021c1652ec446aca3e64a05b5ae5d27ef67c46b25ae0a3dc7d869999362382",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 369,
+   "match_id": "group-185-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 331,
+   "entry_sha256": "c38b5949c210a68c3c9b4dc054ce78625cc1d4fd9eb3c77847f4f0788dbb3dd8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 370,
+   "match_id": "group-185-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 314,
+   "entry_sha256": "7d3c8cc00cd886d71b18d470dd2292826c440c393f098dd5ebd1365f5034e23e",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 371,
+   "match_id": "group-186-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 299,
+   "entry_sha256": "da0c0b6a8cdb895120c85b9b1f0b0cd798fed5ac6d4a7e55f6cf6638524a8e61",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 372,
+   "match_id": "group-186-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 359,
+   "entry_sha256": "9287ea55d8e122be1426d72bc1f7973b73e0376f7dd79070fff3ba606313a285",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 373,
+   "match_id": "group-187-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 278,
+   "entry_sha256": "d99d3ead15961bdd3ba40d0756dd7ade66e67761fa9db8df215367b44ed1cf9d",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 374,
+   "match_id": "group-187-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 277,
+   "entry_sha256": "b97ec2725ab2996bbe0d85a15fe9c8d9f7534a12847e7e4795a10cdb4e724800",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 375,
+   "match_id": "group-188-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 332,
+   "entry_sha256": "91c2b8b27e6d456a38aa430787868f9223e8434d7b9b0cd57c1ac7234dcc3a71",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 376,
+   "match_id": "group-188-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 293,
+   "entry_sha256": "cef0008efa306e660bf6e4a8f99078e3528583ad55830e575c9de77d78047e78",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 377,
+   "match_id": "group-189-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 238,
+   "entry_sha256": "526101eb2b5dd4d882655e1967dab412a77475b87bca4d189adabfe58dd8fdc9",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 378,
+   "match_id": "group-189-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 302,
+   "entry_sha256": "c0b7831374a42823569028b90deb9621a5aaf8e13366b83a8f10e4dcffcd00ed",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 379,
+   "match_id": "group-190-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 339,
+   "entry_sha256": "f9c204392a35549cc89ec082012e4deba78ffc70fa6ce9dd091959e80ea1e2b2",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 380,
+   "match_id": "group-190-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 316,
+   "entry_sha256": "7e67d58006a7d0117c5ab2dad567a510d1a41b9de352d16b23a911a08ff42ed3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 381,
+   "match_id": "group-191-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 274,
+   "entry_sha256": "ae57ea7934e9ed06fcf32fc41e3a02611b00eb7b268e7929aeb2b71bf76c5ff7",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 382,
+   "match_id": "group-191-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 273,
+   "entry_sha256": "fa1097a840641c3726aae7b12dead2177d8711f2568bb6e9892f1be4ed66f7ea",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 383,
+   "match_id": "group-192-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "draw",
+   "events": 320,
+   "entry_sha256": "74ace9eecf2e500bb42a7896ad40fa9ea52c0eceb8627169721d4dbc68972f72",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 384,
+   "match_id": "group-192-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 289,
+   "entry_sha256": "95d2d4a81d85d223bf5425d4b987fc80dd5fdc753934468d3faabd0c614b0c56",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 385,
+   "match_id": "group-193-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 305,
+   "entry_sha256": "eeb83c3440270d07dd538bc1e8768bcd0f59041cf81e7496cb7c06fee4a75bc6",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 386,
+   "match_id": "group-193-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 320,
+   "entry_sha256": "d33114a17cb14fe6fd207fc0bf98cb968bbc073d447da79e451fa82cca8f6312",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 387,
+   "match_id": "group-194-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 349,
+   "entry_sha256": "7ae2981494e93825e29a2f1c8fe9237ebee09a96fb92dadfe07ae6472924f1f1",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 388,
+   "match_id": "group-194-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 318,
+   "entry_sha256": "6d7be4e650c354a2a43e98a51a4450940a60dd078705b7c49f4aab37842ea1fd",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 389,
+   "match_id": "group-195-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 277,
+   "entry_sha256": "0efa18b715f1327397827960d3ad9f3c45b18e648123cb51d1d36a6150ea82e8",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 390,
+   "match_id": "group-195-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 284,
+   "entry_sha256": "455116abdfd6c00e498817b81f4c79786065f4fd84217a68103dfc1fd61493af",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 391,
+   "match_id": "group-196-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 281,
+   "entry_sha256": "046562861ec7d3cd6940fbe2785772018676ad80965d76be7350e7fe87503c80",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 392,
+   "match_id": "group-196-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 290,
+   "entry_sha256": "3ff2c0f8705c4e0de99717a711e60187b6860a10af7f1316d8182ba112bf5eab",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 393,
+   "match_id": "group-197-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 281,
+   "entry_sha256": "f0b32bf5556867fe6f8e4f39eb1dcf6d8644adf95f0335d71a3d077d1551cead",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 394,
+   "match_id": "group-197-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 244,
+   "entry_sha256": "883c5f3414e51f99456bc97874d028e8e08e6bceabd955b3b0ef071fe2448640",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 395,
+   "match_id": "group-198-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 310,
+   "entry_sha256": "de125e7d55da83840a278507f1b319d828894a376f9611b3af6480eb5c1ce643",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 396,
+   "match_id": "group-198-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 283,
+   "entry_sha256": "111071622a089f883700b3feae7ae131906ae5b221700dea91ae37fb3a97e6eb",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 397,
+   "match_id": "group-199-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 341,
+   "entry_sha256": "17bccbb3651f13576567af828b26c7b54f6db5f79d7c9760eaa07cb543fd61dc",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 398,
+   "match_id": "group-199-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "A",
+   "events": 321,
+   "entry_sha256": "9b51f1499100c4322910372739fd2a4fbdb85d68d203770a33cc584b5b9a2ae3",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 399,
+   "match_id": "group-200-B-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 321,
+   "entry_sha256": "9ccbbf38dee02b2e8f3760dff70a8ee98e898d24dccb1fc9f4ab2bca886488fb",
+   "play_equal_diag31": true
+  },
+  {
+   "schedule_index": 400,
+   "match_id": "group-200-A-first",
+   "execution_status": "completed",
+   "completed": true,
+   "winner": "B",
+   "events": 385,
+   "entry_sha256": "713f2f061d165f19fd44b08ba3476aa902daae5b0a5c73035cf14f202944a456",
+   "play_equal_diag31": true
+  }
+ ]
+}

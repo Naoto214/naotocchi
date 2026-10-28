@@ -1,5 +1,5 @@
 // Trusted adapter. The policy never receives engine state or command JSON.
-import {actor,view,legalActions,VERSION} from './engine.mjs';
+import {actor,view,legalActions,RULE_VERSIONS} from './engine.mjs';
 import {RULES} from './rules.mjs';
 import {effectiveRule} from './ability-copy.mjs';
 import {visibleCards} from './ui-context.mjs';
@@ -8,7 +8,7 @@ const other=a=>a==='A'?'B':'A';
 const freeze=o=>{if(o&&typeof o==='object'){Object.values(o).forEach(freeze);Object.freeze(o);}return o;};
 // Only static evaluation hints, never raw link/event/contract internals.
 function hints(r){if(!r||!Object.keys(r).length)return null; // effectiveRule(...,undefined) yields {}: no rule program, not an empty one.
-return {steps:(r.steps??[]).map(step=>({op:step.op,n:typeof step.n==='number'?step.n:null,power:step.power??0,wisdom:step.wisdom??0,to:step.to??'self',destination:step.destination??null,duration:step.duration??null,steps:hints(step)?.steps??[],...(step.op==='search'?{filter:step.filter??{},max:step.max??1}:{}),...(step.op==='if'&&typeof step.condition==='string'?{condition:step.condition}:{})})),handCost:Boolean(r.handCost),selfCost:Boolean(r.selfCost),select:(r.select??[]).map(g=>({cost:Boolean(g.cost),count:g.count??g.min??0,zone:g.zone}))};}
+return {steps:(r.steps??[]).map(step=>({op:step.op,n:typeof step.n==='number'?step.n:null,power:step.power??0,wisdom:step.wisdom??0,to:step.to??'self',destination:step.destination??null,duration:step.duration??null,steps:hints(step)?.steps??[],...(step.op==='search'?{filter:step.filter??{},max:step.max??1}:{}),...(step.op==='if'&&typeof step.condition==='string'?{condition:step.condition}:{}),...(step.op==='reserve'?{when:step.when??null}:{})})),handCost:Boolean(r.handCost),selfCost:Boolean(r.selfCost),select:(r.select??[]).map(g=>({cost:Boolean(g.cost),count:g.count??g.min??0,zone:g.zone}))};}
 // Legacy hard-coded play cards (engine.mjs listActions/resolve: I-c_coin2, G-hit-blow, G-area-claim, E-first-date,
 // G-animal-shogi, G-archery-3d) have no RULES program. Describe their resolution with existing hint ops, from the
 // actor's own public view only. Steps are empty when the resolution would do nothing (empty deck, unmet condition).
@@ -56,8 +56,15 @@ function challengeKit(s,seat){
  return {own:kit,opponent:{faceDown:o.board.prepared.filter(e=>e.faceDown).length,hand:o.hand.length,time:o.time}};
 }
 const op=(name,n)=>({op:name,n,power:0,wisdom:0,to:'self',destination:null,duration:null,steps:[]});
+// Reserved time-skip effects (ぴょんぴょんジャンプ): which own time-skips stay affordable after paying for the card, as stage
+// differences, and how much growth an own pending reservation adds to a given time-skip. Own board, hand and time only.
+const reservesTimeSkip=h=>(h?.steps??[]).some(st=>st.op==='reserve'&&st.when==='time_skip');
+function skipJump(s,seat,x){const m=s.players[seat].board.main;return m?CARDS[s.cards[x.source].cardId].stage-CARDS[s.cards[m].cardId].stage:null;}
+const affordableSkips=(s,seat,raw,budget)=>raw.filter(x=>x.kind==='place'&&x.slot==='main'&&x.variant==='time_skip'&&(x.cost??0)<=budget).map(x=>skipJump(s,seat,x));
+function growthOf(steps,jump){let n=0;for(const st of steps??[]){if(st.op==='growth')n+=st.n;else if(st.op==='if'&&st.condition==='singleStageTimeSkip'&&jump===1)n+=growthOf(st.steps,jump);}return n;}
+const pendingSkipGrowth=(s,seat,jump)=>s.effects.filter(r=>r.kind==='reservation'&&r.actor===seat&&r.rule?.when==='time_skip').reduce((n,r)=>n+growthOf(r.rule.sequence?r.rule.sequence[r.index]:r.rule.steps,jump),0);
 export function observeCpu(s,seat){
- if(s.version!==VERSION||!['A','B'].includes(seat)||actor(s)!==seat)throw Error('CPU observation requires current supported actor');
+ if(!RULE_VERSIONS.includes(s.version)||!['A','B'].includes(seat)||actor(s)!==seat)throw Error('CPU observation requires current supported actor');
  const v=view(s,seat),safe=new Map(visibleCards(v).filter(c=>!c.hidden).map(c=>[c.id,c]));
  const raw=legalActions(s),q=s.choice,d=s.activationDraft,spec=d?.rule?.select?.[d.index]??q?.spec;
  const reference=id=>safe.get(id)??null,deck=ownDeck(s,seat),me=v.players[seat],mb=me.board;
@@ -72,8 +79,9 @@ export function observeCpu(s,seat){
   const value=typeof a.value==='string'&&!a.value.includes(':')&&!s.cards[a.value]?a.value:null;
   const hinted=hints(program)??(a.kind==='play'&&c?legacyHint(v,seat,a,c):null);
   if(hinted)annotate(hinted.steps,deck,{...ctx0,target:target&&!target.hidden?target:mb.main});
-  const targetZone=a.target&&me.discard.some(x=>x.id===a.target)?'ownDiscard':null;
-  return {id:`ui:${s.revision}:${i}`,targetZone,kind:a.kind,card:c,choiceCard,target,targetSeat:target?.hidden?other(seat):owner(a.kind==='choose'?a.value:a.target),costCard:reference(a.costCard),slot:a.slot??null,variant:a.variant??null,parameter:a.parameter??null,declare:a.declare??null,cost:a.cost??a.quote?.cost??(a.kind==='play'?c?.cost:0)??0,value,program:hinted,mandatory:Boolean(program?.mandatory)};
+  const targetZone=a.target&&me.discard.some(x=>x.id===a.target)?'ownDiscard':null,cost=a.cost??a.quote?.cost??(a.kind==='play'?c?.cost:0)??0;
+  const skipInfo=reservesTimeSkip(hinted)?{timeSkipAfter:affordableSkips(s,seat,raw,s.players[seat].time-cost)}:a.kind==='place'&&a.variant==='time_skip'?{timeSkipBonus:pendingSkipGrowth(s,seat,skipJump(s,seat,a))}:{};
+  return {id:`ui:${s.revision}:${i}`,targetZone,kind:a.kind,card:c,choiceCard,target,targetSeat:target?.hidden?other(seat):owner(a.kind==='choose'?a.value:a.target),costCard:reference(a.costCard),slot:a.slot??null,variant:a.variant??null,parameter:a.parameter??null,declare:a.declare??null,cost,value,program:hinted,...skipInfo,mandatory:Boolean(program?.mandatory)};
  });
  const selection=spec?{cost:Boolean(spec.cost),zone:spec.zone??null,destination:spec.cost??q?.destination??(d?.rule?.steps??spec.steps??[]).find(x=>x.op==='selectedMove'&&x.key===spec.key)?.destination??null}:null;
  const reactive=(me.hand??[]).filter(x=>RULES[x.cardId]?.reaction||RULES[x.cardId]?.condition==='challengeActive').map(x=>({id:x.id,cost:x.cost??0}));

@@ -1,0 +1,31 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree f306426a where group-044-A-first stopped at 'unclassified runtime change in history' (M-antlion-06 group activation at 336 after the doubly captured resolution at 335); after = tree c2e418b9 collapsing identical captured occurrences by ledger identity.",
+ "rows": [
+  {
+   "match_id": "group-044-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "unclassified runtime change in history",
+     "phase": "turn_end"
+    },
+    "steps": 272,
+    "events": 360,
+    "record_sha256": "c8e52f4e3153227174ea361785b5e450caee7055a57f2ed86c3cabd00acd7eae",
+    "error": null
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 297,
+    "events": 392,
+    "record_sha256": "1f707aea2f31f614ed30a767e153df2ab8e8bc68e63e9de8aa1335c3f551369a",
+    "error": null
+   }
+  }
+ ]
+}

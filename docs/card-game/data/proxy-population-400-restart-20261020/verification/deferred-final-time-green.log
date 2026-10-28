@@ -1,0 +1,8 @@
+test_receipt_verdict_is_returned_only_with_an_obligation (test_proxy_population_deferred_final_time.DeferredFinalTimeTests.test_receipt_verdict_is_returned_only_with_an_obligation) ... ok
+test_record_requires_a_verified_designated_audit_of_the_same_event (test_proxy_population_deferred_final_time.DeferredFinalTimeTests.test_record_requires_a_verified_designated_audit_of_the_same_event) ... ok
+test_records_without_obligations_pass_unchanged (test_proxy_population_deferred_final_time.DeferredFinalTimeTests.test_records_without_obligations_pass_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.096s
+
+OK

@@ -73,6 +73,44 @@ def closed_native(journal,event_seq):
     finally:triggers.board_candidates=original
 
 
+START_ABILITIES=frozenset(('own_start_reveal_companion','own_start_hand_at_most_two_draw'))
+BOUNDARY_EVENTS=frozenset(('open_turn_end_triggers','turn_end_completed','turn_start_and_normal_draw','egg_exchange_bottom'))
+
+
+def turn_boundary_result(result):
+    """A step result that opens the end window or crosses into the next turn.
+
+    Such a result must be observed by the start/end observation even while an
+    arrival group is still open: the end window raises its own source group and
+    a new turn closes the current ledger and captures the next start group.
+    """
+    return any(event['action_type'] in BOUNDARY_EVENTS for event in result['events'])
+
+
+def arrival_rows(journal):
+    """Ledger restricted to occurrences the start window did not itself raise.
+
+    Inside the turn-start window the start sources are closed by closed_start;
+    a source group that arrived during the window (W-city second card) is owned
+    by the sequential ledger and, once activated/declined/ineligible, must not be
+    reoffered by the ordinary inventory, exactly as in the other window modes.
+    """
+    return dict(journal,occurrences={k:r for k,r in journal['occurrences'].items() if r['occurrence']['ability_key'] not in START_ABILITIES})
+
+
+@contextmanager
+def inventory_closure(mode,journal,event_seq):
+    if mode!='start':
+        with closed_native(journal,event_seq):yield
+        return
+    with closed_start(),closed_native(arrival_rows(journal),event_seq):yield
+
+
+def unresolved_occurrence(journal):
+    """An occurrence still owed an offer: released after its chain, or waiting for it to end."""
+    return any(row['status'] in ('pending','deferred') for row in journal['occurrences'].values())
+
+
 def _step_record(record):
     decision=record['decision'];evaluation=base._evaluate(decision)
     return dict(schema='population_runtime_step_468.v1',source_envelope=record['before_envelope'],decision=decision,
@@ -153,10 +191,21 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 if c['response_context']['chain_status']=='resolving' and mode in ('start','end'):
                     boundaries[state.canonical_sha256(before)]=dict(kind=mode,turn_player=current_proof['capture']['turn_player'],origin_event_seq=current_proof['origin_event_seq'])
                 return original_forced(before,*args)
-            with closed_start() if mode=='start' else closed_native(current_ledger,e['event_seq']):r=original_step(e,i,history,legacy,full,resolve_or_delegate,supplied_session)
+            with inventory_closure(mode,current_ledger,e['event_seq']):r=original_step(e,i,history,legacy,full,resolve_or_delegate,supplied_session)
             r=compose_response(r,e,history,full)
+            if turn_boundary_result(r):
+                # The end window opens its own source group, and a turn change closes
+                # the ledger and captures the next start group, even while an earlier
+                # arrival group is still open; observe exactly as the inactive path does.
+                return observe_start(r,history,e)
             if r['final_envelope']['legacy_continuation']['game_state']['phase']==('turn_end' if mode=='end' else 'normal_action'):active=False
-            return observe_existing(r,e,history)
+            r=observe_existing(r,e,history)
+            # 06: an occurrence met during chain resolution starts a new chain once the
+            # chain is empty, before the next ordinary action. It was observed in an
+            # earlier step, so it is not new here; keep the ledger driving until it is
+            # offered, instead of letting the inactive path pass it by.
+            if not active and unresolved_occurrence(current_ledger):active=True
+            return r
         def step(*args,**kwargs):
             nonlocal current_ledger,active,current_proof,mode
             before=copy.deepcopy((current_ledger,active,current_proof,mode,boundaries))
@@ -179,7 +228,11 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 result.update(connection_revision='conditional_sequential_start_window_A',trigger_records=records,trigger_ledger=current_ledger,start_occurrence_proofs=start_proofs,other_occurrence_proofs=other_proofs,
                     closed_turn_trigger_ledgers=closed_turns,origin_authenticated=False,opportunity_completeness_proven=False)
                 import proxy_population_trigger_coverage as coverage
-                result['supported_trigger_coverage']=coverage.audit(result,events,proof,initial,shots)
+                try:result['supported_trigger_coverage']=coverage.audit(result,events,proof,initial,shots)
+                except ValueError as error:
+                    # A partial segment keeps its own stop visible instead of being masked by the audit.
+                    if result['stop'] is not None:raise ValueError(str(error)+' (after segment stop: '+result['stop']['detail']+')') from error
+                    raise
                 return result
             finally:base.operation=original_operation;base._step=original_step
     try:return original_operation(initial,scoped)

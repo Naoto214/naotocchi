@@ -24,7 +24,7 @@ class ApprovalPublicationTests(unittest.TestCase):
   req=request or self.request;get,_,_,_=replies(req);head=commit or self.commit
   def fresh(path):
    value=get(path)
-   if path=='/pulls/259':value['head']['sha']=head
+   if path=='/pulls/408':value['head']['sha']=head
    if change:change(path,value)
    return value
   with patch.object(approval,'_get',side_effect=fresh),patch.object(api.remote,'verify',return_value=dict(fresh_remote_head_verified=remote)):

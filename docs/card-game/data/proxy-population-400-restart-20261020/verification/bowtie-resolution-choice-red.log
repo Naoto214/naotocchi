@@ -1,0 +1,107 @@
+test_catalog_or_fragment_drift_fails_closed (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_catalog_or_fragment_drift_fails_closed) ... FAIL
+test_connected_step_resolves_start_draw (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_connected_step_resolves_start_draw) ... ERROR
+test_other_cards_unchanged (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_other_cards_unchanged) ... ok
+test_start_draw_rejects_extra_record_and_malformed_links (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_start_draw_rejects_extra_record_and_malformed_links) ... FAIL
+test_start_draw_resolution_is_source_proven_no_choice (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_start_draw_resolution_is_source_proven_no_choice) ... FAIL
+
+======================================================================
+ERROR: test_connected_step_resolves_start_draw (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_connected_step_resolves_start_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_resolution_choice.py", line 81, in test_connected_step_resolves_start_draw
+    with connected.contract_scope():runtime.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 133, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_resolution_choice.py", line 75, in run
+    result=runtime._step(current,initial(),[],[],[],native)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 124, in step
+    if obligation['errors'] or obligation['route']=='unproved' or obligation['route']!='designated_465_journal_required' and obligation['resolution_choice_obligation_verified'] is not True:raise ValueError('resolution choice obligation unproved: '+str(obligation['errors']))
+                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: resolution choice obligation unproved: ['batch capability unproved: I-bowtie']
+
+======================================================================
+FAIL: test_catalog_or_fragment_drift_fails_closed (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_catalog_or_fragment_drift_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_resolution_choice.py", line 68, in test_catalog_or_fragment_drift_fails_closed
+    runtime.operation(initial(),run)
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_resolution_choice.py", line 63, in run
+    result=api.audit(current,initial(),[]);self.assertEqual(result['route'],'unproved');self.assertIn('start equipment source contract differs',result['errors'])
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'start equipment source contract differs' not found in ['batch capability unproved: I-bowtie']
+
+======================================================================
+FAIL: test_start_draw_rejects_extra_record_and_malformed_links (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_start_draw_rejects_extra_record_and_malformed_links)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_resolution_choice.py", line 56, in test_start_draw_rejects_extra_record_and_malformed_links
+    runtime.operation(initial(),run)
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_resolution_choice.py", line 46, in run
+    self.assertFalse(extra['resolution_choice_obligation_verified']);self.assertIn('extra resolution choice on source-proven no-choice route',extra['errors'])
+                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'extra resolution choice on source-proven no-choice route' not found in ['batch capability unproved: I-bowtie']
+
+======================================================================
+FAIL: test_start_draw_resolution_is_source_proven_no_choice (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_start_draw_resolution_is_source_proven_no_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_resolution_choice.py", line 40, in test_start_draw_resolution_is_source_proven_no_choice
+    runtime.operation(initial(),run)
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_bowtie_resolution_choice.py", line 34, in run
+    self.assertEqual(result['errors'],[]);self.assertEqual(result['route'],'source_proven_no_resolution_choice');self.assertEqual(result['required_choice_count'],0)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['batch capability unproved: I-bowtie'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'batch capability unproved: I-bowtie'
+
+- ['batch capability unproved: I-bowtie']
++ []
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.376s
+
+FAILED (failures=3, errors=1)

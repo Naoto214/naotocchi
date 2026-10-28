@@ -1,0 +1,25 @@
+{
+ "schema": "fixed400_diagnostic_comparison.v1",
+ "before": "$SCRATCH/diag9",
+ "after": "$SCRATCH/diag10",
+ "compared": 1,
+ "regressions": [],
+ "completed_record_sha_changes": [
+  "group-002-A-first"
+ ],
+ "unblocked": [],
+ "same_stop": [],
+ "changed_stop": [],
+ "rows": [
+  {
+   "match_id": "group-002-A-first",
+   "before_completed": true,
+   "after_completed": true,
+   "before_sha": "5382658a7e046a436bab68e23290b4100915ff30cf46d1c473954b156f3f39a1",
+   "after_sha": "d3401efa2351e47ddb344cc1c858fd2dc5864ea24f49820f1529650e129434d0",
+   "before_stop": null,
+   "after_stop": null,
+   "play_equal": true
+  }
+ ]
+}

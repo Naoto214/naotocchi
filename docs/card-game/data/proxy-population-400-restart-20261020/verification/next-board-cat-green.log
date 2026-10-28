@@ -1,0 +1,9 @@
+test_frozen_next_turn_inside_the_connected_scope_reaches_the_next_start (test_proxy_population_next_board.ConnectedNextTurnTests.test_frozen_next_turn_inside_the_connected_scope_reaches_the_next_start) ... ok
+test_catalog_change_or_start_kind_fails_closed_and_scope_restores (test_proxy_population_next_board.NextBoardTests.test_catalog_change_or_start_kind_fails_closed_and_scope_restores) ... ok
+test_discarded_companion_refusal_is_classified_from_the_start_catalog (test_proxy_population_next_board.NextBoardTests.test_discarded_companion_refusal_is_classified_from_the_start_catalog) ... ok
+test_unrefused_boards_and_other_errors_keep_the_frozen_result (test_proxy_population_next_board.NextBoardTests.test_unrefused_boards_and_other_errors_keep_the_frozen_result) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.211s
+
+OK
