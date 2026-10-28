@@ -1,0 +1,17 @@
+{
+  "main": "132e39a7aeccfa5e1706b510f29d649d3aab4518",
+  "v9": "1e1e04661e2f59b7ad6bd3e56dc3cef7c2d623c5",
+  "sha256": {
+    "prototypes/naopoyo-v2/engine.mjs": "712a2f47857b407dbf54be39d9dfa2b47ec7419f0639c8fac5ab70db92df7109",
+    "prototypes/naopoyo-v2/input.mjs": "91e1ea3812556f70a2f7b85317d157eb2d41572e554c80bfeae870e714afce78",
+    "prototypes/naopoyo-rescue/conditions.mjs": "2bb6f3dc0a2e6e020a37509dc9197e59d61713ddebc2d0c13708fff81051849c",
+    "prototypes/naopoyo-chapter2/stages.mjs": "c2f6be0c8a710c059430cfb503fbe67ce7c284b58d03e20cdabeec80addd8db2",
+    "prototypes/naopoyo-chapter2/expansion-stages.mjs": "6b065a95775e29e4ddae685c87a9130591fbb4afaac2c645db00adcd96a96133",
+    "prototypes/naopoyo-chapter2/search.mjs": "c9bcd4777968fcbb39a9d64b3b63ce3b12484879eb1909c565f8ffb6558865c7",
+    "prototypes/naopoyo-chapter2/split-preview.mjs": "07da36e42ce3eb19afbc21cceb077e6291b685a44a787e9d38461baf69c35c0e",
+    "docs/naopoyo-gate-v8-20261026/solutions.json": "d0c0746402fd0160a0c98cca603c1efc5cfc0a389032c74e2fffa3ba1e2b433f",
+    "prototypes/naopoyo-rescue/input.mjs": "627dfda45814d1d8063bd8f0ef41f21470fe844be905572b5dfbe1828a779f8b",
+    "prototypes/naopoyo-rescue/engine.mjs": "70eca38a1734e7ce7642655cb6cf86bd009a481f5186ee77d7a7320d26bc1ed3"
+  },
+  "saveBaseMain": "0e0354b15ee8c29ad7e52dd0ba8c6993df80e643"
+}
