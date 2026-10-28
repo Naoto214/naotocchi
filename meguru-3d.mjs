@@ -1322,7 +1322,7 @@ function create3DRenderer(M, o, onLost) {
     built.hemi.color.set(TL.sky[1]); built.sun.color.set(TL.tint);
     // そら: 2D と おなじ 2 色の たてグラデーション。きり: 地平の いろに 場所の きぶんの いろ(mood.tint)を まぜる
     const skyKey = TL.sky[0] + TL.sky[1];
-    if (built.skyKey !== skyKey && !(built.prof && built.prof.underwater)) { built.skyKey = skyKey; if (built.skyTex) built.skyTex.dispose(); built.skyTex = skyTexture(TL.sky[0], TL.sky[1]); if(o.home&&world.homeIsland){const c=built.skyTex.image,g=c.getContext('2d');g.fillStyle='#f5e9cb';for(let i=0;i<72;i++){g.globalAlpha=.3+hash01('home-star-a'+i)*.7;g.fillRect(hash01('home-star-x'+i)*c.width,hash01('home-star-y'+i)*c.height,.7,.7);}g.globalAlpha=1;built.skyTex.needsUpdate=true;} built.sc.background = built.skyTex; }
+    if (built.skyKey !== skyKey && !(built.prof && built.prof.underwater)) { built.skyKey = skyKey; if (built.skyTex) built.skyTex.dispose(); built.skyTex = skyTexture(TL.sky[0], TL.sky[1]); if(o.home&&world.homeIsland){const c=doc.createElement('canvas');c.width=512;c.height=256;const g=c.getContext('2d');g.drawImage(built.skyTex.image,0,0,c.width,c.height);built.skyTex.image=c;g.fillStyle='#f5e9cb';for(let i=0;i<72;i++){g.globalAlpha=.3+hash01('home-star-a'+i)*.7;g.fillRect(hash01('home-star-x'+i)*c.width,hash01('home-star-y'+i)*c.height,1.2,1.2);}g.globalAlpha=1;built.skyTex.needsUpdate=true;} built.sc.background = built.skyTex; }
     const fogC = FOGC.set(TL.sky[1]);
     if (mood.tint) fogC.lerp(TMPC.setRGB(mood.tint[0] / 255, mood.tint[1] / 255, mood.tint[2] / 255), 0.35 + (mood.tintAmt || 0));
     fogC.multiplyScalar(Math.min(1, 0.6 + light * 0.4));
