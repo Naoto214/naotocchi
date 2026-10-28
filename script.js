@@ -17098,7 +17098,11 @@
     mgPlayInputs += 1;
   }
   for (const type of ['pointerdown', 'touchstart', 'mousedown', 'keydown']) document.addEventListener(type, mgCountPlayInput, true);
+  // 盤上の 対戦 6本(turnGap): 合法手を 指し、決着したか、いちばん ながい 間が MG_TURN_GAP_MS いないなら 参加。
+  // 長考は 参加。数手 指して 放置・時間切れ 直前の 1手だけは 間が ながく なるので 参加なし
+  const MG_TURN_GAP_MS = 30000;
   function mgParticipated(play) {
+    if (play && Number.isFinite(play.maxGap)) return play.acts > 0 && (play.decided === true || play.maxGap <= MG_TURN_GAP_MS);
     if (play && Number.isFinite(play.acts)) return play.acts > 0 && (!Number.isFinite(play.cover) || (play.cover >= MG_IDLE_COVER && (play.cover >= 1 || !(play.spans < 2))));
     return !!play && play.inputs > 0;
   }
