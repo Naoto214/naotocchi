@@ -91,11 +91,11 @@ https://claude.ai/artifact/N3Juwrd6rxe2W1KT6m3ZXn （本人のみ閲覧可。使
 
 ## 11. Draft PR 番号
 
-PR 本文に記載（このファイルの作成時点では未作成）。
+**#467**（Draft）: https://github.com/Naoto214/naotocchi/pull/467
 
 ## 12. 最終 HEAD・tree
 
-コミット後に PR 本文へ記載。
+実装・QAのコミット: HEAD `378a67551a5cad2881265fefc1c5d940b009b6e4` / tree `70e657cacf821560ad8f2cea93bf126abc6c871e`。この報告の番号追記コミットの HEAD は PR の最新コミットを参照。
 
 ## 13. 第一推奨案とその理由
 
