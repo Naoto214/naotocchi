@@ -1,8 +1,8 @@
 # 477 — ぴょんぴょんジャンプの本文改訂（そだち+5の条件）
 
-最終更新: 2026-10-27
+最終更新: 2026-10-28
 
-状態: **本人限定試遊版で確認中。** 正式公開（mainマージ）は本人の最終QAと承認後。
+状態: **正式採用・公開済み。** 本人のiPhone QAと承認を経て、[PR #452](https://github.com/Naoto214/naotocchi/pull/452) を main へマージしました（2026-10-27、`983c7db0`）。実装と検証の記録は [prototypes/card-game/doodle-jump-impl-20261027/README.md](../../prototypes/card-game/doodle-jump-impl-20261027/README.md)。
 
 ## 改訂内容
 
@@ -29,6 +29,6 @@
 
 ## 保存の互換
 
-- 新規対戦は版 `hotseat-4`（新本文）。旧本文で遊んだ保存（`hotseat-2`）は旧効果のまま再生します。保存を新しい版へ変換しません。
+- 新規対戦は版 `hotseat-4`（新本文）。旧本文で遊んだ保存（`hotseat-2`・`hotseat-3`）は旧効果のまま再生します。保存を新しい版へ変換しません。
 - `hotseat-3` は PR #449（こいびと修正）の版です。`hotseat-3` の保存でも、ぴょんぴょんジャンプは旧効果のまま再生します。`hotseat-4` はこいびと修正＋この改訂です。
 - 証跡：[data/doodle-jump-text-revision-20261027.json](data/doodle-jump-text-revision-20261027.json)。96/97の固定カタログhashは、この改訂前の本文に戻して照合します（`tools/check-design-data.py`）。
