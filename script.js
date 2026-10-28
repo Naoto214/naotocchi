@@ -17108,11 +17108,23 @@
     return mgPlayIds.has(game.id) && !mgParticipated(play);
   }
 
+  function mgTrialT7Note(game, play) {
+    let on = false;
+    try { on = /[?&]t7check\b/.test(String((globalThis.location && globalThis.location.search) || '')); } catch (e) { on = false; }
+    if (!on || !play || !game || !mgPlayIds || !mgPlayIds.has(game.id)) return '';
+    const verdict = mgParticipated(play) ? '参加あり' : '参加なし';
+    const detail = Number.isFinite(play.acts) ? `そうさ${play.acts}回` + (Number.isFinite(play.cover) ? `・区切り${play.spans}・わりあい${Math.round(play.cover * 100)}%（20%いじょうで参加）` : '') : `画面の入力${play.inputs || 0}回`;
+    return `［試遊版チェック: ${verdict}／${detail}］`;
+  }
+
   function finishMinigame(score, customMessage, play) {
     const game = activeMinigame;
     if (!gameActive || !game || !Number.isFinite(score)) return;
+    // 試遊版だけ(main には 入れない): URL に ?t7check が あれば、参加判定の なかみを 結果の 文言に そえる
+    const idle = mgNotParticipated(game, play), t7note = mgTrialT7Note(game, play);
     // T7: 参加なしは 記録・コイン・そだち・個性・会話の まえで「途中で やめた」へ(play は onComplete から くる)
-    if (mgNotParticipated(game, play)) { retireMinigame(MG_IDLE_MESSAGE); return; }
+    if (idle) { retireMinigame(MG_IDLE_MESSAGE + t7note); return; }
+    if (t7note) customMessage = (customMessage || resultMessageForScore(score)) + t7note;
     // ここから さきの ふつうの がめんの タイマー(えもーと/ふきだし など)に
     // ゲームの セッションの しるしが つかない よう、いったん「ゲームの
     // コードの そと」に 出る(finally で もとに もどす ので、この あとに
