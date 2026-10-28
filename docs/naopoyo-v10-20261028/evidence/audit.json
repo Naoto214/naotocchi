@@ -1,0 +1,3287 @@
+{
+  "implementation": "5599e8625be4aec49c913a96175d1b021d3dd1f1",
+  "workingTree": true,
+  "rule": "recombine-once-v1",
+  "seed": 43610,
+  "attempted": 30528,
+  "accepted": 8950,
+  "cycles": 0,
+  "previewMatches": 835,
+  "frames": 6565,
+  "stages": [
+    {
+      "number": 11,
+      "moves": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 1,
+      "overflow": 0,
+      "fall": 5,
+      "rescue": 1,
+      "immediateRecombinations": 0,
+      "distanceTwoBirths": 0,
+      "remoteSurvivors": 0,
+      "uniqueStates": 5,
+      "complete": true
+    },
+    {
+      "number": 12,
+      "moves": 5,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "overflow": 1,
+      "fall": 2,
+      "rescue": 2,
+      "immediateRecombinations": 0,
+      "distanceTwoBirths": 0,
+      "remoteSurvivors": 0,
+      "uniqueStates": 5,
+      "complete": true
+    },
+    {
+      "number": 13,
+      "moves": 10,
+      "split": 0,
+      "children": 0,
+      "merge": 0,
+      "overflow": 0,
+      "fall": 1,
+      "rescue": 2,
+      "immediateRecombinations": 0,
+      "distanceTwoBirths": 0,
+      "remoteSurvivors": 0,
+      "uniqueStates": 10,
+      "complete": true
+    },
+    {
+      "number": 14,
+      "moves": 11,
+      "split": 0,
+      "children": 0,
+      "merge": 2,
+      "overflow": 1,
+      "fall": 4,
+      "rescue": 2,
+      "immediateRecombinations": 0,
+      "distanceTwoBirths": 0,
+      "remoteSurvivors": 0,
+      "uniqueStates": 11,
+      "complete": true
+    },
+    {
+      "number": 15,
+      "moves": 23,
+      "split": 3,
+      "children": 5,
+      "merge": 7,
+      "overflow": 2,
+      "fall": 10,
+      "rescue": 2,
+      "immediateRecombinations": 2,
+      "distanceTwoBirths": 0,
+      "remoteSurvivors": 0,
+      "uniqueStates": 23,
+      "complete": true
+    },
+    {
+      "number": 16,
+      "moves": 70,
+      "split": 14,
+      "children": 39,
+      "merge": 42,
+      "overflow": 3,
+      "fall": 53,
+      "rescue": 2,
+      "immediateRecombinations": 21,
+      "distanceTwoBirths": 0,
+      "remoteSurvivors": 0,
+      "uniqueStates": 70,
+      "complete": true
+    },
+    {
+      "number": 17,
+      "moves": 26,
+      "split": 4,
+      "children": 9,
+      "merge": 11,
+      "overflow": 2,
+      "fall": 16,
+      "rescue": 2,
+      "immediateRecombinations": 4,
+      "distanceTwoBirths": 0,
+      "remoteSurvivors": 0,
+      "uniqueStates": 26,
+      "complete": true
+    },
+    {
+      "number": 18,
+      "moves": 19,
+      "split": 5,
+      "children": 15,
+      "merge": 21,
+      "overflow": 7,
+      "fall": 21,
+      "rescue": 4,
+      "immediateRecombinations": 6,
+      "distanceTwoBirths": 8,
+      "remoteSurvivors": 5,
+      "uniqueStates": 19,
+      "complete": true
+    },
+    {
+      "number": 19,
+      "moves": 91,
+      "split": 9,
+      "children": 23,
+      "merge": 26,
+      "overflow": 5,
+      "fall": 55,
+      "rescue": 4,
+      "immediateRecombinations": 9,
+      "distanceTwoBirths": 0,
+      "remoteSurvivors": 0,
+      "uniqueStates": 91,
+      "complete": true
+    },
+    {
+      "number": 20,
+      "moves": 156,
+      "split": 30,
+      "children": 66,
+      "merge": 83,
+      "overflow": 18,
+      "fall": 89,
+      "rescue": 4,
+      "immediateRecombinations": 20,
+      "distanceTwoBirths": 25,
+      "remoteSurvivors": 22,
+      "uniqueStates": 156,
+      "complete": true
+    }
+  ],
+  "v9Replay": [
+    {
+      "number": 11,
+      "complete": true
+    },
+    {
+      "number": 12,
+      "complete": true
+    },
+    {
+      "number": 13,
+      "complete": true
+    },
+    {
+      "number": 14,
+      "complete": true
+    },
+    {
+      "number": 15,
+      "complete": true
+    },
+    {
+      "number": 16,
+      "complete": false,
+      "reason": "witness actor 17"
+    },
+    {
+      "number": 17,
+      "complete": true
+    },
+    {
+      "number": 18,
+      "complete": false,
+      "reason": "witness actor 5"
+    },
+    {
+      "number": 19,
+      "complete": false,
+      "reason": "witness actor 3"
+    },
+    {
+      "number": 20,
+      "complete": false,
+      "reason": "witness actor 7"
+    }
+  ],
+  "noSplit": [
+    {
+      "number": 15,
+      "status": "exhausted",
+      "visited": 4,
+      "expanded": 4,
+      "edges": 16,
+      "shortestProven": false,
+      "elapsedMs": 1,
+      "method": "bfs"
+    },
+    {
+      "number": 16,
+      "status": "exhausted",
+      "visited": 76,
+      "expanded": 76,
+      "edges": 290,
+      "shortestProven": false,
+      "elapsedMs": 6,
+      "method": "bfs"
+    },
+    {
+      "number": 17,
+      "status": "exhausted",
+      "visited": 4,
+      "expanded": 4,
+      "edges": 16,
+      "shortestProven": false,
+      "elapsedMs": 0,
+      "method": "bfs"
+    },
+    {
+      "number": 18,
+      "status": "exhausted",
+      "visited": 34,
+      "expanded": 34,
+      "edges": 225,
+      "shortestProven": false,
+      "elapsedMs": 4,
+      "method": "bfs"
+    },
+    {
+      "number": 19,
+      "status": "exhausted",
+      "visited": 69,
+      "expanded": 69,
+      "edges": 287,
+      "shortestProven": false,
+      "elapsedMs": 5,
+      "method": "bfs"
+    },
+    {
+      "number": 20,
+      "status": "exhausted",
+      "visited": 80,
+      "expanded": 80,
+      "edges": 445,
+      "shortestProven": false,
+      "elapsedMs": 13,
+      "method": "bfs"
+    }
+  ],
+  "examples": {
+    "15": {
+      "step": 2,
+      "before": {
+        "id": "komorebi-thorn-ledge",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "gates": [],
+        "exits": [
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 4
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "spikes": [
+          {
+            "x": 2,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 1,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 1,
+            "y": 6,
+            "level": 4,
+            "species": "dog"
+          }
+        ],
+        "number": 15,
+        "title": "15 ほどける足場",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 4,
+        "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+        "lesson": "トゲは仕掛け。その下の岩が足場。",
+        "story": "岩の切れ目に、二本のトゲが光っていた。",
+        "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+        "hints": [
+          "トゲは足場にならない。このトゲの下には岩があるよ。",
+          "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+          "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+        ],
+        "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 1,
+        "moves": 1
+      },
+      "action": {
+        "at": [
+          1,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      "events": [
+        {
+          "type": "split",
+          "id": "a",
+          "x": 2,
+          "y": 6,
+          "count": 2,
+          "children": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 1,
+              "y": 7
+            },
+            {
+              "id": "child2",
+              "species": "dog",
+              "level": 1,
+              "x": 1,
+              "y": 5
+            }
+          ]
+        },
+        {
+          "type": "merge",
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 1,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "b",
+          "from": 6,
+          "to": 7,
+          "x": 1
+        },
+        {
+          "type": "fall",
+          "id": "child2",
+          "from": 5,
+          "to": 6,
+          "x": 1
+        },
+        {
+          "type": "merge",
+          "id": "child2",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "b",
+              "x": 1,
+              "y": 7,
+              "level": 5,
+              "species": "dog"
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "child2",
+          "from": 6,
+          "to": 7,
+          "x": 1
+        }
+      ],
+      "after": {
+        "id": "komorebi-thorn-ledge",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "gates": [],
+        "exits": [
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 4
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "spikes": [
+          {
+            "x": 2,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 2,
+            "y": 6,
+            "level": 6,
+            "species": "dog"
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 6,
+            "x": 1,
+            "y": 7
+          }
+        ],
+        "number": 15,
+        "title": "15 ほどける足場",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 4,
+        "discovery": "トゲで分かれながら段差を越え、向こう側で必要な4と支える8を作り直す。",
+        "lesson": "トゲは仕掛け。その下の岩が足場。",
+        "story": "岩の切れ目に、二本のトゲが光っていた。",
+        "ending": "岩に支えられながら、ほどけた仲間を集め直した。",
+        "hints": [
+          "トゲは足場にならない。このトゲの下には岩があるよ。",
+          "4をそのまま運ぶことにこだわらず、向こう側で4と8を作り直そう。",
+          "左の8を右上へ動かし、4との落下合体で上下に分かれよう。トゲを越えた後も、小さな仲間を置き去りにしないで。"
+        ],
+        "hint": "トゲは足場にならない。このトゲの下には岩があるよ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 3,
+        "moves": 2
+      }
+    },
+    "16": {
+      "step": 18,
+      "before": {
+        "id": "komorebi-woven-path",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "gates": [],
+        "exits": [
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 8
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 5
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 5
+          }
+        ],
+        "spikes": [
+          {
+            "x": 3,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 2,
+            "y": 6,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 5,
+            "y": 5,
+            "level": 5,
+            "species": "dog"
+          }
+        ],
+        "number": 16,
+        "title": "16 小さな橋を編む",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 4,
+        "discovery": "分裂体の置き場所を変え、上側で8を再構成する。残り5は下の道から回収する。",
+        "lesson": "小さく分かれた仲間が、道をつなぐ。",
+        "story": "遠くの星は8。でも、そこへ続く足場にはトゲがあった。",
+        "ending": "ばらばらの光が、岩の上でもう一度集まった。",
+        "hints": [
+          "上の8を先に帰すには、トゲの向こうで8を作る必要がある。",
+          "分かれた1は、数を足す材料にも、次の仲間が届く足場にもなる。",
+          "左の8を右上へ重ねて上下を作り、8を中央のトゲへ。残った5も岩の上へ運ぼう。"
+        ],
+        "hint": "上の8を先に帰すには、トゲの向こうで8を作る必要がある。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 1,
+        "moves": 17
+      },
+      "action": {
+        "at": [
+          2,
+          6
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      "events": [
+        {
+          "type": "split",
+          "id": "a",
+          "x": 3,
+          "y": 6,
+          "count": 3,
+          "children": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 2,
+              "y": 6
+            },
+            {
+              "id": "child2",
+              "species": "dog",
+              "level": 1,
+              "x": 3,
+              "y": 5
+            },
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 3,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 7,
+          "level": 6,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 3,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "a",
+          "from": 6,
+          "to": 7,
+          "x": 3
+        },
+        {
+          "type": "fall",
+          "id": "child2",
+          "from": 5,
+          "to": 6,
+          "x": 3
+        },
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 7,
+          "level": 7,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "child2",
+              "species": "dog",
+              "level": 1,
+              "x": 3,
+              "y": 6
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "a",
+          "from": 6,
+          "to": 7,
+          "x": 3
+        }
+      ],
+      "after": {
+        "id": "komorebi-woven-path",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "gates": [],
+        "exits": [
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 8
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 5
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 5
+          }
+        ],
+        "spikes": [
+          {
+            "x": 3,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 3,
+            "y": 7,
+            "level": 7,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 5,
+            "y": 5,
+            "level": 5,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 2,
+            "y": 6
+          }
+        ],
+        "number": 16,
+        "title": "16 小さな橋を編む",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 4,
+        "discovery": "分裂体の置き場所を変え、上側で8を再構成する。残り5は下の道から回収する。",
+        "lesson": "小さく分かれた仲間が、道をつなぐ。",
+        "story": "遠くの星は8。でも、そこへ続く足場にはトゲがあった。",
+        "ending": "ばらばらの光が、岩の上でもう一度集まった。",
+        "hints": [
+          "上の8を先に帰すには、トゲの向こうで8を作る必要がある。",
+          "分かれた1は、数を足す材料にも、次の仲間が届く足場にもなる。",
+          "左の8を右上へ重ねて上下を作り、8を中央のトゲへ。残った5も岩の上へ運ぼう。"
+        ],
+        "hint": "上の8を先に帰すには、トゲの向こうで8を作る必要がある。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 18
+      }
+    },
+    "17": {
+      "step": 2,
+      "before": {
+        "id": "komorebi-relay-foothold",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "gates": [],
+        "exits": [
+          {
+            "x": 5,
+            "y": 4,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "spikes": [
+          {
+            "x": 2,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 1,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 1,
+            "y": 6,
+            "level": 3,
+            "species": "dog"
+          }
+        ],
+        "number": 17,
+        "title": "17 支える役を交代",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 5,
+        "discovery": "二段上の星へ3を届けるため、分裂後の仲間を再配置して段階的に支える。",
+        "lesson": "同じ足場に、ずっと頼ることはできない。",
+        "story": "見上げた先に、もう一段高い枝があった。",
+        "ending": "進む役と支える役が、静かに入れ替わった。",
+        "hints": [
+          "3の星は、これまでより一段高い。",
+          "トゲを越えただけでは届かない。途中の岩の高さと、支える8の場所を考えよう。",
+          "左の8を右上へ。上下に分かれてからトゲへ入り、右側に運ぶ仲間と残す仲間を選ぼう。"
+        ],
+        "hint": "3の星は、これまでより一段高い。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 1,
+        "moves": 1
+      },
+      "action": {
+        "at": [
+          1,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      "events": [
+        {
+          "type": "split",
+          "id": "a",
+          "x": 2,
+          "y": 6,
+          "count": 3,
+          "children": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 1,
+              "y": 7
+            },
+            {
+              "id": "child2",
+              "species": "dog",
+              "level": 1,
+              "x": 1,
+              "y": 5
+            },
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 3,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "type": "merge",
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 4,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 1,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "b",
+          "from": 6,
+          "to": 7,
+          "x": 1
+        },
+        {
+          "type": "fall",
+          "id": "child2",
+          "from": 5,
+          "to": 6,
+          "x": 1
+        },
+        {
+          "type": "merge",
+          "id": "child2",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "b",
+              "x": 1,
+              "y": 7,
+              "level": 4,
+              "species": "dog"
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "child2",
+          "from": 6,
+          "to": 7,
+          "x": 1
+        }
+      ],
+      "after": {
+        "id": "komorebi-relay-foothold",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "gates": [],
+        "exits": [
+          {
+            "x": 5,
+            "y": 4,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "spikes": [
+          {
+            "x": 2,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 2,
+            "y": 6,
+            "level": 5,
+            "species": "dog"
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 5,
+            "x": 1,
+            "y": 7
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 7
+          }
+        ],
+        "number": 17,
+        "title": "17 支える役を交代",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 5,
+        "discovery": "二段上の星へ3を届けるため、分裂後の仲間を再配置して段階的に支える。",
+        "lesson": "同じ足場に、ずっと頼ることはできない。",
+        "story": "見上げた先に、もう一段高い枝があった。",
+        "ending": "進む役と支える役が、静かに入れ替わった。",
+        "hints": [
+          "3の星は、これまでより一段高い。",
+          "トゲを越えただけでは届かない。途中の岩の高さと、支える8の場所を考えよう。",
+          "左の8を右上へ。上下に分かれてからトゲへ入り、右側に運ぶ仲間と残す仲間を選ぼう。"
+        ],
+        "hint": "3の星は、これまでより一段高い。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 2
+      }
+    },
+    "18": {
+      "step": 4,
+      "before": {
+        "id": "komorebi-remainder-lift",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 6,
+            "exact": 8,
+            "open": true
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 5
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 3,
+            "y": 6,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 1,
+            "y": 7,
+            "level": 4,
+            "species": "dog"
+          },
+          {
+            "id": "c",
+            "x": 2,
+            "y": 7,
+            "level": 4,
+            "species": "dog"
+          }
+        ],
+        "number": 18,
+        "title": "18 あまりを上へ",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 6,
+        "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+        "lesson": "通るための大きさと、帰るための大きさ。",
+        "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+        "ending": "大きくなって渡り、小さく分かれて帰った。",
+        "hints": [
+          "全員で16。星は3と5だけ。",
+          "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+          "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+        ],
+        "hint": "全員で16。星は3と5だけ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 1,
+        "moves": 3
+      },
+      "action": {
+        "at": [
+          3,
+          6
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      "events": [
+        {
+          "type": "split",
+          "id": "a",
+          "x": 4,
+          "y": 6,
+          "count": 3,
+          "children": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 4,
+              "y": 5
+            },
+            {
+              "id": "child2",
+              "species": "dog",
+              "level": 1,
+              "x": 5,
+              "y": 5
+            },
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 4,
+              "y": 4
+            }
+          ]
+        },
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 6,
+          "level": 6,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 4,
+              "y": 5
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "a",
+          "from": 5,
+          "to": 6,
+          "x": 4
+        },
+        {
+          "type": "fall",
+          "id": "child3",
+          "from": 4,
+          "to": 5,
+          "x": 4
+        },
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 6,
+          "level": 7,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 4,
+              "y": 5
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "a",
+          "from": 5,
+          "to": 6,
+          "x": 4
+        }
+      ],
+      "after": {
+        "id": "komorebi-remainder-lift",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 6,
+            "exact": 8,
+            "open": true
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 5
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 4,
+            "y": 6,
+            "level": 7,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 1,
+            "y": 7,
+            "level": 4,
+            "species": "dog"
+          },
+          {
+            "id": "c",
+            "x": 2,
+            "y": 7,
+            "level": 4,
+            "species": "dog"
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "number": 18,
+        "title": "18 あまりを上へ",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 6,
+        "discovery": "6＋6の余剰を重力で回収して二つの8を作り、魔法岩の先で3と5へ組み直す。",
+        "lesson": "通るための大きさと、帰るための大きさ。",
+        "story": "魔法岩には8。けれど、森の向こうに8の星はなかった。",
+        "ending": "大きくなって渡り、小さく分かれて帰った。",
+        "hints": [
+          "全員で16。星は3と5だけ。",
+          "二つの8で魔法岩を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+          "二つの8を作ろう。下の岩へ登って8の魔法岩を渡り、右隣のトゲで分けよう。"
+        ],
+        "hint": "全員で16。星は3と5だけ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 4
+      }
+    },
+    "19": {
+      "step": 15,
+      "before": {
+        "id": "komorebi-reverse-stars",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            6
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "gates": [
+          {
+            "x": 2,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 6,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "exits": [
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 5
+          }
+        ],
+        "spikes": [
+          {
+            "x": 3,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 3,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 4,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          }
+        ],
+        "number": 19,
+        "title": "19 星から逆算",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 7,
+        "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+        "lesson": "行き止まりに見える場所が、支えになる。",
+        "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+        "ending": "帰り道を決めてから、支える場所を選んだ。",
+        "hints": [
+          "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+          "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+          "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+        ],
+        "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 1,
+        "moves": 14
+      },
+      "action": {
+        "at": [
+          4,
+          7
+        ],
+        "level": 8,
+        "d": [
+          -1,
+          -1
+        ]
+      },
+      "events": [
+        {
+          "type": "split",
+          "id": "b",
+          "x": 3,
+          "y": 6,
+          "count": 3,
+          "children": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 4,
+              "y": 7
+            },
+            {
+              "id": "child2",
+              "species": "dog",
+              "level": 1,
+              "x": 4,
+              "y": 5
+            },
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 3,
+              "y": 5
+            }
+          ]
+        },
+        {
+          "type": "merge",
+          "id": "b",
+          "x": 3,
+          "y": 6,
+          "level": 6,
+          "overflow": 0,
+          "fall": true,
+          "absorbed": [
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 3,
+              "y": 5
+            }
+          ]
+        },
+        {
+          "type": "fall",
+          "id": "b",
+          "from": 5,
+          "to": 6,
+          "x": 3
+        }
+      ],
+      "after": {
+        "id": "komorebi-reverse-stars",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            2,
+            6
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "gates": [
+          {
+            "x": 2,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 6,
+            "y": 7,
+            "exact": 8
+          }
+        ],
+        "exits": [
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 5
+          }
+        ],
+        "spikes": [
+          {
+            "x": 3,
+            "y": 6,
+            "power": 3
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 3,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 3,
+            "y": 6,
+            "level": 6,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "number": 19,
+        "title": "19 星から逆算",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 7,
+        "discovery": "3と5の出口から必要な組み合わせを逆算し、8のゲートの内部通過と全段階を支える上面を使い分ける。",
+        "lesson": "行き止まりに見える場所が、支えになる。",
+        "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+        "ending": "帰り道を決めてから、支える場所を選んだ。",
+        "hints": [
+          "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+          "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+          "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+        ],
+        "hint": "8のゲートは8だけ中を通れる。上には8も5も乗れるよ。",
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 15
+      }
+    },
+    "20": {
+      "step": 13,
+      "before": {
+        "id": "komorebi-forest-trial",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 4
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 3,
+            "exact": 7
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 3
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          },
+          {
+            "x": 6,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 7,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 6,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          }
+        ],
+        "number": 20,
+        "title": "20 森の結び目",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 8,
+        "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+        "lesson": "支える場所も、分かれる順番も、きみたちで。",
+        "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+        "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+        "hints": [
+          "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+          "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+          "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+        ],
+        "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 1,
+        "moves": 12
+      },
+      "action": {
+        "at": [
+          7,
+          7
+        ],
+        "level": 8,
+        "d": [
+          -1,
+          -1
+        ]
+      },
+      "events": [
+        {
+          "type": "split",
+          "id": "a",
+          "x": 6,
+          "y": 6,
+          "count": 2,
+          "children": [
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 5,
+              "y": 7
+            },
+            {
+              "id": "child2",
+              "species": "dog",
+              "level": 1,
+              "x": 4,
+              "y": 7
+            }
+          ]
+        }
+      ],
+      "after": {
+        "id": "komorebi-forest-trial",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 4
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 3,
+            "exact": 7
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 3
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          },
+          {
+            "x": 6,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 6,
+            "y": 6,
+            "level": 6,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 6,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "number": 20,
+        "title": "20 森の結び目",
+        "revision": 6,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 8,
+        "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+        "lesson": "支える場所も、分かれる順番も、きみたちで。",
+        "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+        "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+        "hints": [
+          "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+          "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+          "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+        ],
+        "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "splitRules": "recombine-once-v1",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 3,
+        "moves": 13
+      }
+    }
+  },
+  "comparison": {
+    "classification": "equivalent condition from V9 witness step 7, not user input trace",
+    "v9": {
+      "before": {
+        "id": "komorebi-forest-trial",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 4
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 3,
+            "exact": 7
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 3
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          },
+          {
+            "x": 6,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 4,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 3,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          }
+        ],
+        "number": 20,
+        "title": "20 森の結び目",
+        "revision": 5,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 8,
+        "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+        "lesson": "支える場所も、分かれる順番も、きみたちで。",
+        "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+        "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+        "hints": [
+          "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+          "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+          "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+        ],
+        "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 1,
+        "moves": 6
+      },
+      "action": {
+        "at": [
+          3,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      "result": {
+        "ok": true,
+        "id": "b",
+        "merged": 0,
+        "overflow": 0,
+        "split": 3,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "rescued": 0,
+        "falls": [],
+        "splitBlocked": null,
+        "events": [
+          {
+            "type": "split",
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "count": 3,
+            "children": [
+              {
+                "id": "child1",
+                "species": "dog",
+                "level": 1,
+                "x": 5,
+                "y": 7
+              },
+              {
+                "id": "child2",
+                "species": "dog",
+                "level": 1,
+                "x": 4,
+                "y": 5
+              },
+              {
+                "id": "child3",
+                "species": "dog",
+                "level": 1,
+                "x": 6,
+                "y": 7
+              }
+            ]
+          }
+        ]
+      },
+      "after": {
+        "id": "komorebi-forest-trial",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 4
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 3,
+            "exact": 7
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 3
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          },
+          {
+            "x": 6,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 4,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "level": 5,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "number": 20,
+        "title": "20 森の結び目",
+        "revision": 5,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 8,
+        "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+        "lesson": "支える場所も、分かれる順番も、きみたちで。",
+        "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+        "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+        "hints": [
+          "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+          "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+          "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+        ],
+        "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 7
+      },
+      "preview": {
+        "state": {
+          "id": "komorebi-forest-trial",
+          "w": 8,
+          "h": 8,
+          "gravity": true,
+          "walls": [
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "gates": [
+            {
+              "x": 3,
+              "y": 7,
+              "exact": 8,
+              "open": true
+            },
+            {
+              "x": 5,
+              "y": 5,
+              "exact": 3
+            },
+            {
+              "x": 7,
+              "y": 5,
+              "exact": 4
+            }
+          ],
+          "exits": [
+            {
+              "x": 6,
+              "y": 3,
+              "exact": 7
+            },
+            {
+              "x": 7,
+              "y": 7,
+              "exact": 3
+            }
+          ],
+          "spikes": [
+            {
+              "x": 4,
+              "y": 6,
+              "power": 3
+            },
+            {
+              "x": 6,
+              "y": 6,
+              "power": 2
+            }
+          ],
+          "water": [],
+          "guests": [],
+          "events": [],
+          "actors": [
+            {
+              "id": "a",
+              "x": 4,
+              "y": 7,
+              "level": 8,
+              "species": "dog"
+            },
+            {
+              "id": "b",
+              "x": 4,
+              "y": 6,
+              "level": 5,
+              "species": "dog"
+            },
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 5,
+              "y": 7
+            },
+            {
+              "id": "child2",
+              "species": "dog",
+              "level": 1,
+              "x": 4,
+              "y": 5
+            },
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 6,
+              "y": 7
+            }
+          ],
+          "number": 20,
+          "title": "20 森の結び目",
+          "revision": 5,
+          "theme": "forest",
+          "showSpecies": false,
+          "difficulty": 8,
+          "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+          "lesson": "支える場所も、分かれる順番も、きみたちで。",
+          "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+          "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+          "hints": [
+            "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+            "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+            "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+          ],
+          "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+          "narrator": {
+            "id": "owl",
+            "name": "ものしりふくろう",
+            "asset": "assets/characters/companions/owl.png"
+          },
+          "gravityRules": "supported-v1",
+          "movementRules": "contact-v1",
+          "terrainRules": "magic-gate-v2",
+          "rescued": 0,
+          "rescuedBySpecies": {},
+          "nextId": 4,
+          "moves": 7
+        },
+        "events": [
+          {
+            "type": "split",
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "count": 3,
+            "children": [
+              {
+                "id": "child1",
+                "species": "dog",
+                "level": 1,
+                "x": 5,
+                "y": 7
+              },
+              {
+                "id": "child2",
+                "species": "dog",
+                "level": 1,
+                "x": 4,
+                "y": 5
+              },
+              {
+                "id": "child3",
+                "species": "dog",
+                "level": 1,
+                "x": 6,
+                "y": 7
+              }
+            ]
+          }
+        ],
+        "dx": 1,
+        "dy": -1,
+        "affectedIds": [
+          "b",
+          "child1",
+          "child2",
+          "child3"
+        ],
+        "actors": [
+          {
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "level": 5,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "births": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "rescues": []
+      }
+    },
+    "v10": {
+      "before": {
+        "id": "komorebi-forest-trial",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 4
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 3,
+            "exact": 7
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 3
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          },
+          {
+            "x": 6,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 4,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 3,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          }
+        ],
+        "number": 20,
+        "title": "20 森の結び目",
+        "revision": 5,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 8,
+        "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+        "lesson": "支える場所も、分かれる順番も、きみたちで。",
+        "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+        "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+        "hints": [
+          "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+          "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+          "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+        ],
+        "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 1,
+        "moves": 6,
+        "splitRules": "recombine-once-v1"
+      },
+      "action": {
+        "at": [
+          3,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      "result": {
+        "ok": true,
+        "id": "b",
+        "merged": 0,
+        "overflow": 0,
+        "split": 3,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "rescued": 0,
+        "falls": [
+          {
+            "type": "merge",
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "level": 6,
+            "overflow": 0,
+            "fall": true,
+            "absorbed": [
+              {
+                "id": "child2",
+                "species": "dog",
+                "level": 1,
+                "x": 4,
+                "y": 5
+              }
+            ]
+          },
+          {
+            "type": "fall",
+            "id": "b",
+            "from": 5,
+            "to": 6,
+            "x": 4
+          }
+        ],
+        "splitBlocked": null,
+        "events": [
+          {
+            "type": "split",
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "count": 3,
+            "children": [
+              {
+                "id": "child1",
+                "species": "dog",
+                "level": 1,
+                "x": 5,
+                "y": 7
+              },
+              {
+                "id": "child2",
+                "species": "dog",
+                "level": 1,
+                "x": 4,
+                "y": 5
+              },
+              {
+                "id": "child3",
+                "species": "dog",
+                "level": 1,
+                "x": 6,
+                "y": 7
+              }
+            ]
+          },
+          {
+            "type": "merge",
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "level": 6,
+            "overflow": 0,
+            "fall": true,
+            "absorbed": [
+              {
+                "id": "child2",
+                "species": "dog",
+                "level": 1,
+                "x": 4,
+                "y": 5
+              }
+            ]
+          },
+          {
+            "type": "fall",
+            "id": "b",
+            "from": 5,
+            "to": 6,
+            "x": 4
+          }
+        ]
+      },
+      "after": {
+        "id": "komorebi-forest-trial",
+        "w": 8,
+        "h": 8,
+        "gravity": true,
+        "walls": [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "gates": [
+          {
+            "x": 3,
+            "y": 7,
+            "exact": 8,
+            "open": true
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "exact": 3
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "exact": 4
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 3,
+            "exact": 7
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "exact": 3
+          }
+        ],
+        "spikes": [
+          {
+            "x": 4,
+            "y": 6,
+            "power": 3
+          },
+          {
+            "x": 6,
+            "y": 6,
+            "power": 2
+          }
+        ],
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 4,
+            "y": 7,
+            "level": 8,
+            "species": "dog"
+          },
+          {
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "level": 6,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "number": 20,
+        "title": "20 森の結び目",
+        "revision": 5,
+        "theme": "forest",
+        "showSpecies": false,
+        "difficulty": 8,
+        "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+        "lesson": "支える場所も、分かれる順番も、きみたちで。",
+        "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+        "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+        "hints": [
+          "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+          "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+          "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+        ],
+        "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "gravityRules": "supported-v1",
+        "movementRules": "contact-v1",
+        "terrainRules": "magic-gate-v2",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 7,
+        "splitRules": "recombine-once-v1"
+      },
+      "preview": {
+        "state": {
+          "id": "komorebi-forest-trial",
+          "w": 8,
+          "h": 8,
+          "gravity": true,
+          "walls": [
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "gates": [
+            {
+              "x": 3,
+              "y": 7,
+              "exact": 8,
+              "open": true
+            },
+            {
+              "x": 5,
+              "y": 5,
+              "exact": 3
+            },
+            {
+              "x": 7,
+              "y": 5,
+              "exact": 4
+            }
+          ],
+          "exits": [
+            {
+              "x": 6,
+              "y": 3,
+              "exact": 7
+            },
+            {
+              "x": 7,
+              "y": 7,
+              "exact": 3
+            }
+          ],
+          "spikes": [
+            {
+              "x": 4,
+              "y": 6,
+              "power": 3
+            },
+            {
+              "x": 6,
+              "y": 6,
+              "power": 2
+            }
+          ],
+          "water": [],
+          "guests": [],
+          "events": [],
+          "actors": [
+            {
+              "id": "a",
+              "x": 4,
+              "y": 7,
+              "level": 8,
+              "species": "dog"
+            },
+            {
+              "id": "b",
+              "x": 4,
+              "y": 6,
+              "level": 6,
+              "species": "dog"
+            },
+            {
+              "id": "child1",
+              "species": "dog",
+              "level": 1,
+              "x": 5,
+              "y": 7
+            },
+            {
+              "id": "child3",
+              "species": "dog",
+              "level": 1,
+              "x": 6,
+              "y": 7
+            }
+          ],
+          "number": 20,
+          "title": "20 森の結び目",
+          "revision": 5,
+          "theme": "forest",
+          "showSpecies": false,
+          "difficulty": 8,
+          "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+          "lesson": "支える場所も、分かれる順番も、きみたちで。",
+          "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+          "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+          "hints": [
+            "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+            "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+            "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+          ],
+          "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+          "narrator": {
+            "id": "owl",
+            "name": "ものしりふくろう",
+            "asset": "assets/characters/companions/owl.png"
+          },
+          "gravityRules": "supported-v1",
+          "movementRules": "contact-v1",
+          "terrainRules": "magic-gate-v2",
+          "rescued": 0,
+          "rescuedBySpecies": {},
+          "nextId": 4,
+          "moves": 7,
+          "splitRules": "recombine-once-v1"
+        },
+        "events": [
+          {
+            "type": "split",
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "count": 3,
+            "children": [
+              {
+                "id": "child1",
+                "species": "dog",
+                "level": 1,
+                "x": 5,
+                "y": 7
+              },
+              {
+                "id": "child2",
+                "species": "dog",
+                "level": 1,
+                "x": 4,
+                "y": 5
+              },
+              {
+                "id": "child3",
+                "species": "dog",
+                "level": 1,
+                "x": 6,
+                "y": 7
+              }
+            ]
+          },
+          {
+            "type": "merge",
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "level": 6,
+            "overflow": 0,
+            "fall": true,
+            "absorbed": [
+              {
+                "id": "child2",
+                "species": "dog",
+                "level": 1,
+                "x": 4,
+                "y": 5
+              }
+            ]
+          },
+          {
+            "type": "fall",
+            "id": "b",
+            "from": 5,
+            "to": 6,
+            "x": 4
+          }
+        ],
+        "dx": 1,
+        "dy": -1,
+        "affectedIds": [
+          "b",
+          "child1",
+          "child3"
+        ],
+        "actors": [
+          {
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "level": 6,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "births": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "rescues": []
+      }
+    }
+  }
+}
