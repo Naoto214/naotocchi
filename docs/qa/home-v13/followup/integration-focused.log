@@ -1,0 +1,63 @@
+✔ index.html asset references exist and carry cache tokens (5.920423ms)
+✔ the bump tool rewrites only cache tokens (0.793684ms)
+✔ landmarks use the real Meguru profile and stage bounds (162.462549ms)
+✔ interrupt before a terrain scene exists leaves the legacy poop row untouched (3.609408ms)
+✔ leaving terrain preserves legacy poop visibility through interruption and permits reentry (4.229682ms)
+✔ tap selects, release after drag sets destination without teleport (1.604143ms)
+✔ cancel and lost capture never dispatch a movement (1.107061ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.786409ms)
+✔ Pilot exit restores original actor styles and input ownership (0.568518ms)
+✔ departed actor cannot receive stale drag release (0.652251ms)
+✔ leaving a paused Pilot removes all animation pause state (0.727832ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (8.631919ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (3.266503ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (1.901762ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.538954ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.607525ms)
+✔ overview changes presentation mode and preserves all actors (0.694793ms)
+✔ resizing an actor around its unchanged foot repositions the terrain mask (5.322332ms)
+(node:44) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/13927de53592/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/13927de53592/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (192.916075ms)
+✔ household displays an acquired resident before its special visit (66.684175ms)
+✔ care button still runs official feeding and stops movement (3120.005233ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (1537.377119ms)
+✔ routine live render preserves a user walking destination (23.706475ms)
+✔ another resident expression change preserves a stationary moved speaker anchor (1549.274155ms)
+✔ crowded minimum height stays applied when the measured height equals its floor (1304.527755ms)
+✔ replacing equal-count poop nodes reattaches safe ground positions even while paused (1636.172527ms)
+✔ central household and lower seats at 288 (161.081288ms)
+✔ central household and lower seats at 343 (119.848406ms)
+✔ central household and lower seats at 358 (117.542583ms)
+✔ central household and lower seats at 398 (149.821768ms)
+✔ shared role bounds permit ground/drag moves into lower strip and no UI overflow (3.991952ms)
+✔ facing belongs to image children, not the expression SVG wrapper (5.831523ms)
+✔ speaker overlays remain within the stage including choices at each edge (0.612442ms)
+✔ poop seats on unoccupied safe terrain near the protagonist, without save coordinates (2.413205ms)
+✔ short stages return the actual choices cap and keep result narration sized (0.433338ms)
+✔ initial terrain centering respects safe ground band without recentering manual actors (1.66286ms)
+✔ bento shuffles which food sits in which slot, keeping the 4 slots and the preview in step (1377.818667ms)
+✔ bento is always solvable: copying the shown preview scores 100 within the same time limit (87.979212ms)
+✔ every stack variant starts its swing at a random position and direction, never on the perfect spot (2688.580729ms)
+✔ dropping right after the start grace is never a perfect (1546.499797ms)
+✔ quick color: the answer picture comes from a per-cue pool, and every pool combination has exactly one answer (75.788799ms)
+✔ quick season: the answer picture comes from a per-cue pool, and every pool combination has exactly one answer (46.852683ms)
+✔ quick weather: the answer picture comes from a per-cue pool, and every pool combination has exactly one answer (56.016278ms)
+✔ shutter: the white flash fades during the result so the photo is visible (F4) (12.880539ms)
+✔ cliff: overshooting the edge makes the character fall while ✕ is shown (F4) (5.779335ms)
+✔ charge: a successful release jumps during the result (F4) (4.212117ms)
+✔ stack: the dropped block falls onto the tower during the result (F4) (2.774829ms)
+✔ sort: the last item keeps flying away during the result (F4) (2.168936ms)
+✔ all 50 games: the result frames never judge again, play sfx, or throw (solved and idle) (411.905624ms)
+✔ result is a small top badge over a light tint; the last picture stays visible (F5) (4.605015ms)
+✔ long cues shrink so they fit one line at 375pt (F15) (7.96126ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 51
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10867.296324

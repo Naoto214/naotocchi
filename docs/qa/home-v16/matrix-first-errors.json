@@ -1,0 +1,5782 @@
+{
+  "cases": 22,
+  "errors": [
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 150,
+        "top": 170,
+        "right": 311,
+        "bottom": 320,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 320,
+        "width": 302,
+        "height": 76,
+        "top": 320,
+        "right": 311,
+        "bottom": 396,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 450,
+        "width": 302,
+        "height": 105,
+        "top": 450,
+        "right": 311,
+        "bottom": 555,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 1,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "mediumJP",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "mediumJP",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "mediumJP",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "mediumJP",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "mediumJP",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "mediumJP",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "mediumJP",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "mediumJP",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "long",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "long",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "long",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "long",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "long",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "long",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "long",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "long",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "english",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "english",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "english",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "english",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "english",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "english",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "english",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "english",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeShort",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeMedium",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "noticeEnglish",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sick",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "multiple",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "sickEvent",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "deltas",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "reward",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultShort",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "resultBoth",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "question",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "questionLong",
+      "reason": "navigation changed"
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "homeInformation",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 47,
+        "width": 302,
+        "height": 65,
+        "top": 47,
+        "right": 311,
+        "bottom": 112,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "homeEventSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 117,
+        "width": 302,
+        "height": 42,
+        "top": 117,
+        "right": 311,
+        "bottom": 159,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "castStage",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 164,
+        "width": 302,
+        "height": 300,
+        "top": 164,
+        "right": 311,
+        "bottom": 464,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "speechSlot",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 464,
+        "width": 302,
+        "height": 76,
+        "top": 464,
+        "right": 311,
+        "bottom": 540,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "careMeters",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 548,
+        "width": 292,
+        "height": 38,
+        "top": 548,
+        "right": 306,
+        "bottom": 586,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "lifeMeterRow",
+      "reason": "layout moved",
+      "before": {
+        "x": 14,
+        "y": 590,
+        "width": 292,
+        "height": 38,
+        "top": 590,
+        "right": 306,
+        "bottom": 628,
+        "left": 14
+      },
+      "after": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "id": "careActions",
+      "reason": "layout moved",
+      "before": {
+        "x": 9,
+        "y": 640,
+        "width": 302,
+        "height": 105,
+        "top": 640,
+        "right": 311,
+        "bottom": 745,
+        "left": 9
+      },
+      "after": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    {
+      "c": {
+        "count": 13,
+        "width": 320,
+        "height": 844,
+        "region": "forest"
+      },
+      "action": "hidden",
+      "reason": "navigation changed"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+[
+  {
+    "key": "short",
+    "before": {
+      "file": "v17-final-before-short.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    },
+    "after": {
+      "file": "v17-final-after-short.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    }
+  },
+  {
+    "key": "long",
+    "before": {
+      "file": "v17-before-long.jpg",
+      "crop": [
+        514,
+        266,
+        834,
+        1110
+      ]
+    },
+    "after": {
+      "file": "v17-release-long-1148.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    }
+  },
+  {
+    "key": "choices",
+    "before": {
+      "file": "v17-before-choices.jpg",
+      "crop": [
+        514,
+        266,
+        834,
+        1110
+      ]
+    },
+    "after": {
+      "file": "v17-release-choices-1148.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    }
+  },
+  {
+    "key": "reply",
+    "before": {
+      "file": "v17-release-before-reply-1154.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    },
+    "after": {
+      "file": "v17-release-after-reply-1152.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    }
+  },
+  {
+    "key": "reaction",
+    "before": {
+      "file": "v17-before-reaction.jpg",
+      "crop": [
+        514,
+        266,
+        834,
+        1110
+      ]
+    },
+    "after": {
+      "file": "v17-release-reaction-1147.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    }
+  },
+  {
+    "key": "speaker",
+    "before": {
+      "file": "v17-before-speaker.jpg",
+      "crop": [
+        514,
+        266,
+        834,
+        1110
+      ]
+    },
+    "after": {
+      "file": "v17-release-speaker-1148.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    }
+  },
+  {
+    "key": "notice",
+    "before": {
+      "file": "v17-before-notice.jpg",
+      "crop": [
+        514,
+        266,
+        834,
+        1110
+      ]
+    },
+    "after": {
+      "file": "v17-release-notice-1148.jpg",
+      "crop": [
+        522,
+        266,
+        842,
+        1110
+      ]
+    }
+  }
+]

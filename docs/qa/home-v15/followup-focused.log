@@ -1,0 +1,35 @@
+✔ index.html asset references exist and carry cache tokens (8.499648ms)
+✔ the bump tool rewrites only cache tokens (0.347412ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/2d83dcd79fd2/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/2d83dcd79fd2/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ multiple Home story notices retain their text and show in order (1102.333093ms)
+✔ Home information contains ordered status/environment/name/gesture then event slot (36.870339ms)
+✔ hidden Home retains active and pending notices until visible (6564.707667ms)
+✔ A: small-cast protagonist uses 85 percent with attachments following the painted foot (18.540199ms)
+✔ A: QA comparison supports all four protagonist scales without changing companion scale (131.653781ms)
+✔ D: curved depth placement differs from previous grid and retains everyone (3.26597ms)
+✔ B: care order follows approved keyboard and visual order (0.970135ms)
+(node:21) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/2d83dcd79fd2/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/2d83dcd79fd2/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ home suppresses every routine delta family but retains meaningful outcomes and rewards (1.730342ms)
+✔ persistent warning combines life and illness without ordinary hunger/sleep messages (4.828311ms)
+✔ effect anchors reflect around artwork bounds while directional travel is independent of native facing (0.436099ms)
+✔ terrain runtime suppresses daily numeric feedback without mutating state; illness returns after event (747.02266ms)
+✔ legacy markup retains four daily meters and five lifetime meters before terrain activation (68.763019ms)
+✔ terrain owns the five-plus-four meter move and restores legacy order on exit and destruction (6226.939494ms)
+✔ long partner names open existing profile details by tapping the header (119.168126ms)
+✔ actual effect adapter keeps every Z upright and reflects all approved stage anchors (53.816205ms)
+✔ infinite mode preserves the formerly hidden life gauge after its move (110.245487ms)
+✔ choice narration and a subsequent authored medicine response both remain readable (137.886173ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14466.116483

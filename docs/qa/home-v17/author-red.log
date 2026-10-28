@@ -1,0 +1,59 @@
+✔ v17 uses restrained fonts and tries readable single-line sizes before wrapping (1.317498ms)
+✔ exchange carries canonical companion identity through question and reaction without changing narrative or effects (215.913856ms)
+✔ system age outcome clears prior actor identity (43.074958ms)
+✔ ordinary speech uses an official asset and updates identity per actual beat (32.203338ms)
+✔ new authored speech takes the lane after an exchange reaction (45.879351ms)
+✖ speech portrait resolves the expression started by this beat (32.167536ms)
+✖ special author greeting has the canonical formal identity (60.677309ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 769.596518
+
+✖ failing tests:
+
+test at tests/home-v17-test.cjs:33:1
+✖ speech portrait resolves the expression started by this beat (32.167536ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /06-happy/. Input:
+  
+  '<span class="comment-picture" role="img" aria-label="いぬ"><img class="comment-asset" src="assets/characters/expressions/dog/06-hungry.png" alt="" width="128" height="128" decoding="async" draggable="false"></span>'
+  
+      at TestContext.<anonymous> (/workspace/scratch/53f8f12fa93e/repo/tests/home-v17-test.cjs:37:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<span class="comment-picture" role="img" aria-label="いぬ"><img class="comment-asset" src="assets/characters/expressions/dog/06-hungry.png" alt="" width="128" height="128" decoding="async" draggable="false"></span>',
+    expected: /06-happy/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/home-v17-test.cjs:39:1
+✖ special author greeting has the canonical formal identity (60.677309ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  '' !== 'naoto'
+  
+      at TestContext.<anonymous> (/workspace/scratch/53f8f12fa93e/repo/tests/home-v17-test.cjs:41:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: 'naoto',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -311,6 +311,12 @@
       if(active.get(actor?.node)?.motionLevel===3)return 0;
       return play(actor, mood, options) || 0;
     }
+    // Silent environment gestures never replace care / relationship / speech motion.
+    function gesture(speaker, mood = 'look') {
+      const actor = find(speaker);
+      if (!allowed() || isResting() || speaking || !actor || active.size) return 0;
+      return play(actor, ['look','curious','nod'].includes(mood) ? mood : 'look', {gentle:true});
+    }
     function isActive(speaker = {kind:'pet'}) {
       const actor = find(speaker);
       return !!actor && active.has(actor.node);
@@ -327,7 +333,7 @@
     media?.addEventListener?.('change', () => {
       if (media.matches) for (const node of [...active.keys()]) stop(node);
     });
-    return {special,relationship,speak,emote,pet,isActive,idle,clear,clearSpeaker};
+    return {special,relationship,speak,emote,pet,gesture,isActive,idle,clear,clearSpeaker};
   }
   const api = {PERSONALITIES,personalityFor,MOTION_RADIUS,motionRadiusFor,reactionPlan,reactionFor,motionFrames,createController};
   if (typeof module === 'object' && module.exports) module.exports = api;

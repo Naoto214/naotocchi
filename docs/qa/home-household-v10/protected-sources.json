@@ -1,0 +1,67 @@
+[
+  {
+    "path": "relationship-life.js",
+    "sha256": "845ec0c9e35de4b47b0f8b56086d428433fa4407aa3e58adca0b85e6fabc3441",
+    "unchanged": true
+  },
+  {
+    "path": "relationship-expression.js",
+    "sha256": "5fdba60b9155f53f7a3f77c3acb307df2c2397c344e8b74a5e955bbb2eb85082",
+    "unchanged": true
+  },
+  {
+    "path": "conversation-director.js",
+    "sha256": "2047b0df7bde3a1b16d84cc11a77ba3ee6cd1f52b8ac976e378b2720a4f12807",
+    "unchanged": true
+  },
+  {
+    "path": "conversation-postgame.js",
+    "sha256": "83e7e8f6dbbaee2a06dc6ca3b12cc40966de59bc11aa38ab996237193cd9023b",
+    "unchanged": true
+  },
+  {
+    "path": "character-world-master.v1.js",
+    "sha256": "f883f2b57ac6a4f9a4387bb2c8d81ef54f31a091981078f5496d817e31c76904",
+    "unchanged": true
+  },
+  {
+    "path": "meguru.js",
+    "sha256": "6ab08f7e81e120c3cb3fac68c3b9eb5ed70682253c1675d7d237f9ae62c55108",
+    "unchanged": true
+  },
+  {
+    "path": "cast-layout.js",
+    "sha256": "0ccb5535b52c90488b850b8a909ad71d8046925548ff47b14c713bc786eef8a0",
+    "unchanged": true
+  },
+  {
+    "path": "cast-bounds.js",
+    "sha256": "3844bd70323ca765ea9bc24b3486b2142c633d345b8156821d02167beefa0c1e",
+    "unchanged": true
+  },
+  {
+    "path": "home-world.mjs",
+    "sha256": "fe1efb042f44cfe8a996d633a635d5d185aedfeb23765f10f1d8dfebc4905eea",
+    "unchanged": true
+  },
+  {
+    "path": "meguru-3d.mjs",
+    "sha256": "ce265c6cae677dbd61f5c552c6def9ced65429b58579c9793b7e7237a0048586",
+    "unchanged": true
+  },
+  {
+    "path": "conversation-quick.js",
+    "sha256": "c611170d33a47fd95471af036182150966a9e7e5850d0849d66ca9e07b15da25",
+    "unchanged": true
+  },
+  {
+    "path": "conversation-banter.js",
+    "sha256": "8421d4b21aae041a8a30337ac2a4081541149f65447383cff51a047648d81d8c",
+    "unchanged": true
+  },
+  {
+    "path": "conversation-away.js",
+    "sha256": "3e55bf72d2c98139aa70fc94a76ad874516ac366fc148b03c421baf5a990ceaf",
+    "unchanged": true
+  }
+]

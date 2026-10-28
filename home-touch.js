@@ -6,6 +6,7 @@
 
   let gesture = null;
   const locked = () => device.dataset.homeFixed === 'true'
+    && !(document.body.dataset.homeTerrain === 'true' && device.dataset.homeHousehold === 'crowded')
     && !(window.visualViewport?.scale > 1);
 
   document.addEventListener('touchstart', event => {

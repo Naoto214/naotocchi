@@ -1,0 +1,48 @@
+✔ landmarks use the real Meguru profile and stage bounds (106.55976ms)
+✔ tap selects, release after drag sets destination without teleport (3.547552ms)
+✔ cancel and lost capture never dispatch a movement (0.696317ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.706752ms)
+✔ Pilot exit restores original actor styles and input ownership (0.370146ms)
+✔ departed actor cannot receive stale drag release (0.447212ms)
+✔ leaving a paused Pilot removes all animation pause state (0.478509ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (5.651545ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (151.006358ms)
+✔ live attendance is unchanged; display only existing visitors (43.805805ms)
+✔ care button still runs official feeding and stops movement (2833.440146ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (1404.595199ms)
+✔ routine live render preserves a user walking destination (24.15159ms)
+✔ only three official Pilot regions (1.097369ms)
+✔ movement is gradual and clamps extreme commands inside safe ground (1.515297ms)
+✔ roster sync never creates absent actors or mutates input state (1.842209ms)
+✔ blocked care interrupts destination; no delayed resume or command (0.193871ms)
+✔ reduced motion disables idle travel but intentional movement works (0.599261ms)
+✔ swept movement cannot pass through another actor (0.935767ms)
+✔ resize and region switch reset destinations within safe bounds (0.510076ms)
+✔ events are frozen context only, rate limited and no automatic speech (0.241523ms)
+✔ invalid inputs and absent actors are ignored (0.208182ms)
+✔ rain autonomy prefers tagged shelter and night has slower activity (0.494143ms)
+✔ an arriving visitor cannot trap an already moved pet (1.466484ms)
+✔ movement reserves asymmetric attachment bounds (0.337547ms)
+✔ frequent presentation sync does not starve life; actions diversify and stay ephemeral (4.808728ms)
+✔ repeated busy updates yield once, then manual and autonomous activity resume (0.629747ms)
+✔ held pointer keeps only the selected actor from choosing a new autonomous action (0.307892ms)
+(node:16) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native artwork facing produces correct left and right body scales across expressions (0.995366ms)
+✔ presentation scaling preserves all cast ratios and attachment offsets without modifying source (14.443951ms)
+✔ river width is visible and swimming geometry remains submerged inside shared stream (702.622643ms)
+✔ body-size separation prevents one large actor hiding another on adjacent depth rows (1.268647ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5945.58686
