@@ -121,8 +121,8 @@ test('T7: 遊んで 低い 点だった ときは いままでの 採点と ペ�
 // 盤上ゲーム 6本(2026-10-28 承認): 区切りの わりあいでは なく「手と 手の 間」で みる。
 // 合法手を 指し、開始〜最初の 手・手と 手の 間・最後の 手〜おわり の どれもが 30びょう いないなら 参加(決着した ときは 間を とわない)。
 // 長考(1手 20〜25びょう)は 参加。数手 指して 放置、時間切れ 直前の 1手だけ、完全放置 は 参加なし
-function slowReversi(times) {
-  const h = harness({seed: 3, canvasContext: fakeCtx()});
+function slowReversi(times, seed = 3) {
+  const h = harness({seed, canvasContext: fakeCtx()});
   const s = h.api.state(); Object.assign(s, {isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80});
   const game = h.api.games.find((g) => g.id === 'reversi-6');
   let raw = null, detail = null, counted = null;
@@ -164,6 +164,15 @@ test('T7 盤上: さいしょに 数手 指して 放置・時間切れ 直前�
   const idle = slowReversi([]);
   assert.equal(idle.counted, 0, '完全放置');
   for (const r of [quick, last, idle]) assert.ok(r.message.includes(IDLE_TEXT), r.message);
+});
+
+test('T7 盤上: 1手だけ 指して 放置しても、CPU が 決着させる ことは なく(相手は 自分の 番に だけ 指す)参加なし', () => {
+  for (const seed of [1, 2, 3]) {
+    const r = slowReversi([1000], seed);
+    assert.equal(r.moves, 1);
+    assert.equal(r.detail.decided, false, `seed ${seed}: 時間切れで おわる ${JSON.stringify(r.detail)}`);
+    assert.equal(r.counted, 0, `seed ${seed}`);
+  }
 });
 
 test('T7 盤上: 判定は 手と 手の 間 30びょうまで。決着した ときは 間を とわない(結果処理の 入口)', () => {
