@@ -1,0 +1,34 @@
+{
+  "version": 19,
+  "base_github": "f41aa1f1cc5fb48f3f1d0d01a6e946b5a491f7f0",
+  "base_sites": "407ce45f680a163300ad5704986c892edf189b8d",
+  "independent_pdf_comparison": true,
+  "only_approved_two_passages": true,
+  "canonical_display_and_full_text_match": true,
+  "existing_source_ids_preserved": true,
+  "css_and_reader_js_byte_identical": true,
+  "protected_files_byte_identical": 76,
+  "node_tests_passed": 7,
+  "browser": {
+    "engine": "Chromium",
+    "widths": [
+      320,
+      375,
+      390,
+      430
+    ],
+    "font_sizes": [
+      16,
+      16.5,
+      19,
+      21
+    ],
+    "conditions_passed": 16,
+    "overflow": 0,
+    "clipped": 0,
+    "chapter_headings_passed": 96,
+    "reading_position_tests_passed": 7,
+    "iphone_safari_physical_device_verified": false
+  },
+  "full_text_library_id": "libfile_7c3c34724a04819191bc9925eb05eb43"
+}

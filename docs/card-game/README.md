@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [477 — ぴょんぴょんジャンプの本文改訂（そだち+5の条件）](477-doodle-jump-text-revision.md)：1段階だけ上がるときおくりで+5。旧保存（hotseat-2）は旧効果で再生、新規対戦は hotseat-4。本人限定試遊版で確認中、mainマージ前。
+- [たまご待機・0/0ちょうせん案の調査と正式決定（2026-10-26、PR #447）](../../prototypes/card-game/egg-wait-study-20261026/DECISION.md)：2,240戦の比較で、たまご待機の明確な有利は確認されず、0/0案は先攻有利を強めたため不採用。たまごの共通ルールは現行維持。
 - [472 — 承認Aの逐次誘発契約と共通runtimeへの条件付き接続](472-sequential-trigger-connection.md)
 - [471 — 誘発機会・開始効果の条件付き検証と選択単位の承認境界](471-population-opportunity-policy-boundary.md)
 - [470 — 離脱・回収・連続runtime接続bundle](470-population-runtime-completeness-bundle.md)

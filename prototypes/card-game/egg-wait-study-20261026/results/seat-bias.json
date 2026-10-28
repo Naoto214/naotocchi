@@ -1,0 +1,45 @@
+{
+ "first_player_score": {
+  "current": {
+   "score": 0.52,
+   "ci95": [
+    0.466,
+    0.573
+   ]
+  },
+  "egg00": {
+   "score": 0.588,
+   "ci95": [
+    0.534,
+    0.641
+   ]
+  }
+ },
+ "egg00_minus_current": {
+  "diff": 0.068,
+  "ci95": [
+   0.03,
+   0.105
+  ],
+  "matches": 280
+ },
+ "egg_challenges_A_early": {
+  "egg00": {
+   "R1:egg=first": 62,
+   "R1:egg=second": 129,
+   "R2:egg=first": 37,
+   "R2:egg=second": 118,
+   "R3:egg=first": 16,
+   "R3:egg=second": 49,
+   "R4:egg=first": 3,
+   "R4:egg=second": 19,
+   "R5:egg=first": 1,
+   "R5:egg=second": 5,
+   "R6:egg=first": 1,
+   "R6:egg=second": 2,
+   "R7:egg=first": 1,
+   "R7:egg=second": 2,
+   "R8:egg=second": 1
+  }
+ }
+}

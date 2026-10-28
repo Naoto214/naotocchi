@@ -1,0 +1,45 @@
+{
+ "rerun_15_evenly_spaced_A_and_B": {
+  "matches": 15,
+  "save_sha256_equal": 15,
+  "result_equal": 15,
+  "match_ids": [
+   "EARLYBIRTH:main:001:E1F:A:Y-first",
+   "EARLYBIRTH:main:013:E1:A:X-first",
+   "EARLYBIRTH:companion:004:E1:B:Y-first",
+   "EARLYBIRTH:companion:015:E1F:B:X-first",
+   "EARLYBIRTH:partner:007:E1:A:Y-first",
+   "EARLYBIRTH:partner:018:E1F:A:X-first",
+   "EARLYBIRTH:challenge:009:E1F:B:Y-first",
+   "EARLYBIRTH:growth:001:E1:B:X-first",
+   "EARLYBIRTH:growth:012:E1F:A:Y-first",
+   "EARLYBIRTH:item:004:E1:A:X-first",
+   "EARLYBIRTH:item:015:E1:B:Y-first",
+   "EARLYBIRTH:balance:006:E1F:B:X-first",
+   "EARLYBIRTH:balance:018:E1:A:Y-first",
+   "EARLYBIRTH:mirror:009:E2:C_late7:A:X-first",
+   "EARLYBIRTH:mirror:020:E2:C_late7:B:Y-first"
+  ]
+ },
+ "null_copy_14_version_A": {
+  "matches": 14,
+  "save_sha256_equal": 14,
+  "result_equal": 14,
+  "match_ids": [
+   "EARLYBIRTH:main:001:E1F:A:Y-first",
+   "EARLYBIRTH:main:013:E1:A:Y-first",
+   "EARLYBIRTH:companion:004:E1F:A:Y-first",
+   "EARLYBIRTH:companion:016:E1:A:Y-first",
+   "EARLYBIRTH:partner:007:E1F:A:Y-first",
+   "EARLYBIRTH:partner:019:E1:A:Y-first",
+   "EARLYBIRTH:challenge:010:E1F:A:Y-first",
+   "EARLYBIRTH:growth:002:E1:A:Y-first",
+   "EARLYBIRTH:growth:013:E1F:A:Y-first",
+   "EARLYBIRTH:item:005:E1:A:Y-first",
+   "EARLYBIRTH:item:016:E1F:A:Y-first",
+   "EARLYBIRTH:balance:008:E1:A:Y-first",
+   "EARLYBIRTH:balance:019:E1F:A:Y-first",
+   "EARLYBIRTH:mirror:011:E2:A_early:A:Y-first"
+  ]
+ }
+}
