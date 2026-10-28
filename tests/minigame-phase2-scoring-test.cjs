@@ -118,6 +118,62 @@ test('T7: 遊んで 低い 点だった ときは いままでの 採点と ペ�
   assert.ok(!r.h.api.getMessage().includes(IDLE_TEXT));
 });
 
+// 盤上ゲーム 6本(2026-10-28 承認): 区切りの わりあいでは なく「手と 手の 間」で みる。
+// 合法手を 指し、開始〜最初の 手・手と 手の 間・最後の 手〜おわり の どれもが 30びょう いないなら 参加(決着した ときは 間を とわない)。
+// 長考(1手 20〜25びょう)は 参加。数手 指して 放置、時間切れ 直前の 1手だけ、完全放置 は 参加なし
+function slowReversi(times) {
+  const h = harness({seed: 3, canvasContext: fakeCtx()});
+  const s = h.api.state(); Object.assign(s, {isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80});
+  const game = h.api.games.find((g) => g.id === 'reversi-6');
+  let raw = null, detail = null, counted = null;
+  h.api.startMinigame({id: 'reversi-6', start(c, done) { return game.start(c, (sc, msg, d) => { if (raw !== null) return; raw = sc; detail = d; const n = s.minigameCount; done(sc, msg, d); counted = s.minigameCount - n; }); }});
+  const box = h.get('minigameOverlay'), cv = box.querySelector('#rvCanvas'), score = () => box.querySelector('#rvScore').textContent;
+  let t = 0, moves = 0;
+  const due = [...times];
+  while (raw === null && t < 120000) {
+    if (due.length && t >= due[0]) {
+      const before = score(); let ok = false;
+      for (let y = 25; y < 300 && !ok; y += 50) for (let x = 25; x < 300 && !ok; x += 50) { h.dispatch(cv, 'pointerdown', {pointerId: 1, clientX: x, clientY: y, button: 0}); ok = score() !== before; }
+      if (ok) { moves++; due.shift(); } else due[0] = t + 500; // あいての 番なら すこし まって 指す
+    }
+    h.advance(100); t += 100;
+  }
+  return {raw, detail, counted, moves, message: h.api.getMessage()};
+}
+const every = (gap, until = 60000, from = gap) => { const a = []; for (let t = from; t < until; t += gap) a.push(t); return a; };
+
+test('T7 盤上: 長考(1手 20びょう・25びょう)で 合法手を 指しつづけた プレイは 参加あり(記録する)', () => {
+  for (const gap of [20000, 25000]) {
+    const r = slowReversi(every(gap));
+    assert.ok(r.moves >= 2, `${gap}: moves ${r.moves}`);
+    assert.equal(r.counted, 1, `${gap}ms: ${JSON.stringify(r.detail)} ${r.message}`);
+    assert.ok(!r.message.includes(IDLE_TEXT), r.message);
+  }
+});
+
+test('T7 盤上: ふつうの 速さ(1手 5びょう)も 参加あり', () => {
+  const r = slowReversi(every(5000));
+  assert.equal(r.counted, 1, JSON.stringify(r.detail));
+});
+
+test('T7 盤上: さいしょに 数手 指して 放置・時間切れ 直前の 1手だけ・完全放置 は 参加なし', () => {
+  const quick = slowReversi([1000, 3000]);
+  assert.equal(quick.moves, 2); assert.equal(quick.counted, 0, '短時間の 操作の あと 放置: ' + JSON.stringify(quick.detail));
+  const last = slowReversi([55000]);
+  assert.equal(last.moves, 1); assert.equal(last.counted, 0, '時間切れ 直前の 1手だけ: ' + JSON.stringify(last.detail));
+  const idle = slowReversi([]);
+  assert.equal(idle.counted, 0, '完全放置');
+  for (const r of [quick, last, idle]) assert.ok(r.message.includes(IDLE_TEXT), r.message);
+});
+
+test('T7 盤上: 判定は 手と 手の 間 30びょうまで。決着した ときは 間を とわない(結果処理の 入口)', () => {
+  assert.equal(finishWith('reversi-6', 59, {acts: 3, maxGap: 20000, decided: false}).counted, 1, '長考で 時間切れ');
+  assert.equal(finishWith('reversi-6', 59, {acts: 3, maxGap: 30000, decided: false}).counted, 1, 'ちょうど 30びょう');
+  assert.equal(finishWith('reversi-6', 40, {acts: 2, maxGap: 30100, decided: false}).counted, 0, '30びょうを こえる 間');
+  assert.equal(finishWith('checkers-6', 90, {acts: 9, maxGap: 45000, decided: true}).counted, 1, '決着まで 指した(1回 ながく 考えても よい)');
+  assert.equal(finishWith('mancala-kalah', 40, {acts: 0, maxGap: 60000, decided: false}).counted, 0, '手を 指して いない');
+});
+
 test('T7: Quick と テスト用の ゲームには かからない', () => {
   const h = harness(); const s = h.api.state(); Object.assign(s, {isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80});
   let done; h.api.startMinigame({id: 'quick-run', noIntro: true, start(c, d) { done = d; }});

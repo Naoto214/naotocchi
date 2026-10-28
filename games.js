@@ -75,13 +75,20 @@
   // おわりに onComplete(score, null, meter.done()) で わたす(script.js の finishMinigame が みる)。
   // spans = そうさが あった 4びょう区切りの かず、cover = その わりあい。おわった ときまでの 区切りで わるので、
   // はやく おわった ゲームは 不利に ならない。じどうで すすむ ゲームの「さいしょに 1かい さわって ほうち」を みわける。
-  // あいての 番や 石の すべる 時間が ながい ゲーム(カーリング)は { cover: false } で 回数だけ わたす
+  // あいての 番や 石の すべる 時間が ながい ゲーム(カーリング)は { cover: false } で 回数だけ わたす。
+  // 盤上の 対戦 6本は { turnGap: true }: 合法手を 指した ときだけ act() し、開始〜最初の 手・手と 手の 間・
+  // 最後の 手〜おわり の いちばん ながい 間(maxGap)と、決着したか(done({ decided }))を わたす(長考を 放置と みなさない)
   const MG_PLAY_WINDOW_MS = 4000;
-  function mgPlayMeter({ cover = true } = {}) {
-    const t0 = performance.now(), wins = new Set(); let acts = 0;
+  function mgPlayMeter({ cover = true, turnGap = false } = {}) {
+    const t0 = performance.now(), wins = new Set(); let acts = 0, last = t0, maxGap = 0;
     return {
-      act() { acts++; wins.add(Math.floor(Math.max(0, performance.now() - t0) / MG_PLAY_WINDOW_MS)); },
-      done() { const n = Math.max(1, Math.ceil((performance.now() - t0) / MG_PLAY_WINDOW_MS)); return cover ? { acts, spans: wins.size, cover: Math.round(Math.min(1, wins.size / n) * 100) / 100 } : { acts }; },
+      act() { const now = performance.now(); acts++; wins.add(Math.floor(Math.max(0, now - t0) / MG_PLAY_WINDOW_MS)); maxGap = Math.max(maxGap, now - last); last = now; },
+      done({ decided = false } = {}) {
+        const now = performance.now();
+        if (turnGap) return { acts, maxGap: Math.round(Math.max(maxGap, now - last)), decided: !!decided };
+        const n = Math.max(1, Math.ceil((now - t0) / MG_PLAY_WINDOW_MS));
+        return cover ? { acts, spans: wins.size, cover: Math.round(Math.min(1, wins.size / n) * 100) / 100 } : { acts };
+      },
     };
   }
   // T1 対戦の 共通の 点数帯: 決着(decisive) > 判定(judgement: 時間切れで 優劣あり) > 時間切れ・未決着(timeout)。
@@ -4582,7 +4589,7 @@
         const board = Array.from({ length: N }, () => Array(N).fill(0));
         board[2][2] = AI; board[3][3] = AI; board[2][3] = ME; board[3][2] = ME;
         let turn = ME, running = true, rafId = null, msg = '', msgUntil = 0, flips = [], aiAt = 0, passes = 0, lastMove = null;
-        const startTime = performance.now(), meter = mgPlayMeter();
+        const startTime = performance.now(), meter = mgPlayMeter({ turnGap: true });
         container.innerHTML = `
           <div class="mg-header"><span id="rvScore">● 2 - 2 ○</span><span id="rvTurn">あなたの番</span></div>
           <div class="mg-title">${title}</div>
@@ -4655,7 +4662,7 @@
           say(timeUp ? (diff > 0 ? `時間切れ。${a}-${c}で判定かち` : diff === 0 ? `時間切れ。${a}-${c}で互角` : `時間切れ。${a}-${c}で判定まけ`) : diff > 0 ? `🏆 ${a}-${c}でかち!` : diff === 0 ? `${a}-${c}引き分け` : `${a}-${c}でまけ…`, 2500);
           hud(); turnEl.textContent = 'おわり';
           render(performance.now());
-          const play = meter.done();
+          const play = meter.done({ decided: !timeUp });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
@@ -4819,7 +4826,7 @@
         let board = [[{ t: 'G', o: AI }, { t: 'L', o: AI }, { t: 'E', o: AI }], [null, { t: 'C', o: AI }, null], [null, { t: 'C', o: ME }, null], [{ t: 'E', o: ME }, { t: 'L', o: ME }, { t: 'G', o: ME }]];
         let hands = { [ME]: [], [AI]: [] };
         let turn = ME, running = true, rafId = null, sel = null, msg = '', msgUntil = 0, aiAt = 0, moves = 0, lastMove = null, anim = null;
-        const startTime = performance.now(), meter = mgPlayMeter();
+        const startTime = performance.now(), meter = mgPlayMeter({ turnGap: true });
         container.innerHTML = `
           <div class="mg-header"><span id="asTurn">あなたの番</span><span id="asMoves">0手</span></div>
           <div class="mg-title">${title}</div>
@@ -4949,7 +4956,7 @@
           const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: lead / 13 });
           say(timeUp ? (w === ME ? '時間切れ。こまの数で判定かち' : w === AI ? '時間切れ。こまの数で判定まけ' : '時間切れ。互角') : w === ME ? '🏆かち!すごい!' : w === AI ? '負け…次は勝とう' : '引き分け', 2600);
           turnEl.textContent = 'おわり'; render(performance.now());
-          const play = meter.done();
+          const play = meter.done({ decided: !timeUp });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
@@ -5641,7 +5648,7 @@
         const difficulty = ageDifficulty();
         const COLS = 7, ROWS = 6, ME = 1, AI = 2, TIME_LIMIT_MS = mgDuration(60000);
         let board = Array.from({ length: ROWS }, () => Array(COLS).fill(0)), turn = ME, running = true, rafId = null, hoverCol = -1, drop = null, aiAt = 0, moves = 0, winLine = null, msg = '', msgUntil = 0;
-        const startTime = performance.now(), meter = mgPlayMeter();
+        const startTime = performance.now(), meter = mgPlayMeter({ turnGap: true });
         container.innerHTML = `
           <div class="mg-header"><span id="c4Turn">あなたの番(🔴)</span><span id="c4Moves">0手</span></div>
           <div class="mg-title">${title}</div>
@@ -5714,7 +5721,7 @@
           const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'timeout' : 'decisive', score: decided });
           say(w === ME ? '🏆 4つそろった!かち!' : w === AI ? 'まけ…あいてがそろえた' : timeUp ? '時間切れ。勝負つかず' : '盤がうまって引き分け', 2600);
           turnEl.textContent = 'おわり'; render(performance.now());
-          const play = meter.done();
+          const play = meter.done({ decided: !timeUp });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
@@ -6294,7 +6301,7 @@
         const difficulty = ageDifficulty();
         const N = 9, ME = 1, AI = 2, TIME_LIMIT_MS = mgDuration(60000);
         let board = Array.from({ length: N }, () => Array(N).fill(0)), turn = ME, running = true, rafId = null, moves = 0, lastMove = null, winLine = null, aiAt = 0, msg = '', msgUntil = 0, pending = null;
-        const startTime = performance.now(), meter = mgPlayMeter();
+        const startTime = performance.now(), meter = mgPlayMeter({ turnGap: true });
         container.innerHTML = `
           <div class="mg-header"><span id="gmTurn">あなたの番(●)</span><span id="gmMoves">0手</span></div>
           <div class="mg-title">${title}</div>
@@ -6351,7 +6358,7 @@
           const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'timeout' : 'decisive', score: decided });
           say(w === ME ? '🏆 5つならんだ!かち!' : w === AI ? 'まけ…あいてが5つならべた' : timeUp ? '時間切れ。勝負つかず' : '盤がうまって引き分け', 2600);
           turnEl.textContent = 'おわり'; render(performance.now());
-          const play = meter.done();
+          const play = meter.done({ decided: !timeUp });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
@@ -7982,7 +7989,7 @@
         const difficulty = ageDifficulty();
         const N = 6, ME = 1, AI = 2, TIME_LIMIT_MS = mgDuration(60000);
         let board = Array.from({ length: N }, () => Array(N).fill(null)), turn = ME, running = true, rafId = null, sel = null, moves = 0, msg = '', msgUntil = 0, aiAt = 0, lastMove = null, anim = null, chain = null;
-        const startTime = performance.now(), meter = mgPlayMeter();
+        const startTime = performance.now(), meter = mgPlayMeter({ turnGap: true });
         for (let y = 0; y < 2; y++) for (let x = 0; x < N; x++) if ((x + y) % 2 === 1) board[y][x] = { o: AI, k: false };
         for (let y = N - 2; y < N; y++) for (let x = 0; x < N; x++) if ((x + y) % 2 === 1) board[y][x] = { o: ME, k: false };
         container.innerHTML = `
@@ -8044,7 +8051,7 @@
           const decided = w === ME ? clamp(78 + count(ME) * 4, 78, 100) : w === AI ? clamp(15 + count(ME) * 5, 15, 45) : 50;
           const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: (count(ME) - count(AI)) / 6 });
           say(w === ME ? WIN_TEXT[reason] : w === AI ? (timeUp ? '時間切れ。駒の数で判定まけ' : '負け…次は勝とう') : '時間切れ。互角', 2600); turnEl.textContent = 'おわり'; render(performance.now());
-          const play = meter.done();
+          const play = meter.done({ decided: !timeUp });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
@@ -8349,7 +8356,7 @@
         // pits[0..5] じぶん(した、ひだり→みぎ)、pits[6] じぶんの ストア、pits[7..12] あいて(うえ、みぎ→ひだり)、pits[13] あいての ストア
         let pits = Array(14).fill(4), running = true, rafId = null, turn = 0, msg = '', msgUntil = 0, aiAt = 0, anim = [], moves = 0, lastFrom = -1;
         pits[6] = 0; pits[13] = 0;
-        const startTime = performance.now(), meter = mgPlayMeter();
+        const startTime = performance.now(), meter = mgPlayMeter({ turnGap: true });
         container.innerHTML = `
           <div class="mg-header"><span id="mkTurn">あなたの番</span><span id="mkScore">🟢 0 - 0 🟠</span></div>
           <div class="mg-title">${title}</div>
@@ -8398,7 +8405,7 @@
           const me = pits[6], ai = pits[13]; const decided = me > ai ? clamp(70 + (me - ai) * 2, 70, 100) : me === ai ? 50 : clamp(45 - (ai - me) * 2, 15, 45);
           const score = mgVersusOutcome({ result: me > ai ? 'win' : me < ai ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: (me - ai) / 12 });
           say(timeUp ? (me > ai ? `時間切れ。${me} - ${ai}で判定かち` : me === ai ? `時間切れ。${me} - ${ai}で互角` : `時間切れ。${me} - ${ai}で判定まけ`) : me > ai ? `🏆 ${me} - ${ai}でかち!` : me === ai ? '引き分け' : `${me} - ${ai}でまけ…`, 2600); turnEl.textContent = 'おわり'; render(performance.now());
-          const play = meter.done();
+          const play = meter.done({ decided: !timeUp });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
