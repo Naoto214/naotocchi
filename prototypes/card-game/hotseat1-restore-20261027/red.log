@@ -1,0 +1,178 @@
+# RED: main 2a961f8a の実装で新テストを実行（6件が意図どおり失敗）
+TAP version 13
+# Subtest: hotseat-1 途中保存：続きから復帰でき、操作列・seed は変わらない
+not ok 1 - hotseat-1 途中保存：続きから復帰でき、操作列・seed は変わらない
+  ---
+  duration_ms: 498.215527
+  type: 'test'
+  location: 'prototypes/card-game/tests/hotseat1-restore.test.mjs:17:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'A')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    prototypes/card-game/records-match.mjs:11:300
+    Array.map (<anonymous>)
+    decodeMatch (prototypes/card-game/records-match.mjs:11:247)
+    TestContext.<anonymous> (prototypes/card-game/tests/hotseat1-restore.test.mjs:18:27)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: hotseat-1 途中保存：復帰後に合法な操作ができ、再保存・再復帰できる
+not ok 2 - hotseat-1 途中保存：復帰後に合法な操作ができ、再保存・再復帰できる
+  ---
+  duration_ms: 350.756995
+  type: 'test'
+  location: 'prototypes/card-game/tests/hotseat1-restore.test.mjs:24:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'A')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    prototypes/card-game/records-match.mjs:11:300
+    Array.map (<anonymous>)
+    decodeMatch (prototypes/card-game/records-match.mjs:11:247)
+    TestContext.<anonymous> (prototypes/card-game/tests/hotseat1-restore.test.mjs:25:18)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: hotseat-1 決着済み保存：復帰でき、戦績には記録しない（二重計上もしない）
+not ok 3 - hotseat-1 決着済み保存：復帰でき、戦績には記録しない（二重計上もしない）
+  ---
+  duration_ms: 748.946691
+  type: 'test'
+  location: 'prototypes/card-game/tests/hotseat1-restore.test.mjs:32:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'A')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    prototypes/card-game/records-match.mjs:11:300
+    Array.map (<anonymous>)
+    decodeMatch (prototypes/card-game/records-match.mjs:11:247)
+    TestContext.<anonymous> (prototypes/card-game/tests/hotseat1-restore.test.mjs:33:27)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: hotseat-1 の破損・改変は拒否する
+not ok 4 - hotseat-1 の破損・改変は拒否する
+  ---
+  duration_ms: 417.333747
+  type: 'test'
+  location: 'prototypes/card-game/tests/hotseat1-restore.test.mjs:39:1'
+  failureType: 'testCodeFailure'
+  error: '["version","seed","commands","recordsMeta"]'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+  error: "Cannot read properties of undefined (reading 'A')"
+  name: 'TypeError'
+  stack: |-
+    prototypes/card-game/records-match.mjs:12:160
+    Array.some (<anonymous>)
+    decodeMatch (prototypes/card-game/records-match.mjs:12:95)
+    prototypes/card-game/tests/hotseat1-restore.test.mjs:48:39
+    getActual (node:assert:609:5)
+    Function.throws (node:assert:757:24)
+    prototypes/card-game/tests/hotseat1-restore.test.mjs:48:28
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (prototypes/card-game/tests/hotseat1-restore.test.mjs:48:6)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+  operator: 'throws'
+  stack: |-
+    prototypes/card-game/tests/hotseat1-restore.test.mjs:48:28
+    Array.forEach (<anonymous>)
+    TestContext.<anonymous> (prototypes/card-game/tests/hotseat1-restore.test.mjs:48:6)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: hotseat-2：途中・決着済みとも従来どおり（デッキ不明の旧セーブとして戦績に接続）
+ok 5 - hotseat-2：途中・決着済みとも従来どおり（デッキ不明の旧セーブとして戦績に接続）
+  ---
+  duration_ms: 7195.150851
+  type: 'test'
+  ...
+# Subtest: hotseat-3：途中・決着済みとも保存と戦績が従来どおり、A/B 席別に集計し、二重計上しない
+ok 6 - hotseat-3：途中・決着済みとも保存と戦績が従来どおり、A/B 席別に集計し、二重計上しない
+  ---
+  duration_ms: 2287.990384
+  type: 'test'
+  ...
+# Subtest: CPU 初級・中級：保存・復帰で設定と戦績情報を保つ
+ok 7 - CPU 初級・中級：保存・復帰で設定と戦績情報を保つ
+  ---
+  duration_ms: 1581.711887
+  type: 'test'
+  ...
+# Subtest: 戦績の台帳（書き出し・読み込み・バックアップ）は hotseat-1 の復帰で変わらない
+not ok 8 - 戦績の台帳（書き出し・読み込み・バックアップ）は hotseat-1 の復帰で変わらない
+  ---
+  duration_ms: 834.375009
+  type: 'test'
+  location: 'prototypes/card-game/tests/hotseat1-restore.test.mjs:79:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'A')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    prototypes/card-game/records-match.mjs:11:300
+    Array.map (<anonymous>)
+    decodeMatch (prototypes/card-game/records-match.mjs:11:247)
+    TestContext.<anonymous> (prototypes/card-game/tests/hotseat1-restore.test.mjs:84:2)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: hotseat-1 の表示：現行のカード面に必要な属性・姿だけを補い、ルール・本文・状態は変えない
+not ok 9 - hotseat-1 の表示：現行のカード面に必要な属性・姿だけを補い、ルール・本文・状態は変えない
+  ---
+  duration_ms: 59.621686
+  type: 'test'
+  location: 'prototypes/card-game/tests/hotseat1-restore.test.mjs:88:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+
+      assert.ok(diff.length>0)
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (prototypes/card-game/tests/hotseat1-restore.test.mjs:91:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 3
+# fail 6
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14209.594017
