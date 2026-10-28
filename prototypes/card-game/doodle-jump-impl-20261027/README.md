@@ -1,9 +1,9 @@
-# ぴょんぴょんジャンプ 改善案Bの実装（2026-10-27、本人QA待ち）
+# ぴょんぴょんジャンプ 改善案Bの実装（2026-10-27、正式公開済み）
 
-PR #448（調査）・PR #451（1,280戦比較）の改善案Bを、最新main `9e3929da` に必要最小限で実装した記録です。
-**mainマージ・本番Pages更新はしていません。** 本人のiPhone最終QAと正式公開の承認を待っています。
+PR #448（調査）・PR #451（1,280戦比較）の改善案Bを、当時の最新main `9e3929da` に必要最小限で実装した記録です。
+**正式公開済み：** 本人のiPhone QAと承認を経て、PR #452 を main へマージしました（2026-10-27、merge commit `983c7db0`）。本番Pagesの配信も完了しています（下記 §7）。
 
-- 本人限定試遊版：https://claude.ai/artifact/3trXzco3URKwtzUsuF6vnd （非公開。持ち主と共有相手だけが開けます）
+- 本人限定試遊版（公開前の確認用）：https://claude.ai/artifact/3trXzco3URKwtzUsuF6vnd （非公開。持ち主と共有相手だけが開けます）
 - 設計正本：[docs/card-game/477](../../../docs/card-game/477-doodle-jump-text-revision.md)、[85 §5](../../../docs/card-game/85-play-batch-4-card-text-draft.md)
 
 ## 1. 本文
@@ -22,7 +22,7 @@ PR #448（調査）・PR #451（1,280戦比較）の改善案Bを、最新main `
 | `remaining-rules.mjs` | 予約を `reserve('time_skip',[draw(), iff('singleStageTimeSkip',[growth(5)])])` に。旧効果（次で1枚、その次で+5）は `legacy`（hotseat-2・hotseat-3）として同じ定義に残す |
 | `late-conditions.mjs` | 条件 `singleStageTimeSkip`：ときおくり後のメインの段階 − 直前のメイン（`previousMain`）の段階 ＝ 1 |
 | `event-effects.mjs` | 予約の作成時に、対戦の版が `legacy.versions` に含まれていれば旧定義を使う（汎用2行） |
-| `engine.mjs` | `VERSION='hotseat-4'`、`RULE_VERSIONS=['hotseat-2','hotseat-4']`。`createGame(seed,decks,version)`、保存は対戦自身の版を書き、復元は保存の版で再生 |
+| `engine.mjs` | `VERSION='hotseat-4'`、`RULE_VERSIONS=['hotseat-2','hotseat-3','hotseat-4']`（hotseat-3 は PR #449 の版。§6）。`createGame(seed,decks,version)`、保存は対戦自身の版を書き、復元は保存の版で再生 |
 | `auto-progress.mjs`・`ui-results.mjs`・`cpu-observation.mjs` | 保存の版で再生・観測する（PR #449 と同じ形） |
 | `full-catalog.mjs` | 既存の生成手順（`build_full_catalog.py`）で再生成。本文1件と、同じ設計正本85の出典hash（20枚）だけが変化 |
 | `docs/card-game/tools/check-design-data.py` | 改訂477の照合を追加。96/97の固定カタログhashは改訂前の本文に戻して照合（PR #449 の476と同じ方式） |
@@ -42,18 +42,18 @@ PR #448（調査）・PR #451（1,280戦比較）の改善案Bを、最新main `
 | 項目 | 結果 |
 |---|---|
 | RED（修正前） | 新テスト19件中10件が想定どおりの理由で失敗（`red.log`） |
-| GREEN | 新テスト22件すべて成功。全カード回帰 **442/442**（既存420＋新22、`green-full.log`）。main（#449）統合後は **458/458**（`green-full-after-main-merge.log`） |
+| GREEN | 新テスト22件すべて成功。全カード回帰 **442/442**（既存420＋新22、`green-full.log`）。main（#449）統合後は **458/458**（`green-full-after-main-merge.log`）。正式公開後の main `983c7db0` でも 458/458 |
 | 旧保存 | 修正前エンジンで作った実際の hotseat-2 保存3件（旧効果の+5が2回目のときおくりで成立／1段階で1枚だけ／2段階で1枚）が、最終状態のhashまで一致。途中からの復帰・CPU/記録の読込経路（`restoreMatch`）も一致。版を hotseat-4 に書き換えると結果が変わることも確認 |
 | 新保存 | hotseat-4 の対戦が最後まで再生一致。予約が残っている途中から復帰しても予約が残り、同じ結果 |
 | CPU小規模対戦（112戦、`results/cpu-use-check.json`） | 使用10回・**空振り0**・ドロー発動10・+5発動6（中級7回中5、初級3回中1）。PR #451（修正前CPU）は215回中186回が空振り、ドロー0 |
 | 正式カタログ | `build_full_catalog.py --check` 成功。452枚の本文・数値・種類・レア等は、ぴょんぴょんジャンプの本文と出典hashを除いて main と同一（テストで固定） |
 | 設計データ照合 | `check-design-data.py`（全体・`--catalog`）エラー0 |
 | Python代表例 | `tests/python_oracle.py` の出力が保存済み期待値と一致 |
-| Pages梱包 | `tests/pages` 16件成功、`package.py`・`verify.py` 成功。配信は4,053ファイル（main と同数）、試遊・テスト用ファイルは含まない |
+| Pages梱包 | `tests/pages` 16件成功、`package.py`・`verify.py` 成功。配信は4,053ファイル（実装時点の main と同数）、試遊・テスト用ファイルは含まない。正式公開後の main では4,057ファイルで、公開前の main（`2a961f8a`）との差は実行ソース7件だけ（§7） |
 | 画像 | 画像ファイルの変更なし（904枚・ui-assetsとも差分0） |
 | iPhone相当の画面確認（Chromium 390×844・タッチ、`ui/`・`ui/ui-qa.json`） | QAパネルの全局面OK。カード詳細に新本文。実際の盤面操作で 1段階（そだち20→25、手札は出した2枚・引いた1枚）と2段階（そだち20のまま）を確認し、再読込後の復帰でも同じ値。旧保存（hotseat-2）の結果画面、CPU対戦の開始、戦績画面。横はみ出し0、ページエラー0 |
 
-## 5. 本人限定試遊版
+## 5. 本人限定試遊版（公開前の確認用）
 
 - 正式ランタイムの配信ファイル（実行ソース57）と小サイズ画像452枚、本人QAパネルを同梱（`tools/build-qa-site.mjs`）。
 - 試遊版だけの置き換え：配信先のファイル数上限（約511）のため、**拡大表示の画像は小サイズ画像で代用**しています（画像の中身は同じで、解像度だけ低い）。たまごの画像はページ内に埋め込み。
@@ -68,11 +68,18 @@ PR #448（調査）・PR #451（1,280戦比較）の改善案Bを、最新main `
   - `hotseat-4`：こいびと修正＋ぴょんぴょんジャンプ改善案B（新規対戦）
 - #449 のテストのうち「新規対戦は hotseat-3」の3か所だけを「最新の版 hotseat-4」に更新し、hotseat-3 の保存も読めること、旧保存を hotseat-3・hotseat-4 として読むと食い違うことを確認するよう広げました。
 - 改訂476（タコ）の固定カタログhashは改訂477の前に取られているため、476の照合では477の本文を戻して照合します。477の固定hashは統合後のカタログで更新しました。
-- PR #448・#451（調査・隔離実験のみ）はこのブランチに含みません。この実装はそれらのファイルに依存しません。
+- PR #448・#451（調査・隔離実験のみ）は、PR #452 の根拠資料として先に main へマージしました（#448 → `1a33ce64`、#451 → `b4fd85a9`）。この実装はそれらのファイルに依存せず、変更ファイルの重なりもありません。
 - 統合後の検証：カード回帰 458/458、設計データ照合エラー0、カタログ再生成一致、Python代表例一致、Pages梱包・検証成功（main との配信差分は実行ソース7件だけ）、iPhone相当の画面確認（`ui/ui-qa.json`）すべて合格。
 
-## 7. 正式公開に残る課題
+## 7. 正式公開（2026-10-27）
 
-- 本人のiPhone Safari実機QA（試遊版）と正式公開の承認。
-- 正式公開時のmainマージ後、Pages配信の確認。
+- 本人の試遊版iPhone QAで重大な問題がなく、正式公開が承認されました。
+- マージ順：PR #448 → PR #451 → PR #452（Create a merge commit）。main HEAD `983c7db0164acfffb9eb1125b291259414172d01`。
+- main へのpush後のCIはすべて成功（Pages runtime package、Runtime smoke test、Naopoyo official release、Home layout）。Home layout は1回目がテスト開始前のブラウザインストールで時間切れになり、再実行で成功しました。
+- Pages runtime package（run #259）の build・deploy が成功。配信検証は4,057ファイル・入口6・カード452枚・画像904枚、欠落0・hash不一致0。
+- 本番iPhone Safariでのカード本文の表示は、本人が別途確認します。
+
+## 8. 既知の課題
+
 - CPUの評価は「このカードを持った時に無駄に使わない」までの最小修正。CPU 7戦略デッキにこのカードは入っていません。
+- 試遊版は拡大表示の画像を小サイズ画像で代用していました（本番は元の画像のまま）。
