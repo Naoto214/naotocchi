@@ -12,8 +12,8 @@ Review focus: pending action double submission; corrupt/restored saves; cross-or
 - [x] Task1: asset audit/spec and tests for board,46events, invariants, snapshots, time operations. Run tests RED before engine.
 - [x] Task2: engine.mjs/data.mjs implementing createGame/dispatch/cpuAction/rank/serialize/restore. Pure deterministic state with pending movement/event/minigame, command revision guard. Verify all modes/seat counts,graph traversal,item/time boundaries,round order.
 - [x] Task3: adapter.mjs and main.mjs/style.css/index.html; import identity only,75master choices; board pan/zoom,branch,events,3real minigames,result/history. Add adapter/storage tests before implementation.
-- [ ] Task4: fixed-seed100smoke then≥1000matches; frequency and rewind comparisons; collect stats and tune within user policy. Run full repository suite.
-- [ ] Task5:320/375/390/430QA,independent review,fix critical issues,GitHub commit/push/Draft PR,owner-private Site publish.
+- [x] Task4: fixed-seed100smoke then≥1000matches; frequency and rewind comparisons; collect stats and tune within user policy. Run full repository suite.
+- [x] Task5:320/375/390/430QA,independent review,fix critical issues,GitHub commit/push/Draft PR,owner-private Site publish.
 
 Interfaces: data exports BOARD/EVENTS/ITEMS/SCHEDULE; engine exports createGame(options),dispatch(state,command),cpuAction(state),rank(state),restore(json),serialize(state); adapter exports catalog(master),importPet(text,master),imageFor(character,stage).
 
@@ -25,3 +25,5 @@ Interfaces: data exports BOARD/EVENTS/ITEMS/SCHEDULE; engine exports createGame(
 - Ruling: CPU easy fixed parity made routes predictable; changed to seeded public-state hash; reduced mini skill gap.
 - Final review: independent reviewer completed. Both P2 findings reproduced RED and fixed GREEN; see REVIEW.md.
 - Visual QA blocked by browser transport timeout, including a reset attempt. Node render tests are not visual QA.
+
+- 2026-10-28 follow-up: cloud Chrome recovered. 44 width checks, pointer input for all3 minigames, pending event/result reload, rewind and album UI verified. QA harness now uses one iframe. Screenshots and browser-layout.json retained. Actual iPhone Safari and human full-match duration remain unverified; QA.md distinguishes them. Published game source unchanged.

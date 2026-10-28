@@ -1,0 +1,286 @@
+{
+  "browser": "Cloud Chrome",
+  "date": "2026-10-28",
+  "rows": [
+    {
+      "screen": "turn",
+      "width": 320,
+      "scrollWidth": 320,
+      "viewport": 320,
+      "text": "⚄サイコロをふる\n\n1〜6マスで進む"
+    },
+    {
+      "screen": "turn",
+      "width": 375,
+      "scrollWidth": 375,
+      "viewport": 375,
+      "text": "⚄サイコロをふる\n\n1〜6マスで進む"
+    },
+    {
+      "screen": "turn",
+      "width": 390,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "text": "⚄サイコロをふる\n\n1〜6マスで進む"
+    },
+    {
+      "screen": "turn",
+      "width": 430,
+      "scrollWidth": 430,
+      "viewport": 430,
+      "text": "⚄サイコロをふる\n\n1〜6マスで進む"
+    },
+    {
+      "screen": "branch",
+      "width": 320,
+      "scrollWidth": 305,
+      "viewport": 305,
+      "text": "どっちの道へ？\n\nサイコロ 4 · あと3マス\n\nひだりの道\n? → −5 → 箱 → ?\nみぎの道\n+5 → ♥ → 時 → ?"
+    },
+    {
+      "screen": "branch",
+      "width": 375,
+      "scrollWidth": 360,
+      "viewport": 360,
+      "text": "どっちの道へ？\n\nサイコロ 4 · あと3マス\n\nひだりの道\n? → −5 → 箱 → ?\nみぎの道\n+5 → ♥ → 時 → ?"
+    },
+    {
+      "screen": "branch",
+      "width": 390,
+      "scrollWidth": 375,
+      "viewport": 375,
+      "text": "どっちの道へ？\n\nサイコロ 4 · あと3マス\n\nひだりの道\n? → −5 → 箱 → ?\nみぎの道\n+5 → ♥ → 時 → ?"
+    },
+    {
+      "screen": "branch",
+      "width": 430,
+      "scrollWidth": 415,
+      "viewport": 415,
+      "text": "どっちの道へ？\n\nサイコロ 4 · あと3マス\n\nひだりの道\n? → −5 → 箱 → ?\nみぎの道\n+5 → ♥ → 時 → ?"
+    },
+    {
+      "screen": "event",
+      "width": 320,
+      "scrollWidth": 305,
+      "viewport": 305,
+      "text": "LIFE EVENT\n雲の落としもの\n\n空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。\n\n「今日は、どんな一日になるかな。」\n\n名前をつける\nそだち +3\n絵に残す\nそだち +2 · お金 +2"
+    },
+    {
+      "screen": "event",
+      "width": 375,
+      "scrollWidth": 360,
+      "viewport": 360,
+      "text": "LIFE EVENT\n雲の落としもの\n\n空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。\n\n「今日は、どんな一日になるかな。」\n\n名前をつける\nそだち +3\n絵に残す\nそだち +2 · お金 +2"
+    },
+    {
+      "screen": "event",
+      "width": 390,
+      "scrollWidth": 375,
+      "viewport": 375,
+      "text": "LIFE EVENT\n雲の落としもの\n\n空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。\n\n「今日は、どんな一日になるかな。」\n\n名前をつける\nそだち +3\n絵に残す\nそだち +2 · お金 +2"
+    },
+    {
+      "screen": "event",
+      "width": 430,
+      "scrollWidth": 415,
+      "viewport": 415,
+      "text": "LIFE EVENT\n雲の落としもの\n\n空に、さっき食べたおやつそっくりの雲。見ていると、おなかが返事をした。\n\n「今日は、どんな一日になるかな。」\n\n名前をつける\nそだち +3\n絵に残す\nそだち +2 · お金 +2"
+    },
+    {
+      "screen": "result",
+      "width": 320,
+      "scrollWidth": 305,
+      "viewport": 305,
+      "text": "今日の発見\n\n少し遠回りしたけれど、きれいな景色に出会えた。\n\nそだち +3　お金 +5\n\nこの一日をしまう"
+    },
+    {
+      "screen": "result",
+      "width": 375,
+      "scrollWidth": 360,
+      "viewport": 360,
+      "text": "今日の発見\n\n少し遠回りしたけれど、きれいな景色に出会えた。\n\nそだち +3　お金 +5\n\nこの一日をしまう"
+    },
+    {
+      "screen": "result",
+      "width": 390,
+      "scrollWidth": 375,
+      "viewport": 375,
+      "text": "今日の発見\n\n少し遠回りしたけれど、きれいな景色に出会えた。\n\nそだち +3　お金 +5\n\nこの一日をしまう"
+    },
+    {
+      "screen": "result",
+      "width": 430,
+      "scrollWidth": 415,
+      "viewport": 415,
+      "text": "今日の発見\n\n少し遠回りしたけれど、きれいな景色に出会えた。\n\nそだち +3　お金 +5\n\nこの一日をしまう"
+    },
+    {
+      "screen": "mini0",
+      "width": 320,
+      "scrollWidth": 320,
+      "viewport": 320
+    },
+    {
+      "screen": "mini0",
+      "width": 375,
+      "scrollWidth": 375,
+      "viewport": 375
+    },
+    {
+      "screen": "mini0",
+      "width": 390,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "screen": "mini0",
+      "width": 430,
+      "scrollWidth": 430,
+      "viewport": 430
+    },
+    {
+      "screen": "mini1",
+      "width": 320,
+      "scrollWidth": 320,
+      "viewport": 320
+    },
+    {
+      "screen": "mini1",
+      "width": 375,
+      "scrollWidth": 375,
+      "viewport": 375
+    },
+    {
+      "screen": "mini1",
+      "width": 390,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "screen": "mini1",
+      "width": 430,
+      "scrollWidth": 430,
+      "viewport": 430
+    },
+    {
+      "screen": "mini2",
+      "width": 320,
+      "scrollWidth": 320,
+      "viewport": 320
+    },
+    {
+      "screen": "mini2",
+      "width": 375,
+      "scrollWidth": 375,
+      "viewport": 375
+    },
+    {
+      "screen": "mini2",
+      "width": 390,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "screen": "mini2",
+      "width": 430,
+      "scrollWidth": 430,
+      "viewport": 430
+    },
+    {
+      "screen": "done",
+      "width": 320,
+      "scrollWidth": 305,
+      "viewport": 305
+    },
+    {
+      "screen": "done",
+      "width": 375,
+      "scrollWidth": 360,
+      "viewport": 360
+    },
+    {
+      "screen": "done",
+      "width": 390,
+      "scrollWidth": 375,
+      "viewport": 375
+    },
+    {
+      "screen": "done",
+      "width": 430,
+      "scrollWidth": 415,
+      "viewport": 415
+    },
+    {
+      "screen": "title",
+      "width": 320,
+      "scrollWidth": 305,
+      "viewport": 305
+    },
+    {
+      "screen": "title",
+      "width": 375,
+      "scrollWidth": 360,
+      "viewport": 360
+    },
+    {
+      "screen": "title",
+      "width": 390,
+      "scrollWidth": 375,
+      "viewport": 375
+    },
+    {
+      "screen": "title",
+      "width": 430,
+      "scrollWidth": 415,
+      "viewport": 415
+    },
+    {
+      "screen": "select",
+      "width": 320,
+      "scrollWidth": 305,
+      "viewport": 305
+    },
+    {
+      "screen": "select",
+      "width": 375,
+      "scrollWidth": 360,
+      "viewport": 360
+    },
+    {
+      "screen": "select",
+      "width": 390,
+      "scrollWidth": 375,
+      "viewport": 375
+    },
+    {
+      "screen": "select",
+      "width": 430,
+      "scrollWidth": 415,
+      "viewport": 415
+    },
+    {
+      "screen": "mini2-playing",
+      "width": 320,
+      "scrollWidth": 305,
+      "viewport": 305
+    },
+    {
+      "screen": "mini2-playing",
+      "width": 375,
+      "scrollWidth": 360,
+      "viewport": 360
+    },
+    {
+      "screen": "mini2-playing",
+      "width": 390,
+      "scrollWidth": 375,
+      "viewport": 375
+    },
+    {
+      "screen": "mini2-playing",
+      "width": 430,
+      "scrollWidth": 415,
+      "viewport": 415
+    }
+  ]
+}
