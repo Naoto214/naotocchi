@@ -29,7 +29,7 @@ class GenerationAuthorizationTests(unittest.TestCase):
   get,_,_,_=replies(self.request)
   def fresh(path):
    value=get(path)
-   if path=='/pulls/259':value['head']['sha']=self.commit
+   if path=='/pulls/408':value['head']['sha']=self.commit
    if after_read:after_read()
    return value
   with patch.object(api,'ROOT',self.root),patch.object(approval,'_get',side_effect=fresh),patch.object(api.publication.remote,'verify',return_value=dict(fresh_remote_head_verified=remote_verified)):

@@ -1,0 +1,65 @@
+test_forged_actor_origin_or_delta_fails_closed (test_proxy_population_group_actor_replay.GroupActorReplayTests.test_forged_actor_origin_or_delta_fails_closed) ... ERROR
+test_group_activation_by_the_non_priority_actor_gets_its_provenance_row (test_proxy_population_group_actor_replay.GroupActorReplayTests.test_group_activation_by_the_non_priority_actor_gets_its_provenance_row) ... ERROR
+
+======================================================================
+ERROR: test_forged_actor_origin_or_delta_fails_closed (test_proxy_population_group_actor_replay.GroupActorReplayTests.test_forged_actor_origin_or_delta_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_group_actor_replay.py", line 63, in test_forged_actor_origin_or_delta_fails_closed
+    self.run_case(run)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_group_actor_replay.py", line 38, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 45, in run_route
+    result.update(coverage_revision=COVERAGE,run_id=COVERAGE+':'+policy+':'+initial['path_id'],
+    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'update'
+
+======================================================================
+ERROR: test_group_activation_by_the_non_priority_actor_gets_its_provenance_row (test_proxy_population_group_actor_replay.GroupActorReplayTests.test_group_activation_by_the_non_priority_actor_gets_its_provenance_row)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_group_actor_replay.py", line 48, in test_group_activation_by_the_non_priority_actor_gets_its_provenance_row
+    self.run_case(run)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_group_actor_replay.py", line 38, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_group_actor_replay.py", line 38, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                                                                     ^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_group_actor_replay.py", line 45, in run
+    proofs=api.triggers_verifier(lambda events,shots,runtime:[],initial())(h+[event],[],[e,after])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_history_replay.py", line 133, in verify
+    details, _ = triggers.board_candidates(state.current(prior), history, source, slot, prior['runtime'])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_public_turn.py", line 53, in boards
+    if cap['timing']!='second_own_card' or game['players'][actor]['board']['world']!=source:raise ValueError('second-card public source differs')
+                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: second-card public source differs
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.201s
+
+FAILED (errors=2)

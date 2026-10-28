@@ -1,0 +1,64 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "both rows pass the I-bowtie resolution step and now stop at turn_end: the I-bowtie activate_response/resolve_board_ability events have no provenance row (derive_provenance no_rule) - separate follow-up",
+ "rows": [
+  {
+   "match_id": "group-004-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "resolution choice obligation unproved: ['batch capability unproved: I-bowtie']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 177,
+    "events": 224,
+    "record_sha256": "a819b07117d6b47bd3010a72e605ce620cc67ce68f911f5d0e8cef2209f91710"
+   },
+   "after": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "error": null,
+    "steps": 192,
+    "events": 242,
+    "record_sha256": "6a403f44d1c76d133b2ed147d324e7785568bf9bbeeead9106b99c0020a74fda"
+   },
+   "play_digest_equal": null
+  },
+  {
+   "match_id": "group-021-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "resolution choice obligation unproved: ['batch capability unproved: I-bowtie']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 206,
+    "events": 271,
+    "record_sha256": "53db4ea60090802f712f8c14750c92519220a734990c6f1fc7888edceaeb6ef3"
+   },
+   "after": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "fresh six-stage end proof incomplete: {'codes': ['unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}",
+     "phase": "turn_end"
+    },
+    "error": null,
+    "steps": 215,
+    "events": 283,
+    "record_sha256": "ee7cf1a075f33d6ebb5df15a2086e729be72def1d160a80ac25ec26d272b631c"
+   },
+   "play_digest_equal": null
+  }
+ ]
+}

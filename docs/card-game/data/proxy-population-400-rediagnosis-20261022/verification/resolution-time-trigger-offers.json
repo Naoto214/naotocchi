@@ -1,0 +1,255 @@
+{
+ "schema": "fixed400_resolution_time_trigger_offers.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "tree_head": "9fc01f20",
+ "rule": "06-action-chain-checkpoint.md: 連鎖解決中に成立した誘発は、元の連鎖終了後の新しい連鎖へ。後続の誘発・反応もすべて終えるまで、次の通常行動へ進まない。",
+ "matches": {
+  "group-005-A-first": [
+   {
+    "source_instance_id": "A-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 163,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      165,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 165,
+    "status_after_offer": "ineligible"
+   }
+  ],
+  "group-030-B-first": [
+   {
+    "source_instance_id": "B-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 142,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      144,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 144,
+    "status_after_offer": "ineligible"
+   },
+   {
+    "source_instance_id": "B-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 186,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      187,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 187,
+    "status_after_offer": "ineligible"
+   }
+  ],
+  "group-044-B-first": [
+   {
+    "source_instance_id": "A-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 234,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      235,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 235,
+    "status_after_offer": "ineligible"
+   },
+   {
+    "source_instance_id": "B-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 326,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      328,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 328,
+    "status_after_offer": "ineligible"
+   }
+  ],
+  "group-063-B-first": [
+   {
+    "source_instance_id": "A-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 190,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      191,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 191,
+    "status_after_offer": "ineligible"
+   },
+   {
+    "source_instance_id": "B-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 270,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      273,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 273,
+    "status_after_offer": "ineligible"
+   },
+   {
+    "source_instance_id": "B-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 271,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      273,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 273,
+    "status_after_offer": "ineligible"
+   },
+   {
+    "source_instance_id": "B-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 288,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      290,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 290,
+    "status_after_offer": "ineligible"
+   }
+  ],
+  "group-106-A-first": [
+   {
+    "source_instance_id": "A-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 179,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      181,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 181,
+    "status_after_offer": "ineligible"
+   },
+   {
+    "source_instance_id": "A-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 216,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      217,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 217,
+    "status_after_offer": "ineligible"
+   }
+  ],
+  "group-136-B-first": [
+   {
+    "source_instance_id": "B-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 138,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      140,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 140,
+    "status_after_offer": "ineligible"
+   },
+   {
+    "source_instance_id": "B-006#1",
+    "card": "M-antlion-06",
+    "ability_key": "after_own_quick_effect_applied",
+    "origin_event_seq": 211,
+    "final_status": "ineligible",
+    "settled_by": [
+     [
+      212,
+      "close_ineligible_triggers",
+      null
+     ]
+    ],
+    "closure_reason": "current_condition_cost_or_target_absent",
+    "verified_candidate_count": 0,
+    "closed_at_event_seq": 212,
+    "status_after_offer": "ineligible"
+   }
+  ]
+ }
+}

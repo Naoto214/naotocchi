@@ -17,17 +17,17 @@ def request(): return api.generation_request(certificate(),'docs/card-game/data/
 
 def replies(req,comment_id=17):
  comment=dict(id=comment_id,user=dict(id=323909980,type='User'),
-  issue_url='https://api.github.com/repos/Naoto214/naotocchi/issues/259',
-  html_url=f'https://github.com/Naoto214/naotocchi/pull/259#issuecomment-{comment_id}',
+  issue_url='https://api.github.com/repos/Naoto214/naotocchi/issues/408',
+  html_url=f'https://github.com/Naoto214/naotocchi/pull/408#issuecomment-{comment_id}',
   body=api.approval_text(req),created_at='2026-10-11T10:00:00Z',updated_at='2026-10-11T10:00:00Z')
  repo=dict(full_name='Naoto214/naotocchi',owner=dict(id=323909980,type='User'))
- pr=dict(number=259,state='open',draft=True,merged=False,
-  head=dict(ref='design/card-pool-master-20260914',sha=req['publication']['commit'],repo=dict(full_name='Naoto214/naotocchi')))
+ pr=dict(number=408,state='open',draft=True,merged=False,
+  head=dict(ref='claude/fixed400-restart-20261020',sha=req['publication']['commit'],repo=dict(full_name='Naoto214/naotocchi')))
  def get(path):
   if path=='': return copy.deepcopy(repo)
-  if path=='/pulls/259': return copy.deepcopy(pr)
+  if path=='/pulls/408': return copy.deepcopy(pr)
   if path==f'/issues/comments/{comment_id}': return copy.deepcopy(comment)
-  if path=='/issues/259/comments?per_page=100&page=1': return [copy.deepcopy(comment)]
+  if path=='/issues/408/comments?per_page=100&page=1': return [copy.deepcopy(comment)]
   raise AssertionError(path)
  return get,comment,repo,pr
 
@@ -46,7 +46,7 @@ class ExternalApprovalTests(unittest.TestCase):
   req=request()
   mutations=[lambda c,r,p:c['user'].update(id=1),lambda c,r,p:c['user'].update(type='Bot'),
    lambda c,r,p:c.update(id=True),lambda c,r,p:c.update(updated_at='2026-10-11T10:00:01Z'),
-   lambda c,r,p:c.update(body=c['body']+' '),lambda c,r,p:c.update(issue_url=c['issue_url'].replace('259','258')),
+   lambda c,r,p:c.update(body=c['body']+' '),lambda c,r,p:c.update(issue_url=c['issue_url'].replace('408','259')),
    lambda c,r,p:p['head'].update(sha='4'*40),lambda c,r,p:p.update(draft=False),
    lambda c,r,p:r['owner'].update(id=9),lambda c,r,p:c.update(created_at='invalid',updated_at='invalid')]
   for mutate in mutations:

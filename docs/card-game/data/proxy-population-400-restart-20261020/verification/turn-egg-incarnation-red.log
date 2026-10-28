@@ -1,0 +1,71 @@
+test_egg_choice_keeps_the_full_card_map_after_reentry (test_proxy_population_turn_egg_incarnation.TurnEggIncarnationTests.test_egg_choice_keeps_the_full_card_map_after_reentry) ... ERROR
+test_without_reentry_or_outside_the_scope_the_frozen_operation_is_used (test_proxy_population_turn_egg_incarnation.TurnEggIncarnationTests.test_without_reentry_or_outside_the_scope_the_frozen_operation_is_used) ... FAIL
+
+======================================================================
+ERROR: test_egg_choice_keeps_the_full_card_map_after_reentry (test_proxy_population_turn_egg_incarnation.TurnEggIncarnationTests.test_egg_choice_keeps_the_full_card_map_after_reentry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_turn_egg_incarnation.py", line 38, in test_egg_choice_keeps_the_full_card_map_after_reentry
+    self.exercise(check)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_turn_egg_incarnation.py", line 26, in exercise
+    host.exercise('I-sleepboost1',wrapped)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 41, in exercise
+    with history_replay.scope():runtime.operation(initial(),run)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 39, in run
+    saved=copy.deepcopy((before,after,event));check(before,after,event,history);self.assertEqual((before,after,event),saved)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_turn_egg_incarnation.py", line 25, in wrapped
+    check(egg_frame(current))
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_turn_egg_incarnation.py", line 31, in check
+    b=turn_boundary.prepare(frame)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_mandatory_choice_boundary.py", line 101, in prepare
+    catalog=source_catalog(root);_validate(frame,catalog)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_mandatory_choice_boundary.py", line 58, in _validate
+    raise ValueError('duplicate physical copy identity')
+ValueError: duplicate physical copy identity
+
+======================================================================
+FAIL: test_without_reentry_or_outside_the_scope_the_frozen_operation_is_used (test_proxy_population_turn_egg_incarnation.TurnEggIncarnationTests.test_without_reentry_or_outside_the_scope_the_frozen_operation_is_used)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_turn_egg_incarnation.py", line 46, in test_without_reentry_or_outside_the_scope_the_frozen_operation_is_used
+    self.exercise(check)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_turn_egg_incarnation.py", line 26, in exercise
+    host.exercise('I-sleepboost1',wrapped)
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 41, in exercise
+    with history_replay.scope():runtime.operation(initial(),run)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_history_incarnation_dispatch.py", line 39, in run
+    saved=copy.deepcopy((before,after,event));check(before,after,event,history);self.assertEqual((before,after,event),saved)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_turn_egg_incarnation.py", line 25, in wrapped
+    check(egg_frame(current))
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_turn_egg_incarnation.py", line 43, in check
+    self.assertIsNot(turn_boundary.prepare,boundary.prepare)
+AssertionError: unexpectedly identical: <function prepare at 0x7fb87a8f0400>
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.173s
+
+FAILED (failures=1, errors=1)

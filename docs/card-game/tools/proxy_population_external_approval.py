@@ -16,8 +16,12 @@ from proxy_mandatory_policy_contract import ROOT,canonical
 
 REPOSITORY='Naoto214/naotocchi'
 AUTHORITY=323909980
-PR=259
-BRANCH='design/card-pool-master-20260914'
+# 2026-10-20 owner decision: PR #259 is merged, so new approvals live on #408.
+# Only the PR location moved; author, exact text, draft/open/unmerged and head
+# checks are unchanged. A #259 request has a different digest and is rejected.
+PR=transport.PULL_REQUEST
+BRANCH='claude/fixed400-restart-20261020'
+HISTORICAL_PULL_REQUESTS={259:'design/card-pool-master-20260914'}
 API='https://api.github.com/repos/'+REPOSITORY
 CONTRACTS=('107-normal-decision-match-protocol.md','463-precommitted-mandatory-policy-detail.md',
  '464-approved-mandatory-policy-contract.md','465-mandatory-boundary-and-population-input.md')
@@ -84,9 +88,66 @@ def rebinding_request(bundle,receipt,certificate,context,limit,destination):
  return request
 
 
+RESUME_ATTEMPT_RE=re.compile(r'fixed400-[0-9a-f]{12}')
+RESUME_BRANCH_PREFIX='fixed400-results/'
+RESUME_PARALLELISM=(1,4)
+
+
+def _resume_target(resume):
+ """Checkpoint/resume binding (2026-10-23 C案). Manual, owner-approved; never automatic."""
+ expected={'attempt_id','resume_generation','original_claim','previous_claim','results_ref','checkpoint_sha256','completed_rows','pending_schedule_indices_sha256','parallelism','owner_approved_manual_resume'}
+ if type(resume) is not dict or set(resume)!=expected:raise ValueError('resume binding shape differs')
+ if type(resume['attempt_id']) is not str or RESUME_ATTEMPT_RE.fullmatch(resume['attempt_id']) is None:raise ValueError('resume attempt identity differs')
+ generation=resume['resume_generation']
+ if type(generation) is not int or generation<0:raise ValueError('resume generation differs')
+ if resume['owner_approved_manual_resume'] is not True:raise ValueError('resume requires manual owner approval')
+ parallelism=resume['parallelism']
+ if type(parallelism) is not int or not RESUME_PARALLELISM[0]<=parallelism<=RESUME_PARALLELISM[1]:raise ValueError('resume parallelism differs')
+ _sha(resume['checkpoint_sha256'],64);_sha(resume['pending_schedule_indices_sha256'],64)
+ rows=resume['completed_rows']
+ if type(rows) is not int or not 0<=rows<=400:raise ValueError('resume completed row count differs')
+ claim=resume['original_claim'];ref=resume['results_ref'];previous=resume['previous_claim']
+ if generation==0:
+  if claim is not None or previous is not None or ref is not None or rows!=0:raise ValueError('first generation carries no prior claim, results or rows')
+ else:
+  for value in (claim,previous):
+   if type(value) is not dict or set(value)!={'comment_id','commit','tree'}:raise ValueError('resume claim shape differs')
+   _comment_id(value['comment_id']);_sha(value['commit'],40);_sha(value['tree'],40)
+  if generation==1 and previous!=claim:raise ValueError('first resume follows the original claim')
+  if ref is None:
+   # A stop before the first saved row: nothing to reuse, every row is pending.
+   if rows!=0:raise ValueError('resume without a results reference reuses no rows')
+  else:
+   if type(ref) is not dict or set(ref)!={'branch','commit','tree'} or type(ref['branch']) is not str or ref['branch']!=RESUME_BRANCH_PREFIX+resume['attempt_id']:raise ValueError('resume results reference differs')
+   _sha(ref['commit'],40);_sha(ref['tree'],40)
+ return copy.deepcopy(resume)
+
+
+def pre_claim_head(request):
+ """The PR head that must be live before this request's claim is consumed, and the claim's parent.
+
+Generation 0 (and every v1/v2 request) claims on the approved publication. A resumed
+generation claims on the previous generation's claim, so the PR branch only ever
+moves forward by claim-only commits; it is never rewritten.
+"""
+ if request.get('schema')=='population_external_approval_request.v3':
+  resume=request['target']['resume']
+  if resume['resume_generation']>0:return dict(commit=resume['previous_claim']['commit'],tree=resume['previous_claim']['tree'])
+ return dict(commit=request['publication']['commit'],tree=request['publication']['tree'])
+
+
+def resume_request(bundle,receipt,certificate,context,limit,destination,resume):
+ """v3: the v2 rebinding launch request plus an owner-approved checkpoint/resume binding."""
+ request=rebinding_request(bundle,receipt,certificate,context,limit,destination)
+ request['schema']='population_external_approval_request.v3'
+ request['target']['resume']=_resume_target(resume)
+ _validate_request(request)
+ return request
+
+
 def _validate_request(request):
  expected={'schema','repository','pull_request','authority_user_id','stage','edition','publication','destination','planned_groups','planned_matches','contract_sha256','target'}
- if type(request) is not dict or set(request)!=expected or request['schema'] not in ('population_external_approval_request.v1','population_external_approval_request.v2') or request['repository']!=REPOSITORY or type(request['pull_request']) is not int or request['pull_request']!=PR or type(request['authority_user_id']) is not int or request['authority_user_id']!=AUTHORITY:raise ValueError('approval request identity differs')
+ if type(request) is not dict or set(request)!=expected or request['schema'] not in ('population_external_approval_request.v1','population_external_approval_request.v2','population_external_approval_request.v3') or request['repository']!=REPOSITORY or type(request['pull_request']) is not int or request['pull_request']!=PR or type(request['authority_user_id']) is not int or request['authority_user_id']!=AUTHORITY:raise ValueError('approval request identity differs')
  if type(request['planned_groups']) is not int or request['planned_groups']!=200 or type(request['planned_matches']) is not int or request['planned_matches']!=400:raise ValueError('approval schedule differs')
  _destination(request['destination'])
  if set(request['edition'])!={'commit','tree','sha256'} or set(request['publication'])!={'commit','tree'}:raise ValueError('approval edition shape differs')
@@ -96,7 +157,7 @@ def _validate_request(request):
  if set(request['contract_sha256'])!=set(CONTRACTS):raise ValueError('approval contracts differ')
  for value in request['contract_sha256'].values():_sha(value,64)
  target=request['target']
- if request['schema']=='population_external_approval_request.v2' and request['stage']!='launch':raise ValueError('rebinding is launch only')
+ if request['schema'] in ('population_external_approval_request.v2','population_external_approval_request.v3') and request['stage']!='launch':raise ValueError('rebinding is launch only')
  if request['stage']=='generation':
   if set(target)!={'historical_registry_sha256','entropy_api','initial_order_and_policy_roots_separated','mirror_initial_order_shared','mirror_policy_randomness_separated'}:raise ValueError('generation target shape differs')
   _sha(target['historical_registry_sha256'],64)
@@ -104,8 +165,9 @@ def _validate_request(request):
  elif request['stage']=='launch':
   keys={'manifest_sha256','receipt_sha256','execution_order','reconstruction_step_limit','automatic_retry_allowed','automatic_resume_allowed'}
   hashes=['manifest_sha256','receipt_sha256']
-  if request['schema']=='population_external_approval_request.v2':
+  if request['schema'] in ('population_external_approval_request.v2','population_external_approval_request.v3'):
    hashes+=['execution_binding_sha256','binding_receipt_sha256','original_package_receipt_sha256'];keys.add('old_edition')
+   if request['schema']=='population_external_approval_request.v3':keys.add('resume');_resume_target(target.get('resume'))
    old=target.get('old_edition',{})
    if set(old)!={'commit','tree','sha256'}:raise ValueError('old edition identity missing')
    _sha(old['commit'],40);_sha(old['tree'],40);_sha(old['sha256'],64)
@@ -164,7 +226,7 @@ def _comment_projection(comment):
 
 def _check_comment(comment,request,comment_id):
  if type(comment['id']) is not int or comment['id']!=comment_id or not _owner(comment['user']):raise ValueError('approval author or comment identity differs')
- if comment['issue_url']!=API+'/issues/259' or comment['html_url']!='https://github.com/'+REPOSITORY+'/pull/259#issuecomment-'+str(comment_id):raise ValueError('approval belongs to another PR')
+ if comment['issue_url']!=API+'/issues/'+str(PR) or comment['html_url']!='https://github.com/'+REPOSITORY+'/pull/'+str(PR)+'#issuecomment-'+str(comment_id):raise ValueError('approval belongs to another PR')
  if comment['body']!=approval_text(request):raise ValueError('approval text or request digest differs')
  for key in ('created_at','updated_at'):
   value=comment[key]
@@ -180,12 +242,12 @@ def verify_live(request,comment_id):
 def _observation(request,comment_id,expected_head,read):
  repo=read('')
  if repo['full_name']!=REPOSITORY or not _owner(repo['owner']):raise ValueError('repository authority differs')
- pr=read('/pulls/259')
+ pr=read('/pulls/'+str(PR))
  if type(pr['number']) is not int or pr['number']!=PR or pr['state']!='open' or pr['draft'] is not True or pr['merged'] is not False or pr['head']['repo']['full_name']!=REPOSITORY or pr['head']['ref']!=BRANCH or pr['head']['sha']!=expected_head:raise ValueError('live PR edition/state differs')
  comment=read('/issues/comments/'+str(comment_id));_check_comment(comment,request,comment_id)
  ids=set();found=[];pages=[]
  for page in range(1,101):
-  rows=read('/issues/259/comments?per_page=100&page='+str(page))
+  rows=read('/issues/'+str(PR)+'/comments?per_page=100&page='+str(page))
   if type(rows) is not list or len(rows)>100:raise ValueError('invalid comment page')
   pages.append(dict(page=page,sha256=digest(rows),count=len(rows)))
   for row in rows:
@@ -214,7 +276,7 @@ def _verify_live_at_head(request,comment_id,publication_commit):
  token=_read_deadline.set(deadline)
  try:
   _validate_request(request);_comment_id(comment_id)
-  expected_head=request['publication']['commit'] if publication_commit is None else _sha(publication_commit,40)
+  expected_head=pre_claim_head(request)['commit'] if publication_commit is None else _sha(publication_commit,40)
   for attempt in range(1,4):
    row=dict(attempt=attempt,started_at=datetime.now(timezone.utc).isoformat(),reads=[],outcome=None)
    audit['observations'].append(row)

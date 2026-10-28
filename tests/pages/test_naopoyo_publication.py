@@ -1,11 +1,33 @@
 """Release contract: only the adopted game ships; legacy source/saves remain."""
 import hashlib
 import json
+from html.parser import HTMLParser
 from pathlib import Path
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 LEGACY = ('prototypes/growth-chain/', 'prototypes/growth-clear/', 'prototypes/slide08/')
+
+class MenuLinks(HTMLParser):
+    """Read link labels independently of decorative wrappers/classes."""
+    def __init__(self, html):
+        super().__init__()
+        self.links = []
+        self.current = None
+        self.feed(html)
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'a':
+            self.current = [dict(attrs).get('href'), []]
+
+    def handle_data(self, data):
+        if self.current is not None:
+            self.current[1].append(data.strip())
+
+    def handle_endtag(self, tag):
+        if tag == 'a' and self.current is not None:
+            self.links.append(self.current)
+            self.current = None
 
 class NaopoyoPublicationTests(unittest.TestCase):
     def setUp(self):
@@ -19,7 +41,8 @@ class NaopoyoPublicationTests(unittest.TestCase):
         self.assertIn('href="../naopoyo-chapter1/index.html"', portal)
         self.assertNotIn('series.mjs', portal)
         main = (ROOT / 'index.html').read_text()
-        self.assertIn('<span>なおぽよ。</span>', main)
+        official = [href for href, labels in MenuLinks(main).links if 'なおぽよ。' in labels]
+        self.assertEqual(official, ['prototypes/naopoyo/'])
         self.assertNotIn('スライド・ドロップ', main)
 
     def test_legacy_runtime_is_not_published_but_sources_are_retained(self):

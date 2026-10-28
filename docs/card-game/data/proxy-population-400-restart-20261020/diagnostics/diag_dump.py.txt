@@ -1,0 +1,25 @@
+"""Diagnostic-only: rerun one row and dump the failing _verify_step zone evidence."""
+import sys,json,runpy
+from pathlib import Path
+F=Path(sys.argv[1]);out=Path(sys.argv[2])
+sys.path.insert(0,str(F/'docs/card-game/tools'))
+import proxy_normal_action_seeded_restart as n
+import proxy_population_incarnation_runtime as inc
+orig=n._verify_step
+def wrapped(before,after,events):
+ try:return orig(before,after,events)
+ except Exception as e:
+  g=after['game_state'];rows={}
+  for pid,p in g['players'].items():
+   b=p['board'];inst=p['hand']+p['deck']+p['discard']+b['companions']+b['prepared']+[x for x in (b['main'],b['partner'],b['world']) if x]
+   exp={i for i in g['cards'] if i.startswith(pid+'-')}
+   rows[pid]=dict(dups=sorted({i for i in inst if inst.count(i)>1}),in_zone_not_in_cards=sorted(set(inst)-exp),in_cards_not_in_zone=sorted(exp-set(inst)),
+     active_view=None)
+  try:act=inc.active_cards(g['cards']);rows['active_count']=len(act);rows['card_keys']=len(g['cards'])
+  except Exception as x:rows['active_error']=str(x)
+  rows['retired_detail']={i:{k:g['cards'][i].get(k) for k in ('card_id','card_copy_id','initial_instance_id')} for p in ('A','B') for i in rows[p]['in_cards_not_in_zone']}
+  rows['round']=g.get('round');rows['turn_player']=g.get('turn_player');rows['error']=str(e)
+  out.write_text(json.dumps(rows,ensure_ascii=False,indent=1));raise
+n._verify_step=wrapped
+sys.argv=['diag_run.py']+sys.argv[3:]
+runpy.run_path(str(Path(__file__).parent/'diag_run.py'),run_name='__main__')

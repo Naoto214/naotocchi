@@ -1,0 +1,10 @@
+test_catalog_or_fragment_drift_fails_closed (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_catalog_or_fragment_drift_fails_closed) ... ok
+test_connected_step_resolves_start_draw (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_connected_step_resolves_start_draw) ... ok
+test_other_cards_unchanged (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_other_cards_unchanged) ... ok
+test_start_draw_rejects_extra_record_and_malformed_links (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_start_draw_rejects_extra_record_and_malformed_links) ... ok
+test_start_draw_resolution_is_source_proven_no_choice (test_proxy_population_bowtie_resolution_choice.BowtieResolutionChoiceTests.test_start_draw_resolution_is_source_proven_no_choice) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.493s
+
+OK

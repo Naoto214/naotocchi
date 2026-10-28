@@ -1,0 +1,47 @@
+{
+ "reviewed_commit": "f1025fdd113f6d15bc6f0b7ea21925cc9f8bac9a",
+ "base_commit": "873e8cd276c425c1c2ea7793728f0f509b029a10",
+ "files_reviewed": [
+  "docs/card-game/tools/proxy_population_approval_transport.py",
+  "docs/card-game/tools/proxy_population_board_predicates.py",
+  "docs/card-game/tools/proxy_population_challenge_return.py",
+  "docs/card-game/tools/proxy_population_challenge_window.py",
+  "docs/card-game/tools/proxy_population_concealed_origin.py",
+  "docs/card-game/tools/proxy_population_connected_entry.py",
+  "docs/card-game/tools/proxy_population_current_preflight.py",
+  "docs/card-game/tools/proxy_population_designated_effects.py",
+  "docs/card-game/tools/proxy_population_external_approval.py",
+  "docs/card-game/tools/proxy_population_final_time_round.py",
+  "docs/card-game/tools/proxy_population_growth_runtime.py",
+  "docs/card-game/tools/proxy_population_history_replay.py",
+  "docs/card-game/tools/proxy_population_incarnation_runtime.py",
+  "docs/card-game/tools/proxy_population_incarnation_window.py",
+  "docs/card-game/tools/proxy_population_next_board.py",
+  "docs/card-game/tools/proxy_population_paid_draw.py",
+  "docs/card-game/tools/proxy_population_positive_window.py",
+  "docs/card-game/tools/proxy_population_prepared_predicates.py",
+  "docs/card-game/tools/proxy_population_remote_publication.py",
+  "docs/card-game/tools/proxy_population_resolution_choices.py",
+  "docs/card-game/tools/proxy_population_response_group_closure.py",
+  "docs/card-game/tools/proxy_population_timing_occurrence.py",
+  "docs/card-game/tools/proxy_population_trigger_connection.py",
+  "docs/card-game/tools/proxy_population_trigger_replay.py",
+  "docs/card-game/tools/proxy_population_trigger_window.py"
+ ],
+ "findings": [
+  {
+   "file": "docs/card-game/tools/proxy_population_history_replay.py",
+   "line": 313,
+   "severity": "minor",
+   "summary": "history_replay.scope replaces end.verify_new_events with base_verify instead of chaining, shadowing proxy_population_chain_resolution.scope verify (entered earlier in challenge_window.contract_scope:142) for the whole positive segment.",
+   "failure_scenario": "Historical resolve_item (I-c_coin2) / resolve_play (G-hit-blow) events with application_evidence are no longer re-derived via resolve_top during history verification and get no provenance row (TEXT_REGISTRY has none), so derive_provenance marks them unresolved; E-first-date is compensated by growth_runtime.first_date_proofs. All consequences are fail-closed (unresolved provenance / stop), and full-delta quick_reveal/first_date audits in trigger_coverage still run; the module docstring claim that all comparisons remain is inaccurate."
+  },
+  {
+   "file": "docs/card-game/tools/proxy_population_trigger_connection.py",
+   "line": 65,
+   "severity": "minor",
+   "summary": "Start-effect resolution origin check widened from exact equality to captured_origin <= ctx.origin_event_seq <= now.",
+   "failure_scenario": "Theoretical only: a C-chicken/I-bowtie start link resolved under a different turn_start-kind window of the same turn player inside the same connection.scope; still bound to the captured start occurrence and turn player. No concrete wrong-pass path found."
+  }
+ ]
+}

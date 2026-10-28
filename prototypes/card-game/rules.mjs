@@ -105,6 +105,7 @@ add('C-watcher',{mode:'companion',triggers:[{when:'trapActivation',opponent:true
 add('C-tanuki',{mode:'companion',triggers:[{when:'trapActivation',condition:'trapSetThisTurn',steps:[draw(),{op:'handBottom'}],once:true}]});
 add('P-anglerfish',{mode:'partner',triggers:[{when:'challenge',condition:{world:'W-deepsea'},target:'ownMain',steps:[stat(2,0,'challenge')],once:true}]});
 add('P-cat_ceo',{mode:'partner',triggers:[{when:'place',mandatory:true,steps:[{op:'handBottom'},iff('handMoved',[draw()])]}]});
+// PR #446 D-2: 表向きにプレイしたあいてむだけを数える（effects.mjs playedPlayAndItem）。伏せたしかけも数える旧動作は hotseat-2 の保存再生にだけ残す。
 add('P-desert_scorpion',{mode:'partner',triggers:[{when:'end',condition:'playedPlayAndItem',steps:[draw()],once:true}]});
 add('P-high_eagle',{mode:'partner',triggers:[{when:'start',condition:{value:'relationship',op:'eq',n:4},steps:[draw()],once:true}]});
 add('P-grove_deer',{mode:'partner',triggers:[{when:'progress',condition:{any:[{value:'relationship',op:'eq',n:2},{value:'relationship',op:'eq',n:3}]},steps:[search(2)],once:true}]});

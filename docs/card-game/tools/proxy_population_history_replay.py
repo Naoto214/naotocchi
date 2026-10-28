@@ -13,7 +13,56 @@ import proxy_continuation_actions as actions
 import proxy_continuation_candidates as candidates
 import proxy_continuation_state as state
 import proxy_resource_value_trajectory as old
+import proxy_population_hand_timing as hand_timing
 _LOCK=Lock()
+
+
+def hand_reaction(event, prior, byseq, history, initial, card):
+    """Registered hand-timing reaction (source_zone 'hand', sequential origin).
+
+    The reaction is not in the window actor's ordinary inventory; its legality
+    is owned by the hand-timing occurrence raised at the actual origin event.
+    Reuse that capture and the conditional activation audit, fail closed when
+    the origin transition is not in the verified history.
+    """
+    origin_seq = event['trigger_origin_event_seq']
+    if initial is None:
+        raise ValueError('hand timing provenance needs signed initial seed')
+    if origin_seq - 1 not in byseq or origin_seq not in byseq:
+        raise ValueError('hand timing origin transition absent from history')
+    origin = next((e for e in history if e['seq'] == origin_seq), None)
+    if origin is None:
+        raise ValueError('hand timing origin event absent from history')
+    captured = hand_timing.capture(byseq[origin_seq - 1], byseq[origin_seq], origin)
+    rows = [r for r in captured['occurrences'] if r['source_instance_id'] == event['source_instance_id'] and r['actor'] == event['actor']]
+    if len(rows) != 1:
+        raise ValueError('hand timing occurrence absent or ambiguous at its origin')
+    occurrence = rows[0]
+    actions, _ = hand_timing.current_actions(prior, occurrence, history)
+    action = next((a for a in actions if a['candidate_id'] == event['selected_candidate']), None)
+    if action is None:
+        raise ValueError('historical hand timing reaction absent from its occurrence inventory')
+    expected, generated = hand_timing.activate(prior, action, occurrence, history, initial)
+    raw = {k: v for k, v in generated[0].items() if k not in end.BIND_KEYS}
+    if expected != byseq[event['seq']] or raw != event:
+        raise ValueError('hand timing reaction independent provenance replay differs')
+    cap = hand_timing.descriptor(card)
+    return dict(event_seq=event['seq'], kind=event['action_type'], card_id=card, source_reference=cap['reference'], source_raw_sha256=cap['source_raw_sha256'], duration='activation_until_resolution', hand_timing_origin_event_seq=origin_seq)
+
+
+def live_closure(prior):
+    """The inventory closure the live step used for this boundary.
+
+    Inside the turn-start window the runtime enumerates ordinary responses under
+    trigger_window.closed_start (start reveal and start equipment belong to the
+    sequential start group); the frozen inventory alone refuses a turn-start
+    window with start equipment attached. Other windows replay unchanged.
+    """
+    from contextlib import nullcontext
+    if prior['legacy_continuation']['response_context'].get('window_kind') != 'turn_start':
+        return nullcontext()
+    import proxy_population_trigger_window as window
+    return window.closed_start()
 
 
 def quick_verifier(verify_original, initial):
@@ -37,16 +86,20 @@ def quick_verifier(verify_original, initial):
             if not activation and (not (card == 'E-final-time' and kind == 'resolve_event')):
                 continue
             history = [e for e in events if e['seq'] < event['seq']]
+            if activation and event.get('source_zone') == 'hand' and event.get('trigger_origin_event_seq') is not None and card in hand_timing.DESCRIPTORS:
+                proofs.append(hand_reaction(event, prior, byseq, history, initial, card))
+                continue
             if activation:
                 actor = event['actor']
                 normal = g['phase'] == 'normal_action'
-                chance = None if normal else actions.response_inventory(prior, initial, history)
-                details = quick.batch.candidates.audit(prior, history)['legal_candidate_details'] if normal else chance['legal_candidate_details']
-                a = next((d for d in details if d['candidate_id'] == event['selected_candidate']), None)
-                if a is None:
-                    raise ValueError('historical quick activation absent from complete inventory')
-                record = dict(actor=actor, selected_action=a, selected_candidate=a['candidate_id'], candidate_set_evidence=chance)
-                expected, generated = quick.activate(prior, record, dict(public_events=history), initial, verify_record=False)
+                with live_closure(prior):
+                    chance = None if normal else actions.response_inventory(prior, initial, history)
+                    details = quick.batch.candidates.audit(prior, history)['legal_candidate_details'] if normal else chance['legal_candidate_details']
+                    a = next((d for d in details if d['candidate_id'] == event['selected_candidate']), None)
+                    if a is None:
+                        raise ValueError('historical quick activation absent from complete inventory')
+                    record = dict(actor=actor, selected_action=a, selected_candidate=a['candidate_id'], candidate_set_evidence=chance)
+                    expected, generated = quick.activate(prior, record, dict(public_events=history), initial, verify_record=False)
                 raw = {k: v for k, v in generated[0].items() if k not in end.BIND_KEYS}
             else:
                 if initial is None:
@@ -126,11 +179,18 @@ def triggers_verifier(original_verify, initial):
                     else:
                         ctx = prior['legacy_continuation']['response_context']
                         actor = ctx['priority_actor']
+                        current = state.current(prior)
+                        if 'trigger_origin_event_seq' in event:
+                            # A source group activation carries its own actor and origin
+                            # (the existing adapter's bridge); the window's priority actor
+                            # may be the other player, e.g. W-city on the opponent's turn.
+                            actor = event['actor']
+                            current['response_context'].update(priority_actor=actor, origin_event_seq=event['trigger_origin_event_seq'])
                         board = g['players'][actor]['board']
                         slot = next((s for s in ('main', 'partner', 'world') if board[s] == source), None)
                         if slot is None and source in board['prepared']:
                             slot = 'prepared'
-                        details, _ = triggers.board_candidates(state.current(prior), history, source, slot, prior['runtime'])
+                        details, _ = triggers.board_candidates(current, history, source, slot, prior['runtime'])
                         a = next((d for d in details if d['candidate_id'] == event['selected_candidate']), None)
                         if a is None:
                             raise ValueError('historical board trigger not legal')

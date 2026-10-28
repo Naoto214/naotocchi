@@ -12,7 +12,12 @@ import {RULES, supported} from './rules.mjs';
 import * as fx from './effects.mjs';
 import * as selections from './selection.mjs';
 export {CARDS};
-export const VERSION='hotseat-2';
+export const VERSION='hotseat-4';
+/** 対戦の版。旧保存はその版のまま再生する（保存を新しい版へ変換しない）。
+ * hotseat-2 = PR #446 修正前のこいびと（クモが結婚時にも誘発、サソリが伏せたあいてむも数える）＋ぴょんぴょんジャンプ改善前。
+ * hotseat-3 = こいびと修正（PR #449）＋ぴょんぴょんジャンプ改善前（次のときおくりで1枚、その次のときおくりで+5）。
+ * hotseat-4 = こいびと修正＋ぴょんぴょんジャンプ改善案B（PR #452）。 */
+export const RULE_VERSIONS=Object.freeze(['hotseat-2','hotseat-3',VERSION]);
 export const DEFAULT_DECK=Object.values(BASE_CARDS).flatMap(c=>Array(c.rare?1:c.id==='G-area-claim'?2:3).fill(c.id));
 export function validateDeck(deck){if(!Array.isArray(deck)||deck.length!==40)throw Error('デッキは40枚必要です');const counts={};for(const id of deck){if(!CARDS[id]||!supported(id))throw Error('未対応カードです：'+id);counts[id]=(counts[id]??0)+1;if(counts[id]>(CARDS[id].rare?1:3))throw Error('同名上限を超えています：'+id);}return true;}
 export {supported};
@@ -23,10 +28,11 @@ export const TYPE_NAMES={main:'メイン',companion:'なかま',partner:'こい�
 const card=(s,id)=>CARDS[s.cards[id].cardId];
 const title=(s,id)=>id?card(s,id).name:'たまご';
 function random(seed){let n=seed>>>0;return ()=>{n+=0x6D2B79F5;let t=n;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return ((t^t>>>14)>>>0)/4294967296;};}
-export function createGame(seed=1,decks={A:DEFAULT_DECK,B:DEFAULT_DECK}){
+export function createGame(seed=1,decks={A:DEFAULT_DECK,B:DEFAULT_DECK},version=VERSION){
+ if(!RULE_VERSIONS.includes(version))throw Error('対戦の版が不正です');
  for(const a of ['A','B'])validateDeck(decks[a]);
  if(!Number.isSafeInteger(seed)||seed<0||seed>0xffffffff)throw Error('開始seedが不正です');
- const s={version:VERSION,seed,revision:0,commands:[],decks:clone(decks),effects:[],scheduled:[],history:[],cards:{},players:{},round:1,turn:'A',serial:1,phase:'normal',priority:'A',chain:[],pending:[],choice:null,window:'normal',passes:0,result:null,log:[],challenge:null};
+ const s={version,seed,revision:0,commands:[],decks:clone(decks),effects:[],scheduled:[],history:[],cards:{},players:{},round:1,turn:'A',serial:1,phase:'normal',priority:'A',chain:[],pending:[],choice:null,window:'normal',passes:0,result:null,log:[],challenge:null};
  const rng=random(seed);
  for(const a of ['A','B']){
   const deck=[],counts={};for(const cardId of decks[a]){const i=counts[cardId]=(counts[cardId]??0)+1,id=`${a}:${cardId}:${i}`;s.cards[id]={cardId,owner:a,generation:0};deck.push(id);}
@@ -198,7 +204,7 @@ function resolveChain(s){
 }
 export function validate(s){
  if(s.version===legacy.VERSION)return legacy.validate(s);
- if(s.version!==VERSION||!Number.isSafeInteger(s.revision)||s.revision!==s.commands.length||!['A','B'].includes(s.turn)||!Number.isInteger(s.round)||s.round<1||s.round>10)throw Error('状態形式が不正です');
+ if(!RULE_VERSIONS.includes(s.version)||!Number.isSafeInteger(s.revision)||s.revision!==s.commands.length||!['A','B'].includes(s.turn)||!Number.isInteger(s.round)||s.round<1||s.round>10)throw Error('状態形式が不正です');
  const located=[];
  for(const a of ['A','B']){const p=s.players[a],b=p.board;if(!Number.isInteger(p.time)||p.time<0||p.time>10||p.growth<0||p.growth>100||p.growth%5||b.companions.length>3||b.prepared.length>3)throw Error('資源または枠が不正です');
   const ids=[...p.deck,...p.hand,...p.discard,...[b.main,b.partner,b.world].filter(Boolean),...b.companions,...b.prepared.map(e=>e.id)];
@@ -208,16 +214,19 @@ export function validate(s){
  located.push(...s.chain.filter(l=>!l.ability).map(l=>l.source));if(located.length!==80||new Set(located).size!==80||located.some(id=>!s.cards[id]))throw Error('カード保存則が破れました');
  return true;
 }
+// hotseat-1 keeps its legacy rules and card text. The current card face also needs the display-only
+// attribute/form of the same card ID, which the legacy 15-card table predates; nothing else is added.
+function legacyDisplay(v){v=structuredClone(v);const walk=x=>{if(Array.isArray(x))x.forEach(walk);else if(x&&typeof x==='object'){if(typeof x.cardId==='string'&&Object.hasOwn(CARDS,x.cardId))for(const k of ['attribute','form'])if(x[k]===undefined&&CARDS[x.cardId][k]!==undefined)x[k]=CARDS[x.cardId][k];Object.values(x).forEach(walk);}};walk(v);return v;}
 export function view(s,viewer){
- if(s.version===legacy.VERSION)return legacy.view(s,viewer);
+ if(s.version===legacy.VERSION)return legacyDisplay(legacy.view(s,viewer));
  if(!['A','B',null].includes(viewer))throw Error('閲覧者が不正です');
  const describe=id=>({...card(s,id),cardId:card(s,id).id,id,name:title(s,id)});
  const players={};for(const a of ['A','B']){const p=s.players[a],b=p.board;players[a]={time:p.time,growth:p.growth,relationship:p.relationship,handCount:p.hand.length,deckCount:p.deck.length,discard:p.discard.map(describe),stats:stats(s,a),board:{main:b.main?describe(b.main):null,partner:b.partner?describe(b.partner):null,world:b.world?describe(b.world):null,companions:b.companions.map(describe),prepared:b.prepared.map((e,i)=>e.faceDown&&a!==viewer?{id:'hidden:'+a+':'+i,name:'しかけたカード',text:'相手の伏せ札は確認できません',hidden:true}:{...describe(e.id),target:e.faceDown?'しかける':title(s,e.target)})}};if(a===viewer)players[a].hand=p.hand.map(describe);}
  const targetLabel=(l,id)=>(l.hiddenTargets??[]).includes(id)&&s.cards[id].owner!==viewer?'しかけたカード':privateLabel(s,viewer,title(s,id));const choice=s.choice&&s.choice.actor===viewer?{kind:s.choice.kind,peek:s.choice.peek?s.choice.peek.map(describe):s.choice.kind==='look'?describe(s.players[viewer].deck[0]):null}:null;
  return {round:s.round,turn:s.turn,actor:actor(s),phase:s.phase,revision:s.revision,result:s.result,players,choice,chain:s.chain.map(l=>({actor:l.actor,name:title(s,l.source),target:l.publicTargets?.length?l.publicTargets.map(id=>targetLabel(l,id)).join(' / '):l.target?targetLabel(l,l.target):null,declare:l.declare?TYPE_NAMES[l.declare]:null})),log:s.log.slice(-60),actions:viewer===actor(s)?legalActions(s).map((a,i)=>({kind:a.kind,source:a.source,label:privateLabel(s,viewer,a.label),id:`ui:${s.revision}:${i}`})):[]};
 }
-export function save(s){if(s.version===legacy.VERSION)return legacy.save(s);validate(s);return JSON.stringify({version:VERSION,seed:s.seed,decks:s.decks,commands:s.commands});}
-export function restore(text){const data=JSON.parse(text);if(data.version===legacy.VERSION)return legacy.restore(text);if(data.version!==VERSION||!Array.isArray(data.commands)||data.commands.length>10000||Object.keys(data).sort().join()!=='commands,decks,seed,version')throw Error('保存形式が異なります');let s=createGame(data.seed,data.decks);for(const id of data.commands)s=act(s,actor(s),s.revision,id);return s;}
+export function save(s){if(s.version===legacy.VERSION)return legacy.save(s);validate(s);return JSON.stringify({version:s.version,seed:s.seed,decks:s.decks,commands:s.commands});}
+export function restore(text){const data=JSON.parse(text);if(data.version===legacy.VERSION)return legacy.restore(text);if(!RULE_VERSIONS.includes(data.version)||!Array.isArray(data.commands)||data.commands.length>10000||Object.keys(data).sort().join()!=='commands,decks,seed,version')throw Error('保存形式が異なります');let s=createGame(data.seed,data.decks,data.version);for(const id of data.commands)s=act(s,actor(s),s.revision,id);return s;}
 
 function recordPlay(s,a,source,slot){const c=card(s,source);s.history.push({serial:s.serial,actor:a,kind:'play',challenge:s.challenge?.id,source,cardId:c.id,type:c.type,method:c.method??null,generation:s.cards[source].generation,faceUp:!s.players[a].board.prepared.some(e=>e.id===source&&e.faceDown)});if(slot)s.history.push({serial:s.serial,actor:a,kind:'place',slot,source});if(slot)enqueueTriggers(s,{kind:'place',actor:a,source,slot,normal:true,faceUp:!s.players[a].board.prepared.some(e=>e.id===source&&e.faceDown)});enqueueTriggers(s,{kind:'cardPlayed',actor:a,source,method:c.method??null,faceUp:!s.players[a].board.prepared.some(e=>e.id===source&&e.faceDown)});}
 function enqueueTriggers(s,event){event={...event,challenge:s.challenge?.id,stats:{A:stats(s,'A'),B:stats(s,'B')},...(event.source?{generation:event.generation??s.cards[event.source].generation}:{})};s.history.push({...event,serial:s.serial,round:s.round});const jobs=eventEffects.collect(s,event,fx.condition);if(jobs.length){s.automatics??=[];s.automatics.push(...jobs,{event});}else s.pending.push(...fx.triggerRows(s,event));if(s.pending.length&&!['resolving','choice'].includes(s.phase))s.phase='trigger';}

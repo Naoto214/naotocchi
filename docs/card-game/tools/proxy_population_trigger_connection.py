@@ -11,9 +11,29 @@ import proxy_population_boundary_response as boundary
 import proxy_continuation_batch as batch
 import proxy_continuation_state as state
 import proxy_continuation_triggers as triggers
+import proxy_continuation_rules as rules
 from proxy_mandatory_policy_contract import canonical
 
 _ACTIVE=None
+
+
+def start_draw_descriptor(link):
+    """77 I-bowtie: own-turn-start single draw with no target, variant or cost.
+
+    The frozen batch registry has no row for this card. Its capability is the
+    pinned current107 start catalog row (section + raw sha, re-verified on every
+    call) joined with the frozen rules fragments -- the same facts scope()
+    installs around the actual resolution. Activation legality and effect
+    execution keep their own audits; this only closes the resolution-time
+    choice obligation.
+    """
+    if link.get('card_id')!='I-bowtie' or link.get('source_zone')!='board' or link.get('action_type')!='activate_board_ability':raise ValueError('start draw link differs')
+    if canonical(link.get('payment'))!=canonical(dict(time=0)) or link.get('target_instance_ids')!=[] or link.get('candidate_variant') is not None:raise ValueError('start draw activated link differs')
+    row=starts.catalog()['cards']['I-bowtie']
+    if row['start_kind']!='own_start_hand_at_most_two_draw':raise ValueError('start equipment source contract differs')
+    cap=rules.classification('I-bowtie')
+    if cap['kind']!='triggered' or cap['timing']!='own_turn_start' or cap['ability_key']!='start_draw' or cap['reference']!=row['reference'] or cap['source_raw_sha256']!=row['source_raw_sha256']:raise ValueError('start draw capability differs')
+    return dict(kind='triggered',timing='own_turn_start',reference=row['reference'],source_raw_sha256=row['source_raw_sha256'],semantic_section_sha256=row['section_sha256'],draw_count=1)
 
 def validate_opening(envelope,proof):
     expected=starts.collect(proof['capture'],envelope)
@@ -39,7 +59,10 @@ def scope(proof):
 def resolve(envelope,initial):
     if _ACTIVE is None:raise ValueError('start occurrence connection absent')
     current=state.current(envelope);ctx=current['response_context'];link=current['activation_zone'][-1]
-    if current['game_state']['turn_player']!=_ACTIVE['capture']['turn_player'] or ctx['window_kind']!='turn_start' or ctx['origin_event_seq']!=_ACTIVE['origin_event_seq']:
+    # An arrival group activated inside the same start window (W-city second card)
+    # leaves its own origin in the live context; the start effect still belongs to
+    # this window when the origin lies between the captured start and now.
+    if current['game_state']['turn_player']!=_ACTIVE['capture']['turn_player'] or ctx['turn_player']!=_ACTIVE['capture']['turn_player'] or ctx['window_kind']!='turn_start' or type(ctx['origin_event_seq']) is not int or not _ACTIVE['origin_event_seq']<=ctx['origin_event_seq']<=envelope['event_seq']:
         raise ValueError('start effect processing origin differs')
     occurrences=[o for o in _ACTIVE['occurrences'] if o['source_instance_id']==link['source_instance_id']]
     if len(occurrences)!=1 or link['card_id'] not in ('C-chicken','I-bowtie') or link['source_zone']!='board' or link['action_type']!='activate_board_ability':raise ValueError('start effect source outside captured group')

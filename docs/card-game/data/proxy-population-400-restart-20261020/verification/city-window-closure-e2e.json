@@ -1,0 +1,156 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "tree with first-date + timing + bowtie + city fixes; group-012-B-first (turn-start window) now stops at closed-group source reoffered - separate follow-up",
+ "rows": [
+  {
+   "match_id": "group-002-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+     "phase": "post_placement_response"
+    },
+    "error": null,
+    "steps": 112,
+    "events": 141,
+    "record_sha256": "06f3d9a8d85cd43d943d0e772917347123fbe17bc377481b4ed81d00ec19dccf"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 221,
+    "events": 287,
+    "record_sha256": "e01aa5963294633364ecdea3aa25ba8b46524c578ccb3edd64f2a663bc192958"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-002-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+     "phase": "turn_end_response"
+    },
+    "error": null,
+    "steps": 182,
+    "events": 230,
+    "record_sha256": "7a1aff51a06efd3e5a99ff111afd5139aabe3308cd02a480c788e39422ced617"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 211,
+    "events": 269,
+    "record_sha256": "024fa661bf3e98260c38c63500b219b460ae95d06455179b17ed048f4c2ac155"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-012-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 189,
+    "events": 245,
+    "record_sha256": "af5c77d2809276d3b338f727b27bebf4c7f54cb144cdaf1f25374bf1c6720386"
+   },
+   "after": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "response group closure differs: ['closed-group source reoffered']",
+     "phase": "response_window"
+    },
+    "error": null,
+    "steps": 189,
+    "events": 245,
+    "record_sha256": "b7a8ef1b878dee95279f06714f5e85320b35f54fde89dc61c975a5784f54999d"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-018-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+     "phase": "turn_end_response"
+    },
+    "error": null,
+    "steps": 224,
+    "events": 290,
+    "record_sha256": "e55d479c2b10e5ea1dcdb10ef2ab976134bedda79b2e5a102fb1a2ba090d1d62"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 247,
+    "events": 322,
+    "record_sha256": "99260f9c323794c8c8a83f80fd5854726cee6392271cf9e6026186ce18824cdd"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-022-B-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['A-020#1']",
+     "phase": "post_placement_response"
+    },
+    "error": null,
+    "steps": 233,
+    "events": 301,
+    "record_sha256": "5cacd1f195e5554c38c39796dfe74423211e579bd1633c607fff092b234d2e9f"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 280,
+    "events": 360,
+    "record_sha256": "00f8953c15a4b5e7df32f546b83c91a364f07372f0c3a2ca7baf0d2b5e6364c1"
+   },
+   "play_digest_equal": false
+  },
+  {
+   "match_id": "group-027-A-first",
+   "before": {
+    "completed": false,
+    "stop": {
+     "code": "unsupported_contract_boundary",
+     "detail": "current predicate coverage incomplete: response_source_predicate_coverage: ['B-020#1']",
+     "phase": "post_placement_response"
+    },
+    "error": null,
+    "steps": 91,
+    "events": 119,
+    "record_sha256": "69303e79efab096020687794b796ae3257dee06f4ec6efe6706bd486aa565639"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "error": null,
+    "steps": 207,
+    "events": 266,
+    "record_sha256": "6804a2fb79262122b0b3068eca6ff36eae7aa7a87bd4ef19b5bae8f97229655e"
+   },
+   "play_digest_equal": false
+  }
+ ]
+}

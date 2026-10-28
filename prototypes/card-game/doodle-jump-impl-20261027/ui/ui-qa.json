@@ -1,0 +1,97 @@
+{
+ "viewport": "390x844",
+ "touch": true,
+ "checks": {
+  "qaPanel": {
+   "single": {
+    "ok": 1,
+    "ng": 0,
+    "text": "使用後：手札8枚・そだち20\nいぬ①→いぬ②（1段階）：手札8枚・そだち25 OK"
+   },
+   "multi": {
+    "ok": 1,
+    "ng": 0,
+    "text": "使用後：手札8枚・そだち20\nいぬ①→いぬ③（2段階）：1枚だけ：手札8枚・そだち20 OK"
+   },
+   "none": {
+    "ok": 1,
+    "ng": 0,
+    "text": "ターン終了：予約失効・そだち20 OK"
+   },
+   "twice": {
+    "ok": 1,
+    "ng": 0,
+    "text": "1回目（1段階）：手札9枚・そだち25\n2回目：何も起きない：手札8枚・そだち25 OK"
+   },
+   "legacy": {
+    "ok": 2,
+    "ng": 0,
+    "text": "hotseat-2 1回目：1枚・+5なし：手札9枚・そだち20 OK\nhotseat-2 2回目：+5：手札8枚・そだち25 OK"
+   },
+   "cpu-cannot": {
+    "ok": 1,
+    "ng": 0,
+    "text": "ときおくりできない局面のCPU：おべんとうばこを使う OK"
+   },
+   "cpu-short": {
+    "ok": 1,
+    "ng": 0,
+    "text": "時1（使うとときおくりの時が残らない）のCPU：先にときおくりする OK"
+   },
+   "cpu-can": {
+    "ok": 1,
+    "ng": 0,
+    "text": "時2（使った後に1段階のときおくりができる）のCPU：ぴょんぴょんジャンプを使う OK"
+   },
+   "cpu-discount": {
+    "ok": 1,
+    "ng": 0,
+    "text": "カブトムシ④（ときおくり−1）・時1のCPU：ぴょんぴょんジャンプを使う OK"
+   },
+   "saves": {
+    "ok": 3,
+    "ng": 0,
+    "text": "old-second-skip-plus5：版 hotseat-2・368手・そだち A65／B60 OK\nsingle-step-draw：版 hotseat-2・350手・そだち A75／B45 OK\nmulti-step-draw：版 hotseat-2・358手・そだち A55／B35 OK"
+   }
+  },
+  "qaPanelOverflow": false,
+  "detailOpen": true,
+  "detailText": true,
+  "detailOverflow": false,
+  "matchSingle": {
+   "before": {
+    "growth": 20,
+    "hand": 8
+   },
+   "after": {
+    "growth": 25,
+    "hand": 7
+   },
+   "growthDelta": 5,
+   "handDelta": -1,
+   "overflow": false,
+   "restoredGrowth": 25
+  },
+  "matchMulti": {
+   "before": {
+    "growth": 20,
+    "hand": 7
+   },
+   "after": {
+    "growth": 20,
+    "hand": 6
+   },
+   "growthDelta": 0,
+   "handDelta": -1,
+   "overflow": false,
+   "restoredGrowth": 20
+  },
+  "oldSaveResult": true,
+  "oldSaveResultText": "A の勝利\n\nR10最終比較 · A 65 / B 60\n\n開始画面へ",
+  "deckAdded": true,
+  "cpuMatchStarted": true,
+  "cpuOverflow": false,
+  "recordsOverflow": false
+ },
+ "pageErrors": []
+}

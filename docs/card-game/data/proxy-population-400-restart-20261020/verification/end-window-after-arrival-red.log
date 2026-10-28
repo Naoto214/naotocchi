@@ -1,0 +1,62 @@
+test_end_group_is_observed_and_offered_while_an_arrival_group_is_open (test_proxy_population_end_window_after_arrival.EndWindowAfterArrivalTests.test_end_group_is_observed_and_offered_while_an_arrival_group_is_open) ... ERROR
+
+======================================================================
+ERROR: test_end_group_is_observed_and_offered_while_an_arrival_group_is_open (test_proxy_population_end_window_after_arrival.EndWindowAfterArrivalTests.test_end_group_is_observed_and_offered_while_an_arrival_group_is_open)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/naotocchi/docs/card-game/tools/test_proxy_population_end_window_after_arrival.py", line 43, in test_end_group_is_observed_and_offered_while_an_arrival_group_is_open
+    result=connected.segment(p['e'],initial(),p['h'],p['shots'],[p['e']],7,p['proof'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 145, in segment
+    result=incarnation.segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_incarnation_window.py", line 23, in segment
+    try:return _segment(envelope,initial,events,shots,envelopes,limit,proof,session,connection)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_incarnation_window.py", line 43, in _segment
+    result=positive.segment(envelope,initial,events,shots,envelopes,limit,proof,converted)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_positive_window.py", line 150, in segment
+    result=window.segment(envelope,initial,events,shots,runtime,limit,proof,session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_trigger_window.py", line 185, in segment
+    try:return original_operation(initial,scoped)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_positive_window.py", line 147, in operation
+    return original_operation(supplied,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 135, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 134, in connected
+    with arithmetic.scope(),challenge_return.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_positive_window.py", line 145, in connected
+    return callback(forced_connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_trigger_window.py", line 182, in scoped
+    result['supported_trigger_coverage']=coverage.audit(result,events,proof,initial,shots)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_trigger_coverage.py", line 230, in audit
+    proof['processing_order']=order.audit(result,expected)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_opportunity_order.py", line 78, in audit
+    bind(result['trigger_ledger'],journal)
+  File "/home/user/naotocchi/docs/card-game/tools/proxy_population_opportunity_order.py", line 70, in bind
+    if canonical(saved[field])!=canonical(expected[field]):raise ValueError('saved trigger ledger differs from execution')
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: saved trigger ledger differs from execution
+
+----------------------------------------------------------------------
+Ran 1 test in 2.071s
+
+FAILED (errors=1)

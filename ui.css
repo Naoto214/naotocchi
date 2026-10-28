@@ -171,9 +171,9 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .profile-hint,.world-date-hint {font-size:12px;line-height:1.65;letter-spacing:normal;overflow-wrap:anywhere}
 .profile-code-btn {min-height:44px;font-size:13px;border-radius:12px;line-height:1.4}
 .profile-code-box {font-size:16px}
-.menu-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;overflow:auto}
-.menu-grid button, .menu-grid .independent-game {min-height:112px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f2ede9;border:1px solid #d8cfd0;border-radius:16px;font-size:26px;color:var(--ui-purple);cursor:pointer;padding:10px 4px}
-.menu-grid button span, .menu-grid .independent-game span {font-size:14px;font-weight:600}.menu-grid small {font-size:11px;color:var(--ui-muted)}
+.menu-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;overflow:auto}
+.menu-grid button, .menu-grid .independent-game {min-height:92px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;background:#f2ede9;border:1px solid #d8cfd0;border-radius:16px;font-size:26px;color:var(--ui-purple);cursor:pointer;padding:10px 4px}
+.menu-grid .menu-label {font-size:16px;font-weight:600}.menu-grid small {font-size:12px;color:var(--ui-muted)}
 .menu-grid #worldBtn {background:#e8eff4;color:#486b8a}.menu-grid #gamesBtn {background:#e5f0e7;color:var(--ui-teal)}.menu-grid #itemBtn {background:#f7e6ee;color:var(--ui-rose)}
 .date-invite-btn {background:var(--ui-rose);color:white;border-color:var(--ui-rose)}
 .design-tabs,.ach-tabs,.item-tabs {display:flex;gap:6px;padding:4px;border-radius:14px;background:#e9e5df;flex-shrink:0}
@@ -264,6 +264,52 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 @media(prefers-reduced-motion:reduce){.relationship-heart[data-relationship-state="positive"],.relationship-aura[data-relationship-state="positive"]{animation:none}}
 
 .menu-grid .independent-game { text-decoration:none; background:#e6f3f5; color:#34576a; }
+.menu-grid {min-height:0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.menu-grid .story-entry {grid-column:1 / -1;background:#FCFBF9;color:#414C50;border-color:#D8D8D2}
+
+/* A shared heading keeps the icon and title centered as one unit. The same
+   two-line description space aligns every row without per-card offsets. */
+#menuOverlay {
+  --menu-card-height:clamp(92px,calc((var(--app-height) - 194px)/5),98px);
+  inset:max(8px,env(safe-area-inset-top)) max(8px,calc((100vw - 420px)/2)) auto;
+  max-height:calc(var(--app-height) - max(8px,env(safe-area-inset-top)) - max(8px,env(safe-area-inset-bottom)));
+  box-sizing:border-box;padding:8px;
+}
+#menuOverlay .dex-header {margin-bottom:6px}
+#menuOverlay .menu-grid {
+  flex:0 1 auto;min-height:0;gap:6px;
+  grid-template-rows:repeat(6,minmax(min-content,max-content));
+  padding:3px;margin:-3px;scroll-padding:3px;
+}
+#menuOverlay .menu-grid > :is(button,a) {
+  min-width:0;min-height:var(--menu-card-height);padding:6px;
+  gap:4px;line-height:1.25;text-align:center;
+}
+#menuOverlay .menu-heading {
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:40px;max-width:100%;flex:none;
+}
+#menuOverlay .menu-label {
+  min-width:0;font-size:clamp(16px,4.1vw,17px);font-weight:600;
+  line-height:1.25;word-break:keep-all;overflow-wrap:anywhere;
+}
+#menuOverlay .menu-icon {
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;flex:0 0 28px;font-size:26px;line-height:1;
+}
+#menuOverlay .menu-icon > :is(i,svg,span,img) {
+  display:block;width:28px;height:28px;flex:none;max-width:100%;
+  font-size:26px;line-height:28px;object-fit:contain;
+}
+#menuOverlay .menu-grid small {
+  display:block;flex:none;min-height:2.7em;font-size:clamp(12px,3.1vw,13px);
+  line-height:1.35;text-align:center;text-wrap:balance;overflow-wrap:normal;
+}
+#menuOverlay .menu-grid small > span {display:inline-block;max-width:100%;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+#menuOverlay .menu-grid > .story-entry {min-height:76px;gap:2px}
+#menuOverlay .story-entry .menu-heading {min-height:32px}
+#menuOverlay .story-entry small {min-height:1.35em}
+
 
 /* Individuality: bidirectional, non-ranked temperament axes and touch-size choices. */
 .individual-trait{margin:8px 0}.individual-axis{display:grid;grid-template-columns:1fr auto 1fr;gap:4px;align-items:center;font-size:11px}.individual-axis span:last-child{text-align:right}.individual-axis span:nth-child(2){color:#426f91;white-space:nowrap;font-size:16px}.individual-heart{display:flex;justify-content:space-between;gap:12px;line-height:1.7}.individual-dialog{position:fixed;inset:0;z-index:10000;background:#20334baa;display:grid;place-items:center;padding:16px}.individual-dialog.hidden{display:none}.individual-panel{box-sizing:border-box;width:min(100%,420px);max-height:85dvh;overflow:auto;border-radius:22px;background:#f7f9fc;color:#253b50;padding:22px;box-shadow:0 12px 40px #0004}.individual-panel h2{font-size:20px}.individual-panel p{line-height:1.7}.individual-panel button{display:block;width:100%;min-height:48px;margin:12px 0;padding:12px;border:1px solid #91aabc;border-radius:12px;background:#fff;color:inherit;font:inherit;white-space:normal;overflow-wrap:anywhere}.individual-panel button:focus-visible{outline:3px solid #437faa}.individual-panel #individualityLater{background:transparent;border:0}

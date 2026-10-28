@@ -1,0 +1,27 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree c64a889e where group-040-A-first raised 'deferred timing application unproved' (an obligation named the positive window's intermediate resolver event at 235); after = tree f306426a binding such an obligation through the verified trace event at the same sequence.",
+ "rows": [
+  {
+   "match_id": "group-040-A-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "deferred timing application unproved: ['14c985a5a9f354303e1157b30765b241bb3e3d65128b56db1a5f1ef691c7e1b1']"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 208,
+    "events": 273,
+    "record_sha256": "999b9db379e5c6310a03e5df07365a1bb041fa068a516300fd195162ffbd14f2",
+    "error": null
+   }
+  }
+ ]
+}

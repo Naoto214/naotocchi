@@ -1,0 +1,27 @@
+{
+ "schema": "fixed400_fix_diagnostic_replay.v1",
+ "diagnostic_only": true,
+ "counts_toward_fixed400": false,
+ "note": "before = tree 93281ed2 where group-028-A-first stopped at the next step's 'closed-group response identity differs' (ledger kept turn A after the 277..280 turn change; coverage then reported 'archive execution boundaries differ'); after = tree 60ce2c12 observing turn-change results on the active path.",
+ "rows": [
+  {
+   "match_id": "group-028-A-first",
+   "before": {
+    "completed": null,
+    "stop": null,
+    "steps": null,
+    "events": null,
+    "record_sha256": null,
+    "error": "archive execution boundaries differ (after segment stop: response group closure differs: ['closed-group response identity differs'])"
+   },
+   "after": {
+    "completed": true,
+    "stop": null,
+    "steps": 219,
+    "events": 290,
+    "record_sha256": "d5a5d9c2f7fe587f59d9ca61978f49c68ae26ac7d8a4b6eeab6648b2c3ed4689",
+    "error": null
+   }
+  }
+ ]
+}
