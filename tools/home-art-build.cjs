@@ -29,3 +29,6 @@ if(fs.existsSync('docs/design/home-art-evidence'))fs.cpSync('docs/design/home-ar
 // Wait for actual art navigation readiness, not a fixed cold-load delay.
 // The complete failure still surfaces if image or model initialization stalls.
 write('home-art-browser-check.js',read('home-art-browser-check.js').replace('await wait(1500);',`await wait(1500);let artReady=false;for(let n=0;n<150;n++){const q=frame.contentWindow.HomeV22QA,e=q.environment(),d=q.detail();if(e?.mode==='art-25d'&&e.loaded&&d.region===$('region').value&&d.actors.length===Number($('count').value)&&d.actors.every(a=>a.ground)){artReady=true;break;}await wait(100);}if(!artReady)throw Error('Art navigation did not become ready');`));
+
+// Changing an unapplied selector during a cold load must not change that load's readiness target.
+write('home-art-browser-check.js',read('home-art-browser-check.js').replace("frame.contentWindow.HomeV22QA.scene($('region').value,Number($('count').value),$('time').value);", "const appliedRegion=$('region').value,appliedCount=Number($('count').value);frame.contentWindow.HomeV22QA.scene(appliedRegion,appliedCount,$('time').value);").replace("d.region===$('region').value&&d.actors.length===Number($('count').value)","d.region===appliedRegion&&d.actors.length===appliedCount"));
