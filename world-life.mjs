@@ -1,5 +1,16 @@
 // Presentation-only active-time population. Routes are habitat contracts, not game AI.
+const air=(kind,z,y,speed,gap=[5,12])=>({kind,domain:'air',z,y,speed,gap});
 export const HOME_ROUTES = Object.freeze({
+ countryside:[air('bird',2100,400,80),air('butterfly',900,90,28)],
+ sea:[air('bird',2200,370,90)],
+ snow:[air('snow',1100,300,28,[1,3])],
+ mountain:[air('cloud',2800,650,24,[8,16]),air('bird',2300,500,95)],
+ jungle:[air('butterfly',1200,150,25),air('mote',2200,230,18)],
+ desert:[air('sand',1600,30,55,[2,5])],
+ deepsea:[air('glow',1450,160,18,[2,5]),air('mote',2300,300,10,[3,6])],
+ star_stop:[air('star',2200,550,12,[3,7])],
+ memory_lake:[air('mist',2300,140,12,[5,10]),air('glow',1600,75,14,[5,11])],
+ home:[air('butterfly',1100,90,25),air('bird',2300,380,80,[14,28])],
  forest:[{kind:'bird',domain:'air',z:1500,y:370,speed:125,gap:[9,21]},{kind:'butterfly',domain:'air',z:1050,y:95,speed:32,gap:[5,12]}],
  river_lake:[{kind:'fish',domain:'water',z:1650,y:-17,speed:70,gap:[2,4]},{kind:'bird',domain:'air',z:1700,y:330,speed:120,gap:[14,28]}],
  city:[{kind:'car',domain:'road',z:1400,y:5,speed:175,gap:[10,24]},{kind:'pedestrian',domain:'pavement',z:1150,y:0,speed:46,gap:[6,16]}]

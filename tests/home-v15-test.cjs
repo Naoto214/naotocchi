@@ -51,9 +51,9 @@ test('terrain owns the five-plus-four meter move and restores legacy order on ex
  }
  Object.defineProperty(death,'nextSibling',{get(){return death.parentNode?.children[death.parentNode.children.indexOf(death)+1]||null;}});
  const s=h.api.state();Object.assign(s,{stage:'growing',speciesLine:'dog',regionId:'forest',isSleeping:false,isSick:false,dying:false});
- for(const region of ['forest','home','city','mountain','river_lake']){
-  s.regionId=region;h.api.render();h.api.render();
-  const terrain=['forest','city','river_lake'].includes(region);
+ for(const [region,stage] of [['forest','growing'],['home','egg'],['city','growing'],['mountain','egg'],['river_lake','growing']]){
+  s.regionId=region;s.stage=stage;h.api.render();h.api.render();
+  const terrain=stage==='growing';
   assert.deepEqual(daily.children.map(n=>n.id),['hunger','happiness','energy','health',...(terrain?['deathMeterItem']:[])]);
   assert.deepEqual(life.children.map(n=>n.id),['evo','devo',...(!terrain?['deathMeterItem']:[]),'transform','goal']);
  }

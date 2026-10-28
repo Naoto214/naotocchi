@@ -1,7 +1,7 @@
 /* Ephemeral presentation only. Never receives saved entities or gameplay RNG. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.NaotocchiHomeDioramaModel=api;})(typeof window!=='undefined'?window:null,function(){
   'use strict';
-  const supported=region=>['forest','river_lake','city'].includes(region);
+  const supported=region=>['forest','river_lake','city','countryside','sea','snow','mountain','jungle','desert','deepsea','star_stop','memory_lake','home'].includes(region);
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   function bounds(a,s){
     const ext=a.extent||{},bottom=Math.max(24,s.height-12-(ext.bottom||0)),top=Math.min(bottom,Math.max((ext.top||a.h)+18,s.groundTop||s.height*.51));

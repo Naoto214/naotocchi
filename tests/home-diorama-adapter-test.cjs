@@ -27,7 +27,7 @@ function setup({region='forest',poops=0}={}){
  return {stage,doc,owner,c,raf,events,poop,setHidden:v=>{hidden=v;doc.listeners.visibilitychange();},setBlocked:v=>blocked=v,setActors:v=>actors=v};
 }
 test('interrupt before a terrain scene exists leaves the legacy poop row untouched',()=>{
- for(const region of [null,'home']){
+ for(const region of [null,'unsupported-qa-region']){
   const h=setup({region,poops:4}),before=JSON.stringify(h.poop.children.map(n=>n.style));
   assert.doesNotThrow(()=>h.c.interrupt(),'care/conversation can interrupt an inactive controller');
   assert.doesNotThrow(()=>h.setHidden(true),'backgrounding before terrain initialization is safe');
@@ -37,7 +37,7 @@ test('interrupt before a terrain scene exists leaves the legacy poop row untouch
 });
 test('leaving terrain preserves legacy poop visibility through interruption and permits reentry',()=>{
  const h=setup({poops:4});assert.ok(h.poop.children.every(n=>n.style.visibility==='visible'));
- h.c.update({region:'home'});const before=JSON.stringify(h.poop.children.map(n=>n.style));
+ h.c.update({region:'unsupported-qa-region'});const before=JSON.stringify(h.poop.children.map(n=>n.style));
  h.c.interrupt();
  assert.equal(JSON.stringify(h.poop.children.map(n=>n.style)),before,'inactive paint must not hide or reposition the legacy row');
  h.setHidden(true);assert.equal(JSON.stringify(h.poop.children.map(n=>n.style)),before,'backgrounding preserves the legacy row');h.setHidden(false);
@@ -53,9 +53,9 @@ test('tap selects, release after drag sets destination without teleport',()=>{
 });
 test('cancel and lost capture never dispatch a movement',()=>{for(const type of ['pointercancel','lostpointercapture']){const h=setup();const p={pointerId:1,isPrimary:true,clientX:170,clientY:120,target:h.owner,preventDefault(){}};h.stage.listeners.pointerdown(p);h.stage.listeners.pointermove({...p,clientX:60});h.stage.listeners[type](p);assert.equal(h.c.model.snapshot()[0].target,null);}});
 test('hidden document cancels RAF and destination, visible resumes without catchup',()=>{const h=setup();h.c.model.move('pet:dog',{x:60,y:160});assert.ok(h.raf.size);h.setHidden(true);assert.equal(h.raf.size,0);assert.equal(h.c.model.snapshot()[0].target,null);h.setHidden(false);assert.equal(h.raf.size,1);h.c.destroy();assert.equal(h.raf.size,0);});
-test('Pilot exit restores original actor styles and input ownership',()=>{const h=setup();h.c.update({region:'home'},{});assert.equal(h.stage.dataset.diorama,undefined);assert.equal(h.owner.style.translate,'');assert.equal(h.owner.getAttribute('role'),null);});
+test('Pilot exit restores original actor styles and input ownership',()=>{const h=setup();h.c.update({region:'unsupported-qa-region'},{});assert.equal(h.stage.dataset.diorama,undefined);assert.equal(h.owner.style.translate,'');assert.equal(h.owner.getAttribute('role'),null);});
 test('departed actor cannot receive stale drag release',()=>{const h=setup();const p={pointerId:1,isPrimary:true,clientX:170,clientY:120,target:h.owner,preventDefault(){}};h.stage.listeners.pointerdown(p);h.setActors([]);h.c.sync();h.stage.listeners.pointerup({...p,clientX:60});assert.equal(h.c.model.snapshot().length,0);});
-test('leaving a paused Pilot removes all animation pause state',()=>{const h=setup();h.setBlocked(true);h.c.update({region:'forest'},{});assert.equal(h.stage.dataset.dioramaPaused,'true');h.c.update({region:'home'},{});assert.equal(h.stage.dataset.dioramaPaused,undefined);assert.equal(h.stage.dataset.dioramaReduced,undefined);});
+test('leaving a paused Pilot removes all animation pause state',()=>{const h=setup();h.setBlocked(true);h.c.update({region:'forest'},{});assert.equal(h.stage.dataset.dioramaPaused,'true');h.c.update({region:'unsupported-qa-region'},{});assert.equal(h.stage.dataset.dioramaPaused,undefined);assert.equal(h.stage.dataset.dioramaReduced,undefined);});
 test('a 15-second held drag survives repeated normal render updates without autonomous movement',()=>{
  const h=setup(),p={pointerId:1,isPrimary:true,button:0,clientX:170,clientY:120,target:h.owner,preventDefault(){}};
  h.stage.listeners.pointerdown(p);const before=h.c.model.snapshot()[0];

@@ -7,7 +7,7 @@ export function createSoftwareRenderer(canvas){
  const matrix=new THREE.Matrix4(),model=new THREE.Matrix4(),view=new THREE.Matrix4(),vp=new THREE.Matrix4(),v=new THREE.Vector3(),n=new THREE.Vector3(),baseColor=new THREE.Color();
  const info={render:{calls:0,triangles:0},memory:{textures:0,geometries:0}};
  function render(scene,camera){if(released)return;camera.updateMatrixWorld();scene.updateMatrixWorld();vp.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);
-  ctx.clearRect(0,0,W,H);let bg='#bad3c8';if(scene.background?.isColor)bg='#'+scene.background.getHexString();const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,bg);sky.addColorStop(1,'#e6eddf');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
+  ctx.clearRect(0,0,W,H);let bg='#bad3c8';if(scene.background?.isColor)bg='#'+scene.background.getHexString();const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,bg);sky.addColorStop(1,'#e6eddf');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);if(scene.background?.isTexture&&scene.background.image)ctx.drawImage(scene.background.image,0,0,W,H);
   const triangles=[],geometries=new Set();info.render.calls=0;
   scene.traverse(mesh=>{if(!mesh.isMesh||!mesh.visible||!mesh.geometry||!mesh.material)return;const mat=Array.isArray(mesh.material)?mesh.material[0]:mesh.material;if(!mat.visible||mat.opacity===0||mat.map&&!mat.vertexColors&&mesh.geometry.attributes.uv&&mesh.name===''){
     // Mesh textures can be ground/water; only omit transparent actor billboards.

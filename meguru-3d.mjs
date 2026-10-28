@@ -1,4 +1,4 @@
-import {configureHomeCamera,rotateWheelPoint} from './home-scenery.mjs';
+import {configureHomeCamera,rotateWheelPoint,homeTrailPartition,homePartitionHeight} from './home-scenery.mjs';
 // なおとっち — めぐる 3D prototype(forest だけ・?meguru3d=1 の ときだけ よみこむ)。
 //
 // ・せかい / シミュレーション(meguru.js)は そのまま。ここは sim.view() を うけとって えがく だけ(view は かきかえない)。
@@ -441,20 +441,22 @@ export function terrainGrid(world, M, objects) {
     H[k] = h; wet[k] = wv; AR[k] = ar;
     S[k] = 1 + Math.max(-0.22, Math.min(0.12, h / 70)) + n2(x / 60, z / 60) * 0.04;
   }
-  const sample = (x, z) => { const fx = Math.max(0, Math.min(nx - 1e-6, (x - x0) / cell)), fz = Math.max(0, Math.min(nz - 1e-6, (z - z0) / cell)), i = Math.floor(fx), j = Math.floor(fz), u = fx - i, v = fz - j, k = j * (nx + 1) + i; return H[k] * (1 - u) * (1 - v) + H[k + 1] * u * (1 - v) + H[k + nx + 1] * (1 - u) * v + H[k + nx + 2] * u * v; };
-  const surfaceY = (x, z) => { const g = sample(x, z), sd = sDist(x, z), b = sd.d < sd.w + 75 ? streamBedY(sd.d, sd.w, sd.river, sd.ditch) : null; return b == null ? g : Math.max(g, b); };
+  const sample = (x, z) => { const fx = Math.max(0, Math.min(nx - 1e-6, (x - x0) / cell)), fz = Math.max(0, Math.min(nz - 1e-6, (z - z0) / cell)), i = Math.floor(fx), j = Math.floor(fz), u = fx - i, v = fz - j, k = j * (nx + 1) + i; if(world.homeHabitat)return u+v<=1?H[k]*(1-u-v)+H[k+1]*u+H[k+nx+1]*v:H[k+1]*(1-v)+H[k+nx+2]*(u+v-1)+H[k+nx+1]*(1-u); return H[k] * (1 - u) * (1 - v) + H[k + 1] * u * (1 - v) + H[k + nx + 1] * (1 - u) * v + H[k + nx + 2] * u * v; };
+  const homePartition=world.homeTrail?homeTrailPartition(world,sample):null;
+  const surfaceY = (x, z) => { if(homePartition)return homePartitionHeight(homePartition,x,z); const g = sample(x, z), sd = sDist(x, z), b = sd.d < sd.w + 75 ? streamBedY(sd.d, sd.w, sd.river, sd.ditch) : null; return b == null ? g : Math.max(g, b); };
   // キャラの 足もと: 道 / spot の 上は 0(橋の 上は 床の 高さ)、そと は 地形(池 / 小川の 中では 水面 ちかく まで)
   const decks = crossings.filter((c) => c.kind === 'bridge').concat(gullies);
   const walkY = (x, z) => {
+    if(homePartition)return surfaceY(x,z);
     if (segD(x, z) < 6 || spots.some((q) => q.kind !== 'water' && Math.hypot(q.x - x, q.z - z) < q.r)) {
       for (const c of decks) if (Math.hypot(c.x - x, c.z - z) < (c.w + 30) / Math.max(0.45, Math.abs(Math.sin(c.pathAng - c.streamAng))) + 20) return BRIDGE_DECK_Y;
       const sd = sDist(x, z); if (sd.d < sd.w * 0.9) return STREAM_WATER_Y[sd.river ? 'river' : sd.ditch ? 'ditch' : 'creek'] + 3;   // 水の 中の 道: 水面 ちかく(あさせを あるく)
       for (const q of ponds) if (Math.hypot(q.x - x, q.z - z) < q.r * 0.85) return -2;   // 池の 中(2D で 水の spot へ 入る): 水面(−4)ちかく
       return 0;
     }
-    return Math.max(surfaceY(x, z), -5);
+    return world.homeHabitat?surfaceY(x,z):Math.max(surfaceY(x, z), -5);
   };
-  return { x0, z0, cell, nx, nz, H, S, wet, AR, sample, surfaceY, walkY, segD, sDist, crossings, ponds, anchorIds, streams, wetSpots };
+  return { x0, z0, cell, nx, nz, H, S, wet, AR, homePartition, sample, surfaceY, walkY, segD, sDist, crossings, ponds, anchorIds, streams, wetSpots };
 }
 // 接地(2026-10-02・Geometry 監査): 物の 中心の 高さ だけで すわらせると、斜面で 岩 / 盛り土 / 大木の 根 / 岸の 花の はしが 浮く(山 95・砂漠 35)。
 //   構造物(家・遺跡・柵 …)= 足もとの いちばん ひくい 所まで 物ごと しずめる(30 まで。屋根と からだが ずれない)。
@@ -875,7 +877,7 @@ function create3DRenderer(M, o, onLost) {
       const ground = new THREE.Mesh(keep(new THREE.PlaneGeometry(hi - lo + 4000, world.len + 4000)), groundMat);
       ground.rotation.x = -Math.PI / 2; ground.position.set((lo + hi) / 2, 0, -world.len / 2);
       sc.add(ground);
-    } else {
+    } else if(!(o.home&&world.homeIsland)) {
       // 地形の 格子の そとは 平らな わく(4 まい)。格子の 上には かさねない(掘った 谷 / 池 / 川を おおわない)
       const gx0 = terr.x0, gx1 = terr.x0 + terr.nx * terr.cell, gz0 = terr.z0, gz1 = terr.z0 + terr.nz * terr.cell, X0 = lo - 2000, X1 = hi + 2000, Z0 = -2000, Z1 = world.len + 2000;
       for (const [ax, bx, az, bz] of [[X0, X1, Z0, gz0], [X0, X1, gz1, Z1], [X0, gx0, gz0, gz1], [gx1, X1, gz0, gz1]]) {
@@ -884,7 +886,7 @@ function create3DRenderer(M, o, onLost) {
       }
     }
     let gt2 = null;
-    if (terr) {
+    if (terr && !(o.home && world.homeTrail)) {
       gt2 = keep(canvasTexture(gc)); gt2.wrapS = gt2.wrapT = THREE.RepeatWrapping;
       const { x0, z0, cell, nx, nz, H, S, wet, AR } = terr, patchC = new THREE.Color(world.ground[1]).multiplyScalar(1.15), pos = new Float32Array((nx + 1) * (nz + 1) * 3), colA = new Float32Array((nx + 1) * (nz + 1) * 3), uvA = new Float32Array((nx + 1) * (nz + 1) * 2), idx = [];
       const soil = prof0 && prof0.water && prof0.water.bank ? new THREE.Color(prof0.water.bank) : new THREE.Color(world.ground[1]).multiplyScalar(0.8).lerp(new THREE.Color('#b59a72'), 0.55), base = new THREE.Color(1, 1, 1);
@@ -897,12 +899,22 @@ function create3DRenderer(M, o, onLost) {
       const gg = keep(new THREE.BufferGeometry()); gg.setAttribute('position', new THREE.BufferAttribute(pos, 3)); gg.setAttribute('color', new THREE.BufferAttribute(colA, 3)); gg.setAttribute('uv', new THREE.BufferAttribute(uvA, 2)); gg.setIndex(idx); gg.computeVertexNormals();
       const tm = new THREE.Mesh(gg, keep(groundedMaterial(new THREE.MeshLambertMaterial({ map: gt2, vertexColors: true })))); tm.name = 'terrain';tm.userData.softwareSurface=-3; tm.frustumCulled = false; sc.add(tm);
     }
+    if(o.home && world.homeTrail){
+      const partition=terr.homePartition;
+      for(const [name,rows] of Object.entries(partition)){
+        const cols=rows[0].length/3,idx=[],pos=rows.flat();
+        for(let j=0;j<rows.length-1;j++)for(let i=0;i<cols-1;i++){const a=j*cols+i,b=a+1,c=a+cols;idx.push(a,b,c,b,c+1,c);}
+        const g=keep(new THREE.BufferGeometry());g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(pos.flatMap((v,i)=>i%3===0?[v/420,-pos[i+2]/420]:[]),2));g.setIndex(idx);g.computeVertexNormals();
+        const mat=name==='path'?keep(groundedMaterial(new THREE.MeshLambertMaterial({color:world.path}))):groundMat;
+        const m=new THREE.Mesh(g,mat);m.name='home-floor-'+name;m.userData.softwareSurface=-3;sc.add(m);
+      }
+    }
     // みち と スポット(道の 面)
     const coloredPaths = o.home && world.regionId === 'city';
     const pathMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ color: coloredPaths ? '#ffffff' : world.path })));
     let groundKey = world.ground[0] + world.ground[1] + world.path;
     const refreshGround = () => { const k = world.ground[0] + world.ground[1] + world.path; if (k === groundKey) return; groundKey = k; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; pathMat.color.set(coloredPaths ? '#ffffff' : world.path); };
-    const segs = o.home && world.homeCityParcels || world.segments || [];
+    const segs = o.home && world.homeTrail ? [] : o.home && world.homeCityParcels || world.segments || [];
     // Geometry pass: 小川 / 川 / 谷を 横切る ところは 道の 面を きる(橋 / 飛び石が かわりに 渡す。道の 板が 水の 上に のらない)
     const gaps = terr ? terr.crossings.concat(world._gullies3d || [], terr.wetSpots.concat(terr.ponds).map((q) => ({ x: q.x, z: q.z, w: q.r * 0.8, pathAng: 0, streamAng: Math.PI / 2 }))) : [];   // 池の くぼ地の 上にも 道の 板を のせない
     const pieces = [];
@@ -1010,7 +1022,8 @@ function create3DRenderer(M, o, onLost) {
       if(o.home&&cur?.part?.homeWindow&&['wpanel','wbox'].includes(shape))shape='homewindow'+shape;
       if (curOy) it.y = (it.y || 0) + curOy;   // Terrain v1: 物は 地形の 高さに すわる
       const l = inst[shape] || (inst[shape] = []);
-      if(o.home&&cur?.ob.type==='wheel'&&['trunk','box'].includes(cur.part?.shape)){const arch=cur.ob.parts.find(p=>p.shape==='arch');homeWheels.push({shape,i:l.length,it:{...it},pivot:{y:curOy+(arch?.y||0),z:cur.ob.x}});}
+      if(o.home&&cur?.ob.type==='wheel'&&['trunk','box'].includes(cur.part?.shape)){const arch=cur.ob.parts.find(p=>p.shape==='arch');homeWheels.push({shape,i:l.length,it:{...it},pivot:{x:cur.ob.x,y:curOy+(arch?.y||0),z:-cur.ob.z},angle:arch?.ang||0});}
+      if(o.home&&cur?.part?.homeWind)homeWheels.push({shape,i:l.length,it:{...it},pivot:{x:it.x,y:it.y,z:it.z},angle:Math.PI/2});
       if(o.home && cur?.ob.type==='car')homeCars.push({shape,i:l.length,it:{...it},origin:cur.ob});
       if (cur && !NO_FADE.has(shape)) {
         cur.refs.push({ shape, i: l.length, it });
@@ -1029,6 +1042,7 @@ function create3DRenderer(M, o, onLost) {
       cur = solidOc ? { ob, r: Math.max(ob.collision.hw, ob.collision.hd), vr: 0, top: 0, refs: [] } : (!ob.dressing ? { ob, c: { x: ob.x, z: ob.z }, r: 10, vr: 0, top: 0, refs: [], soft: true } : null);
       if (cur && solidOc) occluders.push(cur);
       const gr = objectGround(terr, ob);   // 接地(構造物は 物ごと、それ以外は 地面に つく parts ごと)。橋 / 飛び石は 水面 と 道の 高さ が 基準
+      if(o.home&&ob.homeWheel){gr.base=ob.homeWheel.baseY;gr.part=null;}
       curOy = gr.base;
       // あたりの 箱の hw 軸(せかい (sin a, cos a))を ローカル x へ: three では θ = π/2 − a
       const t = hash01(ob.id), ry = Math.PI / 2 - (ob.rot || 0);
@@ -1073,7 +1087,7 @@ function create3DRenderer(M, o, onLost) {
           case 'flower': push('blade', { x: px, y: pt.y || 0, z: pz, sx: 3, sy: pt.h, sz: 3, ry: 0, tint: t, color: '#5fae4c' }); push('petal', { x: px, y: (pt.y || 0) + pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); push('nut8', { x: px, y: (pt.y || 0) + pt.h + 1.5, z: pz, sx: pt.r * 0.28, sy: pt.r * 0.2, sz: pt.r * 0.28, ry: 0, tint: 0.5, color: '#ffe066' }); break;   // 花の まんなか: 8 三角形(20 → 8)
           case 'petal': push('petal', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
           case 'post': push('post', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
-          case 'board': push(pt.glow ? 'glowboard' : 'board', { x: px, y: pt.y, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.spin != null ? pt.spin : Math.PI - pt.ang, tint: t, color: pt.color, rz: pt.spin != null ? pt.spin : 0 }); break;   // いたは 道の むきを 向く
+          case 'board': push(pt.glow ? 'glowboard' : 'board', { x: px, y: pt.y, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: o.home&&pt.homeWind?0:pt.spin != null ? pt.spin : Math.PI - pt.ang, tint: t, color: pt.color, rz: pt.spin != null ? pt.spin : 0 }); break;   // いたは 道の むきを 向く
           case 'slab': push('slab', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: 10, sz: pt.w, ry: Math.PI / 2 - pt.ang, tint: t }); break;
           case 'rail': { const sdx = Math.cos(pt.ang) * pt.side, sdz = -Math.sin(pt.ang) * pt.side; push('rail', { x: px + sdx, y: pt.y, z: pz - sdz, sx: pt.len, sy: pt.r, sz: pt.r, ry: Math.PI / 2 - pt.ang, tint: t, color: pt.color }); break; }
           case 'pebble': push('pebble', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.r * 0.7, sz: pt.r * 0.85, ry: t * TAU, tint: t }); break;
@@ -1302,13 +1316,13 @@ function create3DRenderer(M, o, onLost) {
     camera.updateProjectionMatrix();camera.updateMatrixWorld();
     if(o.home)alignHomeGround(camera,W,H,view.homeGroundY);
     // ひかり(時間・天気・場所の きぶん)。2D の TIME_LIGHT / WEATHER_LIGHT を そのまま つかう
-    const TL = M.TIME_LIGHT[env.time] || M.TIME_LIGHT.day, wl = M.WEATHER_LIGHT[env.weather] || 1;
+    const baseTL = M.TIME_LIGHT[env.time] || M.TIME_LIGHT.day, TL=o.home&&world.homeSky?{...baseTL,sky:world.homeSky}:baseTL, wl = M.WEATHER_LIGHT[env.weather] || 1;
     const light = Math.max(0.35, TL.light * wl * (mood.light || 1));
     built.hemi.intensity = 1.2 * light; built.sun.intensity = 1.55 * light * (env.weather === 'sunny' ? 1 : 0.6); built.amb.intensity = 0.22 * light;
     built.hemi.color.set(TL.sky[1]); built.sun.color.set(TL.tint);
     // そら: 2D と おなじ 2 色の たてグラデーション。きり: 地平の いろに 場所の きぶんの いろ(mood.tint)を まぜる
     const skyKey = TL.sky[0] + TL.sky[1];
-    if (built.skyKey !== skyKey && !(built.prof && built.prof.underwater)) { built.skyKey = skyKey; if (built.skyTex) built.skyTex.dispose(); built.skyTex = skyTexture(TL.sky[0], TL.sky[1]); built.sc.background = built.skyTex; }
+    if (built.skyKey !== skyKey && !(built.prof && built.prof.underwater)) { built.skyKey = skyKey; if (built.skyTex) built.skyTex.dispose(); built.skyTex = skyTexture(TL.sky[0], TL.sky[1]); if(o.home&&world.homeIsland){const c=built.skyTex.image,g=c.getContext('2d');g.fillStyle='#f5e9cb';for(let i=0;i<72;i++){g.globalAlpha=.3+hash01('home-star-a'+i)*.7;g.fillRect(hash01('home-star-x'+i)*c.width,hash01('home-star-y'+i)*c.height,.7,.7);}g.globalAlpha=1;built.skyTex.needsUpdate=true;} built.sc.background = built.skyTex; }
     const fogC = FOGC.set(TL.sky[1]);
     if (mood.tint) fogC.lerp(TMPC.setRGB(mood.tint[0] / 255, mood.tint[1] / 255, mood.tint[2] / 255), 0.35 + (mood.tintAmt || 0));
     fogC.multiplyScalar(Math.min(1, 0.6 + light * 0.4));
@@ -1412,7 +1426,8 @@ function create3DRenderer(M, o, onLost) {
       wheelRotation.setFromAxisAngle(wheelAxis,wheelAngle);
       for(const rf of built.homeWheels){
         const it=rf.it,m=built.meshes[rf.shape];if(!m)continue;
-        const p=rotateWheelPoint({y:it.y,z:it.x},rf.pivot,wheelAngle);tmp.position.set(p.z,p.y,it.z);
+        wheelAxis.set(Math.cos(rf.angle),0,Math.sin(rf.angle));wheelRotation.setFromAxisAngle(wheelAxis,wheelAngle);
+        tmp.position.set(it.x-rf.pivot.x,it.y-rf.pivot.y,it.z-rf.pivot.z).applyQuaternion(wheelRotation).add(new THREE.Vector3(rf.pivot.x,rf.pivot.y,rf.pivot.z));
         tmp.rotation.set(it.rx||0,it.ry||0,it.rz||0);tmp.quaternion.premultiply(wheelRotation);tmp.scale.set(it.sx,it.sy,it.sz);tmp.updateMatrix();
         m.setMatrixAt(rf.i,tmp.matrix);m.instanceMatrix.needsUpdate=true;
       }
@@ -1599,7 +1614,7 @@ function create3DRenderer(M, o, onLost) {
       for (let i = 0; i < m2; i++) { const y = wrap(i * 89 + nw * (0.03 + (i % 5) * 0.012), H + 30) - 15, x = wrap(i * 173 + Math.sin(t * 0.6 + i) * 26 + nw * 0.012, W + 30) - 15; ctx.globalAlpha = 0.22 + 0.4 * ((i % 3) / 2); ctx.beginPath(); ctx.arc(x, y, 1.2 + (i % 3) * 0.7, 0, TAU); ctx.fill(); }
       ctx.restore();
     }
-    if(o.home)drawProjectedLife(ctx,view.homeLife,toScreen,now||0);
+    if(o.home)drawProjectedLife(ctx,view.homeLife,toScreen,built.livingClock.value*1000);
     const p0 = view.player;
     for (const a of [...(view.party || []), ...(view.residents || [])]) {
       const d = Math.hypot(a.x - p0.x, a.z - p0.z);

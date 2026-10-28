@@ -51,6 +51,11 @@ export function createHomeNavigation(M,composition,{width,height,anchorY,offsetX
  };
  const walkable=p=>{
   if(p.x<world.minX+24||p.x>world.maxX-24||p.z<0||p.z>world.len)return false;
+  const bounds=composition.scenery?.activityBounds;
+  if(bounds&&(p.x<bounds.minX||p.x>bounds.maxX||p.z<bounds.minZ||p.z>bounds.maxZ))return false;
+  const T=world.terrain;
+  if(T?.kind==='coast'){const shore=M.shoreX(world,p.z);if(shore!=null&&((T.side||-1)<0?p.x<shore+60:p.x>shore-60))return false;}
+  if(T?.kind==='chasm'&&T.pts?.some((a,i)=>i&&distanceToSegment(p,{a:{x:T.pts[i-1][0],z:T.pts[i-1][1]},b:{x:a[0],z:a[1]}})<(T.half||230)+55))return false;
   const water=terr.sDist(p.x,p.z);if(water.d<water.w+48)return false;
   if(terr.ponds.some(q=>Math.hypot(q.x-p.x,q.z-p.z)<q.r+24))return false;
   if(world.regionId==='city'&&world.segments.some(s=>['road','distant-road'].includes(s.surface)&&(world.homeCityParcels?distanceToRoadRectangle(p,s)<45:distanceToSegment(p,s)<s.half+45)))return false;

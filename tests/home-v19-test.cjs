@@ -1,10 +1,10 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const {harness}=require('./helpers/runtime-harness.cjs');
 const M=harness({deterministic:true}).api.meguruMod;
-test('v19 defines all thirteen destinations but only three approved pilot compositions',async()=>{
+test('all thirteen formally defined destinations have approved Home compositions',async()=>{
  const {HOME_SCENERY}=await import('../home-scenery.mjs');
  assert.deepEqual(Object.keys(HOME_SCENERY).sort(),['home','city','countryside','forest','mountain','snow','sea','deepsea','river_lake','jungle','desert','star_stop','memory_lake'].sort());
- assert.deepEqual(Object.keys(HOME_SCENERY).filter(r=>HOME_SCENERY[r].status==='pilot').sort(),['city','forest','river_lake']);
+ assert.deepEqual(Object.keys(HOME_SCENERY).filter(r=>HOME_SCENERY[r].status==='pilot').sort(),Object.keys(HOME_SCENERY).sort());
  assert.equal(new Set(['forest','river_lake','city'].map(r=>JSON.stringify(HOME_SCENERY[r].camera))).size,3);
 });
 test('v19 compositions reuse landmarks with independent source objects and bounded cost',async()=>{

@@ -157,3 +157,30 @@ jobs:
           name: meguru-pad-size
           path: test-results/home-layout/pad-size
           retention-days: 14
+
+  home-v22-regions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        region: [city, countryside, forest, mountain, snow, sea, deepsea, river_lake, jungle, desert, star_stop, memory_lake, home]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: All widths, day and night, 1/6/28 actors in both engines
+        run: node tests/home-v22-browser.cjs
+        env:
+          HOME_V22_REGION: ${{ matrix.region }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-v22-${{ matrix.region }}
+          path: test-results/home-layout/v22
+          retention-days: 14

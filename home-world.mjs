@@ -15,8 +15,12 @@ export function composeHomeWorld(M,region){
   ...[-46,46].flatMap(dx=>[{shape:'box',rx:5,rz:18,h:30,y:0,dx,ang:Math.PI/2,color:'#57686b'},{shape:'box',rx:4,rz:4,h:34,y:30,dx,dz:19,ang:Math.PI/2,color:'#57686b'}])
  ]});
  const placements=[...scenery.placements];
- if(region!=='city')for(let i=0;i<12;i++)placements.push([i%3?'broadleaf':'conifer',-1700+i*310,(region==='river_lake'?3100:2850)+(i%3)*220,1.3+(i%3)*.25]);
+ if(['forest','river_lake'].includes(region))for(let i=0;i<12;i++)placements.push([i%3?'broadleaf':'conifer',-1700+i*310,(region==='river_lake'?3100:2850)+(i%3)*220,1.3+(i%3)*.25]);
  const objects=placements.map(([type,x,z,k=1,variant],i)=>{let candidates=catalogue.filter(o=>o.type===type);if(variant){const selected=candidates.filter(o=>{const f=o.parts[0]?.fl||0;return variant==='high'?f>=5:variant==='mid'?f===4:f<=3;});if(selected.length)candidates=selected;}const o=candidates[i%candidates.length];if(!o)return null;return {...o,id:'home:'+region+':'+i,sourceId:o.id,x,z,collision:o.collision?{...o.collision,x,z,hw:o.collision.hw*k,hd:o.collision.hd*k}:null,parts:o.parts.map(p=>{const q={...p};if(region==='city'&&['house','tower'].includes(type)&&['#b8d8e5','#cfe6f2'].includes(q.color))q.homeWindow=true;if(region==='city'&&q.win){q.homeWindow=true;q.color='#b8d8e5';}for(const key of ['r','rx','rz','h','y','dx','dz','len','w'])if(typeof q[key]==='number')q[key]*=k;return q;})};}).filter(Boolean);
+ // Home mountain silhouettes retain the official peak parts with a broad footprint.
+ for(const ob of objects.filter(o=>o.type==='lm_peak')){for(const p of ob.parts)for(const k of ['r','rx','rz','dx','dz'])if(typeof p[k]==='number')p[k]*=3.4;if(ob.collision){ob.collision.hw*=3.4;ob.collision.hd*=3.4;}}
+ // The formal windmill boards become radial sails around one Home-only hub.
+ for(const ob of objects.filter(o=>o.type==='lm_windmill'))for(const p of ob.parts.filter(p=>p.shape==='board')){p.dx=0;p.homeWind=true;}
  // Repeat the formal framed-window pair between existing levels for taller
  // Home buildings; bounded geometry, no textures or catalogue mutation.
  if(region==='city')for(const ob of objects.filter(o=>o.type==='tower')){
@@ -41,15 +45,6 @@ export function composeHomeWorld(M,region){
    const x=p.dx||0,z=p.dz||0,lx=x*Math.cos(axis)-z*Math.sin(axis),lz=(x*Math.sin(axis)+z*Math.cos(axis))*k;
    p.dx=lx*Math.cos(angle)+lz*Math.sin(angle);p.dz=-lx*Math.sin(angle)+lz*Math.cos(angle);
    if(p.len)p.len*=k;if(p.ang!=null)p.ang+=turn;
-  }
- }
- // Turn the official waterwheel face toward the Home camera (its original
- // catalogue orientation is edge-on here). Rotating parts retain their pivot.
- for(const ob of objects.filter(o=>o.type==='wheel')){
-  if(ob.collision)ob.collision.ang=(ob.collision.ang||0)+Math.PI/2;
-  for(const p of ob.parts){
-  const x=p.dx||0,z=p.dz||0;p.dx=z;p.dz=-x;if(p.ang!=null)p.ang+=Math.PI/2;
-  if(p.toward)p.toward=[p.toward[1],-p.toward[0]];
   }
  }
  // Reorient existing shopfront parts so their doors face the street, keeping collision aligned.
@@ -85,9 +80,24 @@ export function composeHomeWorld(M,region){
   strip(-2200,1540,2200,1540,30,'curb');
  }
 
- const world={...source,...(region==='city'?{homeGround:['#bec5b9','#bdc3b9'],homeCityParcels:cityGroundParcels()}:{}),homeCamera:scenery.camera,len:region==='city'?4400:3400,halfW:1800,minX:-1800,maxX:1800,spots:[],segments,paths:[],props:[],marks:[],residents:[],areas:[],collision:null,obstacles:objects.filter(o=>o.collision).map(o=>({...o.collision,r:Math.hypot(o.collision.hw,o.collision.hd),role:'solid'})),_streams3d:undefined,terrain:scenery.river?{kind:'river',half:scenery.river.half,pts:[-2200,-700,700,2200].map(x=>[x,scenery.river.center+scenery.river.slope*x])}:null};
+ const world={...source,homeHabitat:true,...(region==='city'?{homeGround:['#bec5b9','#bdc3b9'],homeCityParcels:cityGroundParcels()}:{}),...(scenery.trailPartition?{homeTrail:pathPoints,homeTrailHalf:scenery.pathHalf}:{}),homeSky:scenery.sky,homeIsland:region==='star_stop',homeCamera:scenery.camera,len:region==='city'?4400:3400,halfW:1800,minX:-1800,maxX:1800,spots:scenery.ponds||[],segments,paths:[],props:[],marks:[],residents:[],areas:[],collision:null,obstacles:objects.filter(o=>o.collision).map(o=>({...o.collision,r:Math.hypot(o.collision.hw,o.collision.hd),role:'solid'})),_streams3d:undefined,terrain:scenery.river?{kind:'river',half:scenery.river.half,pts:[-2200,-700,700,2200].map(x=>[x,scenery.river.center+scenery.river.slope*x])}:null};
+ // Wheel plane is the river tangent; its axle is the normal toward the hut.
+ for(const ob of objects.filter(o=>o.type==='wheel')){
+  // Locate the nearest actual stream segment; its varying width also builds the water mesh.
+  let closest=null;for(const st of M.streams3d(world))for(let i=1;i<st.pts.length;i++){const a=st.pts[i-1],b=st.pts[i],dx=b.x-a.x,dz=b.z-a.z,L=Math.hypot(dx,dz),t=Math.max(0,Math.min(1,((ob.x-a.x)*dx+(ob.z-a.z)*dz)/(L*L))),x=a.x+dx*t,z=a.z+dz*t,d=Math.hypot(ob.x-x,ob.z-z);if(!closest||d<closest.d)closest={x,z,d,w:a.w+(b.w-a.w)*t,angle:Math.atan2(dx,dz)};}
+  const arch=ob.parts.find(p=>p.shape==='arch'),angle=closest.angle,turn=angle-(arch.ang||0),cs=Math.cos(turn),sn=Math.sin(turn);
+  for(const p of ob.parts){const x=p.dx||0,z=p.dz||0;p.dx=x*cs+z*sn;p.dz=-x*sn+z*cs;if(p.ang!=null)p.ang+=turn;if(p.toward){const [x,z]=p.toward;p.toward=[x*cs+z*sn,-x*sn+z*cs];}}
+  const axle={x:Math.cos(angle),z:-Math.sin(angle)},hut=objects.find(o=>o.type==='house');
+  const bank=closest.w*.88-8;ob.x=closest.x-axle.x*bank;ob.z=closest.z-axle.z*bank;if(ob.collision)Object.assign(ob.collision,{x:ob.x,z:ob.z});
+  // Keep the mill on the far bank along the same axle, outside the paddle sweep.
+  const reach=216;hut.x=ob.x-axle.x*reach;hut.z=ob.z-axle.z*reach;Object.assign(hut.collision,{x:hut.x,z:hut.z});
+  const shaft=ob.parts.find(p=>p.shape==='log');Object.assign(shaft,{homeAxle:true,len:reach+34,dx:-axle.x*(reach-34)/2,dz:-axle.z*(reach-34)/2});
+  ob.homeWheel={axle,angle,baseY:-18};ob.rot=angle;if(ob.collision)ob.collision.ang=angle;
+ }
+ world.obstacles=objects.filter(o=>o.collision).map(o=>({...o.collision,r:Math.hypot(o.collision.hw,o.collision.hd),role:'solid'}));
  world.collision=M.buildCollisionGrid(world.obstacles);
  if(region!=='river_lake')world._streams3d=[];
+ if(scenery.terrain)world.terrain=structuredClone(scenery.terrain);
  return {world,objects,routes:HOME_ROUTES[region],sourceRegion:region,scenery};
 }
 export function createHomeWorld({M,container,document:doc,window:win=window,onStatus=()=>{},getGroundAnchor=()=>undefined,rendererFactory=createHomeEnvironmentRenderer}){
@@ -116,5 +126,5 @@ export function createHomeWorld({M,container,document:doc,window:win=window,onSt
   catch(error){fail(error);}
  }
  function resizeIfNeeded(){const r=container.getBoundingClientRect();if(Math.abs(r.width-width)>1||Math.abs(r.height-height)>1)resize();}
- return {setEnvironment,draw,observationPoints(nav){return (composition?.scenery.observationPoints||[]).map(p=>({...p,...nav.project(p),target:nav.project(p.target)})).filter(p=>nav.valid(p));},occlusion(point){return renderer?.homeOcclusion?.(point)||[];},navigation(rect){if(!composition)return null;const r=container.getBoundingClientRect(),params={width:r.width,height:r.height,anchorY:getGroundAnchor(),offsetX:rect.left-r.left,offsetY:rect.top-r.top,stageWidth:rect.width,stageHeight:rect.height};const key=JSON.stringify(params);if(key!==navigationKey){navigation=createHomeNavigation(M,composition,params);navigationKey=key;}return navigation;},stats:()=>({projectionRevision,mode:failed?'unavailable':renderer?.stats().mode||'loading',region:composition?.sourceRegion,life:life?.metrics(),recoveryAttempts,renderer:renderer?.stats()}),destroy(){dead=true;release();canvas.remove();}};
+ return {setEnvironment,draw,observationPoints(nav){return (composition?.scenery.observationPoints||[]).map(p=>({...p,...nav.project(p),target:nav.project(p.target)})).filter(p=>nav.valid(p));},occlusion(point){return renderer?.homeOcclusion?.(point)||[];},navigation(rect){if(!composition)return null;const r=container.getBoundingClientRect(),params={width:r.width,height:r.height,anchorY:getGroundAnchor(),offsetX:rect.left-r.left,offsetY:rect.top-r.top,stageWidth:rect.width,stageHeight:rect.height};const key=JSON.stringify(params);if(key!==navigationKey){navigation=createHomeNavigation(M,composition,params);navigationKey=key;}return navigation;},stats:()=>({animationTime:time,projectionRevision,mode:failed?'unavailable':renderer?.stats().mode||'loading',region:composition?.sourceRegion,life:life?.metrics(),recoveryAttempts,renderer:renderer?.stats()}),destroy(){dead=true;release();canvas.remove();}};
 }

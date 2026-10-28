@@ -20,6 +20,11 @@ export function drawProjectedLife(ctx,actors,project,time){
   if(a.kind==='bird'){ctx.strokeStyle='#344c4c';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(-13,-5-flap*6);ctx.quadraticCurveTo(-6,-7,0,0);ctx.quadraticCurveTo(6,-7,13,-5-flap*6);ctx.stroke();}
   if(a.kind==='butterfly'){ctx.fillStyle='#eac279';ctx.beginPath();ctx.ellipse(-3,0,2+Math.abs(flap)*4,5,-.3,0,Math.PI*2);ctx.ellipse(3,0,2+Math.abs(flap)*4,5,.3,0,Math.PI*2);ctx.fill();}
   if(a.kind==='pedestrian'){ctx.fillStyle='#d9b89c';ctx.beginPath();ctx.arc(0,-27,4,0,Math.PI*2);ctx.fill();ctx.fillStyle=a.id%2?'#597b91':'#bb886b';ctx.fillRect(-5,-22,10,14);ctx.strokeStyle='#43535d';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-2,-8);ctx.lineTo(-3-flap*3,0);ctx.moveTo(2,-8);ctx.lineTo(3+flap*3,0);ctx.stroke();}
+  if(['snow','mote','glow','star','sand'].includes(a.kind)){
+   const color={snow:'#f5fbff',mote:'#b0d4cf',glow:'#8ef6df',star:'#ffecab',sand:'#d5ac72'}[a.kind];ctx.fillStyle=color;
+   for(let i=0;i<(a.kind==='snow'?9:4);i++){const x=(i-2)*19,y=Math.sin(a.phase+i+time*.0004)*12-i*7;ctx.globalAlpha=.25+.5*Math.abs(Math.sin(a.phase+i+time*.0006));ctx.beginPath();ctx.ellipse(x,y,a.kind==='sand'?9:a.kind==='glow'?3:2,a.kind==='sand'?1:2,0,0,Math.PI*2);ctx.fill();}
+  }
+  if(a.kind==='cloud'||a.kind==='mist'){ctx.fillStyle=a.kind==='cloud'?'#f2f6f4':'#d9e7ed';ctx.globalAlpha=a.kind==='cloud'?.3:.13;ctx.beginPath();ctx.ellipse(0,0,130,18,0,0,Math.PI*2);ctx.fill();}
   ctx.restore();
  }
 }
