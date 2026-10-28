@@ -74,14 +74,19 @@ PR #459（全452枚監査）・PR #460（その次段階）の結果を引き継
 | 正式カタログ再生成 | `build_full_catalog.py --check` 一致 |
 | 設計データ照合 | `check-design-data.py`（全体・`--catalog`）エラー0 |
 | Python代表例 | `tests/python_oracle.py` の出力が保存済み期待値と一致 |
-| Python 検証基盤（`docs/card-game/tools`） | 本文改訂で出典文書が変わると fail-closed で止まる凍結版の束縛がある（#449 の前例）。main と失敗の集合を比較した結果は §6.1 |
+| Python 検証基盤（`docs/card-game/tools`） | 607件を main と比べて結果が完全に一致し、新しい失敗は0（§6.1。両方とも同じ1件が打ち切りまで終わらなかった） |
 | Pages梱包 | `tests/pages` 16件成功、`package.py`・`verify.py` 成功。配信4,057ファイル・入口6・カード452・画像904、欠落0・hash不一致0。main の梱包との差は `full-catalog.mjs` の1件だけ |
 | 画面確認 | §2 の表（Chromium。実機iPhoneは未確認） |
+| GitHub CI（`5c614f75`） | 14件成功（Pages の deploy は PR なので実行されない） |
 | 大量対戦 | 実行していない（固定400戦・数千戦なし。CPU 同士の小対戦は保存作成の6件と、その確認だけ） |
 
 ### 6.1 Python 検証基盤の比較
 
-（下の PYTHON_SECTION を参照）
+`docs/card-game/tools` の `unittest discover -v` を、本文変更前の main（`eb97817d`）とこのブランチで同時に実行し、テストごとに比べた。
+
+- 両方とも、同じ1件（`test_proxy_new_seed_mixed_choice_353 … test_mandatory_date_normal_pass_and_unique_responses`）が90分の打ち切りまで終わらなかった。それまでに完了した607件は、**テストの集合・結果・エラーメッセージがすべて main と同一**。
+- 607件の内訳：成功555、失敗・エラー44（main と同じ44件。`test_proxy_continuation_batch` 13、`test_proxy_mandatory_choice_boundary` 11、`test_proxy_mandatory_policy_*` 15、`test_proxy_mandatory_population_input` 5）。どれも main から失敗している既存のもので（凍結版の出典の変化。#449 の分類 A と同種）、**このPRで増えた失敗は0**。
+- 打ち切った1件と、その後に並ぶ未実行の分は、両方とも結果を確かめていない（固定400戦の再実行もしていない）。
 
 ## 7. ファイル
 
