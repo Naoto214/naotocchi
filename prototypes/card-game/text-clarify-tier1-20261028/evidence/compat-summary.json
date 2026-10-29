@@ -1,0 +1,48 @@
+{
+ "saves": {
+  "count": 7,
+  "equal": {
+   "revision": 7,
+   "save": 7,
+   "state": 7,
+   "stateNoText": 7,
+   "version": 7,
+   "viewA": 2,
+   "viewB": 2
+  }
+ },
+ "games": {
+  "count": 18,
+  "equal": {
+   "commands": 18,
+   "phase": 18,
+   "restoredEqual": 18,
+   "revision": 18,
+   "state": 0,
+   "stateNoText": 18,
+   "used": 18,
+   "viewA": 0,
+   "viewB": 0
+  }
+ },
+ "versions": {
+  "saves": [
+   "hotseat-1",
+   "hotseat-2"
+  ],
+  "games": [
+   "hotseat-2",
+   "hotseat-3",
+   "hotseat-4"
+  ]
+ },
+ "games_finished_and_restore_equal": true,
+ "usage": {
+  "lunar_played": 54,
+  "submarine_by_choice": {
+   "0": 9,
+   "1": 3,
+   "2": 0
+  }
+ }
+}

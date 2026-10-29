@@ -20,7 +20,11 @@
   const foodIconHTML = typeof S.foodIconHTML === 'function' ? S.foodIconHTML : (_key, emoji) => emoji;
   const canvasArt = S.canvasIllustrations;
   const drawProp = canvasArt?.drawSymbol || (typeof S.drawProp === 'function' ? S.drawProp : () => false);
-  const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
+  const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, generateMaze, lerp, mazeBfs, mgPointerPos, minigameEase } = S;
+  // T3: てばんで すすむ ゲーム(MG_TURN_BASED)を あそんで いる あいだは、「みじかめ」でも 時間を みじかく しない。
+  // mg() が start の まえに mgTurnNow を きりかえる(ミニゲームは いちどに 1つ だけ うごく)
+  let mgTurnNow = false;
+  const mgDuration = (ms) => (mgTurnNow ? S.mgDuration(ms, { turn: true }) : S.mgDuration(ms));
   // タッチパッド(script.js の createTouchPad)。ない ときは なにも しない ダミー
   const createTouchPad = typeof S.createTouchPad === 'function' ? S.createTouchPad : () => ({ el: null, vector: () => ({ x: 0, y: 0 }), held: { left: false, right: false, up: false, down: false }, active: false, destroy() {} });
   const createPadRow = typeof S.createPadRow === 'function' ? S.createPadRow : (container) => container;
@@ -67,9 +71,36 @@
   // キーとして つかう。下の minigamePlayCount/recordMinigamePlay 参照)。
   // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームも mg() で id を つけて
   // きろくする(以前の 連番キーは script.js の LEGACY_MINIGAME_IDS で ひきつぐ)
+  // T3「みじかめ」の げんそく: 1手の おもさが かわらない「てばんで すすむ」ゲームは、時間だけ けずると
+  // 時間ぎれが ふえるだけ なので、mgDuration の ×0.7 を かけない(きめるのは ここ 1か所)。
+  // 盤上の 対戦・カーリング・すごろく・ひとりで かんがえる パズル・ローグライク(てきは こちらが うごいた ときだけ うごく)。
+  // 時間そのものが あそびの 一部の もの(マインスイーパー・上海・神経衰弱・ライツアウト など)は ×0.7 の まま
+  const MG_TURN_BASED = new Set(['reversi-6', 'animal-shogi', 'connect-four', 'gomoku-9', 'checkers-6', 'mancala-kalah', 'curling-ice', 'curling-winter', 'sugoroku-race', 'solitaire-klondike', 'hit-blow', 'slide-puzzle', 'sudoku-mini', 'picross-5', 'push-puzzle', 'roguelike-dungeon']);
   function mg(id, game) {
     game.id = id;
+    const start = game.start, turn = MG_TURN_BASED.has(id);
+    game.start = function (...args) { mgTurnNow = turn; return start.apply(this, args); };
     return game;
+  }
+  // T3: てばんせいの 時計。時間ぎれは「てばんの くぎり」(石や こまが とまって、つぎの 手を まつ とき)でだけ 見る。
+  // up() を よぶ 場所(くぎり)は ゲームが きめる。うごいて いる とちゅうでは よばない
+  function mgTurnClock(limitMs, startAt) {
+    return { limitMs, remain: (now) => limitMs - (now - startAt), up: (now) => now - startAt > limitMs };
+  }
+  // T4: のこり時間の ひょうじ。mg-header の さいごに mgTimerSpan() を おき、mgTimerHud() で 0.25秒ごとに なおす(見せる だけ。
+  // ゲームの 時計・判定には さわらない)。いろだけに たよらず、のこり 5びょう いかは ⏱️ が ⏳ に かわる
+  const MG_TIMER_LOW_MS = 5000;
+  const mgTimerText = (ms) => `${ms <= MG_TIMER_LOW_MS ? '⏳' : '⏱️'}${Math.max(0, Math.ceil(ms / 1000))}秒`;
+  const mgTimerSpan = (limitMs) => `<span class="mg-timer" id="mgTimer" role="timer">${mgTimerText(limitMs)}</span>`;
+  function mgTimerHud(container, limitMs, remain, alive) {
+    const el = container.querySelector('#mgTimer');
+    if (!el) return;
+    const tick = () => {
+      const ms = clamp(remain(), 0, limitMs);
+      el.textContent = mgTimerText(ms); el.classList.toggle('low', ms <= MG_TIMER_LOW_MS);
+      if (alive() && el.isConnected !== false) setTimeout(tick, 250);
+    };
+    tick();
   }
   // U2 けんしょうつき リトライ生成: make() で つくった ものが valid() を とおるまで やりなおす。
   // maxTries かい だめなら fallback()(かならず なりたつ 手順)に きりかえる。上海の 配り・ナンプレの 盤で つかう
@@ -98,7 +129,9 @@
     space: { sky: ['#03061a', '#1b1f4a'], ground: ['#0b0f2a', '#0e1230'], road: ['#1c2350', '#212858'], rumble: ['#6f7cff', '#c46fff'], scenery: ['🪐', '🌟', '🛰️', '✨'] },
     highway: { sky: ['#5aa9ff', '#dff1ff'], ground: ['#5fa85a', '#68b062'], road: ['#4a4a55', '#52525d'], rumble: ['#f3f3f3', '#d8383c'], scenery: ['🌳', '🛣️', '🏢', '🌲'] },
   };
-  function makeRoadGame({ title, goodItems, badItems, scene = 'road', playerEmoji, duration }) {
+  // spawnPattern:'meteor' … わるい物の 一部が、行き先への 点線と 尾(予告)を 出してから 隣の レーンへ 移る(流れ星)。
+  // 出す きょりを のばして 予告を ながく 見せ、判定の かなり 手前で 移り終える。既定は なし(ふつうの 出し方)
+  function makeRoadGame({ title, goodItems, badItems, scene = 'road', playerEmoji, duration, spawnPattern = null }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
@@ -106,6 +139,8 @@
         const th = LANE_RUSH_SCENES[scene] || LANE_RUSH_SCENES.road;
         const BAD_CHANCE = lerp(0.34, 0.46, difficulty);
         const LANES = [-0.62, 0, 0.62];
+        // 流れ星: SEG_LEN 単位で、出てから WARN_END まで 予告、MOVE_END までに 移り終える
+        const METEOR = spawnPattern === 'meteor', AHEAD = METEOR ? 54 : 42, WARN_END = 32, MOVE_END = 20, SHIFT_CHANCE = 0.3;
         let lane = 1, playerX = 0, position = 0, speed = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, flash = 0, sparkle = 0;
         let good = 0, bad = 0, points = 0, combo = 0, bestCombo = 0, nextSpawnZ = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
@@ -133,24 +168,50 @@
         const setLane = (n) => { lane = clamp(n, 0, 2); };
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); setLane(p.nx < 1 / 3 ? 0 : p.nx > 2 / 3 ? 2 : 1); });
         const pet = playerEmoji || currentSprite();
-        function spawn() {
+        // 流れ星の 予告: 足もとから 行き先の レーンへの 点線と 印(移りおわるまで)、うしろへ のびる 尾(ずっと)。
+        // 絵文字や 矢印の 文字は つかわない。px は この きょりでの 道はばの はんぶん
+        function drawMeteorTail(c, sx, sy, px, s) {
+          const sh = s.it.shift, dir = Math.sign(LANES[sh.to] - LANES[sh.from]);
+          c.save(); c.lineCap = 'round';
+          if (sh.k < 1) {
+            const tx = sx + (LANES[sh.to] - s.it.offset) * px, m = Math.max(2.5, px * 0.05);
+            c.strokeStyle = 'rgba(255,214,90,.9)'; c.lineWidth = Math.max(1.2, px * 0.02); c.setLineDash([Math.max(2, px * 0.04), Math.max(2, px * 0.04)]);
+            c.beginPath(); c.moveTo(sx, sy); c.lineTo(tx, sy); c.stroke();
+            c.fillStyle = 'rgba(255,214,90,.9)'; c.beginPath(); c.moveTo(tx - m, sy - m * 2.4); c.lineTo(tx + m, sy - m * 2.4); c.lineTo(tx, sy - m * 0.6); c.closePath(); c.fill();
+          }
+          c.strokeStyle = 'rgba(255,170,90,.85)'; c.lineWidth = Math.max(1.5, px * 0.05); c.setLineDash([]);
+          c.beginPath(); c.moveTo(sx, sy); c.lineTo(sx - dir * px * 0.32, sy - px * 0.3); c.stroke();
+          c.restore();
+        }
+        function spawn(z = position + PLAYER_Z + SEG_LEN * AHEAD) {
           const isBad = Math.random() < BAD_CHANCE;
           const pool = isBad ? badItems : goodItems;
           const laneIdx = Math.floor(Math.random() * 3);
-          const it = { z: position + PLAYER_Z + SEG_LEN * 42, lane: laneIdx, offset: LANES[laneIdx], bad: isBad, emoji: pool[Math.floor(Math.random() * pool.length)], size: 0.3, done: false };
+          const it = { z, lane: laneIdx, offset: LANES[laneIdx], bad: isBad, emoji: pool[Math.floor(Math.random() * pool.length)], size: 0.3, done: false };
+          if (METEOR && isBad && Math.random() < SHIFT_CHANCE) {
+            it.shift = { from: laneIdx, to: laneIdx === 1 ? (Math.random() < 0.5 ? 0 : 2) : 1, k: 0 };
+            it.tail = { offset: it.offset, size: 1, draw: drawMeteorTail, it };
+          }
           items.push(it);
         }
+        // 流れ星は 遠くから 出すが、さいしょの 1こは いつもの きょりに おいて、物が とどく 間かくを いつもと そろえる
+        if (METEOR) { spawn(PLAYER_Z + SEG_LEN * 42); nextSpawnZ = PLAYER_Z + SEG_LEN * (42 + lerp(18, 14, difficulty)); }
         function update(dt, now) {
           speed = Math.min(MAX_SPEED, speed + MAX_SPEED * dt / 1.2);
           position += speed * dt;
           if (position >= TRACK_LEN) { position -= TRACK_LEN; for (const it of items) it.z -= TRACK_LEN; nextSpawnZ -= TRACK_LEN; }
           playerX += (LANES[lane] - playerX) * Math.min(1, dt * 12);
           const gap = SEG_LEN * lerp(18, 14, difficulty);
-          if (position + PLAYER_Z + SEG_LEN * 42 > nextSpawnZ) { spawn(); nextSpawnZ = position + PLAYER_Z + SEG_LEN * 42 + gap; }
+          if (position + PLAYER_Z + SEG_LEN * AHEAD > nextSpawnZ) { spawn(); nextSpawnZ = position + PLAYER_Z + SEG_LEN * AHEAD + gap; }
           for (const seg of segments) seg.dynamic.length = 0;
           const pz = position + PLAYER_Z;
           for (const it of items) {
-            if (it.z >= pz - SEG_LEN && it.z < pz + SEG_LEN * 60) road.findSegment(((it.z % TRACK_LEN) + TRACK_LEN) % TRACK_LEN).dynamic.push(it);
+            if (it.shift) {
+              // きょりで 動きを きめる(なめらかに 隣の レーンへ)。判定も 絵も it.offset を つかう
+              const sh = it.shift, k = clamp((WARN_END - (it.z - pz) / SEG_LEN) / (WARN_END - MOVE_END), 0, 1), e = k * k * (3 - 2 * k);
+              sh.k = k; it.offset = it.tail.offset = lerp(LANES[sh.from], LANES[sh.to], e); it.lane = e < 0.5 ? sh.from : sh.to;
+            }
+            if (it.z >= pz - SEG_LEN && it.z < pz + SEG_LEN * 60) { const seg = road.findSegment(((it.z % TRACK_LEN) + TRACK_LEN) % TRACK_LEN); if (it.tail) seg.dynamic.push(it.tail); seg.dynamic.push(it); }
             if (!it.done && it.z <= pz + SEG_LEN * 0.4) {
               it.done = true;
               // あたり判定は「えらんだ レーン」ではなく、じっさいの いち(playerX)で。
@@ -210,7 +271,7 @@
   const ROAD_GAME_VARIANTS = [
     mg('road-themed', randomThemeGame(makeRoadGame, [
       { title: '道路を走ろう!食べものはキャッチ、ゴミはよけて', goodItems: ['🍎', '🍙', '🍬', '🍇'], badItems: ['🪨', '🚧', '🛢️', '⚠️'], scene: 'road' },
-      { title: '空を飛ぼう!星はキャッチ、いんせきはよけて', goodItems: ['⭐', '🌟', '✨', '🍀'], badItems: ['☄️', '🪨', '⚡', '🛰️'], scene: 'sky' },
+      { title: '空を飛ぼう!月や音符はキャッチ、かみなりと鳥はよけて', goodItems: ['🌙', '🎵', '🍀'], badItems: ['⚡', '🐦'], scene: 'sky' },
       { title: '海を泳ごう!魚はキャッチ、ゴミはよけて', goodItems: ['🐟', '🐠', '🦐', '🐚'], badItems: ['🥫', '🪤', '🕸️', '🦈'], scene: 'sea' },
     ])),
   ];
@@ -674,11 +735,12 @@
         let running = true, rafId = null, last = null, stage = 0, lives = 3, score = 0, bricks = [], balls = [], items = [], parts = [], paddle = { x: 0, w: 64, tw: 64, wideUntil: 0 }, slowUntil = 0, msg = '', msgUntil = 0, drag = null, serveAt = 0, leftHeld = false, rightHeld = false, cleared = 0, hitsTotal = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
-          <div class="mg-header"><span id="bkStage">ステージ1/3</span><span id="bkScore">❤️❤️❤️／0点</span></div>
+          <div class="mg-header"><span id="bkStage">ステージ1/3</span><span id="bkScore">❤️❤️❤️／0点</span>${mgTimerSpan(DURATION_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="bkCanvas"></canvas></div>
           <div class="mg-hint" id="bkHint">画面かしたのパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。</div>
           `;
+        mgTimerHud(container, DURATION_MS, () => DURATION_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#bkCanvas');
         const { pad } = mgPad(container, { mode: 'delta', axis: 'x', glide: { speed: 240 }, onDelta: (dx) => { paddle.x = clamp(paddle.x + dx * 1.15, paddle.w / 2, W - paddle.w / 2); } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * 1.25));
@@ -844,13 +906,13 @@
           { key: 'cherry', emoji: '🍒', label: 'さくらんぼ', left: 74, top: 34 },
         ];
         // ドラッグして かんがえる 時間を たっぷり かくほ(セクション9)
-        const TIME_LIMIT_MS = mgDuration(16000);
+        const TIME_LIMIT_MS = mgDuration(16000), startTime = performance.now();
         let roundIndex = 0;
         let placedCount = 0;
         let finished = false;
         let timer;
         container.innerHTML = `
-          <div class="mg-header"><span id="mgScore">${placedCount}/${ROUNDS_DEF.length}</span></div>
+          <div class="mg-header"><span id="mgScore">${placedCount}/${ROUNDS_DEF.length}</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-cake-stage" id="mgCakeStage">
             <div class="mg-cake-base">${foodIconHTML('slice','🍰')}</div>
@@ -865,6 +927,7 @@
         const scoreEl = container.querySelector('#mgScore');
         const targets = Array.from(container.querySelectorAll('.mg-drop-target'));
         const items = Array.from(container.querySelectorAll('.mg-drag-item'));
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => !finished);
 
         function currentRound() { return ROUNDS_DEF[roundIndex]; }
         function updateHint() {
@@ -933,12 +996,12 @@
           { key: 'broccoli', emoji: '🥦' },
         ].map((it, i) => ({ ...it, left: SLOTS[i][0], top: SLOTS[i][1] }));
         const PREVIEW_MS = 2200;
-        const TIME_LIMIT_MS = mgDuration(11000);
+        const TIME_LIMIT_MS = mgDuration(11000), placeAt = performance.now() + PREVIEW_MS; // つめる 時間は 見本が きえてから
         let placedCount = 0;
         let finished = false;
         let timer;
         container.innerHTML = `
-          <div class="mg-header"><span id="mgScore">見本を覚えてね!</span></div>
+          <div class="mg-header"><span id="mgScore">見本を覚えてね!</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-bento-stage" id="mgBentoStage">
             ${ITEMS_DEF.map((it) => `<div class="mg-drop-target" data-key="${it.key}" style="left:${it.left}%;top:${it.top}%"></div>`).join('')}
@@ -956,6 +1019,7 @@
         const targets = Array.from(container.querySelectorAll('.mg-drop-target'));
         const items = Array.from(container.querySelectorAll('.mg-drag-item'));
         let timer2;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - placeAt), () => !finished);
 
         function finish(score) {
           if (finished) return;
@@ -1016,7 +1080,7 @@
   // 外部3Dライブラリを使わないため、iPhoneでも既存ゲームと同じページ内で遊べる。
 
   const PERSPECTIVE_3D_VARIANTS = [
-    mg('p3-space', makeRoadGame({ title: '3Dうちゅうフライト!星を集めて、いんせきをよけよう', goodItems: ['⭐', '🌟', '💫', '🪙'], badItems: ['☄️', '🪨', '🛰️', '👾'], scene: 'space', playerEmoji: '🚀' })),
+    mg('p3-space', makeRoadGame({ title: '3Dうちゅうフライト!星を集めて、いんせきをよけよう', goodItems: ['⭐', '🌟', '💫', '🪙'], badItems: ['☄️', '🪨', '🛰️', '👾'], scene: 'space', playerEmoji: '🚀', spawnPattern: 'meteor' })),
     mg('p3-drive', makeRoadGame({ title: '3Dハイウェイ!コインを拾って、車をよけよう', goodItems: ['🪙', '💎', '⛽', '🍔'], badItems: ['🚙', '🚚', '🚧', '🛢️'], scene: 'highway', playerEmoji: '🏎️' })),
   ];
 
@@ -1674,13 +1738,14 @@
           { emoji: '🍬', name: 'あめ', x: -1.0, z: 1.3, size: 0.32, value: 20, grip: 1.0 },
         ];
         let tries = TRIES, phase = 'idle', claw = { x: -1.4, z: 0.7, y: 2.6, open: 1, sway: 0 }, held = false, carrying = null, gripPower = 0, slipTimer = 0, won = [], running = true, rafId = null, last = null, msg = '', msgUntil = 0, fallers = [];
-        const startTime = performance.now();
+        const startTime = performance.now(), TIME_LIMIT_MS = mgDuration(45000);
         container.innerHTML = `
-          <div class="mg-header"><span id="crTries">🪙 ×${TRIES}</span><span id="crScore">景品0こ／0点</span></div>
+          <div class="mg-header"><span id="crTries">🪙 ×${TRIES}</span><span id="crScore">景品0こ／0点</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">UFOキャッチャー!アームで景品をつかもう</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="crCanvas"></canvas></div>
           <div class="mg-hint" id="crHint">ボタンをおしている間、アームが動く。景品の真ん中ではなそう。落ちても、左手前の落とし口に入ればゲット!</div>
           <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn primary" id="crMove" data-key="action">▶よこにうごかす(ながおし)</button></div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#crCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 250);
         const F = W * F_RATIO, HOR = H * 0.32;
@@ -1778,7 +1843,7 @@
           update(dt, now);
           if (!running) return;
           render(now);
-          if (now - startTime > mgDuration(45000) && phase === 'idle') { finish(); return; }
+          if (now - startTime > TIME_LIMIT_MS && phase === 'idle') { finish(); return; }
           rafId = requestAnimationFrame(frame);
         }
         function finish() {
@@ -2435,11 +2500,12 @@
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         const effects = [];
         container.innerHTML = `
-          <div class="mg-header"><span id="rhScore">PERFECT 0／GOOD 0／MISS 0</span><span id="rhCombo">コンボ0</span></div>
+          <div class="mg-header"><span id="rhScore">PERFECT 0／GOOD 0／MISS 0</span><span id="rhCombo">コンボ0</span>${mgTimerSpan(LENGTH_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rhCanvas"></canvas></div>
           <div class="mg-hint" id="rhHint">ノーツが手前のラインに重なった瞬間に、そのレーンのボタンをタップ!</div>
           <div class="mg-rhythm-controls"><button class="mg-tap-btn" id="rhL" data-key="left">◀ ${noteEmojis[0]}</button><button class="mg-tap-btn" id="rhM" data-key="action">${noteEmojis[1]}</button><button class="mg-tap-btn" id="rhR" data-key="right">${noteEmojis[2]} ▶</button></div>`;
+        mgTimerHud(container, LENGTH_MS, () => LENGTH_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#rhCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 215);
         const scoreEl = container.querySelector('#rhScore'), comboEl = container.querySelector('#rhCombo'), hint = container.querySelector('#rhHint');
@@ -2827,10 +2893,11 @@
         let bx = 0, by = 0, vx = 0, vy = 0, lastRest = [0, 0], moving = false, sunk = false, sinkAnim = 0, aim = null, splash = 0, holeLocked = false;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="gfHole">HOLE 1/3／PAR ${holes[0].par}</span><span id="gfStrokes">打数0</span></div>
+          <div class="mg-header"><span id="gfHole">HOLE 1/3／PAR ${holes[0].par}</span><span id="gfStrokes">打数0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="gfCanvas"></canvas></div>
           <div class="mg-hint" id="gfHint">ボールから後ろへ引っぱって、はなすとパット。引っぱる長さで強さが決まる。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#gfCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const S = W / 244;
@@ -2933,9 +3000,13 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const playedPar = holes.reduce((a, h) => a + h.par, 0);
-          const over = totalStrokes - playedPar + (holeIdx < holes.length ? (holes.length - holeIdx) * 4 : 0);
+          // 終わらなかった ホール(いまの ホールも ふくむ)は「打数オーバー」と おなじ MAX_STROKES 打と かぞえる。
+          // まえは 遊んでいない ホールの パーまで ひいていたので、なにも しなくても 55〜73点に なっていた
+          const doneStrokes = holeIdx < holes.length ? totalStrokes - strokes : totalStrokes;
+          const counted = doneStrokes + holes.slice(holeIdx).length * MAX_STROKES;
+          const over = counted - playedPar;
           const score = clamp(100 - Math.max(0, over) * 9 + Math.min(0, over) * -4, 15, 100);
-          say(over <= 0 ? `🏆 ${totalStrokes}打数(パー${playedPar})すばらしい!` : `${totalStrokes}打数(パー${playedPar}) +${over}`, 2000);
+          say(over <= 0 ? `🏆 ${counted}打数(パー${playedPar})すばらしい!` : `${counted}打数(パー${playedPar}) +${over}`, 2000);
           render(performance.now());
           setTimeout(() => onComplete(Math.round(score)), 900);
         }
@@ -2956,7 +3027,9 @@
     { emoji: '🐙', name: 'たこ', size: 1.6, value: 48, pull: 1.7, speed: 22 },
     { emoji: '🦈', name: 'さめ', size: 2.2, value: 70, pull: 2.4, speed: 50 },
   ];
-  function makeRealFishingGame({ title, species = FISHING_SPECIES, waterTop = '#3fa6e8', waterBottom = '#0b3f7a' }) {
+  // hotspot:'flock' … 🐦の むれの 下で 魚が よりやすい(むれは ときどき うごく)。reach … 遠いほど 大物が より、
+  // 巻くのも はやい(近い=小物で はやい)。recast … あたりが ないとき「あわせる」で 回収して 投げなおせる。どれも 既定は なし
+  function makeRealFishingGame({ title, species = FISHING_SPECIES, waterTop = '#3fa6e8', waterBottom = '#0b3f7a', hotspot = null, reach = false, recast = false }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
@@ -2976,6 +3049,12 @@
         const WATER_Y = H * 0.34, SHORE_X = 28;
         const timerEl = container.querySelector('#rfTimer'), scoreEl = container.querySelector('#rfScore'), hint = container.querySelector('#rfHint'), mainBtn = container.querySelector('#rfMain');
         const say = (t, ms = 1400) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        // むれ: x へ ゆっくり とんでいき、at を すぎたら つぎの 場所(tx)を きめる
+        const FLOCK_R = 34, FLOCK_IN = 2.2, FLOCK_OUT = 0.03, FLOCK_OUT_FAR = 0.3, FLOCK_SLOW = 0.35, FLOCK_PULL = 200, REACH_MIN = 1.1, REACH_K = 1.2, REEL_REACH = 1000;
+        const underFlock = () => flock && Math.abs(lureX - flock.x) < FLOCK_R;
+        const reachU = () => clamp((lureX - SHORE_X - 50) / (W - SHORE_X - 70), 0, 1);
+        const flock = hotspot === 'flock' ? { x: 0, tx: 0, at: startTime + 6500 } : null;
+        if (flock) { flock.x = flock.tx = 70 + Math.random() * (W - 100); hint.textContent = 'ためて投げる。🐦の群れの下に魚が集まる!あたりがないときは「あわせる」で回収'; }
         const fishes = [];
         function spawnFish() {
           const sp = species[Math.min(species.length - 1, Math.floor(Math.pow(Math.random(), 1.6 - difficulty * 0.5) * species.length))];
@@ -3015,7 +3094,7 @@
             setPhase('fight'); sfx('hit'); say('🎣ヒット!' + hooked.sp.name + 'だ!糸の張りに注意', 1600);
           } else {
             const nib = fishes.find((f) => f.state === 'nibble' || f.state === 'approach');
-            if (nib) { nib.state = 'flee'; say('早すぎ!魚がにげた…'); } else say('まだあたりがない…', 800);
+            if (nib) { nib.state = 'flee'; say('早すぎ!魚がにげた…'); } else if (recast) { setPhase('ready'); say('しかけを回収。投げなおそう', 900); } else say('まだあたりがない…', 800);
           }
         }
         function landFish() {
@@ -3030,13 +3109,18 @@
         }
         function update(dt, now) {
           if (charging) charge = Math.min(1, charge + dt / 1.1);
+          if (flock) {
+            if (now > flock.at) { let nx; do nx = 70 + Math.random() * (W - 100); while (Math.abs(nx - flock.x) < 60); flock.tx = nx; flock.at = now + 6000 + Math.random() * 2500; }
+            flock.x += clamp(flock.tx - flock.x, -55 * dt, 55 * dt);
+          }
           for (const f of fishes) {
             f.wobble += dt * 6;
             if (f.state === 'swim' || f.state === 'flee') {
-              const sp = f.state === 'flee' ? f.speed * 2.2 : f.speed;
+              // むれの 下では 魚が ゆっくり およいで あつまる
+              const sp = f.state === 'flee' ? f.speed * 2.2 : f.speed * (flock && Math.abs(f.x - flock.x) < FLOCK_R ? FLOCK_SLOW : 1);
               f.x += f.dir * sp * dt; f.y += Math.sin(f.wobble) * 6 * dt;
               if (f.x < -40 || f.x > W + 40) { const i = fishes.indexOf(f); fishes.splice(i, 1); spawnFish(); }
-              if (f.state === 'swim' && phase === 'wait' && !fishes.some((o) => o.state === 'approach' || o.state === 'nibble' || o.state === 'bite') && Math.hypot(f.x - lureX, f.y - lureY) < 90 && Math.random() < dt * 0.9) f.state = 'approach';
+              if (f.state === 'swim' && phase === 'wait' && !fishes.some((o) => o.state === 'approach' || o.state === 'nibble' || o.state === 'bite') && Math.hypot(f.x - lureX, f.y - lureY) < (underFlock() ? FLOCK_PULL : 90) && (!reach || underFlock() || f.sp.size <= REACH_MIN + REACH_K * reachU()) && Math.random() < dt * 0.9 * (flock ? (underFlock() ? FLOCK_IN : FLOCK_OUT + (reach ? FLOCK_OUT_FAR * reachU() : 0)) : 1)) f.state = 'approach';
             } else if (f.state === 'approach') {
               const dx = lureX - f.x, dy = lureY - f.y, d = Math.hypot(dx, dy);
               if (d < 14) { f.state = 'nibble'; nibbleUntil = now + 700 + Math.random() * 900; }
@@ -3063,7 +3147,7 @@
             if (now > dashUntil && Math.random() < dt * 0.55) { dashUntil = now + 500 + Math.random() * 500; }
             const dashing = now < dashUntil;
             const pull = f.sp.pull * (dashing ? 1 : 0.35);
-            if (reeling) { lineLen -= 55 * dt; tension += (28 + pull * 34) * dt; slackMs = 0; }
+            if (reeling) { lineLen -= 55 * dt * (reach ? 1 + lineLen / REEL_REACH : 1); tension += (28 + pull * 34) * dt; slackMs = 0; }
             else { tension -= 42 * dt; lineLen += pull * 14 * dt; slackMs += dt * 1000; }
             tension = clamp(tension, 0, 100);
             lureX = SHORE_X + lineLen; lureY = f.y;
@@ -3084,6 +3168,15 @@
           ctx.font = '26px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(currentSprite(), SHORE_X - 6, WATER_Y - 16);
           const rodTipX = SHORE_X + 26, rodTipY = WATER_Y - 62;
           ctx.strokeStyle = '#5b3a1e'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(SHORE_X + 4, WATER_Y - 22); ctx.lineTo(rodTipX, rodTipY); ctx.stroke();
+          if (flock) {
+            // むれの 下の 水面に 小さな しぶき(なぶら)。羽ばたきも しぶきも now から きめる(乱数は つかわない)
+            ctx.strokeStyle = 'rgba(255,255,255,.75)'; ctx.lineWidth = 1.5;
+            for (let i = 0; i < 3; i++) { const k = (now / 700 + i / 3) % 1, sx = flock.x + (i - 1) * 16; ctx.beginPath(); ctx.arc(sx, WATER_Y + 3, 3 + k * 7, Math.PI * 1.1, Math.PI * 1.9); ctx.stroke(); }
+            ctx.font = '15px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            for (let i = 0; i < 3; i++) {
+              ctx.fillText('🐦', flock.x + (i - 1) * 15 + Math.sin(now / 650 + i * 2) * 4, WATER_Y - 30 - (i === 1 ? 10 : 0) + Math.sin(now / 160 + i * 1.7) * 2);
+            }
+          }
           for (const f of fishes) {
             const sh = f.state === 'hooked' ? 1 : 0.55;
             ctx.globalAlpha = sh; ctx.font = `${f.size}px sans-serif`; ctx.textBaseline = 'middle';
@@ -3099,7 +3192,9 @@
             if (phase === 'wait' && lureY > WATER_Y + 4) { ctx.fillStyle = '#ffd257'; ctx.beginPath(); ctx.arc(lureX, lureY, 3, 0, Math.PI * 2); ctx.fill(); }
             if (biting) { ctx.font = 'bold 15px sans-serif'; ctx.fillStyle = '#ff3b5c'; ctx.shadowColor = '#fff'; ctx.shadowBlur = 6; ctx.fillText('あたり!いま!', lureX, WATER_Y - 18); ctx.shadowBlur = 0; }
           }
-          if (charging) { ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(W / 2 - 60, 12, 120, 12); ctx.fillStyle = charge > 0.8 ? '#ff5c8a' : '#8de0a0'; ctx.fillRect(W / 2 - 60, 12, 120 * charge, 12); ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.textBaseline = 'top'; ctx.fillText('遠くへ投げる', W / 2, 26); }
+          if (charging) { ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(W / 2 - 60, 12, 120, 12); ctx.fillStyle = charge > 0.8 ? '#ff5c8a' : '#8de0a0'; ctx.fillRect(W / 2 - 60, 12, 120 * charge, 12); ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.textBaseline = 'top'; ctx.fillText('遠くへ投げる', W / 2, 26);
+            // むれの 真下に おちる ためかたの 印(cast の 式の ぎゃく)
+            if (flock) { const c = clamp(((flock.x - SHORE_X) / 0.98 - 40) / (W - 80), 0, 1), gx = W / 2 - 60 + 120 * c; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(gx - 4, 6); ctx.lineTo(gx + 4, 6); ctx.lineTo(gx, 12); ctx.closePath(); ctx.fill(); ctx.fillRect(gx - 0.5, 12, 1, 12); } }
           if (phase === 'fight') {
             ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(10, 10, W - 20, 30);
             ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('テンション', 14, 13);
@@ -3295,10 +3390,11 @@
         let ball = null, px = 0, py = 0.25, prevPx = 0, prevPy = 0.25, pvx = 0, aiX = 0, aiY = 0.25, hitFlash = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
-          <div class="mg-header"><span id="ppScore">じぶん0 - 0あいて</span><span id="ppRally">ラリー0</span></div>
+          <div class="mg-header"><span id="ppScore">じぶん0 - 0あいて</span><span id="ppRally">ラリー0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="ppCanvas"></canvas></div>
           <div class="mg-hint" id="ppHint">画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に${WIN}点取ろう!</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#ppCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 250);
         const F = W * F_RATIO, HOR = H * 0.34;
@@ -3855,13 +3951,14 @@
         const WAVES = 4;
         let gold = 90, lives = 10, wave = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, selType = 'arrow', selected = null;
         let towers = [], enemies = [], shots = [], booms = [], spawnQueue = [], spawnTimer = 0, waveActive = false, nextWaveAt = 0, kills = 0;
-        const startTime = performance.now();
+        const startTime = performance.now(), TIME_LIMIT_MS = mgDuration(90000);
         container.innerHTML = `
-          <div class="mg-header"><span id="tdWave">ウェーブ0/${WAVES}</span><span id="tdStat">💰 90／❤️ 10</span></div>
+          <div class="mg-header"><span id="tdWave">ウェーブ0/${WAVES}</span><span id="tdStat">💰 90／❤️ 10</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="tdCanvas"></canvas></div>
           <div class="mg-hint" id="tdHint">茶色い道の外にタワーを建てよう。タワーを選び、もう一度タップすると強化。敵が来る前にそなえて!</div>
           <div class="mg-td-controls"><button class="mg-tap-btn sel" id="tdArrow" data-key="left">🏹 40</button><button class="mg-tap-btn" id="tdBomb" data-key="up">💣 70</button><button class="mg-tap-btn" id="tdIce" data-key="right">❄️ 55</button><button class="mg-tap-btn primary" id="tdNext" data-key="action">つぎのウェーブ▶</button></div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#tdCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * ROWS / COLS));
         const CELL = W / COLS;
@@ -3962,7 +4059,7 @@
           update(dt, now);
           if (!running) return;
           render(now);
-          if (now - startTime > mgDuration(90000)) { finish(lives > 0); return; }
+          if (now - startTime > TIME_LIMIT_MS) { finish(lives > 0); return; }
           rafId = requestAnimationFrame(frame);
         }
         function finish(win) {
@@ -3989,13 +4086,14 @@
         const difficulty = ageDifficulty();
         const COLS = 11, ROWS = 11, FLOORS = 2;
         let floor = 1, map, seen, px, py, hp = 20, maxHp = 20, atk = 3, gold = 0, kills = 0, enemies = [], items = [], stairs, running = true, rafId = null, msg = '', msgUntil = 0, anim = [], log = [], turn = 0, potions = 0, dead = false;
-        const startTime = performance.now();
+        const startTime = performance.now(), TIME_LIMIT_MS = mgDuration(90000);
         container.innerHTML = `
-          <div class="mg-header"><span id="rgFloor">B1F</span><span id="rgStat">❤️ 20/20／⚔️ 3／💰 0</span></div>
+          <div class="mg-header"><span id="rgFloor">B1F</span><span id="rgStat">❤️ 20/20／⚔️ 3／💰 0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rgCanvas"></canvas></div>
           <div class="mg-hint" id="rgHint">したのパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。</div>
           `;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#rgCanvas');
         const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 14, repeatPx: 34, repeatMs: 160, onStep: (dx, dy) => tryMove(dx, dy) }, `<button class="mg-tap-btn" id="rgPotion" data-key="action2">🧪 0</button><button class="mg-tap-btn" id="rgWait" data-key="action">⏳まつ</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
@@ -4085,7 +4183,7 @@
           for (const a of anim) if (a.kind === 'hit') { const t = (now - a.born) / 600; ctx.globalAlpha = 1 - t; ctx.fillStyle = a.me ? '#ff5c5c' : '#fff'; ctx.font = 'bold 13px sans-serif'; ctx.fillText(a.text, (a.x + 0.5) * CELL, (a.y + 0.2) * CELL - t * 14); ctx.globalAlpha = 1; }
           if (now < msgUntil) { ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 100, H - 26, 200, 22); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H - 15); }
         }
-        function loop(now) { if (!running) return; render(now); if (now - startTime > mgDuration(90000)) { finish(false); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; render(now); if (now - startTime > TIME_LIMIT_MS) { finish(false); return; } rafId = requestAnimationFrame(loop); }
         function finish(win) {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
@@ -4117,11 +4215,12 @@
         let running = true, rafId = null, last = null, flash = 0, msg = '', msgUntil = 0, leftHeld = false, rightHeld = false, finished = false, finalRank = 0, hits = 0, lastHit = -1e9;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS + 1500;
         container.innerHTML = `
-          <div class="mg-header"><span id="gpLap">LAP 1/${LAPS}</span><span id="gpPos">6位／6</span></div>
+          <div class="mg-header"><span id="gpLap">LAP 1/${LAPS}</span><span id="gpPos">6位／6</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="gpCanvas"></canvas></div>
           <div class="mg-hint" id="gpHint">アクセルを長おし、したのパッドを左右になぞってハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!</div>
           `;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#gpCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class="mg-tap-btn mg-hold-btn primary" id="gpAccel" data-key="action">アクセル</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, 215, { grow: true, maxGrow: 1.8 });
@@ -4472,11 +4571,12 @@
         let lvIdx = 0, moves = 0, totalMoves = 0, solved = 0, running = true, rafId = null, grid, goals, px, py, history = [], msg = '', msgUntil = 0, anim = null, pushes = 0, levelDone = false;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="pzLevel">1/3問目</span><span id="pzMoves">手0</span></div>
+          <div class="mg-header"><span id="pzLevel">1/3問目</span><span id="pzMoves">手0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="pzCanvas"></canvas></div>
           <div class="mg-hint" id="pzHint">したのパッドをなぞって1マスずつ動く。箱（📦）をおして★のマスへ。引っぱれないので、おす向きを考えよう。↩で1手もどせる。</div>
           `;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#pzCanvas');
         const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 14, repeatPx: 34, repeatMs: 160, onStep: (dx, dy) => move(dx, dy) }, `<button class="mg-tap-btn" id="pzUndo" data-key="action2">↩もどす</button><button class="mg-tap-btn" id="pzReset" data-key="action">↻やりなおし</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
@@ -4550,10 +4650,11 @@
         let turn = ME, running = true, rafId = null, msg = '', msgUntil = 0, flips = [], aiAt = 0, passes = 0, lastMove = null;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="rvScore">● 2 - 2 ○</span><span id="rvTurn">あなたの番</span></div>
+          <div class="mg-header"><span id="rvScore">● 2 - 2 ○</span><span id="rvTurn">あなたの番</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rvCanvas"></canvas></div>
           <div class="mg-hint" id="rvHint">光っているマスをタップ。相手の石をはさむと、全部自分の色に変わる。角を取ると強い!</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#rvCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
@@ -4642,10 +4743,11 @@
         let running = true, rafId = null, last = null, shots = 0, pocketed = 0, aiming = null, moving = false, msg = '', msgUntil = 0, scratchPending = false, lastShotPocketed = 0;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="blShots">残り${MAX_SHOTS}ショット</span><span id="blBalls">🎱 0/6</span></div>
+          <div class="mg-header"><span id="blShots">残り${MAX_SHOTS}ショット</span><span id="blBalls">🎱 0/6</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="blCanvas"></canvas></div>
           <div class="mg-hint" id="blHint">白いボールから後ろへ引っぱって、はなすとショット。引っぱる長さで強さが変わる。ガイド線を見てねらおう!</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#blCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * 1.42));
         const PAD = 16, R = 8.5, PR = 13;
@@ -4784,10 +4886,11 @@
         let turn = ME, running = true, rafId = null, sel = null, msg = '', msgUntil = 0, aiAt = 0, moves = 0, lastMove = null, anim = null;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="asTurn">あなたの番</span><span id="asMoves">0手</span></div>
+          <div class="mg-header"><span id="asTurn">あなたの番</span><span id="asMoves">0手</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="asCanvas"></canvas></div>
           <div class="mg-hint" id="asHint">こまをタップして、光ったマスへ。🦁を取るか、自分の🦁が一番奥まで行けば勝ち。取ったこまは、下の手持ちから打てる。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#asCanvas');
         const CELL = 58, HAND_H = 44;
         const { ctx, W, H } = createMgCanvas(canvas, HAND_H * 2 + CELL * ROWS + 16);
@@ -4928,15 +5031,16 @@
         const mine = Array.from({ length: N }, () => Array(N).fill(false)), open = Array.from({ length: N }, () => Array(N).fill(false)), flag = Array.from({ length: N }, () => Array(N).fill(false)), num = Array.from({ length: N }, () => Array(N).fill(0));
         const openAt = Array.from({ length: N }, () => Array(N).fill(0));
         container.innerHTML = `
-          <div class="mg-header"><span id="msLeft">💣 ${MINES}</span><span id="msTime">0秒</span></div>
+          <div class="mg-header"><span id="msLeft">💣 ${MINES}</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="msCanvas"></canvas></div>
           <div class="mg-hint" id="msHint">マスをタップで開く。数字は、まわり8マスにあるばくだんの数。あやしいマスは🚩モードか長おしで、旗を立てよう。</div>
           <div class="mg-race-controls"><button class="mg-tap-btn" id="msFlag" data-key="action">🚩フラグモード: OFF</button></div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#msCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
-        const leftEl = container.querySelector('#msLeft'), timeEl = container.querySelector('#msTime'), hint = container.querySelector('#msHint'), flagBtn = container.querySelector('#msFlag');
+        const leftEl = container.querySelector('#msLeft'), hint = container.querySelector('#msHint'), flagBtn = container.querySelector('#msFlag');
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const nb = (x, y, f) => { for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) { if (!dx && !dy) continue; const nx = x + dx, ny = y + dy; if (nx >= 0 && ny >= 0 && nx < N && ny < N) f(nx, ny); } };
         function place(sx, sy) {
@@ -4987,7 +5091,7 @@
           if (boom) { const t = Math.min(1, (now - boom.at) / 700); ctx.fillStyle = `rgba(255,120,60,${0.6 * (1 - t)})`; ctx.beginPath(); ctx.arc((boom.x + 0.5) * CELL, (boom.y + 0.5) * CELL, CELL * (0.5 + t * 3), 0, Math.PI * 2); ctx.fill(); ctx.font = `${Math.round(CELL * 0.9)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('💥', (boom.x + 0.5) * CELL, (boom.y + 0.5) * CELL); }
           if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 90, H / 2 - 14, 180, 28); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2); }
         }
-        function loop(now) { if (!running) return; timeEl.textContent = `${Math.floor((now - startTime) / 1000)}秒`; render(now); if (now - startTime > TIME_LIMIT_MS) { finish(false); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; render(now); if (now - startTime > TIME_LIMIT_MS) { finish(false); return; } rafId = requestAnimationFrame(loop); }
         function finish(win) {
           if (!running) return; running = false; cancelAnimationFrame(rafId); clearTimeout(pressTimer);
           const el = (performance.now() - startTime) / 1000; const total = N * N - MINES;
@@ -5465,10 +5569,11 @@
         let running = true, rafId = null, last = null, shots = 0, level = 0, killed = 0, totalTargets = 0, aiming = null, proj = null, blocks = [], msg = '', msgUntil = 0, settleTimer = 0, particles = [];
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="ctShots">残り${SHOTS}はつ</span><span id="ctTargets">👻 0/0</span></div>
+          <div class="mg-header"><span id="ctShots">残り${SHOTS}はつ</span><span id="ctTargets">👻 0/0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="ctCanvas"></canvas></div>
           <div class="mg-hint" id="ctHint">ボールをおさえて後ろへ引っぱり、はなすと発射。ブロックをくずして👻をたおそう。高い場所から落としてもOK。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#ctCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 240);
         const GROUND = H - 22, SLING = { x: 38, y: GROUND - 46 }, PR = 8;
@@ -5596,10 +5701,11 @@
         let board = Array.from({ length: ROWS }, () => Array(COLS).fill(0)), turn = ME, running = true, rafId = null, hoverCol = -1, drop = null, aiAt = 0, moves = 0, winLine = null, msg = '', msgUntil = 0;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="c4Turn">あなたの番(🔴)</span><span id="c4Moves">0手</span></div>
+          <div class="mg-header"><span id="c4Turn">あなたの番(🔴)</span><span id="c4Moves">0手</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="c4Canvas"></canvas></div>
           <div class="mg-hint" id="c4Hint">落としたい列をタップ。たて・横・ななめに4つならべたら勝ち。相手（🟡）の3つならびはふさごう。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#c4Canvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * (ROWS + 1) / COLS) + 6);
         const CELL = W / COLS, TOP = CELL;
@@ -6163,10 +6269,11 @@
         let grid = [], running = true, rafId = null, last = null, moves = MOVES, score = 0, sel = null, swipe = null, anim = null, busy = false, msg = '', msgUntil = 0, combo = 0, pops = [], fall = [], idleAt = 0, hintPair = null;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="m3Moves">残り${MOVES}手</span><span id="m3Score">0点</span></div>
+          <div class="mg-header"><span id="m3Moves">残り${MOVES}手</span><span id="m3Score">0点</span>${mgTimerSpan(DURATION_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="m3Canvas"></canvas></div>
           <div class="mg-hint" id="m3Hint">となり合うフルーツを、スワイプか2回のタップで入れかえる。たて・横に3つ以上そろうと消える。4つ・5つや、れんさで大きくかせごう。</div>`;
+        mgTimerHud(container, DURATION_MS, () => DURATION_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#m3Canvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
@@ -6241,10 +6348,11 @@
         let board = Array.from({ length: N }, () => Array(N).fill(0)), turn = ME, running = true, rafId = null, moves = 0, lastMove = null, winLine = null, aiAt = 0, msg = '', msgUntil = 0, pending = null;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="gmTurn">あなたの番(●)</span><span id="gmMoves">0手</span></div>
+          <div class="mg-header"><span id="gmTurn">あなたの番(●)</span><span id="gmMoves">0手</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="gmCanvas"></canvas></div>
           <div class="mg-hint" id="gmHint">マスをタップすると仮置き。同じ場所をもう一度タップで決定。たて・横・ななめに5つならべたら勝ち。相手の3つ・4つならびはふさごう。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#gmCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
@@ -6519,11 +6627,12 @@
         let running = true, rafId = null, round = 0, puzzle, cells, marks, solved = 0, mistakes = 0, markMode = false, msg = '', msgUntil = 0, solvedAt = 0, pressTimer = null, pressCell = null, longPressed = false, drawing = null;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="pcRound">1/${ROUNDS}問目</span><span id="pcMiss">ミス0</span></div>
+          <div class="mg-header"><span id="pcRound">1/${ROUNDS}問目</span><span id="pcMiss">ミス0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="pcCanvas"></canvas></div>
           <div class="mg-hint" id="pcHint">数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長おしで、ぬらない印をつけよう。</div>
           <div class="mg-race-controls"><button class="mg-tap-btn" id="pcMark" data-key="action">✕モード: OFF</button></div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#pcCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CLUE = W * 0.28, CELL = (W - CLUE) / N;
@@ -6921,10 +7030,11 @@
         let running = true, rafId = null, round = 0, grid, src, dst, solved = 0, taps = 0, flow = null, msg = '', msgUntil = 0, wet = new Set(), rot = [];
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="ppRound">1/${ROUNDS}問目</span><span id="ppTaps">タップ0</span></div>
+          <div class="mg-header"><span id="ppRound">1/${ROUNDS}問目</span><span id="ppTaps">タップ0</span>${mgTimerSpan(DURATION_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="ppCanvas"></canvas></div>
           <div class="mg-hint" id="ppHint">パイプをタップすると90°回る。左の🚰から右の🌻まで、水が通る道を作ろう。少ないタップでつなぐと高得点。</div>`;
+        mgTimerHud(container, DURATION_MS, () => DURATION_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#ppCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const PAD = 20, CELL = (W - PAD * 2) / N;
@@ -7509,10 +7619,11 @@
         let running = true, rafId = null, grid, round = 0, moves = 0, par = 0, solved = 0, totalMoves = 0, flips = [], msg = '', msgUntil = 0, solvedAt = 0, totalPar = 0;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="loRound">1/${ROUNDS}問目</span><span id="loMoves">手0／さいてい?</span></div>
+          <div class="mg-header"><span id="loRound">1/${ROUNDS}問目</span><span id="loMoves">手0／さいてい?</span>${mgTimerSpan(DURATION_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="loCanvas"></canvas></div>
           <div class="mg-hint" id="loHint">タップしたマスと、上下左右のライトが反転する。全部消せばクリア。「さいてい」の手数をめざそう。</div>`;
+        mgTimerHud(container, DURATION_MS, () => DURATION_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#loCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const PAD = 14, CELL = (W - PAD * 2) / N;
@@ -7650,9 +7761,10 @@
         const difficulty = ageDifficulty();
         const STONES = stoneCount || 3, TIME_LIMIT_MS = mgDuration(45000);
         let running = true, rafId = null, last = null, stones = [], turn = 0, myThrown = 0, aiThrown = 0, aiming = null, moving = false, sweep = 0, msg = '', msgUntil = 0, phase = 'me', aiAt = 0, sweeps = 0;
-        const startTime = performance.now();
+        // T3: 時間ぎれは「あなたの番で、石が ぜんぶ とまって いる とき」だけ 見る。なげた 石と、それに こたえる あいての 1投は さいごまで
+        const startTime = performance.now(), clock = mgTurnClock(TIME_LIMIT_MS, startTime);
         container.innerHTML = `
-          <div class="mg-header"><span id="cuTurn">あなた🔴残り${STONES}</span><span id="cuScore">あいて🟡残り${STONES}</span></div>
+          <div class="mg-header"><span id="cuTurn">あなた🔴残り${STONES}</span><span id="cuScore">あいて🟡残り${STONES}</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="cuCanvas"></canvas></div>
           <div class="mg-hint" id="cuHint">🔴を上へスワイプ。なぞった長さの先にある●が、石の止まる場所の目安。投げたあとは連打でのばせる。真ん中に一番近い石のチームが得点。</div>`;
@@ -7662,6 +7774,7 @@
         const turnEl = container.querySelector('#cuTurn'), scoreEl = container.querySelector('#cuScore'), hint = container.querySelector('#cuHint');
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { turnEl.textContent = `あなた🔴残り${STONES - myThrown}`; scoreEl.textContent = `あいて🟡残り${STONES - aiThrown}`; };
+        mgTimerHud(container, TIME_LIMIT_MS, () => clock.remain(performance.now()), () => running);
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running) return; if (moving) { sweep = Math.min(1.5, sweep + 0.35); sweeps++; return; } if (phase !== 'me') return; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); aiming = { id: e.pointerId, x0: p.x, y0: p.y, x: p.x, y: p.y, t0: performance.now() }; });
         canvas.addEventListener('pointermove', (e) => { if (!aiming || e.pointerId !== aiming.id) return; const p = mgPointerPos(canvas, e); aiming.x = p.x; aiming.y = p.y; });
         canvas.addEventListener('pointerup', (e) => { if (!aiming || e.pointerId !== aiming.id) return; const dx = aiming.x - aiming.x0, dy = aiming.y - aiming.y0; aiming = null; if (dy > -20) { say('🔴を「上へ」スワイプしてね', 1000); return; }
@@ -7732,7 +7845,7 @@
           if (moving) { let any = false; for (let i = 0; i < 3; i++) any = step(dt / 3) || any; if (!any) { settle(); if (!running) return; } }
           else if (phase === 'ai' && aiAt && now >= aiAt) { aiAt = 0; aiThrow(); }
           render(now);
-          if (now - startTime > TIME_LIMIT_MS) { finish(); return; }
+          if (!moving && phase === 'me' && clock.up(now)) { finish(); return; }
           rafId = requestAnimationFrame(frame);
         }
         function finish() {
@@ -7759,10 +7872,11 @@
         let running = true, rafId = null, last = null, rows = [], pulled = 0, msg = '', msgUntil = 0, collapsing = null, wobble = 0, topRow = [], pieces = [], anim = null;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="jgPulled">ぬいた0</span><span id="jgRisk">安定度100%</span></div>
+          <div class="mg-header"><span id="jgPulled">ぬいた0</span><span id="jgRisk">安定度100%</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="jgCanvas"></canvas></div>
           <div class="mg-hint" id="jgHint">タップしたブロックをぬいて、上につみ直すよ。真ん中を残すと安定し、はしだけだとくずれやすい。安定度（%）を見ながら選ぼう。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#jgCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * 1.25));
         const BW = 34, BH = 16, CX = W / 2, BASE_Y = H - 30;
@@ -7846,10 +7960,11 @@
         let running = true, rafId = null, round = 0, shape, pts = [], trail = [], drawing = null, covered = [], scores = [], msg = '', msgUntil = 0, doneAt = 0, roundScore = 0;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="ltRound">1/${ROUNDS}問目</span><span id="ltScore">精度-</span></div>
+          <div class="mg-header"><span id="ltRound">1/${ROUNDS}問目</span><span id="ltScore">精度-</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="ltCanvas"></canvas></div>
           <div class="mg-hint" id="ltHint">●から灰色の線をひと筆でなぞろう。線に近いと緑、はなれると赤。指をはなすと判定するよ。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#ltCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CX = W / 2, CY = H / 2, RAD = W * 0.36, TOL = lerp(16, 11, difficulty);
@@ -7916,10 +8031,11 @@
         for (let y = 0; y < 2; y++) for (let x = 0; x < N; x++) if ((x + y) % 2 === 1) board[y][x] = { o: AI, k: false };
         for (let y = N - 2; y < N; y++) for (let x = 0; x < N; x++) if ((x + y) % 2 === 1) board[y][x] = { o: ME, k: false };
         container.innerHTML = `
-          <div class="mg-header"><span id="ckTurn">あなたの番(🔴)</span><span id="ckCount">🔴 6 - 6 ⚫</span></div>
+          <div class="mg-header"><span id="ckTurn">あなたの番(🔴)</span><span id="ckCount">🔴 6 - 6 ⚫</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="ckCanvas"></canvas></div>
           <div class="mg-hint" id="ckHint">こまをタップして、光ったマスへ。ななめ前に1マス進める。相手のこまを飛びこすと取れる（続けて飛べる）。奥まで行くと👑キングになり、後ろにも進める。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#ckCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
@@ -7991,10 +8107,11 @@
         const startTime = performance.now();
         const deck = EMOJI.concat(EMOJI).sort(() => Math.random() - 0.5); deck.forEach((e, i) => cards.push({ e, flip: 0, done: false, x: i % COLS, y: Math.floor(i / COLS), shakeAt: 0 }));
         container.innerHTML = `
-          <div class="mg-header"><span id="mcPairs">ペア0/${PAIRS}</span><span id="mcTries">めくり0かい</span></div>
+          <div class="mg-header"><span id="mcPairs">ペア0/${PAIRS}</span><span id="mcTries">めくり0かい</span>${mgTimerSpan(DURATION_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="mcCanvas"></canvas></div>
           <div class="mg-hint" id="mcHint">カードを2枚タップしてめくる。同じ絵ならそのまま、ちがえばもどる。場所を覚えて、少ない回数で全部そろえよう。</div>`;
+        mgTimerHud(container, DURATION_MS, () => DURATION_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#mcCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * ROWS / COLS));
         const CW = W / COLS, CH = H / ROWS;
@@ -8126,11 +8243,12 @@
         let running = true, rafId = null, last = null, round = 0, path = [], slots = [], spare = 0, phase = 'build', fallen = 0, msg = '', msgUntil = 0, cleared = 0, pushAt = 0;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="dmRound">1/${ROUNDS}問目</span><span id="dmSpare">手持ち0</span></div>
+          <div class="mg-header"><span id="dmRound">1/${ROUNDS}問目</span><span id="dmSpare">手持ち0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="dmCanvas"></canvas></div>
           <div class="mg-hint" id="dmHint">道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。</div>
           <div class="mg-race-controls"><button class="mg-tap-btn primary" id="dmPush" data-key="action">👉おす!</button></div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#dmCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const roundEl = container.querySelector('#dmRound'), spareEl = container.querySelector('#dmSpare'), hint = container.querySelector('#dmHint'), pushBtn = container.querySelector('#dmPush');
@@ -8190,11 +8308,12 @@
         let running = true, rafId = null, sol, grid, fixed, sel = null, round = 0, solved = 0, mistakes = 0, msg = '', msgUntil = 0, solvedAt = 0, popAt = {}, wrongAt = {};
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="sdRound">1/${ROUNDS}問目</span><span id="sdMiss">ミス0</span></div>
+          <div class="mg-header"><span id="sdRound">1/${ROUNDS}問目</span><span id="sdMiss">ミス0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="sdCanvas"></canvas></div>
           <div class="mg-hint" id="sdHint">${N}×${N}の盤面。たて・横・太いわくの中に、1〜${N}を1つずつ入れる。マスをタップで選び、下の数字ボタンで入れよう。まちがうと赤く光る。</div>
           <div class="mg-tilt-dpad" id="sdPad" style="grid-template-columns:repeat(${N === 6 ? 4 : 3},1fr)"></div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const pad = container.querySelector('#sdPad'); for (let v = 1; v <= N; v++) { const b = document.createElement('button'); b.className = 'mg-tap-btn'; b.textContent = String(v); b.dataset.v = String(v); pad.appendChild(b); } const clr = document.createElement('button'); clr.className = 'mg-tap-btn'; clr.textContent = 'けす'; clr.dataset.v = '0'; pad.appendChild(clr);
         const canvas = container.querySelector('#sdCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
@@ -8277,10 +8396,11 @@
         pits[6] = 0; pits[13] = 0;
         const startTime = performance.now();
         container.innerHTML = `
-          <div class="mg-header"><span id="mkTurn">あなたの番</span><span id="mkScore">🟢 0 - 0 🟠</span></div>
+          <div class="mg-header"><span id="mkTurn">あなたの番</span><span id="mkScore">🟢 0 - 0 🟠</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="mkCanvas"></canvas></div>
           <div class="mg-hint" id="mkHint">下にある自分の穴をタップ。たねを1つずつ、自分のストアの方向へまく。最後のたねが右の自分のストアに入ると、もう1回。空の自分の穴に落ちると、向かいのたねももらえる。</div>`;
+        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#mkCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 200);
         const turnEl = container.querySelector('#mkTurn'), scoreEl = container.querySelector('#mkScore'), hint = container.querySelector('#mkHint');
@@ -9829,7 +9949,9 @@
           { name: 'ペンギン', emoji: '🐧', pos: 0, skip: 0, color: '#4a90e2', cpu: true },
           { name: 'キツネ', emoji: '🦊', pos: 0, skip: 0, color: '#f28c28', cpu: true },
         ];
-        const rankOf = () => { const order = [...players].sort((a, b) => b.pos - a.pos); const fin = finished.indexOf(players[0]); return fin >= 0 ? fin + 1 : finished.length + order.filter((p) => !finished.includes(p)).indexOf(players[0]) + 1; };
+        // おなじ マスに ならんだら、わたしは うしろの じゅんいに する(だれも うごかない まま
+        // 時間切れに なったとき、ならべた じゅんで わたしが 1いに なっていた)
+        const rankOf = () => { const order = [...players].sort((a, b) => b.pos - a.pos || (a.cpu === b.cpu ? 0 : a.cpu ? -1 : 1)); const fin = finished.indexOf(players[0]); return fin >= 0 ? fin + 1 : finished.length + order.filter((p) => !finished.includes(p)).indexOf(players[0]) + 1; };
         const hud = () => { scoreEl.textContent = `💰 ${coins}／順位${rankOf()}い`; };
         // ます: ヘビじゅんに おりかえす みち。ゴールは さいご
         const cells = [];
@@ -10254,7 +10376,7 @@
       { category: 'downhill', game: mg('downhill-snow', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
     ],
     sea: [
-      { category: 'fishing', game: mg('fishing-sea', makeRealFishingGame({ title: 'うみでほんかくさかなつり!合わせて、巻いて、つり上げろ' })) },
+      { category: 'fishing', game: mg('fishing-sea', makeRealFishingGame({ title: 'うみでほんかくさかなつり!鳥の群れの下をねらえ', hotspot: 'flock', reach: true, recast: true })) },
     ],
     deepsea: [
       { category: 'fishing', game: mg('fishing-deepsea', makeRealFishingGame({ title: 'しんかいフィッシング!何がかかるかわからない', species: DEEPSEA_FISH, waterTop: '#1d5a8a', waterBottom: '#03122a' })) },
