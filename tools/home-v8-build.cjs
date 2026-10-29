@@ -30,4 +30,7 @@ if(fs.existsSync('tools/home-v8-qa.html'))put('home-v8-validation.html',fs.readF
 fs.mkdirSync(path.join(out,'v8-comparisons'),{recursive:true});
 for(const name of fs.readdirSync('docs/qa/home-v8').filter(n=>n.endsWith('.webp'))){fs.copyFileSync('docs/qa/home-v8/'+name,path.join(out,'v8-comparisons',name));files.push('v8-comparisons/'+name);}
 put('release-v8.json',JSON.stringify({version:8,githubHead:process.env.HOME_V8_GITHUB_HEAD||require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),adoption:{sea:'sea-b',seaB2:'comparison only',star_stop:'star-new design',memory_lake:'lake-new design',production:'not approved'},files:Object.fromEntries(files.map(f=>[f,hash(fs.readFileSync(path.join(out,f)))]))},null,2)+'\n');
+// Make the completed v8 comparison reachable from the existing private entrypoint.
+const index=read('index.html');
+if(!index.includes('id="home-v8-entry"'))write('index.html',index.replace('<body>', '<body><nav id="home-v8-entry" style="padding:20px;background:#e2e9e6"><strong>VERSION 8</strong> · <a href="home-v8.html">海B2・星空・記憶の湖を比較する</a> · <a href="home-v8-play.html">卵から育てる</a></nav>'));
 console.log('V8 additive build:',files.length,'files');
