@@ -1,6 +1,6 @@
 # Home v7 — original background recovery (2026-10-29)
 
-Status: originals identified and verified; v7 implementation pending.
+Status: originals identified and verified; v7 comparison implemented. See ../qa/home-v7/REPORT.md for results and remaining QA.
 
 Starting PR #462 HEAD: 3e7955ee055242ba1ba0cc762899b1f140676236 (experiment/home-art-25d-20261028, Draft).
 Read-only main: 7a59eff0dbde6700efc0e21a4ccf9ca0785b5dc1.
