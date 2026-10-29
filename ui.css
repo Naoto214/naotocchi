@@ -318,3 +318,15 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 #naokoroDialog h2 {font-size:20px;margin:0 0 16px}
 #naokoroDialog p {font-size:15px;line-height:1.5;margin:8px 0}
 #naokoroDialog button {min-height:44px;min-width:120px;margin-top:12px;border:1px solid #dfc9ab;border-radius:12px;background:#fff0d9;color:#805837;font:inherit;cursor:pointer}
+
+/* Short visible viewports reserve room for Safari bars and safe areas without
+   scaling the page. Keep readable type and at least 44px touch targets. */
+@media(max-height:540px){
+  #menuOverlay{--menu-gap:3px}
+  #menuOverlay .menu-grid > :is(button,a){padding:1px 3px;gap:1px}
+  #menuOverlay .menu-heading{min-height:24px;gap:4px}
+  #menuOverlay .menu-label{font-size:15px}
+  #menuOverlay .menu-icon{width:24px;height:24px;flex-basis:24px}
+  #menuOverlay .menu-icon > :is(i,svg,span,img){width:24px;height:24px;font-size:23px;line-height:24px}
+  #menuOverlay .menu-grid small{font-size:12px}
+}

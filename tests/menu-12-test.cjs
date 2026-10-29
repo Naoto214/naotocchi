@@ -9,3 +9,7 @@ test('menu retains existing destinations in the requested order and includes the
  assert.match(grid,/href="prototypes\/naopoyo\/"/);assert.match(grid,/href="prototypes\/card-game\/"/);assert.match(grid,/href="prototypes\/madoromi-white-reader-20261027\/dist\/\?from=game#top"/);
  assert.match(html,/ころがるサイコロ、かわる人生。/);assert.match(html,/ただいま準備中！/);
 });
+
+test('prepared dialog keeps Escape from closing the underlying menu',()=>{
+ assert.match(html, /<dialog id="naokoroDialog"[^>]*onkeydown="if \(event.key === 'Escape'\) event.stopPropagation\(\)"/);
+});
