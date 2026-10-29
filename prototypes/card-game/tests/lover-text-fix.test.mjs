@@ -74,8 +74,9 @@ test('タコ：今の装備先は移し先に出ず、タコ自身は適正な�
 });
 
 // PR #452 で新規対戦の版は hotseat-4（こいびと修正＋ぴょんぴょんジャンプ改善案B）になった。こいびと修正は hotseat-3 以降に含まれる。
-test('新しい対戦は最新の版（hotseat-4）、保存しても版は保たれる。hotseat-3 の保存も読める',()=>{
- const s=e.createGame(5);assert.equal(s.version,'hotseat-4');assert.equal(e.VERSION,'hotseat-4');assert.equal(JSON.parse(e.save(s)).version,'hotseat-4');
+// たこやきやさんの対象修正（hotseat-5）で、新規対戦の版は hotseat-5 になった。こいびと修正は hotseat-3 以降すべてに含まれる。
+test('新しい対戦は最新の版（hotseat-5）、保存しても版は保たれる。hotseat-3 の保存も読める',()=>{
+ const s=e.createGame(5);assert.equal(s.version,'hotseat-5');assert.equal(e.VERSION,'hotseat-5');assert.equal(JSON.parse(e.save(s)).version,'hotseat-5');
  assert.ok(e.RULE_VERSIONS.includes('hotseat-3'));const t=e.createGame(5,undefined,'hotseat-3');assert.equal(JSON.parse(e.save(t)).version,'hotseat-3');
 });
 
@@ -116,8 +117,8 @@ test('旧保存（hotseat-2）のCPU途中保存も復帰し、最後まで進�
 test('旧保存（hotseat-2）の決着済み対戦は戦績用にそのまま復帰する',()=>{
  for(const r of saves.rows){const s=restoreMatch(JSON.stringify(r.save));assert.equal(s.finished,true);assert.equal(s.save(),JSON.stringify(r.save));}
 });
-test('クモ入りCPUデッキ（item）同士の新しい対戦は最新の版（hotseat-4）で最後まで進む',()=>{
+test('クモ入りCPUデッキ（item）同士の新しい対戦は最新の版（hotseat-5）で最後まで進む',()=>{
  const d=cpuDeck('item').cards;assert.equal(d.filter(id=>id==='P-knitting_spider').length,2);
- for(const humanSeat of ['A','B']){const s=new CpuSession({humanSeat,policySeed:446});s.start(e.createGame(20261027,{A:d,B:d}));playOut(s);assert.equal(s.finished,true);assert.equal(JSON.parse(s.engineSave).version,'hotseat-4');
+ for(const humanSeat of ['A','B']){const s=new CpuSession({humanSeat,policySeed:446});s.start(e.createGame(20261027,{A:d,B:d}));playOut(s);assert.equal(s.finished,true);assert.equal(JSON.parse(s.engineSave).version,'hotseat-5');
   const back=restoreMatch(s.save());assert.equal(back.engineSave,s.engineSave);}
 });
