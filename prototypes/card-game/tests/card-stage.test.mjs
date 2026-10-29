@@ -49,7 +49,7 @@ test('stage scale: portrait whole card when readable, else full width with scrol
  assert.equal(stageScale(288,300,{portrait:true}),288/320);            // 320×568, three choices: fills the width, stage scrolls
  assert.equal(stageScale(500,300,{portrait:false}),300/480);           // landscape: always the whole card, no scrolling
  assert.equal(stageScale(500,300,{portrait:false,zoom:true}),500/320);  // tap: fill the stage width
- assert.equal(stageScale(300,400,{portrait:true,zoom:true}),300/320);   // zoom widens to the stage width where that is a real gain
+ assert.equal(stageScale(300,400,{portrait:true,zoom:true}),400/480*STAGE_DEEP_ZOOM); // width is only 1.125× larger: 1.5× instead
  assert.equal(stageScale(358,700,{portrait:true,zoom:true}),358/320*STAGE_DEEP_ZOOM); // already full width: 1.5× further
  assert.equal(stageScale(288,300,{portrait:true,zoom:true}),288/320*STAGE_DEEP_ZOOM);
  for(const [w,h] of [[200,900],[288,200],[500,300]])assert.ok(stageScale(w,h)*320<=w+1e-9);

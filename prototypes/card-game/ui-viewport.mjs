@@ -17,12 +17,12 @@ export function installViewport(doc= document,win=window){
 // and the stage scrolls. Landscape: always the whole card, however small, so the table can be taken in at a glance.
 // Tapping the card (zoom) fills the stage width to read the text, and tapping again returns. Never wider than the stage.
 export const STAGE_MAX_SCALE=1.6,STAGE_READABLE=.82,STAGE_DEEP_ZOOM=1.5;
-// Zoom fills the stage width; when the card already fills it, zoom goes 1.5× further and the stage scrolls both ways.
+// Zoom fills the stage width when that is at least 1.25× larger; otherwise it goes 1.5× and the stage scrolls both ways.
 export function stageScale(width,height,{zoom=false,portrait=true}={}){
  const fill=Math.min(Math.max(1,width)/320,STAGE_MAX_SCALE),whole=Math.min(fill,Math.max(1,height)/480);
  const normal=!portrait||whole>=Math.min(fill,STAGE_READABLE)?whole:fill;
  if(!zoom)return normal;
- return fill-normal>.05?fill:normal*STAGE_DEEP_ZOOM;
+ return fill>=normal*1.25?fill:normal*STAGE_DEEP_ZOOM;
 }
 export function fitStageCard(dialog,doc=document){
  const scroll=dialog?.querySelector('.stage-scroll'),card=scroll?.querySelector('.stage-card');if(!card)return;
