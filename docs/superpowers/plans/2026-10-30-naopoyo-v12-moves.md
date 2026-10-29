@@ -13,8 +13,8 @@ One legal cell = one move, one stroke = one Undo. Selection/blocked input/gravit
 
 ## Task: display and verification
 
-- [ ] Extend real app-handler tests: 0→5 in one stroke, grouped Undo, consecutive Undo, rejected input, retry, reload, example isolation, no misleading one-move Undo copy. Run RED.
-- [ ] Render a separate count span from `q.state.moves` beside `#title` in index/qa, 13px tabular digits, no wrap and no extra row; remove one-move Undo status wording. Run GREEN.
-- [ ] Assert every old/new witness step increments once regardless of split/merge/swap/rescue/fall; completion count equals answer length. Keep originals unchanged.
-- [ ] Run chapter/puzzle regression, Pages, full CI (Runtime/CARD), review and mobile browser QA at320/375/390/430 and safe-area inset simulation. Keep exact byte comparisons for protected files.
-- [ ] Save to current PR482 with expected-HEAD protection, rebuild from saved commit, update existing owner-private Site and verify all HTTP hashes. Record remaining real Safari limits and final HEAD/tree.
+- [x] Extend real app-handler tests: 0→5 in one stroke, grouped Undo, consecutive Undo, rejected input, retry, reload, example isolation, no misleading one-move Undo copy. Run RED.
+- [x] Render a separate count span from `q.state.moves` beside `#title` in index/qa, 13px tabular digits, no wrap and no extra row; remove one-move Undo status wording. Run GREEN.
+- [x] Assert every old/new witness step increments once regardless of split/merge/swap/rescue/fall; completion count equals answer length. Keep originals unchanged.
+- [x] Run chapter/puzzle regression, Pages, full CI (Runtime/CARD), review and mobile browser QA at320/375/390/430 and safe-area inset simulation. Keep exact byte comparisons for protected files.
+- [x] Save to current PR482 with expected-HEAD protection, rebuild from saved commit, update existing owner-private Site and verify all HTTP hashes. Record remaining real Safari limits and final HEAD/tree.
