@@ -66,3 +66,17 @@ Sites既存project `appgprj_6adc23fed6a08191946282f35ecfd94a` を継続。owner1
 ## CI再試行の記録
 
 Runtime smoke run 40833443557の最初のjob 123312645084は07:15:37〜07:45:54 UTC、約30分でcancelled。workflowのtimeout-minutesは30。ログにnot okはなく、最後のエラーはThe operation was canceled。上限停止と整合するが、明示的なタイムアウト注記の確認はできていない。成功扱いにせず、該当ジョブだけを再実行した。Chapter2側の同じnpm testは既に成功している。
+
+初回Runtime smokeのstep時刻を追加確認：checkout 07:15:39〜07:33:53（18分14秒）、npm test 07:33:56〜07:45:50（11分54秒）でcancelled。テストだけに30分を費やしたわけではなく、リポジトリ取得でjob予算の大半を消費した。再試行ではcheckoutが先に終了し、同じ検証を実行中。
+
+## 追加main同期（08:20 UTC以降）
+
+初回統合66596994は9ワークフローすべて成功した（Runtime smokeは再試行で成功）。ただしPR436へのref更新直前の再確認でmainが `d0cfd40f4bdd05782ceb45469ba151da3199c9a6` に進んでいたため、ref更新は実施せず、新しいメニュー12項目と作品情報の変更36ファイルを保存して追加統合した。
+
+現在のGitHub WIP HEADは `5284d5e42cab98c9c6d7080e04d04c0aadcb3d51`、treeは `85c732f3ebdd0d0d9d2f090c6366029e4075327f`。local HEAD `de5494ecc04d5ab1c977626c1b24c1a9a7689af2` と同tree。allowlist以外の35ファイルは新main正本blobと一致し、allowlistはv2 engineの既存SHA保持だけが異なる。独立追加レビューも重要問題なし。chapter2は前の統合と完全に同一。
+
+新HEADでパズル784/784、CARD494/494、Pages単体16/16、reader7/7成功。Pages配布4,057件、213,581,374 bytesのHTTP/SHA-256照合は欠落0・不一致0。Runtimeは実行中で、cat-expression-preview-test.cjs、meguru-phase3b3-test.cjsのプロセス単位終了を観測。最終のsignal/例外と個別再試験は未確認。共有cgroup8GBでoom_kill履歴22を観測したが今回2件との因果は現時点で断定しない。テストは無効化していない。
+
+自作業で生成したPages配布ディレクトリのみ、全4,057ファイルが保存manifestと一致し、余分なファイル・symlinkがないことを確認して削除し、約212MBを回収した。新mainで再生成/再検証した配布物も同様に確認後整理。GitHub source、生成器、全hash・HTTP結果から再作成可能。これらは以前拒否された別Workの一時clone削除ではない。他WorkやGit履歴、制作素材、保存データは削除していない。作業領域空きは約277MBへ回復。
+
+新しいSites sourceは `17316bfc99c2f216a5bb9daa7601b42b39964f2d`、archive `site-v11-latest-main.tar.gz`。83 runtime hashesは全て前の検証済み候補と同じ。version.json.sourceCommitだけ5284d5e4へ更新。配信はまだV10であることを認証付きHTTP200/未認証403で確認。PR436は旧HEADのDraftを維持。最新CI完了と必要なRuntime再試験の後に進める。
