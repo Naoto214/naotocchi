@@ -2942,10 +2942,11 @@
   function minigameLengthMode() {
     return GAME_LENGTH_CHOICES[state.lifetime.minigameLength] ? state.lifetime.minigameLength : 'normal';
   }
-  function mgDuration(ms) {
+  function mgDuration(ms, opts) {
     // サクッと あそべる ながさに: ふつう/むずかしい は そのまま、やさしい だけ +20%。
-    // 「みじかめ」せっていは 20びょう いじょうの ゲームを 7わりの ながさに する
-    const short = minigameLengthMode() === 'short' && ms >= 20000 ? 0.7 : 1;
+    // 「みじかめ」せっていは 20びょう いじょうの ゲームを 7わりの ながさに する。
+    // てばんで すすむ ゲーム(opts.turn。games.js の MG_TURN_BASED)は 1手の おもさが かわらないので みじかく しない(T3)
+    const short = minigameLengthMode() === 'short' && ms >= 20000 && !(opts && opts.turn) ? 0.7 : 1;
     const ease = minigameDifficultyMode() === 'easy' ? 1.2 : 1;
     return Math.round(ms * ease * short);
   }
@@ -17172,8 +17173,6 @@
     const isGreat = clampedScore >= 70;
     const isBad = clampedScore < 30;
     const isQuick = game.id === 'quick-run' || game.id === 'quick-solo';
-    state.minigameScoreSum += rawScore;
-    state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
     if (isQuick) {
       // 混合の実点100は20/20。ソロ・未完走には支払わず、装備や環境も掛けない。
@@ -17192,6 +17191,10 @@
       render();
       return;
     }
+    // うでまえの へいきん(avgSkill。れんくんの こうほ条件)は ふつうの ゲームだけで かぞえる。
+    // クイックは みじかい あそびなので いれない(すでに たまっている あたいは そのまま)
+    state.minigameScoreSum += rawScore;
+    state.minigameCount += 1;
     individualGameResult(game,rawScore,individualGameLifeId);
     minigameResultSpeechHold = [];
     const fromCompanion = !!pendingCompanionId;
@@ -18405,7 +18408,7 @@
       const btn = e.target.closest('.theme-swatch');
       if (!btn || !GAME_LENGTH_CHOICES[btn.dataset.id]) return;
       state.lifetime.minigameLength = btn.dataset.id; saveState(); renderEnvironment();
-      setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（20秒以上の制限時間を70%にする）' : '⏱️ゲームのながさを「ふつう」にした');
+      setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（20秒以上の制限時間を70%にする。手番で進むゲームはそのまま）' : '⏱️ゲームのながさを「ふつう」にした');
     });
     el.difficultyModeGrid.addEventListener('click', (e) => {
       const btn = e.target.closest('.theme-swatch');
