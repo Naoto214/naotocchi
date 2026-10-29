@@ -268,7 +268,7 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
    The card is a 320 × 480 canvas scaled by --stage-scale (set by fitStageCard). One scroll at most: the stage. */
 #card-dialog.card-detail .card-stage{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px;min-height:0;height:100%}
 #card-dialog.card-detail .stage-scroll{min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:center;padding:2px 0 4px}
-#card-dialog.card-detail .stage-card{flex:none;position:relative;margin:auto;width:calc(320px * var(--stage-scale,.6));height:calc(480px * var(--stage-scale,.6));border-radius:4%;cursor:default;-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#card-dialog.card-detail .stage-card{flex:none;position:relative;margin:auto;width:calc(320px * var(--stage-scale,.6));height:calc(480px * var(--stage-scale,.6));border-radius:4%;cursor:default;-webkit-tap-highlight-color:transparent;touch-action:pan-x pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 #card-dialog.card-detail .stage-card[data-zoomable]{cursor:zoom-in}
 #card-dialog.card-detail[data-stage-zoom="1"] .stage-card{cursor:zoom-out}
 /* Shown only when tapping the card really changes its size. */
