@@ -1,0 +1,42 @@
+{
+  "deployment": {
+    "id": "appgdep_6ae308e507248191a862c06812a5d1cd",
+    "project_id": "appgprj_6adc23fed6a08191946282f35ecfd94a",
+    "title": "なおぽよ。第2章 こもれびの森 Pilot",
+    "version_id": "appgprj_6adc23fed6a08191946282f35ecfd94a~appgver_cebdfdfeeb008191b08c5c23a890b496",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naopoyo-komorebi-20261024.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6adc23fed6a08191946282f35ecfd94a",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-29T08:51:03.892213+00:00"
+  },
+  "version": {
+    "id": "appgprj_6adc23fed6a08191946282f35ecfd94a~appgver_cebdfdfeeb008191b08c5c23a890b496",
+    "number": 13,
+    "source": {
+      "commit_sha": "17316bfc99c2f216a5bb9daa7601b42b39964f2d"
+    }
+  },
+  "protectedRefs": [
+    {
+      "branch": "wip/naopoyo-v11-runtime-investigation-20261029",
+      "sha": "7b38ef0eda1669ef972aeab594dd4092a2270ef5"
+    },
+    {
+      "branch": "wip/naopoyo-v11-browser-qa-20261029",
+      "sha": "f46784239de01651bdfe9ce6e8f7d7dcc7254bc1"
+    },
+    {
+      "branch": "wip/naopoyo-v11-example-20261029",
+      "sha": "e81b64f95439216d4e6fa01e2bcd8f3602aebd43"
+    },
+    {
+      "branch": "main",
+      "sha": "d0cfd40f4bdd05782ceb45469ba151da3199c9a6"
+    }
+  ]
+}
