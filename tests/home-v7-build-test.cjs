@@ -1,7 +1,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto'),{execFileSync}=require('node:child_process');
 test('v7 builder is additive and scopes script, conversation and away per frame',()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'home-v7-test-'));
- try{const source='../site/dist';if(!fs.existsSync(source+'/release-v6.json'))return;
+ try{let source='../site/dist';if(!fs.existsSync(source+'/release-v6.json')){source=path.join(dir,'v6-fixture');execFileSync(process.execPath,['tools/home-v6-build.cjs',source],{stdio:'inherit'});}
  const files=fs.readdirSync(source).filter(f=>fs.statSync(path.join(source,f)).isFile());for(const f of files)fs.copyFileSync(path.join(source,f),path.join(dir,f));
  fs.mkdirSync(path.join(dir,'assets/world'),{recursive:true});for(const f of ['star_stop-v1.webp','memory_lake-v1.webp'])fs.copyFileSync('assets/world/'+f,path.join(dir,'assets/world',f));
  const before=Object.fromEntries(files.filter(f=>!f.includes('v7')).map(f=>[f,fs.readFileSync(path.join(dir,f))]));
