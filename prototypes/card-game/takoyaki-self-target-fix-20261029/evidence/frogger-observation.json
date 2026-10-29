@@ -1,0 +1,11 @@
+{
+ "card": "G-frogger-road",
+ "ruling": "81 接続：自身は発動領域へ移るので対象にできない",
+ "ruleTarget": "ownPrepared",
+ "candidates": [
+  "G-frogger-road",
+  "G-real-fishing"
+ ],
+ "selfOffered": true,
+ "fixedInThisPR": false
+}

@@ -1,0 +1,204 @@
+{
+ "saves": {
+  "doodle-jump-hotseat2-saves.json:/rows/0": {
+   "version": "hotseat-2",
+   "state": "bfe25f89fa580d0b661ace88536e1c5525a21cff2b99e33207ec436d651f27cd",
+   "stateNoMeta": "bfe25f89fa580d0b661ace88536e1c5525a21cff2b99e33207ec436d651f27cd",
+   "save": "3585904eb4aeeee2195265025cf8517c7b7f482115bfac747b5b948f204493ad"
+  },
+  "doodle-jump-hotseat2-saves.json:/rows/1": {
+   "version": "hotseat-2",
+   "state": "8e45b1ef99f841fac3b8ded3c05bcebd0a3649d1865f5cb80a580e2c1adb8f06",
+   "stateNoMeta": "8e45b1ef99f841fac3b8ded3c05bcebd0a3649d1865f5cb80a580e2c1adb8f06",
+   "save": "0364463818036e6b43328b2227885341db94810dabdf3de6daf12a0fda8c098f"
+  },
+  "doodle-jump-hotseat2-saves.json:/rows/2": {
+   "version": "hotseat-2",
+   "state": "74aadd94d507471f859b432a4a31b7b459c3c0a32a965c6567dea51e6a65cf85",
+   "stateNoMeta": "74aadd94d507471f859b432a4a31b7b459c3c0a32a965c6567dea51e6a65cf85",
+   "save": "bf77b1018b1767c05802ad0580b41b226c3e4e3a294ba2eac8c3b91c88dd2a17"
+  },
+  "hotseat1-saves.json:/mid": {
+   "version": "hotseat-1",
+   "state": "2c5c7ecfb815341c31b553ed7b9291713335d4702898c1c45747d1d2570a7936",
+   "stateNoMeta": "2c5c7ecfb815341c31b553ed7b9291713335d4702898c1c45747d1d2570a7936",
+   "save": "0bb3e8bd5edef90ed9e23a593d8e38ba5d9a4c813060eff4ebe2b77632c54310"
+  },
+  "hotseat1-saves.json:/finished": {
+   "version": "hotseat-1",
+   "state": "5a144e13c49a67c62fb880a8c474454d391e68fd8ba1b5e4d4a3e2834ca63a17",
+   "stateNoMeta": "5a144e13c49a67c62fb880a8c474454d391e68fd8ba1b5e4d4a3e2834ca63a17",
+   "save": "88cadd0efce760ccaa76df39b2c56cf25ce1510a1e720a0ad3fe35aebe81e92a"
+  },
+  "lover-fix-hotseat2-saves.json:/rows/0": {
+   "version": "hotseat-2",
+   "state": "c81d50068c5c5ec3d39ade3dbf0751095d8e0c8eada636b7c5de50bc68858bfe",
+   "stateNoMeta": "12cd25b943cd2a720b88e1fcb2fb3471de8b4ca4287ccb7c3bec451d6644153d",
+   "save": "5dcbb42917e1a755b872c7a8785b8dd2a3eee2ef3d6ffcf517922774b462aeab"
+  },
+  "lover-fix-hotseat2-saves.json:/rows/1": {
+   "version": "hotseat-2",
+   "state": "03d2679d4a495a657fa086debb3a11ffd69957a9d1cb2f3a24f9bc95133901f9",
+   "stateNoMeta": "03d2679d4a495a657fa086debb3a11ffd69957a9d1cb2f3a24f9bc95133901f9",
+   "save": "b8291c6fdf9070e65ff7ece0180b1ecdabf7b9d5748301683236c78e003dfd49"
+  },
+  "takoyaki-hotseat4-saves.json:/rows/0": {
+   "version": "hotseat-4",
+   "state": "0c81d209b8985211e7ecad0e02443227f8b11d11d8cf3adcc11b815326a70fbb",
+   "stateNoMeta": "f5239df75d9f72df745fdbda95e32d563882657b6dfb368b3761e036873e93e5",
+   "save": "5819d6fa72cdc05f9c858579a130b5630d8f922524092d51031ca4351456a64b"
+  },
+  "takoyaki-hotseat4-saves.json:/rows/1": {
+   "version": "hotseat-4",
+   "state": "30b5814038ff12d6e2710c8a95cd601e5d69e27f4b7670cb85e8b120bc3597e6",
+   "stateNoMeta": "b5dc7a88269b4971a584aebeb73bc35d0113edba0bea0135a2dce6429b1e5f26",
+   "save": "638fa0f5a44c381a21c7fa42e63050a83d8fde0ce5b0c60ed64317ee57e6fd48"
+  }
+ },
+ "games": {
+  "hotseat-2/beginner/1": {
+   "phase": "finished",
+   "commands": "85aee22c83e798852e4963d3364d4aa024cf7d172b82a4a83d516f9c560248cb",
+   "state": "b180a02d20ef351a6455966efa42db3b5747c0324aa9c71dcab5770c99d0bae6",
+   "stateNoMeta": "44c4b01dc9936c0fe30e5ad41e46fc20689f0e2bebd31b43657ce77152d68e55",
+   "restoredEqual": true,
+   "selfTargets": 4
+  },
+  "hotseat-2/beginner/2": {
+   "phase": "finished",
+   "commands": "ae8b25da62f2094bbeba9538b497ab673c50efbaba25eb0bc024a92d569f18ce",
+   "state": "caa844e0839c3f456edf846e777481468a7bd9ac00868a10169f286410c663f2",
+   "stateNoMeta": "9005299e5d451a8062d8cede5c5f7ac5873da8631f0f1cb90e535c9e7e2d6fc5",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-2/beginner/3": {
+   "phase": "finished",
+   "commands": "0d5b20e1c097939faa70ace3e615d325744a12d990b82873e74e449114d49141",
+   "state": "f13b2c6fdfa56fdd272097dec6499f287f935763e0cb104667d91da15f359a06",
+   "stateNoMeta": "e7085f8751337da94406eb5da21314853751823a8e39d8021127b37c3dbc83dc",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-2/intermediate/1": {
+   "phase": "finished",
+   "commands": "0eee97884a2b615c7377d8cc00410630f47f5256e71b38cd86465bf97e5513b8",
+   "state": "0c81d209b8985211e7ecad0e02443227f8b11d11d8cf3adcc11b815326a70fbb",
+   "stateNoMeta": "f5239df75d9f72df745fdbda95e32d563882657b6dfb368b3761e036873e93e5",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-2/intermediate/2": {
+   "phase": "finished",
+   "commands": "bdcf3751403e91f6336d6563d106135735a52a20e885c6355b61054b5322cb5a",
+   "state": "cdb086ebb4fce8aaadc1df90b20face55cad64615ed61b04592c0394d1358b24",
+   "stateNoMeta": "090bdcbfc4458a0403ba22035469599f7dbc2aeb852aa21b416f2125602f6b4c",
+   "restoredEqual": true,
+   "selfTargets": 4
+  },
+  "hotseat-2/intermediate/3": {
+   "phase": "finished",
+   "commands": "bf748ace40943ccae5097e4f1a88bb4fc4bf1cbfa3c44dd400334a9d4ac4e4f3",
+   "state": "a6b7d337c78d947b4829c93d1e35d5b4a7b100fc00bcda8b8a1c127ede77872b",
+   "stateNoMeta": "723b401c83cafe29ba2e003af368aab63b3753a8446cbb7d853472b07b6e31a3",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-3/beginner/1": {
+   "phase": "finished",
+   "commands": "85aee22c83e798852e4963d3364d4aa024cf7d172b82a4a83d516f9c560248cb",
+   "state": "b180a02d20ef351a6455966efa42db3b5747c0324aa9c71dcab5770c99d0bae6",
+   "stateNoMeta": "44c4b01dc9936c0fe30e5ad41e46fc20689f0e2bebd31b43657ce77152d68e55",
+   "restoredEqual": true,
+   "selfTargets": 4
+  },
+  "hotseat-3/beginner/2": {
+   "phase": "finished",
+   "commands": "ae8b25da62f2094bbeba9538b497ab673c50efbaba25eb0bc024a92d569f18ce",
+   "state": "caa844e0839c3f456edf846e777481468a7bd9ac00868a10169f286410c663f2",
+   "stateNoMeta": "9005299e5d451a8062d8cede5c5f7ac5873da8631f0f1cb90e535c9e7e2d6fc5",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-3/beginner/3": {
+   "phase": "finished",
+   "commands": "0d5b20e1c097939faa70ace3e615d325744a12d990b82873e74e449114d49141",
+   "state": "f13b2c6fdfa56fdd272097dec6499f287f935763e0cb104667d91da15f359a06",
+   "stateNoMeta": "e7085f8751337da94406eb5da21314853751823a8e39d8021127b37c3dbc83dc",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-3/intermediate/1": {
+   "phase": "finished",
+   "commands": "0eee97884a2b615c7377d8cc00410630f47f5256e71b38cd86465bf97e5513b8",
+   "state": "0c81d209b8985211e7ecad0e02443227f8b11d11d8cf3adcc11b815326a70fbb",
+   "stateNoMeta": "f5239df75d9f72df745fdbda95e32d563882657b6dfb368b3761e036873e93e5",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-3/intermediate/2": {
+   "phase": "finished",
+   "commands": "bdcf3751403e91f6336d6563d106135735a52a20e885c6355b61054b5322cb5a",
+   "state": "cdb086ebb4fce8aaadc1df90b20face55cad64615ed61b04592c0394d1358b24",
+   "stateNoMeta": "090bdcbfc4458a0403ba22035469599f7dbc2aeb852aa21b416f2125602f6b4c",
+   "restoredEqual": true,
+   "selfTargets": 4
+  },
+  "hotseat-3/intermediate/3": {
+   "phase": "finished",
+   "commands": "bf748ace40943ccae5097e4f1a88bb4fc4bf1cbfa3c44dd400334a9d4ac4e4f3",
+   "state": "a6b7d337c78d947b4829c93d1e35d5b4a7b100fc00bcda8b8a1c127ede77872b",
+   "stateNoMeta": "723b401c83cafe29ba2e003af368aab63b3753a8446cbb7d853472b07b6e31a3",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-4/beginner/1": {
+   "phase": "finished",
+   "commands": "85aee22c83e798852e4963d3364d4aa024cf7d172b82a4a83d516f9c560248cb",
+   "state": "b180a02d20ef351a6455966efa42db3b5747c0324aa9c71dcab5770c99d0bae6",
+   "stateNoMeta": "44c4b01dc9936c0fe30e5ad41e46fc20689f0e2bebd31b43657ce77152d68e55",
+   "restoredEqual": true,
+   "selfTargets": 4
+  },
+  "hotseat-4/beginner/2": {
+   "phase": "finished",
+   "commands": "ae8b25da62f2094bbeba9538b497ab673c50efbaba25eb0bc024a92d569f18ce",
+   "state": "caa844e0839c3f456edf846e777481468a7bd9ac00868a10169f286410c663f2",
+   "stateNoMeta": "9005299e5d451a8062d8cede5c5f7ac5873da8631f0f1cb90e535c9e7e2d6fc5",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-4/beginner/3": {
+   "phase": "finished",
+   "commands": "0d5b20e1c097939faa70ace3e615d325744a12d990b82873e74e449114d49141",
+   "state": "f13b2c6fdfa56fdd272097dec6499f287f935763e0cb104667d91da15f359a06",
+   "stateNoMeta": "e7085f8751337da94406eb5da21314853751823a8e39d8021127b37c3dbc83dc",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-4/intermediate/1": {
+   "phase": "finished",
+   "commands": "0eee97884a2b615c7377d8cc00410630f47f5256e71b38cd86465bf97e5513b8",
+   "state": "0c81d209b8985211e7ecad0e02443227f8b11d11d8cf3adcc11b815326a70fbb",
+   "stateNoMeta": "f5239df75d9f72df745fdbda95e32d563882657b6dfb368b3761e036873e93e5",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-4/intermediate/2": {
+   "phase": "finished",
+   "commands": "bdcf3751403e91f6336d6563d106135735a52a20e885c6355b61054b5322cb5a",
+   "state": "cdb086ebb4fce8aaadc1df90b20face55cad64615ed61b04592c0394d1358b24",
+   "stateNoMeta": "090bdcbfc4458a0403ba22035469599f7dbc2aeb852aa21b416f2125602f6b4c",
+   "restoredEqual": true,
+   "selfTargets": 4
+  },
+  "hotseat-4/intermediate/3": {
+   "phase": "finished",
+   "commands": "bf748ace40943ccae5097e4f1a88bb4fc4bf1cbfa3c44dd400334a9d4ac4e4f3",
+   "state": "a6b7d337c78d947b4829c93d1e35d5b4a7b100fc00bcda8b8a1c127ede77872b",
+   "stateNoMeta": "723b401c83cafe29ba2e003af368aab63b3753a8446cbb7d853472b07b6e31a3",
+   "restoredEqual": true,
+   "selfTargets": 2
+  }
+ }
+}
