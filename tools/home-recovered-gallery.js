@@ -1,6 +1,6 @@
 import {ART_CANDIDATES,ART_SCENES} from './home-recovered-manifest.mjs';
 const $=id=>document.getElementById(id),wait=ms=>new Promise(r=>setTimeout(r,ms));
-const formal=['dog/04.png','partners/forest_bear.png','companions/shiba.png','companions/cat_friend.png','companions/squirrel.png','companions/parrot.png'];
+const formal=['dog/04.png','partners/forest_bear.png','companions/chameleon.png','companions/cat_friend.png','companions/bat.png','companions/parrot.png'];
 for(const c of ART_CANDIDATES){
  const figure=document.createElement('figure');figure.className='card';figure.dataset.candidate=c.id;
  figure.innerHTML=`<div class="art"><img src="${c.src}" alt="${c.name}" loading="lazy"></div><div class="caption"><span class="badge">保存済み原画 · 動作試作</span><b>${c.name}</b><p>${c.note}</p><a href="${c.src}" target="_blank">背景を拡大</a> · <a href="#living" data-choose="${c.id}">動かしてみる</a></div>`;

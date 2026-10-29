@@ -3,7 +3,7 @@
 exports.recoveredModelSource=source=>{
  const marker='const best=candidates.find(fits);';
  if(!source.includes(marker))throw Error('Recovered crowd adapter: upstream seating changed');
- return source.replace(marker,`let best=candidates.find(fits);
+ return source.replace('if(!fits(a)){', 'if(!fits(a)&&(arrange||!retained.has(a.key)||!visible(a,a)||scene.navigation&&!scene.navigation.valid(a))){').replace(marker,`let best=candidates.find(fits);
           // A narrow painted path cannot always fit 28 fully separated bodies.
           // Keep every foot on the path and preserve the pet's reserved exit;
           // among those seats minimize overlap with already seated residents.
