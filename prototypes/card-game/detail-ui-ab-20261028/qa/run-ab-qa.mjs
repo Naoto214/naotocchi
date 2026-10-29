@@ -11,7 +11,7 @@ const require=createRequire(import.meta.url),{chromium}=require('playwright');
 const HERE=path.dirname(fileURLToPath(import.meta.url)),OUT=path.resolve(process.argv[2]??HERE);
 const BASE=process.env.QA_BASE??'http://127.0.0.1:8766/trial/index.html';
 export const VIEWPORTS=[[320,568],[375,667],[390,844],[430,932],[844,390]];
-export const VARIANTS=['current','a','b'];
+export const VARIANTS=['current','a','b','a2'];
 // 場面と、詳細を開くカード（手札のカードID）。
 export const CASES=[
  {key:'choice-long',scenario:'choice',card:'W-city',mode:'cpu'},
@@ -56,13 +56,18 @@ export const measure=()=>{
  const close=d.querySelector('[data-close]').getBoundingClientRect();
  const dr=d.getBoundingClientRect(),art=d.querySelector('.detail-image').getBoundingClientRect();
  const overflowX=[...d.querySelectorAll('*')].some(n=>{const r=n.getBoundingClientRect();return r.width>0&&(r.right>W+1||r.left<-1);})||document.documentElement.scrollWidth>W+1;
+ // 下部操作帯の高さ、ボタン同士の最小間隔（誤タップの目安）、カード画像の見えている面積
+ const cmd=d.querySelector('.detail-command'),cmdH=cmd?Math.round(cmd.getBoundingClientRect().height):0;
+ const br=[...d.querySelectorAll('.detail-command button[data-action]')].map(b=>b.getBoundingClientRect());
+ let minGap=null;for(let i=0;i<br.length;i++)for(let j=i+1;j<br.length;j++){const a=br[i],b=br[j];const gx=Math.max(b.left-a.right,a.left-b.right),gy=Math.max(b.top-a.bottom,a.top-b.bottom);const g=Math.max(gx,gy);minGap=minGap===null?g:Math.min(minGap,g);}
+ const artVisible=Math.max(0,Math.min(art.bottom,H)-Math.max(art.top,0))*Math.max(0,Math.min(art.right,W)-Math.max(art.left,0));
  const fs=p?parseFloat(getComputedStyle(p).fontSize):null,lh=p?parseFloat(getComputedStyle(p).lineHeight):null;
  return {lines:lines.length,visibleLines,ratio:lines.length?+(visibleLines/lines.length).toFixed(3):null,
   textFontPx:fs,lineHeightPx:lh,scrollers:scrollers.map(n=>({el:describe(n),client:n.clientHeight,scroll:n.scrollHeight})),
   buttons,buttonsTappable:buttons.filter(b=>b.tappable).length,buttonsMin44:buttons.every(b=>b.h>=44),
   closeTappable:visibleAt((close.left+close.right)/2,(close.top+close.bottom)/2,d.querySelector('[data-close]')),
   dialog:{top:Math.round(dr.top),bottom:Math.round(dr.bottom),left:Math.round(dr.left),right:Math.round(dr.right)},art:{w:Math.round(art.width),h:Math.round(art.height),top:Math.round(art.top),visible:art.bottom>0&&art.top<H},
-  overflowX,variant:document.documentElement.dataset.detailVariant??'current'};
+  overflowX,variant:document.documentElement.dataset.detailVariant??'current',commandH:cmdH,commandRatio:+(cmdH/H).toFixed(3),minButtonGap:minGap===null?null:Math.round(minGap),artArea:Math.round(art.width*art.height),artVisibleArea:Math.round(artVisible),buttonsVisible:buttons.filter(b=>b.top>=0&&b.bottom<=H).length};
 };
 
 // 全文を最後まで読むためのスクロール（本文の最終行が見えるまで、内側→外側の順に1つずつスクロールする）。

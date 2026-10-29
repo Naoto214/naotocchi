@@ -59,7 +59,7 @@ for(const [w,h] of [[320,568],[390,844],[844,390]])for(const v of VARIANTS){
  {await openCase(page,caseOf('choice-long'),v);await page.evaluate(()=>{for(const n of document.querySelectorAll('#card-dialog .detail-layout,#card-dialog .detail-copy,#card-dialog .effect-scroll'))n.scrollTop=9999;});
   await page.locator('#card-dialog [data-trial-cycle]').tap();await page.waitForTimeout(150);
   const s=await page.evaluate(()=>({variant:document.documentElement.dataset.detailVariant??'current',label:document.querySelector('[data-trial-cycle]').textContent,tops:[...document.querySelectorAll('#card-dialog .detail-layout,#card-dialog .detail-copy,#card-dialog .effect-scroll')].map(n=>n.scrollTop)}));
-  const next={a:'b',b:'current',current:'a'}[v];
+  const next={a2:'a',a:'b',b:'current',current:'a2'}[v];
   check('詳細内のA/B/現行切り替え',v,vp,s.variant===next&&s.tops.every(t=>t===0)&&(await page.locator('#card-dialog[open]').count()),s);}
  // 6) 縦→横の回転と、アドレスバー相当の高さ変化（詳細を開いたまま）
  if(w<h){await openCase(page,caseOf('choice-long'),v);
@@ -74,6 +74,14 @@ for(const [w,h] of [[320,568],[390,844],[844,390]])for(const v of VARIANTS){
   await page.waitForTimeout(200);
   const r=await page.evaluate(({ins})=>{const H=innerHeight,W=innerWidth;const bs=[...document.querySelectorAll('#card-dialog .detail-command button[data-action],#card-dialog [data-close]')];return bs.map(b=>{const q=b.getBoundingClientRect(),x=(q.left+q.right)/2,y=(q.top+q.bottom)/2,n=document.elementFromPoint(x,y);return {inSafe:q.top>=ins.t&&y<=H-ins.b&&q.left>=ins.l&&q.right<=W-ins.r,hit:!!n&&b.contains(n)};});},{ins});
   check('セーフエリア模擬で、閉じる・応答・パスがすべて安全領域内で押せる',v,vp,r.every(x=>x.inSafe&&x.hit),{buttons:r.length,ok:r.filter(x=>x.inSafe&&x.hit).length});}
+ // 7b) 3択（対象を選ぶ）で、アドレスバー表示相当（高さ−94px）とセーフエリア模擬でも3つとも押せ、本文の冒頭が見える
+ if(w<h){await openCase(page,caseOf('target'),v);await page.setViewportSize({width:w,height:h-94});await page.waitForTimeout(300);
+  const bar=await page.evaluate(measure);await page.setViewportSize({width:w,height:h});await page.waitForTimeout(300);
+  check('3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える',v,vp,bar.buttonsTappable===bar.buttons.length&&bar.visibleLines>0,{tappable:`${bar.buttonsTappable}/${bar.buttons.length}`,lines:bar.visibleLines});}
+ {await openCase(page,caseOf('target'),v);const ins=w<h?{t:47,b:34,l:0,r:0}:{t:0,b:21,l:47,r:47};
+  await page.addStyleTag({content:`.card-detail{left:calc(var(--ui-vleft,0px) + ${ins.l}px + 8px)!important;top:calc(var(--ui-vtop,0px) + ${ins.t}px + 8px)!important;width:calc(var(--ui-vw,100vw) - ${ins.l+ins.r}px - 16px)!important;height:calc(var(--ui-vh,100dvh) - ${ins.t+ins.b}px - 16px)!important}`});await page.waitForTimeout(200);
+  const m=await page.evaluate(measure);const r=await page.evaluate(({ins})=>[...document.querySelectorAll('#card-dialog .detail-command button[data-action]')].map(b=>{const q=b.getBoundingClientRect(),y=(q.top+q.bottom)/2,n=document.elementFromPoint((q.left+q.right)/2,y);return q.top>=ins.t&&y<=innerHeight-ins.b&&!!n&&b.contains(n);}),{ins});
+  check('3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える',v,vp,r.every(Boolean)&&m.visibleLines>0,{ok:`${r.filter(Boolean).length}/${r.length}`,lines:m.visibleLines});}
  // 8) 保存領域の分離：試遊版の書き込みはすべて接頭辞付き
  {const keys=await page.evaluate(()=>{const out=[];for(let i=0;i<localStorage.length;i++)out.push(localStorage.key(i));return out;});
   check('保存領域が本番と分離（全キーが試遊版の接頭辞付き）',v,vp,keys.length>0&&keys.every(k=>k.startsWith('naotocchi-detail-ab-trial:')),{keys:keys.length});}

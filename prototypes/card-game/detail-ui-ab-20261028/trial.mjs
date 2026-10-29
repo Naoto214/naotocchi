@@ -5,9 +5,10 @@
 // ゲーム処理・保存形式・カード本文には触れない。保存領域は trial-storage.js で本番と分けている。
 import SCENARIOS from './scenarios.json' with {type:'json'};
 
-const VARIANTS=['a','b','current'],NAMES={a:'A案',b:'B案',current:'現行'},PREF='detail-variant';
+// 改善A案（a2）を先頭（既定）にする。好みの保存鍵は v2 に変え、前回の選択（旧A案など）を引き継がない。
+const VARIANTS=['a2','a','b','current'],NAMES={a2:'改善A',a:'旧A',b:'B案',current:'現行'},PREF='detail-variant-v2';
 const root=document.documentElement;
-const read=()=>{try{const v=localStorage.getItem(PREF);return VARIANTS.includes(v)?v:'a';}catch{return 'a';}};
+const read=()=>{try{const v=localStorage.getItem(PREF);return VARIANTS.includes(v)?v:'a2';}catch{return 'a2';}};
 const params=new URLSearchParams(location.search);
 let variant=VARIANTS.includes(params.get('variant'))?params.get('variant'):read();
 
@@ -36,7 +37,7 @@ function decorate(){
  const bar=d.querySelector('.detail-toolbar');
  if(bar&&!bar.querySelector('[data-trial-cycle]')){
   const b=document.createElement('button');b.type='button';b.className='trial-cycle';b.dataset.trialCycle='';
-  b.setAttribute('aria-label','詳細表示の比較案を切り替える（A案・B案・現行）');b.textContent=NAMES[variant];
+  b.setAttribute('aria-label','詳細表示の比較案を切り替える（改善A・旧A・B案・現行）');b.textContent=NAMES[variant];
   b.addEventListener('click',()=>apply(VARIANTS[(VARIANTS.indexOf(variant)+1)%VARIANTS.length],{resetScroll:true}));
   bar.querySelector('[data-close]')?.before(b);
  }
@@ -66,7 +67,7 @@ const panel=document.createElement('section');panel.id='trial-panel';panel.class
 panel.innerHTML=`<h2 id="trial-title">詳細表示 A/B 比較試遊版</h2>
 <p>対戦中のカード詳細（カードを押して開く画面）の表示案を比べるための本人用の版です。正式版とは保存領域が分かれています。</p>
 <div class="trial-variants" role="group" aria-label="詳細表示の案">${VARIANTS.map(v=>`<button type="button" data-trial-variant="${v}" aria-pressed="false">${NAMES[v]}</button>`).join('')}</div>
-<p class="trial-note"><b>A案</b> 本文を枠に入れず、詳細全体を1本でスクロール。操作ボタンは下端に固定。<br><b>B案</b> 本文枠のスクロールは残し、枠を広げて「続き ↓」を表示。<br>対戦中も詳細の右上のボタン（A案／B案／現行）で切り替えられます。</p>
+<p class="trial-note"><b>改善A</b> A案の改良版（第一候補）。カード画像の右に名前・種類・コスト、本文は全幅、操作ボタンは下端。横向きは選択肢を横に並べる。<br><b>旧A</b> 前回のA案。本文を枠に入れず詳細全体を1本でスクロール、操作ボタンは下端。<br><b>B案</b> 本文枠のスクロールを残し、枠を広げて「続き ↓」を表示。<br><b>現行</b> 正式版と同じ表示。<br>対戦中も詳細の右上のボタンで 改善A → 旧A → B案 → 現行 の順に切り替えられます。</p>
 <h3>比較用の場面から始める</h3>
 <p class="trial-note">手札に長文カード（${SCENARIOS.long.map(id=>SCENARIOS.names[id]).join('・')}）と短文カード（${SCENARIOS.short.map(id=>SCENARIOS.names[id]).join('・')}）が入った比較用デッキです。手札のカードを押して詳細を開いてください。</p>
 <div class="trial-scenarios">${SCENARIOS.scenarios.filter(s=>!s.missing).map(s=>`<div><span>${s.label}</span><button type="button" data-trial-load="${s.key}" data-mode="cpu">ひとり（CPU）</button><button type="button" data-trial-load="${s.key}" data-mode="hotseat">ふたり</button></div>`).join('')}</div>`;

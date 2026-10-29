@@ -50,7 +50,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.176,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -109,7 +115,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.176,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -168,7 +180,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.157,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -176,6 +194,63 @@
     "effect-scroll"
    ],
    "scrollPx": 72,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "choice-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "W-city",
+  "initial": {
+   "lines": 8,
+   "visibleLines": 8,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 286,
+     "top": 499,
+     "bottom": 543,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 560,
+    "left": 8,
+    "right": 312
+   },
+   "art": {
+    "w": 121,
+    "h": 182,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.174,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
    "buttonsTappableAfter": 1,
    "buttons": 1
   },
@@ -227,7 +302,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.176,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -278,7 +359,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.176,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -329,7 +416,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.157,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "choice-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①を山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 286,
+     "top": 499,
+     "bottom": 543,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 560,
+    "left": 8,
+    "right": 312
+   },
+   "art": {
+    "w": 121,
+    "h": 182,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.174,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -386,7 +536,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.155,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -445,7 +601,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.155,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -504,7 +666,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.136,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -512,6 +680,63 @@
     "effect-scroll"
    ],
    "scrollPx": 60,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "normal-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 8,
+   "visibleLines": 8,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 286,
+     "top": 507,
+     "bottom": 551,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 560,
+    "left": 8,
+    "right": 312
+   },
+   "art": {
+    "w": 121,
+    "h": 182,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.125,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
    "buttonsTappableAfter": 1,
    "buttons": 1
   },
@@ -557,7 +782,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.155,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -608,7 +839,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.155,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -659,7 +896,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.136,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "normal-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①をたんじょう（時1）配置先：メイン",
+     "kind": "place",
+     "h": 49,
+     "w": 286,
+     "top": 502,
+     "bottom": 551,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 560,
+    "left": 8,
+    "right": 312
+   },
+   "art": {
+    "w": 121,
+    "h": 182,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 76,
+   "commandRatio": 0.134,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -730,7 +1030,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.176,
+   "minButtonGap": 5,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -798,7 +1104,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 167,
+   "commandRatio": 0.294,
+   "minButtonGap": 5,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -871,7 +1183,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 156,
+   "commandRatio": 0.275,
+   "minButtonGap": 5,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -880,6 +1198,72 @@
     "detail-copy"
    ],
    "scrollPx": 35,
+   "buttonsTappableAfter": 2,
+   "buttons": 2
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "response",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "I-c_coin2",
+  "initial": {
+   "lines": 4,
+   "visibleLines": 4,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ラッキーコイン（時1）",
+     "kind": "play",
+     "h": 44,
+     "w": 286,
+     "top": 455,
+     "bottom": 499,
+     "tappable": true
+    },
+    {
+     "label": "応答しない（パス）",
+     "kind": "pass",
+     "h": 44,
+     "w": 286,
+     "top": 507,
+     "bottom": 551,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 560,
+    "left": 8,
+    "right": 312
+   },
+   "art": {
+    "w": 121,
+    "h": 182,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 160,
+   "commandRatio": 0.282,
+   "minButtonGap": 8,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 2
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
    "buttonsTappableAfter": 2,
    "buttons": 2
   },
@@ -954,7 +1338,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.155,
+   "minButtonGap": 6,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1036,7 +1426,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 227,
+   "commandRatio": 0.4,
+   "minButtonGap": 6,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -1118,7 +1514,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 142,
+   "commandRatio": 0.25,
+   "minButtonGap": 6,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1127,6 +1529,81 @@
    ],
    "scrollPx": 12,
    "buttonsTappableAfter": 2,
+   "buttons": 3
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "target",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-chameleon",
+  "initial": {
+   "lines": 3,
+   "visibleLines": 3,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "kind": "place",
+     "h": 49,
+     "w": 286,
+     "top": 388,
+     "bottom": 437,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "kind": "place",
+     "h": 49,
+     "w": 286,
+     "top": 445,
+     "bottom": 494,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "kind": "place",
+     "h": 49,
+     "w": 286,
+     "top": 502,
+     "bottom": 551,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 560,
+    "left": 8,
+    "right": 312
+   },
+   "art": {
+    "w": 121,
+    "h": 182,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 190,
+   "commandRatio": 0.335,
+   "minButtonGap": 8,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 3
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 3,
    "buttons": 3
   },
   "errors": []
@@ -1182,7 +1659,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.176,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1241,7 +1724,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.176,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1300,7 +1789,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.157,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1308,6 +1803,63 @@
     "effect-scroll"
    ],
    "scrollPx": 72,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "choice-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "W-city",
+  "initial": {
+   "lines": 8,
+   "visibleLines": 8,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 286,
+     "top": 499,
+     "bottom": 543,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 560,
+    "left": 8,
+    "right": 312
+   },
+   "art": {
+    "w": 121,
+    "h": 182,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.174,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
    "buttonsTappableAfter": 1,
    "buttons": 1
   },
@@ -1359,7 +1911,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.155,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1418,7 +1976,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.155,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1477,7 +2041,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.136,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1485,6 +2055,63 @@
     "effect-scroll"
    ],
    "scrollPx": 60,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "normal-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 8,
+   "visibleLines": 8,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 286,
+     "top": 507,
+     "bottom": 551,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 560,
+    "left": 8,
+    "right": 312
+   },
+   "art": {
+    "w": 121,
+    "h": 182,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.125,
+   "minButtonGap": null,
+   "artArea": 21991,
+   "artVisibleArea": 21991,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
    "buttonsTappableAfter": 1,
    "buttons": 1
   },
@@ -1536,7 +2163,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.15,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1595,7 +2228,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.15,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1646,7 +2285,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.133,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "choice-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "W-city",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 341,
+     "top": 598,
+     "bottom": 642,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 659,
+    "left": 8,
+    "right": 367
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.148,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1697,7 +2399,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.15,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1748,7 +2456,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.15,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1799,7 +2513,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.133,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "choice-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①を山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 341,
+     "top": 598,
+     "bottom": 642,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 659,
+    "left": 8,
+    "right": 367
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.148,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1856,7 +2633,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.132,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1915,7 +2698,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.132,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -1966,7 +2755,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.115,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "normal-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 7,
+   "visibleLines": 7,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 341,
+     "top": 606,
+     "bottom": 650,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 659,
+    "left": 8,
+    "right": 367
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.106,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2017,7 +2869,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.132,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2068,7 +2926,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.132,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2119,7 +2983,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.115,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "normal-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①をたんじょう（時1）配置先：メイン",
+     "kind": "place",
+     "h": 44,
+     "w": 341,
+     "top": 606,
+     "bottom": 650,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 659,
+    "left": 8,
+    "right": 367
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.106,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2190,7 +3117,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 135,
+   "commandRatio": 0.202,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -2250,7 +3183,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 149,
+   "commandRatio": 0.223,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -2310,7 +3249,79 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 138,
+   "commandRatio": 0.207,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 2,
+   "buttons": 2
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "response",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "I-c_coin2",
+  "initial": {
+   "lines": 3,
+   "visibleLines": 3,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ラッキーコイン（時1）",
+     "kind": "play",
+     "h": 44,
+     "w": 341,
+     "top": 554,
+     "bottom": 598,
+     "tappable": true
+    },
+    {
+     "label": "応答しない（パス）",
+     "kind": "pass",
+     "h": 44,
+     "w": 341,
+     "top": 606,
+     "bottom": 650,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 659,
+    "left": 8,
+    "right": 367
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 143,
+   "commandRatio": 0.214,
+   "minButtonGap": 8,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -2385,7 +3396,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.132,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2460,7 +3477,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 245,
+   "commandRatio": 0.367,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 3
   },
   "read": {
    "fullyRead": true,
@@ -2537,13 +3560,94 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 142,
+   "commandRatio": 0.213,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
    "scrollContainersUsed": [],
    "scrollPx": 0,
    "buttonsTappableAfter": 2,
+   "buttons": 3
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "target",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-chameleon",
+  "initial": {
+   "lines": 3,
+   "visibleLines": 3,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "kind": "place",
+     "h": 49,
+     "w": 341,
+     "top": 487,
+     "bottom": 536,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "kind": "place",
+     "h": 49,
+     "w": 341,
+     "top": 544,
+     "bottom": 593,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "kind": "place",
+     "h": 49,
+     "w": 341,
+     "top": 601,
+     "bottom": 650,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 659,
+    "left": 8,
+    "right": 367
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 190,
+   "commandRatio": 0.285,
+   "minButtonGap": 8,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 3
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 3,
    "buttons": 3
   },
   "errors": []
@@ -2594,7 +3698,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.15,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2653,7 +3763,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.15,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2704,7 +3820,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.133,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "choice-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "W-city",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 341,
+     "top": 598,
+     "bottom": 642,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 659,
+    "left": 8,
+    "right": 367
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.148,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2761,7 +3940,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.132,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2820,7 +4005,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.132,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2871,7 +4062,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.115,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "normal-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 7,
+   "visibleLines": 7,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 341,
+     "top": 606,
+     "bottom": 650,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 659,
+    "left": 8,
+    "right": 367
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.106,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2922,7 +4176,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.118,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -2973,7 +4233,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.118,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3024,7 +4290,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.105,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "choice-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "W-city",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 356,
+     "top": 775,
+     "bottom": 819,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 836,
+    "left": 8,
+    "right": 382
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.117,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3075,7 +4404,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.118,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3126,7 +4461,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.118,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3177,7 +4518,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.105,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "choice-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①を山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 356,
+     "top": 775,
+     "bottom": 819,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 836,
+    "left": 8,
+    "right": 382
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.117,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3228,7 +4632,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.104,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3279,7 +4689,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.104,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3330,7 +4746,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.091,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "normal-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 356,
+     "top": 783,
+     "bottom": 827,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 836,
+    "left": 8,
+    "right": 382
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.084,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3381,7 +4860,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.104,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3432,7 +4917,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.104,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3483,7 +4974,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.091,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "normal-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①をたんじょう（時1）配置先：メイン",
+     "kind": "place",
+     "h": 44,
+     "w": 356,
+     "top": 783,
+     "bottom": 827,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 836,
+    "left": 8,
+    "right": 382
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.084,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3543,7 +5097,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 138,
+   "commandRatio": 0.164,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -3603,7 +5163,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 149,
+   "commandRatio": 0.177,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -3663,7 +5229,79 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 138,
+   "commandRatio": 0.164,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 2,
+   "buttons": 2
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "response",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "I-c_coin2",
+  "initial": {
+   "lines": 3,
+   "visibleLines": 3,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ラッキーコイン（時1）",
+     "kind": "play",
+     "h": 44,
+     "w": 356,
+     "top": 731,
+     "bottom": 775,
+     "tappable": true
+    },
+    {
+     "label": "応答しない（パス）",
+     "kind": "pass",
+     "h": 44,
+     "w": 356,
+     "top": 783,
+     "bottom": 827,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 836,
+    "left": 8,
+    "right": 382
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 143,
+   "commandRatio": 0.169,
+   "minButtonGap": 8,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -3738,7 +5376,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.104,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3807,7 +5451,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 209,
+   "commandRatio": 0.248,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 3
   },
   "read": {
    "fullyRead": true,
@@ -3882,13 +5532,94 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 142,
+   "commandRatio": 0.168,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 3
   },
   "read": {
    "fullyRead": true,
    "scrollContainersUsed": [],
    "scrollPx": 0,
    "buttonsTappableAfter": 2,
+   "buttons": 3
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "target",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-chameleon",
+  "initial": {
+   "lines": 3,
+   "visibleLines": 3,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "kind": "place",
+     "h": 49,
+     "w": 356,
+     "top": 664,
+     "bottom": 713,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "kind": "place",
+     "h": 49,
+     "w": 356,
+     "top": 721,
+     "bottom": 770,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "kind": "place",
+     "h": 49,
+     "w": 356,
+     "top": 778,
+     "bottom": 827,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 836,
+    "left": 8,
+    "right": 382
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 190,
+   "commandRatio": 0.225,
+   "minButtonGap": 8,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 3
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 3,
    "buttons": 3
   },
   "errors": []
@@ -3933,7 +5664,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.118,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -3984,7 +5721,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.118,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4035,7 +5778,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.105,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "choice-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "W-city",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 356,
+     "top": 775,
+     "bottom": 819,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 836,
+    "left": 8,
+    "right": 382
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.117,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4086,7 +5892,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.104,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4137,7 +5949,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.104,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4188,7 +6006,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.091,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "normal-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 356,
+     "top": 783,
+     "bottom": 827,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 836,
+    "left": 8,
+    "right": 382
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.084,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4239,7 +6120,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.107,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4290,7 +6177,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.107,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4341,7 +6234,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.095,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "choice-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "W-city",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 396,
+     "top": 863,
+     "bottom": 907,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 924,
+    "left": 8,
+    "right": 422
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.106,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4392,7 +6348,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.107,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4443,7 +6405,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.107,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4494,7 +6462,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.095,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "choice-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①を山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 396,
+     "top": 863,
+     "bottom": 907,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 924,
+    "left": 8,
+    "right": 422
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.106,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4545,7 +6576,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.094,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4596,7 +6633,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.094,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4647,7 +6690,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.083,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "normal-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 396,
+     "top": 871,
+     "bottom": 915,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 924,
+    "left": 8,
+    "right": 422
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.076,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4698,7 +6804,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.094,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4749,7 +6861,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.094,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4800,7 +6918,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.083,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "normal-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①をたんじょう（時1）配置先：メイン",
+     "kind": "place",
+     "h": 44,
+     "w": 396,
+     "top": 871,
+     "bottom": 915,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 924,
+    "left": 8,
+    "right": 422
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.076,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -4860,7 +7041,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 138,
+   "commandRatio": 0.148,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -4920,7 +7107,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 149,
+   "commandRatio": 0.16,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -4980,7 +7173,79 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 138,
+   "commandRatio": 0.148,
+   "minButtonGap": 5,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 2,
+   "buttons": 2
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "response",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "I-c_coin2",
+  "initial": {
+   "lines": 3,
+   "visibleLines": 3,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ラッキーコイン（時1）",
+     "kind": "play",
+     "h": 44,
+     "w": 396,
+     "top": 819,
+     "bottom": 863,
+     "tappable": true
+    },
+    {
+     "label": "応答しない（パス）",
+     "kind": "pass",
+     "h": 44,
+     "w": 396,
+     "top": 871,
+     "bottom": 915,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 924,
+    "left": 8,
+    "right": 422
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 143,
+   "commandRatio": 0.153,
+   "minButtonGap": 8,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -5055,7 +7320,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.094,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5124,7 +7395,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 209,
+   "commandRatio": 0.224,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 3
   },
   "read": {
    "fullyRead": true,
@@ -5199,13 +7476,94 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 142,
+   "commandRatio": 0.152,
+   "minButtonGap": 6,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 3
   },
   "read": {
    "fullyRead": true,
    "scrollContainersUsed": [],
    "scrollPx": 0,
    "buttonsTappableAfter": 2,
+   "buttons": 3
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "target",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-chameleon",
+  "initial": {
+   "lines": 3,
+   "visibleLines": 3,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "kind": "place",
+     "h": 49,
+     "w": 396,
+     "top": 752,
+     "bottom": 801,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "kind": "place",
+     "h": 49,
+     "w": 396,
+     "top": 809,
+     "bottom": 858,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "kind": "place",
+     "h": 49,
+     "w": 396,
+     "top": 866,
+     "bottom": 915,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 924,
+    "left": 8,
+    "right": 422
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 190,
+   "commandRatio": 0.204,
+   "minButtonGap": 8,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 3
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 3,
    "buttons": 3
   },
   "errors": []
@@ -5250,7 +7608,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.107,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5301,7 +7665,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.107,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5352,7 +7722,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.095,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "choice-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "W-city",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 396,
+     "top": 863,
+     "bottom": 907,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 924,
+    "left": 8,
+    "right": 422
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.106,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5403,7 +7836,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.094,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5454,7 +7893,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.094,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5505,7 +7950,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.083,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "normal-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 6,
+   "visibleLines": 6,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 396,
+     "top": 871,
+     "bottom": 915,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 924,
+    "left": 8,
+    "right": 422
+   },
+   "art": {
+    "w": 144,
+    "h": 216,
+    "top": 71,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.076,
+   "minButtonGap": null,
+   "artArea": 31104,
+   "artVisibleArea": 31104,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5562,7 +8070,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.256,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5621,7 +8135,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.256,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5672,7 +8192,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.228,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "choice-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "W-city",
+  "initial": {
+   "lines": 4,
+   "visibleLines": 4,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 598,
+     "top": 321,
+     "bottom": 365,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 382,
+    "left": 8,
+    "right": 836
+   },
+   "art": {
+    "w": 200,
+    "h": 300,
+    "top": 72,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.254,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5723,7 +8306,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.256,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5774,7 +8363,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.256,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5825,7 +8420,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.228,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "choice-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①を山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 598,
+     "top": 321,
+     "bottom": 365,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 382,
+    "left": 8,
+    "right": 836
+   },
+   "art": {
+    "w": 200,
+    "h": 300,
+    "top": 72,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.254,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5882,7 +8540,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.226,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5941,7 +8605,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.226,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -5992,7 +8662,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.197,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "normal-long",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 4,
+   "visibleLines": 4,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 598,
+     "top": 329,
+     "bottom": 373,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 382,
+    "left": 8,
+    "right": 836
+   },
+   "art": {
+    "w": 200,
+    "h": 300,
+    "top": 72,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.182,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6043,7 +8776,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.226,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6094,7 +8833,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.226,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6145,7 +8890,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.197,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "normal-short",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "M-starfish-01",
+  "initial": {
+   "lines": 1,
+   "visibleLines": 1,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ヒトデ①をたんじょう（時1）配置先：メイン",
+     "kind": "place",
+     "h": 44,
+     "w": 598,
+     "top": 329,
+     "bottom": 373,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 382,
+    "left": 8,
+    "right": 836
+   },
+   "art": {
+    "w": 200,
+    "h": 300,
+    "top": 72,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.182,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6216,7 +9024,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.256,
+   "minButtonGap": 5,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6282,7 +9096,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 149,
+   "commandRatio": 0.382,
+   "minButtonGap": 5,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -6342,7 +9162,79 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 138,
+   "commandRatio": 0.354,
+   "minButtonGap": 5,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 2
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 2,
+   "buttons": 2
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "response",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "I-c_coin2",
+  "initial": {
+   "lines": 2,
+   "visibleLines": 2,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "ラッキーコイン（時1）",
+     "kind": "play",
+     "h": 44,
+     "w": 598,
+     "top": 277,
+     "bottom": 321,
+     "tappable": true
+    },
+    {
+     "label": "応答しない（パス）",
+     "kind": "pass",
+     "h": 44,
+     "w": 598,
+     "top": 329,
+     "bottom": 373,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 382,
+    "left": 8,
+    "right": 836
+   },
+   "art": {
+    "w": 200,
+    "h": 300,
+    "top": 72,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 143,
+   "commandRatio": 0.367,
+   "minButtonGap": 8,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -6417,7 +9309,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.226,
+   "minButtonGap": 6,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6497,7 +9395,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 156,
+   "commandRatio": 0.4,
+   "minButtonGap": 6,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
@@ -6572,13 +9476,94 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 142,
+   "commandRatio": 0.364,
+   "minButtonGap": 6,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 2
   },
   "read": {
    "fullyRead": true,
    "scrollContainersUsed": [],
    "scrollPx": 0,
    "buttonsTappableAfter": 2,
+   "buttons": 3
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "target",
+  "variant": "a2",
+  "mode": "cpu",
+  "card": "C-chameleon",
+  "initial": {
+   "lines": 2,
+   "visibleLines": 2,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "kind": "place",
+     "h": 67,
+     "w": 194,
+     "top": 306,
+     "bottom": 373,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "kind": "place",
+     "h": 67,
+     "w": 194,
+     "top": 306,
+     "bottom": 373,
+     "tappable": true
+    },
+    {
+     "label": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "kind": "place",
+     "h": 67,
+     "w": 194,
+     "top": 306,
+     "bottom": 373,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 382,
+    "left": 8,
+    "right": 836
+   },
+   "art": {
+    "w": 200,
+    "h": 300,
+    "top": 72,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 93,
+   "commandRatio": 0.238,
+   "minButtonGap": 8,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 3
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 3,
    "buttons": 3
   },
   "errors": []
@@ -6629,7 +9614,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 100,
+   "commandRatio": 0.256,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6688,7 +9679,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 100,
+   "commandRatio": 0.256,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6739,7 +9736,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 89,
+   "commandRatio": 0.228,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "choice-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "W-city",
+  "initial": {
+   "lines": 4,
+   "visibleLines": 4,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "とかいを山札の下へ戻す",
+     "kind": "choose",
+     "h": 44,
+     "w": 598,
+     "top": 321,
+     "bottom": 365,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 382,
+    "left": 8,
+    "right": 836
+   },
+   "art": {
+    "w": 200,
+    "h": 300,
+    "top": 72,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 99,
+   "commandRatio": 0.254,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6796,7 +9856,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "current"
+   "variant": "current",
+   "commandH": 88,
+   "commandRatio": 0.226,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6855,7 +9921,13 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "a"
+   "variant": "a",
+   "commandH": 88,
+   "commandRatio": 0.226,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,
@@ -6906,7 +9978,70 @@
     "visible": true
    },
    "overflowX": false,
-   "variant": "b"
+   "variant": "b",
+   "commandH": 77,
+   "commandRatio": 0.197,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
+  },
+  "read": {
+   "fullyRead": true,
+   "scrollContainersUsed": [],
+   "scrollPx": 0,
+   "buttonsTappableAfter": 1,
+   "buttons": 1
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "normal-long-hotseat",
+  "variant": "a2",
+  "mode": "hotseat",
+  "card": "C-monkey",
+  "initial": {
+   "lines": 4,
+   "visibleLines": 4,
+   "ratio": 1,
+   "textFontPx": 14,
+   "lineHeightPx": 22.4,
+   "scrollers": [],
+   "buttons": [
+    {
+     "label": "まねっこサルをなかまへ配置先：なかま①",
+     "kind": "place",
+     "h": 44,
+     "w": 598,
+     "top": 329,
+     "bottom": 373,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "buttonsMin44": true,
+   "closeTappable": true,
+   "dialog": {
+    "top": 8,
+    "bottom": 382,
+    "left": 8,
+    "right": 836
+   },
+   "art": {
+    "w": 200,
+    "h": 300,
+    "top": 72,
+    "visible": true
+   },
+   "overflowX": false,
+   "variant": "a2",
+   "commandH": 71,
+   "commandRatio": 0.182,
+   "minButtonGap": null,
+   "artArea": 60000,
+   "artVisibleArea": 60000,
+   "buttonsVisible": 1
   },
   "read": {
    "fullyRead": true,

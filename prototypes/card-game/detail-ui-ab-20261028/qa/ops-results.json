@@ -61,10 +61,10 @@
   },
   {
    "name": "詳細内のA/B/現行切り替え",
-   "variant": "a",
+   "variant": "a2",
    "viewport": "320x568",
    "pass": true,
-   "label": "A案",
+   "label": "改善A",
    "tops": [
     0,
     0,
@@ -93,6 +93,22 @@
    "pass": false,
    "buttons": 3,
    "ok": 1
+  },
+  {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える",
+   "variant": "current",
+   "viewport": "320x568",
+   "pass": false,
+   "tappable": "0/3",
+   "lines": 2
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "current",
+   "viewport": "320x568",
+   "pass": false,
+   "ok": "0/3",
+   "lines": 2
   },
   {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
@@ -203,6 +219,22 @@
    "ok": 3
   },
   {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える",
+   "variant": "a",
+   "viewport": "320x568",
+   "pass": false,
+   "tappable": "2/3",
+   "lines": 0
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "a",
+   "viewport": "320x568",
+   "pass": false,
+   "ok": "2/3",
+   "lines": 0
+  },
+  {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
    "variant": "a",
    "viewport": "320x568",
@@ -311,6 +343,22 @@
    "ok": 3
   },
   {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える",
+   "variant": "b",
+   "viewport": "320x568",
+   "pass": false,
+   "tappable": "2/3",
+   "lines": 0
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "b",
+   "viewport": "320x568",
+   "pass": false,
+   "ok": "2/3",
+   "lines": 0
+  },
+  {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
    "variant": "b",
    "viewport": "320x568",
@@ -320,6 +368,128 @@
   {
    "name": "ページ内エラーなし",
    "variant": "b",
+   "viewport": "320x568",
+   "pass": true,
+   "errors": []
+  },
+  {
+   "name": "必須選択を詳細から確定（全文を読んだ後）",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "read": {
+    "fullyRead": true,
+    "scrollContainersUsed": [],
+    "scrollPx": 0,
+    "buttonsTappableAfter": 1,
+    "buttons": 1
+   },
+   "revision": [
+    23,
+    24
+   ]
+  },
+  {
+   "name": "保存復帰後に詳細を開く（本文・ボタン・スクロール初期位置）",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "ratio": 0.75,
+   "tappable": "1/1"
+  },
+  {
+   "name": "対象指定（3択の2番目）を詳細から確定",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "choices": 3,
+   "revision": [
+    204,
+    206
+   ]
+  },
+  {
+   "name": "応答中のパスを詳細から確定し、CPUが進行",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "revision": [
+    56,
+    58
+   ]
+  },
+  {
+   "name": "詳細の開閉（盤面へ×・Esc）と次の詳細のスクロール初期化",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "tops": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "詳細内のA/B/現行切り替え",
+   "variant": "a",
+   "viewport": "320x568",
+   "pass": true,
+   "label": "旧A",
+   "tops": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "アドレスバー表示で高さが94px減っても必須選択ボタンを押せる",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "ratio": 0.75
+  },
+  {
+   "name": "詳細を開いたまま縦→横→縦に回転",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "landRatio": 0.667,
+   "backRatio": 1
+  },
+  {
+   "name": "セーフエリア模擬で、閉じる・応答・パスがすべて安全領域内で押せる",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "buttons": 3,
+   "ok": 3
+  },
+  {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "tappable": "3/3",
+   "lines": 2
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "ok": "3/3",
+   "lines": 1
+  },
+  {
+   "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
+   "variant": "a2",
+   "viewport": "320x568",
+   "pass": true,
+   "keys": 4
+  },
+  {
+   "name": "ページ内エラーなし",
+   "variant": "a2",
    "viewport": "320x568",
    "pass": true,
    "errors": []
@@ -383,10 +553,10 @@
   },
   {
    "name": "詳細内のA/B/現行切り替え",
-   "variant": "a",
+   "variant": "a2",
    "viewport": "390x844",
    "pass": true,
-   "label": "A案",
+   "label": "改善A",
    "tops": [
     0,
     0,
@@ -415,6 +585,22 @@
    "pass": true,
    "buttons": 3,
    "ok": 3
+  },
+  {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える",
+   "variant": "current",
+   "viewport": "390x844",
+   "pass": false,
+   "tappable": "1/3",
+   "lines": 3
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "current",
+   "viewport": "390x844",
+   "pass": false,
+   "ok": "1/3",
+   "lines": 3
   },
   {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
@@ -523,6 +709,22 @@
    "ok": 3
   },
   {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える",
+   "variant": "a",
+   "viewport": "390x844",
+   "pass": true,
+   "tappable": "3/3",
+   "lines": 3
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "a",
+   "viewport": "390x844",
+   "pass": true,
+   "ok": "3/3",
+   "lines": 3
+  },
+  {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
    "variant": "a",
    "viewport": "390x844",
@@ -629,6 +831,22 @@
    "ok": 3
   },
   {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える",
+   "variant": "b",
+   "viewport": "390x844",
+   "pass": false,
+   "tappable": "2/3",
+   "lines": 3
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "b",
+   "viewport": "390x844",
+   "pass": false,
+   "ok": "2/3",
+   "lines": 3
+  },
+  {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
    "variant": "b",
    "viewport": "390x844",
@@ -638,6 +856,128 @@
   {
    "name": "ページ内エラーなし",
    "variant": "b",
+   "viewport": "390x844",
+   "pass": true,
+   "errors": []
+  },
+  {
+   "name": "必須選択を詳細から確定（全文を読んだ後）",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "read": {
+    "fullyRead": true,
+    "scrollContainersUsed": [],
+    "scrollPx": 0,
+    "buttonsTappableAfter": 1,
+    "buttons": 1
+   },
+   "revision": [
+    23,
+    24
+   ]
+  },
+  {
+   "name": "保存復帰後に詳細を開く（本文・ボタン・スクロール初期位置）",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "ratio": 1,
+   "tappable": "1/1"
+  },
+  {
+   "name": "対象指定（3択の2番目）を詳細から確定",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "choices": 3,
+   "revision": [
+    204,
+    206
+   ]
+  },
+  {
+   "name": "応答中のパスを詳細から確定し、CPUが進行",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "revision": [
+    56,
+    58
+   ]
+  },
+  {
+   "name": "詳細の開閉（盤面へ×・Esc）と次の詳細のスクロール初期化",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "tops": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "詳細内のA/B/現行切り替え",
+   "variant": "a",
+   "viewport": "390x844",
+   "pass": true,
+   "label": "旧A",
+   "tops": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "アドレスバー表示で高さが94px減っても必須選択ボタンを押せる",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "ratio": 1
+  },
+  {
+   "name": "詳細を開いたまま縦→横→縦に回転",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "landRatio": 1,
+   "backRatio": 1
+  },
+  {
+   "name": "セーフエリア模擬で、閉じる・応答・パスがすべて安全領域内で押せる",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "buttons": 3,
+   "ok": 3
+  },
+  {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せ、本文の冒頭が見える",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "tappable": "3/3",
+   "lines": 3
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "ok": "3/3",
+   "lines": 3
+  },
+  {
+   "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "keys": 4
+  },
+  {
+   "name": "ページ内エラーなし",
+   "variant": "a2",
    "viewport": "390x844",
    "pass": true,
    "errors": []
@@ -703,10 +1043,10 @@
   },
   {
    "name": "詳細内のA/B/現行切り替え",
-   "variant": "a",
+   "variant": "a2",
    "viewport": "844x390",
    "pass": true,
-   "label": "A案",
+   "label": "改善A",
    "tops": [
     0,
     0,
@@ -720,6 +1060,14 @@
    "pass": false,
    "buttons": 3,
    "ok": 2
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "current",
+   "viewport": "844x390",
+   "pass": false,
+   "ok": "1/3",
+   "lines": 2
   },
   {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
@@ -813,6 +1161,14 @@
    "ok": 3
   },
   {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "a",
+   "viewport": "844x390",
+   "pass": false,
+   "ok": "2/3",
+   "lines": 2
+  },
+  {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
    "variant": "a",
    "viewport": "844x390",
@@ -904,6 +1260,14 @@
    "ok": 3
   },
   {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "b",
+   "viewport": "844x390",
+   "pass": false,
+   "ok": "2/3",
+   "lines": 2
+  },
+  {
    "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
    "variant": "b",
    "viewport": "844x390",
@@ -913,6 +1277,105 @@
   {
    "name": "ページ内エラーなし",
    "variant": "b",
+   "viewport": "844x390",
+   "pass": true,
+   "errors": []
+  },
+  {
+   "name": "必須選択を詳細から確定（全文を読んだ後）",
+   "variant": "a2",
+   "viewport": "844x390",
+   "pass": true,
+   "read": {
+    "fullyRead": true,
+    "scrollContainersUsed": [],
+    "scrollPx": 0,
+    "buttonsTappableAfter": 1,
+    "buttons": 1
+   },
+   "revision": [
+    23,
+    24
+   ]
+  },
+  {
+   "name": "保存復帰後に詳細を開く（本文・ボタン・スクロール初期位置）",
+   "variant": "a2",
+   "viewport": "844x390",
+   "pass": true,
+   "ratio": 1,
+   "tappable": "1/1"
+  },
+  {
+   "name": "対象指定（3択の2番目）を詳細から確定",
+   "variant": "a2",
+   "viewport": "844x390",
+   "pass": true,
+   "choices": 3,
+   "revision": [
+    204,
+    206
+   ]
+  },
+  {
+   "name": "応答中のパスを詳細から確定し、CPUが進行",
+   "variant": "a2",
+   "viewport": "844x390",
+   "pass": true,
+   "revision": [
+    56,
+    58
+   ]
+  },
+  {
+   "name": "詳細の開閉（盤面へ×・Esc）と次の詳細のスクロール初期化",
+   "variant": "a2",
+   "viewport": "844x390",
+   "pass": true,
+   "tops": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "詳細内のA/B/現行切り替え",
+   "variant": "a",
+   "viewport": "844x390",
+   "pass": true,
+   "label": "旧A",
+   "tops": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "name": "セーフエリア模擬で、閉じる・応答・パスがすべて安全領域内で押せる",
+   "variant": "a2",
+   "viewport": "844x390",
+   "pass": true,
+   "buttons": 3,
+   "ok": 3
+  },
+  {
+   "name": "3択：セーフエリア模擬で3つとも安全領域内で押せ、本文の冒頭が見える",
+   "variant": "a2",
+   "viewport": "844x390",
+   "pass": true,
+   "ok": "3/3",
+   "lines": 2
+  },
+  {
+   "name": "保存領域が本番と分離（全キーが試遊版の接頭辞付き）",
+   "variant": "a2",
+   "viewport": "844x390",
+   "pass": true,
+   "keys": 4
+  },
+  {
+   "name": "ページ内エラーなし",
+   "variant": "a2",
    "viewport": "844x390",
    "pass": true,
    "errors": []
@@ -942,6 +1405,14 @@
    "errors": []
   },
   {
+   "name": "2人対戦：詳細から必須選択→パスでターン終了→交代画面で手札を隠す",
+   "variant": "a2",
+   "viewport": "390x844",
+   "pass": true,
+   "passes": 3,
+   "errors": []
+  },
+  {
    "name": "戦績・コレクション・マイデッキを開ける",
    "variant": null,
    "viewport": "390x844",
@@ -953,7 +1424,7 @@
   }
  ],
  "summary": {
-  "total": 97,
-  "pass": 91
+  "total": 149,
+  "pass": 130
  }
 }
