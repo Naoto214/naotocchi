@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: node --test tests/home-art-test.cjs tests/home-japan-test.cjs
+      - run: node --test tests/home-art-test.cjs tests/home-japan-test.cjs tests/home-recovered-test.cjs
       - run: node tools/home-v22-regression.cjs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -73,3 +73,29 @@ jobs:
         with:
           name: home-japan-${{ matrix.region }}
           path: test-results/home-layout/japan
+
+  recovered:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        candidate: [home-interior-a, home-garden, forest-waterfall, forest-no-waterfall, water, city]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-recovered-browser.cjs
+        env:
+          HOME_ART_CANDIDATE: ${{ matrix.candidate }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-recovered-${{ matrix.candidate }}
+          path: test-results/home-layout/recovered
