@@ -1,0 +1,427 @@
+{
+ "checks": [
+  {
+   "name": "たまごの手札交換：補足どおり山札の一番下へ戻る",
+   "viewport": "320x568",
+   "pass": true,
+   "label": "とかいを選ぶ / ※ 山札の一番下へ戻します"
+  },
+  {
+   "name": "3択の対象指定：補足「なかま②のきまぐれなねこと入れ替えます」どおり、なかま②のカードだけが入れ替わる",
+   "viewport": "320x568",
+   "pass": true,
+   "labels": [
+    "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+    "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+    "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます"
+   ],
+   "was": [
+    "A:C-cat_friend:1",
+    "A:C-cat_friend:2",
+    "A:C-monkey:2"
+   ],
+   "now": [
+    "A:C-cat_friend:1",
+    "A:C-monkey:2",
+    "A:C-chameleon:1"
+   ]
+  },
+  {
+   "name": "応答中のパス → CPUが進行",
+   "viewport": "320x568",
+   "pass": true,
+   "revision": [
+    56,
+    58
+   ]
+  },
+  {
+   "name": "4つの装備先：最初に3つが見え、4つ目へスクロールで届き、確定で装備される",
+   "viewport": "320x568",
+   "pass": true,
+   "visible": 3,
+   "more": true,
+   "label": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①"
+  },
+  {
+   "name": "宣言：選択欄から選んで確定できる",
+   "viewport": "320x568",
+   "pass": true,
+   "options": 7
+  },
+  {
+   "name": "連鎖中の応答：詳細から応答を確定できる",
+   "viewport": "320x568",
+   "pass": true,
+   "revision": 101
+  },
+  {
+   "name": "開閉（盤面へ×・Esc）、次の詳細はスクロール先頭・拡大解除、拡大の切り替え",
+   "viewport": "320x568",
+   "pass": true,
+   "top": {
+    "top": 0,
+    "zoom": null
+   },
+   "zoomOk": true,
+   "zoomInfo": {
+    "a": 270,
+    "b": {
+     "w": 405,
+     "stage": 286,
+     "chip": "－ 縮小"
+    },
+    "c": 270,
+    "chipShown": true
+   }
+  },
+  {
+   "name": "保存復帰後の詳細：大型カードとボタン、はみ出しなし",
+   "viewport": "320x568",
+   "pass": true,
+   "card": {
+    "w": 269,
+    "h": 403,
+    "visibleArea": 108273,
+    "viewportShare": 0.596
+   },
+   "buttons": 1
+  },
+  {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せる",
+   "viewport": "320x568",
+   "pass": true,
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 114686,
+    "viewportShare": 0.756
+   }
+  },
+  {
+   "name": "3択：詳細を開いたまま縦→横→縦に回転",
+   "viewport": "320x568",
+   "pass": true,
+   "land": {
+    "w": 187,
+    "h": 280,
+    "visibleArea": 52267,
+    "viewportShare": 0.288
+   },
+   "landTap": 3,
+   "back": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "backTap": 3,
+   "ox": [
+    false,
+    false
+   ]
+  },
+  {
+   "name": "セーフエリア模擬：閉じる・3択がすべて安全領域内で押せる",
+   "viewport": "320x568",
+   "pass": true,
+   "ok": "4/4"
+  },
+  {
+   "name": "カード外に本文・カード情報・関連ルール・独立説明がない（8場面）",
+   "viewport": "320x568",
+   "pass": true,
+   "bad": []
+  },
+  {
+   "name": "保存領域が本番と分離",
+   "viewport": "320x568",
+   "pass": true,
+   "keys": 4
+  },
+  {
+   "name": "ページ内エラーなし",
+   "viewport": "320x568",
+   "pass": true,
+   "errors": []
+  },
+  {
+   "name": "たまごの手札交換：補足どおり山札の一番下へ戻る",
+   "viewport": "390x844",
+   "pass": true,
+   "label": "とかいを選ぶ / ※ 山札の一番下へ戻します"
+  },
+  {
+   "name": "3択の対象指定：補足「なかま②のきまぐれなねこと入れ替えます」どおり、なかま②のカードだけが入れ替わる",
+   "viewport": "390x844",
+   "pass": true,
+   "labels": [
+    "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+    "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+    "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます"
+   ],
+   "was": [
+    "A:C-cat_friend:1",
+    "A:C-cat_friend:2",
+    "A:C-monkey:2"
+   ],
+   "now": [
+    "A:C-cat_friend:1",
+    "A:C-monkey:2",
+    "A:C-chameleon:1"
+   ]
+  },
+  {
+   "name": "応答中のパス → CPUが進行",
+   "viewport": "390x844",
+   "pass": true,
+   "revision": [
+    56,
+    58
+   ]
+  },
+  {
+   "name": "4つの装備先：最初に3つが見え、4つ目へスクロールで届き、確定で装備される",
+   "viewport": "390x844",
+   "pass": true,
+   "visible": 4,
+   "more": false,
+   "label": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①"
+  },
+  {
+   "name": "宣言：選択欄から選んで確定できる",
+   "viewport": "390x844",
+   "pass": true,
+   "options": 7
+  },
+  {
+   "name": "連鎖中の応答：詳細から応答を確定できる",
+   "viewport": "390x844",
+   "pass": true,
+   "revision": 101
+  },
+  {
+   "name": "開閉（盤面へ×・Esc）、次の詳細はスクロール先頭・拡大解除、拡大の切り替え",
+   "viewport": "390x844",
+   "pass": true,
+   "top": {
+    "top": 0,
+    "zoom": null
+   },
+   "zoomOk": true,
+   "zoomInfo": {
+    "a": 356,
+    "b": {
+     "w": 534,
+     "stage": 356,
+     "chip": "－ 縮小"
+    },
+    "c": 356,
+    "chipShown": true
+   }
+  },
+  {
+   "name": "保存復帰後の詳細：大型カードとボタン、はみ出しなし",
+   "viewport": "390x844",
+   "pass": true,
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "buttons": 1
+  },
+  {
+   "name": "3択：アドレスバー表示（高さ−94px）でも3つとも押せる",
+   "viewport": "390x844",
+   "pass": true,
+   "card": {
+    "w": 271,
+    "h": 407,
+    "visibleArea": 110433,
+    "viewportShare": 0.378
+   }
+  },
+  {
+   "name": "3択：詳細を開いたまま縦→横→縦に回転",
+   "viewport": "390x844",
+   "pass": true,
+   "land": {
+    "w": 233,
+    "h": 350,
+    "visibleArea": 81667,
+    "viewportShare": 0.248
+   },
+   "landTap": 3,
+   "back": {
+    "w": 334,
+    "h": 501,
+    "visibleArea": 167334,
+    "viewportShare": 0.508
+   },
+   "backTap": 3,
+   "ox": [
+    false,
+    false
+   ]
+  },
+  {
+   "name": "セーフエリア模擬：閉じる・3択がすべて安全領域内で押せる",
+   "viewport": "390x844",
+   "pass": true,
+   "ok": "4/4"
+  },
+  {
+   "name": "カード外に本文・カード情報・関連ルール・独立説明がない（8場面）",
+   "viewport": "390x844",
+   "pass": true,
+   "bad": []
+  },
+  {
+   "name": "保存領域が本番と分離",
+   "viewport": "390x844",
+   "pass": true,
+   "keys": 4
+  },
+  {
+   "name": "ページ内エラーなし",
+   "viewport": "390x844",
+   "pass": true,
+   "errors": []
+  },
+  {
+   "name": "たまごの手札交換：補足どおり山札の一番下へ戻る",
+   "viewport": "844x390",
+   "pass": true,
+   "label": "とかいを選ぶ / ※ 山札の一番下へ戻します"
+  },
+  {
+   "name": "3択の対象指定：補足「なかま②のきまぐれなねこと入れ替えます」どおり、なかま②のカードだけが入れ替わる",
+   "viewport": "844x390",
+   "pass": true,
+   "labels": [
+    "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+    "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+    "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます"
+   ],
+   "was": [
+    "A:C-cat_friend:1",
+    "A:C-cat_friend:2",
+    "A:C-monkey:2"
+   ],
+   "now": [
+    "A:C-cat_friend:1",
+    "A:C-monkey:2",
+    "A:C-chameleon:1"
+   ]
+  },
+  {
+   "name": "応答中のパス → CPUが進行",
+   "viewport": "844x390",
+   "pass": true,
+   "revision": [
+    56,
+    58
+   ]
+  },
+  {
+   "name": "4つの装備先：最初に3つが見え、4つ目へスクロールで届き、確定で装備される",
+   "viewport": "844x390",
+   "pass": true,
+   "visible": 4,
+   "more": false,
+   "label": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①"
+  },
+  {
+   "name": "宣言：選択欄から選んで確定できる",
+   "viewport": "844x390",
+   "pass": true,
+   "options": 7
+  },
+  {
+   "name": "連鎖中の応答：詳細から応答を確定できる",
+   "viewport": "844x390",
+   "pass": true,
+   "revision": 101
+  },
+  {
+   "name": "開閉（盤面へ×・Esc）、次の詳細はスクロール先頭・拡大解除、拡大の切り替え",
+   "viewport": "844x390",
+   "pass": true,
+   "top": {
+    "top": 0,
+    "zoom": null
+   },
+   "zoomOk": true,
+   "zoomInfo": {
+    "a": 233.328125,
+    "b": {
+     "w": 442,
+     "stage": 442,
+     "chip": "－ 縮小"
+    },
+    "c": 233.328125,
+    "chipShown": false
+   }
+  },
+  {
+   "name": "保存復帰後の詳細：大型カードとボタン、はみ出しなし",
+   "viewport": "844x390",
+   "pass": true,
+   "card": {
+    "w": 233,
+    "h": 350,
+    "visibleArea": 81667,
+    "viewportShare": 0.248
+   },
+   "buttons": 1
+  },
+  {
+   "name": "セーフエリア模擬：閉じる・3択がすべて安全領域内で押せる",
+   "viewport": "844x390",
+   "pass": true,
+   "ok": "4/4"
+  },
+  {
+   "name": "カード外に本文・カード情報・関連ルール・独立説明がない（8場面）",
+   "viewport": "844x390",
+   "pass": true,
+   "bad": []
+  },
+  {
+   "name": "保存領域が本番と分離",
+   "viewport": "844x390",
+   "pass": true,
+   "keys": 4
+  },
+  {
+   "name": "ページ内エラーなし",
+   "viewport": "844x390",
+   "pass": true,
+   "errors": []
+  },
+  {
+   "name": "2人対戦：詳細からたまごの交換（山札の一番下）→ パスで交代画面",
+   "viewport": null,
+   "pass": true,
+   "passes": 3,
+   "errors": []
+  },
+  {
+   "name": "ルールブック（開始画面・対戦メニュー）・コレクション・戦績・マイデッキを開ける",
+   "viewport": null,
+   "pass": true,
+   "book1": true,
+   "book2": true,
+   "coll": true,
+   "rec": true,
+   "decks": true,
+   "errors": []
+  }
+ ],
+ "summary": {
+  "total": 42,
+  "pass": 42
+ }
+}

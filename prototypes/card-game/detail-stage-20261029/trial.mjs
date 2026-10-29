@@ -49,7 +49,7 @@ const panel=document.createElement('section');panel.id='trial-panel';panel.class
 panel.innerHTML=`<h2 id="trial-title">カード詳細 比較試遊版</h2>
 <p>対戦中にカードを押して開く詳細画面を比べるための、本人用の版です。正式版とは保存領域が分かれています。</p>
 <div class="trial-variants" role="group" aria-label="詳細画面">${UIS.map(v=>`<button type="button" data-trial-ui="${v}" aria-pressed="false">${NAMES[v]}</button>`).join('')}</div>
-<p class="trial-note"><b>新UI</b> 正式カードを大きく表示し、カード外の名前・本文・ルール案内を省いた版。操作はボタンに集め、必要な時だけボタン内に「※」の補足。カードを押すと拡大／縮小。<br><b>現行</b> いま正式に公開している表示（改善A案）。<br>詳細を開いたまま、右上のボタンで同じカードを切り替えて見られます。</p>
+<p class="trial-note"><b>新UI</b> 正式カードを大きく表示し、カード外の名前・本文・ルール案内を省いた版。操作はボタンに集め、必要な時だけボタン内に「※」の補足。カードをダブルタップすると拡大／縮小（ピンチも可）。<br><b>現行</b> いま正式に公開している表示（改善A案）。<br>詳細を開いたまま、右上のボタンで同じカードを切り替えて見られます。</p>
 <h3>比較用の場面から始める</h3>
 <div class="trial-scenarios">${SCENES.map(s=>`<div><span>${s.label}<br><small>${hint[s.key]??''}</small></span><button type="button" data-trial-load="${s.key}" data-mode="cpu">ひとり（CPU）</button><button type="button" data-trial-load="${s.key}" data-mode="hotseat">ふたり</button></div>`).join('')}</div>`;
 document.getElementById('welcome').prepend(panel);
