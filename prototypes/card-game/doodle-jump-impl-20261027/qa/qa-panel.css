@@ -1,0 +1,14 @@
+.dj-qa{margin:0 0 1rem;border:2px dashed #b4673a;border-radius:12px;padding:.25rem .75rem;background:rgba(180,103,58,.06)}
+.dj-qa summary{font-weight:700;cursor:pointer;padding:.5rem 0}
+.dj-qa h3{font-size:1rem;margin:.9rem 0 .4rem}
+.dj-note{font-size:.85rem;opacity:.85;margin:.3rem 0}
+.dj-card{display:flex;gap:.75rem;align-items:flex-start;flex-wrap:wrap}
+.dj-card img{width:96px;max-width:30%;height:auto;border-radius:8px}
+.dj-card div{flex:1 1 12rem;min-width:0}
+.dj-card p{margin:.25rem 0;overflow-wrap:anywhere}
+.dj-old{opacity:.7;text-decoration:line-through}
+.dj-buttons{display:flex;flex-wrap:wrap;gap:.4rem}
+.dj-buttons button{flex:1 1 9rem;min-height:44px}
+.dj-log{margin:.5rem 0;padding-left:1.25rem;font-size:.9rem}
+.dj-log li{margin:.2rem 0;overflow-wrap:anywhere}
+.dj-ok{color:#2e7d32;font-weight:700}.dj-ng{color:#c62828;font-weight:700}

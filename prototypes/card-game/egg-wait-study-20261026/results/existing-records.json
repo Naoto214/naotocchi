@@ -1,0 +1,56 @@
+{
+ "balance-verification-20261020": {
+  "matches": 3094,
+  "first_challenge_round_median": 3.0,
+  "first_challenge_by_R2_share": 0.464,
+  "no_challenge_share": 0.022,
+  "challenge_growth_share_of_net_gain": 0.652,
+  "mean_challenge_growth_per_seat": 21.75,
+  "mean_net_gain_per_seat": 33.37
+ },
+ "balance-verification-20261020-cpufix": {
+  "matches": 3094,
+  "first_challenge_round_median": 3.0,
+  "first_challenge_by_R2_share": 0.452,
+  "no_challenge_share": 0.015,
+  "challenge_growth_share_of_net_gain": 0.595,
+  "mean_challenge_growth_per_seat": 21.88,
+  "mean_net_gain_per_seat": 36.8
+ },
+ "balance-verification-20261021-strategy": {
+  "matches": 3094,
+  "first_challenge_round_median": 3.0,
+  "first_challenge_by_R2_share": 0.437,
+  "no_challenge_share": 0.017,
+  "challenge_growth_share_of_net_gain": 0.587,
+  "mean_challenge_growth_per_seat": 21.76,
+  "mean_net_gain_per_seat": 37.08
+ },
+ "balance-verification-20261022-variety": {
+  "matches": 5614,
+  "first_challenge_round_median": 3.0,
+  "first_challenge_by_R2_share": 0.445,
+  "no_challenge_share": 0.01,
+  "challenge_growth_share_of_net_gain": 0.54,
+  "mean_challenge_growth_per_seat": 22.25,
+  "mean_net_gain_per_seat": 41.19
+ },
+ "deck-balance-20261025": {
+  "matches": 480,
+  "first_challenge_round_median": 3.0,
+  "first_challenge_by_R2_share": 0.419,
+  "no_challenge_share": 0.0,
+  "challenge_growth_share_of_net_gain": 0.469,
+  "mean_challenge_growth_per_seat": 22.71,
+  "mean_net_gain_per_seat": 48.46
+ },
+ "partner-deck-20261025": {
+  "matches": 3600,
+  "first_challenge_round_median": 3.0,
+  "first_challenge_by_R2_share": 0.414,
+  "no_challenge_share": 0.0,
+  "challenge_growth_share_of_net_gain": 0.513,
+  "mean_challenge_growth_per_seat": 25.13,
+  "mean_net_gain_per_seat": 49.01
+ }
+}

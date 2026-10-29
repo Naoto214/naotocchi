@@ -1,0 +1,16 @@
+✔ Back restores the paragraph position before chapter navigation (6.942829ms)
+✔ Cover preserves the current bookmark and offers resume in the same session (4.028665ms)
+✔ Resume with the same chapter hash retains the saved paragraph (1.684125ms)
+✔ The separate signature can be bookmarked, resumed and restored after reload (4.48077ms)
+✔ Signature chrome hides at the closing leaf and returns on upward scroll and cover navigation (1.931542ms)
+✔ game entry opens the white cover without clearing any saved bookmark (577.449322ms)
+✔ reload and browser back preserve reader restoration state (4.739652ms)
+✔ direct reader entry stays unchanged and cannot accept arbitrary return destinations (2.583696ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 895.688501
