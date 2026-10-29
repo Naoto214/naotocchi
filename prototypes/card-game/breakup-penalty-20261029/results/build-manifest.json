@@ -1,0 +1,145 @@
+{
+ "source": "prototypes/card-game/*.mjs",
+ "sourceSha256": {
+  "ability-copy.mjs": "00f51aabdd6a8a2195fbfed7da52a33914b62897919041874b6f56807e47526b",
+  "advanced-effects.mjs": "b9b844ebae604993e5c93900a9ccc41a24af113b6a816e2a1367255e26f378a5",
+  "advanced-equipment.mjs": "cedaf38d64c5f4c46b24551d6d385c95e30167b963151248548287c34036cf15",
+  "advanced-inspection.mjs": "5918ae6f58150294be9336ba64dc785f6e88181c84cf6957facc977f7000166a",
+  "app.mjs": "e6da2916d710c3139c36da537e63df07a896bbd640c488b6254f6ba88c70d2a5",
+  "auto-capabilities.mjs": "ca806bedbe86e01cbede12829726084ac325ebdf07efbdbf53b17671df7fbaf3",
+  "auto-progress.mjs": "06d9dcd8c29a274c919546c966ef026c445e93d7e3da82f499136cb458dcbc17",
+  "cards.mjs": "d1cb610608860d83d69a8577ac624b9d9248f3cf1cf6b5535337a5d48276563a",
+  "collection-ui.mjs": "bbcd80f61b08b1ede1f0e00a34ae0d1bc9fa7e10eef7590c4fd26371f3b9c1d1",
+  "collection.mjs": "7a3d4bb37322efa104fc693b720d9787ca095239084df2676892b5be9ae49263",
+  "costs.mjs": "f500b1b421f74ee6a37aa7b2864a198b87e5ddd94671668f61ac3df6da82f1d7",
+  "cpu-decks.mjs": "2a1bc2f06138695f0ceeec5f334e52629acae46f9f92a4aadaa85bde018d13d1",
+  "cpu-observation.mjs": "45ac3be9cb19fe67cf718104485d8fc10c3737b5dd601f34d2eeb581b86c1739",
+  "cpu-policy.mjs": "182fc0c42609d46604f6a51dd29522a58b4b0b8716695ebaddfda295a75d99c4",
+  "cpu-scheduler.mjs": "082917562bf83be16dfd48953b6435bdeea1ce9e58d1e8d5b01844e0cbe827ac",
+  "cpu-session.mjs": "0c02a7eae88226310a02dfaeca787af3c4c2d4eba3d494f7a410df783ae73910",
+  "effects.mjs": "e312e04b581cb6234ff2ea59e8342036c6fe21019ff9b948169e02f7ce036a1e",
+  "engine.mjs": "fede1b1894db68d6df57538c35f17384bcfdcc9cefc59aae3d883fe719ff2d6e",
+  "equipment-rules.mjs": "d81eb4bb47b72dc6a59ae19cc1161f62000876624828f32a5e553fa0093619af",
+  "event-effects.mjs": "572ecff5958cf7f23da938abc699f9b42002b4b84e767b20997b20be30005f27",
+  "full-catalog.mjs": "82092ba76ccddaf65f173e4ee56d691217b9619f7c57c4f0f09fc64d5096bd2e",
+  "late-conditions.mjs": "e5e154df1d6b2280c67984ac992a9becbd5f17e635a350ad4b99ae55ba498de0",
+  "learning-ui.mjs": "2357291aeee686d33bac65dbaa8dfee88e47820f25116f406a96e2102a2b8ffe",
+  "legacy-engine.mjs": "8d78d0d9936caeeaf4cd819802e881c62a9c23c4e023111b73f4d9342dbd32bf",
+  "main-rules.mjs": "fdea46657b7a7d537e67d0194ee6b860197e041c87d780bd551c45a3cd99a8f6",
+  "my-decks-ui.mjs": "4edddc4738fb8e88cfa9c36d840b2024e3da29024e20f0ac402bdece8c4813f1",
+  "my-decks.mjs": "3b2a893e443171db4c4177dc475009a3e720a7d153a4b7ceb507e81c2c40e77f",
+  "records-match.mjs": "842a5248ec3bedc9bdf448acf956437af8e96540b7c4c3e36a87d3392d6b4f41",
+  "records-ui.mjs": "cc871a5c5b5dc64ebec4b10859eacffc6937b47aad226543c50e4c0a8dd628fe",
+  "records.mjs": "c49a09a224630902bbcbe9e3a7b45e55c65a6c4f206bfd0ebd706f4d7e896dc3",
+  "remaining-rules.mjs": "82e85aa50566d8023baa48399db1ffb70647f7f0fc792027703296b38f5d2c02",
+  "replacements.mjs": "63b5313fa654c1a95c4e766dc3585ef88deb29ffd1ad91d71c7a0ebd27af75f6",
+  "rulebook-content.mjs": "b04e2ea0594df99ab1c9b7375980920613628df75fae6b34e32f3a398ca4b451",
+  "rulebook-sources.mjs": "34e35915bd6f9075367b56d3c1b7a4506c9949c7f7b426a4b72a275e3082abc7",
+  "rules.mjs": "d6444da68be0e090ebac3bc8c53525b4cdb6101eb284a951159278c61e6ffe00",
+  "selection.mjs": "a0b1a39293701945d114dae0461f0c5b0e3773ce9bbd6022e261040e6478430c",
+  "tutorial.mjs": "6d3d437cd52b0d48b4b427f1663d45e6d6d03d08183d04dc65de2680d15a9d48",
+  "ui-art-loading.mjs": "21563ff97627c292e02b890cb52f60764151207101e375493f202ad2c6b7dfe8",
+  "ui-art.mjs": "b6a9eac88bddfa41fe8732f6c94768f437f6e3acac78b380de616f344149cbfe",
+  "ui-context.mjs": "41e286f4b44e8852891e5f1a565a0673d34f7fdff4752da4f27e7e165a8f79aa",
+  "ui-drag.mjs": "16fe32677d3948856287207e07095b998a7989111d70a3bcb3fc25c8f79dd312",
+  "ui-hand.mjs": "d1de129db70925dbb1893114e737a6995cf19a6b79dae0d298bcfd1e9be7a756",
+  "ui-presentation.mjs": "3571961b580783480c98d61697870ed287f0ce3579e204cfa9ab4f44482066e6",
+  "ui-render.mjs": "f7e8891a8a5eb02d2d29803ee3d5944654d3164604e114b0b7487d96e6e17b4b",
+  "ui-result-feedback.mjs": "ad5e6f92f82b1cbf774a1b82dcb2945059c60fb3df21b2b89785c8f621e7cf66",
+  "ui-results.mjs": "f22d60e5e07297ef70384513def336b094ec59ecdd7b6969d6fe67d107b99170",
+  "ui-session.mjs": "a4a9c6bd613a7edcd7f15da3a1f3c77899c0d462ea0b5dcec4a5582f32ae976d",
+  "ui-viewport.mjs": "5d8faf6bff5f3b7a59e347c5d5837290f9680ebabd117b06d575589947d72a3d"
+ },
+ "variants": {
+  "A": {
+   "note": "現行：別れ−10・離婚−10（記録用フックのみ。挙動は正式版と同一）",
+   "penalty": "10",
+   "version": "hotseat-5",
+   "card": null,
+   "patchedSha256": {
+    "engine.mjs": "0d9802b1e5b9a0a39c587987d46fd5b0b173ba223e0373c89a48ac4ba0fa9ffd",
+    "replacements.mjs": "dd3a6b9a50528b76281da5ef60dda88fd66fff0e6050aa80c47b0d5a1946899a"
+   }
+  },
+  "B": {
+   "note": "結婚前の別れ−5・離婚−10",
+   "penalty": "stage===4?10:5",
+   "version": "hotseat-5+exp-B",
+   "card": null,
+   "patchedSha256": {
+    "engine.mjs": "a9317e6002a2435b0e2129cd05262d601395a2a6b7b763a5127f5c4faa3962e7",
+    "replacements.mjs": "dd3a6b9a50528b76281da5ef60dda88fd66fff0e6050aa80c47b0d5a1946899a"
+   }
+  },
+  "C": {
+   "note": "現行−10＋試作カード「円満な別れ」（いつでも・時1）",
+   "penalty": "10",
+   "version": "hotseat-5+exp-C",
+   "card": {
+    "id": "E-amicable-breakup",
+    "name": "円満な別れ",
+    "type": "event",
+    "cost": 1,
+    "rare": false,
+    "text": "自分の交際中のこいびと1枚を対象として発動できる。対象を持ち主の手札に戻す。この効果で別れる場合、そだち−10を受けない。",
+    "source": "experiment breakup-penalty-20261029 (trial card, not canonical)",
+    "source_sha256": "-",
+    "method": "すぐつかう"
+   },
+   "patchedSha256": {
+    "effects.mjs": "cb47e200ecf7331feb67c72e94a4c92e3d8d32a48b290601f5a3cd3672418805",
+    "engine.mjs": "91554526262aa21401b920a049c9d43088c9104e1102a84a380cba7a97a387b4",
+    "full-catalog.mjs": "4b0c57d7033c227a7998adfa4135c3d1b575f4e7372604579cf8c2202f69ca85",
+    "replacements.mjs": "dd3a6b9a50528b76281da5ef60dda88fd66fff0e6050aa80c47b0d5a1946899a",
+    "rules.mjs": "ddf2064b6113e4f7d322ca0bc58beec5cc0fc9eb65c4ddc2c32398f9f97b96d3"
+   }
+  },
+  "C2": {
+   "note": "現行−10＋試作カード「円満な別れ」制限版（相手のターンにだけ・時1）",
+   "penalty": "10",
+   "version": "hotseat-5+exp-C2",
+   "card": {
+    "id": "E-amicable-breakup",
+    "name": "円満な別れ",
+    "type": "event",
+    "cost": 1,
+    "rare": false,
+    "text": "相手のターンに、自分の交際中のこいびと1枚を対象として発動できる。対象を持ち主の手札に戻す。この効果で別れる場合、そだち−10を受けない。",
+    "source": "experiment breakup-penalty-20261029 (trial card, not canonical)",
+    "source_sha256": "-",
+    "method": "すぐつかう"
+   },
+   "patchedSha256": {
+    "effects.mjs": "cb47e200ecf7331feb67c72e94a4c92e3d8d32a48b290601f5a3cd3672418805",
+    "engine.mjs": "37c5c8647d384bdf9950895fe5fed6527c31e6ed5a75c99f49b8ea11e282af8f",
+    "full-catalog.mjs": "02347710a4a161ffb63803b5aaaa11bf2ed8a5b1ef50e458f6e903633f561350",
+    "replacements.mjs": "dd3a6b9a50528b76281da5ef60dda88fd66fff0e6050aa80c47b0d5a1946899a",
+    "rules.mjs": "4e8e46f55c844e86d9d0f47880dd32872346982334f60d65e2200f89bf460aa0"
+   }
+  },
+  "Cx": {
+   "note": "対照：「円満な別れ」と同じ枠に、−10を免除しない同型カード（デッキ変更の影響だけを測る）",
+   "penalty": "10",
+   "version": "hotseat-5+exp-Cx",
+   "card": {
+    "id": "E-amicable-breakup",
+    "name": "円満な別れ",
+    "type": "event",
+    "cost": 1,
+    "rare": false,
+    "text": "（対照）自分の交際中のこいびと1枚を対象として発動できる。対象を持ち主の手札に戻す。",
+    "source": "experiment breakup-penalty-20261029 (trial card, not canonical)",
+    "source_sha256": "-",
+    "method": "すぐつかう"
+   },
+   "patchedSha256": {
+    "effects.mjs": "cb47e200ecf7331feb67c72e94a4c92e3d8d32a48b290601f5a3cd3672418805",
+    "engine.mjs": "af42ae4ca73d8c6736df04d4eded403b18509ecc67dcea7349d70054530f277c",
+    "full-catalog.mjs": "a9932965f6bcf3de85e8c8b0b4d689941ad8f9f48a0b1282e753ab0c5acdfd84",
+    "replacements.mjs": "dd3a6b9a50528b76281da5ef60dda88fd66fff0e6050aa80c47b0d5a1946899a",
+    "rules.mjs": "5bb0ab5454ccb04c6fc59940ac7b91c4aa249042821b0cb38a6b882336f64773"
+   }
+  }
+ },
+ "officialUnchanged": true
+}
