@@ -62,8 +62,11 @@ test('共通の対象種別 ownPrepared（ほかのカードが使う）は変�
 });
 
 // --- 保存の版 ---
-test('新規対戦は hotseat-5。旧版 hotseat-2〜4 を指定した対戦では、旧挙動（自分自身も選べる）のまま',()=>{
- assert.equal(e.VERSION,'hotseat-5');assert.deepEqual([...e.RULE_VERSIONS],['hotseat-2','hotseat-3','hotseat-4','hotseat-5']);assert.equal(e.createGame(1).version,'hotseat-5');
+// hotseat-5 以降のすべての版（新規対戦は最新の版）で自分自身は対象にできない。
+const NEW_VERSIONS=e.RULE_VERSIONS.slice(e.RULE_VERSIONS.indexOf('hotseat-5'));
+test('新規対戦は最新の版（hotseat-5 以降）。旧版 hotseat-2〜4 を指定した対戦では、旧挙動（自分自身も選べる）のまま',()=>{
+ assert.ok(NEW_VERSIONS.length>=1);assert.equal(e.VERSION,e.RULE_VERSIONS.at(-1));assert.equal(e.createGame(1).version,e.VERSION);assert.deepEqual([...e.RULE_VERSIONS].slice(0,4),['hotseat-2','hotseat-3','hotseat-4','hotseat-5']);
+ for(const version of NEW_VERSIONS){let {s,tako,bow}=setup(version);s=toEndTrigger(s);assert.deepEqual(takoTriggers(s,tako).map(a=>a.target),[bow],version);}
  for(const version of ['hotseat-2','hotseat-3','hotseat-4']){let {s,tako,bow}=setup(version);s=toEndTrigger(s);
   assert.deepEqual(takoTriggers(s,tako).map(a=>a.target).sort(),[tako,bow].sort(),version);}
 });
@@ -75,9 +78,9 @@ test('旧保存（hotseat-4、修正前エンジンで作成、たこやき自�
   assert.deepEqual(s.result,r.result,r.case);assert.equal(digest(s),r.stateSha256,r.case);assert.equal(e.save(s),JSON.stringify(r.save),r.case);
   const m=restoreMatch(JSON.stringify(r.save));assert.equal(m.save(),JSON.stringify(r.save),r.case+'：CPU・記録の読込経路');}
 });
-test('自分自身を対象にした旧保存を新しい版（hotseat-5）として読ませると拒否される（無条件に変換しない）',()=>{
- assert.throws(()=>e.createGame(1,undefined,'hotseat-6'),/対戦の版が不正です/);assert.throws(()=>e.restore(JSON.stringify({...saves.rows[0].save,version:'hotseat-6'})),/保存形式が異なります/);
- for(const r of saves.rows.filter(r=>r.selfTargeted))assert.throws(()=>e.restore(JSON.stringify({...r.save,version:'hotseat-5'})),r.case);
+test('自分自身を対象にした旧保存を新しい版（hotseat-5 以降）として読ませると拒否される（無条件に変換しない）',()=>{
+ assert.throws(()=>e.createGame(1,undefined,'hotseat-99'),/対戦の版が不正です/);assert.throws(()=>e.restore(JSON.stringify({...saves.rows[0].save,version:'hotseat-99'})),/保存形式が異なります/);
+ for(const r of saves.rows.filter(r=>r.selfTargeted))for(const version of NEW_VERSIONS)assert.throws(()=>e.restore(JSON.stringify({...r.save,version})),r.case+' '+version);
 });
 test('旧保存の途中（たこやき誘発の直前）から復帰して続けても同じ結果',()=>{
  for(const r of saves.rows){const pre={...r.save,commands:r.save.commands.slice(0,r.triggerRevision)};let s=e.restore(JSON.stringify(pre));
