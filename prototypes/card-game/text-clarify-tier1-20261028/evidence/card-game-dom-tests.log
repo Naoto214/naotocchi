@@ -1,0 +1,95 @@
+TAP version 13
+# Collection DOM: menu, once-only notice, nine pockets, filter/page restore, flip, egg exclusion, favorites, shared editor addition/limits, swipe suppression, save preservation PASS
+# Subtest: tests/collection.dom.mjs
+ok 1 - tests/collection.dom.mjs
+  ---
+  duration_ms: 7496.809818
+  type: 'test'
+  ...
+# CPU integration DOM PASS: 14 starts, 7 decks, 2 levels, auto seeds, fixed, human B, mydeck, restore, privacy, menu, learning coexistence
+# Subtest: tests/cpu-integration.dom.mjs
+ok 2 - tests/cpu-integration.dom.mjs
+  ---
+  duration_ms: 3307.273299
+  type: 'test'
+  ...
+# Learning DOM PASS: 15 chapters, search/diagram, all nine lesson card taps, progress, resume/restart/skip, match/deck isolation, collection navigation, CPU beginner setup
+# Subtest: tests/learning.dom.mjs
+ok 3 - tests/learning.dom.mjs
+  ---
+  duration_ms: 11884.607789
+  type: 'test'
+  ...
+# node:internal/modules/run_main:123
+#     triggerUncaughtException(
+#     ^
+# AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+# + actual - expected
+#   [
+#     'ひとりであそぶ',
+#     'ふたりであそぶ',
+# +   '戦績',
+#     'マイデッキ',
+#     'カードコレクション',
+#     'あそびかたを覚える',
+#     'ルールブック'
+#   ]
+#     at file:///home/user/naotocchi/prototypes/card-game/tests/menu.dom.mjs:25:8 {
+#   generatedMessage: true,
+#   code: 'ERR_ASSERTION',
+#   actual: [
+#     'ひとりであそぶ',
+#     'ふたりであそぶ',
+#     '戦績',
+#     'マイデッキ',
+#     'カードコレクション',
+#     'あそびかたを覚える',
+#     'ルールブック'
+#   ],
+#   expected: [ 'ひとりであそぶ', 'ふたりであそぶ', 'マイデッキ', 'カードコレクション', 'あそびかたを覚える', 'ルールブック' ],
+#   operator: 'deepStrictEqual',
+#   diff: 'simple'
+# }
+# Node.js v22.22.0
+# Subtest: tests/menu.dom.mjs
+not ok 4 - tests/menu.dom.mjs
+  ---
+  duration_ms: 1651.957268
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/menu.dom.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# {"catalog":452,"lazyImages":452,"closedCatalogImages":0,"createRenameCloneDelete":true,"filters":true,"copyLimits":true,"catalogDOMStable":true,"scrollPreserved":true,"legacyUnchanged":true,"matchMode":"cpu","startAndRestore":true,"handoffPrivacy":true,"rendering":"unverified: DOM test only"}
+# Subtest: tests/my-decks.dom.mjs
+ok 5 - tests/my-decks.dom.mjs
+  ---
+  duration_ms: 6759.280993
+  type: 'test'
+  ...
+# records DOM PASS: entry, tabs, unfinished exclusion, stable save metadata, restore, tutorial
+# Subtest: tests/records.dom.mjs
+ok 6 - tests/records.dom.mjs
+  ---
+  duration_ms: 2639.078124
+  type: 'test'
+  ...
+# Tutorial shared board DOM PASS: 18 slots, production detail, wrong inspection, CPU lifecycle, reverse chain, save isolation
+# Subtest: tests/tutorial-board.dom.mjs
+ok 7 - tests/tutorial-board.dom.mjs
+  ---
+  duration_ms: 5506.62653
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 6
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15658.490895
