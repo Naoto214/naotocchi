@@ -60,6 +60,7 @@ export function mount({qa = false} = {}) {
     $("status").hidden=false;
     $("example").hidden=!q.stage.id.startsWith("komorebi-");
     $("title").textContent = q.stage.title;
+    $("moves").textContent = `${q.state.moves}手`;
     $("chapter").textContent =
       `${qa ? "QA専用 · " : "独立セーブ · "}${q.stage.id.startsWith("komorebi-")?"第2章":"第1章"}　${q.state.rescued} / ${mass(q.state)} おかえり`;
     $("clock").textContent = q.stage.events.length ? q.stage.events.map(e => eventCaption(e, q.time)).join(" / ") : q.stage.gravity ? "重力 ↓ ・ 支えがないと落ちる" : "ひかりの牢屋";
@@ -174,7 +175,7 @@ export function mount({qa = false} = {}) {
     if (q.undo()) {
       pauseState();
       last = 0;
-      $("status").textContent = "1手戻しました。そのまま続けられます。";
+      $("status").textContent = "ひと筆ぶん戻しました。そのまま続けられます。";
     }
     won = false;
     save();
