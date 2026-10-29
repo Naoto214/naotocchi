@@ -4,7 +4,7 @@ const formal=['dog/04.png','partners/forest_bear.png','companions/shiba.png','co
 for(const c of ART_CANDIDATES){
  const figure=document.createElement('figure');figure.className='card';figure.dataset.candidate=c.id;
  figure.innerHTML=`<div class="art"><img src="${c.src}" alt="${c.name}" loading="lazy"></div><div class="caption"><span class="badge">保存済み原画 · 動作試作</span><b>${c.name}</b><p>${c.note}</p><a href="${c.src}" target="_blank">背景を拡大</a> · <a href="#living" data-choose="${c.id}">動かしてみる</a></div>`;
- formal.forEach((f,i)=>{const img=document.createElement('img'),[x,y]=ART_SCENES[c.id].seats[i];img.src='assets/characters/'+f;img.alt=i?'正式な仲間':'正式な主役';img.className='sprite';img.hidden=true;img.style.cssText=`left:${x*100}%;top:${y*100}%;--size:${(i?12:20)*(.78+(y-.4)*.3)}%`;figure.querySelector('.art').append(img);});
+ formal.forEach((f,i)=>{const img=document.createElement('img'),[x,y]=ART_SCENES[c.id].seats[i];img.src='assets/characters/'+f;img.alt=i?'正式な仲間':'正式な主役';img.className='sprite';img.hidden=true;const box=window.NaotocchiCastBounds?.['assets/characters/'+f]?.box||[0,0,128,128];img.style.cssText=`transform:translate(${-(box[0]+box[2])/2/128*100}%,${-box[3]/128*100}%);left:${x*100}%;top:${y*100}%;--size:${(i?12:20)*(.78+(y-.4)*.3)}%`;figure.querySelector('.art').append(img);});
  figure.querySelector('[data-choose]').onclick=()=>{$('candidateB').value=c.id;apply().catch(showError);};$('gallery').append(figure);
 }
 $('characters').onclick=()=>document.querySelectorAll('.sprite').forEach(n=>n.hidden=false);
@@ -12,12 +12,12 @@ $('clean').onclick=()=>document.querySelectorAll('.sprite').forEach(n=>n.hidden=
 for(const id of ['candidateA','candidateB','beauty','fit']){$(id).innerHTML=(id==='beauty'||id==='fit'?'<option value="">未選択</option>':'')+ART_CANDIDATES.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');}
 $('candidateA').value='home-garden';$('candidateB').value='home-interior-a';
 for(const id of ['beauty','fit']){const key='naotocchi-recovered-rating-'+id;try{$(id).value=localStorage.getItem(key)||'';}catch{}$(id).onchange=()=>{try{localStorage.setItem(key,$(id).value);}catch{}};}
-const frames=[$('old'),$('new')];let applying=false;
+const frames=[$('old'),$('new')];let applying=false,queued=false;
 function showError(e){$('qaStatus').textContent=e.message;}
 async function ready(f){for(let n=0;n<250;n++){if(f.contentWindow.HomeV22QA)return;await wait(40);}throw Error('ホームの読み込みに時間がかかっています');}
-function measure(){const ds=frames.map(f=>f.contentWindow.HomeV22QA.detail());$('metrics').textContent=JSON.stringify(ds,null,2);$('qaStatus').textContent=ds.map((d,i)=>`${i?'B':'A'}: ${d.actors.length}体 / 安全 ${d.actors.filter(a=>a.safe).length}体 / 通知 ${d.slots.homeEventSlot.height}px・会話 ${d.slots.speechSlot.height}px`).join(' ｜ ');return ds;}
+function measure(){for(let i=0;i<frames.length;i++){const e=frames[i].contentWindow.HomeV22QA?.environment(),expected=$(i?'candidateB':'candidateA').value;if(e?.error){showError(Error(e.error));return;}if(!e?.loaded||e.candidate!==expected){$('qaStatus').textContent='選んだ背景を読み込み中…';return;}}const ds=frames.map(f=>f.contentWindow.HomeV22QA.detail());$('metrics').textContent=JSON.stringify(ds,null,2);$('qaStatus').textContent=ds.map((d,i)=>`${i?'B':'A'}: ${d.actors.length}体 / 安全 ${d.actors.filter(a=>a.safe).length}体 / 通知 ${d.slots.homeEventSlot.height}px・会話 ${d.slots.speechSlot.height}px`).join(' ｜ ');return ds;}
 async function apply(){
- if(applying)return;applying=true;$('apply').disabled=true;
+ if(applying){queued=true;return;}applying=true;$('apply').disabled=true;
  const ids=[$('candidateA').value,$('candidateB').value],width=$('width').value,count=Number($('count').value),time=$('time').value;
  try{for(let i=0;i<2;i++){
   const f=frames[i],c=ART_CANDIDATES.find(c=>c.id===ids[i]);f.style.width=width+'px';f.style.height='844px';
@@ -25,7 +25,7 @@ async function apply(){
   if(f.dataset.candidate!==c.id){await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('ホームを読み込めませんでした')),20000);f.onload=()=>{clearTimeout(timer);resolve();};f.src='qa-recovered-game.html?candidate='+encodeURIComponent(c.id);});f.dataset.candidate=c.id;}
   await ready(f);await wait(150);f.contentWindow.HomeV22QA.scene(c.region,count,time);
   let loaded=false;for(let n=0;n<250;n++){const e=f.contentWindow.HomeV22QA.environment();if(e?.error)throw Error(e.error);if(e?.loaded&&e.candidate===c.id){loaded=true;break;}await wait(60);}if(!loaded)throw Error('背景の読み込みが完了しませんでした');
- }await wait(300);measure();}finally{applying=false;$('apply').disabled=false;}
+ }await wait(300);measure();}finally{applying=false;$('apply').disabled=false;if(queued){queued=false;apply().catch(showError);}}
 }
 $('apply').onclick=()=>apply().catch(showError);
 for(const [id,a,b]of [['homes','home-garden','home-interior-a'],['forests','forest-no-waterfall','forest-waterfall']])$(id).onclick=()=>{$('candidateA').value=a;$('candidateB').value=b;apply().catch(showError);};

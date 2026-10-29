@@ -5,8 +5,12 @@ execFileSync(process.execPath,['tools/home-japan-build.cjs',out],{stdio:'inherit
 for(const f of ['home-recovered-manifest.mjs','home-recovered-navigation.mjs','home-recovered-world.mjs'])fs.copyFileSync(f,path.join(out,f));
 fs.cpSync('assets/home-art-recovered-20261029',path.join(out,'assets/home-art-recovered-20261029'),{recursive:true});
 const replacements=s=>s.replaceAll('home-japan-world.mjs','home-recovered-world.mjs').replaceAll('qa-japan-script.js','qa-recovered-script.js').replaceAll('qa-japan-diorama.js','qa-recovered-diorama.js').replaceAll('japan-play-script.js','recovered-play-script.js').replaceAll('japan-play-diorama.js','recovered-play-diorama.js').replaceAll('naotocchi-japan-qa-v1','naotocchi-recovered-qa-v1').replaceAll('naotocchi-japan-play-v1','naotocchi-recovered-play-v1');
+const {recoveredModelSource}=require('./home-recovered-model.cjs');
+fs.writeFileSync(path.join(out,'recovered-model.js'),recoveredModelSource(fs.readFileSync('home-diorama-model.js','utf8')));
+fs.writeFileSync(path.join(out,'qa-recovered-model.js'),recoveredModelSource(fs.readFileSync(path.join(out,'qa-v22-model.js'),'utf8')));
 for(const [src,dst]of [['qa-japan-game.html','qa-recovered-game.html'],['qa-japan-script.js','qa-recovered-script.js'],['qa-japan-diorama.js','qa-recovered-diorama.js'],['japan-play.html','recovered-play.html'],['japan-play-script.js','recovered-play-script.js'],['japan-play-diorama.js','recovered-play-diorama.js']]){
  let s=replacements(fs.readFileSync(path.join(out,src),'utf8'));
+ if(dst.endsWith('.html'))s=s.replace(/src="home-diorama-model.js[^"]*"/,'src="recovered-model.js"').replace('qa-v22-model.js','qa-recovered-model.js');
  if(dst==='recovered-play.html')s=s.replace('</body>','<a href="recovered.html" style="position:fixed;right:8px;bottom:8px;z-index:10000;background:#fff;color:#234;padding:7px 12px;border-radius:20px;font:13px system-ui">背景比較へもどる</a></body>');
  fs.writeFileSync(path.join(out,dst),s);
 }
