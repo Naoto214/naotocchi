@@ -1,0 +1,53 @@
+✔ wide and tall official sprites put cropped feet on the same cell baseline (1.139969ms)
+✔ split children are not visible before the body reaches the spike (3.681771ms)
+✔ falling body shows its split number after contact, not the pre-split number (0.845315ms)
+✖ a gravity-triggered split waits until the animated body reaches its actual spike (7.317462ms)
+✖ invisible newborns cannot intercept a regrab at birth or final cell (0.864783ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 3
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 116.255722
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/split-v9-visual.test.mjs:28:1
+✖ a gravity-triggered split waits until the animated body reaches its actual spike (7.317462ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  5 !== 8
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-v9-visual.test.mjs:36:119)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 5,
+    expected: 8,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-v9-visual.test.mjs:41:1
+✖ invisible newborns cannot intercept a regrab at birth or final cell (0.864783ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'child1' !== 'a'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-v9-visual.test.mjs:43:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'child1',
+    expected: 'a',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

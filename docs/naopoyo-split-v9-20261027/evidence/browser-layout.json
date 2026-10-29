@@ -1,0 +1,132 @@
+[
+  {
+    "size": "320×568",
+    "board": {
+      "bottom": 435,
+      "height": 292,
+      "left": 14,
+      "right": 306,
+      "top": 143,
+      "width": 292,
+      "x": 14,
+      "y": 143
+    },
+    "height": 568,
+    "note": {
+      "bottom": 508.875,
+      "height": 13.75,
+      "left": 28,
+      "right": 292,
+      "top": 495.125,
+      "width": 264,
+      "x": 28,
+      "y": 495.125
+    },
+    "scroll": false,
+    "width": 320
+  },
+  {
+    "size": "375×667",
+    "board": {
+      "bottom": 517,
+      "height": 347,
+      "left": 14,
+      "right": 361,
+      "top": 170,
+      "width": 347,
+      "x": 14,
+      "y": 170
+    },
+    "height": 667,
+    "note": {
+      "bottom": 602.875,
+      "height": 13.75,
+      "left": 55.5,
+      "right": 319.5,
+      "top": 589.125,
+      "width": 264,
+      "x": 55.5,
+      "y": 589.125
+    },
+    "scroll": false,
+    "width": 375
+  },
+  {
+    "size": "390×664",
+    "board": {
+      "bottom": 515.5,
+      "height": 347,
+      "left": 21.5,
+      "right": 368.5,
+      "top": 168.5,
+      "width": 347,
+      "x": 21.5,
+      "y": 168.5
+    },
+    "height": 664,
+    "note": {
+      "bottom": 599.875,
+      "height": 13.75,
+      "left": 63,
+      "right": 327,
+      "top": 586.125,
+      "width": 264,
+      "x": 63,
+      "y": 586.125
+    },
+    "scroll": false,
+    "width": 390
+  },
+  {
+    "size": "430×740",
+    "board": {
+      "bottom": 561,
+      "height": 362,
+      "left": 34,
+      "right": 396,
+      "top": 199,
+      "width": 362,
+      "x": 34,
+      "y": 199
+    },
+    "height": 740,
+    "note": {
+      "bottom": 675.875,
+      "height": 13.75,
+      "left": 83,
+      "right": 347,
+      "top": 662.125,
+      "width": 264,
+      "x": 83,
+      "y": 662.125
+    },
+    "scroll": false,
+    "width": 430
+  },
+  {
+    "size": "320×480",
+    "board": {
+      "bottom": 391,
+      "height": 292,
+      "left": 14,
+      "right": 306,
+      "top": 99,
+      "width": 292,
+      "x": 14,
+      "y": 99
+    },
+    "height": 480,
+    "note": {
+      "bottom": 420.875,
+      "height": 13.75,
+      "left": 28,
+      "right": 292,
+      "top": 407.125,
+      "width": 264,
+      "x": 28,
+      "y": 407.125
+    },
+    "scroll": false,
+    "width": 320
+  }
+]

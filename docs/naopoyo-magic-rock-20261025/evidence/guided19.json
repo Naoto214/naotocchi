@@ -1,0 +1,207 @@
+{
+  "stage": {
+    "id": "komorebi-reverse-stars",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        7,
+        6
+      ]
+    ],
+    "gates": [
+      {
+        "x": 2,
+        "y": 7,
+        "exact": 8
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "exact": 8
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 5,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "exact": 5
+      }
+    ],
+    "spikes": [
+      {
+        "x": 3,
+        "y": 6,
+        "power": 3
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 0,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "number": 19,
+    "title": "19 星から逆算",
+    "revision": 4,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 7,
+    "discovery": "3と5の出口から必要な組み合わせを逆算し、8の魔法岩が小さい仲間を止める性質を足場として使う。",
+    "lesson": "行き止まりに見える場所が、支えになる。",
+    "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+    "ending": "帰り道を決めてから、支える場所を選んだ。",
+    "hints": [
+      "8の魔法岩は、5を通さない。上から落ちる5もそこで止まれる。",
+      "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+      "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+    ],
+    "hint": "8の魔法岩は、5を通さない。上から落ちる5もそこで止まれる。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1",
+    "terrainRules": "magic-rock-v1"
+  },
+  "prefix": [
+    {
+      "at": [
+        1,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        2,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        0,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        1,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        2,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    {
+      "at": [
+        3,
+        6
+      ],
+      "level": 5,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    {
+      "at": [
+        4,
+        5
+      ],
+      "level": 5,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        5,
+        5
+      ],
+      "level": 5,
+      "d": [
+        1,
+        0
+      ]
+    },
+    {
+      "at": [
+        6,
+        6
+      ],
+      "level": 5,
+      "d": [
+        1,
+        -1
+      ]
+    }
+  ],
+  "result": {
+    "status": "limit",
+    "visited": 61348,
+    "expanded": 60304,
+    "edges": 664006,
+    "shortestProven": false,
+    "elapsedMs": 55001,
+    "method": "greedy"
+  },
+  "path": null,
+  "replayed": false
+}

@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: manual overflow cannot put 4 on source exact-8 gate 1,0
+ok 1 - manual overflow cannot put 4 on source exact-8 gate 1,0
+  ---
+  duration_ms: 1.819263
+  type: 'test'
+  ...
+# Subtest: manual overflow cannot put 4 on source exact-8 gate 1,1
+ok 2 - manual overflow cannot put 4 on source exact-8 gate 1,1
+  ---
+  duration_ms: 0.247294
+  type: 'test'
+  ...
+# Subtest: manual overflow cannot put 4 on source exact-8 gate 0,1
+ok 3 - manual overflow cannot put 4 on source exact-8 gate 0,1
+  ---
+  duration_ms: 0.147698
+  type: 'test'
+  ...
+# Subtest: external overflow cannot put 4 on source exact-8 gate 1,0
+ok 4 - external overflow cannot put 4 on source exact-8 gate 1,0
+  ---
+  duration_ms: 0.204482
+  type: 'test'
+  ...
+# Subtest: external overflow cannot put 4 on source exact-8 gate 1,1
+ok 5 - external overflow cannot put 4 on source exact-8 gate 1,1
+  ---
+  duration_ms: 0.166666
+  type: 'test'
+  ...
+# Subtest: external overflow cannot put 4 on source exact-8 gate 0,1
+ok 6 - external overflow cannot put 4 on source exact-8 gate 0,1
+  ---
+  duration_ms: 0.16946
+  type: 'test'
+  ...
+# Subtest: gravity overflow cannot put remainder on source gate
+ok 7 - gravity overflow cannot put remainder on source gate
+  ---
+  duration_ms: 0.27143
+  type: 'test'
+  ...
+# Subtest: iPhone sequence: enter 8 gate then exchange with 4 rejected; ordinary exit allowed
+ok 8 - iPhone sequence: enter 8 gate then exchange with 4 rejected; ordinary exit allowed
+  ---
+  duration_ms: 0.318139
+  type: 'test'
+  ...
+# Subtest: merge cannot leave incompatible combined body on destination gate
+ok 9 - merge cannot leave incompatible combined body on destination gate
+  ---
+  duration_ms: 0.23728
+  type: 'test'
+  ...
+# Subtest: restoring incompatible gate occupant rejected even if gate open
+ok 10 - restoring incompatible gate occupant rejected even if gate open
+  ---
+  duration_ms: 0.538754
+  type: 'test'
+  ...
+# Subtest: external split cannot change a gate occupant to a forbidden level
+ok 11 - external split cannot change a gate occupant to a forbidden level
+  ---
+  duration_ms: 0.583761
+  type: 'test'
+  ...
+# Subtest: open flag never grants incompatible direct entry; diagonal destination-only stays legal
+ok 12 - open flag never grants incompatible direct entry; diagonal destination-only stays legal
+  ---
+  duration_ms: 0.239143
+  type: 'test'
+  ...
+# Subtest: legal overflow away from gates and compatible min-gate merge preserved
+ok 13 - legal overflow away from gates and compatible min-gate merge preserved
+  ---
+  duration_ms: 0.306673
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 97.56702

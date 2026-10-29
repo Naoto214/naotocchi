@@ -1,0 +1,18 @@
+11 bfs solved 5 { complete: true, moves: 5 }
+11 fresh 5
+12 bfs solved 5 { complete: true, moves: 5 }
+12 fresh 5
+13 bfs solved 10 { complete: true, moves: 10 }
+13 fresh 10
+14 bfs solved 11 { complete: true, moves: 11 }
+14 fresh 11
+15 bfs limit undefined { complete: true, moves: 20 }
+15 fresh 23
+16 bfs limit undefined { complete: true, moves: 14 }
+16 fresh 26
+17 bfs limit undefined { complete: true, moves: 16 }
+17 fresh 40
+18 bfs limit undefined { complete: true, moves: 20 }
+18 fresh 31
+19 bfs limit undefined { error: 'witness rejected 10: corner' }
+20 bfs exhausted undefined { error: 'witness rejected 9: corner' }

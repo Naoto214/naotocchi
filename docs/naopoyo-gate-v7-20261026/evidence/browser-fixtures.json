@@ -1,0 +1,44 @@
+{
+  "reduced": false,
+  "scenes": [
+    {
+      "name": "右上斜め66ms · 数字を右柱へ回避",
+      "accepted": true,
+      "events": [
+        "phase"
+      ],
+      "moves": 1
+    },
+    {
+      "name": "位置交換120ms · 同じ8どうし",
+      "accepted": true,
+      "events": [
+        "swap",
+        "phase"
+      ],
+      "moves": 1
+    },
+    {
+      "name": "重力220ms · 落下で8を通過",
+      "accepted": true,
+      "events": [
+        "fall",
+        "phase",
+        "fall",
+        "fall",
+        "fall",
+        "fall"
+      ],
+      "moves": 1
+    },
+    {
+      "name": "連続130ms · 並んだ8を通過",
+      "accepted": true,
+      "events": [
+        "phase",
+        "phase"
+      ],
+      "moves": 2
+    }
+  ]
+}

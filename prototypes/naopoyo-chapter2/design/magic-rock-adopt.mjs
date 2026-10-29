@@ -1,0 +1,6 @@
+import fs from'node:fs';import{stages}from'../stages.mjs';import{replay}from'../search.mjs';import{shorten}from'./shorten.mjs';import{complete}from'../../naopoyo-v2/engine.mjs';const dir='docs/naopoyo-magic-rock-20261025',rows=[];
+for(const stage of stages){const n=stage.number;let row,path,shortestProven=false,source;
+ if(n<=19){source=`evidence/search-${n}.json`;row=JSON.parse(fs.readFileSync(`${dir}/${source}`));path=row.path;shortestProven=row.shortestProven;}
+ else if(n===19){source='evidence/guided19.json';row=JSON.parse(fs.readFileSync(`${dir}/${source}`));path=row.path;}
+ else {source='evidence/candidate-20-remove-4-4.json';row=JSON.parse(fs.readFileSync(`${dir}/${source}`));path=row.result.path;}
+ if(!path)throw Error(`no witness ${n}`);const reduced=shortestProven?{path,rewrites:0}:shorten(stage,path,{passes:15,limit:700,depth:4});if(!complete(replay(stage,reduced.path)))throw Error('incomplete');rows.push({number:n,id:stage.id,source,searchMoves:path.length,path:reduced.path,moves:reduced.path.length,shortestProven,rewrites:reduced.rewrites,stage});console.log(n,reduced.path.length);fs.writeFileSync(`${dir}/solutions.json`,JSON.stringify({rules:'magic-rock-v1',method:'fresh real-engine search; bounded shortcut reduction; shortest only for BFS11-14',stages:rows},null,2));}

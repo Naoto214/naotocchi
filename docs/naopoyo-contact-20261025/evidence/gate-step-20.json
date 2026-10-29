@@ -1,0 +1,452 @@
+[
+  {
+    "name": "gate-step-upper-clear",
+    "stage": {
+      "id": "komorebi-forest-trial",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 4
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 7
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 20,
+      "title": "20 森の結び目",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 8,
+      "discovery": "8で下の門を通り、左右で3と4を作って上の作業場へ運び7にする。残る9を3ずつ回収する。",
+      "lesson": "支える場所も、分かれる順番も、きみたちで。",
+      "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+      "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+      "hints": [
+        "下の門は8。上の門は3と4。でも上の星は7。",
+        "7は上の門を通れない。門の向こうで3＋4を組もう。その材料を残しつつ、下の3の星から先に仲間を帰そう。",
+        "二つの8で下の門を通り、岩に支えられたトゲで分けよう。上の作業場で7を作ったら、左上の岩へ登って星へ。"
+      ],
+      "hint": "下の門は8。上の門は3と4。でも上の星は7。",
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "attempts": [
+      {
+        "status": "limit",
+        "visited": 22393,
+        "expanded": 13692,
+        "edges": 168074,
+        "shortestProven": false,
+        "elapsedMs": 15008,
+        "method": "bfs"
+      },
+      {
+        "status": "limit",
+        "visited": 45464,
+        "expanded": 21446,
+        "edges": 270228,
+        "shortestProven": false,
+        "elapsedMs": 15008,
+        "method": "greedy"
+      },
+      {
+        "status": "limit",
+        "visited": 45734,
+        "expanded": 21171,
+        "edges": 272803,
+        "shortestProven": false,
+        "elapsedMs": 15000,
+        "method": "greedy"
+      }
+    ]
+  },
+  {
+    "name": "gate-step-assembly-support",
+    "stage": {
+      "id": "komorebi-forest-trial",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          6,
+          4
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 4
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 7
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 20,
+      "title": "20 森の結び目",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 8,
+      "discovery": "8で下の門を通り、左右で3と4を作って上の作業場へ運び7にする。残る9を3ずつ回収する。",
+      "lesson": "支える場所も、分かれる順番も、きみたちで。",
+      "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+      "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+      "hints": [
+        "下の門は8。上の門は3と4。でも上の星は7。",
+        "7は上の門を通れない。門の向こうで3＋4を組もう。その材料を残しつつ、下の3の星から先に仲間を帰そう。",
+        "二つの8で下の門を通り、岩に支えられたトゲで分けよう。上の作業場で7を作ったら、左上の岩へ登って星へ。"
+      ],
+      "hint": "下の門は8。上の門は3と4。でも上の星は7。",
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "attempts": [
+      {
+        "status": "exhausted",
+        "visited": 44,
+        "expanded": 44,
+        "edges": 275,
+        "shortestProven": false,
+        "elapsedMs": 9,
+        "method": "bfs"
+      }
+    ]
+  },
+  {
+    "name": "gate-step-open-center",
+    "stage": {
+      "id": "komorebi-forest-trial",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 6,
+          "exact": 8
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 4
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 7
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 20,
+      "title": "20 森の結び目",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 8,
+      "discovery": "8で下の門を通り、左右で3と4を作って上の作業場へ運び7にする。残る9を3ずつ回収する。",
+      "lesson": "支える場所も、分かれる順番も、きみたちで。",
+      "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+      "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+      "hints": [
+        "下の門は8。上の門は3と4。でも上の星は7。",
+        "7は上の門を通れない。門の向こうで3＋4を組もう。その材料を残しつつ、下の3の星から先に仲間を帰そう。",
+        "二つの8で下の門を通り、岩に支えられたトゲで分けよう。上の作業場で7を作ったら、左上の岩へ登って星へ。"
+      ],
+      "hint": "下の門は8。上の門は3と4。でも上の星は7。",
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "attempts": [
+      {
+        "status": "exhausted",
+        "visited": 44,
+        "expanded": 44,
+        "edges": 275,
+        "shortestProven": false,
+        "elapsedMs": 9,
+        "method": "bfs"
+      }
+    ]
+  }
+]
