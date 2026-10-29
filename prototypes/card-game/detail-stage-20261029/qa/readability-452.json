@@ -1,0 +1,3883 @@
+{
+ "summary": {
+  "cards": 452,
+  "clipped": 0,
+  "groups": {
+   "短文（〜40字）": {
+    "count": 21,
+    "basePx": {
+     "min": 10.82,
+     "median": 11.35
+    },
+    "onScreen": {
+     "320x568": {
+      "one": {
+       "min": 9.1,
+       "median": 9.5
+      },
+      "zoom": {
+       "min": 9.7,
+       "median": 10.1
+      },
+      "three": {
+       "min": 9.7,
+       "median": 10.1
+      }
+     },
+     "375x667": {
+      "one": {
+       "min": 11.3,
+       "median": 11.9
+      },
+      "three": {
+       "min": 11.5,
+       "median": 12.1
+      }
+     },
+     "390x844": {
+      "one": {
+       "min": 12,
+       "median": 12.6
+      },
+      "three": {
+       "min": 11.3,
+       "median": 11.8
+      }
+     },
+     "430x932": {
+      "one": {
+       "min": 13.4,
+       "median": 14
+      },
+      "three": {
+       "min": 13.4,
+       "median": 14
+      }
+     },
+     "844x390": {
+      "one": {
+       "min": 10.3,
+       "median": 10.8
+      },
+      "zoom": {
+       "min": 14.9,
+       "median": 15.7
+      },
+      "three": {
+       "min": 10.3,
+       "median": 10.8
+      }
+     }
+    }
+   },
+   "中（41〜100字）": {
+    "count": 349,
+    "basePx": {
+     "min": 10.82,
+     "median": 10.82
+    },
+    "onScreen": {
+     "320x568": {
+      "one": {
+       "min": 9.1,
+       "median": 9.1
+      },
+      "zoom": {
+       "min": 9.7,
+       "median": 9.7
+      },
+      "three": {
+       "min": 9.7,
+       "median": 9.7
+      }
+     },
+     "375x667": {
+      "one": {
+       "min": 11.3,
+       "median": 11.3
+      },
+      "three": {
+       "min": 11.5,
+       "median": 11.5
+      }
+     },
+     "390x844": {
+      "one": {
+       "min": 12,
+       "median": 12
+      },
+      "three": {
+       "min": 11.3,
+       "median": 11.3
+      }
+     },
+     "430x932": {
+      "one": {
+       "min": 13.4,
+       "median": 13.4
+      },
+      "three": {
+       "min": 13.4,
+       "median": 13.4
+      }
+     },
+     "844x390": {
+      "one": {
+       "min": 10.3,
+       "median": 10.3
+      },
+      "zoom": {
+       "min": 14.9,
+       "median": 14.9
+      },
+      "three": {
+       "min": 10.3,
+       "median": 10.3
+      }
+     }
+    }
+   },
+   "長文（101字〜）": {
+    "count": 82,
+    "basePx": {
+     "min": 8.48,
+     "median": 9.06
+    },
+    "onScreen": {
+     "320x568": {
+      "one": {
+       "min": 7.1,
+       "median": 7.6
+      },
+      "zoom": {
+       "min": 7.6,
+       "median": 8.1
+      },
+      "three": {
+       "min": 7.6,
+       "median": 8.1
+      }
+     },
+     "375x667": {
+      "one": {
+       "min": 8.9,
+       "median": 9.5
+      },
+      "three": {
+       "min": 9,
+       "median": 9.7
+      }
+     },
+     "390x844": {
+      "one": {
+       "min": 9.4,
+       "median": 10.1
+      },
+      "three": {
+       "min": 8.9,
+       "median": 9.5
+      }
+     },
+     "430x932": {
+      "one": {
+       "min": 10.5,
+       "median": 11.2
+      },
+      "three": {
+       "min": 10.5,
+       "median": 11.2
+      }
+     },
+     "844x390": {
+      "one": {
+       "min": 8.1,
+       "median": 8.6
+      },
+      "zoom": {
+       "min": 11.7,
+       "median": 12.5
+      },
+      "three": {
+       "min": 8.1,
+       "median": 8.6
+      }
+     }
+    }
+   }
+  },
+  "scales": {
+   "320x568": {
+    "one": 0.841,
+    "zoom": 0.894,
+    "three": 0.894
+   },
+   "375x667": {
+    "one": 1.047,
+    "three": 1.066
+   },
+   "390x844": {
+    "one": 1.113,
+    "three": 1.044
+   },
+   "430x932": {
+    "one": 1.238,
+    "three": 1.238
+   },
+   "844x390": {
+    "one": 0.95,
+    "zoom": 1.381,
+    "three": 0.95
+   }
+  },
+  "smallest": [
+   {
+    "id": "M-antlion-06",
+    "name": "アリジゴク⑥",
+    "chars": 105,
+    "basePx": 8.48
+   },
+   {
+    "id": "M-antlion-07",
+    "name": "アリジゴク⑦",
+    "chars": 108,
+    "basePx": 8.48
+   },
+   {
+    "id": "M-cat-07",
+    "name": "ねこ⑦",
+    "chars": 112,
+    "basePx": 8.48
+   },
+   {
+    "id": "M-butterfly-06",
+    "name": "ちょう⑥",
+    "chars": 102,
+    "basePx": 9.06
+   },
+   {
+    "id": "M-cicada-07",
+    "name": "セミ⑦",
+    "chars": 103,
+    "basePx": 9.06
+   }
+  ]
+ },
+ "cards": [
+  {
+   "id": "C-bat",
+   "name": "よふかしコウモリ",
+   "type": "companion",
+   "chars": 74,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-box",
+   "name": "ただのはこ",
+   "type": "companion",
+   "chars": 5,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-cat_friend",
+   "name": "きまぐれなねこ",
+   "type": "companion",
+   "chars": 89,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-chameleon",
+   "name": "サングラスのカメレオン",
+   "type": "companion",
+   "chars": 58,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-chicken",
+   "name": "はやおきニワトリ",
+   "type": "companion",
+   "chars": 54,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-clock",
+   "name": "じかんにルーズなとけい",
+   "type": "companion",
+   "chars": 62,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-hamster",
+   "name": "ほおぶくろハムスター",
+   "type": "companion",
+   "chars": 26,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-hedgehog",
+   "name": "びっくりハリネズミ",
+   "type": "companion",
+   "chars": 35,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-many_tail_fox",
+   "name": "しっぽのおおいきつね",
+   "type": "companion",
+   "chars": 91,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-monkey",
+   "name": "まねっこサル",
+   "type": "companion",
+   "chars": 146,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-otter",
+   "name": "あそびずきカワウソ",
+   "type": "companion",
+   "chars": 68,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-owl",
+   "name": "ものしりふくろう",
+   "type": "companion",
+   "chars": 66,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-panda",
+   "name": "ぐうたらパンダ",
+   "type": "companion",
+   "chars": 101,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-parrot",
+   "name": "おしゃべりオウム",
+   "type": "companion",
+   "chars": 104,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-penguin_friend",
+   "name": "すべりたがりペンギン",
+   "type": "companion",
+   "chars": 100,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-punyu",
+   "name": "とけかけのぷにゅ",
+   "type": "companion",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-rabbit_friend",
+   "name": "すばしっこいうさぎ",
+   "type": "companion",
+   "chars": 84,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-seal",
+   "name": "ごろごろアザラシ",
+   "type": "companion",
+   "chars": 36,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-sekizou",
+   "name": "むひょうじょうのせきぞう",
+   "type": "companion",
+   "chars": 58,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-sheep",
+   "name": "ふわふわヒツジ",
+   "type": "companion",
+   "chars": 59,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-shiba",
+   "name": "ひとなつっこいしばいぬ",
+   "type": "companion",
+   "chars": 68,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-snail",
+   "name": "せっかちなカタツムリ",
+   "type": "companion",
+   "chars": 58,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-squirrel",
+   "name": "おっちょこちょいリス",
+   "type": "companion",
+   "chars": 68,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-tanuki",
+   "name": "いたずらたぬき",
+   "type": "companion",
+   "chars": 77,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-unicorn",
+   "name": "まよいこんだユニコーン",
+   "type": "companion",
+   "chars": 92,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "C-watcher",
+   "name": "みているなにか",
+   "type": "companion",
+   "chars": 48,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-big-illness",
+   "name": "おおきなびょうき",
+   "type": "event",
+   "chars": 51,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-boss",
+   "name": "あやまりにきただいおういか",
+   "type": "event",
+   "chars": 59,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-fateful-transform",
+   "name": "うんめいのへんしん",
+   "type": "event",
+   "chars": 47,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-final-time",
+   "name": "さいごのじかん",
+   "type": "event",
+   "chars": 122,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-first-date",
+   "name": "はじめてのデート",
+   "type": "event",
+   "chars": 62,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-gate",
+   "name": "そらにうかぶとりい",
+   "type": "event",
+   "chars": 112,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-lamp",
+   "name": "よなかのあかり",
+   "type": "event",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-midlife-50th",
+   "name": "50さいのお祝い",
+   "type": "event",
+   "chars": 53,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-midlife-album",
+   "name": "昔のアルバム",
+   "type": "event",
+   "chars": 99,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-midlife-flower",
+   "name": "庭に小さな花を植えた",
+   "type": "event",
+   "chars": 21,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-midlife-hobby",
+   "name": "趣味を見つけた",
+   "type": "event",
+   "chars": 79,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-midlife-travel-plan",
+   "name": "小さな旅の計画",
+   "type": "event",
+   "chars": 96,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-mirror",
+   "name": "としをとったじぶん",
+   "type": "event",
+   "chars": 106,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-misunderstanding",
+   "name": "すれちがい",
+   "type": "event",
+   "chars": 34,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-naoto",
+   "name": "なおと",
+   "type": "event",
+   "chars": 118,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-new-encounter",
+   "name": "あたらしいであい",
+   "type": "event",
+   "chars": 87,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-reconciliation",
+   "name": "なかなおり",
+   "type": "event",
+   "chars": 111,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-special-trip-memory",
+   "name": "とくべつなたびのおもいで",
+   "type": "event",
+   "chars": 92,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-stairs",
+   "name": "どこにもつながらないかいだん",
+   "type": "event",
+   "chars": 41,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-sudden-trip",
+   "name": "とつぜんのたび",
+   "type": "event",
+   "chars": 38,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "E-wedding-anniversary",
+   "name": "けっこんきねんび",
+   "type": "event",
+   "chars": 75,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-air-hockey",
+   "name": "エアホッケー",
+   "type": "play",
+   "chars": 69,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-animal-shogi",
+   "name": "どうぶつしょうぎ",
+   "type": "play",
+   "chars": 51,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-archery-3d",
+   "name": "アーチェリー",
+   "type": "play",
+   "chars": 76,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-area-claim",
+   "name": "じんとり",
+   "type": "play",
+   "chars": 51,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-asteroids-classic",
+   "name": "アステロイド",
+   "type": "play",
+   "chars": 93,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-baseball-batting",
+   "name": "やきゅう",
+   "type": "play",
+   "chars": 76,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-basketball-3d",
+   "name": "バスケ3D",
+   "type": "play",
+   "chars": 81,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-beach-volley",
+   "name": "ビーチバレー",
+   "type": "play",
+   "chars": 60,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-billiards-6",
+   "name": "ビリヤード",
+   "type": "play",
+   "chars": 90,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-blackjack-21",
+   "name": "ブラックジャック",
+   "type": "play",
+   "chars": 103,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-bomber-maze",
+   "name": "ボンバー",
+   "type": "play",
+   "chars": 61,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-bowling-3d",
+   "name": "ボウリング",
+   "type": "play",
+   "chars": 68,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-breakout-classic",
+   "name": "ブロックくずし",
+   "type": "play",
+   "chars": 64,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-bubble-shooter",
+   "name": "バブルシューター",
+   "type": "play",
+   "chars": 54,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-catapult-castle",
+   "name": "カタパルト",
+   "type": "play",
+   "chars": 43,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-chain-puzzle",
+   "name": "れんさパズル",
+   "type": "play",
+   "chars": 109,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-checkers-6",
+   "name": "チェッカー",
+   "type": "play",
+   "chars": 93,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-connect-four",
+   "name": "コネクトフォー",
+   "type": "play",
+   "chars": 61,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-crane-game-3d",
+   "name": "クレーンゲーム",
+   "type": "play",
+   "chars": 58,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-curling-ice",
+   "name": "カーリング",
+   "type": "play",
+   "chars": 37,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-curling-winter",
+   "name": "ふゆのカーリング大会",
+   "type": "play",
+   "chars": 66,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-darts-board",
+   "name": "ダーツ",
+   "type": "play",
+   "chars": 78,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-domino-run",
+   "name": "ドミノたおし",
+   "type": "play",
+   "chars": 66,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-doodle-jump",
+   "name": "ぴょんぴょんジャンプ",
+   "type": "play",
+   "chars": 61,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-dot-eater",
+   "name": "ドットイーター",
+   "type": "play",
+   "chars": 18,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-downhill-mountain",
+   "name": "やまの岩場のぼり",
+   "type": "play",
+   "chars": 86,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-downhill-snow",
+   "name": "ゆきのゲレンデ",
+   "type": "play",
+   "chars": 72,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-dragDecorate-bento",
+   "name": "おべんとうづくり",
+   "type": "play",
+   "chars": 106,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-dragDecorate-cake",
+   "name": "ケーキのかざりつけ",
+   "type": "play",
+   "chars": 130,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-falling-block-puzzle",
+   "name": "ブロックパズル",
+   "type": "play",
+   "chars": 50,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-fishing-deepsea",
+   "name": "しんかいフィッシング",
+   "type": "play",
+   "chars": 80,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-fishing-river",
+   "name": "みずべのさかなつり",
+   "type": "play",
+   "chars": 77,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-fishing-sea",
+   "name": "うみのさかなつり",
+   "type": "play",
+   "chars": 78,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-fp-dungeon",
+   "name": "たからさがしダンジョン",
+   "type": "play",
+   "chars": 68,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-free-kick-3d",
+   "name": "フリーキック",
+   "type": "play",
+   "chars": 58,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-frogger-road",
+   "name": "かえるのおうちがえり",
+   "type": "play",
+   "chars": 78,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-fruit-slice",
+   "name": "フルーツ斬り",
+   "type": "play",
+   "chars": 70,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-gomoku-9",
+   "name": "五目ならべ",
+   "type": "play",
+   "chars": 59,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-grand-prix-3d",
+   "name": "グランプリ",
+   "type": "play",
+   "chars": 63,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-halfpipe-skate",
+   "name": "ハーフパイプ",
+   "type": "play",
+   "chars": 99,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-hang-glider-3d",
+   "name": "ハンググライダー3D",
+   "type": "play",
+   "chars": 62,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-haunted-house-3d",
+   "name": "おばけやしき",
+   "type": "play",
+   "chars": 67,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-hit-blow",
+   "name": "ヒット&ブロー",
+   "type": "play",
+   "chars": 66,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-jenga-tower",
+   "name": "ジェンガ",
+   "type": "play",
+   "chars": 65,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-jump-quest",
+   "name": "ジャンプクエスト",
+   "type": "play",
+   "chars": 75,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-lights-out",
+   "name": "ライツアウト",
+   "type": "play",
+   "chars": 54,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-line-trace",
+   "name": "せんなぞり",
+   "type": "play",
+   "chars": 62,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-lunar-lander",
+   "name": "ルナランダー",
+   "type": "play",
+   "chars": 33,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-mancala-kalah",
+   "name": "マンカラ",
+   "type": "play",
+   "chars": 76,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-match-3",
+   "name": "フルーツマッチ3",
+   "type": "play",
+   "chars": 81,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-memory-cards",
+   "name": "しんけいすいじゃく",
+   "type": "play",
+   "chars": 74,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-minesweeper-8",
+   "name": "マインスイーパー",
+   "type": "play",
+   "chars": 102,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-mini-golf-physics",
+   "name": "ミニゴルフ",
+   "type": "play",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-missile-command",
+   "name": "ミサイルコマンド",
+   "type": "play",
+   "chars": 108,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-p3-drive",
+   "name": "ハイウェイドライブ",
+   "type": "play",
+   "chars": 104,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-p3-space",
+   "name": "うちゅうフライト",
+   "type": "play",
+   "chars": 56,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-picross-5",
+   "name": "ピクロス",
+   "type": "play",
+   "chars": 87,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-pinball-physics",
+   "name": "ピンボール",
+   "type": "play",
+   "chars": 73,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-pingpong-3d",
+   "name": "ピンポンラリー",
+   "type": "play",
+   "chars": 106,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-pipe-connect",
+   "name": "パイプつなぎ",
+   "type": "play",
+   "chars": 82,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-plane-landing",
+   "name": "ひこうき着陸",
+   "type": "play",
+   "chars": 47,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-push-puzzle",
+   "name": "そうこばん",
+   "type": "play",
+   "chars": 87,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-puzzle-2048",
+   "name": "2048",
+   "type": "play",
+   "chars": 113,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-race-3d",
+   "name": "ゴールをめざして",
+   "type": "play",
+   "chars": 97,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-real-fishing",
+   "name": "ほんかくさかなつり",
+   "type": "play",
+   "chars": 62,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-reversi-6",
+   "name": "オセロ",
+   "type": "play",
+   "chars": 78,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-rhythm-highway-3d",
+   "name": "リズムハイウェイ",
+   "type": "play",
+   "chars": 69,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-ring-flight-3d",
+   "name": "リングフライト3D",
+   "type": "play",
+   "chars": 57,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-ring-flight-summer",
+   "name": "なつのうみフライト",
+   "type": "play",
+   "chars": 74,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-road-city",
+   "name": "とかいラン",
+   "type": "play",
+   "chars": 114,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-road-desert",
+   "name": "さばくラン",
+   "type": "play",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-road-jungle",
+   "name": "ジャングルラン",
+   "type": "play",
+   "chars": 75,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-road-themed",
+   "name": "よけてキャッチ",
+   "type": "play",
+   "chars": 70,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-roguelike-dungeon",
+   "name": "ローグライク",
+   "type": "play",
+   "chars": 75,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-shanghai-tiles",
+   "name": "上海",
+   "type": "play",
+   "chars": 75,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-ski-jump",
+   "name": "スキージャンプ",
+   "type": "play",
+   "chars": 81,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-sky-shooter",
+   "name": "スカイシューター",
+   "type": "play",
+   "chars": 67,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-slide-puzzle",
+   "name": "スライドパズル",
+   "type": "play",
+   "chars": 61,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-snake-classic",
+   "name": "スネーク",
+   "type": "play",
+   "chars": 72,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-solitaire-klondike",
+   "name": "ソリティア",
+   "type": "play",
+   "chars": 72,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-space-gunner-3d",
+   "name": "スペースガンナー",
+   "type": "play",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-stack-acorn",
+   "name": "きのみタワー",
+   "type": "play",
+   "chars": 76,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-stack-harvest",
+   "name": "しゅうかくタワー",
+   "type": "play",
+   "chars": 74,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-stack-leaves",
+   "name": "おちばタワー",
+   "type": "play",
+   "chars": 44,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-stack-sakura",
+   "name": "さくらタワー",
+   "type": "play",
+   "chars": 84,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-stack-snowman",
+   "name": "ゆきだるまタワー",
+   "type": "play",
+   "chars": 68,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-stack-themed",
+   "name": "つみかさねタワー",
+   "type": "play",
+   "chars": 44,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-street-fight",
+   "name": "かくとうバトル",
+   "type": "play",
+   "chars": 105,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-submarine-3d",
+   "name": "サブマリン3D",
+   "type": "play",
+   "chars": 99,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-sudoku-mini",
+   "name": "ナンプレ",
+   "type": "play",
+   "chars": 63,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-sugoroku-race",
+   "name": "すごろく",
+   "type": "play",
+   "chars": 49,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-sushi-belt",
+   "name": "かいてんずし",
+   "type": "play",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-takoyaki-grill",
+   "name": "たこやきやさん",
+   "type": "play",
+   "chars": 78,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-tank-battle",
+   "name": "タンクバトル",
+   "type": "play",
+   "chars": 34,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-tennis-rally",
+   "name": "テニス",
+   "type": "play",
+   "chars": 94,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-tilt-maze-3d",
+   "name": "たまころがしめいろ",
+   "type": "play",
+   "chars": 92,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-tower-defense",
+   "name": "タワーディフェンス",
+   "type": "play",
+   "chars": 117,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-track-field",
+   "name": "りくじょう",
+   "type": "play",
+   "chars": 73,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-voxel-mine",
+   "name": "ボクセルマイニング",
+   "type": "play",
+   "chars": 86,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "G-yacht-dice",
+   "name": "ヨット",
+   "type": "play",
+   "chars": 88,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-bond1",
+   "name": "おともだちバッジ",
+   "type": "item",
+   "chars": 78,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-bowtie",
+   "name": "おべんとうばこ",
+   "type": "item",
+   "chars": 64,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_coin2",
+   "name": "ラッキーコイン",
+   "type": "item",
+   "chars": 62,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_dex",
+   "name": "ずかんチケット",
+   "type": "item",
+   "chars": 99,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_egg_normal",
+   "name": "ふしぎなたまご",
+   "type": "item",
+   "chars": 92,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_egg_rare",
+   "name": "レアなたまご",
+   "type": "item",
+   "chars": 76,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_friend",
+   "name": "おともだちチケット",
+   "type": "item",
+   "chars": 72,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_life",
+   "name": "いのちのくすり",
+   "type": "item",
+   "chars": 61,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_life_charm",
+   "name": "いのちのおまもり",
+   "type": "item",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_match",
+   "name": "おみあいチケット",
+   "type": "item",
+   "chars": 76,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_rare_friend",
+   "name": "レアなかまチケット",
+   "type": "item",
+   "chars": 72,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_time_back",
+   "name": "ときのチケット・まえ",
+   "type": "item",
+   "chars": 106,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_time_forward",
+   "name": "ときのチケット・あと",
+   "type": "item",
+   "chars": 106,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-c_transform",
+   "name": "へんしんチケット",
+   "type": "item",
+   "chars": 130,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-gamepass1",
+   "name": "ゲームパス",
+   "type": "item",
+   "chars": 57,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-naoto_charm",
+   "name": "なおとのおまもり",
+   "type": "item",
+   "chars": 55,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-naoto_crown",
+   "name": "なおとのかんむり",
+   "type": "item",
+   "chars": 111,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-naoto_lantern",
+   "name": "なおとのランタン",
+   "type": "item",
+   "chars": 63,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-naoto_ring",
+   "name": "なおとのリング",
+   "type": "item",
+   "chars": 111,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-partner1",
+   "name": "らぶれたー",
+   "type": "item",
+   "chars": 79,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-poop1",
+   "name": "トイレットペーパー",
+   "type": "item",
+   "chars": 122,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-ribbon",
+   "name": "おもちゃばこ",
+   "type": "item",
+   "chars": 90,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-scarf",
+   "name": "きゅうきゅうばこ",
+   "type": "item",
+   "chars": 97,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-sleepboost1",
+   "name": "ふかふかまくら",
+   "type": "item",
+   "chars": 91,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-star",
+   "name": "スターバッジ",
+   "type": "item",
+   "chars": 67,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "I-travel1",
+   "name": "リュックサック",
+   "type": "item",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "M-antlion-01",
+   "name": "アリジゴク①",
+   "type": "main",
+   "chars": 55,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-antlion-02",
+   "name": "アリジゴク②",
+   "type": "main",
+   "chars": 53,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-antlion-03",
+   "name": "アリジゴク③",
+   "type": "main",
+   "chars": 91,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-antlion-04",
+   "name": "アリジゴク④",
+   "type": "main",
+   "chars": 89,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-antlion-05",
+   "name": "アリジゴク⑤",
+   "type": "main",
+   "chars": 49,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-antlion-06",
+   "name": "アリジゴク⑥",
+   "type": "main",
+   "chars": 105,
+   "basePx": 8.48,
+   "clipped": false
+  },
+  {
+   "id": "M-antlion-07",
+   "name": "アリジゴク⑦",
+   "type": "main",
+   "chars": 108,
+   "basePx": 8.48,
+   "clipped": false
+  },
+  {
+   "id": "M-antlion-08",
+   "name": "アリジゴク⑧",
+   "type": "main",
+   "chars": 96,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-beetle-01",
+   "name": "カブトムシ①",
+   "type": "main",
+   "chars": 44,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-beetle-02",
+   "name": "カブトムシ②",
+   "type": "main",
+   "chars": 75,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-beetle-03",
+   "name": "カブトムシ③",
+   "type": "main",
+   "chars": 71,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-beetle-04",
+   "name": "カブトムシ④",
+   "type": "main",
+   "chars": 79,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-beetle-05",
+   "name": "カブトムシ⑤",
+   "type": "main",
+   "chars": 59,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-beetle-06",
+   "name": "カブトムシ⑥",
+   "type": "main",
+   "chars": 78,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-beetle-07",
+   "name": "カブトムシ⑦",
+   "type": "main",
+   "chars": 5,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-beetle-08",
+   "name": "カブトムシ⑧",
+   "type": "main",
+   "chars": 83,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-butterfly-01",
+   "name": "ちょう①",
+   "type": "main",
+   "chars": 66,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-butterfly-02",
+   "name": "ちょう②",
+   "type": "main",
+   "chars": 63,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-butterfly-03",
+   "name": "ちょう③",
+   "type": "main",
+   "chars": 83,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-butterfly-04",
+   "name": "ちょう④",
+   "type": "main",
+   "chars": 60,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-butterfly-05",
+   "name": "ちょう⑤",
+   "type": "main",
+   "chars": 96,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-butterfly-06",
+   "name": "ちょう⑥",
+   "type": "main",
+   "chars": 102,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-butterfly-07",
+   "name": "ちょう⑦",
+   "type": "main",
+   "chars": 65,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-butterfly-08",
+   "name": "ちょう⑧",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cat-01",
+   "name": "ねこ①",
+   "type": "main",
+   "chars": 50,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cat-02",
+   "name": "ねこ②",
+   "type": "main",
+   "chars": 75,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cat-03",
+   "name": "ねこ③",
+   "type": "main",
+   "chars": 5,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cat-04",
+   "name": "ねこ④",
+   "type": "main",
+   "chars": 90,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cat-05",
+   "name": "ねこ⑤",
+   "type": "main",
+   "chars": 91,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cat-06",
+   "name": "ねこ⑥",
+   "type": "main",
+   "chars": 54,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cat-07",
+   "name": "ねこ⑦",
+   "type": "main",
+   "chars": 112,
+   "basePx": 8.48,
+   "clipped": false
+  },
+  {
+   "id": "M-cat-08",
+   "name": "ねこ⑧",
+   "type": "main",
+   "chars": 87,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cicada-01",
+   "name": "セミ①",
+   "type": "main",
+   "chars": 59,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cicada-02",
+   "name": "セミ②",
+   "type": "main",
+   "chars": 33,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cicada-03",
+   "name": "セミ③",
+   "type": "main",
+   "chars": 54,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cicada-04",
+   "name": "セミ④",
+   "type": "main",
+   "chars": 83,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cicada-05",
+   "name": "セミ⑤",
+   "type": "main",
+   "chars": 53,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cicada-06",
+   "name": "セミ⑥",
+   "type": "main",
+   "chars": 97,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-cicada-07",
+   "name": "セミ⑦",
+   "type": "main",
+   "chars": 103,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-cicada-08",
+   "name": "セミ⑧",
+   "type": "main",
+   "chars": 123,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-clownfish-01",
+   "name": "カクレクマノミ①",
+   "type": "main",
+   "chars": 67,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-clownfish-02",
+   "name": "カクレクマノミ②",
+   "type": "main",
+   "chars": 84,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-clownfish-03",
+   "name": "カクレクマノミ③",
+   "type": "main",
+   "chars": 95,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-clownfish-04",
+   "name": "カクレクマノミ④",
+   "type": "main",
+   "chars": 88,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-clownfish-05",
+   "name": "カクレクマノミ⑤",
+   "type": "main",
+   "chars": 47,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-clownfish-06",
+   "name": "カクレクマノミ⑥",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-clownfish-07",
+   "name": "カクレクマノミ⑦",
+   "type": "main",
+   "chars": 92,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-clownfish-08",
+   "name": "カクレクマノミ⑧",
+   "type": "main",
+   "chars": 77,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-coral-01",
+   "name": "サンゴ①",
+   "type": "main",
+   "chars": 91,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-coral-02",
+   "name": "サンゴ②",
+   "type": "main",
+   "chars": 69,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-coral-03",
+   "name": "サンゴ③",
+   "type": "main",
+   "chars": 89,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-coral-04",
+   "name": "サンゴ④",
+   "type": "main",
+   "chars": 77,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-coral-05",
+   "name": "サンゴ⑤",
+   "type": "main",
+   "chars": 71,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-coral-06",
+   "name": "サンゴ⑥",
+   "type": "main",
+   "chars": 135,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-coral-07",
+   "name": "サンゴ⑦",
+   "type": "main",
+   "chars": 88,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-coral-08",
+   "name": "サンゴ⑧",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dandelion-01",
+   "name": "タンポポ①",
+   "type": "main",
+   "chars": 70,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dandelion-02",
+   "name": "タンポポ②",
+   "type": "main",
+   "chars": 51,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dandelion-03",
+   "name": "タンポポ③",
+   "type": "main",
+   "chars": 54,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dandelion-04",
+   "name": "タンポポ④",
+   "type": "main",
+   "chars": 71,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dandelion-05",
+   "name": "タンポポ⑤",
+   "type": "main",
+   "chars": 87,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dandelion-06",
+   "name": "タンポポ⑥",
+   "type": "main",
+   "chars": 59,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dandelion-07",
+   "name": "タンポポ⑦",
+   "type": "main",
+   "chars": 70,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dandelion-08",
+   "name": "タンポポ⑧",
+   "type": "main",
+   "chars": 98,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dog-01",
+   "name": "いぬ①",
+   "type": "main",
+   "chars": 74,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dog-02",
+   "name": "いぬ②",
+   "type": "main",
+   "chars": 91,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dog-03",
+   "name": "いぬ③",
+   "type": "main",
+   "chars": 99,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dog-04",
+   "name": "いぬ④",
+   "type": "main",
+   "chars": 101,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-dog-05",
+   "name": "いぬ⑤",
+   "type": "main",
+   "chars": 89,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dog-06",
+   "name": "いぬ⑥",
+   "type": "main",
+   "chars": 106,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-dog-07",
+   "name": "いぬ⑦",
+   "type": "main",
+   "chars": 86,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dog-08",
+   "name": "いぬ⑧",
+   "type": "main",
+   "chars": 88,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dragon-01",
+   "name": "りゅう①",
+   "type": "main",
+   "chars": 60,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dragon-02",
+   "name": "りゅう②",
+   "type": "main",
+   "chars": 47,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dragon-03",
+   "name": "りゅう③",
+   "type": "main",
+   "chars": 77,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dragon-04",
+   "name": "りゅう④",
+   "type": "main",
+   "chars": 117,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-dragon-05",
+   "name": "りゅう⑤",
+   "type": "main",
+   "chars": 78,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dragon-06",
+   "name": "りゅう⑥",
+   "type": "main",
+   "chars": 95,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dragon-07",
+   "name": "りゅう⑦",
+   "type": "main",
+   "chars": 101,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-dragon-08",
+   "name": "りゅう⑧",
+   "type": "main",
+   "chars": 92,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-frog-01",
+   "name": "かえる①",
+   "type": "main",
+   "chars": 42,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-frog-02",
+   "name": "かえる②",
+   "type": "main",
+   "chars": 22,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-frog-03",
+   "name": "かえる③",
+   "type": "main",
+   "chars": 53,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-frog-04",
+   "name": "かえる④",
+   "type": "main",
+   "chars": 95,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-frog-05",
+   "name": "かえる⑤",
+   "type": "main",
+   "chars": 73,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-frog-06",
+   "name": "かえる⑥",
+   "type": "main",
+   "chars": 117,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-frog-07",
+   "name": "かえる⑦",
+   "type": "main",
+   "chars": 86,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-frog-08",
+   "name": "かえる⑧",
+   "type": "main",
+   "chars": 68,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ghost-01",
+   "name": "おばけ①",
+   "type": "main",
+   "chars": 59,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ghost-02",
+   "name": "おばけ②",
+   "type": "main",
+   "chars": 86,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ghost-03",
+   "name": "おばけ③",
+   "type": "main",
+   "chars": 91,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ghost-04",
+   "name": "おばけ④",
+   "type": "main",
+   "chars": 99,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ghost-05",
+   "name": "おばけ⑤",
+   "type": "main",
+   "chars": 113,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-ghost-06",
+   "name": "おばけ⑥",
+   "type": "main",
+   "chars": 93,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ghost-07",
+   "name": "おばけ⑦",
+   "type": "main",
+   "chars": 119,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-ghost-08",
+   "name": "おばけ⑧",
+   "type": "main",
+   "chars": 89,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-god-01",
+   "name": "かみさま①",
+   "type": "main",
+   "chars": 111,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-god-02",
+   "name": "かみさま②",
+   "type": "main",
+   "chars": 103,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-god-03",
+   "name": "かみさま③",
+   "type": "main",
+   "chars": 123,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-god-04",
+   "name": "かみさま④",
+   "type": "main",
+   "chars": 67,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-god-05",
+   "name": "かみさま⑤",
+   "type": "main",
+   "chars": 115,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-god-06",
+   "name": "かみさま⑥",
+   "type": "main",
+   "chars": 123,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-god-07",
+   "name": "かみさま⑦",
+   "type": "main",
+   "chars": 114,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-god-08",
+   "name": "かみさま⑧",
+   "type": "main",
+   "chars": 121,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-hermit_crab-01",
+   "name": "ヤドカリ①",
+   "type": "main",
+   "chars": 88,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-hermit_crab-02",
+   "name": "ヤドカリ②",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-hermit_crab-03",
+   "name": "ヤドカリ③",
+   "type": "main",
+   "chars": 73,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-hermit_crab-04",
+   "name": "ヤドカリ④",
+   "type": "main",
+   "chars": 76,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-hermit_crab-05",
+   "name": "ヤドカリ⑤",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-hermit_crab-06",
+   "name": "ヤドカリ⑥",
+   "type": "main",
+   "chars": 58,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-hermit_crab-07",
+   "name": "ヤドカリ⑦",
+   "type": "main",
+   "chars": 77,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-hermit_crab-08",
+   "name": "ヤドカリ⑧",
+   "type": "main",
+   "chars": 83,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-jellyfish-01",
+   "name": "クラゲ①",
+   "type": "main",
+   "chars": 56,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-jellyfish-02",
+   "name": "クラゲ②",
+   "type": "main",
+   "chars": 82,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-jellyfish-03",
+   "name": "クラゲ③",
+   "type": "main",
+   "chars": 51,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-jellyfish-04",
+   "name": "クラゲ④",
+   "type": "main",
+   "chars": 56,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-jellyfish-05",
+   "name": "クラゲ⑤",
+   "type": "main",
+   "chars": 79,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-jellyfish-06",
+   "name": "クラゲ⑥",
+   "type": "main",
+   "chars": 61,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-jellyfish-07",
+   "name": "クラゲ⑦",
+   "type": "main",
+   "chars": 79,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-jellyfish-08",
+   "name": "クラゲ⑧",
+   "type": "main",
+   "chars": 114,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-man-01",
+   "name": "おとこのひと①",
+   "type": "main",
+   "chars": 75,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-man-02",
+   "name": "おとこのひと②",
+   "type": "main",
+   "chars": 65,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-man-03",
+   "name": "おとこのひと③",
+   "type": "main",
+   "chars": 61,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-man-04",
+   "name": "おとこのひと④",
+   "type": "main",
+   "chars": 80,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-man-05",
+   "name": "おとこのひと⑤",
+   "type": "main",
+   "chars": 113,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-man-06",
+   "name": "おとこのひと⑥",
+   "type": "main",
+   "chars": 99,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-man-07",
+   "name": "おとこのひと⑦",
+   "type": "main",
+   "chars": 126,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-man-08",
+   "name": "おとこのひと⑧",
+   "type": "main",
+   "chars": 84,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-mushroom-01",
+   "name": "キノコ①",
+   "type": "main",
+   "chars": 61,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-mushroom-02",
+   "name": "キノコ②",
+   "type": "main",
+   "chars": 96,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-mushroom-03",
+   "name": "キノコ③",
+   "type": "main",
+   "chars": 86,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-mushroom-04",
+   "name": "キノコ④",
+   "type": "main",
+   "chars": 83,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-mushroom-05",
+   "name": "キノコ⑤",
+   "type": "main",
+   "chars": 117,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-mushroom-06",
+   "name": "キノコ⑥",
+   "type": "main",
+   "chars": 109,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-mushroom-07",
+   "name": "キノコ⑦",
+   "type": "main",
+   "chars": 117,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-mushroom-08",
+   "name": "キノコ⑧",
+   "type": "main",
+   "chars": 119,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-penguin-01",
+   "name": "ペンギン①",
+   "type": "main",
+   "chars": 80,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-penguin-02",
+   "name": "ペンギン②",
+   "type": "main",
+   "chars": 63,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-penguin-03",
+   "name": "ペンギン③",
+   "type": "main",
+   "chars": 64,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-penguin-04",
+   "name": "ペンギン④",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-penguin-05",
+   "name": "ペンギン⑤",
+   "type": "main",
+   "chars": 94,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-penguin-06",
+   "name": "ペンギン⑥",
+   "type": "main",
+   "chars": 77,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-penguin-07",
+   "name": "ペンギン⑦",
+   "type": "main",
+   "chars": 98,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-penguin-08",
+   "name": "ペンギン⑧",
+   "type": "main",
+   "chars": 63,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-phoenix-01",
+   "name": "フェニックス①",
+   "type": "main",
+   "chars": 50,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-phoenix-02",
+   "name": "フェニックス②",
+   "type": "main",
+   "chars": 88,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-phoenix-03",
+   "name": "フェニックス③",
+   "type": "main",
+   "chars": 53,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-phoenix-04",
+   "name": "フェニックス④",
+   "type": "main",
+   "chars": 89,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-phoenix-05",
+   "name": "フェニックス⑤",
+   "type": "main",
+   "chars": 125,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-phoenix-06",
+   "name": "フェニックス⑥",
+   "type": "main",
+   "chars": 69,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-phoenix-07",
+   "name": "フェニックス⑦",
+   "type": "main",
+   "chars": 78,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-phoenix-08",
+   "name": "フェニックス⑧",
+   "type": "main",
+   "chars": 95,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-plush-01",
+   "name": "ぬいぐるみ①",
+   "type": "main",
+   "chars": 60,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-plush-02",
+   "name": "ぬいぐるみ②",
+   "type": "main",
+   "chars": 90,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-plush-03",
+   "name": "ぬいぐるみ③",
+   "type": "main",
+   "chars": 65,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-plush-04",
+   "name": "ぬいぐるみ④",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-plush-05",
+   "name": "ぬいぐるみ⑤",
+   "type": "main",
+   "chars": 86,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-plush-06",
+   "name": "ぬいぐるみ⑥",
+   "type": "main",
+   "chars": 75,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-plush-07",
+   "name": "ぬいぐるみ⑦",
+   "type": "main",
+   "chars": 102,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-plush-08",
+   "name": "ぬいぐるみ⑧",
+   "type": "main",
+   "chars": 82,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ren-01",
+   "name": "れんくん①",
+   "type": "main",
+   "chars": 78,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ren-02",
+   "name": "れんくん②",
+   "type": "main",
+   "chars": 78,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ren-03",
+   "name": "れんくん③",
+   "type": "main",
+   "chars": 98,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ren-04",
+   "name": "れんくん④",
+   "type": "main",
+   "chars": 84,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ren-05",
+   "name": "れんくん⑤",
+   "type": "main",
+   "chars": 86,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ren-06",
+   "name": "れんくん⑥",
+   "type": "main",
+   "chars": 74,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ren-07",
+   "name": "れんくん⑦",
+   "type": "main",
+   "chars": 93,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-ren-08",
+   "name": "れんくん⑧",
+   "type": "main",
+   "chars": 76,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-sakura-01",
+   "name": "サクラ①",
+   "type": "main",
+   "chars": 65,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-sakura-02",
+   "name": "サクラ②",
+   "type": "main",
+   "chars": 80,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-sakura-03",
+   "name": "サクラ③",
+   "type": "main",
+   "chars": 88,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-sakura-04",
+   "name": "サクラ④",
+   "type": "main",
+   "chars": 66,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-sakura-05",
+   "name": "サクラ⑤",
+   "type": "main",
+   "chars": 74,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-sakura-06",
+   "name": "サクラ⑥",
+   "type": "main",
+   "chars": 144,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-sakura-07",
+   "name": "サクラ⑦",
+   "type": "main",
+   "chars": 75,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-sakura-08",
+   "name": "サクラ⑧",
+   "type": "main",
+   "chars": 124,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-salmon-01",
+   "name": "さけ①",
+   "type": "main",
+   "chars": 76,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-salmon-02",
+   "name": "さけ②",
+   "type": "main",
+   "chars": 77,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-salmon-03",
+   "name": "さけ③",
+   "type": "main",
+   "chars": 82,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-salmon-04",
+   "name": "さけ④",
+   "type": "main",
+   "chars": 55,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-salmon-05",
+   "name": "さけ⑤",
+   "type": "main",
+   "chars": 101,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-salmon-06",
+   "name": "さけ⑥",
+   "type": "main",
+   "chars": 95,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-salmon-07",
+   "name": "さけ⑦",
+   "type": "main",
+   "chars": 95,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-salmon-08",
+   "name": "さけ⑧",
+   "type": "main",
+   "chars": 83,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-stagbeetle-01",
+   "name": "クワガタムシ①",
+   "type": "main",
+   "chars": 57,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-stagbeetle-02",
+   "name": "クワガタムシ②",
+   "type": "main",
+   "chars": 74,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-stagbeetle-03",
+   "name": "クワガタムシ③",
+   "type": "main",
+   "chars": 70,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-stagbeetle-04",
+   "name": "クワガタムシ④",
+   "type": "main",
+   "chars": 71,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-stagbeetle-05",
+   "name": "クワガタムシ⑤",
+   "type": "main",
+   "chars": 71,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-stagbeetle-06",
+   "name": "クワガタムシ⑥",
+   "type": "main",
+   "chars": 130,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-stagbeetle-07",
+   "name": "クワガタムシ⑦",
+   "type": "main",
+   "chars": 97,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-stagbeetle-08",
+   "name": "クワガタムシ⑧",
+   "type": "main",
+   "chars": 109,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-star-01",
+   "name": "ほし①",
+   "type": "main",
+   "chars": 80,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-star-02",
+   "name": "ほし②",
+   "type": "main",
+   "chars": 66,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-star-03",
+   "name": "ほし③",
+   "type": "main",
+   "chars": 48,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-star-04",
+   "name": "ほし④",
+   "type": "main",
+   "chars": 5,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-star-05",
+   "name": "ほし⑤",
+   "type": "main",
+   "chars": 87,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-star-06",
+   "name": "ほし⑥",
+   "type": "main",
+   "chars": 83,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-star-07",
+   "name": "ほし⑦",
+   "type": "main",
+   "chars": 103,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-star-08",
+   "name": "ほし⑧",
+   "type": "main",
+   "chars": 78,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-starfish-01",
+   "name": "ヒトデ①",
+   "type": "main",
+   "chars": 5,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-starfish-02",
+   "name": "ヒトデ②",
+   "type": "main",
+   "chars": 66,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-starfish-03",
+   "name": "ヒトデ③",
+   "type": "main",
+   "chars": 71,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-starfish-04",
+   "name": "ヒトデ④",
+   "type": "main",
+   "chars": 69,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-starfish-05",
+   "name": "ヒトデ⑤",
+   "type": "main",
+   "chars": 83,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-starfish-06",
+   "name": "ヒトデ⑥",
+   "type": "main",
+   "chars": 113,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-starfish-07",
+   "name": "ヒトデ⑦",
+   "type": "main",
+   "chars": 66,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-starfish-08",
+   "name": "ヒトデ⑧",
+   "type": "main",
+   "chars": 111,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-turtle-01",
+   "name": "かめ①",
+   "type": "main",
+   "chars": 5,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-turtle-02",
+   "name": "かめ②",
+   "type": "main",
+   "chars": 61,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-turtle-03",
+   "name": "かめ③",
+   "type": "main",
+   "chars": 69,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-turtle-04",
+   "name": "かめ④",
+   "type": "main",
+   "chars": 64,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-turtle-05",
+   "name": "かめ⑤",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-turtle-06",
+   "name": "かめ⑥",
+   "type": "main",
+   "chars": 60,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-turtle-07",
+   "name": "かめ⑦",
+   "type": "main",
+   "chars": 77,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-turtle-08",
+   "name": "かめ⑧",
+   "type": "main",
+   "chars": 84,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-unknown-01",
+   "name": "？？？①",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-unknown-02",
+   "name": "？？？②",
+   "type": "main",
+   "chars": 88,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-unknown-03",
+   "name": "？？？③",
+   "type": "main",
+   "chars": 56,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-unknown-04",
+   "name": "？？？④",
+   "type": "main",
+   "chars": 102,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-unknown-05",
+   "name": "？？？⑤",
+   "type": "main",
+   "chars": 90,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-unknown-06",
+   "name": "？？？⑥",
+   "type": "main",
+   "chars": 5,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-unknown-07",
+   "name": "？？？⑦",
+   "type": "main",
+   "chars": 99,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-unknown-08",
+   "name": "？？？⑧",
+   "type": "main",
+   "chars": 93,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-venus_flytrap-01",
+   "name": "ハエトリグサ①",
+   "type": "main",
+   "chars": 73,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-venus_flytrap-02",
+   "name": "ハエトリグサ②",
+   "type": "main",
+   "chars": 101,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-venus_flytrap-03",
+   "name": "ハエトリグサ③",
+   "type": "main",
+   "chars": 55,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-venus_flytrap-04",
+   "name": "ハエトリグサ④",
+   "type": "main",
+   "chars": 113,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-venus_flytrap-05",
+   "name": "ハエトリグサ⑤",
+   "type": "main",
+   "chars": 67,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-venus_flytrap-06",
+   "name": "ハエトリグサ⑥",
+   "type": "main",
+   "chars": 145,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-venus_flytrap-07",
+   "name": "ハエトリグサ⑦",
+   "type": "main",
+   "chars": 104,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-venus_flytrap-08",
+   "name": "ハエトリグサ⑧",
+   "type": "main",
+   "chars": 78,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-woman-01",
+   "name": "おんなのひと①",
+   "type": "main",
+   "chars": 120,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-woman-02",
+   "name": "おんなのひと②",
+   "type": "main",
+   "chars": 128,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-woman-03",
+   "name": "おんなのひと③",
+   "type": "main",
+   "chars": 58,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-woman-04",
+   "name": "おんなのひと④",
+   "type": "main",
+   "chars": 107,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-woman-05",
+   "name": "おんなのひと⑤",
+   "type": "main",
+   "chars": 85,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-woman-06",
+   "name": "おんなのひと⑥",
+   "type": "main",
+   "chars": 123,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-woman-07",
+   "name": "おんなのひと⑦",
+   "type": "main",
+   "chars": 80,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-woman-08",
+   "name": "おんなのひと⑧",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-world_tree-01",
+   "name": "世界樹①",
+   "type": "main",
+   "chars": 57,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-world_tree-02",
+   "name": "世界樹②",
+   "type": "main",
+   "chars": 44,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-world_tree-03",
+   "name": "世界樹③",
+   "type": "main",
+   "chars": 81,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-world_tree-04",
+   "name": "世界樹④",
+   "type": "main",
+   "chars": 86,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-world_tree-05",
+   "name": "世界樹⑤",
+   "type": "main",
+   "chars": 76,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-world_tree-06",
+   "name": "世界樹⑥",
+   "type": "main",
+   "chars": 85,
+   "basePx": 10.82,
+   "clipped": false
+  },
+  {
+   "id": "M-world_tree-07",
+   "name": "世界樹⑦",
+   "type": "main",
+   "chars": 122,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "M-world_tree-08",
+   "name": "世界樹⑧",
+   "type": "main",
+   "chars": 148,
+   "basePx": 9.06,
+   "clipped": false
+  },
+  {
+   "id": "P-anglerfish",
+   "name": "ひかるチョウチンアンコウ",
+   "type": "partner",
+   "chars": 75,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-cat_ceo",
+   "name": "ビルのねこ社長",
+   "type": "partner",
+   "chars": 47,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-cliff_goat",
+   "name": "がけのヤギさん",
+   "type": "partner",
+   "chars": 70,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-desert_scorpion",
+   "name": "さばくのサソリさん",
+   "type": "partner",
+   "chars": 76,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-field_cow",
+   "name": "のはらのうしさん",
+   "type": "partner",
+   "chars": 109,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-forest_bear",
+   "name": "もりのクマさん",
+   "type": "partner",
+   "chars": 84,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-gentle_gorilla",
+   "name": "やさしいゴリラ",
+   "type": "partner",
+   "chars": 107,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-grove_deer",
+   "name": "こだちのシカ",
+   "type": "partner",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-high_eagle",
+   "name": "たかねのワシ",
+   "type": "partner",
+   "chars": 44,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-knitting_spider",
+   "name": "あみものがすきなクモさん",
+   "type": "partner",
+   "chars": 81,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-oasis_cactus",
+   "name": "オアシスのサボテンさん",
+   "type": "partner",
+   "chars": 63,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-robot_neighbor",
+   "name": "となりまちのロボット",
+   "type": "partner",
+   "chars": 67,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-rock_octopus",
+   "name": "いわばのタコさん",
+   "type": "partner",
+   "chars": 132,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-sea_mermaid",
+   "name": "うみのにんぎょ",
+   "type": "partner",
+   "chars": 52,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-snow_spirit",
+   "name": "ゆきのせいれい",
+   "type": "partner",
+   "chars": 98,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-snowman",
+   "name": "とけないゆきだるま",
+   "type": "partner",
+   "chars": 117,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-sunflower_partner",
+   "name": "はたけのひまわりさん",
+   "type": "partner",
+   "chars": 65,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "P-swamp_croc",
+   "name": "ぬまのワニさん",
+   "type": "partner",
+   "chars": 44,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-city",
+   "name": "とかい",
+   "type": "world",
+   "chars": 141,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-countryside",
+   "name": "いなか",
+   "type": "world",
+   "chars": 63,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-deepsea",
+   "name": "しんかい",
+   "type": "world",
+   "chars": 29,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-desert",
+   "name": "さばく",
+   "type": "world",
+   "chars": 89,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-forest",
+   "name": "もり",
+   "type": "world",
+   "chars": 27,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-home",
+   "name": "おうち",
+   "type": "world",
+   "chars": 71,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-jungle",
+   "name": "ジャングル",
+   "type": "world",
+   "chars": 92,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-memory_lake",
+   "name": "きおくのみずうみ",
+   "type": "world",
+   "chars": 88,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-mountain",
+   "name": "やま",
+   "type": "world",
+   "chars": 97,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-river_lake",
+   "name": "みずべ",
+   "type": "world",
+   "chars": 74,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-sea",
+   "name": "うみ",
+   "type": "world",
+   "chars": 103,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-snow",
+   "name": "ゆきぐに",
+   "type": "world",
+   "chars": 97,
+   "basePx": 11.35,
+   "clipped": false
+  },
+  {
+   "id": "W-star_stop",
+   "name": "ほしぞらのていりゅうじょ",
+   "type": "world",
+   "chars": 117,
+   "basePx": 11.35,
+   "clipped": false
+  }
+ ]
+}

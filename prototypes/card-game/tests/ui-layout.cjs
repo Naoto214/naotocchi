@@ -58,7 +58,7 @@ const {closeDetail,projection,actionButton,reveal}=require('./ui-browser-helpers
   const after=await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry));assert.deepEqual(after,[before[1],before[0],...before.slice(2)]);assert.equal(await page.locator('.drag-ghost').count(),0);assert.ok(!await page.locator('#card-dialog').isVisible());assert.equal(await page.evaluate(()=>localStorage.getItem('naotocchi-hotseat-v1')),saved);
   await page.reload();await page.locator('#restore').click();assert.equal(await page.locator('#hand').count(),0);await reveal(page);
   if(await page.locator('#hand.hand-collapsed').count())await page.locator('[data-hand-toggle]').click();assert.deepEqual(await page.locator('[data-hand-entry]').evaluateAll(ns=>ns.map(n=>n.dataset.handEntry)),after);
-  await page.waitForTimeout(450);await page.locator('.hand-card').first().click();assert.ok(await page.locator('.full-effect').innerText());
+  await page.waitForTimeout(450);await page.locator('.hand-card').first().click();assert.ok(await page.locator('#card-dialog .stage-card .card-copy').innerText());
   for(const size of [viewport,{width:viewport.height,height:viewport.width},viewport]){
    await page.setViewportSize(size);await page.waitForTimeout(100);
    assert.ok(await page.evaluate(()=>{const c=document.querySelector('.detail-card-canvas>.card-face').getBoundingClientRect(),d=document.querySelector('#card-dialog').getBoundingClientRect();return c.top>=d.top&&c.bottom<=d.bottom&&c.left>=d.left&&c.right<=d.right&&Math.abs(c.width/c.height-2/3)<.01;}));
