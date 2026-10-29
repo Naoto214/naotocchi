@@ -17,8 +17,19 @@
     ],
     "horizontalOverflow": false,
     "buttonHeight": 44,
-    "physicalDrag390": true
+    "physicalDrag390": true,
+    "example11": {
+      "moves": 5,
+      "closedToNormalMoves": 0
+    },
+    "example20": {
+      "moves": 156,
+      "complete": true,
+      "method": "auto and manual next mixed"
+    }
   },
   "reviewImportantFixed": 2,
-  "deferredMinor": 2
+  "deferredMinor": 2,
+  "latestV12": "4dfa17df30640253468f07bf95873ae784138344",
+  "v12SolutionsUnchanged": true
 }
