@@ -80,3 +80,11 @@ Runtime smoke run 40833443557の最初のjob 123312645084は07:15:37〜07:45:54 
 自作業で生成したPages配布ディレクトリのみ、全4,057ファイルが保存manifestと一致し、余分なファイル・symlinkがないことを確認して削除し、約212MBを回収した。新mainで再生成/再検証した配布物も同様に確認後整理。GitHub source、生成器、全hash・HTTP結果から再作成可能。これらは以前拒否された別Workの一時clone削除ではない。他WorkやGit履歴、制作素材、保存データは削除していない。作業領域空きは約277MBへ回復。
 
 新しいSites sourceは `17316bfc99c2f216a5bb9daa7601b42b39964f2d`、archive `site-v11-latest-main.tar.gz`。83 runtime hashesは全て前の検証済み候補と同じ。version.json.sourceCommitだけ5284d5e4へ更新。配信はまだV10であることを認証付きHTTP200/未認証403で確認。PR436は旧HEADのDraftを維持。最新CI完了と必要なRuntime再試験の後に進める。
+
+## 最新HEADのRuntime確定結果
+
+HEAD5284d5e4 / tree85c732f3のGitHub Chapter2 main-regression job123339269732は、単一npm testで32+24+3,289+159=3,504件すべて成功、fail/cancel/skip0。smoke/dialogue/visualも成功。CI合成commit e5ebf78b26344c608f22cab95ca215b77dcd3a51のtreeは実装HEADと完全一致。
+
+ローカル一括実行は最終的に7ファイルのプロセス単位失敗（2,894表示中2,887成功・7失敗）でexit1。具体的signal/例外はspecログに出ておらず、cgroup OOM履歴との直接の対応は確定できない。これをアサーション失敗ゼロだったと推測したり、元のnpmコマンド成功と扱ったりはしない。失敗した全7ファイルを同じtreeで--test-concurrency=1にして再実行し、最初2ファイル93/93、残り5ファイル309/309成功。未実行の末尾159件も159/159成功。2,887+402=3,289に一致し全範囲を網羅。元ログと全再試験ログを併記保存。製品コード・テストコードの変更、削除、skipはなし。
+
+7ファイル: cat-expression-preview-test.cjs、meguru-phase3b3-test.cjs、meguru-scenery-final-qa-test.cjs、meguru-scenery-polish2-test.cjs、minigame-phase2-fishing-sea-test.cjs、minigame-phase2-randomization-test.cjs、pet-expression-integration-test.cjs。
