@@ -227,6 +227,45 @@ export function detailMarkup(c,{v=null,viewer=null,catalog=false,handPosition=nu
  const actions=cardActions(v,viewer,c),hidden=c.hidden,ability=c.source?.match(/「([^」]+)」/)?.[1],priority=v&&(v.choice||v.phase!=='normal');
  return `<header class="detail-toolbar"><span>${catalog?'カード図鑑':readOnly?'カード閲覧':h(turnStatus(v))}</span><button type="button" class="dialog-close" data-close>盤面へ ×</button></header><div class="detail-layout"><div class="detail-image"><div class="detail-card-canvas">${cardMarkup(c,{detail:true})}</div></div><div class="detail-copy"><header class="detail-summary"><h2>${h(hidden?'しかけたカード':c.form??c.name)}</h2>${!hidden?`<p>${h(CATEGORIES[c.type]?.[0])}${c.type==='main'?' · '+h(c.name.replace(/[①-⑧]/g,''))+' · '+h(c.attribute):''}</p><p>${c.type==='main'?`ちから <b>${c.power}</b> · ちえ <b>${c.wisdom}</b> · `:''}通常時コスト <b>${c.type==='main'?c.stage:c.cost}</b></p><p class="card-rarity-description">${cardRarityLabel(c)}</p>`:''}</header><section class="effect-scroll" tabindex="0" aria-label="能力全文">${hidden?'<p>相手の伏せ札は確認できません。</p>':`${ability?`<h3>${h(ability)}</h3>`:''}<p class="full-effect">${h(c.text)}</p>`}</section>${!hidden?`<button type="button" class="learning-related" data-related-rule="${relatedChapter(c)}">関連ルールを読む</button>`:''}${readOnly&&!hidden&&actions.length?`<button type="button" data-inspect="${h(c.id)}">このカードの操作を開く</button>`:''}${!catalog&&!readOnly&&!hidden?`<section class="detail-command"><h3>${v.choice?'必須選択：このカードを選ぶ':actions.length===1?'このカードでできる行動':'行動を選択'}</h3>${priority?`<p class="choice-guide">${v.effect?`${h(v.effect.name)}：`:''}${h(choiceGuide(v))}</p>`:''}<div class="detail-actions actions${actions.length===1?' single-action':''}">${actionMarkup(actions,{selected:c.id})}${!actions.length?`<p class="unavailable">${h(unavailableReason(v,viewer,c))}</p>`:''}</div>${priority?`<div class="detail-pass actions">${actionMarkup(v.actions.filter(a=>a.kind==='pass'))}</div>`:''}</section>`:''}</div></div>`;
 }
+const MOVE_RESULTS={bottom:'山札の一番下へ戻します',top:'山札の一番上へ戻します',discard:'捨て札に置きます',hand:'手札に戻します',reveal:'公開します'};
+const SLOT_NAMES=['セカイ','メイン','こいびと','なかま①','なかま②','なかま③','準備①','準備②','準備③'];
+// Short label + small outcome note for one action, used inside the card-detail buttons.
+// The note only states what the existing projection already knows (where a picked card goes, cost/target, placement slot).
+export function actionParts(v,a){
+ const label=a.displayLabel??a.label;
+ if(a.kind==='choose'&&a.choiceCard&&a.pickName){
+  if(a.moveKey)return {main:`${a.pickName}を${a.moveCost?'支払いに':''}選ぶ`,note:`${a.moveCost?'支払いとして':''}${MOVE_RESULTS[a.moveKey]}`};
+  if(a.pickKind==='activation_selection')return {main:`${a.pickName}を選ぶ`,note:a.moveCost?'支払いに使います':`${v?.effect?.name&&v.effect.kind==='card'?`${v.effect.name}の`:''}対象にします`};
+ }
+ if(a.destination){
+  // Swapping out the card that sits in that slot: the engine removes it and the new card joins at the end of the row,
+  // so name the card being replaced instead of promising the slot. Otherwise the slot is where the card goes.
+  const b=v?.players?.[a.destination.seat]?.board,i=a.destination.index;
+  const there=b?(i===0?b.world:i===1?b.main:i===2?b.partner:i<6?b.companions?.[i-3]:b.prepared?.[i-6]):null;
+  if(a.targetCard&&there?.id===a.targetCard)return {main:label,note:`${SLOT_NAMES[i]}の${there.name}と入れ替えます`};
+  return {main:label,note:`配置先：${SLOT_NAMES[i]}`};
+ }
+ return {main:label,note:''};
+}
+export function detailActionMarkup(v,actions,{selected=null}={}){
+ const declared=new Set();
+ return actions.map(a=>{
+  if(a.declare){if(declared.has(a.source))return '';declared.add(a.source);return actionMarkup(actions.filter(x=>x.source===a.source&&x.declare));}
+  const {main,note}=actionParts(v,a);
+  return `<button type="button" data-kind="${h(a.kind)}"${a.kind==='pass'?` data-pass-intent="${a.displayLabel==='ターン終了を申し出る'?'end-turn':'response'}"`:''} data-action="${h(a.id)}"${a.choiceCard?` data-choice-card="${h(a.choiceCard)}"`:''}${a.choiceCard===selected?' class="selected-choice"':''}><span class="action-main">${h(main)}</span>${note?`<small class="action-note">※ ${h(note)}</small>`:''}</button>`;
+ }).join('');
+}
+// Card detail in play: the official card itself, large, plus the actions it allows.
+// Name, cost, art and ability text are read on the card; nothing on it is repeated outside.
+export function cardStageMarkup(c,{v=null,viewer=null,catalog=false,readOnly=false}={}){
+ const actions=cardActions(v,viewer,c),hidden=c.hidden,priority=v&&(v.choice||v.phase!=='normal');
+ const passes=priority?v.actions.filter(a=>a.kind==='pass'):[];
+ const play=!catalog&&!readOnly&&!hidden;
+ const band=play?`<div class="stage-actions actions">${detailActionMarkup(v,actions,{selected:c.id})}${detailActionMarkup(v,passes)}</div>${!actions.length?`<p class="stage-note">${h(unavailableReason(v,viewer,c))}</p>`:''}`
+  :hidden?'<p class="stage-note">相手の伏せ札は確認できません。</p>'
+  :readOnly&&actions.length?`<div class="stage-actions actions"><button type="button" data-inspect="${h(c.id)}"><span class="action-main">このカードの操作を開く</span></button></div>`:'';
+ return `<header class="detail-toolbar"><span>${catalog?'カード図鑑':readOnly?'カード閲覧':h(turnStatus(v))}</span><button type="button" class="stage-zoom" data-stage-zoom hidden>＋ 拡大</button><button type="button" class="dialog-close" data-close>盤面へ ×</button></header><div class="card-stage"><div class="stage-scroll"><div class="stage-card" data-stage-zoom role="button" tabindex="0" aria-label="${h(hidden?'非公開のカード':c.name)}・タップで拡大／縮小"><div class="stage-card-canvas">${cardMarkup(c,{detail:true})}</div></div></div>${band?`<section class="stage-band">${band}</section>`:''}</div>`;
+}
 // Derived solely from audience-filtered result rows.
 export function importantResult(g){
  const rows=g?.rows??[];
