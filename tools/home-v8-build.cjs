@@ -1,6 +1,7 @@
 // Additive build from the preserved v7 release. Never rebuild or replace v7.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {adaptDiorama}=require('./home-v8-adapter.cjs');
+const moveForQA=require('./home-v8-qa-movement.cjs');
 const out=path.resolve(process.argv[2]),read=f=>fs.readFileSync(path.join(out,f),'utf8'),write=(f,s)=>fs.writeFileSync(path.join(out,f),s),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 if(!fs.existsSync(path.join(out,'release-v7.json')))throw Error('Preserved v7 distribution required');
 const files=[];function put(f,s){write(f,s);files.push(f);}
@@ -12,7 +13,7 @@ for(const scope of ['qa','sheet','play']){
   let s=read(old+suffix).replaceAll('naotocchi-home-v7-','naotocchi-home-v8-').replaceAll(old,next).replaceAll('home-v7-world.mjs','home-v8-world.mjs').replaceAll('home-v7-'+scope+'-conversation','home-v8-'+scope+'-conversation').replaceAll('href="home-v7.html"','href="home-v8.html"');
   if(suffix==='-script.js'&&scope==='sheet')continue;
   if(suffix==='-script.js'&&scope==='qa')s=s.replace(/(['"])naotocchi-home-v8-qa-v1([^'"]*)\1/g,(_,quote,suffix)=>'("naotocchi-home-v8-"+(document.documentElement.dataset.homeV8Scope||"qa")+"-v1'+suffix+'")');
-  if(suffix==='-script.js'&&scope==='qa')s=s.replace(/\}\)\(\);\s*$/, 'HomeV22QA.presentationMetrics=()=>homeDiorama.model.metrics();})();');
+  if(suffix==='-script.js'&&scope==='qa')s=s.replace(/\}\)\(\);\s*$/, 'HomeV22QA.presentationMetrics=()=>homeDiorama.model.metrics();HomeV22QA.moveTest=()=>('+moveForQA.toString()+')(homeDiorama.model,homeDiorama.inspectScene().navigation);})();');
   if(suffix==='-diorama.js')s=adaptDiorama(s);
   if(suffix.endsWith('.html')&&scope==='sheet')s=s.replace('qa-home-v8-sheet-script.js','qa-home-v8-script.js').replace('<html ','<html data-home-v8-scope="sheet" ');
   if(suffix.endsWith('.html'))s=s.replace('</head>','<link rel="stylesheet" href="home-v8.css"></head>');
