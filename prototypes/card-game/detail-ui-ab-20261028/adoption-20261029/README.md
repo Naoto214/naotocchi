@@ -27,3 +27,12 @@ JS（`app.mjs` など）・HTML・カード・エンジン・CPU・保存形式�
 `tests/ui-layout.cjs` と `tests/deck-ui.cjs`（CI では実行されない）は、main でも同じ箇所で失敗します（デッキ編集の一覧が描画される前に件数を数えるため）。今回の変更とは関係ありません。
 
 スクリーンショット: [screenshots/](screenshots/)（本番 CSS、3択・必須選択・応答中 × 5画面）。
+
+## main マージと公開（2026-10-29）
+
+- PR #467 を merge commit で main にマージ: `59b3cca1fcc7ce0b1598440698107c6b4dd6fb41`（tree `babec6b622e479378dab157e80611f7adcf869f1`）。直前に main へ入った #443（ミニゲーム）と競合なし。
+- Pages runtime package（run 40829875311）: build 成功・deploy 成功。`github-pages` 環境のデプロイは `59b3cca1` で success（2026-10-29T07:02:40Z、https://naoto214.github.io/naotocchi/）。
+- この作業環境からは本番URL・Pages 成果物・ジョブログに接続できない（ネットワーク制限で 403）。代わりに、同じコミット `59b3cca1` をローカルで梱包・検証（4057ファイル、カード画像904、欠落0・ハッシュ不一致0、配信される `style.css` の SHA-256 は `cb0de17c40df20d244ba9c58988c782e7a5d72fed7a2795d1c51a34ff0cd3ce8`）し、その正式ファイルで公開後確認 [production-check.mjs](production-check.mjs) を実行: **22/22 PASS**（[production-check-results.json](production-check-results.json)）。
+  - 5画面 × 4場面（必須選択・通常手番・応答中・3択）で、本文の内側スクロールなし・操作帯が下端に固定・全ボタンを押せる・横はみ出しなし・比較用UIが混ざっていないことを確認し、詳細から実際に確定（3択は2番目、応答中はパス）。
+  - 390×844 と横向きで、詳細の開閉・カードコレクション・ルールブック。
+- 本番URLを実機で開いての確認は本人にお願いします（Safari のキャッシュが残る場合は再読み込み）。
