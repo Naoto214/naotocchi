@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "document": "477-doodle-jump-text-revision.md",
+ "research": "PR #448 (prototypes/card-game/early-birth-value-20261027/), PR #451 (prototypes/card-game/doodle-jump-test-20261027/)",
+ "base_main": "518037d6 (main after PR #449; originally 9e3929da)",
+ "changed_cards": [
+  {
+   "id": "G-doodle-jump",
+   "name": "ぴょんぴょんジャンプ",
+   "before": "このターン、自分が次にときおくりを行った時に1枚引き、その次にときおくりを行った時に自分のそだち+5。",
+   "after": "このターン、自分が次にときおくりを行った時、1枚引く。そのときおくりで段階が1つだけ上がった場合、さらに自分のそだち+5。",
+   "unchanged": [
+    "cost",
+    "draw",
+    "growth_amount",
+    "duration_this_turn",
+    "method",
+    "copies_limit",
+    "rarity",
+    "illustration"
+   ],
+   "changed": [
+    "growth_condition"
+   ],
+   "before_chars": 51,
+   "after_chars": 61
+  }
+ ],
+ "save_compatibility": {
+  "new_rule_version": "hotseat-4",
+  "legacy_effect_versions": [
+   "hotseat-2",
+   "hotseat-3"
+  ],
+  "note": "hotseat-3 = PR #449 lover fixes with the old ぴょんぴょんジャンプ; hotseat-4 = lover fixes + improvement B."
+ },
+ "validation": {
+  "catalog_records_sha256": "ed40f19bb2d0c8d9cda232c8109733291263e81823fea29ba29ed3378df10fed"
+ }
+}
