@@ -27,7 +27,8 @@ Object.assign(REMAINING_RULES,{
  'G-chain-puzzle':quick([move('hand')],{onceName:true,condition:'priorTwoItems',target:'ownDiscardItem'}),
  'G-darts-board':quick([{op:'selectedMove',key:'equipment',destination:'discard'}],{select:[pay('ownHand',{types:['play','item','event']},1,'discard',{reveal:true}),{key:'equipment',zone:'opponentEquipment',count:1,filter:{sameCostAs:'payment'}}]}),
  'G-domino-run':{mode:'trap',triggers:[{when:'cardPlayed',condition:'eventItemFaceUp',steps:[reserve('cardPlayed',[growth(5),draw()],{condition:'eventFaceUpPlay'})]}]},
- 'G-doodle-jump':quick([reserve('time_skip',[],{sequence:[[draw()],[growth(5)]]})]),
+ // PR #448・#451：+5は「そのときおくりで段階が1つだけ上がった場合」。旧効果（次で1枚、その次で+5）は hotseat-2・hotseat-3 の保存再生にだけ残す。
+ 'G-doodle-jump':quick([reserve('time_skip',[draw(),iff('singleStageTimeSkip',[growth(5)])],{legacy:{versions:['hotseat-2','hotseat-3'],steps:[],sequence:[[draw()],[growth(5)]]}})]),
  'G-downhill-snow':{mode:'trap',triggers:[{when:'challengeResult',condition:all('won','eventOwnChallenge',{world:'W-snow'}),target:'ownMain',steps:[stat(1,1,'nextEnd')]}]},
  'G-dragDecorate-bento':quick([{op:'reorderTop',n:2},{op:'declareType',steps:[{op:'schedule',timing:'start',steps:[{op:'declaredTop'}]}]}]),
  'G-frogger-road':{mode:'trap',triggers:[{when:'worldChange',condition:'normalWorldChange',target:'ownPrepared',steps:[{op:'protect',to:['hand','discard'],replace:'stay'}]}]},
@@ -106,7 +107,8 @@ Object.assign(REMAINING_RULES,{
  'M-venus_flytrap-06':trig('activation',[{op:'negate'}],{condition:all(not('ownTurn'),'eventSecondQuick'),opponent:true,once:true,cost:1,select:[pay('ownPrepared',{faceDown:true},1,'discard')]}),
  'M-woman-08':trig('departure',[{op:'reorderTop',n:3},draw()],{target:undefined,condition:'departedTransition',once:true}),
  'P-gentle_gorilla':{mode:'partner',triggers:[{when:'challenge',condition:all('ownChallenge','challengePower','mainPowerLower'),target:'ownMain',once:true,handCost:{destination:'bottom'},steps:[stat(2,0,'challenge')]}]},
- 'P-knitting_spider':{mode:'partner',triggers:['progress','marriage'].map(when=>({when,limitGroup:'relationship',limit:'round',steps:[discount('equipOrTrap',1,{duration:'round'})]}))},
+ // PR #446 D-1: 3→結婚は「交際段階が進んだ時」に含まない。結婚時の誘発は修正前の保存（hotseat-2）の再生にだけ残す。
+ 'P-knitting_spider':{mode:'partner',triggers:[['progress'],['marriage',['hotseat-2']]].map(([when,onlyVersions])=>({when,...(onlyVersions?{onlyVersions}:{}),limitGroup:'relationship',limit:'round',steps:[discount('equipOrTrap',1,{duration:'round'})]}))},
  'P-snowman':{mode:'partner',triggers:[{when:'departure',condition:'ownPartnerOpponentMove',steps:[{op:'search',n:2,min:1,max:1}]}]},
  'W-jungle':{mode:'world',triggers:[{when:'challenge',condition:all('ownChallenge',v('companions','gte',1),v('plays','gt',0)),once:true,steps:[reserveWin([growth(5)],{challenge:true})]}]},
 });

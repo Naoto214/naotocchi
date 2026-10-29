@@ -1,0 +1,63 @@
+{
+ "rows": 400,
+ "completed": 400,
+ "first_birth_round_distribution": {
+  "1": 86,
+  "2": 136,
+  "3": 132,
+  "4": 137,
+  "5": 101,
+  "6": 86,
+  "7": 62,
+  "8": 32,
+  "9": 10,
+  "10": 8
+ },
+ "first_birth_round_mean": 4.03,
+ "first_birth_stage_distribution": {
+  "1": 252,
+  "2": 257,
+  "3": 99,
+  "4": 75,
+  "5": 55,
+  "6": 35,
+  "7": 12,
+  "8": 5
+ },
+ "first_birth_stage_mean": 2.5,
+ "never_hatched_seats": 10,
+ "egg_turns_mean": 4.1,
+ "challenges_per_match_mean": 7.12,
+ "score_by_first_birth_band": {
+  "R1-2": {
+   "n": 222,
+   "score": 0.455
+  },
+  "R3-4": {
+   "n": 269,
+   "score": 0.535
+  },
+  "R5-6": {
+   "n": 187,
+   "score": 0.513
+  },
+  "R7+/never": {
+   "n": 122,
+   "score": 0.484
+  }
+ },
+ "earlier_hatcher": {
+  "matches": 349,
+  "score": 0.466,
+  "ci95": [
+   0.415,
+   0.516
+  ]
+ },
+ "results": {
+  "B": 173,
+  "A": 194,
+  "draw": 33
+ },
+ "note": "Proxy policy 114_with_116 (Python fixed-400), two fixed 40-card decks (deck A: antlion 2-8 / beetle 1-2 etc.). Observational only: birth timing was chosen by the policy, not assigned, so it is confounded with the deal."
+}

@@ -1,0 +1,202 @@
+# RED: 修正前の実装（main 9e3929da）で新テストを実行した結果。5件が意図どおり失敗。
+TAP version 13
+# Subtest: クモ：交際0→1・1→2・2→3では発動できる
+ok 1 - クモ：交際0→1・1→2・2→3では発動できる
+  ---
+  duration_ms: 17.69339
+  type: 'test'
+  ...
+# Subtest: クモ：3→結婚では発動しない（結婚のそだち+10はそのまま）
+not ok 2 - クモ：3→結婚では発動しない（結婚のそだち+10はそのまま）
+  ---
+  duration_ms: 1.759342
+  type: 'test'
+  location: 'prototypes/card-game/tests/lover-text-fix.test.mjs:24:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    結婚した時はクモの誘発に入らない
+
+    true !== false
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (prototypes/card-game/tests/lover-text-fix.test.mjs:27:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: クモ：1ラウンドに1回は交際進行の間で維持される
+ok 3 - クモ：1ラウンドに1回は交際進行の間で維持される
+  ---
+  duration_ms: 3.47888
+  type: 'test'
+  ...
+# Subtest: 結婚した時に発動する他カード（にんぎょ）は維持される
+ok 4 - 結婚した時に発動する他カード（にんぎょ）は維持される
+  ---
+  duration_ms: 2.700751
+  type: 'test'
+  ...
+# Subtest: サソリ：表向きのあそび＋伏せてしかけたあいてむだけでは発動しない
+not ok 5 - サソリ：表向きのあそび＋伏せてしかけたあいてむだけでは発動しない
+  ---
+  duration_ms: 5.20031
+  type: 'test'
+  location: 'prototypes/card-game/tests/lover-text-fix.test.mjs:48:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    true !== false
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (prototypes/card-game/tests/lover-text-fix.test.mjs:49:37)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: サソリ：表向きのあそび＋表向きのあいてむでは発動できる
+ok 6 - サソリ：表向きのあそび＋表向きのあいてむでは発動できる
+  ---
+  duration_ms: 6.636534
+  type: 'test'
+  ...
+# Subtest: 伏せ札の非公開表示は変わらない
+ok 7 - 伏せ札の非公開表示は変わらない
+  ---
+  duration_ms: 3.915563
+  type: 'test'
+  ...
+# Subtest: タコ：今の装備先は移し先に出ず、タコ自身は適正な装備先なら選べる（処理は変更なし）
+ok 8 - タコ：今の装備先は移し先に出ず、タコ自身は適正な装備先なら選べる（処理は変更なし）
+  ---
+  duration_ms: 10.072462
+  type: 'test'
+  ...
+# Subtest: 新しい対戦は hotseat-3、保存しても版は保たれる
+not ok 9 - 新しい対戦は hotseat-3、保存しても版は保たれる
+  ---
+  duration_ms: 0.784948
+  type: 'test'
+  location: 'prototypes/card-game/tests/lover-text-fix.test.mjs:75:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+
+    + 'hotseat-2'
+    - 'hotseat-3'
+               ^
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'hotseat-3'
+  actual: 'hotseat-2'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (prototypes/card-game/tests/lover-text-fix.test.mjs:76:33)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 旧保存（hotseat-2）は修正前の動作のまま、最後まで同じ結果に復帰する
+ok 10 - 旧保存（hotseat-2）は修正前の動作のまま、最後まで同じ結果に復帰する
+  ---
+  duration_ms: 276.365262
+  type: 'test'
+  ...
+# Subtest: 旧保存の操作列を新ルール（hotseat-3）で再生すると食い違う＝版の分離が必要
+not ok 11 - 旧保存の操作列を新ルール（hotseat-3）で再生すると食い違う＝版の分離が必要
+  ---
+  duration_ms: 0.758653
+  type: 'test'
+  location: 'prototypes/card-game/tests/lover-text-fix.test.mjs:88:1'
+  failureType: 'testCodeFailure'
+  error: 'knitting-spider-marriage-trigger'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+  error: '保存形式が異なります'
+  stack: |-
+    Module.restore (prototypes/card-game/engine.mjs:220:276)
+    prototypes/card-game/tests/lover-text-fix.test.mjs:89:95
+    getActual (node:assert:609:5)
+    Function.throws (node:assert:757:24)
+    TestContext.<anonymous> (prototypes/card-game/tests/lover-text-fix.test.mjs:89:82)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (prototypes/card-game/tests/lover-text-fix.test.mjs:89:82)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 旧保存は修正前の分岐を実際に通っている
+ok 12 - 旧保存は修正前の分岐を実際に通っている
+  ---
+  duration_ms: 150.21268
+  type: 'test'
+  ...
+# Subtest: クモ・サソリ・タコの本文
+not ok 13 - クモ・サソリ・タコの本文
+  ---
+  duration_ms: 0.550808
+  type: 'test'
+  location: 'prototypes/card-game/tests/lover-text-fix.test.mjs:101:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+
+    + '1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。'
+    - '1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。'
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる、今の装備先とは別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。'
+  actual: '1ターンに1回。自分のターンに、自分になかまがあり、準備枠にカードが2枚以上ある場合、時1を払い、自分の準備枠でみにつけられているカード1枚と、それを適正にみにつけられる別の自分のキャラクター1枚を対象として発動できる。その装備を後者へつけ替える。'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (prototypes/card-game/tests/lover-text-fix.test.mjs:104:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 8
+# fail 5
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 636.356792

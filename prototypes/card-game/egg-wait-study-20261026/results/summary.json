@@ -1,0 +1,695 @@
+{
+ "matches": 2240,
+ "completed": 2240,
+ "abnormal": 0,
+ "abnormal_examples": [],
+ "replay_mismatch": 0,
+ "cells": {
+  "current:A_early": {
+   "n": 280,
+   "score": 0.484,
+   "win": 0.418,
+   "draw": 0.132,
+   "diff_vs_A_paired": 0.0,
+   "diff_ci95": null,
+   "groups": 140,
+   "study_growth": 62,
+   "opp_growth": 60.82,
+   "growth_margin": 1.18,
+   "study_growth_by_round": [
+    20.41,
+    22.38,
+    25.34,
+    29.05,
+    34.46,
+    41.2,
+    47.68,
+    53.04,
+    57.86,
+    62
+   ],
+   "opp_growth_by_round": [
+    20.27,
+    22.18,
+    25.59,
+    30.11,
+    35.27,
+    41.79,
+    48.12,
+    52.89,
+    56.7,
+    60.82
+   ],
+   "hatched_share": 1.0,
+   "birth_round": 1.82,
+   "birth_stage": 1.62,
+   "egg_turns": 1.82,
+   "study_challenges_won": 3.59,
+   "study_challenges_lost": 3.15,
+   "challenged_as_egg": 0,
+   "lost_as_egg": 0,
+   "opp_blocked_turns": 0.28,
+   "time_use": 0.329,
+   "hand_mean": 5.65,
+   "main_ability": 1.49,
+   "married_share": 0.793,
+   "relationship_max": 3.24,
+   "reach100_win": 0.0,
+   "late_comeback": 0.13,
+   "by_opening_mains": {
+    "0": {
+     "n": 58,
+     "score": 0.388
+    },
+    "1": {
+     "n": 94,
+     "score": 0.489
+    },
+    "2": {
+     "n": 128,
+     "score": 0.523
+    }
+   },
+   "by_seat": {
+    "A": 0.504,
+    "B": 0.464
+   },
+   "by_deck": {
+    "main": 0.562,
+    "companion": 0.425,
+    "partner": 0.412,
+    "challenge": 0.725,
+    "growth": 0.45,
+    "item": 0.375,
+    "balance": 0.438
+   },
+   "first_player_score": 0.52
+  },
+  "current:B_wait3": {
+   "n": 280,
+   "score": 0.521,
+   "win": 0.45,
+   "draw": 0.143,
+   "diff_vs_A_paired": 0.037,
+   "diff_ci95": [
+    -0.021,
+    0.096
+   ],
+   "groups": 140,
+   "study_growth": 59.05,
+   "opp_growth": 56.52,
+   "growth_margin": 2.54,
+   "study_growth_by_round": [
+    20.7,
+    21.68,
+    22.93,
+    26.02,
+    30.05,
+    33.68,
+    40.12,
+    48.93,
+    54.52,
+    58.76
+   ],
+   "opp_growth_by_round": [
+    20.25,
+    21.27,
+    22.14,
+    25.5,
+    31.11,
+    37.64,
+    43.27,
+    47.89,
+    52,
+    56.47
+   ],
+   "hatched_share": 1.0,
+   "birth_round": 4.05,
+   "birth_stage": 2.94,
+   "egg_turns": 4.05,
+   "study_challenges_won": 2.96,
+   "study_challenges_lost": 2.32,
+   "challenged_as_egg": 0,
+   "lost_as_egg": 0,
+   "opp_blocked_turns": 1.78,
+   "time_use": 0.32,
+   "hand_mean": 6.48,
+   "main_ability": 0.88,
+   "married_share": 0.836,
+   "relationship_max": 3.42,
+   "reach100_win": 0.007,
+   "late_comeback": 0.136,
+   "by_opening_mains": {
+    "0": {
+     "n": 58,
+     "score": 0.483
+    },
+    "1": {
+     "n": 94,
+     "score": 0.495
+    },
+    "2": {
+     "n": 128,
+     "score": 0.559
+    }
+   },
+   "by_seat": {
+    "A": 0.55,
+    "B": 0.493
+   },
+   "by_deck": {
+    "main": 0.6,
+    "companion": 0.45,
+    "partner": 0.575,
+    "challenge": 0.588,
+    "growth": 0.463,
+    "item": 0.438,
+    "balance": 0.537
+   }
+  },
+  "current:C_late7": {
+   "n": 280,
+   "score": 0.479,
+   "win": 0.432,
+   "draw": 0.093,
+   "diff_vs_A_paired": -0.005,
+   "diff_ci95": [
+    -0.073,
+    0.064
+   ],
+   "groups": 140,
+   "study_growth": 47.61,
+   "opp_growth": 51.11,
+   "growth_margin": -3.5,
+   "study_growth_by_round": [
+    20.7,
+    21.68,
+    22.93,
+    24.2,
+    25.41,
+    26.16,
+    29.91,
+    33.93,
+    37.39,
+    47.61
+   ],
+   "opp_growth_by_round": [
+    20.25,
+    21.27,
+    22.14,
+    23.88,
+    26.61,
+    31.3,
+    37.05,
+    42.3,
+    46.55,
+    51.11
+   ],
+   "hatched_share": 1.0,
+   "birth_round": 7.06,
+   "birth_stage": 4.66,
+   "egg_turns": 7.06,
+   "study_challenges_won": 1.58,
+   "study_challenges_lost": 1.27,
+   "challenged_as_egg": 0,
+   "lost_as_egg": 0,
+   "opp_blocked_turns": 4.73,
+   "time_use": 0.277,
+   "hand_mean": 7.65,
+   "main_ability": 0.31,
+   "married_share": 0.693,
+   "relationship_max": 3.26,
+   "reach100_win": 0.0,
+   "late_comeback": 0.275,
+   "by_opening_mains": {
+    "0": {
+     "n": 58,
+     "score": 0.517
+    },
+    "1": {
+     "n": 94,
+     "score": 0.441
+    },
+    "2": {
+     "n": 128,
+     "score": 0.488
+    }
+   },
+   "by_seat": {
+    "A": 0.461,
+    "B": 0.496
+   },
+   "by_deck": {
+    "main": 0.487,
+    "companion": 0.55,
+    "partner": 0.45,
+    "challenge": 0.588,
+    "growth": 0.512,
+    "item": 0.225,
+    "balance": 0.537
+   }
+  },
+  "current:D_never": {
+   "n": 280,
+   "score": 0.164,
+   "win": 0.061,
+   "draw": 0.207,
+   "diff_vs_A_paired": -0.32,
+   "diff_ci95": [
+    -0.402,
+    -0.239
+   ],
+   "groups": 140,
+   "study_growth": 30.82,
+   "opp_growth": 43.11,
+   "growth_margin": -12.29,
+   "study_growth_by_round": [
+    20.7,
+    21.68,
+    22.93,
+    24.2,
+    25.41,
+    26.16,
+    27.5,
+    28.68,
+    29.5,
+    30.82
+   ],
+   "opp_growth_by_round": [
+    20.25,
+    21.27,
+    22.14,
+    23.88,
+    26.61,
+    31.3,
+    35.57,
+    38.52,
+    40.79,
+    43.11
+   ],
+   "hatched_share": 0.0,
+   "birth_round": null,
+   "birth_stage": null,
+   "egg_turns": 10,
+   "study_challenges_won": 0,
+   "study_challenges_lost": 0,
+   "challenged_as_egg": 0,
+   "lost_as_egg": 0,
+   "opp_blocked_turns": 8.16,
+   "time_use": 0.1,
+   "hand_mean": 8.27,
+   "main_ability": 0,
+   "married_share": 0.0,
+   "relationship_max": -0.08,
+   "reach100_win": 0.0,
+   "late_comeback": 0.011,
+   "by_opening_mains": {
+    "0": {
+     "n": 58,
+     "score": 0.259
+    },
+    "1": {
+     "n": 94,
+     "score": 0.128
+    },
+    "2": {
+     "n": 128,
+     "score": 0.148
+    }
+   },
+   "by_seat": {
+    "A": 0.143,
+    "B": 0.186
+   },
+   "by_deck": {
+    "main": 0.113,
+    "companion": 0.312,
+    "partner": 0.05,
+    "challenge": 0.175,
+    "growth": 0.275,
+    "item": 0,
+    "balance": 0.225
+   }
+  },
+  "egg00:A_early": {
+   "n": 280,
+   "score": 0.502,
+   "win": 0.432,
+   "draw": 0.139,
+   "diff_vs_A_paired": 0.0,
+   "diff_ci95": null,
+   "groups": 140,
+   "study_growth": 65.07,
+   "opp_growth": 64.71,
+   "growth_margin": 0.36,
+   "study_growth_by_round": [
+    22.05,
+    25.43,
+    28.96,
+    32.88,
+    38.23,
+    45.09,
+    51.2,
+    56.54,
+    61.06,
+    64.69
+   ],
+   "opp_growth_by_round": [
+    22.05,
+    25.43,
+    29.36,
+    34.2,
+    39.61,
+    45.91,
+    52.25,
+    57.23,
+    60.84,
+    64.89
+   ],
+   "hatched_share": 1.0,
+   "birth_round": 1.82,
+   "birth_stage": 1.63,
+   "egg_turns": 1.82,
+   "study_challenges_won": 4.28,
+   "study_challenges_lost": 3.98,
+   "challenged_as_egg": 0.8,
+   "lost_as_egg": 0.8,
+   "opp_blocked_turns": 0.28,
+   "time_use": 0.332,
+   "hand_mean": 5.64,
+   "main_ability": 1.46,
+   "married_share": 0.793,
+   "relationship_max": 3.21,
+   "reach100_win": 0.011,
+   "late_comeback": 0.131,
+   "by_opening_mains": {
+    "0": {
+     "n": 58,
+     "score": 0.44
+    },
+    "1": {
+     "n": 94,
+     "score": 0.441
+    },
+    "2": {
+     "n": 128,
+     "score": 0.574
+    }
+   },
+   "by_seat": {
+    "A": 0.589,
+    "B": 0.414
+   },
+   "by_deck": {
+    "main": 0.487,
+    "companion": 0.438,
+    "partner": 0.487,
+    "challenge": 0.662,
+    "growth": 0.463,
+    "item": 0.425,
+    "balance": 0.55
+   },
+   "first_player_score": 0.588
+  },
+  "egg00:B_wait3": {
+   "n": 280,
+   "score": 0.339,
+   "win": 0.289,
+   "draw": 0.1,
+   "diff_vs_A_paired": -0.163,
+   "diff_ci95": [
+    -0.216,
+    -0.111
+   ],
+   "groups": 140,
+   "study_growth": 59.88,
+   "opp_growth": 69.84,
+   "growth_margin": -9.96,
+   "study_growth_by_round": [
+    20.7,
+    21.71,
+    23.32,
+    26.75,
+    30.73,
+    34.34,
+    40.91,
+    49.77,
+    55.2,
+    59.57
+   ],
+   "opp_growth_by_round": [
+    22.61,
+    27.64,
+    33.21,
+    38.91,
+    44.29,
+    50.86,
+    57.07,
+    61.73,
+    65.68,
+    69.64
+   ],
+   "hatched_share": 1.0,
+   "birth_round": 4.04,
+   "birth_stage": 2.94,
+   "egg_turns": 4.04,
+   "study_challenges_won": 2.92,
+   "study_challenges_lost": 5.04,
+   "challenged_as_egg": 2.73,
+   "lost_as_egg": 2.73,
+   "opp_blocked_turns": 1.77,
+   "time_use": 0.323,
+   "hand_mean": 6.48,
+   "main_ability": 0.91,
+   "married_share": 0.836,
+   "relationship_max": 3.42,
+   "reach100_win": 0.004,
+   "late_comeback": 0.183,
+   "by_opening_mains": {
+    "0": {
+     "n": 58,
+     "score": 0.388
+    },
+    "1": {
+     "n": 94,
+     "score": 0.293
+    },
+    "2": {
+     "n": 128,
+     "score": 0.352
+    }
+   },
+   "by_seat": {
+    "A": 0.371,
+    "B": 0.307
+   },
+   "by_deck": {
+    "main": 0.237,
+    "companion": 0.312,
+    "partner": 0.425,
+    "challenge": 0.4,
+    "growth": 0.338,
+    "item": 0.3,
+    "balance": 0.362
+   }
+  },
+  "egg00:C_late7": {
+   "n": 280,
+   "score": 0.08,
+   "win": 0.054,
+   "draw": 0.054,
+   "diff_vs_A_paired": -0.421,
+   "diff_ci95": [
+    -0.491,
+    -0.357
+   ],
+   "groups": 140,
+   "study_growth": 50.04,
+   "opp_growth": 78.02,
+   "growth_margin": -27.98,
+   "study_growth_by_round": [
+    20.7,
+    21.71,
+    23.32,
+    25.09,
+    26.7,
+    28.18,
+    32.19,
+    36.21,
+    39.8,
+    50.49
+   ],
+   "opp_growth_by_round": [
+    22.61,
+    27.64,
+    33.21,
+    39.89,
+    47.7,
+    57.59,
+    65.73,
+    70.72,
+    74.01,
+    76.86
+   ],
+   "hatched_share": 0.996,
+   "birth_round": 7.05,
+   "birth_stage": 4.68,
+   "egg_turns": 7.05,
+   "study_challenges_won": 1.56,
+   "study_challenges_lost": 6.89,
+   "challenged_as_egg": 5.71,
+   "lost_as_egg": 5.71,
+   "opp_blocked_turns": 4.72,
+   "time_use": 0.279,
+   "hand_mean": 7.65,
+   "main_ability": 0.29,
+   "married_share": 0.664,
+   "relationship_max": 3.16,
+   "reach100_win": 0.0,
+   "late_comeback": 0.04,
+   "by_opening_mains": {
+    "0": {
+     "n": 58,
+     "score": 0.103
+    },
+    "1": {
+     "n": 94,
+     "score": 0.074
+    },
+    "2": {
+     "n": 128,
+     "score": 0.074
+    }
+   },
+   "by_seat": {
+    "A": 0.086,
+    "B": 0.075
+   },
+   "by_deck": {
+    "main": 0,
+    "companion": 0.263,
+    "partner": 0,
+    "challenge": 0.087,
+    "growth": 0.138,
+    "item": 0.037,
+    "balance": 0.037
+   }
+  },
+  "egg00:D_never": {
+   "n": 280,
+   "score": 0.002,
+   "win": 0.0,
+   "draw": 0.004,
+   "diff_vs_A_paired": -0.5,
+   "diff_ci95": [
+    -0.568,
+    -0.436
+   ],
+   "groups": 140,
+   "study_growth": 34.09,
+   "opp_growth": 88.12,
+   "growth_margin": -54.04,
+   "study_growth_by_round": [
+    20.7,
+    21.71,
+    23.32,
+    25.09,
+    26.7,
+    28.18,
+    29.8,
+    31.31,
+    32.12,
+    33.34
+   ],
+   "opp_growth_by_round": [
+    22.61,
+    27.64,
+    33.21,
+    39.89,
+    47.7,
+    57.59,
+    67.06,
+    75.61,
+    82.07,
+    86.7
+   ],
+   "hatched_share": 0.0,
+   "birth_round": null,
+   "birth_stage": null,
+   "egg_turns": 9.85,
+   "study_challenges_won": 0,
+   "study_challenges_lost": 8.92,
+   "challenged_as_egg": 8.92,
+   "lost_as_egg": 8.92,
+   "opp_blocked_turns": 7.98,
+   "time_use": 0.103,
+   "hand_mean": 8.25,
+   "main_ability": 0,
+   "married_share": 0.0,
+   "relationship_max": -0.09,
+   "reach100_win": 0.0,
+   "late_comeback": 0.0,
+   "by_opening_mains": {
+    "0": {
+     "n": 58,
+     "score": 0.009
+    },
+    "1": {
+     "n": 94,
+     "score": 0
+    },
+    "2": {
+     "n": 128,
+     "score": 0
+    }
+   },
+   "by_seat": {
+    "A": 0,
+    "B": 0.004
+   },
+   "by_deck": {
+    "main": 0,
+    "companion": 0,
+    "partner": 0,
+    "challenge": 0,
+    "growth": 0.013,
+    "item": 0,
+    "balance": 0
+   }
+  }
+ },
+ "rule_effect": {
+  "A_early": {
+   "diff": 0.018,
+   "ci95": [
+    -0.023,
+    0.061
+   ],
+   "groups": 140
+  },
+  "B_wait3": {
+   "diff": -0.182,
+   "ci95": [
+    -0.232,
+    -0.136
+   ],
+   "groups": 140
+  },
+  "C_late7": {
+   "diff": -0.398,
+   "ci95": [
+    -0.464,
+    -0.336
+   ],
+   "groups": 140
+  },
+  "D_never": {
+   "diff": -0.163,
+   "ci95": [
+    -0.207,
+    -0.121
+   ],
+   "groups": 140
+  }
+ }
+}

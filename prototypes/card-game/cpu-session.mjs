@@ -1,11 +1,12 @@
 import {HotseatSession} from './ui-session.mjs';
 import {chooseCpuAction,DIFFICULTIES,POLICY_VERSION} from './cpu-policy.mjs';
-import {CPU_DECK_IDS,CPU_DECK_MODES,cpuDeck} from './cpu-decks.mjs';
+import {CPU_DECK_IDS,CPU_DECK_MODES,cpuDeck,cpuDeckVersion} from './cpu-decks.mjs';
 const VERSION='cpu-match-1';
-// Optional CPU strategy-deck label (older saves have none). The label must match the CPU seat's actual 40 cards.
+// Optional CPU strategy-deck label (older saves have none). The label must match the CPU seat's actual 40 cards,
+// either the deck's current list or one of its earlier lists (a match started before a list change).
 function deckLabel(d,game,cpuSeat){if(d==null)return null;
  if(typeof d!=='object'||!Object.hasOwn(CPU_DECK_MODES,d.mode)||d.mode==='mydeck'||!CPU_DECK_IDS.includes(d.id)||!(d.seed===null||Number.isSafeInteger(d.seed)))throw Error('CPUデッキ情報が不正です');
- const sorted=x=>JSON.stringify([...x].sort());if(game&&sorted(game.decks?.[cpuSeat]??[])!==sorted(cpuDeck(d.id).cards))throw Error('CPUデッキ情報が対戦と一致しません');
+ if(game&&cpuDeckVersion(d.id,game.decks?.[cpuSeat]??[])===null)throw Error('CPUデッキ情報が対戦と一致しません');
  return {mode:d.mode,id:d.id,name:cpuDeck(d.id).name,seed:d.seed};}
 function config({humanSeat,difficulty,policySeed}){if(!['A','B'].includes(humanSeat)||!DIFFICULTIES.includes(difficulty)||!Number.isSafeInteger(policySeed)||policySeed<0||policySeed>0xffffffff)throw Error('CPU対戦設定が不正です');}
 export class CpuSession {

@@ -4,6 +4,7 @@ export function lateCondition(s,a,key,l){
  const p=s.players[a],b=p.board,o=s.players[other(a)],ev=l.event??{},actions=s.history.filter(e=>e.kind==='play'&&e.serial===s.serial&&e.actor===a&&['play','item','event'].includes(e.type)),stats=l.stats??ev.stats??{};
  const nonMainMove=ev.kind==='departure'&&ev.slot!=='main',effectMove=nonMainMove&&ev.cause==='effect'&&['hand','discard'].includes(ev.destination);
  switch(key){
+ case 'singleStageTimeSkip':return ev.kind==='time_skip'&&!!card(s,ev.source)&&!!card(s,ev.previousMain)&&card(s,ev.source).stage-card(s,ev.previousMain).stage===1;
  case 'departedTransition':return ev.slot==='main'&&ev.destination==='discard'&&['time_skip','transform'].includes(ev.transition);
  case 'departedTransform':return ev.slot==='main'&&ev.destination==='discard'&&ev.transition==='transform';
  case 'departedTimeSkip':return ev.slot==='main'&&ev.destination==='discard'&&ev.transition==='time_skip';
