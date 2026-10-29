@@ -1,16 +1,24 @@
 // Builds isolated copies of the official card-game modules for the breakup-penalty comparison.
-// The official files under prototypes/card-game/ are only READ (sha256 recorded before and after).
+// The official files are only READ. They are taken from the commit the experiment ran on (BASE, main 953b9c34,
+// hotseat-5) with `git show`, so later changes on main (e.g. #478 hotseat-6) do not alter the reproduced runs.
+// The working-tree official files are also hashed before and after the build to prove they were not touched.
 // Each variant is a full copy in build/<variant>/ with exact-string patches; a patch that does not
 // match exactly once aborts the build, so a changed upstream file can never be patched silently.
-// Usage: node lib/build-variants.mjs            (writes build/A, build/B, build/C, build/C2, build/Cx and build/manifest.json)
+// Usage: node lib/build-variants.mjs [commit]   (default BASE; writes build/A, build/B, build/C, build/C2, build/Cx and build/manifest.json)
 import {readdirSync,readFileSync,writeFileSync,mkdirSync,rmSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
 const HERE=dirname(fileURLToPath(import.meta.url)),SRC=join(HERE,'..','..'),OUT=join(HERE,'..','build');
+const BASE=process.argv[2]??'953b9c34d551bfa230f275a15c58b4ec72663e3c';
 const sha=t=>createHash('sha256').update(t).digest('hex');
-const files=readdirSync(SRC).filter(f=>f.endsWith('.mjs')).sort();
-const before=Object.fromEntries(files.map(f=>[f,sha(readFileSync(join(SRC,f)))]));
+const git=(...a)=>execFileSync('git',a,{cwd:SRC,maxBuffer:1<<28}).toString();
+const files=git('ls-tree','--name-only',BASE,'./').split('\n').map(f=>f.split('/').pop()).filter(f=>f.endsWith('.mjs')).sort();
+const source=f=>git('show',`${BASE}:./${f}`);
+const tree=()=>Object.fromEntries(readdirSync(SRC).filter(f=>f.endsWith('.mjs')).sort().map(f=>[f,sha(readFileSync(join(SRC,f)))]));
+const treeBefore=tree();
+const before=Object.fromEntries(files.map(f=>[f,sha(source(f))]));
 function patch(text,from,to,label){const n=text.split(from).length-1;if(n!==1)throw Error(`patch ${label}: expected 1 match, found ${n}`);return text.replace(from,()=>to);}
 
 // The single place where the official engine applies the breakup/divorce penalty (engine.mjs discardField).
@@ -36,10 +44,10 @@ const VARIANTS={
  Cx:{note:'対照：「円満な別れ」と同じ枠に、−10を免除しない同型カード（デッキ変更の影響だけを測る）',penalty:'10',version:'exp-Cx',card:{...AMICABLE,text:'（対照）自分の交際中のこいびと1枚を対象として発動できる。対象を持ち主の手札に戻す。'},condition:'ownPartnerDating',noExemption:true},
 };
 rmSync(OUT,{recursive:true,force:true});
-const manifest={source:'prototypes/card-game/*.mjs',sourceSha256:before,variants:{}};
+const manifest={source:'prototypes/card-game/*.mjs',sourceCommit:BASE,sourceSha256:before,variants:{}};
 for(const [v,cfg] of Object.entries(VARIANTS)){
  const dir=join(OUT,v);mkdirSync(dir,{recursive:true});const out={};
- for(const f of files)out[f]=readFileSync(join(SRC,f),'utf8');
+ for(const f of files)out[f]=source(f);
  let eng=patch(out['engine.mjs'],PENALTY_SITE,PENALTY_NEW,'penalty');
  eng+=`\nconst __BP_PENALTY=(stage,ctx)=>ctx.noPenalty?0:(${cfg.penalty});\n`;
  if(cfg.version)eng=patch(eng,"export const VERSION='hotseat-5';",`export const VERSION='hotseat-5+${cfg.version}';`,'version');
@@ -58,8 +66,7 @@ for(const [v,cfg] of Object.entries(VARIANTS)){
  manifest.variants[v]={note:cfg.note,penalty:cfg.penalty,version:cfg.version?`hotseat-5+${cfg.version}`:'hotseat-5',card:cfg.card??null,
   patchedSha256:Object.fromEntries(Object.entries(out).filter(([f,t])=>sha(t)!==before[f]).map(([f,t])=>[f,sha(t)]))};
 }
-const after=Object.fromEntries(files.map(f=>[f,sha(readFileSync(join(SRC,f)))]));
-if(JSON.stringify(after)!==JSON.stringify(before))throw Error('official sources changed during build');
+if(JSON.stringify(tree())!==JSON.stringify(treeBefore))throw Error('official sources changed during build');
 manifest.officialUnchanged=true;
 writeFileSync(join(OUT,'manifest.json'),JSON.stringify(manifest,null,1));
 console.log(JSON.stringify(Object.fromEntries(Object.entries(manifest.variants).map(([k,v])=>[k,{version:v.version,patched:Object.keys(v.patchedSha256)}]))));

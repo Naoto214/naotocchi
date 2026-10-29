@@ -1,5 +1,6 @@
 {
  "source": "prototypes/card-game/*.mjs",
+ "sourceCommit": "953b9c34d551bfa230f275a15c58b4ec72663e3c",
  "sourceSha256": {
   "ability-copy.mjs": "00f51aabdd6a8a2195fbfed7da52a33914b62897919041874b6f56807e47526b",
   "advanced-effects.mjs": "b9b844ebae604993e5c93900a9ccc41a24af113b6a816e2a1367255e26f378a5",
