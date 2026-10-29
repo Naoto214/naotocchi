@@ -15,6 +15,8 @@ const state=page=>page.evaluate(()=>{const d=document.querySelector('#card-dialo
 const center=async page=>page.evaluate(()=>{const r=document.querySelector('#card-dialog .stage-card').getBoundingClientRect(),s=document.querySelector('#card-dialog .stage-scroll').getBoundingClientRect();
  const top=Math.max(r.top,s.top),bottom=Math.min(r.bottom,s.bottom);return {x:Math.round((Math.max(r.left,s.left)+Math.min(r.right,s.right))/2),y:Math.round(top+(bottom-top)*.35)};});
 const tap=async(page,p)=>{await page.touchscreen.tap(p.x,p.y);};
+// 拡大・縮小の動きが終わるまで待つ（最大2秒）
+const settle=page=>page.waitForFunction(()=>!(document.querySelector('#card-dialog .stage-card')?.getAnimations().length),null,{timeout:2000}).catch(()=>{});
 const doubleTap=async(page,p,gap=90,q=p)=>{await tap(page,p);await page.waitForTimeout(gap);await tap(page,q);await page.waitForTimeout(350);};
 // 2本指のタッチ（CDP）: 押して離す（指は動かさない）
 async function twoFinger(cdp,p){const pts=[{x:p.x-20,y:p.y,id:1},{x:p.x+20,y:p.y,id:2}];
@@ -71,15 +73,35 @@ for(const [w,h] of VIEWPORTS){const vp=`${w}x${h}`,ctx=await browser.newContext(
  const pr=await center(page);await pinch(cdp,pr,200,60);await page.waitForTimeout(350);const pz4=await state(page);
  check('ピンチインで元の大きさまで戻る（それ以上は小さくならない）',vp,!pz4.zoom&&pz4.w===a.w,{w:pz4.w});
  // 7) キーボード（Enter）でも拡大・縮小できる
- await page.focus('#card-dialog .stage-card');await page.keyboard.press('Enter');await page.waitForTimeout(250);const k1=await state(page);await page.keyboard.press('Enter');await page.waitForTimeout(250);const k2=await state(page);
+ await page.focus('#card-dialog .stage-card');await page.keyboard.press('Enter');await page.waitForTimeout(100);await settle(page);const k1=await state(page);await page.keyboard.press('Enter');await page.waitForTimeout(100);await settle(page);const k2=await state(page);
  check('キーボード（Enter）の拡大・縮小は従来どおり',vp,k1.zoom&&!k2.zoom&&k2.w===a.w);
  // 8) 拡大中に閉じる → 次に開くと通常表示
  await doubleTap(page,p);const z=await state(page);await page.locator('#card-dialog [data-close]').tap();await page.waitForTimeout(300);const closed=!(await state(page)).open;
  await openCard(page,'C-chameleon');const g=await state(page);
  check('拡大中に「盤面へ ×」で閉じられ、次に開くと通常表示',vp,z.zoom&&closed&&g.open&&!g.zoom&&g.w===a.w&&await saved(page)===s0);
- // 9) 縦画面の「＋ 拡大／－ 縮小」ボタン（出ている時）は1回で切り替わる
- if(w<h){await doubleTap(page,p);const y=await state(page);const chipOk=y.chip==='－ 縮小';if(chipOk){await page.locator('#card-dialog .stage-zoom').tap();await page.waitForTimeout(300);}const y2=await state(page);
-  check('縦画面：拡大中は「－ 縮小」ボタンでも戻れる',vp,chipOk&&!y2.zoom&&y2.w===a.w,{chip:y.chip});}
+ // 9) 「－ 縮小」ボタンは出ない（縦横とも）。拡大中の戻り方はダブルタップ
+ await doubleTap(page,p);const y=await state(page);await doubleTap(page,p);const y2=await state(page);
+ check('拡大中に「－ 縮小」ボタンは出ず、ダブルタップで確実に戻る',vp,y.zoom&&y.chip===null&&!y2.zoom&&y2.w===a.w,{chip:y.chip});
+ // 9b) 動きの間はカードの実際の大きさ（レイアウト）を変えず、動き終わりに1回だけ変える。終わった後はカードに変形・動きが残らない
+ const frames=async()=>page.evaluate(()=>new Promise(res=>{const c=document.querySelector('#card-dialog .stage-card'),w0=c.offsetWidth,ws=[];let n=0;
+  const step=()=>{ws.push(c.offsetWidth);if(++n<40&&c.getAnimations().length)requestAnimationFrame(step);else res({w0,ws,running:c.getAnimations().length});};requestAnimationFrame(step);}));
+ await tap(page,p);await page.waitForTimeout(90);await tap(page,p);const fz=await frames();await page.waitForTimeout(100);
+ const settled=await page.evaluate(()=>{const c=document.querySelector('#card-dialog .stage-card');return {anims:c.getAnimations().length,transform:getComputedStyle(c).transform,w:c.offsetWidth};});
+ check('拡大の動きの間はレイアウトを変えず、終わりに1回だけ大きさを変える／終了後に変形が残らない',vp,fz.ws.slice(0,-1).every(x=>x===fz.w0)&&settled.anims===0&&settled.transform==='none'&&settled.w>fz.w0,{w0:fz.w0,frames:fz.ws.length,final:settled.w,transform:settled.transform});
+ // 右下の確認用スクリーンショット（拡大してカードの右下までスクロール）
+ await page.evaluate(()=>{const s=document.querySelector('#card-dialog .stage-scroll');s.scrollLeft=s.scrollWidth;s.scrollTop=s.scrollHeight;});await page.waitForTimeout(150);
+ await page.screenshot({path:path.join(OUT,'screenshots',`${vp}-zoom-bottom-right.jpg`),type:'jpeg',quality:60});
+ const pz0=await center(page);await tap(page,pz0);await page.waitForTimeout(90);await tap(page,pz0);const fo=await frames();await page.waitForTimeout(100);const so=await state(page);
+ check('縮小の動きの間もレイアウトを変えず、終わりに元の大きさへ戻る',vp,fo.ws.slice(0,-1).every(x=>x===fo.w0)&&!so.zoom&&so.w===a.w,{w0:fo.w0,frames:fo.ws.length,final:so.w});
+ // 9c) 連続10回の拡大・縮小（毎回動き終わりを待つ）と、動きの途中のダブルタップ
+ let ok10=true;for(let i=0;i<10;i++){const q=await center(page);await doubleTap(page,q);const st=await state(page);if(st.zoom!==(i%2===0)||(!st.zoom&&st.w!==a.w))ok10=false;}
+ const s10=await state(page);check('連続10回の拡大・縮小で状態が崩れない（最後は元の大きさ）',vp,ok10&&!s10.zoom&&s10.w===a.w&&await saved(page)===s0,{w:s10.w});
+ await tap(page,p);await page.waitForTimeout(90);await tap(page,p);await page.waitForTimeout(80);await tap(page,p);await page.waitForTimeout(90);await tap(page,p);await page.waitForTimeout(100);await settle(page);
+ const mid=await page.evaluate(()=>{const c=document.querySelector('#card-dialog .stage-card');return {anims:c.getAnimations().length,transform:getComputedStyle(c).transform,w:c.offsetWidth,zoom:document.querySelector('#card-dialog').dataset.stageZoom??null};});
+ check('動きの途中のダブルタップでも状態が壊れない（元の大きさ・変形なし）',vp,mid.zoom===null&&mid.w===Math.round(a.w)&&mid.anims===0&&mid.transform==='none',mid);
+ // 9d) ダブルタップ直後（動きの途中）のピンチ
+ await tap(page,p);await page.waitForTimeout(90);await tap(page,p);await page.waitForTimeout(60);const pc=await center(page);await pinch(cdp,pc,200,60);await page.waitForTimeout(400);const pm=await state(page);
+ check('ダブルタップの動きの途中でピンチインしても元の大きさに戻る',vp,!pm.zoom&&pm.w===a.w,{w:pm.w});
  // 10) ダブルタップ・拡大の後でも、操作ボタンは1回のタップで正しく働く（3択の2番目 → なかま②と入れ替え）
  await doubleTap(page,p);await doubleTap(page,p);
  const btn=page.locator('#card-dialog [data-action]').nth(1);const label=await btn.innerText();await btn.tap();await page.waitForTimeout(350);

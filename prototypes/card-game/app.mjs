@@ -123,38 +123,47 @@ function showZone(seat,zone,origin){
 }
 // Zoom of the detail card. A double tap (or the portrait chip / Enter) switches normal ⇄ zoom. A pinch on the card sets
 // the card's own zoom (not Safari's page zoom), so both share one state: a double tap after a pinch returns to normal.
-// Each change animates from the old size to the new one (FLIP) and keeps the tapped / pinched point under the finger.
-const STAGE_ANIM_MS=260,clamp01=x=>Math.min(1,Math.max(0,x));
-function placeStage(d,{zoom,pinch=null,at=null,f=null}){const card=d.querySelector('.stage-card'),scroll=d.querySelector('.stage-scroll');
+// Motion is a transform on the card as it is already drawn; the real size (layout, card art at the new resolution) and
+// the scroll position change once, after the motion, with no transform left on the card. Changing the layout under a
+// running transform made iOS Safari stutter at the start and leave unpainted (white) parts of the enlarged card.
+const STAGE_ANIM_MS=260,clamp01=x=>Math.min(1,Math.max(0,x));let stageAnim=null;
+const stageSnap=d=>{const s=d.querySelector('.stage-scroll');return {zoom:d.dataset.stageZoom==='1',pinch:d.dataset.stagePinch??null,left:s.scrollLeft,top:s.scrollTop};};
+function stageApply(d,{zoom,pinch,left,top}){const s=d.querySelector('.stage-scroll');
  if(zoom){d.dataset.stageZoom='1';if(pinch)d.dataset.stagePinch=String(pinch);else delete d.dataset.stagePinch;}else{delete d.dataset.stageZoom;delete d.dataset.stagePinch;}
- fitStageCard(d);
- if(!zoom||!at){scroll.scrollTop=0;scroll.scrollLeft=0;return;}
- const n=card.getBoundingClientRect();scroll.scrollLeft+=n.left+f.x*n.width-at.x;scroll.scrollTop+=n.top+f.y*n.height-at.y;}
-function animateStage(card,from){const to=card.getBoundingClientRect();
- if(!from||!to.width||!card.animate||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
- const k=from.width/to.width,dx=from.left-to.left,dy=from.top-to.top;if(Math.abs(k-1)<.01&&Math.abs(dx)<1&&Math.abs(dy)<1)return;
- card.animate([{transformOrigin:'0 0',transform:`translate(${dx}px,${dy}px) scale(${k})`},{transformOrigin:'0 0',transform:'none'}],{duration:STAGE_ANIM_MS,easing:'cubic-bezier(.2,.8,.2,1)'});}
-function settledRect(card){for(const a of card.getAnimations?.()??[])a.finish();return card.getBoundingClientRect();}
-function toggleStageZoom(z,at=null){const d=z.closest('dialog'),card=d?.querySelector('.stage-card');if(!card)return;
- const r=settledRect(card),f=at?{x:clamp01((at.x-r.left)/r.width),y:clamp01((at.y-r.top)/r.height)}:null;
- placeStage(d,{zoom:d.dataset.stageZoom!=='1',at,f});animateStage(card,r);}
+ fitStageCard(d);s.scrollLeft=left;s.scrollTop=top;}
+// Where the card ends up for a zoom state (keeping the card point f under at); measured, then the layout is put back.
+function stageTarget(d,{zoom,pinch=null,at=null,f=null}){const card=d.querySelector('.stage-card'),s=d.querySelector('.stage-scroll'),before=stageSnap(d);
+ stageApply(d,{zoom,pinch,left:0,top:0});
+ if(zoom&&at){const n=card.getBoundingClientRect();s.scrollLeft+=n.left+f.x*n.width-at.x;s.scrollTop+=n.top+f.y*n.height-at.y;}
+ const rect=card.getBoundingClientRect(),after=stageSnap(d);stageApply(d,before);return {rect,after};}
+function finishStageAnim(){const a=stageAnim;if(!a)return;stageAnim=null;a.commit();a.anim?.cancel();}
+// from: the transform the card shows now (a pinch in progress), else none.
+function zoomStage(d,state,from='none'){finishStageAnim();const card=d.querySelector('.stage-card');
+ const r0=card.getBoundingClientRect(),base=from==='none'?r0:null;card.style.transform='';const lay=card.getBoundingClientRect();
+ const {rect:n,after}=stageTarget(d,state),to=`translate(${n.left-lay.left}px,${n.top-lay.top}px) scale(${n.width/lay.width})`;
+ const commit=()=>{card.style.transform='';card.style.transformOrigin='';stageApply(d,after);};
+ if(!card.animate||matchMedia('(prefers-reduced-motion: reduce)').matches||base&&Math.abs(n.width-r0.width)<1&&Math.abs(n.left-r0.left)<1&&Math.abs(n.top-r0.top)<1){commit();return;}
+ const anim=card.animate([{transformOrigin:'0 0',transform:from},{transformOrigin:'0 0',transform:to}],{duration:STAGE_ANIM_MS,easing:'cubic-bezier(.25,.8,.25,1)',fill:'forwards'});
+ stageAnim={anim,commit};anim.onfinish=()=>{if(stageAnim?.anim===anim)finishStageAnim();};}
+function toggleStageZoom(z,at=null){const d=z.closest('dialog'),card=d?.querySelector('.stage-card');if(!card)return;finishStageAnim();
+ const r=card.getBoundingClientRect(),f=at?{x:clamp01((at.x-r.left)/r.width),y:clamp01((at.y-r.top)/r.height)}:null;
+ zoomStage(d,{zoom:d.dataset.stageZoom!=='1',at,f});}
 document.addEventListener('click',e=>{const z=e.target.closest('button[data-stage-zoom]');if(z)toggleStageZoom(z);});
 // Double tap and pinch on the detail card, built on pointer events: iOS Safari sends no click to a plain element through
 // a document listener. A drag, a long press, two slow taps or two taps apart are not a double tap; a single tap does nothing.
 const DOUBLE_TAP_MS=350,TAP_SLOP=12,DOUBLE_TAP_SLOP=36;
 const activePointers=new Set(),cardPointers=new Map();let tapStart=null,lastTap=null,stagePinch=null;
 const pinchSpan=()=>{const [a,b]=[...cardPointers.values()];return {dist:Math.max(1,Math.hypot(a.x-b.x,a.y-b.y)),mid:{x:(a.x+b.x)/2,y:(a.y+b.y)/2}};};
-function beginPinch(card){const d=card.closest('dialog'),range=stageRange(d);if(!range)return;
- const r0=settledRect(card),base=parseFloat(card.style.getPropertyValue('--stage-scale'))||range.normal,{dist,mid}=pinchSpan();
+function beginPinch(card){const d=card.closest('dialog'),range=stageRange(d);if(!range)return;finishStageAnim();
+ const r0=card.getBoundingClientRect(),base=parseFloat(card.style.getPropertyValue('--stage-scale'))||range.normal,{dist,mid}=pinchSpan();
  stagePinch={card,d,r0,base,range,dist,mid,ids:[...cardPointers.keys()],r:1,tx:0,ty:0,at:mid};}
 function movePinch(){const p=stagePinch,{dist,mid}=pinchSpan();
  const s=Math.min(p.range.max*1.1,Math.max(p.range.normal*.85,p.base*dist/p.dist));p.r=s/p.base;
  p.tx=mid.x-p.r0.left-p.r*(p.mid.x-p.r0.left);p.ty=mid.y-p.r0.top-p.r*(p.mid.y-p.r0.top);p.at=mid;
  p.card.style.transformOrigin='0 0';p.card.style.transform=`translate(${p.tx}px,${p.ty}px) scale(${p.r})`;}
 function endPinch(){const p=stagePinch;stagePinch=null;if(!p.card.isConnected)return;
- const from={left:p.r0.left+p.tx,top:p.r0.top+p.ty,width:p.r0.width*p.r};p.card.style.transform='';p.card.style.transformOrigin='';
  const s=Math.min(p.range.max,Math.max(p.range.normal,p.base*p.r)),f={x:clamp01((p.mid.x-p.r0.left)/p.r0.width),y:clamp01((p.mid.y-p.r0.top)/p.r0.height)};
- placeStage(p.d,{zoom:s>p.range.normal*1.05,pinch:s,at:p.at,f});animateStage(p.card,from);}
+ zoomStage(p.d,{zoom:s>p.range.normal*1.05,pinch:s,at:p.at,f},p.card.style.transform||'none');}
 document.addEventListener('pointerdown',e=>{activePointers.add(e.pointerId);
  const card=e.target.closest?.('#card-dialog[open] .stage-card');
  if(card&&e.pointerType!=='mouse'){cardPointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(cardPointers.size===2&&!stagePinch)beginPinch(card);}

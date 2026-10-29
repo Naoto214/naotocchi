@@ -38,8 +38,9 @@ export function fitStageCard(dialog,doc=document){
  card.style.setProperty('--stage-scale',String(Number.isFinite(pinch)?Math.min(range.max,Math.max(range.normal,pinch)):stageScale(w,h,{zoom,portrait})));
  // The card always zooms (double tap). The portrait chip shows only where zoom widens the card to the stage width.
  const widens=Math.min(w/320,STAGE_MAX_SCALE)-stageScale(w,h,{portrait})>.05;card.toggleAttribute('data-zoomable',true);
- // Landscape: the card itself is the zoom control, so the chip stays hidden (portrait keeps it).
- const chip=dialog.querySelector('.stage-zoom');if(chip){chip.hidden=!(widens||zoom)||!portrait;chip.textContent=zoom?'－ 縮小':'＋ 拡大';}
+ // Landscape: the card itself is the zoom control, so the chip stays hidden (portrait keeps it). There is no
+ // "－ 縮小": while zoomed the chip is hidden and a double tap returns to normal.
+ const chip=dialog.querySelector('.stage-zoom');if(chip){chip.hidden=zoom||!widens||!portrait;chip.textContent='＋ 拡大';}
  // A cue when more of the card (stage) or more choices (band) lie below; it goes once scrolled to the end.
  for(const n of [scroll,dialog.querySelector('.stage-band')])if(n)n.toggleAttribute('data-more',n.scrollHeight-n.clientHeight-n.scrollTop>2);
 }

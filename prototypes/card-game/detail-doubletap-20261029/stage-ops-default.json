@@ -69,10 +69,10 @@
     "b": {
      "w": 405,
      "stage": 286,
-     "chip": "－ 縮小"
+     "chip": "＋ 拡大"
     },
     "c": 270,
-    "chipShown": true
+    "chipShown": false
    }
   },
   {
@@ -214,10 +214,10 @@
     "b": {
      "w": 534,
      "stage": 356,
-     "chip": "－ 縮小"
+     "chip": "＋ 拡大"
     },
     "c": 356,
-    "chipShown": true
+    "chipShown": false
    }
   },
   {
@@ -359,7 +359,7 @@
     "b": {
      "w": 442,
      "stage": 442,
-     "chip": "－ 縮小"
+     "chip": "＋ 拡大"
     },
     "c": 233.328125,
     "chipShown": false

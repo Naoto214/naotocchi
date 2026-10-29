@@ -49,8 +49,8 @@ for(const [w,h] of VPS){
   // カードのダブルタップで拡大（1回のタップでは拡大しない）
   if(await page.locator('#card-dialog .stage-card[data-zoomable]').count()){const portrait=w<h,a=await page.evaluate(()=>document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width);await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(350);
    const b=await page.evaluate(()=>({w:document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width,stage:document.querySelector('#card-dialog .stage-scroll').clientWidth,chip:document.querySelector('#card-dialog .stage-zoom').textContent}));
-   // 縦向きは拡大中に「－ 縮小」が出る、横向きはボタンなし（カードをもう一度ダブルタップして戻す）
-   const chipShown=await z.isVisible();if(chipShown)await z.click();else await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(350);const c=await page.evaluate(()=>document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width);zoomOk=b.w>a&&(portrait?chipShown&&/縮小/.test(b.chip):!chipShown)&&Math.abs(c-a)<1;zoomInfo={a,b,c,chipShown};}
+   // 拡大中は「－ 縮小」ボタンを出さない（縦横とも）。カードをもう一度ダブルタップして戻す
+   const chipShown=await z.isVisible();if(chipShown)await z.click();else await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(350);const c=await page.evaluate(()=>document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width);zoomOk=b.w>a&&!chipShown&&Math.abs(c-a)<1;zoomInfo={a,b,c,chipShown};}
   await page.evaluate(()=>{document.querySelector('#card-dialog .stage-scroll').scrollTop=9999;});
   await page.locator('#card-dialog [data-close]').tap();await page.waitForTimeout(200);const closed1=!(await page.locator('#card-dialog[open]').count());
   const other=await page.evaluate(()=>[...document.querySelectorAll('#hand [data-inspect]')].map(n=>n.dataset.inspect).find(x=>x.includes(':W-city:')));
