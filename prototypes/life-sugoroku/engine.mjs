@@ -54,7 +54,7 @@ function startMini(s){const kind=s.miniHistory.length%3;s.phase='mini';s.active=
 function miniScore(s,score){const m=s.pending;need(m.scores[s.active]===null);m.scores[s.active]=clamp(Math.round(score),0,100);m.attempt=null;if(s.active<3){s.active++;m.challenge=makeChallenge(s,m.kind);return;}const sorted=m.scores.map((score,id)=>({score,id})).sort((a,b)=>b.score-a.score);sorted.forEach((r,i)=>{r.rank=i&&r.score===sorted[i-1].score?sorted[i-1].rank:i+1;const p=s.players[r.id];const delta=reward(s,p,[4,2,1,0][r.rank-1],[8,5,3,1][r.rank-1]);log(s,p,'mini',`${MINI_NAMES[m.kind]}：${r.rank}位`,{score:r.score,delta});});s.miniHistory.push({round:s.round,kind:m.kind,results:sorted});s.phase='mini-result';s.pending={kind:m.kind,results:sorted};}
 export function dispatch(state,command){need(command&&command.revision===state.revision,'古い操作です。画面を更新してください');const s=copy(state),p=active(s),c=command;need(s.phase!=='done','対戦は終了しました');
  if(c.type==='roll-start'){need(s.phase==='turn');const dice=p.dieMode==='double'?[1+int(s,6),1+int(s,6)]:[1+int(s,p.dieMode==='slow'?3:6)];s.pending={dice,remaining:dice.reduce((a,b)=>a+b,0),path:[p.pos],staged:true};journeyPhase(s);}
- else if(c.type==='step'){need(s.phase==='moving'&&s.pending?.staged&&BOARD[p.pos].next.length===1);journeyStep(s,BOARD[p.pos].next[0]);}
+ else if(c.type==='step'){need(s.phase==='moving'&&s.pending?.staged&&BOARD[p.pos].next.length===1);journeyStep(s,BOARD[p.pos].next[0]);s.presentationSteps=(s.presentationSteps||0)+1;}
  else if(c.type==='roll'){need(s.phase==='turn');const dice=p.dieMode==='double'?[1+int(s,6),1+int(s,6)]:[1+int(s,p.dieMode==='slow'?3:6)];s.phase='moving';s.pending={dice,remaining:dice.reduce((a,b)=>a+b,0),path:[p.pos]};advance(s);}
  else if(c.type==='branch'){need(s.phase==='branch'&&BOARD[p.pos].next.includes(c.to));p.routes.push({round:s.round,region:BOARD[p.pos].region,branch:c.to%12===2?'left':'right'});if(s.pending.staged)journeyStep(s,c.to);else {p.pos=c.to;s.pending.path.push(c.to);s.pending.remaining--;s.phase='moving';advance(s);}}
  else if(c.type==='choose'){need(s.phase==='event');choose(s,c.index);}
@@ -70,10 +70,11 @@ export function dispatch(state,command){need(command&&command.revision===state.r
  else if(c.type==='mini-pass'){need(s.phase==='mini');miniScore(s,0);}
  else throw Error('未知の操作');s.revision++;return s;
 }
-function policyPick(s,n){let x=(s.seed^Math.imul(s.revision+1,0x9e3779b9)^Math.imul(s.active+1,0x85ebca6b))>>>0;x=Math.imul(x^(x>>>16),0x7feb352d);x=Math.imul(x^(x>>>15),0x846ca68b);return ((x^(x>>>16))>>>0)%n;}
+function policyPick(s,n){let x=(s.seed^Math.imul(s.revision-(s.presentationSteps||0)+1,0x9e3779b9)^Math.imul(s.active+1,0x85ebca6b))>>>0;x=Math.imul(x^(x>>>16),0x7feb352d);x=Math.imul(x^(x>>>15),0x846ca68b);return ((x^(x>>>16))>>>0)%n;}
 export function cpuAction(s){const p=active(s),revision=s.revision;const act=(type,rest={})=>({type,revision,...rest});if(s.phase==='turn'){
  const normal=p.difficulty==='normal';if(!p.used){const id=p.items.find(id=>id==='clock'?s.rewind&&p.stage>=4&&s.round<=s.rounds-3:id==='charm'?!p.charm:id==='seed'?p.sodachi<=97:true);if(id)return act('item',{id});}
  if(!p.bought&&p.items.length<3&&p.money>=10){const choice=normal?(p.money>=20&&p.sodachi<90?'seed':p.money>=15&&s.rewind&&p.stage>=4&&s.round<s.rounds-4?'clock':'box'):Object.keys(ITEMS).filter(id=>ITEMS[id].price<=p.money&&(id!=='clock'||s.rewind))[policyPick(s,Object.keys(ITEMS).filter(id=>ITEMS[id].price<=p.money&&(id!=='clock'||s.rewind)).length)];if(p.money>=ITEMS[choice].price)return act('buy',{id:choice});}return act('roll');}
+ if(s.phase==='moving')return act('step');
  if(s.phase==='branch'){const opts=BOARD[p.pos].next;const value=n=>({plus:3,event:4,minus:-3,social:4,item:2,fate:3,facility:3}[BOARD[n].type]);return act('branch',{to:p.difficulty==='easy'?opts[policyPick(s,opts.length)]:[...opts].sort((a,b)=>value(b)-value(a)||((s.round+p.id)%2?b-a:a-b))[0]});}
  if(s.phase==='event'){const e=EVENTS.find(e=>e.id===s.pending.eventId);const index=p.difficulty==='easy'?policyPick(s,e.choices.length):e.choices.reduce((best,c,i)=>c.sodachi*3+c.money/5+(c.evolve&&p.stage<8?1:0)>e.choices[best].sodachi*3+e.choices[best].money/5+(e.choices[best].evolve&&p.stage<8?1:0)?i:best,0);return act('choose',{index});}
  if(s.phase==='redo')return s.pending.candidates.length?act('redo',{id:s.pending.candidates[0].eventId}):act('skip-redo');
@@ -84,6 +85,7 @@ export function restore(raw){need(typeof raw==='string'&&raw.length<3000000,'セ
 export function album(s){need(s.phase==='done');return {id:s.id,seed:s.seed,rounds:s.rounds,players:rank(s).map(p=>({id:p.id,character:p.character,rank:p.rank,sodachi:p.sodachi,money:p.money,stage:p.stage,title:p.history.some(h=>h.type==='rewind')?'時を旅したひと':p.history.filter(h=>h.category==='friend').length>=2?'出会いをつないだひと':p.history.some(h=>h.category==='adventure')?'まだ見ぬ道の旅人':'小さな日々の発見者',history:p.history}))};}
 
 function validateSnapshot(s){
+ need(s.presentationSteps===undefined||(Number.isInteger(s.presentationSteps)&&s.presentationSteps>=0&&s.presentationSteps<=s.revision));
  const integer=(v,a,b)=>Number.isInteger(v)&&v>=a&&v<=b;
  const cells=v=>Array.isArray(v)&&v.length===9&&v.every(x=>x===0||x===1);
  for(const p of s.players){
