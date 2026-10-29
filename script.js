@@ -17141,8 +17141,6 @@
     const isGreat = clampedScore >= 70;
     const isBad = clampedScore < 30;
     const isQuick = game.id === 'quick-run' || game.id === 'quick-solo';
-    state.minigameScoreSum += rawScore;
-    state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
     if (isQuick) {
       // 混合の実点100は20/20。ソロ・未完走には支払わず、装備や環境も掛けない。
@@ -17161,6 +17159,10 @@
       render();
       return;
     }
+    // うでまえの へいきん(avgSkill。れんくんの こうほ条件)は ふつうの ゲームだけで かぞえる。
+    // クイックは みじかい あそびなので いれない(すでに たまっている あたいは そのまま)
+    state.minigameScoreSum += rawScore;
+    state.minigameCount += 1;
     individualGameResult(game,rawScore,individualGameLifeId);
     minigameResultSpeechHold = [];
     const fromCompanion = !!pendingCompanionId;

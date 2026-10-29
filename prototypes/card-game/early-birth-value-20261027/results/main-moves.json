@@ -1,0 +1,195 @@
+{
+ "by_strategy": {
+  "A_early": {
+   "seats": 280,
+   "births": 1,
+   "time_skips": 1.77,
+   "transforms": 0.21,
+   "skip_jump_dist": {
+    "1": 264,
+    "2": 147,
+    "3": 70,
+    "4": 11,
+    "5": 3,
+    "6": 1
+   },
+   "skip_jump_mean": 1.68,
+   "first_stage_mean": 1.62,
+   "final_stage_mean": 4.94,
+   "main_ability_mean": 1.49,
+   "never_skipped_share": 0.039
+  },
+  "B_wait3": {
+   "seats": 280,
+   "births": 1,
+   "time_skips": 1.13,
+   "transforms": 0.17,
+   "skip_jump_dist": {
+    "1": 194,
+    "2": 82,
+    "3": 33,
+    "4": 8
+   },
+   "skip_jump_mean": 1.54,
+   "first_stage_mean": 2.94,
+   "final_stage_mean": 4.93,
+   "main_ability_mean": 0.88,
+   "never_skipped_share": 0.161
+  },
+  "C_late7": {
+   "seats": 280,
+   "births": 1,
+   "time_skips": 0.19,
+   "transforms": 0.04,
+   "skip_jump_dist": {
+    "1": 47,
+    "2": 5,
+    "3": 2
+   },
+   "skip_jump_mean": 1.17,
+   "first_stage_mean": 4.66,
+   "final_stage_mean": 4.9,
+   "main_ability_mean": 0.31,
+   "never_skipped_share": 0.821
+  },
+  "D_never": {
+   "seats": 280,
+   "births": 0,
+   "time_skips": 0,
+   "transforms": 0,
+   "skip_jump_dist": {},
+   "skip_jump_mean": null,
+   "first_stage_mean": null,
+   "final_stage_mean": null,
+   "main_ability_mean": 0,
+   "never_skipped_share": 0.0
+  }
+ },
+ "by_deck": {
+  "balance": {
+   "seats": 80,
+   "births": 1,
+   "time_skips": 2.02,
+   "transforms": 0,
+   "skip_jump_dist": {
+    "1": 89,
+    "2": 44,
+    "3": 29
+   },
+   "skip_jump_mean": 1.63,
+   "first_stage_mean": 1.69,
+   "final_stage_mean": 4.99,
+   "main_ability_mean": 0.59,
+   "never_skipped_share": 0.0
+  },
+  "challenge": {
+   "seats": 80,
+   "births": 1,
+   "time_skips": 1.61,
+   "transforms": 0.45,
+   "skip_jump_dist": {
+    "1": 49,
+    "2": 53,
+    "3": 25,
+    "4": 1,
+    "5": 1
+   },
+   "skip_jump_mean": 1.85,
+   "first_stage_mean": 1.45,
+   "final_stage_mean": 5.22,
+   "main_ability_mean": 2.29,
+   "never_skipped_share": 0.1
+  },
+  "companion": {
+   "seats": 80,
+   "births": 1,
+   "time_skips": 1.94,
+   "transforms": 0,
+   "skip_jump_dist": {
+    "1": 93,
+    "2": 32,
+    "3": 30
+   },
+   "skip_jump_mean": 1.59,
+   "first_stage_mean": 1.62,
+   "final_stage_mean": 4.71,
+   "main_ability_mean": 0.53,
+   "never_skipped_share": 0.013
+  },
+  "growth": {
+   "seats": 80,
+   "births": 1,
+   "time_skips": 1.26,
+   "transforms": 0,
+   "skip_jump_dist": {
+    "1": 61,
+    "2": 23,
+    "3": 17
+   },
+   "skip_jump_mean": 1.56,
+   "first_stage_mean": 1.8,
+   "final_stage_mean": 3.77,
+   "main_ability_mean": 2.35,
+   "never_skipped_share": 0.087
+  },
+  "item": {
+   "seats": 80,
+   "births": 1,
+   "time_skips": 1.71,
+   "transforms": 0,
+   "skip_jump_dist": {
+    "1": 67,
+    "2": 31,
+    "3": 26,
+    "4": 13
+   },
+   "skip_jump_mean": 1.89,
+   "first_stage_mean": 1.61,
+   "final_stage_mean": 4.85,
+   "main_ability_mean": 0.24,
+   "never_skipped_share": 0.0
+  },
+  "main": {
+   "seats": 80,
+   "births": 1,
+   "time_skips": 1.79,
+   "transforms": 1.1,
+   "skip_jump_dist": {
+    "1": 59,
+    "2": 53,
+    "3": 24,
+    "4": 3,
+    "5": 3,
+    "6": 1
+   },
+   "skip_jump_mean": 1.89,
+   "first_stage_mean": 1.26,
+   "final_stage_mean": 5.95,
+   "main_ability_mean": 2.14,
+   "never_skipped_share": 0.05
+  },
+  "partner": {
+   "seats": 80,
+   "births": 1,
+   "time_skips": 1.61,
+   "transforms": 0,
+   "skip_jump_dist": {
+    "1": 64,
+    "2": 38,
+    "3": 23,
+    "4": 4
+   },
+   "skip_jump_mean": 1.74,
+   "first_stage_mean": 1.77,
+   "final_stage_mean": 4.59,
+   "main_ability_mean": 1.96,
+   "never_skipped_share": 0.062
+  }
+ },
+ "double_time_skip": {
+  "seats": 560,
+  "seats_with_double_skip_turn": 17,
+  "skip_turns": 939,
+  "double_skip_turns": 17
+ }
+}

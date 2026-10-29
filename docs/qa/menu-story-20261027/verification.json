@@ -1,0 +1,41 @@
+{
+  "existing_menu_entries_byte_identical": 10,
+  "reader_html_only_change": "optional navigation script tag",
+  "unchanged": [
+    "reader prose",
+    "reader CSS",
+    "reader JS",
+    "script.js",
+    "games.js",
+    "quick.js"
+  ],
+  "widths": [
+    320,
+    375,
+    390,
+    430
+  ],
+  "horizontal_overflow": false,
+  "story_colors": [
+    "#FCFBF9",
+    "#414C50",
+    "#D8D8D2"
+  ],
+  "story_height_px": 112,
+  "small_screen_bottom_reachable": true,
+  "reader_roundtrip": {
+    "before": {
+      "paragraph": "86",
+      "y": 6599,
+      "top": 146.09375
+    },
+    "cover_y": 0,
+    "after": {
+      "paragraph": "86",
+      "y": 6599,
+      "top": 146.09375
+    }
+  },
+  "browser": "Chromium; iframe width layout checks, top-level native-click reading persistence",
+  "safari_device": "awaiting owner QA"
+}
