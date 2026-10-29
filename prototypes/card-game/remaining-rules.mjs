@@ -47,7 +47,8 @@ Object.assign(REMAINING_RULES,{
  'G-stack-harvest':quick([{op:'schedule',timing:'start',steps:[{op:'forSelected',key:'prepared',steps:[iff('targetPreparedPresent',[draw()])]}]}],{condition:{world:'W-countryside'},select:[{key:'prepared',zone:'ownPrepared',count:2}]}),
  'G-stack-snowman':quick([{op:'schedule',timing:'start',steps:[iff('selectedPreparedPresent',[growth(10)])]}],{select:[{key:'prepared',zone:'ownPrepared',count:2}]}),
  'G-street-fight':quick([iff({variant:'パンチ'},[stat(1,0)]),iff({variant:'キック'},[stat(3,0)]),iff({variant:'ガード'},[stat(0,2)])],{target:'ownMain',variants:['パンチ','キック','ガード'],variantRules:{'キック':{select:[pay('ownHand',{},1,'discard')]}}}),
- 'G-takoyaki-grill':{mode:'trap',triggers:[{when:'end',target:'ownPrepared',steps:[{op:'schedule',timing:'start',steps:[iff('targetPreparedPresent',[draw(),growth(5)])]}]}]},
+ // 87接続・88 X06：発動中のたこやき自身は対象にできない（hotseat-5）。旧保存（hotseat-2〜4）は旧挙動（index 0）のまま再生する。
+ 'G-takoyaki-grill':{mode:'trap',triggers:[['ownPrepared',['hotseat-2','hotseat-3','hotseat-4']],['ownPreparedOther',['hotseat-5']]].map(([target,onlyVersions])=>({when:'end',onlyVersions,target,steps:[{op:'schedule',timing:'start',steps:[iff('targetPreparedPresent',[draw(),growth(5)])]}]}))},
  'G-tennis-rally':quick([stat(1,1,'challenge'),afterChallenge([draw()])],{condition:'bothPlayedInChallenge',target:'ownMain'}),
  'G-tower-defense':{mode:'trap',triggers:[{when:'activation',opponent:true,condition:'eventRemovesOwnPrepared',steps:[{op:'protect',scope:'ownPrepared',to:['discard','hand'],replace:'stay',count:2}]}]},
  'I-c_dex':quick([{op:'setFromHand',excludeSpecies:'M-ren'}],{target:'ownMain'}),

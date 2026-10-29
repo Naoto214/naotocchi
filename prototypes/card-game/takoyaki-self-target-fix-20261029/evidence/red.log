@@ -1,0 +1,199 @@
+TAP version 13
+# Subtest: 正式本文・時1・しかけるは不変
+ok 1 - 正式本文・時1・しかけるは不変
+  ---
+  duration_ms: 1.468496
+  type: 'test'
+  ...
+# Subtest: ターン終了時の誘発で、たこやき自身は対象の候補に出ない（ほかの準備枠の札は出る）
+not ok 2 - ターン終了時の誘発で、たこやき自身は対象の候補に出ない（ほかの準備枠の札は出る）
+  ---
+  duration_ms: 8.5878
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:29:1'
+  failureType: 'testCodeFailure'
+  error: '自分自身は候補に出ない'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:31:42)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: 準備枠にほかの札が複数あれば、そのすべてを選べる（伏せ札・装備とも）
+not ok 3 - 準備枠にほかの札が複数あれば、そのすべてを選べる（伏せ札・装備とも）
+  ---
+  duration_ms: 2.613631
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:33:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        'A:G-animal-shogi:3',
+        'A:I-c_coin2:3',
+    +   'A:M-antlion-01:1'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'A:G-animal-shogi:3'
+    1: 'A:I-c_coin2:3'
+  actual:
+    0: 'A:G-animal-shogi:3'
+    1: 'A:I-c_coin2:3'
+    2: 'A:M-antlion-01:1'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:35:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 準備枠がたこやきだけなら対象がなく、発動できない（見送りだけ）
+not ok 4 - 準備枠がたこやきだけなら対象がなく、発動できない（見送りだけ）
+  ---
+  duration_ms: 1.751149
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:37:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    発動の選択肢なし
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:39:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: ほかの札を対象にした時：発動でたこやきは発動領域→捨て札、次の自分のターン開始に対象が残っていれば1枚引き+5
+ok 5 - ほかの札を対象にした時：発動でたこやきは発動領域→捨て札、次の自分のターン開始に対象が残っていれば1枚引き+5
+  ---
+  duration_ms: 11.144896
+  type: 'test'
+  ...
+# Subtest: 対象が次の開始までに準備枠を離れたら（相手の効果で手札へ）、何も起きない
+ok 6 - 対象が次の開始までに準備枠を離れたら（相手の効果で手札へ）、何も起きない
+  ---
+  duration_ms: 12.168312
+  type: 'test'
+  ...
+# Subtest: 対象は発動時に確定し、発動の応答中に変わらない（応答後の解決でも同じ対象）
+ok 7 - 対象は発動時に確定し、発動の応答中に変わらない（応答後の解決でも同じ対象）
+  ---
+  duration_ms: 4.128046
+  type: 'test'
+  ...
+# Subtest: 共通の対象種別 ownPrepared（ほかのカードが使う）は変わらず、準備枠のすべての札を返す
+ok 8 - 共通の対象種別 ownPrepared（ほかのカードが使う）は変わらず、準備枠のすべての札を返す
+  ---
+  duration_ms: 0.41884
+  type: 'test'
+  ...
+# Subtest: 新規対戦は hotseat-5。旧版 hotseat-2〜4 を指定した対戦では、旧挙動（自分自身も選べる）のまま
+not ok 9 - 新規対戦は hotseat-5。旧版 hotseat-2〜4 を指定した対戦では、旧挙動（自分自身も選べる）のまま
+  ---
+  duration_ms: 0.592588
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:65:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'hotseat-4'
+    - 'hotseat-5'
+               ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'hotseat-5'
+  actual: 'hotseat-4'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:66:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 旧保存（hotseat-4、修正前エンジンで作成、たこやき自身を対象にした操作を含む）は旧挙動のまま完全に再生される
+ok 10 - 旧保存（hotseat-4、修正前エンジンで作成、たこやき自身を対象にした操作を含む）は旧挙動のまま完全に再生される
+  ---
+  duration_ms: 3195.973142
+  type: 'test'
+  ...
+# Subtest: 自分自身を対象にした旧保存を新しい版（hotseat-5）として読ませると拒否される（無条件に変換しない）
+ok 11 - 自分自身を対象にした旧保存を新しい版（hotseat-5）として読ませると拒否される（無条件に変換しない）
+  ---
+  duration_ms: 0.55881
+  type: 'test'
+  ...
+# Subtest: 旧保存の途中（たこやき誘発の直前）から復帰して続けても同じ結果
+ok 12 - 旧保存の途中（たこやき誘発の直前）から復帰して続けても同じ結果
+  ---
+  duration_ms: 513.471469
+  type: 'test'
+  ...
+# Subtest: CPU（初級・中級）は新しい版でたこやき自身を対象にせず、対戦は最後まで進み、保存→復帰も一致
+not ok 13 - CPU（初級・中級）は新しい版でたこやき自身を対象にせず、対戦は最後まで進み、保存→復帰も一致
+  ---
+  duration_ms: 19.131172
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:89:1'
+  failureType: 'testCodeFailure'
+  error: '自分自身を対象にしない'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'B:G-takoyaki-grill:3'
+  actual: 'B:G-takoyaki-grill:3'
+  operator: 'notStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/takoyaki-self-target.test.mjs:92:80)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: CPU対戦セッション（CpuSession）の保存→復帰も新しい版で一致
+ok 14 - CPU対戦セッション（CpuSession）の保存→復帰も新しい版で一致
+  ---
+  duration_ms: 2.485142
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 9
+# fail 5
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3896.225596
