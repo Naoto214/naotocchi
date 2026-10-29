@@ -9,13 +9,13 @@ import {HotseatSession} from './ui-session.mjs';
 import {CpuSession,restoreMatch} from './cpu-session.mjs';
 import {CPU_DECKS,resolveCpuDeck,cpuDeck} from './cpu-decks.mjs';
 import {CpuScheduler} from './cpu-scheduler.mjs';
-import {eggDetailMarkup,cardActions,cardMarkup,gameMarkup,detailMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
+import {eggDetailMarkup,cardActions,cardMarkup,gameMarkup,cardStageMarkup,workflowMarkup,confirmationMarkup,handoffMessage,resultNoticeMarkup,resultHistoryMarkup,canInspectCard,zoneMarkup,escapeHTML as h} from './ui-presentation.mjs';
 import {HandOrder} from './ui-hand.mjs';
 import {mountHandDrag} from './ui-drag.mjs';
 import {visibleCards} from './ui-context.mjs';
 import {ResultFeedback} from './ui-result-feedback.mjs';
 import {updateGameDOM,TurnFeedback,installActionInputGuard} from './ui-render.mjs';
-import {installViewport} from './ui-viewport.mjs';
+import {installViewport,watchStage,fitStageCard} from './ui-viewport.mjs';
 import {installArtFallback,fitMainCardCopy} from './ui-art-loading.mjs';
 installArtFallback();
 installViewport();
@@ -91,11 +91,10 @@ function inspect(id,{catalog=false,origin=null,readOnly=false}={}){
  const v=session.active?session.projection:null,c=catalog?CARDS[id]:(visibleCards(v).find(c=>c.id===id&&!c.hidden)??visibleCards(v).find(c=>c.id===id));
  if(!c||(!catalog&&!readOnly&&!canInspectCard(v,session.viewer,c)))return;closeDialogs({focus:false});dialogOrigin=origin;
  if(!catalog&&!readOnly){selected=c.id;highlight();}
- const hand=!catalog&&session.viewer?handOrder.arrange(session.viewer,v.players[session.viewer].hand):[],index=hand.findIndex(x=>x.id===c.id);
- const d=$('card-dialog');d.classList.remove('workflow-dialog');d.classList.add('card-detail');d.innerHTML=detailMarkup(c,{v,viewer:session.viewer,catalog,readOnly,handPosition:index<0?null:{index,total:hand.length}});
+ const d=$('card-dialog');d.classList.remove('workflow-dialog');d.classList.add('card-detail');delete d.dataset.stageZoom;d.innerHTML=cardStageMarkup(c,{v,viewer:session.viewer,catalog,readOnly});
 
  if(readOnly&&zone&&seat){const back=button('一覧へ',()=>showZone(seat,zone,null));d.querySelector('.detail-toolbar').prepend(back);}
- d.showModal();input.stamp();d.querySelector('[data-close]').focus();
+ d.showModal();input.stamp();d.querySelector('[data-close]').focus();watchStage(d);
  const face=d.querySelector('.main-face');
  document.fonts.ready.then(()=>{if(d.open&&face?.isConnected&&d.contains(face))fitMainCardCopy(face);});
 }
@@ -122,6 +121,10 @@ function showZone(seat,zone,origin){
  const html=zoneMarkup(v,seat,zone);if(!html)return;closeDialogs({focus:false});dialogOrigin=origin;
  const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.dataset.browseSeat=seat;d.dataset.browseZone=zone;d.innerHTML=html;d.showModal();input.stamp();d.querySelector('[data-close]').focus();
 }
+// Tapping the large card in the detail switches between the whole card and the width-filling zoom.
+function toggleStageZoom(z){const d=z.closest('dialog'),card=d?.querySelector('.stage-card');if(!card||!card.hasAttribute('data-zoomable')&&d.dataset.stageZoom!=='1')return;if(d.dataset.stageZoom==='1')delete d.dataset.stageZoom;else d.dataset.stageZoom='1';fitStageCard(d);d.querySelector('.stage-scroll').scrollTop=0;}
+document.addEventListener('click',e=>{const z=e.target.closest('[data-stage-zoom]');if(z)toggleStageZoom(z);});
+document.addEventListener('keydown',e=>{const z=e.target.closest?.('div[data-stage-zoom]');if(z&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleStageZoom(z);}});
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b||b.disabled)return;
  if(b.hasAttribute('data-result-collapse')){feedback.collapse();document.querySelector('[data-result-reopen]')?.focus({preventScroll:true});return;}

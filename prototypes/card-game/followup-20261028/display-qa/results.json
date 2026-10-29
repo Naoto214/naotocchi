@@ -1,0 +1,4874 @@
+[
+ {
+  "id": "M-cicada-08",
+  "name": "セミ⑧",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-frog-06",
+  "name": "かえる⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-ghost-07",
+  "name": "おばけ⑦",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-08",
+  "name": "かみさま⑧",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-man-07",
+  "name": "おとこのひと⑦",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-05",
+  "name": "キノコ⑤",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-07",
+  "name": "キノコ⑦",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-phoenix-05",
+  "name": "フェニックス⑤",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-08",
+  "name": "サクラ⑧",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-06",
+  "name": "おんなのひと⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-world_tree-07",
+  "name": "世界樹⑦",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "collection",
+  "tag": "320x568",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 79,
+   "copyScroll": 79,
+   "clipped": false,
+   "fontPx": 6.51,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 230
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 213,
+   "scrollH": 213,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-cicada-08",
+  "name": "セミ⑧",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-frog-06",
+  "name": "かえる⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-ghost-07",
+  "name": "おばけ⑦",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-08",
+  "name": "かみさま⑧",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-man-07",
+  "name": "おとこのひと⑦",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-05",
+  "name": "キノコ⑤",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-07",
+  "name": "キノコ⑦",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-phoenix-05",
+  "name": "フェニックス⑤",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-08",
+  "name": "サクラ⑧",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-06",
+  "name": "おんなのひと⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-world_tree-07",
+  "name": "世界樹⑦",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 320,
+  "height": 568,
+  "screen": "match-dialog",
+  "tag": "320x568",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 121
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 42,
+   "effectScroll": 215,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-cicada-08",
+  "name": "セミ⑧",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-frog-06",
+  "name": "かえる⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-ghost-07",
+  "name": "おばけ⑦",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-08",
+  "name": "かみさま⑧",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-man-07",
+  "name": "おとこのひと⑦",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-05",
+  "name": "キノコ⑤",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-07",
+  "name": "キノコ⑦",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-phoenix-05",
+  "name": "フェニックス⑤",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-08",
+  "name": "サクラ⑧",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-06",
+  "name": "おんなのひと⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-world_tree-07",
+  "name": "世界樹⑦",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "collection",
+  "tag": "375x667",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 93,
+   "copyScroll": 93,
+   "clipped": false,
+   "fontPx": 7.64,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 270
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 186,
+   "scrollH": 186,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-cicada-08",
+  "name": "セミ⑧",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 148,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-frog-06",
+  "name": "かえる⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 148,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-ghost-07",
+  "name": "おばけ⑦",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-08",
+  "name": "かみさま⑧",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-man-07",
+  "name": "おとこのひと⑦",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-05",
+  "name": "キノコ⑤",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 148,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-07",
+  "name": "キノコ⑦",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 148,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-phoenix-05",
+  "name": "フェニックス⑤",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-08",
+  "name": "サクラ⑧",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-06",
+  "name": "おんなのひと⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-world_tree-07",
+  "name": "世界樹⑦",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 170,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 375,
+  "height": 667,
+  "screen": "match-dialog",
+  "tag": "375x667",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 102,
+   "effectScroll": 193,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-cicada-08",
+  "name": "セミ⑧",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-frog-06",
+  "name": "かえる⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-ghost-07",
+  "name": "おばけ⑦",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-08",
+  "name": "かみさま⑧",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-man-07",
+  "name": "おとこのひと⑦",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-05",
+  "name": "キノコ⑤",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-07",
+  "name": "キノコ⑦",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-phoenix-05",
+  "name": "フェニックス⑤",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-08",
+  "name": "サクラ⑧",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-06",
+  "name": "おんなのひと⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-world_tree-07",
+  "name": "世界樹⑦",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "collection",
+  "tag": "390x844",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 97,
+   "copyScroll": 97,
+   "clipped": false,
+   "fontPx": 7.95,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 281
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-cicada-08",
+  "name": "セミ⑧",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-frog-06",
+  "name": "かえる⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-ghost-07",
+  "name": "おばけ⑦",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-08",
+  "name": "かみさま⑧",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-man-07",
+  "name": "おとこのひと⑦",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-05",
+  "name": "キノコ⑤",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-07",
+  "name": "キノコ⑦",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-phoenix-05",
+  "name": "フェニックス⑤",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-08",
+  "name": "サクラ⑧",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-06",
+  "name": "おんなのひと⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-world_tree-07",
+  "name": "世界樹⑦",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 390,
+  "height": 844,
+  "screen": "match-dialog",
+  "tag": "390x844",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 279,
+   "effectScroll": 279,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-cicada-08",
+  "name": "セミ⑧",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-frog-06",
+  "name": "かえる⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-ghost-07",
+  "name": "おばけ⑦",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-08",
+  "name": "かみさま⑧",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-man-07",
+  "name": "おとこのひと⑦",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-05",
+  "name": "キノコ⑤",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-07",
+  "name": "キノコ⑦",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-phoenix-05",
+  "name": "フェニックス⑤",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-08",
+  "name": "サクラ⑧",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-06",
+  "name": "おんなのひと⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-world_tree-07",
+  "name": "世界樹⑦",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "collection",
+  "tag": "430x932",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 100,
+   "copyScroll": 100,
+   "clipped": false,
+   "fontPx": 8.21,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 290
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 160,
+   "scrollH": 160,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-cicada-08",
+  "name": "セミ⑧",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-dragon-04",
+  "name": "りゅう④",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-frog-06",
+  "name": "かえる⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-ghost-07",
+  "name": "おばけ⑦",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-03",
+  "name": "かみさま③",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-06",
+  "name": "かみさま⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-god-08",
+  "name": "かみさま⑧",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-man-07",
+  "name": "おとこのひと⑦",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-05",
+  "name": "キノコ⑤",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-07",
+  "name": "キノコ⑦",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-mushroom-08",
+  "name": "キノコ⑧",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-phoenix-05",
+  "name": "フェニックス⑤",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-08",
+  "name": "サクラ⑧",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-01",
+  "name": "おんなのひと①",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-06",
+  "name": "おんなのひと⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-world_tree-07",
+  "name": "世界樹⑦",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 430,
+  "height": 932,
+  "screen": "match-dialog",
+  "tag": "430x932",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 144
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 367,
+   "effectScroll": 367,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 844,
+  "height": 390,
+  "screen": "collection",
+  "tag": "landscape-844x390",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 83,
+   "copyScroll": 83,
+   "clipped": false,
+   "fontPx": 6.78,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 240
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 106,
+   "scrollH": 106,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 844,
+  "height": 390,
+  "screen": "collection",
+  "tag": "landscape-844x390",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 83,
+   "copyScroll": 83,
+   "clipped": false,
+   "fontPx": 6.78,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 240
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 106,
+   "scrollH": 106,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 844,
+  "height": 390,
+  "screen": "collection",
+  "tag": "landscape-844x390",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 83,
+   "copyScroll": 83,
+   "clipped": false,
+   "fontPx": 6.78,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 240
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 106,
+   "scrollH": 106,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 844,
+  "height": 390,
+  "screen": "collection",
+  "tag": "landscape-844x390",
+  "gridVisible": true,
+  "grid": {
+   "titleClipped": false
+  },
+  "face": {
+   "copyClient": 83,
+   "copyScroll": 83,
+   "clipped": false,
+   "fontPx": 6.78,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 240
+  },
+  "panel": {
+   "textMatchesCatalog": true,
+   "visibleInViewport": true,
+   "clientH": 133,
+   "scrollH": 133,
+   "overflowY": "visible",
+   "fontPx": 14
+  },
+  "errors": []
+ },
+ {
+  "id": "M-coral-06",
+  "name": "サンゴ⑥",
+  "width": 844,
+  "height": 390,
+  "screen": "match-dialog",
+  "tag": "landscape-844x390",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 200
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 52,
+   "effectScroll": 126,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-stagbeetle-06",
+  "name": "クワガタムシ⑥",
+  "width": 844,
+  "height": 390,
+  "screen": "match-dialog",
+  "tag": "landscape-844x390",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 200
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 52,
+   "effectScroll": 126,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-woman-02",
+  "name": "おんなのひと②",
+  "width": 844,
+  "height": 390,
+  "screen": "match-dialog",
+  "tag": "landscape-844x390",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": false,
+   "faceW": 200
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 52,
+   "effectScroll": 126,
+   "overflowY": "auto"
+  },
+  "errors": []
+ },
+ {
+  "id": "M-sakura-06",
+  "name": "サクラ⑥",
+  "width": 844,
+  "height": 390,
+  "screen": "match-dialog",
+  "tag": "landscape-844x390",
+  "handButton": true,
+  "dialogOpen": true,
+  "face": {
+   "copyClient": 111,
+   "copyScroll": 111,
+   "clipped": false,
+   "fontPx": 9.06,
+   "inlineSize": "3.1cqw",
+   "longCopy": true,
+   "faceW": 200
+  },
+  "panel": {
+   "containsCatalogText": true,
+   "dialogScrollable": false,
+   "effectBottomWithinDialog": true,
+   "effectClient": 52,
+   "effectScroll": 126,
+   "overflowY": "auto"
+  },
+  "errors": []
+ }
+]
