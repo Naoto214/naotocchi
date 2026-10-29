@@ -5,6 +5,7 @@ Existing PR implementation retained. Merged remote main `f1d3d6b99d658beec71480a
 ## Corrections in this handoff
 
 - Short viewport CSS retains 15px titles, 12px descriptions, 24px icons and >=44px targets. At 480px height with simulated 47px top / 34px bottom safe areas, all cards are 53px tall and all six rows fit.
+- Browser Back dismisses the prepared dialog before the underlying menu and restores the menu history layer (runtime regression added).
 - Native prepared dialog stops Escape propagation to the existing global overlay closer. Native cancellation closes only this dialog, leaving the menu available.
 - Menu regression test added to `npm test`; runtime publication source hashes and CSS cache token refreshed.
 
@@ -41,7 +42,7 @@ The original matrix without the additional reservation also passed at these widt
 |CARD GAME|Existing game title, match preparation, CPU mode and 40/40 deck loaded|
 |ものがたり|Reader opened with six chapters and signature; game return restored the home|
 
-Menu entry/startup tests are not full playthroughs. Games, reader text, signature and save code were not edited. Preview uses a different origin and does not access the production save. Existing time-pause, overlay, UI, story navigation and asset version regressions pass (33 tests total including menu tests). Pages packager unit tests: 16 pass.
+Menu entry/startup tests are not full playthroughs. Games, reader text, signature and save code were not edited. Preview uses a different origin and does not access the production save. Existing time-pause, overlay, UI, story navigation and asset version regressions pass (45 tests total including navigation/accessibility including menu tests). Pages packager unit tests: 16 pass.
 
 Naokoro: requested title/two lines/close button rendered; three open-close cycles restored menu; attempted background Story tap did not navigate, dialog remained `:modal`; close and Escape both restore menu. No external trial URL or game implementation linked.
 
