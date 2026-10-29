@@ -80,7 +80,7 @@
 </script>
   <link rel="stylesheet" href="style.css?v=20261025-73ffede8">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20261028-788ecc03">
+  <link rel="stylesheet" href="ui.css?v=20261029-192894d5">
   <link rel="stylesheet" href="design.css?v=20260929-ae1c4ad1">
   <link rel="stylesheet" href="egg-hatching.css?v=20260929-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260929-6a3b29a4">
@@ -464,17 +464,24 @@
           <div class="menu-grid">
             <button type="button" id="worldBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i></span><span class="menu-label">せかい</span></span><small><span>じかん・</span><span>てんき・</span><span>きせつ</span></small></button>
             <button type="button" id="itemBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i></span><span class="menu-label">あいてむ</span></span><small><span>もちもの・</span><span>おみせ</span></small></button>
+            <button type="button" id="dexBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i></span><span class="menu-label">ずかん</span></span><small>であったすがた</small></button>
+            <button type="button" id="achBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i></span><span class="menu-label">じっせき</span></span><small><span>できたこと・</span><span>おもいで</span></small></button>
+            <button type="button" id="stickerBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="star_badge" aria-hidden="true"></i></span><span class="menu-label">シール<wbr>ちょう</span></span><small><span>あつめて・</span><span>はる</span></small></button>
+            <button type="button" id="themeBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i></span><span class="menu-label">でざいん</span></span><small><span>透明度・</span><span>もじ</span></small></button>
             <button type="button" id="gamesBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i></span><span class="menu-label">ゲームを<wbr>えらぶ</span></span><small>きろくからあそぶ</small></button>
             <button type="button" id="quickBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><span class="menu-emoji" aria-hidden="true">⚡</span></span><span class="menu-label">クイック</span></span><small>げんき消費なし</small></button>
             <a class="independent-game" href="prototypes/naopoyo/"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><svg class="naopoyo-menu-icon" aria-hidden="true" width="56" height="40" viewBox="0 0 56 40"><rect x="1" y="1" width="54" height="38" rx="15" fill="#fff8e7"/><path d="M30 34V18a12 12 0 0 1 24 0v16Z" fill="#a2d5b6"/><path d="M34 32V18a8 8 0 0 1 16 0v14Z" fill="#315e62"/><path d="m42 10 2.5 6 6.5.5-5 4.5 1.5 6.5-5.5-3.5-5.5 3.5L38 21l-5-4.5 6.5-.5Z" fill="#ffe398" stroke="#8e753c" stroke-width=".65"/><path d="M30 34h24" stroke="#e9ecc4" stroke-width="2"/><svg x="2" y="5" width="31" height="32" viewBox="25 38 77 84"><image href="assets/characters/dog/02.png" width="128" height="128"/></svg></svg></span><span class="menu-label">なおぽよ。</span></span><small>合体・分裂で救出！</small></a>
+            <button type="button" id="naokoroBtn" class="naokoro-entry" onclick="document.getElementById('naokoroDialog').showModal()"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><span>🎲</span></span><span class="menu-label">なおころ。</span></span><small>ころがる人生すごろく</small></button>
             <a class="independent-game" href="prototypes/card-game/"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><span aria-hidden="true">▣</span></span><span class="menu-label">CARD GAME</span></span><small>同一端末2人対戦</small></a>
-            <button type="button" id="dexBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i></span><span class="menu-label">ずかん</span></span><small>であったすがた</small></button>
-            <button type="button" id="achBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i></span><span class="menu-label">じっせき</span></span><small><span>できたこと・</span><span>おもいで</span></small></button>
-            <button type="button" id="themeBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i></span><span class="menu-label">でざいん</span></span><small><span>透明度・</span><span>もじ</span></small></button>
-            <button type="button" id="stickerBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="star_badge" aria-hidden="true"></i></span><span class="menu-label">シール<wbr>ちょう</span></span><small><span>あつめて・</span><span>はる</span></small></button>
             <a id="storyBtn" class="independent-game story-entry" href="prototypes/madoromi-white-reader-20261027/dist/?from=game#top"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5C9 3.8 5.5 3.3 2.5 4v15c3-.7 6.5-.2 9.5 1.5M12 5.5c3-1.7 6.5-2.2 9.5-1.5v15c-3-.7-6.5-.2-9.5 1.5Zm0 0v15"/></svg></span><span class="menu-label">ものがたり</span></span><small>微睡みの箱庭</small></a>
           </div>
         </div>
+        <dialog id="naokoroDialog" aria-labelledby="naokoroTitle" onkeydown="if (event.key === 'Escape') event.stopPropagation()">
+          <h2 id="naokoroTitle">なおころ。</h2>
+          <p>ころがるサイコロ、かわる人生。</p>
+          <p>ただいま準備中！</p>
+          <form method="dialog"><button type="submit">とじる</button></form>
+        </dialog>
         <div class="dex-overlay hidden" id="worldOverlay" role="dialog" aria-modal="true" aria-label="せかい">
           <div class="dex-header"><span class="dex-title">せかい</span><button class="dex-close-btn" id="worldCloseBtn" aria-label="せかいをとじる">✕</button></div>
           <div class="profile-scroll">
@@ -902,7 +909,7 @@
   <script src="individuality-data.js?v=20261021-b9f59243"></script>
   <script src="individuality.js?v=20261021-fab004ae"></script>
   <script src="minigame-reactions.js?v=20261021-a2cbe8e5"></script>
-  <script src="script.js?v=20261029-48ff81a9"></script>
+  <script src="script.js?v=20261029-bbeb6154"></script>
   <script src="home-touch.js?v=20260929-36be057a"></script>
 <div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
 </body>
