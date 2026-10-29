@@ -20,7 +20,7 @@ PR #459（全452枚横断監査）の続き。#459 は 2026-10-29 に main へ�
 - **#466**: 本文2枚（G-lunar-lander・G-submarine-3d）の明確化と Tier 1 直接テスト（`tests/tier1-direct.test.mjs`）が main に統合済み。`03` の該当カードの採用文は #466（doc 478）の文言が正で、`03` の案とは文言が異なります。`06` の Tier 1 は #466 で実施済み。
 - **#467**: カード詳細のスタイル改善（`#card-dialog.card-detail`）が main に統合済み。`04`・`05` の「詳細パネルの内側小窓」に関する指摘は、この改善で扱われています。
 - Pages公開ゲート: 最新 main では `tests/pages` 16/16 成功、`package.py` も成功します（`07` の #458 後の不一致は解消済み）。
-- テスト数: 最新 main に本PRを重ねた時点のカードゲーム node テストは 494 件（本PRの新規2件を含む）です。`evidence/card-game-node-tests-469.log` は当時の記録として不変です。
+- テスト数: 最新 main に本PRを重ねた時点のカードゲーム node テストは 496 件（main 単体 494 件＋本PRの新規2件）です。`evidence/card-game-node-tests-469.log` は当時の記録として不変です。
 
 ## このPRでコード・設定を変えた箇所（3か所だけ）
 1. `prototypes/card-game/rulebook-content.mjs`: 第8章に「発動コスト」の説明を1項目追加（197字）。
