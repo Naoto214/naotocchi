@@ -1,0 +1,18 @@
+const {chromium}=require('playwright');const fs=require('fs');
+const OUT=process.argv[2],BASE='http://127.0.0.1:8765/prototypes/card-game/index.html';
+(async()=>{const b=await chromium.launch();const ctx=await b.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,hasTouch:true,isMobile:true});const p=await ctx.newPage();const errors=[];p.on('pageerror',e=>errors.push(String(e)));
+ await p.goto(BASE);await p.evaluate(s=>localStorage.setItem('naotocchi-hotseat-v1',s),fs.readFileSync(OUT+'/save.json','utf8'));await p.reload();
+ await p.evaluate(()=>{const m=document.getElementById('match-mode');m.value='hotseat';});await p.click('#restore',{force:true});await p.waitForTimeout(500);
+ const vis=async()=>p.evaluate(()=>[...document.querySelectorAll('button')].filter(b=>b.offsetParent&&!b.disabled).map(b=>(b.id||'')+':'+b.textContent.trim().slice(0,20)));
+ console.log('after restore',JSON.stringify(await vis()));
+ await p.click('#reveal');
+ await p.waitForTimeout(500);console.log('after reveal',JSON.stringify(await vis()));
+ const hand=await p.evaluate(()=>[...document.querySelectorAll('[data-inspect]')].map(n=>n.dataset.inspect+'|'+n.innerText.replace(/\s+/g,' ').slice(0,40)));console.log(JSON.stringify(hand));
+ await p.screenshot({path:OUT+'/match-hand.png'});
+ const oct=await p.$('[data-inspect] >> text=いわばのタコさん');
+ const target=await p.evaluate(()=>{const n=[...document.querySelectorAll('[data-inspect]')].find(n=>n.innerText.includes('いわばのタコさん'));if(!n)return null;n.scrollIntoView();return {face:n.innerText.replace(/\s+/g,''),long:!!n.querySelector('.long-copy')||n.classList.contains('long-copy')};});
+ console.log('handcard',JSON.stringify(target));
+ await p.evaluate(()=>[...document.querySelectorAll('[data-inspect]')].find(n=>n.innerText.includes('いわばのタコさん'))?.click());await p.waitForTimeout(500);
+ const dlg=await p.evaluate(()=>{const d=[...document.querySelectorAll('dialog[open], [role=dialog]:not([hidden])')].map(d=>d.innerText.replace(/\s+/g,''));return d;});
+ console.log('enlarged',JSON.stringify(dlg));await p.screenshot({path:OUT+'/match-enlarged.png'});
+ console.log(JSON.stringify(errors));await b.close();})();
