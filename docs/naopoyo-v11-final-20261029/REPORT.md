@@ -90,3 +90,24 @@ HEAD5284d5e4 / tree85c732f3のGitHub Chapter2 main-regression job123339269732は
 ローカル一括実行は最終的に7ファイルのプロセス単位失敗（2,894表示中2,887成功・7失敗）でexit1。具体的signal/例外はspecログに出ておらず、cgroup OOM履歴との直接の対応は確定できない。これをアサーション失敗ゼロだったと推測したり、元のnpmコマンド成功と扱ったりはしない。失敗した全7ファイルを同じtreeで--test-concurrency=1にして再実行し、最初2ファイル93/93、残り5ファイル309/309成功。未実行の末尾159件も159/159成功。2,887+402=3,289に一致し全範囲を網羅。元ログと全再試験ログを併記保存。製品コード・テストコードの変更、削除、skipはなし。
 
 7ファイル: cat-expression-preview-test.cjs、meguru-phase3b3-test.cjs、meguru-scenery-final-qa-test.cjs、meguru-scenery-polish2-test.cjs、minigame-phase2-fishing-sea-test.cjs、minigame-phase2-randomization-test.cjs、pet-expression-integration-test.cjs。
+
+
+## 最終確定（2026-10-29 09:14 UTC）
+
+PR436を検証済みHEAD5284d5e42cab98c9c6d7080e04d04c0aadcb3d51へfast-forwardし、Draft/open/mergeable=true。tree85c732f3ebdd0d0d9d2f090c6366029e4075327f。PR436で再起動した9ワークフローも全件completed/success、未完了・失敗0。第2章main-regression job123349954161の単一npm testは3,504/3,504。mainと元WIP3本は保護。検証PR475は未マージでclose、検証ブランチ保持。
+
+本人限定V11は08:51 UTCに配信成功。Sites保存13、source17316bfc99c2f216a5bb9daa7601b42b39964f2d、deployment appgdep_6ae308e507248191a862c06812a5d1cd。全84配信ファイルが認証付きHTTP200・保存版SHA-256一致、VERSION11/sourceCommit5284一致。未認証403、owner1名・外部0・groups0。公開後Browserはログイン画面までで、認証後操作は未確認。公開前の実Chrome操作と保存QAは成功。詳細はFINAL.md/private-delivery.json。
+
+最終空き: 共用disk17,371,136 bytes、tmpfs520,179,712 bytes。共有ディスク逼迫は残り、RAM上の別領域・分割実行によって今回の検証を完走した。Safari実機と公開URL認証後の操作は残る未確認事項として明記する。
+
+|GitHub Actions（PR436）|結果|
+|---|---|
+|[Naopoyo official release](https://github.com/Naoto214/naotocchi/actions/runs/40844922384)|success|
+|[Pages runtime package](https://github.com/Naoto214/naotocchi/actions/runs/40844922633)|success|
+|[Naopoyo World Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40844921712)|success|
+|[Naopoyo Insight Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40844921926)|success|
+|[Naopoyo Chapter 1](https://github.com/Naoto214/naotocchi/actions/runs/40844922274)|success|
+|[Naopoyo Chapter 2 Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40844922616)|success|
+|[World visual quality](https://github.com/Naoto214/naotocchi/actions/runs/40844921921)|success|
+|[Home layout](https://github.com/Naoto214/naotocchi/actions/runs/40844921859)|success|
+|[Runtime smoke test](https://github.com/Naoto214/naotocchi/actions/runs/40844922185)|success|

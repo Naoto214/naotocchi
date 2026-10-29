@@ -2,14 +2,14 @@
 
 2026-10-29。VERSION 11を既存本人限定URLへ配信済み。Draft PR #436を検証済みHEADへfast-forwardし、Draft・競合なしを確認。mainへのmerge/push、本番GitHub Pages更新、第1章の直接変更は行っていない。
 
-**CI最終確認中:** 統合前の検証PR475では同一HEAD/treeの9ワークフローすべて成功。PR436更新により同一コードの9ワークフローが再度起動しており、その終了を確認中。以下の検証済み結果と実行中のCIを混同しない。
+**CI最終確定:** PR436の最終HEADで9ワークフローすべてcompleted/success。待機中・実行中・失敗なし。検証PR475の同一HEAD/treeでも9ワークフローすべて成功。
 
 ## A. 作業環境（1〜5）
 
 1. 開始時空き: 共用32GBディスク約2.7GB。
 2. 原因: 既存の複数作業・重複checkout/QA資料で共用領域が逼迫。実行中に0〜90MBまで減少。他作業の増加もあり、本作業だけを原因とは断定しない。
 3. 対策: 本作業をRAM上のtmpfsへ移し、Gitオブジェクトを共有、必要資料のみ復元、TMPDIRを指定。自分が生成したPages配布物2組は各4,057件のhash・件数・symlinkなしを検査し、再生成可能性を確認して整理。過去に拒否されたclone削除の迂回はしていない。他Work、Git履歴、制作素材、保存データは削除していない。
-4. 対策後: 08:53 UTC付近の共用ディスク空き17,440,768 bytes、tmpfs空き277,250,048 bytes。共有領域の逼迫を恒久解決したとはいえず、今回の検証は別領域と分割実行で完走した。今後も同一環境で大きな並列実行を繰り返さず、十分な専用容量を用意する。
+4. 対策後: 09:14 UTC付近の共用ディスク空き17,371,136 bytes、tmpfs空き520,179,712 bytes。共有領域の逼迫を恒久解決したとはいえず、今回の検証は別領域と分割実行で完走した。今後も同一環境で大きな並列実行を繰り返さず、十分な専用容量を用意する。
 5. Runtime完走: 最新HEADのGitHub上で単一npm test成功。ローカルも全対象を分割再試験まで含めて網羅した。
 
 ## B. 実装・QA（6〜13）
@@ -33,7 +33,7 @@
 |17|CARD GAME|494/494。正式データの独自変更なし。|
 |18|Pages|unit16/16、配布4,057/4,057 HTTP/SHA-256一致、欠落/不一致0。213,581,374 bytes、452カード/904画像。reader追加7/7。|
 |19|競合|index・Pages公開テスト・allowlistを解消。mainメニュー等保護、独立レビューCritical/Importantなし。GitHub mergeable=true。|
-|20|GitHub CI|統合前同一HEADの9ワークフロー成功。PR436側の再起動分は最終追記を参照。|
+|20|GitHub CI|PR436最終HEADの9ワークフロー全成功、待機/実行中/失敗0。統合前同一HEADでも9件全成功。|
 |21|HEAD/tree|実装5284d5e42cab98c9c6d7080e04d04c0aadcb3d51 / tree85c732f3ebdd0d0d9d2f090c6366029e4075327f。|
 |22|PR436|open・Draft、同HEADへexpected-old-SHA付きfast-forward。mainへmergeせず。検証PR475は未マージでclose、ブランチ保持。|
 
@@ -56,3 +56,19 @@ Deployment: `appgdep_6ae308e507248191a862c06812a5d1cd`
 Version ID: `appgprj_6adc23fed6a08191946282f35ecfd94a~appgver_cebdfdfeeb008191b08c5c23a890b496`
 
 詳細な経緯・初回失敗・旧HEADとの区別は[REPORT.md](REPORT.md)、圧縮した全ログは[logs](logs)に保存。
+
+## 最終CI確定・保護確認
+
+2026-10-29 09:14 UTC確認。PR436はopen/Draft/mergeable=true、HEAD5284d5e4。mainはd0cfd40fのまま。元WIP3本は引継ぎ時のSHAを維持。PR436のmain-regression job123349954161でも単一npm testの全3,504件、fail/skip/cancel0を確認。Pages build成功/deploy skipped。
+
+|GitHub Actions（PR436）|結果|
+|---|---|
+|[Naopoyo official release](https://github.com/Naoto214/naotocchi/actions/runs/40844922384)|success|
+|[Pages runtime package](https://github.com/Naoto214/naotocchi/actions/runs/40844922633)|success|
+|[Naopoyo World Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40844921712)|success|
+|[Naopoyo Insight Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40844921926)|success|
+|[Naopoyo Chapter 1](https://github.com/Naoto214/naotocchi/actions/runs/40844922274)|success|
+|[Naopoyo Chapter 2 Pilot](https://github.com/Naoto214/naotocchi/actions/runs/40844922616)|success|
+|[World visual quality](https://github.com/Naoto214/naotocchi/actions/runs/40844921921)|success|
+|[Home layout](https://github.com/Naoto214/naotocchi/actions/runs/40844921859)|success|
+|[Runtime smoke test](https://github.com/Naoto214/naotocchi/actions/runs/40844922185)|success|

@@ -1,0 +1,215 @@
+{
+  "head": "5284d5e42cab98c9c6d7080e04d04c0aadcb3d51",
+  "tree": "85c732f3ebdd0d0d9d2f090c6366029e4075327f",
+  "runs": [
+    {
+      "id": 40844922384,
+      "name": "Naopoyo official release",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 166,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922384/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922384/logs",
+      "workflow_id": 391609802
+    },
+    {
+      "id": 40844922633,
+      "name": "Pages runtime package",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 325,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922633/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922633/logs",
+      "workflow_id": 389281874
+    },
+    {
+      "id": 40844921712,
+      "name": "Naopoyo World Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 27,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844921712/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844921712/logs",
+      "workflow_id": 393644946
+    },
+    {
+      "id": 40844921926,
+      "name": "Naopoyo Insight Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 22,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844921926/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844921926/logs",
+      "workflow_id": 393702225
+    },
+    {
+      "id": 40844922274,
+      "name": "Naopoyo Chapter 1",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 109,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922274/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922274/logs",
+      "workflow_id": 393756683
+    },
+    {
+      "id": 40844922616,
+      "name": "Naopoyo Chapter 2 Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 18,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922616/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922616/logs",
+      "workflow_id": 394796547
+    },
+    {
+      "id": 40844921921,
+      "name": "World visual quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 364,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844921921/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844921921/logs",
+      "workflow_id": 374398717
+    },
+    {
+      "id": 40844921859,
+      "name": "Home layout",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1249,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844921859/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844921859/logs",
+      "workflow_id": 355795733
+    },
+    {
+      "id": 40844922185,
+      "name": "Runtime smoke test",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1775,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922185/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40844922185/logs",
+      "workflow_id": 351596585
+    }
+  ],
+  "runtimeCounts": [
+    "2026-10-29T08:50:26.1916823Z # tests 32",
+    "2026-10-29T08:50:26.1917037Z # pass 32",
+    "2026-10-29T08:50:26.1917144Z # fail 0",
+    "2026-10-29T08:50:26.1917273Z # cancelled 0",
+    "2026-10-29T08:50:26.1917404Z # skipped 0",
+    "2026-10-29T08:50:27.0438229Z # tests 24",
+    "2026-10-29T08:50:27.0438441Z # pass 24",
+    "2026-10-29T08:50:27.0438691Z # fail 0",
+    "2026-10-29T08:50:27.0438799Z # cancelled 0",
+    "2026-10-29T08:50:27.0438911Z # skipped 0",
+    "2026-10-29T09:02:36.7488040Z # tests 3289",
+    "2026-10-29T09:02:36.7488203Z # pass 3289",
+    "2026-10-29T09:02:36.7488279Z # fail 0",
+    "2026-10-29T09:02:36.7488362Z # cancelled 0",
+    "2026-10-29T09:02:36.7488440Z # skipped 0",
+    "2026-10-29T09:02:43.6426462Z # tests 159",
+    "2026-10-29T09:02:43.6426693Z # pass 159",
+    "2026-10-29T09:02:43.6426799Z # fail 0",
+    "2026-10-29T09:02:43.6426919Z # cancelled 0",
+    "2026-10-29T09:02:43.6427033Z # skipped 0"
+  ],
+  "pagesJobs": {
+    "jobs": [
+      {
+        "id": 123349954572,
+        "name": "build",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 40844922633,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Test allowlist and failure guards",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Build byte-preserving runtime artifact",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Verify every HTTP file, entry point and card image",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Run actions/upload-pages-artifact@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17
+          }
+        ]
+      },
+      {
+        "id": 123350575500,
+        "name": "deploy",
+        "status": "completed",
+        "conclusion": "skipped",
+        "run_id": 40844922633,
+        "logs_url": null,
+        "steps": null
+      }
+    ]
+  },
+  "pr": {
+    "head": "5284d5e42cab98c9c6d7080e04d04c0aadcb3d51",
+    "draft": true,
+    "mergeable": true,
+    "merge_commit": "7db53e826f3172450b298bfeb335292c5dfd1583"
+  },
+  "main": "d0cfd40f4bdd05782ceb45469ba151da3199c9a6",
+  "storage": "Filesystem       1B-blocks        Used Available Use% Mounted on\noverlay        33770192896 32018059264  17371136 100% /\nshm             5225717760  4705538048 520179712  91% /dev/shm\n"
+}
