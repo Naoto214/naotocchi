@@ -92,6 +92,8 @@ function play(h, gameId, score) {
     for (let i = 0; i < 40 && !done.fn; i++) h.advance(250);
   } finally { game.start = original; }
   assert.ok(done.fn, `${gameId} started`);
+  // ゲームの がめんで いちど さわった ことにする(T7: 入力の ない プレイは 25点まで に なるため)
+  h.dispatch(h.get('minigameOverlay'), 'pointerdown', {pointerId: 1, clientX: 10, clientY: 10});
   done.fn(score);
 }
 const settle = (h, ms) => { for (let t = 0; t < ms; t += 250) h.advance(250); };
