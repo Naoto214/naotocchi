@@ -289,3 +289,34 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 :root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-actions button{min-height:44px;padding:5px 10px}
 :root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-actions .action-main{font-size:14px}
 :root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-band{max-height:none;padding-top:0;border-top:0;border-left:1px solid #c8ac6b80;padding-left:12px;align-self:stretch}
+
+/* Landscape board: the whole table fits the screen without vertical scrolling (portrait is unchanged).
+   Both boards fill the height they are given; the three slot rows share it and each card fits its slot. */
+@media(orientation:landscape){
+ .battle-area .board-shell{overflow:hidden;display:flex}
+ .battle-area .player-board{height:100%;max-height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:4px 5px}
+ .battle-area .player-heading{min-height:20px}
+ .battle-area .board-layout{min-height:0;height:100%}
+ .battle-area .board-field{min-height:0;display:flex;flex-direction:column}
+ .battle-area .slots{flex:1;min-height:0;grid-template-rows:repeat(3,minmax(0,1fr));gap:3px}
+ .battle-area .slot{aspect-ratio:auto;height:auto;min-height:0;grid-template-rows:10px minmax(0,1fr)}
+ .battle-area .slot>small{line-height:10px}
+ .battle-area .management{min-height:0;height:100%;gap:3px}
+ .battle-area .board-metrics{min-height:16px;padding-top:2px}
+ .battle-area .slot-content{container-type:size}
+ .battle-area .slot-content .card-tap{width:min(100cqw,66.6667cqh);height:min(100cqh,150cqw);aspect-ratio:2/3}
+ /* Opponent cards keep their small name under the card: the card takes the rest of the slot height. */
+ .battle-area .opponent .slot:not([data-slot="1"]) .slot-content .card-tap{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;aspect-ratio:auto;overflow:hidden}
+ .battle-area .opponent .slot:not([data-slot="1"]) .card-tap>.card-face,.battle-area .opponent .slot:not([data-slot="1"]) .card-tap>.card-back,.battle-area .opponent .slot:not([data-slot="1"]) .card-tap>.egg-card{flex:1 1 auto;min-height:0;width:auto;height:auto;max-width:100%;aspect-ratio:2/3}
+ .battle-area .opponent .board-card-name{flex:none;max-width:100%;line-height:10px}
+ /* Pile cells shrink with the board: drop the small deck icon, then tighten the label, so the count is never cut. */
+ .battle-area .management>[data-zone]{container-type:size;line-height:1.1}
+}
+@container (max-height:60px){.battle-area .management>[data-zone]>.card-back{display:none}}
+@container (max-height:40px){.battle-area .management>[data-zone]>span{font-size:7px;line-height:1}.battle-area .management>[data-zone]>b{line-height:1}}
+/* Landscape card detail: the whole card fits the full height on the left; status, close and actions share the right column. */
+:root[data-detail-orientation=landscape] #card-dialog.card-detail:has(>.card-stage){grid-template-columns:minmax(0,1fr) clamp(240px,44%,420px);grid-template-rows:44px minmax(0,1fr);column-gap:12px;row-gap:8px}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail:has(>.card-stage)>.detail-toolbar{grid-column:2;grid-row:1}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail>.card-stage{display:contents}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-scroll{grid-column:1;grid-row:1/span 2}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-band{grid-column:2;grid-row:2;border-left:0;padding-left:0;min-height:0}

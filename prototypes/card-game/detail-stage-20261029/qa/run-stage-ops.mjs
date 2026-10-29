@@ -13,7 +13,9 @@ const instanceOf=(s,id)=>Object.values(s.players).flatMap(p=>[p.board.main,p.boa
 async function tapButton(page,locator){const ok=await locator.evaluate(b=>{const r=b.getBoundingClientRect(),n=document.elementFromPoint((r.left+r.right)/2,(r.top+r.bottom)/2);return !!n&&b.contains(n)&&r.height>=44;});await locator.tap();return ok;}
 
 const browser=await chromium.launch();
-for(const [w,h] of [[320,568],[390,844],[844,390]]){
+// QA_VIEWPORTS=844x390,852x393 のように画面サイズを指定できる（既定は 320×568・390×844・844×390）
+const VPS=process.env.QA_VIEWPORTS?process.env.QA_VIEWPORTS.split(',').map(v=>v.split('x').map(Number)):[[320,568],[390,844],[844,390]];
+for(const [w,h] of VPS){
  const vp=`${w}x${h}`,ctx=await browser.newContext({viewport:{width:w,height:h},deviceScaleFactor:2,isMobile:true,hasTouch:true}),page=await ctx.newPage();
  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
  // 1) たまごの手札交換：「とかいを選ぶ ※ 山札の一番下へ戻します」→ 実際に山札の一番下へ

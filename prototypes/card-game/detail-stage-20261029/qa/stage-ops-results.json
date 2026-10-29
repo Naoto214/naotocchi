@@ -102,10 +102,10 @@
    "viewport": "320x568",
    "pass": true,
    "land": {
-    "w": 282,
-    "h": 423,
-    "visibleArea": 69654,
-    "viewportShare": 0.383
+    "w": 187,
+    "h": 280,
+    "visibleArea": 52267,
+    "viewportShare": 0.288
    },
    "landTap": 3,
    "back": {
@@ -238,10 +238,10 @@
    "viewport": "390x844",
    "pass": true,
    "land": {
-    "w": 304,
-    "h": 456,
-    "visibleArea": 96368,
-    "viewportShare": 0.293
+    "w": 233,
+    "h": 350,
+    "visibleArea": 81667,
+    "viewportShare": 0.248
    },
    "landTap": 3,
    "back": {
@@ -345,13 +345,13 @@
    },
    "zoomOk": true,
    "zoomInfo": {
-    "a": 304,
+    "a": 233.328125,
     "b": {
      "w": 442,
      "stage": 442,
      "chip": "－ 縮小"
     },
-    "c": 304
+    "c": 233.328125
    }
   },
   {
@@ -359,10 +359,10 @@
    "viewport": "844x390",
    "pass": true,
    "card": {
-    "w": 304,
-    "h": 456,
-    "visibleArea": 96368,
-    "viewportShare": 0.293
+    "w": 233,
+    "h": 350,
+    "visibleArea": 81667,
+    "viewportShare": 0.248
    },
    "buttons": 1
   },

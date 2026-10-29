@@ -43,11 +43,11 @@ test('catalog, read-only and hidden cards: no actions; hidden shows only the car
  const hidden=cardStageMarkup({...c,hidden:true,id:'B:x:1'},{v:opening().projection,viewer:'A'});
  assert.match(hidden,/card-back-approved/);assert.doesNotMatch(hidden,/data-action=/);assert.match(hidden,/相手の伏せ札は確認できません/);
 });
-test('stage scale: whole card when readable; otherwise full width (portrait) or readable size (landscape) with scroll; zoom fills the width, never wider than the stage',()=>{
+test('stage scale: portrait whole card when readable, else full width with scroll; landscape always whole; zoom fills the width, never wider than the stage',()=>{
  assert.equal(stageScale(358,700,{portrait:true}),358/320);            // 390×844: whole card fits at full width
  assert.equal(stageScale(288,410,{portrait:true}),410/480);             // 320×568, one button: whole card, still readable
  assert.equal(stageScale(288,300,{portrait:true}),288/320);            // 320×568, three choices: fills the width, stage scrolls
- assert.equal(stageScale(500,300,{portrait:false}),.95);                // 844×390: readable size, stage scrolls
+ assert.equal(stageScale(500,300,{portrait:false}),300/480);           // landscape: always the whole card, no scrolling
  assert.equal(stageScale(500,300,{portrait:false,zoom:true}),500/320);  // tap: fill the stage width
  assert.equal(stageScale(2000,3000,{zoom:true}),STAGE_MAX_SCALE);
  for(const [w,h] of [[200,900],[288,200],[500,300]])for(const zoom of [false,true])assert.ok(stageScale(w,h,{zoom})*320<=w+1e-9);

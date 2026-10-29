@@ -13,15 +13,15 @@ export function installViewport(doc= document,win=window){
  };update();win.addEventListener('resize',update);win.addEventListener('orientationchange',update);win.visualViewport?.addEventListener('resize',update);win.visualViewport?.addEventListener('scroll',update);
 }
 // Card detail stage. The official 320 × 480 card is scaled to the space the stage really has after the action band.
-// By default the whole card is shown, unless that would make its text too small to read. Then, in portrait, the card
-// fills the width (the stage scrolls anyway, so use all of it); in landscape it keeps a readable size (card text about
-// 11px) instead of a very tall card. Tapping the card (zoom) fills the stage width. Never wider than the stage.
-export const STAGE_MAX_SCALE=1.6,STAGE_READABLE={portrait:.82,landscape:.95};
+// Portrait: the whole card is shown unless that would make its text too small to read; then the card fills the width
+// and the stage scrolls. Landscape: always the whole card, however small, so the table can be taken in at a glance.
+// Tapping the card (zoom) fills the stage width to read the text, and tapping again returns. Never wider than the stage.
+export const STAGE_MAX_SCALE=1.6,STAGE_READABLE=.82;
 export function stageScale(width,height,{zoom=false,portrait=true}={}){
  const fill=Math.min(Math.max(1,width)/320,STAGE_MAX_SCALE),whole=Math.min(fill,Math.max(1,height)/480);
  if(zoom)return fill;
- const readable=Math.min(fill,STAGE_READABLE[portrait?'portrait':'landscape']);
- return whole>=readable?whole:portrait?fill:readable;
+ if(!portrait)return whole;
+ return whole>=Math.min(fill,STAGE_READABLE)?whole:fill;
 }
 export function fitStageCard(dialog,doc=document){
  const scroll=dialog?.querySelector('.stage-scroll'),card=scroll?.querySelector('.stage-card');if(!card)return;
