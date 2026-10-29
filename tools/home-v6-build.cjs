@@ -32,3 +32,5 @@ if(fs.existsSync('tools/home-v6-gallery.html')){fs.copyFileSync('tools/home-v6-g
 console.log('V6 additive C connection built. Previous runtime and storage preserved.');
 
 for(const entry of ['index.html','home-c.html','home-ab.html'])write(entry,read(entry).replace('<body>','<body><nav style=\"padding:12px\"><a href=\"home-v6.html\">全13地域・C案操作版 version 6</a></nav>'));
+const releaseFiles=['home-v6.html','home-v6-gallery.js','home-v6-world.mjs','home-v6-manifest.mjs','home-v6-egg.mjs','home-v6-capture.mjs','home-v6-frame.mjs','qa-home-v6-game.html','qa-home-v6-baseline-game.html','home-v6-play.html'];
+write('release-v6.json',JSON.stringify({version:6,githubHead:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),adoptedHome:'home-interior-c',regions:13,specialWorldsPreserved:['star_stop','memory_lake'],files:Object.fromEntries(releaseFiles.map(f=>[f,crypto.createHash('sha256').update(fs.readFileSync(path.join(out,f))).digest('hex')]))},null,2)+'\n');
