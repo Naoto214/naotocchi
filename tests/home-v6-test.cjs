@@ -4,8 +4,8 @@ const runtime={module:{exports:{}},console,Uint32Array};vm.runInNewContext(recov
 const {createModel}=runtime.module.exports;
 test('V6 C images and distinct geometry are present',async()=>{
  const {ART_CANDIDATES,ART_SCENES}=await import('../home-v6-manifest.mjs');
- assert.equal(ART_CANDIDATES.length,1);assert.equal(new Set(Object.values(ART_SCENES).map(s=>JSON.stringify(s.ground))).size,1);
- for(const c of ART_CANDIDATES){const p=fs.readFileSync(c.src);assert.equal(p.readUInt32BE(16),1024);assert.equal(p.readUInt32BE(20),1536);assert.equal(ART_SCENES[c.id].candidate,c.id);}
+ assert.equal(ART_CANDIDATES.length,11);assert.equal(new Set(Object.values(ART_SCENES).map(s=>JSON.stringify(s.ground))).size,11);
+ for(const c of ART_CANDIDATES){const p=fs.readFileSync(c.source||c.src);assert.equal(p.readUInt32BE(16),1024);assert.equal(p.readUInt32BE(20),1536);assert.equal(ART_SCENES[c.id].candidate,c.id);}
 });
 test('home room, waterfall, stream, rocks and river are not walkable',async()=>{
  const {ART_SCENES}=await import('../home-v6-manifest.mjs');const {createRecoveredNavigation}=await import('../home-recovered-navigation.mjs');
@@ -43,3 +43,5 @@ test('egg is centered on C floor using official alpha bounds at every width',asy
  const {eggPose}=await import('../home-v6-egg.mjs');const {ART_SCENES}=await import('../home-v6-manifest.mjs');const {createRecoveredNavigation}=await import('../home-recovered-navigation.mjs');
  for(const width of [320,375,390,430]){const host={width,height:844},stage={left:16,top:170,width:width-32,height:374},box=[30,20,98,118];const p=eggPose(host,stage,box),nav=createRecoveredNavigation(ART_SCENES['home-interior-c'],host,stage);assert.ok(nav.valid(p.foot));assert.equal(p.top+p.size*box[3]/128,p.foot.y);assert.equal(p.left+p.size*(box[0]+box[2])/256,p.foot.x);}
 });
+
+test('all thirteen canonical regions select eleven paintings or protected legacy special worlds',async()=>{const m=await import('../home-v6-manifest.mjs');for(const r of ['home','forest','river_lake','city','countryside','mountain','snow','sea','jungle','desert','deepsea'])assert.equal(m.selectRecoveredScene(r)?.region,r);for(const r of ['star_stop','memory_lake'])assert.equal(m.selectRecoveredScene(r),undefined);});

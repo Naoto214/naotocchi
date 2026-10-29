@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: node --test tests/home-art-test.cjs tests/home-japan-test.cjs tests/home-recovered-test.cjs tests/home-recovered-gallery-test.cjs tests/home-ab-test.cjs tests/home-ab-build-test.cjs tests/home-ab-storage-test.cjs tests/home-ab-gallery-test.cjs tests/home-c-comparison-test.cjs
+      - run: node --test tests/home-art-test.cjs tests/home-japan-test.cjs tests/home-recovered-test.cjs tests/home-recovered-gallery-test.cjs tests/home-ab-test.cjs tests/home-ab-build-test.cjs tests/home-ab-storage-test.cjs tests/home-ab-gallery-test.cjs tests/home-c-comparison-test.cjs tests/home-v6-test.cjs tests/home-v6-capture-test.cjs tests/home-v6-isolation-test.cjs
       - run: node tools/home-v22-regression.cjs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -125,3 +125,29 @@ jobs:
         with:
           name: home-ab-${{ matrix.candidate }}
           path: test-results/home-layout/home-ab
+
+  home-v6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-v6-browser.cjs
+        env:
+          HOME_V6_REGION: ${{ matrix.region }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-v6-${{ matrix.region }}
+          path: test-results/home-layout/v6
