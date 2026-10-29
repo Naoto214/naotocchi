@@ -11,10 +11,11 @@ from PIL import Image
 
 out = Path(sys.argv[1]).resolve()
 assert (out / 'release-v6.json').is_file(), 'Build version 6 first'
-originals = Path(__file__).resolve().parents[1] / 'assets/home-art-recovered-20261029'
-relative = Path('assets/home-art-recovered-20261029')
+repo = Path(__file__).resolve().parents[1]
+sources = sorted((repo / 'assets/home-art-recovered-20261029').glob('*.png')) + [repo / 'assets/home-b-20261029/home-interior-b.png', repo / 'assets/home-c-20261029/home-interior-c.png']
 derivatives = {}
-for source in sorted(originals.glob('*.png')):
+for source in sources:
+    relative = source.parent.relative_to(repo)
     target = out / relative / source.with_suffix('.webp').name
     with Image.open(source) as image:
         image.save(target, format='WEBP', lossless=True, method=6)
@@ -26,22 +27,25 @@ for source in sorted(originals.glob('*.png')):
         'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
         'pixelIdentical': True,
     }
-for filename in ['home-recovered-manifest.mjs', 'home-c-comparison-data.json']:
+changed = ['home-recovered-manifest.mjs', 'home-c-comparison-data.json', 'home-ab-manifest.mjs', 'home-v6-manifest.mjs']
+for filename in changed:
     p = out / filename
     content = p.read_text()
-    if filename.endswith('.mjs'):
+    if filename == 'home-recovered-manifest.mjs':
         content = content.replace('${id}.png', '${id}.webp')
-    else:
-        content = content.replace('home-art-recovered-20261029/home-interior-a.png', 'home-art-recovered-20261029/home-interior-a.webp')
+    for source in sources:
+        old = str(source.relative_to(repo))
+        content = content.replace(old, str(Path(old).with_suffix('.webp')))
     p.write_text(content)
-for source in originals.glob('*.png'):
-    (out / relative / source.name).unlink(missing_ok=True)
+for source in sources:
+    (out / source.relative_to(repo)).unlink(missing_ok=True)
 manifest = out / 'release-v6.json'
 release = json.loads(manifest.read_text())
 release['losslessPackagingDerivatives'] = derivatives
-for filename in ['home-recovered-manifest.mjs', 'home-c-comparison-data.json']:
+for filename in changed:
     release['files'][filename] = hashlib.sha256((out / filename).read_bytes()).hexdigest()
 manifest.write_text(json.dumps(release, indent=2) + '\n')
 total = sum(p.stat().st_size for p in out.rglob('*') if p.is_file())
-assert total < 256 * 1024 * 1024, f'Expanded artifact too large: {total}'
+# Reserve space for tar headers, long names, and block padding as well as files.
+assert total < 256 * 1024 * 1024 - 3500000, f'Expanded artifact too large: {total}'
 print(json.dumps({'pixelIdenticalDerivatives': len(derivatives), 'expandedBytes': total}))

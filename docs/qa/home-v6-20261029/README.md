@@ -19,7 +19,7 @@ Adopted C is interactive; eleven painted regions and two unchanged v22 special w
 | Remaining regression batches | 138 + 9 + 18 = 165 pass, 0 fail, 0 skip (`remaining-regression.log`). These were explicitly run because the initial runner stops after a failed batch. |
 | Aggregate node:test coverage | All 3690 original cases exercised; failed fixture cases subsequently passed. This is **not** a claim that one unbroken full-run command exited zero. Rerun counts overlap; do not add them to 3690. |
 | CI | 13 V6 regional Chromium/WebKit jobs added, older jobs retained. Latest checked run 40855506897 was queued; current-HEAD CI is not certified green. |
-| Distribution | Six historical comparison PNGs become lossless WebP only in build output; decoded RGBA bytes verified equal for all six. PNG originals stay unchanged in GitHub. Expanded artifact 266,176,953 bytes at packaging check, below 256 MiB. |
+| Distribution | Eight historical comparison PNGs become lossless WebP only in build output; decoded RGBA bytes verified equal for all eight. PNG originals stay unchanged in GitHub. The package checks file bytes plus a 3.5 MB reserve for tar metadata against the 256 MiB upload limit. |
 
 Independent review found and fixed baseline conversation-storage leakage within the preview origin and hidden iframe render loops. Baseline save/conversation modules now have a separate V6 family; discarded frames unload to about:blank. Two isolation tests failed before the fix and passed afterward.
 
