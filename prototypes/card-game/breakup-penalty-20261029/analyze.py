@@ -63,7 +63,7 @@ def paired(rows,a,b,filt=None):
   return ci([SC[xseat(B[k])['result']]-SC[xseat(A[k])['result']] for k in ks])|dict(growth=ci([xseat(B[k])['growth']-xseat(A[k])['growth'] for k in ks]))
 def anyleave(ra,rb):return bool(xseat(ra)['leaves'] or xseat(rb)['leaves'])
 def summarize(name,rows,base='A'):
-  arms=sorted({r['arm'] for r in rows},key=lambda a:['A','B','C','C2','Cx','C:loop','C:noloop','C2:loop'].index(a))
+  arms=sorted({r['arm'] for r in rows},key=lambda a:['A','B','C','C2','Cx','C:loop','C:noloop','C2:loop','A:none','A:inject','B:inject','Cx:none','Cx:inject','C:inject'].index(a))
   out=dict(matches=len(rows),status=dict(collections.Counter(r['status'] for r in rows)),replay=dict(collections.Counter(r.get('replay') for r in rows)),
     elapsed_ms_mean=mean(r['elapsedMs'] for r in rows),arms={})
   for arm in arms:
@@ -75,14 +75,14 @@ def summarize(name,rows,base='A'):
     out['arms'][arm]['by_x_deck']={d:seat_metrics([r for r in R if r['deck'][r['xSeat']]==d],xseat) for d in xs}
     ys=sorted({r['deck']['B' if r['xSeat']=='A' else 'A'] for r in R})
     out['arms'][arm]['by_y_deck']={d:seat_metrics([r for r in R if r['deck']['B' if r['xSeat']=='A' else 'A']==d],xseat) for d in ys}
-  comps=[(a,b) for a,b in [('A','B'),('A','C'),('A','C2'),('A','Cx'),('Cx','C'),('Cx','C2'),('C:noloop','C:loop'),('C:noloop','C2:loop'),('C:loop','C2:loop')] if a in arms and b in arms]
+  comps=[(a,b) for a,b in [('A','B'),('A','C'),('A','C2'),('A','Cx'),('Cx','C'),('Cx','C2'),('C:noloop','C:loop'),('C:noloop','C2:loop'),('C:loop','C2:loop'),('A:none','A:inject'),('A:inject','B:inject'),('Cx:none','Cx:inject'),('Cx:inject','C:inject'),('A:none','B:inject'),('Cx:none','C:inject')] if a in arms and b in arms]
   out['paired']={f'{b}-{a}':dict(all=paired(rows,a,b),with_any_leave=paired(rows,a,b,anyleave)) for a,b in comps}
   if any(r.get('stage') is not None for r in rows):
     out['paired_by_stage']={str(k):{f'{b}-{a}':paired([r for r in rows if r['stage']==k],a,b) for a,b in comps} for k in sorted({r['stage'] for r in rows})}
   return out
 if __name__=='__main__':
   res={}
-  for name in ['N1','N2','F','P']:
+  for name in ['N1','N2','F','P','F2']:
     rows=load(name)
     if rows:res[name]=summarize(name,rows)
   json.dump(res,open(sys.argv[1],'w'),indent=1,ensure_ascii=False)

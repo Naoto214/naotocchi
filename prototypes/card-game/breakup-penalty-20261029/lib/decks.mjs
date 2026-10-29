@@ -12,6 +12,7 @@ export const DECKS={
  balance:{label:'バランス（公式CPU・こいびと3枚）',cards:base('balance')},
  'partner+AM':{label:'こいびと・交際：なかなおり2→円満な別れ2',cards:swap(base('partner'),'E-reconciliation',AM,2),replaced:{from:'E-reconciliation',to:AM,n:2}},
  'balance+AM':{label:'バランス：ヒット＆ブロー2→円満な別れ2',cards:swap(base('balance'),'G-hit-blow',AM,2),replaced:{from:'G-hit-blow',to:AM,n:2}},
+ challenge:{label:'ちょうせん（公式CPU・すれちがいなし）',cards:base('challenge')},
  // Opponent side (Y): official lists with two すれちがい, so breakups actually happen.
  'challenge+S':{label:'ちょうせん：としをとったじぶん2→すれちがい2',cards:swap(base('challenge'),'E-mirror',S,2),replaced:{from:'E-mirror',to:S,n:2}},
  'growth+S':{label:'そだち獲得：ミニゴルフ2→すれちがい2',cards:swap(base('growth'),'G-mini-golf-physics',S,2),replaced:{from:'G-mini-golf-physics',to:S,n:2}},

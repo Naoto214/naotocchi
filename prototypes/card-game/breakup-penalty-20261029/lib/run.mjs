@@ -48,6 +48,13 @@ async function play(m){
  const flushLog=()=>{for(const l of log.splice(0)){const x=R.seat[l.actor];if(l.kind==='leave'){const pl=x.placements.at(-1);x.leaves.push({...l,turn:x.turns,residence:x.turns-(pl?.turn??0),byOpponent:l.effectActor&&l.effectActor!==l.actor,byOwnAmicable:false});}
   else if(l.kind==='replacement')x.replacements[l.cardId]=(x.replacements[l.cardId]??0)+1;}};
  const advance=()=>{const r=advanceResponses(s);R.autoPass+=r.steps.length;s=r.state;if(r.halted)throw Error('auto-advance halted: '+r.reason);};
+ // Injection runs (F2): the first time the scripted seat starts acting in its own normal phase with time >= 2 while the
+ // opponent's lover is at the scripted stage, record the point; in 'inject' arms turn the last card of its hand into
+ // すれちがい (a test-fixture style substitution, hence no save replay) and play it at once.
+ function injectPoint(a){const sc=m.script;if(sc?.injectAtStage==null||R.injectPoint||a!==sc.seat||s.phase!=='normal'||s.turn!==a||s.choice||s.chain.length)return;
+  const p=s.players[a],opp=s.players[other(a)];if(p.time<2||!opp.board.partner||opp.relationship!==sc.injectAtStage)return;
+  R.injectPoint={round:s.round,stage:opp.relationship,lover:cid(opp.board.partner),xGrowth:opp.growth,yGrowth:p.growth};
+  if(sc.inject&&p.hand.length){const id=p.hand.at(-1);R.injectPoint.replacedCard=cid(id);s.cards[id].cardId=S;R.pendingInject=true;}}
  // Experiment decision layer (see header). Returns the id to play, or null to defer to the CPU on a filtered list.
  function decide(a,o,raw){
   const isCard=(x,id)=>x.source&&s.cards[x.source]&&cid(x.source)===id&&['programPlay','play'].includes(x.kind);
@@ -64,6 +71,7 @@ async function play(m){
    if(onCeo&&ok){R.seat[a].loopPlays=(R.seat[a].loopPlays??0)+1;return {pick:am[0].id};}}
   if(m.script?.playMisunderstandingAtStage!=null&&m.script.seat===a){const opp=s.players[other(a)];const ok=opp.board.partner&&opp.relationship===m.script.playMisunderstandingAtStage;
    for(const x of raw)if(isCard(x,S)){if(ok)return {pick:x.id};hide.add(x.id);}}
+  if(m.script?.injectAtStage!=null&&m.script.seat===a)for(const x of raw)if(isCard(x,S)){if(R.pendingInject){R.pendingInject=false;R.injectPoint.played=true;return {pick:x.id};}hide.add(x.id);}
   if(m.script?.amicableLoop!=null)for(const x of am)hide.add(x.id);
   return {hide};
  }
@@ -71,6 +79,7 @@ async function play(m){
   advance();diff();
   for(let n=0;s.phase!=='finished';n++){
    if(n>=STEP_LIMIT)throw Error('step limit');
+   injectPoint(e.actor(s));
    const a=e.actor(s),o=observeCpu(s,a),raw=e.legalActions(s);
    if(raw.length!==o.actions.length)throw Error('observation mismatch');
    const turn=`${o.round}:${o.turn}`;if(turn!==guard.turn)guard={turn,count:0,seen:{}};
@@ -102,7 +111,8 @@ async function play(m){
   x.handEnd={lovers:p.hand.filter(id=>cid(id).startsWith('P-')).length};x.deckEnd={lovers:p.deck.filter(id=>cid(id).startsWith('P-')).length};
   x.partnerAtEnd=p.board.partner?{cardId:cid(p.board.partner),stage:p.relationship,residence:x.turns-(x.placements.at(-1)?.turn??0)}:null;
   x.loversInDeck=seatOrder[a].filter(id=>id.startsWith('P-')).length;}
- if(R.status==='completed'){const saved=e.save(s);R.saveSha256=sha(saved);
+ if(R.status==='completed'&&R.injectPoint?.replacedCard){R.replay='not-applicable (injected card)';}
+ else if(R.status==='completed'){const saved=e.save(s);R.saveSha256=sha(saved);
   try{const back=e.restore(saved);R.replay=JSON.stringify(back.result)===JSON.stringify(s.result)&&e.save(back)===saved?'match':'mismatch';}catch(err){R.replay='error:'+err.message;}}
  delete globalThis.__bpLog;return R;
 }
