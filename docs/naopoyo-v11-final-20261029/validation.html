@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><title>VERSION 11 UI検証</title>
+<style>body{font:14px sans-serif;margin:8px}iframe{display:block;border:1px solid #aaa}button,select{margin:4px;padding:8px}pre{white-space:pre-wrap;max-height:180px;overflow:auto}</style>
+<label>画面<select id="size"><option>320x480</option><option>375x667</option><option selected>390x650</option><option>430x750</option><option>650x390</option></select></label>
+<button id="safe">セーフエリア切替</button><button id="baseline">保存基準を記録</button><button id="compare">保存を照合</button><button id="reload">再読込</button><pre id="report">UI経由で通常プレイ後に保存基準を記録します。</pre>
+<iframe id="game" title="検証ゲーム" src="prototypes/naopoyo-chapter2-isolated/qa.html" width="390" height="650"></iframe>
+<script>
+const frame=document.querySelector('iframe'),report=document.querySelector('#report');let baseline=null,safe=false;
+function save(){const w=frame.contentWindow;return Object.fromEntries(Object.keys(w.localStorage).filter(k=>k.includes('.qa.c748-final')).sort().map(k=>[k,w.localStorage.getItem(k)]));}
+function inspect(){const d=frame.contentDocument;return {title:d.querySelector('#title')?.textContent,undoEnabled:!d.querySelector('#undo')?.disabled,board:d.querySelector('#board')?.toDataURL(),save:save()};}
+document.querySelector('#size').onchange=e=>{const [w,h]=e.target.value.split('x');frame.width=w;frame.height=h;};
+document.querySelector('#safe').onclick=()=>{safe=!safe;const d=frame.contentDocument;let st=d.querySelector('#safe-test');if(!st){st=d.createElement('style');st.id='safe-test';d.head.append(st);}st.textContent=safe?'.example-shell{padding-top:47px!important;padding-bottom:34px!important} main{padding-top:47px!important;padding-bottom:34px!important}':'';};
+document.querySelector('#baseline').onclick=()=>{baseline=inspect();report.textContent=JSON.stringify({recorded:true,title:baseline.title,undoEnabled:baseline.undoEnabled,storageSummary:Object.fromEntries(Object.entries(baseline.save).map(([k,v])=>[k,v.length]))},null,2);};
+document.querySelector('#compare').onclick=()=>{const x=inspect();report.textContent=JSON.stringify({title:x.title,saveEqual:JSON.stringify(x.save)===JSON.stringify(baseline?.save),undoEqual:x.undoEnabled===baseline?.undoEnabled,boardEqual:x.board===baseline?.board,storageSummary:Object.fromEntries(Object.entries(x.save).map(([k,v])=>[k,v.length]))},null,2);};
+document.querySelector('#reload').onclick=()=>frame.contentWindow.location.reload();
+</script>
