@@ -24,5 +24,5 @@
 ## 制限
 - iPhone Safari実機・実指操作は本人確認待ち。クラウドChromeのiframe寸法を用いたQAはWebKit実機検証ではない。
 - localStorage全体を拒否するブラウザーでは既存mount側の非ガード参照が残る。新しい再生位置保存はエラーを捕捉するが、アプリ全体のストレージ拒否対応は今回追加していない。
-- 初期ローカル回帰でsparse checkoutの未展開資料/画像のENOENTあり。必要ファイルを正本から展開し再実行。テスト削除・無効化なし。
+- 初期ローカル回帰でsparse checkoutの未展開資料/画像のENOENTあり。必要ファイルを正本から展開したが、ローカルRuntime全成功には至らず2894成功/24失敗。完全checkoutのGitHub CIでは3504/3504成功。失敗記録と確定結果はDELIVERY.mdを参照。テスト削除・無効化なし。
 - GitHub CI、公開先、配信照合の確定結果は後続のDELIVERY.mdへ記載。
