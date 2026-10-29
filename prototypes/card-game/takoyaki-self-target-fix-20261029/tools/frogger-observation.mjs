@@ -1,4 +1,4 @@
-// 参考の観察（修正なし）：かえるのみち（G-frogger-road、81接続「自身は発動領域へ移るので対象にできない」）の対象候補。
+// 参考の観察（修正なし）：かえるのおうちがえり（G-frogger-road、81接続「自身は発動領域へ移るので対象にできない」）の対象候補。
 // effects.targets に同じ 'ownPrepared' を渡しているため、たこやきと同じく自分自身が候補に入るかを確かめる。
 import * as e from '../../engine.mjs';import {RULES} from '../../rules.mjs';import * as fx from '../../effects.mjs';
 const s=e.createGame(71);const p=s.players.A;const take=c=>{const id=p.deck.shift();s.cards[id].cardId=c;return id;};
