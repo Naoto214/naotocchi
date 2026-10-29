@@ -63,9 +63,9 @@ test('他のときおくり関連カード（しばいぬ）は変わらない',
  assert.ok(s.phase==='trigger'&&s.pending.some(r=>s.cards[r.source].cardId==='C-shiba'),'しばいぬの誘発');
 });
 
-// hotseat-5（たこやきやさんの対象修正）以降も、ぴょんぴょんジャンプは改善案Bのまま（hotseat-4 以降に含まれる）。
+// hotseat-5・6（たこやきやさん・かえるのおうちがえりの対象修正）以降も、ぴょんぴょんジャンプは改善案Bのまま（hotseat-4 以降に含まれる）。
 test('新規対戦は最新の版（hotseat-4 以降）、旧版（hotseat-2・hotseat-3）を指定した対戦は旧効果のまま',()=>{
- assert.equal(e.VERSION,'hotseat-5');assert.deepEqual([...e.RULE_VERSIONS],['hotseat-2','hotseat-3','hotseat-4','hotseat-5']);assert.ok(e.RULE_VERSIONS.includes(e.VERSION));
+ assert.equal(e.VERSION,e.RULE_VERSIONS.at(-1));assert.deepEqual([...e.RULE_VERSIONS].slice(0,3),['hotseat-2','hotseat-3','hotseat-4']);assert.ok(e.RULE_VERSIONS.includes(e.VERSION));
  assert.equal(e.createGame(1).version,e.VERSION);
  for(const version of ['hotseat-2','hotseat-3']){let {s,targets:[two,three]}=setup(version,{to:['M-dog-02','M-dog-03']});s=playDJ(s);
   const g0=s.players.A.growth,h0=s.players.A.hand.length;s=skipTo(s,two);

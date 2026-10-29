@@ -1,0 +1,51 @@
+{
+ "viewport": "390x844",
+ "cases": {
+  "hotseat-6": {
+   "version": "hotseat-6",
+   "choices": [
+    "しかけたカードの能力を発動 → おべんとうばこ"
+   ],
+   "buttonsFound": 1,
+   "engineTargets": [
+    {
+     "self": false,
+     "target": "I-bowtie"
+    }
+   ],
+   "selfOffered": false,
+   "uiMatchesEngine": true,
+   "afterClick": {
+    "revision": 251,
+    "frogLeftPrepared": true,
+    "log": [
+     "B：かえるのおうちがえりの能力を発動",
+     "B：かえるのおうちがえりを解決"
+    ]
+   }
+  },
+  "hotseat-5-old-save": {
+   "version": "hotseat-5",
+   "choices": [
+    "しかけたカードの能力を発動 → しかけたカード",
+    "しかけたカードの能力を発動 → おべんとうばこ"
+   ],
+   "buttonsFound": 2,
+   "engineTargets": [
+    {
+     "self": true,
+     "target": "G-frogger-road"
+    },
+    {
+     "self": false,
+     "target": "I-bowtie"
+    }
+   ],
+   "selfOffered": true,
+   "uiMatchesEngine": true
+  }
+ },
+ "horizontalOverflow": false,
+ "pageErrors": [],
+ "ok": true
+}

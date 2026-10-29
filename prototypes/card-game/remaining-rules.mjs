@@ -31,7 +31,8 @@ Object.assign(REMAINING_RULES,{
  'G-doodle-jump':quick([reserve('time_skip',[draw(),iff('singleStageTimeSkip',[growth(5)])],{legacy:{versions:['hotseat-2','hotseat-3'],steps:[],sequence:[[draw()],[growth(5)]]}})]),
  'G-downhill-snow':{mode:'trap',triggers:[{when:'challengeResult',condition:all('won','eventOwnChallenge',{world:'W-snow'}),target:'ownMain',steps:[stat(1,1,'nextEnd')]}]},
  'G-dragDecorate-bento':quick([{op:'reorderTop',n:2},{op:'declareType',steps:[{op:'schedule',timing:'start',steps:[{op:'declaredTop'}]}]}]),
- 'G-frogger-road':{mode:'trap',triggers:[{when:'worldChange',condition:'normalWorldChange',target:'ownPrepared',steps:[{op:'protect',to:['hand','discard'],replace:'stay'}]}]},
+ // 81接続：発動中のかえる自身は対象にできない（hotseat-6 以降。版を足す時はここにも足す）。旧保存（hotseat-2〜5）は旧挙動（index 0）のまま再生する。
+ 'G-frogger-road':{mode:'trap',triggers:[['ownPrepared',['hotseat-2','hotseat-3','hotseat-4','hotseat-5']],['ownPreparedOther',['hotseat-6']]].map(([target,onlyVersions])=>({when:'worldChange',condition:'normalWorldChange',onlyVersions,target,steps:[{op:'protect',to:['hand','discard'],replace:'stay'}]}))},
  'G-halfpipe-skate':quick([stat(3,0,'challenge'),reserve('challengeResult',[growth(-5)],{condition:'lost',challenge:true})],{condition:all('challengeActive','priorTwoPlays'),target:'ownMain'}),
  'G-mancala-kalah':quick([{op:'selectedMove',key:'hand',destination:'hand'},{op:'selectedMove',key:'top',destination:'top'},{op:'selectedMove',key:'bottom',destination:'bottom'}],{select:[{key:'hand',zone:'ownDiscard',count:1},{key:'top',zone:'ownDiscard',count:1,filter:{differentTypeFrom:['hand']}},{key:'bottom',zone:'ownDiscard',count:1,filter:{differentTypeFrom:['hand','top']}}]}),
  'G-memory-cards':quick([{op:'memoryPair',key:'pair'}],{select:[{key:'pair',zone:'ownDiscard',count:2,same:'name'}]}),
@@ -47,8 +48,8 @@ Object.assign(REMAINING_RULES,{
  'G-stack-harvest':quick([{op:'schedule',timing:'start',steps:[{op:'forSelected',key:'prepared',steps:[iff('targetPreparedPresent',[draw()])]}]}],{condition:{world:'W-countryside'},select:[{key:'prepared',zone:'ownPrepared',count:2}]}),
  'G-stack-snowman':quick([{op:'schedule',timing:'start',steps:[iff('selectedPreparedPresent',[growth(10)])]}],{select:[{key:'prepared',zone:'ownPrepared',count:2}]}),
  'G-street-fight':quick([iff({variant:'パンチ'},[stat(1,0)]),iff({variant:'キック'},[stat(3,0)]),iff({variant:'ガード'},[stat(0,2)])],{target:'ownMain',variants:['パンチ','キック','ガード'],variantRules:{'キック':{select:[pay('ownHand',{},1,'discard')]}}}),
- // 87接続・88 X06：発動中のたこやき自身は対象にできない（hotseat-5）。旧保存（hotseat-2〜4）は旧挙動（index 0）のまま再生する。
- 'G-takoyaki-grill':{mode:'trap',triggers:[['ownPrepared',['hotseat-2','hotseat-3','hotseat-4']],['ownPreparedOther',['hotseat-5']]].map(([target,onlyVersions])=>({when:'end',onlyVersions,target,steps:[{op:'schedule',timing:'start',steps:[iff('targetPreparedPresent',[draw(),growth(5)])]}]}))},
+ // 87接続・88 X06：発動中のたこやき自身は対象にできない（hotseat-5 以降。版を足す時はここにも足す）。旧保存（hotseat-2〜4）は旧挙動（index 0）のまま再生する。
+ 'G-takoyaki-grill':{mode:'trap',triggers:[['ownPrepared',['hotseat-2','hotseat-3','hotseat-4']],['ownPreparedOther',['hotseat-5','hotseat-6']]].map(([target,onlyVersions])=>({when:'end',onlyVersions,target,steps:[{op:'schedule',timing:'start',steps:[iff('targetPreparedPresent',[draw(),growth(5)])]}]}))},
  'G-tennis-rally':quick([stat(1,1,'challenge'),afterChallenge([draw()])],{condition:'bothPlayedInChallenge',target:'ownMain'}),
  'G-tower-defense':{mode:'trap',triggers:[{when:'activation',opponent:true,condition:'eventRemovesOwnPrepared',steps:[{op:'protect',scope:'ownPrepared',to:['discard','hand'],replace:'stay',count:2}]}]},
  'I-c_dex':quick([{op:'setFromHand',excludeSpecies:'M-ren'}],{target:'ownMain'}),

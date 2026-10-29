@@ -1,0 +1,264 @@
+{
+ "saves": {
+  "doodle-jump-hotseat2-saves.json:/rows/0": {
+   "version": "hotseat-2",
+   "state": "bfe25f89fa580d0b661ace88536e1c5525a21cff2b99e33207ec436d651f27cd",
+   "stateNoMeta": "bfe25f89fa580d0b661ace88536e1c5525a21cff2b99e33207ec436d651f27cd",
+   "save": "3585904eb4aeeee2195265025cf8517c7b7f482115bfac747b5b948f204493ad"
+  },
+  "doodle-jump-hotseat2-saves.json:/rows/1": {
+   "version": "hotseat-2",
+   "state": "8e45b1ef99f841fac3b8ded3c05bcebd0a3649d1865f5cb80a580e2c1adb8f06",
+   "stateNoMeta": "8e45b1ef99f841fac3b8ded3c05bcebd0a3649d1865f5cb80a580e2c1adb8f06",
+   "save": "0364463818036e6b43328b2227885341db94810dabdf3de6daf12a0fda8c098f"
+  },
+  "doodle-jump-hotseat2-saves.json:/rows/2": {
+   "version": "hotseat-2",
+   "state": "74aadd94d507471f859b432a4a31b7b459c3c0a32a965c6567dea51e6a65cf85",
+   "stateNoMeta": "74aadd94d507471f859b432a4a31b7b459c3c0a32a965c6567dea51e6a65cf85",
+   "save": "bf77b1018b1767c05802ad0580b41b226c3e4e3a294ba2eac8c3b91c88dd2a17"
+  },
+  "frogger-hotseat5-saves.json:/rows/0": {
+   "version": "hotseat-5",
+   "state": "17fbf22b25e2a82e3954c9b2cdb3b7ecc266da97099415a04ab4accebb5b4270",
+   "stateNoMeta": "a4476ddbdf333a2c0ba3ab174fe02cedbcbec011d04ca3c451148abf9bc27be2",
+   "save": "eec4c21f6fc78bd1e5a0bf478aacc76a132aa265a38eca446168b92c4f9f7197"
+  },
+  "frogger-hotseat5-saves.json:/rows/1": {
+   "version": "hotseat-5",
+   "state": "b16ce6c23218dd0db4483cbd0aa8deacc66df586a4246fd04b32a08500bbc8ee",
+   "stateNoMeta": "fc6c10cca9e4ec37ccabf557f1ae37525a24ce2288a4e4c55171ba2ed3cdaeb0",
+   "save": "f7358be925a1203eec23c3fd4e2c0ffca338eea539fb95d631985b4c6b0acc99"
+  },
+  "hotseat1-saves.json:/mid": {
+   "version": "hotseat-1",
+   "state": "2c5c7ecfb815341c31b553ed7b9291713335d4702898c1c45747d1d2570a7936",
+   "stateNoMeta": "2c5c7ecfb815341c31b553ed7b9291713335d4702898c1c45747d1d2570a7936",
+   "save": "0bb3e8bd5edef90ed9e23a593d8e38ba5d9a4c813060eff4ebe2b77632c54310"
+  },
+  "hotseat1-saves.json:/finished": {
+   "version": "hotseat-1",
+   "state": "5a144e13c49a67c62fb880a8c474454d391e68fd8ba1b5e4d4a3e2834ca63a17",
+   "stateNoMeta": "5a144e13c49a67c62fb880a8c474454d391e68fd8ba1b5e4d4a3e2834ca63a17",
+   "save": "88cadd0efce760ccaa76df39b2c56cf25ce1510a1e720a0ad3fe35aebe81e92a"
+  },
+  "lover-fix-hotseat2-saves.json:/rows/0": {
+   "version": "hotseat-2",
+   "state": "c81d50068c5c5ec3d39ade3dbf0751095d8e0c8eada636b7c5de50bc68858bfe",
+   "stateNoMeta": "12cd25b943cd2a720b88e1fcb2fb3471de8b4ca4287ccb7c3bec451d6644153d",
+   "save": "5dcbb42917e1a755b872c7a8785b8dd2a3eee2ef3d6ffcf517922774b462aeab"
+  },
+  "lover-fix-hotseat2-saves.json:/rows/1": {
+   "version": "hotseat-2",
+   "state": "03d2679d4a495a657fa086debb3a11ffd69957a9d1cb2f3a24f9bc95133901f9",
+   "stateNoMeta": "03d2679d4a495a657fa086debb3a11ffd69957a9d1cb2f3a24f9bc95133901f9",
+   "save": "b8291c6fdf9070e65ff7ece0180b1ecdabf7b9d5748301683236c78e003dfd49"
+  },
+  "takoyaki-hotseat4-saves.json:/rows/0": {
+   "version": "hotseat-4",
+   "state": "0c81d209b8985211e7ecad0e02443227f8b11d11d8cf3adcc11b815326a70fbb",
+   "stateNoMeta": "f5239df75d9f72df745fdbda95e32d563882657b6dfb368b3761e036873e93e5",
+   "save": "5819d6fa72cdc05f9c858579a130b5630d8f922524092d51031ca4351456a64b"
+  },
+  "takoyaki-hotseat4-saves.json:/rows/1": {
+   "version": "hotseat-4",
+   "state": "30b5814038ff12d6e2710c8a95cd601e5d69e27f4b7670cb85e8b120bc3597e6",
+   "stateNoMeta": "b5dc7a88269b4971a584aebeb73bc35d0113edba0bea0135a2dce6429b1e5f26",
+   "save": "638fa0f5a44c381a21c7fa42e63050a83d8fde0ce5b0c60ed64317ee57e6fd48"
+  }
+ },
+ "games": {
+  "hotseat-2/beginner/1": {
+   "phase": "finished",
+   "commands": "bd7d4d16527ba888165db0512ad378045622e88cb23685444d3046f79105d144",
+   "state": "3e6671fd50dbfcc5fe1914df191b3b8f46e50455a3f926c27544c12633d268ef",
+   "stateNoMeta": "2bb51cb12443a7c7ad1cfbeb2aefff3c611a0be0fa7020800aa4e202e9527435",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-2/beginner/2": {
+   "phase": "finished",
+   "commands": "480eb26b2d4a2dadbbe49a177b8ee187c633ef48cd9d3b8025b26a69e6008105",
+   "state": "665b7673c5359f172e525e2b077192f5e207a92f27ba7f022328b5f8b6aa1ca2",
+   "stateNoMeta": "a7617040802064f6c13ff6573a6c4a0bbb5b2a923bc8c506bfebc3cf37f0c7e0",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-2/beginner/3": {
+   "phase": "finished",
+   "commands": "63b9271b835888f6c3e0853db53430196286eff0c1d8059609c8a315ccab2b6f",
+   "state": "525232f92c7d09553e90f75874a6187f0c4474d31d995364b685c6891a7a76a1",
+   "stateNoMeta": "56c63f89ddf4be971de2688699e5d2e3e84024f007c7d9befabd68815f179d8a",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-2/intermediate/1": {
+   "phase": "finished",
+   "commands": "afc6f82434d4271ec1a2efd49fee621108c9d14f9dac37674b8012b49cec5aa0",
+   "state": "9b2dabbc45e9e461e22ed1accde38d07ccb53bafd5eb6c19f9ae9aa734af1376",
+   "stateNoMeta": "9084b1d55e3b0fd3172b5577df661d9a141eb0d55d5b54ec7cf8bc5931342208",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-2/intermediate/2": {
+   "phase": "finished",
+   "commands": "24e77a75cc64983d97ea1e57d3243ade8b92db6c8860574f90aa062266b807c7",
+   "state": "dfc9e042566a820b91bd5406aa72690b92121028ab26e892d3c09ce9b280aa66",
+   "stateNoMeta": "93b7c13f60ca11696efcbf4810ea89f9ad869f0b84c2a177676a606420cfa551",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-2/intermediate/3": {
+   "phase": "finished",
+   "commands": "5cab6b0664445b5bdcf35c1884f4cdadf6bfa7691941b20d5f44c9606ba37bd8",
+   "state": "b5d27d068419cd83672ac2cef020ac80288daa370099435b1a9eb93003057459",
+   "stateNoMeta": "bf618fdba04fe157ab6384b6b7ff077500afc212b5f72a2133dafc9280652136",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-3/beginner/1": {
+   "phase": "finished",
+   "commands": "bd7d4d16527ba888165db0512ad378045622e88cb23685444d3046f79105d144",
+   "state": "3e6671fd50dbfcc5fe1914df191b3b8f46e50455a3f926c27544c12633d268ef",
+   "stateNoMeta": "2bb51cb12443a7c7ad1cfbeb2aefff3c611a0be0fa7020800aa4e202e9527435",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-3/beginner/2": {
+   "phase": "finished",
+   "commands": "480eb26b2d4a2dadbbe49a177b8ee187c633ef48cd9d3b8025b26a69e6008105",
+   "state": "665b7673c5359f172e525e2b077192f5e207a92f27ba7f022328b5f8b6aa1ca2",
+   "stateNoMeta": "a7617040802064f6c13ff6573a6c4a0bbb5b2a923bc8c506bfebc3cf37f0c7e0",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-3/beginner/3": {
+   "phase": "finished",
+   "commands": "63b9271b835888f6c3e0853db53430196286eff0c1d8059609c8a315ccab2b6f",
+   "state": "525232f92c7d09553e90f75874a6187f0c4474d31d995364b685c6891a7a76a1",
+   "stateNoMeta": "56c63f89ddf4be971de2688699e5d2e3e84024f007c7d9befabd68815f179d8a",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-3/intermediate/1": {
+   "phase": "finished",
+   "commands": "afc6f82434d4271ec1a2efd49fee621108c9d14f9dac37674b8012b49cec5aa0",
+   "state": "9b2dabbc45e9e461e22ed1accde38d07ccb53bafd5eb6c19f9ae9aa734af1376",
+   "stateNoMeta": "9084b1d55e3b0fd3172b5577df661d9a141eb0d55d5b54ec7cf8bc5931342208",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-3/intermediate/2": {
+   "phase": "finished",
+   "commands": "24e77a75cc64983d97ea1e57d3243ade8b92db6c8860574f90aa062266b807c7",
+   "state": "dfc9e042566a820b91bd5406aa72690b92121028ab26e892d3c09ce9b280aa66",
+   "stateNoMeta": "93b7c13f60ca11696efcbf4810ea89f9ad869f0b84c2a177676a606420cfa551",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-3/intermediate/3": {
+   "phase": "finished",
+   "commands": "5cab6b0664445b5bdcf35c1884f4cdadf6bfa7691941b20d5f44c9606ba37bd8",
+   "state": "b5d27d068419cd83672ac2cef020ac80288daa370099435b1a9eb93003057459",
+   "stateNoMeta": "bf618fdba04fe157ab6384b6b7ff077500afc212b5f72a2133dafc9280652136",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-4/beginner/1": {
+   "phase": "finished",
+   "commands": "bd7d4d16527ba888165db0512ad378045622e88cb23685444d3046f79105d144",
+   "state": "3e6671fd50dbfcc5fe1914df191b3b8f46e50455a3f926c27544c12633d268ef",
+   "stateNoMeta": "2bb51cb12443a7c7ad1cfbeb2aefff3c611a0be0fa7020800aa4e202e9527435",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-4/beginner/2": {
+   "phase": "finished",
+   "commands": "480eb26b2d4a2dadbbe49a177b8ee187c633ef48cd9d3b8025b26a69e6008105",
+   "state": "665b7673c5359f172e525e2b077192f5e207a92f27ba7f022328b5f8b6aa1ca2",
+   "stateNoMeta": "a7617040802064f6c13ff6573a6c4a0bbb5b2a923bc8c506bfebc3cf37f0c7e0",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-4/beginner/3": {
+   "phase": "finished",
+   "commands": "63b9271b835888f6c3e0853db53430196286eff0c1d8059609c8a315ccab2b6f",
+   "state": "525232f92c7d09553e90f75874a6187f0c4474d31d995364b685c6891a7a76a1",
+   "stateNoMeta": "56c63f89ddf4be971de2688699e5d2e3e84024f007c7d9befabd68815f179d8a",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-4/intermediate/1": {
+   "phase": "finished",
+   "commands": "afc6f82434d4271ec1a2efd49fee621108c9d14f9dac37674b8012b49cec5aa0",
+   "state": "9b2dabbc45e9e461e22ed1accde38d07ccb53bafd5eb6c19f9ae9aa734af1376",
+   "stateNoMeta": "9084b1d55e3b0fd3172b5577df661d9a141eb0d55d5b54ec7cf8bc5931342208",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-4/intermediate/2": {
+   "phase": "finished",
+   "commands": "24e77a75cc64983d97ea1e57d3243ade8b92db6c8860574f90aa062266b807c7",
+   "state": "dfc9e042566a820b91bd5406aa72690b92121028ab26e892d3c09ce9b280aa66",
+   "stateNoMeta": "93b7c13f60ca11696efcbf4810ea89f9ad869f0b84c2a177676a606420cfa551",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-4/intermediate/3": {
+   "phase": "finished",
+   "commands": "5cab6b0664445b5bdcf35c1884f4cdadf6bfa7691941b20d5f44c9606ba37bd8",
+   "state": "b5d27d068419cd83672ac2cef020ac80288daa370099435b1a9eb93003057459",
+   "stateNoMeta": "bf618fdba04fe157ab6384b6b7ff077500afc212b5f72a2133dafc9280652136",
+   "restoredEqual": true,
+   "selfTargets": 2
+  },
+  "hotseat-5/beginner/1": {
+   "phase": "finished",
+   "commands": "832acb4fadb3f47d32d6f3a4f95c92b73fe964677e923ead46990decee594ab4",
+   "state": "6049ec85110bb45b01ee5b20e8feb37745d3e5ac23e129f8a956adf890ec072b",
+   "stateNoMeta": "412da65bd6ab73a3d6ca02300f4368a4cda3963a46aabf532d33d743c5feda69",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-5/beginner/2": {
+   "phase": "finished",
+   "commands": "052f675fb067ef68a604431b65046d8ec63877c9ccb5a2d8951e212a4608b96c",
+   "state": "4199ce731a39f11ee5519f0f8c23fa8b8bdeebc46f41e405d1588a61028189b3",
+   "stateNoMeta": "a2d896ebb133008379875061d6bffb567eb2dbc9220d9aba6bdc05ae9bc17cb4",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-5/beginner/3": {
+   "phase": "finished",
+   "commands": "51eb80b3a9b5a598622981d74b027ed396054968957d3de7bf0420d4b30deb85",
+   "state": "fa59ea3a3ab3d3f7300be4ec38a6490095b1aa12ef4a83e2ca94b30ea8a6f06e",
+   "stateNoMeta": "7a3065627550eecd73f4b7ab478e032746f8f39b1e04658d0179a036c9e9ce47",
+   "restoredEqual": true,
+   "selfTargets": 0
+  },
+  "hotseat-5/intermediate/1": {
+   "phase": "finished",
+   "commands": "64c3d1bbe7e6844590a3623c93a77d0aabd15ae4bef63359b579d9de225c6354",
+   "state": "fe8e02539a73de87b3422adcdbaff82cac92858697f5bcf0161977f5eaf97b72",
+   "stateNoMeta": "e6c2f7b8c5820b5ebae2c20e1dca035f2ecd7f8cb74e90c38dc5469d93012ba7",
+   "restoredEqual": true,
+   "selfTargets": 1
+  },
+  "hotseat-5/intermediate/2": {
+   "phase": "finished",
+   "commands": "5daef7b7f8fd769f1f478db0061590ffda3e2e6c10c8f478c3c0bb40ef23d1e6",
+   "state": "f8d7a699f947ccb70b9b16252fb9fac467e40ccfd75b6a227627ad72573eb0f1",
+   "stateNoMeta": "3150b4492e5ad866079c1132c41157d9fa0ae68a8b5c6ae4cf64c09780ada95f",
+   "restoredEqual": true,
+   "selfTargets": 0
+  },
+  "hotseat-5/intermediate/3": {
+   "phase": "finished",
+   "commands": "6d308397668f2d37f07d38ecfe5366b5be3b5f2c574dae2b0bb233986c265676",
+   "state": "7bf1c0e7b26625147f947313e468caf6bc124dbdba22c034510d1d12bc111ba0",
+   "stateNoMeta": "df16abceeb32ea7d4cce01d2052d59b75bc366bdcb0de565baa2e6035d022f8d",
+   "restoredEqual": true,
+   "selfTargets": 0
+  }
+ }
+}
