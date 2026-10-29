@@ -71,7 +71,7 @@ if(process.argv[1]===fileURLToPath(import.meta.url)){
    try{await openCase(page,c,ui);rec.initial=await page.evaluate(measure);
     await page.screenshot({path:path.join(OUT,'screenshots',tag,`${c.key}-${ui}.jpg`),type:'jpeg',quality:62});
     if(ui==='new'){const z=page.locator('#card-dialog .stage-zoom');
-     if(await z.isVisible()){await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(250);rec.zoomed=await page.evaluate(measure);
+     if(await z.isVisible()){await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(250);rec.zoomed=await page.evaluate(measure);
       if(['choice-long','normal-long'].includes(c.key))await page.screenshot({path:path.join(OUT,'screenshots',tag,`${c.key}-new-zoom.jpg`),type:'jpeg',quality:62});}}
    }catch(e){rec.error=String(e.message??e);}
    rec.errors=errors.splice(0);rows.push(rec);

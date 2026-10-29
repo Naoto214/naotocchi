@@ -121,9 +121,29 @@ function showZone(seat,zone,origin){
  const html=zoneMarkup(v,seat,zone);if(!html)return;closeDialogs({focus:false});dialogOrigin=origin;
  const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.dataset.browseSeat=seat;d.dataset.browseZone=zone;d.innerHTML=html;d.showModal();input.stamp();d.querySelector('[data-close]').focus();
 }
-// Tapping the large card in the detail switches between the whole card and the width-filling zoom.
-function toggleStageZoom(z){const d=z.closest('dialog'),card=d?.querySelector('.stage-card');if(!card||!card.hasAttribute('data-zoomable')&&d.dataset.stageZoom!=='1')return;if(d.dataset.stageZoom==='1')delete d.dataset.stageZoom;else d.dataset.stageZoom='1';fitStageCard(d);d.querySelector('.stage-scroll').scrollTop=0;}
-document.addEventListener('click',e=>{const z=e.target.closest('[data-stage-zoom]');if(z)toggleStageZoom(z);});
+// Double-tapping the large card in the detail (or the portrait chip / Enter) switches between normal size and zoom.
+// With a tap point, the zoomed card keeps that point under the finger.
+function toggleStageZoom(z,at=null){const d=z.closest('dialog'),card=d?.querySelector('.stage-card'),scroll=d?.querySelector('.stage-scroll');if(!card||!card.hasAttribute('data-zoomable')&&d.dataset.stageZoom!=='1')return;
+ const r=card.getBoundingClientRect(),fx=at?Math.min(1,Math.max(0,(at.x-r.left)/r.width)):0,fy=at?Math.min(1,Math.max(0,(at.y-r.top)/r.height)):0;
+ if(d.dataset.stageZoom==='1')delete d.dataset.stageZoom;else d.dataset.stageZoom='1';fitStageCard(d);
+ if(!at||d.dataset.stageZoom!=='1'){scroll.scrollTop=0;scroll.scrollLeft=0;return;}
+ const n=card.getBoundingClientRect();scroll.scrollLeft+=n.left+fx*n.width-at.x;scroll.scrollTop+=n.top+fy*n.height-at.y;}
+document.addEventListener('click',e=>{const z=e.target.closest('button[data-stage-zoom]');if(z)toggleStageZoom(z);});
+// Double tap on the detail card. Built on pointer events: iOS Safari sends no click to a plain element through a
+// document listener. A second finger (pinch), a drag or a long press is not a tap; a single tap does nothing.
+const DOUBLE_TAP_MS=350,TAP_SLOP=12,DOUBLE_TAP_SLOP=36;
+const activePointers=new Set();let tapStart=null,lastTap=null;
+document.addEventListener('pointerdown',e=>{activePointers.add(e.pointerId);
+ const card=e.target.closest?.('#card-dialog[open] .stage-card');
+ if(activePointers.size>1){tapStart=null;lastTap=null;return;}
+ tapStart=card&&e.isPrimary?{id:e.pointerId,x:e.clientX,y:e.clientY,t:e.timeStamp,card}:null;},true);
+document.addEventListener('pointercancel',e=>{activePointers.delete(e.pointerId);tapStart=null;lastTap=null;},true);
+document.addEventListener('pointerup',e=>{activePointers.delete(e.pointerId);const s=tapStart;tapStart=null;
+ if(!s||s.id!==e.pointerId||!s.card.isConnected)return;
+ if(Math.hypot(e.clientX-s.x,e.clientY-s.y)>TAP_SLOP||e.timeStamp-s.t>500){lastTap=null;return;}
+ const l=lastTap;
+ if(l&&l.card===s.card&&e.timeStamp-l.t<=DOUBLE_TAP_MS&&Math.hypot(e.clientX-l.x,e.clientY-l.y)<=DOUBLE_TAP_SLOP){lastTap=null;e.preventDefault();toggleStageZoom(s.card,{x:e.clientX,y:e.clientY});}
+ else lastTap={card:s.card,x:e.clientX,y:e.clientY,t:e.timeStamp};},true);
 document.addEventListener('keydown',e=>{const z=e.target.closest?.('div[data-stage-zoom]');if(z&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleStageZoom(z);}});
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b||b.disabled)return;

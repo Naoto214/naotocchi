@@ -46,10 +46,11 @@ for(const [w,h] of VPS){
   check('連鎖中の応答：詳細から応答を確定できる',vp,ok&&(await revision(page))>before,{revision:before});}
  // 7) 開閉・スクロール初期化・拡大の切り替え
  {await openCase(page,caseOf('normal-long'),'new');const z=page.locator('#card-dialog .stage-zoom');let zoomOk=true,zoomInfo=null;
-  if(await page.locator('#card-dialog .stage-card[data-zoomable]').count()){const chipShown=await z.isVisible(),a=await page.evaluate(()=>document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width);await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(350);
+  // カードのダブルタップで拡大（1回のタップでは拡大しない）
+  if(await page.locator('#card-dialog .stage-card[data-zoomable]').count()){const portrait=w<h,a=await page.evaluate(()=>document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width);await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(350);
    const b=await page.evaluate(()=>({w:document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width,stage:document.querySelector('#card-dialog .stage-scroll').clientWidth,chip:document.querySelector('#card-dialog .stage-zoom').textContent}));
-   // 縦向きは「－ 縮小」、横向きはボタンなし（カードをもう一度押して戻す）
-   if(chipShown)await z.click();else await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(350);const c=await page.evaluate(()=>document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width);zoomOk=b.w>a&&b.w<=b.stage+1&&(chipShown?/縮小/.test(b.chip):!(await z.isVisible()))&&Math.abs(c-a)<1;zoomInfo={a,b,c,chipShown};}
+   // 縦向きは拡大中に「－ 縮小」が出る、横向きはボタンなし（カードをもう一度ダブルタップして戻す）
+   const chipShown=await z.isVisible();if(chipShown)await z.click();else await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(350);const c=await page.evaluate(()=>document.querySelector('#card-dialog .stage-card').getBoundingClientRect().width);zoomOk=b.w>a&&(portrait?chipShown&&/縮小/.test(b.chip):!chipShown)&&Math.abs(c-a)<1;zoomInfo={a,b,c,chipShown};}
   await page.evaluate(()=>{document.querySelector('#card-dialog .stage-scroll').scrollTop=9999;});
   await page.locator('#card-dialog [data-close]').tap();await page.waitForTimeout(200);const closed1=!(await page.locator('#card-dialog[open]').count());
   const other=await page.evaluate(()=>[...document.querySelectorAll('#hand [data-inspect]')].map(n=>n.dataset.inspect).find(x=>x.includes(':W-city:')));

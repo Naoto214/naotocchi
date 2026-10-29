@@ -28,14 +28,14 @@ for(const [w,h] of LANDSCAPE){
     check(`${cond}：最長の状況表示「Aのターン・Bの効果選択待ち」も1行`,vp,long.lines===1&&!long.clipped,long);}
    if(c.scenario==='target'&&cond==='通常'){
     // 拡大と戻り。拡大しても保存・盤面は変わらない
-    const before=await saved(page);await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(350);const z=await page.evaluate(detail);
+    const before=await saved(page);await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(350);const z=await page.evaluate(detail);
     await page.screenshot({path:path.join(OUT,'checks',`${vp}-zoom.jpg`),type:'jpeg',quality:62});
-    check('カードを押すと拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）',vp,z.card.w>d.card.w&&d.zoomChip===null&&z.zoomChip===null,{from:d.card,to:z.card,text:z.textPx});
+    check('カードをダブルタップすると拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）',vp,z.card.w>d.card.w&&d.zoomChip===null&&z.zoomChip===null,{from:d.card,to:z.card,text:z.textPx});
     const sc=await page.evaluate(()=>{const s=document.querySelector('#card-dialog .stage-scroll');s.scrollTop=s.scrollHeight;return s.scrollTop>0;});
     check('拡大中はカードの部分だけスクロールして本文の下まで読める',vp,sc,{});
-    await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(350);const back=await page.evaluate(detail);
-    check('カードをもう一度押すと全体表示に戻る',vp,back.wholeCardVisible&&back.card.w===d.card.w,{card:back.card});
-    await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(300);await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(300);
+    await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(350);const back=await page.evaluate(detail);
+    check('カードをもう一度ダブルタップすると全体表示に戻る',vp,back.wholeCardVisible&&back.card.w===d.card.w,{card:back.card});
+    await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(300);await page.locator('#card-dialog .stage-card').dblclick();await page.waitForTimeout(300);
     const again=await page.evaluate(detail);check('拡大と復帰を繰り返しても全体表示に戻る',vp,again.wholeCardVisible,{});
     check('拡大・縮小で保存データ（対戦状態）が変わらない',vp,before===await saved(page),{});
     await page.locator('#card-dialog [data-close]').click();await page.waitForTimeout(300);

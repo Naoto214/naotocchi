@@ -16,21 +16,23 @@ export function installViewport(doc= document,win=window){
 // Portrait: the whole card is shown unless that would make its text too small to read; then the card fills the width
 // and the stage scrolls. Landscape: always the whole card, however small, so the table can be taken in at a glance.
 // Tapping the card (zoom) fills the stage width to read the text, and tapping again returns. Never wider than the stage.
-export const STAGE_MAX_SCALE=1.6,STAGE_READABLE=.82;
+export const STAGE_MAX_SCALE=1.6,STAGE_READABLE=.82,STAGE_DEEP_ZOOM=1.5;
+// Zoom fills the stage width; when the card already fills it, zoom goes 1.5× further and the stage scrolls both ways.
 export function stageScale(width,height,{zoom=false,portrait=true}={}){
  const fill=Math.min(Math.max(1,width)/320,STAGE_MAX_SCALE),whole=Math.min(fill,Math.max(1,height)/480);
- if(zoom)return fill;
- if(!portrait)return whole;
- return whole>=Math.min(fill,STAGE_READABLE)?whole:fill;
+ const normal=!portrait||whole>=Math.min(fill,STAGE_READABLE)?whole:fill;
+ if(!zoom)return normal;
+ return fill-normal>.05?fill:normal*STAGE_DEEP_ZOOM;
 }
 export function fitStageCard(dialog,doc=document){
  const scroll=dialog?.querySelector('.stage-scroll'),card=scroll?.querySelector('.stage-card');if(!card)return;
  const cs=getComputedStyle(scroll),w=scroll.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),h=scroll.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
  const portrait=doc.documentElement.dataset.detailOrientation!=='landscape',zoom=dialog.dataset.stageZoom==='1';
  card.style.setProperty('--stage-scale',String(stageScale(w,h,{zoom,portrait})));
- const zoomable=Math.abs(stageScale(w,h,{zoom:true,portrait})-stageScale(w,h,{portrait}))>.05;card.toggleAttribute('data-zoomable',zoomable);
+ // The card always zooms (double tap). The portrait chip shows only where zoom widens the card to the stage width.
+ const widens=Math.min(w/320,STAGE_MAX_SCALE)-stageScale(w,h,{portrait})>.05;card.toggleAttribute('data-zoomable',true);
  // Landscape: the card itself is the zoom control, so the chip stays hidden (portrait keeps it).
- const chip=dialog.querySelector('.stage-zoom');if(chip){chip.hidden=!zoomable||!portrait;chip.textContent=zoom?'－ 縮小':'＋ 拡大';}
+ const chip=dialog.querySelector('.stage-zoom');if(chip){chip.hidden=!(widens||zoom)||!portrait;chip.textContent=zoom?'－ 縮小':'＋ 拡大';}
  // A cue when more of the card (stage) or more choices (band) lie below; it goes once scrolled to the end.
  for(const n of [scroll,dialog.querySelector('.stage-band')])if(n)n.toggleAttribute('data-more',n.scrollHeight-n.clientHeight-n.scrollTop>2);
 }
