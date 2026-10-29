@@ -46,3 +46,8 @@
 | `evidence/compat-*.json` | main との保存互換の比較（`tools/compat-replay.mjs`・`tools/compat-compare.py`） |
 | `evidence/frogger-observation.json` | 参考の観察（修正なし） |
 | `evidence/ui-prefix-hotseat5.json`・`ui/` | 実画面の確認（`tools/find-trigger-prefix.mjs`・`tools/ui-qa.cjs`） |
+
+## 最新mainの取り込み（2026-10-29）
+
+- main `59b3cca1`（#443 ミニゲーム、#467 対戦中カード詳細UI）を merge commit で取り込み。競合なし。#467 は `style.css` と資料だけで、今回の3ファイル・版管理と重ならない。
+- 取り込み後も：node 508/508、設計データ照合エラー0、カタログ再生成一致、`tests/pages` 16/16、package・verify 成功（4,057ファイル）、実画面の確認（`ui/ui-qa.json`）合格。allowlist の main との差は今回の3行だけ。
