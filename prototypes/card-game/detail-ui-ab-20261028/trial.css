@@ -1,0 +1,11 @@
+/* 比較試遊版だけの案内パネルと切り替えボタン。正式ゲームの配色（深緑・金）に合わせる。 */
+.trial-panel{margin:0 0 16px;padding:14px 16px;border:1px solid #c8ac6b;border-radius:12px;background:linear-gradient(135deg,#173e32,#22483a);color:#f4edce;line-height:1.6}
+.trial-panel h2{margin:0 0 6px;font-size:17px;color:#eed39b}.trial-panel h3{margin:14px 0 4px;font-size:14px;color:#eed39b}
+.trial-panel p{margin:4px 0;font-size:13px}.trial-note{font-size:12px!important;color:#d5dcc8}
+.trial-variants{display:flex;gap:8px;margin:10px 0}.trial-variants button{flex:1;min-height:44px;border:1px solid #c3b06a;border-radius:8px;background:#f1ead1;color:#20432e;font-weight:700}
+.trial-variants button[aria-pressed=true]{background:#e9c766;border-width:2px;box-shadow:0 0 0 2px #ffdf8855}
+.trial-scenarios{display:grid;gap:8px}.trial-scenarios>div{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px;align-items:center;font-size:12px}
+.trial-scenarios button{min-height:44px;padding:6px 10px;border:1px solid #c3b06a;border-radius:8px;background:#f1ead1;color:#20432e;font-size:12px}
+#card-dialog .trial-cycle{flex:none;min-width:56px;min-height:44px;margin:0 0 0 auto;padding:4px 8px;border:1px dashed #e4c780;border-radius:8px;background:#e4c78018;color:#f4e2ad;font-size:12px;font-weight:700}
+#card-dialog .detail-toolbar:has(.trial-cycle)>span{min-width:0;overflow-wrap:anywhere}
+#card-dialog .effect-more{display:none}

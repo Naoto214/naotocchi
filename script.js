@@ -2942,10 +2942,11 @@
   function minigameLengthMode() {
     return GAME_LENGTH_CHOICES[state.lifetime.minigameLength] ? state.lifetime.minigameLength : 'normal';
   }
-  function mgDuration(ms) {
+  function mgDuration(ms, opts) {
     // サクッと あそべる ながさに: ふつう/むずかしい は そのまま、やさしい だけ +20%。
-    // 「みじかめ」せっていは 20びょう いじょうの ゲームを 7わりの ながさに する
-    const short = minigameLengthMode() === 'short' && ms >= 20000 ? 0.7 : 1;
+    // 「みじかめ」せっていは 20びょう いじょうの ゲームを 7わりの ながさに する。
+    // てばんで すすむ ゲーム(opts.turn。games.js の MG_TURN_BASED)は 1手の おもさが かわらないので みじかく しない(T3)
+    const short = minigameLengthMode() === 'short' && ms >= 20000 && !(opts && opts.turn) ? 0.7 : 1;
     const ease = minigameDifficultyMode() === 'easy' ? 1.2 : 1;
     return Math.round(ms * ease * short);
   }
@@ -17014,20 +17015,21 @@
 
   // 「ゲームを やめる」: てんすう なし・ごほうび なし・ばつ なし。げんきだけ
   // すこし つかう(あそびはじめた ぶん)。じこベストも うごかない
-  function retireMinigame() {
+  function retireMinigame(idleMessage) {
     if (!gameActive) return;
     // finishMinigame() と おなじく、ふつうの がめんの タイマーに ゲームの
     // しるしが つかない ように「ゲームの コードの そと」で 処理する
     const savedDepth = mgCodeDepth;
     mgCodeDepth = 0;
     try {
-      retireMinigameInner();
+      retireMinigameInner(idleMessage);
     } finally {
       mgCodeDepth = savedDepth;
     }
   }
 
-  function retireMinigameInner() {
+  // idleMessage: T7 の「参加なし」で おわった ときの 文言(なかまイベントの ときは いつもの「途中でおわり」)
+  function retireMinigameInner(idleMessage) {
     const game = activeMinigame;
     const isQuick = game?.id === 'quick-run' || game?.id === 'quick-solo';
     closeMinigameScreen();
@@ -17036,7 +17038,7 @@
       state.energy = clamp(state.energy - 6, 0, 100);
       state.happiness = clamp(state.happiness + 2, 0, 100);
     }
-    let message = 'むりせず途中でやめた。また今度ちょうせん!';
+    let message = idleMessage || 'むりせず途中でやめた。また今度ちょうせん!';
     if (pendingCompanionId) {
       const companion = allCompanionsById(pendingCompanionId);
       pendingCompanionId = null;
@@ -17081,9 +17083,40 @@
     el.mgQuitYesBtn.addEventListener('click', () => retireMinigame());
   }
 
-  function finishMinigame(score, customMessage) {
+  // T7: 実質的に 参加して いない プレイは「途中で やめた」と おなじに する(案B)。ゲームが そうさの 量
+  // (games.js の mgPlayMeter: acts=状態を かえた そうさの 回数、spans/cover=そうさの あった 4びょう区切りの
+  // かず/わりあい)を わたせば それで みる(区切り 2つ いじょう かつ 2わり いじょう。1区切りで おわった ゲームは その 1つで よい)。
+  // わたさない ゲームは「ゲームの がめんで 意図した 入力が あったか」で みる。
+  // 通常の 100本だけ(Quick・テスト用の ゲームは 対象外)。点・記録・コイン・そだち・個性・会話には 入れず、
+  // 元気-6・きげん+2 だけ(やめる ボタンと おなじ)。遊んで 低い 点だった ときは いままでどおり(セーブの 形は かえない)
+  const MG_IDLE_COVER = 0.2, MG_IDLE_MESSAGE = 'そうさがなかったので、今回は記録しないよ';
+  let mgPlayInputs = 0, mgPlayLaunched = 0, mgPlayIds = null;
+  function mgCountPlayInput(e) {
+    if (!gameActive || !mgSession || mgPlayLaunched !== mgSession || e.isTrusted === false || e.key === 'Escape') return;
+    const t = e.target;
+    if (t && typeof t.closest === 'function' && t.closest('#mgQuit, #mgHelpOverlay')) return;
+    mgPlayInputs += 1;
+  }
+  for (const type of ['pointerdown', 'touchstart', 'mousedown', 'keydown']) document.addEventListener(type, mgCountPlayInput, true);
+  // 盤上の 対戦 6本(turnGap): 合法手を 指し、決着したか、いちばん ながい 間が MG_TURN_GAP_MS いないなら 参加。
+  // 長考は 参加。数手 指して 放置・時間切れ 直前の 1手だけは 間が ながく なるので 参加なし
+  const MG_TURN_GAP_MS = 30000;
+  function mgParticipated(play) {
+    if (play && Number.isFinite(play.maxGap)) return play.acts > 0 && (play.decided === true || play.maxGap <= MG_TURN_GAP_MS);
+    if (play && Number.isFinite(play.acts)) return play.acts > 0 && (!Number.isFinite(play.cover) || (play.cover >= MG_IDLE_COVER && (play.cover >= 1 || !(play.spans < 2))));
+    return !!play && play.inputs > 0;
+  }
+  function mgNotParticipated(game, play) {
+    if (!play || !game || !game.id) return false;
+    if (!mgPlayIds) mgPlayIds = new Set(buildMinigamePool().map((g) => g.id));
+    return mgPlayIds.has(game.id) && !mgParticipated(play);
+  }
+
+  function finishMinigame(score, customMessage, play) {
     const game = activeMinigame;
     if (!gameActive || !game || !Number.isFinite(score)) return;
+    // T7: 参加なしは 記録・コイン・そだち・個性・会話の まえで「途中で やめた」へ(play は onComplete から くる)
+    if (mgNotParticipated(game, play)) { retireMinigame(MG_IDLE_MESSAGE); return; }
     // ここから さきの ふつうの がめんの タイマー(えもーと/ふきだし など)に
     // ゲームの セッションの しるしが つかない よう、いったん「ゲームの
     // コードの そと」に 出る(finally で もとに もどす ので、この あとに
@@ -17140,8 +17173,6 @@
     const isGreat = clampedScore >= 70;
     const isBad = clampedScore < 30;
     const isQuick = game.id === 'quick-run' || game.id === 'quick-solo';
-    state.minigameScoreSum += rawScore;
-    state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
     if (isQuick) {
       // 混合の実点100は20/20。ソロ・未完走には支払わず、装備や環境も掛けない。
@@ -17160,6 +17191,10 @@
       render();
       return;
     }
+    // うでまえの へいきん(avgSkill。れんくんの こうほ条件)は ふつうの ゲームだけで かぞえる。
+    // クイックは みじかい あそびなので いれない(すでに たまっている あたいは そのまま)
+    state.minigameScoreSum += rawScore;
+    state.minigameCount += 1;
     individualGameResult(game,rawScore,individualGameLifeId);
     minigameResultSpeechHold = [];
     const fromCompanion = !!pendingCompanionId;
@@ -17334,12 +17369,14 @@
     showMinigameQuit();
     // ゲームがわから おくれて/2かい よばれても、その セッションが もう
     // おわっていれば なにも しない
-    const onComplete = (result, message) => {
+    // 3つめの detail は ゲームが わたす そうさの 量(T7。finishMinigame の 上限で つかう)
+    const onComplete = (result, message, detail) => {
       if (session !== mgSession || !gameActive) return;
-      finishMinigame(result, message);
+      finishMinigame(result, message, { inputs: mgPlayInputs, ...(detail && typeof detail === 'object' ? detail : {}) });
     };
     const launch = () => {
       if (session !== mgSession || !gameActive) return;
+      mgPlayInputs = 0; mgPlayLaunched = session;
       el.minigameOverlay.innerHTML = '';
       mgRunTagged(session, () => game.start(el.minigameOverlay, onComplete), null, []);
       arrangeMinigameControls(el.minigameOverlay);
@@ -18371,7 +18408,7 @@
       const btn = e.target.closest('.theme-swatch');
       if (!btn || !GAME_LENGTH_CHOICES[btn.dataset.id]) return;
       state.lifetime.minigameLength = btn.dataset.id; saveState(); renderEnvironment();
-      setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（20秒以上の制限時間を70%にする）' : '⏱️ゲームのながさを「ふつう」にした');
+      setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（20秒以上の制限時間を70%にする。手番で進むゲームはそのまま）' : '⏱️ゲームのながさを「ふつう」にした');
     });
     el.difficultyModeGrid.addEventListener('click', (e) => {
       const btn = e.target.closest('.theme-swatch');

@@ -43,6 +43,7 @@ class NaopoyoPublicationTests(unittest.TestCase):
         main = (ROOT / 'index.html').read_text()
         official = [href for href, labels in MenuLinks(main).links if 'なおぽよ。' in labels]
         self.assertEqual(official, ['prototypes/naopoyo/'])
+        self.assertRegex(main, r'<span(?:\s[^>]*)?>なおぽよ。</span>')
         self.assertNotIn('スライド・ドロップ', main)
 
     def test_legacy_runtime_is_not_published_but_sources_are_retained(self):

@@ -12,3 +12,9 @@ footer{max-width:640px;margin:0 auto;padding:20px max(20px,env(safe-area-inset-r
 
 /* v18: separate number/title without changing canonical heading text. */
 .chapter h2{display:flex;align-items:baseline;column-gap:0;min-width:0}.chapter-number{flex:none;letter-spacing:0}.chapter-space{flex:0 0 .9em;overflow:hidden;font-size:inherit;white-space:pre;color:transparent}.chapter-title{min-width:0;word-break:normal;overflow-wrap:normal}
+
+/* A separate closing leaf. The manuscript and its paragraph IDs stay intact. */
+.signature-page{margin-top:60vh;margin-top:60svh;min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;scroll-margin-top:0}
+.signature-page p{margin:0;font-size:calc(var(--text-size) * .9);font-weight:400;line-height:1.8;letter-spacing:.12em;padding-left:.12em;transform:translateY(15vh);transform:translateY(15svh)}
+.signature-visible .toolbar,.signature-visible footer{visibility:hidden}
+@media print{.signature-page{break-before:page;margin-top:0;min-height:90vh}.signature-page p{transform:none}}
