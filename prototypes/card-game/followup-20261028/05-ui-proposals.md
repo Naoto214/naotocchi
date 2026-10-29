@@ -1,5 +1,7 @@
 # 05. UI改善案（比較資料）
 
+> **最新 main との関係（2026-10-29 注記）**: 案のうち詳細パネルのCSS改善は #467 で採用・統合されています（style.css のハッシュも main 側で更新済み）。ここは比較の記録です。 本文は 2026-10-28 時点の記録として変更していません。
+
 **本番UIコード・CSSは変更していません。** 以下はブラウザ上でCSSを注入して測った比較で、再現は [display-qa/ui-proposal-experiment.mjs](display-qa/ui-proposal-experiment.mjs)、結果は [ui-proposal-results.json](display-qa/ui-proposal-results.json)、画像は [display-qa/ui-proposal/](display-qa/ui-proposal/)。
 
 ## 対象の問題

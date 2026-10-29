@@ -1,5 +1,7 @@
 # 06. 直接テストのない223枚の追加テスト候補（優先順位）
 
+> **最新 main との関係（2026-10-29 注記）**: Tier 1 の直接テストは #466（`tests/tier1-direct.test.mjs`）で追加済みです。残りは Tier 2 以降の候補です。 本文は 2026-10-28 時点の記録として変更していません。
+
 **今回は候補一覧のみ。テストは増やしていません**（発動コストの2件を除く）。再現: [test-candidates.mjs](test-candidates.mjs)（読み取り専用、対戦なし）→ [test-candidates.csv](test-candidates.csv)／[.json](test-candidates.json)。
 
 ## 抽出方法
