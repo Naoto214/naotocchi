@@ -1,0 +1,18 @@
+✔ Back restores the paragraph position before chapter navigation (2.908779ms)
+✔ Cover preserves the current bookmark and offers resume in the same session (0.852187ms)
+✔ Resume with the same chapter hash retains the saved paragraph (0.911544ms)
+✔ Old signature bookmarks resume at the final manuscript paragraph (0.712701ms)
+✔ An old signature URL resolves to the final manuscript paragraph (0.661626ms)
+✔ Work information opens and returns without changing reading position, history or bookmark (1.402037ms)
+✔ Escape returns from work information to the contents before closing the menu (0.730567ms)
+✔ game entry opens the white cover without clearing any saved bookmark (2.784396ms)
+✔ reload and browser back preserve reader restoration state (2.807039ms)
+✔ direct reader entry stays unchanged and cannot accept arbitrary return destinations (6.254804ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 113.039136

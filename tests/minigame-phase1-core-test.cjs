@@ -155,5 +155,5 @@ test('the reaction path keeps the old event keys and quick runs still skip react
   const h = harness(); const s = growing(h);
   h.api.startQuickRun(); h.api.finishMinigame(100); h.advance(7000);
   assert.equal(h.get('speechBubble').classList.contains('hidden'), true, 'quick runs keep no character reaction in v0');
-  assert.equal(s.minigameCount >= 1, true);
+  assert.equal(s.lifetime.minigamesPlayed >= 1, true, 'the quick run settled (it stays out of avgSkill, T9)');
 });
