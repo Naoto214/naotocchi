@@ -14,13 +14,13 @@
     <main>
       <header>
         <div class="brand">
-          なおぽよ<span>。</span><small>NAOPOYO. / CHAPTER 02 · VERSION 10</small>
+          なおぽよ<span>。</span><small>NAOPOYO. / CHAPTER 02 · VERSION 11</small>
         </div>
         <button id="compare" aria-label="8×8盤面">8×8</button
         ><button id="pause" aria-label="一時停止">Ⅱ</button>
       </header>
       <section class="intro">
-        <div><span id="chapter">CHAPTER 02 · VERSION 10</span><span id="clock"></span></div>
+        <div><span id="chapter">CHAPTER 02 · VERSION 11</span><span id="clock"></span></div>
         <h1 id="title"></h1>
       </section>
       <section class="arena">
@@ -37,7 +37,7 @@
         <button id="undo">↶ <span>もどす</span></button
         ><button id="retry">↻ <span>やり直す</span></button
         ><button id="hint">✧ <span>ヒント</span></button
-        ><button id="select">▦ <span>えらぶ</span></button>
+        ><button id="select">▦ <span>えらぶ</span></button><button id="example">▶ <span>おてほん</span></button>
       </nav>
     </main>
     <dialog id="dialog">
@@ -45,7 +45,7 @@
         <span>こもれびの森</span><button id="close">とじる</button>
       </div>
       <div id="content"></div>
-      <p class="game-links"><a href="qa.html">11〜20面を直接試す</a> · <a href="index.html">通常の順次開放</a><br>魔法ゲートは同じ数字だけ中を通れ、上にはどの数字も乗れます。合体できない仲間は8方向に交換。星はだれでも通れ、数字が合えば脱出。星とトゲは足場になりません。<br>同じ仲間は、落ちて触れたら合体する。各トゲは1マスの1手につき1回だけ分裂させます。<br>トゲに向かってゆっくりなぞると、分裂・落下・合体後の一手予告が出ます。速くなぞると、そのまま進みます。<br>VERSION 10専用の保存です。旧版のクリア記録を引き継ぎ、途中の盤面は新しく始めます。旧版の保存は残ります。</p>
+      <p class="game-links">魔法ゲートは同じ数字だけ中を通れ、上にはどの数字も乗れます。合体できない仲間は8方向に交換。星はだれでも通れ、数字が合えば脱出。星とトゲは足場になりません。<br>同じ仲間は、落ちて触れたら合体する。各トゲは1マスの1手につき1回だけ分裂させます。<br>VERSION 11専用の保存です。旧版のクリア記録を引き継ぎ、途中の盤面は新しく始めます。旧版の保存は残ります。</p>
     </dialog>
     <script type="module">
       import { mount } from "./app.mjs";

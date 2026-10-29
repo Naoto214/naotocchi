@@ -39,13 +39,13 @@ export function render(canvas,q,{dpr=1,reducedMotion=globalThis.matchMedia?.('(p
  c.restore();
  for(const a of actors){
   const held=a.id===q.active?.id;
-  c.save();c.globalAlpha=a.opacity*(q.preview?.affectedIds.includes(a.id)?.25:1);
+  c.save();c.globalAlpha=a.opacity;
   c.fillStyle='#29452c30';c.beginPath();c.ellipse((a.x+.5)*cell,(a.y+.96)*cell,cell*.30,cell*.08,0,0,Math.PI*2);c.fill();
   if(held){c.strokeStyle='#cba44d';c.lineWidth=2;c.strokeRect(a.x*cell+2,a.y*cell+2,cell-4,cell-4);}
   drawSprite(c,a.species,a.level,actorSpriteBox(a,cell,held));
   c.font=`900 ${cell*(held?.36:.31)}px system-ui`;c.textAlign='center';c.textBaseline='middle';c.lineWidth=3.5;c.strokeStyle='#355144';c.strokeText(a.level,(a.x+.5)*cell,(a.y+.18)*cell);c.fillStyle=held?'#fff2ae':'#fff';c.fillText(a.level,(a.x+.5)*cell,(a.y+.18)*cell);
   c.restore();
  }
- drawSplitPreview(c,q.preview,cell);
+ // Preview calculation remains available, but is not drawn in normal play.
  const f=q.motion[0];if(f){const t=f.elapsed/f.duration;for(const e of f.events.filter(e=>['merge','split','rescue'].includes(e.type))){c.globalAlpha=Math.max(0,1-t);c.strokeStyle='#bc8c3a';c.lineWidth=2;c.beginPath();c.arc((e.x+.5)*cell,(e.y+.5)*cell,(.15+t*.38)*cell,0,Math.PI*2);c.stroke();}c.globalAlpha=1;}
 }

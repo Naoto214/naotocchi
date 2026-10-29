@@ -5,6 +5,7 @@ import { loadSprites } from "../naopoyo-rescue/sprites.mjs";
 import { render, loadGuests, eventCaption } from "./render.mjs";
 import {ForestProgress, allStages} from "./progress.mjs";
 import {loadForest} from "./render.mjs";
+import {openExample} from "./example-ui.mjs";
 export function mount({qa = false} = {}) {
   const stages=qa?defaultStages:allStages;
   const progress = new ForestProgress(localStorage,{qa});
@@ -25,7 +26,8 @@ export function mount({qa = false} = {}) {
     hitUntil = 0,
     won = false,
     userPaused = false,
-    saveError = false;
+    saveError = false,
+    exampleActive = false;
   const dialog = $("dialog");
   const previewNote=$('split-preview-note');
   function save() {
@@ -37,7 +39,7 @@ export function mount({qa = false} = {}) {
     }
   }
   function pauseState() {
-    q.paused = userPaused || document.hidden || dialog.open || comparison;
+    q.paused = userPaused || document.hidden || dialog.open || comparison || exampleActive;
     $("paused").hidden = !userPaused;
     $("pause").textContent = userPaused ? "▶" : "Ⅱ";
   }
@@ -54,8 +56,9 @@ export function mount({qa = false} = {}) {
       dpr: Math.min(devicePixelRatio || 1, 2),
       hitUntil,
     });
-    previewNote.hidden=!q.preview;
-    $("status").hidden=!!q.preview;
+    previewNote.hidden=true;
+    $("status").hidden=false;
+    $("example").hidden=!q.stage.id.startsWith("komorebi-");
     $("title").textContent = q.stage.title;
     $("chapter").textContent =
       `${qa ? "QA専用 · " : "独立セーブ · "}${q.stage.id.startsWith("komorebi-")?"第2章":"第1章"}　${q.state.rescued} / ${mass(q.state)} おかえり`;
@@ -204,12 +207,19 @@ export function mount({qa = false} = {}) {
     if (count < 3) $("hintMore").onclick = () => { hintsSeen.set(q.stage.id, count + 1); showHint(); };
   }
   $("hint").onclick = showHint;
+  $("example").onclick = () => {
+    if(!progress.allowed(q.stage.id)||!q.stage.id.startsWith("komorebi-"))return;
+    const launch=()=>{exampleActive=true;dialog.close();end();pauseState();openExample(q.stage,()=>{exampleActive=false;pauseState();last=0;draw();});};
+    if(sessionStorage.getItem('naopoyo.example.confirmed'))return launch();
+    show('<h2>おてほんを見る？</h2><p>正解の操作がすべて見られます。最初の盤面から始まり、今のプレイはそのまま残ります。</p><button class="primary" id="exampleConfirm">おてほんを見る</button>');
+    $('exampleConfirm').onclick=()=>{sessionStorage.setItem('naopoyo.example.confirmed','1');launch();};
+  };
   function selectScreen(){
     progress.merge(progress.load());
     show(`<span class="tag">CHAPTER 02 PILOT</span><h2>こもれびの森</h2><p>${qa?"11〜20面を直接試せるQAモード。":"第1章10クリアで11を開放。本番と別のセーブです。"}</p><div class="stage-grid">`+stages.map((s,i)=>{
       const cleared=progress.data.cleared.includes(s.id),open=progress.allowed(s.id);
       return `<button class="level ${cleared?'cleared':open?'available':'locked'}" data-stage="${s.id}" ${open?'':'disabled'}><b>${String(s.number||i+1).padStart(2,'0')}</b><span>${cleared?'★ クリア':open?'✧ 挑戦できる':'🔒 未開放'}</span><small>${open?s.title.slice(3):'ひらく前の道'}</small></button>`;
-    }).join('')+`</div><small>開いた道には、いつでも戻れます。</small><p class="game-links"><a href="${qa?'index.html':'qa.html'}">${qa?'通常の順次開放へ':'QA全開放へ'}</a></p><button id="storyAgain">この面のお話を読む</button>`);
+    }).join('')+`</div><small>開いた道には、いつでも戻れます。</small>${qa?'<p class="game-links"><a href="index.html">通常の順次開放へ</a></p>':''}<button id="storyAgain">この面のお話を読む</button>`);
     for(const b of dialog.querySelectorAll('[data-stage]'))b.onclick=()=>choose(b.dataset.stage);
     $("storyAgain").onclick=()=>show(storyHTML());
   }

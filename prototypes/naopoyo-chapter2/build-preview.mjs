@@ -13,9 +13,10 @@ function copy(file){
  }
 }
 for(const f of ['index.html','qa.html','app.mjs','style.css'])copy('prototypes/naopoyo-chapter2/'+f);
+for(const s of stages)copy(`prototypes/naopoyo-chapter2/examples/${s.number}.json`);
 for(const spec of Object.values(spriteData))copy(spec.path);
 for(const s of stages)if(s.narrator)copy(s.narrator.asset);
 copy('assets/characters/companions/owl.png');copy('assets/world/forest-v1.webp');
 const html=fs.readFileSync(path.join(root,'prototypes/naopoyo-chapter2/index.html'),'utf8').replace('<head>','<head><base href="./prototypes/naopoyo-chapter2/">');fs.writeFileSync(path.join(out,'index.html'),html);hashes['index.html']=createHash('sha256').update(html).digest('hex');
 const commit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
-fs.writeFileSync(path.join(out,'version.json'),JSON.stringify({name:'NAOPOYO. こもれびの森',version:10,splitRules:'recombine-once-v1',terrainRules:'magic-gate-v2',sourceCommit:commit,base:'0e0354b15ee8c29ad7e52dd0ba8c6993df80e643',files:hashes},null,2));console.log(JSON.stringify({out,files:Object.keys(hashes).length,sourceCommit:commit}));
+fs.writeFileSync(path.join(out,'version.json'),JSON.stringify({name:'NAOPOYO. こもれびの森',version:11,splitRules:'recombine-once-v1',terrainRules:'magic-gate-v2',sourceCommit:commit,base:'0e0354b15ee8c29ad7e52dd0ba8c6993df80e643',files:hashes},null,2));console.log(JSON.stringify({out,files:Object.keys(hashes).length,sourceCommit:commit}));
