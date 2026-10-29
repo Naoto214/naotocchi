@@ -36,3 +36,11 @@ test('staged CPU games finish deterministically with restore after every action'
  const play=(seed)=>{let s=createGame({seed,rounds:10,players:players.map(p=>({...p,human:false,difficulty:'normal'}))}),count=0;while(s.phase!=='done'&&count++<4000){s=restore(serialize(s));let cmd=s.phase==='moving'?{type:'step'}:cpuAction(s);if(cmd.type==='roll')cmd={type:'roll-start'};s=send(s,cmd);}assert.equal(s.phase,'done');assert.ok(s.players.every(p=>p.turns===10));return serialize(s);};
  for(let seed=1;seed<=100;seed++)assert.equal(play(seed),play(seed));
 });
+test('restored staged journey rejects phase and route inconsistencies',()=>{
+ let s=send(createGame({seed:123,players}),{type:'roll-start'});
+ assert.equal(BOARD[s.players[s.active].pos].next.length,1);
+ const bad=structuredClone(s);bad.phase='branch';assert.throws(()=>restore(serialize(bad)));
+ const atFork=createGame({seed:123,players});atFork.players[0].pos=1;
+ const fork=send(atFork,{type:'roll-start'});assert.equal(fork.phase,'branch');
+ const wrong=structuredClone(fork);wrong.phase='moving';assert.throws(()=>restore(serialize(wrong)));
+});
