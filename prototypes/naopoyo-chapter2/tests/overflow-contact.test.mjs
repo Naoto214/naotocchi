@@ -104,7 +104,7 @@ for(const id of ['four','eight'])test(`screenshot ${id}: animation endpoint, hel
 });
 for(const stage of stages)test(`shipped example ${stage.number}: every move save/back/next, final rendering and normal-state isolation`,()=>{
  const example=JSON.parse(fs.readFileSync(new URL(`../examples/${stage.number}.json`,import.meta.url))),replay=new ExampleReplay(stage,example.path),normal=new ForestSession(stage),untouched=normal.serialize();
- if(stage.number===19)assert.equal(example.path.length,91);if(stage.number===20)assert.equal(example.path.length,156);
+ if(stage.number===19)assert.equal(example.path.length,78);if(stage.number===20)assert.equal(example.path.length,97);
  for(let i=0;i<example.path.length;i++){
   const before=clone(replay.session.state);replay.next();const after=clone(replay.session.state);
   replay.session.animate(10000);assert.deepEqual(view(visualActors(replay.session)),view(after.actors));integrity(stage,after);

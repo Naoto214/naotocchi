@@ -35,3 +35,12 @@ test('real pointer approach is pure, cancelled preview clears, committed result 
  c.handlers.pointerdown(event(2.5,4.5));c.handlers.pointermove(event(2.82,4.5));const prediction=structuredClone(q.preview.state);c.handlers.pointermove(event(3.1,4.5));assert.deepEqual(q.state,prediction);c.handlers.pointerup(event(3.1,4.5));assert.equal(q.preview,null);
  h.get('undo').onclick();assert.deepEqual(q.state,before);
 });
+
+test('Undo restores in place without pause overlay and accepts another move',()=>{
+ const h=harness({...stages[0],gravity:false,walls:[],gates:[],exits:[],spikes:[],actors:[a('a',2),a('b',3)]}),c=h.get('board'),q=h.app.session;
+ const before=structuredClone(q.state);
+ c.handlers.pointerdown(event(2.5));c.handlers.pointermove(event(3.5));c.handlers.pointerup(event(3.5));
+ h.get('undo').onclick();assert.deepEqual(q.state,before);assert.equal(q.paused,false);assert.equal(h.get('paused').hidden,true);assert.equal(h.get('dialog').open,false);assert.equal(q.motion.length,0);
+ c.handlers.pointerdown(event(2.5));c.handlers.pointermove(event(3.5));c.handlers.pointerup(event(3.5));assert.equal(q.state.actors.find(a=>a.id==='a').x,3);
+ h.get('undo').onclick();assert.deepEqual(q.state,before);
+});

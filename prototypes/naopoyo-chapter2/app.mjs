@@ -172,10 +172,9 @@ export function mount({qa = false} = {}) {
   $("undo").onclick = () => {
     end();
     if (q.undo()) {
-      userPaused = true;
       pauseState();
       last = 0;
-      $("status").textContent = "戻しました。▶で時を再開できます。";
+      $("status").textContent = "1手戻しました。そのまま続けられます。";
     }
     won = false;
     save();
@@ -211,7 +210,7 @@ export function mount({qa = false} = {}) {
     if(!progress.allowed(q.stage.id)||!q.stage.id.startsWith("komorebi-"))return;
     const launch=()=>{exampleActive=true;dialog.close();end();pauseState();openExample(q.stage,()=>{exampleActive=false;pauseState();last=0;draw();});};
     if(sessionStorage.getItem('naopoyo.example.confirmed'))return launch();
-    show('<h2>おてほんを見る？</h2><p>正解の操作がすべて見られます。最初の盤面から始まり、今のプレイはそのまま残ります。</p><button class="primary" id="exampleConfirm">おてほんを見る</button>');
+    show('<h2>おてほんを見る？</h2><p>正解の操作がすべて見られます。前回見たところから続けられます。今のプレイはそのまま残ります。</p><button class="primary" id="exampleConfirm">おてほんを見る</button>');
     $('exampleConfirm').onclick=()=>{sessionStorage.setItem('naopoyo.example.confirmed','1');launch();};
   };
   function selectScreen(){
