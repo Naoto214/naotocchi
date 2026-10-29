@@ -1,10 +1,22 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
 import * as session from '../session.mjs';import {ForestProgress,allStages} from '../progress.mjs';import {stages} from '../stages.mjs';import {complete,mass} from '../../naopoyo-v2/engine.mjs';
+import {screenshotBoard} from './overflow-contact-fixtures.mjs';
 function harness(stage){const nodes=new Map(),storage=new Map();function get(id){if(!nodes.has(id)){const e={style:{},handlers:{},open:false,getBoundingClientRect:()=>({left:0,top:0,width:320,height:320}),addEventListener(k,f){this.handlers[k]=f},querySelectorAll:()=>[],setPointerCapture(){},releasePointerCapture(){},showModal(){this.open=true},close(){this.open=false;this.handlers.close?.()}};e.parentElement=e;nodes.set(id,e)}return nodes.get(id)}
 const ctx={...session,WorldSession:session.ForestSession,ForestProgress,allStages,defaultStages:[stage],complete,mass,render(){},loadSprites:async()=>{},loadGuests:async()=>{},loadForest:async()=>{},eventCaption:()=>'',devicePixelRatio:1,innerWidth:390,innerHeight:664,requestAnimationFrame(){},document:{getElementById:get,hidden:false,addEventListener(){},documentElement:{scrollHeight:664}},window:{addEventListener(){}},localStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)}};
 const code=fs.readFileSync(new URL('../app.mjs',import.meta.url),'utf8').replace(/^import .*;\n/gm,'').replace('export function mount','function mount');vm.runInNewContext(code+';globalThis.mountApp=mount',ctx);const app=ctx.mountApp({qa:true});get('close').onclick();return{get,app,storage};}
 const a=(id,x)=>({id,species:'dog',level:8,x,y:3});
 const event=(x,y=3.5)=>({clientX:x*40,clientY:y*40,pointerId:7,preventDefault(){}});
+for(const id of ['four','eight'])for(const samples of [1,60])test(`screenshot pointer ${id}, ${samples} samples: merge, held ID, saved Undo`,()=>{
+ const h=harness(screenshotBoard()),c=h.get('board'),q=h.app.session,before=structuredClone(q.state);
+ const selected=q.state.actors.find(a=>a.id===id),x=selected.x+.5,dx=id==='four'?1:-1;
+ c.handlers.pointerdown(event(x,7.5));
+ for(let i=1;i<=samples;i++)c.handlers.pointermove(event(x+dx*i/samples,7.5));
+ assert.equal(q.active.id,id);assert.equal(q.state.actors.find(a=>a.id===id).level,8);
+ assert.equal(q.motion.length,1);assert.deepEqual(q.motion[0].events.map(e=>e.type),['merge']);
+ c.handlers.pointerup(event(x+dx,7.5));assert.match(h.get('status').textContent,/合体して8/);assert.doesNotMatch(h.get('status').textContent,/交換/);
+ assert.equal(q.history.length,1);const restored=new session.ForestSession(screenshotBoard(),q.serialize());assert.ok(restored.restored);assert.ok(restored.undo());assert.deepEqual(restored.state,before);
+ h.get('undo').onclick();assert.deepEqual(q.state,before);
+});
 test('real pointer handlers accept regrab during swap and follow visible actor ID',()=>{
  const h=harness({...stages[0],gravity:false,walls:[],gates:[],exits:[],spikes:[],actors:[a('a',2),a('b',3)]}),canvas=h.get('board'),q=h.app.session;
  canvas.handlers.pointerdown(event(2.5));canvas.handlers.pointermove(event(3.5));canvas.handlers.pointerup(event(3.5));assert.equal(q.motion.length,1);assert.equal(q.state.actors.find(a=>a.id==='a').x,3);
