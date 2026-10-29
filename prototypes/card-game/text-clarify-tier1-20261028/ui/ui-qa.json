@@ -1,0 +1,86 @@
+{
+ "url": "http://127.0.0.1:8766/prototypes/card-game/",
+ "viewports": {
+  "320x568": {
+   "cards": {
+    "lunar": {
+     "open": true,
+     "newText": true,
+     "oldText": false,
+     "overflowX": false,
+     "clippedScrollAreas": 0
+    },
+    "submarine": {
+     "open": true,
+     "newText": true,
+     "oldText": false,
+     "overflowX": false,
+     "clippedScrollAreas": 0
+    }
+   },
+   "pageErrors": []
+  },
+  "390x844": {
+   "cards": {
+    "lunar": {
+     "open": true,
+     "newText": true,
+     "oldText": false,
+     "overflowX": false,
+     "clippedScrollAreas": 0
+    },
+    "submarine": {
+     "open": true,
+     "newText": true,
+     "oldText": false,
+     "overflowX": false,
+     "clippedScrollAreas": 0
+    }
+   },
+   "pageErrors": []
+  },
+  "430x932": {
+   "cards": {
+    "lunar": {
+     "open": true,
+     "newText": true,
+     "oldText": false,
+     "overflowX": false,
+     "clippedScrollAreas": 0
+    },
+    "submarine": {
+     "open": true,
+     "newText": true,
+     "oldText": false,
+     "overflowX": false,
+     "clippedScrollAreas": 0
+    }
+   },
+   "pageErrors": []
+  },
+  "844x390": {
+   "cards": {
+    "lunar": {
+     "open": true,
+     "newText": true,
+     "oldText": false,
+     "overflowX": false,
+     "clippedScrollAreas": 0
+    },
+    "submarine": {
+     "open": true,
+     "newText": true,
+     "oldText": false,
+     "overflowX": false,
+     "clippedScrollAreas": 0
+    }
+   },
+   "pageErrors": []
+  }
+ },
+ "oldSave": {
+  "version": "hotseat-2",
+  "result": true
+ },
+ "ok": true
+}
