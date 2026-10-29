@@ -25,7 +25,8 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  // Physical pointer events, independent of the model-only moveTest above.
  await page.locator('#width').selectOption('390');await page.locator('#time').selectOption('day');await page.locator('#count').selectOption('6');await page.locator('#apply').click();await page.locator('#apply:enabled').waitFor();
  const pointerGame=page.frames().find(f=>f.url().includes('qa-home-v6-game.html'));
- async function pointerTarget(){return pointerGame.evaluate(()=>{const q=HomeV22QA,d=q.detail(),a=d.actors[0],b=q.inspect().bounds[0],nav=q.inspect().scene.navigation;const free=p=>d.actors.slice(1).every(c=>Math.hypot((p.x-c.x)/((a.w+c.w)*.5+10),(p.y-c.y)/((a.h+c.h)*.38+10))>=1)&&q.inspect().scene.visible(p,a);for(let y=b.top;y<b.bottom;y+=12)for(let x=b.left;x<b.right;x+=12){const p={x,y};if(Math.hypot(x-a.x,y-a.y)<45||!free(p)||!nav.valid(p))continue;if(nav.route(a,p,b,free).length)return {a,p,stage:d.slots.castStage};}throw Error('No physical-pointer destination');});}
+ const findGroundTarget=require('./helpers/home-ground-target.cjs');
+ async function pointerTarget(){return pointerGame.evaluate(findGroundTarget);}
  const frameBox=await page.locator('#game').boundingBox();let target=await pointerTarget();
  const xy=p=>({x:frameBox.x+target.stage.x+p.x,y:frameBox.y+target.stage.y+p.y});let from=xy({x:target.a.x,y:target.a.y-target.a.h*.4}),to=xy(target.p);
  await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await pointerGame.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');
