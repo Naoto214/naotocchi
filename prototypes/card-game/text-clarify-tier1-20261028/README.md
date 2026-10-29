@@ -55,3 +55,8 @@ node prototypes/card-game/text-clarify-tier1-20261028/tools/compat-replay.mjs <m
 node prototypes/card-game/text-clarify-tier1-20261028/tools/compat-replay.mjs prototypes/card-game > branch.json
 python3 prototypes/card-game/text-clarify-tier1-20261028/tools/compat-compare.py main.json branch.json
 ```
+
+## 最新mainの取り込み（2026-10-29）
+
+- main `45f3693c`（#437・#438、ミニゲームのみ）を merge commit で取り込み。競合なし、カードゲームのファイルの変更なし。
+- 取り込み後も：main との差はこのPRのファイルだけ（allowlist は `full-catalog.mjs` の1行だけ）。452枚は2枚の本文を戻すと main と一致（`c866d458…`）。node 494/494（Tier 1 直接テスト27/27）、設計データ照合エラー0、カタログ再生成一致、`tests/pages` 16/16、package・verify 成功（4,057ファイル）、保存互換の比較（旧保存7件・18戦）は `eb97817d` の時と同じ結果。
