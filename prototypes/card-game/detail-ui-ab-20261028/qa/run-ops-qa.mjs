@@ -15,11 +15,13 @@ async function tapInDetail(page,selector){
  const ok=await loc.evaluate(b=>{const r=b.getBoundingClientRect(),x=(r.left+r.right)/2,y=(r.top+r.bottom)/2;const n=document.elementFromPoint(x,y);return !!n&&b.contains(n)&&r.height>=44;});
  await loc.tap();return ok;
 }
+// QA_VARIANTS=current のように対象の案を絞れる（正式採用後の確認では current = 正式版）。
+const OPS_VARIANTS=process.env.QA_VARIANTS?process.env.QA_VARIANTS.split(','):VARIANTS;
 const checks=[];
 function check(name,variant,viewport,pass,detail={}){checks.push({name,variant,viewport,pass:!!pass,...detail});process.stderr.write(`${pass?'PASS':'FAIL'} ${viewport} ${variant} ${name} ${JSON.stringify(detail)}\n`);}
 
 const browser=await chromium.launch();
-for(const [w,h] of [[320,568],[390,844],[844,390]])for(const v of VARIANTS){
+for(const [w,h] of [[320,568],[390,844],[844,390]])for(const v of OPS_VARIANTS){
  const vp=`${w}x${h}`,ctx=await browser.newContext({viewport:{width:w,height:h},deviceScaleFactor:2,isMobile:true,hasTouch:true}),page=await ctx.newPage();
  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
  // 1) 必須選択：長文カードを全文読んでから、そのカードを選ぶボタンで確定
@@ -89,7 +91,7 @@ for(const [w,h] of [[320,568],[390,844],[844,390]])for(const v of VARIANTS){
  await ctx.close();
 }
 // 9) 2人対戦：必須選択→通常手番→ターン終了の申し出→交代画面（手札を隠す）まで（390×844、各案）
-for(const v of VARIANTS){const ctx=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true}),page=await ctx.newPage();const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+for(const v of OPS_VARIANTS){const ctx=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true}),page=await ctx.newPage();const errors=[];page.on('pageerror',e=>errors.push(String(e)));
  await openCase(page,caseOf('choice-long-hotseat'),v);await page.locator('#card-dialog .detail-command button[data-kind=choose]').tap();await confirmIfAsked(page);
  // 以降は盤面下の操作パネルのパス（応答しない／ターン終了を申し出る）で交代まで進める。
  let passes=0;for(;passes<6&&!(await page.locator('#curtain').isVisible());passes++){const pass=page.locator('#operation-panel button[data-kind=pass]').first();if(!(await pass.count()))break;await pass.tap();await confirmIfAsked(page);await page.waitForTimeout(300);}
