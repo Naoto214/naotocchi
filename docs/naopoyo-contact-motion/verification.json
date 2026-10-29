@@ -1,0 +1,24 @@
+{
+  "puzzle": {
+    "tests": 1484,
+    "pass": 1484,
+    "fail": 0,
+    "skip": 0
+  },
+  "newTests": 553,
+  "baseline": 55,
+  "browser": {
+    "engine": "Chrome",
+    "iframeWidths": [
+      320,
+      375,
+      390,
+      430
+    ],
+    "horizontalOverflow": false,
+    "buttonHeight": 44,
+    "physicalDrag390": true
+  },
+  "reviewImportantFixed": 2,
+  "deferredMinor": 2
+}
