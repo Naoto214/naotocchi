@@ -10,7 +10,11 @@ for(const scope of ['qa','sheet','play']){
  const old=scope==='qa'?'qa-home-v7':scope==='sheet'?'qa-home-v7-sheet':'home-v7-play',next=old.replaceAll('v7','v8');
  for(const suffix of ['-script.js','-diorama.js',scope==='play'?'.html':'-game.html']){
   let s=read(old+suffix).replaceAll('naotocchi-home-v7-','naotocchi-home-v8-').replaceAll(old,next).replaceAll('home-v7-world.mjs','home-v8-world.mjs').replaceAll('home-v7-'+scope+'-conversation','home-v8-'+scope+'-conversation').replaceAll('href="home-v7.html"','href="home-v8.html"');
+  if(suffix==='-script.js'&&scope==='sheet')continue;
+  if(suffix==='-script.js'&&scope==='qa')s=s.replace(/(['"])naotocchi-home-v8-qa-v1([^'"]*)\1/g,(_,quote,suffix)=>'("naotocchi-home-v8-"+(document.documentElement.dataset.homeV8Scope||"qa")+"-v1'+suffix+'")');
+  if(suffix==='-script.js'&&scope==='qa')s=s.replace(/\}\)\(\);\s*$/, 'HomeV22QA.presentationMetrics=()=>homeDiorama.model.metrics();})();');
   if(suffix==='-diorama.js')s=adaptDiorama(s);
+  if(suffix.endsWith('.html')&&scope==='sheet')s=s.replace('qa-home-v8-sheet-script.js','qa-home-v8-script.js').replace('<html ','<html data-home-v8-scope="sheet" ');
   if(suffix.endsWith('.html'))s=s.replace('</head>','<link rel="stylesheet" href="home-v8.css"></head>');
   put(next+suffix,s);
  }

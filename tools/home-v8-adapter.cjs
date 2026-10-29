@@ -6,6 +6,3 @@ function replaceExact(source,from,to){if(!source.includes(from))throw Error('V8 
 exports.adaptDiorama = source => replaceExact(source,
  'if(1+Number(!!args.hasPartner)+(args.companions?.length||0)>5&&args.height<300)',
  'if(args.height<300)');
-exports.adaptScript = source => replaceExact(source,
- '&& 1 + Number(hasPartner) + recruited.length > 5 &&',
- '&&');

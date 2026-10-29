@@ -184,3 +184,30 @@ jobs:
         with:
           name: home-v7-${{ matrix.candidate }}
           path: test-results/home-layout/v7
+
+  home-art-v8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        candidate: [water, sea, sea-b, sea-b2, star_stop-original, star-new, memory_lake-original, lake-new]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: node --test tests/home-art-v8-test.cjs tests/home-v8-rotation-test.cjs
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-art-v8-browser.cjs
+        env:
+          HOME_V8_CANDIDATE: ${{ matrix.candidate }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-art-v8-${{ matrix.candidate }}
+          path: test-results/home-art-v8
