@@ -9572,5 +9572,5145 @@
     }
    }
   }
+ },
+ "F2": {
+  "matches": 1200,
+  "status": {
+   "completed": 1200
+  },
+  "replay": {
+   "match": 472,
+   "not-applicable (injected card)": 728
+  },
+  "elapsed_ms_mean": 1541.0,
+  "arms": {
+   "A:none": {
+    "matches": 200,
+    "x": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.495,
+      "lo": 0.4257,
+      "hi": 0.5643
+     },
+     "mean_growth": 67.25,
+     "breakups_dating": 0,
+     "divorces": 0,
+     "leaves_per_seat": 0.0,
+     "seats_with_leave": 0,
+     "leaves_by_stage": {},
+     "leaves_by_cause": {},
+     "growth_lost_total": 0,
+     "growth_lost_per_leave": null,
+     "nominal_penalty_total": 0,
+     "placed_seats": 200,
+     "placements": 200,
+     "marriage_rate_of_placed": 0.98,
+     "married_at_end": 196,
+     "marriage_round_mean": 6.4031,
+     "marriage_turns_from_placement_mean": 4.7908,
+     "residence_own_turns_mean": 8.22,
+     "second_lover_placed_seats": 0,
+     "second_lover_placed_rate_of_placed": 0.0,
+     "replacements_after_leave": 0,
+     "same_card_replaced": 0,
+     "same_instance_replaced": 0,
+     "lovers_in_hand_end_mean": 2.215,
+     "seats_with_lover_in_hand_end_of_placed": 0.955,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 0,
+      "E-amicable-breakup": 0,
+      "E-first-date": 160,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 251,
+      "I-c_match": 6,
+      "E-new-encounter": 258,
+      "G-connect-four": 144
+     },
+     "lovepaper_equips": 182,
+     "replacements_used": {},
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 0,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.525,
+       "lo": 0.4271,
+       "hi": 0.6229
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.465,
+       "lo": 0.3672,
+       "hi": 0.5628
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 132,
+       "mean": 0.5114,
+       "lo": 0.4261,
+       "hi": 0.5966
+      },
+      "False": {
+       "n": 68,
+       "mean": 0.4632,
+       "lo": 0.3447,
+       "hi": 0.5818
+      }
+     }
+    },
+    "y": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.505,
+      "lo": 0.4357,
+      "hi": 0.5743
+     },
+     "mean_growth": 63.325,
+     "breakups_dating": 0,
+     "divorces": 0,
+     "leaves_per_seat": 0.0,
+     "seats_with_leave": 0,
+     "leaves_by_stage": {},
+     "leaves_by_cause": {},
+     "growth_lost_total": 0,
+     "growth_lost_per_leave": null,
+     "nominal_penalty_total": 0,
+     "placed_seats": 157,
+     "placements": 157,
+     "marriage_rate_of_placed": 0.9618,
+     "married_at_end": 151,
+     "marriage_round_mean": 6.4702,
+     "marriage_turns_from_placement_mean": 4.4702,
+     "residence_own_turns_mean": 7.6879,
+     "second_lover_placed_seats": 0,
+     "second_lover_placed_rate_of_placed": 0.0,
+     "replacements_after_leave": 0,
+     "same_card_replaced": 0,
+     "same_instance_replaced": 0,
+     "lovers_in_hand_end_mean": 0.34,
+     "seats_with_lover_in_hand_end_of_placed": 0.3758,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 0,
+      "E-amicable-breakup": 0,
+      "E-first-date": 0,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 0,
+      "I-c_match": 0,
+      "E-new-encounter": 0,
+      "G-connect-four": 0
+     },
+     "lovepaper_equips": 0,
+     "replacements_used": {},
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 0,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.535,
+       "lo": 0.4372,
+       "hi": 0.6328
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.475,
+       "lo": 0.3771,
+       "hi": 0.5729
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 80,
+       "mean": 0.5312,
+       "lo": 0.4219,
+       "hi": 0.6406
+      },
+      "False": {
+       "n": 120,
+       "mean": 0.4875,
+       "lo": 0.3981,
+       "hi": 0.5769
+      }
+     }
+    },
+    "by_stage": {
+     "0": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.575,
+       "lo": 0.4218,
+       "hi": 0.7282
+      },
+      "mean_growth": 68.25,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 0.9,
+      "married_at_end": 36,
+      "marriage_round_mean": 5.8889,
+      "marriage_turns_from_placement_mean": 4.6667,
+      "residence_own_turns_mean": 7.95,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.2,
+      "seats_with_lover_in_hand_end_of_placed": 0.9,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 35,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 57,
+       "I-c_match": 0,
+       "E-new-encounter": 58,
+       "G-connect-four": 25
+      },
+      "lovepaper_equips": 38,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.625,
+        "lo": 0.4128,
+        "hi": 0.8372
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.525,
+        "lo": 0.3061,
+        "hi": 0.7439
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.6786,
+        "lo": 0.5056,
+        "hi": 0.8516
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.3333,
+        "lo": 0.0666,
+        "hi": 0.6001
+       }
+      }
+     },
+     "1": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.4875,
+       "lo": 0.3326,
+       "hi": 0.6424
+      },
+      "mean_growth": 65.875,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 6.5,
+      "marriage_turns_from_placement_mean": 4.625,
+      "residence_own_turns_mean": 8.1,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.125,
+      "seats_with_lover_in_hand_end_of_placed": 0.975,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 35,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 48,
+       "I-c_match": 2,
+       "E-new-encounter": 52,
+       "G-connect-four": 21
+      },
+      "lovepaper_equips": 37,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.5,
+        "lo": 0.2809,
+        "hi": 0.7191
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.4615,
+        "lo": 0.2699,
+        "hi": 0.6532
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.5357,
+        "lo": 0.2745,
+        "hi": 0.797
+       }
+      }
+     },
+     "2": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.4375,
+       "lo": 0.2838,
+       "hi": 0.5912
+      },
+      "mean_growth": 64.875,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 6.25,
+      "marriage_turns_from_placement_mean": 4.95,
+      "residence_own_turns_mean": 8.7,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.275,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 26,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 54,
+       "I-c_match": 0,
+       "E-new-encounter": 54,
+       "G-connect-four": 31
+      },
+      "lovepaper_equips": 32,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.4231,
+        "lo": 0.2332,
+        "hi": 0.613
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.4643,
+        "lo": 0.203,
+        "hi": 0.7255
+       }
+      }
+     },
+     "3": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.5625,
+       "lo": 0.4088,
+       "hi": 0.7162
+      },
+      "mean_growth": 74.0,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 6.725,
+      "marriage_turns_from_placement_mean": 4.9,
+      "residence_own_turns_mean": 8.15,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.025,
+      "seats_with_lover_in_hand_end_of_placed": 1.0,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 31,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 54,
+       "I-c_match": 2,
+       "E-new-encounter": 47,
+       "G-connect-four": 35
+      },
+      "lovepaper_equips": 37,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.65,
+        "lo": 0.441,
+        "hi": 0.859
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 24,
+        "mean": 0.5833,
+        "lo": 0.3861,
+        "hi": 0.7806
+       },
+       "False": {
+        "n": 16,
+        "mean": 0.5312,
+        "lo": 0.2867,
+        "hi": 0.7758
+       }
+      }
+     },
+     "4": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.4125,
+       "lo": 0.2599,
+       "hi": 0.5651
+      },
+      "mean_growth": 63.25,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 6.6,
+      "marriage_turns_from_placement_mean": 4.8,
+      "residence_own_turns_mean": 8.2,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.45,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 33,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 38,
+       "I-c_match": 2,
+       "E-new-encounter": 47,
+       "G-connect-four": 32
+      },
+      "lovepaper_equips": 38,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.425,
+        "lo": 0.2083,
+        "hi": 0.6417
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.4107,
+        "lo": 0.2285,
+        "hi": 0.5929
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.4167,
+        "lo": 0.1377,
+        "hi": 0.6956
+       }
+      }
+     }
+    },
+    "by_x_deck": {
+     "partner": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.495,
+       "lo": 0.4257,
+       "hi": 0.5643
+      },
+      "mean_growth": 67.25,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 200,
+      "placements": 200,
+      "marriage_rate_of_placed": 0.98,
+      "married_at_end": 196,
+      "marriage_round_mean": 6.4031,
+      "marriage_turns_from_placement_mean": 4.7908,
+      "residence_own_turns_mean": 8.22,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.215,
+      "seats_with_lover_in_hand_end_of_placed": 0.955,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 160,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 251,
+       "I-c_match": 6,
+       "E-new-encounter": 258,
+       "G-connect-four": 144
+      },
+      "lovepaper_equips": 182,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.525,
+        "lo": 0.4271,
+        "hi": 0.6229
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.465,
+        "lo": 0.3672,
+        "hi": 0.5628
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.5114,
+        "lo": 0.4261,
+        "hi": 0.5966
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4632,
+        "lo": 0.3447,
+        "hi": 0.5818
+       }
+      }
+     }
+    },
+    "by_y_deck": {
+     "challenge": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.495,
+       "lo": 0.4257,
+       "hi": 0.5643
+      },
+      "mean_growth": 67.25,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 200,
+      "placements": 200,
+      "marriage_rate_of_placed": 0.98,
+      "married_at_end": 196,
+      "marriage_round_mean": 6.4031,
+      "marriage_turns_from_placement_mean": 4.7908,
+      "residence_own_turns_mean": 8.22,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.215,
+      "seats_with_lover_in_hand_end_of_placed": 0.955,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 160,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 251,
+       "I-c_match": 6,
+       "E-new-encounter": 258,
+       "G-connect-four": 144
+      },
+      "lovepaper_equips": 182,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.525,
+        "lo": 0.4271,
+        "hi": 0.6229
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.465,
+        "lo": 0.3672,
+        "hi": 0.5628
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.5114,
+        "lo": 0.4261,
+        "hi": 0.5966
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4632,
+        "lo": 0.3447,
+        "hi": 0.5818
+       }
+      }
+     }
+    }
+   },
+   "A:inject": {
+    "matches": 200,
+    "x": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.4675,
+      "lo": 0.3984,
+      "hi": 0.5366
+     },
+     "mean_growth": 59.975,
+     "breakups_dating": 115,
+     "divorces": 22,
+     "leaves_per_seat": 0.685,
+     "seats_with_leave": 137,
+     "leaves_by_stage": {
+      "0": 20,
+      "1": 36,
+      "2": 34,
+      "3": 25,
+      "married": 22
+     },
+     "leaves_by_cause": {
+      "opponent": 137
+     },
+     "growth_lost_total": 1370,
+     "growth_lost_per_leave": 10.0,
+     "nominal_penalty_total": 1370,
+     "placed_seats": 200,
+     "placements": 337,
+     "marriage_rate_of_placed": 0.965,
+     "married_at_end": 186,
+     "marriage_round_mean": 7.5544,
+     "marriage_turns_from_placement_mean": 3.6218,
+     "residence_own_turns_mean": 4.4748,
+     "second_lover_placed_seats": 137,
+     "second_lover_placed_rate_of_placed": 0.685,
+     "replacements_after_leave": 137,
+     "same_card_replaced": 106,
+     "same_instance_replaced": 88,
+     "lovers_in_hand_end_mean": 2.32,
+     "seats_with_lover_in_hand_end_of_placed": 0.955,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 0,
+      "E-amicable-breakup": 0,
+      "E-first-date": 186,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 201,
+      "I-c_match": 38,
+      "E-new-encounter": 264,
+      "G-connect-four": 119
+     },
+     "lovepaper_equips": 168,
+     "replacements_used": {
+      "I-partner1": 45
+     },
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 182,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.515,
+       "lo": 0.417,
+       "hi": 0.613
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.42,
+       "lo": 0.3233,
+       "hi": 0.5167
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 132,
+       "mean": 0.4886,
+       "lo": 0.4034,
+       "hi": 0.5739
+      },
+      "False": {
+       "n": 68,
+       "mean": 0.4265,
+       "lo": 0.3089,
+       "hi": 0.544
+      }
+     }
+    },
+    "y": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.5325,
+      "lo": 0.4634,
+      "hi": 0.6016
+     },
+     "mean_growth": 61.05,
+     "breakups_dating": 0,
+     "divorces": 0,
+     "leaves_per_seat": 0.0,
+     "seats_with_leave": 0,
+     "leaves_by_stage": {},
+     "leaves_by_cause": {},
+     "growth_lost_total": 0,
+     "growth_lost_per_leave": null,
+     "nominal_penalty_total": 0,
+     "placed_seats": 157,
+     "placements": 157,
+     "marriage_rate_of_placed": 0.9427,
+     "married_at_end": 148,
+     "marriage_round_mean": 6.5203,
+     "marriage_turns_from_placement_mean": 4.5608,
+     "residence_own_turns_mean": 7.6178,
+     "second_lover_placed_seats": 0,
+     "second_lover_placed_rate_of_placed": 0.0,
+     "replacements_after_leave": 0,
+     "same_card_replaced": 0,
+     "same_instance_replaced": 0,
+     "lovers_in_hand_end_mean": 0.28,
+     "seats_with_lover_in_hand_end_of_placed": 0.3121,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 182,
+      "E-amicable-breakup": 0,
+      "E-first-date": 0,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 0,
+      "I-c_match": 0,
+      "E-new-encounter": 0,
+      "G-connect-four": 0
+     },
+     "lovepaper_equips": 0,
+     "replacements_used": {},
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 0,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.58,
+       "lo": 0.4833,
+       "hi": 0.6767
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.485,
+       "lo": 0.387,
+       "hi": 0.583
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 80,
+       "mean": 0.5437,
+       "lo": 0.4346,
+       "hi": 0.6529
+      },
+      "False": {
+       "n": 120,
+       "mean": 0.525,
+       "lo": 0.4357,
+       "hi": 0.6143
+      }
+     }
+    },
+    "by_stage": {
+     "0": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.55,
+       "lo": 0.3958,
+       "hi": 0.7042
+      },
+      "mean_growth": 65.0,
+      "breakups_dating": 20,
+      "divorces": 0,
+      "leaves_per_seat": 0.5,
+      "seats_with_leave": 20,
+      "leaves_by_stage": {
+       "0": 20
+      },
+      "leaves_by_cause": {
+       "opponent": 20
+      },
+      "growth_lost_total": 200,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 200,
+      "placed_seats": 40,
+      "placements": 60,
+      "marriage_rate_of_placed": 0.9,
+      "married_at_end": 36,
+      "marriage_round_mean": 5.8056,
+      "marriage_turns_from_placement_mean": 3.8889,
+      "residence_own_turns_mean": 4.9667,
+      "second_lover_placed_seats": 20,
+      "second_lover_placed_rate_of_placed": 0.5,
+      "replacements_after_leave": 20,
+      "same_card_replaced": 16,
+      "same_instance_replaced": 14,
+      "lovers_in_hand_end_mean": 2.375,
+      "seats_with_lover_in_hand_end_of_placed": 0.9,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 36,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 57,
+       "I-c_match": 0,
+       "E-new-encounter": 54,
+       "G-connect-four": 21
+      },
+      "lovepaper_equips": 37,
+      "replacements_used": {
+       "I-partner1": 3
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 23,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.65,
+        "lo": 0.441,
+        "hi": 0.859
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.45,
+        "lo": 0.232,
+        "hi": 0.668
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.6071,
+        "lo": 0.4262,
+        "hi": 0.788
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.4167,
+        "lo": 0.1377,
+        "hi": 0.6956
+       }
+      }
+     },
+     "1": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.45,
+       "lo": 0.2958,
+       "hi": 0.6042
+      },
+      "mean_growth": 57.875,
+      "breakups_dating": 36,
+      "divorces": 0,
+      "leaves_per_seat": 0.9,
+      "seats_with_leave": 36,
+      "leaves_by_stage": {
+       "1": 36
+      },
+      "leaves_by_cause": {
+       "opponent": 36
+      },
+      "growth_lost_total": 360,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 360,
+      "placed_seats": 40,
+      "placements": 76,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 7.4,
+      "marriage_turns_from_placement_mean": 3.175,
+      "residence_own_turns_mean": 3.8026,
+      "second_lover_placed_seats": 36,
+      "second_lover_placed_rate_of_placed": 0.9,
+      "replacements_after_leave": 36,
+      "same_card_replaced": 35,
+      "same_instance_replaced": 33,
+      "lovers_in_hand_end_mean": 2.1,
+      "seats_with_lover_in_hand_end_of_placed": 0.975,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 38,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 45,
+       "I-c_match": 2,
+       "E-new-encounter": 55,
+       "G-connect-four": 23
+      },
+      "lovepaper_equips": 38,
+      "replacements_used": {
+       "I-partner1": 4
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.425,
+        "lo": 0.2083,
+        "hi": 0.6417
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.4423,
+        "lo": 0.2514,
+        "hi": 0.6332
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.4643,
+        "lo": 0.203,
+        "hi": 0.7255
+       }
+      }
+     },
+     "2": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.3625,
+       "lo": 0.2135,
+       "hi": 0.5115
+      },
+      "mean_growth": 52.625,
+      "breakups_dating": 34,
+      "divorces": 0,
+      "leaves_per_seat": 0.85,
+      "seats_with_leave": 34,
+      "leaves_by_stage": {
+       "2": 34
+      },
+      "leaves_by_cause": {
+       "opponent": 34
+      },
+      "growth_lost_total": 340,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 340,
+      "placed_seats": 40,
+      "placements": 74,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 7.95,
+      "marriage_turns_from_placement_mean": 3.25,
+      "residence_own_turns_mean": 4.2432,
+      "second_lover_placed_seats": 34,
+      "second_lover_placed_rate_of_placed": 0.85,
+      "replacements_after_leave": 34,
+      "same_card_replaced": 25,
+      "same_instance_replaced": 20,
+      "lovers_in_hand_end_mean": 2.5,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 32,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 41,
+       "I-c_match": 9,
+       "E-new-encounter": 61,
+       "G-connect-four": 21
+      },
+      "lovepaper_equips": 24,
+      "replacements_used": {
+       "I-partner1": 6
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.425,
+        "lo": 0.2083,
+        "hi": 0.6417
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.3,
+        "lo": 0.0992,
+        "hi": 0.5008
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.3269,
+        "lo": 0.1466,
+        "hi": 0.5072
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.4286,
+        "lo": 0.1693,
+        "hi": 0.6878
+       }
+      }
+     },
+     "3": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.5875,
+       "lo": 0.4349,
+       "hi": 0.7401
+      },
+      "mean_growth": 66.5,
+      "breakups_dating": 25,
+      "divorces": 0,
+      "leaves_per_seat": 0.625,
+      "seats_with_leave": 25,
+      "leaves_by_stage": {
+       "3": 25
+      },
+      "leaves_by_cause": {
+       "opponent": 25
+      },
+      "growth_lost_total": 250,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 250,
+      "placed_seats": 40,
+      "placements": 65,
+      "marriage_rate_of_placed": 0.925,
+      "married_at_end": 37,
+      "marriage_round_mean": 8.4054,
+      "marriage_turns_from_placement_mean": 3.5135,
+      "residence_own_turns_mean": 4.6308,
+      "second_lover_placed_seats": 25,
+      "second_lover_placed_rate_of_placed": 0.625,
+      "replacements_after_leave": 25,
+      "same_card_replaced": 16,
+      "same_instance_replaced": 12,
+      "lovers_in_hand_end_mean": 2.025,
+      "seats_with_lover_in_hand_end_of_placed": 1.0,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 39,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 39,
+       "I-c_match": 14,
+       "E-new-encounter": 48,
+       "G-connect-four": 32
+      },
+      "lovepaper_equips": 35,
+      "replacements_used": {
+       "I-partner1": 15
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.625,
+        "lo": 0.4128,
+        "hi": 0.8372
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.55,
+        "lo": 0.332,
+        "hi": 0.768
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 24,
+        "mean": 0.6667,
+        "lo": 0.4781,
+        "hi": 0.8553
+       },
+       "False": {
+        "n": 16,
+        "mean": 0.4688,
+        "lo": 0.2242,
+        "hi": 0.7133
+       }
+      }
+     },
+     "4": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.3875,
+       "lo": 0.2365,
+       "hi": 0.5385
+      },
+      "mean_growth": 57.875,
+      "breakups_dating": 0,
+      "divorces": 22,
+      "leaves_per_seat": 0.55,
+      "seats_with_leave": 22,
+      "leaves_by_stage": {
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 22
+      },
+      "growth_lost_total": 220,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 220,
+      "placed_seats": 40,
+      "placements": 62,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 33,
+      "marriage_round_mean": 8.1,
+      "marriage_turns_from_placement_mean": 4.3,
+      "residence_own_turns_mean": 4.9355,
+      "second_lover_placed_seats": 22,
+      "second_lover_placed_rate_of_placed": 0.55,
+      "replacements_after_leave": 22,
+      "same_card_replaced": 14,
+      "same_instance_replaced": 9,
+      "lovers_in_hand_end_mean": 2.6,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 41,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 19,
+       "I-c_match": 13,
+       "E-new-encounter": 46,
+       "G-connect-four": 22
+      },
+      "lovepaper_equips": 34,
+      "replacements_used": {
+       "I-partner1": 17
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 39,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.375,
+        "lo": 0.1628,
+        "hi": 0.5872
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.4107,
+        "lo": 0.2285,
+        "hi": 0.5929
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.3333,
+        "lo": 0.0666,
+        "hi": 0.6001
+       }
+      }
+     }
+    },
+    "by_x_deck": {
+     "partner": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.4675,
+       "lo": 0.3984,
+       "hi": 0.5366
+      },
+      "mean_growth": 59.975,
+      "breakups_dating": 115,
+      "divorces": 22,
+      "leaves_per_seat": 0.685,
+      "seats_with_leave": 137,
+      "leaves_by_stage": {
+       "0": 20,
+       "1": 36,
+       "2": 34,
+       "3": 25,
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 137
+      },
+      "growth_lost_total": 1370,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 1370,
+      "placed_seats": 200,
+      "placements": 337,
+      "marriage_rate_of_placed": 0.965,
+      "married_at_end": 186,
+      "marriage_round_mean": 7.5544,
+      "marriage_turns_from_placement_mean": 3.6218,
+      "residence_own_turns_mean": 4.4748,
+      "second_lover_placed_seats": 137,
+      "second_lover_placed_rate_of_placed": 0.685,
+      "replacements_after_leave": 137,
+      "same_card_replaced": 106,
+      "same_instance_replaced": 88,
+      "lovers_in_hand_end_mean": 2.32,
+      "seats_with_lover_in_hand_end_of_placed": 0.955,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 186,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 201,
+       "I-c_match": 38,
+       "E-new-encounter": 264,
+       "G-connect-four": 119
+      },
+      "lovepaper_equips": 168,
+      "replacements_used": {
+       "I-partner1": 45
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 182,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.515,
+        "lo": 0.417,
+        "hi": 0.613
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.42,
+        "lo": 0.3233,
+        "hi": 0.5167
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.4886,
+        "lo": 0.4034,
+        "hi": 0.5739
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4265,
+        "lo": 0.3089,
+        "hi": 0.544
+       }
+      }
+     }
+    },
+    "by_y_deck": {
+     "challenge": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.4675,
+       "lo": 0.3984,
+       "hi": 0.5366
+      },
+      "mean_growth": 59.975,
+      "breakups_dating": 115,
+      "divorces": 22,
+      "leaves_per_seat": 0.685,
+      "seats_with_leave": 137,
+      "leaves_by_stage": {
+       "0": 20,
+       "1": 36,
+       "2": 34,
+       "3": 25,
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 137
+      },
+      "growth_lost_total": 1370,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 1370,
+      "placed_seats": 200,
+      "placements": 337,
+      "marriage_rate_of_placed": 0.965,
+      "married_at_end": 186,
+      "marriage_round_mean": 7.5544,
+      "marriage_turns_from_placement_mean": 3.6218,
+      "residence_own_turns_mean": 4.4748,
+      "second_lover_placed_seats": 137,
+      "second_lover_placed_rate_of_placed": 0.685,
+      "replacements_after_leave": 137,
+      "same_card_replaced": 106,
+      "same_instance_replaced": 88,
+      "lovers_in_hand_end_mean": 2.32,
+      "seats_with_lover_in_hand_end_of_placed": 0.955,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 186,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 201,
+       "I-c_match": 38,
+       "E-new-encounter": 264,
+       "G-connect-four": 119
+      },
+      "lovepaper_equips": 168,
+      "replacements_used": {
+       "I-partner1": 45
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 182,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.515,
+        "lo": 0.417,
+        "hi": 0.613
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.42,
+        "lo": 0.3233,
+        "hi": 0.5167
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.4886,
+        "lo": 0.4034,
+        "hi": 0.5739
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4265,
+        "lo": 0.3089,
+        "hi": 0.544
+       }
+      }
+     }
+    }
+   },
+   "B:inject": {
+    "matches": 200,
+    "x": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.4975,
+      "lo": 0.4282,
+      "hi": 0.5668
+     },
+     "mean_growth": 62.85,
+     "breakups_dating": 115,
+     "divorces": 22,
+     "leaves_per_seat": 0.685,
+     "seats_with_leave": 137,
+     "leaves_by_stage": {
+      "0": 20,
+      "1": 36,
+      "2": 34,
+      "3": 25,
+      "married": 22
+     },
+     "leaves_by_cause": {
+      "opponent": 137
+     },
+     "growth_lost_total": 795,
+     "growth_lost_per_leave": 5.8029,
+     "nominal_penalty_total": 795,
+     "placed_seats": 200,
+     "placements": 337,
+     "marriage_rate_of_placed": 0.965,
+     "married_at_end": 186,
+     "marriage_round_mean": 7.5544,
+     "marriage_turns_from_placement_mean": 3.6218,
+     "residence_own_turns_mean": 4.4748,
+     "second_lover_placed_seats": 137,
+     "second_lover_placed_rate_of_placed": 0.685,
+     "replacements_after_leave": 137,
+     "same_card_replaced": 106,
+     "same_instance_replaced": 88,
+     "lovers_in_hand_end_mean": 2.32,
+     "seats_with_lover_in_hand_end_of_placed": 0.955,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 0,
+      "E-amicable-breakup": 0,
+      "E-first-date": 186,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 201,
+      "I-c_match": 38,
+      "E-new-encounter": 264,
+      "G-connect-four": 119
+     },
+     "lovepaper_equips": 168,
+     "replacements_used": {
+      "I-partner1": 45
+     },
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 182,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.535,
+       "lo": 0.4372,
+       "hi": 0.6328
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.46,
+       "lo": 0.3623,
+       "hi": 0.5577
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 132,
+       "mean": 0.5227,
+       "lo": 0.4375,
+       "hi": 0.6079
+      },
+      "False": {
+       "n": 68,
+       "mean": 0.4485,
+       "lo": 0.3303,
+       "hi": 0.5667
+      }
+     }
+    },
+    "y": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.5025,
+      "lo": 0.4332,
+      "hi": 0.5718
+     },
+     "mean_growth": 61.05,
+     "breakups_dating": 0,
+     "divorces": 0,
+     "leaves_per_seat": 0.0,
+     "seats_with_leave": 0,
+     "leaves_by_stage": {},
+     "leaves_by_cause": {},
+     "growth_lost_total": 0,
+     "growth_lost_per_leave": null,
+     "nominal_penalty_total": 0,
+     "placed_seats": 157,
+     "placements": 157,
+     "marriage_rate_of_placed": 0.9427,
+     "married_at_end": 148,
+     "marriage_round_mean": 6.5203,
+     "marriage_turns_from_placement_mean": 4.5608,
+     "residence_own_turns_mean": 7.6178,
+     "second_lover_placed_seats": 0,
+     "second_lover_placed_rate_of_placed": 0.0,
+     "replacements_after_leave": 0,
+     "same_card_replaced": 0,
+     "same_instance_replaced": 0,
+     "lovers_in_hand_end_mean": 0.28,
+     "seats_with_lover_in_hand_end_of_placed": 0.3121,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 182,
+      "E-amicable-breakup": 0,
+      "E-first-date": 0,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 0,
+      "I-c_match": 0,
+      "E-new-encounter": 0,
+      "G-connect-four": 0
+     },
+     "lovepaper_equips": 0,
+     "replacements_used": {},
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 0,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.54,
+       "lo": 0.4423,
+       "hi": 0.6377
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.465,
+       "lo": 0.3672,
+       "hi": 0.5628
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 80,
+       "mean": 0.5188,
+       "lo": 0.4093,
+       "hi": 0.6282
+      },
+      "False": {
+       "n": 120,
+       "mean": 0.4917,
+       "lo": 0.4022,
+       "hi": 0.5811
+      }
+     }
+    },
+    "by_stage": {
+     "0": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.5875,
+       "lo": 0.4349,
+       "hi": 0.7401
+      },
+      "mean_growth": 67.5,
+      "breakups_dating": 20,
+      "divorces": 0,
+      "leaves_per_seat": 0.5,
+      "seats_with_leave": 20,
+      "leaves_by_stage": {
+       "0": 20
+      },
+      "leaves_by_cause": {
+       "opponent": 20
+      },
+      "growth_lost_total": 100,
+      "growth_lost_per_leave": 5.0,
+      "nominal_penalty_total": 100,
+      "placed_seats": 40,
+      "placements": 60,
+      "marriage_rate_of_placed": 0.9,
+      "married_at_end": 36,
+      "marriage_round_mean": 5.8056,
+      "marriage_turns_from_placement_mean": 3.8889,
+      "residence_own_turns_mean": 4.9667,
+      "second_lover_placed_seats": 20,
+      "second_lover_placed_rate_of_placed": 0.5,
+      "replacements_after_leave": 20,
+      "same_card_replaced": 16,
+      "same_instance_replaced": 14,
+      "lovers_in_hand_end_mean": 2.375,
+      "seats_with_lover_in_hand_end_of_placed": 0.9,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 36,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 57,
+       "I-c_match": 0,
+       "E-new-encounter": 54,
+       "G-connect-four": 21
+      },
+      "lovepaper_equips": 37,
+      "replacements_used": {
+       "I-partner1": 3
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 23,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.675,
+        "lo": 0.4697,
+        "hi": 0.8803
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.5,
+        "lo": 0.2809,
+        "hi": 0.7191
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.6607,
+        "lo": 0.4853,
+        "hi": 0.8361
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.4167,
+        "lo": 0.1377,
+        "hi": 0.6956
+       }
+      }
+     },
+     "1": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.525,
+       "lo": 0.3702,
+       "hi": 0.6798
+      },
+      "mean_growth": 62.375,
+      "breakups_dating": 36,
+      "divorces": 0,
+      "leaves_per_seat": 0.9,
+      "seats_with_leave": 36,
+      "leaves_by_stage": {
+       "1": 36
+      },
+      "leaves_by_cause": {
+       "opponent": 36
+      },
+      "growth_lost_total": 180,
+      "growth_lost_per_leave": 5.0,
+      "nominal_penalty_total": 180,
+      "placed_seats": 40,
+      "placements": 76,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 7.4,
+      "marriage_turns_from_placement_mean": 3.175,
+      "residence_own_turns_mean": 3.8026,
+      "second_lover_placed_seats": 36,
+      "second_lover_placed_rate_of_placed": 0.9,
+      "replacements_after_leave": 36,
+      "same_card_replaced": 35,
+      "same_instance_replaced": 33,
+      "lovers_in_hand_end_mean": 2.1,
+      "seats_with_lover_in_hand_end_of_placed": 0.975,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 38,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 45,
+       "I-c_match": 2,
+       "E-new-encounter": 55,
+       "G-connect-four": 23
+      },
+      "lovepaper_equips": 38,
+      "replacements_used": {
+       "I-partner1": 4
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.525,
+        "lo": 0.3061,
+        "hi": 0.7439
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.525,
+        "lo": 0.3061,
+        "hi": 0.7439
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.5385,
+        "lo": 0.3468,
+        "hi": 0.7301
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.5,
+        "lo": 0.2381,
+        "hi": 0.7619
+       }
+      }
+     },
+     "2": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.3875,
+       "lo": 0.2365,
+       "hi": 0.5385
+      },
+      "mean_growth": 56.875,
+      "breakups_dating": 34,
+      "divorces": 0,
+      "leaves_per_seat": 0.85,
+      "seats_with_leave": 34,
+      "leaves_by_stage": {
+       "2": 34
+      },
+      "leaves_by_cause": {
+       "opponent": 34
+      },
+      "growth_lost_total": 170,
+      "growth_lost_per_leave": 5.0,
+      "nominal_penalty_total": 170,
+      "placed_seats": 40,
+      "placements": 74,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 7.95,
+      "marriage_turns_from_placement_mean": 3.25,
+      "residence_own_turns_mean": 4.2432,
+      "second_lover_placed_seats": 34,
+      "second_lover_placed_rate_of_placed": 0.85,
+      "replacements_after_leave": 34,
+      "same_card_replaced": 25,
+      "same_instance_replaced": 20,
+      "lovers_in_hand_end_mean": 2.5,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 32,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 41,
+       "I-c_match": 9,
+       "E-new-encounter": 61,
+       "G-connect-four": 21
+      },
+      "lovepaper_equips": 24,
+      "replacements_used": {
+       "I-partner1": 6
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.45,
+        "lo": 0.232,
+        "hi": 0.668
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.325,
+        "lo": 0.1197,
+        "hi": 0.5303
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.3462,
+        "lo": 0.1633,
+        "hi": 0.529
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.4643,
+        "lo": 0.203,
+        "hi": 0.7255
+       }
+      }
+     },
+     "3": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.6,
+       "lo": 0.4482,
+       "hi": 0.7518
+      },
+      "mean_growth": 69.625,
+      "breakups_dating": 25,
+      "divorces": 0,
+      "leaves_per_seat": 0.625,
+      "seats_with_leave": 25,
+      "leaves_by_stage": {
+       "3": 25
+      },
+      "leaves_by_cause": {
+       "opponent": 25
+      },
+      "growth_lost_total": 125,
+      "growth_lost_per_leave": 5.0,
+      "nominal_penalty_total": 125,
+      "placed_seats": 40,
+      "placements": 65,
+      "marriage_rate_of_placed": 0.925,
+      "married_at_end": 37,
+      "marriage_round_mean": 8.4054,
+      "marriage_turns_from_placement_mean": 3.5135,
+      "residence_own_turns_mean": 4.6308,
+      "second_lover_placed_seats": 25,
+      "second_lover_placed_rate_of_placed": 0.625,
+      "replacements_after_leave": 25,
+      "same_card_replaced": 16,
+      "same_instance_replaced": 12,
+      "lovers_in_hand_end_mean": 2.025,
+      "seats_with_lover_in_hand_end_of_placed": 1.0,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 39,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 39,
+       "I-c_match": 14,
+       "E-new-encounter": 48,
+       "G-connect-four": 32
+      },
+      "lovepaper_equips": 35,
+      "replacements_used": {
+       "I-partner1": 15
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.625,
+        "lo": 0.4128,
+        "hi": 0.8372
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.575,
+        "lo": 0.3583,
+        "hi": 0.7917
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 24,
+        "mean": 0.6667,
+        "lo": 0.4781,
+        "hi": 0.8553
+       },
+       "False": {
+        "n": 16,
+        "mean": 0.5,
+        "lo": 0.255,
+        "hi": 0.745
+       }
+      }
+     },
+     "4": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.3875,
+       "lo": 0.2365,
+       "hi": 0.5385
+      },
+      "mean_growth": 57.875,
+      "breakups_dating": 0,
+      "divorces": 22,
+      "leaves_per_seat": 0.55,
+      "seats_with_leave": 22,
+      "leaves_by_stage": {
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 22
+      },
+      "growth_lost_total": 220,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 220,
+      "placed_seats": 40,
+      "placements": 62,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 33,
+      "marriage_round_mean": 8.1,
+      "marriage_turns_from_placement_mean": 4.3,
+      "residence_own_turns_mean": 4.9355,
+      "second_lover_placed_seats": 22,
+      "second_lover_placed_rate_of_placed": 0.55,
+      "replacements_after_leave": 22,
+      "same_card_replaced": 14,
+      "same_instance_replaced": 9,
+      "lovers_in_hand_end_mean": 2.6,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 41,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 19,
+       "I-c_match": 13,
+       "E-new-encounter": 46,
+       "G-connect-four": 22
+      },
+      "lovepaper_equips": 34,
+      "replacements_used": {
+       "I-partner1": 17
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 39,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.375,
+        "lo": 0.1628,
+        "hi": 0.5872
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.4107,
+        "lo": 0.2285,
+        "hi": 0.5929
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.3333,
+        "lo": 0.0666,
+        "hi": 0.6001
+       }
+      }
+     }
+    },
+    "by_x_deck": {
+     "partner": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.4975,
+       "lo": 0.4282,
+       "hi": 0.5668
+      },
+      "mean_growth": 62.85,
+      "breakups_dating": 115,
+      "divorces": 22,
+      "leaves_per_seat": 0.685,
+      "seats_with_leave": 137,
+      "leaves_by_stage": {
+       "0": 20,
+       "1": 36,
+       "2": 34,
+       "3": 25,
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 137
+      },
+      "growth_lost_total": 795,
+      "growth_lost_per_leave": 5.8029,
+      "nominal_penalty_total": 795,
+      "placed_seats": 200,
+      "placements": 337,
+      "marriage_rate_of_placed": 0.965,
+      "married_at_end": 186,
+      "marriage_round_mean": 7.5544,
+      "marriage_turns_from_placement_mean": 3.6218,
+      "residence_own_turns_mean": 4.4748,
+      "second_lover_placed_seats": 137,
+      "second_lover_placed_rate_of_placed": 0.685,
+      "replacements_after_leave": 137,
+      "same_card_replaced": 106,
+      "same_instance_replaced": 88,
+      "lovers_in_hand_end_mean": 2.32,
+      "seats_with_lover_in_hand_end_of_placed": 0.955,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 186,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 201,
+       "I-c_match": 38,
+       "E-new-encounter": 264,
+       "G-connect-four": 119
+      },
+      "lovepaper_equips": 168,
+      "replacements_used": {
+       "I-partner1": 45
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 182,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.535,
+        "lo": 0.4372,
+        "hi": 0.6328
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.46,
+        "lo": 0.3623,
+        "hi": 0.5577
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.5227,
+        "lo": 0.4375,
+        "hi": 0.6079
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4485,
+        "lo": 0.3303,
+        "hi": 0.5667
+       }
+      }
+     }
+    },
+    "by_y_deck": {
+     "challenge": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.4975,
+       "lo": 0.4282,
+       "hi": 0.5668
+      },
+      "mean_growth": 62.85,
+      "breakups_dating": 115,
+      "divorces": 22,
+      "leaves_per_seat": 0.685,
+      "seats_with_leave": 137,
+      "leaves_by_stage": {
+       "0": 20,
+       "1": 36,
+       "2": 34,
+       "3": 25,
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 137
+      },
+      "growth_lost_total": 795,
+      "growth_lost_per_leave": 5.8029,
+      "nominal_penalty_total": 795,
+      "placed_seats": 200,
+      "placements": 337,
+      "marriage_rate_of_placed": 0.965,
+      "married_at_end": 186,
+      "marriage_round_mean": 7.5544,
+      "marriage_turns_from_placement_mean": 3.6218,
+      "residence_own_turns_mean": 4.4748,
+      "second_lover_placed_seats": 137,
+      "second_lover_placed_rate_of_placed": 0.685,
+      "replacements_after_leave": 137,
+      "same_card_replaced": 106,
+      "same_instance_replaced": 88,
+      "lovers_in_hand_end_mean": 2.32,
+      "seats_with_lover_in_hand_end_of_placed": 0.955,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 186,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 201,
+       "I-c_match": 38,
+       "E-new-encounter": 264,
+       "G-connect-four": 119
+      },
+      "lovepaper_equips": 168,
+      "replacements_used": {
+       "I-partner1": 45
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 182,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.535,
+        "lo": 0.4372,
+        "hi": 0.6328
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.46,
+        "lo": 0.3623,
+        "hi": 0.5577
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.5227,
+        "lo": 0.4375,
+        "hi": 0.6079
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4485,
+        "lo": 0.3303,
+        "hi": 0.5667
+       }
+      }
+     }
+    }
+   },
+   "Cx:none": {
+    "matches": 200,
+    "x": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.49,
+      "lo": 0.4207,
+      "hi": 0.5593
+     },
+     "mean_growth": 67.2,
+     "breakups_dating": 0,
+     "divorces": 0,
+     "leaves_per_seat": 0.0,
+     "seats_with_leave": 0,
+     "leaves_by_stage": {},
+     "leaves_by_cause": {},
+     "growth_lost_total": 0,
+     "growth_lost_per_leave": null,
+     "nominal_penalty_total": 0,
+     "placed_seats": 200,
+     "placements": 200,
+     "marriage_rate_of_placed": 0.98,
+     "married_at_end": 196,
+     "marriage_round_mean": 6.4082,
+     "marriage_turns_from_placement_mean": 4.7959,
+     "residence_own_turns_mean": 8.22,
+     "second_lover_placed_seats": 0,
+     "second_lover_placed_rate_of_placed": 0.0,
+     "replacements_after_leave": 0,
+     "same_card_replaced": 0,
+     "same_instance_replaced": 0,
+     "lovers_in_hand_end_mean": 2.21,
+     "seats_with_lover_in_hand_end_of_placed": 0.95,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 0,
+      "E-amicable-breakup": 0,
+      "E-first-date": 160,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 250,
+      "I-c_match": 6,
+      "E-new-encounter": 259,
+      "G-connect-four": 144
+     },
+     "lovepaper_equips": 180,
+     "replacements_used": {},
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 0,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.515,
+       "lo": 0.417,
+       "hi": 0.613
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.465,
+       "lo": 0.3672,
+       "hi": 0.5628
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 132,
+       "mean": 0.5038,
+       "lo": 0.4185,
+       "hi": 0.5891
+      },
+      "False": {
+       "n": 68,
+       "mean": 0.4632,
+       "lo": 0.3447,
+       "hi": 0.5818
+      }
+     }
+    },
+    "y": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.51,
+      "lo": 0.4407,
+      "hi": 0.5793
+     },
+     "mean_growth": 63.25,
+     "breakups_dating": 0,
+     "divorces": 0,
+     "leaves_per_seat": 0.0,
+     "seats_with_leave": 0,
+     "leaves_by_stage": {},
+     "leaves_by_cause": {},
+     "growth_lost_total": 0,
+     "growth_lost_per_leave": null,
+     "nominal_penalty_total": 0,
+     "placed_seats": 157,
+     "placements": 157,
+     "marriage_rate_of_placed": 0.9618,
+     "married_at_end": 151,
+     "marriage_round_mean": 6.4702,
+     "marriage_turns_from_placement_mean": 4.4702,
+     "residence_own_turns_mean": 7.6879,
+     "second_lover_placed_seats": 0,
+     "second_lover_placed_rate_of_placed": 0.0,
+     "replacements_after_leave": 0,
+     "same_card_replaced": 0,
+     "same_instance_replaced": 0,
+     "lovers_in_hand_end_mean": 0.335,
+     "seats_with_lover_in_hand_end_of_placed": 0.3694,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 0,
+      "E-amicable-breakup": 0,
+      "E-first-date": 0,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 0,
+      "I-c_match": 0,
+      "E-new-encounter": 0,
+      "G-connect-four": 0
+     },
+     "lovepaper_equips": 0,
+     "replacements_used": {},
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 0,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.535,
+       "lo": 0.4372,
+       "hi": 0.6328
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.485,
+       "lo": 0.387,
+       "hi": 0.583
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 80,
+       "mean": 0.5312,
+       "lo": 0.4219,
+       "hi": 0.6406
+      },
+      "False": {
+       "n": 120,
+       "mean": 0.4958,
+       "lo": 0.4064,
+       "hi": 0.5853
+      }
+     }
+    },
+    "by_stage": {
+     "0": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.55,
+       "lo": 0.3958,
+       "hi": 0.7042
+      },
+      "mean_growth": 67.75,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 0.9,
+      "married_at_end": 36,
+      "marriage_round_mean": 5.8889,
+      "marriage_turns_from_placement_mean": 4.6667,
+      "residence_own_turns_mean": 7.95,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.2,
+      "seats_with_lover_in_hand_end_of_placed": 0.9,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 35,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 57,
+       "I-c_match": 0,
+       "E-new-encounter": 58,
+       "G-connect-four": 24
+      },
+      "lovepaper_equips": 36,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.575,
+        "lo": 0.3583,
+        "hi": 0.7917
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.525,
+        "lo": 0.3061,
+        "hi": 0.7439
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.6429,
+        "lo": 0.4654,
+        "hi": 0.8203
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.3333,
+        "lo": 0.0666,
+        "hi": 0.6001
+       }
+      }
+     },
+     "1": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.4875,
+       "lo": 0.3326,
+       "hi": 0.6424
+      },
+      "mean_growth": 65.875,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 6.525,
+      "marriage_turns_from_placement_mean": 4.65,
+      "residence_own_turns_mean": 8.1,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.1,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 35,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 47,
+       "I-c_match": 2,
+       "E-new-encounter": 53,
+       "G-connect-four": 21
+      },
+      "lovepaper_equips": 37,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.5,
+        "lo": 0.2809,
+        "hi": 0.7191
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.4615,
+        "lo": 0.2699,
+        "hi": 0.6532
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.5357,
+        "lo": 0.2745,
+        "hi": 0.797
+       }
+      }
+     },
+     "2": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.4375,
+       "lo": 0.2838,
+       "hi": 0.5912
+      },
+      "mean_growth": 64.875,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 6.25,
+      "marriage_turns_from_placement_mean": 4.95,
+      "residence_own_turns_mean": 8.7,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.275,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 26,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 54,
+       "I-c_match": 0,
+       "E-new-encounter": 54,
+       "G-connect-four": 31
+      },
+      "lovepaper_equips": 32,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.4231,
+        "lo": 0.2332,
+        "hi": 0.613
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.4643,
+        "lo": 0.203,
+        "hi": 0.7255
+       }
+      }
+     },
+     "3": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.5625,
+       "lo": 0.4088,
+       "hi": 0.7162
+      },
+      "mean_growth": 74.375,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 6.725,
+      "marriage_turns_from_placement_mean": 4.9,
+      "residence_own_turns_mean": 8.15,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.025,
+      "seats_with_lover_in_hand_end_of_placed": 1.0,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 31,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 54,
+       "I-c_match": 2,
+       "E-new-encounter": 47,
+       "G-connect-four": 36
+      },
+      "lovepaper_equips": 37,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.65,
+        "lo": 0.441,
+        "hi": 0.859
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 24,
+        "mean": 0.5833,
+        "lo": 0.3861,
+        "hi": 0.7806
+       },
+       "False": {
+        "n": 16,
+        "mean": 0.5312,
+        "lo": 0.2867,
+        "hi": 0.7758
+       }
+      }
+     },
+     "4": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.4125,
+       "lo": 0.2599,
+       "hi": 0.5651
+      },
+      "mean_growth": 63.125,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 40,
+      "placements": 40,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 6.6,
+      "marriage_turns_from_placement_mean": 4.8,
+      "residence_own_turns_mean": 8.2,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.45,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 33,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 38,
+       "I-c_match": 2,
+       "E-new-encounter": 47,
+       "G-connect-four": 32
+      },
+      "lovepaper_equips": 38,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.425,
+        "lo": 0.2083,
+        "hi": 0.6417
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.4107,
+        "lo": 0.2285,
+        "hi": 0.5929
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.4167,
+        "lo": 0.1377,
+        "hi": 0.6956
+       }
+      }
+     }
+    },
+    "by_x_deck": {
+     "partner+AM": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.49,
+       "lo": 0.4207,
+       "hi": 0.5593
+      },
+      "mean_growth": 67.2,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 200,
+      "placements": 200,
+      "marriage_rate_of_placed": 0.98,
+      "married_at_end": 196,
+      "marriage_round_mean": 6.4082,
+      "marriage_turns_from_placement_mean": 4.7959,
+      "residence_own_turns_mean": 8.22,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.21,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 160,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 250,
+       "I-c_match": 6,
+       "E-new-encounter": 259,
+       "G-connect-four": 144
+      },
+      "lovepaper_equips": 180,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.515,
+        "lo": 0.417,
+        "hi": 0.613
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.465,
+        "lo": 0.3672,
+        "hi": 0.5628
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.5038,
+        "lo": 0.4185,
+        "hi": 0.5891
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4632,
+        "lo": 0.3447,
+        "hi": 0.5818
+       }
+      }
+     }
+    },
+    "by_y_deck": {
+     "challenge": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.49,
+       "lo": 0.4207,
+       "hi": 0.5593
+      },
+      "mean_growth": 67.2,
+      "breakups_dating": 0,
+      "divorces": 0,
+      "leaves_per_seat": 0.0,
+      "seats_with_leave": 0,
+      "leaves_by_stage": {},
+      "leaves_by_cause": {},
+      "growth_lost_total": 0,
+      "growth_lost_per_leave": null,
+      "nominal_penalty_total": 0,
+      "placed_seats": 200,
+      "placements": 200,
+      "marriage_rate_of_placed": 0.98,
+      "married_at_end": 196,
+      "marriage_round_mean": 6.4082,
+      "marriage_turns_from_placement_mean": 4.7959,
+      "residence_own_turns_mean": 8.22,
+      "second_lover_placed_seats": 0,
+      "second_lover_placed_rate_of_placed": 0.0,
+      "replacements_after_leave": 0,
+      "same_card_replaced": 0,
+      "same_instance_replaced": 0,
+      "lovers_in_hand_end_mean": 2.21,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 160,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 250,
+       "I-c_match": 6,
+       "E-new-encounter": 259,
+       "G-connect-four": 144
+      },
+      "lovepaper_equips": 180,
+      "replacements_used": {},
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 0,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.515,
+        "lo": 0.417,
+        "hi": 0.613
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.465,
+        "lo": 0.3672,
+        "hi": 0.5628
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.5038,
+        "lo": 0.4185,
+        "hi": 0.5891
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4632,
+        "lo": 0.3447,
+        "hi": 0.5818
+       }
+      }
+     }
+    }
+   },
+   "Cx:inject": {
+    "matches": 200,
+    "x": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.46,
+      "lo": 0.3909,
+      "hi": 0.5291
+     },
+     "mean_growth": 60.05,
+     "breakups_dating": 114,
+     "divorces": 22,
+     "leaves_per_seat": 0.68,
+     "seats_with_leave": 136,
+     "leaves_by_stage": {
+      "0": 20,
+      "1": 35,
+      "2": 34,
+      "3": 25,
+      "married": 22
+     },
+     "leaves_by_cause": {
+      "opponent": 136
+     },
+     "growth_lost_total": 1360,
+     "growth_lost_per_leave": 10.0,
+     "nominal_penalty_total": 1360,
+     "placed_seats": 200,
+     "placements": 336,
+     "marriage_rate_of_placed": 0.965,
+     "married_at_end": 186,
+     "marriage_round_mean": 7.5544,
+     "marriage_turns_from_placement_mean": 3.6373,
+     "residence_own_turns_mean": 4.4911,
+     "second_lover_placed_seats": 136,
+     "second_lover_placed_rate_of_placed": 0.68,
+     "replacements_after_leave": 136,
+     "same_card_replaced": 105,
+     "same_instance_replaced": 89,
+     "lovers_in_hand_end_mean": 2.325,
+     "seats_with_lover_in_hand_end_of_placed": 0.95,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 0,
+      "E-amicable-breakup": 0,
+      "E-first-date": 186,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 202,
+      "I-c_match": 37,
+      "E-new-encounter": 264,
+      "G-connect-four": 119
+     },
+     "lovepaper_equips": 167,
+     "replacements_used": {
+      "I-partner1": 46
+     },
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 182,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.505,
+       "lo": 0.407,
+       "hi": 0.603
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.415,
+       "lo": 0.3184,
+       "hi": 0.5116
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 132,
+       "mean": 0.4811,
+       "lo": 0.3958,
+       "hi": 0.5663
+      },
+      "False": {
+       "n": 68,
+       "mean": 0.4191,
+       "lo": 0.3018,
+       "hi": 0.5364
+      }
+     }
+    },
+    "y": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.54,
+      "lo": 0.4709,
+      "hi": 0.6091
+     },
+     "mean_growth": 61.075,
+     "breakups_dating": 0,
+     "divorces": 0,
+     "leaves_per_seat": 0.0,
+     "seats_with_leave": 0,
+     "leaves_by_stage": {},
+     "leaves_by_cause": {},
+     "growth_lost_total": 0,
+     "growth_lost_per_leave": null,
+     "nominal_penalty_total": 0,
+     "placed_seats": 157,
+     "placements": 157,
+     "marriage_rate_of_placed": 0.9427,
+     "married_at_end": 148,
+     "marriage_round_mean": 6.5203,
+     "marriage_turns_from_placement_mean": 4.5541,
+     "residence_own_turns_mean": 7.6115,
+     "second_lover_placed_seats": 0,
+     "second_lover_placed_rate_of_placed": 0.0,
+     "replacements_after_leave": 0,
+     "same_card_replaced": 0,
+     "same_instance_replaced": 0,
+     "lovers_in_hand_end_mean": 0.275,
+     "seats_with_lover_in_hand_end_of_placed": 0.3057,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 182,
+      "E-amicable-breakup": 0,
+      "E-first-date": 0,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 0,
+      "I-c_match": 0,
+      "E-new-encounter": 0,
+      "G-connect-four": 0
+     },
+     "lovepaper_equips": 0,
+     "replacements_used": {},
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 0,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.585,
+       "lo": 0.4884,
+       "hi": 0.6816
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.495,
+       "lo": 0.397,
+       "hi": 0.593
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 80,
+       "mean": 0.55,
+       "lo": 0.441,
+       "hi": 0.659
+      },
+      "False": {
+       "n": 120,
+       "mean": 0.5333,
+       "lo": 0.4441,
+       "hi": 0.6226
+      }
+     }
+    },
+    "by_stage": {
+     "0": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.525,
+       "lo": 0.3702,
+       "hi": 0.6798
+      },
+      "mean_growth": 64.5,
+      "breakups_dating": 20,
+      "divorces": 0,
+      "leaves_per_seat": 0.5,
+      "seats_with_leave": 20,
+      "leaves_by_stage": {
+       "0": 20
+      },
+      "leaves_by_cause": {
+       "opponent": 20
+      },
+      "growth_lost_total": 200,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 200,
+      "placed_seats": 40,
+      "placements": 60,
+      "marriage_rate_of_placed": 0.9,
+      "married_at_end": 36,
+      "marriage_round_mean": 5.8056,
+      "marriage_turns_from_placement_mean": 3.8889,
+      "residence_own_turns_mean": 4.9667,
+      "second_lover_placed_seats": 20,
+      "second_lover_placed_rate_of_placed": 0.5,
+      "replacements_after_leave": 20,
+      "same_card_replaced": 16,
+      "same_instance_replaced": 14,
+      "lovers_in_hand_end_mean": 2.375,
+      "seats_with_lover_in_hand_end_of_placed": 0.9,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 36,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 57,
+       "I-c_match": 0,
+       "E-new-encounter": 54,
+       "G-connect-four": 20
+      },
+      "lovepaper_equips": 36,
+      "replacements_used": {
+       "I-partner1": 3
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 23,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.6,
+        "lo": 0.3853,
+        "hi": 0.8147
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.45,
+        "lo": 0.232,
+        "hi": 0.668
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.5714,
+        "lo": 0.3881,
+        "hi": 0.7547
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.4167,
+        "lo": 0.1377,
+        "hi": 0.6956
+       }
+      }
+     },
+     "1": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.4375,
+       "lo": 0.2838,
+       "hi": 0.5912
+      },
+      "mean_growth": 58.25,
+      "breakups_dating": 35,
+      "divorces": 0,
+      "leaves_per_seat": 0.875,
+      "seats_with_leave": 35,
+      "leaves_by_stage": {
+       "1": 35
+      },
+      "leaves_by_cause": {
+       "opponent": 35
+      },
+      "growth_lost_total": 350,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 350,
+      "placed_seats": 40,
+      "placements": 75,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 7.4,
+      "marriage_turns_from_placement_mean": 3.25,
+      "residence_own_turns_mean": 3.8667,
+      "second_lover_placed_seats": 35,
+      "second_lover_placed_rate_of_placed": 0.875,
+      "replacements_after_leave": 35,
+      "same_card_replaced": 34,
+      "same_instance_replaced": 32,
+      "lovers_in_hand_end_mean": 2.1,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 38,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 44,
+       "I-c_match": 2,
+       "E-new-encounter": 56,
+       "G-connect-four": 23
+      },
+      "lovepaper_equips": 38,
+      "replacements_used": {
+       "I-partner1": 5
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.4423,
+        "lo": 0.2514,
+        "hi": 0.6332
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.4286,
+        "lo": 0.1693,
+        "hi": 0.6878
+       }
+      }
+     },
+     "2": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.3625,
+       "lo": 0.2135,
+       "hi": 0.5115
+      },
+      "mean_growth": 52.875,
+      "breakups_dating": 34,
+      "divorces": 0,
+      "leaves_per_seat": 0.85,
+      "seats_with_leave": 34,
+      "leaves_by_stage": {
+       "2": 34
+      },
+      "leaves_by_cause": {
+       "opponent": 34
+      },
+      "growth_lost_total": 340,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 340,
+      "placed_seats": 40,
+      "placements": 74,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 7.95,
+      "marriage_turns_from_placement_mean": 3.25,
+      "residence_own_turns_mean": 4.2432,
+      "second_lover_placed_seats": 34,
+      "second_lover_placed_rate_of_placed": 0.85,
+      "replacements_after_leave": 34,
+      "same_card_replaced": 25,
+      "same_instance_replaced": 20,
+      "lovers_in_hand_end_mean": 2.5,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 32,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 41,
+       "I-c_match": 8,
+       "E-new-encounter": 60,
+       "G-connect-four": 22
+      },
+      "lovepaper_equips": 25,
+      "replacements_used": {
+       "I-partner1": 6
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.425,
+        "lo": 0.2083,
+        "hi": 0.6417
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.3,
+        "lo": 0.0992,
+        "hi": 0.5008
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.3269,
+        "lo": 0.1466,
+        "hi": 0.5072
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.4286,
+        "lo": 0.1693,
+        "hi": 0.6878
+       }
+      }
+     },
+     "3": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.5875,
+       "lo": 0.4349,
+       "hi": 0.7401
+      },
+      "mean_growth": 66.75,
+      "breakups_dating": 25,
+      "divorces": 0,
+      "leaves_per_seat": 0.625,
+      "seats_with_leave": 25,
+      "leaves_by_stage": {
+       "3": 25
+      },
+      "leaves_by_cause": {
+       "opponent": 25
+      },
+      "growth_lost_total": 250,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 250,
+      "placed_seats": 40,
+      "placements": 65,
+      "marriage_rate_of_placed": 0.925,
+      "married_at_end": 37,
+      "marriage_round_mean": 8.4054,
+      "marriage_turns_from_placement_mean": 3.5135,
+      "residence_own_turns_mean": 4.6308,
+      "second_lover_placed_seats": 25,
+      "second_lover_placed_rate_of_placed": 0.625,
+      "replacements_after_leave": 25,
+      "same_card_replaced": 16,
+      "same_instance_replaced": 12,
+      "lovers_in_hand_end_mean": 2.05,
+      "seats_with_lover_in_hand_end_of_placed": 1.0,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 39,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 40,
+       "I-c_match": 14,
+       "E-new-encounter": 48,
+       "G-connect-four": 32
+      },
+      "lovepaper_equips": 35,
+      "replacements_used": {
+       "I-partner1": 15
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.625,
+        "lo": 0.4128,
+        "hi": 0.8372
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.55,
+        "lo": 0.332,
+        "hi": 0.768
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 24,
+        "mean": 0.6667,
+        "lo": 0.4781,
+        "hi": 0.8553
+       },
+       "False": {
+        "n": 16,
+        "mean": 0.4688,
+        "lo": 0.2242,
+        "hi": 0.7133
+       }
+      }
+     },
+     "4": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.3875,
+       "lo": 0.2365,
+       "hi": 0.5385
+      },
+      "mean_growth": 57.875,
+      "breakups_dating": 0,
+      "divorces": 22,
+      "leaves_per_seat": 0.55,
+      "seats_with_leave": 22,
+      "leaves_by_stage": {
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 22
+      },
+      "growth_lost_total": 220,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 220,
+      "placed_seats": 40,
+      "placements": 62,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 33,
+      "marriage_round_mean": 8.1,
+      "marriage_turns_from_placement_mean": 4.3,
+      "residence_own_turns_mean": 4.9355,
+      "second_lover_placed_seats": 22,
+      "second_lover_placed_rate_of_placed": 0.55,
+      "replacements_after_leave": 22,
+      "same_card_replaced": 14,
+      "same_instance_replaced": 11,
+      "lovers_in_hand_end_mean": 2.6,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 41,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 20,
+       "I-c_match": 13,
+       "E-new-encounter": 46,
+       "G-connect-four": 22
+      },
+      "lovepaper_equips": 33,
+      "replacements_used": {
+       "I-partner1": 17
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 39,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.375,
+        "lo": 0.1628,
+        "hi": 0.5872
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.4107,
+        "lo": 0.2285,
+        "hi": 0.5929
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.3333,
+        "lo": 0.0666,
+        "hi": 0.6001
+       }
+      }
+     }
+    },
+    "by_x_deck": {
+     "partner+AM": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.46,
+       "lo": 0.3909,
+       "hi": 0.5291
+      },
+      "mean_growth": 60.05,
+      "breakups_dating": 114,
+      "divorces": 22,
+      "leaves_per_seat": 0.68,
+      "seats_with_leave": 136,
+      "leaves_by_stage": {
+       "0": 20,
+       "1": 35,
+       "2": 34,
+       "3": 25,
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 136
+      },
+      "growth_lost_total": 1360,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 1360,
+      "placed_seats": 200,
+      "placements": 336,
+      "marriage_rate_of_placed": 0.965,
+      "married_at_end": 186,
+      "marriage_round_mean": 7.5544,
+      "marriage_turns_from_placement_mean": 3.6373,
+      "residence_own_turns_mean": 4.4911,
+      "second_lover_placed_seats": 136,
+      "second_lover_placed_rate_of_placed": 0.68,
+      "replacements_after_leave": 136,
+      "same_card_replaced": 105,
+      "same_instance_replaced": 89,
+      "lovers_in_hand_end_mean": 2.325,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 186,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 202,
+       "I-c_match": 37,
+       "E-new-encounter": 264,
+       "G-connect-four": 119
+      },
+      "lovepaper_equips": 167,
+      "replacements_used": {
+       "I-partner1": 46
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 182,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.505,
+        "lo": 0.407,
+        "hi": 0.603
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.415,
+        "lo": 0.3184,
+        "hi": 0.5116
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.4811,
+        "lo": 0.3958,
+        "hi": 0.5663
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4191,
+        "lo": 0.3018,
+        "hi": 0.5364
+       }
+      }
+     }
+    },
+    "by_y_deck": {
+     "challenge": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.46,
+       "lo": 0.3909,
+       "hi": 0.5291
+      },
+      "mean_growth": 60.05,
+      "breakups_dating": 114,
+      "divorces": 22,
+      "leaves_per_seat": 0.68,
+      "seats_with_leave": 136,
+      "leaves_by_stage": {
+       "0": 20,
+       "1": 35,
+       "2": 34,
+       "3": 25,
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 136
+      },
+      "growth_lost_total": 1360,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 1360,
+      "placed_seats": 200,
+      "placements": 336,
+      "marriage_rate_of_placed": 0.965,
+      "married_at_end": 186,
+      "marriage_round_mean": 7.5544,
+      "marriage_turns_from_placement_mean": 3.6373,
+      "residence_own_turns_mean": 4.4911,
+      "second_lover_placed_seats": 136,
+      "second_lover_placed_rate_of_placed": 0.68,
+      "replacements_after_leave": 136,
+      "same_card_replaced": 105,
+      "same_instance_replaced": 89,
+      "lovers_in_hand_end_mean": 2.325,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 186,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 202,
+       "I-c_match": 37,
+       "E-new-encounter": 264,
+       "G-connect-four": 119
+      },
+      "lovepaper_equips": 167,
+      "replacements_used": {
+       "I-partner1": 46
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 182,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.505,
+        "lo": 0.407,
+        "hi": 0.603
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.415,
+        "lo": 0.3184,
+        "hi": 0.5116
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.4811,
+        "lo": 0.3958,
+        "hi": 0.5663
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4191,
+        "lo": 0.3018,
+        "hi": 0.5364
+       }
+      }
+     }
+    }
+   },
+   "C:inject": {
+    "matches": 200,
+    "x": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.485,
+      "lo": 0.4157,
+      "hi": 0.5543
+     },
+     "mean_growth": 62.55,
+     "breakups_dating": 114,
+     "divorces": 22,
+     "leaves_per_seat": 0.68,
+     "seats_with_leave": 136,
+     "leaves_by_stage": {
+      "0": 20,
+      "1": 35,
+      "2": 34,
+      "3": 25,
+      "married": 22
+     },
+     "leaves_by_cause": {
+      "opponent": 93,
+      "own_amicable": 43
+     },
+     "growth_lost_total": 930,
+     "growth_lost_per_leave": 6.8382,
+     "nominal_penalty_total": 930,
+     "placed_seats": 200,
+     "placements": 336,
+     "marriage_rate_of_placed": 0.965,
+     "married_at_end": 186,
+     "marriage_round_mean": 7.5544,
+     "marriage_turns_from_placement_mean": 3.6373,
+     "residence_own_turns_mean": 4.4911,
+     "second_lover_placed_seats": 136,
+     "second_lover_placed_rate_of_placed": 0.68,
+     "replacements_after_leave": 136,
+     "same_card_replaced": 103,
+     "same_instance_replaced": 86,
+     "lovers_in_hand_end_mean": 2.26,
+     "seats_with_lover_in_hand_end_of_placed": 0.95,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 0,
+      "E-amicable-breakup": 48,
+      "E-first-date": 186,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 202,
+      "I-c_match": 31,
+      "E-new-encounter": 261,
+      "G-connect-four": 126
+     },
+     "lovepaper_equips": 172,
+     "replacements_used": {
+      "I-partner1": 46
+     },
+     "amicable_responses": 48,
+     "loop_plays": 0,
+     "misunderstanding_received": 182,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.52,
+       "lo": 0.4221,
+       "hi": 0.6179
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.45,
+       "lo": 0.3525,
+       "hi": 0.5475
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 132,
+       "mean": 0.4886,
+       "lo": 0.4034,
+       "hi": 0.5739
+      },
+      "False": {
+       "n": 68,
+       "mean": 0.4779,
+       "lo": 0.3592,
+       "hi": 0.5967
+      }
+     }
+    },
+    "y": {
+     "seats": 200,
+     "score_rate": {
+      "n": 200,
+      "mean": 0.515,
+      "lo": 0.4457,
+      "hi": 0.5843
+     },
+     "mean_growth": 61.05,
+     "breakups_dating": 0,
+     "divorces": 0,
+     "leaves_per_seat": 0.0,
+     "seats_with_leave": 0,
+     "leaves_by_stage": {},
+     "leaves_by_cause": {},
+     "growth_lost_total": 0,
+     "growth_lost_per_leave": null,
+     "nominal_penalty_total": 0,
+     "placed_seats": 157,
+     "placements": 157,
+     "marriage_rate_of_placed": 0.9427,
+     "married_at_end": 148,
+     "marriage_round_mean": 6.5203,
+     "marriage_turns_from_placement_mean": 4.5541,
+     "residence_own_turns_mean": 7.6115,
+     "second_lover_placed_seats": 0,
+     "second_lover_placed_rate_of_placed": 0.0,
+     "replacements_after_leave": 0,
+     "same_card_replaced": 0,
+     "same_instance_replaced": 0,
+     "lovers_in_hand_end_mean": 0.275,
+     "seats_with_lover_in_hand_end_of_placed": 0.3057,
+     "cat_ceo_triggers": 0,
+     "cat_ceo_retriggers": 0,
+     "plays": {
+      "E-misunderstanding": 182,
+      "E-amicable-breakup": 0,
+      "E-first-date": 0,
+      "E-reconciliation": 0,
+      "E-wedding-anniversary": 0,
+      "I-c_match": 0,
+      "E-new-encounter": 0,
+      "G-connect-four": 0
+     },
+     "lovepaper_equips": 0,
+     "replacements_used": {},
+     "amicable_responses": 0,
+     "loop_plays": 0,
+     "misunderstanding_received": 0,
+     "by_first_seat": {
+      "True": {
+       "n": 100,
+       "mean": 0.55,
+       "lo": 0.4525,
+       "hi": 0.6475
+      },
+      "False": {
+       "n": 100,
+       "mean": 0.48,
+       "lo": 0.3821,
+       "hi": 0.5779
+      }
+     },
+     "by_opener_lover": {
+      "True": {
+       "n": 80,
+       "mean": 0.5,
+       "lo": 0.3904,
+       "hi": 0.6096
+      },
+      "False": {
+       "n": 120,
+       "mean": 0.525,
+       "lo": 0.4357,
+       "hi": 0.6143
+      }
+     }
+    },
+    "by_stage": {
+     "0": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.525,
+       "lo": 0.3702,
+       "hi": 0.6798
+      },
+      "mean_growth": 64.5,
+      "breakups_dating": 20,
+      "divorces": 0,
+      "leaves_per_seat": 0.5,
+      "seats_with_leave": 20,
+      "leaves_by_stage": {
+       "0": 20
+      },
+      "leaves_by_cause": {
+       "opponent": 19,
+       "own_amicable": 1
+      },
+      "growth_lost_total": 190,
+      "growth_lost_per_leave": 9.5,
+      "nominal_penalty_total": 190,
+      "placed_seats": 40,
+      "placements": 60,
+      "marriage_rate_of_placed": 0.9,
+      "married_at_end": 36,
+      "marriage_round_mean": 5.8056,
+      "marriage_turns_from_placement_mean": 3.8889,
+      "residence_own_turns_mean": 4.9667,
+      "second_lover_placed_seats": 20,
+      "second_lover_placed_rate_of_placed": 0.5,
+      "replacements_after_leave": 20,
+      "same_card_replaced": 16,
+      "same_instance_replaced": 14,
+      "lovers_in_hand_end_mean": 2.375,
+      "seats_with_lover_in_hand_end_of_placed": 0.9,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 1,
+       "E-first-date": 36,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 57,
+       "I-c_match": 0,
+       "E-new-encounter": 54,
+       "G-connect-four": 19
+      },
+      "lovepaper_equips": 36,
+      "replacements_used": {
+       "I-partner1": 3
+      },
+      "amicable_responses": 1,
+      "loop_plays": 0,
+      "misunderstanding_received": 23,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.6,
+        "lo": 0.3853,
+        "hi": 0.8147
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.45,
+        "lo": 0.232,
+        "hi": 0.668
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.5714,
+        "lo": 0.3881,
+        "hi": 0.7547
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.4167,
+        "lo": 0.1377,
+        "hi": 0.6956
+       }
+      }
+     },
+     "1": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.5,
+       "lo": 0.345,
+       "hi": 0.655
+      },
+      "mean_growth": 61.0,
+      "breakups_dating": 35,
+      "divorces": 0,
+      "leaves_per_seat": 0.875,
+      "seats_with_leave": 35,
+      "leaves_by_stage": {
+       "1": 35
+      },
+      "leaves_by_cause": {
+       "own_amicable": 9,
+       "opponent": 26
+      },
+      "growth_lost_total": 260,
+      "growth_lost_per_leave": 7.4286,
+      "nominal_penalty_total": 260,
+      "placed_seats": 40,
+      "placements": 75,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 7.4,
+      "marriage_turns_from_placement_mean": 3.25,
+      "residence_own_turns_mean": 3.8667,
+      "second_lover_placed_seats": 35,
+      "second_lover_placed_rate_of_placed": 0.875,
+      "replacements_after_leave": 35,
+      "same_card_replaced": 32,
+      "same_instance_replaced": 30,
+      "lovers_in_hand_end_mean": 2.1,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 12,
+       "E-first-date": 38,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 44,
+       "I-c_match": 2,
+       "E-new-encounter": 56,
+       "G-connect-four": 25
+      },
+      "lovepaper_equips": 38,
+      "replacements_used": {
+       "I-partner1": 5
+      },
+      "amicable_responses": 12,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.525,
+        "lo": 0.3061,
+        "hi": 0.7439
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.475,
+        "lo": 0.2561,
+        "hi": 0.6939
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.4615,
+        "lo": 0.2699,
+        "hi": 0.6532
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.5714,
+        "lo": 0.3122,
+        "hi": 0.8307
+       }
+      }
+     },
+     "2": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.4,
+       "lo": 0.2482,
+       "hi": 0.5518
+      },
+      "mean_growth": 58.0,
+      "breakups_dating": 34,
+      "divorces": 0,
+      "leaves_per_seat": 0.85,
+      "seats_with_leave": 34,
+      "leaves_by_stage": {
+       "2": 34
+      },
+      "leaves_by_cause": {
+       "opponent": 17,
+       "own_amicable": 17
+      },
+      "growth_lost_total": 170,
+      "growth_lost_per_leave": 5.0,
+      "nominal_penalty_total": 170,
+      "placed_seats": 40,
+      "placements": 74,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 40,
+      "marriage_round_mean": 7.95,
+      "marriage_turns_from_placement_mean": 3.25,
+      "residence_own_turns_mean": 4.2432,
+      "second_lover_placed_seats": 34,
+      "second_lover_placed_rate_of_placed": 0.85,
+      "replacements_after_leave": 34,
+      "same_card_replaced": 25,
+      "same_instance_replaced": 19,
+      "lovers_in_hand_end_mean": 2.2,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 17,
+       "E-first-date": 32,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 40,
+       "I-c_match": 3,
+       "E-new-encounter": 57,
+       "G-connect-four": 26
+      },
+      "lovepaper_equips": 29,
+      "replacements_used": {
+       "I-partner1": 6
+      },
+      "amicable_responses": 17,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.45,
+        "lo": 0.232,
+        "hi": 0.668
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.35,
+        "lo": 0.141,
+        "hi": 0.559
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 26,
+        "mean": 0.3462,
+        "lo": 0.1633,
+        "hi": 0.529
+       },
+       "False": {
+        "n": 14,
+        "mean": 0.5,
+        "lo": 0.2381,
+        "hi": 0.7619
+       }
+      }
+     },
+     "3": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.6125,
+       "lo": 0.4615,
+       "hi": 0.7635
+      },
+      "mean_growth": 71.375,
+      "breakups_dating": 25,
+      "divorces": 0,
+      "leaves_per_seat": 0.625,
+      "seats_with_leave": 25,
+      "leaves_by_stage": {
+       "3": 25
+      },
+      "leaves_by_cause": {
+       "own_amicable": 16,
+       "opponent": 9
+      },
+      "growth_lost_total": 90,
+      "growth_lost_per_leave": 3.6,
+      "nominal_penalty_total": 90,
+      "placed_seats": 40,
+      "placements": 65,
+      "marriage_rate_of_placed": 0.925,
+      "married_at_end": 37,
+      "marriage_round_mean": 8.4054,
+      "marriage_turns_from_placement_mean": 3.5135,
+      "residence_own_turns_mean": 4.6308,
+      "second_lover_placed_seats": 25,
+      "second_lover_placed_rate_of_placed": 0.625,
+      "replacements_after_leave": 25,
+      "same_card_replaced": 16,
+      "same_instance_replaced": 12,
+      "lovers_in_hand_end_mean": 2.025,
+      "seats_with_lover_in_hand_end_of_placed": 1.0,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 18,
+       "E-first-date": 39,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 41,
+       "I-c_match": 13,
+       "E-new-encounter": 48,
+       "G-connect-four": 34
+      },
+      "lovepaper_equips": 36,
+      "replacements_used": {
+       "I-partner1": 15
+      },
+      "amicable_responses": 18,
+      "loop_plays": 0,
+      "misunderstanding_received": 40,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.625,
+        "lo": 0.4128,
+        "hi": 0.8372
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.6,
+        "lo": 0.3853,
+        "hi": 0.8147
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 24,
+        "mean": 0.6667,
+        "lo": 0.4781,
+        "hi": 0.8553
+       },
+       "False": {
+        "n": 16,
+        "mean": 0.5312,
+        "lo": 0.2867,
+        "hi": 0.7758
+       }
+      }
+     },
+     "4": {
+      "seats": 40,
+      "score_rate": {
+       "n": 40,
+       "mean": 0.3875,
+       "lo": 0.2365,
+       "hi": 0.5385
+      },
+      "mean_growth": 57.875,
+      "breakups_dating": 0,
+      "divorces": 22,
+      "leaves_per_seat": 0.55,
+      "seats_with_leave": 22,
+      "leaves_by_stage": {
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 22
+      },
+      "growth_lost_total": 220,
+      "growth_lost_per_leave": 10.0,
+      "nominal_penalty_total": 220,
+      "placed_seats": 40,
+      "placements": 62,
+      "marriage_rate_of_placed": 1.0,
+      "married_at_end": 33,
+      "marriage_round_mean": 8.1,
+      "marriage_turns_from_placement_mean": 4.3,
+      "residence_own_turns_mean": 4.9355,
+      "second_lover_placed_seats": 22,
+      "second_lover_placed_rate_of_placed": 0.55,
+      "replacements_after_leave": 22,
+      "same_card_replaced": 14,
+      "same_instance_replaced": 11,
+      "lovers_in_hand_end_mean": 2.6,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 0,
+       "E-first-date": 41,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 20,
+       "I-c_match": 13,
+       "E-new-encounter": 46,
+       "G-connect-four": 22
+      },
+      "lovepaper_equips": 33,
+      "replacements_used": {
+       "I-partner1": 17
+      },
+      "amicable_responses": 0,
+      "loop_plays": 0,
+      "misunderstanding_received": 39,
+      "by_first_seat": {
+       "True": {
+        "n": 20,
+        "mean": 0.4,
+        "lo": 0.1853,
+        "hi": 0.6147
+       },
+       "False": {
+        "n": 20,
+        "mean": 0.375,
+        "lo": 0.1628,
+        "hi": 0.5872
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 28,
+        "mean": 0.4107,
+        "lo": 0.2285,
+        "hi": 0.5929
+       },
+       "False": {
+        "n": 12,
+        "mean": 0.3333,
+        "lo": 0.0666,
+        "hi": 0.6001
+       }
+      }
+     }
+    },
+    "by_x_deck": {
+     "partner+AM": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.485,
+       "lo": 0.4157,
+       "hi": 0.5543
+      },
+      "mean_growth": 62.55,
+      "breakups_dating": 114,
+      "divorces": 22,
+      "leaves_per_seat": 0.68,
+      "seats_with_leave": 136,
+      "leaves_by_stage": {
+       "0": 20,
+       "1": 35,
+       "2": 34,
+       "3": 25,
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 93,
+       "own_amicable": 43
+      },
+      "growth_lost_total": 930,
+      "growth_lost_per_leave": 6.8382,
+      "nominal_penalty_total": 930,
+      "placed_seats": 200,
+      "placements": 336,
+      "marriage_rate_of_placed": 0.965,
+      "married_at_end": 186,
+      "marriage_round_mean": 7.5544,
+      "marriage_turns_from_placement_mean": 3.6373,
+      "residence_own_turns_mean": 4.4911,
+      "second_lover_placed_seats": 136,
+      "second_lover_placed_rate_of_placed": 0.68,
+      "replacements_after_leave": 136,
+      "same_card_replaced": 103,
+      "same_instance_replaced": 86,
+      "lovers_in_hand_end_mean": 2.26,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 48,
+       "E-first-date": 186,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 202,
+       "I-c_match": 31,
+       "E-new-encounter": 261,
+       "G-connect-four": 126
+      },
+      "lovepaper_equips": 172,
+      "replacements_used": {
+       "I-partner1": 46
+      },
+      "amicable_responses": 48,
+      "loop_plays": 0,
+      "misunderstanding_received": 182,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.52,
+        "lo": 0.4221,
+        "hi": 0.6179
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.45,
+        "lo": 0.3525,
+        "hi": 0.5475
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.4886,
+        "lo": 0.4034,
+        "hi": 0.5739
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4779,
+        "lo": 0.3592,
+        "hi": 0.5967
+       }
+      }
+     }
+    },
+    "by_y_deck": {
+     "challenge": {
+      "seats": 200,
+      "score_rate": {
+       "n": 200,
+       "mean": 0.485,
+       "lo": 0.4157,
+       "hi": 0.5543
+      },
+      "mean_growth": 62.55,
+      "breakups_dating": 114,
+      "divorces": 22,
+      "leaves_per_seat": 0.68,
+      "seats_with_leave": 136,
+      "leaves_by_stage": {
+       "0": 20,
+       "1": 35,
+       "2": 34,
+       "3": 25,
+       "married": 22
+      },
+      "leaves_by_cause": {
+       "opponent": 93,
+       "own_amicable": 43
+      },
+      "growth_lost_total": 930,
+      "growth_lost_per_leave": 6.8382,
+      "nominal_penalty_total": 930,
+      "placed_seats": 200,
+      "placements": 336,
+      "marriage_rate_of_placed": 0.965,
+      "married_at_end": 186,
+      "marriage_round_mean": 7.5544,
+      "marriage_turns_from_placement_mean": 3.6373,
+      "residence_own_turns_mean": 4.4911,
+      "second_lover_placed_seats": 136,
+      "second_lover_placed_rate_of_placed": 0.68,
+      "replacements_after_leave": 136,
+      "same_card_replaced": 103,
+      "same_instance_replaced": 86,
+      "lovers_in_hand_end_mean": 2.26,
+      "seats_with_lover_in_hand_end_of_placed": 0.95,
+      "cat_ceo_triggers": 0,
+      "cat_ceo_retriggers": 0,
+      "plays": {
+       "E-misunderstanding": 0,
+       "E-amicable-breakup": 48,
+       "E-first-date": 186,
+       "E-reconciliation": 0,
+       "E-wedding-anniversary": 202,
+       "I-c_match": 31,
+       "E-new-encounter": 261,
+       "G-connect-four": 126
+      },
+      "lovepaper_equips": 172,
+      "replacements_used": {
+       "I-partner1": 46
+      },
+      "amicable_responses": 48,
+      "loop_plays": 0,
+      "misunderstanding_received": 182,
+      "by_first_seat": {
+       "True": {
+        "n": 100,
+        "mean": 0.52,
+        "lo": 0.4221,
+        "hi": 0.6179
+       },
+       "False": {
+        "n": 100,
+        "mean": 0.45,
+        "lo": 0.3525,
+        "hi": 0.5475
+       }
+      },
+      "by_opener_lover": {
+       "True": {
+        "n": 132,
+        "mean": 0.4886,
+        "lo": 0.4034,
+        "hi": 0.5739
+       },
+       "False": {
+        "n": 68,
+        "mean": 0.4779,
+        "lo": 0.3592,
+        "hi": 0.5967
+       }
+      }
+     }
+    }
+   }
+  },
+  "paired": {
+   "A:inject-A:none": {
+    "all": {
+     "n": 200,
+     "mean": -0.0275,
+     "lo": -0.0715,
+     "hi": 0.0165,
+     "halfwidth": 0.044,
+     "growth": {
+      "n": 200,
+      "mean": -7.275,
+      "lo": -8.7018,
+      "hi": -5.8482,
+      "halfwidth": 1.4268
+     }
+    },
+    "with_any_leave": {
+     "n": 137,
+     "mean": -0.0328,
+     "lo": -0.0914,
+     "hi": 0.0257,
+     "halfwidth": 0.0585,
+     "growth": {
+      "n": 137,
+      "mean": -10.073,
+      "lo": -11.9146,
+      "hi": -8.2314,
+      "halfwidth": 1.8416
+     }
+    }
+   },
+   "B:inject-A:inject": {
+    "all": {
+     "n": 200,
+     "mean": 0.03,
+     "lo": 0.0135,
+     "hi": 0.0465,
+     "halfwidth": 0.0165,
+     "growth": {
+      "n": 200,
+      "mean": 2.875,
+      "lo": 2.5316,
+      "hi": 3.2184,
+      "halfwidth": 0.3434
+     }
+    },
+    "with_any_leave": {
+     "n": 137,
+     "mean": 0.0438,
+     "lo": 0.02,
+     "hi": 0.0676,
+     "halfwidth": 0.0238,
+     "growth": {
+      "n": 137,
+      "mean": 4.1971,
+      "lo": 3.8886,
+      "hi": 4.5056,
+      "halfwidth": 0.3085
+     }
+    }
+   },
+   "Cx:inject-Cx:none": {
+    "all": {
+     "n": 200,
+     "mean": -0.03,
+     "lo": -0.0743,
+     "hi": 0.0143,
+     "halfwidth": 0.0443,
+     "growth": {
+      "n": 200,
+      "mean": -7.15,
+      "lo": -8.5763,
+      "hi": -5.7237,
+      "halfwidth": 1.4263
+     }
+    },
+    "with_any_leave": {
+     "n": 136,
+     "mean": -0.0368,
+     "lo": -0.0961,
+     "hi": 0.0226,
+     "halfwidth": 0.0593,
+     "growth": {
+      "n": 136,
+      "mean": -9.8162,
+      "lo": -11.6838,
+      "hi": -7.9485,
+      "halfwidth": 1.8676
+     }
+    }
+   },
+   "C:inject-Cx:inject": {
+    "all": {
+     "n": 200,
+     "mean": 0.025,
+     "lo": 0.0057,
+     "hi": 0.0443,
+     "halfwidth": 0.0193,
+     "growth": {
+      "n": 200,
+      "mean": 2.5,
+      "lo": 1.7327,
+      "hi": 3.2673,
+      "halfwidth": 0.7673
+     }
+    },
+    "with_any_leave": {
+     "n": 136,
+     "mean": 0.0368,
+     "lo": 0.0085,
+     "hi": 0.065,
+     "halfwidth": 0.0283,
+     "growth": {
+      "n": 136,
+      "mean": 3.6765,
+      "lo": 2.6026,
+      "hi": 4.7504,
+      "halfwidth": 1.0739
+     }
+    }
+   },
+   "B:inject-A:none": {
+    "all": {
+     "n": 200,
+     "mean": 0.0025,
+     "lo": -0.0389,
+     "hi": 0.0439,
+     "halfwidth": 0.0414,
+     "growth": {
+      "n": 200,
+      "mean": -4.4,
+      "lo": -5.7391,
+      "hi": -3.0609,
+      "halfwidth": 1.3391
+     }
+    },
+    "with_any_leave": {
+     "n": 137,
+     "mean": 0.0109,
+     "lo": -0.0432,
+     "hi": 0.0651,
+     "halfwidth": 0.0542,
+     "growth": {
+      "n": 137,
+      "mean": -5.8759,
+      "lo": -7.7145,
+      "hi": -4.0373,
+      "halfwidth": 1.8386
+     }
+    }
+   },
+   "C:inject-Cx:none": {
+    "all": {
+     "n": 200,
+     "mean": -0.005,
+     "lo": -0.0455,
+     "hi": 0.0355,
+     "halfwidth": 0.0405,
+     "growth": {
+      "n": 200,
+      "mean": -4.65,
+      "lo": -5.989,
+      "hi": -3.311,
+      "halfwidth": 1.339
+     }
+    },
+    "with_any_leave": {
+     "n": 136,
+     "mean": 0.0,
+     "lo": -0.0531,
+     "hi": 0.0531,
+     "halfwidth": 0.0531,
+     "growth": {
+      "n": 136,
+      "mean": -6.1397,
+      "lo": -7.9836,
+      "hi": -4.2959,
+      "halfwidth": 1.8438
+     }
+    }
+   }
+  },
+  "paired_by_stage": {
+   "0": {
+    "A:inject-A:none": {
+     "n": 40,
+     "mean": -0.025,
+     "lo": -0.13,
+     "hi": 0.08,
+     "halfwidth": 0.105,
+     "growth": {
+      "n": 40,
+      "mean": -3.25,
+      "lo": -6.2388,
+      "hi": -0.2612,
+      "halfwidth": 2.9888
+     }
+    },
+    "B:inject-A:inject": {
+     "n": 40,
+     "mean": 0.0375,
+     "lo": -0.0038,
+     "hi": 0.0788,
+     "halfwidth": 0.0413,
+     "growth": {
+      "n": 40,
+      "mean": 2.5,
+      "lo": 1.7154,
+      "hi": 3.2846,
+      "halfwidth": 0.7846
+     }
+    },
+    "Cx:inject-Cx:none": {
+     "n": 40,
+     "mean": -0.025,
+     "lo": -0.13,
+     "hi": 0.08,
+     "halfwidth": 0.105,
+     "growth": {
+      "n": 40,
+      "mean": -3.25,
+      "lo": -6.2388,
+      "hi": -0.2612,
+      "halfwidth": 2.9888
+     }
+    },
+    "C:inject-Cx:inject": {
+     "n": 40,
+     "mean": 0.0,
+     "lo": 0.0,
+     "hi": 0.0,
+     "halfwidth": 0.0,
+     "growth": {
+      "n": 40,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "halfwidth": 0.0
+     }
+    },
+    "B:inject-A:none": {
+     "n": 40,
+     "mean": 0.0125,
+     "lo": -0.0697,
+     "hi": 0.0947,
+     "halfwidth": 0.0822,
+     "growth": {
+      "n": 40,
+      "mean": -0.75,
+      "lo": -3.591,
+      "hi": 2.091,
+      "halfwidth": 2.841
+     }
+    },
+    "C:inject-Cx:none": {
+     "n": 40,
+     "mean": -0.025,
+     "lo": -0.13,
+     "hi": 0.08,
+     "halfwidth": 0.105,
+     "growth": {
+      "n": 40,
+      "mean": -3.25,
+      "lo": -6.2388,
+      "hi": -0.2612,
+      "halfwidth": 2.9888
+     }
+    }
+   },
+   "1": {
+    "A:inject-A:none": {
+     "n": 40,
+     "mean": -0.0375,
+     "lo": -0.1506,
+     "hi": 0.0756,
+     "halfwidth": 0.1131,
+     "growth": {
+      "n": 40,
+      "mean": -8.0,
+      "lo": -9.8831,
+      "hi": -6.1169,
+      "halfwidth": 1.8831
+     }
+    },
+    "B:inject-A:inject": {
+     "n": 40,
+     "mean": 0.075,
+     "lo": 0.019,
+     "hi": 0.131,
+     "halfwidth": 0.056,
+     "growth": {
+      "n": 40,
+      "mean": 4.5,
+      "lo": 4.0292,
+      "hi": 4.9708,
+      "halfwidth": 0.4708
+     }
+    },
+    "Cx:inject-Cx:none": {
+     "n": 40,
+     "mean": -0.05,
+     "lo": -0.1653,
+     "hi": 0.0653,
+     "halfwidth": 0.1153,
+     "growth": {
+      "n": 40,
+      "mean": -7.625,
+      "lo": -9.5465,
+      "hi": -5.7035,
+      "halfwidth": 1.9215
+     }
+    },
+    "C:inject-Cx:inject": {
+     "n": 40,
+     "mean": 0.0625,
+     "lo": -0.0001,
+     "hi": 0.1251,
+     "halfwidth": 0.0626,
+     "growth": {
+      "n": 40,
+      "mean": 2.75,
+      "lo": 1.0328,
+      "hi": 4.4672,
+      "halfwidth": 1.7172
+     }
+    },
+    "B:inject-A:none": {
+     "n": 40,
+     "mean": 0.0375,
+     "lo": -0.086,
+     "hi": 0.161,
+     "halfwidth": 0.1235,
+     "growth": {
+      "n": 40,
+      "mean": -3.5,
+      "lo": -5.3634,
+      "hi": -1.6366,
+      "halfwidth": 1.8634
+     }
+    },
+    "C:inject-Cx:none": {
+     "n": 40,
+     "mean": 0.0125,
+     "lo": -0.0897,
+     "hi": 0.1147,
+     "halfwidth": 0.1022,
+     "growth": {
+      "n": 40,
+      "mean": -4.875,
+      "lo": -7.3928,
+      "hi": -2.3572,
+      "halfwidth": 2.5178
+     }
+    }
+   },
+   "2": {
+    "A:inject-A:none": {
+     "n": 40,
+     "mean": -0.075,
+     "lo": -0.1648,
+     "hi": 0.0148,
+     "halfwidth": 0.0898,
+     "growth": {
+      "n": 40,
+      "mean": -12.25,
+      "lo": -16.077,
+      "hi": -8.423,
+      "halfwidth": 3.827
+     }
+    },
+    "B:inject-A:inject": {
+     "n": 40,
+     "mean": 0.025,
+     "lo": -0.0092,
+     "hi": 0.0592,
+     "halfwidth": 0.0342,
+     "growth": {
+      "n": 40,
+      "mean": 4.25,
+      "lo": 3.6897,
+      "hi": 4.8103,
+      "halfwidth": 0.5603
+     }
+    },
+    "Cx:inject-Cx:none": {
+     "n": 40,
+     "mean": -0.075,
+     "lo": -0.1648,
+     "hi": 0.0148,
+     "halfwidth": 0.0898,
+     "growth": {
+      "n": 40,
+      "mean": -12.0,
+      "lo": -15.8085,
+      "hi": -8.1915,
+      "halfwidth": 3.8085
+     }
+    },
+    "C:inject-Cx:inject": {
+     "n": 40,
+     "mean": 0.0375,
+     "lo": -0.0167,
+     "hi": 0.0917,
+     "halfwidth": 0.0542,
+     "growth": {
+      "n": 40,
+      "mean": 5.125,
+      "lo": 3.0347,
+      "hi": 7.2153,
+      "halfwidth": 2.0903
+     }
+    },
+    "B:inject-A:none": {
+     "n": 40,
+     "mean": -0.05,
+     "lo": -0.1269,
+     "hi": 0.0269,
+     "halfwidth": 0.0769,
+     "growth": {
+      "n": 40,
+      "mean": -8.0,
+      "lo": -11.6432,
+      "hi": -4.3568,
+      "halfwidth": 3.6432
+     }
+    },
+    "C:inject-Cx:none": {
+     "n": 40,
+     "mean": -0.0375,
+     "lo": -0.111,
+     "hi": 0.036,
+     "halfwidth": 0.0735,
+     "growth": {
+      "n": 40,
+      "mean": -6.875,
+      "lo": -10.1795,
+      "hi": -3.5705,
+      "halfwidth": 3.3045
+     }
+    }
+   },
+   "3": {
+    "A:inject-A:none": {
+     "n": 40,
+     "mean": 0.025,
+     "lo": -0.0675,
+     "hi": 0.1175,
+     "halfwidth": 0.0925,
+     "growth": {
+      "n": 40,
+      "mean": -7.5,
+      "lo": -10.9021,
+      "hi": -4.0979,
+      "halfwidth": 3.4021
+     }
+    },
+    "B:inject-A:inject": {
+     "n": 40,
+     "mean": 0.0125,
+     "lo": -0.012,
+     "hi": 0.037,
+     "halfwidth": 0.0245,
+     "growth": {
+      "n": 40,
+      "mean": 3.125,
+      "lo": 2.3653,
+      "hi": 3.8847,
+      "halfwidth": 0.7597
+     }
+    },
+    "Cx:inject-Cx:none": {
+     "n": 40,
+     "mean": 0.025,
+     "lo": -0.0675,
+     "hi": 0.1175,
+     "halfwidth": 0.0925,
+     "growth": {
+      "n": 40,
+      "mean": -7.625,
+      "lo": -11.0449,
+      "hi": -4.2051,
+      "halfwidth": 3.4199
+     }
+    },
+    "C:inject-Cx:inject": {
+     "n": 40,
+     "mean": 0.025,
+     "lo": -0.024,
+     "hi": 0.074,
+     "halfwidth": 0.049,
+     "growth": {
+      "n": 40,
+      "mean": 4.625,
+      "lo": 2.3137,
+      "hi": 6.9363,
+      "halfwidth": 2.3113
+     }
+    },
+    "B:inject-A:none": {
+     "n": 40,
+     "mean": 0.0375,
+     "lo": -0.0439,
+     "hi": 0.1189,
+     "halfwidth": 0.0814,
+     "growth": {
+      "n": 40,
+      "mean": -4.375,
+      "lo": -7.4378,
+      "hi": -1.3122,
+      "halfwidth": 3.0628
+     }
+    },
+    "C:inject-Cx:none": {
+     "n": 40,
+     "mean": 0.05,
+     "lo": -0.0269,
+     "hi": 0.1269,
+     "halfwidth": 0.0769,
+     "growth": {
+      "n": 40,
+      "mean": -3.0,
+      "lo": -6.1149,
+      "hi": 0.1149,
+      "halfwidth": 3.1149
+     }
+    }
+   },
+   "4": {
+    "A:inject-A:none": {
+     "n": 40,
+     "mean": -0.025,
+     "lo": -0.1175,
+     "hi": 0.0675,
+     "halfwidth": 0.0925,
+     "growth": {
+      "n": 40,
+      "mean": -5.375,
+      "lo": -8.3398,
+      "hi": -2.4102,
+      "halfwidth": 2.9648
+     }
+    },
+    "B:inject-A:inject": {
+     "n": 40,
+     "mean": 0.0,
+     "lo": 0.0,
+     "hi": 0.0,
+     "halfwidth": 0.0,
+     "growth": {
+      "n": 40,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "halfwidth": 0.0
+     }
+    },
+    "Cx:inject-Cx:none": {
+     "n": 40,
+     "mean": -0.025,
+     "lo": -0.1175,
+     "hi": 0.0675,
+     "halfwidth": 0.0925,
+     "growth": {
+      "n": 40,
+      "mean": -5.25,
+      "lo": -8.2264,
+      "hi": -2.2736,
+      "halfwidth": 2.9764
+     }
+    },
+    "C:inject-Cx:inject": {
+     "n": 40,
+     "mean": 0.0,
+     "lo": 0.0,
+     "hi": 0.0,
+     "halfwidth": 0.0,
+     "growth": {
+      "n": 40,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "halfwidth": 0.0
+     }
+    },
+    "B:inject-A:none": {
+     "n": 40,
+     "mean": -0.025,
+     "lo": -0.1175,
+     "hi": 0.0675,
+     "halfwidth": 0.0925,
+     "growth": {
+      "n": 40,
+      "mean": -5.375,
+      "lo": -8.3398,
+      "hi": -2.4102,
+      "halfwidth": 2.9648
+     }
+    },
+    "C:inject-Cx:none": {
+     "n": 40,
+     "mean": -0.025,
+     "lo": -0.1175,
+     "hi": 0.0675,
+     "halfwidth": 0.0925,
+     "growth": {
+      "n": 40,
+      "mean": -5.25,
+      "lo": -8.2264,
+      "hi": -2.2736,
+      "halfwidth": 2.9764
+     }
+    }
+   }
+  }
  }
 }
