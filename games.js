@@ -129,7 +129,9 @@
     space: { sky: ['#03061a', '#1b1f4a'], ground: ['#0b0f2a', '#0e1230'], road: ['#1c2350', '#212858'], rumble: ['#6f7cff', '#c46fff'], scenery: ['🪐', '🌟', '🛰️', '✨'] },
     highway: { sky: ['#5aa9ff', '#dff1ff'], ground: ['#5fa85a', '#68b062'], road: ['#4a4a55', '#52525d'], rumble: ['#f3f3f3', '#d8383c'], scenery: ['🌳', '🛣️', '🏢', '🌲'] },
   };
-  function makeRoadGame({ title, goodItems, badItems, scene = 'road', playerEmoji, duration }) {
+  // spawnPattern:'meteor' … わるい物の 一部が、行き先への 点線と 尾(予告)を 出してから 隣の レーンへ 移る(流れ星)。
+  // 出す きょりを のばして 予告を ながく 見せ、判定の かなり 手前で 移り終える。既定は なし(ふつうの 出し方)
+  function makeRoadGame({ title, goodItems, badItems, scene = 'road', playerEmoji, duration, spawnPattern = null }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
@@ -137,6 +139,8 @@
         const th = LANE_RUSH_SCENES[scene] || LANE_RUSH_SCENES.road;
         const BAD_CHANCE = lerp(0.34, 0.46, difficulty);
         const LANES = [-0.62, 0, 0.62];
+        // 流れ星: SEG_LEN 単位で、出てから WARN_END まで 予告、MOVE_END までに 移り終える
+        const METEOR = spawnPattern === 'meteor', AHEAD = METEOR ? 54 : 42, WARN_END = 32, MOVE_END = 20, SHIFT_CHANCE = 0.3;
         let lane = 1, playerX = 0, position = 0, speed = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, flash = 0, sparkle = 0;
         let good = 0, bad = 0, points = 0, combo = 0, bestCombo = 0, nextSpawnZ = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
@@ -164,24 +168,50 @@
         const setLane = (n) => { lane = clamp(n, 0, 2); };
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); setLane(p.nx < 1 / 3 ? 0 : p.nx > 2 / 3 ? 2 : 1); });
         const pet = playerEmoji || currentSprite();
-        function spawn() {
+        // 流れ星の 予告: 足もとから 行き先の レーンへの 点線と 印(移りおわるまで)、うしろへ のびる 尾(ずっと)。
+        // 絵文字や 矢印の 文字は つかわない。px は この きょりでの 道はばの はんぶん
+        function drawMeteorTail(c, sx, sy, px, s) {
+          const sh = s.it.shift, dir = Math.sign(LANES[sh.to] - LANES[sh.from]);
+          c.save(); c.lineCap = 'round';
+          if (sh.k < 1) {
+            const tx = sx + (LANES[sh.to] - s.it.offset) * px, m = Math.max(2.5, px * 0.05);
+            c.strokeStyle = 'rgba(255,214,90,.9)'; c.lineWidth = Math.max(1.2, px * 0.02); c.setLineDash([Math.max(2, px * 0.04), Math.max(2, px * 0.04)]);
+            c.beginPath(); c.moveTo(sx, sy); c.lineTo(tx, sy); c.stroke();
+            c.fillStyle = 'rgba(255,214,90,.9)'; c.beginPath(); c.moveTo(tx - m, sy - m * 2.4); c.lineTo(tx + m, sy - m * 2.4); c.lineTo(tx, sy - m * 0.6); c.closePath(); c.fill();
+          }
+          c.strokeStyle = 'rgba(255,170,90,.85)'; c.lineWidth = Math.max(1.5, px * 0.05); c.setLineDash([]);
+          c.beginPath(); c.moveTo(sx, sy); c.lineTo(sx - dir * px * 0.32, sy - px * 0.3); c.stroke();
+          c.restore();
+        }
+        function spawn(z = position + PLAYER_Z + SEG_LEN * AHEAD) {
           const isBad = Math.random() < BAD_CHANCE;
           const pool = isBad ? badItems : goodItems;
           const laneIdx = Math.floor(Math.random() * 3);
-          const it = { z: position + PLAYER_Z + SEG_LEN * 42, lane: laneIdx, offset: LANES[laneIdx], bad: isBad, emoji: pool[Math.floor(Math.random() * pool.length)], size: 0.3, done: false };
+          const it = { z, lane: laneIdx, offset: LANES[laneIdx], bad: isBad, emoji: pool[Math.floor(Math.random() * pool.length)], size: 0.3, done: false };
+          if (METEOR && isBad && Math.random() < SHIFT_CHANCE) {
+            it.shift = { from: laneIdx, to: laneIdx === 1 ? (Math.random() < 0.5 ? 0 : 2) : 1, k: 0 };
+            it.tail = { offset: it.offset, size: 1, draw: drawMeteorTail, it };
+          }
           items.push(it);
         }
+        // 流れ星は 遠くから 出すが、さいしょの 1こは いつもの きょりに おいて、物が とどく 間かくを いつもと そろえる
+        if (METEOR) { spawn(PLAYER_Z + SEG_LEN * 42); nextSpawnZ = PLAYER_Z + SEG_LEN * (42 + lerp(18, 14, difficulty)); }
         function update(dt, now) {
           speed = Math.min(MAX_SPEED, speed + MAX_SPEED * dt / 1.2);
           position += speed * dt;
           if (position >= TRACK_LEN) { position -= TRACK_LEN; for (const it of items) it.z -= TRACK_LEN; nextSpawnZ -= TRACK_LEN; }
           playerX += (LANES[lane] - playerX) * Math.min(1, dt * 12);
           const gap = SEG_LEN * lerp(18, 14, difficulty);
-          if (position + PLAYER_Z + SEG_LEN * 42 > nextSpawnZ) { spawn(); nextSpawnZ = position + PLAYER_Z + SEG_LEN * 42 + gap; }
+          if (position + PLAYER_Z + SEG_LEN * AHEAD > nextSpawnZ) { spawn(); nextSpawnZ = position + PLAYER_Z + SEG_LEN * AHEAD + gap; }
           for (const seg of segments) seg.dynamic.length = 0;
           const pz = position + PLAYER_Z;
           for (const it of items) {
-            if (it.z >= pz - SEG_LEN && it.z < pz + SEG_LEN * 60) road.findSegment(((it.z % TRACK_LEN) + TRACK_LEN) % TRACK_LEN).dynamic.push(it);
+            if (it.shift) {
+              // きょりで 動きを きめる(なめらかに 隣の レーンへ)。判定も 絵も it.offset を つかう
+              const sh = it.shift, k = clamp((WARN_END - (it.z - pz) / SEG_LEN) / (WARN_END - MOVE_END), 0, 1), e = k * k * (3 - 2 * k);
+              sh.k = k; it.offset = it.tail.offset = lerp(LANES[sh.from], LANES[sh.to], e); it.lane = e < 0.5 ? sh.from : sh.to;
+            }
+            if (it.z >= pz - SEG_LEN && it.z < pz + SEG_LEN * 60) { const seg = road.findSegment(((it.z % TRACK_LEN) + TRACK_LEN) % TRACK_LEN); if (it.tail) seg.dynamic.push(it.tail); seg.dynamic.push(it); }
             if (!it.done && it.z <= pz + SEG_LEN * 0.4) {
               it.done = true;
               // あたり判定は「えらんだ レーン」ではなく、じっさいの いち(playerX)で。
@@ -241,7 +271,7 @@
   const ROAD_GAME_VARIANTS = [
     mg('road-themed', randomThemeGame(makeRoadGame, [
       { title: '道路を走ろう!食べものはキャッチ、ゴミはよけて', goodItems: ['🍎', '🍙', '🍬', '🍇'], badItems: ['🪨', '🚧', '🛢️', '⚠️'], scene: 'road' },
-      { title: '空を飛ぼう!星はキャッチ、いんせきはよけて', goodItems: ['⭐', '🌟', '✨', '🍀'], badItems: ['☄️', '🪨', '⚡', '🛰️'], scene: 'sky' },
+      { title: '空を飛ぼう!月や音符はキャッチ、かみなりと鳥はよけて', goodItems: ['🌙', '🎵', '🍀'], badItems: ['⚡', '🐦'], scene: 'sky' },
       { title: '海を泳ごう!魚はキャッチ、ゴミはよけて', goodItems: ['🐟', '🐠', '🦐', '🐚'], badItems: ['🥫', '🪤', '🕸️', '🦈'], scene: 'sea' },
     ])),
   ];
@@ -1050,7 +1080,7 @@
   // 外部3Dライブラリを使わないため、iPhoneでも既存ゲームと同じページ内で遊べる。
 
   const PERSPECTIVE_3D_VARIANTS = [
-    mg('p3-space', makeRoadGame({ title: '3Dうちゅうフライト!星を集めて、いんせきをよけよう', goodItems: ['⭐', '🌟', '💫', '🪙'], badItems: ['☄️', '🪨', '🛰️', '👾'], scene: 'space', playerEmoji: '🚀' })),
+    mg('p3-space', makeRoadGame({ title: '3Dうちゅうフライト!星を集めて、いんせきをよけよう', goodItems: ['⭐', '🌟', '💫', '🪙'], badItems: ['☄️', '🪨', '🛰️', '👾'], scene: 'space', playerEmoji: '🚀', spawnPattern: 'meteor' })),
     mg('p3-drive', makeRoadGame({ title: '3Dハイウェイ!コインを拾って、車をよけよう', goodItems: ['🪙', '💎', '⛽', '🍔'], badItems: ['🚙', '🚚', '🚧', '🛢️'], scene: 'highway', playerEmoji: '🏎️' })),
   ];
 
