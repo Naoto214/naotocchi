@@ -1,0 +1,1197 @@
+{
+ "summary": {
+  "noDirectTest": 223,
+  "withRiskTag": 109,
+  "excludedAsCommonSignatureTested": 16,
+  "priority": 93,
+  "byTag": {
+   "simultaneous": 11,
+   "chain": 30,
+   "retarget": 9,
+   "facedown": 17,
+   "costReduction": 22,
+   "noMain": 0,
+   "saveReplay": 34
+  },
+  "top": [
+   "M-mushroom-08",
+   "M-sakura-06",
+   "P-oasis_cactus",
+   "M-coral-07",
+   "M-ghost-05",
+   "M-ghost-07",
+   "W-jungle",
+   "E-midlife-travel-plan",
+   "G-asteroids-classic",
+   "G-domino-run",
+   "G-haunted-house-3d",
+   "G-submarine-3d",
+   "I-c_transform",
+   "M-cicada-08",
+   "M-dragon-05",
+   "M-ghost-06",
+   "M-penguin-05",
+   "M-stagbeetle-07",
+   "M-star-06",
+   "M-unknown-02",
+   "M-venus_flytrap-05",
+   "M-venus_flytrap-06",
+   "M-phoenix-05",
+   "M-plush-07",
+   "G-bomber-maze",
+   "G-checkers-6",
+   "M-unknown-01",
+   "M-venus_flytrap-07",
+   "E-final-time",
+   "E-lamp"
+  ]
+ },
+ "rows": [
+  {
+   "id": "M-mushroom-08",
+   "name": "キノコ⑧",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain",
+    "saveReplay"
+   ],
+   "score": 8,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "この名前の能力は1ターンに1回。このメインがへんしんでメイン枠から捨て札に置かれた時、発動できる。次の自分のターン終了時まで、自分の盤面にメイン以外のカードが表向きで出て、自分の捨て札にそのカードと同名のカードがある時、1回だけ1枚引く。"
+  },
+  {
+   "id": "M-sakura-06",
+   "name": "サクラ⑥",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain",
+    "retarget"
+   ],
+   "score": 7,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "このメインがこの段階になった時、発動できる。自分の準備枠のカード1枚を選ぶ。このターン、選んだ後にそのカードまたはそのカードの能力が発動し、その効果の一部が解決時に適用された時に1回だけ、自分のそだち+5。選んだカードが発動のために準備枠から発動領域へ移動した場合も、その発動を参照する。"
+  },
+  {
+   "id": "P-oasis_cactus",
+   "name": "オアシスのサボテンさん",
+   "type": "partner",
+   "tags": [
+    "chain",
+    "saveReplay"
+   ],
+   "score": 6,
+   "coveredBySameSignature": false,
+   "rulingDocs": 2,
+   "text": "1ラウンドに1回。このカードにカードがみにつけられていない間、このカードが相手の効果で手札に戻るなら、その移動を防いでもよい。"
+  },
+  {
+   "id": "M-coral-07",
+   "name": "サンゴ⑦",
+   "type": "main",
+   "tags": [
+    "chain",
+    "saveReplay"
+   ],
+   "score": 6,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ラウンドに1回。自分の盤面に、なかま・こいびと・セカイの3種類すべてがある場合、自分のメイン以外のカード1枚が相手の効果で捨て札に置かれるなら、そのカードを捨て札に置かない。"
+  },
+  {
+   "id": "M-ghost-05",
+   "name": "おばけ⑤",
+   "type": "main",
+   "tags": [
+    "chain",
+    "saveReplay"
+   ],
+   "score": 6,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "この名前の能力は1ターンに1回。自分のターンに、自分の準備枠のカード1枚を山札の一番下に置いて発動できる。次の自分のターン開始時まで、自分が次に相手からちょうせんされた時、そのちょうせんの間、相手のメインの使用する能力値-2。"
+  },
+  {
+   "id": "M-ghost-07",
+   "name": "おばけ⑦",
+   "type": "main",
+   "tags": [
+    "chain",
+    "saveReplay"
+   ],
+   "score": 6,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分のターンに、自分の捨て札のメイン1枚を山札の一番下に置いて発動できる。次の自分のターン終了時まで、自分が次になかままたはこいびとを出した時、山札上2枚を見る。その中から1枚を選んで手札に加え、残りを山札の一番下に置く。"
+  },
+  {
+   "id": "W-jungle",
+   "name": "ジャングル",
+   "type": "world",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 5,
+   "text": "1ターンに1回。自分のメインが自分からちょうせんする時、自分になかまがいて、このターン自分があそびを表向きでプレイしている場合、発動できる。この勝負で自分が勝った時、自分のそだち+5。"
+  },
+  {
+   "id": "E-midlife-travel-plan",
+   "name": "小さな旅の計画",
+   "type": "event",
+   "tags": [
+    "costReduction",
+    "saveReplay"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "山札上4枚を見る。その中からセカイ1枚を選んで公開し、手札に加える。そうしたなら、このターン、自分が次にセカイを手札から通常配置するための時を1少なくする。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "G-asteroids-classic",
+   "name": "アステロイド",
+   "type": "play",
+   "tags": [
+    "retarget",
+    "saveReplay"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "自分の準備枠の時コスト3以上の装備カード1枚を対象とし、捨て札に置く。置いたなら山札上5枚を公開し、その中の時コスト2以下のあいてむを2枚まで手札に加える。残りを好きな順で山札下へ置く。"
+  },
+  {
+   "id": "G-domino-run",
+   "name": "ドミノたおし",
+   "type": "play",
+   "tags": [
+    "chain",
+    "facedown"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "自分があいてむを表向きでプレイした時に発動できる。このターン、自分が次にあそびを表向きでプレイした時、自分のそだち+5し、1枚引く。"
+  },
+  {
+   "id": "G-haunted-house-3d",
+   "name": "おばけやしき",
+   "type": "play",
+   "tags": [
+    "facedown",
+    "saveReplay"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "相手がしかけたカードを発動した時に発動できる。山札上3枚を見て、その中から1枚までを手札に加える。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "G-submarine-3d",
+   "name": "サブマリン3D",
+   "type": "play",
+   "tags": [
+    "costReduction",
+    "saveReplay"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、3に選んだ数の2倍を足した枚数を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "I-c_transform",
+   "name": "へんしんチケット",
+   "type": "item",
+   "tags": [
+    "costReduction",
+    "saveReplay"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 2,
+   "text": "自分のメイン1枚を対象として発動できる。山札上3枚を見る。対象がメイン枠にいる場合、その中から対象と異なる種族のメイン1枚を選んで公開し、手札に加える。そうしたなら、このターン、自分が次にへんしんするための時を1少なくする。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "M-cicada-08",
+   "name": "セミ⑧",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分のターン終了時、このターン自分がちょうせんしていない場合、自分の捨て札のあそび1枚を山札の一番下に置いて発動できる。次の自分のターン開始時まで、自分のメインが次にちょうせんを受ける時、そのちょうせんの間、そのメインのちえ+2。"
+  },
+  {
+   "id": "M-dragon-05",
+   "name": "りゅう⑤",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。このメインが自分からちょうせんする時、自分の準備枠のカード2枚を捨て札に置いて発動できる。このちょうせんに自分が勝った時、自分のそだち+5。"
+  },
+  {
+   "id": "M-ghost-06",
+   "name": "おばけ⑥",
+   "type": "main",
+   "tags": [
+    "costReduction",
+    "saveReplay"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "この名前の能力は1ターンに1回。自分のターンに、このカードが自分の捨て札にある場合、このカードを山札の一番下に置いて発動できる。このターン、自分が次にセカイを出すための時を1少なくする。"
+  },
+  {
+   "id": "M-penguin-05",
+   "name": "ペンギン⑤",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分がセカイを変更した時、自分になかままたはこいびとがある場合、発動できる。このターン、このメインが次に自分からちょうせんする場合、そのちょうせんの間、使用する能力値+1。"
+  },
+  {
+   "id": "M-stagbeetle-07",
+   "name": "クワガタムシ⑦",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分からちょうせんする時、このラウンド中に相手が先にちょうせんしていた場合、発動できる。このちょうせんの間、このメインのちから+1。このちょうせんに勝ったなら、さらにそだち+5。"
+  },
+  {
+   "id": "M-star-06",
+   "name": "ほし⑥",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。このメインが自分からちょうせんする時、時1を払って発動できる。このちょうせんの間、このメインのちから・ちえ-2。そのちょうせんが完了した後、1枚引く。"
+  },
+  {
+   "id": "M-unknown-02",
+   "name": "？？？②",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。このメインが自分からちえによるちょうせんをする時、このメインのちえが相手のメインより低い場合、発動できる。そのちょうせんが引き分けになった時、自分のそだち+5。"
+  },
+  {
+   "id": "M-venus_flytrap-05",
+   "name": "ハエトリグサ⑤",
+   "type": "main",
+   "tags": [
+    "chain",
+    "facedown"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ラウンドに1回。自分の準備枠に伏せたカードが2枚以上ある場合、相手の効果でこのメインのちからが下がる時、その下がる量を1少なくする。"
+  },
+  {
+   "id": "M-venus_flytrap-06",
+   "name": "ハエトリグサ⑥",
+   "type": "main",
+   "tags": [
+    "chain",
+    "facedown"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。相手のターンに、相手が「すぐつかう」でアクションカードをプレイして発動した時、それが相手のこのターン2枚目以降の「すぐつかう」なら、時1を払い、自分の準備枠の伏せたカード1枚を捨て札に置き、その発動中のカードを対象として発動できる。そのカードの今回の発動の効果を無効にする。"
+  },
+  {
+   "id": "M-phoenix-05",
+   "name": "フェニックス⑤",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ターンに1回。このメインが自分からちょうせんする時、または相手からちょうせんを受ける時、手札1枚を捨て札に置いて発動できる。このちょうせんの間、このメインのちからかちえを1つ選び+2する。そのちょうせんの終了後、このターン、このメインのちから-2。"
+  },
+  {
+   "id": "M-plush-07",
+   "name": "ぬいぐるみ⑦",
+   "type": "main",
+   "tags": [
+    "simultaneous",
+    "chain"
+   ],
+   "score": 5,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ターンに1回。このメインが相手からちょうせんを受ける時、このメインのちからが1以下の場合、発動できる。そのちょうせんの終了後、山札上2枚を見て、1枚を山札の一番上に、残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "G-bomber-maze",
+   "name": "ボンバー",
+   "type": "play",
+   "tags": [
+    "retarget",
+    "facedown"
+   ],
+   "score": 4,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "相手のターン開始時に発動できる。自分と相手の準備枠のカードを1枚ずつ対象とする。このターン終了時、それぞれを捨て札に置く。"
+  },
+  {
+   "id": "G-checkers-6",
+   "name": "チェッカー",
+   "type": "play",
+   "tags": [
+    "retarget",
+    "facedown"
+   ],
+   "score": 4,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "このターン自分がちょうせんで勝っている場合に発動できる。相手のしかけてあるカード1枚と相手の装備カード1枚を対象とする。しかけてある対象を手札に戻す。戻したなら、装備の対象も手札に戻す。"
+  },
+  {
+   "id": "M-unknown-01",
+   "name": "？？？①",
+   "type": "main",
+   "tags": [
+    "facedown",
+    "costReduction"
+   ],
+   "score": 4,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "このメインがたんじょうした時、自分の盤面にメイン以外のカードがない場合、発動できる。このターン、自分が次に「しかける」でカードをプレイするための時を1少なくする。"
+  },
+  {
+   "id": "M-venus_flytrap-07",
+   "name": "ハエトリグサ⑦",
+   "type": "main",
+   "tags": [
+    "facedown",
+    "costReduction"
+   ],
+   "score": 4,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分のターン終了時、自分の捨て札の「しかける」の使用方法を持つカード1枚を山札の一番下に置いて発動できる。次の自分のターン、自分が最初に「しかける」でカードをプレイするための時を1少なくする。"
+  },
+  {
+   "id": "E-final-time",
+   "name": "さいごのじかん",
+   "type": "event",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 16,
+   "text": "自分のメインが⑧、または現在のラウンドがR10の場合、自分の捨て札のメイン以外のカード1枚を対象として発動できる。対象を山札の一番下に置く。そうしたなら、2枚引き、手札1枚を山札の一番下に置く。この名前のカードは1ターンに1回しか発動できない。"
+  },
+  {
+   "id": "E-lamp",
+   "name": "よなかのあかり",
+   "type": "event",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 6,
+   "text": "このカードを含めた自分の手札が2枚以下の場合に発動できる。山札上3枚を見て、その中から1枚を手札に加える。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "E-stairs",
+   "name": "どこにもつながらないかいだん",
+   "type": "event",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 5,
+   "text": "山札上3枚を見て、好きな順で山札の一番下に置く。次の自分のターン開始時、1枚引く。"
+  },
+  {
+   "id": "I-scarf",
+   "name": "きゅうきゅうばこ",
+   "type": "item",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 5,
+   "text": "メインにみにつける。1ラウンドに1回。このカードをみにつけているメインのちからかちえが相手の効果で下がった時、そのメインを対象として発動できる。このターン、対象のちからかちえを1つ選び+2する。"
+  },
+  {
+   "id": "E-midlife-album",
+   "name": "昔のアルバム",
+   "type": "event",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "自分の捨て札に、互いに段階が異なるメインが3枚以上ある場合に発動できる。山札上3枚を見て、その中から2枚までを手札に加える。残りを好きな順で山札の一番下に置く。その後、手札1枚を山札の一番下に置く。"
+  },
+  {
+   "id": "G-fishing-sea",
+   "name": "うみのさかなつり",
+   "type": "play",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "自分のセカイが「うみ」なら発動できる。次の自分ターン開始時、山札上5枚を公開し、その中の⑥〜⑧のメイン1枚までを手札に加える。残りを好きな順で山札下へ置く。"
+  },
+  {
+   "id": "G-ring-flight-summer",
+   "name": "なつのうみフライト",
+   "type": "play",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "自分のセカイが「うみ」なら発動できる。このターン、次に自分がちょうせんで勝った時、その時も自分のセカイが「うみ」なら、自分のそだち+5し、1枚引く。"
+  },
+  {
+   "id": "G-road-desert",
+   "name": "さばくラン",
+   "type": "play",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "自分のセカイが「さばく」なら発動できる。自分の残り時が0なら、山札上3枚を見て、その中の1枚までを手札に加える。残りを好きな順で山札下へ置く。"
+  },
+  {
+   "id": "G-stack-acorn",
+   "name": "きのみタワー",
+   "type": "play",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "自分のセカイが「もり」で、なかまが2枚以上いる場合に発動できる。山札上5枚を公開し、その中のなかま2枚までを手札に加える。残りを好きな順で山札下へ置く。"
+  },
+  {
+   "id": "I-naoto_charm",
+   "name": "なおとのおまもり",
+   "type": "item",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "メインにみにつける。1ラウンドに1回。第7ラウンド以降、自分のそだちが相手の効果で減るなら、その減少を5防ぐ。"
+  },
+  {
+   "id": "G-chain-puzzle",
+   "name": "れんさパズル",
+   "type": "play",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "同名カードは1ターンに1回まで発動できる。このターン、このカードより前に自分が最後にプレイしたアクションカード2枚が、どちらも表向きでプレイしたあいてむなら発動できる。自分の捨て札のあいてむ1枚を対象とし、手札に戻す。"
+  },
+  {
+   "id": "G-dragDecorate-bento",
+   "name": "おべんとうづくり",
+   "type": "play",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "山札上2枚を見て、好きな順で山札の上に戻す。カードの7種類から1つを宣言する。次の自分のターン開始時、山札上1枚を公開する。それが宣言した種類なら1枚引く。そうでなければ、その公開したカードを山札の一番下に置く。"
+  },
+  {
+   "id": "G-halfpipe-skate",
+   "name": "ハーフパイプ",
+   "type": "play",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "ちょうせん中、このカードより前にこのターン自分があそびを2枚以上表向きでプレイしている場合に発動できる。自分の参加メインを対象とし、この勝負中ちから+3。この勝負で自分が負けた時、自分のそだち-5。"
+  },
+  {
+   "id": "G-picross-5",
+   "name": "ピクロス",
+   "type": "play",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "自分のメイン1枚を対象とする。対象がメイン枠にいるなら山札上4枚を公開し、その中から対象と同じ属性で段階が1つ高いメイン1枚までを手札に加える。残りを好きな順で山札下へ置く。"
+  },
+  {
+   "id": "G-race-3d",
+   "name": "ゴールをめざして",
+   "type": "play",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "自分のターンに、このラウンドにどちらもちょうせんを宣言していない場合、自分のメイン1枚を対象として発動できる。このターン、そのメインが自分からちょうせんして勝った時に1回だけ、自分のそだち+5。"
+  },
+  {
+   "id": "G-ring-flight-3d",
+   "name": "リングフライト3D",
+   "type": "play",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "このターン、自分が次に表向きでプレイするあそび2枚は、それぞれカードに書かれた時コストが1なら、自分のそだち+5。"
+  },
+  {
+   "id": "G-tennis-rally",
+   "name": "テニス",
+   "type": "play",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "このちょうせん中、このカードより前にお互いがあそびを表向きでプレイしている場合に発動できる。自分の参加メイン1枚を対象とし、この勝負中、ちからとちえを+1する。この勝負の終了時に1枚引く。"
+  },
+  {
+   "id": "W-star_stop",
+   "name": "ほしぞらのていりゅうじょ",
+   "type": "world",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "1ターンに1回。自分のターン終了時、このターン自分がときおくりもへんしんもしていない場合、手札1枚を山札の一番下に置いて発動できる。次の自分ターン開始時、山札上3枚を見て、その中の2枚までを手札に加える。残りを好きな順で山札下へ置く。"
+  },
+  {
+   "id": "I-c_life",
+   "name": "いのちのくすり",
+   "type": "item",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 2,
+   "text": "自分のそだちがこのターン減っている場合に発動できる。自分のそだち+10。この名前のカードは1ターンに1回しか発動できない。"
+  },
+  {
+   "id": "M-butterfly-05",
+   "name": "ちょう⑤",
+   "type": "main",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分のターンに、自分の準備枠のカード1枚を捨て札に置いて発動できる。このターン、自分のメインが次に自分からちょうせんする時、そのちょうせんの間、そのメインの使用する能力値+2。"
+  },
+  {
+   "id": "M-butterfly-08",
+   "name": "ちょう⑧",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "この名前の能力は1ターンに1回。このメインがへんしんでメイン枠から捨て札に置かれた時、手札1枚を山札の一番下に置いて発動できる。次の自分のターン開始時、2枚引く。"
+  },
+  {
+   "id": "M-coral-01",
+   "name": "サンゴ①",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "このメインがたんじょうした時、自分にセカイがある場合、発動できる。山札上2枚を見る。その中からなかまカード1枚を選んで公開し、山札の一番上に置く。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "M-dragon-01",
+   "name": "りゅう①",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分のターン終了時、手札が4枚以上ある場合、発動できる。山札上2枚を見て、好きな順で山札の一番上に戻す。"
+  },
+  {
+   "id": "M-dragon-04",
+   "name": "りゅう④",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "このメインがこの段階になった時、手札のアクションカード1枚を公開して山札の一番下に置いて発動できる。山札上3枚を見る。その中から「みにつける」の使用方法を持つカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "M-ghost-08",
+   "name": "おばけ⑧",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "この名前の能力は1ターンに1回。このメインがメイン枠から捨て札に置かれた時、発動できる。次の自分のターン終了時まで、相手の効果で自分のそだちが次に減る時、その減少を5少なくする。"
+  },
+  {
+   "id": "M-god-02",
+   "name": "かみさま②",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。このメインがちょうせんに負けた時、自分の手札が2枚以下の場合、発動できる。山札上3枚を見る。その中からメイン以外のカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "M-jellyfish-08",
+   "name": "クラゲ⑧",
+   "type": "main",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。このメインがときおくりまたはへんしんでメイン枠から捨て札に置かれた時、発動できる。このターン、自分の盤面のメイン以外のカードが次に効果で手札または捨て札へ移動した時、1枚引き、その後手札1枚を山札の一番下に置く。"
+  },
+  {
+   "id": "M-salmon-06",
+   "name": "さけ⑥",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分の捨て札にセカイカードがある場合、自分のターンに発動できる。山札上3枚を見る。その中からセカイカード1枚を選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "M-turtle-07",
+   "name": "かめ⑦",
+   "type": "main",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ラウンドに1回。相手の効果で自分のそだちが減る場合、自分の捨て札に、その効果を発動したカードと同じカード種類のカードがあるなら、その減少を5少なくする。"
+  },
+  {
+   "id": "M-woman-08",
+   "name": "おんなのひと⑧",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。このメインがときおくりまたはへんしんでメイン枠から捨て札に置かれた時、発動できる。山札上3枚を見る。好きな順で山札の一番上に戻し、その後1枚引く。"
+  },
+  {
+   "id": "M-world_tree-08",
+   "name": "世界樹⑧",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分のターン終了時、自分にセカイがあり、自分の盤面の表向きのメイン以外のカードが4種類以上ある場合、手札1枚を山札の一番下に置いて発動できる。山札上3枚を見る。その中からカード種類が異なるメイン以外のカードを2枚まで選んで公開し、手札に加える。残りを好きな順で山札の一番下に置く。"
+  },
+  {
+   "id": "M-frog-07",
+   "name": "かえる⑦",
+   "type": "main",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ターンに1回。自分のターンに、自分の捨て札のセカイカード1枚を山札の一番下に置いて発動できる。このターン、自分が次に手札からセカイカードを通常の方法で出した時、1枚引く。"
+  },
+  {
+   "id": "M-plush-03",
+   "name": "ぬいぐるみ③",
+   "type": "main",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ラウンドに1回。このメインにカードがみにつけられている場合、相手の効果でこのメインのちえが下がる時、その下がる量を1少なくする。"
+  },
+  {
+   "id": "M-plush-06",
+   "name": "ぬいぐるみ⑥",
+   "type": "main",
+   "tags": [
+    "chain"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ラウンドに1回。自分の捨て札に「あそび」「あいてむ」「できごと」の3種類すべてがある場合、相手の効果で自分のそだちが減る時、その減少を5少なくする。"
+  },
+  {
+   "id": "M-sakura-02",
+   "name": "サクラ②",
+   "type": "main",
+   "tags": [
+    "saveReplay"
+   ],
+   "score": 3,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ターンに1回。自分のターン終了時、自分のセカイがこのターン開始時からセカイ枠にあり続けている場合、発動できる。山札上2枚を見て、好きな順で山札の一番上に戻す。"
+  },
+  {
+   "id": "E-fateful-transform",
+   "name": "うんめいのへんしん",
+   "type": "event",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 7,
+   "text": "自分のメインがいる場合に発動できる。このターン、自分が次にへんしんするための時を2少なくする。"
+  },
+  {
+   "id": "G-curling-ice",
+   "name": "カーリング",
+   "type": "play",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 6,
+   "text": "自分がちょうせんで引き分けた時に発動できる。自分のそだち+5し、1枚引く。"
+  },
+  {
+   "id": "E-reconciliation",
+   "name": "なかなおり",
+   "type": "event",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 5,
+   "text": "自分のこいびと1枚を対象として発動できる。対象が自分のこいびと枠にいて、その交際段階が0の場合、このターン、自分が次に対象との交際を通常進行するための時を1少なくする。その後、山札上1枚を見て、山札の一番上か一番下に置く。"
+  },
+  {
+   "id": "G-stack-harvest",
+   "name": "しゅうかくタワー",
+   "type": "play",
+   "tags": [
+    "retarget"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 5,
+   "text": "自分のセカイが「いなか」なら発動できる。自分の準備枠のカード2枚を対象とする。次の自分ターン開始時、自分の準備枠に残っている対象1枚につき1枚引く。"
+  },
+  {
+   "id": "G-takoyaki-grill",
+   "name": "たこやきやさん",
+   "type": "play",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 5,
+   "text": "自分のターン終了時に発動できる。自分の準備枠のカード1枚を対象とする。次の自分ターン開始時、対象が自分の準備枠に残っているなら、1枚引き、自分のそだち+5。"
+  },
+  {
+   "id": "G-billiards-6",
+   "name": "ビリヤード",
+   "type": "play",
+   "tags": [
+    "retarget"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "相手についている時コスト2以下の装備カード1枚と、自分についている装備カード1枚を対象として発動できる。相手の対象を持ち主の手札に戻す。戻したなら、自分の対象も持ち主の手札に戻す。"
+  },
+  {
+   "id": "G-downhill-snow",
+   "name": "ゆきのゲレンデ",
+   "type": "play",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 4,
+   "text": "自分のセカイが「ゆきぐに」で、自分からのちょうせんに勝った時に発動できる。自分のメイン1枚を対象とし、次の自分ターン終了まで、ちから・ちえ+1。"
+  },
+  {
+   "id": "C-tanuki",
+   "name": "いたずらたぬき",
+   "type": "companion",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "1ターンに1回。自分がこのターンにしかけたカードを、その準備枠から発動領域へ移して発動した時、発動できる。1枚引く。その後、手札1枚を山札の一番下に置く。"
+  },
+  {
+   "id": "G-frogger-road",
+   "name": "かえるのおうちがえり",
+   "type": "play",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "自分が通常のセカイ変更を行った時に発動できる。自分の準備枠のカード1枚を対象とする。このターン、そのカードは相手のカード効果では手札にも捨て札にも移らない。"
+  },
+  {
+   "id": "G-hang-glider-3d",
+   "name": "ハンググライダー3D",
+   "type": "play",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "このターン自分が通常のセカイ変更を行っている場合に発動できる。このターン、次に自分が行うときおくりの時コストを2少なくする。"
+  },
+  {
+   "id": "G-pinball-physics",
+   "name": "ピンボール",
+   "type": "play",
+   "tags": [
+    "retarget"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "自分の捨て札のなかま1枚とこいびと1枚を対象として発動できる。対象のなかまを山札の一番下に置く。そうしたなら、対象のこいびとを山札の一番上に置く。"
+  },
+  {
+   "id": "G-pipe-connect",
+   "name": "パイプつなぎ",
+   "type": "play",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "自分の場になかまとこいびとがいて、このターン自分がそのどちらかを通常配置している場合に発動できる。このターン、次に自分が通常配置するセカイの時コストを2少なくする。"
+  },
+  {
+   "id": "G-shanghai-tiles",
+   "name": "上海",
+   "type": "play",
+   "tags": [
+    "retarget"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 3,
+   "text": "発動コストとして手札の同じカード種2枚を公開し、好きな順で山札下へ置く。自分の捨て札の、その種類のカード1枚を対象とし、手札に戻す。その後、1枚引く。"
+  },
+  {
+   "id": "C-watcher",
+   "name": "みているなにか",
+   "type": "companion",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 2,
+   "text": "1ターンに1回。相手が相手の準備枠からカードを発動領域へ移して発動した時、発動できる。1枚引く。"
+  },
+  {
+   "id": "M-sakura-05",
+   "name": "サクラ⑤",
+   "type": "main",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 2,
+   "text": "1ターンに1回。自分のターン終了時、時1を払い、自分の捨て札の「しかける」の使用方法を持つカード1枚を対象として発動できる。そのカードを手札に戻す。"
+  },
+  {
+   "id": "M-butterfly-02",
+   "name": "ちょう②",
+   "type": "main",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分が「みにつける」か「しかける」でカードをプレイした時、手札1枚を山札の一番下に置いて発動できる。1枚引く。"
+  },
+  {
+   "id": "M-clownfish-03",
+   "name": "カクレクマノミ③",
+   "type": "main",
+   "tags": [
+    "retarget"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。相手がこのメインだけを対象にする効果を発動した時、時1を払い、その効果の適正な対象である自分のなかま1枚を対象として発動できる。その相手の効果の対象を、そのなかまへ変更する。"
+  },
+  {
+   "id": "M-dandelion-01",
+   "name": "タンポポ①",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "このメインがたんじょうした時、発動できる。次の自分のターン終了時まで、自分のセカイ枠が空いている時に次にセカイを出すための時を1少なくする。"
+  },
+  {
+   "id": "M-dandelion-07",
+   "name": "タンポポ⑦",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分のターンに、自分のなかま1枚を山札の一番下に置いて発動できる。このターン、自分が次にセカイを出すための時を1少なくする。"
+  },
+  {
+   "id": "M-hermit_crab-08",
+   "name": "ヤドカリ⑧",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分の捨て札の「みにつける」カード1枚を山札の一番下に置いて発動できる。このターン、自分が次に「みにつける」カードをプレイするための時を1少なくする。"
+  },
+  {
+   "id": "M-jellyfish-04",
+   "name": "クラゲ④",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "このメインがこの段階になった時、発動できる。このターン、自分が次にプレイするアクションカードの時を1少なくする。"
+  },
+  {
+   "id": "M-ren-02",
+   "name": "れんくん②",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分が「あそび」カードを表向きでプレイした時、発動できる。このターン、自分が次に「あそび」カードを表向きでプレイするための時を1少なくする。"
+  },
+  {
+   "id": "M-ren-05",
+   "name": "れんくん⑤",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分が「あそび」カードを表向きでプレイした時、発動できる。このターン、自分が次に「あそび」以外のアクションカードを表向きでプレイするための時を1少なくする。"
+  },
+  {
+   "id": "M-ren-08",
+   "name": "れんくん⑧",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分の捨て札の「あそび」カード1枚を山札の一番下に置いて発動できる。このターン、自分が次にプレイするアクションカードの時を1少なくする。"
+  },
+  {
+   "id": "M-starfish-05",
+   "name": "ヒトデ⑤",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分の盤面のメイン以外のカードが相手の効果で捨て札に置かれた時、発動できる。このターン、自分が次にアクションカードをプレイするための時を1少なくする。"
+  },
+  {
+   "id": "M-woman-05",
+   "name": "おんなのひと⑤",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分のターンに、自分になかま・こいびと・セカイのうち2種類以上がある場合、発動できる。このターン、自分が次にプレイするアクションカードの時を1少なくする。"
+  },
+  {
+   "id": "M-world_tree-04",
+   "name": "世界樹④",
+   "type": "main",
+   "tags": [
+    "facedown"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 1,
+   "text": "1ターンに1回。自分がしかけていたカードの効果が適用された時、自分の捨て札の「みにつける」の使用方法を持つカード1枚を対象として発動できる。そのカードを山札の一番上に置く。"
+  },
+  {
+   "id": "M-dog-07",
+   "name": "いぬ⑦",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ターンに1回。自分のなかまが発動した能力の効果の一部が解決時に適用された時、発動できる。このターン、自分が次に「あそび」カードを表向きでプレイするための時を1少なくする。"
+  },
+  {
+   "id": "M-plush-02",
+   "name": "ぬいぐるみ②",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ターンに1回。自分または相手がこのメインを対象にする効果を発動した時、発動できる。次の自分のターン終了時まで、自分が次に「みにつける」でカードをプレイするための時を1少なくする。"
+  },
+  {
+   "id": "M-sakura-08",
+   "name": "サクラ⑧",
+   "type": "main",
+   "tags": [
+    "costReduction"
+   ],
+   "score": 2,
+   "coveredBySameSignature": false,
+   "rulingDocs": 0,
+   "text": "1ターンに1回。自分のターン終了時、自分の捨て札の「みにつける」の使用方法を持つカード1枚を対象として発動できる。そのカードを山札の一番上に置く。そうしたなら、次の自分のターン、自分が最初に「みにつける」でカードをプレイするための時を1少なくする。"
+  }
+ ]
+}
