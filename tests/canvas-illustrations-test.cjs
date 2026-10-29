@@ -206,8 +206,10 @@ test('road offscreen sprite caches replace placeholders after loading without dr
 test('illustrated road play retains input results, rewards and completion timing',()=>{
   function play(illustrated) {
     const {h,load}=gameFixture('p3-space',{illustrated}),view=h.get('minigameOverlay');
-    load();h.advance(900);h.dispatch(view.querySelector('#lrLeft'),'pointerdown',{pointerId:1});
-    h.advance(1600);h.dispatch(view.querySelector('#lrRight'),'pointerdown',{pointerId:1});
+    // レーンの 左・右を キャンバスで タップ(T7: 4びょうの 区切り 2つ いじょうで そうさした ふつうの プレイ)
+    const lane=(x)=>h.dispatch(view.querySelector('#lrCanvas'),'pointerdown',{pointerId:1,clientX:x,clientY:100});
+    load();h.advance(900);lane(10);
+    h.advance(4600);lane(290);
     h.advance(25000);
     assert.equal(h.api.state().lifetime.minigamesPlayed,1);
     return {state:JSON.stringify(h.api.state()),message:h.get('message').textContent};

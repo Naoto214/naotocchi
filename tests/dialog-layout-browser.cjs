@@ -80,6 +80,9 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
         await page.locator('#menuBtn').click();await page.locator('#gamesBtn').click();
         await page.locator('#gameListGrid .game-cell[data-game-id="takoyaki-grill"]').click();
         await page.locator('#mgIntroStart').click();
+        // T7 案B: 入力の ない プレイは「途中で やめた」に なり 結果カードが 出ない。ゲームの 画面を 1かい さわる
+        const game=await page.locator('#minigameOverlay').boundingBox();
+        await page.mouse.click(game.x+game.width/2,game.y+game.height/2);
         await page.clock.fastForward(90000);
         await page.clock.runFor(1300);
         await page.locator('#mgResultToast').waitFor({state:'visible'});
