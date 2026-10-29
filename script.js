@@ -19795,6 +19795,8 @@
   // RH-10(Roadmap §8.4): Escape と ブラウザの 戻る(Android の 戻る・iOS の スワイプ)は 同じ closeTopLayer を とおる。
   // かえす 値: 'closed'(1 つ とじた・確認を 出した)/ 'stay'(とじられない 場面)/ false(home。何も しない)
   function closeTopLayer() {
+    const preparedDialog = document.getElementById('naokoroDialog');
+    if (preparedDialog?.open === true) { preparedDialog.close(); return 'closed'; }
     if (!el.wipeConfirmOverlay.classList.contains('hidden')) { cancelWipeConfirmation(); return 'closed'; }
     if (!el.wipeOverlay.classList.contains('hidden')) { cancelWipePrompt(); return 'closed'; }
     if (meguruActive && meguruRun && meguruRun.mapOpen) { meguruRun.closeMap(); return 'closed'; }

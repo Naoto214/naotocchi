@@ -2,8 +2,18 @@
   'use strict';
   const menu=document.getElementById('reader-menu'), toolbar=document.querySelector('.toolbar');
   const nodes=[...document.querySelectorAll('.source[data-source-index]')];
-  const signature=document.getElementById('signature');
-  if(signature)nodes.push(signature);
+  const info=document.getElementById('work-info'),toc=document.getElementById('toc-content');
+  const openInfo=document.getElementById('open-work-info'),backToToc=document.getElementById('back-to-toc');
+  function showInfo(show,focus=true){
+    if(!info||!toc)return;
+    info.hidden=!show;toc.hidden=show;
+    if(focus)(show?backToToc:openInfo).focus({preventScroll:true});
+  }
+  openInfo?.addEventListener('click',()=>showInfo(true));
+  backToToc?.addEventListener('click',()=>showInfo(false));
+  menu.addEventListener('toggle',()=>{if(!menu.open)showInfo(false,false)});
+  // Retired closing-leaf positions resume at the final canonical paragraph.
+  const normalize=a=>a&&String(a.index)==='396'?{...a,index:nodes[nodes.length-1].dataset.sourceIndex,offset:0,top:false,hash:'#chapter-6'}:a;
   const sizes=[...document.querySelectorAll('[data-size]')];
   const fontKey='madoromi38-font-size-v4',positionKey='madoromi38-reading-position-v6';
   const persistent=window.self===window.top;
@@ -14,13 +24,13 @@
   const edge=()=>toolbar.getBoundingClientRect().bottom+12;
   const measure=()=>document.documentElement.style.setProperty('--bar-height',`${toolbar.offsetHeight}px`);
   function capture(){
-    if(signature)document.body.classList.toggle('signature-visible',signature.getBoundingClientRect().top<window.innerHeight*.5);
     if(window.scrollY<8)return {index:'0',offset:0,top:true,hash:location.hash};
     const y=edge(),el=nodes.find(n=>n.getBoundingClientRect().bottom>y);
     if(!el)return held;
     const r=el.getBoundingClientRect();return {index:el.dataset.sourceIndex,offset:(r.top-y)/Math.max(1,r.height),hash:location.hash};
   }
   function restore(a){
+    a=normalize(a);
     if(!a||!Number.isFinite(a.offset))return;
     const el=nodes.find(n=>n.dataset.sourceIndex===String(a.index));if(!el)return;
     restoring=true;
@@ -45,7 +55,7 @@
     sizes.forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.size)===size)));
     if(anchor)restore(anchor);write(fontKey,String(size));
   }
-  let bookmark;try{bookmark=JSON.parse(read(positionKey))}catch{}
+  let bookmark;try{bookmark=normalize(JSON.parse(read(positionKey)))}catch{}
   const resume=document.getElementById('resume');updateResume();
   resume.addEventListener('click',e=>{
     e.preventDefault();if(!bookmark)return;
@@ -58,6 +68,7 @@
   sizes.forEach(b=>b.addEventListener('click',()=>setSize(Number(b.dataset.size))));
   function gotoHash(){
     let id;try{id=decodeURIComponent(location.hash.slice(1))}catch{return}
+    if(id==='signature'){restore(normalize({index:'396'}));save();return}
     const target=document.getElementById(id||'top');if(!target)return;
     if(id==='top'||!id)window.scrollTo(0,0);else target.scrollIntoView();
     held=capture();save();
@@ -67,7 +78,7 @@
     if(a.hash!==location.hash)history.pushState({},'',a.hash);
     gotoHash();
   }));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){menu.open=false;menu.querySelector('summary').focus()}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(info&&!info.hidden){showInfo(false);return}menu.open=false;menu.querySelector('summary').focus()}});
   document.addEventListener('click',e=>{if(menu.open&&!menu.contains(e.target))menu.open=false});
   window.addEventListener('popstate',e=>{menu.open=false;if(e.state?.whiteReader)restore(e.state.whiteReader);else gotoHash()});
   window.addEventListener('scroll',()=>{if(ready&&!restoring){held=capture();clearTimeout(timer);timer=setTimeout(save,180)}},{passive:true});
