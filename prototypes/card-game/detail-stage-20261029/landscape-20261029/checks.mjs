@@ -9,7 +9,7 @@ const SAFE='body.playing{padding:0 59px 21px 59px!important}#card-dialog.card-de
 const CASES=[{scenario:'target',card:'C-chameleon'},{scenario:'many',card:'I-bowtie'},{scenario:'choice',card:'W-city'},{scenario:'response',card:'I-c_coin2'}];
 const rows=[],fails=[];const check=(name,vp,ok,info)=>{rows.push({name,vp,ok,info});if(!ok)fails.push(name+' '+vp);process.stderr.write(`${ok?'PASS':'FAIL'} ${vp} ${name}\n`);};
 const okBoard=b=>!b.clipped.length&&!b.pageScroll&&!b.overflowX&&!b.innerScrollers.length&&b.handVisible===b.handCards&&b.slotsInView===b.slots&&Object.values(b.regions).every(r=>!r||r.inView);
-const okDetail=d=>d.wholeCardVisible&&!d.overflowX&&d.buttons.filter(b=>b.tap).length>=Math.min(3,d.buttons.length);
+const okDetail=d=>d.status.lines===1&&!d.status.clipped&&d.status.px>=10&&d.wholeCardVisible&&!d.overflowX&&d.buttons.filter(b=>b.tap).length>=Math.min(3,d.buttons.length);
 const saved=page=>page.evaluate(()=>localStorage.getItem('naotocchi-cpu-match-v1'));
 const browser=await chromium.launch();fs.mkdirSync(path.join(OUT,'checks'),{recursive:true});
 for(const [w,h] of LANDSCAPE){
@@ -21,19 +21,22 @@ for(const [w,h] of LANDSCAPE){
    const b=await page.evaluate(board);check(`${cond}：基本盤面がスクロールなしで全部見える（${c.scenario}）`,vp,okBoard(b),{clipped:b.clipped,innerScrollers:b.innerScrollers,hand:`${b.handVisible}/${b.handCards}`,minSlotH:b.minSlotH,pageScrollH:b.pageScrollH});
    if(c.scenario==='target'&&cond!=='通常')await page.screenshot({path:path.join(OUT,'checks',`${vp}-${cond}-board.jpg`),type:'jpeg',quality:62});
    await openCard(page,c.card);const d=await page.evaluate(detail);
-   check(`${cond}：カード全体と操作ボタンが見える（${c.scenario}）`,vp,okDetail(d),{card:d.card,text:d.textPx,buttons:d.buttons.map(x=>x.tap)});
+   check(`${cond}：カード全体と操作ボタンが見える（${c.scenario}）`,vp,okDetail(d),{status:d.status,card:d.card,text:d.textPx,buttons:d.buttons.map(x=>x.tap)});
    if(c.scenario==='target'&&cond!=='通常')await page.screenshot({path:path.join(OUT,'checks',`${vp}-${cond}-detail.jpg`),type:'jpeg',quality:62});
+   // いちばん長い状況表示（2人対戦で相手の効果選択を待つ時）でも1行に収まるか
+   if(c.scenario==='target'){const long=await page.evaluate(()=>{const st=document.querySelector('#card-dialog .detail-toolbar>span'),old=st.textContent;st.textContent='Aのターン・Bの効果選択待ち';const rg=document.createRange();rg.selectNodeContents(st);const lines=new Set([...rg.getClientRects()].filter(q=>q.width>0).map(q=>Math.round(q.top))).size,clipped=st.scrollWidth>st.clientWidth+1;st.textContent=old;return {lines,clipped};});
+    check(`${cond}：最長の状況表示「Aのターン・Bの効果選択待ち」も1行`,vp,long.lines===1&&!long.clipped,long);}
    if(c.scenario==='target'&&cond==='通常'){
     // 拡大と戻り。拡大しても保存・盤面は変わらない
     const before=await saved(page);await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(350);const z=await page.evaluate(detail);
     await page.screenshot({path:path.join(OUT,'checks',`${vp}-zoom.jpg`),type:'jpeg',quality:62});
-    check('カードを押すと拡大し、「－ 縮小」が出る',vp,z.card.w>d.card.w&&z.zoomChip?.includes('縮小'),{from:d.card,to:z.card,text:z.textPx});
+    check('カードを押すと拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）',vp,z.card.w>d.card.w&&d.zoomChip===null&&z.zoomChip===null,{from:d.card,to:z.card,text:z.textPx});
     const sc=await page.evaluate(()=>{const s=document.querySelector('#card-dialog .stage-scroll');s.scrollTop=s.scrollHeight;return s.scrollTop>0;});
     check('拡大中はカードの部分だけスクロールして本文の下まで読める',vp,sc,{});
-    await page.locator('#card-dialog .stage-zoom').click();await page.waitForTimeout(350);const back=await page.evaluate(detail);
-    check('「－ 縮小」で全体表示に戻る',vp,back.wholeCardVisible&&back.card.w===d.card.w,{card:back.card});
+    await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(350);const back=await page.evaluate(detail);
+    check('カードをもう一度押すと全体表示に戻る',vp,back.wholeCardVisible&&back.card.w===d.card.w,{card:back.card});
     await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(300);await page.locator('#card-dialog .stage-card').click();await page.waitForTimeout(300);
-    const again=await page.evaluate(detail);check('カードをもう一度押しても全体表示に戻る',vp,again.wholeCardVisible,{});
+    const again=await page.evaluate(detail);check('拡大と復帰を繰り返しても全体表示に戻る',vp,again.wholeCardVisible,{});
     check('拡大・縮小で保存データ（対戦状態）が変わらない',vp,before===await saved(page),{});
     await page.locator('#card-dialog [data-close]').click();await page.waitForTimeout(300);
     check('「盤面へ ×」で盤面に戻る',vp,!(await page.locator('#card-dialog[open]').count())&&okBoard(await page.evaluate(board)),{});

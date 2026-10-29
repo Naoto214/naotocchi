@@ -29,7 +29,8 @@ export function fitStageCard(dialog,doc=document){
  const portrait=doc.documentElement.dataset.detailOrientation!=='landscape',zoom=dialog.dataset.stageZoom==='1';
  card.style.setProperty('--stage-scale',String(stageScale(w,h,{zoom,portrait})));
  const zoomable=Math.abs(stageScale(w,h,{zoom:true,portrait})-stageScale(w,h,{portrait}))>.05;card.toggleAttribute('data-zoomable',zoomable);
- const chip=dialog.querySelector('.stage-zoom');if(chip){chip.hidden=!zoomable;chip.textContent=zoom?'－ 縮小':'＋ 拡大';}
+ // Landscape: the card itself is the zoom control, so the chip stays hidden (portrait keeps it).
+ const chip=dialog.querySelector('.stage-zoom');if(chip){chip.hidden=!zoomable||!portrait;chip.textContent=zoom?'－ 縮小':'＋ 拡大';}
  // A cue when more of the card (stage) or more choices (band) lie below; it goes once scrolled to the end.
  for(const n of [scroll,dialog.querySelector('.stage-band')])if(n)n.toggleAttribute('data-more',n.scrollHeight-n.clientHeight-n.scrollTop>2);
 }

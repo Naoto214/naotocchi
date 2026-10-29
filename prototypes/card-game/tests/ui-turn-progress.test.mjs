@@ -68,7 +68,7 @@ test('opening quick card requires chain passes then start-window passes without 
 
 test('hidden mandatory choice is labelled as selection without revealing private choice content',()=>{
  const x=start();x.hide();assert.equal(x.projection.choice,null);
- assert.match(ui.handoffMessage(x.projection),/Aの選択待ち/);
+ assert.match(ui.handoffMessage(x.projection),/Aのターン・選択待ち/);
  assert.doesNotMatch(ui.handoffMessage(x.projection),/応答待ち/);
 });
 test('new response link resets passes; LIFO resolution choice cannot offer a pass',()=>{

@@ -171,7 +171,8 @@ export function turnStatus(v){
  if(v.result)return '対戦終了';
  if(v.phase==='normal'&&!v.choice)return `${v.turn}の通常行動`;
  const work=v.choice||v.phase==='choice'?'選択待ち':v.phase==='trigger'?'効果選択待ち':'応答待ち';
- return `${v.turn}のターン・${v.actor}の${work}`;
+ // Name the operator only when it is not the turn owner (e.g. Aのターン・Bの応答待ち).
+ return `${v.turn}のターン・${v.actor===v.turn?'':v.actor+'の'}${work}`;
 }
 export function handoffMessage(v){
  return `${turnStatus(v)}。${v.actor!==v.turn?'応答・選択のための操作交代です。ターン交代ではありません。':'現在の処理を続けます。'}プレイヤー ${v.actor} に端末を渡してください`;

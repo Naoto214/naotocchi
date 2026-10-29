@@ -40,7 +40,10 @@ export const detail=()=>{
  const scroll=d.querySelector('.stage-scroll'),dr=d.getBoundingClientRect();
  const hit=(b)=>{const q=b.getBoundingClientRect(),x=(q.left+q.right)/2,y=(q.top+q.bottom)/2;if(y<0||y>=H)return false;const n=document.elementFromPoint(x,y);return !!n&&b.contains(n);};
  const p=face.querySelector('.card-copy p');
- return {card:{w:Math.round(r.width),h:Math.round(r.height),top:Math.round(r.top),bottom:Math.round(r.bottom)},wholeCardVisible:r.top>=dr.top-1&&r.bottom<=dr.bottom+1&&r.bottom<=H+1&&(!scroll||scroll.scrollHeight<=scroll.clientHeight+1),
+ // 上部の状況表示（「Aのターン・選択待ち」など）: 文字・行数・文字サイズ・見切れ
+ const st=d.querySelector('.detail-toolbar>span'),rg=document.createRange();rg.selectNodeContents(st);const tops=new Set([...rg.getClientRects()].filter(q=>q.width>0).map(q=>Math.round(q.top)));
+ const status={text:st.textContent,lines:tops.size,px:parseFloat(getComputedStyle(st).fontSize),clipped:st.scrollWidth>st.clientWidth+1};
+ return {status,card:{w:Math.round(r.width),h:Math.round(r.height),top:Math.round(r.top),bottom:Math.round(r.bottom)},wholeCardVisible:r.top>=dr.top-1&&r.bottom<=dr.bottom+1&&r.bottom<=H+1&&(!scroll||scroll.scrollHeight<=scroll.clientHeight+1),
   stageScrolls:!!scroll&&scroll.scrollHeight>scroll.clientHeight+1,textPx:p?+(parseFloat(getComputedStyle(p).fontSize)*r.width/320).toFixed(1):null,
   buttons:[...d.querySelectorAll('[data-action]')].map(b=>({t:b.innerText.replace(/\n/g,' / ').slice(0,60),h:Math.round(b.getBoundingClientRect().height),tap:hit(b)})),
   declaration:!!d.querySelector('select[data-declaration]'),zoomChip:d.querySelector('.stage-zoom')?.hidden===false?d.querySelector('.stage-zoom').textContent:null,

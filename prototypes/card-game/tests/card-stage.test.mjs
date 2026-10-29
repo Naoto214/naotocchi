@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {createGame,DEFAULT_DECK} from '../engine.mjs';
 import {HotseatSession} from '../ui-session.mjs';
-import {cardStageMarkup,actionParts,cardActions} from '../ui-presentation.mjs';
+import {cardStageMarkup,actionParts,cardActions,turnStatus} from '../ui-presentation.mjs';
 import {stageScale,STAGE_MAX_SCALE} from '../ui-viewport.mjs';
 import {CARDS} from '../engine.mjs';
 const opening=()=>{const x=new HotseatSession({autoAdvance:true});x.start(createGame(2,{A:DEFAULT_DECK,B:DEFAULT_DECK}));x.reveal();return x;};
@@ -14,7 +14,7 @@ test('card stage shows the official card and actions only: no repeated name/text
  // The ability text appears exactly once: on the card itself.
  assert.equal(html.split(c.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')).length-1,c.text?1:0);
  // Current state stays: turn/actor status and the back-to-board button.
- assert.match(html,/Aのターン・Aの選択待ち/);assert.match(html,/data-close>盤面へ ×/);
+ assert.match(html,/Aのターン・選択待ち/);assert.match(html,/data-close>盤面へ ×/);
 });
 test('egg exchange button: short main label plus the outcome note, and it carries the exact engine action',()=>{
  const x=opening(),v=x.projection,c=v.players.A.hand[0],[a]=cardActions(v,'A',c),html=cardStageMarkup(c,{v,viewer:'A'});
@@ -51,4 +51,13 @@ test('stage scale: portrait whole card when readable, else full width with scrol
  assert.equal(stageScale(500,300,{portrait:false,zoom:true}),500/320);  // tap: fill the stage width
  assert.equal(stageScale(2000,3000,{zoom:true}),STAGE_MAX_SCALE);
  for(const [w,h] of [[200,900],[288,200],[500,300]])for(const zoom of [false,true])assert.ok(stageScale(w,h,{zoom})*320<=w+1e-9);
+});
+test('turn status names the operator only when it differs from the turn owner',()=>{
+ const s=o=>turnStatus({result:null,choice:null,phase:'response',turn:'A',actor:'A',...o});
+ assert.equal(s({choice:{}}),'Aのターン・選択待ち');
+ assert.equal(s({turn:'B',actor:'B',choice:{}}),'Bのターン・選択待ち');
+ assert.equal(s({}),'Aのターン・応答待ち');
+ assert.equal(s({actor:'B'}),'Aのターン・Bの応答待ち');
+ assert.equal(s({actor:'B',phase:'trigger'}),'Aのターン・Bの効果選択待ち');
+ assert.equal(s({phase:'normal'}),'Aの通常行動');
 });

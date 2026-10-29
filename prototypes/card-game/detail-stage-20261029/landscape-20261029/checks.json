@@ -1,6 +1,6 @@
 {
- "pass": 179,
- "total": 179,
+ "pass": 195,
+ "total": 195,
  "fails": [],
  "rows": [
   {
@@ -20,6 +20,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 233,
      "h": 350,
@@ -35,7 +41,16 @@
    }
   },
   {
-   "name": "カードを押すと拡大し、「－ 縮小」が出る",
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードを押すと拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
    "vp": "844x390",
    "ok": true,
    "info": {
@@ -61,7 +76,7 @@
    "info": {}
   },
   {
-   "name": "「－ 縮小」で全体表示に戻る",
+   "name": "カードをもう一度押すと全体表示に戻る",
    "vp": "844x390",
    "ok": true,
    "info": {
@@ -74,7 +89,7 @@
    }
   },
   {
-   "name": "カードをもう一度押しても全体表示に戻る",
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
    "vp": "844x390",
    "ok": true,
    "info": {}
@@ -127,6 +142,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 233,
      "h": 350,
@@ -159,6 +180,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 233,
      "h": 350,
@@ -188,6 +215,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 233,
      "h": 350,
@@ -226,6 +259,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 200,
      "h": 300,
@@ -238,6 +277,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -257,6 +305,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 200,
      "h": 300,
@@ -289,6 +343,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 200,
      "h": 300,
@@ -318,6 +378,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 200,
      "h": 300,
@@ -356,6 +422,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 219,
      "h": 329,
@@ -368,6 +440,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -387,6 +468,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 219,
      "h": 329,
@@ -419,6 +506,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 219,
      "h": 329,
@@ -448,6 +541,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 219,
      "h": 329,
@@ -486,6 +585,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 186,
      "h": 279,
@@ -498,6 +603,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -517,6 +631,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 186,
      "h": 279,
@@ -549,6 +669,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 186,
      "h": 279,
@@ -578,6 +704,12 @@
    "vp": "844x390",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 186,
      "h": 279,
@@ -616,6 +748,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 235,
      "h": 353,
@@ -631,7 +769,16 @@
    }
   },
   {
-   "name": "カードを押すと拡大し、「－ 縮小」が出る",
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードを押すと拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
    "vp": "852x393",
    "ok": true,
    "info": {
@@ -657,7 +804,7 @@
    "info": {}
   },
   {
-   "name": "「－ 縮小」で全体表示に戻る",
+   "name": "カードをもう一度押すと全体表示に戻る",
    "vp": "852x393",
    "ok": true,
    "info": {
@@ -670,7 +817,7 @@
    }
   },
   {
-   "name": "カードをもう一度押しても全体表示に戻る",
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
    "vp": "852x393",
    "ok": true,
    "info": {}
@@ -723,6 +870,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 235,
      "h": 353,
@@ -755,6 +908,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 235,
      "h": 353,
@@ -784,6 +943,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 235,
      "h": 353,
@@ -822,6 +987,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 202,
      "h": 303,
@@ -834,6 +1005,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -853,6 +1033,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 202,
      "h": 303,
@@ -885,6 +1071,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 202,
      "h": 303,
@@ -914,6 +1106,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 202,
      "h": 303,
@@ -952,6 +1150,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 221,
      "h": 332,
@@ -964,6 +1168,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -983,6 +1196,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 221,
      "h": 332,
@@ -1015,6 +1234,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 221,
      "h": 332,
@@ -1044,6 +1269,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 221,
      "h": 332,
@@ -1082,6 +1313,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 188,
      "h": 282,
@@ -1094,6 +1331,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -1113,6 +1359,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 188,
      "h": 282,
@@ -1145,6 +1397,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 188,
      "h": 282,
@@ -1174,6 +1432,12 @@
    "vp": "852x393",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 188,
      "h": 282,
@@ -1212,6 +1476,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 260,
      "h": 390,
@@ -1227,7 +1497,16 @@
    }
   },
   {
-   "name": "カードを押すと拡大し、「－ 縮小」が出る",
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードを押すと拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
    "vp": "932x430",
    "ok": true,
    "info": {
@@ -1253,7 +1532,7 @@
    "info": {}
   },
   {
-   "name": "「－ 縮小」で全体表示に戻る",
+   "name": "カードをもう一度押すと全体表示に戻る",
    "vp": "932x430",
    "ok": true,
    "info": {
@@ -1266,7 +1545,7 @@
    }
   },
   {
-   "name": "カードをもう一度押しても全体表示に戻る",
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
    "vp": "932x430",
    "ok": true,
    "info": {}
@@ -1319,6 +1598,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 260,
      "h": 390,
@@ -1351,6 +1636,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 260,
      "h": 390,
@@ -1380,6 +1671,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 260,
      "h": 390,
@@ -1418,6 +1715,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 227,
      "h": 340,
@@ -1430,6 +1733,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -1449,6 +1761,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 227,
      "h": 340,
@@ -1481,6 +1799,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 227,
      "h": 340,
@@ -1510,6 +1834,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 227,
      "h": 340,
@@ -1548,6 +1878,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 246,
      "h": 369,
@@ -1560,6 +1896,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -1579,6 +1924,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 246,
      "h": 369,
@@ -1611,6 +1962,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 246,
      "h": 369,
@@ -1640,6 +1997,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 246,
      "h": 369,
@@ -1678,6 +2041,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 213,
      "h": 319,
@@ -1690,6 +2059,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -1709,6 +2087,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 213,
      "h": 319,
@@ -1741,6 +2125,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 213,
      "h": 319,
@@ -1770,6 +2160,12 @@
    "vp": "932x430",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 213,
      "h": 319,
@@ -1808,6 +2204,12 @@
    "vp": "736x414",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 249,
      "h": 374,
@@ -1823,7 +2225,16 @@
    }
   },
   {
-   "name": "カードを押すと拡大し、「－ 縮小」が出る",
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードを押すと拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
    "vp": "736x414",
    "ok": true,
    "info": {
@@ -1849,7 +2260,7 @@
    "info": {}
   },
   {
-   "name": "「－ 縮小」で全体表示に戻る",
+   "name": "カードをもう一度押すと全体表示に戻る",
    "vp": "736x414",
    "ok": true,
    "info": {
@@ -1862,7 +2273,7 @@
    }
   },
   {
-   "name": "カードをもう一度押しても全体表示に戻る",
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
    "vp": "736x414",
    "ok": true,
    "info": {}
@@ -1915,6 +2326,12 @@
    "vp": "736x414",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 249,
      "h": 374,
@@ -1947,6 +2364,12 @@
    "vp": "736x414",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 249,
      "h": 374,
@@ -1976,6 +2399,12 @@
    "vp": "736x414",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 249,
      "h": 374,
@@ -2014,6 +2443,12 @@
    "vp": "736x414",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 216,
      "h": 324,
@@ -2026,6 +2461,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -2045,6 +2489,12 @@
    "vp": "736x414",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 216,
      "h": 324,
@@ -2077,6 +2527,12 @@
    "vp": "736x414",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 216,
      "h": 324,
@@ -2106,6 +2562,12 @@
    "vp": "736x414",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 216,
      "h": 324,
@@ -2144,6 +2606,12 @@
    "vp": "667x375",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 223,
      "h": 335,
@@ -2159,7 +2627,16 @@
    }
   },
   {
-   "name": "カードを押すと拡大し、「－ 縮小」が出る",
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードを押すと拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
    "vp": "667x375",
    "ok": true,
    "info": {
@@ -2185,7 +2662,7 @@
    "info": {}
   },
   {
-   "name": "「－ 縮小」で全体表示に戻る",
+   "name": "カードをもう一度押すと全体表示に戻る",
    "vp": "667x375",
    "ok": true,
    "info": {
@@ -2198,7 +2675,7 @@
    }
   },
   {
-   "name": "カードをもう一度押しても全体表示に戻る",
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
    "vp": "667x375",
    "ok": true,
    "info": {}
@@ -2251,6 +2728,12 @@
    "vp": "667x375",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 223,
      "h": 335,
@@ -2283,6 +2766,12 @@
    "vp": "667x375",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 223,
      "h": 335,
@@ -2312,6 +2801,12 @@
    "vp": "667x375",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
     "card": {
      "w": 223,
      "h": 335,
@@ -2350,6 +2845,12 @@
    "vp": "667x375",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 10,
+     "clipped": false
+    },
     "card": {
      "w": 190,
      "h": 285,
@@ -2362,6 +2863,15 @@
      true,
      true
     ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
    }
   },
   {
@@ -2381,6 +2891,12 @@
    "vp": "667x375",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 10,
+     "clipped": false
+    },
     "card": {
      "w": 190,
      "h": 285,
@@ -2413,6 +2929,12 @@
    "vp": "667x375",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 10,
+     "clipped": false
+    },
     "card": {
      "w": 190,
      "h": 285,
@@ -2442,6 +2964,12 @@
    "vp": "667x375",
    "ok": true,
    "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 10,
+     "clipped": false
+    },
     "card": {
      "w": 190,
      "h": 285,
