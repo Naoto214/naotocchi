@@ -26,7 +26,7 @@ HomeV22QA.eggState=()=>({stage:state.stage,asset:currentVisualStage().asset,grow
  html=html.replace('</head>','<style>body[data-home-v6-egg] .world-scene{display:none}body[data-home-v6-egg] .device{position:relative;z-index:1}.home-v6-egg-world{pointer-events:none;overflow:hidden}.home-v6-egg-world img{max-width:none}body[data-home-v6-egg] #petSprite{filter:drop-shadow(0 3px 2px #36230c55)}</style><script type="module" src="home-v6-egg.mjs"></script><script type="module" src="home-v6-capture.mjs"></script></head>').replace('href="recovered.html"','href="home-v6.html"');
  write(stem+(scope!=='play'?'-game.html':'.html'),html);
 }
-write('home-v6-browser-check.js',read('home-recovered-browser-check.js').replaceAll('naotocchi-recovered-qa-v1','naotocchi-home-v6-qa-v1').replaceAll('qa-recovered-game.html','qa-home-v6-game.html').replace("e?.mode==='art-25d'&&e.loaded","(e?.mode==='art-25d'?e.loaded:['3d','canvas-3d'].includes(e?.mode))"));
+write('home-v6-browser-check.js',read('home-recovered-browser-check.js').replaceAll('naotocchi-recovered-qa-v1','naotocchi-home-v6-qa-v1').replaceAll('qa-recovered-game.html','qa-home-v6-game.html').replace("e?.mode==='art-25d'&&e.loaded","(e?.mode==='art-25d'?e.loaded:['webgl','canvas-3d'].includes(e?.mode))"));
 write('home-v6-qa.html',read('home-recovered-qa.html').replaceAll('home-recovered-browser-check.js','home-v6-browser-check.js'));
 if(fs.existsSync('tools/home-v6-gallery.html')){fs.copyFileSync('tools/home-v6-gallery.html',path.join(out,'home-v6.html'));fs.copyFileSync('tools/home-v6-gallery.js',path.join(out,'home-v6-gallery.js'));}
 console.log('V6 additive C connection built. Previous runtime and storage preserved.');
