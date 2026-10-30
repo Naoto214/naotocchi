@@ -22,14 +22,15 @@ assert.equal(document.title,'なおとっち CARD GAME');
 // Hidden replay must not leave an invisible header slot; its visible state stays usable.
 const replayDOM=new JSDOM('<style>'+readFileSync(new URL('../style.css',import.meta.url),'utf8')+'</style><header class="table-top"><button class="result-reopen" hidden>結果</button></header>');
 const replay=replayDOM.window.document.querySelector('button');assert.equal(replayDOM.window.getComputedStyle(replay).display,'none');replay.hidden=false;assert.notEqual(replayDOM.window.getComputedStyle(replay).display,'none');replayDOM.window.close();
-assert.deepEqual([...document.querySelectorAll('.main-menu button')].map(n=>n.textContent),['ひとりであそぶ','ふたりであそぶ','マイデッキ','カードコレクション','あそびかたを覚える','ルールブック']);
+assert.deepEqual([...document.querySelectorAll('.main-menu button')].map(n=>n.textContent),['ひとりであそぶ','ふたりであそぶ','戦績','マイデッキ','カードコレクション','あそびかたを覚える','ルールブック']);
 click('hotseat-open');assert.equal($('match-mode').value,'hotseat');assert.equal($('hotseat-open').getAttribute('aria-pressed'),'true');assert.ok([...document.querySelectorAll('[data-cpu-setting]')].every(n=>n.hidden));assert.equal(document.activeElement.id,'new');
 click('solo-open');assert.equal($('match-mode').value,'cpu');assert.equal($('solo-open').getAttribute('aria-pressed'),'true');assert.ok([...document.querySelectorAll('[data-cpu-setting]')].every(n=>n.id==='cpu-deck-type-wrap'?n.hidden:!n.hidden));
 click('my-decks-open');assert.equal($('deck-editor').open,true);assert.ok($('catalog-list').children.length);assert.equal(document.activeElement,$('deck-editor').querySelector('summary'));
+click('records-open');assert.equal(top(),'records-dialog');assert.equal(document.activeElement.id,'records-close');click('records-close');assert.equal(document.activeElement.id,'records-open');
 click('collection-open');assert.equal(top(),'collection-dialog');click('collection-close');
 click('tutorial-open');assert.equal(top(),'tutorial-dialog');click('tutorial-close');
 click('rulebook-open');assert.equal(top(),'rulebook-dialog');click('rulebook-close');
 assert.match($('coverage').textContent,/453種類/);
 for(const [k,value] of Object.entries(before))assert.equal(localStorage.getItem(k),value,k+' preserved by menu routing');
 click('hotseat-open');click('new');assert.equal($('welcome').hidden,true);assert.equal($('curtain').hidden,false);const hotseatSave=localStorage.getItem('naotocchi-hotseat-v1');assert.ok(hotseatSave);click('restore');assert.equal(localStorage.getItem('naotocchi-hotseat-v1'),hotseatSave);click('reveal');assert.ok($('hand'));
-w.dispatchEvent(new w.Event('blur'));w.close();console.log('Menu DOM PASS: six entries, mode/focus routing, deck editor, help dialogs, 453-card count, save isolation, start and restore');process.exit(0);
+w.dispatchEvent(new w.Event('blur'));w.close();console.log('Menu DOM PASS: seven entries (戦績 included), mode/focus routing, deck editor, help dialogs, 453-card count, save isolation, start and restore');process.exit(0);
