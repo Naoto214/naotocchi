@@ -1,0 +1,282 @@
+{
+  "implementationCommit": "8200f513cc9637bb5ac7f62f3696f2442f6dd67c",
+  "implementationTree": "881b21effaf4e27a19e2673b5dd88892f6e9e56a",
+  "ciMergeCommit": "5ea99d4f49ec29f4bc80260cf6c950bb769b9dd2",
+  "ciTreeMatchesImplementation": true,
+  "workflows": [
+    {
+      "id": 40989884962,
+      "name": "Naopoyo Contact Experiment",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 2,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884962/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884962/logs",
+      "workflow_id": 400875368
+    },
+    {
+      "id": 40989884928,
+      "name": "Naopoyo Insight Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 25,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884928/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884928/logs",
+      "workflow_id": 393702225
+    },
+    {
+      "id": 40989884920,
+      "name": "Naopoyo Chapter 2 Pilot",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_number": 23,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884920/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884920/logs",
+      "workflow_id": 394796547
+    },
+    {
+      "id": 40989884922,
+      "name": "Naopoyo World Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 30,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884922/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884922/logs",
+      "workflow_id": 393644946
+    },
+    {
+      "id": 40989884994,
+      "name": "Naopoyo Chapter 1",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 128,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884994/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884994/logs",
+      "workflow_id": 393756683
+    }
+  ],
+  "jobs": [
+    {
+      "id": 123849441333,
+      "name": "card",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40989884920,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        }
+      ]
+    },
+    {
+      "id": 123849441512,
+      "name": "puzzle",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40989884920,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run node --test --test-concurrency=2 prototypes/naopoyo-chapter2/tests/*.test.mjs prototypes/naopoyo-chapter1/tests/*.test.mjs prototypes/naopoyo-insight/tests/*.test.mjs prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run node prototypes/naopoyo-chapter2/audit.mjs /tmp/chapter2-solutions.json",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run node prototypes/naopoyo-chapter2/design/verify.mjs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run node prototypes/naopoyo-chapter2/build-preview.mjs /tmp/chapter2-preview",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ]
+    },
+    {
+      "id": 123849441666,
+      "name": "main-regression",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_id": 40989884920,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm test",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 5
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "pending",
+          "conclusion": null,
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "pending",
+          "conclusion": null,
+          "number": 10
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "puzzle",
+      "tests": 1486,
+      "pass": 1486,
+      "fail": 0
+    },
+    {
+      "name": "card",
+      "tests": 494,
+      "pass": 494,
+      "fail": 0,
+      "source": "complete checkout CI"
+    },
+    {
+      "name": "pages",
+      "tests": 16,
+      "pass": 16,
+      "fail": 0
+    },
+    {
+      "name": "runtime",
+      "status": "in_progress",
+      "jobId": 123849441666
+    }
+  ],
+  "deployment": {
+    "id": "appgdep_6ae3fc757e708191ba00ded5acf89276",
+    "project_id": "appgprj_6ae37801cf10819198e1df76caaf742f",
+    "title": "なおぽよ。接触ルール A/B 比較",
+    "version_id": "appgprj_6ae37801cf10819198e1df76caaf742f~appgver_02c90f898a5481919aac331f611f0522",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naopoyo-contact-motion-20261030.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae37801cf10819198e1df76caaf742f",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-30T02:10:11.669801+00:00"
+  },
+  "access": {
+    "ownerCount": 1,
+    "externalCount": 0,
+    "groupCount": 0,
+    "anonymousStatus": 403
+  },
+  "deliveredFiles": 78
+}

@@ -1,5 +1,7 @@
 # 配信・最終確認記録（2026-10-30 JST）
 
+以下は初回公開の記録。更新版2の修正・全78ファイル照合・CIは[続行報告](FOLLOWUP-20261030.md)を参照。
+
 - 独立Draft PR: https://github.com/Naoto214/naotocchi/pull/483
 - 独立本人限定A/B: https://naopoyo-contact-motion-20261030.kerzion214.chatgpt.site
 - 実装HEAD: `b09b1866c101ae97e4c2af2e86a6003a45bbf02d`
