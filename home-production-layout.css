@@ -7,7 +7,9 @@ body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-acti
  grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto auto;gap:3px;
 }
 body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]>.device-header{grid-column:1;grid-row:1}
-body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]>.screen-frame{
+/* Match the legacy landscape selector's #screenNormal specificity. Otherwise
+   its grid-row:1/-1 spans the header and controls at widths >=640px. */
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]:has(#screenNormal:not(.hidden))>.screen-frame{
  grid-column:1;grid-row:2;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;scrollbar-width:thin;
 }
 body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #screen{height:auto;min-height:100%;overflow:visible}
