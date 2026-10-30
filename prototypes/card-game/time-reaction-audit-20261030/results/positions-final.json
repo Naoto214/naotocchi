@@ -1,0 +1,1892 @@
+[
+ {
+  "match": "T:main~main:1:II:X-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 75,
+  "pass": {
+   "finalGrowth": 75,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 75,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~main:1:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 75,
+  "pass": {
+   "finalGrowth": 75,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 75,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~main:1:II:Y-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 80,
+  "pass": {
+   "finalGrowth": 80,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 80,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~main:1:BB:Y-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 75,
+  "pass": {
+   "finalGrowth": 75,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 75,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~main:2:II:X-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 35,
+  "pass": {
+   "finalGrowth": 35,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 35,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~main:3:II:Y-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 35,
+  "pass": {
+   "finalGrowth": 35,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -0.53,
+    "effectOnly": 2.47,
+    "finalGrowth": 35,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~main:3:BB:Y-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 40,
+  "pass": {
+   "finalGrowth": 40,
+   "winner": null
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 40,
+    "winner": null
+   }
+  ]
+ },
+ {
+  "match": "T:main~main:4:II:Y-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 70,
+  "pass": {
+   "finalGrowth": 70,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -0.69,
+    "effectOnly": 2.31,
+    "finalGrowth": 70,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-midlife-flower",
+    "variant": null,
+    "cost": 1,
+    "score": -1.9,
+    "effectOnly": 1.1,
+    "finalGrowth": 70,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~main:4:BB:Y-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 65,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:1:II:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "difficulty": "intermediate",
+  "time": 8,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "G-beach-volley",
+    "variant": null,
+    "cost": 1,
+    "score": -0.8,
+    "effectOnly": 2.2,
+    "finalGrowth": 65,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:1:BB:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": null
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "I-c_friend",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 65,
+    "winner": null
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:2:II:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 55,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:2:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 60,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 60,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-midlife-flower",
+    "variant": null,
+    "cost": 1,
+    "score": -3.15,
+    "effectOnly": 1.1,
+    "finalGrowth": 60,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:2:II:Y-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 65,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 65,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 65,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:2:BB:Y-first",
+  "seat": "A",
+  "deck": "companion",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 75,
+  "pass": {
+   "finalGrowth": 75,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "G-stack-acorn",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 75,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "I-c_friend",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 75,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:3:BB:X-first",
+  "seat": "B",
+  "deck": "companion",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 80,
+  "pass": {
+   "finalGrowth": 80,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "G-stack-acorn",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 80,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-stack-acorn",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 80,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:3:BB:Y-first",
+  "seat": "A",
+  "deck": "companion",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 80,
+  "pass": {
+   "finalGrowth": 80,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "G-stack-acorn",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 80,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-stack-acorn",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 80,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:4:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 60,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 60,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~companion:4:BB:Y-first",
+  "seat": "A",
+  "deck": "companion",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 85,
+  "pass": {
+   "finalGrowth": 85,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "G-stack-acorn",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 85,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "I-c_friend",
+    "variant": null,
+    "cost": 2,
+    "score": -0.5,
+    "effectOnly": 5,
+    "finalGrowth": 85,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:1:II:X-first",
+  "seat": "B",
+  "deck": "partner",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 55,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -0.6,
+    "effectOnly": 2.4,
+    "finalGrowth": 55,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -0.6,
+    "effectOnly": 2.4,
+    "finalGrowth": 55,
+    "winner": "A"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "A"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:1:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 60,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 60,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:1:II:Y-first",
+  "seat": "A",
+  "deck": "partner",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 55,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -0.6,
+    "effectOnly": 2.4,
+    "finalGrowth": 55,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -0.6,
+    "effectOnly": 2.4,
+    "finalGrowth": 55,
+    "winner": "B"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "B"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:1:BB:Y-first",
+  "seat": "A",
+  "deck": "partner",
+  "difficulty": "beginner",
+  "time": 8,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -1.85,
+    "effectOnly": 2.4,
+    "finalGrowth": 65,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -1.85,
+    "effectOnly": 2.4,
+    "finalGrowth": 65,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:2:II:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 80,
+  "pass": {
+   "finalGrowth": 80,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 80,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:2:BB:X-first",
+  "seat": "B",
+  "deck": "partner",
+  "difficulty": "beginner",
+  "time": 8,
+  "growth": 60,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -1.85,
+    "effectOnly": 2.4,
+    "finalGrowth": 60,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:2:II:Y-first",
+  "seat": "A",
+  "deck": "partner",
+  "difficulty": "intermediate",
+  "time": 6,
+  "growth": 70,
+  "pass": {
+   "finalGrowth": 70,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -0.6,
+    "effectOnly": 2.4,
+    "finalGrowth": 70,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:2:BB:Y-first",
+  "seat": "A",
+  "deck": "partner",
+  "difficulty": "beginner",
+  "time": 8,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -1.85,
+    "effectOnly": 2.4,
+    "finalGrowth": 65,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:3:II:X-first",
+  "seat": "B",
+  "deck": "partner",
+  "difficulty": "intermediate",
+  "time": 7,
+  "growth": 90,
+  "pass": {
+   "finalGrowth": 90,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 90,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:3:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 7,
+  "growth": 70,
+  "pass": {
+   "finalGrowth": 70,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 70,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:3:II:Y-first",
+  "seat": "A",
+  "deck": "partner",
+  "difficulty": "intermediate",
+  "time": 8,
+  "growth": 95,
+  "pass": {
+   "finalGrowth": 95,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 95,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:3:BB:Y-first",
+  "seat": "A",
+  "deck": "partner",
+  "difficulty": "beginner",
+  "time": 6,
+  "growth": 95,
+  "pass": {
+   "finalGrowth": 95,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -4.25,
+    "effectOnly": 0,
+    "finalGrowth": 95,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:4:II:X-first",
+  "seat": "B",
+  "deck": "partner",
+  "difficulty": "intermediate",
+  "time": 9,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 65,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -0.6,
+    "effectOnly": 2.4,
+    "finalGrowth": 65,
+    "winner": "A"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 65,
+    "winner": "A"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 65,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:4:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 85,
+  "pass": {
+   "finalGrowth": 85,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 85,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:4:II:Y-first",
+  "seat": "A",
+  "deck": "partner",
+  "difficulty": "intermediate",
+  "time": 9,
+  "growth": 60,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 60,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -0.6,
+    "effectOnly": 2.4,
+    "finalGrowth": 60,
+    "winner": "B"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 60,
+    "winner": "B"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 60,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~partner:4:BB:Y-first",
+  "seat": "A",
+  "deck": "partner",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 50,
+  "pass": {
+   "finalGrowth": 50,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -4.25,
+    "effectOnly": 0,
+    "finalGrowth": 50,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-reconciliation",
+    "variant": null,
+    "cost": 1,
+    "score": -1.85,
+    "effectOnly": 2.4,
+    "finalGrowth": 50,
+    "winner": "B"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -4.25,
+    "effectOnly": 0,
+    "finalGrowth": 50,
+    "winner": "B"
+   },
+   {
+    "kind": "play",
+    "card": "E-first-date",
+    "variant": null,
+    "cost": 1,
+    "score": -4.25,
+    "effectOnly": 0,
+    "finalGrowth": 50,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:1:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 70,
+  "pass": {
+   "finalGrowth": 70,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 70,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:1:BB:Y-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 70,
+  "pass": {
+   "finalGrowth": 70,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 70,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:2:II:X-first",
+  "seat": "B",
+  "deck": "challenge",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 45,
+  "pass": {
+   "finalGrowth": 45,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -0.53,
+    "effectOnly": 2.47,
+    "finalGrowth": 45,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "パンチ",
+    "cost": 1,
+    "score": -0.03,
+    "effectOnly": 2.97,
+    "finalGrowth": 50,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "キック",
+    "cost": 1,
+    "score": -0.03,
+    "effectOnly": 2.97,
+    "finalGrowth": 50,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "ガード",
+    "cost": 1,
+    "score": -0.03,
+    "effectOnly": 2.97,
+    "finalGrowth": 50,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:2:II:Y-first",
+  "seat": "A",
+  "deck": "challenge",
+  "difficulty": "intermediate",
+  "time": 8,
+  "growth": 50,
+  "pass": {
+   "finalGrowth": 50,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -0.54,
+    "effectOnly": 2.46,
+    "finalGrowth": 50,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "パンチ",
+    "cost": 1,
+    "score": -0.03,
+    "effectOnly": 2.97,
+    "finalGrowth": 50,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "キック",
+    "cost": 1,
+    "score": -0.03,
+    "effectOnly": 2.97,
+    "finalGrowth": 55,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "ガード",
+    "cost": 1,
+    "score": -0.03,
+    "effectOnly": 2.97,
+    "finalGrowth": 55,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:3:II:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -1.22,
+    "effectOnly": 1.78,
+    "finalGrowth": 65,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:3:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 55,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 55,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:3:II:Y-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": null
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -1.22,
+    "effectOnly": 1.78,
+    "finalGrowth": 65,
+    "winner": null
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:3:BB:Y-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 55,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 55,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~challenge:4:BB:X-first",
+  "seat": "B",
+  "deck": "challenge",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 35,
+  "pass": {
+   "finalGrowth": 35,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "パンチ",
+    "cost": 1,
+    "score": -1.28,
+    "effectOnly": 2.97,
+    "finalGrowth": 35,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "キック",
+    "cost": 1,
+    "score": -1.28,
+    "effectOnly": 2.97,
+    "finalGrowth": 60,
+    "winner": "A"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-street-fight",
+    "variant": "ガード",
+    "cost": 1,
+    "score": -1.28,
+    "effectOnly": 2.97,
+    "finalGrowth": 60,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:1:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 80,
+  "pass": {
+   "finalGrowth": 80,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 80,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:1:II:Y-first",
+  "seat": "B",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 9,
+  "growth": 75,
+  "pass": {
+   "finalGrowth": 75,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 75,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:1:BB:Y-first",
+  "seat": "A",
+  "deck": "growth",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -6.75,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "E-midlife-flower",
+    "variant": null,
+    "cost": 1,
+    "score": -3.15,
+    "effectOnly": 1.1,
+    "finalGrowth": 55,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:2:II:X-first",
+  "seat": "B",
+  "deck": "growth",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 55,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:2:BB:X-first",
+  "seat": "B",
+  "deck": "growth",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 75,
+  "pass": {
+   "finalGrowth": 80,
+   "winner": null
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -6.75,
+    "effectOnly": 0,
+    "finalGrowth": 80,
+    "winner": null
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 85,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 85,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:2:II:Y-first",
+  "seat": "A",
+  "deck": "growth",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 60,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 60,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:2:BB:Y-first",
+  "seat": "A",
+  "deck": "growth",
+  "difficulty": "beginner",
+  "time": 9,
+  "growth": 70,
+  "pass": {
+   "finalGrowth": 75,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -6.75,
+    "effectOnly": 0,
+    "finalGrowth": 75,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 80,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 80,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:3:II:X-first",
+  "seat": "B",
+  "deck": "growth",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 70,
+  "pass": {
+   "finalGrowth": 75,
+   "winner": null
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 75,
+    "winner": null
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-plane-landing",
+    "variant": null,
+    "cost": 1,
+    "score": -2.01,
+    "effectOnly": 0.99,
+    "finalGrowth": 75,
+    "winner": null
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:3:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 65,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:3:II:Y-first",
+  "seat": "A",
+  "deck": "growth",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 70,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "G-plane-landing",
+    "variant": null,
+    "cost": 1,
+    "score": -2.01,
+    "effectOnly": 0.99,
+    "finalGrowth": 70,
+    "winner": "B"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:3:BB:Y-first",
+  "seat": "A",
+  "deck": "growth",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 45,
+  "pass": {
+   "finalGrowth": 50,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -6.75,
+    "effectOnly": 0,
+    "finalGrowth": 50,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 55,
+    "winner": null
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 55,
+    "winner": null
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:4:II:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 9,
+  "growth": 60,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 60,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:4:BB:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 65,
+  "pass": {
+   "finalGrowth": 65,
+   "winner": "A"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-fateful-transform",
+    "variant": null,
+    "cost": 2,
+    "score": -1.5,
+    "effectOnly": 4,
+    "finalGrowth": 65,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:4:II:Y-first",
+  "seat": "A",
+  "deck": "growth",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 55,
+   "winner": null
+  },
+  "candidates": [
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 60,
+    "winner": "A"
+   }
+  ]
+ },
+ {
+  "match": "T:main~growth:4:BB:Y-first",
+  "seat": "A",
+  "deck": "growth",
+  "difficulty": "beginner",
+  "time": 10,
+  "growth": 55,
+  "pass": {
+   "finalGrowth": 60,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 65,
+    "winner": null
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 65,
+    "winner": null
+   },
+   {
+    "kind": "play",
+    "card": "G-area-claim",
+    "variant": null,
+    "cost": 3,
+    "score": -6.75,
+    "effectOnly": 0,
+    "finalGrowth": 60,
+    "winner": "B"
+   },
+   {
+    "kind": "programPlay",
+    "card": "G-mini-golf-physics",
+    "variant": null,
+    "cost": 1,
+    "score": -3.62,
+    "effectOnly": 0.63,
+    "finalGrowth": 65,
+    "winner": null
+   }
+  ]
+ },
+ {
+  "match": "T:main~item:2:II:X-first",
+  "seat": "A",
+  "deck": "main",
+  "difficulty": "intermediate",
+  "time": 10,
+  "growth": 70,
+  "pass": {
+   "finalGrowth": 70,
+   "winner": "B"
+  },
+  "candidates": [
+   {
+    "kind": "programPlay",
+    "card": "E-mirror",
+    "variant": null,
+    "cost": 1,
+    "score": -3,
+    "effectOnly": 0,
+    "finalGrowth": 70,
+    "winner": "B"
+   }
+  ]
+ }
+]
