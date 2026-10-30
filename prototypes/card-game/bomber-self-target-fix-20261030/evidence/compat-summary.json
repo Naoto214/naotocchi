@@ -1,0 +1,66 @@
+{
+ "saves": {
+  "main_only": [],
+  "branch_only": [],
+  "common": 13,
+  "identical": 11,
+  "different": [
+   "bomber-hotseat6-saves.json:/rows/0",
+   "bomber-hotseat6-saves.json:/rows/1"
+  ],
+  "fields_identical": {
+   "save": 13,
+   "state": 11,
+   "stateNoMeta": 13,
+   "version": 13
+  }
+ },
+ "games": {
+  "main_only": [],
+  "branch_only": [],
+  "common": 30,
+  "identical": 0,
+  "different": [
+   "hotseat-2/beginner/1",
+   "hotseat-2/beginner/2",
+   "hotseat-2/beginner/3",
+   "hotseat-2/intermediate/1",
+   "hotseat-2/intermediate/2",
+   "hotseat-2/intermediate/3",
+   "hotseat-3/beginner/1",
+   "hotseat-3/beginner/2",
+   "hotseat-3/beginner/3",
+   "hotseat-3/intermediate/1",
+   "hotseat-3/intermediate/2",
+   "hotseat-3/intermediate/3",
+   "hotseat-4/beginner/1",
+   "hotseat-4/beginner/2",
+   "hotseat-4/beginner/3",
+   "hotseat-4/intermediate/1",
+   "hotseat-4/intermediate/2",
+   "hotseat-4/intermediate/3",
+   "hotseat-5/beginner/1",
+   "hotseat-5/beginner/2",
+   "hotseat-5/beginner/3",
+   "hotseat-5/intermediate/1",
+   "hotseat-5/intermediate/2",
+   "hotseat-5/intermediate/3",
+   "hotseat-6/beginner/1",
+   "hotseat-6/beginner/2",
+   "hotseat-6/beginner/3",
+   "hotseat-6/intermediate/1",
+   "hotseat-6/intermediate/2",
+   "hotseat-6/intermediate/3"
+  ],
+  "fields_identical": {
+   "commands": 30,
+   "phase": 30,
+   "restoredEqual": 30,
+   "selfTargets": 30,
+   "state": 0,
+   "stateNoMeta": 30
+  }
+ },
+ "games_self_target_total": 74,
+ "games_finished_and_restore_equal": true
+}

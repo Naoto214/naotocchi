@@ -23,7 +23,8 @@ Object.assign(REMAINING_RULES,{
  'C-squirrel':{mode:'companion',active:{condition:'ownTurn',once:true,handCost:{destination:'discard'},target:'ownDiscard',steps:[move('top')]}},
  'E-special-trip-memory':quick([draw(),growth(5)],{condition:'specialTripWorld'}),
  'G-basketball-3d':quick([reserveWin([iff(v('eventMargin','eq',2),[growth(10)])],{sameTarget:true})],{target:'ownMain'}),
- 'G-bomber-maze':{mode:'trap',triggers:[{when:'start',opponent:true,select:[{key:'own',zone:'ownPrepared',count:1},{key:'other',zone:'opponentPrepared',count:1}],steps:[{op:'schedule',timing:'end',currentTurn:true,steps:[{op:'selectedMove',key:'own',destination:'discard'},{op:'selectedMove',key:'other',destination:'discard'}]}]}]},
+ // 84 P12：発動中のボンバー自身は発動領域にあるので、自分側の対象にできない（hotseat-7 以降。版を足す時はここにも足す）。旧保存（hotseat-2〜6）は旧挙動（index 0）のまま再生する。
+ 'G-bomber-maze':{mode:'trap',triggers:[[{},['hotseat-2','hotseat-3','hotseat-4','hotseat-5','hotseat-6']],[{filter:{excludeSource:true}},['hotseat-7']]].map(([own,onlyVersions])=>({when:'start',opponent:true,onlyVersions,select:[{key:'own',zone:'ownPrepared',count:1,...own},{key:'other',zone:'opponentPrepared',count:1}],steps:[{op:'schedule',timing:'end',currentTurn:true,steps:[{op:'selectedMove',key:'own',destination:'discard'},{op:'selectedMove',key:'other',destination:'discard'}]}]}))},
  'G-chain-puzzle':quick([move('hand')],{onceName:true,condition:'priorTwoItems',target:'ownDiscardItem'}),
  'G-darts-board':quick([{op:'selectedMove',key:'equipment',destination:'discard'}],{select:[pay('ownHand',{types:['play','item','event']},1,'discard',{reveal:true}),{key:'equipment',zone:'opponentEquipment',count:1,filter:{sameCostAs:'payment'}}]}),
  'G-domino-run':{mode:'trap',triggers:[{when:'cardPlayed',condition:'eventItemFaceUp',steps:[reserve('cardPlayed',[growth(5),draw()],{condition:'eventFaceUpPlay'})]}]},
@@ -32,7 +33,7 @@ Object.assign(REMAINING_RULES,{
  'G-downhill-snow':{mode:'trap',triggers:[{when:'challengeResult',condition:all('won','eventOwnChallenge',{world:'W-snow'}),target:'ownMain',steps:[stat(1,1,'nextEnd')]}]},
  'G-dragDecorate-bento':quick([{op:'reorderTop',n:2},{op:'declareType',steps:[{op:'schedule',timing:'start',steps:[{op:'declaredTop'}]}]}]),
  // 81接続：発動中のかえる自身は対象にできない（hotseat-6 以降。版を足す時はここにも足す）。旧保存（hotseat-2〜5）は旧挙動（index 0）のまま再生する。
- 'G-frogger-road':{mode:'trap',triggers:[['ownPrepared',['hotseat-2','hotseat-3','hotseat-4','hotseat-5']],['ownPreparedOther',['hotseat-6']]].map(([target,onlyVersions])=>({when:'worldChange',condition:'normalWorldChange',onlyVersions,target,steps:[{op:'protect',to:['hand','discard'],replace:'stay'}]}))},
+ 'G-frogger-road':{mode:'trap',triggers:[['ownPrepared',['hotseat-2','hotseat-3','hotseat-4','hotseat-5']],['ownPreparedOther',['hotseat-6','hotseat-7']]].map(([target,onlyVersions])=>({when:'worldChange',condition:'normalWorldChange',onlyVersions,target,steps:[{op:'protect',to:['hand','discard'],replace:'stay'}]}))},
  'G-halfpipe-skate':quick([stat(3,0,'challenge'),reserve('challengeResult',[growth(-5)],{condition:'lost',challenge:true})],{condition:all('challengeActive','priorTwoPlays'),target:'ownMain'}),
  'G-mancala-kalah':quick([{op:'selectedMove',key:'hand',destination:'hand'},{op:'selectedMove',key:'top',destination:'top'},{op:'selectedMove',key:'bottom',destination:'bottom'}],{select:[{key:'hand',zone:'ownDiscard',count:1},{key:'top',zone:'ownDiscard',count:1,filter:{differentTypeFrom:['hand']}},{key:'bottom',zone:'ownDiscard',count:1,filter:{differentTypeFrom:['hand','top']}}]}),
  'G-memory-cards':quick([{op:'memoryPair',key:'pair'}],{select:[{key:'pair',zone:'ownDiscard',count:2,same:'name'}]}),
@@ -49,7 +50,7 @@ Object.assign(REMAINING_RULES,{
  'G-stack-snowman':quick([{op:'schedule',timing:'start',steps:[iff('selectedPreparedPresent',[growth(10)])]}],{select:[{key:'prepared',zone:'ownPrepared',count:2}]}),
  'G-street-fight':quick([iff({variant:'パンチ'},[stat(1,0)]),iff({variant:'キック'},[stat(3,0)]),iff({variant:'ガード'},[stat(0,2)])],{target:'ownMain',variants:['パンチ','キック','ガード'],variantRules:{'キック':{select:[pay('ownHand',{},1,'discard')]}}}),
  // 87接続・88 X06：発動中のたこやき自身は対象にできない（hotseat-5 以降。版を足す時はここにも足す）。旧保存（hotseat-2〜4）は旧挙動（index 0）のまま再生する。
- 'G-takoyaki-grill':{mode:'trap',triggers:[['ownPrepared',['hotseat-2','hotseat-3','hotseat-4']],['ownPreparedOther',['hotseat-5','hotseat-6']]].map(([target,onlyVersions])=>({when:'end',onlyVersions,target,steps:[{op:'schedule',timing:'start',steps:[iff('targetPreparedPresent',[draw(),growth(5)])]}]}))},
+ 'G-takoyaki-grill':{mode:'trap',triggers:[['ownPrepared',['hotseat-2','hotseat-3','hotseat-4']],['ownPreparedOther',['hotseat-5','hotseat-6','hotseat-7']]].map(([target,onlyVersions])=>({when:'end',onlyVersions,target,steps:[{op:'schedule',timing:'start',steps:[iff('targetPreparedPresent',[draw(),growth(5)])]}]}))},
  'G-tennis-rally':quick([stat(1,1,'challenge'),afterChallenge([draw()])],{condition:'bothPlayedInChallenge',target:'ownMain'}),
  'G-tower-defense':{mode:'trap',triggers:[{when:'activation',opponent:true,condition:'eventRemovesOwnPrepared',steps:[{op:'protect',scope:'ownPrepared',to:['discard','hand'],replace:'stay',count:2}]}]},
  'I-c_dex':quick([{op:'setFromHand',excludeSpecies:'M-ren'}],{target:'ownMain'}),

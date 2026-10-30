@@ -3,7 +3,7 @@
 // "no response". Keep this capability envelope aligned with the reviewed runtime.
 import {RULES} from './rules.mjs';
 const keys=new Set(['key','cost','reveal','zone','count','min','max','filter','same','distinct','ordered','consecutive']);
-const filters=new Set(['type','types','excludeType','method','rare','minStage','maxStage','species','excludeSpecies','minCost','maxCost','faceDown','attachedTo','minPower','maxPower','minWisdom','maxWisdom','sameTypeAs','notNameOf','sameEventType','sameWorldName','sameCostAs','differentTypeFrom','powerAboveWisdom','fitsEquipment','excludeEquipmentTarget','unequipped','fitOwnMain','methodsPair']);
+const filters=new Set(['type','types','excludeType','method','rare','minStage','maxStage','species','excludeSpecies','minCost','maxCost','faceDown','attachedTo','minPower','maxPower','minWisdom','maxWisdom','sameTypeAs','notNameOf','sameEventType','sameWorldName','sameCostAs','differentTypeFrom','powerAboveWisdom','fitsEquipment','excludeEquipmentTarget','unequipped','fitOwnMain','methodsPair','excludeSource']);
 const zones=new Set(['ownHand','ownDiscard','opponentDiscard','ownPrepared','opponentPrepared','ownEquipment','opponentEquipment','ownMain','opponentMain','ownCompanion','ownPartner','ownWorld','ownField','opponentField']);
 const properties=new Set(['type','name','stage','species']);
 const types=new Set(['main','companion','partner','world','play','item','event']);
@@ -23,7 +23,7 @@ function selection(spec){
  for(const k of ['type','excludeType'])check(f[k]===undefined||types.has(f[k])||(k==='type'&&f[k]==='declared'));
  check(f.types===undefined||(Array.isArray(f.types)&&f.types.every(x=>types.has(x))));
  check(f.method===undefined||methods.has(f.method));check(f.methodsPair===undefined||(Array.isArray(f.methodsPair)&&f.methodsPair.every(x=>methods.has(x))));
- for(const k of ['rare','faceDown','sameEventType','sameWorldName','powerAboveWisdom','unequipped','fitOwnMain'])check(f[k]===undefined||typeof f[k]==='boolean');
+ for(const k of ['rare','faceDown','sameEventType','sameWorldName','powerAboveWisdom','unequipped','fitOwnMain','excludeSource'])check(f[k]===undefined||typeof f[k]==='boolean');
  for(const k of ['species','excludeSpecies','sameTypeAs','notNameOf','sameCostAs','fitsEquipment','excludeEquipmentTarget'])check(f[k]===undefined||typeof f[k]==='string');
  check(f.differentTypeFrom===undefined||(Array.isArray(f.differentTypeFrom)&&f.differentTypeFrom.every(x=>typeof x==='string')));
  for(const stat of ['Stage','Cost','Power','Wisdom'])for(const bound of ['min','max'])check(f[bound+stat]===undefined||Number.isFinite(f[bound+stat]));

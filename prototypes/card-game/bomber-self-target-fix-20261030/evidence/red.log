@@ -1,0 +1,254 @@
+TAP version 13
+# Subtest: 正式本文・時2・しかけるは不変
+ok 1 - 正式本文・時2・しかけるは不変
+  ---
+  duration_ms: 1.446581
+  type: 'test'
+  ...
+# Subtest: 相手のターン開始時に誘発し、自分側の対象の候補にボンバー自身は出ない（ほかの準備枠の札は出る）
+not ok 2 - 相手のターン開始時に誘発し、自分側の対象の候補にボンバー自身は出ない（ほかの準備枠の札は出る）
+  ---
+  duration_ms: 12.675185
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:31:1'
+  failureType: 'testCodeFailure'
+  error: '自分自身は候補に出ない'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:33:61)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: 自分側は伏せ札・装備のどちらも選べ、複数あればすべて選べる
+not ok 3 - 自分側は伏せ札・装備のどちらも選べ、複数あればすべて選べる
+  ---
+  duration_ms: 5.74697
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:35:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        'A:G-animal-shogi:3',
+        'A:I-c_coin2:3',
+    +   'A:M-antlion-01:1'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'A:G-animal-shogi:3'
+    1: 'A:I-c_coin2:3'
+  actual:
+    0: 'A:G-animal-shogi:3'
+    1: 'A:I-c_coin2:3'
+    2: 'A:M-antlion-01:1'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:37:47)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 相手側の対象は従来どおり相手の準備枠のすべての札
+ok 4 - 相手側の対象は従来どおり相手の準備枠のすべての札
+  ---
+  duration_ms: 3.975972
+  type: 'test'
+  ...
+# Subtest: 自分の準備枠がボンバーだけなら対象がなく、発動できない（見送りだけ）。ボンバーは準備枠に残る
+not ok 5 - 自分の準備枠がボンバーだけなら対象がなく、発動できない（見送りだけ）。ボンバーは準備枠に残る
+  ---
+  duration_ms: 3.85296
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:42:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:43:50)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 相手の準備枠が空なら発動できない（従来どおり）
+ok 6 - 相手の準備枠が空なら発動できない（従来どおり）
+  ---
+  duration_ms: 2.920911
+  type: 'test'
+  ...
+# Subtest: 解決：ボンバーは準備枠を離れ、そのターン終了時に両方の対象が捨て札へ
+ok 7 - 解決：ボンバーは準備枠を離れ、そのターン終了時に両方の対象が捨て札へ
+  ---
+  duration_ms: 10.031743
+  type: 'test'
+  ...
+# Subtest: 共通の選択（zone ownPrepared、絞り込みなし）はこれまでどおり発動元も含む。excludeSource のときだけ除く
+not ok 8 - 共通の選択（zone ownPrepared、絞り込みなし）はこれまでどおり発動元も含む。excludeSource のときだけ除く
+  ---
+  duration_ms: 3.242768
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:53:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + []
+    - [
+    -   'A:I-c_coin2:3'
+    - ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'A:I-c_coin2:3'
+  actual:
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:56:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 新規対戦は最新の版（hotseat-7 以降）。旧版 hotseat-2〜6 を指定した対戦では、旧挙動（自分自身も選べる）のまま
+not ok 9 - 新規対戦は最新の版（hotseat-7 以降）。旧版 hotseat-2〜6 を指定した対戦では、旧挙動（自分自身も選べる）のまま
+  ---
+  duration_ms: 0.774846
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:61:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        'hotseat-2',
+        'hotseat-3',
+        'hotseat-4',
+        'hotseat-5',
+        'hotseat-6',
+    -   'hotseat-7'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'hotseat-2'
+    1: 'hotseat-3'
+    2: 'hotseat-4'
+    3: 'hotseat-5'
+    4: 'hotseat-6'
+    5: 'hotseat-7'
+  actual:
+    0: 'hotseat-2'
+    1: 'hotseat-3'
+    2: 'hotseat-4'
+    3: 'hotseat-5'
+    4: 'hotseat-6'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:62:56)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 旧保存（hotseat-6、修正前エンジンで作成、ボンバー自身を対象にした操作を含む）は旧挙動のまま完全に再生される
+ok 10 - 旧保存（hotseat-6、修正前エンジンで作成、ボンバー自身を対象にした操作を含む）は旧挙動のまま完全に再生される
+  ---
+  duration_ms: 2015.038028
+  type: 'test'
+  ...
+# Subtest: 自分自身を対象にした旧保存を新しい版（hotseat-7 以降）として読ませると拒否される（無条件に変換しない）
+not ok 11 - 自分自身を対象にした旧保存を新しい版（hotseat-7 以降）として読ませると拒否される（無条件に変換しない）
+  ---
+  duration_ms: 185.556813
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:75:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception: self-target hotseat-6'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:76:95)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 旧保存の途中（ボンバーの誘発の直前）から復帰して続けても同じ結果
+ok 12 - 旧保存の途中（ボンバーの誘発の直前）から復帰して続けても同じ結果
+  ---
+  duration_ms: 326.75715
+  type: 'test'
+  ...
+# Subtest: すべての版で、ボンバー・たこやき・かえるの誘発はちょうど1つずつ有効（版を足した時の定義漏れを防ぐ）
+ok 13 - すべての版で、ボンバー・たこやき・かえるの誘発はちょうど1つずつ有効（版を足した時の定義漏れを防ぐ）
+  ---
+  duration_ms: 0.425379
+  type: 'test'
+  ...
+# Subtest: CPU（初級・中級）は新しい版でボンバー自身を対象にせず、対戦は最後まで進み、保存→復帰も一致
+not ok 14 - CPU（初級・中級）は新しい版でボンバー自身を対象にせず、対戦は最後まで進み、保存→復帰も一致
+  ---
+  duration_ms: 110.509837
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:91:1'
+  failureType: 'testCodeFailure'
+  error: '自分自身を対象にしない'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'B:G-bomber-maze:1'
+  actual: 'B:G-bomber-maze:1'
+  operator: 'notStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/bomber-self-target.test.mjs:94:177)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 7
+# fail 7
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2821.965027
