@@ -25,16 +25,6 @@
       "workflow_id": 393702225
     },
     {
-      "id": 40989884920,
-      "name": "Naopoyo Chapter 2 Pilot",
-      "status": "in_progress",
-      "conclusion": null,
-      "run_number": 23,
-      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884920/jobs",
-      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884920/logs",
-      "workflow_id": 394796547
-    },
-    {
       "id": 40989884922,
       "name": "Naopoyo World Pilot",
       "status": "completed",
@@ -53,6 +43,16 @@
       "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884994/jobs",
       "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884994/logs",
       "workflow_id": 393756683
+    },
+    {
+      "id": 40989884920,
+      "name": "Naopoyo Chapter 2 Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 23,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884920/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/40989884920/logs",
+      "workflow_id": 394796547
     }
   ],
   "jobs": [
@@ -181,8 +181,8 @@
     {
       "id": 123849441666,
       "name": "main-regression",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "run_id": 40989884920,
       "logs_url": null,
       "steps": [
@@ -212,21 +212,27 @@
         },
         {
           "name": "Run npm test",
-          "status": "in_progress",
-          "conclusion": null,
+          "status": "completed",
+          "conclusion": "success",
           "number": 5
         },
         {
           "name": "Post Run actions/setup-node@v4",
-          "status": "pending",
-          "conclusion": null,
+          "status": "completed",
+          "conclusion": "success",
           "number": 9
         },
         {
           "name": "Post Run actions/checkout@v4",
-          "status": "pending",
-          "conclusion": null,
+          "status": "completed",
+          "conclusion": "success",
           "number": 10
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
         }
       ]
     }
@@ -253,8 +259,63 @@
     },
     {
       "name": "runtime",
-      "status": "in_progress",
-      "jobId": 123849441666
+      "tests": 3504,
+      "pass": 3504,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "groups": [
+        32,
+        24,
+        3289,
+        159
+      ],
+      "jobId": 123849441666,
+      "additional": "npm test completed including smoke/dialogue/visual-qa",
+      "logSummary": [
+        "2026-10-30T02:10:48.7337256Z # tests 32",
+        "2026-10-30T02:10:48.7337654Z # pass 32",
+        "2026-10-30T02:10:48.7337845Z # fail 0",
+        "2026-10-30T02:10:48.7338051Z # cancelled 0",
+        "2026-10-30T02:10:48.7338280Z # skipped 0",
+        "2026-10-30T02:10:50.1211571Z # tests 24",
+        "2026-10-30T02:10:50.1211957Z # pass 24",
+        "2026-10-30T02:10:50.1212145Z # fail 0",
+        "2026-10-30T02:10:50.1212337Z # cancelled 0",
+        "2026-10-30T02:10:50.1212540Z # skipped 0",
+        "2026-10-30T02:10:50.3814210Z SMOKE TEST OK",
+        "2026-10-30T02:10:50.6675688Z DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 sampled legend stories; 16 anniversary cases.",
+        "2026-10-30T02:10:50.9281469Z CLOCK CAST TEST OK: real encounter and 69/70 recruitment; five dialogue events; legacy mushroom save, bond, PNG, dialogue and rare dex; unique current/legacy counts.",
+        "2026-10-30T02:10:52.9802426Z VISUAL QA ROUTE TEST OK: generated script compiles; egg, anniversary, legend and ordinary date saves; long disease selects medicine; illustrated save reloads 26 companions, partner, 10 shop items. No browser rendering claimed.",
+        "2026-10-30T02:11:42.8155262Z # Subtest: time tickets change only the adjacent visual stage for five real minutes",
+        "2026-10-30T02:11:42.8156717Z ok 449 - time tickets change only the adjacent visual stage for five real minutes",
+        "2026-10-30T02:11:46.7817240Z # Subtest: retired flowers leave court dialogue and care feedback without bonus reactions",
+        "2026-10-30T02:11:46.7818507Z ok 766 - retired flowers leave court dialogue and care feedback without bonus reactions",
+        "2026-10-30T02:32:20.6465806Z # Subtest: evolution retains the existing age dialogue while changing only physical event semantics",
+        "2026-10-30T02:32:20.6466216Z ok 1731 - evolution retains the existing age dialogue while changing only physical event semantics",
+        "2026-10-30T02:32:20.6475275Z # Subtest: date dialogue identifies each speaker with their own portrait and escapes the saved name",
+        "2026-10-30T02:32:20.6475677Z ok 1739 - date dialogue identifies each speaker with their own portrait and escapes the saved name",
+        "2026-10-30T02:32:20.6861772Z # Subtest: adult-cat expressions append unique static accents inside the existing visual",
+        "2026-10-30T02:32:20.6862115Z ok 2075 - adult-cat expressions append unique static accents inside the existing visual",
+        "2026-10-30T02:32:20.8576154Z # Subtest: regional game preference does not leak into a former visual base",
+        "2026-10-30T02:32:20.8576706Z ok 3040 - regional game preference does not leak into a former visual base",
+        "2026-10-30T02:32:20.9347950Z # tests 3289",
+        "2026-10-30T02:32:20.9348519Z # pass 3289",
+        "2026-10-30T02:32:20.9348674Z # fail 0",
+        "2026-10-30T02:32:20.9348836Z # cancelled 0",
+        "2026-10-30T02:32:20.9348990Z # skipped 0",
+        "2026-10-30T02:32:31.2686576Z # Subtest: ordinary play and all-inviting dialogue do not animate non-target companions",
+        "2026-10-30T02:32:31.2687706Z ok 139 - ordinary play and all-inviting dialogue do not animate non-target companions",
+        "2026-10-30T02:32:31.2694679Z # Subtest: partner three visual states retain marriage ring=false and replace one heart",
+        "2026-10-30T02:32:31.2695408Z ok 142 - partner three visual states retain marriage ring=false and replace one heart",
+        "2026-10-30T02:32:31.2697293Z # Subtest: partner three visual states retain marriage ring=true and replace one heart",
+        "2026-10-30T02:32:31.2698022Z ok 143 - partner three visual states retain marriage ring=true and replace one heart",
+        "2026-10-30T02:32:31.3121667Z # tests 159",
+        "2026-10-30T02:32:31.3122077Z # pass 159",
+        "2026-10-30T02:32:31.3122292Z # fail 0",
+        "2026-10-30T02:32:31.3122659Z # cancelled 0",
+        "2026-10-30T02:32:31.3122893Z # skipped 0"
+      ]
     }
   ],
   "deployment": {
