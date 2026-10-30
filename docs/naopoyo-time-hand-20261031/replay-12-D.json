@@ -1,0 +1,479 @@
+{
+  "status": "solved",
+  "failure": null,
+  "metrics": {
+    "steps": 5,
+    "splits": 0,
+    "children": 0,
+    "merges": 2,
+    "familyMerges": 0,
+    "overflow": 1,
+    "falls": 1
+  },
+  "rescued": 10,
+  "mass": 10,
+  "final": {
+    "id": "komorebi-support",
+    "number": 12,
+    "title": "12 支え合う仲間",
+    "w": 8,
+    "h": 8,
+    "revision": 6,
+    "theme": "forest",
+    "showSpecies": false,
+    "gravity": true,
+    "walls": [
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "gates": [],
+    "spikes": [],
+    "exits": [
+      {
+        "x": 4,
+        "y": 5,
+        "exact": 2
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "exact": 8
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [],
+    "difficulty": 3,
+    "discovery": "先に合体して段階8を作ると、合体しない安定した足場になる。",
+    "lesson": "同じ仲間でも、大きさで支え方が変わる。",
+    "story": "「みんな、すぐくっついちゃうね」岩の上から、ねこが首をかしげた。",
+    "narrator": {
+      "name": "きまぐれなねこ",
+      "asset": "assets/characters/companions/cat_friend.png"
+    },
+    "ending": "大きな仲間が、小さな仲間を高い星へ送り出した。",
+    "hints": [
+      "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+      "4と4を先に合わせて、岩の左下に8を作ろう。",
+      "2を8の上へ、さらに右上の岩へ。2を上の星へ送ってから、8も下の星へ。"
+    ],
+    "hint": "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v2",
+    "terrainRules": "magic-gate-v2",
+    "splitRules": "recombine-once-v1",
+    "splitPriority": "D",
+    "rescued": 10,
+    "rescuedBySpecies": {
+      "dog": 10
+    },
+    "nextId": 1,
+    "moves": 5
+  },
+  "snapshots": [
+    {
+      "id": "komorebi-support",
+      "number": 12,
+      "title": "12 支え合う仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 2
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "discovery": "先に合体して段階8を作ると、合体しない安定した足場になる。",
+      "lesson": "同じ仲間でも、大きさで支え方が変わる。",
+      "story": "「みんな、すぐくっついちゃうね」岩の上から、ねこが首をかしげた。",
+      "narrator": {
+        "name": "きまぐれなねこ",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "ending": "大きな仲間が、小さな仲間を高い星へ送り出した。",
+      "hints": [
+        "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+        "4と4を先に合わせて、岩の左下に8を作ろう。",
+        "2を8の上へ、さらに右上の岩へ。2を上の星へ送ってから、8も下の星へ。"
+      ],
+      "hint": "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "komorebi-support",
+      "number": 12,
+      "title": "12 支え合う仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 2
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 2,
+          "y": 6,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "discovery": "先に合体して段階8を作ると、合体しない安定した足場になる。",
+      "lesson": "同じ仲間でも、大きさで支え方が変わる。",
+      "story": "「みんな、すぐくっついちゃうね」岩の上から、ねこが首をかしげた。",
+      "narrator": {
+        "name": "きまぐれなねこ",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "ending": "大きな仲間が、小さな仲間を高い星へ送り出した。",
+      "hints": [
+        "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+        "4と4を先に合わせて、岩の左下に8を作ろう。",
+        "2を8の上へ、さらに右上の岩へ。2を上の星へ送ってから、8も下の星へ。"
+      ],
+      "hint": "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "komorebi-support",
+      "number": 12,
+      "title": "12 支え合う仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 2
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 3,
+          "y": 5,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "discovery": "先に合体して段階8を作ると、合体しない安定した足場になる。",
+      "lesson": "同じ仲間でも、大きさで支え方が変わる。",
+      "story": "「みんな、すぐくっついちゃうね」岩の上から、ねこが首をかしげた。",
+      "narrator": {
+        "name": "きまぐれなねこ",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "ending": "大きな仲間が、小さな仲間を高い星へ送り出した。",
+      "hints": [
+        "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+        "4と4を先に合わせて、岩の左下に8を作ろう。",
+        "2を8の上へ、さらに右上の岩へ。2を上の星へ送ってから、8も下の星へ。"
+      ],
+      "hint": "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "komorebi-support",
+      "number": 12,
+      "title": "12 支え合う仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 2
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "discovery": "先に合体して段階8を作ると、合体しない安定した足場になる。",
+      "lesson": "同じ仲間でも、大きさで支え方が変わる。",
+      "story": "「みんな、すぐくっついちゃうね」岩の上から、ねこが首をかしげた。",
+      "narrator": {
+        "name": "きまぐれなねこ",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "ending": "大きな仲間が、小さな仲間を高い星へ送り出した。",
+      "hints": [
+        "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+        "4と4を先に合わせて、岩の左下に8を作ろう。",
+        "2を8の上へ、さらに右上の岩へ。2を上の星へ送ってから、8も下の星へ。"
+      ],
+      "hint": "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 1,
+      "moves": 4
+    },
+    {
+      "id": "komorebi-support",
+      "number": 12,
+      "title": "12 支え合う仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 2
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [],
+      "difficulty": 3,
+      "discovery": "先に合体して段階8を作ると、合体しない安定した足場になる。",
+      "lesson": "同じ仲間でも、大きさで支え方が変わる。",
+      "story": "「みんな、すぐくっついちゃうね」岩の上から、ねこが首をかしげた。",
+      "narrator": {
+        "name": "きまぐれなねこ",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "ending": "大きな仲間が、小さな仲間を高い星へ送り出した。",
+      "hints": [
+        "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+        "4と4を先に合わせて、岩の左下に8を作ろう。",
+        "2を8の上へ、さらに右上の岩へ。2を上の星へ送ってから、8も下の星へ。"
+      ],
+      "hint": "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v2",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1",
+      "splitPriority": "D",
+      "rescued": 10,
+      "rescuedBySpecies": {
+        "dog": 10
+      },
+      "nextId": 1,
+      "moves": 5
+    }
+  ],
+  "splitLog": []
+}

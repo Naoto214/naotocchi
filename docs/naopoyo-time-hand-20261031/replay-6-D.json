@@ -1,0 +1,1135 @@
+{
+  "status": "solved",
+  "failure": null,
+  "metrics": {
+    "steps": 10,
+    "splits": 0,
+    "children": 0,
+    "merges": 1,
+    "familyMerges": 0,
+    "overflow": 1,
+    "falls": 0
+  },
+  "rescued": 11,
+  "mass": 11,
+  "final": {
+    "id": "light-remainder",
+    "title": "06 あふれた光も、仲間",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "gates": [
+      {
+        "x": 4,
+        "y": 2,
+        "exact": 8,
+        "open": true
+      },
+      {
+        "x": 4,
+        "y": 5,
+        "exact": 3,
+        "open": true
+      }
+    ],
+    "spikes": [],
+    "exits": [
+      {
+        "x": 6,
+        "y": 2,
+        "exact": 8
+      },
+      {
+        "x": 6,
+        "y": 5,
+        "exact": 3
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [],
+    "difficulty": 2,
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "category": "companion",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+    "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+    "ending": "あふれた3が、もうひとつの鍵になった。",
+    "hints": [
+      "二つの星の数字を足すと11。",
+      "6と5を合わせると、前に8、後ろに3。",
+      "6を5へ重ねて、8は上の門、3は下の門へ。"
+    ],
+    "mechanics": [
+      "overflow",
+      "gate"
+    ],
+    "hint": "二つの星の数字を足すと11。",
+    "splitPriority": "D",
+    "rescued": 11,
+    "rescuedBySpecies": {
+      "dog": 11
+    },
+    "nextId": 1,
+    "moves": 10
+  },
+  "snapshots": [
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 2
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 3
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 4
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 1,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 8,
+      "rescuedBySpecies": {
+        "dog": 8
+      },
+      "nextId": 1,
+      "moves": 5
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 8,
+      "rescuedBySpecies": {
+        "dog": 8
+      },
+      "nextId": 1,
+      "moves": 6
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 8,
+      "rescuedBySpecies": {
+        "dog": 8
+      },
+      "nextId": 1,
+      "moves": 7
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 4,
+          "y": 5,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 8,
+      "rescuedBySpecies": {
+        "dog": 8
+      },
+      "nextId": 1,
+      "moves": 8
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "b",
+          "x": 5,
+          "y": 5,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 8,
+      "rescuedBySpecies": {
+        "dog": 8
+      },
+      "nextId": 1,
+      "moves": 9
+    },
+    {
+      "id": "light-remainder",
+      "title": "06 あふれた光も、仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 4,
+          "y": 2,
+          "exact": 8,
+          "open": true
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 3,
+          "open": true
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 8
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "6＋5は8と3。8を超えた光は、ひとつ前のマスに残る。",
+      "story": "「入りきらない光にも、役目があるよ」二つの門が、それぞれの仲間を待っていました。",
+      "ending": "あふれた3が、もうひとつの鍵になった。",
+      "hints": [
+        "二つの星の数字を足すと11。",
+        "6と5を合わせると、前に8、後ろに3。",
+        "6を5へ重ねて、8は上の門、3は下の門へ。"
+      ],
+      "mechanics": [
+        "overflow",
+        "gate"
+      ],
+      "hint": "二つの星の数字を足すと11。",
+      "splitPriority": "D",
+      "rescued": 11,
+      "rescuedBySpecies": {
+        "dog": 11
+      },
+      "nextId": 1,
+      "moves": 10
+    }
+  ],
+  "splitLog": []
+}

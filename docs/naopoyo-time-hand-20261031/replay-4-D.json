@@ -1,0 +1,798 @@
+{
+  "status": "solved",
+  "failure": null,
+  "metrics": {
+    "steps": 9,
+    "splits": 1,
+    "children": 1,
+    "merges": 0,
+    "familyMerges": 0,
+    "overflow": 0,
+    "falls": 0
+  },
+  "rescued": 3,
+  "mass": 3,
+  "final": {
+    "id": "light-unravel",
+    "title": "04 ほどける光",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [],
+    "gates": [],
+    "spikes": [
+      {
+        "x": 3,
+        "y": 4,
+        "power": 1
+      }
+    ],
+    "exits": [
+      {
+        "x": 6,
+        "y": 3,
+        "exact": 2
+      },
+      {
+        "x": 6,
+        "y": 5,
+        "exact": 1
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [],
+    "difficulty": 2,
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "category": "companion",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+    "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+    "ending": "小さくなった光にも、帰る星がある。",
+    "hints": [
+      "星は2と1。今は3。",
+      "トゲで3を2と1に分けよう。",
+      "3でトゲに入り、2を上の星、1を下の星へ。"
+    ],
+    "mechanics": [
+      "split"
+    ],
+    "hint": "星は2と1。今は3。",
+    "splitPriority": "D",
+    "rescued": 3,
+    "rescuedBySpecies": {
+      "dog": 3
+    },
+    "nextId": 2,
+    "moves": 9
+  },
+  "snapshots": [
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 2,
+      "moves": 2
+    },
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 2,
+      "moves": 3
+    },
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 2,
+      "moves": 4
+    },
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 2,
+      "moves": 5
+    },
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 2,
+      "moves": 6
+    },
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 2,
+      "moves": 7
+    },
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 2,
+      "rescuedBySpecies": {
+        "dog": 2
+      },
+      "nextId": 2,
+      "moves": 8
+    },
+    {
+      "id": "light-unravel",
+      "title": "04 ほどける光",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 4,
+          "power": 1
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 2
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 1
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+      "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+      "ending": "小さくなった光にも、帰る星がある。",
+      "hints": [
+        "星は2と1。今は3。",
+        "トゲで3を2と1に分けよう。",
+        "3でトゲに入り、2を上の星、1を下の星へ。"
+      ],
+      "mechanics": [
+        "split"
+      ],
+      "hint": "星は2と1。今は3。",
+      "splitPriority": "D",
+      "rescued": 3,
+      "rescuedBySpecies": {
+        "dog": 3
+      },
+      "nextId": 2,
+      "moves": 9
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 2,
+      "state": {
+        "id": "light-unravel",
+        "title": "04 ほどける光",
+        "w": 8,
+        "h": 8,
+        "revision": 1,
+        "theme": "cave",
+        "showSpecies": false,
+        "walls": [],
+        "gates": [],
+        "spikes": [
+          {
+            "x": 3,
+            "y": 4,
+            "power": 1
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 3,
+            "exact": 2
+          },
+          {
+            "x": 6,
+            "y": 5,
+            "exact": 1
+          }
+        ],
+        "gravity": false,
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 3,
+            "y": 4,
+            "level": 2,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 2,
+            "y": 4
+          }
+        ],
+        "difficulty": 2,
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "category": "companion",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "lesson": "トゲに入ると1がひとつ分かれる。全員を、それぞれの星へ。",
+        "story": "「分かれても、仲間は消えないよ」ふくろうの声に、いぬはそっと一歩を踏み出しました。",
+        "ending": "小さくなった光にも、帰る星がある。",
+        "hints": [
+          "星は2と1。今は3。",
+          "トゲで3を2と1に分けよう。",
+          "3でトゲに入り、2を上の星、1を下の星へ。"
+        ],
+        "mechanics": [
+          "split"
+        ],
+        "hint": "星は2と1。今は3。",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 2,
+        "moves": 1
+      },
+      "parentId": "a",
+      "direction": [
+        1,
+        0
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "family": 1
+    }
+  ]
+}
