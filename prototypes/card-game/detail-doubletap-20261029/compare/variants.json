@@ -39,25 +39,6 @@
  },
  {
   "vp": "390x844",
-  "v": "nooverlay",
-  "diag": false,
-  "ok": true,
-  "a": 334,
-  "z": 501,
-  "canvas": [
-   501,
-   752
-  ],
-  "card": [
-   501,
-   752
-  ],
-  "back": 334,
-  "badge": "B・260ms",
-  "errs": []
- },
- {
-  "vp": "390x844",
   "v": "clippath",
   "diag": false,
   "ok": true,
@@ -187,25 +168,6 @@
   ],
   "back": 233,
   "badge": "A・色・260ms",
-  "errs": []
- },
- {
-  "vp": "844x390",
-  "v": "nooverlay",
-  "diag": false,
-  "ok": true,
-  "a": 233,
-  "z": 442,
-  "canvas": [
-   442,
-   663
-  ],
-  "card": [
-   442,
-   663
-  ],
-  "back": 233,
-  "badge": "B・260ms",
   "errs": []
  },
  {

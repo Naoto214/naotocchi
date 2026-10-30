@@ -1,7 +1,7 @@
 {
  "summary": {
-  "total": 174,
-  "pass": 174
+  "total": 180,
+  "pass": 180
  },
  "rows": [
   {
@@ -181,7 +181,7 @@
    "ok": true,
    "info": {
     "w0": 501,
-    "frames": 16,
+    "frames": 17,
     "final": 334
    }
   },
@@ -255,6 +255,15 @@
     ],
     "meta": "width=device-width,initial-scale=1,viewport-fit=cover",
     "blocked": 0
+   }
+  },
+  {
+   "name": "「▼ カードの続き」の案内帯は一度も出ない（通常・ダブルタップ・ピンチ・拡大中のスクロール・動きの途中・縮小後）",
+   "vp": "390x844",
+   "ok": true,
+   "info": {
+    "samples": 34,
+    "shown": 0
    }
   },
   {
@@ -431,7 +440,7 @@
    "ok": true,
    "info": {
     "w0": 286,
-    "frames": 16,
+    "frames": 17,
     "final": 429,
     "transform": "none"
    }
@@ -442,7 +451,7 @@
    "ok": true,
    "info": {
     "w0": 429,
-    "frames": 17,
+    "frames": 16,
     "final": 286
    }
   },
@@ -516,6 +525,15 @@
     ],
     "meta": "width=device-width,initial-scale=1,viewport-fit=cover",
     "blocked": 0
+   }
+  },
+  {
+   "name": "「▼ カードの続き」の案内帯は一度も出ない（通常・ダブルタップ・ピンチ・拡大中のスクロール・動きの途中・縮小後）",
+   "vp": "320x568",
+   "ok": true,
+   "info": {
+    "samples": 34,
+    "shown": 0
    }
   },
   {
@@ -780,6 +798,15 @@
    }
   },
   {
+   "name": "「▼ カードの続き」の案内帯は一度も出ない（通常・ダブルタップ・ピンチ・拡大中のスクロール・動きの途中・縮小後）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "samples": 34,
+    "shown": 0
+   }
+  },
+  {
    "name": "ページ内エラーなし",
    "vp": "844x390",
    "ok": true,
@@ -953,7 +980,7 @@
    "ok": true,
    "info": {
     "w0": 235,
-    "frames": 17,
+    "frames": 16,
     "final": 446,
     "transform": "none"
    }
@@ -964,7 +991,7 @@
    "ok": true,
    "info": {
     "w0": 446,
-    "frames": 16,
+    "frames": 17,
     "final": 235
    }
   },
@@ -1038,6 +1065,15 @@
     ],
     "meta": "width=device-width,initial-scale=1,viewport-fit=cover",
     "blocked": 0
+   }
+  },
+  {
+   "name": "「▼ カードの続き」の案内帯は一度も出ない（通常・ダブルタップ・ピンチ・拡大中のスクロール・動きの途中・縮小後）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "samples": 34,
+    "shown": 0
    }
   },
   {
@@ -1214,7 +1250,7 @@
    "ok": true,
    "info": {
     "w0": 260,
-    "frames": 17,
+    "frames": 16,
     "final": 491,
     "transform": "none"
    }
@@ -1299,6 +1335,15 @@
     ],
     "meta": "width=device-width,initial-scale=1,viewport-fit=cover",
     "blocked": 0
+   }
+  },
+  {
+   "name": "「▼ カードの続き」の案内帯は一度も出ない（通常・ダブルタップ・ピンチ・拡大中のスクロール・動きの途中・縮小後）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "samples": 34,
+    "shown": 0
    }
   },
   {
@@ -1560,6 +1605,15 @@
     ],
     "meta": "width=device-width,initial-scale=1,viewport-fit=cover",
     "blocked": 0
+   }
+  },
+  {
+   "name": "「▼ カードの続き」の案内帯は一度も出ない（通常・ダブルタップ・ピンチ・拡大中のスクロール・動きの途中・縮小後）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "samples": 34,
+    "shown": 0
    }
   },
   {

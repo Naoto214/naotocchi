@@ -20,7 +20,7 @@ const center=async page=>page.evaluate(()=>{const r=document.querySelector('#car
 const tap=async(page,p)=>{await page.touchscreen.tap(p.x,p.y);};
 // 拡大・縮小の動きが終わるまで待つ（最大2秒）
 const settle=page=>page.waitForFunction(()=>!(document.querySelector('#card-dialog .stage-card')?.getAnimations().length),null,{timeout:2000}).catch(()=>{});
-const doubleTap=async(page,p,gap=90,q=p)=>{await tap(page,p);await page.waitForTimeout(gap);await tap(page,q);await page.waitForTimeout(350);};
+const doubleTap=async(page,p,gap=90,q=p)=>{await tap(page,p);await page.waitForTimeout(gap);await tap(page,q);await page.waitForTimeout(350);await settle(page);};
 // 2本指のタッチ（CDP）: 押して離す（指は動かさない）
 async function twoFinger(cdp,p){const pts=[{x:p.x-20,y:p.y,id:1},{x:p.x+20,y:p.y,id:2}];
  await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:pts});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});}
