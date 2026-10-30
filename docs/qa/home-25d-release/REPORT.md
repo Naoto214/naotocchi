@@ -1,37 +1,103 @@
-# Production 2.5D home integration — work in progress
+# 全13地域の高品質2.5Dホーム正式統合 — 検証中・未公開
 
-Owner authorization: release all 13 approved v9 backgrounds after full validation. Do not merge on unresolved regressions. No 52-image expansion in this change.
+本人は必要な検証成功後の main マージと本番公開を承認済み。未解決の回帰や未完了の必須CIがある間はマージしない。52枚の時間帯別制作は対象外。
 
-## Sources and recovery
-- Initial main / rollback source: `851cf09a80c7ed41ba7293888084272917e4582c`.
-- #426: `8ba4ef1cb2030979664589d2e36423f58c4dedbd`, open Draft.
-- #462: `e0c5c52671666e8ab06b37afabf3eeae29f530fa`, open Draft; base `baseline/home-v22-art-20261028` = #426 head.
-- Integration branch: `integration/home-25d-release-20261030`, based on current main. A single merge carries #462 and its #426 ancestry, never two independent merges.
-- Source PRs, their branches and owner-only v9 Sites are untouched.
-- Before release main check runs: 12 completed/success including Pages build/deploy. Prior v9 CI run 41014280598: completed/success at code SHA 369858842b13a443aae217cf13c277d0a6da3f42; not a substitute for integration CI.
+統合PR: https://github.com/Naoto214/naotocchi/pull/490
 
-## Implementation
-- Resolve index/package/Pages conflicts retaining latest main menus, test list and all production distribution entries.
-- Production manifest picks home C, waterfall forest, water G, sea B2, new star and new lake; other seven scenes retain v9 geometry and images.
-- Production presenter/model materialized by tools/home-production-sync.cjs using the reviewed v9 model and rotation adapters. Historical sources stay available. Exactly one presenter is loaded by production HTML.
-- Egg presentation uses existing C adapter; production save key remains `naotocchi-save-v1` and backup family unchanged. No migration introduced.
-- Original character image files, other games, conversation modules and game catalogs have no diff from initial main.
-- Historical QA entry builders map production HTML back to their original presenter in disposable output, preserving the original comparison tests' subject.
+この文書は検証計画・設計・復旧記録。**最終ゲート結果、対象SHA、件数はPR #490の検証コメントと各SHAのActions結果を正本とする。** この文書単独では公開承認・CI成功を意味しない。
 
-## Validation so far — NOT release approval
-- New production tests: 3 passed; with asset-version checks 5 passed, 0 failed/skipped.
-- Python Pages tests: 16 passed.
-- Runtime package: 220182097 bytes (about 210 MiB), 4119 files; all old production allowlist entries retained, 13 optimized background images included, originals excluded.
-- Initial package attempts correctly rejected original-art metadata references and incomplete dependency hashes. Runtime-only metadata and reviewed source manifest corrected.
-- Initial exploratory baseline overlapped working-tree integration and is not claimed as a clean baseline. Sparse checkout caused missing archived QA fixtures; full checkout restored them. Retests of 3D fixture groups: 20 and 16 passed.
-- Complete integration suite is in progress. First run includes failures found before subsequent fixes; final rerun required.
-- Historical home-art-test has an experiment-only assertion comparing the entire working tree with #426. It rejects legitimate latest-main changes. Remains unresolved; not disabled or relaxed.
-- Local Playwright browser download failed: official CDN returned HTTP 200 HTML `Site Unavailable` instead of ZIP. Chromium/WebKit matrix not yet executed. New GitHub Actions matrix prepared; CI success pending.
-- Production HTTP verification must use clean package, not package plus disposable QA files.
-- Physical iPhone Safari, rotation/background resume/performance remain unverified.
+## 1. 開始点と統合方式
 
-## Rollback procedure
-Before release, record exact final pre-merge main and deploy run again. If authorized release later regresses, revert the integration merge via a new commit/PR; never reset/force push main. Run save compatibility and Pages checks before redeploying. Current change introduces no save-key/schema migration, and no action deletes localStorage. Do not roll back unrelated later main changes. Original sources remain recoverable at the SHAs above.
+| 対象 | 開始時HEAD | 状態・関係 |
+|---|---|---|
+| main | `851cf09a80c7ed41ba7293888084272917e4582c` | 最新なおぽよ。Chapter 2等を含む、復旧の基点 |
+| #426 | `8ba4ef1cb2030979664589d2e36423f58c4dedbd` | Open Draft、従来3Dホーム |
+| #462 | `e0c5c52671666e8ab06b37afabf3eeae29f530fa` | Open Draft、本人確認済みv9 |
 
-## Release gate
-NO MAIN MERGE OR PRODUCTION DEPLOY until the complete regression, exact-head CI, 13-region Chromium/WebKit input/layout/save matrix, independent review and clean HTTP artifact verification pass. Deployment success alone is insufficient.
+#462のbase `baseline/home-v22-art-20261028` は #426 HEADと一致。mainとの共通祖先は `0e0354b15ee8c29ad7e52dd0ba8c6993df80e643`。#462から見た開始mainは103コミット先行、130コミット分が未統合。
+
+最新mainから `integration/home-25d-release-20261030` を作成し、#462を一度だけ履歴統合。#426はその祖先として含める。元PRを二重マージしない。最初の統合コミット `75a81de547be726f90ddcf45e2fc9d07c4b0ef9e` の親は開始mainとv9 HEAD。以後の修正は追記コミット。force pushなし。元PRのブランチ・状態を変更していない。
+
+### 競合の解消
+
+- `index.html`: 最新mainの12項目メニューと各ゲーム導線を保持し、ホームの固定通知・会話・育成レイアウトとプレゼンターを接続。
+- `package.json`: 最新mainの全テストを保持し、#426のホーム回帰テスト群を追加。
+- `tools/pages/allowlist.json`: 最新mainの全配信ファイルを保持した集合に、ホームに必要なファイルと正式13画像を追加。依存ファイルのハッシュ検査も維持。
+- `script.js`: 自動マージ後の差分を確認。ホーム住人表示、会話の表示・入力保護、通知レーン、プレゼンター接続が中心。会話抽選・育成効果・加入・恋愛の条件変更は行わない。
+
+## 2. 正式採用する背景
+
+| 地域 | 採用候補ID | デザイン |
+|---|---|---|
+| おうち | home-interior-c | C案、温かな室内・南信州の大きな窓 |
+| もり | forest-waterfall | 滝のある深緑の森 |
+| みずべ | water-g | G案、天竜川型の翡翠色の清流 |
+| とかい | city | 夕暮れの日本の街並み |
+| いなか | countryside | 日本の田園・農村 |
+| やま | mountain | 中央アルプス型の山岳 |
+| ゆきぐに | snow | 雪山と雪国の集落 |
+| うみ | sea-b2 | B2案、正面の海と透明な浅瀬 |
+| ジャングル | jungle | 沖縄やんばる型の亜熱帯林 |
+| さばく | desert | 鳥取砂丘型の砂丘 |
+| しんかい | deepsea | 神秘的な深海 |
+| ほしぞらのていりゅうじょ | star-new | v7以降の新背景 |
+| きおくのみずうみ | lake-new | v7以降の新背景 |
+
+`home-production-manifest.mjs` は選定済み13候補だけを収録し、URLの比較指定で候補を変更しない。画像・地形は承認済みv9素材を再利用。PNG原画・旧候補・比較資料はGit履歴と元PRに残す。新しい背景画像の制作なし。
+
+## 3. 実装の保護
+
+- #426から: 最大28体の住人表示、タップ選択・地面タップ・ドラッグ、自律散歩・休憩・観察・交流、奥行き・影・遮蔽、会話・Reaction・育成UIの改善。
+- #462から: 13地域の2.5D絵画、歩行領域、観察点、遮蔽、v8の回転接地修正、v9水辺Gを継承。
+- `tools/home-production-sync.cjs` が既存v9アダプターから本番専用のモデル・プレゼンターを生成。HTMLがロードするプレゼンターは1個。旧3D本体を重複起動しない。
+- 卵は既存 `home-v6-egg.mjs` によりC案で表示。本番で卵を温めて孵化するブラウザーテストを追加。
+- 正式2D画像 `assets/characters`、各 `prototypes`、会話データ、Relationship関連、育成カタログ等を開始mainとのバイト比較で保護。
+- 履歴比較用QAは `tools/home-preview-entry.cjs` で使い捨てHTMLのプレゼンター参照を旧実装へ戻す。元の実装・テスト判定は変更しない。
+- 旧 `home-art-test.cjs` の実験全ツリー比較はv9の元SHAで8件成功。最新mainとの統合ツリーにその比較を適用すると正当なmain変更も拒否するため、別途main/v9双方の不変ファイルをピン留めして検証する。旧判定は削除・緩和していない。
+
+## 4. セーブと配信
+
+本番キーは `naotocchi-save-v1`、バックアップも既存の同キー系列。スキーマ変更・新規移行なし。削除・初期化処理を追加していない。
+
+v9は `naotocchi-home-v9-play-v1` / `naotocchi-home-v9-qa-v1` / `naotocchi-home-v9-sheet-v1` を使う独立配信。今回のブラウザーQAは `naotocchi-home-release-qa-v1` を使い、本番ユーザーデータを書き換えない。
+
+6種類の実際の旧保存形式（pre-v3、v3、v4-pre-master、v5-pre-items-v2、sticker-points-meguru-p1、meguru-p2）を現行ロード処理へ入力し、旧ホームと配信ホームの読込後全状態を比較して一致。これはフィクスチャ検証であり、本人のiPhone内の保存データを直接検証したという意味ではない。
+
+クリーンなPages成果物は **220,182,097 bytes / 4,119 files（約209.98 MiB）**。正式13画像はWebP、原画・旧比較・QA資料は配信から除外。開始mainの配信ファイルはすべて保持。350,000,000-byteの既存Pagesゲートも変更せず、256 MiBとの比較でも余裕がある。
+
+クリーン成果物のHTTP検証: 4,119ファイル、7エントリーポイント、452カードID/904画像を確認。欠落0、ハッシュ不一致0、除外7パス404。JavaScriptの圧縮・変換は追加せず、元ファイルをバイト単位で配信。
+
+## 5. 検証記録と未完了ゲート
+
+- 新規本番接続・不変性6件、旧セーブ互換性6件: 計12成功、失敗0、skip0。
+- 既存21テストファイルを本番アダプターで追加実行: 365成功、失敗0、skip0。Canvas/ImageはDOM単体テスト用スタブで、実画像デコードはブラウザーCIが担当。テスト本体の条件は不変。
+- Pages Pythonテスト: 16成功。
+- 12項目メニューテスト: 3成功。
+- 完全回帰の最初の試行: 先行グループ32+24成功、大グループ3,291中3,284成功・7失敗・skip0。7失敗は後で修正したキャッシュトークン2件と、当初のsparse checkoutで欠けていた履歴QA資料5件。資料を全取得し該当グループ20件/16件を再検証済み。完全なクリーン再実行が別途必要。
+- 最初のbaseline試行は作業ツリー変更と重なったため、クリーンなmain基準実行としては扱わない。
+- 独立レビューで通知の測定対象と本番アダプターのテスト不足を指摘。42pxの `homeEventSlot` を測る修正、本番専用harnessモード、実保存形式比較を追加。
+- 初回ブラウザーCIの移動失敗は、QAが初期化中の操作停止状態で移動要求していた。既存QAと同じ初期化を行い、操作可能状態を待つ。接地・経路の判定は緩めていない。
+- 続くChromiumの砂漠・雪国・ジャングルは4幅×3人数の接地・移動と6体実入力まで到達。会話QAの準備不足でその後失敗。既存会話QAと同じ正常状態準備に修正し再検証中。**これらを全シナリオ成功と報告しない。**
+- 新しい必須ブラウザーCI: 13地域 × 320/375/390/430 × 1/6/28 × Chromium/WebKit。実入力は6/28体、卵孵化、42/76px、会話選択、12メニュー、星空回転、セーブ再開、reduced-motion、JSエラーを確認。
+- ローカルPlaywrightはCDNからZIPではなく「Site Unavailable」HTMLが返り起動不能。GitHub Actionsで両エンジンを実行する。
+- GitHub CIは成功/失敗/実行中/待機中/キャンセル/スキップを区別。過去SHAの成功を最終SHAの成功に流用しない。
+
+公開前のクラウドChromeでは現行本番の卵画面、12項目メニュー、なおころ。・ものがたり・なおぽよ。・CARD GAMEの導線を確認。ゲームページ由来のJSエラーは観測せず（ブラウザー拡張由来のログは別）。既存セーブの削除操作は行っていない。これは新ホームの公開後QAではない。
+
+未完了: 必須CIの完了確認、全地域の最終視覚QA、28体の実入力、最終mainに対する回帰、公開後の実ブラウザー・配信ハッシュ検証。物理iPhone Safariの回転・背景復帰・タッチ操作・描画負荷は本人実機QAが必要。クラウドWebKit成功でも実機成功としない。
+
+## 6. 復旧手順
+
+1. マージ直前にmain HEADと現在のPages成功runを再記録。mainが進んでいれば統合と必要検証を更新。
+2. PR #490だけをレビュー済みSHAでマージ。元#426/#462を追加でマージしない。
+3. Pages deploy成功を待ち、公開SHA・配信ファイルのハッシュと実操作を検証。
+4. 重大な問題時は影響を特定し、統合マージのrevertを新しいコミット/PRで作る。mainのreset/force pushはしない。
+5. 本変更はセーブスキーマを変更しないが、復旧前に新旧の保存互換性を再確認。localStorageやバックアップを削除しない。後続の無関係なmain成果を巻き戻さない。
+
+復旧資料: 本文、開始main SHA、元PRの固定SHA、`docs/superpowers/plans/2026-10-30-home-25d-release.md`、PR #490とActions成果物。
+
+本人限定v9比較/試遊サイトは更新・削除していない。海A/B/B2、水辺A/G、特別2地域の旧/新をそのまま保持。
+
+## 7. 最終報告で必ず更新する事項
+
+マージ前の最終CI件数/結論、最終main SHA、マージ後CI、Pages deploy run、公開内容整合性、公開後操作結果、元PRの最終状態、残課題をPR #490へ記録する。未マージの元PRをマージ済みと記載しない。最終ゲートを通過していない場合は「未公開・main変更なし」と明示する。
