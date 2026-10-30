@@ -4,5 +4,6 @@ import {readFileSync} from 'node:fs';
 import {gunzipSync} from 'node:zlib';
 const [dir,...files]=process.argv.slice(2);
 const T=new Map();for(let k=0;k<4;k++)for(const l of gunzipSync(readFileSync(`${dir}/T-shard${k}.jsonl.gz`)).toString().split('\n').filter(Boolean)){const r=JSON.parse(l);T.set(r.match,r.saveSha256);}
-let same=0,diff=[];for(const f of files)for(const l of readFileSync(f,'utf8').split('\n').filter(Boolean)){const r=JSON.parse(l);if(T.get(r.match)===r.saveSha256)same++;else diff.push(r.match);}
+let same=0,diff=[];const text=f=>f.endsWith('.gz')?gunzipSync(readFileSync(f)).toString():readFileSync(f,'utf8');
+for(const f of files)for(const l of text(f).split('\n').filter(Boolean)){const r=JSON.parse(l);if(T.get(r.match)===r.saveSha256)same++;else diff.push(r.match);}
 console.log(JSON.stringify({reference:T.size,compared:same+diff.length,same,different:diff},null,1));
