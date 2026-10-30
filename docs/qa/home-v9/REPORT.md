@@ -102,3 +102,18 @@
 旧版の原画・候補・v7/v8 entrypointも保護。復旧は保存版11を再配信可能。今回は公開成功・全件一致のため復旧不要。
 
 制作・本人限定公開・ローカル検証・配信照合は完了。GitHub CIは依然queuedで、必要なCI成功という完了条件は未達。本人iPhone Safariの最終デザイン承認も未実施。水辺Gを自動採用せず、main/本番統合は行わない。
+
+
+## 再開後の検証結果（2026-10-30）
+
+- 再開時HEAD `8067baf5aa1211ad6f45854efaa612a096e92629`、CI修正HEAD `369858842b13a443aae217cf13c277d0a6da3f42`。水辺G・海B2・公開済みv9は作り直さず継承。
+- 旧run `41009097493` の海B2操作テストは、テスト用の保存初期化が`about:blank`でlocalStorageを読み失敗。正確なテストoriginでのみ初期化する修正を実施。エラー検出・実ポインタ・reduced-motion・セーブ再開・保存値保護のassertionは維持。詳細はCI-FOLLOWUP-20261030.md。
+- 修正の単体テスト3件、既存v9 manifest/地域選択4件、加算ビルド1件＝8件成功。今回再実行した既存全回帰3,690件も全件成功、失敗0、skip/cancel0。ログ`regression-followup.log.gz`、集計`regression-followup.json`。
+- 独立レビュー：Critical/Importantなし。小テスト3件を独立再実行して成功。Minorはstorageプロパティgetterそのものを使った再現テストへの改善余地。現テストでも修正前は失敗、修正後は成功し、実originのstorageエラーが隠されないことを確認。
+- ローカルのクラウドChromeで水辺Gを390px・28体表示、28/28 safe、通知42px・会話76pxを再確認。これはiPhone Safari実機QAではない。
+- Sitesの保存版12・公開succeeded・owner1名/グループ0/外部閲覧者0・正常v8保存版11を再確認。匿名ブラウザーはサインイン要求。
+- 公開v9 manifest内30ファイルを認証付きHTTPで再取得し、30/30が公開時SHA256と一致。raw再ビルドでは2本のJSに既存整形差があるが、位置情報/コメントを除くAST一致を検証。`delivery-followup.json`。前回の全4,304ファイル一致記録も保持。
+- 新CI run [41014280598](https://github.com/Naoto214/naotocchi/actions/runs/41014280598) は最終確認時47/47 queued。CI成功条件は未達。ブラウザーCI修正の最終成功や性能を断定しない。`ci-followup-status.json`を参照。
+- main `851cf09a80c7ed41ba7293888084272917e4582c` とPR #426 `8ba4ef1cb2030979664589d2e36423f58c4dedbd` は今回の再開開始時から不変。本作業はPR #462のみ更新。本番Pages/v22/Sites配信/ゲーム保存への更新なし。
+- この最終追補コミットはdocs内の記録だけを追加し、`[skip ci]`で同一コードの47ジョブを重複起動しない。検証対象は上記CI修正HEADであり、そのCIは停止・成功扱い・緩和していない。
+- 残件：GitHub CI完了確認、本人iPhoneで水辺A/Gの最終選択と操作・育成・回転・再開・性能QA。水辺G正式採用、main統合、本番公開は行っていない。
