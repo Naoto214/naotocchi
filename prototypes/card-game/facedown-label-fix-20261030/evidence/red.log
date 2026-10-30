@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: 持ち主の誘発：相手が同じ名前の札を伏せていても、自分のボンバーの名前が出る
+not ok 1 - 持ち主の誘発：相手が同じ名前の札を伏せていても、自分のボンバーの名前が出る
+  ---
+  duration_ms: 11.106215
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/own-facedown-label.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: 'しかけたカードの能力を発動 / しかけたカードを見送る'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/own-facedown-label.test.mjs:24:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: 持ち主の対象選択：自分の伏せ札は名前、相手の伏せ札は「しかけたカード」
+not ok 2 - 持ち主の対象選択：自分の伏せ札は名前、相手の伏せ札は「しかけたカード」
+  ---
+  duration_ms: 4.614376
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/own-facedown-label.test.mjs:26:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /ほんかくさかなつり/. Input:
+    
+    '対象 1：しかけたカード'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '対象 1：しかけたカード'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/own-facedown-label.test.mjs:28:93)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: 連鎖の対象：持ち主は自分の札の名前、相手の伏せ札は「しかけたカード」。相手（B）からは A の伏せ札が見えない
+not ok 3 - 連鎖の対象：持ち主は自分の札の名前、相手の伏せ札は「しかけたカード」。相手（B）からは A の伏せ札が見えない
+  ---
+  duration_ms: 5.156944
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/own-facedown-label.test.mjs:33:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'しかけたカード / しかけたカード'
+    - 'ほんかくさかなつり / しかけたカード'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'ほんかくさかなつり / しかけたカード'
+  actual: 'しかけたカード / しかけたカード'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/own-facedown-label.test.mjs:38:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 相手（B）の画面：A の伏せ札は名前も本文も出ない（盤面・行動・選択とも）
+ok 4 - 相手（B）の画面：A の伏せ札は名前も本文も出ない（盤面・行動・選択とも）
+  ---
+  duration_ms: 3.543544
+  type: 'test'
+  ...
+# Subtest: CPU対戦（初級・中級）の全局面：相手の伏せ札の名前は、行動・選択・連鎖の表示に出ない
+ok 5 - CPU対戦（初級・中級）の全局面：相手の伏せ札の名前は、行動・選択・連鎖の表示に出ない
+  ---
+  duration_ms: 2797.485228
+  type: 'test'
+  ...
+# Subtest: 同じ名前の札を伏せ合う実際の対戦（CPU）：持ち主には自分の伏せ札の名前が出る。保存→復帰後も表示は同じ
+not ok 6 - 同じ名前の札を伏せ合う実際の対戦（CPU）：持ち主には自分の伏せ札の名前が出る。保存→復帰後も表示は同じ
+  ---
+  duration_ms: 1609.197934
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/own-facedown-label.test.mjs:62:1'
+  failureType: 'testCodeFailure'
+  error: 'しかけたカードの能力を発動 → おべんとうばこ'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/own-facedown-label.test.mjs:65:148)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 2
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4534.216051
