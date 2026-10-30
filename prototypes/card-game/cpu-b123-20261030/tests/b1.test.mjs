@@ -53,3 +53,9 @@ function synthetic(challenge){
 const synScore=(o)=>OFFICIAL?o.actions.map(a=>official.scoreCpuAction(a,o,official.legacySpend,official.PROFILES.intermediate)):o.actions.map(a=>exp.scoreCpuAction(a,o,exp.legacySpend,{...exp.PROFILES.intermediate,b1:true}));
 test('B1 ほかの能力値選択（ペンギン⑥型・このターン+1）: ちえの勝負ではちえ',()=>{const s=synScore(synthetic({parameter:'wisdom',completed:false}));assert.ok(s[1]>s[0],`power=${s[0]} wisdom=${s[1]}`);});
 test('B1 ほかの能力値選択: 勝負の外では差の大きい能力値（ちから+1）を優先',()=>{const s=synScore(synthetic(null));assert.ok(s[0]>s[1]&&s[1]>0,`power=${s[0]} wisdom=${s[1]}`);});
+// Regression found in the first E1 run (results/E1-v0): B1 must not change whether a FIXED-stat card is played.
+// ビーチバレー (ちから+2 only) in a wisdom challenge still triggers あそびずきカワウソ (+5 on the next challenge win).
+if(!OFFICIAL)test('B1 選択肢のない能力値カード（ビーチバレー）の評価は変えない（カワウソの誘発など別の理由を残す）',()=>{
+ const {f,s}=pos('volley:otter'),a=scored(s,f.seat,'exp',{}),b=scored(s,f.seat,'exp',{b1:true});
+ a.o.actions.forEach((x,i)=>{if(x.card?.cardId==='G-beach-volley')assert.equal(b.score[i],a.score[i]);});
+ assert.equal(a.o.actions.find(x=>x.id===a.choice.id).card?.cardId,b.o.actions.find(x=>x.id===b.choice.id).card?.cardId);});

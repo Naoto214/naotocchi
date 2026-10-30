@@ -53,7 +53,9 @@ function stepValue(steps,o,a,prof=PROFILES.intermediate){
  case 'draw':v=(s.to==='opponent'?-1:1)*Math.min(n,p.deckCount)*3;break;
  case 'search':v=searchValue(s,o,prof)??(p.deckCount?5:0);break;
  case 'chooseTop':case 'revealTopType':case 'deepseaFishing':v=p.deckCount?5:0;break;
- case 'stat':if(prof.b1&&live(o)){const k=o.challenge.parameter,on=(k==='power'?s.power:s.wisdom)??0,off=(k==='power'?s.wisdom:s.power)??0;v=targetSign*(on*2.4+(s.duration==='turn'?off*.2:0));break;}
+ // Only when the action itself chooses the stat (a variant such as パンチ/ガード). A fixed-stat card (ビーチバレー) keeps the
+ // official value: whether to play it at all is not a stat choice, and it can have other reasons (e.g. あそびずきカワウソ).
+ case 'stat':if(prof.b1&&live(o)&&a.variant!=null){const k=o.challenge.parameter,on=(k==='power'?s.power:s.wisdom)??0,off=(k==='power'?s.wisdom:s.power)??0;v=targetSign*(on*2.4+(s.duration==='turn'?off*.2:0));break;}
   v=targetSign*((s.power??0)+(s.wisdom??0))*(o.challenge?2.4:s.duration==='turn'&&o.turn!==o.seat?.2:1.1);break;
  case 'chosenStat':case 'battleStat':if(prof.b1&&s.op==='chosenStat'&&STATS.has(a.variant)){
    // The variant fixes which stat rises. In an open challenge only the compared stat matters; a turn-long boost of the
