@@ -4,6 +4,7 @@
 //  b1: stat choices follow the open challenge's parameter (variant-bearing stat actions).
 //  b2: on the seat's last turn horizon, cards/time with no later use are not held back.
 //  b3: a trap is valued by its chance to fire (self-driven vs opponent-driven triggers).
+//  b4: equal-value candidates do not cancel each other in the time opportunity cost (PR #488 P-1, owner's B-2).
 // Needs the extra hints added by ./observe-exp.mjs (variantCond, statVariant, oppUsable, trapHint, horizon).
 // Pure replaceable decision policy. No engine import, transition, random source or hidden state.
 export const POLICY_VERSION='heuristic-1';
@@ -141,13 +142,17 @@ export function scoreCpuAction(a,o,spendOf=legacySpend,prof=PROFILES.intermediat
 // Time is reset to the round number at each own turn start (engine beginTurn) and never carries over. In the own normal
 // phase and on the opponent's turn, paying time only costs what it makes unaffordable: the best other candidate now,
 // or one card-equivalent (3) when a held reaction card could no longer be paid for.
+// b4 (= owner's "B-2", PR #488 P-1): charge only alternatives worth strictly MORE than this action. An equal or worse
+// alternative that becomes unaffordable is no loss (the CPU would take this action anyway), so two equal candidates no
+// longer cancel each other to 0 and tie with passing. Identical to #488 lib/counterfactual.mjs strictlyBetter
+// (checked by tools/b4-identity.mjs). Not the final-turn switch b2.
 export function timeOpportunity(o,prof=PROFILES.intermediate){
  const own=o.turn===o.seat;if(prof.time!=='opportunity'||!(own&&o.phase==='normal')&&own)return null;
  const t=o.players[o.seat].time??0,base=o.actions.map(a=>scoreCpuAction(a,o,()=>0,prof));
  return o.actions.map((a,i)=>{const c=a.cost??0;if(c<=0)return base[i];const left=t-c;
   // A reserved time-skip effect does not give up a time-skip that is still affordable afterwards (e.g. a cheaper quote of it).
   const keptSkip=b=>a.timeSkipAfter?.length&&b.kind==='place'&&b.variant==='time_skip'&&o.actions.some(x=>x.kind==='place'&&x.variant==='time_skip'&&x.card?.id===b.card?.id&&(x.cost??0)<=left);
-  let alt=0;o.actions.forEach((b,j)=>{if(j!==i&&(b.cost??0)>left&&(b.cost??0)>0&&!(a.card&&b.card?.id===a.card.id)&&!['pass','choose','skip'].includes(b.kind)&&!keptSkip(b))alt=Math.max(alt,base[j]);});
+  let alt=0;o.actions.forEach((b,j)=>{if(j!==i&&(b.cost??0)>left&&(b.cost??0)>0&&!(a.card&&b.card?.id===a.card.id)&&!(prof.b4&&base[j]<=base[i])&&!['pass','choose','skip'].includes(b.kind)&&!keptSkip(b))alt=Math.max(alt,base[j]);});
   const reserve=own&&(o.reactive??[]).some(r=>r.id!==a.card?.id&&r.cost<=t&&r.cost>left)?3:0;
   return base[i]-Math.max(alt,reserve);});
 }

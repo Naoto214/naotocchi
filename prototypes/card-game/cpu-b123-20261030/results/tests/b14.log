@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: fight:wisdom:opp 正式：2枚が相殺し、全ての型が0点（パスと同点）
+ok 1 - fight:wisdom:opp 正式：2枚が相殺し、全ての型が0点（パスと同点）
+  ---
+  duration_ms: 1.371484
+  type: 'test'
+  ...
+# Subtest: fight:wisdom:opp B1単独：正しい型も相殺で0点のまま、パスが残る
+ok 2 - fight:wisdom:opp B1単独：正しい型も相殺で0点のまま、パスが残る
+  ---
+  duration_ms: 0.182285
+  type: 'test'
+  ...
+# Subtest: fight:wisdom:opp B4単独：相殺は消えるが、正しい型と種目違いの型が同点
+ok 3 - fight:wisdom:opp B4単独：相殺は消えるが、正しい型と種目違いの型が同点
+  ---
+  duration_ms: 0.190872
+  type: 'test'
+  ...
+# Subtest: fight:wisdom:opp B1＋B4：正しい型だけが正の評価で、200 seed すべて正しい型
+ok 4 - fight:wisdom:opp B1＋B4：正しい型だけが正の評価で、200 seed すべて正しい型
+  ---
+  duration_ms: 0.810241
+  type: 'test'
+  ...
+# Subtest: fight:power:opp 正式：2枚が相殺し、全ての型が0点（パスと同点）
+ok 5 - fight:power:opp 正式：2枚が相殺し、全ての型が0点（パスと同点）
+  ---
+  duration_ms: 0.229552
+  type: 'test'
+  ...
+# Subtest: fight:power:opp B1単独：正しい型も相殺で0点のまま、パスが残る
+ok 6 - fight:power:opp B1単独：正しい型も相殺で0点のまま、パスが残る
+  ---
+  duration_ms: 0.107435
+  type: 'test'
+  ...
+# Subtest: fight:power:opp B4単独：相殺は消えるが、正しい型と種目違いの型が同点
+ok 7 - fight:power:opp B4単独：相殺は消えるが、正しい型と種目違いの型が同点
+  ---
+  duration_ms: 0.223772
+  type: 'test'
+  ...
+# Subtest: fight:power:opp B1＋B4：正しい型だけが正の評価で、200 seed すべて正しい型
+ok 8 - fight:power:opp B1＋B4：正しい型だけが正の評価で、200 seed すべて正しい型
+  ---
+  duration_ms: 0.090421
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 940.145419

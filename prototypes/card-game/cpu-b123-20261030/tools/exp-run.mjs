@@ -8,7 +8,7 @@ import * as e from '../../engine.mjs';
 import {RULES} from '../../rules.mjs';
 import {advanceResponses} from '../../auto-progress.mjs';
 import {permutations,inputFor,apply,sha} from '../../balance-verification-20261020/lib.mjs';
-import {chooseCpuAction} from '../lib/policy-exp.mjs';
+import {chooseCpuAction,scoreCpuAction,timeOpportunity,legacySpend,PROFILES} from '../lib/policy-exp.mjs';
 import {observeExp} from '../lib/observe-exp.mjs';
 import {ARMS} from '../lib/arms.mjs';
 const STAT={power:'power',wisdom:'wisdom','パンチ':'power','キック':'power','ガード':'wisdom'};
@@ -19,7 +19,10 @@ export function play(M,m,armName,hooks={}){
  const seatOrder={A:m.first==='X'?order.X:order.Y,B:m.first==='X'?order.Y:order.X};
  let s=e.createGame(g.orderSeed,{A:inputFor(seatOrder.A,perm.A),B:inputFor(seatOrder.B,perm.B)});
  const seat=()=>({decisions:0,ms:0,statChoice:{},challenge:{declared:0,declaredWon:0,declaredDraw:0,defended:0,defendedWon:0,defendedDraw:0},
-  traps:{set:{},fired:{},leftAtEnd:{},delay:0,blockedFull:0},r10:{plays:0,spent:0},quick:{}});
+  traps:{set:{},fired:{},leftAtEnd:{},delay:0,blockedFull:0},r10:{plays:0,spent:0},quick:{},
+  // Unnatural passes (follow-up E4/E14): pass chosen while a candidate that is positive without the time cost scored
+  // exactly 0 (tie with passing); egg stall = own normal-phase pass with no main while a birth is legal.
+  stall:{zeroTiePass:0,zeroTieOwn:0,zeroTieOpp:0,byKind:{},eggStall:0,earlyMainStall:0,firstBirth:null}});
  const R={match:m.match,group:m.group,pair:m.pair,first:m.first,arm:armName,deck:{A:m.deckA,B:m.deckB},difficulty:m.difficulty,status:'running',error:null,seat:{A:seat(),B:seat()}};
  const setRound={},step={A:0,B:0};
  const advance=()=>{const r=advanceResponses(s);s=r.state;if(r.halted)throw Error('auto-advance halted: '+r.reason);};
@@ -32,6 +35,13 @@ export function play(M,m,armName,hooks={}){
    S.ms+=performance.now()-t0;S.decisions++;
    const raw=e.legalActions(s),i=o.actions.findIndex(x=>x.id===d.id);if(i<0||raw.length!==o.actions.length)throw Error('Invalid CPU decision');
    const act=raw[i],src=act.source?cid(s,act.source):null;hooks.onDecision?.(s,a,o,d,act);
+   if(act.kind==='pass'&&!s.choice&&(s.phase==='normal'||s.phase==='response')){
+    const pf={...PROFILES[m.difficulty[a]],...prof},tt=timeOpportunity(o,pf),fin=o.actions.map((x,j)=>tt?tt[j]:scoreCpuAction(x,o,legacySpend,pf));
+    const zero=o.actions.filter((x,j)=>x.kind!=='pass'&&Math.abs(fin[j])<1e-9&&scoreCpuAction(x,o,()=>0,pf)>0);
+    if(zero.length){S.stall.zeroTiePass++;S.stall[s.turn===a?'zeroTieOwn':'zeroTieOpp']++;const z=zero[0],k=z.kind==='place'?(z.slot==='main'?z.variant:z.slot):z.kind;inc(S.stall.byKind,k);}
+    if(s.phase==='normal'&&s.turn===a){const births=o.actions.filter(x=>x.kind==='place'&&x.slot==='main');
+     if(!p.board.main&&births.length)S.stall.eggStall++;else if(s.round<=3&&births.some(x=>x.variant==='time_skip'))S.stall.earlyMainStall++;}}
+   if(act.kind==='place'&&act.slot==='main'&&act.variant==='birth'&&S.stall.firstBirth===null)S.stall.firstBirth=s.round;
    if(s.challenge&&!s.challenge.completed&&act.variant in STAT&&src){const c=S.statChoice[src]??={match:0,mismatch:0};c[STAT[act.variant]===s.challenge.parameter?'match':'mismatch']++;}
    if(act.kind==='place'&&act.trap){inc(S.traps.set,src);setRound[act.source]=s.round;}
    if(s.phase==='trigger'&&act.kind==='trigger'&&p.board.prepared.some(x=>x.id===act.source&&x.faceDown)){inc(S.traps.fired,src);S.traps.delay+=s.round-(setRound[act.source]??s.round);}

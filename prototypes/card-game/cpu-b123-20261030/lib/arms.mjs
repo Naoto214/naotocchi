@@ -8,4 +8,10 @@ export const ARMS=Object.freeze({
  E2:{intermediate:{b2:true}},                                    // B2 for intermediate only
  E2b:{beginner:{b2:true},pairs:['BB','BI','IB']},                // B2 for beginner only
  E3:{intermediate:{b3:true}},                                    // B3 for intermediate only
+ // Follow-up (PLAN.md 追補計画, approved 2026-10-30). BB pairs are identical to base for intermediate-only switches.
+ E4:{intermediate:{b4:true},pairs:['II','BI','IB']},             // B4 (owner's B-2 = #488 P-1) only
+ E14:{intermediate:{b1:true,b4:true},pairs:['II','BI','IB']},    // B1 + B4
+ // Re-measurement of existing arms with the stall metrics (must reproduce the stored save sha256 exactly).
+ baseM:{pairs:['II','BI','IB']},
+ E1M:{intermediate:{b1:true},pairs:['II','BI','IB']},
 });
