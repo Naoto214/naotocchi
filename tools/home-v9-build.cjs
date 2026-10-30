@@ -7,6 +7,8 @@ function put(n,s){fs.writeFileSync(path.join(out,n),s);files.push(n);}
 for(const n of fs.readdirSync(out).filter(n=>/^(qa-home-v8|home-v8)/.test(n)&&/\.(js|mjs|html|css)$/.test(n))){put(n.replaceAll('v8','v9'),convert(read(n)));}
 put('home-v9-manifest.mjs',fs.readFileSync('home-v9-manifest.mjs','utf8'));
 for(const [src,dst]of [['gallery.html','home-v9.html'],['gallery.js','home-v9-gallery.js'],['qa.js','home-v9-qa-runner.js'],['qa.html','home-v9-validation.html']])put(dst,fs.readFileSync('tools/home-v9-'+src,'utf8'));
+put('home-v9-manual.js',fs.readFileSync('tools/home-v9-manual.js','utf8'));
+put('home-v9-qa.html',read('home-v9-qa.html').replace('</html>','<script src="home-v9-manual.js"></script></html>'));
 const image='assets/home-v9-20261030/runtime/water-g.webp';fs.mkdirSync(path.dirname(path.join(out,image)),{recursive:true});fs.copyFileSync(image,path.join(out,image));files.push(image);
 fs.mkdirSync(path.join(out,'v9-comparisons'),{recursive:true});for(const n of fs.readdirSync('docs/qa/home-v9').filter(n=>n.endsWith('.webp'))){const dst='v9-comparisons/'+n;fs.copyFileSync('docs/qa/home-v9/'+n,path.join(out,dst));files.push(dst);}
 const unique=[...new Set(files)];put('release-v9.json',JSON.stringify({version:9,githubHead:process.env.HOME_V9_GITHUB_HEAD||require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),baselineGitHub:'5376d2e6ca29652cd8ae30ada37ec2e91aff43f9',adoption:{water:'water A retained',waterG:'comparison only; owner iPhone QA required',sea:'sea-b2 design',star_stop:'star-new design',memory_lake:'lake-new design',production:'not approved'},files:Object.fromEntries(unique.map(n=>[n,crypto.createHash('sha256').update(fs.readFileSync(path.join(out,n))).digest('hex')]))},null,2)+'\n');
