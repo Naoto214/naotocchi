@@ -1,0 +1,79 @@
+✖ all chapter2 stages select contact rules; published chapter1 does not (1.860436ms)
+✖ swap draws two separated arcs for 180ms while logical board is immediate (1.896765ms)
+✔ diagonal arcs separate and finish on exact logical feet (1.50101ms)
+✔ fast/slow multi-swap gesture has one Undo and survives save/restore (3.621632ms)
+✔ exchange followed by fall keeps held ID and next drag uses new logical position (0.847534ms)
+✖ supported-v1 progress migrates read-only with no old board/Undo (1.272759ms)
+✔ mismatched exit occupant restores and Undo returns to origin (0.564587ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 4
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 125.502145
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/contact-session.test.mjs:6:1
+✖ all chapter2 stages select contact rules; published chapter1 does not (1.860436ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'contact-v1'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-session.test.mjs:6:117)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'contact-v1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-session.test.mjs:7:1
+✖ swap draws two separated arcs for 180ms while logical board is immediate (1.896765ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  110 !== 180
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-session.test.mjs:9:62)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 110,
+    expected: 180,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-session.test.mjs:24:1
+✖ supported-v1 progress migrates read-only with no old board/Undo (1.272759ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to:
+  
+  'naopoyo.komorebi.supported.20261024.v1'
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-session.test.mjs:26:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'naopoyo.komorebi.supported.20261024.v1',
+    expected: 'naopoyo.komorebi.supported.20261024.v1',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

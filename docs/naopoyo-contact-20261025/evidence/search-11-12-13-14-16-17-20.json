@@ -1,0 +1,1095 @@
+[
+  {
+    "id": "komorebi-fall",
+    "number": 11,
+    "stage": {
+      "id": "komorebi-fall",
+      "number": 11,
+      "title": "11 落ちる森",
+      "w": 8,
+      "h": 8,
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "gravity": true,
+      "walls": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 6,
+          "y": 7,
+          "exact": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 1,
+          "y": 2,
+          "level": 1,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 6,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "discovery": "岩を離れ、落下先の仲間と自動合体する。",
+      "lesson": "岩の先には、下へ続く道。",
+      "story": "森の灯りをたどると、足もとの岩が途切れていた。下で仲間が、こちらを見上げている。",
+      "ending": "落ちた先で、ふたつの光がひとつになった。",
+      "hints": [
+        "触れる前から、重力は下向き。岩の上では止まるよ。",
+        "1の下にいる2と合わせたい。岩の右端を見よう。",
+        "上の1を右へ2マス。落ちて3になったら、右下の星へ。"
+      ],
+      "hint": "触れる前から、重力は下向き。岩の上では止まるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "complete": true
+    },
+    "result": {
+      "status": "solved",
+      "visited": 52,
+      "expanded": 42,
+      "edges": 179,
+      "depth": 5,
+      "path": [
+        {
+          "at": [
+            1,
+            2
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            2
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "shortestProven": true,
+      "elapsedMs": 7,
+      "method": "bfs"
+    },
+    "replayed": true
+  },
+  {
+    "id": "komorebi-support",
+    "number": 12,
+    "stage": {
+      "id": "komorebi-support",
+      "number": 12,
+      "title": "12 支え合う仲間",
+      "w": 8,
+      "h": 8,
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 2
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 0,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 3,
+      "discovery": "先に合体して段階8を作ると、合体しない安定した足場になる。",
+      "lesson": "同じ仲間でも、大きさで支え方が変わる。",
+      "story": "「みんな、すぐくっついちゃうね」岩の上から、ねこが首をかしげた。",
+      "narrator": {
+        "name": "きまぐれなねこ",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "ending": "大きな仲間が、小さな仲間を高い星へ送り出した。",
+      "hints": [
+        "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+        "4と4を先に合わせて、岩の左下に8を作ろう。",
+        "2を8の上へ、さらに右上の岩へ。2を上の星へ送ってから、8も下の星へ。"
+      ],
+      "hint": "普通の仲間に落ちると合体。下が8なら、その上で止まれるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "complete": true
+    },
+    "result": {
+      "status": "solved",
+      "visited": 34,
+      "expanded": 32,
+      "edges": 129,
+      "depth": 5,
+      "path": [
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 2,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 2,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            5
+          ],
+          "level": 2,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "shortestProven": true,
+      "elapsedMs": 2,
+      "method": "bfs"
+    },
+    "replayed": true
+  },
+  {
+    "id": "komorebi-last-friend",
+    "number": 13,
+    "stage": {
+      "id": "komorebi-last-friend",
+      "number": 13,
+      "title": "13 最後のひとり",
+      "w": 8,
+      "h": 8,
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 2,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 0,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 4,
+      "discovery": "足場を残して先へ渡り、下の道から同じ足場を運び直す。最後に足場役を回収する。",
+      "lesson": "先へ進む仲間と、あとに残る仲間。",
+      "story": "星は見える。でも岩と岩のあいだには、もう一つのすきまがあった。「あとで、迎えにくるね」",
+      "ending": "最後のひとりも、星の向こうへ。森の奥で、木の葉が小さく揺れた。",
+      "hints": [
+        "8を支えにする道と、8だけが入れる星を支えにする道があるよ。",
+        "まず4を左の岩の上へ。8だけが、岩の下の門を通れるよ。",
+        "4を岩の上に残し、8を門の右のすきまへ運ぶ。4をその上に落として右上の星へ。最後に8を下の星へ。"
+      ],
+      "hint": "8を支えにする道と、8だけが入れる星を支えにする道があるよ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "complete": true
+    },
+    "result": {
+      "status": "solved",
+      "visited": 65,
+      "expanded": 62,
+      "edges": 213,
+      "depth": 10,
+      "path": [
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            6
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            5
+          ],
+          "level": 4,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "shortestProven": true,
+      "elapsedMs": 6,
+      "method": "bfs"
+    },
+    "replayed": true
+  },
+  {
+    "id": "komorebi-fall-order",
+    "number": 14,
+    "stage": {
+      "id": "komorebi-fall-order",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 4,
+          "y": 5,
+          "exact": 4
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 1,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "number": 14,
+      "title": "14 落とす順番",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 3,
+      "discovery": "先に5を下の2へ落として7にし、次の5との合体で8と4を上下に作る。",
+      "lesson": "同じ場所へ落ちても、順番で道が変わる。",
+      "story": "二つの枝の下に、小さな仲間が待っていた。",
+      "ending": "落ちた光が、帰り道の高さを変えた。",
+      "hints": [
+        "星は4と8。いまいるのは5と5と2。",
+        "下の2へ5を先に落とすと7。そこへ次の5を合わせると、8と余った4になる。",
+        "左の枝の5を右上へ動かし、下の2へ落とそう。その後、右の枝の5を左へ動かして7と合わせよう。"
+      ],
+      "hint": "星は4と8。いまいるのは5と5と2。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "error": "witness rejected 6: foothold"
+    },
+    "result": {
+      "status": "solved",
+      "visited": 863,
+      "expanded": 768,
+      "edges": 4316,
+      "depth": 11,
+      "path": [
+        {
+          "at": [
+            0,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 7,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 7,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 7,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 7,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            6
+          ],
+          "level": 4,
+          "d": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "shortestProven": true,
+      "elapsedMs": 62,
+      "method": "bfs"
+    },
+    "replayed": true
+  },
+  {
+    "id": "komorebi-woven-path",
+    "number": 16,
+    "stage": {
+      "id": "komorebi-woven-path",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 8
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        }
+      ],
+      "number": 16,
+      "title": "16 小さな橋を編む",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 4,
+      "discovery": "分裂体の置き場所を変え、上側で8を再構成する。残り5は下の道から回収する。",
+      "lesson": "小さく分かれた仲間が、道をつなぐ。",
+      "story": "遠くの星は8。でも、そこへ続く足場にはトゲがあった。",
+      "ending": "ばらばらの光が、岩の上でもう一度集まった。",
+      "hints": [
+        "上の8を先に帰すには、トゲの向こうで8を作る必要がある。",
+        "分かれた1は、数を足す材料にも、次の仲間が届く足場にもなる。",
+        "左の8を右上へ重ねて上下を作り、8を中央のトゲへ。残った5も岩の上へ運ぼう。"
+      ],
+      "hint": "上の8を先に帰すには、トゲの向こうで8を作る必要がある。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "complete": true
+    },
+    "result": {
+      "status": "limit",
+      "visited": 136534,
+      "expanded": 88617,
+      "edges": 1185051,
+      "shortestProven": false,
+      "elapsedMs": 25001,
+      "method": "bfs"
+    }
+  },
+  {
+    "id": "komorebi-relay-foothold",
+    "number": 17,
+    "stage": {
+      "id": "komorebi-relay-foothold",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [],
+      "exits": [
+        {
+          "x": 5,
+          "y": 4,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "spikes": [
+        {
+          "x": 2,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 3,
+          "species": "dog"
+        }
+      ],
+      "number": 17,
+      "title": "17 支える役を交代",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 5,
+      "discovery": "二段上の星へ3を届けるため、分裂後の仲間を再配置して段階的に支える。",
+      "lesson": "同じ足場に、ずっと頼ることはできない。",
+      "story": "見上げた先に、もう一段高い枝があった。",
+      "ending": "進む役と支える役が、静かに入れ替わった。",
+      "hints": [
+        "3の星は、これまでより一段高い。",
+        "トゲを越えただけでは届かない。途中の岩の高さと、支える8の場所を考えよう。",
+        "左の8を右上へ。上下に分かれてからトゲへ入り、右側に運ぶ仲間と残す仲間を選ぼう。"
+      ],
+      "hint": "3の星は、これまでより一段高い。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "complete": true
+    },
+    "result": {
+      "status": "limit",
+      "visited": 100643,
+      "expanded": 81583,
+      "edges": 1250648,
+      "shortestProven": false,
+      "elapsedMs": 25000,
+      "method": "bfs"
+    }
+  },
+  {
+    "id": "komorebi-forest-trial",
+    "number": 20,
+    "stage": {
+      "id": "komorebi-forest-trial",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 4
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 7
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 20,
+      "title": "20 森の結び目",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 8,
+      "discovery": "8で下の門を通り、左右で3と4を作って上の作業場へ運び7にする。残る9を3ずつ回収する。",
+      "lesson": "支える場所も、分かれる順番も、きみたちで。",
+      "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+      "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+      "hints": [
+        "下の門は8。上の門は3と4。でも上の星は7。",
+        "7は上の門を通れない。門の向こうで3＋4を組もう。その材料を残しつつ、下の3の星から先に仲間を帰そう。",
+        "二つの8で下の門を通り、岩に支えられたトゲで分けよう。上の作業場で7を作ったら、左上の岩へ登って星へ。"
+      ],
+      "hint": "下の門は8。上の門は3と4。でも上の星は7。",
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "oldWitness": {
+      "error": "witness rejected 3: corner"
+    },
+    "result": {
+      "status": "exhausted",
+      "visited": 34,
+      "expanded": 34,
+      "edges": 221,
+      "shortestProven": false,
+      "elapsedMs": 9,
+      "method": "bfs"
+    }
+  }
+]

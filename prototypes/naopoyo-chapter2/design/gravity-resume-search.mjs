@@ -1,0 +1,5 @@
+import fs from 'node:fs';import {stages} from '../stages.mjs';import {search,replay} from '../search.mjs';import {createState,settle,move} from '../../naopoyo-v2/engine.mjs';
+const stage=stages.find(s=>s.number===18),old=JSON.parse(fs.readFileSync('docs/naopoyo-chapter2-20261024/expansion-solutions.json')).stages.find(s=>s.id===stage.id);const s=createState(stage);settle(s);const prefix=[];
+for(const p of old.path){const a=s.actors.find(a=>a.x===p.at[0]&&a.y===p.at[1]);if(!a||!move(s,a.id,...p.d).ok)break;prefix.push(p)}console.log('prefix',prefix.length,s.actors);
+const score=s=>s.actors.reduce((v,a)=>v+(a.x<3?50+Math.abs(a.level-8)*5:0)+(a.y<=5?Math.min(Math.abs(a.level-3),Math.abs(a.level-5))*8-12:8)+(a.x>3&&a.y===7&&a.level<3?8:0),0)-s.rescued*20;
+const r=search(stage,{initial:s,method:'greedy',score,limit:600000,maxMs:60000});if(r.path)r.path=[...prefix,...r.path];fs.writeFileSync('docs/naopoyo-gravity-20261024/evidence/18-resume.json',JSON.stringify({stage,result:r,prefix},null,2));console.log(r.status,r.path?.length,r.visited);

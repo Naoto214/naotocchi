@@ -1,0 +1,133 @@
+TAP version 13
+# Subtest: gate numbers 1–8 remain large and centered in the actual cell after Canvas transforms
+ok 1 - gate numbers 1–8 remain large and centered in the actual cell after Canvas transforms
+  ---
+  duration_ms: 26.4046
+  type: 'test'
+  ...
+# Subtest: contact progress migrates without board/Undo or writes to old key
+ok 2 - contact progress migrates without board/Undo or writes to old key
+  ---
+  duration_ms: 11.145342
+  type: 'test'
+  ...
+# Subtest: phase glow is transient, reduced motion clears it, Undo restores board
+ok 3 - phase glow is transient, reduced motion clears it, Undo restores board
+  ---
+  duration_ms: 16.719261
+  type: 'test'
+  ...
+# Subtest: overlapping and diagonally moving actors never relocate or duplicate the gate number
+not ok 4 - overlapping and diagonally moving actors never relocate or duplicate the gate number
+  ---
+  duration_ms: 30.523559
+  type: 'test'
+  location: '/workspace/scratch/b6f4b035b2fd/naotocchi/prototypes/naopoyo-chapter2/tests/magic-rock-visual.test.mjs:23:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(Math.abs(numbers[0].x-140)<.01)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/naotocchi/prototypes/naopoyo-chapter2/tests/magic-rock-visual.test.mjs:28:10)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: normal chapter 10 → 11 → 12 → 13 and replay never relocks
+ok 5 - normal chapter 10 → 11 → 12 → 13 and replay never relocks
+  ---
+  duration_ms: 527.768926
+  type: 'test'
+  ...
+# Subtest: read-only chapter-one completion seeds trial; all writes are isolated
+ok 6 - read-only chapter-one completion seeds trial; all writes are isolated
+  ---
+  duration_ms: 101.6818
+  type: 'test'
+  ...
+# Subtest: QA unlocks only 11–20 and never modifies normal progress
+ok 7 - QA unlocks only 11–20 and never modifies normal progress
+  ---
+  duration_ms: 2.387513
+  type: 'test'
+  ...
+# Subtest: unknown future save is preserved and corruption backup stays in pilot namespace
+ok 8 - unknown future save is preserved and corruption backup stays in pilot namespace
+  ---
+  duration_ms: 3.997748
+  type: 'test'
+  ...
+# Subtest: future board slot and outer board copy survive normal autosave
+ok 9 - future board slot and outer board copy survive normal autosave
+  ---
+  duration_ms: 31.318565
+  type: 'test'
+  ...
+# Subtest: damaged board slot is preserved before writing a replacement
+ok 10 - damaged board slot is preserved before writing a replacement
+  ---
+  duration_ms: 11.433917
+  type: 'test'
+  ...
+# Subtest: completed old Pilot unlocks new 14 from whole-save without replaying 13
+ok 11 - completed old Pilot unlocks new 14 from whole-save without replaying 13
+  ---
+  duration_ms: 2.609441
+  type: 'test'
+  ...
+# Subtest: completed old Pilot unlocks new 14 from append-only-marker without replaying 13
+ok 12 - completed old Pilot unlocks new 14 from append-only-marker without replaying 13
+  ---
+  duration_ms: 14.578005
+  type: 'test'
+  ...
+# Subtest: uncleared final Pilot stage does not unlock 14
+ok 13 - uncleared final Pilot stage does not unlock 14
+  ---
+  duration_ms: 4.609457
+  type: 'test'
+  ...
+# Subtest: VERSION 7 progress survives migration without rewriting board or undo history
+not ok 14 - VERSION 7 progress survives migration without rewriting board or undo history
+  ---
+  duration_ms: 5.10558
+  type: 'test'
+  location: '/workspace/scratch/b6f4b035b2fd/naotocchi/prototypes/naopoyo-chapter2/tests/progress.test.mjs:41:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected "actual" to be strictly unequal to:
+    
+    'naopoyo.komorebi.magic-rock.20261025.v1'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'naopoyo.komorebi.magic-rock.20261025.v1'
+  actual: 'naopoyo.komorebi.magic-rock.20261025.v1'
+  operator: 'notStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/naotocchi/prototypes/naopoyo-chapter2/tests/progress.test.mjs:46:10)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 12
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4276.987804

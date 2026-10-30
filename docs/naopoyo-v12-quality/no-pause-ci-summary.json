@@ -1,0 +1,81 @@
+{
+  "run": 40990370344,
+  "url": "https://github.com/Naoto214/naotocchi/actions/runs/40990370344",
+  "codeHead": "d160c03e92f5c20846a77ab0b84b09e9a9fd1d4e",
+  "codeTree": "82a2ea1565c6113871b7205d5a129192e0c2660b",
+  "ciMergeHead": "3ae19addba757c9fa0080c172779ebf06152d832",
+  "jobs": [
+    {
+      "id": 123851031272,
+      "name": "puzzle",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123851031564,
+      "name": "card",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123851031603,
+      "name": "main-regression",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "puzzle": {
+    "tests": 954,
+    "pass": 954,
+    "fail": 0
+  },
+  "card": {
+    "tests": 494,
+    "pass": 494,
+    "fail": 0
+  },
+  "runtime": {
+    "tests": 3504,
+    "pass": 3504,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "groups": [
+      32,
+      24,
+      3289,
+      159
+    ]
+  },
+  "runtimeEvidence": [
+    "2026-10-30T02:14:37.0708528Z # tests 32",
+    "2026-10-30T02:14:37.0709079Z # pass 32",
+    "2026-10-30T02:14:37.0709361Z # fail 0",
+    "2026-10-30T02:14:37.0709640Z # cancelled 0",
+    "2026-10-30T02:14:37.0709936Z # skipped 0",
+    "2026-10-30T02:14:37.0710484Z # duration_ms 1042.387082",
+    "2026-10-30T02:14:38.5179682Z # tests 24",
+    "2026-10-30T02:14:38.5180042Z # pass 24",
+    "2026-10-30T02:14:38.5180218Z # fail 0",
+    "2026-10-30T02:14:38.5180409Z # cancelled 0",
+    "2026-10-30T02:14:38.5180599Z # skipped 0",
+    "2026-10-30T02:14:38.5180983Z # duration_ms 1402.980626",
+    "2026-10-30T02:36:45.5402952Z # tests 3289",
+    "2026-10-30T02:36:45.5403502Z # pass 3289",
+    "2026-10-30T02:36:45.5403638Z # fail 0",
+    "2026-10-30T02:36:45.5403975Z # cancelled 0",
+    "2026-10-30T02:36:45.5404124Z # skipped 0",
+    "2026-10-30T02:36:45.5404439Z # duration_ms 1323607.865316",
+    "2026-10-30T02:36:56.6846478Z # tests 159",
+    "2026-10-30T02:36:56.6847015Z # pass 159",
+    "2026-10-30T02:36:56.6847217Z # fail 0",
+    "2026-10-30T02:36:56.6847423Z # cancelled 0",
+    "2026-10-30T02:36:56.6847613Z # skipped 0",
+    "2026-10-30T02:36:56.6848040Z # duration_ms 11343.961573"
+  ],
+  "localPages": {
+    "tests": 16,
+    "pass": 16,
+    "fail": 0
+  }
+}

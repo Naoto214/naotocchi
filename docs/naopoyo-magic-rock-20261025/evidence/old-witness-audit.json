@@ -1,0 +1,220 @@
+[
+  {
+    "number": 19,
+    "geometry": "v5-geometry",
+    "oldMoves": 42,
+    "complete": false,
+    "failure": {
+      "step": 11,
+      "action": {
+        "at": [
+          5,
+          7
+        ],
+        "level": 1,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      "reason": "corner",
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 7
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 2,
+          "x": 4,
+          "y": 5
+        }
+      ]
+    }
+  },
+  {
+    "number": 19,
+    "geometry": "v6-geometry",
+    "oldMoves": 42,
+    "complete": false,
+    "failure": {
+      "step": 13,
+      "action": {
+        "at": [
+          6,
+          6
+        ],
+        "level": 1,
+        "d": [
+          1,
+          1
+        ]
+      },
+      "reason": "corner",
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 6
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 2,
+          "x": 4,
+          "y": 5
+        }
+      ]
+    }
+  },
+  {
+    "number": 20,
+    "geometry": "v5-geometry",
+    "oldMoves": 85,
+    "complete": false,
+    "failure": {
+      "step": 10,
+      "action": {
+        "at": [
+          4,
+          5
+        ],
+        "level": 1,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      "reason": "corner",
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 3,
+          "x": 5,
+          "y": 7
+        },
+        {
+          "id": "child4",
+          "species": "dog",
+          "level": 4,
+          "x": 4,
+          "y": 6
+        },
+        {
+          "id": "child6",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 5
+        }
+      ]
+    }
+  },
+  {
+    "number": 20,
+    "geometry": "v6-geometry",
+    "oldMoves": 85,
+    "complete": false,
+    "failure": {
+      "step": 11,
+      "action": {
+        "at": [
+          4,
+          6
+        ],
+        "level": 3,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      "reason": "actor",
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 3,
+          "x": 5,
+          "y": 7
+        },
+        {
+          "id": "child9",
+          "species": "dog",
+          "level": 2,
+          "x": 5,
+          "y": 4
+        },
+        {
+          "id": "child10",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 6
+        },
+        {
+          "id": "child11",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 5
+        },
+        {
+          "id": "child12",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        }
+      ]
+    }
+  }
+]

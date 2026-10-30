@@ -1,0 +1,85 @@
+{
+  "scope": "All single-cell outgoing transitions from every V11 witness snapshot; not full reachable-state exploration or shortest-path proof",
+  "rows": [
+    {
+      "stage": 11,
+      "witnessMoves": 5,
+      "candidates": 56,
+      "newlyLegal": 0,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 12,
+      "witnessMoves": 5,
+      "candidates": 80,
+      "newlyLegal": 0,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 13,
+      "witnessMoves": 10,
+      "candidates": 128,
+      "newlyLegal": 0,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 14,
+      "witnessMoves": 11,
+      "candidates": 168,
+      "newlyLegal": 0,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 15,
+      "witnessMoves": 23,
+      "candidates": 488,
+      "newlyLegal": 0,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 16,
+      "witnessMoves": 70,
+      "candidates": 1624,
+      "newlyLegal": 0,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 17,
+      "witnessMoves": 26,
+      "candidates": 512,
+      "newlyLegal": 0,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 18,
+      "witnessMoves": 19,
+      "candidates": 416,
+      "newlyLegal": 0,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 19,
+      "witnessMoves": 91,
+      "candidates": 2048,
+      "newlyLegal": 1,
+      "physicalChanges": 0,
+      "cycles": 0
+    },
+    {
+      "stage": 20,
+      "witnessMoves": 156,
+      "candidates": 4592,
+      "newlyLegal": 1,
+      "physicalChanges": 0,
+      "cycles": 0
+    }
+  ]
+}

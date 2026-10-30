@@ -1,0 +1,4 @@
+import fs from 'node:fs';import {search,replay} from '../search.mjs';import {complete} from '../../naopoyo-v2/engine.mjs';
+const original=JSON.parse(fs.readFileSync('docs/naopoyo-contact-20261025/evidence/selected-20.json'));
+const variants=[['selected',original.stage],['raised-entry',{...original.stage,walls:original.stage.walls.filter(p=>p.toString()!=='3,6').concat([[3,7],[4,7]]),gates:original.stage.gates.map(g=>g.x===3&&g.y===7?{...g,y:6}:g)}]];
+const rows=[];for(const [name,stage]of variants){const row={name,stage};row.result=search(stage,{limit:500000,maxMs:45000});console.log(name,row.result.status,row.result.depth,row.result.visited);if(row.result.status!=='solved'){row.greedy=search(stage,{method:'greedy',limit:250000,maxMs:20000});console.log(name,'greedy',row.greedy.status,row.greedy.depth,row.greedy.visited);}rows.push(row);fs.writeFileSync('docs/naopoyo-contact-20261025/evidence/final20.json',JSON.stringify(rows,null,2));}

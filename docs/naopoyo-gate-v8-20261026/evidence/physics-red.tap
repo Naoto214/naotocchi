@@ -1,0 +1,254 @@
+✔ gate roof supports and permits grounded ascent for level 1 (38.906417ms)
+✔ gate landing is stable and lateral entry is qualified for level 1 (2.878058ms)
+✖ roof does not allow airborne ascent or closed corner for level 1 (8.980963ms)
+✔ gate roof supports and permits grounded ascent for level 2 (0.819768ms)
+✔ gate landing is stable and lateral entry is qualified for level 2 (2.414872ms)
+✖ roof does not allow airborne ascent or closed corner for level 2 (1.290968ms)
+✔ gate roof supports and permits grounded ascent for level 3 (1.23111ms)
+✔ gate landing is stable and lateral entry is qualified for level 3 (5.231941ms)
+✖ roof does not allow airborne ascent or closed corner for level 3 (1.765868ms)
+✔ gate roof supports and permits grounded ascent for level 4 (0.534621ms)
+✔ gate landing is stable and lateral entry is qualified for level 4 (1.37941ms)
+✖ roof does not allow airborne ascent or closed corner for level 4 (0.925637ms)
+✔ gate roof supports and permits grounded ascent for level 5 (0.25741ms)
+✔ gate landing is stable and lateral entry is qualified for level 5 (0.281193ms)
+✖ roof does not allow airborne ascent or closed corner for level 5 (1.086848ms)
+✔ gate roof supports and permits grounded ascent for level 6 (0.156298ms)
+✔ gate landing is stable and lateral entry is qualified for level 6 (1.453414ms)
+✖ roof does not allow airborne ascent or closed corner for level 6 (0.394659ms)
+✔ gate roof supports and permits grounded ascent for level 7 (0.207284ms)
+✔ gate landing is stable and lateral entry is qualified for level 7 (0.609256ms)
+✖ roof does not allow airborne ascent or closed corner for level 7 (0.216248ms)
+✖ gate roof supports and permits grounded ascent for level 8 (0.725941ms)
+✖ gate landing is stable and lateral entry is qualified for level 8 (1.62023ms)
+✔ roof does not allow airborne ascent or closed corner for level 8 (0.167411ms)
+✖ stage19 right pocket: rock and roof stop diagonal, matching side passage remains legal (1.115747ms)
+✔ gate interior can fall out below, but a falling actor above stops on roof (0.838586ms)
+✔ reverse diagonal exchange cannot cut a closed roof-rock corner (0.965367ms)
+✔ exchange and overflow preserve interior qualification transactionally (428.151978ms)
+✔ roof version cannot restore old terrain snapshots (181.426852ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 19
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1785.204792
+
+✖ failing tests:
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:23:2
+✖ roof does not allow airborne ascent or closed corner for level 1 (8.980963ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:23:2
+✖ roof does not allow airborne ascent or closed corner for level 2 (1.290968ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:23:2
+✖ roof does not allow airborne ascent or closed corner for level 3 (1.765868ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:23:2
+✖ roof does not allow airborne ascent or closed corner for level 4 (0.925637ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:23:2
+✖ roof does not allow airborne ascent or closed corner for level 5 (1.086848ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:23:2
+✖ roof does not allow airborne ascent or closed corner for level 6 (0.394659ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:23:2
+✖ roof does not allow airborne ascent or closed corner for level 7 (0.216248ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:7:2
+✖ gate roof supports and permits grounded ascent for level 8 (0.725941ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:9:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:14:2
+✖ gate landing is stable and lateral entry is qualified for level 8 (1.62023ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      3,
+  +   7
+  -   6
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 3, 7 ],
+    expected: [ 3, 6 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:29:1
+✖ stage19 right pocket: rock and roof stop diagonal, matching side passage remains legal (1.115747ms)
+  AssertionError [ERR_ASSERTION]: can go around the open left corner onto roof
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/lab/prototypes/naopoyo-chapter2/tests/gate-support.test.mjs:34:48)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

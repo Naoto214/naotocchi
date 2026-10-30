@@ -1,0 +1,75 @@
+✖ new rules retain old normal/QA saves byte for byte and import progress only (2.907242ms)
+✖ every chapter2 board explicitly selects supported physics (0.643951ms)
+✖ newborn fragments animate from placement to their gravity landing (4.204317ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 129.389946
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs:4:1
+✖ new rules retain old normal/QA saves byte for byte and import progress only (2.907242ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to:
+  
+  'naopoyo.komorebi.pilot.20261024.v1'
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'naopoyo.komorebi.pilot.20261024.v1',
+    expected: 'naopoyo.komorebi.pilot.20261024.v1',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs:12:1
+✖ every chapter2 board explicitly selects supported physics (0.643951ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'supported-v1'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs:12:100)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'supported-v1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs:13:1
+✖ newborn fragments animate from placement to their gravity landing (4.204317ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  5 !== 3
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs:17:64)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 5,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

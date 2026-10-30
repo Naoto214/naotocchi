@@ -1,0 +1,352 @@
+[
+  {
+    "size": "320",
+    "buttons": [
+      {
+        "rect": {
+          "bottom": 50,
+          "height": 44,
+          "left": 221.546875,
+          "right": 312,
+          "top": 6,
+          "width": 90.453125,
+          "x": 221.546875,
+          "y": 6
+        },
+        "text": "ゲームにもどる"
+      },
+      {
+        "rect": {
+          "bottom": 457,
+          "height": 44,
+          "left": 8,
+          "right": 81,
+          "top": 413,
+          "width": 73,
+          "x": 8,
+          "y": 413
+        },
+        "text": "前へ"
+      },
+      {
+        "rect": {
+          "bottom": 457,
+          "height": 44,
+          "left": 85,
+          "right": 158,
+          "top": 413,
+          "width": 73,
+          "x": 85,
+          "y": 413
+        },
+        "text": "次へ"
+      },
+      {
+        "rect": {
+          "bottom": 457,
+          "height": 44,
+          "left": 162,
+          "right": 235,
+          "top": 413,
+          "width": 73,
+          "x": 162,
+          "y": 413
+        },
+        "text": "再生"
+      },
+      {
+        "rect": {
+          "bottom": 457,
+          "height": 44,
+          "left": 239,
+          "right": 312,
+          "top": 413,
+          "width": 73,
+          "x": 239,
+          "y": 413
+        },
+        "text": "最初から"
+      }
+    ]
+  },
+  {
+    "size": "375",
+    "buttons": [
+      {
+        "rect": {
+          "bottom": 50,
+          "height": 44,
+          "left": 276.546875,
+          "right": 367,
+          "top": 6,
+          "width": 90.453125,
+          "x": 276.546875,
+          "y": 6
+        },
+        "text": "ゲームにもどる"
+      },
+      {
+        "rect": {
+          "bottom": 644,
+          "height": 44,
+          "left": 8,
+          "right": 94.75,
+          "top": 600,
+          "width": 86.75,
+          "x": 8,
+          "y": 600
+        },
+        "text": "前へ"
+      },
+      {
+        "rect": {
+          "bottom": 644,
+          "height": 44,
+          "left": 98.75,
+          "right": 185.5,
+          "top": 600,
+          "width": 86.75,
+          "x": 98.75,
+          "y": 600
+        },
+        "text": "次へ"
+      },
+      {
+        "rect": {
+          "bottom": 644,
+          "height": 44,
+          "left": 189.5,
+          "right": 276.25,
+          "top": 600,
+          "width": 86.75,
+          "x": 189.5,
+          "y": 600
+        },
+        "text": "再生"
+      },
+      {
+        "rect": {
+          "bottom": 644,
+          "height": 44,
+          "left": 280.25,
+          "right": 367,
+          "top": 600,
+          "width": 86.75,
+          "x": 280.25,
+          "y": 600
+        },
+        "text": "最初から"
+      }
+    ]
+  },
+  {
+    "size": "390",
+    "buttons": [
+      {
+        "rect": {
+          "bottom": 50,
+          "height": 44,
+          "left": 291.546875,
+          "right": 382,
+          "top": 6,
+          "width": 90.453125,
+          "x": 291.546875,
+          "y": 6
+        },
+        "text": "ゲームにもどる"
+      },
+      {
+        "rect": {
+          "bottom": 627,
+          "height": 44,
+          "left": 8,
+          "right": 98.5,
+          "top": 583,
+          "width": 90.5,
+          "x": 8,
+          "y": 583
+        },
+        "text": "前へ"
+      },
+      {
+        "rect": {
+          "bottom": 627,
+          "height": 44,
+          "left": 102.5,
+          "right": 193,
+          "top": 583,
+          "width": 90.5,
+          "x": 102.5,
+          "y": 583
+        },
+        "text": "次へ"
+      },
+      {
+        "rect": {
+          "bottom": 627,
+          "height": 44,
+          "left": 197,
+          "right": 287.5,
+          "top": 583,
+          "width": 90.5,
+          "x": 197,
+          "y": 583
+        },
+        "text": "再生"
+      },
+      {
+        "rect": {
+          "bottom": 627,
+          "height": 44,
+          "left": 291.5,
+          "right": 382,
+          "top": 583,
+          "width": 90.5,
+          "x": 291.5,
+          "y": 583
+        },
+        "text": "最初から"
+      }
+    ]
+  },
+  {
+    "size": "430",
+    "buttons": [
+      {
+        "rect": {
+          "bottom": 50,
+          "height": 44,
+          "left": 331.546875,
+          "right": 422,
+          "top": 6,
+          "width": 90.453125,
+          "x": 331.546875,
+          "y": 6
+        },
+        "text": "ゲームにもどる"
+      },
+      {
+        "rect": {
+          "bottom": 727,
+          "height": 44,
+          "left": 8,
+          "right": 108.5,
+          "top": 683,
+          "width": 100.5,
+          "x": 8,
+          "y": 683
+        },
+        "text": "前へ"
+      },
+      {
+        "rect": {
+          "bottom": 727,
+          "height": 44,
+          "left": 112.5,
+          "right": 213,
+          "top": 683,
+          "width": 100.5,
+          "x": 112.5,
+          "y": 683
+        },
+        "text": "次へ"
+      },
+      {
+        "rect": {
+          "bottom": 727,
+          "height": 44,
+          "left": 217,
+          "right": 317.5,
+          "top": 683,
+          "width": 100.5,
+          "x": 217,
+          "y": 683
+        },
+        "text": "再生"
+      },
+      {
+        "rect": {
+          "bottom": 727,
+          "height": 44,
+          "left": 321.5,
+          "right": 422,
+          "top": 683,
+          "width": 100.5,
+          "x": 321.5,
+          "y": 683
+        },
+        "text": "最初から"
+      }
+    ]
+  },
+  {
+    "size": "Landscape",
+    "buttons": [
+      {
+        "rect": {
+          "bottom": 50,
+          "height": 44,
+          "left": 745.546875,
+          "right": 836,
+          "top": 6,
+          "width": 90.453125,
+          "x": 745.546875,
+          "y": 6
+        },
+        "text": "ゲームにもどる"
+      },
+      {
+        "rect": {
+          "bottom": 367,
+          "height": 44,
+          "left": 8,
+          "right": 212,
+          "top": 323,
+          "width": 204,
+          "x": 8,
+          "y": 323
+        },
+        "text": "前へ"
+      },
+      {
+        "rect": {
+          "bottom": 367,
+          "height": 44,
+          "left": 216,
+          "right": 420,
+          "top": 323,
+          "width": 204,
+          "x": 216,
+          "y": 323
+        },
+        "text": "次へ"
+      },
+      {
+        "rect": {
+          "bottom": 367,
+          "height": 44,
+          "left": 424,
+          "right": 628,
+          "top": 323,
+          "width": 204,
+          "x": 424,
+          "y": 323
+        },
+        "text": "再生"
+      },
+      {
+        "rect": {
+          "bottom": 367,
+          "height": 44,
+          "left": 632,
+          "right": 836,
+          "top": 323,
+          "width": 204,
+          "x": 632,
+          "y": 323
+        },
+        "text": "最初から"
+      }
+    ]
+  }
+]

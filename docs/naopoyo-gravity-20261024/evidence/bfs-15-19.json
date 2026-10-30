@@ -1,0 +1,393 @@
+[
+  {
+    "id": "komorebi-thorn-ledge",
+    "number": 15,
+    "status": "limit",
+    "visited": 97842,
+    "expanded": 69752,
+    "edges": 1055256,
+    "shortestProven": false,
+    "elapsedMs": 12000,
+    "method": "bfs"
+  },
+  {
+    "id": "komorebi-woven-path",
+    "number": 16,
+    "status": "solved",
+    "visited": 110136,
+    "expanded": 76408,
+    "edges": 1036626,
+    "depth": 14,
+    "path": [
+      {
+        "at": [
+          0,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          1,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          2,
+          6
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          3,
+          6
+        ],
+        "level": 5,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          1,
+          7
+        ],
+        "level": 5,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          3,
+          7
+        ],
+        "level": 2,
+        "d": [
+          -1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          2,
+          6
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          3,
+          6
+        ],
+        "level": 5,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          4,
+          5
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          2,
+          6
+        ],
+        "level": 1,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          3,
+          7
+        ],
+        "level": 4,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          4,
+          7
+        ],
+        "level": 5,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          5,
+          7
+        ],
+        "level": 5,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          6,
+          7
+        ],
+        "level": 5,
+        "d": [
+          1,
+          0
+        ]
+      }
+    ],
+    "shortestProven": true,
+    "elapsedMs": 10786,
+    "method": "bfs"
+  },
+  {
+    "id": "komorebi-relay-foothold",
+    "number": 17,
+    "status": "solved",
+    "visited": 40301,
+    "expanded": 37567,
+    "edges": 515087,
+    "depth": 16,
+    "path": [
+      {
+        "at": [
+          0,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          1,
+          6
+        ],
+        "level": 3,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          1,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          2,
+          6
+        ],
+        "level": 6,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          1,
+          7
+        ],
+        "level": 3,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          2,
+          6
+        ],
+        "level": 1,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          1,
+          7
+        ],
+        "level": 2,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          2,
+          6
+        ],
+        "level": 1,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          1,
+          7
+        ],
+        "level": 1,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          2,
+          6
+        ],
+        "level": 1,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          3,
+          6
+        ],
+        "level": 3,
+        "d": [
+          1,
+          -1
+        ]
+      },
+      {
+        "at": [
+          3,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          4,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          5,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          6,
+          7
+        ],
+        "level": 8,
+        "d": [
+          1,
+          0
+        ]
+      },
+      {
+        "at": [
+          4,
+          5
+        ],
+        "level": 3,
+        "d": [
+          1,
+          -1
+        ]
+      }
+    ],
+    "shortestProven": true,
+    "elapsedMs": 5372,
+    "method": "bfs"
+  },
+  {
+    "id": "komorebi-remainder-lift",
+    "number": 18,
+    "status": "limit",
+    "visited": 97238,
+    "expanded": 62037,
+    "edges": 890552,
+    "shortestProven": false,
+    "elapsedMs": 12000,
+    "method": "bfs"
+  },
+  {
+    "id": "komorebi-reverse-stars",
+    "number": 19,
+    "status": "limit",
+    "visited": 115128,
+    "expanded": 75638,
+    "edges": 1013832,
+    "shortestProven": false,
+    "elapsedMs": 12000,
+    "method": "bfs"
+  }
+]
