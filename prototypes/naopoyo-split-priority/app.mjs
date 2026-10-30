@@ -19,7 +19,7 @@ function draw(){const r=results[mode],children=r.spawns[0]?.children||[],limit=c
 }
 function comparison(){$('comparison').innerHTML=['A','B','C'].map(m=>{const r=results[m],cs=r.spawns[0]?.children||[];return `<div class="comparison-row"><strong>${m} ${m==='A'?'現行BFS':m==='B'?'方向優先':'固定リング'}</strong>生成順：${cs.map((a,i)=>`${i+1}=${cellName(a.x,a.y)}`).join(' → ')||'生成なし'}<br>最終：${r.final.actors.length}体 / 救出 ${r.final.rescued} / 合体 ${(r.result.events||[]).filter(e=>e.type==='merge').length}回${r.result.ok?'':' / 不成立：'+r.result.reason}</div>`}).join('');}
 for(const id of ['scenario','gravity','level'])$(id).addEventListener('change',resetBoard);
-$('heading').addEventListener('change',()=>{heading=Number($('heading').value);recompute()});
+$('heading').addEventListener('change',()=>{heading=Number($('heading').value);$('cell-info').textContent='進入方向を変更しました。新しい生成先を予想してください。';recompute()});
 for(const b of document.querySelectorAll('[data-mode]'))b.addEventListener('click',()=>{mode=b.dataset.mode;selected=route=null;$('cell-info').textContent='方式を切り替えました。同じ盤面で比較しています。';draw()});
 for(const b of document.querySelectorAll('[data-phase]'))b.addEventListener('click',()=>{phase=b.dataset.phase;$('predict').checked=false;draw()});
 $('ranks').addEventListener('change',draw);$('predict').addEventListener('change',()=>{phase='initial';selected=route=null;draw()});

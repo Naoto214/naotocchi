@@ -13,3 +13,4 @@ Resumed pre-existing uncommitted work in isolated experiment branch. No producti
 - Ruling: no additional D physics mixed into A/B/C. A one-line-behind proposal appears only as future scope note.
 - Puzzle 1529/1529, CARD 530/530, Pages 16/16 pass. Runtime running; see evidence logs.
 - Final independent review and delivery pending.
+- Final independent review: no Critical, three Important findings. Fixed stale heading prediction, power7 spike overflow, and 100x outline shrink; three tests RED -> GREEN, full experiment suite 42/42. No deferred minor findings.
