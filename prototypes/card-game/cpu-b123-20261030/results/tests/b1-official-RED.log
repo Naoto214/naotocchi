@@ -1,0 +1,236 @@
+TAP version 13
+# Subtest: B1 スキージャンプ・ちからの勝負: 勝負の種目の能力値を選ぶ
+not ok 1 - B1 スキージャンプ・ちからの勝負: 勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 314.771256
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:2'
+  failureType: 'testCodeFailure'
+  error: 'ski:power: on=power:6.00 off=wisdom:6.00'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    followsParameter (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:30:9)
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:39)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: B1 スキージャンプ・ちえの勝負: 勝負の種目の能力値を選ぶ
+not ok 2 - B1 スキージャンプ・ちえの勝負: 勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 117.048478
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:2'
+  failureType: 'testCodeFailure'
+  error: 'ski:wisdom: on=wisdom:6.00 off=power:6.00'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    followsParameter (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:30:9)
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:39)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: B1 スキージャンプ・同点（勝敗が変わる）: 勝負の種目の能力値を選ぶ
+not ok 3 - B1 スキージャンプ・同点（勝敗が変わる）: 勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 121.793498
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:2'
+  failureType: 'testCodeFailure'
+  error: 'ski:tie: on=wisdom:6.00 off=power:6.00'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    followsParameter (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:30:9)
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:39)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1 スキージャンプ・大差（勝敗が変わらない）: 勝負の種目の能力値を選ぶ
+not ok 4 - B1 スキージャンプ・大差（勝敗が変わらない）: 勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 33.485452
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:2'
+  failureType: 'testCodeFailure'
+  error: 'ski:decided: on=power:6.00 off=wisdom:6.00'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    followsParameter (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:30:9)
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:39)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1 かくとうバトル・相手のちからの勝負（反応・連鎖中）: 勝負の種目の能力値を選ぶ
+not ok 5 - B1 かくとうバトル・相手のちからの勝負（反応・連鎖中）: 勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 494.317037
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:2'
+  failureType: 'testCodeFailure'
+  error: 'fight:power:opp: on=パンチ:3.48,キック:3.48 off=ガード:3.48'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    followsParameter (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:30:9)
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:39)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1 かくとうバトル・相手のちえの勝負（連鎖2段）: 勝負の種目の能力値を選ぶ
+not ok 6 - B1 かくとうバトル・相手のちえの勝負（連鎖2段）: 勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 74.188272
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:2'
+  failureType: 'testCodeFailure'
+  error: 'fight:wisdom:opp: on=ガード:3.48 off=パンチ:3.48,キック:3.48'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    followsParameter (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:30:9)
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:39)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1 かくとうバトル・同点（連鎖中）: 勝負の種目の能力値を選ぶ
+not ok 7 - B1 かくとうバトル・同点（連鎖中）: 勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 22.207982
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:2'
+  failureType: 'testCodeFailure'
+  error: 'fight:tie:any: on=パンチ:0.88,キック:0.88 off=ガード:0.88'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    followsParameter (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:30:9)
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:39)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1 かくとうバトル・自分の勝負: 勝負の種目の能力値を選ぶ
+not ok 8 - B1 かくとうバトル・自分の勝負: 勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 75.274967
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:2'
+  failureType: 'testCodeFailure'
+  error: 'fight:own: on=パンチ:2.23,キック:2.23 off=ガード:2.23'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    followsParameter (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:30:9)
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:36:39)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1 ほかの能力値選択（ペンギン⑥型・このターン+1）: ちえの勝負ではちえ
+not ok 9 - B1 ほかの能力値選択（ペンギン⑥型・このターン+1）: ちえの勝負ではちえ
+  ---
+  duration_ms: 0.824111
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:54:1'
+  failureType: 'testCodeFailure'
+  error: 'power=2 wisdom=2'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:54:125)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1 ほかの能力値選択: 勝負の外では差の大きい能力値（ちから+1）を優先
+not ok 10 - B1 ほかの能力値選択: 勝負の外では差の大きい能力値（ちから+1）を優先
+  ---
+  duration_ms: 0.52069
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:55:1'
+  failureType: 'testCodeFailure'
+  error: 'power=1 wisdom=1'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/cpu-b123-20261030/tests/b1.test.mjs:55:92)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 0
+# fail 10
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1385.890941
