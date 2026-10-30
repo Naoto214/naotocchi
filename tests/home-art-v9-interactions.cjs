@@ -11,7 +11,7 @@ const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript'
 const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404).end();return;}res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res);});
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const {chromium,webkit}=require('playwright');try{
  for(const [name,engine]of Object.entries({chromium,webkit})){const browser=await engine.launch({headless:true});try{const page=await browser.newPage({viewport:{width:1000,height:1100}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(()=>{if(!localStorage.getItem('naotocchi-home-v9-play-v1'))localStorage.setItem('naotocchi-home-v9-play-v1','existing-play-save-sentinel');});
+ await page.addInitScript(require('./helpers/home-v9-play-sentinel.cjs'),`http://127.0.0.1:${server.address().port}`);
  await page.goto(`http://127.0.0.1:${server.address().port}/home-v9-qa.html?region=${region}&candidate=${candidate}`);await page.frameLocator('#game').locator('[data-diorama-actor]').first().waitFor();await page.locator('#apply:enabled').waitFor();
  // Physical pointer events, independent of the model-only moveTest above.
  await page.locator('#width').selectOption('390');await page.locator('#time').selectOption('day');await page.locator('#count').selectOption('6');await page.locator('#apply').click();await page.locator('#apply:enabled').waitFor();
