@@ -47,7 +47,7 @@ B1 の直接テスト（実在局面）は次の8件です。
 - heuristic-1 のCPU同士の6試合は、実装前の main と保存shaが一致する
 - heuristic-2 の初級だけの対戦は heuristic-1 と同一
 
-CI について：このリポジトリの CI（`.github/workflows/pages-runtime.yml`）が実行するのは、Pages の単体テスト・梱包・検証です。CARD GAME の node テストは CI に含まれていないため、上のとおりローカルで全件実行して記録しました。
+CI について：CARD GAME の node テスト全件は `.github/workflows/naopoyo-chapter1.yml` の `card-regression` ジョブ（`node --test prototypes/card-game/tests/*.test.mjs`）で、Pages の単体テスト・梱包・検証は `pages-runtime.yml` で実行されます。ローカルでも同じ内容を全件実行し、ログを `evidence/` に保存しています。
 
 ## B1 の効果（既存の比較結果を再利用。新たな大量対戦はなし）
 正式実装は実験版と試合単位で同一なので、PR #491 の E1 の結果がそのまま当てはまります。
