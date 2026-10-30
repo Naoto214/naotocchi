@@ -13,9 +13,8 @@
 .trial-zoom{margin:10px 0;padding:10px;border:1px dashed #e4c780;border-radius:10px}
 .trial-zoom select{width:100%;min-height:44px;margin:4px 0;font-size:14px}
 .trial-zoom label{display:block;font-size:13px}
+#card-dialog .trial-zoom-badge[hidden]{display:none}
 #card-dialog .trial-zoom-badge{flex:none;padding:2px 6px;border-radius:6px;background:#e4c780;color:#20432e;font-size:11px;font-weight:700;white-space:nowrap}
-/* B: 「▼ カードの続き」の重ね表示をなくす */
-html[data-zoom-variant=nooverlay] #card-dialog.card-detail .stage-scroll[data-more]::after{display:none}
 /* C: 角丸の切り取りを overflow:hidden から clip-path に替える（カード面・絵・本文の枠） */
 html[data-zoom-variant=clippath] #card-dialog.card-detail .stage-card .card-face{overflow:visible;clip-path:inset(0 round 5%)}
 html[data-zoom-variant=clippath] #card-dialog.card-detail .stage-card .card-art,html[data-zoom-variant=clippath] #card-dialog.card-detail .stage-card .card-copy{overflow:visible;clip-path:inset(0 round 8%)}

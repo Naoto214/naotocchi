@@ -9,9 +9,12 @@ const HERE=path.dirname(fileURLToPath(import.meta.url)),OUT=path.resolve(process
 const VIEWPORTS=(process.env.QA_VIEWPORTS??'390x844,320x568,844x390,852x393,932x430,667x375').split(',').map(v=>v.split('x').map(Number));
 const rows=[];const check=(name,vp,ok,info={})=>{rows.push({name,vp,ok:!!ok,info});process.stderr.write(`${ok?'PASS':'FAIL'} ${vp} ${name} ${JSON.stringify(info).slice(0,200)}\n`);};
 const saved=page=>page.evaluate(()=>localStorage.getItem('naotocchi-cpu-match-v1'));
+// 「▼ カードの続き」の案内帯が出ているか（カードの部分の ::after、または詳細の中の文字）
+const CUE=`(()=>{const d=document.querySelector('#card-dialog'),s=d?.querySelector('.stage-scroll');if(!s)return false;const c=getComputedStyle(s,'::after').content;return (c&&c!=='none'&&c!=='normal')||d.textContent.includes('カードの続き');})()`;
+const cueSeen=[];
 const state=page=>page.evaluate(()=>{const d=document.querySelector('#card-dialog'),c=d?.querySelector('.stage-card'),r=c?.getBoundingClientRect(),chip=d?.querySelector('.stage-zoom');
  return {open:!!d?.open,zoom:d?.dataset.stageZoom==='1',w:r?Math.round(r.width):0,chip:chip&&!chip.hidden?chip.textContent:null,scale:visualViewport.scale,
-  confirm:!!document.querySelector('#confirm-dialog[open]'),selection:String(getSelection()).length};});
+  confirm:!!document.querySelector('#confirm-dialog[open]'),selection:String(getSelection()).length};}).then(async s=>{if(s.open)cueSeen.push(await page.evaluate(CUE));return s;});
 const center=async page=>page.evaluate(()=>{const r=document.querySelector('#card-dialog .stage-card').getBoundingClientRect(),s=document.querySelector('#card-dialog .stage-scroll').getBoundingClientRect();
  const top=Math.max(r.top,s.top),bottom=Math.min(r.bottom,s.bottom);return {x:Math.round((Math.max(r.left,s.left)+Math.min(r.right,s.right))/2),y:Math.round(top+(bottom-top)*.35)};});
 const tap=async(page,p)=>{await page.touchscreen.tap(p.x,p.y);};
@@ -35,7 +38,7 @@ const pointKept=(page,f,at)=>page.evaluate(({f,at})=>{const c=document.querySele
 const fractionAt=(page,at)=>page.evaluate(at=>{const c=document.querySelector('#card-dialog .stage-card').getBoundingClientRect();return {x:(at.x-c.left)/c.width,y:(at.y-c.top)/c.height};},at);
 const browser=await chromium.launch();fs.mkdirSync(path.join(OUT,'screenshots'),{recursive:true});
 for(const [w,h] of VIEWPORTS){const vp=`${w}x${h}`,ctx=await browser.newContext({viewport:{width:w,height:h},deviceScaleFactor:3,isMobile:true,hasTouch:true}),page=await ctx.newPage(),cdp=await ctx.newCDPSession(page);
- const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ const errors=[];page.on('pageerror',e=>errors.push(String(e)));cueSeen.length=0;
  await load(page,'target');await openCard(page,'C-chameleon');const s0=await saved(page),a=await state(page),p=await center(page);
  // 1) シングルタップ: 拡大しない・閉じない・状態不変
  await tap(page,p);await page.waitForTimeout(500);const b=await state(page);
@@ -84,14 +87,14 @@ for(const [w,h] of VIEWPORTS){const vp=`${w}x${h}`,ctx=await browser.newContext(
  check('拡大中に「－ 縮小」ボタンは出ず、ダブルタップで確実に戻る',vp,y.zoom&&y.chip===null&&!y2.zoom&&y2.w===a.w,{chip:y.chip});
  // 9b) 動きの間はカードの実際の大きさ（レイアウト）を変えず、動き終わりに1回だけ変える。終わった後はカードに変形・動きが残らない
  const frames=async()=>page.evaluate(()=>new Promise(res=>{const c=document.querySelector('#card-dialog .stage-card'),w0=c.offsetWidth,ws=[];let n=0;
-  const step=()=>{ws.push(c.offsetWidth);if(++n<40&&c.getAnimations().length)requestAnimationFrame(step);else res({w0,ws,running:c.getAnimations().length});};requestAnimationFrame(step);}));
- await tap(page,p);await page.waitForTimeout(90);await tap(page,p);const fz=await frames();await page.waitForTimeout(100);
+  const step=()=>{ws.push(c.offsetWidth);const sc=document.querySelector('#card-dialog .stage-scroll'),cc=getComputedStyle(sc,'::after').content;if(cc&&cc!=='none'&&cc!=='normal')window.__cueInAnim=true;if(++n<40&&c.getAnimations().length)requestAnimationFrame(step);else res({w0,ws,running:c.getAnimations().length,cue:!!window.__cueInAnim});};requestAnimationFrame(step);}));
+ await tap(page,p);await page.waitForTimeout(90);await tap(page,p);const fz=await frames();cueSeen.push(fz.cue);await page.waitForTimeout(100);
  const settled=await page.evaluate(()=>{const c=document.querySelector('#card-dialog .stage-card');return {anims:c.getAnimations().length,transform:getComputedStyle(c).transform,w:c.offsetWidth};});
  check('拡大の動きの間はレイアウトを変えず、終わりに1回だけ大きさを変える／終了後に変形が残らない',vp,fz.ws.slice(0,-1).every(x=>x===fz.w0)&&settled.anims===0&&settled.transform==='none'&&settled.w>fz.w0,{w0:fz.w0,frames:fz.ws.length,final:settled.w,transform:settled.transform});
  // 右下の確認用スクリーンショット（拡大してカードの右下までスクロール）
  await page.evaluate(()=>{const s=document.querySelector('#card-dialog .stage-scroll');s.scrollLeft=s.scrollWidth;s.scrollTop=s.scrollHeight;});await page.waitForTimeout(150);
  await page.screenshot({path:path.join(OUT,'screenshots',`${vp}-zoom-bottom-right.jpg`),type:'jpeg',quality:60});
- const pz0=await center(page);await tap(page,pz0);await page.waitForTimeout(90);await tap(page,pz0);const fo=await frames();await page.waitForTimeout(100);const so=await state(page);
+ const pz0=await center(page);await tap(page,pz0);await page.waitForTimeout(90);await tap(page,pz0);const fo=await frames();cueSeen.push(fo.cue);await page.waitForTimeout(100);const so=await state(page);
  check('縮小の動きの間もレイアウトを変えず、終わりに元の大きさへ戻る',vp,fo.ws.slice(0,-1).every(x=>x===fo.w0)&&!so.zoom&&so.w===a.w,{w0:fo.w0,frames:fo.ws.length,final:so.w});
  // 9c) 連続10回の拡大・縮小（毎回動き終わりを待つ）と、動きの途中のダブルタップ
  let ok10=true;for(let i=0;i<10;i++){const q=await center(page);await doubleTap(page,q);const st=await state(page);if(st.zoom!==(i%2===0)||(!st.zoom&&st.w!==a.w))ok10=false;}
@@ -129,6 +132,7 @@ for(const [w,h] of VIEWPORTS){const vp=`${w}x${h}`,ctx=await browser.newContext(
   return {acts:[...new Set(acts)],allows:acts.every(a=>['auto','manipulation'].includes(a)||a.includes('pinch-zoom')),meta,metaOk:!/user-scalable\s*=\s*(no|0)|maximum-scale\s*=\s*1(\.0)?\b/.test(meta)};});
  await twoFinger(cdp,{x:Math.round(w/2),y:Math.round(h/3)});await page.waitForTimeout(200);const blocked=await page.evaluate(()=>window.__blocked);
  check('カードの外では Safari 標準のピンチを妨げない（viewport・touch-action・2本指を打ち消さない）',vp,pinchOk.allows&&pinchOk.metaOk&&blocked===0&&await saved(page)===s1,{acts:pinchOk.acts,meta:pinchOk.meta,blocked});
+ check('「▼ カードの続き」の案内帯は一度も出ない（通常・ダブルタップ・ピンチ・拡大中のスクロール・動きの途中・縮小後）',vp,cueSeen.length>20&&!cueSeen.some(Boolean),{samples:cueSeen.length,shown:cueSeen.filter(Boolean).length});
  check('ページ内エラーなし',vp,!errors.length,{errors});
  await ctx.close();}
 await browser.close();

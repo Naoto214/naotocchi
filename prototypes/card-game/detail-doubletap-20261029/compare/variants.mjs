@@ -4,7 +4,7 @@ import fs from 'node:fs';import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url),{chromium}=require('playwright');
 const OUT=process.argv[2];fs.mkdirSync(OUT,{recursive:true});const BASE='http://127.0.0.1:8766/stage/index.html';
 const b=await chromium.launch();const rows=[];
-for(const [w,h] of [[390,844],[844,390]])for(const v of ['current','nooverlay','clippath','layer','zoom','noanim'])for(const diag of [false,true]){
+for(const [w,h] of [[390,844],[844,390]])for(const v of ['current','clippath','layer','zoom','noanim'])for(const diag of [false,true]){
  if(diag&&v!=='current'&&v!=='zoom')continue;
  const ctx=await b.newContext({viewport:{width:w,height:h},deviceScaleFactor:3,isMobile:true,hasTouch:true}),page=await ctx.newPage();const errs=[];page.on('pageerror',e=>errs.push(String(e)));
  await page.goto(BASE);await page.waitForSelector('#trial-panel');

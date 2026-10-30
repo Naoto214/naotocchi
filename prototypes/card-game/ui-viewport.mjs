@@ -41,9 +41,11 @@ export function fitStageCard(dialog,doc=document){
  // Landscape: the card itself is the zoom control, so the chip stays hidden (portrait keeps it). There is no
  // "－ 縮小": while zoomed the chip is hidden and a double tap returns to normal.
  const chip=dialog.querySelector('.stage-zoom');if(chip){chip.hidden=zoom||!widens||!portrait;chip.textContent='＋ 拡大';}
- // A cue when more of the card (stage) or more choices (band) lie below; it goes once scrolled to the end.
- for(const n of [scroll,dialog.querySelector('.stage-band')])if(n)n.toggleAttribute('data-more',n.scrollHeight-n.clientHeight-n.scrollTop>2);
+ markMoreChoices(dialog.querySelector('.stage-band'));
 }
+// A cue when more choices lie below in the action band; it goes once scrolled to the end. The card itself has no
+// such cue: it scrolls plainly (a band over the zoomed card art and text was not wanted).
+function markMoreChoices(band){band?.toggleAttribute('data-more',band.scrollHeight-band.clientHeight-band.scrollTop>2);}
 // Refit whenever the stage changes size (orientation, Safari bars, a different number of buttons).
 let stageObserver=null;
 export function watchStage(dialog,doc=document,win=window){
@@ -51,5 +53,5 @@ export function watchStage(dialog,doc=document,win=window){
  const scroll=dialog?.querySelector('.stage-scroll');if(!scroll)return;
  fitStageCard(dialog,doc);
  if(win.ResizeObserver){stageObserver=new win.ResizeObserver(()=>fitStageCard(dialog,doc));stageObserver.observe(scroll);}
- for(const n of [scroll,dialog.querySelector('.stage-band')])n?.addEventListener('scroll',()=>fitStageCard(dialog,doc),{passive:true});
+ const band=dialog.querySelector('.stage-band');band?.addEventListener('scroll',()=>markMoreChoices(band),{passive:true});
 }
