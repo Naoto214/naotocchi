@@ -1,0 +1,12 @@
+{
+  "base": "https://naoto214.github.io/naotocchi",
+  "checks": [
+    "main Runtime menu opens",
+    "menu opens chapter1",
+    "chapter1 actual drag changes board",
+    "chapter1 Undo restores board"
+  ],
+  "errors": [],
+  "status": "failed",
+  "failure": "TimeoutError: page.waitForFunction: Timeout 30000ms exceeded."
+}

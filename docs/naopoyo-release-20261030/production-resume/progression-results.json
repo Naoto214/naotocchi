@@ -1,0 +1,15 @@
+{
+  "base": "https://naoto214.github.io/naotocchi",
+  "checks": [
+    "chapter1 dialog link reaches chapter2",
+    "only stage11 open from chapter1 final clear",
+    "normal stage11 actual five-pointer solution clears",
+    "stage11 clear unlocks12 but keeps13 locked",
+    "next stage UI opens12",
+    "stage12 and previous clear persist on reload",
+    "chapter1 final clear marker preserved",
+    "no progression runtime errors"
+  ],
+  "errors": [],
+  "status": "passed"
+}

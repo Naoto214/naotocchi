@@ -1,0 +1,18 @@
+{
+  "main_source_head": "851cf09a80c7ed41ba7293888084272917e4582c",
+  "file_count": 4087,
+  "all_hashes_match_candidate": true,
+  "allowlist_hash": "fb0c37cad2313788adb80c1d1b8ad7def704dfc134f3b62f13ad875091b8f4c3",
+  "main_http_report": {
+    "http_files": 4087,
+    "http_bytes": 213694446,
+    "entrypoints": 7,
+    "card_ids": 452,
+    "card_images": 904,
+    "excluded_paths_return_404": 7,
+    "missing_files": 0,
+    "hash_mismatches": 0,
+    "prefix": "/naotocchi/"
+  },
+  "artifact_report_zip_sha256": "58cead57ce977ebeaec7f9fe98a0408e234885c9c2ac5b3e2eea5396a69a4147"
+}

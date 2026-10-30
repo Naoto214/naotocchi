@@ -81,3 +81,24 @@ GitHub Pagesでは`.nojekyll`は配信設定用マーカーで公開URLは404（
 ## マージ前CI確定
 
 候補HEADの10ワークフローは全てcompleted/success。Runtimeの単一npm testも32+24+3289+159=3504/3504、fail/skip/cancel0。puzzle1529/1529、CARD530/530をCIログでも確認。全実行URLとログの件数行は `evidence/ci-success.json`。実装treeとCI合成treeの一致を確認し、公開条件10項目を充足。次はmain mergeと本番検証であり、この時点では正式公開完了とは扱わない。
+
+## 本番公開後の確認（2026-10-30追補）
+
+PR #484は2026-10-30 14:15 JSTにmerged。本番mainは `851cf09a80c7ed41ba7293888084272917e4582c`、tree `5517352b322d15b0a0c432ee24ba8d167638f4f8`。候補eb45d64fおよびマージ前に全10CIが成功したtreeと完全一致する。最新mainと元3PRのHEADを再照会して変化がないことを確認した。
+
+- [本番](https://naoto214.github.io/naotocchi/)
+- [Pages build/deploy](https://github.com/Naoto214/naotocchi/actions/runs/41007381048)：両ジョブcompleted/success。
+- 公開コンテンツ4,086/4,086件がHTTP取得・SHA-256一致。不一致・欠落0。配布物全4,087件の差分も0（`.nojekyll`は公開しない配信設定マーカー）。
+- 本番Chromiumで79条件・6画面サイズ成功。通常ドラッグ/手数/ひと筆Undo/保存再読込/リトライ/contact-v2/各ID/おてほん全10面/位置保持/通常状態分離を再確認。20面97手、16/16救出。JavaScript・モジュール・アセットエラー0。
+- 本番メインメニュー→第1章の実ドラッグ/Undo、CARD GAME CPU対戦開始・画面内カード画像読込、物語導線の8条件成功。
+- 本番第1章→第2章、11だけ開放、実pointerの5手で11クリア→12開放・13ロック維持、12への移動とreload、旧第1章クリアマーカー保護の8条件成功。
+- 実ブラウザーQAは新規の隔離コンテキストを使用。開放・接触検証用fixtureはそのコンテキスト内だけに設定し、本人の実セーブを変更していない。
+- 初回のCARD本番テストはmoduleのイベントハンドラー登録前にボタンを押してタイムアウトした。再確認時も見た目のボタン表示段階ではonclickがnullであることを観測し、登録完了を条件として待つ既存QAスクリプトで対戦開始・画像読込まで成功。製品コードに追加変更はしていない。失敗記録も残した。
+- 旧保存キー/途中盤面/Undoを保持し、クリア・開放記録を新ルールへ移す方針を維持。Sitesと本番は別originであり、Sitesのセーブが本番へ自動転送されるわけではない。
+- PR436はmerged。PR482/483は元436ブランチをbaseとしたopen Draft表示だが、その全HEADはmainの祖先で統合済み。元ブランチ・WIP・本人限定URLは保持。
+
+今回の再確認結果・再現スクリプト・画面は `production-resume/`。mainの祖先関係とCI配布物の一致は `evidence/main-integration.json` と `evidence/deployed-artifact-match.json`。
+
+おてほん自動再生は実production timer/rAFをPlaywright仮想時計で加速した検証。実時間で全312手を連続視聴したものではない。本人iPhone Safari実機・指操作・OSロック/背景復帰、本人の実セーブを用いた移行は未確認。最短解は未証明。20面の盤面・難易度は維持。
+
+この追補作成時、main push後のRuntime/Home/World再実行は進行中であり、全成功とは扱わない。マージ前の全10CI成功と、マージ後のPages build/deploy成功は確定済み。

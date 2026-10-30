@@ -1,0 +1,17 @@
+{
+  "main": "851cf09a80c7ed41ba7293888084272917e4582c",
+  "tree": "5517352b322d15b0a0c432ee24ba8d167638f4f8",
+  "ancestor_checks": {
+    "e33ec25a334217227f0708b452a8be91fa4d1e60": true,
+    "ab937a22e2ae246b87b58932815dad2c4e8a2d87": true,
+    "79981ddee5772a0b301da8a06a63faa6ca4d9661": true,
+    "809c1f8b5153b7f0f5ab125192ca5a3d8f4773a0": true,
+    "eb45d64f55e549f1adb368d046e3c3d7cc5c19e9": true
+  },
+  "source_pr_status": {
+    "436": "merged",
+    "482": "open Draft, fully integrated through PR484",
+    "483": "open Draft, fully integrated through PR484"
+  },
+  "original_branches_retained": true
+}
