@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createGame,dispatch,restore,serialize,cpuAction} from '../../prototypes/life-sugoroku/engine.mjs';
-const players=Array.from({length:4},(_,i)=>({character:{id:'c'+i,label:'人'+i},human:true}));
+const players=Array.from({length:4},(_,i)=>({character:{id:['dog','cat','penguin','frog'][i],label:'人'+i},human:true}));
 const send=(s,c)=>dispatch(s,{revision:s.revision,...c});
 test('staged roll persists dice and moves exactly one edge per action, including branches',()=>{
  let s=createGame({seed:123,players}), original=s;
