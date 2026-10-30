@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {createGame,DEFAULT_DECK} from '../engine.mjs';
 import {HotseatSession} from '../ui-session.mjs';
 import {cardStageMarkup,actionParts,cardActions,turnStatus} from '../ui-presentation.mjs';
-import {stageScale,STAGE_MAX_SCALE} from '../ui-viewport.mjs';
+import {stageScale,STAGE_DEEP_ZOOM} from '../ui-viewport.mjs';
 import {CARDS} from '../engine.mjs';
 const opening=()=>{const x=new HotseatSession({autoAdvance:true});x.start(createGame(2,{A:DEFAULT_DECK,B:DEFAULT_DECK}));x.reveal();return x;};
 
@@ -43,14 +43,17 @@ test('catalog, read-only and hidden cards: no actions; hidden shows only the car
  const hidden=cardStageMarkup({...c,hidden:true,id:'B:x:1'},{v:opening().projection,viewer:'A'});
  assert.match(hidden,/card-back-approved/);assert.doesNotMatch(hidden,/data-action=/);assert.match(hidden,/相手の伏せ札は確認できません/);
 });
-test('stage scale: portrait whole card when readable, else full width with scroll; landscape always whole; zoom fills the width, never wider than the stage',()=>{
+test('stage scale: portrait whole card when readable, else full width with scroll; landscape always whole; zoom fills the width, or goes 1.5× further when the card already fills it',()=>{
  assert.equal(stageScale(358,700,{portrait:true}),358/320);            // 390×844: whole card fits at full width
  assert.equal(stageScale(288,410,{portrait:true}),410/480);             // 320×568, one button: whole card, still readable
  assert.equal(stageScale(288,300,{portrait:true}),288/320);            // 320×568, three choices: fills the width, stage scrolls
  assert.equal(stageScale(500,300,{portrait:false}),300/480);           // landscape: always the whole card, no scrolling
  assert.equal(stageScale(500,300,{portrait:false,zoom:true}),500/320);  // tap: fill the stage width
- assert.equal(stageScale(2000,3000,{zoom:true}),STAGE_MAX_SCALE);
- for(const [w,h] of [[200,900],[288,200],[500,300]])for(const zoom of [false,true])assert.ok(stageScale(w,h,{zoom})*320<=w+1e-9);
+ assert.equal(stageScale(300,400,{portrait:true,zoom:true}),400/480*STAGE_DEEP_ZOOM); // width is only 1.125× larger: 1.5× instead
+ assert.equal(stageScale(358,700,{portrait:true,zoom:true}),358/320*STAGE_DEEP_ZOOM); // already full width: 1.5× further
+ assert.equal(stageScale(288,300,{portrait:true,zoom:true}),288/320*STAGE_DEEP_ZOOM);
+ for(const [w,h] of [[200,900],[288,200],[500,300]])assert.ok(stageScale(w,h)*320<=w+1e-9);
+ for(const [w,h,p] of [[358,700,true],[288,410,true],[288,300,true],[500,300,false],[2000,3000,true]])assert.ok(stageScale(w,h,{zoom:true,portrait:p})>stageScale(w,h,{portrait:p})+.05);
 });
 test('turn status names the operator only when it differs from the turn owner',()=>{
  const s=o=>turnStatus({result:null,choice:null,phase:'response',turn:'A',actor:'A',...o});

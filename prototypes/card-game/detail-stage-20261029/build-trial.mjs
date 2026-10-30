@@ -21,6 +21,9 @@ let bundle=fs.readFileSync(path.join(OUT,'trial-bundle.js'),'utf8');
 // 詳細を描く1か所だけを、試遊版の切り替え（<html data-detail-ui="old">）で現行の detailMarkup に戻せるようにする。
 const CALL='d.innerHTML = cardStageMarkup(c, {';if(bundle.split(CALL).length!==2)throw Error('詳細の描画箇所が見つかりません');
 bundle=bundle.replace(CALL,'d.innerHTML = (document.documentElement.dataset.detailUi === "old" ? detailMarkup : cardStageMarkup)(c, {');
+// カード拡大の動きの長さだけを、試遊版の比較モード（window.__trialZoomMs、trial.mjs が設定）で変えられるようにする。
+const DUR='{ duration: STAGE_ANIM_MS,';if(bundle.split(DUR).length!==2)throw Error('拡大の動きの長さの箇所が見つかりません');
+bundle=bundle.replace(DUR,'{ duration: window.__trialZoomMs ?? STAGE_ANIM_MS,');
 
 // 2) 画像: 正式の公開許可リストに載っている CARD GAME の画像だけを使う。
 const allow=JSON.parse(fs.readFileSync(path.join(REPO,'tools/pages/allowlist.json'),'utf8')).files.filter(f=>f.startsWith('prototypes/card-game/'));

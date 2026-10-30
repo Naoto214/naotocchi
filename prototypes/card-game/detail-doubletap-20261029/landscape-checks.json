@@ -1,0 +1,2995 @@
+{
+ "pass": 195,
+ "total": 195,
+ "fails": [],
+ "rows": [
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 62,
+    "pageScrollH": 390
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（target）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 233,
+     "h": 350,
+     "top": 19,
+     "bottom": 369
+    },
+    "text": 8.3,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードをダブルタップすると拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "from": {
+     "w": 233,
+     "h": 350,
+     "top": 19,
+     "bottom": 369
+    },
+    "to": {
+     "w": 442,
+     "h": 663,
+     "top": -138,
+     "bottom": 525
+    },
+    "text": 15.7
+   }
+  },
+  {
+   "name": "拡大中はカードの部分だけスクロールして本文の下まで読める",
+   "vp": "844x390",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "カードをもう一度ダブルタップすると全体表示に戻る",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "card": {
+     "w": 233,
+     "h": 350,
+     "top": 19,
+     "bottom": 369
+    }
+   }
+  },
+  {
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
+   "vp": "844x390",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "拡大・縮小で保存データ（対戦状態）が変わらない",
+   "vp": "844x390",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "「盤面へ ×」で盤面に戻る",
+   "vp": "844x390",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "詳細を開いたままアドレスバーが出入りしても全体が見える",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "shown": {
+     "w": 200,
+     "h": 300,
+     "top": 19,
+     "bottom": 319
+    },
+    "hidden": {
+     "w": 233,
+     "h": 350,
+     "top": 19,
+     "bottom": 369
+    }
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 62,
+    "pageScrollH": 390
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（many）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 233,
+     "h": 350,
+     "top": 19,
+     "bottom": 369
+    },
+    "text": 8.3,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 62,
+    "pageScrollH": 390
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（choice）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 233,
+     "h": 350,
+     "top": 19,
+     "bottom": 369
+    },
+    "text": 8.3,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 62,
+    "pageScrollH": 390
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（response）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 233,
+     "h": 350,
+     "top": 19,
+     "bottom": 369
+    },
+    "text": 8.3,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：ページエラーなし",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 45,
+    "pageScrollH": 340
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（target）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 200,
+     "h": 300,
+     "top": 19,
+     "bottom": 319
+    },
+    "text": 7.1,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 45,
+    "pageScrollH": 340
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（many）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 200,
+     "h": 300,
+     "top": 19,
+     "bottom": 319
+    },
+    "text": 7.1,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 45,
+    "pageScrollH": 340
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（choice）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 200,
+     "h": 300,
+     "top": 19,
+     "bottom": 319
+    },
+    "text": 7.1,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 45,
+    "pageScrollH": 340
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（response）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 200,
+     "h": 300,
+     "top": 19,
+     "bottom": 319
+    },
+    "text": 7.1,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：ページエラーなし",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 55,
+    "pageScrollH": 390
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（target）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 219,
+     "h": 329,
+     "top": 19,
+     "bottom": 348
+    },
+    "text": 7.8,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 55,
+    "pageScrollH": 390
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（many）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 219,
+     "h": 329,
+     "top": 19,
+     "bottom": 348
+    },
+    "text": 7.8,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 55,
+    "pageScrollH": 390
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（choice）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 219,
+     "h": 329,
+     "top": 19,
+     "bottom": 348
+    },
+    "text": 7.8,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 55,
+    "pageScrollH": 390
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（response）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 219,
+     "h": 329,
+     "top": 19,
+     "bottom": 348
+    },
+    "text": 7.8,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：ページエラーなし",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 38,
+    "pageScrollH": 340
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（target）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 186,
+     "h": 279,
+     "top": 19,
+     "bottom": 298
+    },
+    "text": 6.6,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 38,
+    "pageScrollH": 340
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（many）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 186,
+     "h": 279,
+     "top": 19,
+     "bottom": 298
+    },
+    "text": 6.6,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 38,
+    "pageScrollH": 340
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（choice）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 186,
+     "h": 279,
+     "top": 19,
+     "bottom": 298
+    },
+    "text": 6.6,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 38,
+    "pageScrollH": 340
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（response）",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 186,
+     "h": 279,
+     "top": 19,
+     "bottom": 298
+    },
+    "text": 6.6,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：ページエラーなし",
+   "vp": "844x390",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 63,
+    "pageScrollH": 393
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（target）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 235,
+     "h": 353,
+     "top": 19,
+     "bottom": 372
+    },
+    "text": 8.4,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードをダブルタップすると拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "from": {
+     "w": 235,
+     "h": 353,
+     "top": 19,
+     "bottom": 372
+    },
+    "to": {
+     "w": 446,
+     "h": 669,
+     "top": -139,
+     "bottom": 530
+    },
+    "text": 15.8
+   }
+  },
+  {
+   "name": "拡大中はカードの部分だけスクロールして本文の下まで読める",
+   "vp": "852x393",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "カードをもう一度ダブルタップすると全体表示に戻る",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "card": {
+     "w": 235,
+     "h": 353,
+     "top": 19,
+     "bottom": 372
+    }
+   }
+  },
+  {
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
+   "vp": "852x393",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "拡大・縮小で保存データ（対戦状態）が変わらない",
+   "vp": "852x393",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "「盤面へ ×」で盤面に戻る",
+   "vp": "852x393",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "詳細を開いたままアドレスバーが出入りしても全体が見える",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "shown": {
+     "w": 202,
+     "h": 303,
+     "top": 19,
+     "bottom": 322
+    },
+    "hidden": {
+     "w": 235,
+     "h": 353,
+     "top": 19,
+     "bottom": 372
+    }
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 63,
+    "pageScrollH": 393
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（many）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 235,
+     "h": 353,
+     "top": 19,
+     "bottom": 372
+    },
+    "text": 8.4,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 63,
+    "pageScrollH": 393
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（choice）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 235,
+     "h": 353,
+     "top": 19,
+     "bottom": 372
+    },
+    "text": 8.4,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 63,
+    "pageScrollH": 393
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（response）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 235,
+     "h": 353,
+     "top": 19,
+     "bottom": 372
+    },
+    "text": 8.4,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：ページエラーなし",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 46,
+    "pageScrollH": 343
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（target）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 202,
+     "h": 303,
+     "top": 19,
+     "bottom": 322
+    },
+    "text": 7.2,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 46,
+    "pageScrollH": 343
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（many）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 202,
+     "h": 303,
+     "top": 19,
+     "bottom": 322
+    },
+    "text": 7.2,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 46,
+    "pageScrollH": 343
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（choice）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 202,
+     "h": 303,
+     "top": 19,
+     "bottom": 322
+    },
+    "text": 7.2,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 46,
+    "pageScrollH": 343
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（response）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 202,
+     "h": 303,
+     "top": 19,
+     "bottom": 322
+    },
+    "text": 7.2,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：ページエラーなし",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 56,
+    "pageScrollH": 393
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（target）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 221,
+     "h": 332,
+     "top": 19,
+     "bottom": 351
+    },
+    "text": 7.9,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 56,
+    "pageScrollH": 393
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（many）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 221,
+     "h": 332,
+     "top": 19,
+     "bottom": 351
+    },
+    "text": 7.9,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 56,
+    "pageScrollH": 393
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（choice）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 221,
+     "h": 332,
+     "top": 19,
+     "bottom": 351
+    },
+    "text": 7.9,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 56,
+    "pageScrollH": 393
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（response）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 221,
+     "h": 332,
+     "top": 19,
+     "bottom": 351
+    },
+    "text": 7.9,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：ページエラーなし",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 39,
+    "pageScrollH": 343
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（target）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 188,
+     "h": 282,
+     "top": 19,
+     "bottom": 301
+    },
+    "text": 6.7,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 39,
+    "pageScrollH": 343
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（many）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 188,
+     "h": 282,
+     "top": 19,
+     "bottom": 301
+    },
+    "text": 6.7,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 39,
+    "pageScrollH": 343
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（choice）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 188,
+     "h": 282,
+     "top": 19,
+     "bottom": 301
+    },
+    "text": 6.7,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 39,
+    "pageScrollH": 343
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（response）",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 188,
+     "h": 282,
+     "top": 19,
+     "bottom": 301
+    },
+    "text": 6.7,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：ページエラーなし",
+   "vp": "852x393",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 75,
+    "pageScrollH": 430
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（target）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 260,
+     "h": 390,
+     "top": 19,
+     "bottom": 409
+    },
+    "text": 9.2,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードをダブルタップすると拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "from": {
+     "w": 260,
+     "h": 390,
+     "top": 19,
+     "bottom": 409
+    },
+    "to": {
+     "w": 491,
+     "h": 737,
+     "top": -154,
+     "bottom": 583
+    },
+    "text": 17.4
+   }
+  },
+  {
+   "name": "拡大中はカードの部分だけスクロールして本文の下まで読める",
+   "vp": "932x430",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "カードをもう一度ダブルタップすると全体表示に戻る",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "card": {
+     "w": 260,
+     "h": 390,
+     "top": 19,
+     "bottom": 409
+    }
+   }
+  },
+  {
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
+   "vp": "932x430",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "拡大・縮小で保存データ（対戦状態）が変わらない",
+   "vp": "932x430",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "「盤面へ ×」で盤面に戻る",
+   "vp": "932x430",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "詳細を開いたままアドレスバーが出入りしても全体が見える",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "shown": {
+     "w": 227,
+     "h": 340,
+     "top": 19,
+     "bottom": 359
+    },
+    "hidden": {
+     "w": 260,
+     "h": 390,
+     "top": 19,
+     "bottom": 409
+    }
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 75,
+    "pageScrollH": 430
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（many）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 260,
+     "h": 390,
+     "top": 19,
+     "bottom": 409
+    },
+    "text": 9.2,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 75,
+    "pageScrollH": 430
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（choice）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 260,
+     "h": 390,
+     "top": 19,
+     "bottom": 409
+    },
+    "text": 9.2,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 75,
+    "pageScrollH": 430
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（response）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 260,
+     "h": 390,
+     "top": 19,
+     "bottom": 409
+    },
+    "text": 9.2,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：ページエラーなし",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 58,
+    "pageScrollH": 380
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（target）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 227,
+     "h": 340,
+     "top": 19,
+     "bottom": 359
+    },
+    "text": 8,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 58,
+    "pageScrollH": 380
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（many）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 227,
+     "h": 340,
+     "top": 19,
+     "bottom": 359
+    },
+    "text": 8,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 58,
+    "pageScrollH": 380
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（choice）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 227,
+     "h": 340,
+     "top": 19,
+     "bottom": 359
+    },
+    "text": 8,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 58,
+    "pageScrollH": 380
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（response）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 227,
+     "h": 340,
+     "top": 19,
+     "bottom": 359
+    },
+    "text": 8,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：ページエラーなし",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 68,
+    "pageScrollH": 430
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（target）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 246,
+     "h": 369,
+     "top": 19,
+     "bottom": 388
+    },
+    "text": 8.7,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 68,
+    "pageScrollH": 430
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（many）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 246,
+     "h": 369,
+     "top": 19,
+     "bottom": 388
+    },
+    "text": 8.7,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 68,
+    "pageScrollH": 430
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（choice）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 246,
+     "h": 369,
+     "top": 19,
+     "bottom": 388
+    },
+    "text": 8.7,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 68,
+    "pageScrollH": 430
+   }
+  },
+  {
+   "name": "セーフエリア：カード全体と操作ボタンが見える（response）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 246,
+     "h": 369,
+     "top": 19,
+     "bottom": 388
+    },
+    "text": 8.7,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "セーフエリア：ページエラーなし",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 51,
+    "pageScrollH": 380
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（target）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 213,
+     "h": 319,
+     "top": 19,
+     "bottom": 338
+    },
+    "text": 7.5,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 51,
+    "pageScrollH": 380
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（many）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 213,
+     "h": 319,
+     "top": 19,
+     "bottom": 338
+    },
+    "text": 7.5,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 51,
+    "pageScrollH": 380
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（choice）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 213,
+     "h": 319,
+     "top": 19,
+     "bottom": 338
+    },
+    "text": 7.5,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 51,
+    "pageScrollH": 380
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：カード全体と操作ボタンが見える（response）",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 213,
+     "h": 319,
+     "top": 19,
+     "bottom": 338
+    },
+    "text": 7.5,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー＋セーフエリア：ページエラーなし",
+   "vp": "932x430",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 70,
+    "pageScrollH": 414
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（target）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 249,
+     "h": 374,
+     "top": 19,
+     "bottom": 393
+    },
+    "text": 8.8,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードをダブルタップすると拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "from": {
+     "w": 249,
+     "h": 374,
+     "top": 19,
+     "bottom": 393
+    },
+    "to": {
+     "w": 381,
+     "h": 572,
+     "top": -80,
+     "bottom": 492
+    },
+    "text": 13.5
+   }
+  },
+  {
+   "name": "拡大中はカードの部分だけスクロールして本文の下まで読める",
+   "vp": "736x414",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "カードをもう一度ダブルタップすると全体表示に戻る",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "card": {
+     "w": 249,
+     "h": 374,
+     "top": 19,
+     "bottom": 393
+    }
+   }
+  },
+  {
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
+   "vp": "736x414",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "拡大・縮小で保存データ（対戦状態）が変わらない",
+   "vp": "736x414",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "「盤面へ ×」で盤面に戻る",
+   "vp": "736x414",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "詳細を開いたままアドレスバーが出入りしても全体が見える",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "shown": {
+     "w": 216,
+     "h": 324,
+     "top": 19,
+     "bottom": 343
+    },
+    "hidden": {
+     "w": 249,
+     "h": 374,
+     "top": 19,
+     "bottom": 393
+    }
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 70,
+    "pageScrollH": 414
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（many）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 249,
+     "h": 374,
+     "top": 19,
+     "bottom": 393
+    },
+    "text": 8.8,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 70,
+    "pageScrollH": 414
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（choice）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 249,
+     "h": 374,
+     "top": 19,
+     "bottom": 393
+    },
+    "text": 8.8,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 70,
+    "pageScrollH": 414
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（response）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 249,
+     "h": 374,
+     "top": 19,
+     "bottom": 393
+    },
+    "text": 8.8,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：ページエラーなし",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 53,
+    "pageScrollH": 364
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（target）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 216,
+     "h": 324,
+     "top": 19,
+     "bottom": 343
+    },
+    "text": 7.7,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 53,
+    "pageScrollH": 364
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（many）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 216,
+     "h": 324,
+     "top": 19,
+     "bottom": 343
+    },
+    "text": 7.7,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 53,
+    "pageScrollH": 364
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（choice）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 216,
+     "h": 324,
+     "top": 19,
+     "bottom": 343
+    },
+    "text": 7.7,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 53,
+    "pageScrollH": 364
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（response）",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 216,
+     "h": 324,
+     "top": 19,
+     "bottom": 343
+    },
+    "text": 7.7,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：ページエラーなし",
+   "vp": "736x414",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 57,
+    "pageScrollH": 375
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（target）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 223,
+     "h": 335,
+     "top": 19,
+     "bottom": 354
+    },
+    "text": 7.9,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "カードをダブルタップすると拡大する（横画面は「＋ 拡大」「－ 縮小」ボタンを出さない）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "from": {
+     "w": 223,
+     "h": 335,
+     "top": 19,
+     "bottom": 354
+    },
+    "to": {
+     "w": 342,
+     "h": 513,
+     "top": -70,
+     "bottom": 443
+    },
+    "text": 12.1
+   }
+  },
+  {
+   "name": "拡大中はカードの部分だけスクロールして本文の下まで読める",
+   "vp": "667x375",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "カードをもう一度ダブルタップすると全体表示に戻る",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "card": {
+     "w": 223,
+     "h": 335,
+     "top": 19,
+     "bottom": 354
+    }
+   }
+  },
+  {
+   "name": "拡大と復帰を繰り返しても全体表示に戻る",
+   "vp": "667x375",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "拡大・縮小で保存データ（対戦状態）が変わらない",
+   "vp": "667x375",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "「盤面へ ×」で盤面に戻る",
+   "vp": "667x375",
+   "ok": true,
+   "info": {}
+  },
+  {
+   "name": "詳細を開いたままアドレスバーが出入りしても全体が見える",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "shown": {
+     "w": 190,
+     "h": 285,
+     "top": 19,
+     "bottom": 304
+    },
+    "hidden": {
+     "w": 223,
+     "h": 335,
+     "top": 19,
+     "bottom": 354
+    }
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 57,
+    "pageScrollH": 375
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（many）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 223,
+     "h": 335,
+     "top": 19,
+     "bottom": 354
+    },
+    "text": 7.9,
+    "buttons": [
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 57,
+    "pageScrollH": 375
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（choice）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 223,
+     "h": 335,
+     "top": 19,
+     "bottom": 354
+    },
+    "text": 7.9,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 57,
+    "pageScrollH": 375
+   }
+  },
+  {
+   "name": "通常：カード全体と操作ボタンが見える（response）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 12,
+     "clipped": false
+    },
+    "card": {
+     "w": 223,
+     "h": 335,
+     "top": 19,
+     "bottom": 354
+    },
+    "text": 7.9,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "通常：ページエラーなし",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（target）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 45,
+    "pageScrollH": 325
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（target）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 10,
+     "clipped": false
+    },
+    "card": {
+     "w": 190,
+     "h": 285,
+     "top": 19,
+     "bottom": 304
+    },
+    "text": 6.7,
+    "buttons": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：最長の状況表示「Aのターン・Bの効果選択待ち」も1行",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "lines": 1,
+    "clipped": false
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（many）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "4/4",
+    "minSlotH": 45,
+    "pageScrollH": 325
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（many）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aの通常行動",
+     "lines": 1,
+     "px": 10,
+     "clipped": false
+    },
+    "card": {
+     "w": 190,
+     "h": 285,
+     "top": 19,
+     "bottom": 304
+    },
+    "text": 6.7,
+    "buttons": [
+     true,
+     true,
+     true,
+     false
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（choice）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "8/8",
+    "minSlotH": 45,
+    "pageScrollH": 325
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（choice）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Aのターン・選択待ち",
+     "lines": 1,
+     "px": 10,
+     "clipped": false
+    },
+    "card": {
+     "w": 190,
+     "h": 285,
+     "top": 19,
+     "bottom": 304
+    },
+    "text": 6.7,
+    "buttons": [
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：基本盤面がスクロールなしで全部見える（response）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "clipped": [],
+    "innerScrollers": [],
+    "hand": "5/5",
+    "minSlotH": 45,
+    "pageScrollH": 325
+   }
+  },
+  {
+   "name": "アドレスバー表示：カード全体と操作ボタンが見える（response）",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "status": {
+     "text": "Bのターン・Aの応答待ち",
+     "lines": 1,
+     "px": 10,
+     "clipped": false
+    },
+    "card": {
+     "w": 190,
+     "h": 285,
+     "top": 19,
+     "bottom": 304
+    },
+    "text": 6.7,
+    "buttons": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "name": "アドレスバー表示：ページエラーなし",
+   "vp": "667x375",
+   "ok": true,
+   "info": {
+    "errors": []
+   }
+  }
+ ]
+}
