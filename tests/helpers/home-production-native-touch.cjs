@@ -28,6 +28,7 @@ exports.actors=async(page,region,count)=>{
   await page.emulateMedia({reducedMotion:'no-preference'});
   const session=await page.context().newCDPSession(page);
   try{for(const kind of ['tap','drag']){
+    await page.waitForFunction(()=>{const a=HomeReleaseQA.detail().actors[0];return !a.target||a.source==='ambient';},null,{timeout:15000});
     await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
     await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[region,count]);
     await page.evaluate(()=>{
@@ -54,5 +55,6 @@ exports.actors=async(page,region,count)=>{
     }else await swipe(session,target.from,target.to);
     await page.waitForFunction(a=>{const p=HomeReleaseQA.detail().actors[0];return Math.hypot(p.x-a.x,p.y-a.y)>5;},target.a,{timeout:15000});
     assert.ok((await page.evaluate(()=>HomeReleaseQA.detail())).actors.every(a=>a.safe),kind+' remains grounded');
+    await page.waitForFunction(()=>{const a=HomeReleaseQA.detail().actors[0];return !a.target||a.source==='ambient';},null,{timeout:15000});
   }}finally{await session.detach();await page.emulateMedia({reducedMotion:'reduce'});}
 };

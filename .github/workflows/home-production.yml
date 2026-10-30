@@ -51,6 +51,7 @@ jobs:
           node-version: 22
       - run: npm ci
       - run: node tools/home-production-regression.cjs
+      - run: node --test tests/home-production-notice-queue-test.cjs
   production:
     runs-on: ubuntu-latest
     timeout-minutes: 45
