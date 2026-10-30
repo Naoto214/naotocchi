@@ -21,9 +21,11 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  fs.writeFileSync(path.join(dest,'progress.json'),JSON.stringify({results,errors},null,2));
  }
  await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'no-preference'});
- const inputRegion=process.env.HOME_RELEASE_REGION||'river_lake';await page.evaluate(r=>HomeReleaseQA.scene(r,6),inputRegion);
- await page.waitForFunction(r=>HomeReleaseQA.detail().world.region===r&&HomeReleaseQA.detail().world.loaded,inputRegion);
+ const inputRegion=process.env.HOME_RELEASE_REGION||'river_lake';
  const targetFn=require('./helpers/home-ground-target.cjs');
+ for(const inputCount of [6,28]){
+ await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
+ await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[inputRegion,inputCount]);
  for(const kind of ['tap','drag']){
  const t=await page.evaluate(targetFn),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
  if(kind==='tap'){await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');await page.mouse.click(to.x,to.y);}
@@ -31,10 +33,11 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.waitForFunction(a=>{const p=HomeReleaseQA.detail().actors[0];return Math.hypot(p.x-a.x,p.y-a.y)>5;},t.a,{timeout:15000});
  assert.ok((await page.evaluate(()=>HomeReleaseQA.detail())).actors.every(a=>a.safe),kind+' stays grounded');
  }
+ }
  assert.ok(await page.evaluate(()=>HomeReleaseQA.question()),'existing conversation accepts prepared healthy fixture');await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));
- await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > button').count(),12);await page.locator('#menuCloseBtn').click();
- await page.emulateMedia({reducedMotion:'reduce'});const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
- await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>HomeReleaseQA.detail().actors.length===28&&HomeReleaseQA.detail().actors.every(a=>a.safe),null,{timeout:30000});
+ await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > :is(button,a)').count(),12);await page.locator('#menuCloseBtn').click();
+ await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);await page.waitForTimeout(100);const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);assert.ok(Number.isFinite(clock),'real environment clock');await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
+ await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region==='star_stop'&&d.world.loaded&&d.actors.length===28&&d.actors.every(a=>a.safe);},null,{timeout:30000});
  assert.ok(await page.evaluate(()=>HomeReleaseQA.move()));
  const saved=await page.evaluate(()=>HomeReleaseQA.save());await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);const restored=await page.evaluate(()=>HomeReleaseQA.state());assert.equal(restored.regionId,saved.regionId);assert.equal(restored.companions.length,saved.companions.length);assert.equal(restored.partner.id,saved.partner.id);assert.equal(restored.lifetime.money,saved.lifetime.money);
  await page.close();
