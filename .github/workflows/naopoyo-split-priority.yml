@@ -1,0 +1,46 @@
+name: Naopoyo Split Priority Experiment
+on:
+  pull_request:
+    paths:
+      - 'prototypes/naopoyo-split-priority/**'
+      - 'docs/naopoyo-split-priority-20261030/**'
+      - '.github/workflows/naopoyo-split-priority.yml'
+jobs:
+  comparison:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node prototypes/naopoyo-split-priority/sync-engine.mjs --check
+      - run: node --test prototypes/naopoyo-split-priority/tests/*.test.mjs
+      - run: node prototypes/naopoyo-split-priority/audit.mjs
+      - run: node prototypes/naopoyo-split-priority/write-report.mjs
+      - run: node prototypes/naopoyo-split-priority/build-preview.mjs /tmp/split-preview
+      - run: python -m unittest discover -s tests/pages
+  puzzle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/naopoyo-chapter2/tests/*.test.mjs prototypes/naopoyo-chapter1/tests/*.test.mjs prototypes/naopoyo-insight/tests/*.test.mjs prototypes/naopoyo-world/tests/*.test.mjs prototypes/naopoyo-v2/tests/*.test.mjs prototypes/naopoyo-rescue/tests/*.test.mjs
+  card:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs
+  runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npm test

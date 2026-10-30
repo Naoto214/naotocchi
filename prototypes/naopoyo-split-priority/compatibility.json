@@ -1,0 +1,808 @@
+[
+  {
+    "number": 11,
+    "id": "komorebi-fall",
+    "savedMoves": 5,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "rescues": 1,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 0,
+          "actorSwitches": 0
+        },
+        "rescued": 3,
+        "remaining": 0
+      },
+      "B": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "rescues": 1,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 0,
+          "actorSwitches": 0
+        },
+        "rescued": 3,
+        "remaining": 0
+      },
+      "C": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 1,
+          "familyMerges": 0,
+          "overflow": 0,
+          "rescues": 1,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 0,
+          "actorSwitches": 0
+        },
+        "rescued": 3,
+        "remaining": 0
+      }
+    }
+  },
+  {
+    "number": 12,
+    "id": "komorebi-support",
+    "savedMoves": 5,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 2,
+          "actorSwitches": 2
+        },
+        "rescued": 10,
+        "remaining": 0
+      },
+      "B": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 2,
+          "actorSwitches": 2
+        },
+        "rescued": 10,
+        "remaining": 0
+      },
+      "C": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 5,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 2,
+          "actorSwitches": 2
+        },
+        "rescued": 10,
+        "remaining": 0
+      }
+    }
+  },
+  {
+    "number": 13,
+    "id": "komorebi-last-friend",
+    "savedMoves": 10,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 3,
+          "actorSwitches": 3
+        },
+        "rescued": 12,
+        "remaining": 0
+      },
+      "B": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 3,
+          "actorSwitches": 3
+        },
+        "rescued": 12,
+        "remaining": 0
+      },
+      "C": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 10,
+          "splits": 0,
+          "children": 0,
+          "merges": 0,
+          "familyMerges": 0,
+          "overflow": 0,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 3,
+          "actorSwitches": 3
+        },
+        "rescued": 12,
+        "remaining": 0
+      }
+    }
+  },
+  {
+    "number": 14,
+    "id": "komorebi-fall-order",
+    "savedMoves": 11,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 11,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 2,
+          "actorSwitches": 3
+        },
+        "rescued": 12,
+        "remaining": 0
+      },
+      "B": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 11,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 2,
+          "actorSwitches": 3
+        },
+        "rescued": 12,
+        "remaining": 0
+      },
+      "C": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 11,
+          "splits": 0,
+          "children": 0,
+          "merges": 2,
+          "familyMerges": 0,
+          "overflow": 1,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 2,
+          "actorSwitches": 3
+        },
+        "rescued": 12,
+        "remaining": 0
+      }
+    }
+  },
+  {
+    "number": 15,
+    "id": "komorebi-thorn-ledge",
+    "savedMoves": 23,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 23,
+          "splits": 3,
+          "children": 5,
+          "merges": 7,
+          "familyMerges": 1,
+          "overflow": 2,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 11,
+          "actorSwitches": 6
+        },
+        "rescued": 12,
+        "remaining": 0
+      },
+      "B": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 23,
+          "splits": 3,
+          "children": 5,
+          "merges": 7,
+          "familyMerges": 1,
+          "overflow": 2,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 11,
+          "actorSwitches": 6
+        },
+        "rescued": 12,
+        "remaining": 0
+      },
+      "C": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 23,
+          "splits": 3,
+          "children": 5,
+          "merges": 7,
+          "familyMerges": 1,
+          "overflow": 2,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 11,
+          "actorSwitches": 6
+        },
+        "rescued": 12,
+        "remaining": 0
+      }
+    }
+  },
+  {
+    "number": 16,
+    "id": "komorebi-woven-path",
+    "savedMoves": 38,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 38,
+          "splits": 5,
+          "children": 14,
+          "merges": 16,
+          "familyMerges": 2,
+          "overflow": 2,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 3,
+          "directionChanges": 24,
+          "actorSwitches": 25
+        },
+        "rescued": 13,
+        "remaining": 0
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 18,
+          "reason": "actor-or-level",
+          "expected": {
+            "at": [
+              3,
+              7
+            ],
+            "level": 7,
+            "d": [
+              1,
+              0
+            ]
+          },
+          "actual": {
+            "id": "a",
+            "x": 3,
+            "y": 7,
+            "level": 6,
+            "species": "dog"
+          }
+        },
+        "firstDivergence": 17,
+        "metrics": {
+          "steps": 17,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 1,
+          "overflow": 2,
+          "rescues": 0,
+          "secondStepSplits": 1,
+          "selectedDiffersFromA": 1,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 11,
+          "actorSwitches": 8
+        },
+        "rescued": 0,
+        "remaining": 13
+      },
+      "C": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 38,
+          "splits": 5,
+          "children": 14,
+          "merges": 16,
+          "familyMerges": 2,
+          "overflow": 2,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 24,
+          "actorSwitches": 25
+        },
+        "rescued": 13,
+        "remaining": 0
+      }
+    }
+  },
+  {
+    "number": 17,
+    "id": "komorebi-relay-foothold",
+    "savedMoves": 26,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 26,
+          "splits": 4,
+          "children": 9,
+          "merges": 11,
+          "familyMerges": 2,
+          "overflow": 2,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 2,
+          "directionChanges": 13,
+          "actorSwitches": 9
+        },
+        "rescued": 11,
+        "remaining": 0
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 3,
+          "reason": "actor-or-level",
+          "expected": {
+            "at": [
+              3,
+              7
+            ],
+            "level": 1,
+            "d": [
+              1,
+              0
+            ]
+          },
+          "actual": null
+        },
+        "firstDivergence": 2,
+        "metrics": {
+          "steps": 2,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 1,
+          "rescues": 0,
+          "secondStepSplits": 1,
+          "selectedDiffersFromA": 1,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 0,
+          "actorSwitches": 0
+        },
+        "rescued": 0,
+        "remaining": 11
+      },
+      "C": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 26,
+          "splits": 4,
+          "children": 9,
+          "merges": 11,
+          "familyMerges": 2,
+          "overflow": 2,
+          "rescues": 2,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 13,
+          "actorSwitches": 9
+        },
+        "rescued": 11,
+        "remaining": 0
+      }
+    }
+  },
+  {
+    "number": 18,
+    "id": "komorebi-remainder-lift",
+    "savedMoves": 19,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 19,
+          "splits": 5,
+          "children": 15,
+          "merges": 21,
+          "familyMerges": 5,
+          "overflow": 7,
+          "rescues": 4,
+          "secondStepSplits": 5,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 3,
+          "directionChanges": 13,
+          "actorSwitches": 10
+        },
+        "rescued": 16,
+        "remaining": 0
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 9,
+          "reason": "actor-or-level",
+          "expected": {
+            "at": [
+              5,
+              5
+            ],
+            "level": 2,
+            "d": [
+              1,
+              0
+            ]
+          },
+          "actual": {
+            "id": "child4",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 5
+          }
+        },
+        "firstDivergence": 4,
+        "metrics": {
+          "steps": 8,
+          "splits": 2,
+          "children": 5,
+          "merges": 8,
+          "familyMerges": 1,
+          "overflow": 4,
+          "rescues": 0,
+          "secondStepSplits": 2,
+          "selectedDiffersFromA": 2,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 4,
+          "actorSwitches": 3
+        },
+        "rescued": 0,
+        "remaining": 16
+      },
+      "C": {
+        "status": "incompatible",
+        "failure": {
+          "step": 10,
+          "reason": "actor-or-level",
+          "expected": {
+            "at": [
+              4,
+              5
+            ],
+            "level": 4,
+            "d": [
+              0,
+              1
+            ]
+          },
+          "actual": {
+            "id": "child5",
+            "species": "dog",
+            "level": 5,
+            "x": 4,
+            "y": 5
+          }
+        },
+        "firstDivergence": 8,
+        "metrics": {
+          "steps": 9,
+          "splits": 2,
+          "children": 6,
+          "merges": 10,
+          "familyMerges": 2,
+          "overflow": 4,
+          "rescues": 1,
+          "secondStepSplits": 2,
+          "selectedDiffersFromA": 1,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 5,
+          "actorSwitches": 4
+        },
+        "rescued": 3,
+        "remaining": 13
+      }
+    }
+  },
+  {
+    "number": 19,
+    "id": "komorebi-reverse-stars",
+    "savedMoves": 78,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 78,
+          "splits": 9,
+          "children": 23,
+          "merges": 27,
+          "familyMerges": 3,
+          "overflow": 6,
+          "rescues": 4,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 7,
+          "directionChanges": 53,
+          "actorSwitches": 44
+        },
+        "rescued": 16,
+        "remaining": 0
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 8,
+          "reason": "actor-or-level",
+          "expected": {
+            "at": [
+              2,
+              5
+            ],
+            "level": 1,
+            "d": [
+              1,
+              0
+            ]
+          },
+          "actual": null
+        },
+        "firstDivergence": 6,
+        "metrics": {
+          "steps": 7,
+          "splits": 1,
+          "children": 3,
+          "merges": 3,
+          "familyMerges": 1,
+          "overflow": 0,
+          "rescues": 0,
+          "secondStepSplits": 1,
+          "selectedDiffersFromA": 1,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 2,
+          "actorSwitches": 3
+        },
+        "rescued": 0,
+        "remaining": 16
+      },
+      "C": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 78,
+          "splits": 9,
+          "children": 23,
+          "merges": 27,
+          "familyMerges": 3,
+          "overflow": 6,
+          "rescues": 4,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 53,
+          "actorSwitches": 44
+        },
+        "rescued": 16,
+        "remaining": 0
+      }
+    }
+  },
+  {
+    "number": 20,
+    "id": "komorebi-forest-trial",
+    "savedMoves": 97,
+    "modes": {
+      "A": {
+        "status": "solved",
+        "firstDivergence": null,
+        "metrics": {
+          "steps": 97,
+          "splits": 23,
+          "children": 56,
+          "merges": 64,
+          "familyMerges": 1,
+          "overflow": 9,
+          "rescues": 4,
+          "secondStepSplits": 19,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 1,
+          "directionChanges": 56,
+          "actorSwitches": 67
+        },
+        "rescued": 16,
+        "remaining": 0
+      },
+      "B": {
+        "status": "incompatible",
+        "failure": {
+          "step": 15,
+          "reason": "actor-or-level",
+          "expected": {
+            "at": [
+              6,
+              6
+            ],
+            "level": 6,
+            "d": [
+              0,
+              1
+            ]
+          },
+          "actual": {
+            "id": "a",
+            "x": 6,
+            "y": 6,
+            "level": 7,
+            "species": "dog"
+          }
+        },
+        "firstDivergence": 13,
+        "metrics": {
+          "steps": 14,
+          "splits": 1,
+          "children": 1,
+          "merges": 3,
+          "familyMerges": 0,
+          "overflow": 2,
+          "rescues": 0,
+          "secondStepSplits": 0,
+          "selectedDiffersFromA": 0,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 3,
+          "actorSwitches": 5
+        },
+        "rescued": 0,
+        "remaining": 16
+      },
+      "C": {
+        "status": "incompatible",
+        "failure": {
+          "step": 36,
+          "reason": "actor-or-level",
+          "expected": {
+            "at": [
+              5,
+              4
+            ],
+            "level": 1,
+            "d": [
+              1,
+              0
+            ]
+          },
+          "actual": null
+        },
+        "firstDivergence": 35,
+        "metrics": {
+          "steps": 35,
+          "splits": 7,
+          "children": 14,
+          "merges": 20,
+          "familyMerges": 0,
+          "overflow": 7,
+          "rescues": 0,
+          "secondStepSplits": 5,
+          "selectedDiffersFromA": 1,
+          "candidateOrderChangesWithObstacles": 0,
+          "directionChanges": 16,
+          "actorSwitches": 23
+        },
+        "rescued": 0,
+        "remaining": 16
+      }
+    }
+  }
+]
