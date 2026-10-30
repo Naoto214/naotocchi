@@ -53,7 +53,7 @@ exports.actors=async(page,region,count)=>{
       assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');
       await page.touchscreen.tap(target.to.x,target.to.y);
     }else await swipe(session,target.from,target.to);
-    await page.waitForFunction(a=>{const p=HomeReleaseQA.detail().actors[0];return Math.hypot(p.x-a.x,p.y-a.y)>5;},target.a,{timeout:15000});
+    await page.waitForFunction(({a,source})=>{const p=HomeReleaseQA.detail().actors[0];return p.source===source&&Math.hypot(p.x-a.x,p.y-a.y)>5;},{a:target.a,source:kind==='tap'?'ground':'drag'},{timeout:15000});
     assert.ok((await page.evaluate(()=>HomeReleaseQA.detail())).actors.every(a=>a.safe),kind+' remains grounded');
     await page.waitForFunction(()=>{const a=HomeReleaseQA.detail().actors[0];return !a.target||a.source==='ambient';},null,{timeout:15000});
   }}finally{await session.detach();await page.emulateMedia({reducedMotion:'reduce'});}

@@ -25,6 +25,7 @@ const output=path.resolve('test-results/home-production-layout');fs.mkdirSync(ou
  await page.locator('.screen-frame').evaluate(e=>{e.scrollTop=e.scrollHeight;});await page.waitForTimeout(100);const after=await measure();results[results.length-1].after=after;fs.writeFileSync(path.join(output,'progress.json'),JSON.stringify(results,null,2));assert.deepEqual(after.buttons,before.buttons,'scrolling keeps all care controls fixed');assert.ok(after.meters.b<=after.frame.b+1,'meters reachable');assert.equal(await page.evaluate(()=>scrollY),0);if(before.frame.range>1)assert.ok(after.frame.scroll>0,'central content can scroll');
  await page.screenshot({path:path.join(output,`${name}-${width}x${height}.png`)});if(width===320&&height===640){if(name==='chromium')await require('./helpers/home-production-native-touch.cjs').scroll(page);await require('./helpers/home-production-touch-check.cjs')(page);}if(width===568)await require('./helpers/home-production-touch-check.cjs').focus(page);await context.close();
  }
+ await require('./clownfish-romance-browser.cjs')(browser,name,fixtures,'http://127.0.0.1:5193/',output);
  }finally{await browser.close();}}
  assert.deepEqual(errors,[]);console.log('PASS fixed care layout',results.length);fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({status:'passed',results,errors},null,2));
  }finally{await server.close();}

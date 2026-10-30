@@ -14,9 +14,12 @@
   let focusPending=true,focusRequest=0,frameSize='';
   function revealOnResize(){
     if(!focusPending||!terrain())return;
-    const request=++focusRequest;
+    const request=++focusRequest,requestedScroll=frame.scrollTop;
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
       if(request!==focusRequest||!focusPending||!terrain())return;
+      // Honor a scroll made after this focus was queued, even when WebKit has
+      // not dispatched its scroll event yet. Only the viewport is translated.
+      if(frame.scrollTop!==requestedScroll){focusPending=false;paintScroll();return;}
       const speech=document.getElementById('speechSlot');
       const choiceVisible=speech?.classList.contains('is-asking')||speech?.querySelector('.home-choice-popup:not(.hidden)');
       const target=choiceVisible?speech:document.querySelector('[data-diorama-actor^="pet:"]');

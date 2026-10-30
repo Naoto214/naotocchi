@@ -31,13 +31,14 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
  await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[inputRegion,inputCount]);
  for(const kind of ['tap','drag']){
+ await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';},null,{timeout:15000});
  const input={engine:engineName,region:inputRegion,count:inputCount,kind,before:await page.evaluate(()=>HomeReleaseQA.detail()),status:'started'};inputs.push(input);saveInputs();
  try{
  const t=await page.evaluate(targetFn),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
  input.from=from;input.to=to;saveInputs();
  if(kind==='tap'){await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');await page.mouse.click(to.x,to.y);}
  else{await page.mouse.move(from.x,from.y);await page.mouse.down();await page.mouse.move(to.x,to.y,{steps:8});await page.mouse.up();}
- await page.waitForFunction(a=>{const p=HomeReleaseQA.detail().actors[0];return Math.hypot(p.x-a.x,p.y-a.y)>5;},t.a,{timeout:15000});
+ await page.waitForFunction(({a,source})=>{const p=HomeReleaseQA.detail().actors[0];return p.source===source&&Math.hypot(p.x-a.x,p.y-a.y)>5;},{a:t.a,source:kind==='tap'?'ground':'drag'},{timeout:15000});
  assert.ok((await page.evaluate(()=>HomeReleaseQA.detail())).actors.every(a=>a.safe),kind+' stays grounded');
  await settled();
  input.status='passed';
