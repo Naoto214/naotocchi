@@ -25,7 +25,6 @@ export function mount({qa = false} = {}) {
     comparison = false,
     hitUntil = 0,
     won = false,
-    userPaused = false,
     saveError = false,
     exampleActive = false;
   const dialog = $("dialog");
@@ -38,10 +37,9 @@ export function mount({qa = false} = {}) {
       saveError = true;
     }
   }
+  // Internal suspension only: normal play has no manual pause state or cover.
   function pauseState() {
-    q.paused = userPaused || document.hidden || dialog.open || comparison || exampleActive;
-    $("paused").hidden = !userPaused;
-    $("pause").textContent = userPaused ? "▶" : "Ⅱ";
+    q.paused = document.hidden || dialog.open || comparison || exampleActive;
   }
   function size() {
     const r = canvas.parentElement.getBoundingClientRect(),
@@ -103,7 +101,7 @@ export function mount({qa = false} = {}) {
     // A completed board is replayed from its start; permanent progression survives.
     if(complete(q.state))q.retry();
     if(progress.data.boards[id]&&!q.restored)try{progress.backup(id,progress.data.boards[id]);}catch{saveError=true;}
-    won=false;rows=8;comparison=false;userPaused=false;
+    won=false;rows=8;comparison=false;
     dialog.close();save();pauseState();size();
     $("status").textContent=q.stage.lesson;story();return true;
   }
@@ -188,13 +186,6 @@ export function mount({qa = false} = {}) {
     save();
     draw();
   };
-  $("pause").onclick = () => {
-    end();
-    userPaused = !userPaused;
-    pauseState();
-    last = 0;
-    draw();
-  };
   const legacyHint = () =>
     show(
       `<h2>ほどくヒント</h2><p>${q.stage.hint}</p><p>同じ種族は足し算。8を超えた分は後ろに。各トゲは1マスの1手につき1回だけ分裂。分裂した仲間も、落ちて触れたら合体。青い水中は魚だけ。</p><p>波や光は予告のあと自動で動きます。押されても指を離さず続けられます。「もどす」は時刻も一緒に戻します。</p>`,
@@ -252,10 +243,13 @@ export function mount({qa = false} = {}) {
     end();
     q.paused = true;
     last = 0;
+    fraction = 0;
   });
   window.addEventListener("pageshow", () => {
     pauseState();
     last = 0;
+    fraction = 0;
+    draw();
   });
   window.addEventListener("storage", e=>{if(e.key===KEY){progress.merge(progress.load());draw();}});
   window.addEventListener("resize", size);

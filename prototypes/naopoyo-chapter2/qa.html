@@ -16,8 +16,7 @@
         <div class="brand">
           なおぽよ<span>。</span><small>NAOPOYO. / CHAPTER 02 · VERSION 12</small>
         </div>
-        <button id="compare" aria-label="8×8盤面">8×8</button
-        ><button id="pause" aria-label="一時停止">Ⅱ</button>
+        <button id="compare" aria-label="8×8盤面" hidden>8×8</button>
       </header>
       <section class="intro">
         <div><span id="chapter">CHAPTER 02 · VERSION 12</span><span id="clock"></span></div>
@@ -28,9 +27,6 @@
           id="board"
           aria-label="キャラをなぞって合体・分裂し、全員を星へ"
         ></canvas>
-        <div id="paused" hidden>
-          ひとやすみ<br /><small>右上の ▶ でつづける</small>
-        </div>
       </section>
       <div class="status-line"><div id="status" role="status">キャラから、なぞってみよう</div><div id="split-preview-note" hidden aria-live="polite">分裂予告：点線は落下・合体後／小さな輪は出現位置</div></div>
       <nav>
