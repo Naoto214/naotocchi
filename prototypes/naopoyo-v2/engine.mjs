@@ -9,7 +9,8 @@ export const wall=(s,x,y)=>x<0||y<0||x>=s.w||y>=s.h||s.walls.some(p=>p[0]===x&&p
 export const gateAllows=(s,a,x,y)=>{const g=at(s.gates,x,y);return !g||matchesCondition(a,g)};
 // Explicit opt-in: published boards retain their original contact semantics.
 export const recombineOnceRules=s=>s.splitRules==='recombine-once-v1';
-export const contactRules=s=>s.movementRules==='contact-v1';
+export const unifiedContactRules=s=>s.movementRules==='contact-v2';
+export const contactRules=s=>s.movementRules==='contact-v1'||unifiedContactRules(s);
 export const gateSurfaceRules=s=>s.terrainRules==='magic-gate-v2';
 export const magicRockRules=s=>s.terrainRules==='magic-rock-v1'||gateSurfaceRules(s);
 export const terrainBlocks=(s,a,x,y)=>wall(s,x,y)||!gateAllows(s,a,x,y);
@@ -104,9 +105,9 @@ function enter(s,a,dx,dy,ctx,fall=false){
  if(ctx.policy?.canEnter&&!ctx.policy.canEnter(s,a,x,y))return reject('terrain');
  const target=at(s.actors,x,y),gate=at(s.gates,x,y),exit=at(s.exits,x,y),spike=at(s.spikes,x,y);
  if(target){
-  if(contactRules(s)&&!fall&&(target.species!==a.species||a.level===8&&target.level===8))return exchange(s,a,target,dx,dy,ctx);
+  if(contactRules(s)&&!fall&&(target.species!==a.species||!unifiedContactRules(s)&&a.level===8&&target.level===8))return exchange(s,a,target,dx,dy,ctx);
   if(target.species!==a.species)return reject('species');
-  if(a.level===8&&target.level===8)return reject('saturated');
+  if(!unifiedContactRules(s)&&a.level===8&&target.level===8)return reject('saturated');
   // A lower 8 already contains the maximal amount: no physical change, no ID swap.
   if(fall&&target.level===8)return reject('saturated');
   if(fall&&!recombineOnceRules(s)&&ctx.families.has(a.id)&&ctx.families.get(a.id)===ctx.families.get(target.id))return reject('split-family');
@@ -128,9 +129,10 @@ function enter(s,a,dx,dy,ctx,fall=false){
   const remainder=body===a?target:a;
   ctx.families.delete(a.id);ctx.families.delete(target.id);
   const absorbed=combined<=8?[clone(remainder)]:[];
+  const contact=unifiedContactRules(s)?{incoming:clone(a),target:clone(target),remainderId:combined>8?remainder.id:null,origin:from}:null;
   if(combined>8){Object.assign(remainder,from,{level:combined-8});overflowActor=remainder}
   else s.actors=s.actors.filter(v=>v!==remainder);
-  ctx.events.push({type:'merge',id:body.id,x,y,level,overflow:result.overflow,fall,...(supportedGravity(s)?{absorbed}:{})});
+  ctx.events.push({type:'merge',id:body.id,x,y,level,overflow:result.overflow,fall,...(supportedGravity(s)?{absorbed}:{}),...(contact?{contact}:{})});
  }
  const entered=body===a;
  Object.assign(body,{x,y,level});

@@ -1,3 +1,4 @@
+import {contactVisualActors} from './contact-motion.mjs';
 import {splitVisualActors} from './split-motion.mjs';
 import {simulateSplit,previewDirection} from './split-preview.mjs';
 import {WorldSession} from '../naopoyo-world/session.mjs';
@@ -31,7 +32,7 @@ export class ForestSession extends WorldSession {
    if(result.ok){
     d.cursor={x,y};this.rebase();
     const swap=result.events.some(e=>e.type==='swap'),fall=result.events.some(e=>e.type==='fall'),split=result.events.some(e=>e.type==='split');
-    this.motion.push({before,after:clone(this.state),events:result.events,id:d.id,dx,dy,elapsed:0,duration:split?340:swap?(fall?420:180):(fall?340:110)});
+    this.motion.push({before,after:clone(this.state),events:result.events,id:d.id,dx,dy,elapsed:0,duration:split?340:swap?(fall?420:180):fall?340:before.movementRules==='contact-v2'&&result.events.some(e=>e.type==='merge')?(result.overflow?240:180):110});
    }
   }
   d.last={...p};this.updatePreview(p);return this.lastResults;
@@ -55,6 +56,7 @@ export function pointerActor(q,p){
 export function visualActors(q){
  const f=q.motion[0];if(!f)return q.state.actors.map(a=>({...a,opacity:1,landing:0}));
  const t=Math.min(1,f.elapsed/f.duration),hasFall=f.events.some(e=>e.type==='fall'),hasSplit=f.events.some(e=>e.type==='split'),swap=f.events.find(e=>e.type==='swap'),manualEnd=hasSplit?.24:hasFall?(swap?180/f.duration:.28):1;
+ if(f.before.movementRules==='contact-v2')return contactVisualActors(f,t);
  if(hasSplit)return splitVisualActors(f,t);
  const births=f.events.flatMap(e=>e.children||[]);
  const ids=new Set([...f.before.actors,...f.after.actors,...births].map(a=>a.id));
