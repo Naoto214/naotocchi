@@ -1,0 +1,3 @@
+Pre-release main e33ec25a334217227f0708b452a8be91fa4d1e60
+Pre-release production chapter1/index.html SHA256 f15fa6b8db46264f1d015f48fc636f040b091431bbe3bbf989d840aed46adf35 matches pre-release main.
+For rollback, build original Pages allowlist from the recorded main; never delete or rewrite localStorage. New contact-v2 board key is distinct and old readers do not access it. Retain new saves for forward repair.

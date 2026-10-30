@@ -1,0 +1,347 @@
+{
+  "browser": "153.0.8010.0",
+  "root": "/tmp/naopoyo-pages-release",
+  "checks": [
+    "official portal opens preserved chapter1",
+    "normal progression starts chapter1 and forbids chapter2 before clear",
+    "real pointer input counts one cell as one move",
+    "normal saved board restores after reload",
+    "Undo restores board and needs no start action",
+    "normal pause controls and white cover are absent",
+    "one held stroke counts five moves",
+    "one Undo restores the entire five-cell stroke",
+    "browser 3+4/dog actual pointer rule",
+    "browser 3+4/dog selected ID survives at destination",
+    "browser 5+6/dog actual pointer rule",
+    "browser 5+6/dog selected ID survives at destination",
+    "browser 5+6 surplus ID/number",
+    "browser 4+8/dog actual pointer rule",
+    "browser 4+8/dog selected ID survives at destination",
+    "browser 4+8 surplus ID/number",
+    "browser 8+8/dog actual pointer rule",
+    "browser 8+8/dog selected ID survives at destination",
+    "browser 8+8 surplus ID/number",
+    "browser 8+4/fish actual pointer rule",
+    "browser 8+4/fish selected ID survives at destination",
+    "11 example previous/next controls",
+    "11 example cursor survives close/reopen",
+    "11 example autoplay reaches final rescue",
+    "11 example preserves normal board/history/progress",
+    "12 example previous/next controls",
+    "12 example cursor survives close/reopen",
+    "12 example autoplay reaches final rescue",
+    "12 example preserves normal board/history/progress",
+    "13 example previous/next controls",
+    "13 example cursor survives close/reopen",
+    "13 example autoplay reaches final rescue",
+    "13 example preserves normal board/history/progress",
+    "14 example previous/next controls",
+    "14 example cursor survives close/reopen",
+    "14 example autoplay reaches final rescue",
+    "14 example preserves normal board/history/progress",
+    "15 example previous/next controls",
+    "15 example cursor survives close/reopen",
+    "15 example autoplay reaches final rescue",
+    "15 example preserves normal board/history/progress",
+    "16 example previous/next controls",
+    "16 example cursor survives close/reopen",
+    "16 example autoplay reaches final rescue",
+    "16 example preserves normal board/history/progress",
+    "17 example previous/next controls",
+    "17 example cursor survives close/reopen",
+    "17 example autoplay reaches final rescue",
+    "17 example preserves normal board/history/progress",
+    "18 example previous/next controls",
+    "18 example cursor survives close/reopen",
+    "18 example autoplay reaches final rescue",
+    "18 example preserves normal board/history/progress",
+    "19 example previous/next controls",
+    "19 example cursor survives close/reopen",
+    "19 example autoplay reaches final rescue",
+    "19 example preserves normal board/history/progress",
+    "20 example previous/next controls",
+    "20 example cursor survives close/reopen",
+    "stage20 autoplay pauses without advancing",
+    "20 example autoplay reaches final rescue",
+    "stage20 97 moves and 16/16 rescue",
+    "20 example preserves normal board/history/progress",
+    "320x480 normal board visible",
+    "320x480 example controls visible",
+    "375x667 normal board visible",
+    "375x667 example controls visible",
+    "390x650 normal board visible",
+    "390x650 example controls visible",
+    "430x750 normal board visible",
+    "430x750 example controls visible",
+    "844x390 normal board visible",
+    "844x390 example controls visible",
+    "390x480 normal board visible",
+    "390x480 example controls visible",
+    "47/34px safe-area equivalent keeps normal board visible",
+    "47/34px safe-area equivalent keeps example controls visible",
+    "legacy save and unrelated storage untouched",
+    "no browser module/asset/runtime errors"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "height": 480,
+      "scroll": false,
+      "board": {
+        "x": 14,
+        "y": 99,
+        "w": 292,
+        "h": 292
+      },
+      "buttons": [
+        {
+          "x": 10,
+          "y": 428,
+          "w": 55.1875,
+          "h": 44
+        },
+        {
+          "x": 71.1875,
+          "y": 428,
+          "w": 55.203125,
+          "h": 44
+        },
+        {
+          "x": 132.390625,
+          "y": 428,
+          "w": 55.203125,
+          "h": 44
+        },
+        {
+          "x": 193.59375,
+          "y": 428,
+          "w": 55.203125,
+          "h": 44
+        },
+        {
+          "x": 254.796875,
+          "y": 428,
+          "w": 55.203125,
+          "h": 44
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "scroll": false,
+      "board": {
+        "x": 14,
+        "y": 170,
+        "w": 347,
+        "h": 347
+      },
+      "buttons": [
+        {
+          "x": 10,
+          "y": 613,
+          "w": 66.1875,
+          "h": 46
+        },
+        {
+          "x": 82.1875,
+          "y": 613,
+          "w": 66.203125,
+          "h": 46
+        },
+        {
+          "x": 154.390625,
+          "y": 613,
+          "w": 66.203125,
+          "h": 46
+        },
+        {
+          "x": 226.59375,
+          "y": 613,
+          "w": 66.203125,
+          "h": 46
+        },
+        {
+          "x": 298.796875,
+          "y": 613,
+          "w": 66.1875,
+          "h": 46
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 650,
+      "scroll": false,
+      "board": {
+        "x": 14,
+        "y": 154,
+        "w": 362,
+        "h": 362
+      },
+      "buttons": [
+        {
+          "x": 10,
+          "y": 596,
+          "w": 69.1875,
+          "h": 46
+        },
+        {
+          "x": 85.1875,
+          "y": 596,
+          "w": 69.203125,
+          "h": 46
+        },
+        {
+          "x": 160.390625,
+          "y": 596,
+          "w": 69.203125,
+          "h": 46
+        },
+        {
+          "x": 235.59375,
+          "y": 596,
+          "w": 69.203125,
+          "h": 46
+        },
+        {
+          "x": 310.796875,
+          "y": 596,
+          "w": 69.1875,
+          "h": 46
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "height": 750,
+      "scroll": false,
+      "board": {
+        "x": 14,
+        "y": 184,
+        "w": 402,
+        "h": 402
+      },
+      "buttons": [
+        {
+          "x": 10,
+          "y": 696,
+          "w": 77.1875,
+          "h": 46
+        },
+        {
+          "x": 93.1875,
+          "y": 696,
+          "w": 77.203125,
+          "h": 46
+        },
+        {
+          "x": 176.390625,
+          "y": 696,
+          "w": 77.203125,
+          "h": 46
+        },
+        {
+          "x": 259.59375,
+          "y": 696,
+          "w": 77.203125,
+          "h": 46
+        },
+        {
+          "x": 342.796875,
+          "y": 696,
+          "w": 77.1875,
+          "h": 46
+        }
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "scroll": false,
+      "board": {
+        "x": 383,
+        "y": 12,
+        "w": 366,
+        "h": 366
+      },
+      "buttons": [
+        {
+          "x": 10,
+          "y": 336,
+          "w": 48.796875,
+          "h": 46
+        },
+        {
+          "x": 64.796875,
+          "y": 336,
+          "w": 48.796875,
+          "h": 46
+        },
+        {
+          "x": 119.59375,
+          "y": 336,
+          "w": 48.796875,
+          "h": 46
+        },
+        {
+          "x": 174.390625,
+          "y": 336,
+          "w": 48.796875,
+          "h": 46
+        },
+        {
+          "x": 229.1875,
+          "y": 336,
+          "w": 48.796875,
+          "h": 46
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 480,
+      "scroll": false,
+      "board": {
+        "x": 44,
+        "y": 94,
+        "w": 302,
+        "h": 302
+      },
+      "buttons": [
+        {
+          "x": 10,
+          "y": 428,
+          "w": 69.1875,
+          "h": 44
+        },
+        {
+          "x": 85.1875,
+          "y": 428,
+          "w": 69.203125,
+          "h": 44
+        },
+        {
+          "x": 160.390625,
+          "y": 428,
+          "w": 69.203125,
+          "h": 44
+        },
+        {
+          "x": 235.59375,
+          "y": 428,
+          "w": 69.203125,
+          "h": 44
+        },
+        {
+          "x": 310.796875,
+          "y": 428,
+          "w": 69.1875,
+          "h": 44
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "status": "passed"
+}

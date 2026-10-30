@@ -1,0 +1,15 @@
+{
+  "base": "http://127.0.0.1:45575",
+  "checks": [
+    "main Runtime menu opens",
+    "menu opens chapter1",
+    "chapter1 actual drag changes board",
+    "chapter1 Undo restores board",
+    "CARD solo match starts",
+    "story menu route loads",
+    "no Runtime/chapter1/CARD/story JS errors"
+  ],
+  "errors": [],
+  "cardText": "▶ あなたのターン\nROUND 1/10 · あなたが選択中\n操作・履歴\n☰\n奥 · 相手 · B\nそだち 20 / 時 0\n準備③\n·\n準備②\n·\n準備①\n·\nなかま③\n·\nなかま②\n·\nなかま①\n·\nこいびと\n·\nメイン\nセカイ\n·\n捨て札\n0\n発動領域\n0\n山札\n35\n —\n —\n交際 —\n手札 5\n手前 · あなた · A\nそだち 20 / 時 1\nセカイ\n·\nメイン\nこいびと\n·\nなかま①\n·\nなかま②\n·\nなかま③\n·\n準備①\n·\n準備②\n·\n準備③\n·\n捨て札\n0\n発動領域\n1\n山札\n33\n —\n —\n交際 —\n手札 7\n操作 A · 必須選択\n手札をタップ → 山札の下へ戻す\n詳細 ›\n×\n結果 · 対戦開始時点\nあそび\n1\nヒット&ブロー\nNAOTOCCHI\nあいてむ\n2\nふかふかまくら\nNAOTOCCHI\nこいびと\n0\nがけのヤギさん\nNAOTOCCHI\nA：開始時の手札 ヒット&ブロー・ふかふかまくら・がけのヤギさん ほか4枚\nほか3件 · 詳細は操作・履歴\n手札 7枚 長押しで並び替え\n補助操作\nあそび\n1\nヒット&ブロー\nNAOTOCCHI\nあいてむ\n2\nふかふかまくら\nNAOTOCCHI\nこいびと\n0\nがけのヤギさん\nNAOTOCCHI\nあいてむ\n2\nおべんとうばこ\nNAOTOCCHI\nなかま\n0\nただのはこ\nNAOTOCCHI\n◆\nできごと\n1\nはじめてのデート\nNAOTOCCHI\nあそび\n3\nじんとり\nNAOTOCCHI\n\nこの端末に保存しました",
+  "status": "passed"
+}

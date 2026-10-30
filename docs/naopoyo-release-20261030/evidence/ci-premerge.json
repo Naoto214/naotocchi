@@ -1,0 +1,143 @@
+{
+  "candidate": "eb45d64f55e549f1adb368d046e3c3d7cc5c19e9",
+  "runs": [
+    {
+      "id": 41005053515,
+      "name": "Naopoyo Chapter 2 Pilot",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_number": 25,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053515/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053515/logs",
+      "workflow_id": 394796547
+    },
+    {
+      "id": 41005053904,
+      "name": "Home layout",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_number": 1277,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053904/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053904/logs",
+      "workflow_id": 355795733
+    },
+    {
+      "id": 41005053537,
+      "name": "Runtime smoke test",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_number": 1804,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053537/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053537/logs",
+      "workflow_id": 351596585
+    },
+    {
+      "id": 41005053544,
+      "name": "World visual quality",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_number": 386,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053544/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053544/logs",
+      "workflow_id": 374398717
+    },
+    {
+      "id": 41005053589,
+      "name": "Naopoyo World Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 31,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053589/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053589/logs",
+      "workflow_id": 393644946
+    },
+    {
+      "id": 41005053616,
+      "name": "Naopoyo official release",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 188,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053616/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053616/logs",
+      "workflow_id": 391609802
+    },
+    {
+      "id": 41005053526,
+      "name": "Naopoyo Insight Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 26,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053526/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053526/logs",
+      "workflow_id": 393702225
+    },
+    {
+      "id": 41005053477,
+      "name": "Pages runtime package",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 354,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053477/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053477/logs",
+      "workflow_id": 389281874
+    },
+    {
+      "id": 41005053443,
+      "name": "Naopoyo Chapter 1",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 131,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053443/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053443/logs",
+      "workflow_id": 393756683
+    },
+    {
+      "id": 41005053441,
+      "name": "Naopoyo Contact Experiment",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 3,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053441/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053441/logs",
+      "workflow_id": 400875368
+    }
+  ],
+  "prs": [
+    {
+      "number": 436,
+      "head": "ab937a22e2ae246b87b58932815dad2c4e8a2d87",
+      "base": "main",
+      "base_sha": "d0cfd40f4bdd05782ceb45469ba151da3199c9a6",
+      "draft": true,
+      "merged": false,
+      "mergeable": true
+    },
+    {
+      "number": 482,
+      "head": "79981ddee5772a0b301da8a06a63faa6ca4d9661",
+      "base": "feat/naopoyo-chapter2-gravity-pilot-20261024",
+      "base_sha": "ab937a22e2ae246b87b58932815dad2c4e8a2d87",
+      "draft": true,
+      "merged": false,
+      "mergeable": true
+    },
+    {
+      "number": 483,
+      "head": "809c1f8b5153b7f0f5ab125192ca5a3d8f4773a0",
+      "base": "feat/naopoyo-chapter2-gravity-pilot-20261024",
+      "base_sha": "ab937a22e2ae246b87b58932815dad2c4e8a2d87",
+      "draft": true,
+      "merged": false,
+      "mergeable": true
+    },
+    {
+      "number": 484,
+      "head": "eb45d64f55e549f1adb368d046e3c3d7cc5c19e9",
+      "base": "main",
+      "base_sha": "e33ec25a334217227f0708b452a8be91fa4d1e60",
+      "draft": true,
+      "merged": false,
+      "mergeable": true
+    }
+  ]
+}
