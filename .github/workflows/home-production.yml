@@ -24,7 +24,7 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium webkit
-      - run: node --test tests/home-production-test.cjs
+      - run: node --test tests/home-production-test.cjs tests/home-production-save-test.cjs
       - run: python tools/pages/package.py --out "${{ runner.temp }}/home-production" --report "${{ runner.temp }}/home-package.json"
       - run: node tools/home-production-qa.cjs "${{ runner.temp }}/home-production"
       - run: node tests/home-production-browser.cjs "${{ runner.temp }}/home-production"

@@ -8,16 +8,32 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  try{
  const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(engineName+': '+e.message));
  await page.goto(base);await page.waitForFunction(()=>window.HomeV6Egg&&document.querySelector('.home-v6-egg-world img')?.complete);await page.screenshot({path:path.join(dest,engineName+'-egg.png'),fullPage:true});assert.equal(await page.locator('.home-v6-egg-world').count(),1);
+ for(let tap=0;tap<5;tap++){await page.locator('#playWithBtn').click();await page.waitForTimeout(120);}
+ await page.waitForFunction(()=>!document.querySelector('.home-v6-egg-world')&&document.body.dataset.livingHome==='art-25d');
  const original=JSON.parse(fs.readFileSync(path.join(out,'release-qa-seed.json')));await page.evaluate(s=>localStorage.setItem('naotocchi-home-release-qa-v1',JSON.stringify(s)),original);
  await page.goto(base+'/release-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);
  for(const width of [320,375,390,430])for(const region of (process.env.HOME_RELEASE_REGION?[process.env.HOME_RELEASE_REGION]:['home','forest','river_lake','city','countryside','mountain','snow','sea','jungle','desert','deepsea','star_stop','memory_lake']))for(const count of [1,6,28]){
  await page.setViewportSize({width,height:844});await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
- await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world?.mode==='art-25d'&&d.world.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:30000});
- const detail=await page.evaluate(()=>HomeReleaseQA.detail());assert.equal(Math.round(detail.slots.notice),42);assert.equal(Math.round(detail.slots.speech),76);assert.ok(await page.evaluate(()=>HomeReleaseQA.move()),`${region}/${width}/${count} pet exit`);
+ await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.mode==='art-25d'&&d.world.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:30000});
+ const detail=await page.evaluate(()=>HomeReleaseQA.detail());assert.equal(Math.round(detail.slots.notice),42);assert.equal(Math.round(detail.slots.speech),76);assert.ok(await page.evaluate(()=>HomeReleaseQA.move()),`${region}/${width}/${count} pet exit: ${JSON.stringify(detail)}`);
  results.push({engine:engineName,width,region,count,candidate:detail.world.candidate,safe:detail.actors.every(a=>a.safe),slots:detail.slots});
  if(width===390&&count===28)await page.screenshot({path:path.join(dest,`${engineName}-${region}-28.png`),fullPage:true});
  fs.writeFileSync(path.join(dest,'progress.json'),JSON.stringify({results,errors},null,2));
  }
+ await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'no-preference'});
+ const inputRegion=process.env.HOME_RELEASE_REGION||'river_lake';await page.evaluate(r=>HomeReleaseQA.scene(r,6),inputRegion);
+ await page.waitForFunction(r=>HomeReleaseQA.detail().world.region===r&&HomeReleaseQA.detail().world.loaded,inputRegion);
+ const targetFn=require('./helpers/home-ground-target.cjs');
+ for(const kind of ['tap','drag']){
+ const t=await page.evaluate(targetFn),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
+ if(kind==='tap'){await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');await page.mouse.click(to.x,to.y);}
+ else{await page.mouse.move(from.x,from.y);await page.mouse.down();await page.mouse.move(to.x,to.y,{steps:8});await page.mouse.up();}
+ await page.waitForFunction(a=>{const p=HomeReleaseQA.detail().actors[0];return Math.hypot(p.x-a.x,p.y-a.y)>5;},t.a,{timeout:15000});
+ assert.ok((await page.evaluate(()=>HomeReleaseQA.detail())).actors.every(a=>a.safe),kind+' stays grounded');
+ }
+ await page.evaluate(()=>HomeReleaseQA.question());await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));
+ await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > button').count(),12);await page.locator('#menuCloseBtn').click();
+ await page.emulateMedia({reducedMotion:'reduce'});const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
  await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>HomeReleaseQA.detail().actors.length===28&&HomeReleaseQA.detail().actors.every(a=>a.safe),null,{timeout:30000});
  assert.ok(await page.evaluate(()=>HomeReleaseQA.move()));
  const saved=await page.evaluate(()=>HomeReleaseQA.save());await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);const restored=await page.evaluate(()=>HomeReleaseQA.state());assert.equal(restored.regionId,saved.regionId);assert.equal(restored.companions.length,saved.companions.length);assert.equal(restored.partner.id,saved.partner.id);assert.equal(restored.lifetime.money,saved.lifetime.money);
