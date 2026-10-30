@@ -42,4 +42,11 @@ CIのPR合成commit `3ae19addba757c9fa0080c172779ebf06152d832` のtreeは配信�
 
 配信85/85ファイルが認証付きHTTP200・SHA-256一致。HTML3件は同一オリジン内の正規URLへの307をたどって照合した。認証情報を他オリジンへ転送する処理はなく、検証ログ/成果物にも記録していない。未認証qa.htmlは403。詳細は`no-pause-delivery-hashes.json`。
 
-CI run40990370344: puzzle954/954とCARD494/494は成功。本編npm testは2026-10-30 11:26 JST時点で実行中。最終結果は追補する。
+## 最終CI結果
+
+[CI run40990370344](https://github.com/Naoto214/naotocchi/actions/runs/40990370344)の3ジョブすべてcompleted/success。
+- パズル954/954、CARD GAME494/494。
+- 本編の単一npm testは3504/3504（32+24+3289+159）、fail/skip/cancel0。smoke/dialogue/visualも含むコマンド全体成功。
+- 本編完了2026-10-30 11:36 JST。詳細は`no-pause-ci-summary.json`。
+
+実装d160c03e以後は検証資料のみを[skip ci]で保存し、製品コード・テスト・workflowに差分なし。最終HEAD/treeはPR本文に記録する。PR482はDraftのまま。mainへのmergeや本番Pagesへのdeployは行っていない。
