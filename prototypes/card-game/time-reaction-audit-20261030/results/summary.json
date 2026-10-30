@@ -1,0 +1,3226 @@
+{
+ "matches": 896,
+ "completed": 896,
+ "abnormal": [],
+ "opp": {
+  "deckdiff:balance/beginner": {
+   "seats": 128,
+   "perGame": {
+    "windows": 66.67,
+    "auto": 51.41,
+    "decided": 15.27,
+    "withUsable": 15.27,
+    "used": 0.0,
+    "declined": 15.27,
+    "timeShortOnly": 12.73,
+    "condOnly": 32.77,
+    "noQuickInHand": 5.9,
+    "challengeWindows": 7.01,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.48,
+    "oppTurnsUsable": 2.37,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.66,
+    "ownWindows": 70.51,
+    "ownWithUsable": 48.71,
+    "ownUsed": 13.71,
+    "quickOwn": 6.27,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-first-date": 1368,
+    "I-c_coin2": 447,
+    "E-new-encounter": 388,
+    "G-sugoroku-race": 368,
+    "E-mirror": 86,
+    "G-hit-blow": 33
+   },
+   "timeShortCards": {
+    "E-new-encounter": 749,
+    "G-sugoroku-race": 662,
+    "I-c_coin2": 564,
+    "E-mirror": 461,
+    "G-hit-blow": 214,
+    "E-first-date": 127
+   },
+   "ownUsedCards": {
+    "C-owl": 953,
+    "E-mirror": 164,
+    "G-sugoroku-race": 159,
+    "G-hit-blow": 142,
+    "I-c_coin2": 137,
+    "E-new-encounter": 130,
+    "E-first-date": 70
+   }
+  },
+  "deckdiff:balance/intermediate": {
+   "seats": 128,
+   "perGame": {
+    "windows": 66.87,
+    "auto": 40.38,
+    "decided": 26.48,
+    "withUsable": 26.48,
+    "used": 0.16,
+    "declined": 26.32,
+    "timeShortOnly": 17.61,
+    "condOnly": 14.22,
+    "noQuickInHand": 8.55,
+    "challengeWindows": 7.03,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.48,
+    "oppTurnsUsable": 3.94,
+    "oppTurnsUsed": 0.15,
+    "oppTurnsShort": 2.35,
+    "ownWindows": 76.05,
+    "ownWithUsable": 48.32,
+    "ownUsed": 12.37,
+    "quickOwn": 7.27,
+    "quickOpp": 0.16,
+    "usedCost": 0.14
+   },
+   "useRateGivenUsable": 0.006,
+   "turnUseRateGivenUsable": 0.038,
+   "usedCards": {
+    "G-sugoroku-race": 10,
+    "E-new-encounter": 6,
+    "I-c_coin2": 3,
+    "E-mirror": 2
+   },
+   "declinedCards": {
+    "E-mirror": 2411,
+    "E-first-date": 2137,
+    "E-new-encounter": 343,
+    "G-sugoroku-race": 10,
+    "I-c_coin2": 2
+   },
+   "timeShortCards": {
+    "E-new-encounter": 1046,
+    "G-sugoroku-race": 660,
+    "E-mirror": 651,
+    "I-c_coin2": 489,
+    "E-first-date": 253,
+    "G-hit-blow": 250
+   },
+   "ownUsedCards": {
+    "C-owl": 962,
+    "G-hit-blow": 181,
+    "G-sugoroku-race": 145,
+    "I-c_coin2": 117,
+    "G-baseball-batting": 65,
+    "E-first-date": 61,
+    "E-new-encounter": 30,
+    "E-mirror": 22
+   }
+  },
+  "deckdiff:challenge/beginner": {
+   "seats": 128,
+   "perGame": {
+    "windows": 65.04,
+    "auto": 42.71,
+    "decided": 22.33,
+    "withUsable": 22.33,
+    "used": 0.0,
+    "declined": 22.33,
+    "timeShortOnly": 11.34,
+    "condOnly": 26.27,
+    "noQuickInHand": 5.1,
+    "challengeWindows": 6.48,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.46,
+    "oppTurnsUsable": 3.38,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.73,
+    "ownWindows": 50.95,
+    "ownWithUsable": 19.02,
+    "ownUsed": 2.86,
+    "quickOwn": 2.86,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "G-basketball-3d": 2094,
+    "G-street-fight": 1200,
+    "E-mirror": 307,
+    "E-boss": 303,
+    "G-grand-prix-3d": 52
+   },
+   "timeShortCards": {
+    "G-basketball-3d": 977,
+    "E-mirror": 623,
+    "G-street-fight": 495,
+    "E-boss": 39,
+    "G-grand-prix-3d": 29
+   },
+   "ownUsedCards": {
+    "E-mirror": 104,
+    "G-basketball-3d": 103,
+    "G-race-3d": 78,
+    "G-street-fight": 69,
+    "G-grand-prix-3d": 12
+   }
+  },
+  "deckdiff:challenge/intermediate": {
+   "seats": 128,
+   "perGame": {
+    "windows": 65.86,
+    "auto": 59.23,
+    "decided": 6.62,
+    "withUsable": 6.62,
+    "used": 0.56,
+    "declined": 6.06,
+    "timeShortOnly": 12.2,
+    "condOnly": 32.09,
+    "noQuickInHand": 14.94,
+    "challengeWindows": 6.73,
+    "challengeUsed": 0.24,
+    "oppTurns": 9.48,
+    "oppTurnsUsable": 1.38,
+    "oppTurnsUsed": 0.51,
+    "oppTurnsShort": 1.84,
+    "ownWindows": 53.05,
+    "ownWithUsable": 14.82,
+    "ownUsed": 1.51,
+    "quickOwn": 2.72,
+    "quickOpp": 0.56,
+    "usedCost": 0.8
+   },
+   "useRateGivenUsable": 0.085,
+   "turnUseRateGivenUsable": 0.367,
+   "usedCards": {
+    "G-street-fight": 31,
+    "E-boss": 21,
+    "G-grand-prix-3d": 10,
+    "E-mirror": 8,
+    "G-basketball-3d": 2
+   },
+   "declinedCards": {
+    "E-mirror": 717,
+    "G-street-fight": 114
+   },
+   "timeShortCards": {
+    "G-basketball-3d": 913,
+    "E-mirror": 702,
+    "G-street-fight": 562,
+    "G-grand-prix-3d": 41,
+    "E-boss": 21
+   },
+   "ownUsedCards": {
+    "G-street-fight": 55,
+    "G-race-3d": 47,
+    "G-basketball-3d": 29,
+    "G-baseball-batting": 27,
+    "G-grand-prix-3d": 19,
+    "E-mirror": 16
+   }
+  },
+  "deckdiff:companion/beginner": {
+   "seats": 128,
+   "perGame": {
+    "windows": 65.05,
+    "auto": 41.16,
+    "decided": 23.88,
+    "withUsable": 23.88,
+    "used": 0.0,
+    "declined": 23.88,
+    "timeShortOnly": 6.57,
+    "condOnly": 13.46,
+    "noQuickInHand": 21.13,
+    "challengeWindows": 6.71,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.38,
+    "oppTurnsUsable": 3.62,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 0.9,
+    "ownWindows": 63.84,
+    "ownWithUsable": 31.06,
+    "ownUsed": 7.98,
+    "quickOwn": 3.04,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "I-c_friend": 2011,
+    "G-stack-acorn": 1161,
+    "E-new-encounter": 343,
+    "G-sugoroku-race": 239,
+    "E-midlife-flower": 223
+   },
+   "timeShortCards": {
+    "E-new-encounter": 354,
+    "E-midlife-flower": 308,
+    "I-c_friend": 294,
+    "G-sugoroku-race": 155,
+    "G-stack-acorn": 12
+   },
+   "ownUsedCards": {
+    "C-owl": 630,
+    "E-midlife-flower": 113,
+    "G-sugoroku-race": 102,
+    "G-beach-volley": 101,
+    "E-new-encounter": 73,
+    "C-cat_friend": 2
+   }
+  },
+  "deckdiff:companion/intermediate": {
+   "seats": 128,
+   "perGame": {
+    "windows": 65.52,
+    "auto": 51.12,
+    "decided": 14.41,
+    "withUsable": 14.41,
+    "used": 0.02,
+    "declined": 14.39,
+    "timeShortOnly": 6.29,
+    "condOnly": 17.62,
+    "noQuickInHand": 27.21,
+    "challengeWindows": 7.01,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.38,
+    "oppTurnsUsable": 2.09,
+    "oppTurnsUsed": 0.02,
+    "oppTurnsShort": 0.81,
+    "ownWindows": 65.42,
+    "ownWithUsable": 25.71,
+    "ownUsed": 8.01,
+    "quickOwn": 3.77,
+    "quickOpp": 0.02,
+    "usedCost": 0.02
+   },
+   "useRateGivenUsable": 0.001,
+   "turnUseRateGivenUsable": 0.007,
+   "usedCards": {
+    "E-new-encounter": 2
+   },
+   "declinedCards": {
+    "I-c_friend": 1450,
+    "G-stack-acorn": 258,
+    "E-new-encounter": 162,
+    "E-midlife-flower": 79
+   },
+   "timeShortCards": {
+    "I-c_friend": 287,
+    "E-new-encounter": 284,
+    "E-midlife-flower": 283,
+    "G-sugoroku-race": 91,
+    "G-stack-acorn": 53
+   },
+   "ownUsedCards": {
+    "C-owl": 699,
+    "E-midlife-flower": 102,
+    "G-sugoroku-race": 98,
+    "G-beach-volley": 79,
+    "E-new-encounter": 38,
+    "G-stack-acorn": 9
+   }
+  },
+  "deckdiff:growth/beginner": {
+   "seats": 128,
+   "perGame": {
+    "windows": 65.69,
+    "auto": 43.89,
+    "decided": 21.8,
+    "withUsable": 21.8,
+    "used": 0.0,
+    "declined": 21.8,
+    "timeShortOnly": 14.42,
+    "condOnly": 25.8,
+    "noQuickInHand": 3.67,
+    "challengeWindows": 7.51,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.48,
+    "oppTurnsUsable": 3.38,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 2.02,
+    "ownWindows": 48.02,
+    "ownWithUsable": 35.53,
+    "ownUsed": 5.46,
+    "quickOwn": 5.46,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "G-area-claim": 2032,
+    "G-sugoroku-race": 865,
+    "I-c_coin2": 648,
+    "E-midlife-flower": 607,
+    "G-lunar-lander": 317,
+    "E-midlife-50th": 40
+   },
+   "timeShortCards": {
+    "I-c_coin2": 725,
+    "E-midlife-flower": 698,
+    "G-sugoroku-race": 651,
+    "G-area-claim": 602,
+    "G-lunar-lander": 558,
+    "E-midlife-50th": 80,
+    "G-connect-four": 34
+   },
+   "ownUsedCards": {
+    "E-midlife-flower": 166,
+    "G-sugoroku-race": 136,
+    "I-c_coin2": 135,
+    "G-plane-landing": 127,
+    "G-lunar-lander": 83,
+    "E-midlife-50th": 28,
+    "G-connect-four": 22,
+    "G-area-claim": 2
+   }
+  },
+  "deckdiff:growth/intermediate": {
+   "seats": 128,
+   "perGame": {
+    "windows": 65.04,
+    "auto": 54.69,
+    "decided": 10.35,
+    "withUsable": 10.35,
+    "used": 0.13,
+    "declined": 10.22,
+    "timeShortOnly": 16.02,
+    "condOnly": 20.11,
+    "noQuickInHand": 18.56,
+    "challengeWindows": 7.11,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.44,
+    "oppTurnsUsable": 1.7,
+    "oppTurnsUsed": 0.12,
+    "oppTurnsShort": 2.21,
+    "ownWindows": 53.42,
+    "ownWithUsable": 22.47,
+    "ownUsed": 4.18,
+    "quickOwn": 7.25,
+    "quickOpp": 0.13,
+    "usedCost": 0.09
+   },
+   "useRateGivenUsable": 0.013,
+   "turnUseRateGivenUsable": 0.069,
+   "usedCards": {
+    "I-c_coin2": 9,
+    "E-midlife-50th": 4,
+    "G-lunar-lander": 2,
+    "G-sugoroku-race": 1,
+    "E-midlife-flower": 1
+   },
+   "declinedCards": {
+    "G-area-claim": 1402,
+    "E-midlife-flower": 12
+   },
+   "timeShortCards": {
+    "G-sugoroku-race": 951,
+    "I-c_coin2": 662,
+    "G-lunar-lander": 661,
+    "E-midlife-flower": 518,
+    "G-area-claim": 464,
+    "E-midlife-50th": 75,
+    "G-connect-four": 24
+   },
+   "ownUsedCards": {
+    "E-midlife-flower": 115,
+    "G-sugoroku-race": 110,
+    "I-c_coin2": 107,
+    "G-plane-landing": 86,
+    "G-lunar-lander": 79,
+    "E-midlife-50th": 22,
+    "G-connect-four": 16
+   }
+  },
+  "deckdiff:item/beginner": {
+   "seats": 128,
+   "perGame": {
+    "windows": 64.88,
+    "auto": 55.19,
+    "decided": 9.69,
+    "withUsable": 9.69,
+    "used": 0.0,
+    "declined": 9.69,
+    "timeShortOnly": 17.5,
+    "condOnly": 23.91,
+    "noQuickInHand": 13.78,
+    "challengeWindows": 6.05,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.38,
+    "oppTurnsUsable": 1.36,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 2.55,
+    "ownWindows": 65.39,
+    "ownWithUsable": 18.73,
+    "ownUsed": 9.56,
+    "quickOwn": 3.22,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "G-stack-themed": 1465
+   },
+   "timeShortCards": {
+    "G-stack-themed": 2292,
+    "G-gomoku-9": 211,
+    "G-stack-leaves": 132,
+    "G-connect-four": 26
+   },
+   "ownUsedCards": {
+    "C-owl": 812,
+    "G-stack-themed": 137,
+    "G-gomoku-9": 128,
+    "G-stack-leaves": 74,
+    "G-connect-four": 73
+   }
+  },
+  "deckdiff:item/intermediate": {
+   "seats": 128,
+   "perGame": {
+    "windows": 65.16,
+    "auto": 65.0,
+    "decided": 0.16,
+    "withUsable": 0.16,
+    "used": 0.16,
+    "declined": 0.0,
+    "timeShortOnly": 14.9,
+    "condOnly": 31.71,
+    "noQuickInHand": 18.39,
+    "challengeWindows": 6.12,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.4,
+    "oppTurnsUsable": 0.16,
+    "oppTurnsUsed": 0.16,
+    "oppTurnsShort": 2.19,
+    "ownWindows": 66.8,
+    "ownWithUsable": 10.19,
+    "ownUsed": 8.75,
+    "quickOwn": 3.11,
+    "quickOpp": 0.16,
+    "usedCost": 0.33
+   },
+   "useRateGivenUsable": 1.0,
+   "turnUseRateGivenUsable": 1.0,
+   "usedCards": {
+    "G-stack-themed": 21
+   },
+   "declinedCards": {},
+   "timeShortCards": {
+    "G-stack-themed": 1738,
+    "G-gomoku-9": 158,
+    "G-stack-leaves": 131,
+    "G-connect-four": 89
+   },
+   "ownUsedCards": {
+    "C-owl": 806,
+    "G-gomoku-9": 124,
+    "G-stack-leaves": 88,
+    "G-connect-four": 76,
+    "G-stack-themed": 26
+   }
+  },
+  "deckdiff:main/beginner": {
+   "seats": 128,
+   "perGame": {
+    "windows": 62.12,
+    "auto": 46.74,
+    "decided": 15.38,
+    "withUsable": 15.38,
+    "used": 0.0,
+    "declined": 15.38,
+    "timeShortOnly": 8.23,
+    "condOnly": 21.03,
+    "noQuickInHand": 17.48,
+    "challengeWindows": 4.77,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.5,
+    "oppTurnsUsable": 2.53,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.12,
+    "ownWindows": 67.79,
+    "ownWithUsable": 25.21,
+    "ownUsed": 8.03,
+    "quickOwn": 2.35,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-fateful-transform": 1391,
+    "E-midlife-flower": 301,
+    "E-mirror": 278,
+    "G-sugoroku-race": 254,
+    "I-c_egg_normal": 72
+   },
+   "timeShortCards": {
+    "E-midlife-flower": 373,
+    "G-sugoroku-race": 311,
+    "E-fateful-transform": 308,
+    "E-mirror": 235,
+    "I-c_egg_normal": 65
+   },
+   "ownUsedCards": {
+    "C-owl": 659,
+    "E-mirror": 105,
+    "G-sugoroku-race": 74,
+    "G-race-3d": 68,
+    "M-beetle-03": 68,
+    "E-midlife-flower": 54
+   }
+  },
+  "deckdiff:main/intermediate": {
+   "seats": 128,
+   "perGame": {
+    "windows": 61.87,
+    "auto": 53.97,
+    "decided": 7.9,
+    "withUsable": 7.9,
+    "used": 0.03,
+    "declined": 7.87,
+    "timeShortOnly": 10.03,
+    "condOnly": 20.29,
+    "noQuickInHand": 23.65,
+    "challengeWindows": 4.63,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.5,
+    "oppTurnsUsable": 1.34,
+    "oppTurnsUsed": 0.03,
+    "oppTurnsShort": 1.39,
+    "ownWindows": 69.89,
+    "ownWithUsable": 21.41,
+    "ownUsed": 7.37,
+    "quickOwn": 2.34,
+    "quickOpp": 0.03,
+    "usedCost": 0.03
+   },
+   "useRateGivenUsable": 0.004,
+   "turnUseRateGivenUsable": 0.023,
+   "usedCards": {
+    "E-midlife-flower": 2,
+    "I-c_egg_normal": 2
+   },
+   "declinedCards": {
+    "E-mirror": 1209,
+    "E-midlife-flower": 8
+   },
+   "timeShortCards": {
+    "E-mirror": 544,
+    "G-sugoroku-race": 383,
+    "E-midlife-flower": 318,
+    "E-fateful-transform": 258,
+    "I-c_egg_normal": 93
+   },
+   "ownUsedCards": {
+    "C-owl": 713,
+    "G-sugoroku-race": 72,
+    "M-beetle-03": 56,
+    "G-race-3d": 50,
+    "E-midlife-flower": 42,
+    "E-mirror": 10
+   }
+  },
+  "deckdiff:partner/beginner": {
+   "seats": 128,
+   "perGame": {
+    "windows": 68.05,
+    "auto": 36.28,
+    "decided": 31.77,
+    "withUsable": 31.77,
+    "used": 0.0,
+    "declined": 31.77,
+    "timeShortOnly": 12.44,
+    "condOnly": 16.13,
+    "noQuickInHand": 7.71,
+    "challengeWindows": 5.8,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.44,
+    "oppTurnsUsable": 4.62,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.61,
+    "ownWindows": 60.5,
+    "ownWithUsable": 35.52,
+    "ownUsed": 3.76,
+    "quickOwn": 3.76,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-reconciliation": 3465,
+    "E-first-date": 2343,
+    "E-new-encounter": 573,
+    "E-wedding-anniversary": 397,
+    "I-c_match": 17
+   },
+   "timeShortCards": {
+    "E-new-encounter": 1274,
+    "E-reconciliation": 427,
+    "I-c_match": 181,
+    "E-first-date": 129,
+    "G-connect-four": 40,
+    "E-wedding-anniversary": 22
+   },
+   "ownUsedCards": {
+    "E-new-encounter": 199,
+    "E-wedding-anniversary": 136,
+    "G-connect-four": 85,
+    "E-first-date": 61
+   }
+  },
+  "deckdiff:partner/intermediate": {
+   "seats": 128,
+   "perGame": {
+    "windows": 67.94,
+    "auto": 36.24,
+    "decided": 31.7,
+    "withUsable": 31.7,
+    "used": 0.03,
+    "declined": 31.66,
+    "timeShortOnly": 15.23,
+    "condOnly": 13.81,
+    "noQuickInHand": 7.2,
+    "challengeWindows": 5.8,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.45,
+    "oppTurnsUsable": 4.6,
+    "oppTurnsUsed": 0.03,
+    "oppTurnsShort": 1.99,
+    "ownWindows": 61.45,
+    "ownWithUsable": 36.71,
+    "ownUsed": 3.14,
+    "quickOwn": 3.91,
+    "quickOpp": 0.03,
+    "usedCost": 0.03
+   },
+   "useRateGivenUsable": 0.001,
+   "turnUseRateGivenUsable": 0.007,
+   "usedCards": {
+    "E-new-encounter": 4
+   },
+   "declinedCards": {
+    "E-reconciliation": 3487,
+    "E-first-date": 2329,
+    "E-new-encounter": 591
+   },
+   "timeShortCards": {
+    "E-new-encounter": 1433,
+    "E-reconciliation": 707,
+    "E-first-date": 298,
+    "I-c_match": 181,
+    "G-connect-four": 71,
+    "E-wedding-anniversary": 22
+   },
+   "ownUsedCards": {
+    "E-new-encounter": 131,
+    "E-wedding-anniversary": 114,
+    "G-connect-four": 93,
+    "E-first-date": 64
+   }
+  },
+  "diff:beginner": {
+   "seats": 896,
+   "perGame": {
+    "windows": 65.36,
+    "auto": 45.34,
+    "decided": 20.02,
+    "withUsable": 20.02,
+    "used": 0.0,
+    "declined": 20.02,
+    "timeShortOnly": 11.89,
+    "condOnly": 22.77,
+    "noQuickInHand": 10.68,
+    "challengeWindows": 6.33,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.45,
+    "oppTurnsUsable": 3.04,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.66,
+    "ownWindows": 61.0,
+    "ownWithUsable": 30.54,
+    "ownUsed": 7.34,
+    "quickOwn": 3.85,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-first-date": 3711,
+    "E-reconciliation": 3465,
+    "G-basketball-3d": 2094,
+    "G-area-claim": 2032,
+    "I-c_friend": 2011,
+    "G-sugoroku-race": 1726,
+    "G-stack-themed": 1465,
+    "E-fateful-transform": 1391,
+    "E-new-encounter": 1304,
+    "G-street-fight": 1200,
+    "G-stack-acorn": 1161,
+    "E-midlife-flower": 1131
+   },
+   "timeShortCards": {
+    "E-new-encounter": 2377,
+    "G-stack-themed": 2292,
+    "G-sugoroku-race": 1779,
+    "E-midlife-flower": 1379,
+    "E-mirror": 1319,
+    "I-c_coin2": 1289,
+    "G-basketball-3d": 977,
+    "G-area-claim": 602,
+    "G-lunar-lander": 558,
+    "G-street-fight": 495,
+    "E-reconciliation": 427,
+    "E-fateful-transform": 308
+   },
+   "ownUsedCards": {
+    "C-owl": 3054,
+    "G-sugoroku-race": 471,
+    "E-new-encounter": 402,
+    "E-mirror": 373,
+    "E-midlife-flower": 333,
+    "I-c_coin2": 272,
+    "G-connect-four": 180,
+    "G-race-3d": 146,
+    "G-hit-blow": 142,
+    "G-stack-themed": 137
+   }
+  },
+  "diff:intermediate": {
+   "seats": 896,
+   "perGame": {
+    "windows": 65.47,
+    "auto": 51.52,
+    "decided": 13.95,
+    "withUsable": 13.95,
+    "used": 0.16,
+    "declined": 13.79,
+    "timeShortOnly": 13.18,
+    "condOnly": 21.41,
+    "noQuickInHand": 16.93,
+    "challengeWindows": 6.35,
+    "challengeUsed": 0.03,
+    "oppTurns": 9.45,
+    "oppTurnsUsable": 2.17,
+    "oppTurnsUsed": 0.15,
+    "oppTurnsShort": 1.83,
+    "ownWindows": 63.73,
+    "ownWithUsable": 25.66,
+    "ownUsed": 6.47,
+    "quickOwn": 4.34,
+    "quickOpp": 0.16,
+    "usedCost": 0.21
+   },
+   "useRateGivenUsable": 0.011,
+   "turnUseRateGivenUsable": 0.067,
+   "usedCards": {
+    "G-street-fight": 31,
+    "G-stack-themed": 21,
+    "E-boss": 21,
+    "I-c_coin2": 12,
+    "E-new-encounter": 12,
+    "G-sugoroku-race": 11,
+    "E-mirror": 10,
+    "G-grand-prix-3d": 10,
+    "E-midlife-50th": 4,
+    "E-midlife-flower": 3,
+    "G-basketball-3d": 2,
+    "I-c_egg_normal": 2,
+    "G-lunar-lander": 2
+   },
+   "declinedCards": {
+    "E-first-date": 4466,
+    "E-mirror": 4337,
+    "E-reconciliation": 3487,
+    "I-c_friend": 1450,
+    "G-area-claim": 1402,
+    "E-new-encounter": 1096,
+    "G-stack-acorn": 258,
+    "G-street-fight": 114,
+    "E-midlife-flower": 99,
+    "G-sugoroku-race": 10,
+    "I-c_coin2": 2
+   },
+   "timeShortCards": {
+    "E-new-encounter": 2763,
+    "G-sugoroku-race": 2085,
+    "E-mirror": 1897,
+    "G-stack-themed": 1738,
+    "I-c_coin2": 1151,
+    "E-midlife-flower": 1119,
+    "G-basketball-3d": 913,
+    "E-reconciliation": 707,
+    "G-lunar-lander": 661,
+    "G-street-fight": 562,
+    "E-first-date": 551,
+    "G-area-claim": 464
+   },
+   "ownUsedCards": {
+    "C-owl": 3180,
+    "G-sugoroku-race": 425,
+    "E-midlife-flower": 259,
+    "I-c_coin2": 224,
+    "E-new-encounter": 199,
+    "G-connect-four": 185,
+    "G-hit-blow": 181,
+    "E-first-date": 125,
+    "G-gomoku-9": 124,
+    "E-wedding-anniversary": 114
+   }
+  },
+  "orderdiff:先攻/beginner": {
+   "seats": 448,
+   "perGame": {
+    "windows": 65.27,
+    "auto": 44.43,
+    "decided": 20.83,
+    "withUsable": 20.83,
+    "used": 0.0,
+    "declined": 20.83,
+    "timeShortOnly": 9.47,
+    "condOnly": 24.2,
+    "noQuickInHand": 10.77,
+    "challengeWindows": 6.18,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.94,
+    "oppTurnsUsable": 3.2,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.59,
+    "ownWindows": 61.15,
+    "ownWithUsable": 30.63,
+    "ownUsed": 7.31,
+    "quickOwn": 3.81,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-first-date": 1987,
+    "E-reconciliation": 1895,
+    "G-area-claim": 1149,
+    "G-basketball-3d": 1075,
+    "I-c_friend": 1048,
+    "G-sugoroku-race": 846,
+    "E-fateful-transform": 786,
+    "G-stack-themed": 680,
+    "G-stack-acorn": 650,
+    "E-new-encounter": 629,
+    "E-midlife-flower": 582,
+    "G-street-fight": 526
+   },
+   "timeShortCards": {
+    "G-stack-themed": 971,
+    "E-new-encounter": 947,
+    "G-sugoroku-race": 645,
+    "E-mirror": 561,
+    "E-midlife-flower": 538,
+    "I-c_coin2": 504,
+    "G-basketball-3d": 445,
+    "G-area-claim": 237,
+    "G-street-fight": 223,
+    "G-lunar-lander": 189,
+    "E-reconciliation": 185,
+    "E-fateful-transform": 147
+   },
+   "ownUsedCards": {
+    "C-owl": 1527,
+    "G-sugoroku-race": 233,
+    "E-new-encounter": 201,
+    "E-mirror": 189,
+    "E-midlife-flower": 166,
+    "I-c_coin2": 135,
+    "G-connect-four": 86,
+    "G-race-3d": 85,
+    "G-hit-blow": 74,
+    "G-stack-themed": 65
+   }
+  },
+  "orderdiff:先攻/intermediate": {
+   "seats": 448,
+   "perGame": {
+    "windows": 65.26,
+    "auto": 50.03,
+    "decided": 15.23,
+    "withUsable": 15.23,
+    "used": 0.14,
+    "declined": 15.09,
+    "timeShortOnly": 10.69,
+    "condOnly": 22.21,
+    "noQuickInHand": 17.13,
+    "challengeWindows": 6.15,
+    "challengeUsed": 0.03,
+    "oppTurns": 9.94,
+    "oppTurnsUsable": 2.34,
+    "oppTurnsUsed": 0.13,
+    "oppTurnsShort": 1.75,
+    "ownWindows": 63.82,
+    "ownWithUsable": 25.51,
+    "ownUsed": 6.46,
+    "quickOwn": 4.33,
+    "quickOpp": 0.14,
+    "usedCost": 0.21
+   },
+   "useRateGivenUsable": 0.009,
+   "turnUseRateGivenUsable": 0.057,
+   "usedCards": {
+    "G-street-fight": 13,
+    "G-stack-themed": 11,
+    "E-boss": 11,
+    "G-grand-prix-3d": 10,
+    "G-sugoroku-race": 6,
+    "E-new-encounter": 6,
+    "I-c_coin2": 4,
+    "E-mirror": 2,
+    "E-midlife-flower": 1
+   },
+   "declinedCards": {
+    "E-mirror": 2571,
+    "E-first-date": 2494,
+    "E-reconciliation": 1942,
+    "I-c_friend": 762,
+    "G-area-claim": 761,
+    "E-new-encounter": 542,
+    "G-stack-acorn": 142,
+    "E-midlife-flower": 99,
+    "G-street-fight": 57,
+    "I-c_coin2": 2,
+    "G-sugoroku-race": 2
+   },
+   "timeShortCards": {
+    "E-new-encounter": 1196,
+    "E-mirror": 854,
+    "G-sugoroku-race": 719,
+    "G-stack-themed": 636,
+    "I-c_coin2": 463,
+    "E-midlife-flower": 455,
+    "G-basketball-3d": 445,
+    "E-reconciliation": 314,
+    "G-street-fight": 282,
+    "G-lunar-lander": 243,
+    "E-first-date": 206,
+    "G-area-claim": 180
+   },
+   "ownUsedCards": {
+    "C-owl": 1581,
+    "G-sugoroku-race": 206,
+    "E-midlife-flower": 127,
+    "I-c_coin2": 118,
+    "E-new-encounter": 101,
+    "G-hit-blow": 91,
+    "G-connect-four": 88,
+    "G-gomoku-9": 65,
+    "E-first-date": 62,
+    "G-race-3d": 56
+   }
+  },
+  "orderdiff:後攻/beginner": {
+   "seats": 448,
+   "perGame": {
+    "windows": 65.44,
+    "auto": 46.25,
+    "decided": 19.2,
+    "withUsable": 19.2,
+    "used": 0.0,
+    "declined": 19.2,
+    "timeShortOnly": 14.31,
+    "condOnly": 21.34,
+    "noQuickInHand": 10.6,
+    "challengeWindows": 6.48,
+    "challengeUsed": 0.0,
+    "oppTurns": 8.95,
+    "oppTurnsUsable": 2.88,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.73,
+    "ownWindows": 60.86,
+    "ownWithUsable": 30.45,
+    "ownUsed": 7.36,
+    "quickOwn": 3.89,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-first-date": 1724,
+    "E-reconciliation": 1570,
+    "G-basketball-3d": 1019,
+    "I-c_friend": 963,
+    "G-area-claim": 883,
+    "G-sugoroku-race": 880,
+    "G-stack-themed": 785,
+    "E-new-encounter": 675,
+    "G-street-fight": 674,
+    "E-fateful-transform": 605,
+    "I-c_coin2": 575,
+    "E-midlife-flower": 549
+   },
+   "timeShortCards": {
+    "E-new-encounter": 1430,
+    "G-stack-themed": 1321,
+    "G-sugoroku-race": 1134,
+    "E-midlife-flower": 841,
+    "I-c_coin2": 785,
+    "E-mirror": 758,
+    "G-basketball-3d": 532,
+    "G-lunar-lander": 369,
+    "G-area-claim": 365,
+    "G-street-fight": 272,
+    "E-reconciliation": 242,
+    "I-c_friend": 192
+   },
+   "ownUsedCards": {
+    "C-owl": 1527,
+    "G-sugoroku-race": 238,
+    "E-new-encounter": 201,
+    "E-mirror": 184,
+    "E-midlife-flower": 167,
+    "I-c_coin2": 137,
+    "G-connect-four": 94,
+    "E-wedding-anniversary": 72,
+    "G-gomoku-9": 72,
+    "G-stack-themed": 72
+   }
+  },
+  "orderdiff:後攻/intermediate": {
+   "seats": 448,
+   "perGame": {
+    "windows": 65.67,
+    "auto": 53.01,
+    "decided": 12.66,
+    "withUsable": 12.66,
+    "used": 0.17,
+    "declined": 12.49,
+    "timeShortOnly": 15.68,
+    "condOnly": 20.61,
+    "noQuickInHand": 16.72,
+    "challengeWindows": 6.54,
+    "challengeUsed": 0.04,
+    "oppTurns": 8.96,
+    "oppTurnsUsable": 2.01,
+    "oppTurnsUsed": 0.16,
+    "oppTurnsShort": 1.9,
+    "ownWindows": 63.64,
+    "ownWithUsable": 25.81,
+    "ownUsed": 6.49,
+    "quickOwn": 4.35,
+    "quickOpp": 0.17,
+    "usedCost": 0.21
+   },
+   "useRateGivenUsable": 0.014,
+   "turnUseRateGivenUsable": 0.078,
+   "usedCards": {
+    "G-street-fight": 18,
+    "G-stack-themed": 10,
+    "E-boss": 10,
+    "E-mirror": 8,
+    "I-c_coin2": 8,
+    "E-new-encounter": 6,
+    "G-sugoroku-race": 5,
+    "E-midlife-50th": 4,
+    "E-midlife-flower": 2,
+    "G-basketball-3d": 2,
+    "I-c_egg_normal": 2,
+    "G-lunar-lander": 2
+   },
+   "declinedCards": {
+    "E-first-date": 1972,
+    "E-mirror": 1766,
+    "E-reconciliation": 1545,
+    "I-c_friend": 688,
+    "G-area-claim": 641,
+    "E-new-encounter": 554,
+    "G-stack-acorn": 116,
+    "G-street-fight": 57,
+    "G-sugoroku-race": 8
+   },
+   "timeShortCards": {
+    "E-new-encounter": 1567,
+    "G-sugoroku-race": 1366,
+    "G-stack-themed": 1102,
+    "E-mirror": 1043,
+    "I-c_coin2": 688,
+    "E-midlife-flower": 664,
+    "G-basketball-3d": 468,
+    "G-lunar-lander": 418,
+    "E-reconciliation": 393,
+    "E-first-date": 345,
+    "G-area-claim": 284,
+    "G-street-fight": 280
+   },
+   "ownUsedCards": {
+    "C-owl": 1599,
+    "G-sugoroku-race": 219,
+    "E-midlife-flower": 132,
+    "I-c_coin2": 106,
+    "E-new-encounter": 98,
+    "G-connect-four": 97,
+    "G-hit-blow": 90,
+    "E-first-date": 63,
+    "E-wedding-anniversary": 59,
+    "G-gomoku-9": 59
+   }
+  },
+  "pairdiff:BB/beginner": {
+   "seats": 448,
+   "perGame": {
+    "windows": 63.5,
+    "auto": 44.02,
+    "decided": 19.49,
+    "withUsable": 19.49,
+    "used": 0.0,
+    "declined": 19.49,
+    "timeShortOnly": 11.34,
+    "condOnly": 22.1,
+    "noQuickInHand": 10.57,
+    "challengeWindows": 6.0,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.45,
+    "oppTurnsUsable": 3.03,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.64,
+    "ownWindows": 60.92,
+    "ownWithUsable": 30.51,
+    "ownUsed": 7.38,
+    "quickOwn": 3.86,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-first-date": 1824,
+    "E-reconciliation": 1725,
+    "G-basketball-3d": 1026,
+    "G-area-claim": 1002,
+    "I-c_friend": 953,
+    "G-sugoroku-race": 843,
+    "G-stack-themed": 727,
+    "E-fateful-transform": 656,
+    "E-new-encounter": 649,
+    "G-street-fight": 612,
+    "E-midlife-flower": 569,
+    "G-stack-acorn": 566
+   },
+   "timeShortCards": {
+    "E-new-encounter": 1159,
+    "G-stack-themed": 1092,
+    "G-sugoroku-race": 811,
+    "E-midlife-flower": 634,
+    "E-mirror": 627,
+    "I-c_coin2": 613,
+    "G-basketball-3d": 469,
+    "G-area-claim": 294,
+    "G-lunar-lander": 268,
+    "G-street-fight": 230,
+    "E-reconciliation": 203,
+    "E-fateful-transform": 145
+   },
+   "ownUsedCards": {
+    "C-owl": 1540,
+    "G-sugoroku-race": 239,
+    "E-new-encounter": 200,
+    "E-mirror": 190,
+    "E-midlife-flower": 166,
+    "I-c_coin2": 133,
+    "G-connect-four": 90,
+    "G-hit-blow": 74,
+    "G-race-3d": 72,
+    "E-wedding-anniversary": 68
+   }
+  },
+  "pairdiff:BI/beginner": {
+   "seats": 224,
+   "perGame": {
+    "windows": 66.75,
+    "auto": 46.93,
+    "decided": 19.82,
+    "withUsable": 19.82,
+    "used": 0.0,
+    "declined": 19.82,
+    "timeShortOnly": 10.63,
+    "condOnly": 23.71,
+    "noQuickInHand": 12.59,
+    "challengeWindows": 5.41,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.42,
+    "oppTurnsUsable": 2.96,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.39,
+    "ownWindows": 61.82,
+    "ownWithUsable": 28.12,
+    "ownUsed": 6.71,
+    "quickOwn": 3.41,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-reconciliation": 978,
+    "I-c_friend": 870,
+    "E-fateful-transform": 640,
+    "E-first-date": 617,
+    "G-sugoroku-race": 439,
+    "G-basketball-3d": 389,
+    "E-midlife-flower": 342,
+    "G-stack-acorn": 336,
+    "E-new-encounter": 327,
+    "G-street-fight": 306,
+    "E-mirror": 219,
+    "G-area-claim": 212
+   },
+   "timeShortCards": {
+    "E-new-encounter": 665,
+    "G-sugoroku-race": 365,
+    "E-midlife-flower": 346,
+    "E-mirror": 295,
+    "G-stack-themed": 246,
+    "G-basketball-3d": 172,
+    "I-c_coin2": 165,
+    "G-street-fight": 163,
+    "E-fateful-transform": 143,
+    "G-lunar-lander": 140,
+    "E-reconciliation": 134,
+    "I-c_friend": 97
+   },
+   "ownUsedCards": {
+    "C-owl": 705,
+    "E-new-encounter": 110,
+    "G-sugoroku-race": 108,
+    "E-midlife-flower": 103,
+    "E-mirror": 80,
+    "G-race-3d": 54,
+    "E-wedding-anniversary": 38,
+    "G-beach-volley": 37,
+    "I-c_coin2": 36,
+    "M-beetle-03": 34
+   }
+  },
+  "pairdiff:BI/intermediate": {
+   "seats": 224,
+   "perGame": {
+    "windows": 65.05,
+    "auto": 50.19,
+    "decided": 14.86,
+    "withUsable": 14.86,
+    "used": 0.2,
+    "declined": 14.66,
+    "timeShortOnly": 14.62,
+    "condOnly": 20.08,
+    "noQuickInHand": 15.5,
+    "challengeWindows": 7.35,
+    "challengeUsed": 0.03,
+    "oppTurns": 9.44,
+    "oppTurnsUsable": 2.33,
+    "oppTurnsUsed": 0.18,
+    "oppTurnsShort": 2.09,
+    "ownWindows": 63.91,
+    "ownWithUsable": 27.51,
+    "ownUsed": 7.08,
+    "quickOwn": 4.97,
+    "quickOpp": 0.2,
+    "usedCost": 0.29
+   },
+   "useRateGivenUsable": 0.014,
+   "turnUseRateGivenUsable": 0.077,
+   "usedCards": {
+    "G-stack-themed": 10,
+    "E-boss": 7,
+    "G-street-fight": 6,
+    "G-sugoroku-race": 5,
+    "E-mirror": 3,
+    "I-c_coin2": 3,
+    "G-grand-prix-3d": 3,
+    "E-new-encounter": 3,
+    "E-midlife-50th": 2,
+    "G-basketball-3d": 1,
+    "G-lunar-lander": 1,
+    "E-midlife-flower": 1
+   },
+   "declinedCards": {
+    "E-first-date": 1616,
+    "E-mirror": 1324,
+    "E-reconciliation": 699,
+    "G-area-claim": 587,
+    "E-new-encounter": 314,
+    "I-c_friend": 103,
+    "G-street-fight": 35,
+    "G-sugoroku-race": 5,
+    "E-midlife-flower": 4,
+    "I-c_coin2": 1
+   },
+   "timeShortCards": {
+    "E-new-encounter": 787,
+    "G-stack-themed": 687,
+    "G-sugoroku-race": 565,
+    "E-mirror": 442,
+    "I-c_coin2": 429,
+    "G-basketball-3d": 282,
+    "E-midlife-flower": 242,
+    "E-first-date": 191,
+    "G-area-claim": 178,
+    "E-reconciliation": 135,
+    "G-lunar-lander": 130,
+    "G-hit-blow": 114
+   },
+   "ownUsedCards": {
+    "C-owl": 863,
+    "G-sugoroku-race": 119,
+    "I-c_coin2": 88,
+    "G-hit-blow": 79,
+    "E-midlife-flower": 54,
+    "G-connect-four": 53,
+    "E-new-encounter": 42,
+    "E-first-date": 42,
+    "G-gomoku-9": 42,
+    "G-baseball-batting": 36
+   }
+  },
+  "pairdiff:IB/beginner": {
+   "seats": 224,
+   "perGame": {
+    "windows": 67.67,
+    "auto": 46.4,
+    "decided": 21.27,
+    "withUsable": 21.27,
+    "used": 0.0,
+    "declined": 21.27,
+    "timeShortOnly": 14.24,
+    "condOnly": 23.16,
+    "noQuickInHand": 9.0,
+    "challengeWindows": 7.91,
+    "challengeUsed": 0.0,
+    "oppTurns": 9.46,
+    "oppTurnsUsable": 3.14,
+    "oppTurnsUsed": 0.0,
+    "oppTurnsShort": 1.96,
+    "ownWindows": 60.34,
+    "ownWithUsable": 33.01,
+    "ownUsed": 7.88,
+    "quickOwn": 4.27,
+    "quickOpp": 0.0,
+    "usedCost": 0.0
+   },
+   "useRateGivenUsable": 0.0,
+   "turnUseRateGivenUsable": 0.0,
+   "usedCards": {},
+   "declinedCards": {
+    "E-first-date": 1270,
+    "G-area-claim": 818,
+    "E-reconciliation": 762,
+    "G-basketball-3d": 679,
+    "G-stack-themed": 609,
+    "G-sugoroku-race": 444,
+    "I-c_coin2": 373,
+    "E-new-encounter": 328,
+    "G-street-fight": 282,
+    "G-stack-acorn": 259,
+    "E-midlife-flower": 220,
+    "I-c_friend": 188
+   },
+   "timeShortCards": {
+    "G-stack-themed": 954,
+    "G-sugoroku-race": 603,
+    "E-new-encounter": 553,
+    "I-c_coin2": 511,
+    "E-midlife-flower": 399,
+    "E-mirror": 397,
+    "G-basketball-3d": 336,
+    "G-area-claim": 243,
+    "G-lunar-lander": 150,
+    "G-hit-blow": 104,
+    "G-street-fight": 102,
+    "E-reconciliation": 90
+   },
+   "ownUsedCards": {
+    "C-owl": 809,
+    "G-sugoroku-race": 124,
+    "E-mirror": 103,
+    "I-c_coin2": 103,
+    "E-new-encounter": 92,
+    "E-midlife-flower": 64,
+    "G-hit-blow": 60,
+    "G-connect-four": 57,
+    "G-stack-themed": 55,
+    "G-gomoku-9": 48
+   }
+  },
+  "pairdiff:IB/intermediate": {
+   "seats": 224,
+   "perGame": {
+    "windows": 62.41,
+    "auto": 50.04,
+    "decided": 12.37,
+    "withUsable": 12.37,
+    "used": 0.12,
+    "declined": 12.25,
+    "timeShortOnly": 10.79,
+    "condOnly": 21.67,
+    "noQuickInHand": 17.58,
+    "challengeWindows": 4.82,
+    "challengeUsed": 0.04,
+    "oppTurns": 9.45,
+    "oppTurnsUsable": 2.03,
+    "oppTurnsUsed": 0.12,
+    "oppTurnsShort": 1.56,
+    "ownWindows": 63.6,
+    "ownWithUsable": 23.84,
+    "ownUsed": 5.9,
+    "quickOwn": 3.76,
+    "quickOpp": 0.12,
+    "usedCost": 0.15
+   },
+   "useRateGivenUsable": 0.01,
+   "turnUseRateGivenUsable": 0.057,
+   "usedCards": {
+    "G-street-fight": 10,
+    "E-boss": 4,
+    "E-new-encounter": 3,
+    "G-grand-prix-3d": 3,
+    "E-mirror": 2,
+    "I-c_coin2": 2,
+    "E-midlife-flower": 1,
+    "I-c_egg_normal": 1,
+    "G-stack-themed": 1,
+    "G-sugoroku-race": 1
+   },
+   "declinedCards": {
+    "E-reconciliation": 1006,
+    "E-mirror": 824,
+    "I-c_friend": 596,
+    "E-first-date": 554,
+    "E-new-encounter": 201,
+    "G-area-claim": 123,
+    "G-stack-acorn": 122,
+    "E-midlife-flower": 43,
+    "G-street-fight": 21
+   },
+   "timeShortCards": {
+    "E-new-encounter": 587,
+    "E-mirror": 449,
+    "G-sugoroku-race": 421,
+    "E-midlife-flower": 276,
+    "E-reconciliation": 199,
+    "G-lunar-lander": 185,
+    "G-stack-themed": 164,
+    "G-basketball-3d": 154,
+    "I-c_coin2": 139,
+    "G-street-fight": 137,
+    "E-fateful-transform": 110,
+    "I-c_friend": 87
+   },
+   "ownUsedCards": {
+    "C-owl": 727,
+    "G-sugoroku-race": 94,
+    "E-midlife-flower": 75,
+    "E-new-encounter": 59,
+    "G-connect-four": 39,
+    "G-race-3d": 38,
+    "G-beach-volley": 33,
+    "E-wedding-anniversary": 29,
+    "M-beetle-03": 28,
+    "I-c_coin2": 27
+   }
+  },
+  "pairdiff:II/intermediate": {
+   "seats": 448,
+   "perGame": {
+    "windows": 67.2,
+    "auto": 52.92,
+    "decided": 14.28,
+    "withUsable": 14.28,
+    "used": 0.15,
+    "declined": 14.13,
+    "timeShortOnly": 13.66,
+    "condOnly": 21.94,
+    "noQuickInHand": 17.32,
+    "challengeWindows": 6.61,
+    "challengeUsed": 0.03,
+    "oppTurns": 9.45,
+    "oppTurnsUsable": 2.17,
+    "oppTurnsUsed": 0.14,
+    "oppTurnsShort": 1.83,
+    "ownWindows": 63.7,
+    "ownWithUsable": 25.65,
+    "ownUsed": 6.46,
+    "quickOwn": 4.31,
+    "quickOpp": 0.15,
+    "usedCost": 0.19
+   },
+   "useRateGivenUsable": 0.011,
+   "turnUseRateGivenUsable": 0.066,
+   "usedCards": {
+    "G-street-fight": 15,
+    "G-stack-themed": 10,
+    "E-boss": 10,
+    "I-c_coin2": 7,
+    "E-new-encounter": 6,
+    "E-mirror": 5,
+    "G-sugoroku-race": 5,
+    "G-grand-prix-3d": 4,
+    "E-midlife-50th": 2,
+    "E-midlife-flower": 1,
+    "G-basketball-3d": 1,
+    "I-c_egg_normal": 1,
+    "G-lunar-lander": 1
+   },
+   "declinedCards": {
+    "E-first-date": 2296,
+    "E-mirror": 2189,
+    "E-reconciliation": 1782,
+    "I-c_friend": 751,
+    "G-area-claim": 692,
+    "E-new-encounter": 581,
+    "G-stack-acorn": 136,
+    "G-street-fight": 58,
+    "E-midlife-flower": 52,
+    "G-sugoroku-race": 5,
+    "I-c_coin2": 1
+   },
+   "timeShortCards": {
+    "E-new-encounter": 1389,
+    "G-sugoroku-race": 1099,
+    "E-mirror": 1006,
+    "G-stack-themed": 887,
+    "E-midlife-flower": 601,
+    "I-c_coin2": 583,
+    "G-basketball-3d": 477,
+    "E-reconciliation": 373,
+    "G-lunar-lander": 346,
+    "G-street-fight": 314,
+    "E-first-date": 275,
+    "G-area-claim": 231
+   },
+   "ownUsedCards": {
+    "C-owl": 1590,
+    "G-sugoroku-race": 212,
+    "E-midlife-flower": 130,
+    "I-c_coin2": 109,
+    "E-new-encounter": 98,
+    "G-connect-four": 93,
+    "G-hit-blow": 90,
+    "G-gomoku-9": 64,
+    "E-first-date": 62,
+    "E-wedding-anniversary": 56
+   }
+  }
+ },
+ "time": {
+  "deckdiff:balance/beginner": {
+   "all": {
+    "turns": 1278,
+    "start": 5.49,
+    "spentOwn": 1.96,
+    "end": 3.53,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 2.96,
+    "lostPositiveShare": 0.664,
+    "finalLeft": 8.67,
+    "ownUseShare": 0.357,
+    "oppUseShare": 0.0,
+    "lostShare": 0.484,
+    "shortAtEndPerTurn": 1.08,
+    "endUsableShare": 0.576,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 1124,
+     "3:使い道なし(合法の有償行動なし)": 253,
+     "4:評価が0以下の行動のみ": 2024,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 386,
+     "2:使えるカードがあったが見送り": 272,
+     "3:使い道なし(合法の有償行動なし)": 85,
+     "4:評価が0以下の行動のみ": 407,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:balance/intermediate": {
+   "all": {
+    "turns": 1279,
+    "start": 5.5,
+    "spentOwn": 2.16,
+    "end": 3.34,
+    "spentOpp": 0.02,
+    "gain": 0.0,
+    "lostAtReset": 2.74,
+    "lostPositiveShare": 0.589,
+    "finalLeft": 8.56,
+    "ownUseShare": 0.393,
+    "oppUseShare": 0.003,
+    "lostShare": 0.449,
+    "shortAtEndPerTurn": 1.09,
+    "endUsableShare": 0.428,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 10,
+     "2:使えるカードがあったが見送り": 2239,
+     "3:使い道なし(合法の有償行動なし)": 314,
+     "4:評価が0以下の行動のみ": 590,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 473,
+     "1:相手ターンで一部使用": 8,
+     "2:使えるカードがあったが見送り": 430,
+     "3:使い道なし(合法の有償行動なし)": 107,
+     "4:評価が0以下の行動のみ": 133,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:challenge/beginner": {
+   "all": {
+    "turns": 1275,
+    "start": 5.48,
+    "spentOwn": 1.72,
+    "end": 3.77,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.16,
+    "lostPositiveShare": 0.737,
+    "finalLeft": 9.25,
+    "ownUseShare": 0.313,
+    "oppUseShare": 0.0,
+    "lostShare": 0.518,
+    "shortAtEndPerTurn": 0.89,
+    "endUsableShare": 0.319,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 1741,
+     "3:使い道なし(合法の有償行動なし)": 713,
+     "4:評価が0以下の行動のみ": 1165,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 302,
+     "2:使えるカードがあったが見送り": 417,
+     "3:使い道なし(合法の有償行動なし)": 212,
+     "4:評価が0以下の行動のみ": 216,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:challenge/intermediate": {
+   "all": {
+    "turns": 1277,
+    "start": 5.49,
+    "spentOwn": 1.73,
+    "end": 3.76,
+    "spentOpp": 0.08,
+    "gain": 0.0,
+    "lostAtReset": 3.09,
+    "lostPositiveShare": 0.695,
+    "finalLeft": 9.02,
+    "ownUseShare": 0.315,
+    "oppUseShare": 0.015,
+    "lostShare": 0.506,
+    "shortAtEndPerTurn": 0.87,
+    "endUsableShare": 0.135,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 133,
+     "2:使えるカードがあったが見送り": 576,
+     "3:使い道なし(合法の有償行動なし)": 954,
+     "4:評価が0以下の行動のみ": 1884,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 351,
+     "1:相手ターンで一部使用": 47,
+     "2:使えるカードがあったが見送り": 104,
+     "3:使い道なし(合法の有償行動なし)": 265,
+     "4:評価が0以下の行動のみ": 382,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:companion/beginner": {
+   "all": {
+    "turns": 1269,
+    "start": 5.46,
+    "spentOwn": 1.35,
+    "end": 4.11,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.53,
+    "lostPositiveShare": 0.801,
+    "finalLeft": 9.27,
+    "ownUseShare": 0.248,
+    "oppUseShare": 0.0,
+    "lostShare": 0.581,
+    "shortAtEndPerTurn": 0.5,
+    "endUsableShare": 0.455,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 2129,
+     "3:使い道なし(合法の有償行動なし)": 349,
+     "4:評価が0以下の行動のみ": 1549,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 227,
+     "2:使えるカードがあったが見送り": 420,
+     "3:使い道なし(合法の有償行動なし)": 155,
+     "4:評価が0以下の行動のみ": 339,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:companion/intermediate": {
+   "all": {
+    "turns": 1269,
+    "start": 5.46,
+    "spentOwn": 1.48,
+    "end": 3.99,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.42,
+    "lostPositiveShare": 0.755,
+    "finalLeft": 9.02,
+    "ownUseShare": 0.27,
+    "oppUseShare": 0.0,
+    "lostShare": 0.563,
+    "shortAtEndPerTurn": 0.49,
+    "endUsableShare": 0.288,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 2,
+     "2:使えるカードがあったが見送り": 1323,
+     "3:使い道なし(合法の有償行動なし)": 494,
+     "4:評価が0以下の行動のみ": 2082,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 279,
+     "1:相手ターンで一部使用": 2,
+     "2:使えるカードがあったが見送り": 239,
+     "3:使い道なし(合法の有償行動なし)": 205,
+     "4:評価が0以下の行動のみ": 416,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:growth/beginner": {
+   "all": {
+    "turns": 1278,
+    "start": 5.49,
+    "spentOwn": 1.72,
+    "end": 3.77,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.19,
+    "lostPositiveShare": 0.722,
+    "finalLeft": 8.99,
+    "ownUseShare": 0.313,
+    "oppUseShare": 0.0,
+    "lostShare": 0.523,
+    "shortAtEndPerTurn": 1.07,
+    "endUsableShare": 0.665,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 1661,
+     "3:使い道なし(合法の有償行動なし)": 67,
+     "4:評価が0以下の行動のみ": 1942,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 320,
+     "2:使えるカードがあったが見送り": 399,
+     "3:使い道なし(合法の有償行動なし)": 22,
+     "4:評価が0以下の行動のみ": 409,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:growth/intermediate": {
+   "all": {
+    "turns": 1269,
+    "start": 5.46,
+    "spentOwn": 1.88,
+    "end": 3.59,
+    "spentOpp": 0.02,
+    "gain": 0.0,
+    "lostAtReset": 2.94,
+    "lostPositiveShare": 0.567,
+    "finalLeft": 9.16,
+    "ownUseShare": 0.344,
+    "oppUseShare": 0.003,
+    "lostShare": 0.484,
+    "shortAtEndPerTurn": 1.07,
+    "endUsableShare": 0.195,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 2,
+     "2:使えるカードがあったが見送り": 1067,
+     "3:使い道なし(合法の有償行動なし)": 355,
+     "4:評価が0以下の行動のみ": 1935,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 494,
+     "1:相手ターンで一部使用": 2,
+     "2:使えるカードがあったが見送り": 180,
+     "3:使い道なし(合法の有償行動なし)": 88,
+     "4:評価が0以下の行動のみ": 377,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:item/beginner": {
+   "all": {
+    "turns": 1260,
+    "start": 5.44,
+    "spentOwn": 2.5,
+    "end": 2.93,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 2.41,
+    "lostPositiveShare": 0.656,
+    "finalLeft": 7.55,
+    "ownUseShare": 0.461,
+    "oppUseShare": 0.0,
+    "lostShare": 0.398,
+    "shortAtEndPerTurn": 1.25,
+    "endUsableShare": 0.138,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 693,
+     "3:使い道なし(合法の有償行動なし)": 1131,
+     "4:評価が0以下の行動のみ": 904,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 389,
+     "2:使えるカードがあったが見送り": 174,
+     "3:使い道なし(合法の有償行動なし)": 348,
+     "4:評価が0以下の行動のみ": 221,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:item/intermediate": {
+   "all": {
+    "turns": 1263,
+    "start": 5.45,
+    "spentOwn": 2.59,
+    "end": 2.86,
+    "spentOpp": 0.03,
+    "gain": 0.0,
+    "lostAtReset": 2.28,
+    "lostPositiveShare": 0.632,
+    "finalLeft": 7.71,
+    "ownUseShare": 0.475,
+    "oppUseShare": 0.006,
+    "lostShare": 0.376,
+    "shortAtEndPerTurn": 1.18,
+    "endUsableShare": 0.018,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 11,
+     "3:使い道なし(合法の有償行動なし)": 1365,
+     "4:評価が0以下の行動のみ": 1207,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 418,
+     "1:相手ターンで一部使用": 10,
+     "3:使い道なし(合法の有償行動なし)": 400,
+     "4:評価が0以下の行動のみ": 307,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:main/beginner": {
+   "all": {
+    "turns": 1280,
+    "start": 5.5,
+    "spentOwn": 1.22,
+    "end": 4.28,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.71,
+    "lostPositiveShare": 0.753,
+    "finalLeft": 9.37,
+    "ownUseShare": 0.223,
+    "oppUseShare": 0.0,
+    "lostShare": 0.607,
+    "shortAtEndPerTurn": 1.04,
+    "endUsableShare": 0.287,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 1425,
+     "3:使い道なし(合法の有償行動なし)": 452,
+     "4:評価が0以下の行動のみ": 2397,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 285,
+     "2:使えるカードがあったが見送り": 294,
+     "3:使い道なし(合法の有償行動なし)": 136,
+     "4:評価が0以下の行動のみ": 437,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:main/intermediate": {
+   "all": {
+    "turns": 1280,
+    "start": 5.5,
+    "spentOwn": 1.7,
+    "end": 3.8,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.18,
+    "lostPositiveShare": 0.67,
+    "finalLeft": 9.31,
+    "ownUseShare": 0.31,
+    "oppUseShare": 0.001,
+    "lostShare": 0.52,
+    "shortAtEndPerTurn": 1.13,
+    "endUsableShare": 0.152,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 900,
+     "3:使い道なし(合法の有償行動なし)": 637,
+     "4:評価が0以下の行動のみ": 2127,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 380,
+     "2:使えるカードがあったが見送り": 148,
+     "3:使い道なし(合法の有償行動なし)": 190,
+     "4:評価が0以下の行動のみ": 434,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:partner/beginner": {
+   "all": {
+    "turns": 1273,
+    "start": 5.48,
+    "spentOwn": 1.75,
+    "end": 3.73,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.16,
+    "lostPositiveShare": 0.733,
+    "finalLeft": 8.87,
+    "ownUseShare": 0.319,
+    "oppUseShare": 0.0,
+    "lostShare": 0.519,
+    "shortAtEndPerTurn": 0.81,
+    "endUsableShare": 0.513,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 2574,
+     "3:使い道なし(合法の有償行動なし)": 561,
+     "4:評価が0以下の行動のみ": 481,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 306,
+     "2:使えるカードがあったが見送り": 536,
+     "3:使い道なし(合法の有償行動なし)": 174,
+     "4:評価が0以下の行動のみ": 129,
+     "final": 128
+    }
+   }
+  },
+  "deckdiff:partner/intermediate": {
+   "all": {
+    "turns": 1274,
+    "start": 5.48,
+    "spentOwn": 1.84,
+    "end": 3.64,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.07,
+    "lostPositiveShare": 0.696,
+    "finalLeft": 8.7,
+    "ownUseShare": 0.336,
+    "oppUseShare": 0.001,
+    "lostShare": 0.504,
+    "shortAtEndPerTurn": 0.87,
+    "endUsableShare": 0.509,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 6,
+     "2:使えるカードがあったが見送り": 2576,
+     "3:使い道なし(合法の有償行動なし)": 571,
+     "4:評価が0以下の行動のみ": 369,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 348,
+     "1:相手ターンで一部使用": 4,
+     "2:使えるカードがあったが見送り": 523,
+     "3:使い道なし(合法の有償行動なし)": 172,
+     "4:評価が0以下の行動のみ": 99,
+     "final": 128
+    }
+   }
+  },
+  "diff:beginner": {
+   "all": {
+    "turns": 8913,
+    "start": 5.48,
+    "spentOwn": 1.75,
+    "end": 3.73,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.16,
+    "lostPositiveShare": 0.724,
+    "finalLeft": 8.85,
+    "ownUseShare": 0.319,
+    "oppUseShare": 0.0,
+    "lostShare": 0.519,
+    "shortAtEndPerTurn": 0.95,
+    "endUsableShare": 0.422,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 11347,
+     "3:使い道なし(合法の有償行動なし)": 3526,
+     "4:評価が0以下の行動のみ": 10462,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 2215,
+     "2:使えるカードがあったが見送り": 2512,
+     "3:使い道なし(合法の有償行動なし)": 1132,
+     "4:評価が0以下の行動のみ": 2158,
+     "final": 896
+    }
+   }
+  },
+  "diff:intermediate": {
+   "all": {
+    "turns": 8911,
+    "start": 5.48,
+    "spentOwn": 1.91,
+    "end": 3.57,
+    "spentOpp": 0.02,
+    "gain": 0.0,
+    "lostAtReset": 2.96,
+    "lostPositiveShare": 0.658,
+    "finalLeft": 8.78,
+    "ownUseShare": 0.349,
+    "oppUseShare": 0.004,
+    "lostShare": 0.486,
+    "shortAtEndPerTurn": 0.96,
+    "endUsableShare": 0.247,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 164,
+     "2:使えるカードがあったが見送り": 8681,
+     "3:使い道なし(合法の有償行動なし)": 4690,
+     "4:評価が0以下の行動のみ": 10194,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 2743,
+     "1:相手ターンで一部使用": 73,
+     "2:使えるカードがあったが見送り": 1624,
+     "3:使い道なし(合法の有償行動なし)": 1427,
+     "4:評価が0以下の行動のみ": 2148,
+     "final": 896
+    }
+   }
+  },
+  "orderdiff:先攻/beginner": {
+   "all": {
+    "turns": 4461,
+    "start": 5.48,
+    "spentOwn": 1.72,
+    "end": 3.76,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.19,
+    "lostPositiveShare": 0.727,
+    "finalLeft": 8.88,
+    "ownUseShare": 0.314,
+    "oppUseShare": 0.0,
+    "lostShare": 0.523,
+    "shortAtEndPerTurn": 0.93,
+    "endUsableShare": 0.42,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 5446,
+     "3:使い道なし(合法の有償行動なし)": 1828,
+     "4:評価が0以下の行動のみ": 5513,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 1094,
+     "2:使えるカードがあったが見送り": 1224,
+     "3:使い道なし(合法の有償行動なし)": 587,
+     "4:評価が0以下の行動のみ": 1108,
+     "final": 448
+    }
+   }
+  },
+  "orderdiff:先攻/intermediate": {
+   "all": {
+    "turns": 4457,
+    "start": 5.48,
+    "spentOwn": 1.89,
+    "end": 3.59,
+    "spentOpp": 0.02,
+    "gain": 0.0,
+    "lostAtReset": 2.98,
+    "lostPositiveShare": 0.658,
+    "finalLeft": 8.8,
+    "ownUseShare": 0.345,
+    "oppUseShare": 0.004,
+    "lostShare": 0.49,
+    "shortAtEndPerTurn": 0.95,
+    "endUsableShare": 0.238,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 97,
+     "2:使えるカードがあったが見送り": 4270,
+     "3:使い道なし(合法の有償行動なし)": 2496,
+     "4:評価が0以下の行動のみ": 5095,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 1371,
+     "1:相手ターンで一部使用": 38,
+     "2:使えるカードがあったが見送り": 794,
+     "3:使い道なし(合法の有償行動なし)": 770,
+     "4:評価が0以下の行動のみ": 1036,
+     "final": 448
+    }
+   }
+  },
+  "orderdiff:後攻/beginner": {
+   "all": {
+    "turns": 4452,
+    "start": 5.47,
+    "spentOwn": 1.77,
+    "end": 3.71,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 3.13,
+    "lostPositiveShare": 0.72,
+    "finalLeft": 8.83,
+    "ownUseShare": 0.323,
+    "oppUseShare": 0.0,
+    "lostShare": 0.515,
+    "shortAtEndPerTurn": 0.97,
+    "endUsableShare": 0.425,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 5901,
+     "3:使い道なし(合法の有償行動なし)": 1698,
+     "4:評価が0以下の行動のみ": 4949,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 1121,
+     "2:使えるカードがあったが見送り": 1288,
+     "3:使い道なし(合法の有償行動なし)": 545,
+     "4:評価が0以下の行動のみ": 1050,
+     "final": 448
+    }
+   }
+  },
+  "orderdiff:後攻/intermediate": {
+   "all": {
+    "turns": 4454,
+    "start": 5.48,
+    "spentOwn": 1.93,
+    "end": 3.55,
+    "spentOpp": 0.02,
+    "gain": 0.0,
+    "lostAtReset": 2.94,
+    "lostPositiveShare": 0.658,
+    "finalLeft": 8.77,
+    "ownUseShare": 0.352,
+    "oppUseShare": 0.004,
+    "lostShare": 0.483,
+    "shortAtEndPerTurn": 0.96,
+    "endUsableShare": 0.256,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 67,
+     "2:使えるカードがあったが見送り": 4411,
+     "3:使い道なし(合法の有償行動なし)": 2194,
+     "4:評価が0以下の行動のみ": 5099,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 1372,
+     "1:相手ターンで一部使用": 35,
+     "2:使えるカードがあったが見送り": 830,
+     "3:使い道なし(合法の有償行動なし)": 657,
+     "4:評価が0以下の行動のみ": 1112,
+     "final": 448
+    }
+   }
+  }
+ },
+ "timeByRound": {
+  "diff:beginner": {
+   "1": {
+    "turns": 896,
+    "start": 1.0,
+    "spentOwn": 0.52,
+    "end": 0.48,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 0.48,
+    "lostPositiveShare": 0.482,
+    "finalLeft": null,
+    "ownUseShare": 0.518,
+    "oppUseShare": 0.0,
+    "lostShare": 0.482,
+    "shortAtEndPerTurn": 2.78,
+    "endUsableShare": 0.257,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 223,
+     "3:使い道なし(合法の有償行動なし)": 203,
+     "4:評価が0以下の行動のみ": 6
+    },
+    "turnsByClass": {
+     "0:残りなし": 464,
+     "2:使えるカードがあったが見送り": 223,
+     "3:使い道なし(合法の有償行動なし)": 203,
+     "4:評価が0以下の行動のみ": 6
+    }
+   },
+   "2": {
+    "turns": 896,
+    "start": 2.0,
+    "spentOwn": 1.58,
+    "end": 0.42,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 0.42,
+    "lostPositiveShare": 0.299,
+    "finalLeft": null,
+    "ownUseShare": 0.789,
+    "oppUseShare": 0.0,
+    "lostShare": 0.211,
+    "shortAtEndPerTurn": 2.68,
+    "endUsableShare": 0.199,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 234,
+     "3:使い道なし(合法の有償行動なし)": 97,
+     "4:評価が0以下の行動のみ": 47
+    },
+    "turnsByClass": {
+     "0:残りなし": 628,
+     "2:使えるカードがあったが見送り": 167,
+     "3:使い道なし(合法の有償行動なし)": 60,
+     "4:評価が0以下の行動のみ": 41
+    }
+   },
+   "3": {
+    "turns": 896,
+    "start": 3.0,
+    "spentOwn": 2.22,
+    "end": 0.78,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 0.78,
+    "lostPositiveShare": 0.473,
+    "finalLeft": null,
+    "ownUseShare": 0.74,
+    "oppUseShare": 0.0,
+    "lostShare": 0.26,
+    "shortAtEndPerTurn": 1.88,
+    "endUsableShare": 0.329,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 467,
+     "3:使い道なし(合法の有償行動なし)": 124,
+     "4:評価が0以下の行動のみ": 108
+    },
+    "turnsByClass": {
+     "0:残りなし": 472,
+     "2:使えるカードがあったが見送り": 271,
+     "3:使い道なし(合法の有償行動なし)": 85,
+     "4:評価が0以下の行動のみ": 68
+    }
+   },
+   "4": {
+    "turns": 896,
+    "start": 4.0,
+    "spentOwn": 3.06,
+    "end": 0.94,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 0.94,
+    "lostPositiveShare": 0.535,
+    "finalLeft": null,
+    "ownUseShare": 0.765,
+    "oppUseShare": 0.0,
+    "lostShare": 0.235,
+    "shortAtEndPerTurn": 1.29,
+    "endUsableShare": 0.18,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 227,
+     "3:使い道なし(合法の有償行動なし)": 256,
+     "4:評価が0以下の行動のみ": 358
+    },
+    "turnsByClass": {
+     "0:残りなし": 417,
+     "2:使えるカードがあったが見送り": 115,
+     "3:使い道なし(合法の有償行動なし)": 166,
+     "4:評価が0以下の行動のみ": 198
+    }
+   },
+   "5": {
+    "turns": 896,
+    "start": 5.0,
+    "spentOwn": 2.67,
+    "end": 2.33,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 2.33,
+    "lostPositiveShare": 0.823,
+    "finalLeft": null,
+    "ownUseShare": 0.533,
+    "oppUseShare": 0.0,
+    "lostShare": 0.467,
+    "shortAtEndPerTurn": 0.53,
+    "endUsableShare": 0.354,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 683,
+     "3:使い道なし(合法の有償行動なし)": 438,
+     "4:評価が0以下の行動のみ": 970
+    },
+    "turnsByClass": {
+     "0:残りなし": 159,
+     "2:使えるカードがあったが見送り": 215,
+     "3:使い道なし(合法の有償行動なし)": 172,
+     "4:評価が0以下の行動のみ": 350
+    }
+   },
+   "6": {
+    "turns": 896,
+    "start": 6.0,
+    "spentOwn": 1.89,
+    "end": 4.11,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 4.11,
+    "lostPositiveShare": 0.935,
+    "finalLeft": null,
+    "ownUseShare": 0.314,
+    "oppUseShare": 0.0,
+    "lostShare": 0.686,
+    "shortAtEndPerTurn": 0.18,
+    "endUsableShare": 0.536,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 1679,
+     "3:使い道なし(合法の有償行動なし)": 542,
+     "4:評価が0以下の行動のみ": 1465
+    },
+    "turnsByClass": {
+     "0:残りなし": 58,
+     "2:使えるカードがあったが見送り": 360,
+     "3:使い道なし(合法の有償行動なし)": 135,
+     "4:評価が0以下の行動のみ": 343
+    }
+   },
+   "7": {
+    "turns": 896,
+    "start": 7.0,
+    "spentOwn": 1.36,
+    "end": 5.64,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 5.64,
+    "lostPositiveShare": 0.992,
+    "finalLeft": null,
+    "ownUseShare": 0.195,
+    "oppUseShare": 0.0,
+    "lostShare": 0.805,
+    "shortAtEndPerTurn": 0.06,
+    "endUsableShare": 0.65,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 2512,
+     "3:使い道なし(合法の有償行動なし)": 511,
+     "4:評価が0以下の行動のみ": 2027
+    },
+    "turnsByClass": {
+     "0:残りなし": 7,
+     "2:使えるカードがあったが見送り": 433,
+     "3:使い道なし(合法の有償行動なし)": 95,
+     "4:評価が0以下の行動のみ": 361
+    }
+   },
+   "8": {
+    "turns": 896,
+    "start": 8.0,
+    "spentOwn": 1.96,
+    "end": 6.04,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 6.1,
+    "lostPositiveShare": 0.989,
+    "finalLeft": 3.06,
+    "ownUseShare": 0.245,
+    "oppUseShare": 0.0,
+    "lostShare": 0.748,
+    "shortAtEndPerTurn": 0.03,
+    "endUsableShare": 0.526,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 2248,
+     "3:使い道なし(合法の有償行動なし)": 609,
+     "4:評価が0以下の行動のみ": 2507,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 10,
+     "2:使えるカードがあったが見送り": 346,
+     "3:使い道なし(合法の有償行動なし)": 118,
+     "4:評価が0以下の行動のみ": 406,
+     "final": 16
+    }
+   },
+   "9": {
+    "turns": 880,
+    "start": 9.0,
+    "spentOwn": 1.15,
+    "end": 7.85,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 7.85,
+    "lostPositiveShare": 1.0,
+    "finalLeft": 7.53,
+    "ownUseShare": 0.128,
+    "oppUseShare": 0.0,
+    "lostShare": 0.858,
+    "shortAtEndPerTurn": 0.01,
+    "endUsableShare": 0.583,
+    "lostByClass": {
+     "2:使えるカードがあったが見送り": 3074,
+     "3:使い道なし(合法の有償行動なし)": 746,
+     "4:評価が0以下の行動のみ": 2974,
+     "final": 0
+    },
+    "turnsByClass": {
+     "2:使えるカードがあったが見送り": 382,
+     "3:使い道なし(合法の有償行動なし)": 98,
+     "4:評価が0以下の行動のみ": 385,
+     "final": 15
+    }
+   },
+   "10": {
+    "turns": 865,
+    "start": 10.0,
+    "spentOwn": 1.02,
+    "end": 8.98,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 0.0,
+    "lostPositiveShare": 0.0,
+    "finalLeft": 8.98,
+    "ownUseShare": 0.102,
+    "oppUseShare": 0.0,
+    "lostShare": 0.0,
+    "shortAtEndPerTurn": 0.0,
+    "endUsableShare": 0.621,
+    "lostByClass": {
+     "final": 0
+    },
+    "turnsByClass": {
+     "final": 865
+    }
+   }
+  },
+  "diff:intermediate": {
+   "1": {
+    "turns": 896,
+    "start": 1.0,
+    "spentOwn": 0.68,
+    "end": 0.32,
+    "spentOpp": 0.01,
+    "gain": 0.0,
+    "lostAtReset": 0.31,
+    "lostPositiveShare": 0.308,
+    "finalLeft": null,
+    "ownUseShare": 0.681,
+    "oppUseShare": 0.011,
+    "lostShare": 0.308,
+    "shortAtEndPerTurn": 2.99,
+    "endUsableShare": 0.076,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "2:使えるカードがあったが見送り": 58,
+     "3:使い道なし(合法の有償行動なし)": 202,
+     "4:評価が0以下の行動のみ": 16
+    },
+    "turnsByClass": {
+     "0:残りなし": 620,
+     "2:使えるカードがあったが見送り": 58,
+     "3:使い道なし(合法の有償行動なし)": 202,
+     "4:評価が0以下の行動のみ": 16
+    }
+   },
+   "2": {
+    "turns": 896,
+    "start": 2.0,
+    "spentOwn": 1.69,
+    "end": 0.31,
+    "spentOpp": 0.04,
+    "gain": 0.0,
+    "lostAtReset": 0.27,
+    "lostPositiveShare": 0.185,
+    "finalLeft": null,
+    "ownUseShare": 0.844,
+    "oppUseShare": 0.018,
+    "lostShare": 0.137,
+    "shortAtEndPerTurn": 2.7,
+    "endUsableShare": 0.068,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 10,
+     "2:使えるカードがあったが見送り": 51,
+     "3:使い道なし(合法の有償行動なし)": 108,
+     "4:評価が0以下の行動のみ": 77
+    },
+    "turnsByClass": {
+     "0:残りなし": 730,
+     "1:相手ターンで一部使用": 10,
+     "2:使えるカードがあったが見送り": 35,
+     "3:使い道なし(合法の有償行動なし)": 70,
+     "4:評価が0以下の行動のみ": 51
+    }
+   },
+   "3": {
+    "turns": 896,
+    "start": 3.0,
+    "spentOwn": 2.56,
+    "end": 0.44,
+    "spentOpp": 0.04,
+    "gain": 0.0,
+    "lostAtReset": 0.4,
+    "lostPositiveShare": 0.254,
+    "finalLeft": null,
+    "ownUseShare": 0.853,
+    "oppUseShare": 0.013,
+    "lostShare": 0.134,
+    "shortAtEndPerTurn": 1.93,
+    "endUsableShare": 0.073,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 20,
+     "2:使えるカードがあったが見送り": 57,
+     "3:使い道なし(合法の有償行動なし)": 149,
+     "4:評価が0以下の行動のみ": 135
+    },
+    "turnsByClass": {
+     "0:残りなし": 668,
+     "1:相手ターンで一部使用": 16,
+     "2:使えるカードがあったが見送り": 27,
+     "3:使い道なし(合法の有償行動なし)": 107,
+     "4:評価が0以下の行動のみ": 78
+    }
+   },
+   "4": {
+    "turns": 896,
+    "start": 4.0,
+    "spentOwn": 2.93,
+    "end": 1.07,
+    "spentOpp": 0.06,
+    "gain": 0.0,
+    "lostAtReset": 1.01,
+    "lostPositiveShare": 0.568,
+    "finalLeft": null,
+    "ownUseShare": 0.733,
+    "oppUseShare": 0.015,
+    "lostShare": 0.253,
+    "shortAtEndPerTurn": 0.96,
+    "endUsableShare": 0.131,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 20,
+     "2:使えるカードがあったが見送り": 174,
+     "3:使い道なし(合法の有償行動なし)": 347,
+     "4:評価が0以下の行動のみ": 365
+    },
+    "turnsByClass": {
+     "0:残りなし": 387,
+     "1:相手ターンで一部使用": 16,
+     "2:使えるカードがあったが見送り": 85,
+     "3:使い道なし(合法の有償行動なし)": 215,
+     "4:評価が0以下の行動のみ": 193
+    }
+   },
+   "5": {
+    "turns": 896,
+    "start": 5.0,
+    "spentOwn": 2.66,
+    "end": 2.34,
+    "spentOpp": 0.01,
+    "gain": 0.0,
+    "lostAtReset": 2.33,
+    "lostPositiveShare": 0.786,
+    "finalLeft": null,
+    "ownUseShare": 0.533,
+    "oppUseShare": 0.002,
+    "lostShare": 0.465,
+    "shortAtEndPerTurn": 0.48,
+    "endUsableShare": 0.199,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 9,
+     "2:使えるカードがあったが見送り": 552,
+     "3:使い道なし(合法の有償行動なし)": 585,
+     "4:評価が0以下の行動のみ": 938
+    },
+    "turnsByClass": {
+     "0:残りなし": 192,
+     "1:相手ターンで一部使用": 3,
+     "2:使えるカードがあったが見送り": 166,
+     "3:使い道なし(合法の有償行動なし)": 211,
+     "4:評価が0以下の行動のみ": 324
+    }
+   },
+   "6": {
+    "turns": 896,
+    "start": 6.0,
+    "spentOwn": 2.24,
+    "end": 3.76,
+    "spentOpp": 0.03,
+    "gain": 0.0,
+    "lostAtReset": 3.73,
+    "lostPositiveShare": 0.913,
+    "finalLeft": null,
+    "ownUseShare": 0.374,
+    "oppUseShare": 0.004,
+    "lostShare": 0.622,
+    "shortAtEndPerTurn": 0.23,
+    "endUsableShare": 0.289,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 38,
+     "2:使えるカードがあったが見送り": 1123,
+     "3:使い道なし(合法の有償行動なし)": 700,
+     "4:評価が0以下の行動のみ": 1482
+    },
+    "turnsByClass": {
+     "0:残りなし": 78,
+     "1:相手ターンで一部使用": 13,
+     "2:使えるカードがあったが見送り": 251,
+     "3:使い道なし(合法の有償行動なし)": 182,
+     "4:評価が0以下の行動のみ": 372
+    }
+   },
+   "7": {
+    "turns": 896,
+    "start": 7.0,
+    "spentOwn": 1.94,
+    "end": 5.06,
+    "spentOpp": 0.02,
+    "gain": 0.0,
+    "lostAtReset": 5.04,
+    "lostPositiveShare": 0.954,
+    "finalLeft": null,
+    "ownUseShare": 0.278,
+    "oppUseShare": 0.002,
+    "lostShare": 0.72,
+    "shortAtEndPerTurn": 0.14,
+    "endUsableShare": 0.346,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 22,
+     "2:使えるカードがあったが見送り": 1652,
+     "3:使い道なし(合法の有償行動なし)": 909,
+     "4:評価が0以下の行動のみ": 1933
+    },
+    "turnsByClass": {
+     "0:残りなし": 41,
+     "1:相手ターンで一部使用": 6,
+     "2:使えるカードがあったが見送り": 303,
+     "3:使い道なし(合法の有償行動なし)": 178,
+     "4:評価が0以下の行動のみ": 368
+    }
+   },
+   "8": {
+    "turns": 896,
+    "start": 8.0,
+    "spentOwn": 1.75,
+    "end": 6.25,
+    "spentOpp": 0.02,
+    "gain": 0.0,
+    "lostAtReset": 6.25,
+    "lostPositiveShare": 0.974,
+    "finalLeft": 5.0,
+    "ownUseShare": 0.219,
+    "oppUseShare": 0.002,
+    "lostShare": 0.766,
+    "shortAtEndPerTurn": 0.07,
+    "endUsableShare": 0.394,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 38,
+     "2:使えるカードがあったが見送り": 2260,
+     "3:使い道なし(合法の有償行動なし)": 799,
+     "4:評価が0以下の行動のみ": 2393,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 23,
+     "1:相手ターンで一部使用": 8,
+     "2:使えるカードがあったが見送り": 339,
+     "3:使い道なし(合法の有償行動なし)": 144,
+     "4:評価が0以下の行動のみ": 364,
+     "final": 18
+    }
+   },
+   "9": {
+    "turns": 878,
+    "start": 9.0,
+    "spentOwn": 1.49,
+    "end": 7.51,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 7.52,
+    "lostPositiveShare": 0.995,
+    "finalLeft": 6.85,
+    "ownUseShare": 0.165,
+    "oppUseShare": 0.0,
+    "lostShare": 0.823,
+    "shortAtEndPerTurn": 0.02,
+    "endUsableShare": 0.426,
+    "lostByClass": {
+     "0:残りなし": 0,
+     "1:相手ターンで一部使用": 7,
+     "2:使えるカードがあったが見送り": 2754,
+     "3:使い道なし(合法の有償行動なし)": 891,
+     "4:評価が0以下の行動のみ": 2855,
+     "final": 0
+    },
+    "turnsByClass": {
+     "0:残りなし": 4,
+     "1:相手ターンで一部使用": 1,
+     "2:使えるカードがあったが見送り": 360,
+     "3:使い道なし(合法の有償行動なし)": 118,
+     "4:評価が0以下の行動のみ": 382,
+     "final": 13
+    }
+   },
+   "10": {
+    "turns": 865,
+    "start": 10.0,
+    "spentOwn": 1.11,
+    "end": 8.89,
+    "spentOpp": 0.0,
+    "gain": 0.0,
+    "lostAtReset": 0.0,
+    "lostPositiveShare": 0.0,
+    "finalLeft": 8.89,
+    "ownUseShare": 0.111,
+    "oppUseShare": 0.0,
+    "lostShare": 0.0,
+    "shortAtEndPerTurn": 0.01,
+    "endUsableShare": 0.479,
+    "lostByClass": {
+     "final": 0
+    },
+    "turnsByClass": {
+     "final": 865
+    }
+   }
+  }
+ },
+ "traps": {
+  "deckdiff:balance/beginner": {
+   "seats": 128,
+   "set": {
+    "G-ski-jump": 57
+   },
+   "fired": {
+    "G-ski-jump": 23
+   },
+   "skipped": {},
+   "leftAtEnd": {
+    "G-ski-jump": 34
+   },
+   "setPerGame": 0.445,
+   "firedShare": 0.404,
+   "leftShare": 0.596,
+   "blockedFullTurnsPerGame": 0.031,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 18,
+   "equipsPerGame": 0.97,
+   "quickPerGame": {
+    "own": 6.27,
+    "opp": 0.0
+   }
+  },
+  "deckdiff:balance/intermediate": {
+   "seats": 128,
+   "set": {
+    "G-ski-jump": 79
+   },
+   "fired": {
+    "G-ski-jump": 67
+   },
+   "skipped": {},
+   "leftAtEnd": {
+    "G-ski-jump": 12
+   },
+   "setPerGame": 0.617,
+   "firedShare": 0.848,
+   "leftShare": 0.152,
+   "blockedFullTurnsPerGame": 0.016,
+   "heldPlaceableTurnsPerGame": 0.023,
+   "quickWhileFull": 25,
+   "equipsPerGame": 1.27,
+   "quickPerGame": {
+    "own": 7.27,
+    "opp": 0.16
+   }
+  },
+  "deckdiff:challenge/beginner": {
+   "seats": 128,
+   "set": {
+    "G-ski-jump": 148
+   },
+   "fired": {
+    "G-ski-jump": 93
+   },
+   "skipped": {},
+   "leftAtEnd": {
+    "G-ski-jump": 55
+   },
+   "setPerGame": 1.156,
+   "firedShare": 0.628,
+   "leftShare": 0.372,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 0,
+   "equipsPerGame": 0.0,
+   "quickPerGame": {
+    "own": 2.86,
+    "opp": 0.0
+   }
+  },
+  "deckdiff:challenge/intermediate": {
+   "seats": 128,
+   "set": {
+    "G-ski-jump": 138
+   },
+   "fired": {
+    "G-ski-jump": 117
+   },
+   "skipped": {},
+   "leftAtEnd": {
+    "G-ski-jump": 21
+   },
+   "setPerGame": 1.078,
+   "firedShare": 0.848,
+   "leftShare": 0.152,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.023,
+   "quickWhileFull": 0,
+   "equipsPerGame": 0.0,
+   "quickPerGame": {
+    "own": 2.72,
+    "opp": 0.56
+   }
+  },
+  "deckdiff:companion/beginner": {
+   "seats": 128,
+   "set": {},
+   "fired": {},
+   "skipped": {},
+   "leftAtEnd": {},
+   "setPerGame": 0.0,
+   "firedShare": null,
+   "leftShare": null,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 0,
+   "equipsPerGame": 0.0,
+   "quickPerGame": {
+    "own": 3.04,
+    "opp": 0.0
+   }
+  },
+  "deckdiff:companion/intermediate": {
+   "seats": 128,
+   "set": {},
+   "fired": {},
+   "skipped": {},
+   "leftAtEnd": {},
+   "setPerGame": 0.0,
+   "firedShare": null,
+   "leftShare": null,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 0,
+   "equipsPerGame": 0.0,
+   "quickPerGame": {
+    "own": 3.77,
+    "opp": 0.02
+   }
+  },
+  "deckdiff:growth/beginner": {
+   "seats": 128,
+   "set": {},
+   "fired": {},
+   "skipped": {},
+   "leftAtEnd": {},
+   "setPerGame": 0.0,
+   "firedShare": null,
+   "leftShare": null,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 0,
+   "equipsPerGame": 0.26,
+   "quickPerGame": {
+    "own": 5.46,
+    "opp": 0.0
+   }
+  },
+  "deckdiff:growth/intermediate": {
+   "seats": 128,
+   "set": {},
+   "fired": {},
+   "skipped": {},
+   "leftAtEnd": {},
+   "setPerGame": 0.0,
+   "firedShare": null,
+   "leftShare": null,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 0,
+   "equipsPerGame": 0.23,
+   "quickPerGame": {
+    "own": 7.25,
+    "opp": 0.13
+   }
+  },
+  "deckdiff:item/beginner": {
+   "seats": 128,
+   "set": {
+    "G-takoyaki-grill": 135,
+    "G-missile-command": 80,
+    "G-ski-jump": 95
+   },
+   "fired": {
+    "G-takoyaki-grill": 115,
+    "G-ski-jump": 59
+   },
+   "skipped": {},
+   "leftAtEnd": {
+    "G-missile-command": 60,
+    "G-takoyaki-grill": 9,
+    "G-ski-jump": 19
+   },
+   "setPerGame": 2.422,
+   "firedShare": 0.561,
+   "leftShare": 0.284,
+   "blockedFullTurnsPerGame": 0.812,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 150,
+   "equipsPerGame": 2.67,
+   "quickPerGame": {
+    "own": 3.22,
+    "opp": 0.0
+   }
+  },
+  "deckdiff:item/intermediate": {
+   "seats": 128,
+   "set": {
+    "G-takoyaki-grill": 149,
+    "G-missile-command": 70,
+    "G-ski-jump": 101
+   },
+   "fired": {
+    "G-takoyaki-grill": 129,
+    "G-ski-jump": 85
+   },
+   "skipped": {
+    "G-takoyaki-grill": 5
+   },
+   "leftAtEnd": {
+    "G-missile-command": 51,
+    "G-takoyaki-grill": 14,
+    "G-ski-jump": 5
+   },
+   "setPerGame": 2.5,
+   "firedShare": 0.669,
+   "leftShare": 0.219,
+   "blockedFullTurnsPerGame": 0.82,
+   "heldPlaceableTurnsPerGame": 0.258,
+   "quickWhileFull": 94,
+   "equipsPerGame": 2.9,
+   "quickPerGame": {
+    "own": 3.11,
+    "opp": 0.16
+   }
+  },
+  "deckdiff:main/beginner": {
+   "seats": 128,
+   "set": {},
+   "fired": {},
+   "skipped": {},
+   "leftAtEnd": {},
+   "setPerGame": 0.0,
+   "firedShare": null,
+   "leftShare": null,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 0,
+   "equipsPerGame": 0.0,
+   "quickPerGame": {
+    "own": 2.35,
+    "opp": 0.0
+   }
+  },
+  "deckdiff:main/intermediate": {
+   "seats": 128,
+   "set": {},
+   "fired": {},
+   "skipped": {},
+   "leftAtEnd": {},
+   "setPerGame": 0.0,
+   "firedShare": null,
+   "leftShare": null,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 0,
+   "equipsPerGame": 0.0,
+   "quickPerGame": {
+    "own": 2.34,
+    "opp": 0.03
+   }
+  },
+  "deckdiff:partner/beginner": {
+   "seats": 128,
+   "set": {},
+   "fired": {},
+   "skipped": {},
+   "leftAtEnd": {},
+   "setPerGame": 0.0,
+   "firedShare": null,
+   "leftShare": null,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 0,
+   "equipsPerGame": 1.05,
+   "quickPerGame": {
+    "own": 3.76,
+    "opp": 0.0
+   }
+  },
+  "deckdiff:partner/intermediate": {
+   "seats": 128,
+   "set": {},
+   "fired": {},
+   "skipped": {},
+   "leftAtEnd": {},
+   "setPerGame": 0.0,
+   "firedShare": null,
+   "leftShare": null,
+   "blockedFullTurnsPerGame": 0.0,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 9,
+   "equipsPerGame": 1.23,
+   "quickPerGame": {
+    "own": 3.91,
+    "opp": 0.03
+   }
+  },
+  "diff:beginner": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 300,
+    "G-takoyaki-grill": 135,
+    "G-missile-command": 80
+   },
+   "fired": {
+    "G-ski-jump": 175,
+    "G-takoyaki-grill": 115
+   },
+   "skipped": {},
+   "leftAtEnd": {
+    "G-ski-jump": 108,
+    "G-missile-command": 60,
+    "G-takoyaki-grill": 9
+   },
+   "setPerGame": 0.575,
+   "firedShare": 0.563,
+   "leftShare": 0.344,
+   "blockedFullTurnsPerGame": 0.121,
+   "heldPlaceableTurnsPerGame": 0.0,
+   "quickWhileFull": 168,
+   "equipsPerGame": 0.71,
+   "quickPerGame": {
+    "own": 3.85,
+    "opp": 0.0
+   }
+  },
+  "diff:intermediate": {
+   "seats": 896,
+   "set": {
+    "G-ski-jump": 318,
+    "G-takoyaki-grill": 149,
+    "G-missile-command": 70
+   },
+   "fired": {
+    "G-ski-jump": 269,
+    "G-takoyaki-grill": 129
+   },
+   "skipped": {
+    "G-takoyaki-grill": 5
+   },
+   "leftAtEnd": {
+    "G-ski-jump": 38,
+    "G-missile-command": 51,
+    "G-takoyaki-grill": 14
+   },
+   "setPerGame": 0.599,
+   "firedShare": 0.741,
+   "leftShare": 0.192,
+   "blockedFullTurnsPerGame": 0.119,
+   "heldPlaceableTurnsPerGame": 0.044,
+   "quickWhileFull": 128,
+   "equipsPerGame": 0.8,
+   "quickPerGame": {
+    "own": 4.34,
+    "opp": 0.16
+   }
+  }
+ },
+ "beginnerVsIntermediate": {
+  "games": 448,
+  "intWin": 227,
+  "begWin": 180,
+  "draw": 41
+ }
+}
