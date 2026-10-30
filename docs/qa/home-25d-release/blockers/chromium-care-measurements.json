@@ -1,0 +1,671 @@
+[
+  {
+    "name": "sick",
+    "phase": "initial",
+    "level": "warning",
+    "kind": "sick",
+    "sick": "true",
+    "title": "びょうき。くすりでなおそう",
+    "notice": "びょうき。くすりでなおそう\nかぜ（ねていても使えるよ）",
+    "fxDisplay": "block",
+    "fxMotion": "none",
+    "fxPointer": "none",
+    "sweatContent": "\"\"",
+    "sweatMotion": "care-sweat",
+    "sweatTop": 58.0647,
+    "spriteHeight": 68.23797607421875,
+    "action": "medicineBtn",
+    "actionMotion": "care-action-breathe",
+    "actionShadow": "rgb(182, 106, 33) 0px 0px 0px 2px inset, rgba(255, 255, 255, 0.533) 0px 0px 0px 1px, rgba(232, 167, 68, 0.6) 0px 0px 5.32723px 0px",
+    "medicineClickable": true,
+    "noticeRect": {
+      "x": 75.5,
+      "y": 151,
+      "width": 239,
+      "height": 40,
+      "right": 314.5,
+      "bottom": 191
+    },
+    "buttons": [
+      {
+        "x": 16,
+        "y": 720,
+        "width": 68.390625,
+        "height": 53,
+        "right": 84.390625,
+        "bottom": 773
+      },
+      {
+        "x": 88.390625,
+        "y": 720,
+        "width": 68.40625,
+        "height": 53,
+        "right": 156.796875,
+        "bottom": 773
+      },
+      {
+        "x": 160.796875,
+        "y": 720,
+        "width": 68.390625,
+        "height": 53,
+        "right": 229.1875,
+        "bottom": 773
+      },
+      {
+        "x": 233.1875,
+        "y": 720,
+        "width": 68.40625,
+        "height": 53,
+        "right": 301.59375,
+        "bottom": 773
+      },
+      {
+        "x": 305.59375,
+        "y": 720,
+        "width": 68.40625,
+        "height": 53,
+        "right": 374,
+        "bottom": 773
+      },
+      {
+        "x": 16,
+        "y": 778,
+        "width": 86.5,
+        "height": 53,
+        "right": 102.5,
+        "bottom": 831
+      },
+      {
+        "x": 106.5,
+        "y": 778,
+        "width": 86.5,
+        "height": 53,
+        "right": 193,
+        "bottom": 831
+      },
+      {
+        "x": 197,
+        "y": 778,
+        "width": 86.5,
+        "height": 53,
+        "right": 283.5,
+        "bottom": 831
+      },
+      {
+        "x": 287.5,
+        "y": 778,
+        "width": 86.5,
+        "height": 53,
+        "right": 374,
+        "bottom": 831
+      }
+    ],
+    "cast": [
+      {
+        "width": "42.0312px",
+        "height": "42.0312px"
+      },
+      {
+        "width": "42.1719px",
+        "height": "42.1719px"
+      },
+      {
+        "width": "42.1719px",
+        "height": "42.1719px"
+      },
+      {
+        "width": "45.1562px",
+        "height": "45.1562px"
+      },
+      {
+        "width": "41.1406px",
+        "height": "41.1406px"
+      },
+      {
+        "width": "40.7656px",
+        "height": "40.7656px"
+      },
+      {
+        "width": "41.5312px",
+        "height": "41.5312px"
+      },
+      {
+        "width": "39.4062px",
+        "height": "39.4062px"
+      },
+      {
+        "width": "40.1406px",
+        "height": "40.1406px"
+      },
+      {
+        "width": "40.1406px",
+        "height": "40.1406px"
+      },
+      {
+        "width": "38.7812px",
+        "height": "38.7812px"
+      },
+      {
+        "width": "38.7812px",
+        "height": "38.7812px"
+      },
+      {
+        "width": "40.25px",
+        "height": "40.25px"
+      },
+      {
+        "width": "42.0312px",
+        "height": "42.0312px"
+      },
+      {
+        "width": "76.6719px",
+        "height": "76.6719px"
+      },
+      {
+        "width": "26.5312px",
+        "height": "26.5312px"
+      },
+      {
+        "width": "42.0312px",
+        "height": "42.0312px"
+      },
+      {
+        "width": "41.3906px",
+        "height": "41.3906px"
+      },
+      {
+        "width": "40.6406px",
+        "height": "40.6406px"
+      },
+      {
+        "width": "40.6406px",
+        "height": "40.6406px"
+      },
+      {
+        "width": "40.7656px",
+        "height": "40.7656px"
+      },
+      {
+        "width": "40.0312px",
+        "height": "40.0312px"
+      },
+      {
+        "width": "40.7656px",
+        "height": "40.7656px"
+      },
+      {
+        "width": "43.7812px",
+        "height": "43.7812px"
+      },
+      {
+        "width": "38.7031px",
+        "height": "38.7031px"
+      },
+      {
+        "width": "40.1406px",
+        "height": "40.1406px"
+      },
+      {
+        "width": "39.5px",
+        "height": "39.5px"
+      },
+      {
+        "width": "38.7812px",
+        "height": "38.7812px"
+      },
+      {
+        "width": "45.3906px",
+        "height": "45.3906px"
+      }
+    ],
+    "pageWidth": 390,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "name": "sick",
+    "phase": "cured",
+    "level": "",
+    "kind": "change",
+    "sick": "",
+    "title": "",
+    "notice": "💊安心してひと息ついた",
+    "fxDisplay": "none",
+    "fxMotion": "none",
+    "fxPointer": "none",
+    "sweatContent": "none",
+    "sweatMotion": "none",
+    "sweatTop": null,
+    "spriteHeight": 68.23797607421875,
+    "action": "",
+    "actionMotion": null,
+    "actionShadow": null,
+    "medicineClickable": true,
+    "noticeRect": {
+      "x": 90.5,
+      "y": 156.5,
+      "width": 209,
+      "height": 29,
+      "right": 299.5,
+      "bottom": 185.5
+    },
+    "buttons": [
+      {
+        "x": 16,
+        "y": 720,
+        "width": 68.390625,
+        "height": 53,
+        "right": 84.390625,
+        "bottom": 773
+      },
+      {
+        "x": 88.390625,
+        "y": 720,
+        "width": 68.40625,
+        "height": 53,
+        "right": 156.796875,
+        "bottom": 773
+      },
+      {
+        "x": 160.796875,
+        "y": 720,
+        "width": 68.390625,
+        "height": 53,
+        "right": 229.1875,
+        "bottom": 773
+      },
+      {
+        "x": 233.1875,
+        "y": 720,
+        "width": 68.40625,
+        "height": 53,
+        "right": 301.59375,
+        "bottom": 773
+      },
+      {
+        "x": 305.59375,
+        "y": 720,
+        "width": 68.40625,
+        "height": 53,
+        "right": 374,
+        "bottom": 773
+      },
+      {
+        "x": 16,
+        "y": 778,
+        "width": 86.5,
+        "height": 53,
+        "right": 102.5,
+        "bottom": 831
+      },
+      {
+        "x": 106.5,
+        "y": 778,
+        "width": 86.5,
+        "height": 53,
+        "right": 193,
+        "bottom": 831
+      },
+      {
+        "x": 197,
+        "y": 778,
+        "width": 86.5,
+        "height": 53,
+        "right": 283.5,
+        "bottom": 831
+      },
+      {
+        "x": 287.5,
+        "y": 778,
+        "width": 86.5,
+        "height": 53,
+        "right": 374,
+        "bottom": 831
+      }
+    ],
+    "cast": [
+      {
+        "width": "42.0312px",
+        "height": "42.0312px"
+      },
+      {
+        "width": "42.1719px",
+        "height": "42.1719px"
+      },
+      {
+        "width": "42.1719px",
+        "height": "42.1719px"
+      },
+      {
+        "width": "45.1562px",
+        "height": "45.1562px"
+      },
+      {
+        "width": "41.1406px",
+        "height": "41.1406px"
+      },
+      {
+        "width": "40.7656px",
+        "height": "40.7656px"
+      },
+      {
+        "width": "41.5312px",
+        "height": "41.5312px"
+      },
+      {
+        "width": "39.4062px",
+        "height": "39.4062px"
+      },
+      {
+        "width": "40.1406px",
+        "height": "40.1406px"
+      },
+      {
+        "width": "40.1406px",
+        "height": "40.1406px"
+      },
+      {
+        "width": "38.7812px",
+        "height": "38.7812px"
+      },
+      {
+        "width": "38.7812px",
+        "height": "38.7812px"
+      },
+      {
+        "width": "40.25px",
+        "height": "40.25px"
+      },
+      {
+        "width": "42.0312px",
+        "height": "42.0312px"
+      },
+      {
+        "width": "76.6719px",
+        "height": "76.6719px"
+      },
+      {
+        "width": "26.5312px",
+        "height": "26.5312px"
+      },
+      {
+        "width": "42.0312px",
+        "height": "42.0312px"
+      },
+      {
+        "width": "41.3906px",
+        "height": "41.3906px"
+      },
+      {
+        "width": "40.6406px",
+        "height": "40.6406px"
+      },
+      {
+        "width": "40.6406px",
+        "height": "40.6406px"
+      },
+      {
+        "width": "40.7656px",
+        "height": "40.7656px"
+      },
+      {
+        "width": "40.0312px",
+        "height": "40.0312px"
+      },
+      {
+        "width": "40.7656px",
+        "height": "40.7656px"
+      },
+      {
+        "width": "43.7812px",
+        "height": "43.7812px"
+      },
+      {
+        "width": "38.7031px",
+        "height": "38.7031px"
+      },
+      {
+        "width": "40.1406px",
+        "height": "40.1406px"
+      },
+      {
+        "width": "39.5px",
+        "height": "39.5px"
+      },
+      {
+        "width": "38.7812px",
+        "height": "38.7812px"
+      },
+      {
+        "width": "45.3906px",
+        "height": "45.3906px"
+      }
+    ],
+    "pageWidth": 390,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "name": "low-life",
+    "phase": "initial",
+    "level": "warning",
+    "kind": "life",
+    "sick": "",
+    "title": "いのちがすくない",
+    "notice": "いのちがすくない\nおなかを60以上にしよう",
+    "fxDisplay": "block",
+    "fxMotion": "none",
+    "fxPointer": "none",
+    "sweatContent": "none",
+    "sweatMotion": "none",
+    "sweatTop": null,
+    "spriteHeight": 62.592041015625,
+    "action": "feedBtn",
+    "actionMotion": "care-action-breathe",
+    "actionShadow": "rgb(182, 106, 33) 0px 0px 0px 2px inset, rgba(255, 255, 255, 0.533) 0px 0px 0px 1px, rgba(232, 167, 68, 0.6) 0px 0px 5.18139px 0px",
+    "medicineClickable": false,
+    "noticeRect": {
+      "x": 68,
+      "y": 157.75,
+      "width": 184,
+      "height": 40,
+      "right": 252,
+      "bottom": 197.75
+    },
+    "buttons": [
+      {
+        "x": 9,
+        "y": 673.75,
+        "width": 57.1875,
+        "height": 49,
+        "right": 66.1875,
+        "bottom": 722.75
+      },
+      {
+        "x": 70.1875,
+        "y": 673.75,
+        "width": 57.203125,
+        "height": 49,
+        "right": 127.390625,
+        "bottom": 722.75
+      },
+      {
+        "x": 131.390625,
+        "y": 673.75,
+        "width": 57.203125,
+        "height": 49,
+        "right": 188.59375,
+        "bottom": 722.75
+      },
+      {
+        "x": 192.59375,
+        "y": 673.75,
+        "width": 57.203125,
+        "height": 49,
+        "right": 249.796875,
+        "bottom": 722.75
+      },
+      {
+        "x": 253.796875,
+        "y": 673.75,
+        "width": 57.203125,
+        "height": 49,
+        "right": 311,
+        "bottom": 722.75
+      },
+      {
+        "x": 9,
+        "y": 727.75,
+        "width": 72.5,
+        "height": 49,
+        "right": 81.5,
+        "bottom": 776.75
+      },
+      {
+        "x": 85.5,
+        "y": 727.75,
+        "width": 72.5,
+        "height": 49,
+        "right": 158,
+        "bottom": 776.75
+      },
+      {
+        "x": 162,
+        "y": 727.75,
+        "width": 72.5,
+        "height": 49,
+        "right": 234.5,
+        "bottom": 776.75
+      },
+      {
+        "x": 238.5,
+        "y": 727.75,
+        "width": 72.5,
+        "height": 49,
+        "right": 311,
+        "bottom": 776.75
+      }
+    ],
+    "cast": [
+      {
+        "width": "38.5469px",
+        "height": "38.5469px"
+      },
+      {
+        "width": "38.8125px",
+        "height": "38.8125px"
+      },
+      {
+        "width": "38.3281px",
+        "height": "38.3281px"
+      },
+      {
+        "width": "41.5469px",
+        "height": "41.5469px"
+      },
+      {
+        "width": "37.9688px",
+        "height": "37.9688px"
+      },
+      {
+        "width": "37.625px",
+        "height": "37.625px"
+      },
+      {
+        "width": "37.8594px",
+        "height": "37.8594px"
+      },
+      {
+        "width": "36.0312px",
+        "height": "36.0312px"
+      },
+      {
+        "width": "37.1562px",
+        "height": "37.1562px"
+      },
+      {
+        "width": "36.7031px",
+        "height": "36.7031px"
+      },
+      {
+        "width": "36.0312px",
+        "height": "36.0312px"
+      },
+      {
+        "width": "35.5781px",
+        "height": "35.5781px"
+      },
+      {
+        "width": "36.9219px",
+        "height": "36.9219px"
+      },
+      {
+        "width": "38.5469px",
+        "height": "38.5469px"
+      },
+      {
+        "width": "70.3281px",
+        "height": "70.3281px"
+      },
+      {
+        "width": "24.3438px",
+        "height": "24.3438px"
+      },
+      {
+        "width": "38.0938px",
+        "height": "38.0938px"
+      },
+      {
+        "width": "38.0938px",
+        "height": "38.0938px"
+      },
+      {
+        "width": "37.3906px",
+        "height": "37.3906px"
+      },
+      {
+        "width": "36.9375px",
+        "height": "36.9375px"
+      },
+      {
+        "width": "37.1562px",
+        "height": "37.1562px"
+      },
+      {
+        "width": "36.9375px",
+        "height": "36.9375px"
+      },
+      {
+        "width": "37.1562px",
+        "height": "37.1562px"
+      },
+      {
+        "width": "40.5469px",
+        "height": "40.5469px"
+      },
+      {
+        "width": "35.3906px",
+        "height": "35.3906px"
+      },
+      {
+        "width": "36.2344px",
+        "height": "36.2344px"
+      },
+      {
+        "width": "36.7031px",
+        "height": "36.7031px"
+      },
+      {
+        "width": "35.5781px",
+        "height": "35.5781px"
+      },
+      {
+        "width": "41.6406px",
+        "height": "41.6406px"
+      }
+    ],
+    "pageWidth": 320,
+    "width": 320,
+    "height": 640
+  }
+]
