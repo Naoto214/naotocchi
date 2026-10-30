@@ -1,0 +1,36 @@
+{
+  "baseline": "4cc4aae1a2608973a78e1f5031c42fdca13593e5",
+  "assets": {
+    "assets/home-art-recovered-20261029/README.md": "510dbbb0737112291d41868b33137a0e965b0fc3d21d821eae32d0a618011060",
+    "assets/home-art-recovered-20261029/city.png": "6017830525bd802477a59aaa16afe11ea745c1684fd1a6b929851d11af75b373",
+    "assets/home-art-recovered-20261029/forest-no-waterfall.png": "c9648948aaa62f5a71aeac334a1ce9c665f94765f44a8d98f6511cbb0671b97a",
+    "assets/home-art-recovered-20261029/forest-waterfall.png": "3f107a10d2ddd6d711ca7fa61a63223faee9048f888ea556f9cef1b1b363c75c",
+    "assets/home-art-recovered-20261029/home-garden.png": "965038618968f958b650135d4d875bf6e299dfecd010b8726e19f3d849579c0c",
+    "assets/home-art-recovered-20261029/home-interior-a.png": "93c8f63f2b8540a77f8299034b6b00ef147f94e00853b1df313c6b625a40847b",
+    "assets/home-art-recovered-20261029/water.png": "56a2ac12a8aec271b32e2ac0ef4ae1d9ad390bce9e9701e1756a60126290e803",
+    "assets/home-art-v1/city-a.webp": "d9dfda684f133c62ee46c5446c38adddb8799ed4791629889dff8ce77840a753",
+    "assets/home-art-v1/city-b.webp": "9b80279b24bbfd7f3a3caeb904db39487a476f1f79a4dbd6fd7c9f61c3d1f92c",
+    "assets/home-art-v1/forest-a.webp": "25e86dafcfab7066daa3dd5d41c25599b74c0145dd9e1bef8030ac2cd480ad4c",
+    "assets/home-art-v1/forest-b.webp": "760a4b2a09d4a18a0de736d33e76c70227c5b124b3d24fb1b59c797e859c1f7a",
+    "assets/home-art-v1/provenance.json": "a1e02478ea51d8787e95b732c717050a2a86e219be37414c2484e05709e8b4f0",
+    "assets/home-art-v1/water-a.webp": "744b363a8307f26cb1ac0842843961dd0ada16b48d6b565bb7944e4292ab5a56",
+    "assets/home-art-v1/water-b.webp": "a23fb3fe0865b03ffb14ff495398af904ac6e4c7e82d559465fb1257fc5bc868",
+    "assets/home-japan-v1/city.webp": "38d8e22240761f5d20a6845928b3f81392b47007d6b55437d0d26138129d1372",
+    "assets/home-japan-v1/forest.webp": "4db508e82667df082dd10674c7bbe127828ba7bcadc54074020b5222f8582773",
+    "assets/home-japan-v1/home.webp": "98db9d8474c0d9ab05a3d5363d12d3b8b554497833f6e28449123586584345fc",
+    "assets/home-japan-v1/provenance.json": "435fba450edb0984df1759418a38a722d34d833c6b61b14ff494a72f8a74ccc1",
+    "assets/home-japan-v1/water.webp": "002aac223ab40906a9dffb31fac5c9f0020252397388c07b9a9965bad9038430"
+  },
+  "sourceFilesUnchanged": [
+    "script.js",
+    "home-diorama.js",
+    "home-diorama-model.js",
+    "home-recovered-manifest.mjs",
+    "home-recovered-navigation.mjs",
+    "home-recovered-world.mjs",
+    "conversation-director.js",
+    "conversation-away.js",
+    "index.html",
+    "ui.css"
+  ]
+}

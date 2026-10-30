@@ -1,0 +1,18 @@
+{
+  "command": "node tools/home-v22-regression.cjs",
+  "testGroups": [
+    250,
+    26,
+    24,
+    3225,
+    138,
+    9,
+    18
+  ],
+  "tests": 3690,
+  "passed": 3690,
+  "failed": 0,
+  "logSha256": "719dfdfaf6bcb16d044a3a72593345ba82c001057a65f675f7de1d1e8b0d2472",
+  "sourceHead": "369858842b13a443aae217cf13c277d0a6da3f42",
+  "note": "Runtime source unchanged; runner differs only in v9 test setup and adds origin unit tests."
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "shared-page animation-frame cadence, not device GPU benchmark",
+  "sampleCount": 6,
+  "medianMs": 1016.4000000000015,
+  "p95Ms": 1882.8999999999978,
+  "images": [
+    [],
+    [
+      {
+        "name": "forest-a.webp",
+        "durationMs": 24,
+        "transferBytes": 300,
+        "decodedBodyBytes": 0
+      }
+    ]
+  ],
+  "deviceHeapBytes": 89391564,
+  "note": "Heap is shared page estimate; OS/GPU memory and iPhone power are unmeasured."
+}

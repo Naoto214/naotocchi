@@ -1,0 +1,6 @@
+/* Experiment only; the v22 stylesheet and UI dimensions stay byte-identical. */
+body:is([data-living-home="art-25d"],[data-living-home="art-25d-loading"]) .world-scene{display:none}
+body:is([data-living-home="art-25d"],[data-living-home="art-25d-loading"]) .device{position:relative;z-index:1}
+.home-art-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+body[data-living-home="art-25d"] #castStage .diorama-shadow{opacity:.8;filter:blur(.4px)}
+@media(prefers-reduced-motion:reduce){.home-art-canvas{animation:none}}

@@ -1,0 +1,247 @@
+{
+  "browser": "Cloud Chromium; not iPhone Safari",
+  "cases": 24,
+  "errors": [],
+  "rows": [
+    {
+      "width": 320,
+      "count": 1,
+      "time": "day",
+      "moved": true,
+      "actors": 1,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 320,
+      "count": 6,
+      "time": "day",
+      "moved": true,
+      "actors": 6,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 320,
+      "count": 28,
+      "time": "day",
+      "moved": true,
+      "actors": 28,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 320,
+      "count": 1,
+      "time": "night",
+      "moved": true,
+      "actors": 1,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 320,
+      "count": 6,
+      "time": "night",
+      "moved": true,
+      "actors": 6,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 320,
+      "count": 28,
+      "time": "night",
+      "moved": true,
+      "actors": 28,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 375,
+      "count": 1,
+      "time": "day",
+      "moved": true,
+      "actors": 1,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 375,
+      "count": 6,
+      "time": "day",
+      "moved": true,
+      "actors": 6,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 375,
+      "count": 28,
+      "time": "day",
+      "moved": true,
+      "actors": 28,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 375,
+      "count": 1,
+      "time": "night",
+      "moved": true,
+      "actors": 1,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 375,
+      "count": 6,
+      "time": "night",
+      "moved": true,
+      "actors": 6,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 375,
+      "count": 28,
+      "time": "night",
+      "moved": true,
+      "actors": 28,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 390,
+      "count": 1,
+      "time": "day",
+      "moved": true,
+      "actors": 1,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 390,
+      "count": 6,
+      "time": "day",
+      "moved": true,
+      "actors": 6,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 390,
+      "count": 28,
+      "time": "day",
+      "moved": true,
+      "actors": 28,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 390,
+      "count": 1,
+      "time": "night",
+      "moved": true,
+      "actors": 1,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 390,
+      "count": 6,
+      "time": "night",
+      "moved": true,
+      "actors": 6,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 390,
+      "count": 28,
+      "time": "night",
+      "moved": true,
+      "actors": 28,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 430,
+      "count": 1,
+      "time": "day",
+      "moved": true,
+      "actors": 1,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 430,
+      "count": 6,
+      "time": "day",
+      "moved": true,
+      "actors": 6,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 430,
+      "count": 28,
+      "time": "day",
+      "moved": true,
+      "actors": 28,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 430,
+      "count": 1,
+      "time": "night",
+      "moved": true,
+      "actors": 1,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 430,
+      "count": 6,
+      "time": "night",
+      "moved": true,
+      "actors": 6,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    },
+    {
+      "width": 430,
+      "count": 28,
+      "time": "night",
+      "moved": true,
+      "actors": 28,
+      "safe": true,
+      "notice": 42,
+      "speech": 76
+    }
+  ]
+}

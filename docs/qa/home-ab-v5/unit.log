@@ -1,0 +1,75 @@
+✔ additive A/B builder keeps old runtime and separates each save family (2.019979ms)
+✔ comparison supports raw art, six, twenty-eight and actual operation (0.301866ms)
+✔ latest preset wins when clicked while a previous scene is loading (5.706846ms)
+✔ measurement controls preserve background errors instead of showing safe counts (1.100233ms)
+✔ measurement waits for the requested candidate before reporting readiness (1.025733ms)
+✔ static composites use the completed snapshot while a newer request is queued (4.128929ms)
+✔ conversation state and away records are scoped to each AB save family (5.253117ms)
+✔ director save cannot replace the existing conversation history (6.586674ms)
+(node:52) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ A/B images and distinct geometry are present (7.996533ms)
+✔ home room, waterfall, stream, rocks and river are not walkable (42.63779ms)
+✔ A/B scenes: 320px / 1 actors remain safe and pet can move (3.608833ms)
+✔ A/B scenes: 320px / 6 actors remain safe and pet can move (95.138456ms)
+✔ A/B scenes: 320px / 28 actors remain safe and pet can move (816.006227ms)
+✔ A/B scenes: 375px / 1 actors remain safe and pet can move (1.150317ms)
+✔ A/B scenes: 375px / 6 actors remain safe and pet can move (122.414021ms)
+✔ A/B scenes: 375px / 28 actors remain safe and pet can move (764.001893ms)
+✔ A/B scenes: 390px / 1 actors remain safe and pet can move (0.843233ms)
+✔ A/B scenes: 390px / 6 actors remain safe and pet can move (190.510546ms)
+✔ A/B scenes: 390px / 28 actors remain safe and pet can move (929.42981ms)
+✔ A/B scenes: 430px / 1 actors remain safe and pet can move (0.985734ms)
+✔ A/B scenes: 430px / 6 actors remain safe and pet can move (37.960733ms)
+✔ A/B scenes: 430px / 28 actors remain safe and pet can move (441.835938ms)
+✔ actual browser dimensions preserve a pet exit despite cramped fallback seats (3185.67615ms)
+✔ B never replaces A defaults or mutates the recovered manifest (1.17277ms)
+(node:58) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ art transform preserves aspect and round trips at every phone width (57.547979ms)
+✔ three maps prohibit scenery and route around internal exclusions (30.916244ms)
+✔ real v22 crowd model retains 28 actors, safe feet, depth bands and protagonist escape (311.561242ms)
+✔ renderer discards stale image callbacks and freezes decorative time (3.658315ms)
+✔ authored rest and observation points use the v22 activity and reaction contract (0.59666ms)
+✔ fallback regions invalidate pending image callbacks and restore the art status on return (1717.446029ms)
+✔ landscape solo actor retains reachable ground when device is narrower than viewport (0.590891ms)
+✔ all original runtime, dialogue, rules, tests and formal assets remain byte-identical to v22 (33.446425ms)
+(node:59) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ real v22 crowd model retains 28 actors, safe feet, depth bands and protagonist escape (378.957624ms)
+✔ latest preset wins when clicked while a previous scene is loading (9.890586ms)
+✔ measurement controls preserve background errors instead of showing safe counts (1.67509ms)
+✔ measurement waits for the requested candidate before reporting readiness (1.061926ms)
+(node:100) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ six preserved images and distinct geometry are present (13.808615ms)
+✔ home room, waterfall, stream, rocks and river are not walkable (51.801555ms)
+✔ six scenes: 320px / 1 actors remain safe and pet can move (27.375582ms)
+✔ six scenes: 320px / 6 actors remain safe and pet can move (115.531695ms)
+✔ six scenes: 320px / 28 actors remain safe and pet can move (123.572944ms)
+✔ six scenes: 375px / 1 actors remain safe and pet can move (4.954576ms)
+✔ six scenes: 375px / 6 actors remain safe and pet can move (162.909141ms)
+✔ six scenes: 375px / 28 actors remain safe and pet can move (125.560941ms)
+✔ six scenes: 390px / 1 actors remain safe and pet can move (5.353085ms)
+✔ six scenes: 390px / 6 actors remain safe and pet can move (127.315509ms)
+✔ six scenes: 390px / 28 actors remain safe and pet can move (148.974511ms)
+✔ six scenes: 430px / 1 actors remain safe and pet can move (4.193834ms)
+✔ six scenes: 430px / 6 actors remain safe and pet can move (138.041958ms)
+✔ six scenes: 430px / 28 actors remain safe and pet can move (200.115601ms)
+✔ actual browser dimensions preserve a pet exit despite cramped fallback seats (7364.258372ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 51
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8821.119606
