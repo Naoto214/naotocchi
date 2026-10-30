@@ -1,4 +1,6 @@
-# なおぽよ。第2章11〜20面 — 統合・公開検証
+# なおぽよ。第2章11〜20面 — 正式公開完了
+
+**2026-10-30最終確認：main統合・本番Pages配信・実ブラウザーQA完了。** マージ前10系統、マージ後5系統12ジョブのCIが全成功。公開4,086ファイル一致、20面97手16/16救出を通常速度でも確認。本人iPhone Safari実機QAのみ別途未確認。以下のマージ前欄は当時の検証経緯として保持する。
 
 ## マージ前の確定証跡
 
@@ -101,4 +103,18 @@ PR #484は2026-10-30 14:15 JSTにmerged。本番mainは `851cf09a80c7ed41ba72938
 
 おてほん自動再生は実production timer/rAFをPlaywright仮想時計で加速した検証。実時間で全312手を連続視聴したものではない。本人iPhone Safari実機・指操作・OSロック/背景復帰、本人の実セーブを用いた移行は未確認。最短解は未証明。20面の盤面・難易度は維持。
 
-この追補作成時、main push後のRuntime/Home/World再実行は進行中であり、全成功とは扱わない。マージ前の全10CI成功と、マージ後のPages build/deploy成功は確定済み。
+### マージ後CI・通常速度再生の最終確定
+
+main push後の5ワークフロー、合計12ジョブは全てcompleted/success。失敗・実行中・待機中0。全実行URL・各stepは `production-resume/main-ci-success.json`。Runtimeの単一npm testは32+24+3289+159=3,504/3,504、fail/skip/cancel0。
+
+|ワークフロー|run|結果|
+|---|---:|---|
+|Naopoyo official release|41007381017|success|
+|Runtime smoke test|41007381009|success|
+|Home layout|41007380962|success|
+|Pages runtime package（build/deploy）|41007381048|success|
+|World visual quality|41007381011|success|
+
+さらに本番の20面を通常速度・通常モーションで0→97手まで連続自動再生し、16/16救出を確認した。Playwright clockは使用せず実時間約167.866秒（一時停止確認を含む）。途中で一時停止して位置が変わらないこと、再開後に完走すること、おてほんを閉じた後の通常盤面・Undo・クリア記録が開始前と一致することも成功。JavaScriptエラー0。`production-resume/realtime-results.json`、`realtime.cjs`、`stage20-realtime.jpg`に保存。全10面312手の再生は加速検証、20面97手は加えて通常速度でも検証した。
+
+本番実装への追加変更はなく、候補・main・配布物の対応は維持。証跡初回保存a5db85cbのテキスト11件と代表画像1件はGitHubから読み戻して一致を確認した。残る未確認事項は本人端末・本人セーブでの確認に限定し、第2章正式公開完了とする。

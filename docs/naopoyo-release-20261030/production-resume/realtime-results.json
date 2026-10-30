@@ -1,0 +1,15 @@
+{
+  "url": "https://naoto214.github.io/naotocchi/prototypes/naopoyo-chapter2/",
+  "clock": "real wall clock; no Playwright clock installation",
+  "checks": [
+    "real-clock pause holds position",
+    "stage20 real-time autoplay finishes 97 steps with 16/16 rescued",
+    "normal board Undo and clear records unchanged"
+  ],
+  "errors": [],
+  "started": "2026-10-30T05:39:26.073Z",
+  "finished": "2026-10-30T05:42:13.939Z",
+  "elapsedSeconds": 167.866,
+  "final": "おてほん 97 / 97手　救出 16 / 16",
+  "status": "passed"
+}
