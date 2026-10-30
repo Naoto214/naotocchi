@@ -1,0 +1,165 @@
+{
+  "head": "eb45d64f55e549f1adb368d046e3c3d7cc5c19e9",
+  "tree": "5517352b322d15b0a0c432ee24ba8d167638f4f8",
+  "ci_merge_head": "45f65bc5ca7296e046763309d3a77b92b7acd3ac",
+  "runs": [
+    {
+      "id": 41005053589,
+      "name": "Naopoyo World Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 31,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053589/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053589/logs",
+      "workflow_id": 393644946,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053589"
+    },
+    {
+      "id": 41005053616,
+      "name": "Naopoyo official release",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 188,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053616/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053616/logs",
+      "workflow_id": 391609802,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053616"
+    },
+    {
+      "id": 41005053526,
+      "name": "Naopoyo Insight Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 26,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053526/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053526/logs",
+      "workflow_id": 393702225,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053526"
+    },
+    {
+      "id": 41005053477,
+      "name": "Pages runtime package",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 354,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053477/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053477/logs",
+      "workflow_id": 389281874,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053477"
+    },
+    {
+      "id": 41005053443,
+      "name": "Naopoyo Chapter 1",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 131,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053443/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053443/logs",
+      "workflow_id": 393756683,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053443"
+    },
+    {
+      "id": 41005053441,
+      "name": "Naopoyo Contact Experiment",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 3,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053441/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053441/logs",
+      "workflow_id": 400875368,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053441"
+    },
+    {
+      "id": 41005053544,
+      "name": "World visual quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 386,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053544/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053544/logs",
+      "workflow_id": 374398717,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053544"
+    },
+    {
+      "id": 41005053904,
+      "name": "Home layout",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1277,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053904/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053904/logs",
+      "workflow_id": 355795733,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053904"
+    },
+    {
+      "id": 41005053515,
+      "name": "Naopoyo Chapter 2 Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 25,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053515/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053515/logs",
+      "workflow_id": 394796547,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053515"
+    },
+    {
+      "id": 41005053537,
+      "name": "Runtime smoke test",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1804,
+      "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053537/jobs",
+      "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41005053537/logs",
+      "workflow_id": 351596585,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41005053537"
+    }
+  ],
+  "runtime": {
+    "job": 123897958290,
+    "total": 3504,
+    "stats": [
+      "2026-10-30T04:51:19.0212251Z # tests 32",
+      "2026-10-30T04:51:19.0213029Z # pass 32",
+      "2026-10-30T04:51:19.0213364Z # fail 0",
+      "2026-10-30T04:51:19.0213735Z # cancelled 0",
+      "2026-10-30T04:51:19.0214109Z # skipped 0",
+      "2026-10-30T04:51:20.4190387Z # tests 24",
+      "2026-10-30T04:51:20.4190754Z # pass 24",
+      "2026-10-30T04:51:20.4190936Z # fail 0",
+      "2026-10-30T04:51:20.4191123Z # cancelled 0",
+      "2026-10-30T04:51:20.4191324Z # skipped 0",
+      "2026-10-30T05:13:14.3589737Z # tests 3289",
+      "2026-10-30T05:13:14.3590057Z # pass 3289",
+      "2026-10-30T05:13:14.3590203Z # fail 0",
+      "2026-10-30T05:13:14.3590759Z # cancelled 0",
+      "2026-10-30T05:13:14.3590928Z # skipped 0",
+      "2026-10-30T05:13:25.2283471Z # tests 159",
+      "2026-10-30T05:13:25.2284660Z # pass 159",
+      "2026-10-30T05:13:25.2284854Z # fail 0",
+      "2026-10-30T05:13:25.2285046Z # cancelled 0",
+      "2026-10-30T05:13:25.2285250Z # skipped 0"
+    ]
+  },
+  "puzzle": {
+    "job": 123897958203,
+    "total": 1529,
+    "stats": [
+      "2026-10-30T04:51:53.5604095Z # tests 1529",
+      "2026-10-30T04:51:53.5604258Z # pass 1529",
+      "2026-10-30T04:51:53.5604341Z # fail 0",
+      "2026-10-30T04:51:53.5604424Z # cancelled 0",
+      "2026-10-30T04:51:53.5604508Z # skipped 0"
+    ]
+  },
+  "card": {
+    "job": 123897958062,
+    "total": 530,
+    "stats": [
+      "2026-10-30T04:51:35.6370097Z # tests 530",
+      "2026-10-30T04:51:35.6370461Z # pass 530",
+      "2026-10-30T04:51:35.6370613Z # fail 0",
+      "2026-10-30T04:51:35.6370778Z # cancelled 0",
+      "2026-10-30T04:51:35.6370966Z # skipped 0"
+    ]
+  }
+}

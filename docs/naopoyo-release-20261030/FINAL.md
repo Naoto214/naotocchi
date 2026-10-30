@@ -75,3 +75,9 @@
 GitHub Pagesでは`.nojekyll`は配信設定用マーカーで公開URLは404（旧版でも確認）。したがって新配布物4,087件のうち、本番HTTPハッシュ照合の対象は公開コンテンツ4,086件とする。設定用マーカーはCI配布物の検証対象であり、公開コンテンツの欠落とは扱わない。
 
 最初の証跡コミット418d7d62356927b748a91613df59b0e8a76b6516について、GitHubから42ファイルを読み戻し、元のローカルファイルとの全byte一致を確認済み。
+
+保存移行の対象は同一origin内の旧保存。既存の本人限定SitesはURL・公開内容・保存領域を変更していない。別originのSitesからGitHub PagesへlocalStorageを自動転送するものではなく、それぞれの保存は元のサイトに残る。
+
+## マージ前CI確定
+
+候補HEADの10ワークフローは全てcompleted/success。Runtimeの単一npm testも32+24+3289+159=3504/3504、fail/skip/cancel0。puzzle1529/1529、CARD530/530をCIログでも確認。全実行URLとログの件数行は `evidence/ci-success.json`。実装treeとCI合成treeの一致を確認し、公開条件10項目を充足。次はmain mergeと本番検証であり、この時点では正式公開完了とは扱わない。
