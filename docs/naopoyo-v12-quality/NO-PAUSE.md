@@ -1,0 +1,52 @@
+# VERSION 12 — 通常プレイの停止UI撤去
+
+2026-10-30 JST。対象: Draft PR #482 / feature/naopoyo-v12-quality。
+
+## 変更
+通常・QAの両HTMLから右上のⅡ/▶ボタン、白い「ひとやすみ」被覆と再開案内を削除。appのuserPaused変数・UI更新・クリックイベントを削除した。CSSによる非表示ではない。ヘッダーは既存flex配置のまま、空のボタン枠を残さない。非公開の比較ボタンは初期HTMLでもhiddenにした。
+
+内部のsession.pausedは、タブ非表示・ダイアログ・おてほん表示のため維持。pagehideでは一筆書きを確定して保存し、pointer captureを解放する。pageshow/visibilitychangeで内部状態を再評価し、経過時間の蓄積をリセットする。復帰時には即描画し、未完の表示アニメーションは保持した位置から完了する。背景で過ごした時間を盤面へ適用しない。
+
+共有WorldSession、物理エンジン、盤面、ForestSession、手数算出、セーブ形式、クリア/開放記録、おてほん実装・再生位置・全解答ファイルには変更なし。共有CSSの#paused規則は別ゲームが利用するため残したが、この通常画面には対応DOMが存在しない。
+
+## 検証
+- 変更前の重点22件成功。停止DOMを提供しないハーネスでは旧appがonclick設定で失敗することを確認後、実装を修正。
+- 最終パズル954/954成功（第1章/第2章/Insight/World/v2/Rescue）。Pages16/16成功。旧解答design verify、audit、preview build成功。
+- 通常Undo後の同一盤面・0手・内部停止なし・次操作、42→47→42→40、保存/再読込を検証。
+- visibilitychange/pagehide/pageshowの組合せ、保持中の一筆書き確定1回、pointer capture解放、背景中の論理/表示不変、復帰後のanimation完了、再読込後のUndoを実appハンドラーで検証。
+- 実際にsplit/fall/mergeが発生する盤面で、途中の表示位置保持→復帰→論理盤面と表示一致→保存復帰→Undoを検証。
+- Chromeブラウザーの開発プレビュー: 通常操作21項目成功。おてほん再生・一時停止・再開、開閉・再読込後の位置保持、通常盤面/履歴/進行保護を確認。
+- 実ポインタードラッグで5手、ゲーム内Undoで0手を確認。白い被覆と再開操作なし。
+- 11〜20面のおてほんを画面の「次へ」で全312手再生、全員救出。20面97手を維持。自動再生/停止/再開は20面で別途確認。
+- 320/375/390/430pxと横844px、safe-area相当余白、5種類の手数で50条件成功。盤面寸法・ボタン・手数の重なり/はみ出し/スクロールなし。
+- 独立レビューCritical/Importantなし。指摘されたテスト不足（capture解放、分裂/落下/再合体の途中復帰、再読込後Undo）は追加検証済み。
+
+初回全体テストとbuildはsparse checkoutの未展開画像・解答資料で失敗。GitHub正本から不足ファイルを展開し最終954件成功を確認した。ブラウザーハーネスではdialog closeイベントの非同期完了を待つ修正と、手動pause廃止後も進む内部timeを保存比較から除外する修正を行った。製品側の保存やおてほんコードは変更していない。開発プレビューの一時404は同じルートで再起動して復旧した。
+
+## 保護・未確認
+PR436、PR483、main、GitHub Pages、V11 Siteへ書込みなし。PR483の並行更新は取り込まない。
+
+iPhone Safari/WebKit実機、実指、画面ロック・OSバックグラウンド復帰の実機QAは未実施。Chrome＋ライフサイクルイベントの自動検証をSafari実機成功とは扱わない。配信照合結果とCIは以下に追記する。
+
+## GitHub保存・本人限定公開
+
+- 実装HEAD: `d160c03e92f5c20846a77ab0b84b09e9a9fd1d4e`。tree: `82a2ea1565c6113871b7205d5a129192e0c2660b`。ローカルcommit58274620と同一treeをGitHub接続ツールで保存。CLI直接pushは認証なしで失敗したため、expected_sha=8218b904・force=falseの通常更新を使用した。
+- Site source: `722ae4beaf6b17f2da092ea8c8a957e31cafb31f`。Site保存番号3、ゲーム表示VERSION12。
+- Deployment: `appgdep_6ae3fd91fdf8819181ca052458007234`、2026-10-30 11:14 JST成功。
+- [本人限定URL](https://naopoyo-v12-quality-20261030.kerzion214.chatgpt.site/prototypes/naopoyo-chapter2/qa.html)。本人1名・外部0・グループ0を維持。
+- 公開URLのブラウザーはログイン画面を表示。認証後の公開URL上での操作は未確認。開発プレビューでの実操作と認証付きHTTPの配信照合を分けて記録する。
+
+![通常画面で5手移動後、Undoで0手へ戻した390px画面](no-pause-undo-390.jpg)
+
+CIのPR合成commit `3ae19addba757c9fa0080c172779ebf06152d832` のtreeは配信実装treeと一致。PR436のbaseに差分を重ねた検証で、mainへのmergeではない。最新確認はPR436 `ab937a22`、PR483 `8200f513`、main `46349c36`。PR483の追加差分は接触モーション描画/テストで、今回には取り込んでいない。
+
+配信85/85ファイルが認証付きHTTP200・SHA-256一致。HTML3件は同一オリジン内の正規URLへの307をたどって照合した。認証情報を他オリジンへ転送する処理はなく、検証ログ/成果物にも記録していない。未認証qa.htmlは403。詳細は`no-pause-delivery-hashes.json`。
+
+## 最終CI結果
+
+[CI run40990370344](https://github.com/Naoto214/naotocchi/actions/runs/40990370344)の3ジョブすべてcompleted/success。
+- パズル954/954、CARD GAME494/494。
+- 本編の単一npm testは3504/3504（32+24+3289+159）、fail/skip/cancel0。smoke/dialogue/visualも含むコマンド全体成功。
+- 本編完了2026-10-30 11:36 JST。詳細は`no-pause-ci-summary.json`。
+
+実装d160c03e以後は検証資料のみを[skip ci]で保存し、製品コード・テスト・workflowに差分なし。最終HEAD/treeはPR本文に記録する。PR482はDraftのまま。mainへのmergeや本番Pagesへのdeployは行っていない。

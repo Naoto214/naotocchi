@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": [
+    "80 moves",
+    "normal board and Undo protected",
+    "reopen at 80",
+    "previous",
+    "autoplay pause",
+    "Undo has no pause overlay",
+    "Undo one history",
+    "continuous Undo",
+    "move after Undo",
+    "reload preserves board and Undo",
+    "reload resumes previous example position",
+    "reset to zero",
+    "Undo immediately after reload"
+  ]
+}

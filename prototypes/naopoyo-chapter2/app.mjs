@@ -25,7 +25,6 @@ export function mount({qa = false} = {}) {
     comparison = false,
     hitUntil = 0,
     won = false,
-    userPaused = false,
     saveError = false,
     exampleActive = false;
   const dialog = $("dialog");
@@ -38,10 +37,9 @@ export function mount({qa = false} = {}) {
       saveError = true;
     }
   }
+  // Internal suspension only: normal play has no manual pause state or cover.
   function pauseState() {
-    q.paused = userPaused || document.hidden || dialog.open || comparison || exampleActive;
-    $("paused").hidden = !userPaused;
-    $("pause").textContent = userPaused ? "▶" : "Ⅱ";
+    q.paused = document.hidden || dialog.open || comparison || exampleActive;
   }
   function size() {
     const r = canvas.parentElement.getBoundingClientRect(),
@@ -60,6 +58,7 @@ export function mount({qa = false} = {}) {
     $("status").hidden=false;
     $("example").hidden=!q.stage.id.startsWith("komorebi-");
     $("title").textContent = q.stage.title;
+    $("moves").textContent = `${q.state.moves}手`;
     $("chapter").textContent =
       `${qa ? "QA専用 · " : "独立セーブ · "}${q.stage.id.startsWith("komorebi-")?"第2章":"第1章"}　${q.state.rescued} / ${mass(q.state)} おかえり`;
     $("clock").textContent = q.stage.events.length ? q.stage.events.map(e => eventCaption(e, q.time)).join(" / ") : q.stage.gravity ? "重力 ↓ ・ 支えがないと落ちる" : "ひかりの牢屋";
@@ -102,7 +101,7 @@ export function mount({qa = false} = {}) {
     // A completed board is replayed from its start; permanent progression survives.
     if(complete(q.state))q.retry();
     if(progress.data.boards[id]&&!q.restored)try{progress.backup(id,progress.data.boards[id]);}catch{saveError=true;}
-    won=false;rows=8;comparison=false;userPaused=false;
+    won=false;rows=8;comparison=false;
     dialog.close();save();pauseState();size();
     $("status").textContent=q.stage.lesson;story();return true;
   }
@@ -172,10 +171,9 @@ export function mount({qa = false} = {}) {
   $("undo").onclick = () => {
     end();
     if (q.undo()) {
-      userPaused = true;
       pauseState();
       last = 0;
-      $("status").textContent = "戻しました。▶で時を再開できます。";
+      $("status").textContent = "ひと筆ぶん戻しました。そのまま続けられます。";
     }
     won = false;
     save();
@@ -186,13 +184,6 @@ export function mount({qa = false} = {}) {
     q.retry();
     won = false;
     save();
-    draw();
-  };
-  $("pause").onclick = () => {
-    end();
-    userPaused = !userPaused;
-    pauseState();
-    last = 0;
     draw();
   };
   const legacyHint = () =>
@@ -211,7 +202,7 @@ export function mount({qa = false} = {}) {
     if(!progress.allowed(q.stage.id)||!q.stage.id.startsWith("komorebi-"))return;
     const launch=()=>{exampleActive=true;dialog.close();end();pauseState();openExample(q.stage,()=>{exampleActive=false;pauseState();last=0;draw();});};
     if(sessionStorage.getItem('naopoyo.example.confirmed'))return launch();
-    show('<h2>おてほんを見る？</h2><p>正解の操作がすべて見られます。最初の盤面から始まり、今のプレイはそのまま残ります。</p><button class="primary" id="exampleConfirm">おてほんを見る</button>');
+    show('<h2>おてほんを見る？</h2><p>正解の操作がすべて見られます。前回見たところから続けられます。今のプレイはそのまま残ります。</p><button class="primary" id="exampleConfirm">おてほんを見る</button>');
     $('exampleConfirm').onclick=()=>{sessionStorage.setItem('naopoyo.example.confirmed','1');launch();};
   };
   function selectScreen(){
@@ -252,10 +243,13 @@ export function mount({qa = false} = {}) {
     end();
     q.paused = true;
     last = 0;
+    fraction = 0;
   });
   window.addEventListener("pageshow", () => {
     pauseState();
     last = 0;
+    fraction = 0;
+    draw();
   });
   window.addEventListener("storage", e=>{if(e.key===KEY){progress.merge(progress.load());draw();}});
   window.addEventListener("resize", size);

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checks": [
+    "retry shows0",
+    "selection costs0",
+    "blocked move costs0",
+    "five cells count while finger held",
+    "one stroke one history",
+    "normal pause UI and white cover absent",
+    "page lifecycle resumes without start",
+    "example retains independent 3/97 count",
+    "example leaves normal5",
+    "example position retained",
+    "example play control retained",
+    "example pause control retained",
+    "example stays paused",
+    "normal resumes after example close",
+    "example preserves normal board, history and progress (clock excluded)",
+    "reload restores5 and history",
+    "example position survives reload",
+    "one Undo returns5→0",
+    "Undo stays in game",
+    "move after Undo works",
+    "retry returns0"
+  ]
+}

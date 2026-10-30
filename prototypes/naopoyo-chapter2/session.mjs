@@ -5,6 +5,7 @@ import {clone,settle,move} from '../naopoyo-v2/engine.mjs';
 import {enteredCells} from '../naopoyo-v2/input.mjs';
 // Shared v2 remains authoritative; presentation never changes a saved board.
 export class ForestSession extends WorldSession {
+ undo(){const paused=this.paused;const restored=super.undo();this.paused=paused;return restored;}
  reset(){super.reset();settle(this.state);this.motion=[];this.clearPreview();}
  apply(snapshot){super.apply(snapshot);this.motion=[];this.clearPreview();}
  clearPreview(){this.preview=null;this.previewKey=null;}
