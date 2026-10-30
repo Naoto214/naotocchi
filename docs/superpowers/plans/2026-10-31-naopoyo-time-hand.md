@@ -24,7 +24,7 @@ Spec: user handoff 2026-10-31 (18 sections), summarized below.
 - Production files byte-identical; ABC baseline results identical; deploy private and verify actual manifest bytes.
 
 ## Tasks
-- [ ] 1: Add failing `tests/time-hand.test.mjs` for eight headings, straight/turn/closed paths, caps, collisions, mass, gravity, official dispatch. Implement `priorities.mjs`, generate `engine.mjs`, adapt `model.mjs`. Run Node tests and provenance.
-- [ ] 2: Reuse comparison UI in new directory; D controls, power, variants, routes/turn/rejection traces, Undo, eight tutorial presets, atlas before/after. Test model and UI contract; browser QA at 320/375/390/430 if available.
-- [ ] 3: Generate scenario/atlas data and stage01-20 replay/search witnesses using isolated engine. Validate conservation and each found witness. Record bounded failures honestly.
-- [ ] 4: Protection hash audit, ABC tests, official puzzle/CARD/Pages relevant checks. Fresh whole-branch review. Commit/push independent branch; create Draft PR. Package private Site, verify audience/files/QA, record HEAD/tree/CI and final report.
+- [x] 1: Add failing `tests/time-hand.test.mjs` for eight headings, straight/turn/closed paths, caps, collisions, mass, gravity, official dispatch. Implement `priorities.mjs`, generate `engine.mjs`, adapt `model.mjs`. Run Node tests and provenance.
+- [x] 2: Reuse comparison UI in new directory; D controls, power, variants, routes/turn/rejection traces, Undo, eight tutorial presets, atlas before/after. Test model and UI contract; browser QA at 320/375/390/430 if available.
+- [x] 3: Generate scenario/atlas data and stage01-20 replay/search witnesses using isolated engine. Validate conservation and each found witness. Record bounded failures honestly.
+- [x] 4: Protection hash audit, ABC tests, official puzzle/CARD/Pages relevant checks. Fresh whole-branch review. Commit/push independent branch; create Draft PR. Package private Site, verify audience/files/QA, record HEAD/tree/CI and final report.

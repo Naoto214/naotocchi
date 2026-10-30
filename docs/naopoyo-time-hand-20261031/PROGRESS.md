@@ -4,8 +4,8 @@ User authorized independent implementation, push, Draft PR, private publication.
 
 Task 1 complete: isolated D candidates + provenance-generated engine. RED missing behavior -> GREEN. 8 headings, strict clockwise90, stops, generated blockers, policy, special cells, caps and variants.
 Task 2 complete: four-mode UI, power, variants, touches mapped by canvas bounds, Undo, tutorial, atlas. Browser backend failed Connection closed; no real-browser claims. DOM event tests at four widths are unit tests only.
-Task 3 complete: stage01-20 stored commands replay; 896 shared scenes, 1344 variants. 16 solved initial, stage7 constructive solve ->17 confirmed. 16/19/20 remain unknown after identity-preserving 40k node searches. Do not call heuristic exhaustion a proof.
-Task 4 in progress: regression dependencies were absent in sparse checkout; hydrate only needed files then rerun. Preserve initial failure logs. Protection audit, independent review, PR and private deploy pending.
+Task 3 complete: stage01-20 stored commands replay; 960 shared scenes, 1440 variants. 16 solved initial, stage7 constructive solve ->17 confirmed. 16/19/20 remain unknown after identity-preserving 40k node searches. Do not call heuristic exhaustion a proof.
+Task 4 delivery complete: protection audit and independent review completed, Draft PR494 created, owner-only Site version1 deployed and all54 files hash-verified. Required D/ABC, official puzzle, CARD and Pages CI passed. Final broader CI snapshot is in DELIVERY.md and evidence/ci.json. Initial local sparse-checkout failures are retained. Real browser/iPhone QA remains unverified because the browser backend could not start.
 
 Ruling: first no-obstacle diagonal test assumed all headings produce seven. Correct expectation is three/four when diagonal route hits board corner and reverses into generated ones. Specification requires stopping; production algorithm unchanged.
 Ruling: distance options mean cumulative adjacent route steps (2/3/7), not Chebyshev radius. Pass-through also consumes a step; never teleports, never duplicates.

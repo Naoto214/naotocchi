@@ -1,0 +1,159 @@
+{
+  "sha": "11980dcd5aa8b987d68ff156434e5655529cec44",
+  "observed_at": "2026-10-30T16:33:29.431Z",
+  "checks": [
+    {
+      "id": 124175802180,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "skipped",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241405/job/124175802180",
+      "started_at": "2026-10-30T16:17:12Z",
+      "completed_at": "2026-10-30T16:17:12Z"
+    },
+    {
+      "id": 124174978232,
+      "name": "smoke-test",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241771/job/124174978232",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": null
+    },
+    {
+      "id": 124174978112,
+      "name": "time-hand",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241483/job/124174978112",
+      "started_at": "2026-10-30T16:15:43Z",
+      "completed_at": "2026-10-30T16:16:57Z"
+    },
+    {
+      "id": 124174978071,
+      "name": "browser (smoke)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174978071",
+      "started_at": "2026-10-30T16:15:43Z",
+      "completed_at": "2026-10-30T16:28:36Z"
+    },
+    {
+      "id": 124174977991,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241405/job/124174977991",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:17:12Z"
+    },
+    {
+      "id": 124174977943,
+      "name": "character-integration",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977943",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:20:55Z"
+    },
+    {
+      "id": 124174977660,
+      "name": "puzzle",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241483/job/124174977660",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:17:22Z"
+    },
+    {
+      "id": 124174977622,
+      "name": "browser (corridor)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977622",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:23:00Z"
+    },
+    {
+      "id": 124174977528,
+      "name": "browser (visibility)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977528",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:28:21Z"
+    },
+    {
+      "id": 124174977483,
+      "name": "browser (captures)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977483",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:26:15Z"
+    },
+    {
+      "id": 124174977441,
+      "name": "puzzle",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241446/job/124174977441",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:17:03Z"
+    },
+    {
+      "id": 124174977438,
+      "name": "card",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241483/job/124174977438",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:17:57Z"
+    },
+    {
+      "id": 124174977424,
+      "name": "comparison",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241446/job/124174977424",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:16:53Z"
+    },
+    {
+      "id": 124174977238,
+      "name": "regression",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977238",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": null
+    },
+    {
+      "id": 124174977216,
+      "name": "pad-size",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241326/job/124174977216",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:21:25Z"
+    },
+    {
+      "id": 124174977025,
+      "name": "home-layout",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241326/job/124174977025",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": null
+    },
+    {
+      "id": 124174976853,
+      "name": "card",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/41088241446/job/124174976853",
+      "started_at": "2026-10-30T16:15:42Z",
+      "completed_at": "2026-10-30T16:17:37Z"
+    }
+  ]
+}
