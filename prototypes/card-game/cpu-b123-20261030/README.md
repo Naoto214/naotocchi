@@ -10,11 +10,16 @@
 | `PLAN.md` | 実験計画（実行前に固定）と、実行中の変更記録 |
 | `REPORT.md` | 総合報告（完了報告の1〜12） |
 | `INTEGRATION.md` | PR #488・#489・#491 の照合、名前の対応（本人方針B-2＝本実験B4）、B-1とB-2の関係、重複を避けた追補計画 |
+| `FOLLOWUP.md` | 追加比較 E4（B4）・E14（B1＋B4）の報告：固定局面（かくとうバトル2枚・時1）、95%区間、不自然な見送りの解消率、代表局面、第一推奨 |
 | `COMPATIBILITY.md` | 保存互換性と、正式採用時の影響範囲・版の提案 |
 | `DECKS.md` | CPUデッキの検討（ミサイルコマンドのデッキ相性、比較候補 D0〜D2。正式デッキは変更しない） |
 | `lib/policy-exp.mjs` | 正式方針の複製に B1/B2/B3 のスイッチを足したもの。全スイッチ無効で正式CPUと同じ選択 |
 | `lib/observe-exp.mjs` | 正式観測の結果に、公開情報のヒント（`variantCond`・`horizon`・`oppUsable`・`trapHint`）を足すアダプタ |
-| `lib/arms.mjs` | 比較条件 base／E1／E1b／E2／E2b／E3 |
+| `lib/arms.mjs` | 比較条件 base／E1／E1b／E2／E2b／E3、追加の E4／E14、計測の再生 baseM／E1M |
+| `lib/ref488-counterfactual.mjs` | PR #488 の `counterfactual.mjs` の読み取り専用の複製（B4 の同一性検査だけに使用） |
+| `tests/b14.test.mjs` / `tools/fixed-b14.mjs` | 固定局面「相手の勝負中・かくとうバトル2枚・時1」の B1／B4／B1＋B4 比較 |
+| `tools/b4-identity.mjs` → `results/b4-identity.json` | B4 と #488 strictlyBetter の同一性（3,477/3,477） |
+| `tools/run-followup.sh`, `tools/analyze_followup.py` → `results/followup-*.{json,md}` | 追加比較の実行と集計 |
 | `tests/b1.test.mjs` | B1のRED/GREEN（`CPU_IMPL=official` で正式CPUに対して実行するとRED） |
 | `tests/b23.test.mjs` | B2・B3 の直接テスト |
 | `tests/fixtures*.json` | テスト局面（正式の保存テキスト：seed＋デッキ＋操作列。`engine.restore` で厳密に復元） |
