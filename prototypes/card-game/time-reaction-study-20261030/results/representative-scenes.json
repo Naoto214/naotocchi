@@ -1,0 +1,786 @@
+{
+ "engine": "hotseat-6",
+ "scenes": [
+  {
+   "id": "P1",
+   "title": "中級：⑤のたんじょう候補が2枚あり、互いを「失う候補」として相殺。3ターン続けてたまごのまま終了",
+   "match": "TR:main:007:mirror:X-first:II",
+   "seat": "B",
+   "positions": [
+    {
+     "round": 4,
+     "turn": "B",
+     "phase": "normal",
+     "window": "start",
+     "difficulty": "intermediate",
+     "deck": "main",
+     "first": false,
+     "own": {
+      "time": 4,
+      "growth": 20,
+      "hand": [
+       "M-dog-05",
+       "I-c_egg_normal",
+       "M-dog-05",
+       "M-beetle-01",
+       "M-dog-06",
+       "M-dog-01",
+       "W-snow"
+      ],
+      "main": "M-dog-01",
+      "partner": null,
+      "world": null,
+      "companions": [
+       "C-rabbit_friend"
+      ],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 2,
+      "growth": 35,
+      "main": "M-dog-06",
+      "handCount": 4,
+      "prepared": 0
+     },
+     "challenge": null,
+     "candidates": [
+      {
+       "action": "place:M-dog-05:main:time_skip",
+       "cost": 4,
+       "official": 0,
+       "valueWithoutTime": 31,
+       "strictlyBetterCF": 31
+      },
+      {
+       "action": "place:M-dog-05:main:time_skip",
+       "cost": 4,
+       "official": 0,
+       "valueWithoutTime": 31,
+       "strictlyBetterCF": 31
+      },
+      {
+       "action": "place:M-beetle-01:main:transform",
+       "cost": 1,
+       "official": -31,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": -31
+      },
+      {
+       "action": "place:W-snow:world",
+       "cost": 2,
+       "official": -22,
+       "valueWithoutTime": 9,
+       "strictlyBetterCF": -22
+      },
+      {
+       "action": "challenge:-",
+       "cost": 0,
+       "official": -8.5,
+       "valueWithoutTime": -8.5,
+       "strictlyBetterCF": -8.5
+      },
+      {
+       "action": "challenge:-",
+       "cost": 0,
+       "official": -8.5,
+       "valueWithoutTime": -8.5,
+       "strictlyBetterCF": -8.5
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "pass"
+    },
+    {
+     "round": 5,
+     "turn": "B",
+     "phase": "normal",
+     "window": "start",
+     "difficulty": "intermediate",
+     "deck": "main",
+     "first": false,
+     "own": {
+      "time": 5,
+      "growth": 20,
+      "hand": [
+       "M-dog-05",
+       "I-c_egg_normal",
+       "M-dog-05",
+       "M-beetle-01",
+       "M-dog-06",
+       "M-dog-01",
+       "W-snow",
+       "M-dog-04"
+      ],
+      "main": "M-dog-01",
+      "partner": null,
+      "world": null,
+      "companions": [
+       "C-rabbit_friend"
+      ],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 5,
+      "growth": 40,
+      "main": "M-dog-06",
+      "handCount": 5,
+      "prepared": 0
+     },
+     "challenge": null,
+     "candidates": [
+      {
+       "action": "place:M-dog-05:main:time_skip",
+       "cost": 4,
+       "official": 0,
+       "valueWithoutTime": 31,
+       "strictlyBetterCF": 31
+      },
+      {
+       "action": "place:M-dog-05:main:time_skip",
+       "cost": 4,
+       "official": 0,
+       "valueWithoutTime": 31,
+       "strictlyBetterCF": 31
+      },
+      {
+       "action": "place:M-beetle-01:main:transform",
+       "cost": 1,
+       "official": -28,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": -28
+      },
+      {
+       "action": "place:M-dog-06:main:time_skip",
+       "cost": 5,
+       "official": -3,
+       "valueWithoutTime": 28,
+       "strictlyBetterCF": -3
+      },
+      {
+       "action": "place:W-snow:world",
+       "cost": 2,
+       "official": -22,
+       "valueWithoutTime": 9,
+       "strictlyBetterCF": -22
+      },
+      {
+       "action": "place:M-dog-04:main:time_skip",
+       "cost": 3,
+       "official": -5,
+       "valueWithoutTime": 26,
+       "strictlyBetterCF": -5
+      },
+      {
+       "action": "challenge:-",
+       "cost": 0,
+       "official": -8.5,
+       "valueWithoutTime": -8.5,
+       "strictlyBetterCF": -8.5
+      },
+      {
+       "action": "challenge:-",
+       "cost": 0,
+       "official": -8.5,
+       "valueWithoutTime": -8.5,
+       "strictlyBetterCF": -8.5
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "pass"
+    },
+    {
+     "round": 6,
+     "turn": "B",
+     "phase": "normal",
+     "window": "start",
+     "difficulty": "intermediate",
+     "deck": "main",
+     "first": false,
+     "own": {
+      "time": 5,
+      "growth": 20,
+      "hand": [
+       "M-dog-05",
+       "I-c_egg_normal",
+       "M-dog-05",
+       "M-beetle-01",
+       "M-dog-06",
+       "M-dog-01",
+       "W-snow",
+       "M-dog-04"
+      ],
+      "main": "M-dog-01",
+      "partner": null,
+      "world": null,
+      "companions": [
+       "C-rabbit_friend"
+      ],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 0,
+      "growth": 45,
+      "main": "M-beetle-06",
+      "handCount": 4,
+      "prepared": 0
+     },
+     "challenge": null,
+     "candidates": [
+      {
+       "action": "place:M-dog-05:main:time_skip",
+       "cost": 4,
+       "official": 0,
+       "valueWithoutTime": 31,
+       "strictlyBetterCF": 31
+      },
+      {
+       "action": "place:M-dog-05:main:time_skip",
+       "cost": 4,
+       "official": 0,
+       "valueWithoutTime": 31,
+       "strictlyBetterCF": 31
+      },
+      {
+       "action": "place:M-beetle-01:main:transform",
+       "cost": 1,
+       "official": -28,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": -28
+      },
+      {
+       "action": "place:M-dog-06:main:time_skip",
+       "cost": 5,
+       "official": -3,
+       "valueWithoutTime": 28,
+       "strictlyBetterCF": -3
+      },
+      {
+       "action": "place:W-snow:world",
+       "cost": 2,
+       "official": -22,
+       "valueWithoutTime": 9,
+       "strictlyBetterCF": -22
+      },
+      {
+       "action": "place:M-dog-04:main:time_skip",
+       "cost": 3,
+       "official": -5,
+       "valueWithoutTime": 26,
+       "strictlyBetterCF": -5
+      },
+      {
+       "action": "challenge:-",
+       "cost": 0,
+       "official": -8.5,
+       "valueWithoutTime": -8.5,
+       "strictlyBetterCF": -8.5
+      },
+      {
+       "action": "challenge:-",
+       "cost": 0,
+       "official": -8.5,
+       "valueWithoutTime": -8.5,
+       "strictlyBetterCF": -8.5
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "pass"
+    }
+   ]
+  },
+  {
+   "id": "P2",
+   "title": "中級（こいびと・交際）：①ねこ2枚の相殺でR1・R2にたんじょうせず終了",
+   "match": "PX:main:001:X1:X-first",
+   "seat": "A",
+   "positions": [
+    {
+     "round": 1,
+     "turn": "A",
+     "phase": "normal",
+     "window": "normal",
+     "difficulty": "intermediate",
+     "deck": "partner",
+     "first": true,
+     "own": {
+      "time": 1,
+      "growth": 20,
+      "hand": [
+       "E-reconciliation",
+       "I-c_match",
+       "M-cat-03",
+       "M-cat-01",
+       "M-cat-01"
+      ],
+      "main": null,
+      "partner": "P-high_eagle",
+      "world": null,
+      "companions": [],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 0,
+      "growth": 20,
+      "main": null,
+      "handCount": 5,
+      "prepared": 0
+     },
+     "challenge": null,
+     "candidates": [
+      {
+       "action": "place:M-cat-01:main:birth",
+       "cost": 1,
+       "official": 0,
+       "valueWithoutTime": 42,
+       "strictlyBetterCF": 42
+      },
+      {
+       "action": "place:M-cat-01:main:birth",
+       "cost": 1,
+       "official": 0,
+       "valueWithoutTime": 42,
+       "strictlyBetterCF": 42
+      },
+      {
+       "action": "programPlay:E-reconciliation→P-high_eagle",
+       "cost": 1,
+       "official": -42.6,
+       "valueWithoutTime": -0.6,
+       "strictlyBetterCF": -42.6
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "pass"
+    },
+    {
+     "round": 2,
+     "turn": "A",
+     "phase": "normal",
+     "window": "normal",
+     "difficulty": "intermediate",
+     "deck": "partner",
+     "first": true,
+     "own": {
+      "time": 1,
+      "growth": 25,
+      "hand": [
+       "E-reconciliation",
+       "M-cat-03",
+       "M-cat-01",
+       "M-cat-01",
+       "G-connect-four"
+      ],
+      "main": null,
+      "partner": "P-high_eagle",
+      "world": null,
+      "companions": [
+       "C-seal"
+      ],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 0,
+      "growth": 20,
+      "main": null,
+      "handCount": 4,
+      "prepared": 0
+     },
+     "challenge": null,
+     "candidates": [
+      {
+       "action": "place:M-cat-01:main:birth",
+       "cost": 1,
+       "official": 0,
+       "valueWithoutTime": 42,
+       "strictlyBetterCF": 42
+      },
+      {
+       "action": "place:M-cat-01:main:birth",
+       "cost": 1,
+       "official": 0,
+       "valueWithoutTime": 42,
+       "strictlyBetterCF": 42
+      },
+      {
+       "action": "programPlay:E-reconciliation→P-high_eagle",
+       "cost": 1,
+       "official": -42.6,
+       "valueWithoutTime": -0.6,
+       "strictlyBetterCF": -42.6
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "pass"
+    }
+   ]
+  },
+  {
+   "id": "P3",
+   "title": "中級：相手のちょうせんに負けた直後、相手ターンに「あやまりにきただいおういか」を使用（合理的な反応）",
+   "match": "TR:challenge:004:mirror:X-first:II",
+   "seat": "B",
+   "positions": [
+    {
+     "round": 8,
+     "turn": "A",
+     "phase": "response",
+     "window": "challenge_end",
+     "difficulty": "intermediate",
+     "deck": "challenge",
+     "first": false,
+     "own": {
+      "time": 7,
+      "growth": 35,
+      "hand": [
+       "G-race-3d",
+       "G-baseball-batting",
+       "E-boss"
+      ],
+      "main": "M-sakura-02",
+      "partner": null,
+      "world": null,
+      "companions": [
+       "C-rabbit_friend",
+       "C-otter",
+       "C-rabbit_friend"
+      ],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 6,
+      "growth": 70,
+      "main": "M-sakura-04",
+      "handCount": 4,
+      "prepared": 0
+     },
+     "challenge": {
+      "parameter": "power",
+      "actor": "A"
+     },
+     "candidates": [
+      {
+       "action": "programPlay:E-boss",
+       "cost": 2,
+       "official": 8,
+       "valueWithoutTime": 8,
+       "strictlyBetterCF": 8
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "programPlay:E-boss"
+    }
+   ]
+  },
+  {
+   "id": "P4",
+   "title": "中級：相手のちょうせんの比較前に「かくとうバトル」で自分の参加メインを補正（相手ターンの反応）",
+   "match": "TR:challenge:001:mirror:Y-first:II",
+   "seat": "A",
+   "positions": [
+    {
+     "round": 2,
+     "turn": "B",
+     "phase": "response",
+     "window": "compare",
+     "difficulty": "intermediate",
+     "deck": "challenge",
+     "first": true,
+     "own": {
+      "time": 1,
+      "growth": 20,
+      "hand": [
+       "M-sakura-02",
+       "G-street-fight",
+       "M-sakura-03",
+       "G-grand-prix-3d"
+      ],
+      "main": "M-sakura-01",
+      "partner": "P-gentle_gorilla",
+      "world": null,
+      "companions": [],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 1,
+      "growth": 20,
+      "main": "M-dragon-01",
+      "handCount": 5,
+      "prepared": 0
+     },
+     "challenge": {
+      "parameter": "power",
+      "actor": "B"
+     },
+     "candidates": [
+      {
+       "action": "programPlay:G-street-fight:パンチ→M-sakura-01",
+       "cost": 1,
+       "official": 3.48,
+       "valueWithoutTime": 3.48,
+       "strictlyBetterCF": 3.48
+      },
+      {
+       "action": "programPlay:G-street-fight:キック→M-sakura-01",
+       "cost": 1,
+       "official": 3.48,
+       "valueWithoutTime": 3.48,
+       "strictlyBetterCF": 3.48
+      },
+      {
+       "action": "programPlay:G-street-fight:ガード→M-sakura-01",
+       "cost": 1,
+       "official": 3.48,
+       "valueWithoutTime": 3.48,
+       "strictlyBetterCF": 3.48
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "programPlay:G-street-fight:ガード→M-sakura-01"
+    }
+   ]
+  },
+  {
+   "id": "P5",
+   "title": "中級：両者のちょうせん完了後、相手ターンに「グランプリ」で+10（相手ターンにしか来ない発動機会）",
+   "match": "TR:challenge:004:mirror:Y-first:II",
+   "seat": "A",
+   "positions": [
+    {
+     "round": 8,
+     "turn": "B",
+     "phase": "response",
+     "window": "challenge_end",
+     "difficulty": "intermediate",
+     "deck": "challenge",
+     "first": true,
+     "own": {
+      "time": 2,
+      "growth": 45,
+      "hand": [
+       "M-dragon-01",
+       "G-grand-prix-3d"
+      ],
+      "main": "M-dragon-02",
+      "partner": null,
+      "world": null,
+      "companions": [
+       "C-rabbit_friend",
+       "C-otter",
+       "C-rabbit_friend"
+      ],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 7,
+      "growth": 75,
+      "main": "M-sakura-04",
+      "handCount": 4,
+      "prepared": 0
+     },
+     "challenge": {
+      "parameter": "wisdom",
+      "actor": "B"
+     },
+     "candidates": [
+      {
+       "action": "programPlay:G-grand-prix-3d",
+       "cost": 2,
+       "official": 19,
+       "valueWithoutTime": 19,
+       "strictlyBetterCF": 19
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "programPlay:G-grand-prix-3d"
+    }
+   ]
+  },
+  {
+   "id": "P6",
+   "title": "中級：R8で時8を残して終了。手札に時を使える札がない（構造的な使い残し）",
+   "match": "TR:main:001:mirror:X-first:II",
+   "seat": "A",
+   "positions": [
+    {
+     "round": 8,
+     "turn": "A",
+     "phase": "normal",
+     "window": "challenge_end",
+     "difficulty": "intermediate",
+     "deck": "main",
+     "first": true,
+     "own": {
+      "time": 8,
+      "growth": 55,
+      "hand": [
+       "M-beetle-03",
+       "M-dog-01",
+       "M-dog-03",
+       "M-dog-04",
+       "M-dog-04",
+       "M-beetle-01"
+      ],
+      "main": "M-dog-05",
+      "partner": "P-snow_spirit",
+      "world": null,
+      "companions": [
+       "C-shiba"
+      ],
+      "prepared": []
+     },
+     "opponent": {
+      "time": 0,
+      "growth": 50,
+      "main": "M-beetle-06",
+      "handCount": 4,
+      "prepared": 0
+     },
+     "challenge": null,
+     "candidates": [
+      {
+       "action": "place:M-beetle-03:main:transform",
+       "cost": 3,
+       "official": -10,
+       "valueWithoutTime": -10,
+       "strictlyBetterCF": -10
+      },
+      {
+       "action": "place:M-beetle-01:main:transform",
+       "cost": 1,
+       "official": -18,
+       "valueWithoutTime": -18,
+       "strictlyBetterCF": -18
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "pass"
+    }
+   ]
+  },
+  {
+   "id": "P7",
+   "title": "中級（アイテム）：R3に「ミサイルコマンド」をしかける。この試合では最後まで発動条件が成立しない",
+   "match": "TR:item:001:mirror:Y-first:II",
+   "seat": "A",
+   "positions": [
+    {
+     "round": 3,
+     "turn": "A",
+     "phase": "normal",
+     "window": "start",
+     "difficulty": "intermediate",
+     "deck": "item",
+     "first": true,
+     "own": {
+      "time": 3,
+      "growth": 20,
+      "hand": [
+       "I-bowtie",
+       "G-stack-themed",
+       "M-venus_flytrap-04",
+       "G-missile-command",
+       "I-sleepboost1",
+       "I-naoto_lantern"
+      ],
+      "main": null,
+      "partner": null,
+      "world": "W-home",
+      "companions": [],
+      "prepared": [
+       {
+        "card": "G-takoyaki-grill",
+        "faceDown": true
+       }
+      ]
+     },
+     "opponent": {
+      "time": 0,
+      "growth": 20,
+      "main": null,
+      "handCount": 3,
+      "prepared": 1
+     },
+     "challenge": null,
+     "candidates": [
+      {
+       "action": "place:G-missile-command:prepared",
+       "cost": 2,
+       "official": 5.79,
+       "valueWithoutTime": 7,
+       "strictlyBetterCF": 7
+      },
+      {
+       "action": "programPlay:G-stack-themed",
+       "cost": 2,
+       "official": -5.79,
+       "valueWithoutTime": 1.21,
+       "strictlyBetterCF": -5.79
+      },
+      {
+       "action": "pass",
+       "cost": 0,
+       "official": 0,
+       "valueWithoutTime": 0,
+       "strictlyBetterCF": 0
+      }
+     ],
+     "chosen": "place:G-missile-command:prepared"
+    }
+   ]
+  }
+ ]
+}

@@ -45,7 +45,8 @@ function play(m){
  for(const a of ['A','B']){const got=[...s.players[a].hand,...s.players[a].deck].map(id=>cid(s,id));if(JSON.stringify(got)!==JSON.stringify(seatOrder[a]))throw Error('initial order mismatch '+a);}
  const R={match:m.match,group:m.group,first:m.first,deck:{A:m.deckA,B:m.deckB},difficulty:m.difficulty,policySeed:m.policySeed,orderSeed:g.orderSeed,status:'running',error:null,
   // windows: [seat, round, ctx(own|opp), auto(1 = auto-passed, no non-pass action), window, time, legalQuick[], timeShortQuick[], condQuick[],
-  //           chosenKind, chosenCard, chosenScore, bestQuickScore, bestQuickCard, turnKey, preparedFull, challenge]
+  //           chosenKind, chosenCard, chosenScore, bestQuickScore, bestQuickCard, turnKey, preparedFull, challenge, bestQuickValue]
+  // bestQuickValue = highest intermediate evaluation of a legal quick play with no time cost (same yardstick for both difficulties)
   windows:[],
   // turns: per own turn of a seat: {seat, round, start, ownSpent, end, oppSpent, lost, gain, endHand:{legalQuick,timeShort}, timeShortActions[]}
   turns:[],
@@ -72,7 +73,7 @@ function play(m){
  const advance=()=>{const r=advanceResponses(s,{onTransition:(prev,next)=>{
    // auto-passed window: the actor had only "pass"
    const a=e.actor(prev);if(prev.phase==='response'&&!prev.choice){const raw=e.legalActions(prev),q=classifyQuick(prev,a,raw);
-    R.windows.push([a,prev.round,prev.turn===a?'own':'opp',1,prev.window,prev.players[a].time,q.legal,q.time,q.cond,'pass',null,0,null,null,`${prev.round}:${prev.turn}`,prev.players[a].board.prepared.length===3?1:0,prev.challenge?1:0]);}
+    R.windows.push([a,prev.round,prev.turn===a?'own':'opp',1,prev.window,prev.players[a].time,q.legal,q.time,q.cond,'pass',null,0,null,null,`${prev.round}:${prev.turn}`,prev.players[a].board.prepared.length===3?1:0,prev.challenge?1:0,null]);}
    observe(prev,next);}});s=r.state;if(r.halted)throw Error('auto-advance halted: '+r.reason);};
  try{
   openTurn(s,s.turn);
@@ -91,15 +92,17 @@ function play(m){
    { // counterfactual: same-name copies do not count as a lost alternative (read-only, never played)
     const prof=PROFILES[m.difficulty[a]],off=timeOpportunityCF(o,prof),off2=timeOpportunity(o,prof);
     if(JSON.stringify(off)===JSON.stringify(off2))R.cfCheck.ok++;else R.cfCheck.bad++;
-    if(off){const on=timeOpportunityCF(o,prof,{sameName:true});let k=0;on.forEach((v,j)=>{if(v>on[k])k=j;});
+    if(off)for(const [tag,opt] of [['sameName',{sameName:true}],['strictlyBetter',{strictlyBetter:true}]]){const on=timeOpportunityCF(o,prof,opt);let k=0;on.forEach((v,j)=>{if(v>on[k])k=j;});
      const sig=x=>[x.kind,x.card?.cardId??null,x.slot,x.variant].join('|');
-     if(on[k]>0&&sig(o.actions[k])!==sig(o.actions[i]))R.cf.push([a,s.round,s.turn===a?'own':'opp',s.phase,p.time,o.actions[i].kind,o.actions[i].card?.cardId??null,r2(sc[i]),o.actions[k].kind,o.actions[k].card?.cardId??null,o.actions[k].slot??o.actions[k].variant??null,r2(on[k]),r2(scoreCpuAction(o.actions[k],o,()=>0,prof))]);}
+     if(on[k]>0&&sig(o.actions[k])!==sig(o.actions[i]))R.cf.push([a,s.round,s.turn===a?'own':'opp',s.phase,p.time,o.actions[i].kind,o.actions[i].card?.cardId??null,r2(sc[i]),o.actions[k].kind,o.actions[k].card?.cardId??null,o.actions[k].slot??o.actions[k].variant??null,r2(on[k]),r2(scoreCpuAction(o.actions[k],o,()=>0,prof)),tag]);}
    }
    const src=act.source&&s.cards[act.source]?cid(s,act.source):null;
    if(s.phase==='response'&&!s.choice){
-    const q=classifyQuick(s,a,raw);let bq=null,bqc=null;
-    raw.forEach((x,j)=>{if(PLAY.has(x.kind)&&p.hand.includes(x.source)&&(bq===null||sc[j]>bq)){bq=sc[j];bqc=cid(s,x.source);}});
-    R.windows.push([a,s.round,s.turn===a?'own':'opp',0,s.window,p.time,q.legal,q.time,q.cond,act.kind,src,r2(sc[i]),bq===null?null:r2(bq),bqc,turn,p.board.prepared.length===3?1:0,s.challenge?1:0]);
+    const q=classifyQuick(s,a,raw);let bq=null,bqc=null,bv=null;
+    raw.forEach((x,j)=>{if(PLAY.has(x.kind)&&p.hand.includes(x.source)){if(bq===null||sc[j]>bq){bq=sc[j];bqc=cid(s,x.source);}
+     // objective value of the play without any time cost, judged by the intermediate evaluation for both difficulties
+     const v=scoreCpuAction(o.actions[j],o,()=>0,PROFILES.intermediate);if(bv===null||v>bv)bv=v;}});
+    R.windows.push([a,s.round,s.turn===a?'own':'opp',0,s.window,p.time,q.legal,q.time,q.cond,act.kind,src,r2(sc[i]),bq===null?null:r2(bq),bqc,turn,p.board.prepared.length===3?1:0,s.challenge?1:0,bv===null?null:r2(bv)]);
     if(p.board.prepared.length===3&&q.legal.length)R.quickWhileFull[a]++;
    }
    if(s.phase==='normal'&&s.turn===a){
@@ -123,7 +126,7 @@ function play(m){
  }catch(err){R.status='abnormal';R.error=String(err.message).slice(0,300);}
  for(const a of ['A','B'])if(turnRec[a]&&turnRec[a].lost===null)turnRec[a].finalLeft=s.players[a].time;
  for(const tr of R.traps)if(!tr.fate)tr.fate='faceDownAtEnd';
- R.elapsedMs=Math.round(performance.now()-t0);R.round=s.round;R.result=s.result;R.growth={A:s.players.A.growth,B:s.players.B.growth};
+ R.elapsedMs=Math.round(performance.now()-t0);R.round=s.round;R.revision=s.revision;R.result=s.result;R.growth={A:s.players.A.growth,B:s.players.B.growth};
  R.challenges=s.history.filter(h=>h.kind==='comparison').map(h=>({round:h.round,actor:h.actor,parameter:h.parameter,winner:h.winner}));
  if(R.status==='completed')R.saveSha256=sha(e.save(s));
  return R;

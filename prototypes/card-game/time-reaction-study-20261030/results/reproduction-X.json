@@ -1,0 +1,400 @@
+{
+ "compared": "result, final growth, challenge winners and final revision against deck-balance-20261025 X records",
+ "note": "save hashes are not compared: the save format/version changed since 2026-10-25 (hotseat-6); every difference is in an item-deck match after the 2026-10-29 takoyaki self-target fix (e5a57fb9)",
+ "counts": {
+  "identical": 428,
+  "identical:main": 60,
+  "identical:companion": 60,
+  "identical:challenge": 60,
+  "identical:growth": 60,
+  "different": 52,
+  "different:item": 52,
+  "different:usedTakoyaki": 42,
+  "different:noTakoyaki": 10,
+  "identical:item": 8,
+  "identical:balance": 60,
+  "identical:partner": 120
+ },
+ "examples": [
+  {
+   "match": "PX:item:001:X1:X-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 100,
+     "B": 85
+    }
+   },
+   "new": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 100,
+     "B": 95
+    }
+   }
+  },
+  {
+   "match": "PX:item:003:X1:X-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 85,
+     "B": 100
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 85,
+     "B": 100
+    }
+   }
+  },
+  {
+   "match": "PX:item:005:X1:X-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 65,
+     "B": 60
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 60,
+     "B": 80
+    }
+   }
+  },
+  {
+   "match": "PX:item:009:X1:X-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 50,
+     "B": 95
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 45,
+     "B": 100
+    }
+   }
+  },
+  {
+   "match": "PX:item:011:X1:X-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 45,
+     "B": 95
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 45,
+     "B": 95
+    }
+   }
+  },
+  {
+   "match": "PX:item:013:X1:X-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 55,
+     "B": 95
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 55,
+     "B": 80
+    }
+   }
+  },
+  {
+   "match": "PX:item:015:X1:X-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 80,
+     "B": 45
+    }
+   },
+   "new": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 80,
+     "B": 50
+    }
+   }
+  },
+  {
+   "match": "PX:item:017:X1:X-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 70,
+     "B": 80
+    }
+   },
+   "new": {
+    "winner": null,
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 70,
+     "B": 70
+    }
+   }
+  },
+  {
+   "match": "PX:item:019:X1:X-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 80,
+     "B": 55
+    }
+   },
+   "new": {
+    "winner": null,
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 80,
+     "B": 80
+    }
+   }
+  },
+  {
+   "match": "PX:item:023:X1:X-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 45,
+     "B": 100
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 45,
+     "B": 100
+    }
+   }
+  },
+  {
+   "match": "PX:item:027:X1:X-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 65,
+     "B": 85
+    }
+   },
+   "new": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 75,
+     "B": 70
+    }
+   }
+  },
+  {
+   "match": "PX:item:029:X1:X-first",
+   "old": {
+    "winner": null,
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 60,
+     "B": 60
+    }
+   },
+   "new": {
+    "winner": null,
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 60,
+     "B": 60
+    }
+   }
+  },
+  {
+   "match": "PX:item:001:X1:Y-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 75,
+     "B": 90
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 85,
+     "B": 95
+    }
+   }
+  },
+  {
+   "match": "PX:item:003:X1:Y-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 65,
+     "B": 100
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 65,
+     "B": 100
+    }
+   }
+  },
+  {
+   "match": "PX:item:005:X1:Y-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 90,
+     "B": 60
+    }
+   },
+   "new": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 90,
+     "B": 60
+    }
+   }
+  },
+  {
+   "match": "PX:item:009:X1:Y-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 85,
+     "B": 55
+    }
+   },
+   "new": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 90,
+     "B": 55
+    }
+   }
+  },
+  {
+   "match": "PX:item:011:X1:Y-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 75,
+     "B": 45
+    }
+   },
+   "new": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 90,
+     "B": 45
+    }
+   }
+  },
+  {
+   "match": "PX:item:013:X1:Y-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 75,
+     "B": 65
+    }
+   },
+   "new": {
+    "winner": null,
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 85,
+     "B": 85
+    }
+   }
+  },
+  {
+   "match": "PX:item:015:X1:Y-first",
+   "old": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 45,
+     "B": 80
+    }
+   },
+   "new": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 45,
+     "B": 80
+    }
+   }
+  },
+  {
+   "match": "PX:item:017:X1:Y-first",
+   "old": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 80,
+     "B": 70
+    }
+   },
+   "new": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 80,
+     "B": 75
+    }
+   }
+  }
+ ]
+}
