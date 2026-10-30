@@ -1,0 +1,3671 @@
+{
+ "schema": "breakup-penalty-manifest.v1",
+ "name": "P",
+ "kind": "probe",
+ "difficulty": "intermediate",
+ "groupsPerPair": 20,
+ "arms": [
+  "C:loop",
+  "C:noloop",
+  "C2:loop"
+ ],
+ "pairs": [
+  {
+   "x": "abuse",
+   "y": "challenge+S",
+   "stage": null
+  }
+ ],
+ "decks": {
+  "abuse+AM": {
+   "label": "こいびと・交際：こだちのシカ3→ねこ社長3、なかなおり2・あたらしいであい1→円満な別れ3",
+   "cards": [
+    "M-cat-01",
+    "M-cat-01",
+    "M-cat-01",
+    "M-cat-02",
+    "M-cat-02",
+    "M-cat-03",
+    "M-cat-03",
+    "M-cat-04",
+    "M-cat-04",
+    "M-cat-05",
+    "P-cat_ceo",
+    "P-cat_ceo",
+    "P-cat_ceo",
+    "P-high_eagle",
+    "P-high_eagle",
+    "P-high_eagle",
+    "E-first-date",
+    "E-first-date",
+    "E-first-date",
+    "E-wedding-anniversary",
+    "E-wedding-anniversary",
+    "E-wedding-anniversary",
+    "E-amicable-breakup",
+    "E-amicable-breakup",
+    "I-c_match",
+    "I-c_match",
+    "I-partner1",
+    "I-partner1",
+    "E-amicable-breakup",
+    "E-new-encounter",
+    "E-new-encounter",
+    "W-home",
+    "W-home",
+    "C-chicken",
+    "C-chicken",
+    "C-seal",
+    "C-seal",
+    "G-connect-four",
+    "G-connect-four",
+    "I-bowtie"
+   ],
+   "replaced": {
+    "from": "P-grove_deer×3, E-reconciliation×2, E-new-encounter×1",
+    "to": "P-cat_ceo×3, E-amicable-breakup×3",
+    "n": 6
+   },
+   "sha256": "af244b33124f2109850496e0682dd5efb453a3050fe5037e2707d5433800e80f"
+  },
+  "challenge+S": {
+   "label": "ちょうせん：としをとったじぶん2→すれちがい2",
+   "cards": [
+    "M-sakura-01",
+    "M-sakura-01",
+    "M-sakura-01",
+    "M-sakura-02",
+    "M-sakura-02",
+    "M-sakura-03",
+    "M-sakura-03",
+    "M-sakura-04",
+    "M-sakura-04",
+    "M-sakura-05",
+    "M-sakura-06",
+    "M-dragon-01",
+    "M-dragon-02",
+    "C-rabbit_friend",
+    "C-rabbit_friend",
+    "C-rabbit_friend",
+    "C-otter",
+    "C-otter",
+    "P-gentle_gorilla",
+    "P-gentle_gorilla",
+    "P-gentle_gorilla",
+    "W-mountain",
+    "W-mountain",
+    "W-jungle",
+    "G-ski-jump",
+    "G-ski-jump",
+    "G-ski-jump",
+    "G-baseball-batting",
+    "G-baseball-batting",
+    "G-basketball-3d",
+    "G-basketball-3d",
+    "G-grand-prix-3d",
+    "G-grand-prix-3d",
+    "E-boss",
+    "E-misunderstanding",
+    "E-misunderstanding",
+    "G-street-fight",
+    "G-street-fight",
+    "G-race-3d",
+    "G-race-3d"
+   ],
+   "replaced": {
+    "from": "E-mirror",
+    "to": "E-misunderstanding",
+    "n": 2
+   },
+   "sha256": "42c51b55d23486011dc6148877f5ff64a126a446dd09d8f1286e56fa07823af2"
+  }
+ },
+ "groups": [
+  {
+   "group": "BP:probe:abuse:challenge+S:-:001:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:001",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 868829346,
+   "orderSha": {
+    "X": "ee966a3572187a4b811fcc608cc5559d1a999b3f3d4513f32d48c5b50a711cdb",
+    "Y": "b0a1b1a15cd9054a98012145331e73ac858fa0f1e17657361b13c3db2565adb0"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:002:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:002",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2392193326,
+   "orderSha": {
+    "X": "3f7ed11e8fd46562b4d4d0df5969ccd8d02eb3ba3a746f11cfde4439ea7c8c52",
+    "Y": "ccbe4c317e839d94343d7f4718f93e97b7fd657a7484b16f79498d2dc882a592"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:003:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:003",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3275538624,
+   "orderSha": {
+    "X": "21eacde2d035c5f3455856554f9a82944c53e9b3fc88761e5dea45292a1d3c96",
+    "Y": "8378b891b2a5b44c0fcb3fc15c130d686306f1e91d1753bf8fe88aa21f1f4997"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:004:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:004",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 908084199,
+   "orderSha": {
+    "X": "9880ee9183f1e88264e1efe25badf04d7bc28daddae777f8f3ee5b33121b3d2f",
+    "Y": "a32a5c414e82a45efac5f19b7dd90687319a659b43e305248f791502b1d2cb17"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:005:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:005",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2564918803,
+   "orderSha": {
+    "X": "3eac20fbb6c5e41d4e01d6ec9169d22244fc99fb8ab965e7439d23ea295fd035",
+    "Y": "556b312db6e8477d38f2a07f5d5767f2a9fd82588d0e01d9228080b51730c2ed"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:006:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:006",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3230113943,
+   "orderSha": {
+    "X": "8672cd1f09b027299a7d81e1cca7bd83c6c3d0c446475d0fa6a5badfaf4cf305",
+    "Y": "4ebca46471cc7de819df84a4484d2ba6cb8aa6056916ab2a7c691b0998bdcd06"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:007:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:007",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4113331077,
+   "orderSha": {
+    "X": "aafaa4b41e027442b0133dc814f8158a781eedef4b0baecc45df6e098c8bfdac",
+    "Y": "4ff1de4dba7d40f784eb8baaee282d811260c197a261c47bc89858ddeb76f221"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:008:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:008",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 916884703,
+   "orderSha": {
+    "X": "6c34c9063cc063b71084b468ba27ba8c711c650ff07883ed75ce99ad7e242b83",
+    "Y": "48b04f374ff3c7472baa937e9fff29fc7c9db0556943b8c05345cae612ad2625"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:009:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:009",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3834235571,
+   "orderSha": {
+    "X": "1bad00456b37b66696399eb13c5f8bb9a2e8a4bd2f8db87bd3f72b3f10e279f4",
+    "Y": "b65cd03bfd20405dfeddf7e97fdafb61d39fda9c1e97459548747c84460d9dfb"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:010:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:010",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3215341243,
+   "orderSha": {
+    "X": "0d3269cce700230a75420ef86abe94cc9fc5bde72e72386b98d883a048f96d5a",
+    "Y": "8b7b9e8b957b51e5e60cd0845a230ea14e1c88aecf144d7c60223cc59dd9ad0f"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:011:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:011",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4242998683,
+   "orderSha": {
+    "X": "2433960e746dd0c2130ddbbeb8f5313b7b6a76460b5ec07ff473dbfdf4461e29",
+    "Y": "44eb5c4d66067efed9fcfa93f1b56c97e86de021bb8334be464ca9f09d888a2e"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:012:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:012",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4093272640,
+   "orderSha": {
+    "X": "0a220d7593930adca3bd5c09211edf15e433da85bfd7dadc97391bea7c303205",
+    "Y": "a3c34b962b408399aa535d98f91701223325ae2c72daf58299b5c5d7159ead77"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:013:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:013",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 1205463346,
+   "orderSha": {
+    "X": "92efd64c9f97c5d51b82b2490805df48bc6dd4c6bed688b5e996f3f32982be35",
+    "Y": "793969275cdf147dca47c7d1bf8ff668119f2997594cc11b689c20a8b1a462bc"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:014:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:014",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3730221110,
+   "orderSha": {
+    "X": "ab45742b9f7750a1ea64bc47dcf7404b7f6a1aa86c8d1e687f41a689df022d0b",
+    "Y": "ab75a20ff1cce818aaf4cb2011b83d2269581430e226bde3b482a0ef097f9d4c"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:015:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:015",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3587491884,
+   "orderSha": {
+    "X": "c6d4142487eb5f40af0bd516c3e06c2c130d0c6ef5bfd1667c6d497af0060fc3",
+    "Y": "d14ce5a1936ab2855037647ebf89b5c06dabe1c8786b79d9cc866e351da7988a"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:016:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:016",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 1458758264,
+   "orderSha": {
+    "X": "395af5158f548877ce9bf159725d0b2245427a6953ff46805b88995ccc552ce7",
+    "Y": "f1710a6b1273cb833e8d1b9b122dbb3d5ce78c8718455919c8312ccc1a5c8057"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:017:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:017",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 958314719,
+   "orderSha": {
+    "X": "4c0bf2d6105740f22671cb5287bd81ad6e34dd0db04b5aa633145eab21460293",
+    "Y": "35a81e3e1ad450ed0391911c3a97df1328277f9ce25daec7b05519c0fcb0592d"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:018:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:018",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3986213936,
+   "orderSha": {
+    "X": "db051a81243f837201a88e41662629d8b509b982f4750abc52f024f4948aaf38",
+    "Y": "5ea422e3ba6e00031f6f9196cf51f1fe6c20e872ee00ab0142f68a06bd910b1c"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:019:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:019",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2244851165,
+   "orderSha": {
+    "X": "9ac50e49aa7804849790c5033fca76ee1e7392f96e343cd7cd79d84eeeb30484",
+    "Y": "9015442ec8cbeda985fd069510339b4157641f798b44ba608507a134c29334ab"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:020:C:loop",
+   "base": "BP:probe:abuse:challenge+S:-:020",
+   "variant": "C",
+   "arm": "C:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3443646896,
+   "orderSha": {
+    "X": "19702c04744330c3bf453891fbd70b33bdb8d9c6f4940753098098c035ec5630",
+    "Y": "2faf905e12252ea0da416640e276e3f4728b2fc5b4bab21357895038b1191b4b"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:001:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:001",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 868829346,
+   "orderSha": {
+    "X": "ee966a3572187a4b811fcc608cc5559d1a999b3f3d4513f32d48c5b50a711cdb",
+    "Y": "b0a1b1a15cd9054a98012145331e73ac858fa0f1e17657361b13c3db2565adb0"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:002:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:002",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2392193326,
+   "orderSha": {
+    "X": "3f7ed11e8fd46562b4d4d0df5969ccd8d02eb3ba3a746f11cfde4439ea7c8c52",
+    "Y": "ccbe4c317e839d94343d7f4718f93e97b7fd657a7484b16f79498d2dc882a592"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:003:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:003",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3275538624,
+   "orderSha": {
+    "X": "21eacde2d035c5f3455856554f9a82944c53e9b3fc88761e5dea45292a1d3c96",
+    "Y": "8378b891b2a5b44c0fcb3fc15c130d686306f1e91d1753bf8fe88aa21f1f4997"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:004:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:004",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 908084199,
+   "orderSha": {
+    "X": "9880ee9183f1e88264e1efe25badf04d7bc28daddae777f8f3ee5b33121b3d2f",
+    "Y": "a32a5c414e82a45efac5f19b7dd90687319a659b43e305248f791502b1d2cb17"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:005:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:005",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2564918803,
+   "orderSha": {
+    "X": "3eac20fbb6c5e41d4e01d6ec9169d22244fc99fb8ab965e7439d23ea295fd035",
+    "Y": "556b312db6e8477d38f2a07f5d5767f2a9fd82588d0e01d9228080b51730c2ed"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:006:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:006",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3230113943,
+   "orderSha": {
+    "X": "8672cd1f09b027299a7d81e1cca7bd83c6c3d0c446475d0fa6a5badfaf4cf305",
+    "Y": "4ebca46471cc7de819df84a4484d2ba6cb8aa6056916ab2a7c691b0998bdcd06"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:007:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:007",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4113331077,
+   "orderSha": {
+    "X": "aafaa4b41e027442b0133dc814f8158a781eedef4b0baecc45df6e098c8bfdac",
+    "Y": "4ff1de4dba7d40f784eb8baaee282d811260c197a261c47bc89858ddeb76f221"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:008:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:008",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 916884703,
+   "orderSha": {
+    "X": "6c34c9063cc063b71084b468ba27ba8c711c650ff07883ed75ce99ad7e242b83",
+    "Y": "48b04f374ff3c7472baa937e9fff29fc7c9db0556943b8c05345cae612ad2625"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:009:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:009",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3834235571,
+   "orderSha": {
+    "X": "1bad00456b37b66696399eb13c5f8bb9a2e8a4bd2f8db87bd3f72b3f10e279f4",
+    "Y": "b65cd03bfd20405dfeddf7e97fdafb61d39fda9c1e97459548747c84460d9dfb"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:010:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:010",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3215341243,
+   "orderSha": {
+    "X": "0d3269cce700230a75420ef86abe94cc9fc5bde72e72386b98d883a048f96d5a",
+    "Y": "8b7b9e8b957b51e5e60cd0845a230ea14e1c88aecf144d7c60223cc59dd9ad0f"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:011:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:011",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4242998683,
+   "orderSha": {
+    "X": "2433960e746dd0c2130ddbbeb8f5313b7b6a76460b5ec07ff473dbfdf4461e29",
+    "Y": "44eb5c4d66067efed9fcfa93f1b56c97e86de021bb8334be464ca9f09d888a2e"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:012:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:012",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4093272640,
+   "orderSha": {
+    "X": "0a220d7593930adca3bd5c09211edf15e433da85bfd7dadc97391bea7c303205",
+    "Y": "a3c34b962b408399aa535d98f91701223325ae2c72daf58299b5c5d7159ead77"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:013:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:013",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 1205463346,
+   "orderSha": {
+    "X": "92efd64c9f97c5d51b82b2490805df48bc6dd4c6bed688b5e996f3f32982be35",
+    "Y": "793969275cdf147dca47c7d1bf8ff668119f2997594cc11b689c20a8b1a462bc"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:014:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:014",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3730221110,
+   "orderSha": {
+    "X": "ab45742b9f7750a1ea64bc47dcf7404b7f6a1aa86c8d1e687f41a689df022d0b",
+    "Y": "ab75a20ff1cce818aaf4cb2011b83d2269581430e226bde3b482a0ef097f9d4c"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:015:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:015",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3587491884,
+   "orderSha": {
+    "X": "c6d4142487eb5f40af0bd516c3e06c2c130d0c6ef5bfd1667c6d497af0060fc3",
+    "Y": "d14ce5a1936ab2855037647ebf89b5c06dabe1c8786b79d9cc866e351da7988a"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:016:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:016",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 1458758264,
+   "orderSha": {
+    "X": "395af5158f548877ce9bf159725d0b2245427a6953ff46805b88995ccc552ce7",
+    "Y": "f1710a6b1273cb833e8d1b9b122dbb3d5ce78c8718455919c8312ccc1a5c8057"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:017:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:017",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 958314719,
+   "orderSha": {
+    "X": "4c0bf2d6105740f22671cb5287bd81ad6e34dd0db04b5aa633145eab21460293",
+    "Y": "35a81e3e1ad450ed0391911c3a97df1328277f9ce25daec7b05519c0fcb0592d"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:018:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:018",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3986213936,
+   "orderSha": {
+    "X": "db051a81243f837201a88e41662629d8b509b982f4750abc52f024f4948aaf38",
+    "Y": "5ea422e3ba6e00031f6f9196cf51f1fe6c20e872ee00ab0142f68a06bd910b1c"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:019:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:019",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2244851165,
+   "orderSha": {
+    "X": "9ac50e49aa7804849790c5033fca76ee1e7392f96e343cd7cd79d84eeeb30484",
+    "Y": "9015442ec8cbeda985fd069510339b4157641f798b44ba608507a134c29334ab"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:020:C:noloop",
+   "base": "BP:probe:abuse:challenge+S:-:020",
+   "variant": "C",
+   "arm": "C:noloop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3443646896,
+   "orderSha": {
+    "X": "19702c04744330c3bf453891fbd70b33bdb8d9c6f4940753098098c035ec5630",
+    "Y": "2faf905e12252ea0da416640e276e3f4728b2fc5b4bab21357895038b1191b4b"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:001:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:001",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 868829346,
+   "orderSha": {
+    "X": "ee966a3572187a4b811fcc608cc5559d1a999b3f3d4513f32d48c5b50a711cdb",
+    "Y": "b0a1b1a15cd9054a98012145331e73ac858fa0f1e17657361b13c3db2565adb0"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:002:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:002",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2392193326,
+   "orderSha": {
+    "X": "3f7ed11e8fd46562b4d4d0df5969ccd8d02eb3ba3a746f11cfde4439ea7c8c52",
+    "Y": "ccbe4c317e839d94343d7f4718f93e97b7fd657a7484b16f79498d2dc882a592"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:003:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:003",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3275538624,
+   "orderSha": {
+    "X": "21eacde2d035c5f3455856554f9a82944c53e9b3fc88761e5dea45292a1d3c96",
+    "Y": "8378b891b2a5b44c0fcb3fc15c130d686306f1e91d1753bf8fe88aa21f1f4997"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:004:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:004",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 908084199,
+   "orderSha": {
+    "X": "9880ee9183f1e88264e1efe25badf04d7bc28daddae777f8f3ee5b33121b3d2f",
+    "Y": "a32a5c414e82a45efac5f19b7dd90687319a659b43e305248f791502b1d2cb17"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:005:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:005",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2564918803,
+   "orderSha": {
+    "X": "3eac20fbb6c5e41d4e01d6ec9169d22244fc99fb8ab965e7439d23ea295fd035",
+    "Y": "556b312db6e8477d38f2a07f5d5767f2a9fd82588d0e01d9228080b51730c2ed"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:006:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:006",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3230113943,
+   "orderSha": {
+    "X": "8672cd1f09b027299a7d81e1cca7bd83c6c3d0c446475d0fa6a5badfaf4cf305",
+    "Y": "4ebca46471cc7de819df84a4484d2ba6cb8aa6056916ab2a7c691b0998bdcd06"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:007:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:007",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4113331077,
+   "orderSha": {
+    "X": "aafaa4b41e027442b0133dc814f8158a781eedef4b0baecc45df6e098c8bfdac",
+    "Y": "4ff1de4dba7d40f784eb8baaee282d811260c197a261c47bc89858ddeb76f221"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:008:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:008",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 916884703,
+   "orderSha": {
+    "X": "6c34c9063cc063b71084b468ba27ba8c711c650ff07883ed75ce99ad7e242b83",
+    "Y": "48b04f374ff3c7472baa937e9fff29fc7c9db0556943b8c05345cae612ad2625"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:009:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:009",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3834235571,
+   "orderSha": {
+    "X": "1bad00456b37b66696399eb13c5f8bb9a2e8a4bd2f8db87bd3f72b3f10e279f4",
+    "Y": "b65cd03bfd20405dfeddf7e97fdafb61d39fda9c1e97459548747c84460d9dfb"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:010:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:010",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3215341243,
+   "orderSha": {
+    "X": "0d3269cce700230a75420ef86abe94cc9fc5bde72e72386b98d883a048f96d5a",
+    "Y": "8b7b9e8b957b51e5e60cd0845a230ea14e1c88aecf144d7c60223cc59dd9ad0f"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:011:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:011",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4242998683,
+   "orderSha": {
+    "X": "2433960e746dd0c2130ddbbeb8f5313b7b6a76460b5ec07ff473dbfdf4461e29",
+    "Y": "44eb5c4d66067efed9fcfa93f1b56c97e86de021bb8334be464ca9f09d888a2e"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:012:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:012",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 4093272640,
+   "orderSha": {
+    "X": "0a220d7593930adca3bd5c09211edf15e433da85bfd7dadc97391bea7c303205",
+    "Y": "a3c34b962b408399aa535d98f91701223325ae2c72daf58299b5c5d7159ead77"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:013:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:013",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 1205463346,
+   "orderSha": {
+    "X": "92efd64c9f97c5d51b82b2490805df48bc6dd4c6bed688b5e996f3f32982be35",
+    "Y": "793969275cdf147dca47c7d1bf8ff668119f2997594cc11b689c20a8b1a462bc"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:014:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:014",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3730221110,
+   "orderSha": {
+    "X": "ab45742b9f7750a1ea64bc47dcf7404b7f6a1aa86c8d1e687f41a689df022d0b",
+    "Y": "ab75a20ff1cce818aaf4cb2011b83d2269581430e226bde3b482a0ef097f9d4c"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:015:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:015",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3587491884,
+   "orderSha": {
+    "X": "c6d4142487eb5f40af0bd516c3e06c2c130d0c6ef5bfd1667c6d497af0060fc3",
+    "Y": "d14ce5a1936ab2855037647ebf89b5c06dabe1c8786b79d9cc866e351da7988a"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:016:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:016",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 1458758264,
+   "orderSha": {
+    "X": "395af5158f548877ce9bf159725d0b2245427a6953ff46805b88995ccc552ce7",
+    "Y": "f1710a6b1273cb833e8d1b9b122dbb3d5ce78c8718455919c8312ccc1a5c8057"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:017:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:017",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 958314719,
+   "orderSha": {
+    "X": "4c0bf2d6105740f22671cb5287bd81ad6e34dd0db04b5aa633145eab21460293",
+    "Y": "35a81e3e1ad450ed0391911c3a97df1328277f9ce25daec7b05519c0fcb0592d"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:018:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:018",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3986213936,
+   "orderSha": {
+    "X": "db051a81243f837201a88e41662629d8b509b982f4750abc52f024f4948aaf38",
+    "Y": "5ea422e3ba6e00031f6f9196cf51f1fe6c20e872ee00ab0142f68a06bd910b1c"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:019:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:019",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 2244851165,
+   "orderSha": {
+    "X": "9ac50e49aa7804849790c5033fca76ee1e7392f96e343cd7cd79d84eeeb30484",
+    "Y": "9015442ec8cbeda985fd069510339b4157641f798b44ba608507a134c29334ab"
+   }
+  },
+  {
+   "group": "BP:probe:abuse:challenge+S:-:020:C2:loop",
+   "base": "BP:probe:abuse:challenge+S:-:020",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "X": "abuse+AM",
+   "Y": "challenge+S",
+   "xBase": "abuse",
+   "stage": null,
+   "orderSeed": 3443646896,
+   "orderSha": {
+    "X": "19702c04744330c3bf453891fbd70b33bdb8d9c6f4940753098098c035ec5630",
+    "Y": "2faf905e12252ea0da416640e276e3f4728b2fc5b4bab21357895038b1191b4b"
+   }
+  }
+ ],
+ "matches": [
+  {
+   "match": "BP:probe:abuse:challenge+S:-:001:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:001:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3412339638,
+    "B": 991351061
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:001:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:001:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 420147246,
+    "B": 1228666531
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:002:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:002:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 634726802,
+    "B": 1561075249
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:002:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:002:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 51731360,
+    "B": 189903361
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:003:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:003:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 881459246,
+    "B": 1174607167
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:003:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:003:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4243006154,
+    "B": 3492658716
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:004:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:004:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 950200277,
+    "B": 1702139480
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:004:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:004:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 445901885,
+    "B": 1944834049
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:005:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:005:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 231329362,
+    "B": 1084576099
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:005:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:005:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3460834992,
+    "B": 1559754870
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:006:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:006:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1052321199,
+    "B": 1221897551
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:006:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:006:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2823828254,
+    "B": 3058279185
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:007:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:007:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3889461713,
+    "B": 2298046997
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:007:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:007:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3132719669,
+    "B": 1780734395
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:008:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:008:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3966252519,
+    "B": 2414314238
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:008:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:008:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3725831589,
+    "B": 2158795738
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:009:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:009:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 853913427,
+    "B": 51523072
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:009:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:009:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1594962050,
+    "B": 483167215
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:010:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:010:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 534846397,
+    "B": 3265798080
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:010:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:010:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 791034657,
+    "B": 1688453068
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:011:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:011:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3153332301,
+    "B": 3964014554
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:011:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:011:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 843134018,
+    "B": 872240147
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:012:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:012:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3897643093,
+    "B": 3923942427
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:012:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:012:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3371046629,
+    "B": 3084261219
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:013:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:013:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1609799794,
+    "B": 3722562016
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:013:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:013:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1504173045,
+    "B": 4284411444
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:014:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:014:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1957529993,
+    "B": 2240144670
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:014:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:014:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2756672720,
+    "B": 2206288235
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:015:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:015:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 782222948,
+    "B": 2193003729
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:015:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:015:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 188485155,
+    "B": 794468801
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:016:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:016:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3843391511,
+    "B": 3323315007
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:016:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:016:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3168279126,
+    "B": 2667300339
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:017:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:017:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3128073037,
+    "B": 2758787344
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:017:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:017:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 449863890,
+    "B": 4279756255
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:018:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:018:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3013487019,
+    "B": 665931752
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:018:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:018:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1907758864,
+    "B": 3195691362
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:019:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:019:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2389700981,
+    "B": 4143610142
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:019:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:019:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3040474766,
+    "B": 171349155
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:020:C:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:020:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1626383233,
+    "B": 3312168180
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:020:C:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:020:C:loop",
+   "variant": "C",
+   "arm": "C:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1623621510,
+    "B": 1265874529
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:001:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:001:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3412339638,
+    "B": 991351061
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:001:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:001:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 420147246,
+    "B": 1228666531
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:002:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:002:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 634726802,
+    "B": 1561075249
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:002:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:002:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 51731360,
+    "B": 189903361
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:003:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:003:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 881459246,
+    "B": 1174607167
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:003:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:003:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4243006154,
+    "B": 3492658716
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:004:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:004:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 950200277,
+    "B": 1702139480
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:004:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:004:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 445901885,
+    "B": 1944834049
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:005:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:005:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 231329362,
+    "B": 1084576099
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:005:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:005:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3460834992,
+    "B": 1559754870
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:006:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:006:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1052321199,
+    "B": 1221897551
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:006:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:006:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2823828254,
+    "B": 3058279185
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:007:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:007:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3889461713,
+    "B": 2298046997
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:007:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:007:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3132719669,
+    "B": 1780734395
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:008:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:008:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3966252519,
+    "B": 2414314238
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:008:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:008:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3725831589,
+    "B": 2158795738
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:009:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:009:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 853913427,
+    "B": 51523072
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:009:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:009:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1594962050,
+    "B": 483167215
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:010:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:010:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 534846397,
+    "B": 3265798080
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:010:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:010:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 791034657,
+    "B": 1688453068
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:011:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:011:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3153332301,
+    "B": 3964014554
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:011:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:011:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 843134018,
+    "B": 872240147
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:012:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:012:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3897643093,
+    "B": 3923942427
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:012:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:012:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3371046629,
+    "B": 3084261219
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:013:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:013:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1609799794,
+    "B": 3722562016
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:013:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:013:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1504173045,
+    "B": 4284411444
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:014:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:014:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1957529993,
+    "B": 2240144670
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:014:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:014:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2756672720,
+    "B": 2206288235
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:015:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:015:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 782222948,
+    "B": 2193003729
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:015:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:015:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 188485155,
+    "B": 794468801
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:016:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:016:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3843391511,
+    "B": 3323315007
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:016:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:016:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3168279126,
+    "B": 2667300339
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:017:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:017:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3128073037,
+    "B": 2758787344
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:017:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:017:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 449863890,
+    "B": 4279756255
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:018:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:018:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3013487019,
+    "B": 665931752
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:018:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:018:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1907758864,
+    "B": 3195691362
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:019:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:019:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2389700981,
+    "B": 4143610142
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:019:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:019:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3040474766,
+    "B": 171349155
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:020:C:noloop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:020:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1626383233,
+    "B": 3312168180
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:020:C:noloop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:020:C:noloop",
+   "variant": "C",
+   "arm": "C:noloop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1623621510,
+    "B": 1265874529
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": false
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:001:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:001:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3412339638,
+    "B": 991351061
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:001:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:001:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 420147246,
+    "B": 1228666531
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:002:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:002:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 634726802,
+    "B": 1561075249
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:002:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:002:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 51731360,
+    "B": 189903361
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:003:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:003:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 881459246,
+    "B": 1174607167
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:003:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:003:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 4243006154,
+    "B": 3492658716
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:004:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:004:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 950200277,
+    "B": 1702139480
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:004:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:004:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 445901885,
+    "B": 1944834049
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:005:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:005:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 231329362,
+    "B": 1084576099
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:005:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:005:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3460834992,
+    "B": 1559754870
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:006:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:006:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1052321199,
+    "B": 1221897551
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:006:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:006:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2823828254,
+    "B": 3058279185
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:007:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:007:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3889461713,
+    "B": 2298046997
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:007:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:007:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3132719669,
+    "B": 1780734395
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:008:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:008:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3966252519,
+    "B": 2414314238
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:008:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:008:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3725831589,
+    "B": 2158795738
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:009:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:009:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 853913427,
+    "B": 51523072
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:009:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:009:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1594962050,
+    "B": 483167215
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:010:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:010:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 534846397,
+    "B": 3265798080
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:010:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:010:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 791034657,
+    "B": 1688453068
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:011:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:011:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3153332301,
+    "B": 3964014554
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:011:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:011:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 843134018,
+    "B": 872240147
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:012:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:012:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3897643093,
+    "B": 3923942427
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:012:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:012:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3371046629,
+    "B": 3084261219
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:013:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:013:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1609799794,
+    "B": 3722562016
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:013:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:013:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1504173045,
+    "B": 4284411444
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:014:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:014:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1957529993,
+    "B": 2240144670
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:014:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:014:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2756672720,
+    "B": 2206288235
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:015:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:015:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 782222948,
+    "B": 2193003729
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:015:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:015:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 188485155,
+    "B": 794468801
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:016:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:016:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3843391511,
+    "B": 3323315007
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:016:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:016:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3168279126,
+    "B": 2667300339
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:017:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:017:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3128073037,
+    "B": 2758787344
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:017:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:017:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 449863890,
+    "B": 4279756255
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:018:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:018:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3013487019,
+    "B": 665931752
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:018:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:018:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1907758864,
+    "B": 3195691362
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:019:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:019:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 2389700981,
+    "B": 4143610142
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:019:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:019:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 3040474766,
+    "B": 171349155
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:020:C2:loop:X-first",
+   "group": "BP:probe:abuse:challenge+S:-:020:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "X",
+   "deckA": "abuse+AM",
+   "deckB": "challenge+S",
+   "xSeat": "A",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1626383233,
+    "B": 3312168180
+   },
+   "script": {
+    "seat": "A",
+    "amicableLoop": true
+   }
+  },
+  {
+   "match": "BP:probe:abuse:challenge+S:-:020:C2:loop:Y-first",
+   "group": "BP:probe:abuse:challenge+S:-:020:C2:loop",
+   "variant": "C2",
+   "arm": "C2:loop",
+   "first": "Y",
+   "deckA": "challenge+S",
+   "deckB": "abuse+AM",
+   "xSeat": "B",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "policySeed": {
+    "A": 1623621510,
+    "B": 1265874529
+   },
+   "script": {
+    "seat": "B",
+    "amicableLoop": true
+   }
+  }
+ ],
+ "counts": {
+  "groups": 60,
+  "matches": 120
+ }
+}
