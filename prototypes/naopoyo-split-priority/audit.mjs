@@ -22,7 +22,8 @@ export function replay(stage,witness,mode){
    const unobstructed=candidateDetails(empty,p.x,p.y,...e.direction,p,{},mode);const allowed=new Set(actual.map(q=>`${q.x},${q.y}`));
    const positions=v=>JSON.stringify(v.map(q=>[q.x,q.y]));
    if(actual.slice(0,n).some(q=>q.distance===2))metrics.secondStepSplits++;
-   if(positions(actual.slice(0,n))!==positions(baseline.slice(0,n)))metrics.selectedDiffersFromA++;
+   const power=pre.spikes.find(t=>t.x===p.x&&t.y===p.y)?.power||0,baselineCount=Math.min(p.level-1,power,baseline.length);
+   if(positions(actual.slice(0,n))!==positions(baseline.slice(0,baselineCount)))metrics.selectedDiffersFromA++;
    if(positions(actual)!==positions(unobstructed.filter(q=>allowed.has(`${q.x},${q.y}`))))metrics.candidateOrderChangesWithObstacles++;
    splitLog.push({step:i+1,parentId:p.id,direction:e.direction,candidates:actual,children:e.children,remaining:e.state.actors.find(a=>a.id===p.id).level});
    // Family tags are local to a single move and used only for observational counts.
@@ -42,6 +43,7 @@ export function replay(stage,witness,mode){
  }
  return {mode,status:engine.complete(state)?'solved':'incomplete',metrics,state,initial,snapshots,splitLog};
 }
+export function audit(){
 const report=[];
 for(const stage of stages){const witness=JSON.parse(fs.readFileSync(path.join(root,`../naopoyo-chapter2/examples/${stage.number}.json`))).path;const row={number:stage.number,id:stage.id,savedMoves:witness.length,modes:{}};let a;
  for(const mode of ['A','B','C']){const r=replay(stage,witness,mode);if(mode==='A')a=r;const clean=s=>{const q=engine.clone(s);delete q.splitPriority;return q};let firstDivergence=null;for(let i=0;i<Math.min(r.snapshots.length,a.snapshots.length);i++)if(JSON.stringify(clean(r.snapshots[i]))!==JSON.stringify(clean(a.snapshots[i]))){firstDivergence=i;break}row.modes[mode]={status:r.status,failure:r.failure,firstDivergence,metrics:r.metrics,rescued:r.state.rescued,remaining:engine.mass(r.state)-r.state.rescued};
@@ -59,3 +61,6 @@ console.log(report.map(r=>`${r.number} (${r.savedMoves}): `+Object.entries(r.mod
 const alternatives=[];
 for(const f of fs.readdirSync(out).filter(f=>/^alternative-\d+-[BC]\.json$/.test(f))){const w=JSON.parse(fs.readFileSync(path.join(out,f))),stage=stages.find(s=>s.id===w.id),r=replay(stage,w.path,w.mode);if(r.status!=='solved')throw Error(`Alternative failed: ${f}`);alternatives.push({stage:stage.number,mode:w.mode,status:r.status,metrics:r.metrics});}
 fs.writeFileSync(path.join(out,'alternative-metrics.json'),JSON.stringify(alternatives,null,2));
+
+}
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))audit();

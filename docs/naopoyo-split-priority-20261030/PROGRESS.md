@@ -11,6 +11,7 @@ Resumed pre-existing uncommitted work in isolated experiment branch. No producti
 - Ruling: prepared arrival fixtures isolate generation, not legal ascent from every direction; chapter2 replays do use actual move.
 - Ruling: coarse state graph exhaustion is not an impossibility proof. Exact ID/nextId key searches were added, each limited to 60000 nodes.
 - Ruling: no additional D physics mixed into A/B/C. A one-line-behind proposal appears only as future scope note.
-- Puzzle 1529/1529, CARD 530/530, Pages 16/16 pass. Runtime running; see evidence logs.
-- Final independent review and delivery pending.
+- Puzzle 1529/1529, CARD 530/530, Pages 16/16 pass. Runtime completed:3504/3504 (32+24+3289+159), smoke/dialogue/visual checks passed; see evidence logs.
+- Final independent review complete. Private deployment succeeded;52/52 files match and anonymous module403; owner1/external0/groups0.
 - Final independent review: no Critical, three Important findings. Fixed stale heading prediction, power7 spike overflow, and 100x outline shrink; three tests RED -> GREEN, full experiment suite 42/42. No deferred minor findings.
+- Observational follow-up: selectedDiffersFromA originally compared only the actual number of children, missing a count difference (B20 step13: one child versus A two). Added regression RED -> GREEN and compared each policy's actual capacity. Full experiment suite43/43. Physics, page output, existing displayed metrics unchanged. Alternative metrics are also saved in alternative-metrics.json.
