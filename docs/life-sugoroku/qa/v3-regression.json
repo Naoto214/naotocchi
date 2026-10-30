@@ -1,0 +1,27 @@
+{
+  "base": "07c583b8912795585ea7a6ec38265955db0e52f7",
+  "legacyPairs": 300,
+  "legacyGames": 600,
+  "comparedActions": 81753,
+  "legacyRestoreTransitions": 1645,
+  "phases": [
+    "turn",
+    "result",
+    "branch",
+    "event",
+    "mini",
+    "mini-result",
+    "done",
+    "redo"
+  ],
+  "v3Games": 90,
+  "v3SkipGames": 30,
+  "friendGames": 90,
+  "partnerGames": 1,
+  "failures": 0,
+  "intentionalDifferences": [
+    "event prose (IDs, economics and eligibility unchanged)",
+    "V3 geography-based event pools; special naoto meeting after fate-04; relationship choices and CPU policy progression",
+    "V3 memory and puzzle short rules consume different challenge RNG; legacy rulesVersion2 retained"
+  ]
+}

@@ -1,0 +1,25 @@
+name: Naokoro independent prototype
+on:
+  pull_request:
+    paths: ['prototypes/life-sugoroku/**', 'tests/life-sugoroku/**', 'tools/life-sugoroku/**', '.github/workflows/naokoro.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Engine, import, storage, minigames and render tests
+        run: node --test tests/life-sugoroku/*.test.mjs
+      - name: Verify partner metadata still matches the canonical source
+        run: |
+          node tools/life-sugoroku/generate-profiles.mjs
+          git diff --exit-code -- prototypes/life-sugoroku/profiles.mjs
+      - name: Deterministic 100-match smoke
+        run: node tools/life-sugoroku/simulate.mjs 100
+      - name: Verify private-site asset package
+        run: node tools/life-sugoroku/package.mjs "${{ runner.temp }}/naokoro"

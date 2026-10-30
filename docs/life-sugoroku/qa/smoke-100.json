@@ -1,0 +1,164 @@
+{
+  "count": 100,
+  "rounds": 15,
+  "miniEvery": 2,
+  "rewind": true,
+  "seedRange": [
+    1,
+    100
+  ],
+  "sodachi": {
+    "mean": 86.34,
+    "min": 53,
+    "p10": 69,
+    "median": 89,
+    "p90": 100,
+    "max": 100
+  },
+  "money": {
+    "mean": 8.7575,
+    "min": 0,
+    "p10": 1,
+    "median": 9,
+    "p90": 17,
+    "max": 28
+  },
+  "capRate": 0.305,
+  "stage8Rate": 0.0175,
+  "stageDistribution": {
+    "1": 5,
+    "2": 22,
+    "3": 99,
+    "4": 115,
+    "5": 82,
+    "6": 51,
+    "7": 19,
+    "8": 7
+  },
+  "tieMatchRate": 0.02,
+  "lateComebackRate": 0.28,
+  "clockUserRate": 0.9425,
+  "postRewindSodachiChange": {
+    "mean": 32.12922465208747,
+    "min": 0,
+    "p10": 18,
+    "median": 32,
+    "p90": 48,
+    "max": 67
+  },
+  "purchases": {
+    "seed": 346,
+    "box": 1779,
+    "slow": 1142,
+    "clock": 8
+  },
+  "uses": {
+    "seed": 420,
+    "box": 1824,
+    "clock": 398,
+    "double": 102,
+    "slow": 1242,
+    "charm": 92
+  },
+  "routes": {
+    "forest/left": {
+      "visits": 635,
+      "winners": 206
+    },
+    "sea/left": {
+      "visits": 560,
+      "winners": 198
+    },
+    "city/left": {
+      "visits": 459,
+      "winners": 175
+    },
+    "square/left": {
+      "visits": 332,
+      "winners": 122
+    },
+    "forest/right": {
+      "visits": 167,
+      "winners": 0
+    },
+    "sea/right": {
+      "visits": 162,
+      "winners": 0
+    },
+    "city/right": {
+      "visits": 126,
+      "winners": 0
+    },
+    "square/right": {
+      "visits": 112,
+      "winners": 0
+    }
+  },
+  "events": {
+    "daily-01": 72,
+    "daily-02": 25,
+    "daily-03": 32,
+    "daily-04": 59,
+    "daily-05": 40,
+    "daily-06": 80,
+    "daily-07": 71,
+    "daily-08": 24,
+    "daily-09": 71,
+    "daily-10": 0,
+    "daily-11": 1,
+    "daily-12": 75,
+    "friend-01": 80,
+    "friend-02": 87,
+    "friend-03": 117,
+    "friend-04": 79,
+    "friend-05": 216,
+    "friend-06": 243,
+    "friend-07": 16,
+    "friend-08": 29,
+    "romance-01": 5,
+    "romance-02": 5,
+    "romance-03": 4,
+    "romance-04": 6,
+    "romance-05": 1,
+    "romance-06": 17,
+    "work-01": 14,
+    "work-02": 4,
+    "work-03": 22,
+    "work-04": 13,
+    "work-05": 4,
+    "work-06": 0,
+    "adventure-01": 29,
+    "adventure-02": 44,
+    "adventure-03": 74,
+    "adventure-04": 29,
+    "adventure-05": 26,
+    "adventure-06": 28,
+    "adventure-07": 16,
+    "adventure-08": 41,
+    "adventure-09": 4,
+    "adventure-10": 2,
+    "fate-01": 107,
+    "fate-02": 116,
+    "fate-03": 129,
+    "fate-04": 4
+  },
+  "seatWinRate": [
+    0.23,
+    0.23,
+    0.26,
+    0.3
+  ],
+  "difficultyWinRate": {
+    "easy": 0,
+    "normal": 0.51
+  },
+  "miniScoreContribution": {
+    "mean": 11.875,
+    "min": 0,
+    "p10": 3,
+    "median": 11,
+    "p90": 21,
+    "max": 26
+  },
+  "noMiniWinnerChangeRate": 0.42
+}

@@ -1,0 +1,36 @@
+✔ repeated rendered skip callback cannot score the next participant (4.438075ms)
+✔ 75 official identities; all 8 stage paths are real; fixed art stays fixed (16.157768ms)
+✔ main JSON and profile code only import identity, never resources or rank (4.258448ms)
+✔ all 46 events have accessible stages/regions and both choices record exact outcomes (19.104185ms)
+✔ redo only once per source event and max twice, never re-evolves (2.881843ms)
+✔ event evolution consumes same-round natural pulse and clocks skip current and next pulses (1.064221ms)
+✔ snapshot rejects missing command maps and malformed minigame attempts (1.933782ms)
+✔ romance respects both identities, does not force incompatible or self romance (0.529522ms)
+✔ each local human gets a separate seeded minigame challenge to avoid later-seat answer advantage (0.977061ms)
+✔ ordinary action completion records the day without unbudgeted score inflation (0.273215ms)
+✔ long mode reduces positive growth while keeping negative events meaningful (0.364713ms)
+✔ phase payload validation rejects null results, forged redo choices and wrong reaction phase (1.096655ms)
+✔ items consume once, money never goes negative, capacity is three (1.592958ms)
+✔ all die values consume exactly one edge per step, including branching (1.236129ms)
+✔ beginner choices vary reproducibly by seed, not fixed seat parity (3.005744ms)
+✔ 48 explicit nodes all reachable, equal fork length, no dead end (3.024498ms)
+✔ all seats modes finish and deterministic snapshot commands match (2923.601657ms)
+✔ duplicate revisions cannot award twice (0.70286ms)
+✔ clock retains resources and suppresses natural pulse (0.414958ms)
+✔ rank ties use money then share rank without stage (0.335261ms)
+✔ corrupt snapshots rejected (0.26886ms)
+✔ reaction early input scores zero; valid input scores only once (2.764878ms)
+✔ memory resumes midway without losing inputs or awarding twice (2.35819ms)
+✔ Lights Out preserves board through reload and solved attempt advances (1.247847ms)
+✔ minigame final rewards resolve once and transition to next round (2.707625ms)
+✔ all required views render from real engine states with complete text (136.801473ms)
+✔ stale tab is rejected before changing or overwriting the current match (2.207937ms)
+✔ corrupt primary falls back to validated backup without changing stored values (2.57359ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3099.056695
