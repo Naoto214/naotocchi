@@ -1,0 +1,2605 @@
+TAP version 13
+# Subtest: buildPreview wraps the current game with a compact isolated phone-safe control shell
+ok 1 - buildPreview wraps the current game with a compact isolated phone-safe control shell
+  ---
+  duration_ms: 240.458839
+  type: 'test'
+  ...
+# Subtest: default preview seeds an exact fresh-state adult hungry cat in memory only
+ok 2 - default preview seeds an exact fresh-state adult hungry cat in memory only
+  ---
+  duration_ms: 153.357066
+  type: 'test'
+  ...
+# Subtest: the generated Map-backed adapter implements the complete disposable Storage surface
+ok 3 - the generated Map-backed adapter implements the complete disposable Storage surface
+  ---
+  duration_ms: 118.83982
+  type: 'test'
+  ...
+# Subtest: URL presets use a strict allowlist and reset every care fixture independently
+ok 4 - URL presets use a strict allowlist and reset every care fixture independently
+  ---
+  duration_ms: 320.583653
+  type: 'test'
+  ...
+# Subtest: temporary happy stays on ordinary care controls and never runs automatically
+ok 5 - temporary happy stays on ordinary care controls and never runs automatically
+  ---
+  duration_ms: 80.32995
+  type: 'test'
+  ...
+# Subtest: CLI writes the same self-contained preview for the requested safe preset
+ok 6 - CLI writes the same self-contained preview for the requested safe preset
+  ---
+  duration_ms: 347.010279
+  type: 'test'
+  ...
+# Subtest: all preview forms keep selected faces visible across startup saves without achievement flashes
+ok 7 - all preview forms keep selected faces visible across startup saves without achievement flashes
+  ---
+  duration_ms: 5932.448777
+  type: 'test'
+  ...
+# Subtest: preset clicks reset only the child session and bootstrap uses that selected preset
+ok 8 - preset clicks reset only the child session and bootstrap uses that selected preset
+  ---
+  duration_ms: 121.223388
+  type: 'test'
+  ...
+# Subtest: kitten preview seeds the real third stage in isolated storage and rejects unknown forms
+ok 9 - kitten preview seeds the real third stage in isolated storage and rejects unknown forms
+  ---
+  duration_ms: 87.332122
+  type: 'test'
+  ...
+# Subtest: otemba preview seeds the fourth stage in disposable storage
+ok 10 - otemba preview seeds the fourth stage in disposable storage
+  ---
+  duration_ms: 75.721993
+  type: 'test'
+  ...
+# Subtest: young preview seeds the fifth stage in disposable storage
+ok 11 - young preview seeds the fifth stage in disposable storage
+  ---
+  duration_ms: 98.030734
+  type: 'test'
+  ...
+# Subtest: calm preview seeds the seventh stage in disposable storage
+ok 12 - calm preview seeds the seventh stage in disposable storage
+  ---
+  duration_ms: 80.764685
+  type: 'test'
+  ...
+# Subtest: elder preview seeds the eighth stage in disposable storage
+ok 13 - elder preview seeds the eighth stage in disposable storage
+  ---
+  duration_ms: 83.010092
+  type: 'test'
+  ...
+# Subtest: toddler preview seeds the second stage in disposable storage
+ok 14 - toddler preview seeds the second stage in disposable storage
+  ---
+  duration_ms: 71.136108
+  type: 'test'
+  ...
+# Subtest: baby preview seeds the first stage in disposable storage
+ok 15 - baby preview seeds the first stage in disposable storage
+  ---
+  duration_ms: 80.030359
+  type: 'test'
+  ...
+# Subtest: adult dog preview uses isolated storage and the real sixth stage
+ok 16 - adult dog preview uses isolated storage and the real sixth stage
+  ---
+  duration_ms: 57.468788
+  type: 'test'
+  ...
+# Subtest: query-selected dog matches the dropdown and can switch back to adult cat
+ok 17 - query-selected dog matches the dropdown and can switch back to adult cat
+  ---
+  duration_ms: 92.93607
+  type: 'test'
+  ...
+# Subtest: puppy preview uses isolated storage and the real third stage
+ok 18 - puppy preview uses isolated storage and the real third stage
+  ---
+  duration_ms: 104.585057
+  type: 'test'
+  ...
+# Subtest: wanpaku preview uses isolated storage and the real fourth stage
+ok 19 - wanpaku preview uses isolated storage and the real fourth stage
+  ---
+  duration_ms: 56.10092
+  type: 'test'
+  ...
+# Subtest: young dog preview uses isolated storage and the real fifth stage
+ok 20 - young dog preview uses isolated storage and the real fifth stage
+  ---
+  duration_ms: 101.864163
+  type: 'test'
+  ...
+# Subtest: calm dog preview uses isolated storage and the real seventh stage
+ok 21 - calm dog preview uses isolated storage and the real seventh stage
+  ---
+  duration_ms: 62.224515
+  type: 'test'
+  ...
+# Subtest: babyDog preview uses isolated storage and the correct age stage
+ok 22 - babyDog preview uses isolated storage and the correct age stage
+  ---
+  duration_ms: 106.065125
+  type: 'test'
+  ...
+# Subtest: toddlerDog preview uses isolated storage and the correct age stage
+ok 23 - toddlerDog preview uses isolated storage and the correct age stage
+  ---
+  duration_ms: 86.599653
+  type: 'test'
+  ...
+# Subtest: elderDog preview uses isolated storage and the correct age stage
+ok 24 - elderDog preview uses isolated storage and the correct age stage
+  ---
+  duration_ms: 106.944872
+  type: 'test'
+  ...
+# Subtest: man preview exposes every stage and never accesses real saves
+ok 25 - man preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 493.824179
+  type: 'test'
+  ...
+# Subtest: woman preview exposes every stage and never accesses real saves
+ok 26 - woman preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 488.652329
+  type: 'test'
+  ...
+# Subtest: penguin preview exposes every stage and never accesses real saves
+ok 27 - penguin preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 443.426109
+  type: 'test'
+  ...
+# Subtest: turtle preview exposes every stage and never accesses real saves
+ok 28 - turtle preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 396.766135
+  type: 'test'
+  ...
+# Subtest: frog preview exposes every stage and never accesses real saves
+ok 29 - frog preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 439.602615
+  type: 'test'
+  ...
+# Subtest: clownfish preview exposes every stage and never accesses real saves
+ok 30 - clownfish preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 428.803966
+  type: 'test'
+  ...
+# Subtest: salmon preview exposes every stage and never accesses real saves
+ok 31 - salmon preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 429.005934
+  type: 'test'
+  ...
+# Subtest: hermit_crab preview exposes every stage and never accesses real saves
+ok 32 - hermit_crab preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 391.881491
+  type: 'test'
+  ...
+# Subtest: jellyfish preview exposes every stage and never accesses real saves
+ok 33 - jellyfish preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 439.493797
+  type: 'test'
+  ...
+# Subtest: starfish preview exposes every stage and never accesses real saves
+ok 34 - starfish preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 474.320628
+  type: 'test'
+  ...
+# Subtest: coral preview exposes every stage and never accesses real saves
+ok 35 - coral preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 399.631776
+  type: 'test'
+  ...
+# Subtest: butterfly preview exposes every stage and never accesses real saves
+ok 36 - butterfly preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 388.473083
+  type: 'test'
+  ...
+# Subtest: beetle preview exposes every stage and never accesses real saves
+ok 37 - beetle preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 356.029698
+  type: 'test'
+  ...
+# Subtest: stagbeetle preview exposes every stage and never accesses real saves
+ok 38 - stagbeetle preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 395.545415
+  type: 'test'
+  ...
+# Subtest: cicada preview exposes every stage and never accesses real saves
+ok 39 - cicada preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 437.600544
+  type: 'test'
+  ...
+# Subtest: antlion preview exposes every stage and never accesses real saves
+ok 40 - antlion preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 438.37661
+  type: 'test'
+  ...
+# Subtest: dandelion preview exposes every stage and never accesses real saves
+ok 41 - dandelion preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 356.447109
+  type: 'test'
+  ...
+# Subtest: sakura preview exposes every stage and never accesses real saves
+ok 42 - sakura preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 364.462607
+  type: 'test'
+  ...
+# Subtest: venus_flytrap preview exposes every stage and never accesses real saves
+ok 43 - venus_flytrap preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 384.456903
+  type: 'test'
+  ...
+# Subtest: mushroom preview exposes every stage and never accesses real saves
+ok 44 - mushroom preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 415.894393
+  type: 'test'
+  ...
+# Subtest: dragon preview exposes every stage and never accesses real saves
+ok 45 - dragon preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 401.12607
+  type: 'test'
+  ...
+# Subtest: phoenix preview exposes every stage and never accesses real saves
+ok 46 - phoenix preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 397.317182
+  type: 'test'
+  ...
+# Subtest: god preview exposes every stage and never accesses real saves
+ok 47 - god preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 384.100898
+  type: 'test'
+  ...
+# Subtest: world_tree preview exposes every stage and never accesses real saves
+ok 48 - world_tree preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 393.762168
+  type: 'test'
+  ...
+# Subtest: ghost preview exposes every stage and never accesses real saves
+ok 49 - ghost preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 393.797751
+  type: 'test'
+  ...
+# Subtest: star preview exposes every stage and never accesses real saves
+ok 50 - star preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 386.999934
+  type: 'test'
+  ...
+# Subtest: plush preview exposes every stage and never accesses real saves
+ok 51 - plush preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 394.174426
+  type: 'test'
+  ...
+# Subtest: unknown preview exposes every stage and never accesses real saves
+ok 52 - unknown preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 436.848984
+  type: 'test'
+  ...
+# Subtest: ren preview exposes every stage and never accesses real saves
+ok 53 - ren preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 387.517812
+  type: 'test'
+  ...
+# Subtest: salmon preview uses all eight canonical stage names
+ok 54 - salmon preview uses all eight canonical stage names
+  ---
+  duration_ms: 104.600557
+  type: 'test'
+  ...
+# Subtest: hermit_crab preview uses all eight canonical stage names
+ok 55 - hermit_crab preview uses all eight canonical stage names
+  ---
+  duration_ms: 77.86254
+  type: 'test'
+  ...
+# Subtest: jellyfish preview uses all eight canonical stage names
+ok 56 - jellyfish preview uses all eight canonical stage names
+  ---
+  duration_ms: 92.244599
+  type: 'test'
+  ...
+# Subtest: starfish preview uses all eight canonical stage names
+ok 57 - starfish preview uses all eight canonical stage names
+  ---
+  duration_ms: 82.409079
+  type: 'test'
+  ...
+# Subtest: coral preview uses all eight canonical stage names
+ok 58 - coral preview uses all eight canonical stage names
+  ---
+  duration_ms: 90.116136
+  type: 'test'
+  ...
+# Subtest: butterfly preview uses all eight canonical stage names
+ok 59 - butterfly preview uses all eight canonical stage names
+  ---
+  duration_ms: 87.518295
+  type: 'test'
+  ...
+# Subtest: beetle preview uses all eight canonical stage names
+ok 60 - beetle preview uses all eight canonical stage names
+  ---
+  duration_ms: 101.877009
+  type: 'test'
+  ...
+# Subtest: stagbeetle preview uses all eight canonical stage names
+ok 61 - stagbeetle preview uses all eight canonical stage names
+  ---
+  duration_ms: 91.546471
+  type: 'test'
+  ...
+# Subtest: cicada preview uses all eight canonical stage names
+ok 62 - cicada preview uses all eight canonical stage names
+  ---
+  duration_ms: 77.088299
+  type: 'test'
+  ...
+# Subtest: antlion preview uses all eight canonical stage names
+ok 63 - antlion preview uses all eight canonical stage names
+  ---
+  duration_ms: 94.732027
+  type: 'test'
+  ...
+# Subtest: dandelion preview uses all eight canonical stage names
+ok 64 - dandelion preview uses all eight canonical stage names
+  ---
+  duration_ms: 89.118409
+  type: 'test'
+  ...
+# Subtest: sakura preview uses all eight canonical stage names
+ok 65 - sakura preview uses all eight canonical stage names
+  ---
+  duration_ms: 101.727795
+  type: 'test'
+  ...
+# Subtest: venus_flytrap preview uses all eight canonical stage names
+ok 66 - venus_flytrap preview uses all eight canonical stage names
+  ---
+  duration_ms: 77.070553
+  type: 'test'
+  ...
+# Subtest: mushroom preview uses all eight canonical stage names
+ok 67 - mushroom preview uses all eight canonical stage names
+  ---
+  duration_ms: 89.609864
+  type: 'test'
+  ...
+# Subtest: dragon preview uses all eight canonical stage names
+ok 68 - dragon preview uses all eight canonical stage names
+  ---
+  duration_ms: 82.274497
+  type: 'test'
+  ...
+# Subtest: phoenix preview uses all eight canonical stage names
+ok 69 - phoenix preview uses all eight canonical stage names
+  ---
+  duration_ms: 92.565704
+  type: 'test'
+  ...
+# Subtest: god preview uses all eight canonical stage names
+ok 70 - god preview uses all eight canonical stage names
+  ---
+  duration_ms: 98.632294
+  type: 'test'
+  ...
+# Subtest: world_tree preview uses all eight canonical stage names
+ok 71 - world_tree preview uses all eight canonical stage names
+  ---
+  duration_ms: 79.943368
+  type: 'test'
+  ...
+# Subtest: ghost preview uses all eight canonical stage names
+ok 72 - ghost preview uses all eight canonical stage names
+  ---
+  duration_ms: 100.944025
+  type: 'test'
+  ...
+# Subtest: star preview uses all eight canonical stage names
+ok 73 - star preview uses all eight canonical stage names
+  ---
+  duration_ms: 93.814569
+  type: 'test'
+  ...
+# Subtest: plush preview uses all eight canonical stage names
+ok 74 - plush preview uses all eight canonical stage names
+  ---
+  duration_ms: 119.082697
+  type: 'test'
+  ...
+# Subtest: unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes
+ok 75 - unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes
+  ---
+  duration_ms: 78.137466
+  type: 'test'
+  ...
+# Subtest: ren preview uses canonical secret names without a fabricated rare achievement
+ok 76 - ren preview uses canonical secret names without a fabricated rare achievement
+  ---
+  duration_ms: 85.123939
+  type: 'test'
+  ...
+# (node:28) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8450be5caff5/repo/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/8450be5caff5/repo/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: VQ-26 production telescopes use their declared metal colors without a wood multiplier
+ok 77 - VQ-26 production telescopes use their declared metal colors without a wood multiplier
+  ---
+  duration_ms: 11546.270169
+  type: 'test'
+  ...
+# Subtest: VQ-25 waterwheel axle spans two grounded supports outside the paddle sweep
+ok 78 - VQ-25 waterwheel axle spans two grounded supports outside the paddle sweep
+  ---
+  duration_ms: 2014.120982
+  type: 'test'
+  ...
+# Subtest: VQ-24 stone bridge masonry stays on both parapets and marks all four ends
+ok 79 - VQ-24 stone bridge masonry stays on both parapets and marks all four ends
+  ---
+  duration_ms: 11308.641368
+  type: 'test'
+  ...
+# Subtest: VQ-23 vehicle window frames connect body and roof at every cab corner when rotated
+ok 80 - VQ-23 vehicle window frames connect body and roof at every cab corner when rotated
+  ---
+  duration_ms: 203.694052
+  type: 'test'
+  ...
+# Subtest: VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged
+ok 81 - VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged
+  ---
+  duration_ms: 43.548752
+  type: 'test'
+  ...
+# Subtest: VQ-9 residential porch supports meet roof slopes within canonical lots
+ok 82 - VQ-9 residential porch supports meet roof slopes within canonical lots
+  ---
+  duration_ms: 10694.068527
+  type: 'test'
+  ...
+# Subtest: VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck
+ok 83 - VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck
+  ---
+  duration_ms: 1074.870548
+  type: 'test'
+  ...
+# Subtest: VQ-6 cottage rooflines include both gable orientations within the residential family
+ok 84 - VQ-6 cottage rooflines include both gable orientations within the residential family
+  ---
+  duration_ms: 256.495131
+  type: 'test'
+  ...
+# Subtest: VQ-5 garden stepping stones connect the actual front door to its finite road segment
+ok 85 - VQ-5 garden stepping stones connect the actual front door to its finite road segment
+  ---
+  duration_ms: 270.208673
+  type: 'test'
+  ...
+# Subtest: VQ-1 contact footprints follow trunks and foundations without mutating objects
+ok 86 - VQ-1 contact footprints follow trunks and foundations without mutating objects
+  ---
+  duration_ms: 1.213459
+  type: 'test'
+  ...
+# Subtest: VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support
+ok 87 - VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support
+  ---
+  duration_ms: 0.502041
+  type: 'test'
+  ...
+# Subtest: VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged
+ok 88 - VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged
+  ---
+  duration_ms: 0.457745
+  type: 'test'
+  ...
+# Subtest: VQ-4 residential main roofs retain above-head clearance with canonical colliders
+ok 89 - VQ-4 residential main roofs retain above-head clearance with canonical colliders
+  ---
+  duration_ms: 10656.369125
+  type: 'test'
+  ...
+# Subtest: VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints
+ok 90 - VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints
+  ---
+  duration_ms: 221.379007
+  type: 'test'
+  ...
+# Subtest: VQ-10 barn entrances read as broad paired doors within the wall
+ok 91 - VQ-10 barn entrances read as broad paired doors within the wall
+  ---
+  duration_ms: 1019.32406
+  type: 'test'
+  ...
+# Subtest: VQ-11 flower instances retain planter and window-box elevation
+ok 92 - VQ-11 flower instances retain planter and window-box elevation
+  ---
+  duration_ms: 1.95918
+  type: 'test'
+  ...
+# Subtest: VQ-12 walkable market stalls have open counters and connected canopy supports
+ok 93 - VQ-12 walkable market stalls have open counters and connected canopy supports
+  ---
+  duration_ms: 10149.027503
+  type: 'test'
+  ...
+# Subtest: VQ-13 representative farmhouse flowers clear the veranda as one planting group
+ok 94 - VQ-13 representative farmhouse flowers clear the veranda as one planting group
+  ---
+  duration_ms: 1050.680724
+  type: 'test'
+  ...
+# Subtest: VQ-14 planting clearance preserves groups, rotations and blocked plots
+ok 95 - VQ-14 planting clearance preserves groups, rotations and blocked plots
+  ---
+  duration_ms: 9.028146
+  type: 'test'
+  ...
+# Subtest: VQ-15 residential facade openings fit beside the entrance without frame overlap
+ok 96 - VQ-15 residential facade openings fit beside the entrance without frame overlap
+  ---
+  duration_ms: 10199.440702
+  type: 'test'
+  ...
+# Subtest: VQ-16 single-family main windows reserve the existing bay projection
+ok 97 - VQ-16 single-family main windows reserve the existing bay projection
+  ---
+  duration_ms: 10053.134112
+  type: 'test'
+  ...
+# Subtest: VQ-17 two-storey entrance remains below its existing low canopy
+ok 98 - VQ-17 two-storey entrance remains below its existing low canopy
+  ---
+  duration_ms: 241.648874
+  type: 'test'
+  ...
+# Subtest: VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves
+ok 99 - VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves
+  ---
+  duration_ms: 3809.525221
+  type: 'test'
+  ...
+# Subtest: VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope
+ok 100 - VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope
+  ---
+  duration_ms: 3039.920435
+  type: 'test'
+  ...
+# Subtest: VQ-20 ground frond roots attach to their own terrain position
+ok 101 - VQ-20 ground frond roots attach to their own terrain position
+  ---
+  duration_ms: 3230.710354
+  type: 'test'
+  ...
+# Subtest: VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves
+ok 102 - VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves
+  ---
+  duration_ms: 2.070674
+  type: 'test'
+  ...
+# Subtest: VQ-27 statue heads alone opt into recessed faces while retaining the original three-part shape
+ok 103 - VQ-27 statue heads alone opt into recessed faces while retaining the original three-part shape
+  ---
+  duration_ms: 10523.226521
+  type: 'test'
+  ...
+# Subtest: VQ-28 carved head preserves the icosahedron hull and is watertight with shallow inward details
+ok 104 - VQ-28 carved head preserves the icosahedron hull and is watertight with shallow inward details
+  ---
+  duration_ms: 8.740672
+  type: 'test'
+  ...
+# Subtest: VQ-29 six soft city stalls retain their bounds with subdued cloth and shallow counter joints
+ok 105 - VQ-29 six soft city stalls retain their bounds with subdued cloth and shallow counter joints
+  ---
+  duration_ms: 10551.486818
+  type: 'test'
+  ...
+# Subtest: VQ-30 river waterwheel tree is relocated with its collider and original geometry
+ok 106 - VQ-30 river waterwheel tree is relocated with its collider and original geometry
+  ---
+  duration_ms: 595.481979
+  type: 'test'
+  ...
+# Subtest: 1. 許可リストは 5 本(かさならない)。のこり 5 本と special・memory_lake は いまの transition。LOW 4 本は 形が そろって いる
+ok 107 - 1. 許可リストは 5 本(かさならない)。のこり 5 本と special・memory_lake は いまの transition。LOW 4 本は 形が そろって いる
+  ---
+  duration_ms: 2626.005613
+  type: 'test'
+  ...
+# Subtest: 2. 組みはじめ は 道の のこり 810(6 段 = 0.70)。5 本とも 曲がる はやさは 初回 / 2 かいめ 30°/s いか
+ok 108 - 2. 組みはじめ は 道の のこり 810(6 段 = 0.70)。5 本とも 曲がる はやさは 初回 / 2 かいめ 30°/s いか
+  ---
+  duration_ms: 35.878935
+  type: 'test'
+  ...
+# Subtest: 3. 5 本 × 行きと 帰り(27 にん): 0.70 から 組み、着く まえに ready、組んだ world を 1 回 つかう。正本は 着く まで 出発 地域。はっけん・セーブの key・なかま
+ok 109 - 3. 5 本 × 行きと 帰り(27 にん): 0.70 から 組み、着く まえに ready、組んだ world を 1 回 つかう。正本は 着く まで 出発 地域。はっけん・セーブの key・なかま
+  ---
+  duration_ms: 12921.067304
+  type: 'test'
+  ...
+# Subtest: 4. reload(組みかけ / ready で やめる): セーブは 出発 地域、組んだ ものは のこらない(home|forest いがい の 9 本)
+ok 110 - 4. reload(組みかけ / ready で やめる): セーブは 出発 地域、組んだ ものは のこらない(home|forest いがい の 9 本)
+  ---
+  duration_ms: 6888.209754
+  type: 'test'
+  ...
+# Subtest: 5. しっぱい: 組む とちゅう / 絵の デコード / 着く ときの たしかめ で こけても 移動は とまらない(5 本)
+ok 111 - 5. しっぱい: 組む とちゅう / 絵の デコード / 着く ときの たしかめ で こけても 移動は とまらない(5 本)
+  ---
+  duration_ms: 8713.952347
+  type: 'test'
+  ...
+# Subtest: 6. 絵の さきどり デコード: あるける 出口に ちかづくと その corridor の 段と 両端の ことば だけを 1 回(4E-4B: 道 ぜんぶの 段)。セーブ・地域は かわらない
+ok 112 - 6. 絵の さきどり デコード: あるける 出口に ちかづくと その corridor の 段と 両端の ことば だけを 1 回(4E-4B: 道 ぜんぶの 段)。セーブ・地域は かわらない
+  ---
+  duration_ms: 2356.295456
+  type: 'test'
+  ...
+# Subtest: 7. 景色(5 本 × 行きと 帰り): 背景は まんなかで 1 回だけ 出発 → 到着。はしは 端の 地域の いろ。いろは とばない
+ok 113 - 7. 景色(5 本 × 行きと 帰り): 背景は まんなかで 1 回だけ 出発 → 到着。はしは 端の 地域の いろ。いろは とばない
+  ---
+  duration_ms: 162.819202
+  type: 'test'
+  ...
+# Subtest: 8. home.bigtree の 2 出口: むきで 1 つに きまる(もり / かわ を とりちがえない)。city の 3 出口・mountain の 4 出口も とりちがえない
+ok 114 - 8. home.bigtree の 2 出口: むきで 1 つに きまる(もり / かわ を とりちがえない)。city の 3 出口・mountain の 4 出口も とりちがえない
+  ---
+  duration_ms: 3549.290301
+  type: 'test'
+  ...
+# Subtest: city: ばらつき は city の 🏢 / 🏬 だけ。ほか の 地域 と 絵 は そのまま
+ok 115 - city: ばらつき は city の 🏢 / 🏬 だけ。ほか の 地域 と 絵 は そのまま
+  ---
+  duration_ms: 154.585975
+  type: 'test'
+  ...
+# Subtest: city: おなじ いち は いつも おなじ 大きさ(決定的)。はば と たかさ は きめた はんい の なか
+ok 116 - city: おなじ いち は いつも おなじ 大きさ(決定的)。はば と たかさ は きめた はんい の なか
+  ---
+  duration_ms: 231.924761
+  type: 'test'
+  ...
+# Subtest: city: 絵文字 を えがく ところ で ばらつき を わたす(ほか の 絵文字 は いままで どおり)
+ok 117 - city: 絵文字 を えがく ところ で ばらつき を わたす(ほか の 絵文字 は いままで どおり)
+  ---
+  duration_ms: 3.71558
+  type: 'test'
+  ...
+# Subtest: city: 1 フレーム で えがく ビル の たて よこ の ひ が ばらける
+ok 118 - city: 1 フレーム で えがく ビル の たて よこ の ひ が ばらける
+  ---
+  duration_ms: 1119.147637
+  type: 'test'
+  ...
+# Subtest: city: props・当たり判定 は そのまま(えがく とき だけ)
+ok 119 - city: props・当たり判定 は そのまま(えがく とき だけ)
+  ---
+  duration_ms: 341.475483
+  type: 'test'
+  ...
+# Subtest: river_lake(night): もや は ふち を ぼかした 1 まい。かたい おび は ない
+ok 120 - river_lake(night): もや は ふち を ぼかした 1 まい。かたい おび は ない
+  ---
+  duration_ms: 910.854497
+  type: 'test'
+  ...
+# Subtest: river_lake(morning): もや は ふち を ぼかした 1 まい。かたい おび は ない
+ok 121 - river_lake(morning): もや は ふち を ぼかした 1 まい。かたい おび は ない
+  ---
+  duration_ms: 925.793057
+  type: 'test'
+  ...
+# Subtest: river_lake(day): 昼 は もや を えがかない(いままで どおり)
+ok 122 - river_lake(day): 昼 は もや を えがかない(いままで どおり)
+  ---
+  duration_ms: 985.540211
+  type: 'test'
+  ...
+# Subtest: river_lake: もや の とまり は 3 つ の やま(もと の 3 本 の おび の まんなか)
+ok 123 - river_lake: もや の とまり は 3 つ の やま(もと の 3 本 の おび の まんなか)
+  ---
+  duration_ms: 19.299282
+  type: 'test'
+  ...
+# Subtest: counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+ok 124 - counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+  ---
+  duration_ms: 30.164786
+  type: 'test'
+  ...
+# Subtest: river_lake: props・当たり判定 は そのまま
+ok 125 - river_lake: props・当たり判定 は そのまま
+  ---
+  duration_ms: 207.986147
+  type: 'test'
+  ...
+# Subtest: save: 形 は かわらない(ばらつき・もや は セーブ しない)
+ok 126 - save: 形 は かわらない(ばらつき・もや は セーブ しない)
+  ---
+  duration_ms: 988.473533
+  type: 'test'
+  ...
+# Subtest: arch: drawStructure が しって いる 1 つ の かたち。地形 として えがく
+ok 127 - arch: drawStructure が しって いる 1 つ の かたち。地形 として えがく
+  ---
+  duration_ms: 173.609078
+  type: 'test'
+  ...
+# Subtest: arch: いわのアーチ は rock、ほねのアーチ は bone。1 つ の かたち を ぬりわける
+ok 128 - arch: いわのアーチ は rock、ほねのアーチ は bone。1 つ の かたち を ぬりわける
+  ---
+  duration_ms: 260.352391
+  type: 'test'
+  ...
+# Subtest: arch: rock は 穴を くりぬいた 岩、bone は 線 の ほね。えがきかた が ちがう
+ok 129 - arch: rock は 穴を くりぬいた 岩、bone は 線 の ほね。えがきかた が ちがう
+  ---
+  duration_ms: 2140.28208
+  type: 'test'
+  ...
+# Subtest: arch: 1 フレーム の よびだし の ふえかた は ちいさい(2 か所 だけ)
+ok 130 - arch: 1 フレーム の よびだし の ふえかた は ちいさい(2 か所 だけ)
+  ---
+  duration_ms: 1901.729011
+  type: 'test'
+  ...
+# Subtest: deco: 7 か所 とも deco で、view に して いない。しらせ の レベル は そのまま
+ok 131 - deco: 7 か所 とも deco で、view に して いない。しらせ の レベル は そのまま
+  ---
+  duration_ms: 814.194954
+  type: 'test'
+  ...
+# Subtest: deco: solid に しない。当たり判定 に も 地図 に も のらない。カメラ も ふりむかない
+ok 132 - deco: solid に しない。当たり判定 に も 地図 に も のらない。カメラ も ふりむかない
+  ---
+  duration_ms: 1406.943993
+  type: 'test'
+  ...
+# Subtest: deco: \#319 の view 4 か所 は keep を もたず、いち も かわらない ルール の まま
+ok 133 - deco: \#319 の view 4 か所 は keep を もたず、いち も かわらない ルール の まま
+  ---
+  duration_ms: 660.797111
+  type: 'test'
+  ...
+# Subtest: counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+ok 134 - counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は 1 つも かわらない
+  ---
+  duration_ms: 20.469618
+  type: 'test'
+  ...
+# Subtest: counts: props が ふえる の は deco を もつ 6 地域 だけ(その かず だけ)
+ok 135 - counts: props が ふえる の は deco を もつ 6 地域 だけ(その かず だけ)
+  ---
+  duration_ms: 1355.62407
+  type: 'test'
+  ...
+# Subtest: save: 形 は かわらない(deco は セーブ しない)
+ok 136 - save: 形 は かわらない(deco は セーブ しない)
+  ---
+  duration_ms: 774.363756
+  type: 'test'
+  ...
+# Subtest: real home emotion profiles select only the adult cat portrait
+ok 137 - real home emotion profiles select only the adult cat portrait
+  ---
+  duration_ms: 384.3833
+  type: 'test'
+  ...
+# Subtest: adult-cat expressions append unique static accents inside the existing visual
+ok 138 - adult-cat expressions append unique static accents inside the existing visual
+  ---
+  duration_ms: 175.40006
+  type: 'test'
+  ...
+# Subtest: real play and medicine outcomes use semantic temporary faces
+ok 139 - real play and medicine outcomes use semantic temporary faces
+  ---
+  duration_ms: 169.992885
+  type: 'test'
+  ...
+# Subtest: feed afterglow starts happy only after the validated result and expires to latest state
+ok 140 - feed afterglow starts happy only after the validated result and expires to latest state
+  ---
+  duration_ms: 22.516676
+  type: 'test'
+  ...
+# Subtest: a real cure retains a static happy afterglow (reduced motion: false)
+ok 141 - a real cure retains a static happy afterglow (reduced motion: false)
+  ---
+  duration_ms: 22.057439
+  type: 'test'
+  ...
+# Subtest: a real cure retains a static happy afterglow (reduced motion: true)
+ok 142 - a real cure retains a static happy afterglow (reduced motion: true)
+  ---
+  duration_ms: 19.883463
+  type: 'test'
+  ...
+# Subtest: reduced motion keeps the static happy afterglow for one second without animation
+ok 143 - reduced motion keeps the static happy afterglow for one second without animation
+  ---
+  duration_ms: 22.819963
+  type: 'test'
+  ...
+# Subtest: only pet semantic speech starts a temporary face
+ok 144 - only pet semantic speech starts a temporary face
+  ---
+  duration_ms: 24.498358
+  type: 'test'
+  ...
+# Subtest: critical state interrupts happy immediately and expiry cannot restore stale state
+ok 145 - critical state interrupts happy immediately and expiry cannot restore stale state
+  ---
+  duration_ms: 37.180883
+  type: 'test'
+  ...
+# Subtest: a new life cancels the old face timer
+ok 146 - a new life cancels the old face timer
+  ---
+  duration_ms: 18.329471
+  type: 'test'
+  ...
+# Subtest: sleep uses its own face, and waking shows normal before latest-state reevaluation
+ok 147 - sleep uses its own face, and waking shows normal before latest-state reevaluation
+  ---
+  duration_ms: 17.907779
+  type: 'test'
+  ...
+# Subtest: form changes and blocked screens clear the temporary face and accent
+ok 148 - form changes and blocked screens clear the temporary face and accent
+  ---
+  duration_ms: 127.924496
+  type: 'test'
+  ...
+# Subtest: expression rendering does not alter saves, cast geometry, or 26 companions
+ok 149 - expression rendering does not alter saves, cast geometry, or 26 companions
+  ---
+  duration_ms: 25.197469
+  type: 'test'
+  ...
+# Subtest: a failed expression portrait retries the original before the emoji fallback
+ok 150 - a failed expression portrait retries the original before the emoji fallback
+  ---
+  duration_ms: 36.693183
+  type: 'test'
+  ...
+# Subtest: home care colors follow existing mood and fatigue boundaries and reset after sleep/recovery
+ok 151 - home care colors follow existing mood and fatigue boundaries and reset after sleep/recovery
+  ---
+  duration_ms: 17.978083
+  type: 'test'
+  ...
+# Subtest: progress meter colors vary with fill without altering game state or life direction
+ok 152 - progress meter colors vary with fill without altering game state or life direction
+  ---
+  duration_ms: 19.492937
+  type: 'test'
+  ...
+# Subtest: overfeeding shows discomfort before a random story can replace it
+ok 153 - overfeeding shows discomfort before a random story can replace it
+  ---
+  duration_ms: 17.899417
+  type: 'test'
+  ...
+# Subtest: a newer care action cancels an older delayed overfeeding story
+ok 154 - a newer care action cancels an older delayed overfeeding story
+  ---
+  duration_ms: 17.33182
+  type: 'test'
+  ...
+# Subtest: kitten home uses its own portraits, care reactions and sleeping face without save changes
+ok 155 - kitten home uses its own portraits, care reactions and sleeping face without save changes
+  ---
+  duration_ms: 16.581804
+  type: 'test'
+  ...
+# Subtest: otemba home uses its own portraits, care reactions and sleeping face without save changes
+ok 156 - otemba home uses its own portraits, care reactions and sleeping face without save changes
+  ---
+  duration_ms: 17.532385
+  type: 'test'
+  ...
+# Subtest: young home uses its own portraits, care reactions and sleeping face without save changes
+ok 157 - young home uses its own portraits, care reactions and sleeping face without save changes
+  ---
+  duration_ms: 17.375284
+  type: 'test'
+  ...
+# Subtest: calm home uses its own portraits, care reactions and sleeping face without save changes
+ok 158 - calm home uses its own portraits, care reactions and sleeping face without save changes
+  ---
+  duration_ms: 17.814412
+  type: 'test'
+  ...
+# Subtest: elder home uses its own portraits, care reactions and sleeping face without save changes
+ok 159 - elder home uses its own portraits, care reactions and sleeping face without save changes
+  ---
+  duration_ms: 16.851212
+  type: 'test'
+  ...
+# Subtest: toddler home uses its own portraits, care reactions and sleeping face without save changes
+ok 160 - toddler home uses its own portraits, care reactions and sleeping face without save changes
+  ---
+  duration_ms: 16.421247
+  type: 'test'
+  ...
+# Subtest: baby home uses its own portraits, care reactions and sleeping face without save changes
+ok 161 - baby home uses its own portraits, care reactions and sleeping face without save changes
+  ---
+  duration_ms: 17.288667
+  type: 'test'
+  ...
+# Subtest: adult dog shows all ten state and reaction faces without changing saved state
+ok 162 - adult dog shows all ten state and reaction faces without changing saved state
+  ---
+  duration_ms: 179.870508
+  type: 'test'
+  ...
+# Subtest: puppy shows all ten state and reaction faces without changing saved state
+ok 163 - puppy shows all ten state and reaction faces without changing saved state
+  ---
+  duration_ms: 170.566461
+  type: 'test'
+  ...
+# Subtest: wanpaku shows all ten state and reaction faces without changing saved state
+ok 164 - wanpaku shows all ten state and reaction faces without changing saved state
+  ---
+  duration_ms: 191.844631
+  type: 'test'
+  ...
+# Subtest: young dog shows all ten state and reaction faces without changing saved state
+ok 165 - young dog shows all ten state and reaction faces without changing saved state
+  ---
+  duration_ms: 184.700084
+  type: 'test'
+  ...
+# Subtest: young dog routing is limited to ages sixteen through twenty-one
+ok 166 - young dog routing is limited to ages sixteen through twenty-one
+  ---
+  duration_ms: 82.035381
+  type: 'test'
+  ...
+# Subtest: calm dog shows all ten state and reaction faces without changing saved state
+ok 167 - calm dog shows all ten state and reaction faces without changing saved state
+  ---
+  duration_ms: 186.621889
+  type: 'test'
+  ...
+# Subtest: calm dog routing is limited to ages forty through sixty-nine
+ok 168 - calm dog routing is limited to ages forty through sixty-nine
+  ---
+  duration_ms: 59.097513
+  type: 'test'
+  ...
+# Subtest: baby dog shows all ten state and reaction faces without changing saved state
+ok 169 - baby dog shows all ten state and reaction faces without changing saved state
+  ---
+  duration_ms: 171.62349
+  type: 'test'
+  ...
+# Subtest: toddler dog shows all ten state and reaction faces without changing saved state
+ok 170 - toddler dog shows all ten state and reaction faces without changing saved state
+  ---
+  duration_ms: 160.016213
+  type: 'test'
+  ...
+# Subtest: elder dog shows all ten state and reaction faces without changing saved state
+ok 171 - elder dog shows all ten state and reaction faces without changing saved state
+  ---
+  duration_ms: 161.069486
+  type: 'test'
+  ...
+# Subtest: remaining dog stage boundaries select their own portraits
+ok 172 - remaining dog stage boundaries select their own portraits
+  ---
+  duration_ms: 130.261382
+  type: 'test'
+  ...
+# Subtest: man/01 renders all ten states and reactions without mutating saved state
+ok 173 - man/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 177.680702
+  type: 'test'
+  ...
+# Subtest: man/02 renders all ten states and reactions without mutating saved state
+ok 174 - man/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 158.506457
+  type: 'test'
+  ...
+# Subtest: man/03 renders all ten states and reactions without mutating saved state
+ok 175 - man/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 170.137614
+  type: 'test'
+  ...
+# Subtest: man/04 renders all ten states and reactions without mutating saved state
+ok 176 - man/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 157.11849
+  type: 'test'
+  ...
+# Subtest: man/05 renders all ten states and reactions without mutating saved state
+ok 177 - man/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 157.22089
+  type: 'test'
+  ...
+# Subtest: man/06 renders all ten states and reactions without mutating saved state
+ok 178 - man/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.463459
+  type: 'test'
+  ...
+# Subtest: man/07 renders all ten states and reactions without mutating saved state
+ok 179 - man/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.218795
+  type: 'test'
+  ...
+# Subtest: man/08 renders all ten states and reactions without mutating saved state
+ok 180 - man/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 176.98762
+  type: 'test'
+  ...
+# Subtest: woman/01 renders all ten states and reactions without mutating saved state
+ok 181 - woman/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 141.50994
+  type: 'test'
+  ...
+# Subtest: woman/02 renders all ten states and reactions without mutating saved state
+ok 182 - woman/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 167.666314
+  type: 'test'
+  ...
+# Subtest: woman/03 renders all ten states and reactions without mutating saved state
+ok 183 - woman/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 154.66433
+  type: 'test'
+  ...
+# Subtest: woman/04 renders all ten states and reactions without mutating saved state
+ok 184 - woman/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 158.705368
+  type: 'test'
+  ...
+# Subtest: woman/05 renders all ten states and reactions without mutating saved state
+ok 185 - woman/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.707166
+  type: 'test'
+  ...
+# Subtest: woman/06 renders all ten states and reactions without mutating saved state
+ok 186 - woman/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.147122
+  type: 'test'
+  ...
+# Subtest: woman/07 renders all ten states and reactions without mutating saved state
+ok 187 - woman/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 151.236314
+  type: 'test'
+  ...
+# Subtest: woman/08 renders all ten states and reactions without mutating saved state
+ok 188 - woman/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 174.100378
+  type: 'test'
+  ...
+# Subtest: penguin/01 renders all ten states and reactions without mutating saved state
+ok 189 - penguin/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 156.044766
+  type: 'test'
+  ...
+# Subtest: penguin/02 renders all ten states and reactions without mutating saved state
+ok 190 - penguin/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 157.790159
+  type: 'test'
+  ...
+# Subtest: penguin/03 renders all ten states and reactions without mutating saved state
+ok 191 - penguin/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.416512
+  type: 'test'
+  ...
+# Subtest: penguin/04 renders all ten states and reactions without mutating saved state
+ok 192 - penguin/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 170.49082
+  type: 'test'
+  ...
+# Subtest: penguin/05 renders all ten states and reactions without mutating saved state
+ok 193 - penguin/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 159.827695
+  type: 'test'
+  ...
+# Subtest: penguin/06 renders all ten states and reactions without mutating saved state
+ok 194 - penguin/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 160.03546
+  type: 'test'
+  ...
+# Subtest: penguin/07 renders all ten states and reactions without mutating saved state
+ok 195 - penguin/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 162.843182
+  type: 'test'
+  ...
+# Subtest: penguin/08 renders all ten states and reactions without mutating saved state
+ok 196 - penguin/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 177.314167
+  type: 'test'
+  ...
+# Subtest: turtle/01 renders all ten states and reactions without mutating saved state
+ok 197 - turtle/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 181.122274
+  type: 'test'
+  ...
+# Subtest: turtle/02 renders all ten states and reactions without mutating saved state
+ok 198 - turtle/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.735711
+  type: 'test'
+  ...
+# Subtest: turtle/03 renders all ten states and reactions without mutating saved state
+ok 199 - turtle/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 169.47363
+  type: 'test'
+  ...
+# Subtest: turtle/04 renders all ten states and reactions without mutating saved state
+ok 200 - turtle/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.765166
+  type: 'test'
+  ...
+# Subtest: turtle/05 renders all ten states and reactions without mutating saved state
+ok 201 - turtle/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.194115
+  type: 'test'
+  ...
+# Subtest: turtle/06 renders all ten states and reactions without mutating saved state
+ok 202 - turtle/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 187.429716
+  type: 'test'
+  ...
+# Subtest: turtle/07 renders all ten states and reactions without mutating saved state
+ok 203 - turtle/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.469991
+  type: 'test'
+  ...
+# Subtest: turtle/08 renders all ten states and reactions without mutating saved state
+ok 204 - turtle/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 162.093376
+  type: 'test'
+  ...
+# Subtest: frog/01 renders all ten states and reactions without mutating saved state
+ok 205 - frog/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 158.280313
+  type: 'test'
+  ...
+# Subtest: frog/02 renders all ten states and reactions without mutating saved state
+ok 206 - frog/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 157.274219
+  type: 'test'
+  ...
+# Subtest: frog/03 renders all ten states and reactions without mutating saved state
+ok 207 - frog/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 171.144145
+  type: 'test'
+  ...
+# Subtest: frog/04 renders all ten states and reactions without mutating saved state
+ok 208 - frog/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 191.233356
+  type: 'test'
+  ...
+# Subtest: frog/05 renders all ten states and reactions without mutating saved state
+ok 209 - frog/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 160.445711
+  type: 'test'
+  ...
+# Subtest: frog/06 renders all ten states and reactions without mutating saved state
+ok 210 - frog/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.113373
+  type: 'test'
+  ...
+# Subtest: frog/07 renders all ten states and reactions without mutating saved state
+ok 211 - frog/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 151.623926
+  type: 'test'
+  ...
+# Subtest: frog/08 renders all ten states and reactions without mutating saved state
+ok 212 - frog/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.047208
+  type: 'test'
+  ...
+# Subtest: clownfish/01 renders all ten states and reactions without mutating saved state
+ok 213 - clownfish/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 172.353457
+  type: 'test'
+  ...
+# Subtest: clownfish/02 renders all ten states and reactions without mutating saved state
+ok 214 - clownfish/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 185.085053
+  type: 'test'
+  ...
+# Subtest: clownfish/03 renders all ten states and reactions without mutating saved state
+ok 215 - clownfish/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 152.075052
+  type: 'test'
+  ...
+# Subtest: clownfish/04 renders all ten states and reactions without mutating saved state
+ok 216 - clownfish/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.314948
+  type: 'test'
+  ...
+# Subtest: clownfish/05 renders all ten states and reactions without mutating saved state
+ok 217 - clownfish/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 160.852052
+  type: 'test'
+  ...
+# Subtest: clownfish/06 renders all ten states and reactions without mutating saved state
+ok 218 - clownfish/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 159.260659
+  type: 'test'
+  ...
+# Subtest: clownfish/07 renders all ten states and reactions without mutating saved state
+ok 219 - clownfish/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 159.218031
+  type: 'test'
+  ...
+# Subtest: clownfish/08 renders all ten states and reactions without mutating saved state
+ok 220 - clownfish/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 177.246744
+  type: 'test'
+  ...
+# Subtest: salmon/01 renders all ten states and reactions without mutating saved state
+ok 221 - salmon/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 147.692879
+  type: 'test'
+  ...
+# Subtest: salmon/02 renders all ten states and reactions without mutating saved state
+ok 222 - salmon/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 177.675036
+  type: 'test'
+  ...
+# Subtest: salmon/03 renders all ten states and reactions without mutating saved state
+ok 223 - salmon/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.816012
+  type: 'test'
+  ...
+# Subtest: salmon/04 renders all ten states and reactions without mutating saved state
+ok 224 - salmon/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.322694
+  type: 'test'
+  ...
+# Subtest: salmon/05 renders all ten states and reactions without mutating saved state
+ok 225 - salmon/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 154.949471
+  type: 'test'
+  ...
+# Subtest: salmon/06 renders all ten states and reactions without mutating saved state
+ok 226 - salmon/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 156.285041
+  type: 'test'
+  ...
+# Subtest: salmon/07 renders all ten states and reactions without mutating saved state
+ok 227 - salmon/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 185.998485
+  type: 'test'
+  ...
+# Subtest: salmon/08 renders all ten states and reactions without mutating saved state
+ok 228 - salmon/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 158.373771
+  type: 'test'
+  ...
+# Subtest: hermit_crab/01 renders all ten states and reactions without mutating saved state
+ok 229 - hermit_crab/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.675261
+  type: 'test'
+  ...
+# Subtest: hermit_crab/02 renders all ten states and reactions without mutating saved state
+ok 230 - hermit_crab/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 174.436039
+  type: 'test'
+  ...
+# Subtest: hermit_crab/03 renders all ten states and reactions without mutating saved state
+ok 231 - hermit_crab/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 170.210547
+  type: 'test'
+  ...
+# Subtest: hermit_crab/04 renders all ten states and reactions without mutating saved state
+ok 232 - hermit_crab/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 152.92787
+  type: 'test'
+  ...
+# Subtest: hermit_crab/05 renders all ten states and reactions without mutating saved state
+ok 233 - hermit_crab/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 149.465433
+  type: 'test'
+  ...
+# Subtest: hermit_crab/06 renders all ten states and reactions without mutating saved state
+ok 234 - hermit_crab/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 167.85237
+  type: 'test'
+  ...
+# Subtest: hermit_crab/07 renders all ten states and reactions without mutating saved state
+ok 235 - hermit_crab/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 144.809207
+  type: 'test'
+  ...
+# Subtest: hermit_crab/08 renders all ten states and reactions without mutating saved state
+ok 236 - hermit_crab/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.323088
+  type: 'test'
+  ...
+# Subtest: jellyfish/01 renders all ten states and reactions without mutating saved state
+ok 237 - jellyfish/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.847999
+  type: 'test'
+  ...
+# Subtest: jellyfish/02 renders all ten states and reactions without mutating saved state
+ok 238 - jellyfish/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 173.17166
+  type: 'test'
+  ...
+# Subtest: jellyfish/03 renders all ten states and reactions without mutating saved state
+ok 239 - jellyfish/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 162.627894
+  type: 'test'
+  ...
+# Subtest: jellyfish/04 renders all ten states and reactions without mutating saved state
+ok 240 - jellyfish/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 156.418828
+  type: 'test'
+  ...
+# Subtest: jellyfish/05 renders all ten states and reactions without mutating saved state
+ok 241 - jellyfish/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 184.63487
+  type: 'test'
+  ...
+# Subtest: jellyfish/06 renders all ten states and reactions without mutating saved state
+ok 242 - jellyfish/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.716201
+  type: 'test'
+  ...
+# Subtest: jellyfish/07 renders all ten states and reactions without mutating saved state
+ok 243 - jellyfish/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 175.763357
+  type: 'test'
+  ...
+# Subtest: jellyfish/08 renders all ten states and reactions without mutating saved state
+ok 244 - jellyfish/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 145.249577
+  type: 'test'
+  ...
+# Subtest: starfish/01 renders all ten states and reactions without mutating saved state
+ok 245 - starfish/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 178.748608
+  type: 'test'
+  ...
+# Subtest: starfish/02 renders all ten states and reactions without mutating saved state
+ok 246 - starfish/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 174.805799
+  type: 'test'
+  ...
+# Subtest: starfish/03 renders all ten states and reactions without mutating saved state
+ok 247 - starfish/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 163.844369
+  type: 'test'
+  ...
+# Subtest: starfish/04 renders all ten states and reactions without mutating saved state
+ok 248 - starfish/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.15843
+  type: 'test'
+  ...
+# Subtest: starfish/05 renders all ten states and reactions without mutating saved state
+ok 249 - starfish/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 171.16836
+  type: 'test'
+  ...
+# Subtest: starfish/06 renders all ten states and reactions without mutating saved state
+ok 250 - starfish/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 198.850744
+  type: 'test'
+  ...
+# Subtest: starfish/07 renders all ten states and reactions without mutating saved state
+ok 251 - starfish/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 156.850214
+  type: 'test'
+  ...
+# Subtest: starfish/08 renders all ten states and reactions without mutating saved state
+ok 252 - starfish/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 190.070971
+  type: 'test'
+  ...
+# Subtest: coral/01 renders all ten states and reactions without mutating saved state
+ok 253 - coral/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 179.157361
+  type: 'test'
+  ...
+# Subtest: coral/02 renders all ten states and reactions without mutating saved state
+ok 254 - coral/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 173.79273
+  type: 'test'
+  ...
+# Subtest: coral/03 renders all ten states and reactions without mutating saved state
+ok 255 - coral/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 183.186453
+  type: 'test'
+  ...
+# Subtest: coral/04 renders all ten states and reactions without mutating saved state
+ok 256 - coral/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 189.968235
+  type: 'test'
+  ...
+# Subtest: coral/05 renders all ten states and reactions without mutating saved state
+ok 257 - coral/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 158.964312
+  type: 'test'
+  ...
+# Subtest: coral/06 renders all ten states and reactions without mutating saved state
+ok 258 - coral/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 163.535953
+  type: 'test'
+  ...
+# Subtest: coral/07 renders all ten states and reactions without mutating saved state
+ok 259 - coral/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 165.548512
+  type: 'test'
+  ...
+# Subtest: coral/08 renders all ten states and reactions without mutating saved state
+ok 260 - coral/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 154.947508
+  type: 'test'
+  ...
+# Subtest: butterfly/01 renders all ten states and reactions without mutating saved state
+ok 261 - butterfly/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.078724
+  type: 'test'
+  ...
+# Subtest: butterfly/02 renders all ten states and reactions without mutating saved state
+ok 262 - butterfly/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 167.097566
+  type: 'test'
+  ...
+# Subtest: butterfly/03 renders all ten states and reactions without mutating saved state
+ok 263 - butterfly/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 189.312707
+  type: 'test'
+  ...
+# Subtest: butterfly/04 renders all ten states and reactions without mutating saved state
+ok 264 - butterfly/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 191.587818
+  type: 'test'
+  ...
+# Subtest: butterfly/05 renders all ten states and reactions without mutating saved state
+ok 265 - butterfly/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 176.710038
+  type: 'test'
+  ...
+# Subtest: butterfly/06 renders all ten states and reactions without mutating saved state
+ok 266 - butterfly/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 175.298751
+  type: 'test'
+  ...
+# Subtest: butterfly/07 renders all ten states and reactions without mutating saved state
+ok 267 - butterfly/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 196.782618
+  type: 'test'
+  ...
+# Subtest: butterfly/08 renders all ten states and reactions without mutating saved state
+ok 268 - butterfly/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 163.479876
+  type: 'test'
+  ...
+# Subtest: beetle/01 renders all ten states and reactions without mutating saved state
+ok 269 - beetle/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 183.445766
+  type: 'test'
+  ...
+# Subtest: beetle/02 renders all ten states and reactions without mutating saved state
+ok 270 - beetle/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 176.314734
+  type: 'test'
+  ...
+# Subtest: beetle/03 renders all ten states and reactions without mutating saved state
+ok 271 - beetle/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.580149
+  type: 'test'
+  ...
+# Subtest: beetle/04 renders all ten states and reactions without mutating saved state
+ok 272 - beetle/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 191.468106
+  type: 'test'
+  ...
+# Subtest: beetle/05 renders all ten states and reactions without mutating saved state
+ok 273 - beetle/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 213.275056
+  type: 'test'
+  ...
+# Subtest: beetle/06 renders all ten states and reactions without mutating saved state
+ok 274 - beetle/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 206.999197
+  type: 'test'
+  ...
+# Subtest: beetle/07 renders all ten states and reactions without mutating saved state
+ok 275 - beetle/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 169.456505
+  type: 'test'
+  ...
+# Subtest: beetle/08 renders all ten states and reactions without mutating saved state
+ok 276 - beetle/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 157.083268
+  type: 'test'
+  ...
+# Subtest: stagbeetle/01 renders all ten states and reactions without mutating saved state
+ok 277 - stagbeetle/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 156.77295
+  type: 'test'
+  ...
+# Subtest: stagbeetle/02 renders all ten states and reactions without mutating saved state
+ok 278 - stagbeetle/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 182.786959
+  type: 'test'
+  ...
+# Subtest: stagbeetle/03 renders all ten states and reactions without mutating saved state
+ok 279 - stagbeetle/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 228.336242
+  type: 'test'
+  ...
+# Subtest: stagbeetle/04 renders all ten states and reactions without mutating saved state
+ok 280 - stagbeetle/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 202.224039
+  type: 'test'
+  ...
+# Subtest: stagbeetle/05 renders all ten states and reactions without mutating saved state
+ok 281 - stagbeetle/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 235.544152
+  type: 'test'
+  ...
+# Subtest: stagbeetle/06 renders all ten states and reactions without mutating saved state
+ok 282 - stagbeetle/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 174.462157
+  type: 'test'
+  ...
+# Subtest: stagbeetle/07 renders all ten states and reactions without mutating saved state
+ok 283 - stagbeetle/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 159.754176
+  type: 'test'
+  ...
+# Subtest: stagbeetle/08 renders all ten states and reactions without mutating saved state
+ok 284 - stagbeetle/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.805549
+  type: 'test'
+  ...
+# Subtest: cicada/01 renders all ten states and reactions without mutating saved state
+ok 285 - cicada/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 158.88232
+  type: 'test'
+  ...
+# Subtest: cicada/02 renders all ten states and reactions without mutating saved state
+ok 286 - cicada/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 168.317435
+  type: 'test'
+  ...
+# Subtest: cicada/03 renders all ten states and reactions without mutating saved state
+ok 287 - cicada/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 163.238771
+  type: 'test'
+  ...
+# Subtest: cicada/04 renders all ten states and reactions without mutating saved state
+ok 288 - cicada/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 187.58156
+  type: 'test'
+  ...
+# Subtest: cicada/05 renders all ten states and reactions without mutating saved state
+ok 289 - cicada/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 214.553285
+  type: 'test'
+  ...
+# Subtest: cicada/06 renders all ten states and reactions without mutating saved state
+ok 290 - cicada/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 182.204746
+  type: 'test'
+  ...
+# Subtest: cicada/07 renders all ten states and reactions without mutating saved state
+ok 291 - cicada/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 177.807481
+  type: 'test'
+  ...
+# Subtest: cicada/08 renders all ten states and reactions without mutating saved state
+ok 292 - cicada/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 162.270347
+  type: 'test'
+  ...
+# Subtest: antlion/01 renders all ten states and reactions without mutating saved state
+ok 293 - antlion/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 177.338154
+  type: 'test'
+  ...
+# Subtest: antlion/02 renders all ten states and reactions without mutating saved state
+ok 294 - antlion/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 138.568543
+  type: 'test'
+  ...
+# Subtest: antlion/03 renders all ten states and reactions without mutating saved state
+ok 295 - antlion/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 186.986332
+  type: 'test'
+  ...
+# Subtest: antlion/04 renders all ten states and reactions without mutating saved state
+ok 296 - antlion/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.919405
+  type: 'test'
+  ...
+# Subtest: antlion/05 renders all ten states and reactions without mutating saved state
+ok 297 - antlion/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 169.008299
+  type: 'test'
+  ...
+# Subtest: antlion/06 renders all ten states and reactions without mutating saved state
+ok 298 - antlion/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 175.010501
+  type: 'test'
+  ...
+# Subtest: antlion/07 renders all ten states and reactions without mutating saved state
+ok 299 - antlion/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 182.948173
+  type: 'test'
+  ...
+# Subtest: antlion/08 renders all ten states and reactions without mutating saved state
+ok 300 - antlion/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 181.471254
+  type: 'test'
+  ...
+# Subtest: dandelion/01 renders all ten states and reactions without mutating saved state
+ok 301 - dandelion/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 180.178817
+  type: 'test'
+  ...
+# Subtest: dandelion/02 renders all ten states and reactions without mutating saved state
+ok 302 - dandelion/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 171.895944
+  type: 'test'
+  ...
+# Subtest: dandelion/03 renders all ten states and reactions without mutating saved state
+ok 303 - dandelion/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 159.585638
+  type: 'test'
+  ...
+# Subtest: dandelion/04 renders all ten states and reactions without mutating saved state
+ok 304 - dandelion/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 154.084355
+  type: 'test'
+  ...
+# Subtest: dandelion/05 renders all ten states and reactions without mutating saved state
+ok 305 - dandelion/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 172.860936
+  type: 'test'
+  ...
+# Subtest: dandelion/06 renders all ten states and reactions without mutating saved state
+ok 306 - dandelion/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 174.489813
+  type: 'test'
+  ...
+# Subtest: dandelion/07 renders all ten states and reactions without mutating saved state
+ok 307 - dandelion/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 179.778147
+  type: 'test'
+  ...
+# Subtest: dandelion/08 renders all ten states and reactions without mutating saved state
+ok 308 - dandelion/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 163.06563
+  type: 'test'
+  ...
+# Subtest: sakura/01 renders all ten states and reactions without mutating saved state
+ok 309 - sakura/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 209.708688
+  type: 'test'
+  ...
+# Subtest: sakura/02 renders all ten states and reactions without mutating saved state
+ok 310 - sakura/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 165.956494
+  type: 'test'
+  ...
+# Subtest: sakura/03 renders all ten states and reactions without mutating saved state
+ok 311 - sakura/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.961115
+  type: 'test'
+  ...
+# Subtest: sakura/04 renders all ten states and reactions without mutating saved state
+ok 312 - sakura/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 162.824866
+  type: 'test'
+  ...
+# Subtest: sakura/05 renders all ten states and reactions without mutating saved state
+ok 313 - sakura/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.485655
+  type: 'test'
+  ...
+# Subtest: sakura/06 renders all ten states and reactions without mutating saved state
+ok 314 - sakura/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.742348
+  type: 'test'
+  ...
+# Subtest: sakura/07 renders all ten states and reactions without mutating saved state
+ok 315 - sakura/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 178.345645
+  type: 'test'
+  ...
+# Subtest: sakura/08 renders all ten states and reactions without mutating saved state
+ok 316 - sakura/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 163.911788
+  type: 'test'
+  ...
+# Subtest: venus_flytrap/01 renders all ten states and reactions without mutating saved state
+ok 317 - venus_flytrap/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.413194
+  type: 'test'
+  ...
+# Subtest: venus_flytrap/02 renders all ten states and reactions without mutating saved state
+ok 318 - venus_flytrap/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.246241
+  type: 'test'
+  ...
+# Subtest: venus_flytrap/03 renders all ten states and reactions without mutating saved state
+ok 319 - venus_flytrap/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 182.732064
+  type: 'test'
+  ...
+# Subtest: venus_flytrap/04 renders all ten states and reactions without mutating saved state
+ok 320 - venus_flytrap/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 183.100027
+  type: 'test'
+  ...
+# Subtest: venus_flytrap/05 renders all ten states and reactions without mutating saved state
+ok 321 - venus_flytrap/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 194.897094
+  type: 'test'
+  ...
+# Subtest: venus_flytrap/06 renders all ten states and reactions without mutating saved state
+ok 322 - venus_flytrap/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 178.464174
+  type: 'test'
+  ...
+# Subtest: venus_flytrap/07 renders all ten states and reactions without mutating saved state
+ok 323 - venus_flytrap/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 178.187532
+  type: 'test'
+  ...
+# Subtest: venus_flytrap/08 renders all ten states and reactions without mutating saved state
+ok 324 - venus_flytrap/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 157.01025
+  type: 'test'
+  ...
+# Subtest: mushroom/01 renders all ten states and reactions without mutating saved state
+ok 325 - mushroom/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 172.557959
+  type: 'test'
+  ...
+# Subtest: mushroom/02 renders all ten states and reactions without mutating saved state
+ok 326 - mushroom/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.866366
+  type: 'test'
+  ...
+# Subtest: mushroom/03 renders all ten states and reactions without mutating saved state
+ok 327 - mushroom/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 169.869495
+  type: 'test'
+  ...
+# Subtest: mushroom/04 renders all ten states and reactions without mutating saved state
+ok 328 - mushroom/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.102585
+  type: 'test'
+  ...
+# Subtest: mushroom/05 renders all ten states and reactions without mutating saved state
+ok 329 - mushroom/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 153.882458
+  type: 'test'
+  ...
+# Subtest: mushroom/06 renders all ten states and reactions without mutating saved state
+ok 330 - mushroom/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 180.62811
+  type: 'test'
+  ...
+# Subtest: mushroom/07 renders all ten states and reactions without mutating saved state
+ok 331 - mushroom/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 169.495202
+  type: 'test'
+  ...
+# Subtest: mushroom/08 renders all ten states and reactions without mutating saved state
+ok 332 - mushroom/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 163.209083
+  type: 'test'
+  ...
+# Subtest: dragon/01 renders all ten states and reactions without mutating saved state
+ok 333 - dragon/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 158.019228
+  type: 'test'
+  ...
+# Subtest: dragon/02 renders all ten states and reactions without mutating saved state
+ok 334 - dragon/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 175.947359
+  type: 'test'
+  ...
+# Subtest: dragon/03 renders all ten states and reactions without mutating saved state
+ok 335 - dragon/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 162.349585
+  type: 'test'
+  ...
+# Subtest: dragon/04 renders all ten states and reactions without mutating saved state
+ok 336 - dragon/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 179.540717
+  type: 'test'
+  ...
+# Subtest: dragon/05 renders all ten states and reactions without mutating saved state
+ok 337 - dragon/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.479585
+  type: 'test'
+  ...
+# Subtest: dragon/06 renders all ten states and reactions without mutating saved state
+ok 338 - dragon/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 159.81699
+  type: 'test'
+  ...
+# Subtest: dragon/07 renders all ten states and reactions without mutating saved state
+ok 339 - dragon/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.884646
+  type: 'test'
+  ...
+# Subtest: dragon/08 renders all ten states and reactions without mutating saved state
+ok 340 - dragon/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 182.760508
+  type: 'test'
+  ...
+# Subtest: phoenix/01 renders all ten states and reactions without mutating saved state
+ok 341 - phoenix/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 160.758962
+  type: 'test'
+  ...
+# Subtest: phoenix/02 renders all ten states and reactions without mutating saved state
+ok 342 - phoenix/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 195.357822
+  type: 'test'
+  ...
+# Subtest: phoenix/03 renders all ten states and reactions without mutating saved state
+ok 343 - phoenix/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.490601
+  type: 'test'
+  ...
+# Subtest: phoenix/04 renders all ten states and reactions without mutating saved state
+ok 344 - phoenix/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 152.841832
+  type: 'test'
+  ...
+# Subtest: phoenix/05 renders all ten states and reactions without mutating saved state
+ok 345 - phoenix/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.545349
+  type: 'test'
+  ...
+# Subtest: phoenix/06 renders all ten states and reactions without mutating saved state
+ok 346 - phoenix/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 147.72795
+  type: 'test'
+  ...
+# Subtest: phoenix/07 renders all ten states and reactions without mutating saved state
+ok 347 - phoenix/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 199.319465
+  type: 'test'
+  ...
+# Subtest: phoenix/08 renders all ten states and reactions without mutating saved state
+ok 348 - phoenix/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 144.428474
+  type: 'test'
+  ...
+# Subtest: god/01 renders all ten states and reactions without mutating saved state
+ok 349 - god/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 157.487689
+  type: 'test'
+  ...
+# Subtest: god/02 renders all ten states and reactions without mutating saved state
+ok 350 - god/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 165.824111
+  type: 'test'
+  ...
+# Subtest: god/03 renders all ten states and reactions without mutating saved state
+ok 351 - god/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 165.867982
+  type: 'test'
+  ...
+# Subtest: god/04 renders all ten states and reactions without mutating saved state
+ok 352 - god/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.375982
+  type: 'test'
+  ...
+# Subtest: god/05 renders all ten states and reactions without mutating saved state
+ok 353 - god/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 188.815123
+  type: 'test'
+  ...
+# Subtest: god/06 renders all ten states and reactions without mutating saved state
+ok 354 - god/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 219.706204
+  type: 'test'
+  ...
+# Subtest: god/07 renders all ten states and reactions without mutating saved state
+ok 355 - god/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 145.048238
+  type: 'test'
+  ...
+# Subtest: god/08 renders all ten states and reactions without mutating saved state
+ok 356 - god/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 179.380479
+  type: 'test'
+  ...
+# Subtest: world_tree/01 renders all ten states and reactions without mutating saved state
+ok 357 - world_tree/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 156.571056
+  type: 'test'
+  ...
+# Subtest: world_tree/02 renders all ten states and reactions without mutating saved state
+ok 358 - world_tree/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 196.790594
+  type: 'test'
+  ...
+# Subtest: world_tree/03 renders all ten states and reactions without mutating saved state
+ok 359 - world_tree/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 160.605982
+  type: 'test'
+  ...
+# Subtest: world_tree/04 renders all ten states and reactions without mutating saved state
+ok 360 - world_tree/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 171.448206
+  type: 'test'
+  ...
+# Subtest: world_tree/05 renders all ten states and reactions without mutating saved state
+ok 361 - world_tree/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 174.425218
+  type: 'test'
+  ...
+# Subtest: world_tree/06 renders all ten states and reactions without mutating saved state
+ok 362 - world_tree/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 171.109596
+  type: 'test'
+  ...
+# Subtest: world_tree/07 renders all ten states and reactions without mutating saved state
+ok 363 - world_tree/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 200.591721
+  type: 'test'
+  ...
+# Subtest: world_tree/08 renders all ten states and reactions without mutating saved state
+ok 364 - world_tree/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 195.383449
+  type: 'test'
+  ...
+# Subtest: ghost/01 renders all ten states and reactions without mutating saved state
+ok 365 - ghost/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 172.661612
+  type: 'test'
+  ...
+# Subtest: ghost/02 renders all ten states and reactions without mutating saved state
+ok 366 - ghost/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.513964
+  type: 'test'
+  ...
+# Subtest: ghost/03 renders all ten states and reactions without mutating saved state
+ok 367 - ghost/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 168.882387
+  type: 'test'
+  ...
+# Subtest: ghost/04 renders all ten states and reactions without mutating saved state
+ok 368 - ghost/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 171.248252
+  type: 'test'
+  ...
+# Subtest: ghost/05 renders all ten states and reactions without mutating saved state
+ok 369 - ghost/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 171.013079
+  type: 'test'
+  ...
+# Subtest: ghost/06 renders all ten states and reactions without mutating saved state
+ok 370 - ghost/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 169.001739
+  type: 'test'
+  ...
+# Subtest: ghost/07 renders all ten states and reactions without mutating saved state
+ok 371 - ghost/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 187.470019
+  type: 'test'
+  ...
+# Subtest: ghost/08 renders all ten states and reactions without mutating saved state
+ok 372 - ghost/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 168.026505
+  type: 'test'
+  ...
+# Subtest: star/01 renders all ten states and reactions without mutating saved state
+ok 373 - star/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 203.48622
+  type: 'test'
+  ...
+# Subtest: star/02 renders all ten states and reactions without mutating saved state
+ok 374 - star/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 169.618553
+  type: 'test'
+  ...
+# Subtest: star/03 renders all ten states and reactions without mutating saved state
+ok 375 - star/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 186.09996
+  type: 'test'
+  ...
+# Subtest: star/04 renders all ten states and reactions without mutating saved state
+ok 376 - star/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 193.776665
+  type: 'test'
+  ...
+# Subtest: star/05 renders all ten states and reactions without mutating saved state
+ok 377 - star/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 178.122825
+  type: 'test'
+  ...
+# Subtest: star/06 renders all ten states and reactions without mutating saved state
+ok 378 - star/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 185.158391
+  type: 'test'
+  ...
+# Subtest: star/07 renders all ten states and reactions without mutating saved state
+ok 379 - star/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 192.50214
+  type: 'test'
+  ...
+# Subtest: star/08 renders all ten states and reactions without mutating saved state
+ok 380 - star/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 186.268698
+  type: 'test'
+  ...
+# Subtest: plush/01 renders all ten states and reactions without mutating saved state
+ok 381 - plush/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 214.040518
+  type: 'test'
+  ...
+# Subtest: plush/02 renders all ten states and reactions without mutating saved state
+ok 382 - plush/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 189.849864
+  type: 'test'
+  ...
+# Subtest: plush/03 renders all ten states and reactions without mutating saved state
+ok 383 - plush/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 189.537183
+  type: 'test'
+  ...
+# Subtest: plush/04 renders all ten states and reactions without mutating saved state
+ok 384 - plush/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 236.724182
+  type: 'test'
+  ...
+# Subtest: plush/05 renders all ten states and reactions without mutating saved state
+ok 385 - plush/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 175.769135
+  type: 'test'
+  ...
+# Subtest: plush/06 renders all ten states and reactions without mutating saved state
+ok 386 - plush/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 171.654056
+  type: 'test'
+  ...
+# Subtest: plush/07 renders all ten states and reactions without mutating saved state
+ok 387 - plush/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 196.364268
+  type: 'test'
+  ...
+# Subtest: plush/08 renders all ten states and reactions without mutating saved state
+ok 388 - plush/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 182.923285
+  type: 'test'
+  ...
+# Subtest: unknown/01 renders all ten states and reactions without mutating saved state
+ok 389 - unknown/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 162.659702
+  type: 'test'
+  ...
+# Subtest: unknown/02 renders all ten states and reactions without mutating saved state
+ok 390 - unknown/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 164.81533
+  type: 'test'
+  ...
+# Subtest: unknown/03 renders all ten states and reactions without mutating saved state
+ok 391 - unknown/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 187.263426
+  type: 'test'
+  ...
+# Subtest: unknown/04 renders all ten states and reactions without mutating saved state
+ok 392 - unknown/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 161.972278
+  type: 'test'
+  ...
+# Subtest: unknown/05 renders all ten states and reactions without mutating saved state
+ok 393 - unknown/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 168.504181
+  type: 'test'
+  ...
+# Subtest: unknown/06 renders all ten states and reactions without mutating saved state
+ok 394 - unknown/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 182.579684
+  type: 'test'
+  ...
+# Subtest: unknown/07 renders all ten states and reactions without mutating saved state
+ok 395 - unknown/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 151.181595
+  type: 'test'
+  ...
+# Subtest: unknown/08 renders all ten states and reactions without mutating saved state
+ok 396 - unknown/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 152.699762
+  type: 'test'
+  ...
+# Subtest: ren/01 renders all ten states and reactions without mutating saved state
+ok 397 - ren/01 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 151.032024
+  type: 'test'
+  ...
+# Subtest: ren/02 renders all ten states and reactions without mutating saved state
+ok 398 - ren/02 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 148.285203
+  type: 'test'
+  ...
+# Subtest: ren/03 renders all ten states and reactions without mutating saved state
+ok 399 - ren/03 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 166.64208
+  type: 'test'
+  ...
+# Subtest: ren/04 renders all ten states and reactions without mutating saved state
+ok 400 - ren/04 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 169.984373
+  type: 'test'
+  ...
+# Subtest: ren/05 renders all ten states and reactions without mutating saved state
+ok 401 - ren/05 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 191.363723
+  type: 'test'
+  ...
+# Subtest: ren/06 renders all ten states and reactions without mutating saved state
+ok 402 - ren/06 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 155.071712
+  type: 'test'
+  ...
+# Subtest: ren/07 renders all ten states and reactions without mutating saved state
+ok 403 - ren/07 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 192.958985
+  type: 'test'
+  ...
+# Subtest: ren/08 renders all ten states and reactions without mutating saved state
+ok 404 - ren/08 renders all ten states and reactions without mutating saved state
+  ---
+  duration_ms: 176.198564
+  type: 'test'
+  ...
+# Subtest: Home connects all fifteen food artworks without changing saved state
+ok 405 - Home connects all fifteen food artworks without changing saved state
+  ---
+  duration_ms: 23.833678
+  type: 'test'
+  ...
+# Subtest: short tab return restores the current expression without replaying a stale reaction
+ok 406 - short tab return restores the current expression without replaying a stale reaction
+  ---
+  duration_ms: 18.852172
+  type: 'test'
+  ...
+# Subtest: real old saves: the manifest lists one fixture per era, each written by that era's own code
+ok 407 - real old saves: the manifest lists one fixture per era, each written by that era's own code
+  ---
+  duration_ms: 3.516216
+  type: 'test'
+  ...
+# Subtest: real old save pre-v3.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+ok 408 - real old save pre-v3.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+  ---
+  duration_ms: 162.475996
+  type: 'test'
+  ...
+# Subtest: real old save v3.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+ok 409 - real old save v3.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+  ---
+  duration_ms: 45.215181
+  type: 'test'
+  ...
+# Subtest: real old save v4-pre-master.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+ok 410 - real old save v4-pre-master.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+  ---
+  duration_ms: 40.879222
+  type: 'test'
+  ...
+# Subtest: real old save v5-pre-items-v2.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+ok 411 - real old save v5-pre-items-v2.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+  ---
+  duration_ms: 40.297969
+  type: 'test'
+  ...
+# Subtest: real old save sticker-points-meguru-p1.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+ok 412 - real old save sticker-points-meguru-p1.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+  ---
+  duration_ms: 34.513008
+  type: 'test'
+  ...
+# Subtest: real old save meguru-p2.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+ok 413 - real old save meguru-p2.json: loads without errors, nothing decreases, RH-2 counts, load→save→load is idempotent
+  ---
+  duration_ms: 35.805445
+  type: 'test'
+  ...
+# Subtest: legacy species keep their pre-master names (not ???) on the profile and in past lives; the save keeps the raw line
+ok 414 - legacy species keep their pre-master names (not ???) on the profile and in past lives; the save keeps the raw line
+  ---
+  duration_ms: 26.983854
+  type: 'test'
+  ...
+# Subtest: sticker page background: an unavailable value is shown as home but never written back, and does not count as a change
+ok 415 - sticker page background: an unavailable value is shown as home but never written back, and does not count as a change
+  ---
+  duration_ms: 29.033407
+  type: 'test'
+  ...
+# Subtest: past lives and life-log fields from a save are escaped before innerHTML
+ok 416 - past lives and life-log fields from a save are escaped before innerHTML
+  ---
+  duration_ms: 18.901835
+  type: 'test'
+  ...
+# Subtest: snapshots: the list is not re-parsed while storage is unchanged, and another tab's write is picked up
+ok 417 - snapshots: the list is not re-parsed while storage is unchanged, and another tab's write is picked up
+  ---
+  duration_ms: 27.879696
+  type: 'test'
+  ...
+# [naotocchi] region:findRegion Error: unknown region id "false" (findRegion)
+#     at resolveRegionId (evalmachine.<anonymous>:32423:17)
+#     at findRegion (evalmachine.<anonymous>:32408:17)
+#     at applyRegion (evalmachine.<anonymous>:35634:20)
+#     at render (evalmachine.<anonymous>:35752:20)
+#     at evalmachine.<anonymous>:43092:3
+#     at evalmachine.<anonymous>:43289:3
+#     at Script.runInContext (node:vm:149:12)
+#     at Object.runInContext (node:vm:301:6)
+#     at createHarness (/workspace/scratch/8450be5caff5/repo/tests/helpers/runtime-harness.cjs:333:6)
+#     at harness (/workspace/scratch/8450be5caff5/repo/tests/helpers/runtime-harness.cjs:95:10)
+# Subtest: meguru records are saved once, outside the frame (microtask), with the same bridge signatures
+ok 418 - meguru records are saved once, outside the frame (microtask), with the same bridge signatures
+  ---
+  duration_ms: 20.830169
+  type: 'test'
+  ...
+# Subtest: broken save (boolean as string): boots, stays sane, and saves
+ok 419 - broken save (boolean as string): boots, stays sane, and saves
+  ---
+  duration_ms: 16.012754
+  type: 'test'
+  ...
+# Subtest: broken save (number as string): boots, stays sane, and saves
+ok 420 - broken save (number as string): boots, stays sane, and saves
+  ---
+  duration_ms: 17.001423
+  type: 'test'
+  ...
+# Subtest: broken save (duplicate ids): boots, stays sane, and saves
+ok 421 - broken save (duplicate ids): boots, stays sane, and saves
+  ---
+  duration_ms: 17.368484
+  type: 'test'
+  ...
+# Subtest: broken save (unknown and future ids): boots, stays sane, and saves
+ok 422 - broken save (unknown and future ids): boots, stays sane, and saves
+  ---
+  duration_ms: 16.993852
+  type: 'test'
+  ...
+# Subtest: broken save (missing keys): boots, stays sane, and saves
+ok 423 - broken save (missing keys): boots, stays sane, and saves
+  ---
+  duration_ms: 16.6328
+  type: 'test'
+  ...
+# Subtest: broken save (partner as string): boots, stays sane, and saves
+ok 424 - broken save (partner as string): boots, stays sane, and saves
+  ---
+  duration_ms: 37.55201
+  type: 'test'
+  ...
+# Subtest: broken save (transformOptions as string): boots, stays sane, and saves
+ok 425 - broken save (transformOptions as string): boots, stays sane, and saves
+  ---
+  duration_ms: 29.024434
+  type: 'test'
+  ...
+# Subtest: broken save (unknown stage): boots, stays sane, and saves
+ok 426 - broken save (unknown stage): boots, stays sane, and saves
+  ---
+  duration_ms: 14.799766
+  type: 'test'
+  ...
+# Subtest: broken save (huge numbers): boots, stays sane, and saves
+ok 427 - broken save (huge numbers): boots, stays sane, and saves
+  ---
+  duration_ms: 16.36901
+  type: 'test'
+  ...
+# Subtest: broken save (__proto__ keys): boots, stays sane, and saves
+ok 428 - broken save (__proto__ keys): boots, stays sane, and saves
+  ---
+  duration_ms: 16.27407
+  type: 'test'
+  ...
+# Subtest: broken save (truncated JSON): boots without replacing the unreadable primary
+ok 429 - broken save (truncated JSON): boots without replacing the unreadable primary
+  ---
+  duration_ms: 15.479668
+  type: 'test'
+  ...
+# Subtest: fuzz: 200 seeded mutations of real old saves all boot and stay sane
+ok 430 - fuzz: 200 seeded mutations of real old saves all boot and stay sane
+  ---
+  duration_ms: 4144.189774
+  type: 'test'
+  ...
+1..430
+# tests 430
+# suites 0
+# pass 430
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 237109.88807

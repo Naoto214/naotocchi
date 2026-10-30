@@ -1,0 +1,21 @@
+test_chapter_runtime_ships_without_trial_pages (test_naopoyo_publication.NaopoyoPublicationTests.test_chapter_runtime_ships_without_trial_pages) ... ok
+test_current_and_legacy_save_dependencies_ship (test_naopoyo_publication.NaopoyoPublicationTests.test_current_and_legacy_save_dependencies_ship) ... ok
+test_legacy_runtime_is_not_published_but_sources_are_retained (test_naopoyo_publication.NaopoyoPublicationTests.test_legacy_runtime_is_not_published_but_sources_are_retained) ... ok
+test_no_save_migration_or_legacy_reset_is_introduced (test_naopoyo_publication.NaopoyoPublicationTests.test_no_save_migration_or_legacy_reset_is_introduced) ... ok
+test_public_entry_has_one_official_destination (test_naopoyo_publication.NaopoyoPublicationTests.test_public_entry_has_one_official_destination) ... ok
+test_budget_and_stale_destination_stop_without_deleting_data (test_package.PackageTests.test_budget_and_stale_destination_stop_without_deleting_data) ... ok
+test_changed_or_new_runtime_source_requires_dependency_review (test_package.PackageTests.test_changed_or_new_runtime_source_requires_dependency_review) ... ok
+test_character_specs_asset_urls_are_document_root_relative (test_package.PackageTests.test_character_specs_asset_urls_are_document_root_relative) ... ok
+test_dynamic_contract_detects_new_sample_not_allowlisted (test_package.PackageTests.test_dynamic_contract_detects_new_sample_not_allowlisted) ... ok
+test_external_fragment_data_and_query_links_are_not_local_files (test_package.PackageTests.test_external_fragment_data_and_query_links_are_not_local_files) ... ok
+test_import_named_controls_are_not_module_imports (test_package.PackageTests.test_import_named_controls_are_not_module_imports) ... ok
+test_missing_import_or_asset_stops_publication (test_package.PackageTests.test_missing_import_or_asset_stops_publication) ... ok
+test_new_referenced_image_must_be_reviewed_into_allowlist (test_package.PackageTests.test_new_referenced_image_must_be_reviewed_into_allowlist) ... ok
+test_only_exact_allowlist_is_copied_byte_identically (test_package.PackageTests.test_only_exact_allowlist_is_copied_byte_identically) ... ok
+test_path_escape_absolute_duplicate_and_symlink_are_rejected (test_package.PackageTests.test_path_escape_absolute_duplicate_and_symlink_are_rejected) ... ok
+test_sibling_output_path_is_normalized (test_package.PackageTests.test_sibling_output_path_is_normalized) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.050s
+
+OK

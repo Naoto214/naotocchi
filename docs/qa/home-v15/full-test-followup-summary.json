@@ -1,0 +1,9 @@
+{
+  "command": "All commands in package.json scripts.test; node --test replaced with node --test --test-concurrency=4",
+  "exit_code": 0,
+  "tests": 3634,
+  "pass": 3634,
+  "fail": 0,
+  "log_sha256": "52b444d2f814e0e121e34cf07c1d78e0e6f1634025ec1bc064da44c1fbd6883c",
+  "scope": "Started at 1fc96db7 before follow-up fixes; final code 2ec45ab8 separately verified with 19 focused tests and browser checks. Not a fresh whole-suite run on final SHA."
+}

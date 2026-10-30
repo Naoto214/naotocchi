@@ -1,0 +1,58 @@
+✔ index.html asset references exist and carry cache tokens (2.217399ms)
+✔ the bump tool rewrites only cache tokens (0.297148ms)
+✔ landmarks use the real Meguru profile and stage bounds (122.421127ms)
+✔ interrupt before a terrain scene exists leaves the legacy poop row untouched (2.609647ms)
+✔ leaving terrain preserves legacy poop visibility through interruption and permits reentry (3.039832ms)
+✔ tap selects, release after drag sets destination without teleport (1.319014ms)
+✔ cancel and lost capture never dispatch a movement (0.835922ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.563511ms)
+✔ Pilot exit restores original actor styles and input ownership (0.352379ms)
+✔ departed actor cannot receive stale drag release (0.457885ms)
+✔ leaving a paused Pilot removes all animation pause state (0.438046ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (7.282987ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.70512ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (0.812998ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.353611ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.469292ms)
+✔ overview changes presentation mode and preserves all actors (0.53638ms)
+✔ resizing an actor around its unchanged foot repositions the terrain mask (6.612999ms)
+✔ stationary sleep subtree replacement refreshes head shift for each actor role and clears on wake (1.150025ms)
+✔ Home choice DOM input consumes exactly once and presents the existing reply/reaction (180.609486ms)
+✔ timed-out and scene-hidden choices cannot replay; non-Home choices keep native bubbling (27.85981ms)
+✔ a detached choice cannot answer a later question, even when its index is valid (24.782514ms)
+✔ Home selected pet uses its official current stage name (29.344469ms)
+✔ sleep action label, tooltip and presentation state follow sleep/wake (24.073689ms)
+✔ screenshot exchange opens a compact Home popup and shows its existing narrative exactly once (55.255677ms)
+✔ Home exchange later rejects its stale callback and keeps the original later effects (22.219365ms)
+✔ age choices reuse Home presentation with unchanged effects; non-Home remains modal (43.654695ms)
+✔ Home choice keeps fixed cast and care presentation across renders while gameplay stays paused (41.013742ms)
+✔ central household and lower seats at 288 (113.058328ms)
+✔ central household and lower seats at 343 (114.363993ms)
+✔ central household and lower seats at 358 (136.390244ms)
+✔ central household and lower seats at 398 (249.841247ms)
+✔ shared role bounds permit ground/drag moves into lower strip and no UI overflow (11.718214ms)
+✔ facing belongs to image children, not the expression SVG wrapper (5.82058ms)
+✔ speaker overlays remain within the stage including choices at each edge (0.656148ms)
+✔ poop seats on unoccupied safe terrain near the protagonist, without save coordinates (5.308566ms)
+✔ short stages return the actual choices cap and keep result narration sized (0.466367ms)
+✔ initial terrain centering respects safe ground band without recentering manual actors (1.086491ms)
+(node:48) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/1459ad0b478c/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/1459ad0b478c/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ sleep emission reflects the approved per-stage small-Z center without changing expression artwork (5.715005ms)
+✔ routine care summary preserves numeric canonical feedback and important costs (0.876832ms)
+✔ small measured bubble dimensions survive edge clamping for each phone width (0.585693ms)
+✔ terrain dialogue measures intrinsic size and removes the 55px minimum (6.11878ms)
+✔ important story reward text remains intact and numeric state stays unchanged (193.091953ms)
+✔ ambient story hides only trailing routine deltas while preserving authored narration and rewards (7.102295ms)
+✔ result narration has independent width before measurement and mixed tone keeps original signs (1905.288479ms)
+✔ short dialogue tail is local to its centered bubble beside result narration (0.422643ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 46
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2341.488408

@@ -1,0 +1,39 @@
+Started: 2026-10-24T03:19:28.429663+00:00
+Command: node --test --test-concurrency=2 tests/social-expression-integration-test.cjs tests/relationship-free-life-test.cjs tests/relationship-free-life-runtime-test.cjs
+
+✔ relationships are independent residents, not automatic followers; current IDs survive missing lifetime records (236.733426ms)
+✔ same actor voluntarily accompanies, expires, returns to life without modifying relationships (205.833428ms)
+✔ party cap, distant rejection, region departure and semantic events (473.636331ms)
+✔ Home has no permanent surrounding cast; a finite visit is visible and the relationship survives departure (37.218198ms)
+✔ manual activity controls permit choosing walk/date/adventure and ending without a forced dialog (91.734967ms)
+✔ hidden time does not advance Home encounter clock or trigger a visit on resume (31.629133ms)
+✔ responding to an invitation selects its actor even when another resident becomes nearest (124.470944ms)
+✔ Home relationship idle initiatives consume the common budget (31.035136ms)
+✔ relationship removal ends active accompaniment and reload starts free (92.965673ms)
+✔ explicit destination ends companionship, incidental places do not (55.888092ms)
+✔ session module exists (1.149616ms)
+✔ shared cooldown, rolling caps and random encounter interval (0.470634ms)
+✔ invitations are scarce and do not accumulate during inactivity (0.227535ms)
+✔ event subscribers are isolated, removable and payloads immutable (0.364587ms)
+✔ Home visits are finite, one at a time, and preserve relation input (0.50151ms)
+✔ listeners added during emission run only on the next emission (0.216739ms)
+✔ partner visits remain possible in a crowded relationship roster (4.484326ms)
+(node:150) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ real session events target the player, expire to current relationship and preserve AI pose (3.770382ms)
+✔ actual date start and goodbye reach presentation without losing actor identity (183.5677ms)
+✔ presenter turns body and head only as presentation and reduced motion suppresses it (277.319872ms)
+✔ Home visit starts positive and interruption clears only its social overlay (43.909891ms)
+✔ explicit conversation publishes one semantic target and repeated annoyance does not become positive (78.120036ms)
+✔ attention ends and missing targets cannot retain gaze; suspension clears cues (0.398297ms)
+✔ conversation while accompanying retriggers after initial cue and preserves repeat-talk dislike (89.825951ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1569.424076

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "home",
+    "source": "/workspace/scratch/c426c8eeb927/generated_images/exec-8185fe23-ee20-4f01-8a7f-eb08854faf14.png",
+    "tool": "built-in imagegen",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bytes": 599190,
+    "sha256": "98db9d8474c0d9ab05a3d5363d12d3b8b554497833f6e28449123586584345fc"
+  },
+  {
+    "id": "forest",
+    "source": "/workspace/scratch/c426c8eeb927/generated_images/exec-1596947f-a69a-462d-822b-4e31515702e0.png",
+    "tool": "built-in imagegen",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bytes": 684988,
+    "sha256": "4db508e82667df082dd10674c7bbe127828ba7bcadc54074020b5222f8582773"
+  },
+  {
+    "id": "water",
+    "source": "/workspace/scratch/c426c8eeb927/generated_images/exec-75718936-81f4-496a-bb80-9be2aaeb6f46.png",
+    "tool": "built-in imagegen",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bytes": 642358,
+    "sha256": "002aac223ab40906a9dffb31fac5c9f0020252397388c07b9a9965bad9038430"
+  },
+  {
+    "id": "city",
+    "source": "/workspace/scratch/c426c8eeb927/generated_images/exec-d3271180-104d-4e51-bfef-45e7f84829d8.png",
+    "tool": "built-in imagegen",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bytes": 578424,
+    "sha256": "38d8e22240761f5d20a6845928b3f81392b47007d6b55437d0d26138129d1372"
+  }
+]

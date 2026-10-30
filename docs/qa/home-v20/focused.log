@@ -1,0 +1,81 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (67.384258ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (33.324653ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (146.129408ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.648878ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (50.241852ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (171.640817ms)
+✔ landmarks use the real Meguru profile and stage bounds (141.342224ms)
+✔ interrupt before a terrain scene exists leaves the legacy poop row untouched (3.866953ms)
+✔ leaving terrain preserves legacy poop visibility through interruption and permits reentry (4.172684ms)
+✔ tap selects, release after drag sets destination without teleport (1.806576ms)
+✔ cancel and lost capture never dispatch a movement (0.98821ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.78889ms)
+✔ Pilot exit restores original actor styles and input ownership (0.549208ms)
+✔ departed actor cannot receive stale drag release (0.571001ms)
+✔ leaving a paused Pilot removes all animation pause state (0.661628ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (7.025117ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.841409ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (2.607103ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.453745ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.688879ms)
+✔ overview changes presentation mode and preserves all actors (3.356102ms)
+✔ resizing an actor around its unchanged foot repositions the terrain mask (5.585335ms)
+✔ stationary sleep subtree replacement refreshes head shift for each actor role and clears on wake (1.444058ms)
+✔ only three official Pilot regions (1.263756ms)
+✔ movement is gradual and clamps extreme commands inside safe ground (2.291276ms)
+✔ roster sync never creates absent actors or mutates input state (3.584988ms)
+✔ blocked care interrupts destination; no delayed resume or command (0.701378ms)
+✔ reduced motion disables idle travel but intentional movement works (2.297626ms)
+✔ swept movement cannot pass through another actor (2.550477ms)
+✔ resize and region switch reset destinations within safe bounds (0.623951ms)
+✔ events are frozen context only, rate limited and no automatic speech (0.211409ms)
+✔ invalid inputs and absent actors are ignored (0.187402ms)
+✔ rain autonomy prefers tagged shelter and night has slower activity (0.62307ms)
+✔ an arriving visitor cannot trap an already moved pet (2.414562ms)
+✔ movement reserves asymmetric attachment bounds (0.435087ms)
+✔ frequent presentation sync does not starve life; actions diversify and stay ephemeral (7.064802ms)
+✔ repeated busy updates yield once, then manual and autonomous activity resume (0.995522ms)
+✔ held pointer keeps only the selected actor from choosing a new autonomous action (0.315346ms)
+(node:22) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/home-v20/source/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/home-v20/source/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home removes dedicated plaza pads and rebuilds canonical collision grid (3637.750327ms)
+✔ terrain navigation routes around a solid, rejects water and cannot cut corners (5.714139ms)
+✔ real terrain projection roundtrips and water/road remain unavailable (3293.502599ms)
+✔ model follows routed waypoints and cancels the entire path on care (2.283743ms)
+✔ occlusion uses actual projected triangles only in front of the illustration (1.832843ms)
+✔ UI reflow preserves a settled actor world position instead of recentering (1.548505ms)
+✔ all phone widths expose safe terrain beyond former foreground pad and reachable solids (14445.527896ms)
+(node:28) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/home-v20/source/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/home-v20/source/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v19 defines all thirteen destinations but only three approved pilot compositions (3.496053ms)
+✔ v19 compositions reuse landmarks with independent source objects and bounded cost (3555.75151ms)
+✔ v19 camera projection roundtrips and retains safe foreground on all phone widths (14209.574221ms)
+✔ v19 visual environmental gaze reuses idle motion and respects manual/reduced motion (4.211667ms)
+✔ v19 waterwheel pivot preserves radius and city lighting only selects official glass (1566.757405ms)
+✔ v19 every environmental approach survives real projection and collision filtering (3403.667512ms)
+✔ v19 environmental gaze ends with the next unrelated idle activity (1.158957ms)
+✔ v19 turned waterwheel collision follows its visible face (510.536835ms)
+(node:29) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/home-v20/source/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/home-v20/source/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ regional habitat seats span real world depth and are shared with navigation (3693.49816ms)
+✔ river is diagonal through near terrain; city street reaches the foreground (1873.905559ms)
+✔ terrain seating occurs when navigation finishes loading, without reseating an established actor (2.171271ms)
+✔ diagonal bridge stretching preserves each formal part transverse offset (1130.811ms)
+✔ crowded resize keeps world depth instead of restoring the legacy horizontal layout (0.819455ms)
+✔ routes avoid resident and occlusion predicates along the whole path, not only destination (2.539859ms)
+✔ crowded fallback overlap can escape without worsening separation (1.438418ms)
+✔ finding a nearest safe seat does not build unused path edges (0.358991ms)
+ℹ tests 61
+ℹ suites 0
+ℹ pass 61
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23560.482065

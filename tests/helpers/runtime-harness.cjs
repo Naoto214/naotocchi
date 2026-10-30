@@ -94,7 +94,7 @@ function environmentModule(nowOf, environment, hostEnvironmentClock) {
 function harness(options = {}) {
   return createHarness(options.deterministic ? { ...DETERMINISTIC, ...options } : options);
 }
-function createHarness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000, pinDate = false, environment = DEFAULT_ENVIRONMENT, hostEnvironmentClock = false, seed, strictRegions = true} = {}) {
+function createHarness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, homeDiorama = false, productionHome = false, clockNow = 1000, pinDate = false, environment = DEFAULT_ENVIRONMENT, hostEnvironmentClock = false, seed, strictRegions = true} = {}) {
   let now = clockNow, serial = 0;
   const rng = seed === undefined ? null : seededRandom(seed);
   const timers = new Map(), elements = new Map();
@@ -218,6 +218,8 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     NaotocchiEnvironment: environmentModule(() => now, environment, hostEnvironmentClock),
     NaotocchiStrictRegions: strictRegions,
     NaotocchiLocalScenery: require('../../local-scenery.js'),
+    NaotocchiHomeDioramaModel: homeDiorama ? require(productionHome ? '../../home-production-model.js' : '../../home-diorama-model.js') : undefined,
+    NaotocchiHomeDiorama: homeDiorama ? require(productionHome ? '../../home-production-diorama.js' : '../../home-diorama.js') : undefined,
     NaotocchiWorldScene: worldScene ? require('../../world-scene.js') : undefined,
     NaotocchiCareStatus: require('../../care-status.js'),
     NaotocchiEmotionState: require('../../emotion-state.js'),
@@ -251,6 +253,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
       genreOf:minigameGenreId, INDIVIDUALITY, individualGameResult, individualVisit, individualMeeting, individualScenery, chooseIndividualityEvent, chooseIndividualExchange, showIndividualityEvent, closeIndividualityDialog, maybeIndividualExchange,
       setPresentCastFixture: () => {homePresentCompanions=()=>state.companions;homePresentPartner=()=>state.partner;homeInitiative=()=>true;},
       relationshipVisual,
+      homeDiorama:()=>homeDiorama,dioramaActors,homeDioramaBlocked,renderHomeDiorama,
       homeVisitors: () => ({companions:homePresentCompanions(),partner:homePresentPartner()}),
       getMessage: () => message,
       crownAchievementWeight: typeof crownAchievementWeight === 'function' ? crownAchievementWeight : () => 1,

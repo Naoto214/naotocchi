@@ -1,0 +1,27 @@
+✔ landmarks use the real Meguru profile and stage bounds (109.361729ms)
+✔ tap selects, release after drag sets destination without teleport (3.131505ms)
+✔ cancel and lost capture never dispatch a movement (0.627318ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.643253ms)
+✔ Pilot exit restores original actor styles and input ownership (0.324225ms)
+✔ departed actor cannot receive stale drag release (0.403964ms)
+✔ leaving a paused Pilot removes all animation pause state (0.423623ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (4.081986ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.673087ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native artwork facing produces correct left and right body scales across expressions (1.500475ms)
+✔ presentation scaling preserves all cast ratios and attachment offsets without modifying source (14.155628ms)
+✔ river width is visible and swimming geometry remains submerged inside shared stream (731.28335ms)
+✔ body-size separation prevents one large actor hiding another on adjacent depth rows (1.502449ms)
+✔ fish render inside scene below transparent water, pooled geometry never grows (6.41134ms)
+✔ right-facing unicorn and eagle are not mirrored on a rightward walk (0.294332ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 921.514294

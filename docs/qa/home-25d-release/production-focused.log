@@ -1,0 +1,13 @@
+✔ index.html asset references exist and carry cache tokens (3.039338ms)
+✔ the bump tool rewrites only cache tokens (0.347894ms)
+✔ production entry activates approved art and egg presentation without preview save keys (5.461246ms)
+✔ all thirteen default scenes use approved source images and valid navigation (1.727261ms)
+✔ production distribution retains every existing main file and includes only approved home art (27.287931ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 157.906979

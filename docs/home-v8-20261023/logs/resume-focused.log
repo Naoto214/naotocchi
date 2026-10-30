@@ -1,0 +1,28 @@
+✔ landmarks use the real Meguru profile and stage bounds (97.151055ms)
+✔ tap selects, release after drag sets destination without teleport (3.505751ms)
+✔ cancel and lost capture never dispatch a movement (0.660348ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.643792ms)
+✔ Pilot exit restores original actor styles and input ownership (0.358456ms)
+✔ departed actor cannot receive stale drag release (0.364004ms)
+✔ leaving a paused Pilot removes all animation pause state (0.413968ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (5.646071ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.659847ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (0.933466ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.450643ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.563623ms)
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/74ab9ab340a5/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/74ab9ab340a5/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ guide only completes after successful actor drag; separate namespace, replay and denied storage (0.988628ms)
+✔ city has connected pedestrian paving, separate curbs and traffic, no foreground asphalt spur (1264.909733ms)
+✔ all 26 registered companions and a partner still visit one at a time; formal maximum is 2 (25.547855ms)
+✔ runtime attendance with every registered companion never truncates relationships or renders more than one visitor (315.805407ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1716.345119

@@ -153,3 +153,9 @@ test('temporary pupa appearance uses rigid personality without changing pet iden
  assert.ok(h.get('petSprite').animations.at(-1).frames.every(f=>/scale\(1\)/.test(f.transform)));
  assert.equal(s.speciesLine,'cat');assert.equal(JSON.stringify(s.itemLife.temporaryForm),before);
 });
+test('diorama gestures reuse personality motion but cannot interrupt active care',()=>{
+ const {c,actors}=rig();assert.equal(typeof c.gesture,'function');
+ assert.ok(c.gesture({kind:'companion',id:'c0'},'curious')>0);
+ c.clear();c.speak({event:'feed',text:'おいしい',speaker:{kind:'pet'},primaryBeat:true});
+ const before=actors[0].node.animations.length;assert.equal(c.gesture({kind:'pet'},'look'),0);assert.equal(actors[0].node.animations.length,before);
+});

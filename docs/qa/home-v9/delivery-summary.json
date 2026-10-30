@@ -1,0 +1,9 @@
+{
+  "total": 4304,
+  "matched": 4304,
+  "mismatches": 0,
+  "method": "Authenticated HTTP GET of every deployed file; exact SHA256 against the archived Sites source",
+  "ownerAccess": "1 owner, 0 groups, 0 external visitors; anonymous HTTP403 and browser sign-in gate",
+  "implementationGitHub": "922a24be41f36ad2f2cea526ef2bf22735a92138",
+  "siteSource": "22dab24840fa39f557c180d12a3f2b5167e5c4e4"
+}

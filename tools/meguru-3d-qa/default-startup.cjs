@@ -17,7 +17,12 @@ async function run(out){
    if(mode==='module-error')return route.abort();
    if(mode==='timeout'||mode==='cancel'||mode==='cold')await held;
    const response=await route.fetch();let body=await response.text();
-   if(mode==='constructor')body=body.replace('renderer = new THREE.WebGLRenderer',"throw new Error('injected constructor'); renderer = new THREE.WebGLRenderer");
+   if(mode==='constructor'){
+    const anchor='  renderer = o.home &&';
+    assert.equal(body.split(anchor).length,2,'constructor fault anchor must match exactly once');
+    // Fail only the Meguru initialization under test, after its canvas is attached.
+    body=body.replace(anchor,"  if (!o.home) throw new Error('injected constructor');\n"+anchor);
+   }
    if(mode==='shader')body=body.replace('renderer.compile(scene, camera);', "scene.traverse(o=>{if(o.material)o.material.onBeforeCompile=s=>{s.fragmentShader='INVALID_GLSL';};}); renderer.compile(scene, camera);");
    if(mode==='draw')body=body.replace('    renderer.render(scene, camera);',"    if(globalThis.__fault) throw new Error('injected draw'); renderer.render(scene, camera);");
    if(mode==='resize')body=body.replace('renderer.setSize(W, H, false); place();',"if(globalThis.__fault) throw new Error('injected resize'); renderer.setSize(W, H, false); place();");
@@ -28,7 +33,7 @@ async function run(out){
  }
  async function enter(p){await p.locator('#travelBtn').click();await p.locator('#meguruEnterBtn').click();}
  async function ready(p,three){await p.waitForFunction(want=>{const r=globalThis.__meguruRun;return !!r?.running&&(want?!!r.renderer.is3D:!r.renderer.is3D);},three,{timeout:60000});}
- async function cleanup(p){await p.locator('#mgrHome').click();await p.waitForFunction(()=>!globalThis.__meguruRun);assert.equal(await p.locator('.meguru-3d-canvas').count(),0);}
+ async function cleanup(p){await p.locator('#mgrHome').click();await p.waitForFunction(()=>!globalThis.__meguruRun);assert.equal(await p.locator('#meguruOverlay .meguru-3d-canvas').count(),0);}
  async function record(name,fn){try{const detail=await fn();report.checks.push({name,pass:true,detail});console.log('PASS '+name);}catch(e){report.checks.push({name,pass:false,error:String(e.stack||e)});console.error('FAIL '+name+': '+e.message);}}
  try{
   for(const mode of ['cold','cancel','timeout','module-error','no-webgl','constructor','shader','draw','resize','context-loss'])await record(mode,async()=>{
@@ -64,7 +69,7 @@ async function run(out){
       if(mode==='draw')r.renderer.draw(r.sim.view(),performance.now());
       if(mode==='resize')r.renderer.resize({W:700,H:390});
       if(mode==='context-loss'){
-       const canvas=document.querySelector('.meguru-3d-canvas');
+       const canvas=document.querySelector('#meguruOverlay .meguru-3d-canvas');
        // Real browser WEBGL_lose_context, with event-boundary snapshots around production listener.
        canvas.addEventListener('webglcontextlost',()=>{globalThis.__contextBefore=snap();},{capture:true});
        canvas.addEventListener('webglcontextlost',()=>{globalThis.__contextUnchanged=__contextBefore===snap();globalThis.__contextAfter=true;});r.renderer.loseContext();
@@ -76,11 +81,11 @@ async function run(out){
      const same=await p.evaluate(()=>{const b=__beforeFailure,r=__meguruRun;return b.r===r&&b.sim===r.sim&&b.world===r.world&&b.party===r.party&&b.player===r.sim.player&&b.obstacles===r.world.obstacles;});
      assert.equal(same,true,'same simulation, world, player, party and collision array');assert.equal(proof.synchronousSaveAndActorsUnchanged,true);
     }
-    assert.equal(await p.locator('.meguru-3d-canvas').count(),fault||proof?0:1,'no stale canvas');
+    assert.equal(await p.locator('#meguruOverlay .meguru-3d-canvas').count(),fault||proof?0:1,'no stale canvas');
     const before=await p.evaluate(()=>__meguruBridge.getState().lifetime.meguru.visits);
     await p.screenshot({path:path.join(out,mode+'-result.png')});await cleanup(p);await enter(p);await ready(p,!(fault||proof));
     const after=await p.evaluate(()=>__meguruBridge.getState().lifetime.meguru.visits);assert.equal(after,before+1,'one start per visit');
-    assert.equal(await p.locator('.meguru-3d-canvas').count(),fault||proof?0:1,'session failure does not retry');await cleanup(p);
+    assert.equal(await p.locator('#meguruOverlay .meguru-3d-canvas').count(),fault||proof?0:1,'session failure does not retry');await cleanup(p);
     return {sameWorldProof:proof||null,visitsDelta:after-before,physicalPerformance:'NOT_MEASURED'};
    }finally{release();await p.unrouteAll({behavior:'ignoreErrors'});await ctx.close();}
   });

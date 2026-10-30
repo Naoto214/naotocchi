@@ -169,7 +169,8 @@ test('only pet semantic speech starts a temporary face', () => {
   assert.deepEqual(face(h),['sulky',SULKY]);
   h.api.setSpeechBubble('いっしょにあそぼう',{kind:'pet',label:'ねこ'},{event:'play_with'});
   assert.deepEqual(face(h),['happy',HAPPY]);
-  assert.doesNotMatch(h.get('speechSpeaker').innerHTML,/expressions\/cat/);
+  assert.ok(h.get('speechSpeaker').innerHTML.includes(HAPPY), 'v17 portrait uses this beat’s official happy expression');
+  assert.equal(h.get('speechSpeaker').dataset.label,'ねこ');
 });
 
 test('critical state interrupts happy immediately and expiry cannot restore stale state', () => {

@@ -78,22 +78,27 @@
   setTimeout(function () { if (!booted()) show(); }, 6000);
 })();
 </script>
-  <link rel="stylesheet" href="style.css?v=20261025-73ffede8">
+  <link rel="stylesheet" href="style.css?v=20261030-73ffede8">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20261029-192894d5">
-  <link rel="stylesheet" href="design.css?v=20260929-ae1c4ad1">
-  <link rel="stylesheet" href="egg-hatching.css?v=20260929-8449f9f9">
-  <link rel="stylesheet" href="care-status.css?v=20260929-6a3b29a4">
-  <link rel="stylesheet" href="ui-illustrations.css?v=20260929-0b4af9c3">
-  <link rel="stylesheet" href="world-scene.css?v=20261025-b0c2aac3">
-  <link rel="stylesheet" href="care-attention.css?v=20260929-c94a792d">
-  <link rel="stylesheet" href="pet-expression.css?v=20260929-31f071f1">
-  <link rel="stylesheet" href="home-care-colors.css?v=20260929-f78fe064">
-  <link rel="stylesheet" href="movie.css?v=20260929-8fb81468">
+  <link rel="stylesheet" href="ui.css?v=20261030-192894d5">
+  <link rel="stylesheet" href="design.css?v=20261030-ae1c4ad1">
+  <link rel="stylesheet" href="egg-hatching.css?v=20261030-8449f9f9">
+  <link rel="stylesheet" href="care-status.css?v=20261030-6a3b29a4">
+  <link rel="stylesheet" href="ui-illustrations.css?v=20261030-0b4af9c3">
+  <link rel="stylesheet" href="home-diorama.css?v=20261030-54f2618c">
+  <link rel="stylesheet" href="world-scene.css?v=20261030-b0c2aac3">
+  <link rel="stylesheet" href="care-attention.css?v=20261030-c94a792d">
+  <link rel="stylesheet" href="pet-expression.css?v=20261030-31f071f1">
+  <link rel="stylesheet" href="home-care-colors.css?v=20261030-f78fe064">
+  <link rel="stylesheet" href="movie.css?v=20261030-8fb81468">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
-  <link rel="stylesheet" href="item-memories.css?v=20260929-fb95bab5">
+  <link rel="stylesheet" href="item-memories.css?v=20261030-fb95bab5">
+<link rel="stylesheet" href="home-art.css?v=20261030-a2ed5337">
+<link rel="stylesheet" href="home-v8.css?v=20261030-4066fb12">
+<style>body[data-home-v6-egg] .world-scene{display:none}body[data-home-v6-egg] .device{position:relative;z-index:1}.home-v6-egg-world{pointer-events:none;overflow:hidden}.home-v6-egg-world img{max-width:none}body[data-home-v6-egg] #petSprite{filter:drop-shadow(0 3px 2px #36230c55)}</style>
+<script type="module" src="home-v6-egg.mjs?v=20261030-ee16dbca"></script>
 </head>
 <body>
   <div class="world-scene" id="worldScene" aria-hidden="true" hidden>
@@ -128,12 +133,12 @@
     <div class="screen-frame">
       <div class="screen surface-screen" id="screen">
         <div class="screen-normal" id="screenNormal">
+          <div class="home-information" id="homeInformation">
           <div class="status-row">
             <div class="age-status"><span id="ageLabel">ねんれい: 0さい</span><span id="sodachiLabel">そだち: 20</span></div>
             <span id="moneyLabel">💰 0</span>
           </div>
-          <div class="birthday-toast hidden" id="birthdayToast" role="status" aria-live="polite"></div>
-          <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
+
 
           <div class="sub-status-row hidden" id="subStatusRow">
             <span id="environmentLabel"></span>
@@ -146,10 +151,16 @@
           <div class="cast-heading">
             <div class="cast-names">
               <div class="cast-title-line"><div id="mainNameLabel">たまご</div><div class="stage-name-row"><span id="stageLabel">たまご</span></div></div>
-              <div id="partnerLabel"></div>
+              <button type="button" id="partnerLabel" aria-label="こいびとの詳しいデータ"></button>
             </div>
             <div class="world-care-state" id="worldCareState" role="status" aria-live="polite"></div>
             <p class="world-description" id="worldDescription"></p>
+          </div>
+          <div id="homeGestureGuide" hidden><button type="button" id="homeGuideDismissBtn" aria-label="操作案内をとじる">とじる</button></div>
+          </div>
+          <div class="home-event-slot" id="homeEventSlot">
+          <div class="birthday-toast hidden" id="birthdayToast" role="status" aria-live="polite"></div>
+          <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
           </div>
           <div class="pet-area" id="petArea">
             <div class="cast-stage" id="castStage"><div class="cast-sway" id="castSway"><div class="cast-response" id="castResponse"><div class="pet" id="pet">
@@ -164,7 +175,7 @@
             <div class="speech-slot" id="speechSlot"><div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
               <span class="speech-speaker" id="speechSpeaker"></span>
               <span class="speech-text" id="speechText" tabindex="0" aria-label="セリフ"></span>
-            </div><div class="speech-choices hidden" id="speechChoices" role="group" aria-label="こたえる"></div></div>
+            </div><div class="speech-choices hidden" id="speechChoices" role="group" aria-label="こたえる"></div><div id="homeChoiceResult" class="home-choice-result hidden" role="status" aria-live="polite"><span id="homeChoiceSpeaker" class="lane-speaker hidden"></span><span id="homeChoiceText" class="lane-text" tabindex="0"></span></div></div>
 
           </div>
 
@@ -199,7 +210,8 @@
                 <div class="bar"><div class="bar-fill devo" id="devoBar"></div></div>
                 <span class="bar-value" id="devoValue">0 / 100</span>
               </div>
-              <div class="bar-line">
+
+              <div class="bar-line" id="deathMeterItem">
                 <span class="bar-label">いのち</span>
                 <div class="bar"><div class="bar-fill death" id="deathBar"></div></div>
                 <span class="bar-value" id="deathValue">0 / 100</span>
@@ -461,6 +473,7 @@
 
         <div class="dex-overlay hidden" id="menuOverlay" aria-label="メニュー" role="dialog" aria-modal="true">
           <div class="dex-header"><span class="dex-title">メニュー</span><button type="button" class="dex-close-btn" id="menuCloseBtn" aria-label="メニューをとじる">✕</button></div>
+          <details class="home-guide-help"><summary>あそびかた · ホームのそうさ</summary><p>タップで選択・ドラッグでおさんぽ</p><p>キャラをタップすると足もとにしるしが出るよ。地面をタップするか、キャラをドラッグして行き先を教えてね。じゃれる・きゅうあい・そうじは育成ボタンから。</p><p>仲間や恋人は、ひとりずつ遊びに来るよ。</p><button type="button" id="homeGuideReplayBtn">ホームで案内を見る</button></details>
           <div class="menu-grid">
             <button type="button" id="worldBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i></span><span class="menu-label">せかい</span></span><small><span>じかん・</span><span>てんき・</span><span>きせつ</span></small></button>
             <button type="button" id="itemBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i></span><span class="menu-label">あいてむ</span></span><small><span>もちもの・</span><span>おみせ</span></small></button>
@@ -847,14 +860,14 @@
     </div>
     <div class="message" id="message" role="status" aria-live="polite" tabindex="0" aria-label="おしらせ">たまごがやってきた…</div>
     <nav class="buttons" id="careActions" aria-label="お世話とメニュー">
-      <button id="feedBtn" title="ごはん"><i class="care-icon" data-care-icon="food" aria-hidden="true"></i><span>ごはん</span></button>
       <button id="playBtn" title="あそぶ"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>あそぶ</span></button>
+      <button id="feedBtn" title="ごはん"><i class="care-icon" data-care-icon="food" aria-hidden="true"></i><span>ごはん</span></button>
       <button id="cleanBtn" title="そうじ"><i class="care-icon" data-care-icon="clean" aria-hidden="true"></i><span>そうじ</span></button>
       <button id="sleepBtn" title="ねる"><i class="care-icon" data-care-icon="sleep" aria-hidden="true"></i><span>ねる</span></button>
       <button id="medicineBtn" title="くすり"><i class="care-icon" data-care-icon="medicine" aria-hidden="true"></i><span>くすり</span></button>
       <button id="playWithBtn" title="じゃれる"><i class="care-icon" data-care-icon="play" aria-hidden="true"></i><span>じゃれる</span></button>
-      <button id="travelBtn" title="たび">🧭<span>たび</span></button>
       <button id="courtBtn" title="きゅうあい"><i class="care-icon" data-care-icon="love" aria-hidden="true"></i><span>きゅうあい</span></button>
+      <button id="travelBtn" title="たび">🧭<span>たび</span></button>
       <button id="menuBtn" title="メニュー">☰<span>メニュー</span></button>
     </nav>
     <div class="life-actions">
@@ -870,48 +883,50 @@
   <div class="season-front-fx" id="seasonFrontFx"></div>
   <div class="weather-fx" id="weatherFx"></div>
 
-  <script src="character-world-master.v1.js?v=20261002-12e308e0"></script>
-  <script src="cast-bounds.js?v=20260929-19da126a"></script>
-  <script src="cast-motion.js?v=20261002-a511d772"></script>
-  <script src="cast-layout.js?v=20260929-f833e6ed"></script>
-  <script src="local-scenery.js?v=20260929-0bea5d7b"></script>
-  <script src="world-environment.js?v=20260929-d0a39f28"></script>
-  <script src="world-scene.js?v=20260929-99152e94"></script>
-  <script src="prop-illustrations.js?v=20260929-26ae95a3"></script>
-  <script src="game-symbol-art.js?v=20260929-0f1dd37d"></script>
-  <script src="ui-symbol-art.js?v=20260929-0f1c55e4"></script>
-  <script src="illustration-catalog.js?v=20260929-f072008f"></script>
-  <script src="display-illustrations.js?v=20260929-0eb0da4a"></script>
-  <script src="canvas-illustrations.js?v=20260929-0c241de2"></script>
+  <script src="character-world-master.v1.js?v=20261030-12e308e0"></script>
+  <script src="cast-bounds.js?v=20261030-19da126a"></script>
+  <script src="cast-motion.js?v=20261030-af3b60ed"></script>
+  <script src="cast-layout.js?v=20261030-f833e6ed"></script>
+  <script src="local-scenery.js?v=20261030-0bea5d7b"></script>
+  <script src="world-environment.js?v=20261030-d0a39f28"></script>
+  <script src="world-scene.js?v=20261030-99152e94"></script>
+  <script src="prop-illustrations.js?v=20261030-26ae95a3"></script>
+  <script src="game-symbol-art.js?v=20261030-0f1dd37d"></script>
+  <script src="ui-symbol-art.js?v=20261030-0f1c55e4"></script>
+  <script src="illustration-catalog.js?v=20261030-f072008f"></script>
+  <script src="display-illustrations.js?v=20261030-0eb0da4a"></script>
+  <script src="canvas-illustrations.js?v=20261030-0c241de2"></script>
   <!-- めぐる 3D: script.js が通常起動で読み込む。URL の明示2D指定と失敗時は Canvas へ -->
-  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261016-2b3574b5"></template>
-  <script src="relationship-life.js?v=20261014-7b5221c0"></script>
-  <script src="meguru.js?v=20261016-fe7d14d5"></script>
-  <script src="quick.js?v=20261023-0ea41406"></script>
-  <script src="games.js?v=20261029-81ff89c2"></script>
-  <script src="audio.js?v=20260929-f12be965"></script>
-  <script src="care-status.js?v=20260929-f881119b"></script>
-  <script src="emotion-state.js?v=20260929-0c9ca245"></script>
-  <script src="relationship-expression.js?v=20261001-dedbb693"></script>
-  <script src="pet-expression.js?v=20260929-77a295ed"></script>
+  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=20261030-ac43b110"></template>
+  <script src="relationship-life.js?v=20261030-7b5221c0"></script>
+  <script src="meguru.js?v=20261030-fe7d14d5"></script>
+  <script src="quick.js?v=20261030-0ea41406"></script>
+  <script src="games.js?v=20261030-81ff89c2"></script>
+  <script src="audio.js?v=20261030-f12be965"></script>
+  <script src="care-status.js?v=20261030-ed2f6b53"></script>
+  <script src="emotion-state.js?v=20261030-0c9ca245"></script>
+  <script src="relationship-expression.js?v=20261030-dedbb693"></script>
+  <script src="pet-expression.js?v=20261030-77a295ed"></script>
   <!-- めぐる 住民の 表情(Home の Expression System を そのまま つかう。resolver は 複製しない) -->
-  <script src="resident-expression.js?v=20261016-6fba3749"></script>
-  <script src="expression-presentation.js?v=20261016-9b5dcd4d"></script>
-  <script src="item-memories.js?v=20260929-1636293f"></script>
-  <script src="item-system.js?v=20260929-b218da8f"></script>
-  <script src="movie-dialogue.js?v=20260929-2b99e35a"></script>
-  <script src="conversation-director.js?v=20261022-48197108"></script>
-  <script src="conversation-banter.js?v=20261023-7348be1c"></script>
-  <script src="conversation-postgame.js?v=20261023-d01bc93c"></script>
-  <script src="conversation-quick.js?v=20261023-6ead2930"></script>
-  <script src="conversation-away.js?v=20261024-c3159f69"></script>
-  <script src="life-stage-profiles.js?v=20260930-1a189f0f"></script>
-  <script src="individuality-data.js?v=20261021-b9f59243"></script>
-  <script src="individuality.js?v=20261021-fab004ae"></script>
-  <script src="minigame-reactions.js?v=20261021-a2cbe8e5"></script>
-  <script src="script.js?v=20261029-bbeb6154"></script>
-  <script src="home-touch.js?v=20260929-36be057a"></script>
-<div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
+  <script src="resident-expression.js?v=20261030-6fba3749"></script>
+  <script src="expression-presentation.js?v=20261030-9b5dcd4d"></script>
+  <script src="item-memories.js?v=20261030-1636293f"></script>
+  <script src="item-system.js?v=20261030-b218da8f"></script>
+  <script src="movie-dialogue.js?v=20261030-2b99e35a"></script>
+  <script src="conversation-director.js?v=20261030-48197108"></script>
+  <script src="conversation-banter.js?v=20261030-7348be1c"></script>
+  <script src="conversation-postgame.js?v=20261030-d01bc93c"></script>
+  <script src="conversation-quick.js?v=20261030-6ead2930"></script>
+  <script src="conversation-away.js?v=20261030-c3159f69"></script>
+  <script src="life-stage-profiles.js?v=20261030-1a189f0f"></script>
+  <script src="individuality-data.js?v=20261030-b9f59243"></script>
+  <script src="individuality.js?v=20261030-fab004ae"></script>
+  <script src="minigame-reactions.js?v=20261030-a2cbe8e5"></script>
+  <script src="home-production-model.js?v=20261030-add01090"></script>
+  <script src="home-production-diorama.js?v=20261030-58ba885d"></script>
+  <script src="script.js?v=20261030-19087f0b"></script>
+  <script src="home-touch.js?v=20261030-814949d4"></script>
+<div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><span id="individualitySpeaker" class="lane-speaker hidden"></span><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
 </body>
 </html>
 

@@ -1,0 +1,215 @@
+{
+  "runId": 40873453343,
+  "checkedAt": "2026-10-29T14:41:13.452Z",
+  "coverage": "first page only; not all 35 jobs",
+  "counts": {
+    "success": 15,
+    "failure": 10,
+    "in_progress": 5
+  },
+  "jobs": [
+    {
+      "id": 123446146115,
+      "name": "browsers (river_lake)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146356,
+      "name": "home-ab (home-interior-a)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146379,
+      "name": "home-v7 (sea, sea-b)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146424,
+      "name": "japan (forest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146438,
+      "name": "home-ab (home-interior-b)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146463,
+      "name": "home-v7 (star_stop, star_stop-original)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146469,
+      "name": "japan (river_lake)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146485,
+      "name": "home-v7 (sea, sea)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146489,
+      "name": "browsers (city)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146499,
+      "name": "home-v7 (memory_lake, lake-new)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146510,
+      "name": "japan (city)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 123446146541,
+      "name": "recovered (city)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146596,
+      "name": "browsers (forest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146601,
+      "name": "recovered (forest-no-waterfall)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146621,
+      "name": "regression",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 123446146662,
+      "name": "home-v7 (star_stop, star-new)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146668,
+      "name": "home-v7 (memory_lake, memory_lake-original)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 123446146731,
+      "name": "japan (home)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146739,
+      "name": "home-v6 (river_lake)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146764,
+      "name": "recovered (forest-waterfall)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 123446146794,
+      "name": "recovered (home-interior-a)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146804,
+      "name": "home-v6 (sea)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146814,
+      "name": "home-v6 (city)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146847,
+      "name": "home-v6 (deepsea)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146870,
+      "name": "home-v6 (jungle)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146913,
+      "name": "home-v6 (mountain)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123446146918,
+      "name": "recovered (home-garden)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 123446146958,
+      "name": "home-v6 (memory_lake)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146964,
+      "name": "home-v6 (star_stop)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 123446146969,
+      "name": "home-v6 (snow)",
+      "status": "completed",
+      "conclusion": "failure"
+    }
+  ],
+  "relevantFailures": [
+    {
+      "id": 123446146379,
+      "name": "home-v7 (sea, sea-b)",
+      "assertion": "physical ground tap moves pet",
+      "file": "tests/home-v7-browser.cjs:32",
+      "rootCause": "unconfirmed; not equivalent to rotation terrain"
+    },
+    {
+      "id": 123446146485,
+      "name": "home-v7 (sea, sea)",
+      "assertion": "physical ground tap moves pet",
+      "file": "tests/home-v7-browser.cjs:32",
+      "rootCause": "unconfirmed; not equivalent to rotation terrain"
+    },
+    {
+      "id": 123446146662,
+      "name": "home-v7 (star_stop, star-new)",
+      "assertion": "physical ground tap moves pet",
+      "file": "tests/home-v7-browser.cjs:32",
+      "rootCause": "unconfirmed; not equivalent to rotation terrain"
+    }
+  ]
+}
