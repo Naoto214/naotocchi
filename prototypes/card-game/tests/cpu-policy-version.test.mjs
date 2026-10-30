@@ -16,7 +16,8 @@ const F=JSON.parse(readFileSync(new URL('./fixtures/cpu-b1-positions.json',impor
 const STAT={power:'power',wisdom:'wisdom','パンチ':'power','キック':'power','ガード':'wisdom'};
 const cpuSave=(f,policy,policySeed)=>JSON.stringify({version:'cpu-match-1',policy,humanSeat:f.seat==='A'?'B':'A',difficulty:'intermediate',policySeed,step:0,guard:{turn:null,count:0,seen:{}},diagnostic:null,game:JSON.parse(f.save)});
 // Restore a CPU save at a position where the CPU must choose a stat, step once, return the chosen command.
-function stepOnce(raw){const s=restoreMatch(raw);assert.ok(s.cpuPending,'CPU to move');const before=JSON.parse(s.engineSave).commands.length;
+function stepOnce(raw){const s=restoreMatch(raw);s.reveal(); // the app reveals the human seat after a restore (app.mjs)
+ assert.ok(s.cpuPending,'CPU to move');const before=JSON.parse(s.engineSave).commands.length;
  assert.ok(s.stepCpu(s.projection.revision));const cmds=JSON.parse(s.engineSave).commands;assert.equal(cmds.length,before+1);return {session:s,command:JSON.parse(cmds.at(-1))};}
 test('方針の版：現在は heuristic-2、既知の版は heuristic-1 と heuristic-2',()=>{assert.equal(POLICY_VERSION,'heuristic-2');assert.deepEqual([...POLICY_VERSIONS],['heuristic-1','heuristic-2']);});
 test('新しいCPU対戦は heuristic-2 で保存される',()=>{const s=new CpuSession({humanSeat:'A',difficulty:'intermediate',policySeed:3});s.start(e.createGame(5));assert.equal(JSON.parse(s.save()).policy,'heuristic-2');});

@@ -1,5 +1,5 @@
 import {HotseatSession} from './ui-session.mjs';
-import {chooseCpuAction,DIFFICULTIES,POLICY_VERSION} from './cpu-policy.mjs';
+import {chooseCpuAction,DIFFICULTIES,POLICY_VERSION,POLICY_VERSIONS} from './cpu-policy.mjs';
 import {CPU_DECK_IDS,CPU_DECK_MODES,cpuDeck,cpuDeckVersion} from './cpu-decks.mjs';
 const VERSION='cpu-match-1';
 // Optional CPU strategy-deck label (older saves have none). The label must match the CPU seat's actual 40 cards,
@@ -12,6 +12,8 @@ function config({humanSeat,difficulty,policySeed}){if(!['A','B'].includes(humanS
 export class CpuSession {
  #inner=new HotseatSession({autoAdvance:true});#policy;#step=0;#guard={turn:null,count:0,seen:{}};#diagnostic=null;
  mode='cpu';
+ // Policy version this match plays with: new matches use the current version, a restored match keeps its saved one.
+ policyVersion=POLICY_VERSION;
  cpuDeck=null;
  constructor({humanSeat='A',difficulty='intermediate',policySeed=1,policy=chooseCpuAction,cpuDeck=null}={}){config({humanSeat,difficulty,policySeed});this.humanSeat=humanSeat;this.cpuSeat=humanSeat==='A'?'B':'A';this.difficulty=difficulty;this.policySeed=policySeed;this.#policy=policy;this.cpuDeck=deckLabel(cpuDeck,null,this.cpuSeat);}
  get active(){return this.#inner.active;}
@@ -38,7 +40,7 @@ export class CpuSession {
    // Canonical safe observation excludes revision-dependent tickets. Never logs private CPU cards.
    const key=JSON.stringify({...o,revision:0,actions:o.actions.map(({id,...a})=>a)});
    if(this.#guard.count>=512||(this.#guard.seen[key]??0)>=3)throw Error('CPU repetition limit');
-   const decision=this.#policy(o,{difficulty:this.difficulty,seed:this.policySeed,step:this.#step});
+   const decision=this.#policy(o,{difficulty:this.difficulty,seed:this.policySeed,step:this.#step,version:this.policyVersion});
    if(!decision||!o.actions.some(a=>a.id===decision.id)||!Number.isFinite(decision.score))throw Error('Invalid CPU decision');
    const noticeBatch=this.#inner.resultSince;
    this.#inner.viewer=this.cpuSeat;
@@ -49,13 +51,13 @@ export class CpuSession {
   }catch(error){this.#diagnostic={code:'cpu-stopped',revision:o?.revision??revision,round:o?.round??null,phase:o?.phase??null,step:this.#step,reason:['CPU repetition limit','Invalid CPU decision','Unsupported CPU difficulty','CPU has no legal candidates','Non-finite CPU evaluation'].includes(error.message)?error.message:'CPU operation failed'};return false;}
   finally{this.#inner.viewer=this.humanSeat;}
  }
- save(){return JSON.stringify({version:VERSION,policy:POLICY_VERSION,humanSeat:this.humanSeat,difficulty:this.difficulty,policySeed:this.policySeed,...(this.cpuDeck?{cpuDeck:this.cpuDeck}:{}),step:this.#step,guard:this.#guard,diagnostic:this.#diagnostic,game:JSON.parse(this.#inner.save())});}
+ save(){return JSON.stringify({version:VERSION,policy:this.policyVersion,humanSeat:this.humanSeat,difficulty:this.difficulty,policySeed:this.policySeed,...(this.cpuDeck?{cpuDeck:this.cpuDeck}:{}),step:this.#step,guard:this.#guard,diagnostic:this.#diagnostic,game:JSON.parse(this.#inner.save())});}
  restore(raw){
-  const d=JSON.parse(raw);if(d.version!==VERSION||d.policy!==POLICY_VERSION)throw Error('CPU保存形式が異なります');config(d);
+  const d=JSON.parse(raw);if(d.version!==VERSION||!POLICY_VERSIONS.includes(d.policy))throw Error('CPU保存形式が異なります');config(d);
   if(!Number.isInteger(d.step)||d.step<0||d.step>(d.game?.commands?.length??0)||!d.guard||!Number.isInteger(d.guard.count)||d.guard.count<0||d.guard.count>512||!d.guard.seen||typeof d.guard.seen!=='object'||Array.isArray(d.guard.seen)||Object.keys(d.guard.seen).length>512||Object.values(d.guard.seen).some(n=>!Number.isInteger(n)||n<1||n>3)||JSON.stringify(d.guard).length>1500000||d.diagnostic!==null&&(!d.diagnostic||d.diagnostic.code!=='cpu-stopped'))throw Error('CPU継続情報が不正です');
   const label=deckLabel(d.cpuDeck,d.game,d.humanSeat==='A'?'B':'A');
   const inner=new HotseatSession({autoAdvance:true});inner.restore(JSON.stringify(d.game));
-  this.humanSeat=d.humanSeat;this.cpuSeat=d.humanSeat==='A'?'B':'A';this.difficulty=d.difficulty;this.policySeed=d.policySeed;this.cpuDeck=label;this.#inner=inner;this.#step=d.step;this.#guard=d.guard;this.#diagnostic=d.diagnostic;
+  this.humanSeat=d.humanSeat;this.cpuSeat=d.humanSeat==='A'?'B':'A';this.difficulty=d.difficulty;this.policySeed=d.policySeed;this.cpuDeck=label;this.policyVersion=d.policy;this.#inner=inner;this.#step=d.step;this.#guard=d.guard;this.#diagnostic=d.diagnostic;
  }
  clear(){this.#inner.clear();this.#diagnostic=null;this.#step=0;this.#guard={turn:null,count:0,seen:{}};}
 }
