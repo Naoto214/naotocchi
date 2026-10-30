@@ -233,8 +233,14 @@ jobs:
       - run: node tests/home-art-v9-browser.cjs
         env:
           HOME_V9_CANDIDATE: ${{ matrix.candidate }}
+      - run: node tests/home-art-v9-interactions.cjs
+        if: matrix.candidate != 'regions'
+        env:
+          HOME_V9_CANDIDATE: ${{ matrix.candidate }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: home-art-v9-${{ matrix.candidate }}
-          path: test-results/home-art-v9
+          path: |
+            test-results/home-art-v9
+            test-results/home-art-v9-interactions
