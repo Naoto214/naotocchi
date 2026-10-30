@@ -1,0 +1,1434 @@
+[
+  {
+    "mode": "B",
+    "scene": "8-8",
+    "direction": "0",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 3,
+            "level": 8,
+            "overflow": 8,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-8",
+    "direction": "1",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 3,
+            "level": 8,
+            "overflow": 8,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-8",
+    "direction": "2",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 3,
+            "y": 2,
+            "level": 8,
+            "overflow": 8,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 3,
+                "y": 2,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-8",
+    "direction": "3",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 3,
+            "y": 4,
+            "level": 8,
+            "overflow": 8,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 3,
+                "y": 4,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-8",
+    "direction": "4",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 2,
+            "level": 8,
+            "overflow": 8,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 2,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-8",
+    "direction": "5",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 4,
+            "level": 8,
+            "overflow": 8,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 4,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-8",
+    "direction": "6",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 2,
+            "level": 8,
+            "overflow": 8,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 2,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-8",
+    "direction": "7",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 4,
+            "level": 8,
+            "overflow": 8,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 4,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "4-8",
+    "direction": "0",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 3,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "4-8",
+    "direction": "1",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 3,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "4-8",
+    "direction": "2",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 3,
+            "y": 2,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 3,
+                "y": 2,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "4-8",
+    "direction": "3",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 3,
+            "y": 4,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 3,
+                "y": 4,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "4-8",
+    "direction": "4",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 2,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 2,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "4-8",
+    "direction": "5",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 4,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 4,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "4-8",
+    "direction": "6",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 2,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 2,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "4-8",
+    "direction": "7",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 4,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 4,
+                "level": 8,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-4",
+    "direction": "0",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 3,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-4",
+    "direction": "1",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 3,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 3,
+                "level": 4,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-4",
+    "direction": "2",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 3,
+            "y": 2,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 3,
+                "y": 2,
+                "level": 4,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-4",
+    "direction": "3",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 3,
+            "y": 4,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 3,
+                "y": 4,
+                "level": 4,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-4",
+    "direction": "4",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 2,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 2,
+                "level": 4,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-4",
+    "direction": "5",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 4,
+            "y": 4,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 4,
+                "y": 4,
+                "level": 4,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-4",
+    "direction": "6",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 2,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 2,
+                "level": 4,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "8-4",
+    "direction": "7",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "merge",
+            "id": "a",
+            "x": 2,
+            "y": 4,
+            "level": 8,
+            "overflow": 4,
+            "fall": false,
+            "absorbed": [],
+            "contact": {
+              "incoming": {
+                "id": "a",
+                "x": 3,
+                "y": 3,
+                "level": 8,
+                "species": "dog"
+              },
+              "target": {
+                "id": "b",
+                "x": 2,
+                "y": 4,
+                "level": 4,
+                "species": "dog"
+              },
+              "remainderId": "b",
+              "origin": {
+                "x": 3,
+                "y": 3
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "mixed",
+    "direction": "0",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 4,
+              "y": 3
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "mixed",
+    "direction": "1",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 2,
+              "y": 3
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "mixed",
+    "direction": "2",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 3,
+              "y": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "mixed",
+    "direction": "3",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 3,
+              "y": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "mixed",
+    "direction": "4",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 4,
+              "y": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "mixed",
+    "direction": "5",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 4,
+              "y": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "mixed",
+    "direction": "6",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 2,
+              "y": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "B",
+    "scene": "mixed",
+    "direction": "7",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 2,
+              "y": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "A",
+    "scene": "8-8",
+    "direction": "0",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 4,
+              "y": 3
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "A",
+    "scene": "8-8",
+    "direction": "1",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 2,
+              "y": 3
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "A",
+    "scene": "8-8",
+    "direction": "2",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 3,
+              "y": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "A",
+    "scene": "8-8",
+    "direction": "3",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 3,
+              "y": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "A",
+    "scene": "8-8",
+    "direction": "4",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 4,
+              "y": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "A",
+    "scene": "8-8",
+    "direction": "5",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 4,
+              "y": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "A",
+    "scene": "8-8",
+    "direction": "6",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 2,
+              "y": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "A",
+    "scene": "8-8",
+    "direction": "7",
+    "events": [
+      {
+        "ok": true,
+        "events": [
+          {
+            "type": "swap",
+            "id": "a",
+            "otherId": "b",
+            "from": {
+              "x": 3,
+              "y": 3
+            },
+            "to": {
+              "x": 2,
+              "y": 4
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

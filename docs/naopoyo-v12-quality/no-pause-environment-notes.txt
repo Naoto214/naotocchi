@@ -1,0 +1,61 @@
+puzzle.log
+Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ prototypes/naopoyo-chapter2/tests/example-replay.test.mjs (64.982867ms)
+✖ 14 real session pointer steps, save/undo/retry and all-rescued witness (0.808548ms)
+✖ 15 real session pointer steps, save/undo/retry and all-rescued witness (0.123306ms)
+✖ 16 real session pointer steps, save/undo/retry and all-rescued witness (0.123746ms)
+✖ 17 real session pointer steps, save/undo/retry and all-rescued witness (0.088253ms)
+✖ 18 real session pointer steps, save/undo/retry and all-rescued witness (0.143736ms)
+✖ 19 real session pointer steps, save/undo/retry and all-rescued witness (0.088844ms)
+✖ 20 real session pointer steps, save/undo/retry and all-rescued witness (0.150276ms)
+✖ shipped stage19 transient child is visible between its birth and absorption (1.227037ms)
+✖ all shipped witness split/merge/overflow/rescue/gate outcomes use exact engine results (0.594064ms)
+✖ a gravity-triggered split waits until the animated body reaches its actual spike (2.651521ms)
+✖ coincident split and later merge keep the intermediate number until the donor arrives (0.599823ms)
+Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/source-witnesses.json'
+✖ prototypes/naopoyo-chapter2/tests/v10-integration.test.mjs (75.129366ms)
+Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-rescue-design-20261021/source-manifest.json'
+✖ prototypes/naopoyo-rescue/tests/sprites.test.mjs (74.253279ms)
+Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/assets/characters/clownfish/04.png'
+✖ preview includes complete relative module graph (66.202112ms)
+ℹ tests 897
+ℹ pass 882
+ℹ fail 15
+✖ failing tests:
+✖ prototypes/naopoyo-chapter2/tests/example-replay.test.mjs (64.982867ms)
+✖ 14 real session pointer steps, save/undo/retry and all-rescued witness (0.808548ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ 15 real session pointer steps, save/undo/retry and all-rescued witness (0.123306ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ 16 real session pointer steps, save/undo/retry and all-rescued witness (0.123746ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ 17 real session pointer steps, save/undo/retry and all-rescued witness (0.088253ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ 18 real session pointer steps, save/undo/retry and all-rescued witness (0.143736ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ 19 real session pointer steps, save/undo/retry and all-rescued witness (0.088844ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ 20 real session pointer steps, save/undo/retry and all-rescued witness (0.150276ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ shipped stage19 transient child is visible between its birth and absorption (1.227037ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ all shipped witness split/merge/overflow/rescue/gate outcomes use exact engine results (0.594064ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-v10-20261028/solutions.json'
+✖ a gravity-triggered split waits until the animated body reaches its actual spike (2.651521ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-gate-v8-20261026/solutions.json'
+✖ coincident split and later merge keep the intermediate number until the donor arrives (0.599823ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/docs/naopoyo-gate-v8-20261026/solutions.json'
+✖ prototypes/naopoyo-chapter2/tests/v10-integration.test.mjs (75.129366ms)
+✖ prototypes/naopoyo-rescue/tests/sprites.test.mjs (74.253279ms)
+✖ preview includes complete relative module graph (66.202112ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/assets/characters/clownfish/04.png'
+puzzle-final.log
+Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/assets/characters/partners/rock_octopus.png'
+✖ preview includes complete relative module graph (65.559395ms)
+ℹ tests 954
+ℹ pass 953
+ℹ fail 1
+✖ failing tests:
+✖ preview includes complete relative module graph (65.559395ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/ce154ed77870/repo/assets/characters/partners/rock_octopus.png'
+Final run: puzzle-complete.log: 954 tests, 954 pass, 0 fail; files restored from unchanged GitHub tree.

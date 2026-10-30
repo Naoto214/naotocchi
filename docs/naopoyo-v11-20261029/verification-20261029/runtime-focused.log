@@ -1,0 +1,15 @@
+✔ Claude QA uses the current actor input adapter while preserving immutable geometry and presenter (37.156935ms)
+✔ legacy coverage references the reviewed rightmost four tiles without claiming raw photos or later gates (48.856596ms)
+✔ legacy coverage rejects unreviewed, missing, changed, or wrongly mapped boards (305.624268ms)
+✔ legacy board reuse requires the exact companion model at stage zero (88.970892ms)
+✔ AD-17. Human QA gate の 記録: 13 地域 × 7 条件(ひと目で 地域・さびしく ない・箱っぽく ない・いろ・歩きたい・見どころ・前景 / 中景 / 遠景)が status doc に ある。main merge / Ready は しない (1.420324ms)
+✔ GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない (3.863035ms)
+✔ ⑦-7 監査の けっかと 実装が そろって いる (134.965789ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 617.590882

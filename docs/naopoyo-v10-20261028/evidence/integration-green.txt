@@ -1,0 +1,22 @@
+✔ V10 opts in every Chapter 2 stage without changing Chapter 1 (3.56063ms)
+✔ V9 clears migrate read-only; V9 boards and Undo remain isolated in normal and QA (4.698819ms)
+✔ V9 serialized board/history cannot restore into V10 session (4.097763ms)
+✔ V10 11 saved B-once witness: preview, stability, session save/undo/retry (30.27855ms)
+✔ V10 12 saved B-once witness: preview, stability, session save/undo/retry (18.594612ms)
+✔ V10 13 saved B-once witness: preview, stability, session save/undo/retry (48.986097ms)
+✔ V10 14 saved B-once witness: preview, stability, session save/undo/retry (52.498523ms)
+✔ V10 15 saved B-once witness: preview, stability, session save/undo/retry (139.163267ms)
+✔ V10 16 saved B-once witness: preview, stability, session save/undo/retry (712.444764ms)
+✔ V10 17 saved B-once witness: preview, stability, session save/undo/retry (57.308909ms)
+✔ V10 18 saved B-once witness: preview, stability, session save/undo/retry (54.875904ms)
+✔ V10 19 saved B-once witness: preview, stability, session save/undo/retry (630.20587ms)
+✔ V10 20 saved B-once witness: preview, stability, session save/undo/retry (4473.714079ms)
+✔ V10 stage20: the upper 1 reaches 5 before the number becomes 6 (13.478797ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6661.268468

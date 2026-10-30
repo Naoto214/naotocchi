@@ -1,0 +1,14 @@
+✔ V10 parent and child merge normally in the same operation; V9 remains versioned (4.528353ms)
+✔ V10 same spike succeeds once, then resets for the next adjacent move (2.090585ms)
+✔ V10 finite chain includes spent spike set in cycle signature (2.733926ms)
+✔ V10 level-one no-op does not spend spike before following larger body (2.131079ms)
+✔ V10 overflow/multiple spikes preserve species totals and determinism (4.507564ms)
+✔ V10 save validation rejects V9 and mismatching rule identity (0.200716ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 194.216227

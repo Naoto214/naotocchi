@@ -1,0 +1,78 @@
+{
+  "readOnlySource": "8218b9042f21a1bf25a13e535af4675ca8945374",
+  "rule": "contact-v2",
+  "rows": [
+    {
+      "stage": 11,
+      "moves": 5,
+      "complete": true,
+      "rescued": 3,
+      "mass": 3
+    },
+    {
+      "stage": 12,
+      "moves": 5,
+      "complete": true,
+      "rescued": 10,
+      "mass": 10
+    },
+    {
+      "stage": 13,
+      "moves": 10,
+      "complete": true,
+      "rescued": 12,
+      "mass": 12
+    },
+    {
+      "stage": 14,
+      "moves": 11,
+      "complete": true,
+      "rescued": 12,
+      "mass": 12
+    },
+    {
+      "stage": 15,
+      "moves": 23,
+      "complete": true,
+      "rescued": 12,
+      "mass": 12
+    },
+    {
+      "stage": 16,
+      "moves": 38,
+      "complete": true,
+      "rescued": 13,
+      "mass": 13
+    },
+    {
+      "stage": 17,
+      "moves": 26,
+      "complete": true,
+      "rescued": 11,
+      "mass": 11
+    },
+    {
+      "stage": 18,
+      "moves": 19,
+      "complete": true,
+      "rescued": 16,
+      "mass": 16
+    },
+    {
+      "stage": 19,
+      "moves": 78,
+      "complete": true,
+      "rescued": 16,
+      "mass": 16
+    },
+    {
+      "stage": 20,
+      "moves": 97,
+      "complete": true,
+      "rescued": 16,
+      "mass": 16
+    }
+  ],
+  "latestObservedHead": "d160c03e92f5c20846a77ab0b84b09e9a9fd1d4e",
+  "latestChanges": "app/index/qa and tests/docs only; engine and example data unchanged from readOnlySource"
+}

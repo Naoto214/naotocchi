@@ -1,0 +1,196 @@
+✔ rock8 horizontal and gravity passage/support level1 (2.829984ms)
+✔ rock and mismatched magic rock share ascent level1 (0.47931ms)
+✔ rock8 horizontal and gravity passage/support level2 (0.345446ms)
+✔ rock and mismatched magic rock share ascent level2 (0.246454ms)
+✔ rock8 horizontal and gravity passage/support level3 (0.406301ms)
+✔ rock and mismatched magic rock share ascent level3 (0.232249ms)
+✔ rock8 horizontal and gravity passage/support level4 (0.19432ms)
+✔ rock and mismatched magic rock share ascent level4 (0.155863ms)
+✔ rock8 horizontal and gravity passage/support level5 (4.102414ms)
+✔ rock and mismatched magic rock share ascent level5 (0.22513ms)
+✔ rock8 horizontal and gravity passage/support level6 (0.33502ms)
+✔ rock and mismatched magic rock share ascent level6 (0.318214ms)
+✔ rock8 horizontal and gravity passage/support level7 (0.415397ms)
+✔ rock and mismatched magic rock share ascent level7 (0.311029ms)
+✖ rock8 horizontal and gravity passage/support level8 (5.36857ms)
+✔ rock and mismatched magic rock share ascent level8 (0.631623ms)
+✖ corner uses moving number and legacy contact remains unchanged (0.641854ms)
+✖ reverse exchange has its own corner number (0.663084ms)
+✖ split level1 cannot escape a parent8-only rock corner (1.814961ms)
+✖ restore rejects old terrain rules and invalid rock occupants (0.238613ms)
+✔ merge overflow and external split cannot change rock qualification (0.782506ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 16
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 138.922031
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:6:2
+✖ rock8 horizontal and gravity passage/support level8 (5.36857ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.events.some(e=>e.type==='phase'&&e.x===3&&e.y===4))
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/10b8cc61b1a5/naotocchi/prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:7:231)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:14:1
+✖ corner uses moving number and legacy contact remains unchanged (0.641854ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/10b8cc61b1a5/naotocchi/prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:14:316)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:15:1
+✖ reverse exchange has its own corner number (0.663084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'corner'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/10b8cc61b1a5/naotocchi/prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:15:191)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'corner',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:16:1
+✖ split level1 cannot escape a parent8-only rock corner (1.814961ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   {
+  +     distance: 1,
+  +     x: 3,
+  +     y: 1
+  +   },
+  +   {
+  +     distance: 1,
+  +     x: 3,
+  +     y: 3
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 3,
+  +     y: 0
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 2,
+  +     y: 0
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 0
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 2
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 1
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 3,
+  +     y: 4
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 2,
+  +     y: 4
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 4
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 3
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/10b8cc61b1a5/naotocchi/prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:16:171)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { x: 3, y: 1, distance: 1 }, { x: 3, y: 3, distance: 1 }, { x: 3, y: 0, distance: 2 }, { x: 2, y: 0, distance: 2 }, { x: 4, y: 0, distance: 2 }, { x: 4, y: 2, distance: 2 }, { x: 4, y: 1, distance: 2 }, { x: 3, y: 4, distance: 2 }, { x: 2, y: 4, distance: 2 }, { x: 4, y: 4, distance: 2 }, { x: 4, y: 3, distance: 2 } ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:17:1
+✖ restore rejects old terrain rules and invalid rock occupants (0.238613ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/10b8cc61b1a5/naotocchi/prototypes/naopoyo-chapter2/tests/magic-rock.test.mjs:17:148)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

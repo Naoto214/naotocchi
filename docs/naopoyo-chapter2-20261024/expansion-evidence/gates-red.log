@@ -1,0 +1,274 @@
+✖ manual overflow cannot put 4 on source exact-8 gate 1,0 (2.228997ms)
+✖ manual overflow cannot put 4 on source exact-8 gate 1,1 (0.252753ms)
+✖ manual overflow cannot put 4 on source exact-8 gate 0,1 (0.31893ms)
+✖ external overflow cannot put 4 on source exact-8 gate 1,0 (0.330668ms)
+✖ external overflow cannot put 4 on source exact-8 gate 1,1 (0.242849ms)
+✖ external overflow cannot put 4 on source exact-8 gate 0,1 (0.181267ms)
+✖ gravity overflow cannot put remainder on source gate (1.611127ms)
+✖ iPhone sequence: enter 8 gate then exchange with 4 rejected; ordinary exit allowed (0.486447ms)
+✖ merge cannot leave incompatible combined body on destination gate (0.307173ms)
+✖ restoring incompatible gate occupant rejected even if gate open (0.623009ms)
+✖ external split cannot change a gate occupant to a forbidden level (0.645682ms)
+✔ open flag never grants incompatible direct entry; diagonal destination-only stays legal (0.296447ms)
+✔ legal overflow away from gates and compatible min-gate merge preserved (0.237501ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 2
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.28259
+
+✖ failing tests:
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:6:110
+✖ manual overflow cannot put 4 on source exact-8 gate 1,0 (2.228997ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:8:59)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:6:110
+✖ manual overflow cannot put 4 on source exact-8 gate 1,1 (0.252753ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:8:59)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:6:110
+✖ manual overflow cannot put 4 on source exact-8 gate 0,1 (0.31893ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:8:59)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:6:110
+✖ external overflow cannot put 4 on source exact-8 gate 1,0 (0.330668ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:8:59)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:6:110
+✖ external overflow cannot put 4 on source exact-8 gate 1,1 (0.242849ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:8:59)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:6:110
+✖ external overflow cannot put 4 on source exact-8 gate 0,1 (0.181267ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:8:59)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:10:1
+✖ gravity overflow cannot put remainder on source gate (1.611127ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      actors: [
+        {
+          id: 'a',
+          level: 8,
+          species: 'dog',
+          x: 2,
+  +       y: 7
+  -       y: 6
+        },
+        {
+          id: 'b',
+          level: 4,
+          species: 'dog',
+          x: 2,
+  +       y: 6
+  -       y: 7
+        }
+      ],
+      exits: [],
+      gates: [
+        {
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:10:222)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'gate-test', w: 8, h: 8, walls: [], spikes: [], exits: [], gates: [ [Object] ], gravity: true, actors: [ [Object], [Object] ], rescued: 0, rescuedBySpecies: {}, nextId: 1, moves: 0 },
+    expected: { id: 'gate-test', w: 8, h: 8, walls: [], spikes: [], exits: [], gates: [ [Object] ], gravity: true, actors: [ [Object], [Object] ], rescued: 0, rescuedBySpecies: {}, nextId: 1, moves: 0 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:11:1
+✖ iPhone sequence: enter 8 gate then exchange with 4 rejected; ordinary exit allowed (0.486447ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:13:71)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:15:1
+✖ merge cannot leave incompatible combined body on destination gate (0.307173ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:15:212)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:16:1
+✖ restoring incompatible gate occupant rejected even if gate open (0.623009ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:16:217)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-v2/tests/gates.test.mjs:17:1
+✖ external split cannot change a gate occupant to a forbidden level (0.645682ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-v2/tests/gates.test.mjs:17:199)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

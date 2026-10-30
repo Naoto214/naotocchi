@@ -1,0 +1,41 @@
+[
+  {
+    "v": 0,
+    "result": {
+      "status": "limit",
+      "visited": 269905,
+      "expanded": 126702,
+      "edges": 1692393,
+      "shortestProven": false,
+      "elapsedMs": 25000,
+      "method": "greedy"
+    },
+    "reduced": null
+  },
+  {
+    "v": 1,
+    "result": {
+      "status": "limit",
+      "visited": 225980,
+      "expanded": 97309,
+      "edges": 1325727,
+      "shortestProven": false,
+      "elapsedMs": 25000,
+      "method": "greedy"
+    },
+    "reduced": null
+  },
+  {
+    "v": 2,
+    "result": {
+      "status": "limit",
+      "visited": 256100,
+      "expanded": 133991,
+      "edges": 1673840,
+      "shortestProven": false,
+      "elapsedMs": 25000,
+      "method": "greedy"
+    },
+    "reduced": null
+  }
+]

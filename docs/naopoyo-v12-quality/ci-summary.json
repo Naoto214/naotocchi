@@ -1,0 +1,41 @@
+{
+  "implementationHead": "f08b7de2679fe0dc3e9f7d31a1ea47a71181397f",
+  "tree": "0f7a1dceec63b8cad02af95b01875eeb6f4fe25b",
+  "syntheticMergeHead": "4496028322cc8368741e96e48db10a561f017d22",
+  "runUrl": "https://github.com/Naoto214/naotocchi/actions/runs/40907523703",
+  "jobs": [
+    {
+      "id": 123566242757,
+      "name": "main-regression",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123566243184,
+      "name": "puzzle",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 123566243210,
+      "name": "card",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "counts": {
+    "puzzle": 947,
+    "card": 494,
+    "runtime": [
+      32,
+      24,
+      3289,
+      159
+    ],
+    "runtimeTotal": 3504,
+    "pagesLocal": 16
+  },
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0
+}
