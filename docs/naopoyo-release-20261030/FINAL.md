@@ -67,3 +67,11 @@
 本人iPhone Safari実機・実指操作・OSロック/背景復帰は未確認。本人の実セーブは入手していないため、保存形式に基づく移行fixtureと孤立ブラウザーで検証している。数学的最短解は主張しない。Stage20盤面/難易度変更なし。Stage21以後は今回対象外。
 
 公開直前mainと配布物の復旧情報は `evidence/rollback.txt`。rollback時もlocalStorageを削除しない。旧ルールは新専用保存キーを読まないため新盤面の誤復帰を防ぐ。
+
+## 公開前の配信・復旧スナップショット
+
+開始mainの4,057ファイル（配信設定用`.nojekyll`込み）のSHA-256は `evidence/rollback-package.json.gz`。本番のindex、script、CARD入口、共通v2 engine、第1章index/appの6件が開始mainと一致。`production-before.json`に保存。
+
+GitHub Pagesでは`.nojekyll`は配信設定用マーカーで公開URLは404（旧版でも確認）。したがって新配布物4,087件のうち、本番HTTPハッシュ照合の対象は公開コンテンツ4,086件とする。設定用マーカーはCI配布物の検証対象であり、公開コンテンツの欠落とは扱わない。
+
+最初の証跡コミット418d7d62356927b748a91613df59b0e8a76b6516について、GitHubから42ファイルを読み戻し、元のローカルファイルとの全byte一致を確認済み。

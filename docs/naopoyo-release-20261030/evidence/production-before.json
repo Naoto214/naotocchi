@@ -1,0 +1,26 @@
+[
+  {
+    "path": "index.html",
+    "matches": true
+  },
+  {
+    "path": "script.js",
+    "matches": true
+  },
+  {
+    "path": "prototypes/card-game/index.html",
+    "matches": true
+  },
+  {
+    "path": "prototypes/naopoyo-v2/engine.mjs",
+    "matches": true
+  },
+  {
+    "path": "prototypes/naopoyo-chapter1/index.html",
+    "matches": true
+  },
+  {
+    "path": "prototypes/naopoyo-chapter1/app.mjs",
+    "matches": true
+  }
+]

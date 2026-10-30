@@ -15,9 +15,9 @@ def check(item):
  return error
 started=time.time();failures=[];total=0
 with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
- for result in pool.map(check,manifest['sha256'].items()):
+ for result in pool.map(check,((p,h) for p,h in manifest['sha256'].items() if p!='.nojekyll')):
   total+=1
   if result:failures.append(result)
   if total%500==0:print('verified',total,'failures',len(failures),flush=True)
-result={'url':base,'release_sha':sha,'manifest_source_head':manifest['source_head'],'files':total,'matching':total-len(failures),'failures':failures,'seconds':round(time.time()-started,2),'status':'passed' if not failures else 'failed'}
+result={'url':base,'release_sha':sha,'manifest_source_head':manifest['source_head'],'files':total,'artifact_files':manifest['file_count'],'non_public_deploy_markers':['.nojekyll'],'matching':total-len(failures),'failures':failures,'seconds':round(time.time()-started,2),'status':'passed' if not failures else 'failed'}
 json.dump(result,open(os.environ.get('HTTP_OUT','/tmp/naopoyo-production-http.json'),'w'),indent=2);print(json.dumps(result));raise SystemExit(bool(failures))
