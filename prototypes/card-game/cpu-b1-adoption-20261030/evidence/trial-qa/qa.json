@@ -1,0 +1,110 @@
+{
+ "errors": [],
+ "scenarios": [
+  {
+   "key": "ski:power",
+   "policy": "heuristic-2",
+   "savedPolicy": "heuristic-2",
+   "cpuMoved": true,
+   "chosen": "power",
+   "expected": "スキージャンプ ちから（ちからが上がる）",
+   "badge": "方針：heuristic-2（中級）　この画面でCPUが選んだ型：ちから"
+  },
+  {
+   "key": "ski:power",
+   "policy": "heuristic-1",
+   "savedPolicy": "heuristic-1",
+   "cpuMoved": true,
+   "chosen": "wisdom",
+   "expected": "スキージャンプ ちえ（ちえが上がる）",
+   "badge": "方針：heuristic-1（中級）　この画面でCPUが選んだ型：ちえ"
+  },
+  {
+   "key": "ski:wisdom",
+   "policy": "heuristic-2",
+   "savedPolicy": "heuristic-2",
+   "cpuMoved": true,
+   "chosen": "wisdom",
+   "expected": "スキージャンプ ちえ（ちえが上がる）",
+   "badge": "方針：heuristic-2（中級）　この画面でCPUが選んだ型：ちえ"
+  },
+  {
+   "key": "ski:wisdom",
+   "policy": "heuristic-1",
+   "savedPolicy": "heuristic-1",
+   "cpuMoved": true,
+   "chosen": "power",
+   "expected": "スキージャンプ ちから（ちからが上がる）",
+   "badge": "方針：heuristic-1（中級）　この画面でCPUが選んだ型：ちから"
+  },
+  {
+   "key": "fight:power:opp",
+   "policy": "heuristic-2",
+   "savedPolicy": "heuristic-2",
+   "cpuMoved": true,
+   "chosen": "キック",
+   "expected": "かくとうバトル キック（ちからが上がる）",
+   "badge": "方針：heuristic-2（中級）　この画面でCPUが選んだ型：キック（ちから）"
+  },
+  {
+   "key": "fight:power:opp",
+   "policy": "heuristic-1",
+   "savedPolicy": "heuristic-1",
+   "cpuMoved": true,
+   "chosen": "ガード",
+   "expected": "かくとうバトル ガード（ちえが上がる）",
+   "badge": "方針：heuristic-1（中級）　この画面でCPUが選んだ型：ガード（ちえ）"
+  },
+  {
+   "key": "fight:wisdom:opp",
+   "policy": "heuristic-2",
+   "savedPolicy": "heuristic-2",
+   "cpuMoved": true,
+   "chosen": "ガード",
+   "expected": "かくとうバトル ガード（ちえが上がる）",
+   "badge": "方針：heuristic-2（中級）　この画面でCPUが選んだ型：ガード（ちえ）"
+  },
+  {
+   "key": "fight:wisdom:opp",
+   "policy": "heuristic-1",
+   "savedPolicy": "heuristic-1",
+   "cpuMoved": true,
+   "chosen": "キック",
+   "expected": "かくとうバトル キック（ちからが上がる）",
+   "badge": "方針：heuristic-1（中級）　この画面でCPUが選んだ型：キック（ちから）"
+  }
+ ],
+ "restore": {
+  "beforeReload": {
+   "policy": "heuristic-1",
+   "commands": 129
+  },
+  "afterResume": {
+   "policy": "heuristic-1",
+   "commands": 131
+  },
+  "gameVisible": true
+ },
+ "newGames": [
+  {
+   "level": "beginner",
+   "policy": "heuristic-2",
+   "difficulty": "beginner",
+   "gameVisible": true,
+   "commands": 0
+  },
+  {
+   "level": "intermediate",
+   "policy": "heuristic-2",
+   "difficulty": "intermediate",
+   "gameVisible": true,
+   "commands": 0
+  }
+ ],
+ "storageKeys": [
+  "naotocchi-cpu-b1-trial:naotocchi-hand-order-v1",
+  "naotocchi-cpu-b1-trial:naotocchi-cpu-deck-pref-v1",
+  "naotocchi-cpu-b1-trial:naotocchi-my-decks-v1",
+  "naotocchi-cpu-b1-trial:naotocchi-cpu-match-v1"
+ ]
+}
