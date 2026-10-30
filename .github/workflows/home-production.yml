@@ -10,6 +10,37 @@ concurrency:
 permissions:
   contents: read
 jobs:
+  fixed-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
+      - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
+      - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
+      - run: node tests/home-production-layout-browser.cjs
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - run: node tests/home-production-scroll-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fixed-home-controls-${{ matrix.engine }}
+          path: |
+            test-results/home-production-layout/
+            test-results/home-production-scroll/
   production-contracts:
     runs-on: ubuntu-latest
     timeout-minutes: 15
