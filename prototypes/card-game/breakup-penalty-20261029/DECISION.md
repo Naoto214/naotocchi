@@ -57,5 +57,5 @@ PR #481 の比較結果（2,960戦）を確認したうえで、本人が次の�
 
 ## 6. このPRの扱い
 
-- PR #481 は調査資料だけのDraft PRとして維持する。Draft解除・mainマージ・本番Pagesの更新は、本人の別承認を待つ。
+- 2026-10-30、本人がPR #481の正式採用を承認し、調査資料・実験記録・この決定文書を正式な開発記録としてmainへ統合した（merge commit方式）。ゲーム内容の変更は伴わない。
 - 変更範囲は `prototypes/card-game/breakup-penalty-20261029/` だけ。正式ファイル・Pagesの公開対象（`tools/pages/allowlist.json`）には含まれない。
