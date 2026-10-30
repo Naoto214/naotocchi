@@ -26,4 +26,20 @@
 ## 保護・未確認
 PR436、PR483、main、GitHub Pages、V11 Siteへ書込みなし。PR483の並行更新は取り込まない。
 
-iPhone Safari/WebKit実機、実指、画面ロック・OSバックグラウンド復帰の実機QAは未実施。Chrome＋ライフサイクルイベントの自動検証をSafari実機成功とは扱わない。公開先での認証後ブラウザー操作と配信照合結果、CI、最終HEAD/treeは完了後追記する。
+iPhone Safari/WebKit実機、実指、画面ロック・OSバックグラウンド復帰の実機QAは未実施。Chrome＋ライフサイクルイベントの自動検証をSafari実機成功とは扱わない。配信照合結果とCIは以下に追記する。
+
+## GitHub保存・本人限定公開
+
+- 実装HEAD: `d160c03e92f5c20846a77ab0b84b09e9a9fd1d4e`。tree: `82a2ea1565c6113871b7205d5a129192e0c2660b`。ローカルcommit58274620と同一treeをGitHub接続ツールで保存。CLI直接pushは認証なしで失敗したため、expected_sha=8218b904・force=falseの通常更新を使用した。
+- Site source: `722ae4beaf6b17f2da092ea8c8a957e31cafb31f`。Site保存番号3、ゲーム表示VERSION12。
+- Deployment: `appgdep_6ae3fd91fdf8819181ca052458007234`、2026-10-30 11:14 JST成功。
+- [本人限定URL](https://naopoyo-v12-quality-20261030.kerzion214.chatgpt.site/prototypes/naopoyo-chapter2/qa.html)。本人1名・外部0・グループ0を維持。
+- 公開URLのブラウザーはログイン画面を表示。認証後の公開URL上での操作は未確認。開発プレビューでの実操作と認証付きHTTPの配信照合を分けて記録する。
+
+![通常画面で5手移動後、Undoで0手へ戻した390px画面](no-pause-undo-390.jpg)
+
+CIのPR合成commit `3ae19addba757c9fa0080c172779ebf06152d832` のtreeは配信実装treeと一致。PR436のbaseに差分を重ねた検証で、mainへのmergeではない。最新確認はPR436 `ab937a22`、PR483 `8200f513`、main `46349c36`。PR483の追加差分は接触モーション描画/テストで、今回には取り込んでいない。
+
+配信85/85ファイルが認証付きHTTP200・SHA-256一致。HTML3件は同一オリジン内の正規URLへの307をたどって照合した。認証情報を他オリジンへ転送する処理はなく、検証ログ/成果物にも記録していない。未認証qa.htmlは403。詳細は`no-pause-delivery-hashes.json`。
+
+CI run40990370344: puzzle954/954とCARD494/494は成功。本編npm testは2026-10-30 11:26 JST時点で実行中。最終結果は追補する。
