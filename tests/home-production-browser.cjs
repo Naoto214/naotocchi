@@ -31,7 +31,7 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.waitForFunction(a=>{const p=HomeReleaseQA.detail().actors[0];return Math.hypot(p.x-a.x,p.y-a.y)>5;},t.a,{timeout:15000});
  assert.ok((await page.evaluate(()=>HomeReleaseQA.detail())).actors.every(a=>a.safe),kind+' stays grounded');
  }
- await page.evaluate(()=>HomeReleaseQA.question());await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));
+ assert.ok(await page.evaluate(()=>HomeReleaseQA.question()),'existing conversation accepts prepared healthy fixture');await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));
  await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > button').count(),12);await page.locator('#menuCloseBtn').click();
  await page.emulateMedia({reducedMotion:'reduce'});const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
  await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>HomeReleaseQA.detail().actors.length===28&&HomeReleaseQA.detail().actors.every(a=>a.safe),null,{timeout:30000});

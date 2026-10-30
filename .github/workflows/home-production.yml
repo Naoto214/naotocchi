@@ -3,7 +3,10 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [integration/home-25d-release-20261030, main]
+    branches: [main]
+concurrency:
+  group: home-production-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
