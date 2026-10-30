@@ -8,7 +8,39 @@
     document.body.style.setProperty('--home-center-overflow',(terrain()?Math.max(0,frame.scrollHeight-frame.clientHeight):0)+'px');
   }
   frame.addEventListener('scroll',paintScroll,{passive:true});
-  if(typeof ResizeObserver==='function'){const observer=new ResizeObserver(paintScroll);observer.observe(frame);observer.observe(document.getElementById('screenNormal'));}
+  // A short landscape viewport may initially show only the information lanes.
+  // Reveal the existing actor (or an open question) by moving the viewport,
+  // once on entry/resize. Ordinary user scrolling never triggers this focus.
+  let focusPending=true,focusRequest=0,frameSize='';
+  function revealOnResize(){
+    if(!focusPending||!terrain())return;
+    const request=++focusRequest;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      if(request!==focusRequest||!focusPending||!terrain())return;
+      const speech=document.getElementById('speechSlot');
+      const choiceVisible=speech?.classList.contains('is-asking')||speech?.querySelector('.home-choice-popup:not(.hidden)');
+      const target=choiceVisible?speech:document.querySelector('[data-diorama-actor^="pet:"]');
+      if(!target)return;
+      const viewport=frame.getBoundingClientRect(),rect=target.getBoundingClientRect();
+      if(!rect.height||!viewport.height)return;
+      focusPending=false;
+      if(rect.top<viewport.top+8||rect.bottom>viewport.bottom-8)frame.scrollTop+=(rect.top+rect.bottom-viewport.top-viewport.bottom)/2;
+      paintScroll();
+    }));
+  }
+  if(typeof ResizeObserver==='function'){
+    const observer=new ResizeObserver(()=>{
+      paintScroll();
+      const size=frame.clientWidth+':'+frame.clientHeight;
+      if(size!==frameSize){frameSize=size;focusPending=true;revealOnResize();}
+    });
+    observer.observe(frame);observer.observe(document.getElementById('screenNormal'));
+  }
+  let wasTerrain=terrain();
+  function modeChanged(){const active=terrain();if(active!==wasTerrain){wasTerrain=active;focusPending=true;}if(active)revealOnResize();}
+  new MutationObserver(modeChanged).observe(device,{attributes:true,attributeFilter:['data-home-fixed']});
+  new MutationObserver(modeChanged).observe(document.body,{attributes:true,attributeFilter:['data-home-terrain']});
+  new MutationObserver(revealOnResize).observe(document.getElementById('castStage'),{subtree:true,childList:true,attributes:true,attributeFilter:['data-diorama-actor']});
   new MutationObserver(paintScroll).observe(device,{attributes:true,attributeFilter:['data-home-fixed']});
   new MutationObserver(paintScroll).observe(document.body,{attributes:true,attributeFilter:['data-home-terrain']});
   let gesture=null;

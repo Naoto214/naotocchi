@@ -17,3 +17,20 @@ module.exports=async page=>{
  assert.deepEqual({...policy,askingRange:1,popupRange:1,badgeRange:1},{askingRange:1,askingDown:false,askingTop:true,askingUp:false,askingBottom:true,popupRange:1,popupDown:false,badgeRange:1,badgesRight:false,badgesLeftEdge:true},'nested text and horizontal badges scroll; edges contain overscroll');
  return policy;
 };
+
+module.exports.focus=async page=>{
+ const settle=()=>page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))));
+ await page.locator('.screen-frame').evaluate(e=>{e.scrollTop=e.scrollHeight;});await settle();
+ const manual=await page.locator('.screen-frame').evaluate(e=>e.scrollTop);
+ await page.evaluate(()=>{document.body.dataset.homeTerrain='true';});await settle();
+ assert.equal(await page.locator('.screen-frame').evaluate(e=>e.scrollTop),manual,'ordinary renders preserve manual scroll');
+ await page.evaluate(()=>{
+   const slot=document.getElementById('speechSlot'),dialog=document.getElementById('individualityDialog');
+   slot.classList.remove('is-asking');slot.appendChild(dialog);dialog.classList.add('home-choice-popup');dialog.classList.remove('hidden');
+   document.getElementById('individualityText').textContent='表示中の選択肢は回転後も読めます。';
+   document.querySelector('.screen-frame').scrollTop=0;
+ });
+ const size=page.viewportSize();await page.setViewportSize({width:size.width+1,height:size.height});await settle();
+ const visible=await page.evaluate(()=>{const a=document.getElementById('speechSlot').getBoundingClientRect(),f=document.querySelector('.screen-frame').getBoundingClientRect();return Math.min(a.bottom,f.bottom)-Math.max(a.top,f.top)>=a.height-1;});
+ assert.ok(visible,'rotation preserves the visible individuality choice slot');
+};
