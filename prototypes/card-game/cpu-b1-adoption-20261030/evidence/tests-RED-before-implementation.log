@@ -1,0 +1,245 @@
+TAP version 13
+# file:///home/user/naotocchi/prototypes/card-game/tests/cpu-policy-version.test.mjs:12
+# import {POLICY_VERSION,POLICY_VERSIONS} from '../cpu-policy.mjs';
+#                        ^^^^^^^^^^^^^^^
+# SyntaxError: The requested module '../cpu-policy.mjs' does not provide an export named 'POLICY_VERSIONS'
+#     at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+#     at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)
+#     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+# Node.js v22.22.0
+# Subtest: tests/cpu-policy-version.test.mjs
+not ok 1 - tests/cpu-policy-version.test.mjs
+  ---
+  duration_ms: 83.748091
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-policy-version.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・ちからの勝負 では勝負の種目の能力値を選ぶ
+not ok 2 - 中級 heuristic-2：スキージャンプ・ちからの勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 328.743471
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'on=power:6 off=wisdom:6'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・ちえの勝負 では勝負の種目の能力値を選ぶ
+not ok 3 - 中級 heuristic-2：スキージャンプ・ちえの勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 119.520314
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'on=wisdom:6 off=power:6'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・同点（勝敗が変わる） では勝負の種目の能力値を選ぶ
+not ok 4 - 中級 heuristic-2：スキージャンプ・同点（勝敗が変わる） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 115.980782
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'on=wisdom:6 off=power:6'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・大差（勝敗が変わらない） では勝負の種目の能力値を選ぶ
+not ok 5 - 中級 heuristic-2：スキージャンプ・大差（勝敗が変わらない） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 36.318211
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'on=power:6 off=wisdom:6'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・相手のちからの勝負（連鎖中） では勝負の種目の能力値を選ぶ
+not ok 6 - 中級 heuristic-2：かくとうバトル・相手のちからの勝負（連鎖中） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 488.379038
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'on=パンチ:3.4800000000000004,キック:3.4800000000000004 off=ガード:3.4800000000000004'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・相手のちえの勝負（連鎖2段） では勝負の種目の能力値を選ぶ
+not ok 7 - 中級 heuristic-2：かくとうバトル・相手のちえの勝負（連鎖2段） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 55.884001
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'on=ガード:3.4800000000000004 off=パンチ:3.4800000000000004,キック:3.4800000000000004'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・同点（連鎖中） では勝負の種目の能力値を選ぶ
+not ok 8 - 中級 heuristic-2：かくとうバトル・同点（連鎖中） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 21.084146
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'on=パンチ:0.8800000000000003,キック:0.8800000000000003 off=ガード:0.8800000000000003'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・自分の勝負 では勝負の種目の能力値を選ぶ
+not ok 9 - 中級 heuristic-2：かくとうバトル・自分の勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 80.571891
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:20:2'
+  failureType: 'testCodeFailure'
+  error: 'on=パンチ:2.2300000000000004,キック:2.2300000000000004 off=ガード:2.2300000000000004'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: heuristic-1（旧保存の続き）と初級は、実装前の main と同じ選択（全局面・20 seed）
+ok 10 - heuristic-1（旧保存の続き）と初級は、実装前の main と同じ選択（全局面・20 seed）
+  ---
+  duration_ms: 1963.957444
+  type: 'test'
+  ...
+# Subtest: 選択肢のない能力値カード（ビーチバレー）の評価は変えない（あそびずきカワウソの誘発など別の理由を残す）
+ok 11 - 選択肢のない能力値カード（ビーチバレー）の評価は変えない（あそびずきカワウソの誘発など別の理由を残す）
+  ---
+  duration_ms: 81.197857
+  type: 'test'
+  ...
+# Subtest: 勝負と無関係な候補の評価は変えない
+ok 12 - 勝負と無関係な候補の評価は変えない
+  ---
+  duration_ms: 1491.963731
+  type: 'test'
+  ...
+# Subtest: ほかの能力値選択（ペンギン⑥型）：ちえの勝負ではちえ、勝負の外では差の大きい能力値を優先
+not ok 13 - ほかの能力値選択（ペンギン⑥型）：ちえの勝負ではちえ、勝負の外では差の大きい能力値を優先
+  ---
+  duration_ms: 0.779478
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:45:1'
+  failureType: 'testCodeFailure'
+  error: 'in challenge power=2 wisdom=2'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/tests/cpu-stat-choice.test.mjs:48:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 3
+# fail 10
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4948.182249
