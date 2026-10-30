@@ -48,5 +48,5 @@ export function render(canvas,q,{dpr=1,reducedMotion=globalThis.matchMedia?.('(p
   c.restore();
  }
  // Preview calculation remains available, but is not drawn in normal play.
- const f=q.motion[0];if(f){const t=f.elapsed/f.duration,fx=f.before.movementRules==='contact-v2'?contactEffects(f,t):f.events.filter(e=>['merge','split','rescue'].includes(e.type)).map(e=>({...e,progress:t}));for(const e of fx){c.globalAlpha=Math.max(0,1-e.progress);c.strokeStyle='#bc8c3a';c.lineWidth=2;c.beginPath();c.arc((e.x+.5)*cell,(e.y+.5)*cell,(.15+t*.38)*cell,0,Math.PI*2);c.stroke();}c.globalAlpha=1;}
+ const f=q.motion[0];if(f){const t=f.elapsed/f.duration,fx=f.before.movementRules==='contact-v2'?contactEffects(f,t):f.events.filter(e=>['merge','split','rescue'].includes(e.type)).map(e=>({...e,progress:t}));for(const e of fx){c.globalAlpha=Math.max(0,1-e.progress);c.strokeStyle='#bc8c3a';c.lineWidth=2;c.beginPath();c.arc((e.x+.5)*cell,(e.y+.5)*cell,(.15+e.progress*.38)*cell,0,Math.PI*2);c.stroke();}c.globalAlpha=1;}
 }
