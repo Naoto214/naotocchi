@@ -1,0 +1,113 @@
+{
+ "producedOn": "main 851cf09a, policy heuristic-1 (before heuristic-2)",
+ "games": [
+  {
+   "seed": 11,
+   "A": "challenge",
+   "B": "challenge",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "sha": "2b5e90e595e5ab523217efd0b7de61c3df556b88f582f5faeabc08dc1e1ea14c",
+   "result": {
+    "winner": null,
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 50,
+     "B": 50
+    }
+   }
+  },
+  {
+   "seed": 12,
+   "A": "challenge",
+   "B": "item",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "beginner"
+   },
+   "sha": "71065234d3bf9af797123a88d11615647f373a846df21b8376c821b4462ad146",
+   "result": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 65,
+     "B": 40
+    }
+   }
+  },
+  {
+   "seed": 13,
+   "A": "balance",
+   "B": "challenge",
+   "difficulty": {
+    "A": "beginner",
+    "B": "intermediate"
+   },
+   "sha": "ec136e6a8288dd3a8bf708f676f0dc3078e67a07e4278a213e4775dff54cf98a",
+   "result": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 55,
+     "B": 80
+    }
+   }
+  },
+  {
+   "seed": 14,
+   "A": "challenge",
+   "B": "balance",
+   "difficulty": {
+    "A": "beginner",
+    "B": "beginner"
+   },
+   "sha": "47b3ffd39d7b2a43fc145893918100c93540dc11eaa687a0676c6ff69b676fa7",
+   "result": {
+    "winner": "B",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 50,
+     "B": 100
+    }
+   }
+  },
+  {
+   "seed": 15,
+   "A": "main",
+   "B": "growth",
+   "difficulty": {
+    "A": "intermediate",
+    "B": "intermediate"
+   },
+   "sha": "a85aa59703b00610e3426b120f710080296695de3ebc6f4bbd8901bf71e21ce7",
+   "result": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 85,
+     "B": 75
+    }
+   }
+  },
+  {
+   "seed": 16,
+   "A": "item",
+   "B": "challenge",
+   "difficulty": {
+    "A": "beginner",
+    "B": "beginner"
+   },
+   "sha": "a9e0f7146d6a16b36a0bdc04a64e40774fddc529ce5f5653e08b05183985a688",
+   "result": {
+    "winner": "A",
+    "reason": "R10最終比較",
+    "growth": {
+     "A": 95,
+     "B": 25
+    }
+   }
+  }
+ ]
+}
