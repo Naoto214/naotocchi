@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "source_commit": "59a5ea7e16dd865f622aee5914e35d06f716ae92",
+  "engine": "chromium",
+  "browser_version": "153.0.8010.0",
+  "exit_code": 0,
+  "passed": 312,
+  "failed": 0,
+  "page_errors": 0,
+  "viewports": [
+    [
+      320,
+      568
+    ],
+    [
+      375,
+      667
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      568,
+      320
+    ],
+    [
+      667,
+      375
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      932,
+      430
+    ]
+  ],
+  "actor_counts": [
+    1,
+    6,
+    28
+  ],
+  "regions": [
+    "home",
+    "forest",
+    "river_lake",
+    "city",
+    "countryside",
+    "mountain",
+    "snow",
+    "sea",
+    "jungle",
+    "desert",
+    "deepsea",
+    "star_stop",
+    "memory_lake"
+  ],
+  "native_touch_home_cases": 24,
+  "evidence_log": "scroll-isolated-final.log.gz",
+  "detail_report_status": "The completed run exited 0 and printed PASS 312. A prior sequential process subsequently overwrote the shared per-case JSON. That process was stopped; its JSON is not presented as the successful run. This summary records the observed exit and log, with coverage from the exact test source."
+}

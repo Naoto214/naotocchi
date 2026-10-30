@@ -1,0 +1,1153 @@
+{
+  "results": [
+    {
+      "label": "chromium/320x568/home/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/320x568/home/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/320x568/forest/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/forest/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/forest/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/river_lake/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/river_lake/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/river_lake/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/city/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/city/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/city/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/countryside/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/countryside/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/countryside/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/mountain/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/mountain/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/snow/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/snow/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/snow/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/sea/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/sea/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/sea/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/jungle/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/jungle/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/jungle/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/desert/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/desert/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/desert/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/deepsea/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/deepsea/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/deepsea/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/star_stop/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/star_stop/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/star_stop/28",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/memory_lake/1",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/320x568/memory_lake/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/home/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/375x667/home/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/375x667/forest/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/forest/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/forest/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/river_lake/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/river_lake/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/river_lake/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/city/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/city/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/city/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/countryside/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/countryside/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/countryside/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/mountain/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/mountain/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/snow/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/snow/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/snow/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/sea/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/sea/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/sea/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/jungle/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/jungle/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/jungle/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/desert/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/desert/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/desert/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/deepsea/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/deepsea/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/star_stop/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/star_stop/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/star_stop/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/memory_lake/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/memory_lake/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/375x667/memory_lake/28",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/home/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/390x844/home/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/390x844/forest/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/forest/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/river_lake/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/river_lake/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/river_lake/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/city/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/city/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/city/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/countryside/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/countryside/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/countryside/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/mountain/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/mountain/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/mountain/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/snow/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/snow/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/snow/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/sea/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/sea/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/sea/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/jungle/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/jungle/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/jungle/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/desert/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/desert/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/desert/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/deepsea/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/deepsea/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/deepsea/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/star_stop/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/star_stop/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/star_stop/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/memory_lake/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/memory_lake/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/390x844/memory_lake/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/home/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/430x932/home/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/430x932/home/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/430x932/forest/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/forest/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/forest/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/river_lake/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/river_lake/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/river_lake/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/city/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/city/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/city/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/countryside/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/countryside/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/countryside/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/mountain/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/mountain/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/mountain/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/snow/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/snow/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/sea/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/sea/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/sea/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/jungle/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/jungle/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/jungle/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/desert/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/desert/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/desert/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/deepsea/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/deepsea/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/deepsea/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/star_stop/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/star_stop/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/star_stop/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/memory_lake/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/430x932/memory_lake/28",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/home/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/844x390/home/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/844x390/home/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/844x390/forest/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/forest/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/forest/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/river_lake/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/river_lake/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/river_lake/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/city/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/city/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/city/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/countryside/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/countryside/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/mountain/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/mountain/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/mountain/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/snow/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/snow/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/snow/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/sea/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/sea/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/sea/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/jungle/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/jungle/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/desert/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/desert/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/desert/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/deepsea/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/deepsea/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/deepsea/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/star_stop/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/star_stop/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/star_stop/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/memory_lake/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/memory_lake/6",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    },
+    {
+      "label": "chromium/844x390/memory_lake/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": false
+    }
+  ],
+  "failures": [
+    {
+      "label": "chromium/320x568/home/28",
+      "error": "page.waitForFunction: Timeout 15000ms exceeded."
+    },
+    {
+      "label": "chromium/320x568/mountain/1",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/320x568/memory_lake/28",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/375x667/home/28",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/375x667/mountain/6",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/375x667/deepsea/1",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/390x844/home/28",
+      "error": "page.waitForFunction: Timeout 15000ms exceeded."
+    },
+    {
+      "label": "chromium/390x844/forest/6",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/430x932/snow/6",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/430x932/memory_lake/1",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/844x390/countryside/6",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/844x390/jungle/28",
+      "error": "protagonist retains safe route"
+    }
+  ],
+  "errors": []
+}

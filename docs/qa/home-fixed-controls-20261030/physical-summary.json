@@ -1,0 +1,54 @@
+[
+  {
+    "region": "home",
+    "exit_code": 0
+  },
+  {
+    "region": "forest",
+    "exit_code": 0
+  },
+  {
+    "region": "river_lake",
+    "exit_code": 1
+  },
+  {
+    "region": "city",
+    "exit_code": 0
+  },
+  {
+    "region": "countryside",
+    "exit_code": 0
+  },
+  {
+    "region": "mountain",
+    "exit_code": 0
+  },
+  {
+    "region": "snow",
+    "exit_code": 0
+  },
+  {
+    "region": "sea",
+    "exit_code": 0
+  },
+  {
+    "region": "jungle",
+    "exit_code": 0
+  },
+  {
+    "region": "desert",
+    "exit_code": 0
+  },
+  {
+    "region": "deepsea",
+    "exit_code": 0
+  },
+  {
+    "region": "star_stop",
+    "exit_code": 0
+  },
+  {
+    "region": "memory_lake",
+    "exit_code": 0
+  }
+]

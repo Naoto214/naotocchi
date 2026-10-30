@@ -1,0 +1,85 @@
+{
+  "results": [
+    {
+      "label": "chromium/320x568/home/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/320x568/home/6",
+      "pass": true,
+      "scroll": 253,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/375x667/home/1",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/375x667/home/6",
+      "pass": true,
+      "scroll": 154,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/390x844/home/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/430x932/home/1",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/430x932/home/6",
+      "pass": true,
+      "scroll": 0,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/844x390/home/1",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": true
+    },
+    {
+      "label": "chromium/844x390/home/28",
+      "pass": true,
+      "scroll": 279,
+      "nativeTouch": true
+    }
+  ],
+  "failures": [
+    {
+      "label": "chromium/320x568/home/28",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/375x667/home/28",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/390x844/home/6",
+      "error": "page.waitForFunction: Timeout 15000ms exceeded."
+    },
+    {
+      "label": "chromium/390x844/home/28",
+      "error": "protagonist retains safe route"
+    },
+    {
+      "label": "chromium/430x932/home/28",
+      "error": "page.waitForFunction: Timeout 15000ms exceeded."
+    },
+    {
+      "label": "chromium/844x390/home/6",
+      "error": "page.waitForFunction: Timeout 15000ms exceeded."
+    }
+  ],
+  "errors": []
+}

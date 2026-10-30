@@ -1,0 +1,271 @@
+{
+  "status": "failed",
+  "results": [
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "river_lake",
+      "count": 1,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 9,
+          "y": 194,
+          "width": 302,
+          "height": 380,
+          "top": 194,
+          "right": 311,
+          "bottom": 574,
+          "left": 9
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "river_lake",
+      "count": 6,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 9,
+          "y": 194,
+          "width": 302,
+          "height": 380,
+          "top": 194,
+          "right": 311,
+          "bottom": 574,
+          "left": 9
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "region": "river_lake",
+      "count": 28,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 9,
+          "y": 194,
+          "width": 302,
+          "height": 380,
+          "top": 194,
+          "right": 311,
+          "bottom": 574,
+          "left": 9
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "river_lake",
+      "count": 1,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 343,
+          "height": 380,
+          "top": 194,
+          "right": 359,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "river_lake",
+      "count": 6,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 343,
+          "height": 380,
+          "top": 194,
+          "right": 359,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "region": "river_lake",
+      "count": 28,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 343,
+          "height": 380,
+          "top": 194,
+          "right": 359,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "river_lake",
+      "count": 1,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 358,
+          "height": 380,
+          "top": 194,
+          "right": 374,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "river_lake",
+      "count": 6,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 358,
+          "height": 380,
+          "top": 194,
+          "right": 374,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "region": "river_lake",
+      "count": 28,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 358,
+          "height": 380,
+          "top": 194,
+          "right": 374,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "river_lake",
+      "count": 1,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 398,
+          "height": 380,
+          "top": 194,
+          "right": 414,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "river_lake",
+      "count": 6,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 398,
+          "height": 380,
+          "top": 194,
+          "right": 414,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "region": "river_lake",
+      "count": 28,
+      "candidate": "water-g",
+      "safe": true,
+      "slots": {
+        "castStage": {
+          "x": 16,
+          "y": 194,
+          "width": 398,
+          "height": 380,
+          "top": 194,
+          "right": 414,
+          "bottom": 574,
+          "left": 16
+        },
+        "notice": 42,
+        "speech": 76
+      }
+    }
+  ],
+  "errors": [],
+  "failure": "page.waitForFunction: Timeout 15000ms exceeded.\n    at /workspace/scratch/88ba06d1c82e/naotocchi/tests/home-production-browser.cjs:33:13"
+}
