@@ -18,6 +18,8 @@ const STEP_LIMIT=8000,TURN_LIMIT=512;
 const other=a=>a==='A'?'B':'A';
 // Round-dependent cards whose text names a fixed round (kept literally in R12; usage is recorded).
 const ROUND_CARDS=['E-final-time','E-midlife-50th','I-naoto_charm'];
+// Follow-up: love-related cards whose plays are counted.
+const TRACK=['E-misunderstanding','E-reconciliation','E-first-date','E-new-encounter','E-wedding-anniversary'];
 async function play(m){
  const {e,observeCpu,chooseCpuAction,policy,advanceResponses,CATALOG,RULES}=await mods(m.variant);
  const FINAL=['R10','OFFICIAL'].includes(m.variant)?10:12;
@@ -32,7 +34,7 @@ async function play(m){
  const seat=()=>({decisions:arr(),nonPass:arr(),granted:arr(),expired:arr(),spentOwn:arr(),spentOpp:arr(),payEvents:arr(),growthEnd:arr(),stageEnd:arr(),handStart:arr(),deckStart:arr(),
   turns:[],births:[],timeSkips:arr(),transforms:arr(),challenges:arr(),partnerPlace:[],relAdvance:arr(),leaves:[],marriage:null,maxRel:null,
   trapSet:arr(),trapFire:arr(),companionAbil:arr(),partnerAbil:arr(),companionPlace:arr(),worldPlace:arr(),actionPlays:arr(),roundCards:{},reached8:null,maxStage:0,
-  actsAfter8:0,turnsAfter8:0,passOnlyTurnsAfter8:0,result:null,firstSeat:false,deck:null});
+  actsAfter8:0,turnsAfter8:0,passOnlyTurnsAfter8:0,plays:{},main8Abil:0,growthAfter8:0,result:null,firstSeat:false,deck:null});
  const R={match:m.match,group:m.group,variant:m.variant,final:FINAL,first:m.first,xSeat:m.xSeat,deck:{A:m.deckA,B:m.deckB},difficulty:m.difficulty,policy,policySeed:m.policySeed,orderSeed:g.orderSeed,
   initialOrderSha:{A:sha(seatOrder.A),B:sha(seatOrder.B)},status:'running',error:null,autoPass:0,seat:{A:seat(),B:seat()},leadByRound:[]};
  R.seat.A.firstSeat=true;R.seat.A.deck=m.deckA;R.seat.B.deck=m.deckB;
@@ -45,7 +47,7 @@ async function play(m){
    else if(l.kind==='leave')x.leaves.push({stage:l.stage,round:l.round,byOpponent:!!l.effectActor&&l.effectActor!==l.actor,cause:l.cause});}};
  const advance=()=>{const r=advanceResponses(s);R.autoPass+=r.steps.length;s=r.state;if(r.halted)throw Error('auto-advance halted: '+r.reason);};
  const closeTurn=()=>{if(!cur)return;const x=R.seat[cur.a];cur.growthDelta=s.players[cur.a].growth-cur.g0;cur.oppDelta=s.players[other(cur.a)].growth-cur.o0;
-   if(cur.after8){x.turnsAfter8++;if(!cur.nonPass)x.passOnlyTurnsAfter8++;}delete cur.g0;delete cur.o0;delete cur.a;x.turns.push(cur);cur=null;};
+   if(cur.after8){x.growthAfter8+=cur.growthDelta;x.turnsAfter8++;if(!cur.nonPass)x.passOnlyTurnsAfter8++;}delete cur.g0;delete cur.o0;delete cur.a;x.turns.push(cur);cur=null;};
  try{
   advance();flush();
   for(let n=0;s.phase!=='finished';n++){
@@ -77,6 +79,8 @@ async function play(m){
    if(act.kind==='trigger'&&wasFaceDown)x.trapFire[r]++;
    if(['trigger','programAbility','ability'].includes(act.kind)&&c&&!wasFaceDown){if(c.type==='companion')x.companionAbil[r]++;if(c.type==='partner')x.partnerAbil[r]++;}
    if(['play','programPlay'].includes(act.kind)&&src&&p.hand.includes(src))x.actionPlays[r]++;
+   if(cardId&&TRACK.includes(cardId)&&['play','programPlay'].includes(act.kind)&&p.hand.includes(src))x.plays[cardId]=(x.plays[cardId]??0)+1;
+   if(['trigger','programAbility','ability'].includes(act.kind)&&c?.type==='main'&&c.stage===8)x.main8Abil++;
    if(cardId&&ROUND_CARDS.includes(cardId)&&(['play','programPlay'].includes(act.kind)||(act.kind==='place'&&act.slot==='prepared'))){(x.roundCards[cardId]??=[]).push(r);}
    const tA=s.players.A.time,tB=s.players.B.time,before={A:tA,B:tB},rev=s.round,trn=s.turn;
    s=e.act(s,a,s.revision,act.id);step[a]++;guard.count++;guard.seen[key]=(guard.seen[key]??0)+1;
