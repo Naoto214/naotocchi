@@ -10,7 +10,7 @@ DECKS = ['main', 'companion', 'partner', 'challenge', 'growth', 'item', 'balance
 other = lambda a: 'B' if a == 'A' else 'A'
 NB = 2000
 NAMES = {'A0': 'G-A', 'A5': 'G-D', 'X0': 'L-X0', 'A1': 'L-A1', 'A1a': 'L-A1a', 'A1t': 'L-A1t', 'A2': 'L-A2', 'A2s': 'L-A2s', 'A3': 'L-A3', 'A4': 'L-A4',
-         'A1c4': 'L-A1c4', 'A1n1': 'L-A1n1', 'A1aL': 'L-A1aL'}
+         'A1c4': 'L-A1c4', 'A1n1': 'L-A1n1', 'A1aL': 'L-A1aL', 'A1t1': 'L-A1t1'}
 MAINC = ['A0', 'X0', 'A1', 'A1a', 'A1t', 'A2', 'A2s', 'A3', 'A4', 'A5']
 
 def load_runs(name):
@@ -195,7 +195,7 @@ out['contrasts'] = {name: {m: contrast(byv, V[c1], V[c0], f) for m, f in mf.item
 out['deckContrasts'] = {name: deck_contrasts(byv, V[c1], V[c0]) for name, (c1, c0) in pairs.items()}
 
 # Card access fairness: games where exactly one seat drew a working life card. That seat's score vs the same seat in X0.
-def access(c):
+def access(c, byv=byv, V=V):
     rows = []
     for k, r in byv[V[c]].items():
         x0 = byv['L-X0'].get(k)
@@ -237,4 +237,15 @@ for v in ('G-A', 'L-X0', 'L-A1', 'L-A3', 'G-D'):
                 'passOnlyAfter8': rnd(sum(x['passOnlyTurnsAfter8'] for x in reached) / max(1, t8)), 'growth': rnd(mean([x['growth'] for r, a, x in xs]), 1),
                 'finalRound': dict(Counter(r['final'] for r, a, x in xs))}
 out['eight'] = eight
+# Follow-up (PLAN-NEXT.md): A1t1 = しかける x1 (MAIN 001-020); A1n1 = すぐつかう x1 completed to 001-020 (SENS 001-010 + NEXTn1 011-020)
+if glob.glob('runs/NEXT-shard*.jsonl.gz'):
+    NX = index(load_runs('NEXT') + load_runs('NEXTn1') + [r for r in load_runs('SENS') if r['variant'] == 'L-A1n1'])
+    nb = {**{v: byv[v] for v in ('G-A', 'L-X0', 'L-A1t', 'L-A1')}, 'L-A1t1': NX['L-A1t1'], 'L-A1n1': NX['L-A1n1']}
+    NV = {c: NAMES[c] for c in ('A0', 'X0', 'A1', 'A1t', 'A1t1', 'A1n1')}
+    npairs = {'A1t1-A0（総合）': ('A1t1', 'A0'), 'A1t1-X0（ルール効果）': ('A1t1', 'X0'), 'A1t1-A1t（2枚→1枚）': ('A1t1', 'A1t'),
+              'A1t1-A1n1（しかける−すぐつかう、1枚）': ('A1t1', 'A1n1'), 'A1n1-X0（ルール効果）': ('A1n1', 'X0'), 'A1n1-A0（総合）': ('A1n1', 'A0')}
+    out['next'] = {'conditions': {c: summary(list(nb[NV[c]].values())) for c in ('A1t1', 'A1n1')},
+                   'contrasts': {name: {m: contrast(nb, NV[a], NV[b], f) for m, f in mf.items()} for name, (a, b) in npairs.items()},
+                   'deckContrasts': {name: deck_contrasts(nb, NV[a], NV[b]) for name, (a, b) in npairs.items()},
+                   'cardAccess': {c: access(c, nb, NV) for c in ('A1t1', 'A1n1')}}
 print(json.dumps(out, ensure_ascii=False, indent=1))

@@ -3,3 +3,4 @@ runs/*.jsonl
 runs/*.log
 runs/run-all.out
 _*.py
+runs/*.out
