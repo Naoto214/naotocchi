@@ -189,7 +189,7 @@ document.addEventListener('click',e=>{
  if(b.hasAttribute('data-result-history')){closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML='<button type="button" class="dialog-close" data-close>閉じる ×</button>'+resultHistoryMarkup(session.projection,session.viewer);d.querySelector('details').open=true;d.showModal();input.stamp();d.scrollTop=0;return;}
  if(b.hasAttribute('data-workflow')){openWorkflow();return;}
  if(b.hasAttribute('data-hand-toggle')){handOpen=$('hand').classList.contains('hand-collapsed');applyHandVisibility();return;}
- if(b.hasAttribute('data-menu')){closeDialogs({focus:false});$('menu-dialog').showModal();return;}
+ if(b.hasAttribute('data-menu')){closeDialogs({focus:false});syncLeaveMenu();$('menu-dialog').showModal();return;}
  if(b.hasAttribute('data-reorder')){reordering=!reordering;handOpen=true;render();document.querySelector('[data-reorder]')?.focus();return;}
  if(b.hasAttribute('data-move')){
   if(!session.viewer||busy)return;const v=session.projection,id=b.dataset.handId,direction=Number(b.dataset.move),detail=$('card-dialog').open,scroll=document.querySelector('#hand .cards')?.scrollLeft??0;
@@ -208,7 +208,7 @@ document.addEventListener('click',e=>{
  if(b.dataset.inspect){inspect(b.dataset.inspect,{catalog:b.hasAttribute('data-catalog'),origin:b});return;}
  if(b.dataset.browse){inspect(b.dataset.browse,{readOnly:true,origin:b});return;}
  if(b.dataset.zone){showZone(b.dataset.seat,b.dataset.zone,b);return;}
- if(b.hasAttribute('data-home')){cpu.cancel();feedback.reset();session.clear();closeDialogs();$('game').replaceChildren();$('welcome').hidden=false;$('game').hidden=true;$('export').hidden=true;document.body.classList.remove('playing');renderDeck();$('new').focus();}
+ if(b.hasAttribute('data-home')){toWelcome();}// 対戦終了後の「カードゲームトップへもどる」
 });
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('close',()=>cpu.schedule());
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();const back=id==='confirm-dialog'?returnDetail:null;const flow=id==='confirm-dialog'&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();});
@@ -219,6 +219,52 @@ $('new').onclick=()=>{try{const seeds=crypto.getRandomValues(new Uint32Array(3))
 $('restore').onclick=()=>{try{const raw=localStorage.getItem($('match-mode').value==='cpu'?CPU_KEY:KEY);if(!raw)throw Error('保存された対戦がありません');cpu.cancel();{const loaded=decodeMatch(raw);session=loaded.session;matchMetadata=loaded.metadata;recordedId=null;}bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();message(matchMetadata?'保存を検証して復帰しました':'保存を検証して復帰しました（旧形式のため戦績には記録しません）');}catch(e){message(`復帰できません：${e.message}`);}};
 $('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
 $('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([saveMatch()],{type:'application/json'})),a=el('a');a.href=url;a.download=session.mode==='cpu'?'naotocchi-cpu.json':'naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+// もどる操作（☰ 対戦メニュー・結果の「カードゲームトップへもどる」）。表記は移動先を書いた「〇〇へもどる」（矢印なし）。
+// 戻り先は2つ。CARD GAME はトップ（メインメニュー）と「対戦の準備」が同じページの上下にある1ページ構成なので、
+// そのページ全体を「カードゲームトップ」として扱い、ページ内で自分自身へ戻る操作は置かない。
+//   top:  カードゲームトップ（同じページの「対戦の準備」から「保存した対戦に戻る」で再開できる）
+//   home: なおとっち（育成画面）。ページを移動する
+// 対戦中は先にこの端末へ保存し直し、読み戻して保存できたことを確かめてから確認を出す。対戦終了後は確認なしで移動する。
+const HOME_URL=$('home-return').href;// 戻り先は開始画面ヘッダーのリンクと同じ（index.html の href が唯一の定義）
+const LEAVE={
+ top:{label:'カードゲームトップへもどる',title:'カードゲームトップへもどりますか？',resume:route=>`「${route}」→「保存した対戦に戻る」で`},
+ home:{label:'なおとっちへもどる',title:'なおとっちへもどりますか？',resume:route=>`あとで CARD GAME の「${route}」→「保存した対戦に戻る」で`},
+};
+const menuParts=()=>[document.querySelector('#menu-dialog .utility-nav'),$('menu-leave')];
+function leaveConfirmReset(){$('menu-home-confirm').hidden=true;$('menu-home-confirm').replaceChildren();menuParts().forEach(n=>n.hidden=false);syncLeaveMenu();}
+// 開始画面から開いたとき（対戦なし）は、もどる操作を出さない（ヘッダーの「なおとっちへもどる」がある）。
+function syncLeaveMenu(){const playing=!$('game').hidden;$('menu-leave').hidden=!playing;$('menu-continue').hidden=!session.active||session.finished;}
+// 対戦画面からカードゲームトップへ。保存済みの対戦は端末に残したまま（「保存した対戦に戻る」で再開できる）。
+function toWelcome({saved=false}={}){
+ const mode=session.mode==='cpu'?'cpu':'hotseat',had=session.active;
+ cpu.cancel();collection.close();closeDialogs({focus:false});feedback.reset();turnFeedback.hide();session.clear();
+ $('game').replaceChildren();$('game').hidden=true;$('curtain').hidden=true;$('welcome').hidden=false;$('export').hidden=true;document.body.classList.remove('playing');
+ if(had)$('match-mode').value=mode;// 「保存した対戦に戻る」がこの対戦の保存を読むように
+ modeGuide();renderDeck();
+ window.scrollTo?.(0,0);$('solo-open').focus({preventScroll:true});
+ const note=$('resume-note');note.hidden=!saved;
+ if(saved){note.textContent=`さっきの対戦を保存しました。「${mode==='cpu'?'ひとりであそぶ':'ふたりであそぶ'}」の「保存した対戦に戻る」で続きから遊べます。`;message(note.textContent);}
+}
+// 案内は、新しい対戦を始めたり保存から戻ったりしたら消す。
+for(const id of ['new','restore'])$(id).addEventListener('click',()=>{$('resume-note').hidden=true;});
+function go(target,saved){if(target==='home'){cpu.cancel();location.assign(HOME_URL);}else toWelcome({saved});}
+function requestLeave(target){
+ if(!session.active||session.finished){go(target,false);return;}
+ cpu.cancel();
+ const key=session.mode==='cpu'?CPU_KEY:KEY;let saved=false;
+ try{const data=saveMatch();localStorage.setItem(key,data);saved=localStorage.getItem(key)===data;}catch{saved=false;}
+ const route=session.mode==='cpu'?'ひとりであそぶ':'ふたりであそぶ',box=$('menu-home-confirm'),t=LEAVE[target];
+ box.innerHTML=saved
+  ?`<h3>${t.title}</h3><p>この対戦は端末に保存しました。${t.resume(route)}続きから遊べます。</p><div class="menu-home-actions"><button type="button" id="menu-home-go" class="primary">${t.label}</button><button type="button" id="menu-home-stay">対戦をつづける</button></div>`
+  :`<h3>保存できませんでした</h3><p class="menu-home-warn">いまもどると、この対戦の続きは遊べません。先に「対戦をつづける」→「保存ファイルを書き出す」で保存してください。</p><div class="menu-home-actions"><button type="button" id="menu-home-stay" class="primary">対戦をつづける</button><button type="button" id="menu-home-go">保存せずにもどる</button></div>`;
+ menuParts().forEach(n=>n.hidden=true);box.hidden=false;
+ $('menu-home-go').onclick=()=>go(target,saved);
+ $('menu-home-stay').onclick=()=>{leaveConfirmReset();$(target==='home'?'menu-home':'menu-top').focus();};
+ $('menu-home-stay').focus();
+}
+for(const b of document.querySelectorAll('#menu-leave [data-leave]'))b.onclick=()=>requestLeave(b.dataset.leave);
+$('menu-continue').onclick=()=>$('menu-dialog').close();
+$('menu-dialog').addEventListener('close',leaveConfirmReset);
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=decodeMatch(await file.text());cpu.cancel();session=restored.session;matchMetadata=restored.metadata;recordedId=null;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
 window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
