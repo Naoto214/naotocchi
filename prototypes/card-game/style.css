@@ -319,3 +319,16 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 :root[data-detail-orientation=landscape] #card-dialog.card-detail>.card-stage{display:contents}
 :root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-scroll{grid-column:1;grid-row:1/span 2}
 :root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-band{grid-column:2;grid-row:2;border-left:0;padding-left:0;min-height:0}
+/* なおとっち（育成画面）へもどる：開始画面ヘッダー右上と ☰ メニュー内 */
+a.home-return{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid #738a75;border-radius:9px;background:#24483d;color:#fff9e5;text-decoration:none;white-space:nowrap;font-size:14px;flex:none;-webkit-tap-highlight-color:transparent}
+a.home-return:focus-visible,#menu-home:focus-visible{outline:2px solid #edd49a;outline-offset:2px}
+body>header h1{margin:0;min-width:0}
+.menu-home-confirm h3{margin:4px 0 8px;color:#edd49a}.menu-home-confirm p{margin:0 0 12px;line-height:1.6}.menu-home-warn{color:#ffd6c2}
+.menu-home-actions{display:flex;flex-wrap:wrap;gap:10px}.menu-home-actions button{flex:1 1 auto;white-space:nowrap}
+@media(max-width:360px){body>header h1{font-size:1.05rem}a.home-return{padding:10px 10px;font-size:13px}}
+/* ☰ 対戦メニューの「もどる」：表記は「〇〇へもどる」にそろえ、折り返さない。
+   幅が足りるとき（横画面など）は2列、足りないとき（縦画面）は1列に積む。なおとっち本編へは枠の色を変えて別扱い */
+.menu-leave{margin-top:14px;padding-top:12px;border-top:1px solid #718c6b66}.menu-leave h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;color:#d5c9a2}
+.menu-leave-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:8px}.menu-leave-grid button{min-width:0;min-height:48px;padding:10px 14px;line-height:1.35;white-space:nowrap}
+.menu-leave-grid #menu-home{border-color:#c8ac6b;background:#2d4a33}.menu-leave-grid #menu-continue{grid-column:1/-1}
+.resume-note{margin:12px 0 0;padding:10px 12px;border:1px solid #c8ac6b;border-radius:10px;background:#2d4a33;color:#f9f1d9;font-size:14px;line-height:1.6}
