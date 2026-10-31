@@ -4005,7 +4005,7 @@
       : visible && !message ? notice : null;
     let text = display ? display.text || `${display.title}\n${display.detail}`
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
-        : state.stage === STAGE.EGG ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
+        : state.stage === STAGE.EGG ? 'たまごをタップするか「あたためる」をおしてね' : '');
     if (terrainNoticeMode() && state.stage === STAGE.GROWING) {
       const eventText=window.NaotocchiHomeDiorama.homeText(message);
       const warnings=visible ? window.NaotocchiHomeDiorama.homeWarnings(state,notice) : '';
@@ -10461,6 +10461,43 @@
   // マイグレーション中や たまごの あいだは 演出を いっさい 出さない ための フラグ
   let suppressLifeEvents = false;
 
+  let birthCelebration = null;
+  function clearBirthCelebration() {
+    if (!birthCelebration) return;
+    clearTimeout(birthCelebration.timer);
+    birthCelebration.node.remove();
+    birthCelebration = null;
+  }
+
+  function showBirthCelebration() {
+    clearBirthCelebration();
+    const node = document.createElement('div');
+    node.className = 'birth-celebration';
+    node.setAttribute('role', 'status');
+    node.setAttribute('aria-live', 'polite');
+    const halo = document.createElement('span');
+    halo.className = 'birth-halo';
+    halo.setAttribute('aria-hidden', 'true');
+    node.appendChild(halo);
+    for (let i = 0; i < 8; i += 1) {
+      const star = document.createElement('span');
+      star.className = 'birth-star';
+      star.textContent = '✦';
+      star.setAttribute('aria-hidden', 'true');
+      star.style.setProperty('--i', i);
+      node.appendChild(star);
+    }
+    const panel = document.createElement('div');
+    panel.className = 'birth-panel';
+    const title = document.createElement('strong');
+    title.textContent = `${currentVisualStage().label}が うまれた！`;
+    const subtitle = document.createElement('span');
+    subtitle.textContent = 'はじめまして。これから、よろしくね。';
+    panel.appendChild(title); panel.appendChild(subtitle); node.appendChild(panel);
+    el.petArea.appendChild(node);
+    birthCelebration = {node, life:state, timer:setTimeout(clearBirthCelebration, 2800)};
+  }
+
   function hatchEgg() {
     if (state.stage !== STAGE.EGG || state.infinite) return;
     clearPetExpression();
@@ -10484,7 +10521,8 @@
       recordItemUse(id);
       state.lifetime.nextEggLine = null; state.lifetime.nextEggKind = null;
     }
-    setMessage('たまごがぱかり。ちいさななおとっちと、目があった。');
+    setMessage(`${currentVisualStage().label}が うまれた！`);
+    showBirthCelebration();
     emotePet('happy');
     pushLifeLog('🥚', 'たまごからうまれた');
   }
@@ -12139,6 +12177,7 @@
   }
 
   function renderPetVisual() {
+    if (birthCelebration && (birthCelebration.life !== state || state.stage !== STAGE.GROWING || gameActive || meguruActive)) clearBirthCelebration();
     const reaction = eggVisualReaction?.life === state ? eggVisualReaction.kind : '';
     eggVisualReaction = null;
     // A new inner visual restarts a finite reaction without forcing layout or
@@ -12566,6 +12605,7 @@
     updateMeter(el.deathBar, hideLife ? 100 : 100 - state.deathMeter, 'death');
     updateMeter(el.transformBar, hideLife ? 0 : state.transformMeter, 'transform');
     el.lifeMeterRow.classList.toggle('hidden', state.infinite);
+    el.lifeMeterRow.classList.toggle('egg-story-progress', isEgg);
     document.getElementById('deathMeterItem')?.classList.toggle('hidden', state.infinite);
 
     const goalAge = currentAge();
@@ -12652,7 +12692,7 @@
     if (hasTransformChoice) renderTransformChoices();
 
     const homeMessage = message || (isDead ? '「あたらしいたまご」で、つぎの子をむかえよう'
-      : isEgg ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
+      : isEgg ? 'たまごをタップするか「あたためる」をおしてね' : '');
     if (!CARE_STATUS && setCommentText(el.message, homeMessage)) {
       el.message.scrollTop = 0;
     }
@@ -18330,8 +18370,8 @@
     eggVisualReaction = { life:state, kind:state.stage === STAGE.EGG ? 'warm' : 'hatch' };
     if (state.stage === STAGE.EGG) {
       const pct = Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100));
-      const response = pct >= 80 ? 'ひびがひろがった。もうすぐ会えそう' : pct >= 40 ? '小さなひびがはいった。中でもぞもぞ' : '中でもぞもぞうごいている';
-      setMessage(`たまごをあたためた…${response} ${pct}%`);
+      const response = pct >= 80 ? 'もうすぐ、あえそうだ。' : pct >= 60 ? 'たまごが、こつんとゆれた。' : pct >= 40 ? 'なかで、なにかがうごいた気がする。' : 'たまごが、ほんのりあたたかい。';
+      setMessage(response);
     }
     return true;
   }

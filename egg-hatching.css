@@ -53,3 +53,52 @@
   }
   #petSprite .egg-hatch-shell {display:none}
 }
+
+/* Temporary birth-only presentation. No hitboxes or actor transforms change. */
+.birth-celebration {
+  position:fixed;inset:0;z-index:90;pointer-events:none;
+  contain:layout style;overflow:hidden;
+}
+.birth-halo {
+  position:absolute;left:50%;top:44%;width:min(80vw,330px);aspect-ratio:1;
+  border-radius:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,#fffbe8b8 0%,#ffe7a766 38%,#fff5ce00 70%);
+  animation:birth-glow 2.8s ease-out both;
+}
+.birth-panel {
+  position:absolute;left:50%;top:57%;transform:translateX(-50%);
+  width:calc(100% - 40px);max-width:340px;box-sizing:border-box;
+  padding:15px 12px;border:2px solid #eac777;border-radius:20px;
+  background:#fffbed;color:#49301e;text-align:center;
+  box-shadow:0 4px 24px #c9973b55,0 0 24px #fff5d9aa;
+  animation:birth-panel 2.8s ease-out both;
+}
+.birth-panel strong {display:block;font-size:clamp(19px,5.2vw,24px);line-height:1.45;overflow-wrap:anywhere;}
+.birth-panel > span {display:block;margin-top:5px;font-size:12px;line-height:1.5;color:#684c30;}
+.birth-star {
+  position:absolute;left:calc(50% + (var(--i) - 3.5)*27px);top:43%;
+  color:#e8b449;font-size:calc(15px + var(--i)*1px);text-shadow:0 0 8px #fff;
+  animation:birth-star 2.8s ease-out both;
+}
+@keyframes birth-glow {
+  0% {opacity:0;transform:translate(-50%,-50%) scale(.7)}
+  20%,75% {opacity:1}
+  100% {opacity:0;transform:translate(-50%,-50%) scale(1.12)}
+}
+@keyframes birth-star {
+  0% {opacity:0;transform:translateY(22px) scale(.6)}
+  20%,65% {opacity:1}
+  100% {opacity:0;transform:translateY(calc(-45px - var(--i)*6px)) rotate(35deg)}
+}
+@keyframes birth-panel {0% {opacity:0} 12%,85% {opacity:1} 100% {opacity:0}}
+@media (max-height:450px) {
+  .birth-panel {top:34%;max-width:300px;padding:8px 12px;}
+  .birth-panel strong {font-size:18px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .birth-halo,.birth-star,.birth-panel {animation:none;}
+  .birth-star {transform:translateY(calc(-12px - var(--i)*4px));}
+}
+
+/* Egg progress is told by the notice; retain the meter slot geometry. */
+.egg-story-progress .bar-line:has(#evoBar) {visibility:hidden;}

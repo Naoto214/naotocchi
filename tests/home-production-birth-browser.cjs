@@ -32,16 +32,32 @@ const server=http.createServer((req,res)=>{let p=new URL(req.url,'http://localho
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port,results=[],errors=[];
 try{for(const engine of (process.env.HOME_BIRTH_ENGINES||'chromium,webkit').split(',')){
  const browser=await require('playwright')[engine].launch();try{
- for(const [width,height,safe] of [[320,568],[375,667],[390,844],[430,932],[390,844,true]]){
+ for(const motion of ['reduce','no-preference'])for(const [width,height,safe] of [[320,568],[375,667],[390,844],[430,932],[390,844,true]]){
  insets=safe?{top:59,bottom:34}:{};
- const page=await browser.newPage({viewport:{width,height},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
+ const page=await browser.newPage({viewport:{width,height},isMobile:true,hasTouch:true,reducedMotion:motion});
  page.on('pageerror',e=>errors.push(e.message));await page.clock.install();
  await page.goto(base);await page.waitForFunction(()=>window.HomeBirthQA&&window.HomeV6Egg&&document.querySelector('.home-v6-egg-world img')?.complete);
  await page.evaluate(()=>document.fonts.ready);await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+1000));
- const row={engine,width,height,safe:!!safe};results.push(row);
- async function capture(name){await page.clock.runFor(70);row[name]=await page.evaluate(()=>HomeBirthQA.detail());if(width===390&&!safe)await page.screenshot({path:path.join(out,`${engine}-${name}-390.png`)});}
+ const row={engine,width,height,motion,safe:!!safe};results.push(row);
+ async function capture(name){await page.clock.runFor(70);row[name]=await page.evaluate(()=>HomeBirthQA.detail());if(width===390&&!safe)await page.screenshot({path:path.join(out,`${engine}-${motion}-${name}-390.png`)});}
  await capture('egg');
- for(let i=0;i<5;i++){await page.locator('#playWithBtn').click();await page.clock.runFor(120);}
+ const words=['たまごが、ほんのりあたたかい。','なかで、なにかがうごいた気がする。','たまごが、こつんとゆれた。','もうすぐ、あえそうだ。'];
+ for(let i=0;i<4;i++){
+  await page.locator('#playWithBtn').click();await page.clock.runFor(120);
+  assert.equal(await page.locator('#message').innerText(),words[i]);
+  assert.doesNotMatch(await page.locator('#worldDescription').innerText(),/[0-9]+%/);
+  assert.equal(await page.locator('#evoValue').isVisible(),false);
+ }
+ await capture('ready');
+ await page.locator('#playWithBtn').click();await page.clock.runFor(1050);
+ assert.equal(await page.locator('.birth-panel strong').innerText(),'あかちゃんいぬが うまれた！');
+ assert.equal(await page.locator('.birth-star').count(),8);
+ assert.equal(await page.locator('.birth-celebration').evaluate(e=>getComputedStyle(e).pointerEvents),'none');
+ if(motion==='reduce')assert.equal(await page.locator('.birth-star').first().evaluate(e=>getComputedStyle(e).animationName),'none');
+ await capture('celebration');
+ await page.clock.runFor(1900);
+ assert.equal(await page.locator('.birth-celebration').count(),0);
+ 
  await page.waitForFunction(()=>document.body.dataset.livingHome==='art-25d'&&document.querySelector('.home-art-canvas')?.width>0);
  await capture('newborn');
  await page.evaluate(()=>HomeBirthQA.grow());await capture('grown');

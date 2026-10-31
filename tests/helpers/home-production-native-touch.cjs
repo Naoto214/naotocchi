@@ -32,7 +32,7 @@ exports.actors=async(page,region,count)=>{
   const output=path.resolve('test-results/home-production-native');
   fs.mkdirSync(output,{recursive:true});
   const save=()=>fs.writeFileSync(path.join(output,`${viewport.width}x${viewport.height}-${region}-${count}.json`),JSON.stringify(records,null,2));
-  await page.evaluate(()=>{
+  const installTrace=()=>page.evaluate(()=>{
     if(window.__homeNativeTrace)return;
     window.__homeNativeTrace=[];
     for(const type of ['pointerdown','pointerup','pointercancel','lostpointercapture'])document.addEventListener(type,event=>{
@@ -47,18 +47,27 @@ exports.actors=async(page,region,count)=>{
   try{for(const kind of ['tap','drag']){
     const record={kind,status:'preparing'};records.push(record);
     try{
+    // A successful tap changes the live model. sync() deliberately preserves
+    // that location; it cannot reset the next drag fixture. A fresh document
+    // also prevents beforeunload's normal save from carrying the moved cast.
+    await page.reload();
+    await page.waitForFunction(()=>window.HomeReleaseQA);
+    record.fresh=await page.evaluate(()=>({stage:HomeReleaseQA.state().stage,actors:HomeReleaseQA.detail().actors.length}));
+    assert.equal(record.fresh.stage,'egg','input begins from the fresh QA egg');
+    await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
+    await installTrace();
     await page.evaluate(()=>{window.__homeNativeTrace.length=0;window.HomeReleaseInputTrace.length=0;});
-    await page.waitForFunction(()=>{const a=HomeReleaseQA.detail().actors[0];return !a.target||a.source==='ambient';},null,{timeout:15000});
     await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
-    await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[region,count]);
+    await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[region,count],{polling:100});
+    await page.clock.runFor(50);
     await page.evaluate(()=>{
       const frame=document.querySelector('.screen-frame'),stage=document.getElementById('castStage'),a=HomeReleaseQA.detail().actors[0];
       frame.scrollTop+=stage.getBoundingClientRect().top+a.y-a.h*.4-frame.getBoundingClientRect().top-frame.clientHeight/2;
     });
     // DOM hit testing can see a new scroll offset before Chromium's touch
     // compositor does. Let the viewport paint before choosing physical points.
-    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
-    await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';},null,{timeout:15000});
+    await page.clock.runFor(50);
+    await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';},null,{polling:100,timeout:15000});
     const searchStarted=Date.now();
     let target;
     try{target=await page.evaluate(require('./home-production-pointer-target.cjs'),kind);}
@@ -70,6 +79,7 @@ exports.actors=async(page,region,count)=>{
       assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');
       await page.touchscreen.tap(target.to.x,target.to.y);
     }else await swipe(session,target.from,target.to);
+    await page.clock.resume();
     const moved=await page.waitForFunction(({a,source})=>{const p=HomeReleaseQA.detail().actors[0];return p.source===source&&Math.hypot(p.x-a.x,p.y-a.y)>5?p:false;},{a:target.a,source:kind==='tap'?'ground':'drag'},{timeout:15000});
     record.observedMovement=await moved.jsonValue();await moved.dispose();
     assert.ok((await page.evaluate(()=>HomeReleaseQA.detail())).actors.every(a=>a.safe),kind+' remains grounded');
@@ -77,6 +87,7 @@ exports.actors=async(page,region,count)=>{
     record.status='passed';
     }catch(error){record.status='failed';record.error=error.message;throw error;}
     finally{
+      await page.clock.resume();
       record.observation=await page.evaluate(()=>({detail:HomeReleaseQA.detail(),trace:window.__homeNativeTrace,inputTrace:window.HomeReleaseInputTrace,
         frame:document.querySelector('.screen-frame').getBoundingClientRect().toJSON(),bounds:HomeReleaseQA.inspect().bounds})).catch(()=>null);
       save();
