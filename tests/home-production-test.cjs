@@ -2,18 +2,18 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const cp=require('node:child_process');
 // A PR merge checkout includes newer main work (for example CARD GAME).
 // Compare its first parent, the actual tested main, rather than attributing
-// those independent commits to this home change. Local branch checks retain
-// the reviewed integration baseline.
+// those independent commits to this home change. Local checks compare the
+// latest main ancestor actually incorporated into this branch.
 const integratedCheckout=(process.env.GITHUB_EVENT_NAME==='pull_request'&&/^refs\/pull\/\d+\/merge$/.test(process.env.GITHUB_REF||''))
  || (process.env.GITHUB_EVENT_NAME==='push'&&process.env.GITHUB_REF==='refs/heads/main');
 const testedMain=integratedCheckout
  ? cp.execFileSync('git',['rev-parse','HEAD^1'],{encoding:'utf8'}).trim()
- : '851cf09a80c7ed41ba7293888084272917e4582c';
+ : cp.execFileSync('git',['merge-base','HEAD','origin/main'],{encoding:'utf8'}).trim();
 test('production entry activates approved art and egg presentation without preview save keys',()=>{
  const html=fs.readFileSync('index.html','utf8');
  assert.match(html,/home-production-diorama\.js/);
  assert.match(html,/home-production-model\.js/);
- assert.match(html,/home-v6-egg\.mjs/);
+ assert.match(html,/home-production-egg\.mjs/);
  assert.match(html,/home-art\.css/);assert.match(html,/home-v8\.css/);
  assert.doesNotMatch(html,/naotocchi-home-v9-(?:qa|play|sheet)/);
  assert.match(fs.readFileSync('script.js','utf8'),/const SAVE_KEY = 'naotocchi-save-v1'/);
@@ -38,7 +38,7 @@ test('QA measures the fixed notification slot rather than the optional message c
  assert.match(fs.readFileSync('tools/home-production-qa.cjs','utf8'),/notice:document.getElementById\('homeEventSlot'\).getBoundingClientRect\(\).height/);
 });
 test('production runtime harness loads the exact shipped presenter and model',()=>{
- const h=require('./helpers/runtime-harness.cjs').harness({deterministic:true,homeDiorama:true,productionHome:true});
+ const h=require('./helpers/runtime-harness.cjs').harness({homeDiorama:true,productionHome:true});
  assert.equal(h.window.NaotocchiHomeDiorama,require('../home-production-diorama.js'));
  assert.equal(h.window.NaotocchiHomeDioramaModel,require('../home-production-model.js'));
 });

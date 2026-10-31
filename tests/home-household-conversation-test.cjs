@@ -11,7 +11,7 @@ for(const [kind,id] of [...ids.map(id=>['companion',id]),...master.partners.map(
  h.api.render();h.advance(30000);
  const own=h.api.conv2.data.BANTERS.find(u=>u.with===key);assert.ok(own);
  for(const u of h.api.conv2.data.BANTERS)if(u.id!==own.id)h.api.conv2.director().noteUnit(u.id,'banter');
- assert.ok(h.api.conv2.canStart());shown.length=0;
+ assert.ok(h.api.conv2.canStart(),JSON.stringify(h.api.conv2.status()));shown.length=0;
  h.api.meguruMod.socialSession.advance(300);h.api.render();assert.equal(h.api.conv2.visitorKey(),key);
  h.advance(2700);assert.equal(h.api.conv2.unit()?.id,own.id,'real visit scheduled the dedicated unit');
  h.advance(16000);assert.deepEqual(shown.slice(0,own.beats.length),own.beats.map(b=>b.text));

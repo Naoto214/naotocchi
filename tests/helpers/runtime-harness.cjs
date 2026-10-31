@@ -97,6 +97,14 @@ function harness(options = {}) {
 function createHarness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, homeDiorama = false, productionHome = false, clockNow = 1000, pinDate = false, environment = DEFAULT_ENVIRONMENT, hostEnvironmentClock = false, seed, strictRegions = true} = {}) {
   let now = clockNow, serial = 0;
   const rng = seed === undefined ? null : seededRandom(seed);
+  // The real model owns a private RNG. A host-required module otherwise reads
+  // host crypto/Date even in deterministic VM fixtures. Inject its existing
+  // random option using a separate stream; never consume the gameplay stream.
+  const homeModel = homeDiorama ? require(productionHome ? '../../home-production-model.js' : '../../home-diorama-model.js') : undefined;
+  const homeRandom = rng ? seededRandom((seed ^ 0x484f4d45) >>> 0) : null;
+  const fixtureHomeModel = homeModel && homeRandom ? {...homeModel,
+    createModel: (options = {}) => homeModel.createModel({random:homeRandom.next, ...options})
+  } : homeModel;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
   const motionPreference = {matches:reducedMotion,addEventListener:(type,fn)=>{if(type==='change')motionListeners.push(fn);}};
@@ -218,7 +226,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     NaotocchiEnvironment: environmentModule(() => now, environment, hostEnvironmentClock),
     NaotocchiStrictRegions: strictRegions,
     NaotocchiLocalScenery: require('../../local-scenery.js'),
-    NaotocchiHomeDioramaModel: homeDiorama ? require(productionHome ? '../../home-production-model.js' : '../../home-diorama-model.js') : undefined,
+    NaotocchiHomeDioramaModel: fixtureHomeModel,
     NaotocchiHomeDiorama: homeDiorama ? require(productionHome ? '../../home-production-diorama.js' : '../../home-diorama.js') : undefined,
     NaotocchiWorldScene: worldScene ? require('../../world-scene.js') : undefined,
     NaotocchiCareStatus: require('../../care-status.js'),
@@ -304,7 +312,9 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
       showPendingClownfishTransition, renderCommOverlay,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion, currentEnvironment,
       conv2: {startBanter:conv2StartBanter, scheduleBanter:conv2ScheduleBanter, ask:conv2Ask, answer:conv2Answer, visitorKey:conv2CurrentVisitorKey,
-        canStart:conv2CanStart, unit:() => conv2Unit && {kind:conv2Unit.kind, id:conv2Unit.id, awaiting:conv2Unit.awaiting, held:conv2Unit.held.length},
+        canStart:conv2CanStart,
+        status:() => ({context:conv2ContextOk(),unit:conv2Unit?.id,message,speechActive,busy:conversationIsBusy(),emotion:deriveHomeEmotion(),careAfterglow:!!careAfterglowTimer,petBusy:Date.now()<petBusyUntil,petMotion:!!castMotion?.isActive({kind:'pet'})}),
+        unit:() => conv2Unit && {kind:conv2Unit.kind, id:conv2Unit.id, awaiting:conv2Unit.awaiting, held:conv2Unit.held.length},
         data:CONVERSATION_BANTER, postgame:CONVERSATION_POSTGAME, quick:CONVERSATION_QUICK, away:CONVERSATION_AWAY, checkAway:conv2CheckAway, quickRuns:() => conv2QuickRuns, recordQuickRun, lastQuickRun:() => quickLastRun, leaveScene:conv2LeaveScene, syncLayer:syncHistoryLayer, director:() => conversationDirector, config:CONV2,
         visitorLeaves:() => {homePresentPartner=()=>null;homePresentCompanions=()=>[];}, pools:() => CONVERSATION_POOLS, setLifeEventOpen:v => {individualityDialogOpen=!!v;}},
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, scheduleIdleGreeting, scheduleItemContextMessage, renderHomeCast,

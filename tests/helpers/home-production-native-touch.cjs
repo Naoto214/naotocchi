@@ -55,10 +55,13 @@ exports.actors=async(page,region,count)=>{
       const frame=document.querySelector('.screen-frame'),stage=document.getElementById('castStage'),a=HomeReleaseQA.detail().actors[0];
       frame.scrollTop+=stage.getBoundingClientRect().top+a.y-a.h*.4-frame.getBoundingClientRect().top-frame.clientHeight/2;
     });
+    // DOM hit testing can see a new scroll offset before Chromium's touch
+    // compositor does. Let the viewport paint before choosing physical points.
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
     await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';},null,{timeout:15000});
     const searchStarted=Date.now();
     let target;
-    try{target=await page.evaluate(require('./home-production-pointer-target.cjs'));}
+    try{target=await page.evaluate(require('./home-production-pointer-target.cjs'),kind);}
     finally{record.searchDurationMs=Date.now()-searchStarted;}
     record.beforeInput=await page.evaluate(()=>({at:performance.now(),blockers:HomeReleaseQA.blockers?.(),detail:HomeReleaseQA.detail()}));
     record.target=target;record.status='input';

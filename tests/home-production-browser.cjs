@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path'),http=require('http'),assert=require('node:assert/strict');
-const out=path.resolve(process.argv[2]||'../production'),dest=path.resolve('test-results/home-production');fs.mkdirSync(dest,{recursive:true});
+const out=path.resolve(process.argv[2]||'../production'),dest=path.resolve(process.env.HOME_RELEASE_OUTPUT||'test-results/home-production');fs.mkdirSync(dest,{recursive:true});
 const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(p==='/')p='/index.html';const f=path.resolve(out,'.'+p);if(!f.startsWith(out+'/')||!fs.existsSync(f)){res.writeHead(404).end();return;}res.setHeader('Content-Type',mime[path.extname(f)]||'application/octet-stream');fs.createReadStream(f).pipe(res);});
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;const results=[],errors=[],inputs=[];const saveInputs=()=>fs.writeFileSync(path.join(dest,'inputs.json'),JSON.stringify(inputs,null,2));try{
@@ -31,11 +31,18 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
  await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[inputRegion,inputCount]);
  for(const kind of ['tap','drag']){
+ // Each physical-input case starts on a fresh live page. Otherwise the idle
+ // greeting scheduled during preceding screenshots/moves can legitimately
+ // block pointerdown. The native matrix separately exercises tap then drag
+ // without reloading, including the crowded 320px post-tap position.
+ await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);
+ await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
+ await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world.loaded&&d.world.region===r&&d.actors.length===c;},[inputRegion,inputCount]);
  await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';},null,{timeout:15000});
  const input={engine:engineName,region:inputRegion,count:inputCount,kind,before:await page.evaluate(()=>HomeReleaseQA.detail()),status:'started'};inputs.push(input);saveInputs();
  try{
- const t=await page.evaluate(targetFn),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
- input.from=from;input.to=to;input.selectionMs=t.selectionMs;saveInputs();
+ const t=await page.evaluate(targetFn,kind),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
+ input.target=t;input.from=from;input.to=to;input.selectionMs=t.selectionMs;saveInputs();
  if(kind==='tap'){await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');await page.mouse.click(to.x,to.y);}
  else{await page.mouse.move(from.x,from.y);await page.mouse.down();await page.mouse.move(to.x,to.y,{steps:8});await page.mouse.up();}
  await page.waitForFunction(({a,source})=>{const p=HomeReleaseQA.detail().actors[0];return p.source===source&&Math.hypot(p.x-a.x,p.y-a.y)>5;},{a:t.a,source:kind==='tap'?'ground':'drag'},{timeout:15000});
@@ -46,7 +53,23 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  finally{input.after=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);input.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
  }
  }
- const questionStarted=await page.evaluate(()=>HomeReleaseQA.question());assert.ok(questionStarted,'existing conversation accepts prepared healthy fixture: '+JSON.stringify(await page.evaluate(()=>HomeReleaseQA.conversationStatus())));await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));
+ const stopInput={engine:engineName,region:inputRegion,count:28,kind:'question-blocks-drag',status:'started'};inputs.push(stopInput);saveInputs();
+ try{
+ const questionStarted=await page.evaluate(()=>HomeReleaseQA.question());assert.ok(questionStarted,'existing conversation accepts prepared healthy fixture: '+JSON.stringify(await page.evaluate(()=>HomeReleaseQA.conversationStatus())));
+ await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+ const blockedTarget=await page.evaluate(targetFn,'drag');stopInput.target=blockedTarget;
+ const blockedBefore=await page.evaluate(()=>({detail:HomeReleaseQA.detail(),traceIndex:HomeReleaseInputTrace.length,blockers:HomeReleaseQA.blockers()}));stopInput.before=blockedBefore;saveInputs();
+ assert.ok(blockedBefore.detail.blocked,'question holds movement');
+ await page.mouse.move(blockedTarget.from.x,blockedTarget.from.y);await page.mouse.down();await page.mouse.move(blockedTarget.to.x,blockedTarget.to.y,{steps:8});await page.mouse.up();
+ await page.waitForTimeout(150);
+ const blockedAfter=await page.evaluate(index=>({detail:HomeReleaseQA.detail(),trace:HomeReleaseInputTrace.slice(index)}),blockedBefore.traceIndex);stopInput.after=blockedAfter;saveInputs();
+ assert.ok(blockedAfter.trace.some(t=>t.type==='pointerdown'&&t.actor==='pet:dog'&&t.blocked),'blocked pointerdown reaches protagonist');
+ assert.ok(blockedAfter.trace.some(t=>t.type==='pointerup'),'blocked gesture completes');
+ assert.equal(blockedAfter.detail.actors[0].x,blockedBefore.detail.actors[0].x,'question blocks drag x');assert.equal(blockedAfter.detail.actors[0].y,blockedBefore.detail.actors[0].y,'question blocks drag y');
+ assert.ok(!blockedAfter.trace.some(t=>t.type==='move'&&t.result),'question must not accept a route');
+ await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));stopInput.status='passed';
+ }catch(error){stopInput.status='failed';stopInput.error=error.message;throw error;}
+ finally{stopInput.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
  await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > :is(button,a)').count(),12);await page.locator('#menuCloseBtn').click();
  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);await page.waitForTimeout(100);const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);assert.ok(Number.isFinite(clock),'real environment clock');await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
  await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region==='star_stop'&&d.world.loaded&&d.actors.length===28&&d.actors.every(a=>a.safe);},null,{timeout:30000});

@@ -206,7 +206,13 @@ test('6. a tired resident (low energy) shows the tired picture and says a tired 
   const line = M.talkLine(a);
   assert.equal(RX.dialogueEmotion(line), 'tired', line);
   const c = firstFree(sim, (q) => q.kind === 'companion');
-  if (c) { c.energy = 0.1; c.joy = 0; c.sulk = 0; sim.step(1 / 60, { x: 0, y: 0 }); assert.equal(c.emotion, 'tired'); assert.equal(c.expr.expression, 'normal'); assert.equal(c.expr.asset, c.asset); }
+  assert.ok(c, 'the companion fixture exists');
+  c.energy = 0.1; c.joy = 0; c.sulk = 0;
+  // Near residents update once per six frames, unlike the detail resident
+  // above. Exercise a complete normal update cycle, not an immediate reaction.
+  assert.equal(c.tier, 1, 'this fixture exercises the throttled near tier');
+  stepSec(sim, 6 / 60);
+  assert.equal(c.emotion, 'tired'); assert.equal(c.expr.expression, 'normal'); assert.equal(c.expr.asset, c.asset);
 }));
 
 // ───────────────────────────── 7. temporary reaction → persistent state へ 復帰
@@ -394,15 +400,18 @@ test('12. flag-off leaves residents on their base pictures, and the Home Express
 // ───────────────────────────── 13. save / schema 不変
 test('13. nothing about expressions reaches the save: the same keys and schemaVersion as a flag-off run, and no actor state serialized', () => {
   // おなじ ことを フラグ on / off(?mgexpr=0)で やって、セーブの かたちを くらべる。off は 表情の コードを 一度も とおらない
-  const scenario = (flagOff) => withSeed(127, () => {
-    const { h, s } = makeHarness({ regionId: 'forest' });
+  const scenario = (flagOff) => {
+    const { h, s, M: residentModule } = makeHarness({ regionId: 'forest' });
+    // Each harness owns its own module; seeding the outer M does not seed it.
+    residentModule.setRandom(seededRandom(127));
     if (flagOff) h.window.location.search = '?mgexpr=0';
     const before = new Set(Object.keys(s)), lifetimeBefore = new Set(Object.keys(s.lifetime)), ver = s.schemaVersion;
     assert.equal(h.api.startMeguru(), true);
     const run = h.api.meguruRun(), sim = run.sim;
     assert.equal(sim.expressionConfig.on, !flagOff, 'the URL flag reaches the simulation (and nothing else does)');
     const a = run.world.residents.find((q) => free(q));
-    run.setPlayer(a.x, a.z - 30); h.advance(40);
+    assert.ok(standBy(sim, a), 'stand where the requested resident really is nearest');
+    h.advance(40);
     assert.equal(run.nearest, a);
     h.dispatch(h.get('meguruOverlay').querySelector('#mgrTalk'), 'click');
     if (!flagOff) assert.ok(a.expr && a.expr.expression === 'happy');
@@ -411,10 +420,12 @@ test('13. nothing about expressions reaches the save: the same keys and schemaVe
     h.api.stopMeguru();
     const raw = JSON.stringify(s);
     for (const word of ['"expr"', 'emotionPersistent', 'talkedAt', 'expression', 'sulky', 'resident-expression', 'mgexpr']) assert.ok(!raw.includes(word), `${word} is not in the save`);
-    return { ver, after: s.schemaVersion, added: Object.keys(s).filter((k) => !before.has(k)).sort(), addedLifetime: Object.keys(s.lifetime).filter((k) => !lifetimeBefore.has(k)).sort(), meguru: JSON.stringify(s.lifetime.meguru) };
-  });
+    residentModule.setRandom(null);
+    return { actor: a.key, ver, after: s.schemaVersion, added: Object.keys(s).filter((k) => !before.has(k)).sort(), addedLifetime: Object.keys(s.lifetime).filter((k) => !lifetimeBefore.has(k)).sort(), meguru: JSON.stringify(s.lifetime.meguru) };
+  };
   const on = scenario(false), off = scenario(true);
   assert.equal(on.ver, 5); assert.equal(on.after, 5); assert.equal(off.after, 5);
+  assert.equal(on.actor, off.actor, 'both runs talk to the same seeded resident');
   assert.deepEqual(on.added, off.added, 'the expression lane adds no save key');
   assert.deepEqual(on.addedLifetime, off.addedLifetime, 'nor a lifetime key');
   assert.equal(on.meguru, off.meguru, 'the meguru record (talkCount etc.) is the same with and without expressions');
