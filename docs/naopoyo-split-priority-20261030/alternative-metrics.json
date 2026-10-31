@@ -1,0 +1,97 @@
+[
+  {
+    "stage": 16,
+    "mode": "B",
+    "status": "solved",
+    "metrics": {
+      "steps": 46,
+      "splits": 4,
+      "children": 12,
+      "merges": 15,
+      "familyMerges": 1,
+      "overflow": 3,
+      "rescues": 2,
+      "secondStepSplits": 4,
+      "selectedDiffersFromA": 4,
+      "candidateOrderChangesWithObstacles": 0,
+      "directionChanges": 27,
+      "actorSwitches": 26
+    }
+  },
+  {
+    "stage": 17,
+    "mode": "B",
+    "status": "solved",
+    "metrics": {
+      "steps": 41,
+      "splits": 4,
+      "children": 9,
+      "merges": 11,
+      "familyMerges": 3,
+      "overflow": 2,
+      "rescues": 2,
+      "secondStepSplits": 2,
+      "selectedDiffersFromA": 2,
+      "candidateOrderChangesWithObstacles": 0,
+      "directionChanges": 20,
+      "actorSwitches": 13
+    }
+  },
+  {
+    "stage": 18,
+    "mode": "B",
+    "status": "solved",
+    "metrics": {
+      "steps": 31,
+      "splits": 7,
+      "children": 20,
+      "merges": 26,
+      "familyMerges": 7,
+      "overflow": 7,
+      "rescues": 4,
+      "secondStepSplits": 7,
+      "selectedDiffersFromA": 7,
+      "candidateOrderChangesWithObstacles": 0,
+      "directionChanges": 21,
+      "actorSwitches": 18
+    }
+  },
+  {
+    "stage": 18,
+    "mode": "C",
+    "status": "solved",
+    "metrics": {
+      "steps": 32,
+      "splits": 6,
+      "children": 18,
+      "merges": 24,
+      "familyMerges": 6,
+      "overflow": 7,
+      "rescues": 4,
+      "secondStepSplits": 6,
+      "selectedDiffersFromA": 0,
+      "candidateOrderChangesWithObstacles": 0,
+      "directionChanges": 22,
+      "actorSwitches": 19
+    }
+  },
+  {
+    "stage": 19,
+    "mode": "B",
+    "status": "solved",
+    "metrics": {
+      "steps": 71,
+      "splits": 7,
+      "children": 21,
+      "merges": 28,
+      "familyMerges": 5,
+      "overflow": 9,
+      "rescues": 4,
+      "secondStepSplits": 7,
+      "selectedDiffersFromA": 7,
+      "candidateOrderChangesWithObstacles": 0,
+      "directionChanges": 48,
+      "actorSwitches": 43
+    }
+  }
+]

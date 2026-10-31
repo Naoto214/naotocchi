@@ -1,0 +1,267 @@
+{
+  "files": 52,
+  "matched": 52,
+  "anonymous_module": 403,
+  "results": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "manifest.json",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/dog/08.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/dog/04.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/dog/01.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/dog/02.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/dog/05.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/dog/03.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/dog/07.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/dog/06.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/frog/08.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/frog/04.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/frog/01.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/frog/02.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/frog/05.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/frog/03.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/frog/07.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/frog/06.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/clownfish/08.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/clownfish/04.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/clownfish/01.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/clownfish/02.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/clownfish/05.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/clownfish/03.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/clownfish/07.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/clownfish/06.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/penguin/08.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/penguin/04.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/penguin/01.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/penguin/02.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/penguin/05.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/penguin/03.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/penguin/07.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "assets/characters/penguin/06.png",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprite-data.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/fixtures.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/conditions.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprites.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/gate-art.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/stone.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/compatibility.json",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/index.html",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/atlas.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/engine.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/report.html",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/app.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/atlas.html",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/model.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/draw.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/priorities.mjs",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-split-priority/style.css",
+      "status": 200,
+      "same": true
+    },
+    {
+      "path": "prototypes/naopoyo-v2/engine.mjs",
+      "status": 200,
+      "same": true
+    }
+  ]
+}

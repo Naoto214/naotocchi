@@ -1,0 +1,1530 @@
+✔ complete snapshot survives original changes and ignores used state (1.552997ms)
+✔ limits independent and latest copy only (0.905624ms)
+✔ turn expiry and changed generation exclude copied text (0.722197ms)
+✔ copied trigger waits for a future event (0.237327ms)
+✔ missing activation contract fails closed (0.568796ms)
+✔ departure without generation increment prevents both receipt and access (0.243567ms)
+✔ this-name scope follows copier while literal names remain intact (0.268925ms)
+✔ 発動コストを使う7枚が、ルールブック第8章の説明の対象と一致する (1.48175ms)
+✔ 発動コストを払えない時は、その発動を始められない（コストだけ払う状態にならない） (9.085881ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/adopted-color-design.test.mjs (109.068074ms)
+✔ seven explicit source descriptors (1.246656ms)
+✔ actual transfer preserves physical identity and emits only attached (1.85309ms)
+✔ legality rejects main-only equipment on companion and same target (0.470127ms)
+✔ leave-return generation invalidates equipment and destination (0.243627ms)
+✔ original attachment continuity invalidates changed target and changed attachedAt (0.268735ms)
+✔ captured original main binds even if source departed; replacement is never selected (0.256526ms)
+✔ cake tests immediate old remaining equipment after transfer (0.25258ms)
+✔ push revalidates destination unequipped at resolution and no bonus after failed transfer (0.222155ms)
+✔ unknown op is unhandled (0.339371ms)
+✔ module exposes complete ten-card descriptors (2.332301ms)
+✔ blackjack stops into hand but duplicate types force bottom ordering (3.579178ms)
+✔ voxel can skip items, stop or take and caps five reveals (0.525921ms)
+✔ yacht swaps only candidates and caps swaps at two (0.299101ms)
+✔ road and roguelike give opponent the explicit public choice (0.299842ms)
+✔ partial decks perform mandatory picks and preserve original remainder order choice (0.421815ms)
+✔ fruit slice discards at most two play cards and queues growth (0.283006ms)
+✔ snake reveals selected hand cards then opponent keeps one (0.301725ms)
+✔ minesweeper respects face-up opponent target generation and printed cost (0.336937ms)
+✔ fruit growth is queued before remaining-card ordering starts (0.346322ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/art-cpu-integration.test.mjs (121.104639ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/auto-progress.test.mjs (98.646442ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/auto-tempo.test.mjs (112.805805ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/card-stage.test.mjs (105.400098ms)
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/tools/check-design-data.py': [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/build_full_catalog.py", line 96, in <module>
+    content = build()
+              ^^^^^^^
+  File "/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/build_full_catalog.py", line 35, in build
+    audit = json.loads(subprocess.check_output(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/tools/check-design-data.py', '--catalog']' returned non-zero exit status 2.
+✔ canonical catalog contains all452 current cards, including explicit vanilla (2.694491ms)
+✖ every source is real, exact text is preserved, and content hashes match (0.374684ms)
+✔ 95/96 current revisions and canonical names survive export (0.160973ms)
+✖ regeneration is deterministic and read-only in check mode (65.313068ms)
+✔ trap negates a specific action link, leaves paid costs and discards both cards (9.749416ms)
+✔ effect-applied triggers wait until all links resolve, and negated effects never trigger (4.493644ms)
+✔ retarget keeps the original effect target restrictions and changes one field reference (3.212916ms)
+✔ one round ability cannot be activated twice from pending events in one chain (5.336604ms)
+✔ reveal effects emit applied but an empty optional selection does not (6.125046ms)
+✔ empty-deck deepsea still records the applied growth loss (2.738933ms)
+✔ 453 unique cards, egg first, 31 contiguous eight-stage families and 51 nine-pocket pages (4.0983ms)
+✔ filters compose for name/effect/type/attribute/species/stage/rarity/favorites (2.183057ms)
+✔ preferences persist independently, merge latest fields, preserve corrupt data and reject failed saves (0.713655ms)
+✔ deck additions share original schema, reject egg/full/normal4/rare2 and roll back quota/conflicts (2.202946ms)
+✔ deck creation works where secure-context randomUUID is unavailable (1.228309ms)
+✔ departure ability belongs to the departed incarnation and survives replacement (15.578881ms)
+✔ next challenge reservation applies automatically before challenge trigger conditions (9.562576ms)
+✔ source departure does not cancel a next-win reservation; it fires once (6.562468ms)
+✔ Python oracle: 660 main payment/legality and 48 passive-stat cases (12.731164ms)
+✔ Python oracle: 9 hit/blow exact draw, bottom, growth outcomes (15.189666ms)
+✔ coin, first date and end/start equipment choices remain atomic (11.771109ms)
+✔ LIFO chain suspends for mandatory private choice; no response injection (6.388237ms)
+✔ reincarnated equipment target is not destroyed by an old link (2.420414ms)
+✔ all card instances conserved, placement limits and insufficient time rejected (1.750455ms)
+✔ 100 maintenance excludes current opposing turn and R10 uses final comparison (6.294936ms)
+✔ birth, cat return, full board reward, archery removal and marriage (10.593357ms)
+✔ bowtie starts after normal draw; empty decks do not lose or crash (4.701568ms)
+✔ mandatory reductions and taxes sum before floor and consume at zero (2.567465ms)
+✔ optional beetle choice locks following time skip only when accepted (0.256456ms)
+✔ source generation and turn bind once usage (0.426161ms)
+✔ frog existing world and hermit exact attachment target (0.239671ms)
+✔ first action recognizes prior item/event/play but ignores worlds (0.239801ms)
+✔ all eight explicit descriptors and source-bound locks (0.20586ms)
+✔ travel and home are separate source choices even when costs floor equally (0.256276ms)
+✔ dynamic selectors respect methods, types, partners and start serial (0.307683ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/cpu-effects.test.mjs (113.693547ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/cpu-legacy-cards.test.mjs (152.616345ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/cpu-partner-deck.test.mjs (135.653145ms)
+✔ hidden hand, deck order, seed and trap identity do not change CPU observation or decision (13.984291ms)
+✔ CPU preserves affordable birth card during egg return and chooses birth before spending time (2.924823ms)
+✔ CPU avoids losing public-stat challenge and prefers higher winning parameter (2.635027ms)
+✔ all 452 definitions use the same bounded legal candidate interface (532.893937ms)
+✔ policy rejects unknown difficulty and empty inventory instead of making up commands (1.737906ms)
+✔ growth reduction values denial at cap and does not waste increases at100 (2.162626ms)
+✔ removal selection prefers valuable opponent target and discards expendable own cards (1.77981ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/cpu-session.test.mjs (119.68748ms)
+✔ time is use-it-or-lose-it in the own normal phase: a positive tutor beats ending the turn (8.511233ms)
+✔ search with no matching card in the own deck is worthless and not played (5.566399ms)
+✔ search hit estimate follows the own remaining deck and never its order or the opponent (2.034653ms)
+✔ a paid action that would make a better action unaffordable is deferred (2.316447ms)
+✔ time is reserved for a held reaction card, and own-turn response windows keep the old cost (5.298316ms)
+✔ どうぶつしょうぎ: recovery is valued by the actual discarded target and chosen when useful (3.041669ms)
+✔ unsupported search filters fall back to the previous flat estimate (0.967015ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/cpu-ui.test.mjs (108.209678ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/cpu-variety.test.mjs (105.928117ms)
+Traceback (most recent call last):
+  File "<string>", line 5, in <module>
+ModuleNotFoundError: No module named 'design_sources'
+✖ historical design sources reject tampering and do not depend on live item arrays (43.572882ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/doodle-jump.test.mjs (127.809848ms)
+✔ human game engine exists (1.034297ms)
+✔ 40 cards, private projection, stale commands and immutable transitions (5.348411ms)
+✔ save replay validates state, commands and restores exact decisions (17.971122ms)
+✔ both human command seats complete R10 with legal cards, choices and chains (315.324211ms)
+✔ projection preserves physical identity for hand selection (0.718672ms)
+✔ custom decks reject unsupported and copy limits; legacy saves remain exact (7.597833ms)
+✔ higher main birth and time skip use stage/difference payments (6.760096ms)
+✔ search requires private selection and explicit bottom ordering (14.954321ms)
+✔ stat changes apply, expire, and disappear after reincarnation (5.485578ms)
+✔ scheduled growth occurs after next own start and survives source departure (21.183018ms)
+✔ facedown trap is not disclosed by board, targeting labels or action IDs (6.091954ms)
+✔ start trap activates once, consumes prepared source and allows response (11.184196ms)
+✔ replacement partner relationship loss and equipment cleanup apply centrally (2.971644ms)
+✔ new custom decks complete R10 and replay exactly after choices (530.702203ms)
+✔ search reveals only selected cards, never the inspected set (3.061839ms)
+✔ trap setup does not meet face-up play conditions (1.72712ms)
+✔ companion effect enables beach volley only after successful resolution (3.555062ms)
+✔ reversi lasts through challenge end but ends with turn (3.348831ms)
+✔ explicit public searches reveal the inspected set (1.862244ms)
+✔ registered descriptors reference implemented predicates, targets and passive values (62.651771ms)
+✔ activation hand cost is paid atomically before response and cannot be omitted (3.566569ms)
+✔ trigger cost requires both time and hand card at activation (1.374148ms)
+✔ automatic scheduled companion draws do not count as a new ability effect (7.212758ms)
+✔ dex overrides earlier modifiers using printed stats; later modifier adds and expiry restores earlier modifier (16.004178ms)
+✔ dex with no eligible hand main creates no setter and preserves stats (4.834146ms)
+✔ cake reattachment captures refs, preserves growth 80 and triggers receiving hermit (9.253245ms)
+✔ push rejects main-only equipment and permits legal companion transfer with draw (13.864801ms)
+✔ space prevents opponent decrease 5 with fully prevented draw 1 (6.896116ms)
+✔ space prevents opponent decrease 10 with fully prevented draw 0 (1.326668ms)
+✔ space does not prevent own effect decrease (1.245164ms)
+✔ drive protects opponent-effect main removal once even after play source leaves (3.487806ms)
+✔ drive does not protect own removal and protection expires at end (5.039375ms)
+✔ street kick requires payment, cancellation is atomic, then paid kick applies +3 (3.713931ms)
+✔ darts only offers payments with a same-cost opposing equipment target (4.280394ms)
+✔ solitaire requires same-species consecutive stages and draws only after all three move (5.143673ms)
+✔ optional beetle discount locks only accepted time skip (3.854152ms)
+✔ monkey copies beetle08 active despite used source, preserving discard target and source-bound stat (5.684351ms)
+✔ monkey copies woman03 reveal selection and self target without copying original used state (6.457199ms)
+✔ ghost departed incarnation trigger resolves after replacement without moving replacement (2.824722ms)
+✔ trigger payment selection retains the triggering card type through the prompt (1.927722ms)
+✔ copied this-name limit is separate from monkey acquisition and shared by the copied ability (6.299073ms)
+✔ prepared protection automatically prevents a single move without an optional decline (0.569898ms)
+✔ one remaining prepared protection chooses which simultaneous target is protected (3.08911ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/frogger-self-target.test.mjs (116.218819ms)
+✔ 452 release representative deck completes and replays every committed choice exactly (950.272606ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/hotseat1-restore.test.mjs (125.173344ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/jintori-response.test.mjs (111.447326ms)
+✖ 15 searchable chapters retain canonical examples, glossary and exact official sources (4.777883ms)
+✖ all nine lessons execute canonical legal commands and validate every checkpoint (0.830069ms)
+✖ fixed lessons demonstrate cost, person limit, preparation, challenge and reverse chain (4.637401ms)
+✖ progress is independently persisted, reconstructable and invalid data safe (0.555146ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/lover-text-fix.test.mjs (111.204766ms)
+✔ main menu links to same-origin two-player CARD GAME without replacing existing games (1.608271ms)
+✔ explicit main programs bind canonical main sources without fallback (3.827542ms)
+✔ birth ordering descriptors distinguish reorder from top/bottom choice (1.037421ms)
+✔ higher-stage challenge programs bind exact action-count predicates (0.374443ms)
+✔ cicada search includes complete species and stage bounds with mandatory selection (0.26566ms)
+✔ persistent-world and end-turn requirements remain explicit (0.340983ms)
+✔ new exact family descriptors retain timing, cost-free conditions and source clauses (0.246351ms)
+✔ woman challenge modifier grants one bonus for either person and two for both (0.211929ms)
+✔ world continuity draw captures the selected world instead of this main (0.157787ms)
+✔ opponent action triggers preserve turn, ordinal and repeated method clauses (0.423557ms)
+✔ face-up play families require earlier qualifying plays instead of raw totals (1.216151ms)
+✔ delayed programs schedule exact next-start or same-turn-end effects (0.357759ms)
+✔ butterfly recovery follows successful movement and hermit crab searches methods (0.207553ms)
+✔ one-card activation costs remain separate from effect resolution (0.329606ms)
+✔ numeric time costs are paid for the full canonical dragon triggers (0.155764ms)
+✔ main observers watch any own companion placement with exact costs and targets (0.24593ms)
+✔ multi-card main costs preserve exact counts, destination and distinctness (0.18618ms)
+✔ prepared-card costs apply before targeted recovery or removal (0.211048ms)
+✔ god arrival returns two distinct non-main targets and retains its full activation costs (0.146711ms)
+✔ main result triggers preserve participant and result-specific canonical requirements (0.235925ms)
+✔ plush losing challenge compares its actual result value and draws only after moving hand (0.135173ms)
+✔ received challenge bonuses retain round limits and both-direction bonus shares one trigger (0.18571ms)
+✔ phoenix challenge pays time for a computed-value deficit and printed-stat star target stays distinct (0.199561ms)
+✔ main move replacement scopes, costs and round limits match complete canonical clauses (0.137376ms)
+✔ filtered world and same-type discard payments preserve replacement conditions (0.193641ms)
+✔ hand reveal and staged hand payment are costs while return choices remain targets (0.230377ms)
+✔ normal world-change main abilities require normal hand placement and exact name checks (0.182775ms)
+✔ starfish retrieval checks face-up field type during resolution rather than silently narrowing targets (0.13901ms)
+✔ coral applied-effect observers require abilities and earlier different support types (0.265029ms)
+✔ applied quick card and attached ability observers preserve source and cost contracts (0.141042ms)
+✔ trap applied history supplies opponent-turn passive and end draw exactly (0.177868ms)
+✔ mushroom retrieval filters activation names and rechecks the same name at resolution (0.207793ms)
+✔ clownfish picks its second recovery only during resolution after first return succeeds (0.171298ms)
+✔ mushroom searches retain original inspected cards and exact remainder destinations (0.170767ms)
+✔ man recovery bonus affects its source main and remembers target type instead of moving card stats (0.175094ms)
+✔ declared modal types bind activation constraints while card selections occur during resolution (0.159099ms)
+✔ migrates A/B independently, never changes legacy or match saves and persists names and selections (3.406578ms)
+✔ create clone edit delete and independent selection retain distinct identities (0.929659ms)
+✔ copy limits and forty-card bound are enforced; invalid inputs never mutate (0.5248ms)
+✔ JSON roundtrip and old A/B import append without loss and reject malicious schema atomically (1.451255ms)
+✔ bad existing data stays untouched; quota failures leave edits available for export (0.57146ms)
+✔ catalog filters cover all cards, attribute, species and stage in combination (1.138233ms)
+✔ selected arrays are independent from the library and valid for existing engine (1.582862ms)
+✔ explicit restore can recover a full 20-deck backup with selected seats; default import never replaces (0.896369ms)
+✔ stale writers fail even before a storage event and retain edits for export (0.66463ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/records-match.test.mjs (112.461438ms)
+✔ record API is available (1.168739ms)
+✔ unfinished ignored; seat results and adoption vs committed play counted (3.875564ms)
+✔ draw denominator and hotseat A/B are separate from personal CPU (1.884697ms)
+✔ storage deduplicates and rejects conflicting imports atomically; snapshots survive rename (4.446423ms)
+✔ corruption is preserved and explicit backup recovery only; quota failure retains exportable pending (3.224724ms)
+✔ malformed numbers, unknown cards, result mismatch and oversized imports rejected (0.603949ms)
+✔ seven CPU opponents and both difficulties are independent; every card remains initially visible (5.417816ms)
+✔ deck edits keep distinct historical configurations; importing stale copies never drops later records (2.276227ms)
+✔ two store instances merge latest completed matches rather than overwriting (1.015279ms)
+✔ more than 200 matches retain cumulative statistics and import deduplication (55.57466ms)
+✔ real engine replay yields identical committed usage and results (472.32847ms)
+✔ same match finished on separate tabs deduplicates despite different wall-clock finish times (0.610439ms)
+✔ capacity and newly corrupted storage keep a completed match exportable separately (834.800711ms)
+✔ life charm replacement is a private mandatory choice, consumes charm, preserves main (18.130479ms)
+✔ growth prevention consumes round limit, never prevents own costs (4.950182ms)
+✔ one shared stat-prevention use allows choosing power or wisdom (3.468882ms)
+✔ changed destination is checked against remaining replacement effects (4.41724ms)
+✔ challenge-end reservation runs after challenge stat expiry, including interrupted challenge (21.200309ms)
+✔ automatic jobs use turn owner first and allow each same-owner order choice (2.553143ms)
+✔ a reservation created after challenge interruption cannot attach to the ended event (0.506883ms)
+✔ current rulings cover every chapter with precise source headings (1.486217ms)
+✔ search finds detailed rulings, respects chapter scope, normalizes width, and excludes obsolete policy (9.411248ms)
+✔ current collection policy and shared person placement are explicit and separate from relationship progress (0.492642ms)
+✔ detailed order and exceptions remain searchable in the appropriate chapters (0.742117ms)
+✖ each provenance heading exists in its untouched source document (0.663378ms)
+✔ multi-target selection commits only after both targets, captures generations (16.63407ms)
+✔ multi-hand cost keeps order and is paid exactly once before response (8.667448ms)
+✔ cancel selection preserves cards and cost, stale/forged choice rejected (2.792164ms)
+✔ a field target that leaves for discard is not retrieved from a different zone (2.828929ms)
+✔ removing a challenge participant ends comparison without crash or award (3.456734ms)
+✔ effect ordering is chosen after responses, not in target selection (5.106106ms)
+✔ resolution-time same-type selection uses the hand after responses (4.897502ms)
+✔ dependent cost and target selection rejects dead-end payment types (5.594142ms)
+✔ search follow-up selects from the original inspected remainder (4.910672ms)
+✔ recovery target and source stat target remain separate through resolution choice (2.822209ms)
+✔ five distinct types and unreachable prefixes (4.682578ms)
+✔ same type three, source excluded, metadata untouched (0.738852ms)
+✔ optional count and order; unsupported spec fails closed (0.403918ms)
+✔ 40 physical cards use bounded existence checks (212.992866ms)
+✔ prepared attachments and printed filters (0.946765ms)
+✔ cross-selection types and canonical-name exclusions (0.543188ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/takoyaki-self-target.test.mjs (130.194412ms)
+✔ ルナランダー：新本文で、時1・すぐつかう・ドロー1・+5は不変 (2.502553ms)
+✔ ルナランダー：残り時は支払い後の解決時に見る（3→2で得る、2→1で得ない。不一致でも使える） (18.825644ms)
+✔ ルナランダー：使った後、解決前の応答で残り時が変わったら、解決時の値で判定する (8.200013ms)
+✔ サブマリン3D：新本文で、時2・すぐつかうは不変 (0.251218ms)
+✔ サブマリン3D：選んだ数0/1/2は時2/3/4を払い、山札上3/5/7枚を見る（1枚まで加える） (9.395193ms)
+✔ カタログ：変わったのは2枚の本文と、設計正本83・85の出典hashだけ（main eb97817d と同じ） (3.279988ms)
+✔ キノコ⑧：へんしんで捨て札に置かれた時に誘発し、次の自分のターン終了までの予約を作る (4.817392ms)
+✔ キノコ⑧：へんしん以外で捨て札に置かれた時（相手の除去）は誘発しない (12.754248ms)
+✔ キノコ⑧：裏向きでしかけても引かず、表向きのメイン以外＋捨て札に同名で1回だけ1枚引く (8.132813ms)
+✔ キノコ⑧：捨て札に同名がなければ引かず予約は残り、次の自分のターン終了で失効する (15.218839ms)
+✔ サクラ⑥：選べるのは自分の準備枠のカードだけで、伏せたカードの名前は相手に見えない (5.323774ms)
+✔ サクラ⑥：選んだ伏せ札が準備枠→発動領域へ移って発動し、効果が適用されたら+5を1回だけ (6.347215ms)
+✔ サクラ⑥：選ばなかった伏せ札の発動では+5にならず、予約はこのターン終了で失効する (8.382568ms)
+✔ サボテンさん：相手の効果で手札に戻るのを、防ぐか選べる（使わなければ戻る） (6.00612ms)
+✔ サボテンさん：1ラウンドに1回。同じターンの2回目は防げず、次のラウンドでは再び防げる (12.593117ms)
+✔ サボテンさん：同じラウンドの相手ターン（応答で戻された時）も、使用済みなら防げない (7.133938ms)
+✔ サボテンさん：みにつけられている間は防げない（ほかの置換だけが残る） (2.665423ms)
+✔ サンゴ⑦：なかま・こいびと・セカイがそろう時、相手の効果で捨て札になるメイン以外を置換する (6.728048ms)
+✔ サンゴ⑦：3種類のどれかが欠ければ置換しない／メイン自身は守らない (6.438653ms)
+✔ サンゴ⑦：1ラウンドに1回（同じラウンドの次の除去は置換しない） (7.208421ms)
+✔ おばけ⑤：支払い（準備枠1枚を山札の一番下）は発動時に行い、伏せ札の名前は相手に見えない (2.887476ms)
+✔ おばけ⑤：次に相手からちょうせんされた時、そのちょうせんだけ相手の能力値-2（1回で消える） (6.214756ms)
+✔ おばけ⑤：自分からのちょうせんでは使わず、相手がちょうせんしなければ次の自分のターン開始で失効 (7.882946ms)
+✔ おばけ⑦：支払いに選べるのは捨て札のメインだけ（なければ発動できない）、支払いは山札の一番下 (2.947266ms)
+✔ おばけ⑦：次になかまを出した時に山札上2枚から1枚を手札へ（1回だけ）、相手が人物を出しても消費しない (12.549752ms)
+✔ おばけ⑦：人物を出さなければ次の自分のターン終了で失効する (8.864124ms)
+✔ 保存→復帰：予約が残っている途中から復帰しても予約が残り、最後まで同じ結果（キノコ⑧・サクラ⑥・おばけ⑤・おばけ⑦） (2299.24914ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/tutorial-match.test.mjs (106.513093ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-art-integration.test.mjs (101.00354ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-auto-progress.test.mjs (107.171914ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-browse.test.mjs (107.751598ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-confirmation.test.mjs (112.420937ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-continuity.test.mjs (92.27466ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-egg-stack.test.mjs (109.983872ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-field-declaration.test.mjs (95.978075ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-flow.test.mjs (106.735155ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-input.test.mjs (97.022021ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-intuitive-actions.test.mjs (108.581215ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-iphone.test.mjs (103.455426ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-match-history.test.mjs (89.482934ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-milestones.test.mjs (108.384364ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-opening.test.mjs (112.102457ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-presentation.test.mjs (104.220825ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-qa9.test.mjs (102.640104ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-rarity.test.mjs (102.420654ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-resolution.test.mjs (110.356457ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-response-compact.test.mjs (98.619106ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-result-feedback.test.mjs (92.314222ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-results.test.mjs (104.695198ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-session.test.mjs (105.643417ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-title-layout.test.mjs (78.287513ms)
+node:internal/modules/esm/resolve:272
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs' imported from /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/ui-presentation.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+    at moduleResolve (node:internal/modules/esm/resolve:879:10)
+    at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+    at #resolve (node:internal/modules/esm/loader:687:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:381:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/art-pilot/approved-colors.mjs'
+}
+
+Node.js v24.22.1
+✖ prototypes/card-game/tests/ui-turn-progress.test.mjs (99.233325ms)
+ℹ tests 282
+ℹ suites 0
+ℹ pass 231
+ℹ fail 51
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7885.493666
+
+✖ failing tests:
+
+test at prototypes/card-game/tests/adopted-color-design.test.mjs:1:1
+✖ prototypes/card-game/tests/adopted-color-design.test.mjs (109.068074ms)
+  'test failed'
+
+test at prototypes/card-game/tests/art-cpu-integration.test.mjs:1:1
+✖ prototypes/card-game/tests/art-cpu-integration.test.mjs (121.104639ms)
+  'test failed'
+
+test at prototypes/card-game/tests/auto-progress.test.mjs:1:1
+✖ prototypes/card-game/tests/auto-progress.test.mjs (98.646442ms)
+  'test failed'
+
+test at prototypes/card-game/tests/auto-tempo.test.mjs:1:1
+✖ prototypes/card-game/tests/auto-tempo.test.mjs (112.805805ms)
+  'test failed'
+
+test at prototypes/card-game/tests/card-stage.test.mjs:1:1
+✖ prototypes/card-game/tests/card-stage.test.mjs (105.400098ms)
+  'test failed'
+
+test at prototypes/card-game/tests/catalog.test.mjs:35:1
+✖ every source is real, exact text is preserved, and content hashes match (0.374684ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/72-companion-26-card-text-draft.md'
+      at Object.openSync (node:fs:621:18)
+      at readFileSync (node:fs:487:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/tests/catalog.test.mjs:39:17)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/72-companion-26-card-text-draft.md'
+  }
+
+test at prototypes/card-game/tests/catalog.test.mjs:58:1
+✖ regeneration is deterministic and read-only in check mode (65.313068ms)
+  Error: Command failed: python /workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/build_full_catalog.py --check
+  /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python: can't open file '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/tools/check-design-data.py': [Errno 2] No such file or directory
+  Traceback (most recent call last):
+    File "/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/build_full_catalog.py", line 96, in <module>
+      content = build()
+                ^^^^^^^
+    File "/workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/build_full_catalog.py", line 35, in build
+      audit = json.loads(subprocess.check_output(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+      return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+      raise CalledProcessError(retcode, process.args,
+  subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/tools/check-design-data.py', '--catalog']' returned non-zero exit status 2.
+  
+      at genericNodeError (node:internal/errors:986:15)
+      at wrappedFn (node:internal/errors:540:14)
+      at checkExecSyncError (node:child_process:943:11)
+      at execFileSync (node:child_process:979:15)
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/tests/catalog.test.mjs:61:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12) {
+    status: 1,
+    signal: null,
+    output: [ null, <Buffer >, <Buffer 2f 6f 70 74 2f 63 6f 64 65 78 2f 72 75 6e 74 69 6d 65 73 2f 63 6f 64 65 78 2d 70 72 69 6d 61 72 79 2d 72 75 6e 74 69 6d 65 2f 64 65 70 65 6e 64 65 6e ... 1253 more bytes> ],
+    pid: 100,
+    stdout: <Buffer >,
+    stderr: <Buffer 2f 6f 70 74 2f 63 6f 64 65 78 2f 72 75 6e 74 69 6d 65 73 2f 63 6f 64 65 78 2d 70 72 69 6d 61 72 79 2d 72 75 6e 74 69 6d 65 2f 64 65 70 65 6e 64 65 6e ... 1253 more bytes>
+  }
+
+test at prototypes/card-game/tests/cpu-effects.test.mjs:1:1
+✖ prototypes/card-game/tests/cpu-effects.test.mjs (113.693547ms)
+  'test failed'
+
+test at prototypes/card-game/tests/cpu-legacy-cards.test.mjs:1:1
+✖ prototypes/card-game/tests/cpu-legacy-cards.test.mjs (152.616345ms)
+  'test failed'
+
+test at prototypes/card-game/tests/cpu-partner-deck.test.mjs:1:1
+✖ prototypes/card-game/tests/cpu-partner-deck.test.mjs (135.653145ms)
+  'test failed'
+
+test at prototypes/card-game/tests/cpu-session.test.mjs:1:1
+✖ prototypes/card-game/tests/cpu-session.test.mjs (119.68748ms)
+  'test failed'
+
+test at prototypes/card-game/tests/cpu-ui.test.mjs:1:1
+✖ prototypes/card-game/tests/cpu-ui.test.mjs (108.209678ms)
+  'test failed'
+
+test at prototypes/card-game/tests/cpu-variety.test.mjs:1:1
+✖ prototypes/card-game/tests/cpu-variety.test.mjs (105.928117ms)
+  'test failed'
+
+test at prototypes/card-game/tests/design-sources.test.mjs:7:1
+✖ historical design sources reject tampering and do not depend on live item arrays (43.572882ms)
+  Error: Command failed: python -c 
+  import sys, tempfile, shutil
+  from pathlib import Path
+  sys.path.insert(0, 'docs/card-game/tools')
+  from design_sources import SOURCE, verified_sources
+  master, items = verified_sources()
+  assert 'const FUN_ITEMS' in items
+  assert 'const FUN_ITEMS' not in Path('script.js').read_text()
+  for filename in ['character-world-master.v1.js', 'legacy-item-arrays.js']:
+      with tempfile.TemporaryDirectory() as tmp:
+          dest=Path(tmp)
+          for source in SOURCE.glob('*.js'): shutil.copyfile(source, dest/source.name)
+          path=dest/filename
+          path.write_bytes(path.read_bytes()+b' ')
+          try: verified_sources(dest)
+          except ValueError: pass
+          else: raise AssertionError('Changed historical input accepted: '+filename)
+  assert verified_sources() == (master, items)
+  print('immutable sources and deterministic reads PASS')
+  
+  Traceback (most recent call last):
+    File "<string>", line 5, in <module>
+  ModuleNotFoundError: No module named 'design_sources'
+  
+      at genericNodeError (node:internal/errors:986:15)
+      at wrappedFn (node:internal/errors:540:14)
+      at checkExecSyncError (node:child_process:943:11)
+      at execFileSync (node:child_process:979:15)
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/tests/design-sources.test.mjs:8:15)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "<string>", line 5, in <module>\nModuleNotFoundError: No module named 'design_sources'\n` ],
+    pid: 206,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "<string>", line 5, in <module>\nModuleNotFoundError: No module named 'design_sources'\n`
+  }
+
+test at prototypes/card-game/tests/doodle-jump.test.mjs:1:1
+✖ prototypes/card-game/tests/doodle-jump.test.mjs (127.809848ms)
+  'test failed'
+
+test at prototypes/card-game/tests/frogger-self-target.test.mjs:1:1
+✖ prototypes/card-game/tests/frogger-self-target.test.mjs (116.218819ms)
+  'test failed'
+
+test at prototypes/card-game/tests/hotseat1-restore.test.mjs:1:1
+✖ prototypes/card-game/tests/hotseat1-restore.test.mjs (125.173344ms)
+  'test failed'
+
+test at prototypes/card-game/tests/jintori-response.test.mjs:1:1
+✖ prototypes/card-game/tests/jintori-response.test.mjs (111.447326ms)
+  'test failed'
+
+test at prototypes/card-game/tests/learning.test.mjs:6:1
+✖ 15 searchable chapters retain canonical examples, glossary and exact official sources (4.777883ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/01-core-rules.md'
+      at readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/tests/learning.test.mjs:11:48)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/01-core-rules.md'
+  }
+
+test at prototypes/card-game/tests/learning.test.mjs:13:1
+✖ all nine lessons execute canonical legal commands and validate every checkpoint (0.830069ms)
+  AssertionError [ERR_ASSERTION]: tutorial missing
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/tests/learning.test.mjs:14:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/learning.test.mjs:21:1
+✖ fixed lessons demonstrate cost, person limit, preparation, challenge and reverse chain (4.637401ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(tutorial)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/tests/learning.test.mjs:22:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/learning.test.mjs:30:1
+✖ progress is independently persisted, reconstructable and invalid data safe (0.555146ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(tutorial)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/tests/learning.test.mjs:31:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/card-game/tests/lover-text-fix.test.mjs:1:1
+✖ prototypes/card-game/tests/lover-text-fix.test.mjs (111.204766ms)
+  'test failed'
+
+test at prototypes/card-game/tests/records-match.test.mjs:1:1
+✖ prototypes/card-game/tests/records-match.test.mjs (112.461438ms)
+  'test failed'
+
+test at prototypes/card-game/tests/rulebook-current.test.mjs:33:1
+✖ each provenance heading exists in its untouched source document (0.663378ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/01-core-rules.md'
+      at readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (file:///workspace/scratch/005f516236f2/naotocchi/prototypes/card-game/tests/rulebook-current.test.mjs:34:52)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/005f516236f2/naotocchi/docs/card-game/01-core-rules.md'
+  }
+
+test at prototypes/card-game/tests/takoyaki-self-target.test.mjs:1:1
+✖ prototypes/card-game/tests/takoyaki-self-target.test.mjs (130.194412ms)
+  'test failed'
+
+test at prototypes/card-game/tests/tutorial-match.test.mjs:1:1
+✖ prototypes/card-game/tests/tutorial-match.test.mjs (106.513093ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-art-integration.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-art-integration.test.mjs (101.00354ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-auto-progress.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-auto-progress.test.mjs (107.171914ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-browse.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-browse.test.mjs (107.751598ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-confirmation.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-confirmation.test.mjs (112.420937ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-continuity.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-continuity.test.mjs (92.27466ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-egg-stack.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-egg-stack.test.mjs (109.983872ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-field-declaration.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-field-declaration.test.mjs (95.978075ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-flow.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-flow.test.mjs (106.735155ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-input.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-input.test.mjs (97.022021ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-intuitive-actions.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-intuitive-actions.test.mjs (108.581215ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-iphone.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-iphone.test.mjs (103.455426ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-match-history.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-match-history.test.mjs (89.482934ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-milestones.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-milestones.test.mjs (108.384364ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-opening.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-opening.test.mjs (112.102457ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-presentation.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-presentation.test.mjs (104.220825ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-qa9.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-qa9.test.mjs (102.640104ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-rarity.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-rarity.test.mjs (102.420654ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-resolution.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-resolution.test.mjs (110.356457ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-response-compact.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-response-compact.test.mjs (98.619106ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-result-feedback.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-result-feedback.test.mjs (92.314222ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-results.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-results.test.mjs (104.695198ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-session.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-session.test.mjs (105.643417ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-title-layout.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-title-layout.test.mjs (78.287513ms)
+  'test failed'
+
+test at prototypes/card-game/tests/ui-turn-progress.test.mjs:1:1
+✖ prototypes/card-game/tests/ui-turn-progress.test.mjs (99.233325ms)
+  'test failed'

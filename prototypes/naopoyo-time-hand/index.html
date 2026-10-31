@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>なおぽよ。｜時の針</title><link rel="stylesheet" href="./style.css"></head>
+<body><main>
+<header><span class="eyebrow">なおぽよ。 / 本人限定 比較実験</span><h1>分かれた時間を、たどろう。</h1><p>同じ盤面で、分裂の順番を見くらべよう。</p></header>
+<nav class="modes" aria-label="分裂方式"><button data-mode="A" aria-pressed="false"><b>A</b> 現行BFS<small>近く → 経路順</small></button><button data-mode="B" aria-pressed="false"><b>B</b> 方向優先<small>1歩 → 直線2歩</small></button><button data-mode="C" aria-pressed="false"><b>C</b> 固定リング<small>近く → 外周順</small></button><button data-mode="D" aria-pressed="true"><b>D</b> 時の針<small>後ろ → 時計回り90度</small></button></nav>
+<p id="rule" class="rule"></p>
+<section class="settings"><label>盤面<select id="scenario"></select></label><label>環境<select id="gravity"><option value="false">平面・重力なし</option><option value="true">重力あり ↓</option></select></label><label>本体の段階<select id="level"><option>2</option><option>3</option><option>4</option><option selected>8</option></select></label><label>トゲの強さ<select id="power"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option selected>7</option></select></label><label>トゲへの進入<select id="heading"></select></label></section>
+<details class="variants"><summary>Dの未確定案を比べる</summary><label>経路の長さ<select id="max-steps"><option value="7">最大7歩・7体（第一候補）</option><option value="2">最大2歩</option><option value="3">最大3歩</option></select></label><label><input id="reset-heading" type="checkbox">毎回、最初の後ろ向きを優先し直す</label><label><input id="pass-generated" type="checkbox">生まれた1のマスを通過する（比較用）</label><p>距離は本体からたどった経路の歩数。通過案でも1歩を消費し、同じマスには生成しません。</p></details><section class="experiment"><div class="board-heading"><h2 id="phase-title">生成前</h2><span id="mode-badge">A</span></div>
+<div class="phases" aria-label="盤面の時点"><button data-phase="initial" aria-pressed="true">1 生成前</button><button data-phase="spawn">2 分裂直後</button><button data-phase="final">3 重力後</button></div>
+<div class="board-wrap"><canvas id="board" width="640" height="640" role="img" aria-label="8×8の分裂比較盤面"></canvas></div>
+<div class="board-options"><label><input id="ranks" type="checkbox" checked>順位を重ねる</label><label><input id="predict" type="checkbox">1体目を予想</label></div>
+<p class="legend"><span class="near">青＝最初の1歩</span> <span class="far">橙＝2歩以降</span>　①〜⑦＝生成順　赤い矢印＝経路　↻＝90度回転</p>
+<div class="birth"><label for="birth">生成順を追う <strong id="birth-value">7体</strong></label><input id="birth" type="range" min="0" max="7" value="7" step="1"><div><button id="back-birth">前の1体</button><button id="next-birth">次の1体</button></div></div>
+<div id="trace" class="info" aria-live="polite"></div><div id="snapshot-info" class="info" aria-live="polite"></div><div id="cell-info" class="cell-info" aria-live="polite">マスをタップすると、生成経路を見られます。</div>
+<div class="edit"><label>マスをタップして<select id="tool"><option value="inspect">経路を調べる</option><option value="friend">異種の仲間8を置く</option><option value="dog">同種の仲間8を置く</option><option value="wall">岩を置く</option><option value="gate">段階1ゲートを置く</option><option value="exit">段階1出口を置く</option><option value="spike">トゲを置く</option><option value="erase">取り除く</option></select></label><button id="undo">配置をUndo</button><button id="reset">最初からやり直す</button></div>
+<details><summary>準備した盤面の意味</summary><p>生成前は「本体がトゲに到着した瞬間」です。進入操作の上昇・支持判定は省いて、生成位置と、その後の正式な重力処理を比べます。仲間も含めて重力で動きます。正式ステージの解答検証では、実際の移動・上昇・支持判定を通しています。</p><p>生成順スライダーは一斉に生まれる子を順に見せる説明です。1体ずつ落下させるルールではありません。最初の分裂直後と、連鎖をすべて処理した重力後を分けて表示します。</p></details>
+</section>
+<section class="compare"><h2>この配置で、4方式を比べる</h2><div id="comparison"></div><details><summary>重力の連鎖を確認</summary><div id="events"></div></details></section>
+<section><h2>8方向の順位図</h2><p>実エンジンによる4方式×8方向。岩・仲間・ゲートと、分裂直後／重力後を切り替えて比較できます。</p><a class="link-button" href="./atlas.html">A/B/C/D × 8方向を開く ↗</a><p class="small">Bは最大16候補。①〜⑧を近傍専用にすると実際の順番と一致しないため、すべて実際の順位で表示しています。</p></section>
+<section id="tutorial"><h2>少しずつ、配置を覚える</h2><div class="tutorial-nav"><button id="lesson-prev">前へ</button><b id="lesson-count">1 / 8</b><button id="lesson-next">次へ</button></div><h3 id="lesson-title"></h3><p id="lesson-body"></p><button id="lesson-try">この配置で試す</button></section>
+<section><h2>第1章・第2章への影響</h2><div id="compatibility">検証結果を読み込み中…</div><p class="small">不一致は既存の操作列が成立しないという意味です。解答不能の証明ではありません。理解しやすさは未評価の設計仮説です。</p><a href="./report.html">調査報告・探索結果・チュートリアル設計 ↗</a></section>
+<footer>独立実験 / 本編の進行・Undo・クリア記録は読み書きしません。<br>「時の針」は仮称です。正式ゲームは変更していません。</footer>
+</main><script type="module" src="./app.mjs"></script></body></html>

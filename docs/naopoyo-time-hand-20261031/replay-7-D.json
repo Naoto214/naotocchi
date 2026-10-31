@@ -1,0 +1,1487 @@
+{
+  "status": "incompatible",
+  "failure": {
+    "step": 15,
+    "reason": "exit"
+  },
+  "metrics": {
+    "steps": 14,
+    "splits": 1,
+    "children": 3,
+    "merges": 0,
+    "familyMerges": 0,
+    "overflow": 0,
+    "falls": 0
+  },
+  "rescued": 4,
+  "mass": 7,
+  "final": {
+    "id": "light-threads",
+    "title": "07 ふたつ、みっつ",
+    "w": 8,
+    "h": 8,
+    "revision": 1,
+    "theme": "cave",
+    "showSpecies": false,
+    "walls": [],
+    "gates": [],
+    "spikes": [
+      {
+        "x": 3,
+        "y": 3,
+        "power": 2
+      },
+      {
+        "x": 3,
+        "y": 5,
+        "power": 3
+      }
+    ],
+    "exits": [
+      {
+        "x": 6,
+        "y": 2,
+        "exact": 4
+      },
+      {
+        "x": 6,
+        "y": 5,
+        "exact": 3
+      }
+    ],
+    "gravity": false,
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 6
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 1,
+        "y": 3
+      },
+      {
+        "id": "child3",
+        "species": "dog",
+        "level": 1,
+        "x": 0,
+        "y": 2
+      }
+    ],
+    "difficulty": 2,
+    "narrator": {
+      "id": "owl",
+      "name": "ものしりふくろう",
+      "category": "companion",
+      "asset": "assets/characters/companions/owl.png"
+    },
+    "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+    "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+    "ending": "ほどけた光を、必要な数だけ結び直した。",
+    "hints": [
+      "7を4と3にしたい。",
+      "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+      "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+    ],
+    "mechanics": [
+      "split",
+      "merge"
+    ],
+    "hint": "7を4と3にしたい。",
+    "splitPriority": "D",
+    "rescued": 4,
+    "rescuedBySpecies": {
+      "dog": 4
+    },
+    "nextId": 4,
+    "moves": 14
+  },
+  "snapshots": [
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 7,
+          "species": "dog"
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 1,
+      "moves": 1
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 5,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 2
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 5,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 3
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 5,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 4
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 6,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 0,
+      "rescuedBySpecies": {},
+      "nextId": 4,
+      "moves": 5
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 6
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 7
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 8
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 5
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 9
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 10
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 6
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 11
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 6
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 12
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 6
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 13
+    },
+    {
+      "id": "light-threads",
+      "title": "07 ふたつ、みっつ",
+      "w": 8,
+      "h": 8,
+      "revision": 1,
+      "theme": "cave",
+      "showSpecies": false,
+      "walls": [],
+      "gates": [],
+      "spikes": [
+        {
+          "x": 3,
+          "y": 3,
+          "power": 2
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "power": 3
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 2,
+          "exact": 4
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        }
+      ],
+      "gravity": false,
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 6
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "difficulty": 2,
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "category": "companion",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+      "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+      "ending": "ほどけた光を、必要な数だけ結び直した。",
+      "hints": [
+        "7を4と3にしたい。",
+        "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+        "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+      ],
+      "mechanics": [
+        "split",
+        "merge"
+      ],
+      "hint": "7を4と3にしたい。",
+      "splitPriority": "D",
+      "rescued": 4,
+      "rescuedBySpecies": {
+        "dog": 4
+      },
+      "nextId": 4,
+      "moves": 14
+    }
+  ],
+  "splitLog": [
+    {
+      "step": 2,
+      "state": {
+        "id": "light-threads",
+        "title": "07 ふたつ、みっつ",
+        "w": 8,
+        "h": 8,
+        "revision": 1,
+        "theme": "cave",
+        "showSpecies": false,
+        "walls": [],
+        "gates": [],
+        "spikes": [
+          {
+            "x": 3,
+            "y": 3,
+            "power": 2
+          },
+          {
+            "x": 3,
+            "y": 5,
+            "power": 3
+          }
+        ],
+        "exits": [
+          {
+            "x": 6,
+            "y": 2,
+            "exact": 4
+          },
+          {
+            "x": 6,
+            "y": 5,
+            "exact": 3
+          }
+        ],
+        "gravity": false,
+        "water": [],
+        "guests": [],
+        "events": [],
+        "actors": [
+          {
+            "id": "a",
+            "x": 3,
+            "y": 5,
+            "level": 4,
+            "species": "dog"
+          },
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 2,
+            "y": 4
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 1,
+            "y": 3
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 0,
+            "y": 2
+          }
+        ],
+        "difficulty": 2,
+        "narrator": {
+          "id": "owl",
+          "name": "ものしりふくろう",
+          "category": "companion",
+          "asset": "assets/characters/companions/owl.png"
+        },
+        "lesson": "2連トゲは1を2つ、3連トゲは1を3つ取り出す。どちらを使う？",
+        "story": "並んだトゲの先で、小さな光がまたたいていました。「何本あるか、よく見てごらん」",
+        "ending": "ほどけた光を、必要な数だけ結び直した。",
+        "hints": [
+          "7を4と3にしたい。",
+          "3連なら、4と1と1と1になる。2連を使う別の道もある。",
+          "3連に入り、3つの1を合わせて3へ。4と3をそれぞれの星へ。"
+        ],
+        "mechanics": [
+          "split",
+          "merge"
+        ],
+        "hint": "7を4と3にしたい。",
+        "splitPriority": "D",
+        "rescued": 0,
+        "rescuedBySpecies": {},
+        "nextId": 4,
+        "moves": 1
+      },
+      "parentId": "a",
+      "direction": [
+        1,
+        1
+      ],
+      "children": [
+        {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "id": "child2",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "id": "child3",
+          "species": "dog",
+          "level": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "family": 1
+    }
+  ]
+}
