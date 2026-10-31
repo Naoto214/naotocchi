@@ -246,7 +246,9 @@ function toWelcome(target,{saved=false}={}){
  if(target==='setup'){$('match-setup').scrollIntoView?.({block:'start'});(saved?$('restore'):$('new')).focus({preventScroll:true});}
  else{window.scrollTo?.(0,0);$('solo-open').focus({preventScroll:true});}
  const note=$('resume-note');note.hidden=!saved;
- if(saved){note.textContent=`さっきの対戦を保存しました。「${mode==='cpu'?'ひとりであそぶ':'ふたりであそぶ'}」の「保存した対戦に戻る」で続きから遊べます。`;message(note.textContent);}
+ if(saved){note.textContent=`さっきの対戦を保存しました。「${mode==='cpu'?'ひとりであそぶ':'ふたりであそぶ'}」の「保存した対戦に戻る」で続きから遊べます。`;message(note.textContent);
+  // 対戦の準備へ戻ったときは「保存した対戦に戻る」と案内を画面の中ほどに（横画面でも下端で切れないように）。
+  if(target==='setup')note.scrollIntoView?.({block:'center'});}
 }
 // 案内は、新しい対戦を始めたり保存から戻ったりしたら消す。
 for(const id of ['new','restore'])$(id).addEventListener('click',()=>{$('resume-note').hidden=true;});

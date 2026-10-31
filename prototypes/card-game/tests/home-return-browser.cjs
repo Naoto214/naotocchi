@@ -52,8 +52,8 @@ try{for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscap
   await p.locator('#menu-setup').tap();let saved=await p.evaluate(k=>localStorage.getItem(k),key);assert.ok(saved);
   await p.locator('#menu-home-go').tap();await welcomeShown();
   assert.equal(await p.locator('#match-mode').inputValue(),mode,'戻った準備は今の対戦のあそびかた');assert.equal(await focused(),'restore','「保存した対戦に戻る」に合わせる');
-  const r=await p.locator('#match-setup').boundingBox();assert.ok(r.y>-2&&r.y<80,'対戦の準備の位置へ '+r.y);
-  assert.match(await p.locator('#resume-note').innerText(),new RegExp(`「${route}」の「保存した対戦に戻る」`));await inView(p,'#resume-note');
+  const v=p.viewportSize();for(const sel of ['#restore','#resume-note']){const r=await p.locator(sel).boundingBox();assert.ok(r.y>=0&&r.y+r.height<=v.height,`${sel} がスクロールなしで見える ${JSON.stringify(r)}`);}
+  assert.match(await p.locator('#resume-note').innerText(),new RegExp(`「${route}」の「保存した対戦に戻る」`));
   if(shots&&mode==='cpu')await p.screenshot({path:`${shots}/${name}-back-to-setup.png`});
   await resume(key,saved);
   // CARD GAME トップへ：メインメニューへ戻り、「あそびかた」→「保存した対戦に戻る」で再開。
