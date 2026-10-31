@@ -18,6 +18,10 @@ export const DECKS={
  'balance+8':{label:'バランス＋⑧：スキージャンプ2→さけ⑥・さけ⑦、やきゅう1→さけ⑧',
   cards:swap(swap(swap(base('balance'),'G-ski-jump','M-salmon-06',1),'G-ski-jump','M-salmon-07',1),'G-baseball-batting','M-salmon-08',1),
   replaced:'G-ski-jump×2→M-salmon-06,M-salmon-07; G-baseball-batting×1→M-salmon-08'},
+ // Lighter ⑧ variant for the CPU-deck question (EIGHT.md): only two ⑧ cards, the two すごろく go; いぬ⑥→⑧ is a time 2 ときおくり.
+ 'main+8lite':{label:'メイン成長＋⑧（2枚）：すごろく2→いぬ⑧・カブトムシ⑧',
+  cards:swap(swap(base('main'),'G-sugoroku-race','M-dog-08',1),'G-sugoroku-race','M-beetle-08',1),
+  replaced:'G-sugoroku-race×2→M-dog-08,M-beetle-08'},
  'challenge+S':{label:'ちょうせん：としをとったじぶん2→すれちがい2',cards:swap(base('challenge'),'E-mirror',S,2),replaced:'E-mirror×2→E-misunderstanding'},
  'growth+S':{label:'そだち獲得：ミニゴルフ2→すれちがい2',cards:swap(base('growth'),'G-mini-golf-physics',S,2),replaced:'G-mini-golf-physics×2→E-misunderstanding'},
  'item+S':{label:'アイテム・じゅんび：ごもく2→すれちがい2',cards:swap(base('item'),'G-gomoku-9',S,2),replaced:'G-gomoku-9×2→E-misunderstanding'},
@@ -26,5 +30,8 @@ export const DECKS={
 // E8: each ⑧ deck against all 7 official decks. EL: lover decks against the すれちがい decks (#481 N1 layout).
 export const SETS={
  E8:['main+8','balance+8'].flatMap(x=>CPU_DECKS.map(d=>[x,d.id])),
+ // C8 (EIGHT.md): controls and the lighter variant on the E8 seeds. Third element = the deck whose E8 seed labels are reused,
+ // so official main/balance and main+8lite meet the same opponents with the same shuffles and policy seeds as E8.
+ C8:[['main','main+8'],['balance','balance+8'],['main+8lite','main+8']].flatMap(([x,s])=>CPU_DECKS.map(d=>[x,d.id,s])),
  EL:['partner','balance'].flatMap(x=>['challenge+S','growth+S','item+S','partner+S'].map(y=>[x,y])),
 };
