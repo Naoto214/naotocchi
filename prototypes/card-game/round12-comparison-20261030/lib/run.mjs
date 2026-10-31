@@ -22,7 +22,7 @@ const ROUND_CARDS=['E-final-time','E-midlife-50th','I-naoto_charm'];
 const TRACK=['E-misunderstanding','E-reconciliation','E-first-date','E-new-encounter','E-wedding-anniversary'];
 async function play(m){
  const {e,observeCpu,chooseCpuAction,policy,advanceResponses,CATALOG,RULES}=await mods(m.variant);
- const FINAL=['R10','OFFICIAL'].includes(m.variant)?10:12;
+ const FINAL=m.final??(['R10','OFFICIAL'].includes(m.variant)?10:12);
  const g=G[m.group],perm=permutations(g.orderSeed),order={X:apply(M.decks[g.X].cards,perm.A),Y:apply(M.decks[g.Y].cards,perm.B)};
  const seatOrder={A:m.first==='X'?order.X:order.Y,B:m.first==='X'?order.Y:order.X};
  const decks={A:inputFor(seatOrder.A,perm.A),B:inputFor(seatOrder.B,perm.B)};
@@ -34,7 +34,7 @@ async function play(m){
  const seat=()=>({decisions:arr(),nonPass:arr(),granted:arr(),expired:arr(),spentOwn:arr(),spentOpp:arr(),payEvents:arr(),growthEnd:arr(),stageEnd:arr(),handStart:arr(),deckStart:arr(),
   turns:[],births:[],timeSkips:arr(),transforms:arr(),challenges:arr(),partnerPlace:[],relAdvance:arr(),leaves:[],marriage:null,maxRel:null,
   trapSet:arr(),trapFire:arr(),companionAbil:arr(),partnerAbil:arr(),companionPlace:arr(),worldPlace:arr(),actionPlays:arr(),roundCards:{},reached8:null,maxStage:0,
-  actsAfter8:0,turnsAfter8:0,passOnlyTurnsAfter8:0,plays:{},main8Abil:0,growthAfter8:0,result:null,firstSeat:false,deck:null});
+  actsAfter8:0,turnsAfter8:0,passOnlyTurnsAfter8:0,plays:{},main8Abil:0,growthAfter8:0,maxGrowth:20,firstReach:{},holdStarts:0,holdBreaks:0,result:null,firstSeat:false,deck:null});
  const R={match:m.match,group:m.group,variant:m.variant,final:FINAL,first:m.first,xSeat:m.xSeat,deck:{A:m.deckA,B:m.deckB},difficulty:m.difficulty,policy,policySeed:m.policySeed,orderSeed:g.orderSeed,
   initialOrderSha:{A:sha(seatOrder.A),B:sha(seatOrder.B)},status:'running',error:null,autoPass:0,seat:{A:seat(),B:seat()},leadByRound:[]};
  R.seat.A.firstSeat=true;R.seat.A.deck=m.deckA;R.seat.B.deck=m.deckB;
@@ -89,6 +89,9 @@ async function play(m){
    const resets=new Set(log.filter(l=>l.kind==='reset').map(l=>l.actor));
    for(const b of ['A','B'])if(!resets.has(b)){const dt=before[b]-s.players[b].time;if(dt>0){R.seat[b].payEvents[rev]++;if(trn===b)R.seat[b].spentOwn[rev]+=dt;else R.seat[b].spentOpp[rev]+=dt;}}
    flush();
+   // Growth thresholds and the maintenance clock (G120 comparison; records only).
+   for(const b of ['A','B']){const q=s.players[b],y=R.seat[b];if(q.growth>y.maxGrowth)y.maxGrowth=q.growth;for(const th of [100,110,120])if(q.growth>=th&&y.firstReach[th]==null)y.firstReach[th]=s.round;
+    const on=q.reached!==null&&q.reached!==undefined;if(on&&!y.holdOn)y.holdStarts++;if(!on&&y.holdOn&&s.phase!=='finished')y.holdBreaks++;y.holdOn=on;}
    for(const b of ['A','B']){const st=stage(b);if(st>R.seat[b].maxStage)R.seat[b].maxStage=st;if(st===8&&R.seat[b].reached8===null)R.seat[b].reached8=s.round;
     const rel=s.players[b].relationship;if(rel!==null&&(R.seat[b].maxRel===null||rel>R.seat[b].maxRel))R.seat[b].maxRel=rel;
     if(rel===4&&!R.seat[b].marriage)R.seat[b].marriage=s.round;}
