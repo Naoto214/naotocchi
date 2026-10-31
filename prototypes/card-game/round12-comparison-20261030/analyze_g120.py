@@ -39,7 +39,14 @@ def lock_round(r):
     while k > 0 and s[k - 1] == w: k -= 1
     return k + 1
 
+_PG = {}
 def per_game(r):
+    # cached: bootstrap resamples call this many times for the same game
+    key = (r['variant'], r['match'])
+    if key not in _PG: _PG[key] = _per_game(r)
+    return _PG[key]
+
+def _per_game(r):
     F, cap = COND[r['variant']]
     seats = [r['seat'][a] for a in 'AB']
     return {
@@ -97,22 +104,23 @@ def summary(rs):
         'handAtFinalRound': rnd(mean(col('handFinal')), 2), 'lateRounds': late,
     }
 
-def contrast(byv, v1, v0, keys, f, n=2000, seed=20261030):
+def contrast(byv, v1, v0, keys, f, n=1000, seed=20261030):
     groups = defaultdict(list)
     for k in keys: groups[k[0]].append(k)
     G = list(groups)
+    pre = {g: ([x for k in groups[g] for x in [f(byv[v0][k])] if x is not None], [x for k in groups[g] for x in [f(byv[v1][k])] if x is not None]) for g in G}
     def d(gs):
-        a = [v for g in gs for k in groups[g] for v in [f(byv[v0][k])] if v is not None]
-        b = [v for g in gs for k in groups[g] for v in [f(byv[v1][k])] if v is not None]
+        a = [v for g in gs for v in pre[g][0]]; b = [v for g in gs for v in pre[g][1]]
         return mean(b) - mean(a)
     rng = random.Random(seed); vals = sorted(d([rng.choice(G) for _ in G]) for _ in range(n))
     return {'diff': rnd(d(G)), 'ci95': [rnd(vals[int(.025 * n)]), rnd(vals[int(.975 * n) - 1])]}
 
-def interaction(byv, keys, f, n=2000, seed=20261030):
+def interaction(byv, keys, f, n=1000, seed=20261030):
     groups = defaultdict(list)
     for k in keys: groups[k[0]].append(k)
     G = list(groups)
-    m = lambda v, gs: mean([x for g in gs for k in groups[g] for x in [f(byv[v][k])] if x is not None])
+    pre = {(v, g): [x for k in groups[g] for x in [f(byv[v][k])] if x is not None] for v in ('G-A', 'G-B', 'G-C', 'G-D') for g in G}
+    m = lambda v, gs: mean([x for g in gs for x in pre[(v, g)]])
     d = lambda gs: m('G-D', gs) - m('G-C', gs) - m('G-B', gs) + m('G-A', gs)
     rng = random.Random(seed); vals = sorted(d([rng.choice(G) for _ in G]) for _ in range(n))
     return {'diff': rnd(d(G)), 'ci95': [rnd(vals[int(.025 * n)]), rnd(vals[int(.975 * n) - 1])]}
@@ -137,16 +145,16 @@ out['interaction(D-C-B+A)'] = {m: interaction(G, keys, f) for m, f in metrics.it
 groups = defaultdict(list)
 for k in keys: groups[k[0]].append(k)
 gl = list(groups); rng = random.Random(20261030); boots = []
-for _ in range(1000):
+for _ in range(300):
     smp = [k for g in (rng.choice(gl) for _ in gl) for k in groups[g]]
     boots.append({v: deck_spread_fn(G, v, smp) for v in ('G-A', 'G-B', 'G-C', 'G-D')})
 def spread_ci(v1, v0):
-    xs = sorted(b[v1] - b[v0] for b in boots); return {'diff': rnd(deck_spread_fn(G, v1, keys) - deck_spread_fn(G, v0, keys)), 'ci95': [rnd(xs[25]), rnd(xs[974])]}
+    xs = sorted(b[v1] - b[v0] for b in boots); return {'diff': rnd(deck_spread_fn(G, v1, keys) - deck_spread_fn(G, v0, keys)), 'ci95': [rnd(xs[int(.025 * len(xs))]), rnd(xs[int(.975 * len(xs)) - 1])]}
 out['deckSpreadContrasts'] = {name: spread_ci(v1, v0) for name, (v1, v0) in pairs.items()}
 # Paired deck scores per contrast
 def deck_contrast(v1, v0, d):
     f = lambda r: mean([SC[r['seat'][a]['result']] for a in 'AB' if r['seat'][a]['deck'] == d and r['seat'][other(a)]['deck'] != d]) if any(r['seat'][a]['deck'] == d and r['seat'][other(a)]['deck'] != d for a in 'AB') else None
-    return contrast(G, v1, v0, keys, f, n=1000)
+    return contrast(G, v1, v0, keys, f, n=500)
 out['deckContrasts'] = {name: {d: deck_contrast(v1, v0, d) for d in DECKS} for name, (v1, v0) in pairs.items()}
 
 # CPU policy check: heuristic-2 (G-A/G-B) vs heuristic-1 (MAIN R10/R12) on the same seeds (groups 001-020)
