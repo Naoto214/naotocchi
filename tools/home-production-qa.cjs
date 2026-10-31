@@ -19,7 +19,17 @@ script+=`\nwindow.HomeReleaseQA={
  conversationStatus(){return {context:conv2ContextOk(),canStart:conv2CanStart(),unit:conv2Unit?.kind,message,speechActive,busy:conversationIsBusy(),emotion:deriveHomeEmotion(),careAfterglow:!!careAfterglowTimer,petBusy:Date.now()<petBusyUntil,petMotion:!!castMotion?.isActive({kind:'pet'})};},
  question(){clearConversationTimers();message='';speechActive=false;conversationBusyUntil=0;petBusyUntil=0;if(careAfterglowTimer)clearTimeout(careAfterglowTimer);careAfterglowTimer=null;castMotion.clear();state.poopCount=0;state.isSleeping=false;state.isSick=false;state.hunger=state.happiness=state.energy=state.health=95;render();return conv2Ask(CONVERSATION_BANTER.QUESTIONS[0]);},
  egg(){state.stage=STAGE.EGG;state.regionId='home';state.companions=[];state.partner=null;homeCastLayoutKey='';render();}
-};window.HomeV22QA=window.HomeReleaseQA;})();`;
+};window.HomeV22QA=window.HomeReleaseQA;
+// Observe the shipped controller without changing input, movement, or timers.
+window.HomeReleaseInputTrace=[];
+const recordInput=(type,extra={})=>{
+ const d=HomeReleaseQA.detail(),a=d.actors[0],f=document.querySelector('.screen-frame');
+ HomeReleaseInputTrace.push({type,at:performance.now(),...extra,blocked:d.blocked,paused:d.paused,selected:homeDiorama.model.selected(),pet:a,stage:d.slots.castStage,scroll:f.scrollTop,conversation:HomeReleaseQA.conversationStatus()});
+ if(HomeReleaseInputTrace.length>120)HomeReleaseInputTrace.shift();
+};
+for(const name of ['select','move']){const original=homeDiorama.model[name];homeDiorama.model[name]=function(...args){const result=original.apply(this,args);recordInput(name,{args,result});return result;};}
+for(const type of ['pointerdown','pointermove','pointerup','pointercancel','lostpointercapture'])document.addEventListener(type,event=>recordInput(type,{x:event.clientX,y:event.clientY,target:event.target.id||event.target.className,actor:event.target.closest?.('[data-diorama-actor]')?.dataset.dioramaActor}),true);
+})();`;
 fs.writeFileSync(path.join(out,'release-qa-script.js'),script);
 fs.writeFileSync(path.join(out,'release-qa-diorama.js'),fs.readFileSync('home-production-diorama.js','utf8').replace('return {model,update,sync,interrupt,','return {inspectScene:()=>scene,inspectWorld:()=>world?.stats(),model,update,sync,interrupt,'));
 fs.writeFileSync(path.join(out,'release-qa.html'),fs.readFileSync('index.html','utf8').replaceAll('naotocchi-save-v1','naotocchi-home-release-qa-v1').replace(/src="script.js[^\"]*"/,'src="release-qa-script.js"').replace(/src="home-production-diorama.js[^\"]*"/,'src="release-qa-diorama.js"'));

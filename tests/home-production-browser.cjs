@@ -43,7 +43,7 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await settled();
  input.status='passed';
  }catch(error){input.status='failed';input.error=error.message;await page.screenshot({path:path.join(dest,`${engineName}-${inputRegion}-${inputCount}-${kind}-failure.png`)}).catch(()=>{});throw error;}
- finally{input.after=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);saveInputs();}
+ finally{input.after=await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null);input.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
  }
  }
  const questionStarted=await page.evaluate(()=>HomeReleaseQA.question());assert.ok(questionStarted,'existing conversation accepts prepared healthy fixture: '+JSON.stringify(await page.evaluate(()=>HomeReleaseQA.conversationStatus())));await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));

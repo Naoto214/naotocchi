@@ -25,7 +25,7 @@ assert.ok(await page.evaluate(()=>HomeReleaseQA.move()),'protagonist retains saf
 assert.ok(await page.evaluate(()=>HomeReleaseQA.question()),'existing question starts');await page.locator('#speechSlot').scrollIntoViewIfNeeded();assert.equal(await page.locator('#speechSlot').evaluate(e=>e.getBoundingClientRect().height),76);await page.locator('#speechChoices [data-choice]').first().click();await page.waitForFunction(()=>document.getElementById('speechChoices').classList.contains('hidden'));
 if(engine==='chromium'&&region==='home')await require('./helpers/home-production-native-touch.cjs').actors(page,region,count);
 results.push({label,pass:true,scroll:after.frame.scroll,nativeTouch:engine==='chromium'&&region==='home'});if(width===320&&count===28)await page.screenshot({path:path.join(output,`${engine}-${region}-320-28.png`)});
-}catch(e){failures.push({label,error:e.message});console.error('FAIL',label,e.message);await page.screenshot({path:path.join(output,`failure-${engine}-${width}-${region}-${count}.png`)}).catch(()=>{});}save();
+}catch(e){failures.push({label,error:e.message,detail:await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null),trace:await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null)});console.error('FAIL',label,e.message);await page.screenshot({path:path.join(output,`failure-${engine}-${width}-${region}-${count}.png`)}).catch(()=>{});}save();
 }
 }finally{await browser.close();}}
 assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);console.log('PASS scroll/coordinates/conversation matrix',results.length);
