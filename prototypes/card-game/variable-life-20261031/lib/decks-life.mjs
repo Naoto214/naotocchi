@@ -26,7 +26,7 @@ export const FILL={
  'L-A2':['X-cap-raise','X-cap-raise'],'L-A2s':['X-cap-raise','X-cap-raise'],
  'L-A3':['X-life-extend','X-cap-raise'],
  'L-A4':['X-life-both','X-life-both'],
- 'L-A1c4':['X-life-extend','X-life-extend'],'L-A1n1':['X-life-extend','X-blank'],'L-A1aL':['X-life-extend','X-life-extend'],
+ 'L-A1c4':['X-life-extend','X-life-extend'],'L-A1n1':['X-life-extend','X-blank'],'L-A1t1':['X-life-extend','X-blank'],'L-A1aL':['X-life-extend','X-life-extend'],
 };
 export function deckFor(id,variant){
  const cards=[...BASE_DECKS[id].cards],fill=FILL[variant];if(fill===undefined)throw Error('unknown variant '+variant);if(!fill)return {cards,replaced:[]};

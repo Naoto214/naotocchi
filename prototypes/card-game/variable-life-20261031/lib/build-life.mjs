@@ -49,6 +49,8 @@ export const VARIANTS={
  'L-A1c4':{ext:{...EXT,cost:4},note:'感度：A1 の時コスト4'},
  'L-A1n1':{ext:EXT,note:'感度：A1 を1枚だけ（残り1枠は対照札）'},
  'L-A1aL':{ext:{...EXT,timing:'any',perMatch:1},note:'感度：A1a に「各プレイヤー1試合1回」'},
+ // follow-up (PLAN-NEXT.md): the untested best candidate from REPORT.md §9
+ 'L-A1t1':{ext:{...EXT,method:'trap'},note:'追加：A1t（しかける）を1枚だけ（残り1枠は対照札）'},
 };
 
 // ---- cards ----------------------------------------------------------------------------------------------------

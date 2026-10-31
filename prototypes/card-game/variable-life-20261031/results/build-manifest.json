@@ -793,6 +793,69 @@
     "full-catalog.mjs": "3a6a8cc2e245e05121ef05e13bdedaabd4251032de7bbca0493320d2edd8f007",
     "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
    }
+  },
+  "L-A1t1": {
+   "ext": {
+    "method": "trap",
+    "cost": 2,
+    "timing": "final",
+    "perMatch": null
+   },
+   "note": "追加：A1t（しかける）を1枚だけ（残り1枠は対照札）",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "自分のターン終了時、現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "しかける"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "8fbedbee1a6aeece14a306a0086075c5071934014319f5412c2ac97ebf1b3a90",
+    "rules.mjs": "229d545aa34f91cec349710d0d0de26d089f5d7a6296d04585053e4298602741"
+   }
   }
  },
  "officialUnchanged": true
