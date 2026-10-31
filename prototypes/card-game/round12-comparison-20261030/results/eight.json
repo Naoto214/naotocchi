@@ -1,0 +1,494 @@
+{
+ "R10": {
+  "main": {
+   "seats": 600,
+   "score": 0.535,
+   "scoreVs": {
+    "main": 0.5,
+    "companion": 0.392,
+    "partner": 0.533,
+    "challenge": 0.75,
+    "growth": 0.417,
+    "item": 0.467,
+    "balance": 0.6
+   },
+   "growth": 66.34,
+   "reach8": 0.0,
+   "reach7plus": 0.472,
+   "maxStage": {
+    "3": 6,
+    "4": 8,
+    "5": 107,
+    "6": 196,
+    "7": 283
+   },
+   "stageAtR5": 4.72,
+   "stageAtEnd": 6.18,
+   "reach8RoundMedian": null,
+   "timeSkips": 1.9,
+   "transforms": 1.1,
+   "challenges": 6.74,
+   "turnsAfter8": 0.0,
+   "passOnlyAfter8": 0.0,
+   "growthPerTurnAfter8": 0.0,
+   "main8Abil": null,
+   "firstBirthRound": 1.54,
+   "margin": 1.93,
+   "earlyWinBy": 0.0,
+   "gameMinutes": 27.9
+  },
+  "balance": {
+   "seats": 540,
+   "score": 0.479,
+   "scoreVs": {
+    "main": 0.433,
+    "companion": 0.425,
+    "partner": 0.442,
+    "challenge": 0.608,
+    "growth": 0.608,
+    "item": 0.292,
+    "balance": 0.5
+   },
+   "growth": 72.42,
+   "reach8": 0.0,
+   "reach7plus": 0.0,
+   "maxStage": {
+    "3": 2,
+    "4": 55,
+    "5": 483
+   },
+   "stageAtR5": 4.21,
+   "stageAtEnd": 4.89,
+   "reach8RoundMedian": null,
+   "timeSkips": 1.97,
+   "transforms": 0.0,
+   "challenges": 4.88,
+   "turnsAfter8": 0.0,
+   "passOnlyAfter8": 0.0,
+   "growthPerTurnAfter8": 0.0,
+   "main8Abil": null,
+   "firstBirthRound": 2.07,
+   "margin": -1.08,
+   "earlyWinBy": 0.013,
+   "gameMinutes": 37.8
+  },
+  "main+8": {
+   "seats": 420,
+   "score": 0.382,
+   "scoreVs": {
+    "main": 0.275,
+    "companion": 0.392,
+    "partner": 0.467,
+    "challenge": 0.6,
+    "growth": 0.308,
+    "item": 0.242,
+    "balance": 0.392
+   },
+   "growth": 65.62,
+   "reach8": 0.598,
+   "reach7plus": 0.898,
+   "maxStage": {
+    "3": 5,
+    "4": 2,
+    "5": 13,
+    "6": 23,
+    "7": 126,
+    "8": 251
+   },
+   "stageAtR5": 5.49,
+   "stageAtEnd": 6.89,
+   "reach8RoundMedian": 8,
+   "timeSkips": 2.71,
+   "transforms": 1.37,
+   "challenges": 7.02,
+   "turnsAfter8": 2.07,
+   "passOnlyAfter8": 0.042,
+   "growthPerTurnAfter8": 6.75,
+   "main8Abil": 0.51,
+   "firstBirthRound": 1.51,
+   "margin": -5.99,
+   "earlyWinBy": 0.0,
+   "gameMinutes": 27.8
+  },
+  "main+8lite": {
+   "seats": 420,
+   "score": 0.45,
+   "scoreVs": {
+    "main": 0.408,
+    "companion": 0.425,
+    "partner": 0.508,
+    "challenge": 0.7,
+    "growth": 0.233,
+    "item": 0.375,
+    "balance": 0.5
+   },
+   "growth": 67.7,
+   "reach8": 0.638,
+   "reach7plus": 0.762,
+   "maxStage": {
+    "3": 5,
+    "4": 2,
+    "5": 38,
+    "6": 55,
+    "7": 52,
+    "8": 268
+   },
+   "stageAtR5": 5.23,
+   "stageAtEnd": 6.64,
+   "reach8RoundMedian": 7,
+   "timeSkips": 2.43,
+   "transforms": 1.34,
+   "challenges": 7.0,
+   "turnsAfter8": 2.21,
+   "passOnlyAfter8": 0.025,
+   "growthPerTurnAfter8": 7.47,
+   "main8Abil": 0.69,
+   "firstBirthRound": 1.5,
+   "margin": -3.06,
+   "earlyWinBy": 0.0,
+   "gameMinutes": 27.8
+  },
+  "balance+8": {
+   "seats": 420,
+   "score": 0.739,
+   "scoreVs": {
+    "main": 0.792,
+    "companion": 0.917,
+    "partner": 0.692,
+    "challenge": 0.858,
+    "growth": 0.7,
+    "item": 0.475,
+    "balance": 0.742
+   },
+   "growth": 82.69,
+   "reach8": 0.862,
+   "reach7plus": 0.971,
+   "maxStage": {
+    "5": 1,
+    "6": 11,
+    "7": 46,
+    "8": 362
+   },
+   "stageAtR5": 6.55,
+   "stageAtEnd": 7.83,
+   "reach8RoundMedian": 6,
+   "timeSkips": 2.76,
+   "transforms": 0.0,
+   "challenges": 6.99,
+   "turnsAfter8": 3.47,
+   "passOnlyAfter8": 0.004,
+   "growthPerTurnAfter8": 8.54,
+   "main8Abil": 0.0,
+   "firstBirthRound": 2.1,
+   "margin": 12.71,
+   "earlyWinBy": 0.024,
+   "gameMinutes": 35.6
+  }
+ },
+ "R12": {
+  "main+8": {
+   "seats": 420,
+   "score": 0.399,
+   "scoreVs": {
+    "main": 0.3,
+    "companion": 0.4,
+    "partner": 0.425,
+    "challenge": 0.633,
+    "growth": 0.358,
+    "item": 0.225,
+    "balance": 0.45
+   },
+   "growth": 76.58,
+   "reach8": 0.693,
+   "reach7plus": 0.94,
+   "maxStage": {
+    "3": 1,
+    "4": 1,
+    "5": 10,
+    "6": 13,
+    "7": 104,
+    "8": 291
+   },
+   "stageAtR5": 5.49,
+   "stageAtEnd": 6.98,
+   "reach8RoundMedian": 8,
+   "timeSkips": 2.93,
+   "transforms": 1.62,
+   "challenges": 8.71,
+   "turnsAfter8": 2.69,
+   "passOnlyAfter8": 0.051,
+   "growthPerTurnAfter8": 6.75,
+   "main8Abil": 0.73,
+   "firstBirthRound": 1.51,
+   "margin": -5.2,
+   "earlyWinBy": 0.019,
+   "gameMinutes": 33.8
+  },
+  "balance+8": {
+   "seats": 420,
+   "score": 0.773,
+   "scoreVs": {
+    "main": 0.842,
+    "companion": 0.983,
+    "partner": 0.8,
+    "challenge": 0.9,
+    "growth": 0.733,
+    "item": 0.45,
+    "balance": 0.7
+   },
+   "growth": 94.15,
+   "reach8": 0.912,
+   "reach7plus": 0.995,
+   "maxStage": {
+    "6": 2,
+    "7": 35,
+    "8": 383
+   },
+   "stageAtR5": 6.55,
+   "stageAtEnd": 7.91,
+   "reach8RoundMedian": 6,
+   "timeSkips": 2.83,
+   "transforms": 0.0,
+   "challenges": 8.45,
+   "turnsAfter8": 4.8,
+   "passOnlyAfter8": 0.018,
+   "growthPerTurnAfter8": 8.02,
+   "main8Abil": 0.0,
+   "firstBirthRound": 2.1,
+   "margin": 15.17,
+   "earlyWinBy": 0.205,
+   "gameMinutes": 42.7
+  }
+ },
+ "pairedR10": {
+  "main+8 vs main": {
+   "pairs": 420,
+   "scoreDiff": -0.158,
+   "ci95": [
+    -0.213,
+    -0.101
+   ],
+   "sameResult": 0.636
+  },
+  "main+8lite vs main": {
+   "pairs": 420,
+   "scoreDiff": -0.09,
+   "ci95": [
+    -0.143,
+    -0.036
+   ],
+   "sameResult": 0.717
+  },
+  "balance+8 vs balance": {
+   "pairs": 360,
+   "scoreDiff": 0.271,
+   "ci95": [
+    0.212,
+    0.332
+   ],
+   "sameResult": 0.592
+  }
+ },
+ "MAINofficial": {
+  "R10": {
+   "main": {
+    "score": 0.533,
+    "growth": 65.25,
+    "reach7plus": 0.458,
+    "maxStage": {
+     "3": 12,
+     "4": 1,
+     "5": 86,
+     "6": 161,
+     "7": 220
+    },
+    "stageAtEnd": 6.16,
+    "timeSkips": 1.95,
+    "transforms": 1.14
+   },
+   "companion": {
+    "score": 0.447,
+    "growth": 69.81,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "2": 4,
+     "3": 15,
+     "4": 119,
+     "5": 342
+    },
+    "stageAtEnd": 4.66,
+    "timeSkips": 1.78,
+    "transforms": 0.0
+   },
+   "partner": {
+    "score": 0.516,
+    "growth": 67.19,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "3": 17,
+     "4": 170,
+     "5": 293
+    },
+    "stageAtEnd": 4.58,
+    "timeSkips": 1.56,
+    "transforms": 0.0
+   },
+   "challenge": {
+    "score": 0.512,
+    "growth": 65.07,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "1": 2,
+     "2": 4,
+     "3": 20,
+     "4": 99,
+     "5": 134,
+     "6": 221
+    },
+    "stageAtEnd": 5.12,
+    "timeSkips": 1.43,
+    "transforms": 0.4
+   },
+   "growth": {
+    "score": 0.438,
+    "growth": 75.51,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "1": 2,
+     "2": 11,
+     "3": 57,
+     "4": 410
+    },
+    "stageAtEnd": 3.82,
+    "timeSkips": 1.38,
+    "transforms": 0.0
+   },
+   "item": {
+    "score": 0.6,
+    "growth": 73.27,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "3": 6,
+     "4": 106,
+     "5": 368
+    },
+    "stageAtEnd": 4.75,
+    "timeSkips": 1.8,
+    "transforms": 0.0
+   },
+   "balance": {
+    "score": 0.454,
+    "growth": 71.25,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "3": 1,
+     "4": 49,
+     "5": 430
+    },
+    "stageAtEnd": 4.89,
+    "timeSkips": 2.03,
+    "transforms": 0.0
+   }
+  },
+  "R12": {
+   "main": {
+    "score": 0.543,
+    "growth": 75.18,
+    "reach7plus": 0.596,
+    "maxStage": {
+     "3": 4,
+     "4": 1,
+     "5": 43,
+     "6": 146,
+     "7": 286
+    },
+    "stageAtEnd": 6.42,
+    "timeSkips": 2.05,
+    "transforms": 1.34
+   },
+   "companion": {
+    "score": 0.436,
+    "growth": 79.36,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "2": 3,
+     "3": 9,
+     "4": 97,
+     "5": 371
+    },
+    "stageAtEnd": 4.74,
+    "timeSkips": 1.85,
+    "transforms": 0.0
+   },
+   "partner": {
+    "score": 0.542,
+    "growth": 75.77,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "3": 10,
+     "4": 140,
+     "5": 330
+    },
+    "stageAtEnd": 4.67,
+    "timeSkips": 1.65,
+    "transforms": 0.0
+   },
+   "challenge": {
+    "score": 0.494,
+    "growth": 73.21,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "1": 2,
+     "2": 1,
+     "3": 13,
+     "4": 83,
+     "5": 141,
+     "6": 240
+    },
+    "stageAtEnd": 5.25,
+    "timeSkips": 1.49,
+    "transforms": 0.41
+   },
+   "growth": {
+    "score": 0.398,
+    "growth": 84.1,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "2": 5,
+     "3": 43,
+     "4": 432
+    },
+    "stageAtEnd": 3.89,
+    "timeSkips": 1.44,
+    "transforms": 0.0
+   },
+   "item": {
+    "score": 0.629,
+    "growth": 83.02,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "3": 1,
+     "4": 86,
+     "5": 393
+    },
+    "stageAtEnd": 4.82,
+    "timeSkips": 1.86,
+    "transforms": 0.0
+   },
+   "balance": {
+    "score": 0.458,
+    "growth": 80.2,
+    "reach7plus": 0.0,
+    "maxStage": {
+     "3": 1,
+     "4": 22,
+     "5": 457
+    },
+    "stageAtEnd": 4.95,
+    "timeSkips": 2.08,
+    "transforms": 0.0
+   }
+  }
+ },
+ "note": "scores in R10 are against the 7 official decks (mirror included), on the E8 seeds; MAINofficial is the 28-pair round robin"
+}
