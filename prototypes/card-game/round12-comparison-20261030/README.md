@@ -5,7 +5,7 @@
 
 **本人の判断（2026-10-31）：10ラウンド＝100歳を維持。12ラウンドへの変更・別モード追加は保留。**
 
-- **12ラウンド・そだち120・120維持の総合比較（A〜D、heuristic-2、計6,992戦）：[REPORT-G120.md](REPORT-G120.md)**（計画 [PLAN-G120.md](PLAN-G120.md)、維持勝利の仕様 [HOLD-SPEC.md](HOLD-SPEC.md)、本編との整合 [MAINGAME.md](MAINGAME.md)）。最終推奨：**現行A（10R・100）維持**
+- **12ラウンド・そだち120・120維持の総合比較（A〜D、heuristic-2、計5,992戦）：[REPORT-G120.md](REPORT-G120.md)**（計画 [PLAN-G120.md](PLAN-G120.md)、維持勝利の仕様 [HOLD-SPEC.md](HOLD-SPEC.md)、本編との整合 [MAINGAME.md](MAINGAME.md)）。最終推奨：**現行A（10R・100）維持**
 - 結论と全指標：[REPORT.md](REPORT.md)（第一推奨：**10ラウンド維持**）
 - 追加の限定比較（⑧到達・すれちがいによる別れ・離婚、2,640戦）：[FOLLOWUP.md](FOLLOWUP.md)・計画 [PLAN-EXTRA.md](PLAN-EXTRA.md)（最終推奨：**10ラウンド維持**）
 - 実行前に固定した計画：[PLAN.md](PLAN.md)
