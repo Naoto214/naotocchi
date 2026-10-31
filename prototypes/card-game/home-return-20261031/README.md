@@ -71,7 +71,9 @@ CARD GAME のトップ（メインメニュー）、「対戦の準備」（あ�
 - `menu.dom.mjs` は main でも同じ箇所で失敗しており、今回の変更による回帰ではありません（メニュー一覧の期待値に「戦績」が入っていない）。
 
 ## 本人限定 iPhone Safari 試遊版
-https://claude.ai/artifact/CRvzQ1uKoBjfU2QidPbrTE（HEAD `e6c9a06b` から作成。457ファイル。公開前に同じ `home-return-browser.cjs` を試遊版に対して実行し、成功）
+https://claude.ai/artifact/CRvzQ1uKoBjfU2QidPbrTE
+- Version 4：HEAD `2876b089` から作成（階層別のもどる操作）。公開前に `home-return-browser.cjs` を試遊版に対して実行し、成功。
+- Version 1〜3：HEAD `e6c9a06b` から作成（なおとっちへもどる。457ファイルを3回に分けて公開）。
 
 `trial/build-trial.mjs` が正式ファイルを読むだけで組み立てます。保存の鍵は `naotocchi-home-return-trial:` 付きで正式版と分離。
 試遊版では育成画面の代わりに仮の画面 `home.html` へ移動します（「CARD GAME をひらく」で戻れます）。
