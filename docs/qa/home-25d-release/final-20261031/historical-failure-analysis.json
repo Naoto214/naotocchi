@@ -1,0 +1,288 @@
+[
+  {
+    "source": "docs/qa/home-25d-release/followup-20261031/diagnostic-320x568-home-28.json.gz",
+    "trial": "archived diagnostic 18/24 (not the reported 19/24)",
+    "kind": "drag",
+    "status": "failed",
+    "error": "page.evaluate: Error: No visible grounded destination for native touch\n    at eval (eval at evaluate (:311:30), <anonymous>:12:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "from": null,
+    "to": null,
+    "searchDurationMs": null,
+    "actor": null,
+    "displacement": null,
+    "route": null,
+    "moveAcceptance": null,
+    "events": []
+  },
+  {
+    "source": "docs/qa/home-25d-release/followup-20261031/diagnostic-375x667-home-28.json.gz",
+    "trial": "archived diagnostic 18/24 (not the reported 19/24)",
+    "kind": "drag",
+    "status": "failed",
+    "error": "page.waitForFunction: Timeout 15000ms exceeded.",
+    "from": {
+      "x": 213.89278604449996,
+      "y": 298.04252809623614
+    },
+    "to": {
+      "x": 289.92857142857144,
+      "y": 350.83333333333337
+    },
+    "searchDurationMs": 1263,
+    "actor": "pet:dog",
+    "displacement": 0.0,
+    "route": null,
+    "moveAcceptance": null,
+    "events": [
+      {
+        "type": "pointerdown",
+        "x": 213.89279174804688,
+        "y": 298.04254150390625,
+        "target": "petSprite",
+        "actor": "pet:dog",
+        "blocked": true,
+        "blockers": [
+          [
+            "speech",
+            true
+          ]
+        ]
+      },
+      {
+        "type": "pointerup",
+        "x": 289.9285583496094,
+        "y": 350.8333435058594,
+        "target": "petSprite",
+        "actor": "pet:dog",
+        "blocked": true,
+        "blockers": [
+          [
+            "speech",
+            true
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "source": "docs/qa/home-25d-release/followup-20261031/diagnostic-430x932-home-28.json.gz",
+    "trial": "archived diagnostic 18/24 (not the reported 19/24)",
+    "kind": "tap",
+    "status": "failed",
+    "error": "page.waitForFunction: Timeout 15000ms exceeded.",
+    "from": {
+      "x": 236.50000000000003,
+      "y": 488.4666666666667
+    },
+    "to": {
+      "x": 106,
+      "y": 327.33333333333337
+    },
+    "searchDurationMs": 12576,
+    "actor": "pet:dog",
+    "displacement": 0.0,
+    "route": null,
+    "moveAcceptance": null,
+    "events": [
+      {
+        "type": "pointerdown",
+        "x": 236.5,
+        "y": 488.4666748046875,
+        "target": "petSprite",
+        "actor": "pet:dog",
+        "blocked": true,
+        "blockers": [
+          [
+            "speech",
+            true
+          ]
+        ]
+      },
+      {
+        "type": "pointerup",
+        "x": 236.5,
+        "y": 488.4666748046875,
+        "target": "petSprite",
+        "actor": "pet:dog",
+        "blocked": true,
+        "blockers": [
+          [
+            "speech",
+            true
+          ]
+        ]
+      },
+      {
+        "type": "pointerdown",
+        "x": 106,
+        "y": 327.3333435058594,
+        "target": "pet",
+        "actor": null,
+        "blocked": true,
+        "blockers": [
+          [
+            "speech",
+            true
+          ]
+        ]
+      },
+      {
+        "type": "pointerup",
+        "x": 106,
+        "y": 327.3333435058594,
+        "target": "pet",
+        "actor": null,
+        "blocked": true,
+        "blockers": [
+          [
+            "speech",
+            true
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "source": "docs/qa/home-25d-release/followup-20261031/diagnostic-667x375-home-28.json.gz",
+    "trial": "archived diagnostic 18/24 (not the reported 19/24)",
+    "kind": "tap",
+    "status": "failed",
+    "error": "page.waitForFunction: Timeout 15000ms exceeded.",
+    "from": {
+      "x": 367.59633056308877,
+      "y": 152.65889216365926
+    },
+    "to": {
+      "x": 599.6428571428571,
+      "y": 184.5
+    },
+    "searchDurationMs": 31128,
+    "actor": "pet:dog",
+    "displacement": 0.0,
+    "route": null,
+    "moveAcceptance": null,
+    "events": [
+      {
+        "type": "pointerdown",
+        "x": 367.5963439941406,
+        "y": 152.6588897705078,
+        "target": "petSprite",
+        "actor": "pet:dog",
+        "blocked": false,
+        "blockers": []
+      },
+      {
+        "type": "pointerup",
+        "x": 367.5963439941406,
+        "y": 152.6588897705078,
+        "target": "castStage",
+        "actor": null,
+        "blocked": false,
+        "blockers": []
+      },
+      {
+        "type": "pointerdown",
+        "x": 599.6428833007812,
+        "y": 184.5,
+        "target": "pet",
+        "actor": null,
+        "blocked": false,
+        "blockers": []
+      },
+      {
+        "type": "pointerup",
+        "x": 599.6428833007812,
+        "y": 184.5,
+        "target": "castStage",
+        "actor": null,
+        "blocked": false,
+        "blockers": []
+      }
+    ]
+  },
+  {
+    "source": "docs/qa/home-25d-release/followup-20261031/diagnostic-667x375-home-6.json.gz",
+    "trial": "archived diagnostic 18/24 (not the reported 19/24)",
+    "kind": "drag",
+    "status": "failed",
+    "error": "page.waitForFunction: Timeout 15000ms exceeded.",
+    "from": {
+      "x": 421.96661199317737,
+      "y": 152.66065716128963
+    },
+    "to": {
+      "x": 318.2857142857143,
+      "y": 199
+    },
+    "searchDurationMs": 2,
+    "actor": "pet:dog",
+    "displacement": 0.0,
+    "route": null,
+    "moveAcceptance": null,
+    "events": [
+      {
+        "type": "pointerdown",
+        "x": 421.96661376953125,
+        "y": 152.66065979003906,
+        "target": "petSprite",
+        "actor": "pet:dog",
+        "blocked": false,
+        "blockers": []
+      },
+      {
+        "type": "pointerup",
+        "x": 318.28570556640625,
+        "y": 199,
+        "target": "IMG",
+        "actor": "companion:squirrel",
+        "blocked": true,
+        "blockers": [
+          [
+            "speech",
+            true
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "source": "docs/qa/home-25d-release/followup-20261031/diagnostic-844x390-home-6.json.gz",
+    "trial": "archived diagnostic 18/24 (not the reported 19/24)",
+    "kind": "drag",
+    "status": "failed",
+    "error": "page.waitForFunction: Timeout 15000ms exceeded.",
+    "from": {
+      "x": 524.2857055664062,
+      "y": 159.6
+    },
+    "to": {
+      "x": 424.2857142857143,
+      "y": 214
+    },
+    "searchDurationMs": 2643,
+    "actor": "pet:dog",
+    "displacement": 4.000008719308028,
+    "route": null,
+    "moveAcceptance": null,
+    "events": [
+      {
+        "type": "pointerdown",
+        "x": 524.2857055664062,
+        "y": 159.60000610351562,
+        "target": "petSprite",
+        "actor": "pet:dog",
+        "blocked": false,
+        "blockers": []
+      },
+      {
+        "type": "pointerup",
+        "x": 424.28570556640625,
+        "y": 214,
+        "target": "castStage",
+        "actor": null,
+        "blocked": false,
+        "blockers": []
+      }
+    ]
+  }
+]

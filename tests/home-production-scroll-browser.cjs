@@ -14,7 +14,12 @@ const label=`${engine}/${width}x${height}/${region}/${count}`;
 try{await page.setViewportSize({width:Math.min(width,height),height:Math.max(width,height)});await page.goto(base+'/release-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
 await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.world?.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:15000});
 if(width>height)await page.setViewportSize({width,height});
-await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.world?.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:15000});await page.waitForTimeout(100);
+await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.world?.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:15000});
+// WebKit acknowledges setViewportSize before dispatching resize. Wait for the
+// actual viewport handler, not an arbitrary 100ms; all geometry/hit assertions
+// below remain unchanged and a missing resize update fails boundedly.
+await page.waitForFunction(([w,h])=>innerWidth===w&&innerHeight===h&&Number.parseFloat(document.documentElement.style.getPropertyValue('--app-height'))===Math.round(visualViewport?.height||innerHeight),[width,height],{timeout:5000});
+await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
 const inspect=()=>page.evaluate(()=>{const q=HomeReleaseQA.detail(),rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height,b:r.bottom}},frame=document.querySelector('.screen-frame'),stage=document.getElementById('castStage'),host=document.querySelector('.home-living-world');return {actors:q.actors.map(a=>({key:a.key,x:a.x,y:a.y,w:a.w,h:a.h,ground:a.ground,safe:a.safe})),slots:q.slots,header:rect(document.querySelector('.device-header')),stage:rect(stage),host:rect(host),frame:{...rect(frame),scroll:frame.scrollTop,paintedScroll:getComputedStyle(document.body).getPropertyValue('--home-center-scroll')},buttons:[...document.querySelectorAll('#careActions>button')].map(e=>{const r=rect(e),hit=document.elementFromPoint(r.x+r.w/2,r.y+r.h/2);return {id:e.id,...r,hit:hit===e||e.contains(hit)}})};});
 const before=await inspect();assert.ok(before.frame.y>=before.header.b-1,'central pane starts below header after rotation');assert.ok(before.frame.b<=Math.min(...before.buttons.map(b=>b.y))+1,'central pane ends above care controls after rotation');assert.equal(before.buttons.length,9);assert.deepEqual(Object.values(before.buttons.reduce((rows,b)=>(rows[Math.round(b.y)]=(rows[Math.round(b.y)]||0)+1,rows),{})),[5,4],'five plus four care rows');assert.ok(before.buttons.every(b=>b.hit&&b.w>=44&&b.h>=44&&b.b<=height),'visible/tappable care');assert.equal(before.slots.notice,42);assert.equal(before.slots.speech,76);
 await page.locator('.screen-frame').evaluate(e=>{e.scrollTop=e.scrollHeight;});await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));const after=await inspect();
@@ -28,6 +33,6 @@ results.push({label,pass:true,scroll:after.frame.scroll,nativeTouch:engine==='ch
 }catch(e){failures.push({label,error:e.message,detail:await page.evaluate(()=>HomeReleaseQA.detail()).catch(()=>null),trace:await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null)});console.error('FAIL',label,e.message);await page.screenshot({path:path.join(output,`failure-${engine}-${width}-${region}-${count}.png`)}).catch(()=>{});}save();
 }
 }finally{await browser.close();}}
-assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);console.log('PASS scroll/coordinates/conversation matrix',results.length);
+assert.deepEqual(errors,[]);assert.equal(failures.length,0,JSON.stringify(failures.map(({label,error})=>({label,error}))));console.log('PASS scroll/coordinates/conversation matrix',results.length);
 }finally{save();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1});

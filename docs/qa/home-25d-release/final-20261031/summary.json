@@ -1,0 +1,86 @@
+{
+  "source_local_head": "6ce4823d69c63634b51e30b6516e1195445e21b8",
+  "published_code_base": "da52d2911addcfed95b5b477b9ad8b129a7f2310",
+  "full_regression": {
+    "passed": 3745,
+    "failed": 0,
+    "groups": [
+      32,
+      24,
+      3292,
+      159,
+      238
+    ]
+  },
+  "production_contracts": {
+    "passed": 365,
+    "failed": 0,
+    "successful_complete_runs": 2,
+    "incomplete_runs": [
+      {
+        "exit": 137
+      },
+      {
+        "exit": 134,
+        "reason": "512MB heap limit"
+      }
+    ]
+  },
+  "native": {
+    "conditions": 24,
+    "inputs": 48,
+    "passed_inputs": 48,
+    "failed_inputs": 0
+  },
+  "layout": {
+    "passed": 22,
+    "failed": 0
+  },
+  "guide": {
+    "passed": 30,
+    "failed": 0
+  },
+  "regional": {
+    "regions": 13,
+    "display": 312,
+    "positive_inputs": 104,
+    "blocked_inputs": 26,
+    "failed": 0
+  },
+  "scroll": {
+    "chromium": {
+      "passed": 312,
+      "failed": 0,
+      "errors": 0
+    },
+    "webkit": {
+      "passed": 312,
+      "failed": 0,
+      "errors": 0
+    }
+  },
+  "distribution": {
+    "http_files": 4123,
+    "http_bytes": 220196847,
+    "entrypoints": 7,
+    "card_ids": 452,
+    "card_images": 904,
+    "excluded_paths_return_404": 7,
+    "missing_files": 0,
+    "hash_mismatches": 0,
+    "prefix": "/naotocchi/"
+  },
+  "browsers": {
+    "chromium": "153.0.8010.0",
+    "webkit": "26.5",
+    "playwright": "1.62.1"
+  },
+  "unresolved": [
+    "Exact mapping of historical19/24 five failures absent from saved raw evidence",
+    "Historical chicken canStart blocker was not recorded",
+    "Final GitHub CI pending at this evidence commit",
+    "Physical iPhone Safari QA not performed"
+  ],
+  "main_merge": false,
+  "production_deployment": false
+}

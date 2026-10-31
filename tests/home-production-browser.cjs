@@ -42,10 +42,13 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  // Keep the sampled cast still only during candidate selection + physical
  // event delivery. Slow browser protocol round trips must not let a resident
  // walk into a ground-tap point between sampling and pointerdown.
- await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+100));
- await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
- const input={engine:engineName,region:inputRegion,count:inputCount,kind,before:await page.evaluate(()=>HomeReleaseQA.detail()),status:'started'};inputs.push(input);saveInputs();
+ const input={engine:engineName,region:inputRegion,count:inputCount,kind,status:'preparing'};inputs.push(input);saveInputs();
  try{
+ // Fast-forward once with enough margin for a slow protocol round trip;
+ // pauseAt rejects a past timestamp. Prepare the healthy scene after pausing.
+ await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
+ await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
+ input.before=await page.evaluate(()=>HomeReleaseQA.detail());input.status='started';saveInputs();
  const t=await page.evaluate(targetFn,kind),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
  input.target=t;input.from=from;input.to=to;input.selectionMs=t.selectionMs;saveInputs();
  if(kind==='tap'){await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');await page.mouse.click(to.x,to.y);}
