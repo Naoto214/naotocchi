@@ -2,7 +2,7 @@ import {canAttach,transferTargets} from './advanced-equipment.mjs';
 /** Sequential physical-card selection. Existence uses grouped capacities, never combinations. */
 import {CATALOG} from './full-catalog.mjs';
 const specKeys=new Set(['zone','count','min','max','filter','same','distinct','ordered','consecutive']);
-const filterKeys=new Set(['type','types','excludeType','method','rare','minStage','maxStage','species','excludeSpecies','minCost','maxCost','faceDown','attachedTo','minPower','maxPower','minWisdom','maxWisdom','sameTypeAs','notNameOf','sameEventType','sameWorldName','sameCostAs','differentTypeFrom','powerAboveWisdom','fitsEquipment','excludeEquipmentTarget','unequipped','fitOwnMain','methodsPair']);
+const filterKeys=new Set(['type','types','excludeType','method','rare','minStage','maxStage','species','excludeSpecies','minCost','maxCost','faceDown','attachedTo','minPower','maxPower','minWisdom','maxWisdom','sameTypeAs','notNameOf','sameEventType','sameWorldName','sameCostAs','differentTypeFrom','powerAboveWisdom','fitsEquipment','excludeEquipmentTarget','unequipped','fitOwnMain','methodsPair','excludeSource']);
 const properties=new Set(['type','name','stage','species']);
 const definition=(s,id)=>CATALOG[s.cards?.[id]?.cardId];
 const value=(c,key)=>key==='name'?c.id:c[key];
@@ -30,6 +30,7 @@ function prepare(s,actor,spec,ctx={},selected=[]){
   if(f.excludeEquipmentTarget&&b.prepared.find(e=>e.id===refId(f.excludeEquipmentTarget))?.target===id)return false;
   if(f.unequipped&&b.prepared.some(e=>!e.faceDown&&e.target===id))return false;
   if(f.fitOwnMain&&!canAttach(s,id,b.main))return false;
+  if(f.excludeSource&&id===ctx.source)return false;
   if(f.sameEventType&&c.type!==definition(s,ctx.event?.source)?.type)return false;if(f.sameWorldName&&c.id!==definition(s,b.world)?.id)return false;const type=f.type==='declared'?ctx.variant:f.type;if(f.type==='declared'&&!type)return false;
   if(type!==undefined&&c.type!==type||f.types&&!f.types.includes(c.type)||f.excludeType!==undefined&&c.type===f.excludeType||sameType&&c.type!==sameType||notName&&c.id===notName)return false;
   for(const k of ['method','rare','species'])if(f[k]!==undefined&&c[k]!==f[k])return false;

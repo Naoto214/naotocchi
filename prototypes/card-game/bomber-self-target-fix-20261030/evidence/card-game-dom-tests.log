@@ -1,0 +1,114 @@
+TAP version 13
+# Collection DOM: menu, once-only notice, nine pockets, filter/page restore, flip, egg exclusion, favorites, shared editor addition/limits, swipe suppression, save preservation PASS
+# Subtest: tests/collection.dom.mjs
+ok 1 - tests/collection.dom.mjs
+  ---
+  duration_ms: 8017.774823
+  type: 'test'
+  ...
+# CPU integration DOM PASS: 14 starts, 7 decks, 2 levels, auto seeds, fixed, human B, mydeck, restore, privacy, menu, learning coexistence
+# Subtest: tests/cpu-integration.dom.mjs
+ok 2 - tests/cpu-integration.dom.mjs
+  ---
+  duration_ms: 2992.331092
+  type: 'test'
+  ...
+# Learning DOM PASS: 15 chapters, search/diagram, all nine lesson card taps, progress, resume/restart/skip, match/deck isolation, collection navigation, CPU beginner setup
+# Subtest: tests/learning.dom.mjs
+ok 3 - tests/learning.dom.mjs
+  ---
+  duration_ms: 11822.517369
+  type: 'test'
+  ...
+# node:internal/modules/run_main:123
+#     triggerUncaughtException(
+#     ^
+# AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+# + actual - expected
+#   [
+#     'ひとりであそぶ',
+#     'ふたりであそぶ',
+# +   '戦績',
+#     'マイデッキ',
+#     'カードコレクション',
+#     'あそびかたを覚える',
+#     'ルールブック'
+#   ]
+#     at file:///home/user/naotocchi/prototypes/card-game/tests/menu.dom.mjs:25:8 {
+#   generatedMessage: true,
+#   code: 'ERR_ASSERTION',
+#   actual: [
+#     'ひとりであそぶ',
+#     'ふたりであそぶ',
+#     '戦績',
+#     'マイデッキ',
+#     'カードコレクション',
+#     'あそびかたを覚える',
+#     'ルールブック'
+#   ],
+#   expected: [ 'ひとりであそぶ', 'ふたりであそぶ', 'マイデッキ', 'カードコレクション', 'あそびかたを覚える', 'ルールブック' ],
+#   operator: 'deepStrictEqual',
+#   diff: 'simple'
+# }
+# Node.js v22.22.0
+# Subtest: tests/menu.dom.mjs
+not ok 4 - tests/menu.dom.mjs
+  ---
+  duration_ms: 893.473784
+  type: 'test'
+  location: '/home/user/naotocchi/prototypes/card-game/tests/menu.dom.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Error: Uncaught [ReferenceError: getComputedStyle is not defined]
+#     at reportException (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+#     at innerInvokeEventListeners (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+#     at invokeEventListeners (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+#     at HTMLButtonElementImpl._dispatch (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+#     at fireAnEvent (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/helpers/events.js:18:36)
+#     at HTMLButtonElementImpl.click (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/nodes/HTMLElement-impl.js:85:5)
+#     at HTMLButtonElement.click (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/generated/HTMLElement.js:108:34)
+#     at file:///home/user/naotocchi/prototypes/card-game/tests/my-decks.dom.mjs:32:44 ReferenceError: getComputedStyle is not defined
+#     at stageBox (file:///home/user/naotocchi/prototypes/card-game/ui-viewport.mjs:31:36)
+#     at fitStageCard (file:///home/user/naotocchi/prototypes/card-game/ui-viewport.mjs:35:14)
+#     at watchStage (file:///home/user/naotocchi/prototypes/card-game/ui-viewport.mjs:54:2)
+#     at inspect (file:///home/user/naotocchi/prototypes/card-game/app.mjs:97:70)
+#     at HTMLButtonElement.<anonymous> (file:///home/user/naotocchi/prototypes/card-game/my-decks-ui.mjs:31:44)
+#     at HTMLButtonElement.invokeTheCallbackFunction (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/generated/EventHandlerNonNull.js:14:28)
+#     at HTMLButtonElement.<anonymous> (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/helpers/create-event-accessor.js:35:32)
+#     at innerInvokeEventListeners (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+#     at invokeEventListeners (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+#     at HTMLButtonElementImpl._dispatch (/tmp/claude-0/-home-user-naotocchi/15b9c205-9d69-5446-b7fa-d8b0071c7ae9/scratchpad/jsdom/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+# {"catalog":452,"lazyImages":452,"closedCatalogImages":0,"createRenameCloneDelete":true,"filters":true,"copyLimits":true,"catalogDOMStable":true,"scrollPreserved":true,"legacyUnchanged":true,"matchMode":"cpu","startAndRestore":true,"handoffPrivacy":true,"rendering":"unverified: DOM test only"}
+# Subtest: tests/my-decks.dom.mjs
+ok 5 - tests/my-decks.dom.mjs
+  ---
+  duration_ms: 6235.815311
+  type: 'test'
+  ...
+# records DOM PASS: entry, tabs, unfinished exclusion, stable save metadata, restore, tutorial
+# Subtest: tests/records.dom.mjs
+ok 6 - tests/records.dom.mjs
+  ---
+  duration_ms: 1737.617758
+  type: 'test'
+  ...
+# Tutorial shared board DOM PASS: 18 slots, production detail, wrong inspection, CPU lifecycle, reverse chain, save isolation
+# Subtest: tests/tutorial-board.dom.mjs
+ok 7 - tests/tutorial-board.dom.mjs
+  ---
+  duration_ms: 4482.327898
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 6
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14249.261279
