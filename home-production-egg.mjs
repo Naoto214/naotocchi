@@ -1,6 +1,8 @@
 import {artTransform} from './home-production-transform.mjs';
 export function eggPose(host,stage,box=[0,0,128,128]){
- const t=artTransform(host,stage),foot=t.project({x:.55,z:.74}),size=Math.min(140,host.width*.34);
+ const t=artTransform(host,stage),size=Math.min(140,host.width*.34);
+ // Centre the painted body, not its transparent PNG frame or a world-space seat.
+ const foot={x:stage.width/2,y:stage.height/2+size*(box[3]-box[1])/256};
  return {foot,size,left:foot.x-size*(box[0]+box[2])/256,top:foot.y-size*box[3]/128,transform:t};
 }
 // Background-only egg adapter. The original sprite, pointer handlers, warming,

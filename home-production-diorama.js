@@ -224,6 +224,8 @@
     function emit(event){if(event.type==='tap'||event.type==='environment')onGesture(event.actor,event.environmentTags.includes('tree')?'curious':'look');
       if(env.CustomEvent)stage.dispatchEvent(new env.CustomEvent('naotocchi:home-reaction',{detail:event}));}
     const model=modelAPI.createModel({onEvent:emit});
+    // One-shot presentation request from a real hatch, never inferred from save age.
+    let newbornPending=false;
     function ensureWorld(){
       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
@@ -269,7 +271,19 @@
         next.set(a.key,row);
       }
       for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key)clearGesture();}
-      rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),scene);paint();
+      let newbornPoint=null;
+      const newborn=list.find(a=>a.kind==='pet');
+      if(newbornPending&&newborn&&scene.navigation){
+        const r=stage.getBoundingClientRect(),pane=stage.closest?.('.screen-frame')?.getBoundingClientRect()||r;
+        const x=(Math.max(r.left,pane.left)+Math.min(r.right,pane.right))/2-r.left;
+        const y=(Math.max(r.top,pane.top)+Math.min(r.bottom,pane.bottom))/2-r.top;
+        newbornPoint={x,y:y+newborn.h/2};
+        // Depth scales about the foot. Include it when centring the painted body.
+        for(let i=0;i<3;i++)newbornPoint.y=y+newborn.h*(scene.navigation.depthScale?.(newbornPoint)||1)/2;
+      }
+      rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
+      if(newbornPoint)newbornPending=false;
+      paint();
     }
     function paint(){
       // Care and visibility changes can interrupt before activation or after exit.
@@ -385,7 +399,7 @@
     const listeners={pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
-    return {model,update,sync,interrupt,overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
+    return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
   return {textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });

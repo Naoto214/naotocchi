@@ -10468,6 +10468,7 @@
     const reservedLine = pickDreamLine();
     state.speciesLine = reservedLine || pickRandomLine();
     state.stage = STAGE.GROWING;
+    homeDiorama?.prepareNewborn?.();
     state.individuality = INDIVIDUALITY.create(state.speciesLine,REGIONS.map(r=>r.id));
     individualityDeferred=false;
     state.ageTicks = 0;
