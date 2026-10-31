@@ -43,3 +43,9 @@ Chromiumのe5f7739初回は新設のfresh egg検査が24条件で停止。primar
 ![390px VERSION 2/3比較](comparison-390.png)
 
 操作検査のレビューで、新生児はpoopCount=0のためそうじが正しくdisabledと判明。検証対象を新生児が自然に操作できる「じゃれる」に訂正し、actionCounts.petの増加を確認する。ゲーム状態・disabled条件は変更しない。
+
+## 物理dragの開始点と足元の差
+
+a114246eで新生児操作を含む両engineの孵化20条件成功。Chromium nativeは47/48入力成功、390×844/home/28体のtap・dragはいずれもfresh egg/0体から開始して5px超移動・安全接地・移動完了を確認（v3-390-28-passed.json）。唯一430×932/home/6体dragが停止（v3-430-drag-failed.json）。artifact 13050205956 SHA256 4845d9a76af561c340950ade4b81d17cb75a420f5cf5e30018e34c8377083883。
+
+後者はfoot=(220.5,315), h=112に対しpointer from=(236.5,464.2), to=(236,464)。足元距離45.0028pxでも指の実移動は0.5385px。配送された10個のpointermoveも全て8px未満で、既存controllerは正しく選択のみを行いmoveを呼ばなかった。候補探索へdragのみ物理移動>=12pxの前提を追加し、既存8pxのドラッグ閾値を確実に超える。衝突・接地・可視・経路・5px超実移動・source・完了検査はそのまま。成功した他23dragの最小物理移動は24.008pxであり、この追加条件は既存成功候補を除外しない。独立レビューで実navigationと記録6体から代替候補(176,322)（指68.29px、足元45.05px、経路あり）を確認。最終CIで再検証。

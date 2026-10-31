@@ -10,6 +10,9 @@ module.exports=(kind='tap')=>{
  const candidates=[];
  for(let y=b.top;y<b.bottom;y+=4)for(let x=b.left;x<b.right;x+=4){
   const distance=Math.hypot(x-a.x,y-a.y),p={x,y},to={x:s.x+x,y:s.y+y};
+  // The pointer starts above the feet. A 45px ground route can still be a
+  // sub-pixel gesture; require a real drag beyond the shipped 8px threshold.
+  if(kind==='drag'&&Math.hypot(to.x-from.x,to.y-from.y)<12)continue;
   if(distance<12||to.y<frame.top+5||to.y>frame.bottom-5||to.x<frame.left+5||to.x>frame.right-5||!free(p)||!nav.valid(p))continue;
   // Ground taps must miss every selection hitbox. A captured drag may finish
   // over a sprite (including the pet itself); its endpoint still must be free
