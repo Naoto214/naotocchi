@@ -1,6 +1,7 @@
 // CARD GAME のもどる導線。リポジトリ直下を配信した静的サーバーに対して実行する。
-// 開始画面ヘッダーの「なおとっちへもどる」、対戦の準備の「← もどる」、☰ 対戦メニューの4つの操作
-// （対戦をつづける／対戦の準備へ／CARD GAMEトップへ／なおとっちへ）、保存と再開、保存失敗時の警告を、
+// 開始画面ヘッダーの「なおとっちへもどる」、対戦の準備の「カードゲームトップへもどる」、☰ 対戦メニューの4つの操作
+// （対戦をつづける／対戦の準備へもどる／カードゲームトップへもどる／なおとっちへもどる）、保存と再開、保存失敗時の警告、
+// ボタンの文字が折り返さず縮みすぎていないことを、
 // CPU対戦・2人対戦の両方、iPhone 縦横の大きさで確かめる。対戦終了後の移動は browser.cjs の最後で確かめる。
 const {chromium,webkit}=require('playwright'),assert=require('node:assert/strict');
 const BASE=process.env.RELEASE_BASE_URL||'http://127.0.0.1:8765/';
@@ -8,13 +9,17 @@ const BASE=process.env.RELEASE_BASE_URL||'http://127.0.0.1:8765/';
 const GAME=process.env.CARD_URL||BASE+'prototypes/card-game/',HOME=process.env.HOME_URL||new URL(BASE).href;
 const KEYS=['naotocchi-cpu-match-v1','naotocchi-hotseat-v1'];
 const inView=async(p,sel)=>{await p.locator(sel).scrollIntoViewIfNeeded();const r=await p.locator(sel).boundingBox(),v=p.viewportSize();assert.ok(r,`${sel} が表示されていません`);assert.ok(r.height>=44,`${sel} の高さ ${r.height}`);assert.ok(r.x>=0&&r.y>=0&&r.x+r.width<=v.width+0.5&&r.y+r.height<=v.height+0.5,`${sel} が画面外 ${JSON.stringify(r)} ${JSON.stringify(v)}`);};
+// ボタンの文字が1行に収まり（不自然な折り返しなし）、14px以上の大きさであること。
+// 「閉じる ×」は全ダイアログ共通の既存の大きさ（12px）なので、行数だけを見る。
+const oneLine=async(p,sel,minFont=14)=>{for(const r of await p.locator(sel).evaluateAll(ns=>ns.filter(n=>n.offsetParent).map(n=>{const g=document.createRange();g.selectNodeContents(n);const tops=new Set([...g.getClientRects()].filter(x=>x.width>0).map(x=>Math.round(x.top)));return {text:n.innerText,lines:tops.size,font:parseFloat(getComputedStyle(n).fontSize)};})))assert.ok(r.lines===1&&r.font>=minFont,`${sel}「${r.text}」 ${r.lines}行 ${r.font}px`);};
 const atHome=async p=>{await p.waitForURL(u=>u.href===HOME||u.href===HOME+'index.html');};
 const MENU=['menu-continue','menu-setup','menu-top','menu-home'];
 // 手札の並び順・CPUデッキ設定は対戦を始めると正規に書かれるので、比べるのはマイデッキと戦績。
 const PROTECT=['naotocchi-my-decks-v1','naotocchi-card-records-v1','naotocchi-card-records-v1-backup'];
 (async()=>{const b=await (process.env.BROWSER==='webkit'?webkit:chromium).launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});
 const errors=[];const shots=process.env.SCREENSHOT_DIR;
-try{for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscape',{width:844,height:390}]]){
+try{// 390×844 / 844×390（iPhone 標準）と 375×667 / 667×375（iPhone SE・mini 相当の小さい画面）。
+for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscape',{width:844,height:390}],['small-portrait',{width:375,height:667}],['small-landscape',{width:667,height:375}]]){
  const ctx=await b.newContext({viewport,isMobile:process.env.BROWSER!=='webkit'||undefined,hasTouch:true,deviceScaleFactor:2});const p=await ctx.newPage();p.on('pageerror',e=>errors.push(`${name}: ${e.message}`));
  const snap=()=>p.evaluate(keys=>keys.map(k=>localStorage.getItem(k)),PROTECT);
  const focused=()=>p.evaluate(()=>document.activeElement.id);
@@ -27,8 +32,8 @@ try{for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscap
  await p.goto(GAME);await inView(p,'#home-return');assert.equal(await p.locator('#home-return').innerText(),'なおとっちへもどる');
  if(shots)await p.screenshot({path:`${shots}/${name}-welcome.png`});
  await p.locator('#home-return').tap();await atHome(p);
- // 2) 対戦の準備：「← もどる」で同じページの CARD GAME トップ（メインメニュー）へ。
- await p.goto(GAME);await p.locator('#solo-open').tap();await inView(p,'#setup-back');assert.equal(await p.locator('#setup-back').innerText(),'← もどる');
+ // 2) 対戦の準備：「カードゲームトップへもどる」で同じページの CARD GAME トップ（メインメニュー）へ。
+ await p.goto(GAME);await oneLine(p,'#home-return');await p.locator('#solo-open').tap();await inView(p,'#setup-back');assert.equal(await p.locator('#setup-back').innerText(),'カードゲームトップへもどる');await oneLine(p,'#setup-back');
  if(shots)await p.screenshot({path:`${shots}/${name}-setup.png`});
  await p.locator('#setup-back').tap();assert.ok(await p.evaluate(()=>scrollY)<=1,'トップへ戻る');assert.equal(await focused(),'solo-open');
  const before=await snap();
@@ -39,13 +44,13 @@ try{for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscap
   assert.equal(await p.locator('#home-return').isVisible(),false,'対戦中はヘッダーを出さない');
   // ☰ に4つの操作。「対戦をつづける」で閉じて対戦のまま。
   await openMenu();for(const id of MENU)await inView(p,'#'+id);
-  assert.deepEqual(await p.locator('#menu-leave button').allInnerTexts(),['対戦をつづける','← 対戦の準備へ','← CARD GAMEトップへ','なおとっちへもどる']);
+  assert.deepEqual(await p.locator('#menu-leave button').allInnerTexts(),['対戦をつづける','対戦の準備へもどる','カードゲームトップへもどる','なおとっちへもどる']);await oneLine(p,'#menu-leave button');await oneLine(p,'#menu-dialog [data-close]',0);
   if(shots&&mode==='cpu')await p.screenshot({path:`${shots}/${name}-menu.png`});
   await p.locator('#menu-continue').tap();assert.equal(await p.locator('#menu-dialog').isVisible(),false);assert.ok(await p.locator('#game').isVisible(),'対戦画面のまま');
   // 対戦の準備へ：確認 → つづける（何も変わらない）→ もう一度 → もどる → 「保存した対戦に戻る」で再開。
   await openMenu();await p.locator('#menu-setup').tap();await p.locator('#menu-home-confirm').waitFor({state:'visible'});
   assert.match(await p.locator('#menu-home-confirm').innerText(),/対戦の準備へもどりますか[\s\S]*端末に保存しました[\s\S]*「保存した対戦に戻る」/);
-  assert.equal(await focused(),'menu-home-stay','既定のフォーカスは「対戦をつづける」');await inView(p,'#menu-home-go');await inView(p,'#menu-home-stay');
+  assert.equal(await focused(),'menu-home-stay','既定のフォーカスは「対戦をつづける」');assert.equal(await p.locator('#menu-home-go').innerText(),'対戦の準備へもどる');await oneLine(p,'#menu-home-confirm button');await inView(p,'#menu-home-go');await inView(p,'#menu-home-stay');
   if(shots&&mode==='cpu')await p.screenshot({path:`${shots}/${name}-confirm.png`});
   await p.locator('#menu-home-stay').tap();assert.equal(await p.locator('#menu-home-confirm').isVisible(),false);assert.ok(await p.locator('#menu-leave').isVisible());assert.equal(await focused(),'menu-setup');
   await p.locator('#menu-home-go').count().then(n=>assert.equal(n,0));
@@ -56,8 +61,8 @@ try{for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscap
   assert.match(await p.locator('#resume-note').innerText(),new RegExp(`「${route}」の「保存した対戦に戻る」`));
   if(shots&&mode==='cpu')await p.screenshot({path:`${shots}/${name}-back-to-setup.png`});
   await resume(key,saved);
-  // CARD GAME トップへ：メインメニューへ戻り、「あそびかた」→「保存した対戦に戻る」で再開。
-  await openMenu();await p.locator('#menu-top').tap();assert.match(await p.locator('#menu-home-confirm').innerText(),new RegExp(`CARD GAMEトップへもどりますか[\\s\\S]*「${route}」→「保存した対戦に戻る」`));
+  // カードゲームトップへ：メインメニューへ戻り、「あそびかた」→「保存した対戦に戻る」で再開。
+  await openMenu();await p.locator('#menu-top').tap();assert.match(await p.locator('#menu-home-confirm').innerText(),new RegExp(`カードゲームトップへもどりますか[\\s\\S]*「${route}」→「保存した対戦に戻る」`));assert.equal(await p.locator('#menu-home-go').innerText(),'カードゲームトップへもどる');await oneLine(p,'#menu-home-confirm button');
   saved=await p.evaluate(k=>localStorage.getItem(k),key);await p.locator('#menu-home-go').tap();await welcomeShown();
   assert.ok(await p.evaluate(()=>scrollY)<=1,'トップの位置へ');assert.equal(await focused(),'solo-open');
   assert.ok(await p.locator('#resume-note').count());await p.locator(mode==='cpu'?'#solo-open':'#hotseat-open').tap();await resume(key,saved);assert.equal(await p.locator('#resume-note').isVisible(),false,'再開したら案内を消す');
@@ -72,7 +77,7 @@ try{for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscap
  await p.evaluate(()=>{Storage.prototype.setItem=function(){throw new Error('quota');};});
  for(const id of ['menu-setup','menu-top','menu-home']){
   await openMenu();await p.locator('#'+id).tap();
-  assert.match(await p.locator('#menu-home-confirm').innerText(),/保存できませんでした/);assert.equal(await focused(),'menu-home-stay');assert.equal(await p.locator('#menu-home-go').innerText(),'保存せずにもどる');
+  assert.match(await p.locator('#menu-home-confirm').innerText(),/保存できませんでした/);assert.equal(await focused(),'menu-home-stay');assert.equal(await p.locator('#menu-home-go').innerText(),'保存せずにもどる');await oneLine(p,'#menu-home-confirm button');
   await p.locator('#menu-home-stay').tap();await p.locator('#menu-continue').tap();assert.ok(await p.locator('#game').isVisible());
  }
  // 開始画面から開いた ☰ メニュー（対戦なし）には、もどる操作を出さない（ヘッダーにある）。

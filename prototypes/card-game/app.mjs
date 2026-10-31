@@ -208,7 +208,7 @@ document.addEventListener('click',e=>{
  if(b.dataset.inspect){inspect(b.dataset.inspect,{catalog:b.hasAttribute('data-catalog'),origin:b});return;}
  if(b.dataset.browse){inspect(b.dataset.browse,{readOnly:true,origin:b});return;}
  if(b.dataset.zone){showZone(b.dataset.seat,b.dataset.zone,b);return;}
- if(b.hasAttribute('data-home')){toWelcome('setup');}// 対戦終了後の「対戦の準備へ」
+ if(b.hasAttribute('data-home')){toWelcome('setup');}// 対戦終了後の「対戦の準備へもどる」
 });
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('close',()=>cpu.schedule());
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();const back=id==='confirm-dialog'?returnDetail:null;const flow=id==='confirm-dialog'&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();});
@@ -219,7 +219,8 @@ $('new').onclick=()=>{try{const seeds=crypto.getRandomValues(new Uint32Array(3))
 $('restore').onclick=()=>{try{const raw=localStorage.getItem($('match-mode').value==='cpu'?CPU_KEY:KEY);if(!raw)throw Error('保存された対戦がありません');cpu.cancel();{const loaded=decodeMatch(raw);session=loaded.session;matchMetadata=loaded.metadata;recordedId=null;}bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();message(matchMetadata?'保存を検証して復帰しました':'保存を検証して復帰しました（旧形式のため戦績には記録しません）');}catch(e){message(`復帰できません：${e.message}`);}};
 $('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
 $('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([saveMatch()],{type:'application/json'})),a=el('a');a.href=url;a.download=session.mode==='cpu'?'naotocchi-cpu.json':'naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
-// もどる操作（☰ 対戦メニュー・対戦の準備の「← もどる」・結果の「対戦の準備へ」）。
+// もどる操作（☰ 対戦メニュー・対戦の準備の「カードゲームトップへもどる」・結果の「対戦の準備へもどる」）。
+// 表記は移動先を書いた「〇〇へもどる」にそろえる（矢印は付けない）。
 // 戻り先は3つ。CARD GAME はトップ（メインメニュー）と「対戦の準備」が同じページの上下にある1ページ構成なので、
 // 新しい画面は作らず、そのページの該当位置へ戻す。
 //   setup: 対戦の準備（モード・席・CPU・デッキ選択。「保存した対戦に戻る」がある）
@@ -228,8 +229,8 @@ $('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createOb
 // 対戦中は先にこの端末へ保存し直し、読み戻して保存できたことを確かめてから確認を出す。
 const HOME_URL=$('home-return').href;// 戻り先は開始画面ヘッダーのリンクと同じ（index.html の href が唯一の定義）
 const LEAVE={
- setup:{label:'← 対戦の準備へもどる',title:'対戦の準備へもどりますか？',resume:()=>'対戦の準備の「保存した対戦に戻る」で'},
- top:{label:'← CARD GAMEトップへもどる',title:'CARD GAMEトップへもどりますか？',resume:route=>`「${route}」→「保存した対戦に戻る」で`},
+ setup:{label:'対戦の準備へもどる',title:'対戦の準備へもどりますか？',resume:()=>'対戦の準備の「保存した対戦に戻る」で'},
+ top:{label:'カードゲームトップへもどる',title:'カードゲームトップへもどりますか？',resume:route=>`「${route}」→「保存した対戦に戻る」で`},
  home:{label:'なおとっちへもどる',title:'なおとっちへもどりますか？',resume:route=>`あとで CARD GAME の「${route}」→「保存した対戦に戻る」で`},
 };
 const menuParts=()=>[document.querySelector('#menu-dialog .utility-nav'),$('menu-leave')];
@@ -270,7 +271,7 @@ function requestLeave(target){
 for(const b of document.querySelectorAll('#menu-leave [data-leave]'))b.onclick=()=>requestLeave(b.dataset.leave);
 $('menu-continue').onclick=()=>$('menu-dialog').close();
 $('menu-dialog').addEventListener('close',leaveConfirmReset);
-// 対戦の準備の「← もどる」：同じページの CARD GAME トップ（メインメニュー）へ。
+// 対戦の準備の「カードゲームトップへもどる」：同じページの CARD GAME トップ（メインメニュー）へ。
 $('setup-back').onclick=()=>{window.scrollTo?.(0,0);$('solo-open').focus({preventScroll:true});};
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=decodeMatch(await file.text());cpu.cancel();session=restored.session;matchMetadata=restored.metadata;recordedId=null;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
 window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);

@@ -326,12 +326,12 @@ body>header h1{margin:0;min-width:0}
 .menu-home-confirm h3{margin:4px 0 8px;color:#edd49a}.menu-home-confirm p{margin:0 0 12px;line-height:1.6}.menu-home-warn{color:#ffd6c2}
 .menu-home-actions{display:flex;flex-wrap:wrap;gap:10px}.menu-home-actions button{flex:1 1 auto;white-space:nowrap}
 @media(max-width:360px){body>header h1{font-size:1.05rem}a.home-return{padding:10px 10px;font-size:13px}}
-/* ☰ 対戦メニューの「もどる」：CARD GAME 内の戻り先（← 付き）と、なおとっち本編（枠の色を変えた別扱い）を分ける */
+/* ☰ 対戦メニューの「もどる」：表記は「〇〇へもどる」にそろえ、折り返さない。
+   幅が足りるとき（横画面など）は2列、足りないとき（縦画面）は1列に積む。なおとっち本編へは枠の色を変えて別扱い */
 .menu-leave{margin-top:14px;padding-top:12px;border-top:1px solid #718c6b66}.menu-leave h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;color:#d5c9a2}
-.menu-leave-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.menu-leave-grid button{min-width:0;padding:10px 8px;line-height:1.35;word-break:keep-all;overflow-wrap:anywhere}
+.menu-leave-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:8px}.menu-leave-grid button{min-width:0;min-height:48px;padding:10px 14px;line-height:1.35;white-space:nowrap}
 .menu-leave-grid #menu-home{border-color:#c8ac6b;background:#2d4a33}
-@media(max-width:360px){.menu-leave-grid{grid-template-columns:1fr}}
-/* 対戦の準備の左上「← もどる」（CARD GAME トップへ） */
-.section-back-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}.section-back-row h2{margin:0}
-.back-link{min-height:44px;padding:8px 12px;background:transparent;border-color:#738a75;font-size:14px;flex:none}
+/* 対戦の準備の左上「カードゲームトップへもどる」。見出しとは別の行に置き、文字を縮めずに収める */
+.section-back-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:6px}.section-back-row h2{margin:0}
+.back-link{min-height:44px;padding:8px 14px;background:transparent;border-color:#738a75;font-size:15px;flex:none;white-space:nowrap}
 .resume-note{margin:12px 0 0;padding:10px 12px;border:1px solid #c8ac6b;border-radius:10px;background:#2d4a33;color:#f9f1d9;font-size:14px;line-height:1.6}
