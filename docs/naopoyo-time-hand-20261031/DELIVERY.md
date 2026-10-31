@@ -55,3 +55,39 @@ CIの確認時点の状態はevidence/ci.jsonに収録。13ジョブ成功、既
 
 独立レビューのUndo不整合はRED→GREEN修正済み。報告ページの探索結果不足も完成時に追記。詳細はREVIEW.md。
 mainマージ、本番Pages更新、正式stage/engine/answer/save変更、PR492へのpushは一切行っていない。
+
+## 継続確認（2026-10-31・日本時間）
+
+前回の実装を再利用し、未完了だったCIの結果と公開状態を再確認した。今回の変更はこの検証記録のみ。ゲーム実装・配信・正式ルールは変更していない。
+
+- 再開時PR #494: open / Draft、HEAD `fe7b231fee692ac03a9814bb1ffdf1bed4f9f245`。
+- 実装HEAD `11980dcd5aa8b987d68ff156434e5655529cec44` のチェック17件は全て完了。**16件success、1件skipped（Pages deploy）**。failure・実行中は0件。
+- 前回待機中のRuntime `smoke-test`、World Visual `regression`、Home Layout `home-layout` もsuccess。下表は今回GitHub APIから取得した完了結果。以前のevidence/ci.jsonは当時の履歴として保持する。
+- 実装HEADから再開時HEADまでの差分は報告・検証資料13ファイルのみ。実装が後から変わっていないことをcompare APIで確認した。今回ローカルテストを再実行したという意味ではない。
+- 最新mainは `7c1f18c77b902d06159157899c36104e5d8c4a8d`。前回記録から進んでいるが、本作業では変更していない。
+- PR #492はopen / Draft、HEAD `814af477c1d8fa0a13f6db6746eca685ea2eb052` のまま。
+- Sites get_site: active、VERSION 1、custom、owner 1人、外部訪問者0、グループ0。再公開・アクセス権変更なし。
+- 公開URLを実ブラウザーで開き、「アクセスするにはログインしてください」と「ChatGPT で続行」の認証画面を確認した。前回の起動不可とは異なり、今回はブラウザー起動と認証画面までは確認できた。
+- 「ChatGPT で続行」からの認証遷移は自動承認審査が拒否。理由はauth.openai.comでのログイン開始への明示承認不足。認証を迂回していない。認証後のA/B/C/D切替・配置操作・iPhone幅・実タッチ・回転は引き続き未確認。
+- 配信54ファイルのハッシュ照合は前回の証拠を維持。今回再取得・再照合したとは扱わない。
+- 16/19/20面の別解、予測しやすさ、名称の本人評価は未確認のまま。解答不能とは判定しない。
+
+|チェック|結果|参照|
+|---|---|---|
+|deploy|skipped|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241405/job/124175802180)|
+|smoke-test|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241771/job/124174978232)|
+|time-hand|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241483/job/124174978112)|
+|browser (smoke)|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174978071)|
+|build|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241405/job/124174977991)|
+|character-integration|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977943)|
+|puzzle|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241483/job/124174977660)|
+|browser (corridor)|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977622)|
+|browser (visibility)|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977528)|
+|browser (captures)|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977483)|
+|puzzle|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241446/job/124174977441)|
+|card|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241483/job/124174977438)|
+|comparison|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241446/job/124174977424)|
+|regression|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241277/job/124174977238)|
+|pad-size|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241326/job/124174977216)|
+|home-layout|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241326/job/124174977025)|
+|card|success|[GitHub job](https://github.com/Naoto214/naotocchi/actions/runs/41088241446/job/124174976853)|
