@@ -28,6 +28,9 @@ jobs:
       - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
       - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
       - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
+      - run: node tests/home-production-guide-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
       - run: node tests/home-production-layout-browser.cjs
         env:
           HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
@@ -41,6 +44,8 @@ jobs:
           path: |
             test-results/home-production-layout/
             test-results/home-production-scroll/
+            test-results/home-production-native/
+            test-results/home-production-guide/
   production-contracts:
     runs-on: ubuntu-latest
     timeout-minutes: 15

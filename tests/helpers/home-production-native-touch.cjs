@@ -1,4 +1,5 @@
 const assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path');
 
 async function swipe(session,from,to){
   await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[from]});
@@ -27,7 +28,26 @@ exports.scroll=async page=>{
 exports.actors=async(page,region,count)=>{
   await page.emulateMedia({reducedMotion:'no-preference'});
   const session=await page.context().newCDPSession(page);
+  const viewport=page.viewportSize(),records=[];
+  const output=path.resolve('test-results/home-production-native');
+  fs.mkdirSync(output,{recursive:true});
+  const save=()=>fs.writeFileSync(path.join(output,`${viewport.width}x${viewport.height}-${region}-${count}.json`),JSON.stringify(records,null,2));
+  await page.evaluate(()=>{
+    if(window.__homeNativeTrace)return;
+    window.__homeNativeTrace=[];
+    for(const type of ['pointerdown','pointerup','pointercancel','lostpointercapture'])document.addEventListener(type,event=>{
+      const detail=HomeReleaseQA.detail();
+      window.__homeNativeTrace.push({type,x:event.clientX,y:event.clientY,target:event.target.id||event.target.tagName,
+        actor:event.target.closest?.('[data-diorama-actor]')?.dataset.dioramaActor,
+        selected:document.querySelector('[data-diorama-selected="true"]')?.dataset.dioramaActor,
+        pet:detail.actors[0],blocked:detail.blocked,stage:detail.slots.castStage});
+      if(window.__homeNativeTrace.length>32)window.__homeNativeTrace.shift();
+    },true);
+  });
   try{for(const kind of ['tap','drag']){
+    const record={kind,status:'preparing'};records.push(record);
+    try{
+    await page.evaluate(()=>{window.__homeNativeTrace.length=0;});
     await page.waitForFunction(()=>{const a=HomeReleaseQA.detail().actors[0];return !a.target||a.source==='ambient';},null,{timeout:15000});
     await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
     await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[region,count]);
@@ -48,13 +68,22 @@ exports.actors=async(page,region,count)=>{
       }
       throw Error('No visible grounded destination for native touch');
     });
+    record.target=target;record.status='input';
     if(kind==='tap'){
       await page.touchscreen.tap(target.from.x,target.from.y);
       assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');
       await page.touchscreen.tap(target.to.x,target.to.y);
     }else await swipe(session,target.from,target.to);
-    await page.waitForFunction(({a,source})=>{const p=HomeReleaseQA.detail().actors[0];return p.source===source&&Math.hypot(p.x-a.x,p.y-a.y)>5;},{a:target.a,source:kind==='tap'?'ground':'drag'},{timeout:15000});
+    const moved=await page.waitForFunction(({a,source})=>{const p=HomeReleaseQA.detail().actors[0];return p.source===source&&Math.hypot(p.x-a.x,p.y-a.y)>5?p:false;},{a:target.a,source:kind==='tap'?'ground':'drag'},{timeout:15000});
+    record.observedMovement=await moved.jsonValue();await moved.dispose();
     assert.ok((await page.evaluate(()=>HomeReleaseQA.detail())).actors.every(a=>a.safe),kind+' remains grounded');
     await page.waitForFunction(()=>{const a=HomeReleaseQA.detail().actors[0];return !a.target||a.source==='ambient';},null,{timeout:15000});
+    record.status='passed';
+    }catch(error){record.status='failed';record.error=error.message;throw error;}
+    finally{
+      record.observation=await page.evaluate(()=>({detail:HomeReleaseQA.detail(),trace:window.__homeNativeTrace,
+        frame:document.querySelector('.screen-frame').getBoundingClientRect().toJSON(),bounds:HomeReleaseQA.inspect().bounds})).catch(()=>null);
+      save();
+    }
   }}finally{await session.detach();await page.emulateMedia({reducedMotion:'reduce'});}
 };

@@ -25,3 +25,6 @@ body[data-home-production="true"][data-home-terrain="true"] #castStage[data-dior
 /* Text and small lanes retain their existing intrinsic dimensions. */
 body[data-home-production="true"][data-home-terrain="true"] #homeInformation{gap:0}
 body[data-home-production="true"][data-home-terrain="true"] #homeGestureGuide{margin:0}
+/* Dismissing the guide must not resize/reproject the live terrain. Retain its
+   existing 26px lane; hidden controls remain invisible and unfocusable. */
+body[data-home-production="true"][data-home-terrain="true"] #homeGestureGuide[hidden]{display:flex!important;visibility:hidden;min-height:26px}
