@@ -17,7 +17,12 @@ module.exports=()=>{
  candidates.sort((a,b)=>a.distance-b.distance);
  for(const minimumDistance of [45,12])for(const {p,to,distance} of candidates){
   if(distance<minimumDistance)continue;
-  if(nav.route(a,p,b,free).length)return {a,p,stage:s,from,to,selectionMs:performance.now()-started};
+  if(!nav.route(a,p,b,free).length)continue;
+  // The scroll frame includes padding that paints terrain but belongs to the
+  // device. A physical ground tap must actually hit the stage, not that gutter.
+  const stageNode=document.getElementById('castStage'),hit=document.elementFromPoint(to.x,to.y);
+  if(hit!==stageNode&&!stageNode.contains(hit))continue;
+  return {a,p,stage:s,from,to,selectionMs:performance.now()-started};
  }
  throw Error('No visible grounded destination for pointer: '+JSON.stringify({candidates:candidates.length,selectionMs:performance.now()-started,pet:a,frame:{top:frame.top,bottom:frame.bottom}}));
 };

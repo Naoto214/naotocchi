@@ -16,6 +16,7 @@ script+=`\nwindow.HomeReleaseQA={
  inspect(){const scene=homeDiorama.inspectScene();return {scene,bounds:homeDiorama.model.snapshot().map(a=>homeDiorama.model.bounds(a))};},
  move(){return (${require('./home-v8-qa-movement.cjs').toString()})(homeDiorama.model,homeDiorama.inspectScene().navigation);},
  save(){saveState();return JSON.parse(JSON.stringify(state));}, state:()=>JSON.parse(JSON.stringify(state)),
+ blockers(){return Object.entries({game:gameActive,meguru:meguruActive,hidden:document.visibilityState==='hidden',menu:isAnyMenuOverlayOpen(),sleeping:state.isSleeping,sick:state.isSick,dying:state.dying,transform:!!state.transformOptions,speech:speechActive,conversation:conversationIsBusy(),lifeCard:!el.lifeCardOverlay.classList.contains('hidden'),story:!el.storyFlash.classList.contains('hidden'),movie:document.body.classList.contains('movie-active'),screen:el.screenNormal.classList.contains('hidden'),castReaction:el.castResponse.dataset.reaction,actorReaction:homeCastActors().filter(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction)).map(a=>({kind:a.kind,id:a.id,reaction:a.node.dataset.reaction})).filter(Boolean)}).filter(([key,value])=>Array.isArray(value)?value.length:!!value);},
  conversationStatus(){return {context:conv2ContextOk(),canStart:conv2CanStart(),unit:conv2Unit?.kind,message,speechActive,busy:conversationIsBusy(),emotion:deriveHomeEmotion(),careAfterglow:!!careAfterglowTimer,petBusy:Date.now()<petBusyUntil,petMotion:!!castMotion?.isActive({kind:'pet'})};},
  question(){clearConversationTimers();message='';speechActive=false;conversationBusyUntil=0;petBusyUntil=0;if(careAfterglowTimer)clearTimeout(careAfterglowTimer);careAfterglowTimer=null;castMotion.clear();state.poopCount=0;state.isSleeping=false;state.isSick=false;state.hunger=state.happiness=state.energy=state.health=95;render();return conv2Ask(CONVERSATION_BANTER.QUESTIONS[0]);},
  egg(){state.stage=STAGE.EGG;state.regionId='home';state.companions=[];state.partner=null;homeCastLayoutKey='';render();}
@@ -24,10 +25,10 @@ script+=`\nwindow.HomeReleaseQA={
 window.HomeReleaseInputTrace=[];
 const recordInput=(type,extra={})=>{
  const d=HomeReleaseQA.detail(),a=d.actors[0],f=document.querySelector('.screen-frame');
- HomeReleaseInputTrace.push({type,at:performance.now(),...extra,blocked:d.blocked,paused:d.paused,selected:homeDiorama.model.selected(),pet:a,stage:d.slots.castStage,scroll:f.scrollTop,conversation:HomeReleaseQA.conversationStatus()});
+ HomeReleaseInputTrace.push({type,at:performance.now(),...extra,blocked:d.blocked,blockers:HomeReleaseQA.blockers(),paused:d.paused,selected:homeDiorama.model.selected(),pet:a,stage:d.slots.castStage,scroll:f.scrollTop,conversation:HomeReleaseQA.conversationStatus()});
  if(HomeReleaseInputTrace.length>120)HomeReleaseInputTrace.shift();
 };
-for(const name of ['select','move']){const original=homeDiorama.model[name];homeDiorama.model[name]=function(...args){const result=original.apply(this,args);recordInput(name,{args,result});return result;};}
+for(const name of ['select','move']){const original=homeDiorama.model[name];homeDiorama.model[name]=function(...args){const before=HomeReleaseQA.detail(),destinationValid=name==='move'?homeDiorama.inspectScene().navigation?.valid(args[1]):undefined;const result=original.apply(this,args);recordInput(name,{args,result,before:{pet:before.actors[0],blocked:before.blocked},destinationValid});return result;};}
 for(const type of ['pointerdown','pointermove','pointerup','pointercancel','lostpointercapture'])document.addEventListener(type,event=>recordInput(type,{x:event.clientX,y:event.clientY,target:event.target.id||event.target.className,actor:event.target.closest?.('[data-diorama-actor]')?.dataset.dioramaActor}),true);
 })();`;
 fs.writeFileSync(path.join(out,'release-qa-script.js'),script);

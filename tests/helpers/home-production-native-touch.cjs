@@ -37,7 +37,7 @@ exports.actors=async(page,region,count)=>{
     window.__homeNativeTrace=[];
     for(const type of ['pointerdown','pointerup','pointercancel','lostpointercapture'])document.addEventListener(type,event=>{
       const detail=HomeReleaseQA.detail();
-      window.__homeNativeTrace.push({type,x:event.clientX,y:event.clientY,target:event.target.id||event.target.tagName,
+      window.__homeNativeTrace.push({type,at:performance.now(),blockers:HomeReleaseQA.blockers?.(),x:event.clientX,y:event.clientY,target:event.target.id||event.target.tagName,
         actor:event.target.closest?.('[data-diorama-actor]')?.dataset.dioramaActor,
         selected:document.querySelector('[data-diorama-selected="true"]')?.dataset.dioramaActor,
         pet:detail.actors[0],blocked:detail.blocked,stage:detail.slots.castStage});
@@ -56,7 +56,11 @@ exports.actors=async(page,region,count)=>{
       frame.scrollTop+=stage.getBoundingClientRect().top+a.y-a.h*.4-frame.getBoundingClientRect().top-frame.clientHeight/2;
     });
     await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';},null,{timeout:15000});
-    const target=await page.evaluate(require('./home-production-pointer-target.cjs'));
+    const searchStarted=Date.now();
+    let target;
+    try{target=await page.evaluate(require('./home-production-pointer-target.cjs'));}
+    finally{record.searchDurationMs=Date.now()-searchStarted;}
+    record.beforeInput=await page.evaluate(()=>({at:performance.now(),blockers:HomeReleaseQA.blockers?.(),detail:HomeReleaseQA.detail()}));
     record.target=target;record.status='input';
     if(kind==='tap'){
       await page.touchscreen.tap(target.from.x,target.from.y);

@@ -1,0 +1,50 @@
+{
+  "full_regression": {
+    "runtime_commit": "e381c59184d43c164e06804754cf073e4a982c3a",
+    "tests": 3744,
+    "passed": 3742,
+    "failed": 2,
+    "npm_exit": 1,
+    "remaining_groups_executed_separately": [
+      159,
+      238
+    ]
+  },
+  "integrated_runtime_commit": "38c3d068440f68e78b969837c42a4897a32de729",
+  "focused": {
+    "passed": 29,
+    "failed": 0
+  },
+  "production_contracts": {
+    "passed": 364,
+    "failed": 1,
+    "isolated_failed_case_recheck_passed": 1
+  },
+  "browser": "Chromium 153.0.8010.0",
+  "guide_cases_passed": 15,
+  "river_display_cases_passed": 12,
+  "river_additional_passed": [
+    "6/28 tap and drag",
+    "rotation",
+    "egg",
+    "save resume"
+  ],
+  "native_before_dom_hit_check": {
+    "passed": 22,
+    "failed": 2
+  },
+  "native_after_dom_hit_check": {
+    "passed": 23,
+    "failed": 1,
+    "unresolved": "320x568/home/28 tap passes, no visible grounded drag destination"
+  },
+  "package": {
+    "files": 4121,
+    "bytes": 220191518,
+    "missing": 0,
+    "hash_mismatches": 0
+  },
+  "production_deploy": false,
+  "main_merge": false,
+  "iphone_safari_verified": false
+}
