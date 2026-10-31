@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createGame,stage,species} from '../state.mjs';import {groups} from '../resolve.mjs';
+for(const kinds of [3,4,5])test(`initial ${kinds} species full stable deterministic`,()=>{for(let seed=1;seed<=10;seed++){const s=createGame(seed,{kinds});assert.equal(s.board?.length,36);assert.equal(s.board.filter(Boolean).length,36);assert.ok(s.board.every(c=>stage(c)<=4&&species(c)<kinds));for(let rank=1;rank<=4;rank++)assert.equal(s.board.filter(c=>stage(c)===rank).length,9);assert.equal(groups(s.board).length,0);assert.deepEqual(createGame(seed,{kinds}),s);}});
