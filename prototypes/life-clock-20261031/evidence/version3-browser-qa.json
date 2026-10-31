@@ -1,0 +1,6 @@
+{
+ "environment":"Cloud Chrome, local Sites preview; not physical iPhone Safari",
+ "widths":[{"viewport":320,"scroll":320},{"viewport":375,"scroll":375},{"viewport":390,"scroll":390},{"viewport":430,"scroll":430},{"viewport":844,"scroll":844}],
+ "checks":["A/B each render six hands; ordinary mode six hands", "30 subdivisions + full mapping exposes intermediate tick warning", "Partial-turn mapping + original30 reports all on-tick", "Growth55/85 inputs -> A central198/306 degrees; B sub132/204 degrees", "0/100 and 0/12 retain distinct numeric labels", "Round12 ->360 degrees, ending11 ->330 degrees", "Ordinary10:10:30 and elapsed3723 -> central18/305.25/63; sub180/24.6/31.025 degrees"],
+ "limitations":["Widths tested in same-origin iframes, not device emulation", "Physical touch interaction, Safari rendering and manufacturing not verified", "Temporary preview route loss was recovered by restarting the designated Site preview"]
+}

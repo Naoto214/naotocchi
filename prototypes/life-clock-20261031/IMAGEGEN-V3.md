@@ -1,0 +1,15 @@
+# VERSION 3 画像制作記録
+
+Built-in image_gen / precise-object-edit を使用。正式裏面とVERSION 2原画像は変更していない。
+
+参照: dist/assets/concept-AB.png。共通装飾原画は dist/assets/chrono-art-v3.png。情報として厳密であるべき数字・目盛り・丸マーカー・6針は生成画像に任せず、dist/v3/chrono.mjs のSVGで描画。A/Bの顔は同一文字列であり、針の角度だけが変わる。PNG完成画像とSVGは tools/render-v3.mjs で再生成可能。
+
+## 初回プロンプト
+
+Use case: precise-object-edit. Edit supplied NAOTOCCHI A+B clock into a luxurious round tri-compax chronograph DIAL ART PLATE, for exact vector numerals, scales, markers and hands to be added later. Preserve rich SILVER botanical leaf wreath, central two-leaf sprout, blue woven guilloche background, elegant champagne silver metal rim, front-on orthographic composition. Reorganize wreath gracefully into upper quadrants and lower side arcs so it remains lush but does not cross three subdials. Keep CENTRAL SPROUT prominently visible just above center, two leaves extending from center to upper left and upper right. Square canvas 1024x1024, clock centered at (512,512), outer rim radius 485, all within canvas with tiny ivory margin. Three identical recessed blue subdial wells, centers at (297,512), (727,512), (512,727), each radius 94. Same diameter and silver fine rim, left-right symmetrical. Important: REMOVE ALL HANDS including central hands and subdial hands, REMOVE ALL NUMERALS, REMOVE ALL TICK MARKS, REMOVE ALL COLORED MARKERS, REMOVE decorative stars on outer chapter ring. Leave clean blue outer chapter band between radius 340 and 440 for later exact 1-12 numerals and minute marks. No words, no date window, no crown or pushers, no perspective. This is a beautiful production concept art layer without informational markings; preserve leaf beauty and rich tactile blue/silver finish, high-end studio lighting and detailed engravings. Do not fill center with subdials; sprout must be clear.
+
+## 配置修正プロンプト
+
+Edit this clock art plate with ONLY these layout corrections. The main central sprout stem must originate at the EXACT CENTER of the round clock, not above center. Move its small hub down so it is exactly halfway between top and bottom edges, at the intersection of the horizontal and vertical diameters. Leaves extend above the center. There must be 3 MUCH SMALLER circular empty wells: left and right wells on the horizontal diameter, centers at 29% and 71% of canvas width and 50% canvas height. Lower well at 50% width,71% height. Diameter of each well is 18% canvas width, about two thirds of their current size. All three equal perfectly circular wells with fine silver frames. Make outer chapter band from radius34% to44% of canvas EMPTY blue, without any leaves in that band, to allow large numbers to be added. Concentrate silver foliage between wells and blue outer band, notably upper arcs and bottom corners, retain rich foliage overall and central sprout. Remove all separate dot decorations on central vertical axis to keep clear space. Keep original blue texture and metal frame. No hands, no numerals, no tick marks, no colored markers. Strict front view square, centered clock.
+
+初回は中央の双葉軸が高すぎ、小文字盤が大きすぎたため修正。修正原画に合わせて正確なベクター座標を設定した。装飾は意匠試作であり、製造CADではない。

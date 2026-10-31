@@ -1,0 +1,51 @@
+{
+  "base": "4800fdd4c42dc3c4174fc6e4809563d9e88e1c8e",
+  "checks": [
+    {
+      "name": "Fine 60 subdivision profile aligns every valid value in both layouts under full growth scale",
+      "pass": true
+    },
+    {
+      "name": "Original 30 divisions can also represent all values with partial-turn mapping",
+      "pass": true
+    },
+    {
+      "name": "Known non-alignments are honestly reported, not snapped",
+      "pass": true
+    },
+    {
+      "name": "Mappings and nontrivial input values independently agree with expected angles",
+      "pass": true
+    },
+    {
+      "name": "0 versus maximum retained as distinct values at same wrapped direction",
+      "pass": true
+    },
+    {
+      "name": "Ordinary six-hand chronograph responds to time and elapsed duration",
+      "pass": true
+    },
+    {
+      "name": "Exactly six hands, twelve main numbers, three equal markers, symmetric subdial centers",
+      "pass": true
+    },
+    {
+      "name": "A and B static face is byte-identical; only hand rotations differ",
+      "pass": true
+    },
+    {
+      "name": "All prior images and V2 source preserved; original index retained as version2.html",
+      "pass": true
+    },
+    {
+      "name": "Production baseline paths untouched",
+      "pass": true
+    },
+    {
+      "name": "No game import or persistent save modification",
+      "pass": true
+    }
+  ],
+  "exhaustive": 302,
+  "failed": 0
+}
