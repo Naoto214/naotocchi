@@ -10,7 +10,11 @@
       "pass": true
     },
     {
-      "name": "All 12 design/palette combinations use exactly 12 ordered numbers, 60 ticks and 3 equal round markers",
+      "name": "All 15 design/palette combinations use exactly 12 ordered numbers, 60 ticks and 3 equal round markers",
+      "pass": true
+    },
+    {
+      "name": "AB markers sit outside numbers; original four retain their geometry",
       "pass": true
     },
     {
@@ -41,6 +45,11 @@
       "file": "concept-A.png",
       "bytes": 2865742,
       "sha256": "423e2845f3ee1bbcb6451f21e09db9425d1acbc5c4532f4d0f69e437ce7b2033"
+    },
+    {
+      "file": "concept-AB.png",
+      "bytes": 2550084,
+      "sha256": "6e882394ace89ea2dd8b7ab7459b019426dfc1a6a4ea4c793503a211463584dd"
     },
     {
       "file": "concept-B.png",

@@ -12,3 +12,12 @@
 - 本番GitHub Pagesは更新していない。これは別の本人限定Sites。
 
 通常Git pushはGitHub用認証情報がないため失敗。接続済みGitHub APIで同一blob・treeを保存する。GitHub commit metadataはローカル作成時と異なるため、最終HEADはPRに記載する。成果物treeの同一性を確認し、force updateは使用しない。
+
+## VERSION 2 — A＋B
+
+- Site source commit: `9f13d5221a3d0a53ecc5b91a4890545afbb380ef`
+- Version: `appgprj_6ae595ceca908191a275c9e994d8c17f~appgver_8bfb28a5603881918a15e0b1b23852fe`
+- Deployment: `appgdep_6ae5aabb7fb88191939087445f55839c`
+- Status: succeeded (2026-10-31T08:46:01Z)
+- URL・owner-onlyのアクセス設定を維持。追加ユーザー0、グループ0。
+- ローカルブラウザでAB初期選択、5案表示、重なり操作を確認。実機Safariでの追加案評価は未確認。

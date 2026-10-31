@@ -34,3 +34,9 @@ Use case: product-mockup. Reference image is the chosen Naotocchi round botanica
 - Dは縦長画像で出力された。画像を引き伸ばさず、比較シートで同じ長辺サイズの枠へcontain表示。生成画像で等しい半径を保証せず、機能図で同条件比較。
 - 細かな目盛りの等間隔、宝石の同径、針の寸法、印刷解像度は最終製品仕様ではない。幾何の正本は機能図と、その後に本人が選定する製造版下。
 - 原本・生成案のSHA256は `evidence/static-verification.json`。入力原本のGit blobはREPORT参照。
+
+## VERSION 2 — concept-AB.png
+
+2026-10-31。参照画像はこのPR内の `dist/assets/concept-A.png`（編集対象）と `dist/assets/concept-B.png`（マーカー配置参照）。image_genによる編集。元画像は上書きしない。
+指示内容：Aの豊かな銀の葉飾り、中央双葉、青地、金属枠、12数字、3本針、正面構図を維持。Bを参考にマーカーを数字の外側へ移動。10赤・11緑・12青、同径の丸、落ち着いた宝石色。内側の元マーカーを除去。クロノグラフ・小文字盤・追加ラベルは禁止。
+結果は意匠用ラスター。微細な形状・色・距離は製造公差を保証しない。正確な配置と指定色は操作図とVERSION2.mdに記載。

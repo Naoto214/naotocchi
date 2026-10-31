@@ -22,3 +22,7 @@
 - `node prototypes/life-clock-20261031/tools/verify.mjs` で原本同一性、実rendererの非公開分岐、図の幾何、保護範囲を検証。
 
 本人限定Sitesは専用ソースcheckoutへdistをコピーして配信する。本番GitHub Pagesとは別。Site情報と最終保存情報は `PUBLICATION.md` を参照。
+
+## VERSION 2
+
+新しい追加比較案「A＋B」を掲載。本人指定のAの装飾とBの外側マーカー配置を組み合わせたもの。初期表示はAB。既存A〜Dは維持。[設計検討と検証記録](VERSION2.md)。クロノグラフは今回は設計検討のみ。
