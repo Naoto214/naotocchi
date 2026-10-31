@@ -1,0 +1,152 @@
+{
+  "forest-full.jpg": {
+    "source": "forest-clean-final.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      844
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "forest-multiple.jpg": {
+    "source": "forest-portrait-final.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      844
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "forest-contact.jpg": {
+    "source": "forest-portrait-final.jpg",
+    "crop": [
+      500,
+      330,
+      860,
+      505
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "forest-after-move.jpg": {
+    "source": "forest-portrait-final.jpg",
+    "crop": [
+      487,
+      220,
+      877,
+      520
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "forest-environment.jpg": {
+    "source": "forest-portrait-final.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      350
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "water-full.jpg": {
+    "source": "water-game-final.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      844
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "water-multiple.jpg": {
+    "source": "water-portrait-final.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      844
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "water-contact.jpg": {
+    "source": "water-portrait-final.jpg",
+    "crop": [
+      500,
+      330,
+      860,
+      505
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "water-after-move.jpg": {
+    "source": "water-portrait-final.jpg",
+    "crop": [
+      487,
+      220,
+      877,
+      520
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "water-environment.jpg": {
+    "source": "water-portrait-final.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      350
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "city-full.jpg": {
+    "source": "city-game-final.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      844
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "city-multiple.jpg": {
+    "source": "city-portrait-after.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      844
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "city-contact.jpg": {
+    "source": "city-portrait-after.jpg",
+    "crop": [
+      500,
+      330,
+      860,
+      505
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "city-after-move.jpg": {
+    "source": "city-portrait-after.jpg",
+    "crop": [
+      487,
+      220,
+      877,
+      520
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  },
+  "city-environment.jpg": {
+    "source": "city-portrait-after.jpg",
+    "crop": [
+      487,
+      0,
+      877,
+      350
+    ],
+    "kind": "browser Canvas fallback, not iPhone"
+  }
+}

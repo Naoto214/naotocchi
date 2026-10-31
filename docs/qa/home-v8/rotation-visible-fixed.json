@@ -1,0 +1,1362 @@
+[
+  {
+    "phase": "initial",
+    "time": "day",
+    "region": "star_stop",
+    "actors": [
+      {
+        "key": "pet:dog",
+        "x": 167,
+        "y": 284,
+        "w": 95.4924,
+        "h": 111.4078,
+        "activity": "rest",
+        "ground": {
+          "x": 0.55,
+          "z": 0.74,
+          "y": 0
+        },
+        "safe": true,
+        "visible": true,
+        "scale": 0.9018181818181819
+      }
+    ],
+    "visualPoints": [
+      {
+        "x": 163.8,
+        "y": 168.8,
+        "activity": "observe",
+        "id": "art-star_stop-islands",
+        "tag": "islands",
+        "target": {
+          "x": 170.20000000000002,
+          "y": 149.60000000000002
+        }
+      },
+      {
+        "x": 151,
+        "y": 279.2,
+        "activity": "rest",
+        "id": "art-star_stop-plaza",
+        "tag": "plaza",
+        "target": {
+          "x": 157.4,
+          "y": 260
+        }
+      }
+    ],
+    "header": {
+      "rect": {
+        "x": 9,
+        "y": 10,
+        "width": 302,
+        "height": 40,
+        "top": 10,
+        "right": 311,
+        "bottom": 50,
+        "left": 9
+      },
+      "buttons": [
+        {
+          "x": 205.96875,
+          "y": 10,
+          "width": 44.015625,
+          "height": 40,
+          "top": 10,
+          "right": 249.984375,
+          "bottom": 50,
+          "left": 205.96875
+        },
+        {
+          "x": 252.984375,
+          "y": 10,
+          "width": 56.015625,
+          "height": 40,
+          "top": 10,
+          "right": 309,
+          "bottom": 50,
+          "left": 252.984375
+        }
+      ],
+      "grid": "40px 664px 111px 0px"
+    },
+    "metrics": {},
+    "slots": {
+      "homeInformation": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      },
+      "homeEventSlot": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      },
+      "castStage": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      },
+      "speechSlot": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      },
+      "careMeters": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      },
+      "lifeMeterRow": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      },
+      "careActions": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    "bounds": [
+      {
+        "key": "pet:dog",
+        "left": 59.7462,
+        "right": 242.2538,
+        "top": 141.4078,
+        "bottom": 368
+      }
+    ],
+    "transform": {
+      "width": 320,
+      "height": 480,
+      "left": 0,
+      "top": 98.80000000000001
+    }
+  },
+  {
+    "phase": "before",
+    "time": "day",
+    "region": "star_stop",
+    "actors": [
+      {
+        "key": "pet:dog",
+        "x": 199.5176200409627,
+        "y": 322.5066797695099,
+        "w": 95.4924,
+        "h": 111.4078,
+        "activity": "rest",
+        "ground": {
+          "x": 0.6516175626280084,
+          "z": 0.8202222495198123,
+          "y": 0
+        },
+        "safe": true,
+        "visible": true,
+        "scale": 0.9455757724653522
+      }
+    ],
+    "visualPoints": [
+      {
+        "x": 163.8,
+        "y": 168.8,
+        "activity": "observe",
+        "id": "art-star_stop-islands",
+        "tag": "islands",
+        "target": {
+          "x": 170.20000000000002,
+          "y": 149.60000000000002
+        }
+      },
+      {
+        "x": 151,
+        "y": 279.2,
+        "activity": "rest",
+        "id": "art-star_stop-plaza",
+        "tag": "plaza",
+        "target": {
+          "x": 157.4,
+          "y": 260
+        }
+      }
+    ],
+    "header": {
+      "rect": {
+        "x": 9,
+        "y": 10,
+        "width": 302,
+        "height": 40,
+        "top": 10,
+        "right": 311,
+        "bottom": 50,
+        "left": 9
+      },
+      "buttons": [
+        {
+          "x": 205.96875,
+          "y": 10,
+          "width": 44.015625,
+          "height": 40,
+          "top": 10,
+          "right": 249.984375,
+          "bottom": 50,
+          "left": 205.96875
+        },
+        {
+          "x": 252.984375,
+          "y": 10,
+          "width": 56.015625,
+          "height": 40,
+          "top": 10,
+          "right": 309,
+          "bottom": 50,
+          "left": 252.984375
+        }
+      ],
+      "grid": "40px 664px 111px 0px"
+    },
+    "metrics": {},
+    "slots": {
+      "homeInformation": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      },
+      "homeEventSlot": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      },
+      "castStage": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      },
+      "speechSlot": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      },
+      "careMeters": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      },
+      "lifeMeterRow": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      },
+      "careActions": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    "bounds": [
+      {
+        "key": "pet:dog",
+        "left": 59.7462,
+        "right": 242.2538,
+        "top": 141.4078,
+        "bottom": 368
+      }
+    ],
+    "transform": {
+      "width": 320,
+      "height": 480,
+      "left": 0,
+      "top": 98.80000000000001
+    }
+  },
+  {
+    "phase": "landscape",
+    "time": "day",
+    "region": "star_stop",
+    "actors": [
+      {
+        "key": "pet:dog",
+        "x": 343.46715801008077,
+        "y": 198.12902321660044,
+        "w": 112.19999999999999,
+        "h": 130.9,
+        "activity": "rest",
+        "ground": {
+          "x": 0.6516175626280084,
+          "z": 0.8202222495198123,
+          "y": 0
+        },
+        "safe": true,
+        "visible": true,
+        "scale": 0.9455757724653522
+      }
+    ],
+    "visualPoints": [
+      {
+        "x": 280.18,
+        "y": -74.21999999999991,
+        "activity": "observe",
+        "id": "art-star_stop-islands",
+        "tag": "islands",
+        "target": {
+          "x": 291.52000000000004,
+          "y": -108.2399999999999
+        }
+      },
+      {
+        "x": 257.5,
+        "y": 121.3950000000001,
+        "activity": "rest",
+        "id": "art-star_stop-plaza",
+        "tag": "plaza",
+        "target": {
+          "x": 268.84000000000003,
+          "y": 87.375
+        }
+      }
+    ],
+    "header": {
+      "rect": {
+        "x": 553,
+        "y": 6,
+        "width": 250,
+        "height": 40,
+        "top": 6,
+        "right": 803,
+        "bottom": 46,
+        "left": 553
+      },
+      "buttons": [
+        {
+          "x": 697.96875,
+          "y": 6,
+          "width": 44.015625,
+          "height": 40,
+          "top": 6,
+          "right": 741.984375,
+          "bottom": 46,
+          "left": 697.96875
+        },
+        {
+          "x": 744.984375,
+          "y": 6,
+          "width": 56.015625,
+          "height": 40,
+          "top": 6,
+          "right": 801,
+          "bottom": 46,
+          "left": 744.984375
+        }
+      ],
+      "grid": "40px 258px 109px 0px"
+    },
+    "metrics": {},
+    "slots": {
+      "homeInformation": {
+        "x": 26,
+        "y": 6,
+        "width": 515,
+        "height": 65,
+        "top": 6,
+        "right": 541,
+        "bottom": 71,
+        "left": 26
+      },
+      "homeEventSlot": {
+        "x": 26,
+        "y": 73,
+        "width": 515,
+        "height": 42,
+        "top": 73,
+        "right": 541,
+        "bottom": 115,
+        "left": 26
+      },
+      "castStage": {
+        "x": 26,
+        "y": 117,
+        "width": 515,
+        "height": 300,
+        "top": 117,
+        "right": 541,
+        "bottom": 417,
+        "left": 26
+      },
+      "speechSlot": {
+        "x": 26,
+        "y": 417,
+        "width": 515,
+        "height": 76,
+        "top": 417,
+        "right": 541,
+        "bottom": 493,
+        "left": 26
+      },
+      "careMeters": {
+        "x": 31,
+        "y": 348,
+        "width": 505,
+        "height": 38,
+        "top": 348,
+        "right": 536,
+        "bottom": 386,
+        "left": 31
+      },
+      "lifeMeterRow": {
+        "x": 31,
+        "y": 390,
+        "width": 505,
+        "height": 38,
+        "top": 390,
+        "right": 536,
+        "bottom": 428,
+        "left": 31
+      },
+      "careActions": {
+        "x": 553,
+        "y": 322,
+        "width": 250,
+        "height": 103,
+        "top": 322,
+        "right": 803,
+        "bottom": 425,
+        "left": 553
+      }
+    },
+    "bounds": [
+      {
+        "key": "pet:dog",
+        "left": 68.1,
+        "right": 446.9,
+        "top": 160.9,
+        "bottom": 288
+      }
+    ],
+    "transform": {
+      "width": 567,
+      "height": 850.5,
+      "left": 0,
+      "top": -382.4699999999999
+    }
+  },
+  {
+    "phase": "after",
+    "time": "day",
+    "region": "star_stop",
+    "actors": [
+      {
+        "key": "pet:dog",
+        "x": 343.46715801008077,
+        "y": 198.12902321660044,
+        "w": 112.19999999999999,
+        "h": 130.9,
+        "activity": "rest",
+        "ground": {
+          "x": 0.6516175626280084,
+          "z": 0.8202222495198123,
+          "y": 0
+        },
+        "safe": true,
+        "visible": true,
+        "scale": 0.9455757724653522
+      }
+    ],
+    "visualPoints": [
+      {
+        "x": 280.18,
+        "y": -74.21999999999991,
+        "activity": "observe",
+        "id": "art-star_stop-islands",
+        "tag": "islands",
+        "target": {
+          "x": 291.52000000000004,
+          "y": -108.2399999999999
+        }
+      },
+      {
+        "x": 257.5,
+        "y": 121.3950000000001,
+        "activity": "rest",
+        "id": "art-star_stop-plaza",
+        "tag": "plaza",
+        "target": {
+          "x": 268.84000000000003,
+          "y": 87.375
+        }
+      }
+    ],
+    "header": {
+      "rect": {
+        "x": 9,
+        "y": 10,
+        "width": 302,
+        "height": 40,
+        "top": 10,
+        "right": 311,
+        "bottom": 50,
+        "left": 9
+      },
+      "buttons": [
+        {
+          "x": 205.96875,
+          "y": 10,
+          "width": 44.015625,
+          "height": 40,
+          "top": 10,
+          "right": 249.984375,
+          "bottom": 50,
+          "left": 205.96875
+        },
+        {
+          "x": 252.984375,
+          "y": 10,
+          "width": 56.015625,
+          "height": 40,
+          "top": 10,
+          "right": 309,
+          "bottom": 50,
+          "left": 252.984375
+        }
+      ],
+      "grid": "40px 210px 111px 0px"
+    },
+    "metrics": {},
+    "slots": {
+      "homeInformation": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      },
+      "homeEventSlot": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      },
+      "castStage": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 300,
+        "top": 170,
+        "right": 311,
+        "bottom": 470,
+        "left": 9
+      },
+      "speechSlot": {
+        "x": 9,
+        "y": 470,
+        "width": 302,
+        "height": 76,
+        "top": 470,
+        "right": 311,
+        "bottom": 546,
+        "left": 9
+      },
+      "careMeters": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "lifeMeterRow": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "careActions": {
+        "x": 9,
+        "y": 272,
+        "width": 302,
+        "height": 105,
+        "top": 272,
+        "right": 311,
+        "bottom": 377,
+        "left": 9
+      }
+    },
+    "bounds": [
+      {
+        "key": "pet:dog",
+        "left": 68.1,
+        "right": 446.9,
+        "top": 160.9,
+        "bottom": 288
+      }
+    ],
+    "transform": {
+      "width": 567,
+      "height": 850.5,
+      "left": 0,
+      "top": -382.4699999999999
+    }
+  },
+  {
+    "phase": "initial",
+    "time": "night",
+    "region": "star_stop",
+    "actors": [
+      {
+        "key": "pet:dog",
+        "x": 167,
+        "y": 284,
+        "w": 95.4924,
+        "h": 111.4078,
+        "activity": "rest",
+        "ground": {
+          "x": 0.55,
+          "z": 0.74,
+          "y": 0
+        },
+        "safe": true,
+        "visible": true,
+        "scale": 0.9018181818181819
+      }
+    ],
+    "visualPoints": [
+      {
+        "x": 163.8,
+        "y": 168.8,
+        "activity": "observe",
+        "id": "art-star_stop-islands",
+        "tag": "islands",
+        "target": {
+          "x": 170.20000000000002,
+          "y": 149.60000000000002
+        }
+      },
+      {
+        "x": 151,
+        "y": 279.2,
+        "activity": "rest",
+        "id": "art-star_stop-plaza",
+        "tag": "plaza",
+        "target": {
+          "x": 157.4,
+          "y": 260
+        }
+      }
+    ],
+    "header": {
+      "rect": {
+        "x": 9,
+        "y": 10,
+        "width": 302,
+        "height": 40,
+        "top": 10,
+        "right": 311,
+        "bottom": 50,
+        "left": 9
+      },
+      "buttons": [
+        {
+          "x": 205.96875,
+          "y": 10,
+          "width": 44.015625,
+          "height": 40,
+          "top": 10,
+          "right": 249.984375,
+          "bottom": 50,
+          "left": 205.96875
+        },
+        {
+          "x": 252.984375,
+          "y": 10,
+          "width": 56.015625,
+          "height": 40,
+          "top": 10,
+          "right": 309,
+          "bottom": 50,
+          "left": 252.984375
+        }
+      ],
+      "grid": "40px 664px 111px 0px"
+    },
+    "metrics": {},
+    "slots": {
+      "homeInformation": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      },
+      "homeEventSlot": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      },
+      "castStage": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      },
+      "speechSlot": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      },
+      "careMeters": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      },
+      "lifeMeterRow": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      },
+      "careActions": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    "bounds": [
+      {
+        "key": "pet:dog",
+        "left": 59.7462,
+        "right": 242.2538,
+        "top": 141.4078,
+        "bottom": 368
+      }
+    ],
+    "transform": {
+      "width": 320,
+      "height": 480,
+      "left": 0,
+      "top": 98.80000000000001
+    }
+  },
+  {
+    "phase": "before",
+    "time": "night",
+    "region": "star_stop",
+    "actors": [
+      {
+        "key": "pet:dog",
+        "x": 207.64702505120346,
+        "y": 332.1333497118874,
+        "w": 95.4924,
+        "h": 111.4078,
+        "activity": "rest",
+        "ground": {
+          "x": 0.6770219532850108,
+          "z": 0.8402778118997654,
+          "y": 0
+        },
+        "safe": true,
+        "visible": true,
+        "scale": 0.9565151701271447
+      }
+    ],
+    "visualPoints": [
+      {
+        "x": 163.8,
+        "y": 168.8,
+        "activity": "observe",
+        "id": "art-star_stop-islands",
+        "tag": "islands",
+        "target": {
+          "x": 170.20000000000002,
+          "y": 149.60000000000002
+        }
+      },
+      {
+        "x": 151,
+        "y": 279.2,
+        "activity": "rest",
+        "id": "art-star_stop-plaza",
+        "tag": "plaza",
+        "target": {
+          "x": 157.4,
+          "y": 260
+        }
+      }
+    ],
+    "header": {
+      "rect": {
+        "x": 9,
+        "y": 10,
+        "width": 302,
+        "height": 40,
+        "top": 10,
+        "right": 311,
+        "bottom": 50,
+        "left": 9
+      },
+      "buttons": [
+        {
+          "x": 205.96875,
+          "y": 10,
+          "width": 44.015625,
+          "height": 40,
+          "top": 10,
+          "right": 249.984375,
+          "bottom": 50,
+          "left": 205.96875
+        },
+        {
+          "x": 252.984375,
+          "y": 10,
+          "width": 56.015625,
+          "height": 40,
+          "top": 10,
+          "right": 309,
+          "bottom": 50,
+          "left": 252.984375
+        }
+      ],
+      "grid": "40px 664px 111px 0px"
+    },
+    "metrics": {},
+    "slots": {
+      "homeInformation": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      },
+      "homeEventSlot": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      },
+      "castStage": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 380,
+        "top": 170,
+        "right": 311,
+        "bottom": 550,
+        "left": 9
+      },
+      "speechSlot": {
+        "x": 9,
+        "y": 550,
+        "width": 302,
+        "height": 76,
+        "top": 550,
+        "right": 311,
+        "bottom": 626,
+        "left": 9
+      },
+      "careMeters": {
+        "x": 14,
+        "y": 634,
+        "width": 292,
+        "height": 38,
+        "top": 634,
+        "right": 306,
+        "bottom": 672,
+        "left": 14
+      },
+      "lifeMeterRow": {
+        "x": 14,
+        "y": 676,
+        "width": 292,
+        "height": 38,
+        "top": 676,
+        "right": 306,
+        "bottom": 714,
+        "left": 14
+      },
+      "careActions": {
+        "x": 9,
+        "y": 726,
+        "width": 302,
+        "height": 105,
+        "top": 726,
+        "right": 311,
+        "bottom": 831,
+        "left": 9
+      }
+    },
+    "bounds": [
+      {
+        "key": "pet:dog",
+        "left": 59.7462,
+        "right": 242.2538,
+        "top": 141.4078,
+        "bottom": 368
+      }
+    ],
+    "transform": {
+      "width": 320,
+      "height": 480,
+      "left": 0,
+      "top": 98.80000000000001
+    }
+  },
+  {
+    "phase": "landscape",
+    "time": "night",
+    "region": "star_stop",
+    "actors": [
+      {
+        "key": "pet:dog",
+        "x": 357.87144751260115,
+        "y": 215.18627902075048,
+        "w": 112.19999999999999,
+        "h": 130.9,
+        "activity": "rest",
+        "ground": {
+          "x": 0.6770219532850108,
+          "z": 0.8402778118997652,
+          "y": 0
+        },
+        "safe": true,
+        "visible": true,
+        "scale": 0.9565151701271446
+      }
+    ],
+    "visualPoints": [
+      {
+        "x": 280.18,
+        "y": -74.21999999999991,
+        "activity": "observe",
+        "id": "art-star_stop-islands",
+        "tag": "islands",
+        "target": {
+          "x": 291.52000000000004,
+          "y": -108.2399999999999
+        }
+      },
+      {
+        "x": 257.5,
+        "y": 121.3950000000001,
+        "activity": "rest",
+        "id": "art-star_stop-plaza",
+        "tag": "plaza",
+        "target": {
+          "x": 268.84000000000003,
+          "y": 87.375
+        }
+      }
+    ],
+    "header": {
+      "rect": {
+        "x": 553,
+        "y": 6,
+        "width": 250,
+        "height": 40,
+        "top": 6,
+        "right": 803,
+        "bottom": 46,
+        "left": 553
+      },
+      "buttons": [
+        {
+          "x": 697.96875,
+          "y": 6,
+          "width": 44.015625,
+          "height": 40,
+          "top": 6,
+          "right": 741.984375,
+          "bottom": 46,
+          "left": 697.96875
+        },
+        {
+          "x": 744.984375,
+          "y": 6,
+          "width": 56.015625,
+          "height": 40,
+          "top": 6,
+          "right": 801,
+          "bottom": 46,
+          "left": 744.984375
+        }
+      ],
+      "grid": "40px 258px 109px 0px"
+    },
+    "metrics": {},
+    "slots": {
+      "homeInformation": {
+        "x": 26,
+        "y": 6,
+        "width": 515,
+        "height": 65,
+        "top": 6,
+        "right": 541,
+        "bottom": 71,
+        "left": 26
+      },
+      "homeEventSlot": {
+        "x": 26,
+        "y": 73,
+        "width": 515,
+        "height": 42,
+        "top": 73,
+        "right": 541,
+        "bottom": 115,
+        "left": 26
+      },
+      "castStage": {
+        "x": 26,
+        "y": 117,
+        "width": 515,
+        "height": 300,
+        "top": 117,
+        "right": 541,
+        "bottom": 417,
+        "left": 26
+      },
+      "speechSlot": {
+        "x": 26,
+        "y": 417,
+        "width": 515,
+        "height": 76,
+        "top": 417,
+        "right": 541,
+        "bottom": 493,
+        "left": 26
+      },
+      "careMeters": {
+        "x": 31,
+        "y": 348,
+        "width": 505,
+        "height": 38,
+        "top": 348,
+        "right": 536,
+        "bottom": 386,
+        "left": 31
+      },
+      "lifeMeterRow": {
+        "x": 31,
+        "y": 390,
+        "width": 505,
+        "height": 38,
+        "top": 390,
+        "right": 536,
+        "bottom": 428,
+        "left": 31
+      },
+      "careActions": {
+        "x": 553,
+        "y": 322,
+        "width": 250,
+        "height": 103,
+        "top": 322,
+        "right": 803,
+        "bottom": 425,
+        "left": 553
+      }
+    },
+    "bounds": [
+      {
+        "key": "pet:dog",
+        "left": 68.1,
+        "right": 446.9,
+        "top": 160.9,
+        "bottom": 288
+      }
+    ],
+    "transform": {
+      "width": 567,
+      "height": 850.5,
+      "left": 0,
+      "top": -382.4699999999999
+    }
+  },
+  {
+    "phase": "after",
+    "time": "night",
+    "region": "star_stop",
+    "actors": [
+      {
+        "key": "pet:dog",
+        "x": 357.87144751260115,
+        "y": 215.18627902075048,
+        "w": 112.19999999999999,
+        "h": 130.9,
+        "activity": "rest",
+        "ground": {
+          "x": 0.6770219532850108,
+          "z": 0.8402778118997652,
+          "y": 0
+        },
+        "safe": true,
+        "visible": true,
+        "scale": 0.9565151701271446
+      }
+    ],
+    "visualPoints": [
+      {
+        "x": 280.18,
+        "y": -74.21999999999991,
+        "activity": "observe",
+        "id": "art-star_stop-islands",
+        "tag": "islands",
+        "target": {
+          "x": 291.52000000000004,
+          "y": -108.2399999999999
+        }
+      },
+      {
+        "x": 257.5,
+        "y": 121.3950000000001,
+        "activity": "rest",
+        "id": "art-star_stop-plaza",
+        "tag": "plaza",
+        "target": {
+          "x": 268.84000000000003,
+          "y": 87.375
+        }
+      }
+    ],
+    "header": {
+      "rect": {
+        "x": 9,
+        "y": 10,
+        "width": 302,
+        "height": 40,
+        "top": 10,
+        "right": 311,
+        "bottom": 50,
+        "left": 9
+      },
+      "buttons": [
+        {
+          "x": 205.96875,
+          "y": 10,
+          "width": 44.015625,
+          "height": 40,
+          "top": 10,
+          "right": 249.984375,
+          "bottom": 50,
+          "left": 205.96875
+        },
+        {
+          "x": 252.984375,
+          "y": 10,
+          "width": 56.015625,
+          "height": 40,
+          "top": 10,
+          "right": 309,
+          "bottom": 50,
+          "left": 252.984375
+        }
+      ],
+      "grid": "40px 210px 111px 0px"
+    },
+    "metrics": {},
+    "slots": {
+      "homeInformation": {
+        "x": 9,
+        "y": 53,
+        "width": 302,
+        "height": 65,
+        "top": 53,
+        "right": 311,
+        "bottom": 118,
+        "left": 9
+      },
+      "homeEventSlot": {
+        "x": 9,
+        "y": 123,
+        "width": 302,
+        "height": 42,
+        "top": 123,
+        "right": 311,
+        "bottom": 165,
+        "left": 9
+      },
+      "castStage": {
+        "x": 9,
+        "y": 170,
+        "width": 302,
+        "height": 300,
+        "top": 170,
+        "right": 311,
+        "bottom": 470,
+        "left": 9
+      },
+      "speechSlot": {
+        "x": 9,
+        "y": 470,
+        "width": 302,
+        "height": 76,
+        "top": 470,
+        "right": 311,
+        "bottom": 546,
+        "left": 9
+      },
+      "careMeters": {
+        "x": 14,
+        "y": 404,
+        "width": 292,
+        "height": 38,
+        "top": 404,
+        "right": 306,
+        "bottom": 442,
+        "left": 14
+      },
+      "lifeMeterRow": {
+        "x": 14,
+        "y": 446,
+        "width": 292,
+        "height": 38,
+        "top": 446,
+        "right": 306,
+        "bottom": 484,
+        "left": 14
+      },
+      "careActions": {
+        "x": 9,
+        "y": 272,
+        "width": 302,
+        "height": 105,
+        "top": 272,
+        "right": 311,
+        "bottom": 377,
+        "left": 9
+      }
+    },
+    "bounds": [
+      {
+        "key": "pet:dog",
+        "left": 68.1,
+        "right": 446.9,
+        "top": 160.9,
+        "bottom": 288
+      }
+    ],
+    "transform": {
+      "width": 567,
+      "height": 850.5,
+      "left": 0,
+      "top": -382.4699999999999
+    }
+  }
+]

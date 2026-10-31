@@ -1,0 +1,59 @@
+{
+  "created": "2026-10-28",
+  "generator": "OpenAI image_gen",
+  "method": "Six independent text-to-image generations; no v22 scenery, camera, screenshot or reference image supplied.",
+  "postprocessing": "PNG to WebP optimization only. Official character PNGs are overlaid by HTML, never generated or modified.",
+  "briefs": {
+    "forest-a": "Ancient moss sanctuary, monumental cedar roots, connected natural floor, layered daylight, cinematic landscape painting.",
+    "forest-b": "Airy canopy garden, soft gouache, different elevated architecture and composition.",
+    "water-a": "Clear turquoise limestone lake, luminous pale shore, water reflections, connected foreground terraces.",
+    "water-b": "Waterfall garden, indigo and vermilion twilight, contrasting depth and architecture.",
+    "city-a": "Sunset rooftop garden, warm architectural painting, broad connected garden pavement and distant skyline.",
+    "city-b": "Intimate rain-washed pedestrian quarter, jewel-tone painted buildings, reflected lights."
+  },
+  "briefNote": "These are descriptive generation briefs, not a claim to preserve exact tool prompt transcripts.",
+  "files": [
+    {
+      "file": "city-a.webp",
+      "bytes": 387966,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "d9dfda684f133c62ee46c5446c38adddb8799ed4791629889dff8ce77840a753"
+    },
+    {
+      "file": "city-b.webp",
+      "bytes": 525440,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "9b80279b24bbfd7f3a3caeb904db39487a476f1f79a4dbd6fd7c9f61c3d1f92c"
+    },
+    {
+      "file": "forest-a.webp",
+      "bytes": 543460,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "25e86dafcfab7066daa3dd5d41c25599b74c0145dd9e1bef8030ac2cd480ad4c"
+    },
+    {
+      "file": "forest-b.webp",
+      "bytes": 466634,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "760a4b2a09d4a18a0de736d33e76c70227c5b124b3d24fb1b59c797e859c1f7a"
+    },
+    {
+      "file": "water-a.webp",
+      "bytes": 491462,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "744b363a8307f26cb1ac0842843961dd0ada16b48d6b565bb7944e4292ab5a56"
+    },
+    {
+      "file": "water-b.webp",
+      "bytes": 478592,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "a23fb3fe0865b03ffb14ff495398af904ac6e4c7e82d559465fb1257fc5bc868"
+    }
+  ]
+}

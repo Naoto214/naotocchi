@@ -1,0 +1,26 @@
+[
+  {
+    "name": "rescue-merged",
+    "start": "2026-10-24T03:44:56.365700+00:00",
+    "end": "2026-10-24T03:45:07.145141+00:00",
+    "command": "node --test --test-concurrency=2 prototypes/naopoyo-rescue/tests/*.test.mjs",
+    "exit": 1,
+    "log": "docs/qa/home-v12/logs/final-rescue-merged.log"
+  },
+  {
+    "name": "card-merged",
+    "start": "2026-10-24T03:45:07.145471+00:00",
+    "end": "2026-10-24T03:45:17.782630+00:00",
+    "command": "node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs",
+    "exit": 1,
+    "log": "docs/qa/home-v12/logs/final-card-merged.log"
+  },
+  {
+    "name": "publication-merged",
+    "start": "2026-10-24T03:45:17.782915+00:00",
+    "end": "2026-10-24T03:45:17.867351+00:00",
+    "command": "python3 -m unittest discover -s tests/pages -v",
+    "exit": 0,
+    "log": "docs/qa/home-v12/logs/final-publication-merged.log"
+  }
+]

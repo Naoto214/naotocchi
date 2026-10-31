@@ -1,0 +1,46 @@
+✔ landmarks use the real Meguru profile and stage bounds (225.904543ms)
+✔ interrupt before a terrain scene exists leaves the legacy poop row untouched (5.602003ms)
+✔ leaving terrain preserves legacy poop visibility through interruption and permits reentry (6.117575ms)
+✔ tap selects, release after drag sets destination without teleport (3.168178ms)
+✔ cancel and lost capture never dispatch a movement (2.01106ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.960969ms)
+✔ Pilot exit restores original actor styles and input ownership (0.787043ms)
+✔ departed actor cannot receive stale drag release (0.895022ms)
+✔ leaving a paused Pilot removes all animation pause state (0.691672ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (13.835233ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (1.364465ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (2.32907ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.711661ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.838508ms)
+✔ overview changes presentation mode and preserves all actors (0.793943ms)
+✔ resizing an actor around its unchanged foot repositions the terrain mask (7.603509ms)
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/13927de53592/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/13927de53592/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (540.61622ms)
+✔ household displays an acquired resident before its special visit (156.61758ms)
+✔ care button still runs official feeding and stops movement (5247.751327ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (2412.520485ms)
+✔ routine live render preserves a user walking destination (33.314588ms)
+✔ another resident expression change preserves a stationary moved speaker anchor (3195.462855ms)
+✔ crowded minimum height stays applied when the measured height equals its floor (1911.1419ms)
+✔ replacing equal-count poop nodes reattaches safe ground positions even while paused (2549.126644ms)
+✔ central household and lower seats at 288 (375.376761ms)
+✔ central household and lower seats at 343 (222.595352ms)
+✔ central household and lower seats at 358 (198.987528ms)
+✔ central household and lower seats at 398 (231.35597ms)
+✔ shared role bounds permit ground/drag moves into lower strip and no UI overflow (14.367077ms)
+✔ facing belongs to image children, not the expression SVG wrapper (16.075741ms)
+✔ speaker overlays remain within the stage including choices at each edge (0.973557ms)
+✔ poop seats on unoccupied safe terrain near the protagonist, without save coordinates (17.127163ms)
+✔ short stages return the actual choices cap and keep result narration sized (0.478527ms)
+✔ initial terrain centering respects safe ground band without recentering manual actors (1.167084ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18107.142345

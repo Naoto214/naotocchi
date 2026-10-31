@@ -105,7 +105,7 @@ test('v2-5. レンダラーの 切りかえで ghost が のこらない: scene 
   assert.match(SRC, /show\(on\) \{ if \(!on && !lost\) \{ try \{ renderer\.clear\(true, true, true\); \}/, '隠す まえに 全面を けす');
   assert.match(SRC, /b\.ghostStat = ghostPoolStep\(b\.ghostPool, wanted, frame, \{/, 'レンダラーは ghostPoolStep を つかう');
   assert.match(SRC, /ghosts: built \? Object\.assign\(\{ hiddenObjects: built\.hidden\.size/, 'stats3d().ghosts');
-  assert.match(SRC, /player: Object\.assign\(\{ missFrames: playerMiss \}, playerVis\)/, 'stats3d().player');
+  assert.match(SRC, /player: o\.home \? \{ mode:\x27dom\x27, pixelVisibility:\x27DOM_QA_REQUIRED\x27, applicable:false \} : Object\.assign\(\{ missFrames: playerMiss \}, playerVis\)/, 'stats3d().player');
   assert.match(SRC, /lines\.push\('ghost ' \+ st\.ghosts\.visible/, 'perf 表示に ghost と player');
   // 旧 code(ghosts 配列を visible だけ 入れかえて scene に 置きっぱなし)が のこって いない
   assert.ok(!/for \(const g of b\.ghosts\) g\.visible = false/.test(SRC), '旧 ghost 配列 なし');

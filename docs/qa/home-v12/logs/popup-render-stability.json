@@ -1,0 +1,58 @@
+{
+  "stableBefore": [
+    {
+      "id": "castStage",
+      "rect": {
+        "bottom": 569.734375,
+        "height": 334.859375,
+        "left": 16,
+        "right": 374,
+        "top": 234.875,
+        "width": 358,
+        "x": 16,
+        "y": 234.875
+      }
+    },
+    {
+      "id": "careActions",
+      "rect": {
+        "bottom": 831,
+        "height": 111,
+        "left": 16,
+        "right": 374,
+        "top": 720,
+        "width": 358,
+        "x": 16,
+        "y": 720
+      }
+    }
+  ],
+  "stableAfter": [
+    {
+      "id": "castStage",
+      "rect": {
+        "bottom": 569.734375,
+        "height": 334.859375,
+        "left": 16,
+        "right": 374,
+        "top": 234.875,
+        "width": 358,
+        "x": 16,
+        "y": 234.875
+      }
+    },
+    {
+      "id": "careActions",
+      "rect": {
+        "bottom": 831,
+        "height": 111,
+        "left": 16,
+        "right": 374,
+        "top": 720,
+        "width": 358,
+        "x": 16,
+        "y": 720
+      }
+    }
+  ]
+}

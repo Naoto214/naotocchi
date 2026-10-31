@@ -1,0 +1,102 @@
+{
+  "kind": "Node simulation only; no browser, GPU or real-device claim",
+  "gc": true,
+  "results": [
+    {
+      "region": "forest",
+      "simulatedSeconds": 7200,
+      "heapBefore": 7098832,
+      "heapAfter": 7201016,
+      "heapDelta": 102184,
+      "peakPopulation": 8,
+      "life": {
+        "clock": 7300.000000009026,
+        "spawned": 423,
+        "distance": 1143330.6904256176,
+        "active": 0,
+        "capacity": 8
+      },
+      "cast": {
+        "distance": 159232.59944453012,
+        "moves": 2889,
+        "turns": 503,
+        "activities": {
+          "walk": 2889,
+          "sit": 264,
+          "together": 698,
+          "look": 370,
+          "solitude": 307,
+          "rest": 251,
+          "observe": 363,
+          "turn": 270,
+          "approach": 291
+        },
+        "clock": 7300.000000009026
+      }
+    },
+    {
+      "region": "river_lake",
+      "simulatedSeconds": 7200,
+      "heapBefore": 7141552,
+      "heapAfter": 7222256,
+      "heapDelta": 80704,
+      "peakPopulation": 8,
+      "life": {
+        "clock": 7300.000000009026,
+        "spawned": 1096,
+        "distance": 2958271.797045886,
+        "active": 4,
+        "capacity": 8
+      },
+      "cast": {
+        "distance": 154792.35418476007,
+        "moves": 2983,
+        "turns": 487,
+        "activities": {
+          "walk": 2983,
+          "turn": 222,
+          "sit": 275,
+          "together": 720,
+          "solitude": 320,
+          "observe": 347,
+          "look": 376,
+          "rest": 252,
+          "approach": 314
+        },
+        "clock": 7300.000000009026
+      }
+    },
+    {
+      "region": "city",
+      "simulatedSeconds": 7200,
+      "heapBefore": 7217720,
+      "heapAfter": 7246080,
+      "heapDelta": 28360,
+      "peakPopulation": 8,
+      "life": {
+        "clock": 7300.000000009026,
+        "spawned": 738,
+        "distance": 1994316.477954114,
+        "active": 3,
+        "capacity": 8
+      },
+      "cast": {
+        "distance": 156898.43206556264,
+        "moves": 2945,
+        "turns": 491,
+        "activities": {
+          "walk": 2945,
+          "observe": 352,
+          "solitude": 325,
+          "together": 690,
+          "turn": 254,
+          "rest": 236,
+          "approach": 307,
+          "look": 376,
+          "sit": 251
+        },
+        "clock": 7300.000000009026
+      }
+    }
+  ]
+}

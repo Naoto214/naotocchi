@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/9a3496550164/naotocchi/docs/card-game/tools/check-design-data.py", line 780, in <module>
+    ids = re.findall(rf"^### {prefix}-([\w-]+)", doc(number), re.M)
+                                                 ^^^^^^^^^^^
+  File "/workspace/scratch/9a3496550164/naotocchi/docs/card-game/tools/check-design-data.py", line 33, in doc
+    raise ValueError(f"Expected one document for {number}: {matches}")
+ValueError: Expected one document for 35: []
+Traceback (most recent call last):
+  File "/workspace/scratch/9a3496550164/naotocchi/prototypes/card-game/build_full_catalog.py", line 96, in <module>
+    content = build()
+              ^^^^^^^
+  File "/workspace/scratch/9a3496550164/naotocchi/prototypes/card-game/build_full_catalog.py", line 35, in build
+    audit = json.loads(subprocess.check_output(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/scratch/9a3496550164/naotocchi/docs/card-game/tools/check-design-data.py', '--catalog']' returned non-zero exit status 1.

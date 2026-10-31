@@ -1,0 +1,35 @@
+{
+  "mode": "probe",
+  "total": 4,
+  "matched": 4,
+  "rows": [
+    {
+      "path": "home-v9.html",
+      "status": 200,
+      "bytes": 5868,
+      "sha256": "1612a008fb29177d7ce88bc56aaa04f02bacd466ede0b30da15e9caa0679e2a8",
+      "match": true
+    },
+    {
+      "path": "home-v9-play.html",
+      "status": 200,
+      "bytes": 69602,
+      "sha256": "474a2fca207e5bcc63e84187f95dfacc210b178dacda16dd48cf66fdb4c45e0d",
+      "match": true
+    },
+    {
+      "path": "release-v9.json",
+      "status": 200,
+      "bytes": 3461,
+      "sha256": "bd293ab871f8b294c103808ae9d0aa4c197201646df032111e65f4438af5daec",
+      "match": true
+    },
+    {
+      "path": "assets/home-v9-20261030/runtime/water-g.webp",
+      "status": 200,
+      "bytes": 775666,
+      "sha256": "20448fe456082d314dd0d2dea8f53b950376a97213668225eb39a0f990d7a017",
+      "match": true
+    }
+  ]
+}

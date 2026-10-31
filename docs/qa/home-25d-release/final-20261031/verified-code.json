@@ -1,0 +1,13 @@
+{
+  "tests/home-production-browser.cjs": "6bc7f584f89e00d37252c1e7ec9f0e523f145bab",
+  "tests/home-production-scroll-browser.cjs": "af8a1b07673894489e16bdb0dca931b0acdf759d",
+  "tests/helpers/home-production-native-touch.cjs": "4d4a06793fab57b9565dfba3b9d9195c4662c0a1",
+  "tests/helpers/home-production-pointer-target.cjs": "f961024c3f151b21d86eff68ac62dfdf344af5d8",
+  "tests/helpers/runtime-harness.cjs": "78d34b971f40b7418c949566eb0f63cee6041d66",
+  "tests/meguru-resident-expression-test.cjs": "405784339ab2c36222faccc6cef73ef2f44d66c5",
+  "tests/home-household-conversation-test.cjs": "d1bda9cf1c2b519f119fe7950f4e1f60ccc1859f",
+  "home-production-egg.mjs": "554e087e046785037d512ce606a7569c64ef4478",
+  "home-production-transform.mjs": "77d6760d07d3bf29c563c3bed8c8daa3f706b4a5",
+  "index.html": "01d49798cd6c33f12675c92380e9b325efa77af7",
+  "tools/pages/allowlist.json": "cbffab2e362ebfab5bf733d7f26939bd6026ee91"
+}

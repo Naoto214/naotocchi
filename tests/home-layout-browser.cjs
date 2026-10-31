@@ -6,7 +6,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const { chromium, webkit } = require('playwright');
 const { guardedRoute } = require('./helpers/browser-route.cjs');
-const { presentHomeCast } = require('./helpers/home-cast-fixture.cjs');
+const { presentLegacyHomeCast } = require('./helpers/home-cast-fixture.cjs');
 
 const output = path.resolve('test-results/home-layout');
 fs.mkdirSync(output, { recursive: true });
@@ -106,7 +106,7 @@ function checkLayout(m, label) {
           const context = await browser.newContext({ viewport:{width,height}, deviceScaleFactor:1,
             ...(name === 'phone-touch' ? {isMobile:true,hasTouch:true} : {}) });
           const routeErrors = [];
-          await presentHomeCast(context,label,routeErrors);
+          await presentLegacyHomeCast(context,label,routeErrors);
           if (insets) {
             // Desktop CI has no physical notch. Substitute only CSS env inputs;
             // the shipped padding rules still calculate and lay out the page.

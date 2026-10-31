@@ -1,0 +1,162 @@
+file,line,nearest_function,entry,source
+script.js,2439,checkAchievements,showStoryEvent,"if (!gameActive) showStoryEvent({ emoji: ach.emoji, achievement: ach, message: `じっせきたっせい!「${ach.label}」` });"
+script.js,2856,noteStorageWarning,setCriticalMessage,try { setCriticalMessage('⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。'); } catch (e) { /* ignore */ }
+script.js,2911,yieldToOtherTab,setCriticalMessage,try { setCriticalMessage(OTHER_TAB_MESSAGE); } catch (e) { /* before boot finished */ }
+script.js,3575,showCareFeedback,showCareFeedback,function showCareFeedback(feedback) {
+script.js,3584,recordCareChange,recordCareChange,function recordCareChange(before) {
+script.js,3586,recordCareChange,showCareFeedback,"showCareFeedback(CARE_STATUS.changes(before, CARE_STATUS.snapshot(state)));"
+script.js,3974,renderCareNotice,showCareFeedback,const pending = careMilestone; careMilestone = null; showCareFeedback(pending);
+script.js,4006,setCriticalMessage,setCriticalMessage,function setCriticalMessage(msg) {
+script.js,4009,setCriticalMessage,showMessage,"showMessage(msg, CRITICAL_MESSAGE_MS);"
+script.js,4014,setCriticalMessage,showMessage,"if (next) showMessage(next, MESSAGE_DURATION_MS);"
+script.js,4017,setMessage,setMessage,function setMessage(msg) {
+script.js,4019,setMessage,showMessage,"showMessage(msg, MESSAGE_DURATION_MS);"
+script.js,4021,showMessage,showMessage,"function showMessage(msg, duration) {"
+script.js,4044,showMessage,setMessage,// setMessage() は成長・病気・結果などのシステム通知専用として残し、
+script.js,4234,setSpeechBubble,setSpeechBubble,"function setSpeechBubble(text, speaker, reaction = {}) {"
+script.js,4267,sayPet,sayPet,function sayPet(text) {
+script.js,4269,sayPet,setSpeechBubble,"setSpeechBubble(text, petSpeaker());"
+script.js,6529,playConversationBeats,setSpeechBubble,"conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));"
+script.js,6689,conv2Play,setSpeechBubble,"setSpeechBubble(b.text, speaker, {listener:b.role === 'pet' ? visitor : petSpeaker(), holdMs:hold});"
+script.js,6751,conv2MaybeAsk,conv2Ask,"return conv2Ask(q, q.with ? visitorKey : null);"
+script.js,6753,conv2Ask,conv2Ask,"function conv2Ask(q, visitorKey = null) {"
+script.js,6766,conv2AskBeat,setSpeechBubble,"setSpeechBubble(q.ask, petSpeaker(), {holdMs:CONV2.answerWaitMs});"
+script.js,7657,showPendingClownfishTransition,showStoryEvent,"showStoryEvent({emoji:'🐠', petReaction:true, message:notice});"
+script.js,7658,showPendingClownfishTransition,setMessage,setMessage(notice);
+script.js,8730,decayRelationship,setMessage,setMessage(wasMarried ? `${label}と何度もはなして、べつべつにくらすことになった` : `${label}とは、ここでこいびとをやめることになった`);
+script.js,8759,decayCompanionBonds,setMessage,setMessage(`${names}のすがたをさいきん見なくなった。しばらくべつのところで過ごすみたい`);
+script.js,9397,showAuthorGreeting,showStoryEvent,"showStoryEvent({ author:true, message:lines[kind] || lines.hello });"
+script.js,9828,openDateChooser,setMessage,setMessage(blocked);
+script.js,9992,goOnDate,setMessage,setMessage(blocked);
+script.js,10021,goOnDate,setMessage,setMessage(`💞 ${partner.label}と、${plan.label}。話の続きはまた今度`);
+script.js,10126,triggerLegendEncounter,setMessage,setMessage('');
+script.js,10458,hatchEgg,setMessage,setMessage('たまごがぱかり。ちいさななおとっちと、目があった。');
+script.js,10488,onStageChanged,setMessage,setMessage(stage.message || `${stage.label}になった!`);
+script.js,10491,onStageChanged,showStoryEvent,"showStoryEvent({ emoji: stage.emoji, petReaction:true, message: `${age}さいになった！\n${stage.label}` });"
+script.js,10503,onStageChanged,setMessage,setMessage(notice);
+script.js,10528,maybeMidlifeEvent,showStoryEvent,"showStoryEvent({ emoji: ev.emoji, petReaction: true, message: text });"
+script.js,10538,onBirthday,setBirthdayToast,setBirthdayToast(`🎂 ${age}さいになった`);
+script.js,10541,onBirthday,setMessage,setMessage('🌅 90さい。いつもの場所で、しばらくゆっくりしていた');
+script.js,10616,loseSodachi,setMessage,setMessage(`そだちが${state.sodachi}にさがってしまった…`);
+script.js,10632,onSodachiMilestone,showStoryEvent,"showStoryEvent({ emoji: perk.emoji, message: `そだち${value}！ ${perk.name}\n${perk.desc}` });"
+script.js,10636,onSodachiMilestone,setMessage,setMessage('そだち100。ふしぎなたまごをもらった');
+script.js,10638,onSodachiMilestone,setMessage,setMessage(`${perk.emoji}そだち${value}! ${perk.name}`);
+script.js,10699,triggerDeath,setMessage,setMessage('いのちのおまもりが、なおとっちを助けた');
+script.js,10715,triggerDeath,setMessage,setMessage('てんごくへいってしまった。いつもの場所が、少し静かになった。');
+script.js,10734,enterFarewell,setMessage,setMessage('🎊100さい。なおとっちは、部屋のすみずみに小さくうなずいた');
+script.js,10763,enterInfinite,setMessage,setMessage('♾️年齢から自由になった!ずかんから好きな姿を選べるよ');
+script.js,10791,exitInfinite,setMessage,setMessage('あたらしいたまごがやってきた…');
+script.js,10806,exitInfinite,setMessage,setMessage('♾️のせかいから、この子のいっしょうにもどってきた');
+script.js,10881,showHomeChoiceResult,showHomeChoiceResult,function showHomeChoiceResult(text) {
+script.js,10932,chooseIndividualityEvent,setMessage,closeIndividualityDialog(false);saveState();setMessage('その気持ちを、思い出にしまった。');render();
+script.js,10933,chooseIndividualityEvent,showHomeChoiceResult,if(homeResult)showHomeChoiceResult('その気持ちを、思い出にしまった。');return true;
+script.js,10954,chooseIndividualExchange,setMessage,"individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();setMessage(e.reaction);render();"
+script.js,10955,chooseIndividualExchange,showHomeChoiceResult,if(homeResult)showHomeChoiceResult(e.reaction);return true;
+script.js,11166,checkMeters,setMessage,setMessage('もうだめかと思ったところで、なおとっちがゆっくり目をあけた');
+script.js,11193,updateDyingWarning,setMessage,setMessage('なおとっちの様子がおかしい…早くおせわをしてあげて!');
+script.js,11201,updateDyingWarning,setMessage,setMessage('なおとっちの呼吸がおちついて、いつもの顔にもどってきた');
+script.js,11239,drainHomeNotices,showMinigameResultToast,if(next.kind==='result')showMinigameResultToast(next.payload);else if(next.kind==='birthday')setBirthdayToast(next.payload);else showStoryEvent(next.payload);
+script.js,11255,setBirthdayToast,setBirthdayToast,function setBirthdayToast(text) {
+script.js,11286,reserveNextEgg,setMessage,setMessage('次の人生のたまごを予約しました。中身は生まれるまでのお楽しみ。');
+script.js,11302,cancelNextEgg,setMessage,setMessage('予約を取り消しました。たまごはふくろに残っています。');
+script.js,11329,offerTransformIfReady,setMessage,setMessage('へんしんメーターがいっぱいになった!からだがふわっと光って、すがたをかえられそう');
+script.js,11357,checkStoryEvents,showStoryEvent,"showStoryEvent({...event,petReaction:true});"
+script.js,11360,checkStoryEvents,showStoryEvent,"showStoryEvent({...event,petReaction:true});"
+script.js,11367,showStoryEvent,showStoryEvent,function showStoryEvent(event) {
+script.js,11508,tick,setMessage,setMessage(`${sickness.label}になってしまった…くすりをあげよう`);
+script.js,11555,tick,setMessage,setMessage('きせきのふんばり!もうすこしがんばる…!');
+script.js,11785,scheduleIdleGreeting,setSpeechBubble,"if(homePresentPartner() && homeInitiative('affection_interaction','partner:'+state.partner.id))setSpeechBubble(pickCharacterConversationLine(PARTNER_CHARACTER_IDLE_LINES[canonicalPartnerId(state.partner.id)], PARTNER_IDLE_LINES), partnerSpeaker());"
+script.js,11788,scheduleIdleGreeting,setSpeechBubble,"if(speaker && homeInitiative('greeting','companion:'+speaker.id))setSpeechBubble(pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[speaker.id], COMPANION_IDLE_LINES), speaker);"
+script.js,11795,scheduleIdleGreeting,setSpeechBubble,"setSpeechBubble(greeting, petSpeaker());"
+script.js,11820,speakIdleWithDirector,setSpeechBubble,"if (line && homeInitiative('affection_interaction', 'partner:' + partner.id)) { setSpeechBubble(line, partnerSpeaker()); return true; }"
+script.js,11825,speakIdleWithDirector,setSpeechBubble,"if (line && homeInitiative('greeting', 'companion:' + speaker.id)) { setSpeechBubble(line, speaker); return true; }"
+script.js,11845,speakPetIdleWithDirector,setSpeechBubble,"setSpeechBubble(line, petSpeaker());"
+script.js,11946,openCompanionInvite,setMessage,setMessage(isRare
+script.js,12421,celebrateSeasonChange,showStoryEvent,"showStoryEvent({ emoji: announce.emoji, message: announce.text });"
+script.js,13713,buyOrEquipShopItem,setMessage,setMessage('おかねがたりない…');
+script.js,13720,buyOrEquipShopItem,setMessage,setMessage(`${item.label}を買って身につけた!`);
+script.js,13724,buyOrEquipShopItem,setMessage,setMessage(`${item.label}をはずした`);
+script.js,13727,buyOrEquipShopItem,setMessage,setMessage(`${item.label}を身につけた!`);
+script.js,13802,scheduleItemContextMessage,setMessage,setMessage(text);
+script.js,13905,buyConsumableItem,setMessage,setMessage(`${item.label}をふくろに入れた`);
+script.js,13937,useConsumableItem,setMessage,setMessage(item.unavailableMessage || '今は使えない'); render(); return false;
+script.js,13957,useConsumableItem,setMessage,if (result?.message) setMessage(result.message);
+script.js,14011,resolvePickerSelection,setMessage,setMessage(result.message); saveState(); render(); return;
+script.js,14034,resolvePickerSelection,setMessage,setMessage(result.message); saveState(); render(); return;
+script.js,14056,resolvePickerSelection,setMessage,setMessage(`${candidate.emoji} ${candidate.label}が会いにきた`);
+script.js,14060,resolvePickerSelection,setMessage,setMessage('おかねがたりない…');
+script.js,14071,resolvePickerSelection,setMessage,if (result.message) setMessage(result.message);
+script.js,14788,scheduleEnvironmentMoment,showStoryEvent,"showStoryEvent({ emoji: m.emoji, message: caption, environmentMoment: true });"
+script.js,15242,chooseTransform,showStoryEvent,"showStoryEvent({ emoji: '🕯️', message: 'なんで人間がいるの?と思ったが、なぜかだれも気にしていない' });"
+script.js,15247,chooseTransform,setMessage,setMessage(lifeStageAside ? `${transformMessage} ${lifeStageAside}` : transformMessage);
+script.js,15258,skipTransform,setMessage,setMessage('鏡を見て、やっぱり今の姿でいくことにした');
+script.js,15646,startMeguru,setMessage,if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }
+script.js,16386,openStickerPack,setMessage,if (state.lifetime.money < STICKER_PACK_PRICE) { setMessage('おかねがたりない…'); return null; }
+script.js,16387,openStickerPack,setMessage,if (!stickerDrawablePool().length) { setMessage(`シールは ぜんぶ${STICKER_COPY_MAX}まいまで あつまっているよ`); return null; }
+script.js,16392,openStickerPack,setMessage,setMessage(fresh
+script.js,16402,openThemedStickerPack,setMessage,setMessage(`${STICKER_KINDS[kind]}のシールは ぜんぶ${STICKER_COPY_MAX}まいまで あつまっているよ`);
+script.js,16458,addStickerPage,setMessage,setMessage(`シールちょうは${STICKER_BOOK_MAX_PAGES}ページまで`);
+script.js,16476,placeSticker,setMessage,if (!ownedStickerCount(id)) { setMessage('そのシールは まだ もっていない'); return null; }
+script.js,16478,placeSticker,setMessage,if (page.length >= STICKER_PAGE_MAX) { setMessage(`このページは いっぱい(${STICKER_PAGE_MAX}まいまで)`); return null; }
+script.js,16479,placeSticker,setMessage,if (placedStickerCount(id) >= ownedStickerCount(id)) { setMessage('そのシールは もう はってある(かぶりが あれば もう1まい はれる)'); return null; }
+script.js,16546,checkStickerTasks,showStoryEvent,"if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」` });"
+script.js,16551,checkStickerTasks,showStoryEvent,"if (silver && !gameActive) showStoryEvent({ emoji: '🥈', message: 'おだい 5こたっせい！「ぎんのシールちょう」を もらった！' });"
+script.js,16556,checkStickerTasks,showStoryEvent,"if (gold && !gameActive) showStoryEvent({ emoji: '🥇', message: 'おだい ぜんぶたっせい！「きんのシールちょう」を もらった！' });"
+script.js,16777,showMinigameResultToast,showMinigameResultToast,function showMinigameResultToast(result) {
+script.js,17144,handleMinigameCrash,setMessage,setMessage(`⚠️${name}がうまく動かなかったので、途中で終わりにした。今回の得点は記録されないよ`);
+script.js,17254,retireMinigameInner,setMessage,setMessage(message);
+script.js,17359,finishMinigameInner,setMessage,setMessage((customMessage || resultMessageForScore(score)) + (coins ? '／100コインをもらった!' : ''));
+script.js,17361,finishMinigameInner,showMinigameResultToast,"const quickCardMs = showMinigameResultToast(quickSoloToastRecord(game, record)) || 0;"
+script.js,17452,finishMinigameInner,setMessage,setMessage(resultMessage);
+script.js,17455,finishMinigameInner,showMinigameResultToast,const resultDuration = showMinigameResultToast(record) || 0;
+script.js,17483,finishMinigameInner,recordCareChange,recordCareChange(careBefore);
+script.js,17983,withFeedback,recordCareChange,recordCareChange(careBefore);
+script.js,17992,withFeedback,setMessage,setMessage(randomBlockedMessage('sleepingFeed'));
+script.js,18011,withFeedback,setMessage,setMessage(`🍚たべすぎて${sickness.label}になった`);
+script.js,18014,withFeedback,setMessage,setMessage('🍚たべすぎた');
+script.js,18025,withFeedback,setMessage,setMessage(randomActionMessage('feed'));
+script.js,18104,applyGamePassSuccess,setMessage,setMessage('ゲームパスで通常成功!／30コインをもらった');
+script.js,18109,applyGamePassSuccess,recordCareChange,recordCareChange(careBefore);
+script.js,18127,tryStartPlay,setMessage,setMessage(randomBlockedMessage('sleepingPlay'));
+script.js,18136,tryStartPlay,setMessage,setMessage(randomBlockedMessage('lowEnergyPlay'));
+script.js,18168,tryStartPlay,setMessage,setMessage(randomBlockedMessage('cleanAlready'));
+script.js,18179,tryStartPlay,setMessage,setMessage(randomActionMessage('clean'));
+script.js,18196,tryStartPlay,setMessage,setMessage(randomActionMessage('sleep'));
+script.js,18206,tryStartPlay,setMessage,setMessage(randomActionMessage('wake'));
+script.js,18225,tryStartPlay,setMessage,setMessage(randomActionMessage('cure'));
+script.js,18235,tryStartPlay,setMessage,setMessage('💊びょうきではないのに、くすりを飲ませた');
+script.js,18259,warmEgg,setMessage,setMessage(`たまごをあたためた…${response} ${pct}%`);
+script.js,18278,warmEgg,setMessage,setMessage(randomBlockedMessage('sleepingPet'));
+script.js,18308,warmEgg,setMessage,// 状態変化の事実通知が必要な場面だけ setMessage() を使う。
+script.js,18309,warmEgg,setMessage,setMessage('');
+script.js,18344,playFirstPartnerEncounter,showStoryEvent,"showStoryEvent({ emoji: candidate.emoji, character:candidate, message: beats[0] });"
+script.js,18346,playFirstPartnerEncounter,showStoryEvent,"conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, character:candidate, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));"
+script.js,18359,playFirstPartnerEncounter,setMessage,setMessage(randomBlockedMessage('sleepingCourt'));
+script.js,18379,playFirstPartnerEncounter,setMessage,"setMessage(`じぶんの気持ちが少しはっきりした。「${orientationLabel(resolvedOrientation, state.gender)}」なんだと思う。${mismatchNote}`);"
+script.js,18401,playFirstPartnerEncounter,setMessage,setMessage(`${p.emoji} ${p.label}とちゃんと話した。恋愛タイプは変わったけれど、それでもいっしょにいることにした`);
+script.js,18408,playFirstPartnerEncounter,setMessage,setMessage(`${p.emoji} ${p.label}とぎこちなく話した…あと${left}回向きあえば、きっと伝わる`);
+script.js,18426,playFirstPartnerEncounter,setMessage,setMessage(`💍 ${state.partner.label}とけっこんした`);
+script.js,18436,playFirstPartnerEncounter,setMessage,setMessage('');
+script.js,18468,playFirstPartnerEncounter,setMessage,setMessage('💞いまは気持ちをつたえたいあいてがいない');
+script.js,18477,playFirstPartnerEncounter,setMessage,setMessage(`${candidate.emoji} ${candidate.label}としりあった。また会えそうだ`);
+script.js,18493,playFirstPartnerEncounter,setMessage,setMessage(`${candidate.emoji} ${candidate.label}:${reaction}`);
+script.js,18544,playFirstPartnerEncounter,setMessage,setMessage(`💑 ${candidate.label}とこいびとになった`);
+script.js,18554,playFirstPartnerEncounter,setMessage,setMessage('💞気持ちはつたえた。返事は「もう少し友達でいたい」だった');
+script.js,18585,playFirstPartnerEncounter,setMessage,setMessage(btn.dataset.id === 'short' ? '⚡ゲームを「みじかめ」にした（20秒以上の制限時間を70%にする）' : '⏱️ゲームのながさを「ふつう」にした');
+script.js,18591,playFirstPartnerEncounter,setMessage,setMessage(btn.dataset.id === 'easy' ? '🌱ミニゲームをやさしくした(時間も長め)' : btn.dataset.id === 'hard' ? '🔥ミニゲームをむずかしくした' : '🙂ミニゲームをふつうにした');
+script.js,18639,playFirstPartnerEncounter,setMessage,if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); render(); return; }
+script.js,18680,travelToRegion,setMessage,if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }
+script.js,18681,travelToRegion,setMessage,if (region?.special && !hasPerk(70)) { setMessage('そのばしょへつづく道はまだ見つからない');render();return false; }
+script.js,18746,travelToRegion,setMessage,setMessage(spammedTravel
+script.js,18819,travelToRegion,setMessage,setMessage('いまはあそべなかった…またこんどさそってもらおう');
+script.js,18832,travelToRegion,setMessage,setMessage(companion
+script.js,18938,doWipe,setMessage,setMessage('ぜんぶきえました。はじめまして!');
+script.js,18979,doWipe,setMessage,setMessage('あたらしいたまごがやってきた…');
+script.js,19038,doWipe,setMessage,setMessage(`${stage.emoji} ${stage.label}にすがたをかえた!${breakupMessage}`);
+script.js,19425,restoreSaveSnapshot,setMessage,setMessage('📋 いっしょうカードの コードを コピーした');
+script.js,19841,applyOfflineProgress,setMessage,setMessage(summary);
+script.js,19842,applyOfflineProgress,showStoryEvent,"showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ` });"
+script.js,19850,loop,setCriticalMessage,if (otherTabTookOver) { if (message !== compactJapaneseText(OTHER_TAB_MESSAGE)) setCriticalMessage(OTHER_TAB_MESSAGE); return; }
+script.js,19900,loop,setMessage,setMessage(legacyResolution.married
+script.js,19903,loop,sayPet,sayPet('これからは、おたがいにむりのないかたちでいよう');
+script.js,19910,loop,setCriticalMessage,setTimeout(() => setCriticalMessage(saveWriteBlocked

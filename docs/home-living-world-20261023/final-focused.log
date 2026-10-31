@@ -1,0 +1,64 @@
+✔ a banter plays in order, each beat said by the right character, as one unit (204.716347ms)
+✔ no idle chatter or automatic event cuts into a banter; the automatic event speaks right after (58.15834ms)
+✔ a care tap during a banter wins: the rest of the banter is dropped, never mixed in (91.126098ms)
+✔ an automatic line held during a banter never wipes out the care reaction that cut the banter off (60.317837ms)
+✔ a visit starts a banter a little after arrival; one visit in four stays quiet; a used-up visitor stays quiet (240.172626ms)
+✔ when the visitor leaves mid-banter, the banter stops instead of talking to nobody (23.052629ms)
+✔ a question shows big answer buttons; each answer gets its own reply; then the buttons go away (56.671767ms)
+✔ a question with a visitor: the visitor sets it up and answers for the player choice (21.003226ms)
+✔ no answer: the question quietly ends; tapping elsewhere or opening a menu also ends it cleanly (24.305958ms)
+✔ questions stay rare and only come while someone is playing (516.38834ms)
+✔ reload: the same banter does not come back right away; the save file and schema are untouched (85.904094ms)
+✔ every partner and companion with its own banter can actually play it in the real game (1111.628446ms)
+✔ the life-event choice dialog (individuality) keeps banters and questions out, and stops one in progress (13.233263ms)
+✔ the pilot data is well formed: pilot-sized, short, no spaces, alternating speakers, button-sized labels (2.274105ms)
+✔ every character-specific unit names a real partner or companion (0.252572ms)
+✔ candidates: own banters first; quiet characters never get the generic ones (0.506957ms)
+✔ Director units: never repeat a unit within its cooldown; unseen units first; kinds keep their own gap (0.624601ms)
+✔ Director units are saved with the history and older histories without units still load (0.670229ms)
+✔ landmarks use the real Meguru profile and stage bounds (130.867028ms)
+✔ tap selects, release after drag sets destination without teleport (3.017321ms)
+✔ cancel and lost capture never dispatch a movement (0.697048ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.727153ms)
+✔ Pilot exit restores original actor styles and input ownership (0.363146ms)
+✔ departed actor cannot receive stale drag release (0.458476ms)
+✔ leaving a paused Pilot removes all animation pause state (0.44717ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (3.416871ms)
+(node:40) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0edf4eb086ab/diorama-worktree/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0edf4eb086ab/diorama-worktree/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (161.365542ms)
+✔ live attendance is unchanged; display only existing visitors (38.516207ms)
+✔ care button still runs official feeding and stops movement (3906.867494ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (2171.333245ms)
+✔ routine live render preserves a user walking destination (30.6041ms)
+✔ only three official Pilot regions (2.188739ms)
+✔ movement is gradual and clamps extreme commands inside safe ground (5.622144ms)
+✔ roster sync never creates absent actors or mutates input state (4.122437ms)
+✔ blocked care interrupts destination; no delayed resume or command (0.302136ms)
+✔ reduced motion disables idle travel but intentional movement works (0.893359ms)
+✔ swept movement cannot pass through another actor (1.254912ms)
+✔ resize and region switch reset destinations within safe bounds (0.480119ms)
+✔ events are frozen context only, rate limited and no automatic speech (0.408392ms)
+✔ invalid inputs and absent actors are ignored (0.358108ms)
+✔ rain autonomy prefers tagged shelter and night has slower activity (1.698165ms)
+✔ an arriving visitor cannot trap an already moved pet (2.946607ms)
+✔ movement reserves asymmetric attachment bounds (0.4474ms)
+✔ frequent presentation sync does not starve life; actions diversify and stay ephemeral (8.367494ms)
+✔ repeated busy updates yield once, then manual and autonomous activity resume (0.905857ms)
+✔ held pointer keeps only the selected actor from choosing a new autonomous action (0.35954ms)
+(node:56) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0edf4eb086ab/diorama-worktree/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0edf4eb086ab/diorama-worktree/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home compositions reuse official geometry, preserve sources and keep cast foreground clear (4632.927261ms)
+✔ Living environment remains bounded with correct routes and pauses (175.052768ms)
+ℹ tests 48
+ℹ suites 0
+ℹ pass 48
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8463.876763

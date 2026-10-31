@@ -1,0 +1,93 @@
+name: Production 2.5D home
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+concurrency:
+  group: home-production-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  fixed-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
+      - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
+      - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
+      - run: node tests/home-production-birth-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_BIRTH_ENGINES: ${{ matrix.engine }}
+      - run: node tests/home-production-guide-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - run: node tests/home-production-layout-browser.cjs
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - run: node tests/home-production-scroll-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fixed-home-controls-${{ matrix.engine }}
+          path: |
+            test-results/home-production-birth/
+            test-results/home-production-layout/
+            test-results/home-production-scroll/
+            test-results/home-production-native/
+            test-results/home-production-guide/
+  production-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: node --test tests/home-production-birth-test.cjs
+      - run: node tools/home-production-regression.cjs
+      - run: node --test tests/home-production-startup-test.cjs tests/harness-determinism-test.cjs tests/meguru-resident-expression-test.cjs
+      - run: node --test tests/home-production-notice-queue-test.cjs tests/home-production-scroll-focus-test.cjs
+  production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node --test tests/home-production-test.cjs tests/home-production-save-test.cjs
+      - run: python tools/pages/package.py --out "${{ runner.temp }}/home-production" --report "${{ runner.temp }}/home-package.json"
+      - run: node tools/home-production-qa.cjs "${{ runner.temp }}/home-production"
+      - run: node tests/home-production-browser.cjs "${{ runner.temp }}/home-production"
+        env:
+          HOME_RELEASE_REGION: ${{ matrix.region }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-home-${{ matrix.region }}
+          path: test-results/home-production/

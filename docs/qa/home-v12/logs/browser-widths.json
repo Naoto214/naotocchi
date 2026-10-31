@@ -1,0 +1,562 @@
+[
+  {
+    "w": "320",
+    "dims": [
+      {
+        "id": "playBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 660.859375,
+          "height": 49,
+          "left": 9,
+          "right": 63.1875,
+          "top": 611.859375,
+          "width": 54.1875,
+          "x": 9,
+          "y": 611.859375
+        },
+        "text": "あそぶ"
+      },
+      {
+        "id": "feedBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 660.859375,
+          "height": 49,
+          "left": 67.1875,
+          "right": 121.390625,
+          "top": 611.859375,
+          "width": 54.203125,
+          "x": 67.1875,
+          "y": 611.859375
+        },
+        "text": "ごはん"
+      },
+      {
+        "id": "cleanBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 660.859375,
+          "height": 49,
+          "left": 125.390625,
+          "right": 179.59375,
+          "top": 611.859375,
+          "width": 54.203125,
+          "x": 125.390625,
+          "y": 611.859375
+        },
+        "text": "そうじ"
+      },
+      {
+        "id": "sleepBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 660.859375,
+          "height": 49,
+          "left": 183.59375,
+          "right": 237.796875,
+          "top": 611.859375,
+          "width": 54.203125,
+          "x": 183.59375,
+          "y": 611.859375
+        },
+        "text": "ねる"
+      },
+      {
+        "id": "medicineBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 660.859375,
+          "height": 49,
+          "left": 241.796875,
+          "right": 296,
+          "top": 611.859375,
+          "width": 54.203125,
+          "x": 241.796875,
+          "y": 611.859375
+        },
+        "text": "くすり"
+      },
+      {
+        "id": "playWithBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 714.859375,
+          "height": 49,
+          "left": 9,
+          "right": 77.75,
+          "top": 665.859375,
+          "width": 68.75,
+          "x": 9,
+          "y": 665.859375
+        },
+        "text": "じゃれる"
+      },
+      {
+        "id": "courtBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 714.859375,
+          "height": 49,
+          "left": 81.75,
+          "right": 150.5,
+          "top": 665.859375,
+          "width": 68.75,
+          "x": 81.75,
+          "y": 665.859375
+        },
+        "text": "きゅうあい"
+      },
+      {
+        "id": "travelBtn",
+        "overflow": true,
+        "rect": {
+          "bottom": 714.859375,
+          "height": 49,
+          "left": 154.5,
+          "right": 223.25,
+          "top": 665.859375,
+          "width": 68.75,
+          "x": 154.5,
+          "y": 665.859375
+        },
+        "text": "🧭たび"
+      },
+      {
+        "id": "menuBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 714.859375,
+          "height": 49,
+          "left": 227.25,
+          "right": 296,
+          "top": 665.859375,
+          "width": 68.75,
+          "x": 227.25,
+          "y": 665.859375
+        },
+        "text": "☰メニュー"
+      }
+    ]
+  },
+  {
+    "w": "375",
+    "dims": [
+      {
+        "id": "playBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 16,
+          "right": 81.390625,
+          "top": 720,
+          "width": 65.390625,
+          "x": 16,
+          "y": 720
+        },
+        "text": "あそぶ"
+      },
+      {
+        "id": "feedBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 85.390625,
+          "right": 150.796875,
+          "top": 720,
+          "width": 65.40625,
+          "x": 85.390625,
+          "y": 720
+        },
+        "text": "ごはん"
+      },
+      {
+        "id": "cleanBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 154.796875,
+          "right": 220.1875,
+          "top": 720,
+          "width": 65.390625,
+          "x": 154.796875,
+          "y": 720
+        },
+        "text": "そうじ"
+      },
+      {
+        "id": "sleepBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 224.1875,
+          "right": 289.59375,
+          "top": 720,
+          "width": 65.40625,
+          "x": 224.1875,
+          "y": 720
+        },
+        "text": "ねる"
+      },
+      {
+        "id": "medicineBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 293.59375,
+          "right": 359,
+          "top": 720,
+          "width": 65.40625,
+          "x": 293.59375,
+          "y": 720
+        },
+        "text": "くすり"
+      },
+      {
+        "id": "playWithBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 16,
+          "right": 98.75,
+          "top": 778,
+          "width": 82.75,
+          "x": 16,
+          "y": 778
+        },
+        "text": "じゃれる"
+      },
+      {
+        "id": "courtBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 102.75,
+          "right": 185.5,
+          "top": 778,
+          "width": 82.75,
+          "x": 102.75,
+          "y": 778
+        },
+        "text": "きゅうあい"
+      },
+      {
+        "id": "travelBtn",
+        "overflow": true,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 189.5,
+          "right": 272.25,
+          "top": 778,
+          "width": 82.75,
+          "x": 189.5,
+          "y": 778
+        },
+        "text": "🧭たび"
+      },
+      {
+        "id": "menuBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 276.25,
+          "right": 359,
+          "top": 778,
+          "width": 82.75,
+          "x": 276.25,
+          "y": 778
+        },
+        "text": "☰メニュー"
+      }
+    ]
+  },
+  {
+    "w": "390",
+    "dims": [
+      {
+        "id": "playBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 16,
+          "right": 84.390625,
+          "top": 720,
+          "width": 68.390625,
+          "x": 16,
+          "y": 720
+        },
+        "text": "あそぶ"
+      },
+      {
+        "id": "feedBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 88.390625,
+          "right": 156.796875,
+          "top": 720,
+          "width": 68.40625,
+          "x": 88.390625,
+          "y": 720
+        },
+        "text": "ごはん"
+      },
+      {
+        "id": "cleanBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 160.796875,
+          "right": 229.1875,
+          "top": 720,
+          "width": 68.390625,
+          "x": 160.796875,
+          "y": 720
+        },
+        "text": "そうじ"
+      },
+      {
+        "id": "sleepBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 233.1875,
+          "right": 301.59375,
+          "top": 720,
+          "width": 68.40625,
+          "x": 233.1875,
+          "y": 720
+        },
+        "text": "ねる"
+      },
+      {
+        "id": "medicineBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 305.59375,
+          "right": 374,
+          "top": 720,
+          "width": 68.40625,
+          "x": 305.59375,
+          "y": 720
+        },
+        "text": "くすり"
+      },
+      {
+        "id": "playWithBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 16,
+          "right": 102.5,
+          "top": 778,
+          "width": 86.5,
+          "x": 16,
+          "y": 778
+        },
+        "text": "じゃれる"
+      },
+      {
+        "id": "courtBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 106.5,
+          "right": 193,
+          "top": 778,
+          "width": 86.5,
+          "x": 106.5,
+          "y": 778
+        },
+        "text": "きゅうあい"
+      },
+      {
+        "id": "travelBtn",
+        "overflow": true,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 197,
+          "right": 283.5,
+          "top": 778,
+          "width": 86.5,
+          "x": 197,
+          "y": 778
+        },
+        "text": "🧭たび"
+      },
+      {
+        "id": "menuBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 287.5,
+          "right": 374,
+          "top": 778,
+          "width": 86.5,
+          "x": 287.5,
+          "y": 778
+        },
+        "text": "☰メニュー"
+      }
+    ]
+  },
+  {
+    "w": "430",
+    "dims": [
+      {
+        "id": "playBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 16,
+          "right": 92.390625,
+          "top": 720,
+          "width": 76.390625,
+          "x": 16,
+          "y": 720
+        },
+        "text": "あそぶ"
+      },
+      {
+        "id": "feedBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 96.390625,
+          "right": 172.796875,
+          "top": 720,
+          "width": 76.40625,
+          "x": 96.390625,
+          "y": 720
+        },
+        "text": "ごはん"
+      },
+      {
+        "id": "cleanBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 176.796875,
+          "right": 253.1875,
+          "top": 720,
+          "width": 76.390625,
+          "x": 176.796875,
+          "y": 720
+        },
+        "text": "そうじ"
+      },
+      {
+        "id": "sleepBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 257.1875,
+          "right": 333.59375,
+          "top": 720,
+          "width": 76.40625,
+          "x": 257.1875,
+          "y": 720
+        },
+        "text": "ねる"
+      },
+      {
+        "id": "medicineBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 773,
+          "height": 53,
+          "left": 337.59375,
+          "right": 414,
+          "top": 720,
+          "width": 76.40625,
+          "x": 337.59375,
+          "y": 720
+        },
+        "text": "くすり"
+      },
+      {
+        "id": "playWithBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 16,
+          "right": 112.5,
+          "top": 778,
+          "width": 96.5,
+          "x": 16,
+          "y": 778
+        },
+        "text": "じゃれる"
+      },
+      {
+        "id": "courtBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 116.5,
+          "right": 213,
+          "top": 778,
+          "width": 96.5,
+          "x": 116.5,
+          "y": 778
+        },
+        "text": "きゅうあい"
+      },
+      {
+        "id": "travelBtn",
+        "overflow": true,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 217,
+          "right": 313.5,
+          "top": 778,
+          "width": 96.5,
+          "x": 217,
+          "y": 778
+        },
+        "text": "🧭たび"
+      },
+      {
+        "id": "menuBtn",
+        "overflow": false,
+        "rect": {
+          "bottom": 831,
+          "height": 53,
+          "left": 317.5,
+          "right": 414,
+          "top": 778,
+          "width": 96.5,
+          "x": 317.5,
+          "y": 778
+        },
+        "text": "☰メニュー"
+      }
+    ]
+  }
+]

@@ -44,6 +44,16 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium webkit
+      - name: v19 scenery, safe terrain and fixed UI (Chromium and WebKit)
+        run: node tests/home-v19-browser.cjs
+      - name: v18 intrinsic typography and glyph clipping (Chromium and WebKit)
+        run: |
+          git fetch --depth=1 origin 264e0a7d0a893f5d993da7d3c8b3087a3baaa91f
+          node tests/home-v18-browser.cjs
+      - name: v17 typography and actor identity (Chromium and WebKit)
+        run: |
+          git fetch --depth=1 origin 479de0388cab0898beb8f7524c6da70055a4bab6
+          node tests/home-v17-browser.cjs
       - run: node tests/sticker-background-browser.cjs
       - run: node tests/boot-rescue-browser.cjs
       - run: node tests/back-navigation-browser.cjs
@@ -57,12 +67,73 @@ jobs:
           FRAMING_VARIANTS: candidate
           FRAMING_OUT: test-results/home-layout/camera-framing
       - run: node tools/meguru-3d-qa/camera-framing-mutation.cjs
-      - run: node tests/home-layout-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: home-layout
           path: test-results/home-layout
+          retention-days: 14
+
+  # Keep the full legacy suite intact, but give the final aggregate test its own
+  # runner. v20 and the first v21 candidate hit the shared 30-minute job limit.
+  home-core-layout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Complete legacy Home layout, touch, overflow and conversation checks
+        run: node tests/home-layout-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-core-layout
+          path: test-results/home-layout
+          retention-days: 14
+
+  home-v20:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: v20 regional depth and 48-case interaction matrix
+        run: node tests/home-v20-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-v20
+          path: test-results/home-layout/v20
+          retention-days: 14
+
+  home-v21:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: v21 regional depth and 32-case day/night interaction matrix
+        run: node tests/home-v21-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-v21
+          path: test-results/home-layout/v21
           retention-days: 14
 
   pad-size:

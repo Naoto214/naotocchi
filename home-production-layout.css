@@ -1,0 +1,30 @@
+/* Production only. Keep the approved world at its intrinsic size; a short
+   viewport scrolls the central pane while the 5+4 care controls stay reachable. */
+html:has(body[data-home-production="true"][data-home-terrain="true"] .device[data-home-fixed="true"]){overflow:hidden;overscroll-behavior:none}
+body.world-mode[data-home-production="true"][data-home-terrain="true"]:has(.device[data-home-fixed="true"]){height:var(--app-height);min-height:0;overflow:hidden;overscroll-behavior:none}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]:has(#screenNormal:not(.hidden)){
+ position:fixed;inset:0;height:var(--app-height);min-height:0;max-height:var(--app-height);
+ grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto auto;gap:3px;
+}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]>.device-header{grid-column:1;grid-row:1}
+/* Match the legacy landscape selector's #screenNormal specificity. Otherwise
+   its grid-row:1/-1 spans the header and controls at widths >=640px. */
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]:has(#screenNormal:not(.hidden))>.screen-frame{
+ grid-column:1;grid-row:2;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;scrollbar-width:thin;
+}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #screen{height:auto;min-height:100%;overflow:visible}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #screenNormal{container-type:normal;min-height:100%;height:auto}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #petArea{min-height:456px;flex:1 0 456px}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #careActions{grid-column:1;grid-row:3;margin-top:0}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]>.life-actions{grid-column:1;grid-row:4}
+/* A scroll is a viewport translation, not a navigation reflow. The background
+   and cast move together, keeping existing world coordinates and masks intact. */
+body[data-home-production="true"] .home-living-world{height:calc(100% + var(--home-center-overflow,0px));transform:translateY(calc(-1 * var(--home-center-scroll,0px)))}
+body[data-home-production="true"][data-home-terrain="true"] #castStage[data-diorama]{touch-action:pan-y pinch-zoom}
+body[data-home-production="true"][data-home-terrain="true"] #castStage[data-diorama] [data-diorama-actor]{touch-action:none}
+/* Text and small lanes retain their existing intrinsic dimensions. */
+body[data-home-production="true"][data-home-terrain="true"] #homeInformation{gap:0}
+body[data-home-production="true"][data-home-terrain="true"] #homeGestureGuide{margin:0}
+/* Dismissing the guide must not resize/reproject the live terrain. Retain its
+   existing 26px lane; hidden controls remain invisible and unfocusable. */
+body[data-home-production="true"][data-home-terrain="true"] #homeGestureGuide[hidden]{display:flex!important;visibility:hidden;min-height:26px}

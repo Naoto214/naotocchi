@@ -1,0 +1,14 @@
+✔ fresh inventory derives every master row, stage and registered asset without fixed counts (48.789393ms)
+✔ master additions cannot silently disappear behind the pilot registry (34.33852ms)
+✔ missing and unclassified assets remain explicit audit failures (1.686849ms)
+✔ legacy coverage references the reviewed rightmost four tiles without claiming raw photos or later gates (69.905924ms)
+✔ legacy coverage rejects unreviewed, missing, changed, or wrongly mapped boards (468.627561ms)
+✔ legacy board reuse requires the exact companion model at stage zero (183.605344ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1083.885227

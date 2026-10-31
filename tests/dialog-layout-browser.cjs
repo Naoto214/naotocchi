@@ -2,6 +2,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const {measureDialogs,resultSpecimen}=require('./dialog-layout-probe.js');
+const {guardedRoute}=require('./helpers/browser-route.cjs');
 
 module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) {
   const results=[];
@@ -12,6 +13,13 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
   ]) {
     if(onlyNames && !onlyNames.includes(name)) continue;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
+    const routeErrors=[];
+    // The floor-gap assertions below belong to the retained legacy layout.
+    // Keep the real dialog lifecycle, while selecting that layout explicitly.
+    await guardedRoute(context,'**/script.js?*',engine+'-dialogs-'+name,routeErrors,async route=>{
+      const response=await route.fetch();
+      await route.fulfill({response,body:'window.NaotocchiHomeDiorama=undefined;window.NaotocchiHomeDioramaModel=undefined;document.body.dataset.homeProduction="";\n'+await response.text()});
+    });
     const page=await context.newPage();
     // Keep layout specimens stable across slow screenshots: quit confirmation
     // auto-dismisses after four seconds. Advance time explicitly for lifecycle QA.
@@ -28,6 +36,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
     const label=engine+'-dialogs-'+name;
     const check=async phase=>{
       const m=await page.evaluate(measureDialogs);results.push({label,phase,...m});
+      assert.deepEqual(routeErrors,[],label+' fixture fetch');
       assert.deepEqual(m.errors,[],label+' '+phase+': '+JSON.stringify(m));
       return m;
     };

@@ -1,0 +1,61 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (48.284375ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (24.230471ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (110.328854ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.709706ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (53.859326ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (156.085996ms)
+✔ pilot data: well formed, short, only pilot games, moments known to minigame-reactions (1.901989ms)
+✔ candidates follow the game, the moment, the result band, the visitor and the personality (0.595966ms)
+✔ after a pilot game the exchange waits for the result card, then plays in order instead of the usual cheer (99.248259ms)
+✔ tapping もういちど on the result card starts the next game; the exchange never plays over it (26.781515ms)
+✔ games outside the pilot keep exactly the old reaction; mid results without a moment stay quiet (24.823923ms)
+✔ frequency: at most one post-game exchange every 3 minutes of play; idle questions wait after one (24.751473ms)
+✔ personality: a persistent pet and a quick-to-switch pet react differently to a losing streak (60.715231ms)
+✔ a post-game question gets answered like any question; the save file stays untouched (18.464725ms)
+✔ with the partner visiting, the partner really speaks its lines of the post-game exchange (61.930948ms)
+✔ a banter plays in order, each beat said by the right character, as one unit (155.308372ms)
+✔ no idle chatter or automatic event cuts into a banter; the automatic event speaks right after (41.61079ms)
+✔ a care tap during a banter wins: the rest of the banter is dropped, never mixed in (56.0441ms)
+✔ an automatic line held during a banter never wipes out the care reaction that cut the banter off (55.520142ms)
+✔ a visit starts a banter a little after arrival; one visit in four stays quiet; a used-up visitor stays quiet (143.370709ms)
+✔ when the visitor leaves mid-banter, the banter stops instead of talking to nobody (12.40817ms)
+✔ a question shows big answer buttons; each answer gets its own reply; then the buttons go away (38.455762ms)
+✔ a question with a visitor: the visitor sets it up and answers for the player choice (18.767028ms)
+✔ no answer: the question quietly ends; tapping elsewhere or opening a menu also ends it cleanly (16.13973ms)
+✔ questions stay rare and only come while someone is playing (374.62852ms)
+✔ reload: the same banter does not come back right away; the save file and schema are untouched (76.653357ms)
+✔ every partner and companion with its own banter can actually play it in the real game (761.605521ms)
+✔ the life-event choice dialog (individuality) keeps banters and questions out, and stops one in progress (14.763291ms)
+✔ the pilot data is well formed: pilot-sized, short, no spaces, alternating speakers, button-sized labels (1.710922ms)
+✔ every character-specific unit names a real partner or companion (0.204848ms)
+✔ candidates: own banters first; quiet characters never get the generic ones (0.574534ms)
+✔ Director units: never repeat a unit within its cooldown; unseen units first; kinds keep their own gap (0.533882ms)
+✔ Director units are saved with the history and older histories without units still load (0.654113ms)
+(node:92) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/208adb8bf351/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/208adb8bf351/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (140.207083ms)
+✔ live attendance is unchanged; display only existing visitors (38.097503ms)
+✔ care button still runs official feeding and stops movement (2641.454615ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (1237.249433ms)
+✔ routine live render preserves a user walking destination (17.591282ms)
+(node:100) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/208adb8bf351/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/208adb8bf351/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home compositions reuse official geometry, preserve sources and keep cast foreground clear (2938.824926ms)
+✔ Living environment remains bounded with correct routes and pauses (100.131644ms)
+✔ Home recovers the same region after lost GPU without resetting its life clock (1269.739536ms)
+✔ Home renderer recovery is bounded, pauses while hidden and stops on destroy (2255.110218ms)
+✔ Home contains resize errors so the frame loop can recover (1190.723898ms)
+✔ Home contains level errors so the frame loop can recover (1231.334826ms)
+✔ Home ground follows the cast feet on portrait and wide viewports; river stays behind (1.77653ms)
+ℹ tests 45
+ℹ suites 0
+ℹ pass 45
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11483.731748

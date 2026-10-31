@@ -1,0 +1,16 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (53.709286ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (28.119402ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (146.394281ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.930985ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (51.206113ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (147.886957ms)
+✔ index.html asset references exist and carry cache tokens (1.978303ms)
+✔ the bump tool rewrites only cache tokens (0.240966ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 529.000976

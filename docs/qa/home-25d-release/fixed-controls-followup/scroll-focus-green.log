@@ -1,0 +1,13 @@
+✔ entry brings the existing actor into the central viewport (3.572769ms)
+✔ a pending entry focus cannot undo a later scroll to the meters (1.044973ms)
+✔ a delayed scroll event still preserves the latest viewport position (0.859454ms)
+✔ a later real resize may reveal the actor again after an interrupted focus (1.039055ms)
+✔ resize keeps an active question reachable using the existing speech slot (1.074598ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.447597
