@@ -60,9 +60,9 @@ try{for(const engine of (process.env.HOME_BIRTH_ENGINES||'chromium,webkit').spli
 
  await page.waitForFunction(()=>document.body.dataset.livingHome==='art-25d'&&document.querySelector('.home-art-canvas')?.width>0);
  await capture('newborn');
- await page.locator('#cleanBtn').click();
- row.afterBirthCare=await page.evaluate(()=>HomeBirthQA.detail().save.actionCounts.clean);
- assert.equal(row.afterBirthCare,row.newborn.save.actionCounts.clean+1,'care button works after birth');
+ await page.locator('#playWithBtn').click();
+ row.afterBirthCare=await page.evaluate(()=>HomeBirthQA.detail().save.actionCounts.pet);
+ assert.equal(row.afterBirthCare,row.newborn.save.actionCounts.pet+1,'care button works after birth');
  await page.evaluate(()=>HomeBirthQA.grow());await capture('grown');
  const saved=await page.evaluate(()=>HomeBirthQA.save());await page.reload();await page.waitForFunction(()=>window.HomeBirthQA&&document.body.dataset.livingHome==='art-25d');
  await capture('resumed');
