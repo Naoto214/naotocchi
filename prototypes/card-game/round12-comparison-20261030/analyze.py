@@ -162,8 +162,9 @@ def per_variant(rs):
     dec = [sum(r['seat'][a]['decisions'][1:]) for r in comp for a in 'AB']
     npass = [sum(r['seat'][a]['nonPass'][1:]) for r in comp for a in 'AB']
     turns = [len(r['seat']['A']['turns']) + len(r['seat']['B']['turns']) for r in comp]
-    est = [(sum(r['seat'][a]['nonPass'][1:]) * 12 + (sum(r['seat'][a]['decisions'][1:]) - sum(r['seat'][a]['nonPass'][1:])) * 3 for a in 'AB') for r in comp]
-    est = [sum(e) + 5 * t for e, t in zip(est, turns)]
+    # (a list, not a generator: a generator would close over the comprehension variable and read only the last match)
+    est = [sum(sum(r['seat'][a]['nonPass'][1:]) * 12 + (sum(r['seat'][a]['decisions'][1:]) - sum(r['seat'][a]['nonPass'][1:])) * 3 for a in 'AB')
+           + 5 * (len(r['seat']['A']['turns']) + len(r['seat']['B']['turns'])) for r in comp]
     out['tempo'] = {'decisionsPerGame': rnd(2 * mean(dec), 1), 'nonPassPerGame': rnd(2 * mean(npass), 1), 'turnsPerGame': rnd(mean(turns), 2),
                     'estMinutes': rnd(mean(est) / 60, 1), 'cpuMsPerGame': rnd(mean([r['elapsedMs'] for r in comp]), 0)}
     rc = Counter(); rcr = defaultdict(Counter)
