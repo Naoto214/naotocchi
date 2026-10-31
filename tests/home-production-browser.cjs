@@ -36,12 +36,12 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  for(const inputCount of [6,28]){
  await settled();
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
- await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[inputRegion,inputCount]);
+ await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.region===r&&d.world.loaded&&d.actors.length===c;},[inputRegion,inputCount]);
  for(const kind of ['tap','drag']){
  // Each physical-input case starts on a fresh live page. Otherwise the idle
  // greeting scheduled during preceding screenshots/moves can legitimately
- // block pointerdown. The native matrix separately exercises tap then drag
- // without reloading, including the crowded 320px post-tap position.
+ // block pointerdown. The native matrix separately verifies fresh 28-actor
+ // tap and drag fixtures, including the crowded 320px viewport.
  // Keep the sampled cast still only during candidate selection + physical
  // event delivery. Slow browser protocol round trips must not let a resident
  // walk into a ground-tap point between sampling and pointerdown.
@@ -57,7 +57,7 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  // during this clock jump and can legitimately close the initial exit route.
  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
- await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world.loaded&&d.world.region===r&&d.actors.length===c&&!d.blocked&&d.paused==='false';},[inputRegion,inputCount],{polling:100,timeout:15000});
+ await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&d.world.region===r&&d.actors.length===c&&!d.blocked&&d.paused==='false';},[inputRegion,inputCount],{polling:100,timeout:15000});
  // Image.onload is asynchronous; paint the new canvas/cast before sampling.
  // runFor leaves the clock paused after these three normal animation frames.
  await page.clock.runFor(50);
@@ -94,7 +94,7 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  finally{stopInput.trace=await page.evaluate(()=>window.HomeReleaseInputTrace).catch(()=>null);saveInputs();}
  await page.locator('#menuBtn').click();await page.locator('#menuOverlay').waitFor({state:'visible'});assert.equal(await page.locator('#menuOverlay .menu-grid > :is(button,a)').count(),12);await page.locator('#menuCloseBtn').click();
  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches&&document.getElementById('castStage').dataset.dioramaReduced==='true');await page.waitForTimeout(100);const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);assert.ok(Number.isFinite(clock),'real environment clock');await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
- await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region==='star_stop'&&d.world.loaded&&d.actors.length===28&&d.actors.every(a=>a.safe);},null,{timeout:30000});
+ await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.region==='star_stop'&&d.world.loaded&&d.actors.length===28&&d.actors.every(a=>a.safe);},null,{timeout:30000});
  assert.ok(await page.evaluate(()=>HomeReleaseQA.move()));
  assert.equal(await page.evaluate(()=>sessionStorage.getItem('home-release-reset-fixture')),null,'save resume never resets the fixture');
  const saved=await page.evaluate(()=>HomeReleaseQA.save());await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);const restored=await page.evaluate(()=>HomeReleaseQA.state());assert.equal(restored.regionId,saved.regionId);assert.equal(restored.companions.length,saved.companions.length);assert.equal(restored.partner.id,saved.partner.id);assert.equal(restored.lifetime.money,saved.lifetime.money);

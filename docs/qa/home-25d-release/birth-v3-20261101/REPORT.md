@@ -29,3 +29,15 @@
 - ローカルChromium導入はZIP取得失敗、WebKitは共有ライブラリ不足、依存導入も環境の権限制約で失敗。ローカル両engine成功とは記録しない。
 - Cloud Chromiumで390px iframeの実ボタンを操作。文言変更、率の非表示、5回の孵化、正式名を確認。静止比較用に祝福を保持するQAコピーも使用したため、その比較画像を演出時間の証拠としない。
 - 最終HEADのCI結果、最終画像、本人限定公開の整合性はPRの最終検証コメントに記録。iPhone Safari実機QAは本人待ち。
+
+## 追加CIで確認した起動待ち
+
+e5f7739の深海job 124583795159は、再読込直後のworld生成前にテストがworld.loadedを読んでTypeErrorで停止した（tests/home-production-browser.cjs:60）。worldは非同期生成であり、同ファイルの初期表示やスクロール試験では既に存在待ちをしている。残る入力・回転・native入力の待機条件にも存在ガードを揃えた。生成後のloaded、region、actor数、非停止条件は不変。実行中のゲーム処理・歩行・衝突に変更なし。
+
+e5f7739でWebKitの孵化10条件、スクロール312条件、失敗0・pageerror0を確認。artifact 13049011999のSHA256 b3009a6cdc5564b860eaced5248d4f8dce285faa0a8399292080badc4dc12b77。配信後のindex.html（ルート応答）・script.js・egg-hatching.cssはローカル最終配信とSHA256一致。全4123ファイルは配信アーカイブ内の全件一致であり、公開先全件取得とは区別する。未認証401／サインイン画面を確認、所有者1名・外部共有0。認証後ブラウザーと実機Safariは未確認。
+
+Chromiumのe5f7739初回は新設のfresh egg検査が24条件で停止。primaryだけを消す親fixtureにbackupが残り、既存の正しい保存復旧がgrowing/28体を再開していた（artifact 13049840078、SHA256 d9aab7f99ddb6bbe59fad2a7b4347d4e8cf8eb86bf8027824ab5ea997029f72e）。QA専用のprimary/backup/snapsの3キーを新documentの開始時に初期化するよう修正。fresh egg検査を維持して復旧持越しを検出し、実セーブの回復処理は変更しない。初回は入力配送前に停止しているため、28体入力成功とは数えない。誕生後には実際のそうじボタンでactionCounts.cleanの増加も検査する。
+
+実scriptのharnessでbackupのみからgrowing復旧を再現し、同3キー初期化後はeggへ戻ることを確認。比較画像はe5f7739のChromium孵化テスト成功時の実キャプチャ（今回の追補はテストのみで配信runtimeは同一）。
+
+![390px VERSION 2/3比較](comparison-390.png)

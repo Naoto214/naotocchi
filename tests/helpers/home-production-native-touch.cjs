@@ -58,7 +58,7 @@ exports.actors=async(page,region,count)=>{
     await installTrace();
     await page.evaluate(()=>{window.__homeNativeTrace.length=0;window.HomeReleaseInputTrace.length=0;});
     await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
-    await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[region,count],{polling:100});
+    await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.region===r&&d.world.loaded&&d.actors.length===c;},[region,count],{polling:100});
     await page.clock.runFor(50);
     await page.evaluate(()=>{
       const frame=document.querySelector('.screen-frame'),stage=document.getElementById('castStage'),a=HomeReleaseQA.detail().actors[0];
