@@ -38,6 +38,10 @@ hold_win = lambda r: r['result']['reason'].endswith('維持')
 def est_min(r):  # PR #495 assumption: 12 s per action, 3 s per pass/choice, 5 s per turn
     return (sum(sum(r['seat'][s]['nonPass'][1:]) * 12 + (sum(r['seat'][s]['decisions'][1:]) - sum(r['seat'][s]['nonPass'][1:])) * 3 for s in 'AB')
             + 5 * (len(r['seat']['A']['turns']) + len(r['seat']['B']['turns']))) / 60
+# Actions-only variant: holding a playable すぐつかう card makes the CPU answer every response window with a pass, which
+# the PR #495 estimate counts as 3 s each. This variant counts only actions (12 s) and turns (5 s).
+def est_actions(r):
+    return (sum(sum(r['seat'][s]['nonPass'][1:]) * 12 for s in 'AB') + 5 * (len(r['seat']['A']['turns']) + len(r['seat']['B']['turns']))) / 60
 def provisional(r, at):
     a, b = r['seat']['A']['growthEnd'][at], r['seat']['B']['growthEnd'][at]
     return 'A' if a > b else 'B' if b > a else None
@@ -62,7 +66,7 @@ def _per_game(r):
         'endRound': r['round'], 'ext11': float(F >= 11), 'ext12': float(F >= 12),
         'lastTwoChanged': float(provisional(r, F - 2) != w) if r['round'] > F - 2 else None,
         'flipAfterR10': float(r['round'] > 10 and provisional(r, 10) != w),
-        'minutes': est_min(r), 'decisions': sum(sum(x['decisions'][1:]) for x in seats),
+        'minutes': est_min(r), 'minutesActions': est_actions(r), 'actions': sum(sum(x['nonPass'][1:]) for x in seats), 'passes': sum(sum(x['decisions'][1:]) - sum(x['nonPass'][1:]) for x in seats), 'decisions': sum(sum(x['decisions'][1:]) for x in seats),
         'expiredShare': sum(sum(x['expired']) + x['expiredAtEnd'] for x in seats) / max(1, sum(sum(x['granted']) for x in seats)),
         'reach100': mean([x.get('maxGrowth', x['growth']) >= 100 for x in seats]),
         'anyUsed': float(any(used(x) for x in seats)),
@@ -122,7 +126,7 @@ def summary(rs):
         'lastTwoChanged': rnd(mean(col('lastTwoChanged'))), 'flipAfterR10': rnd(mean(col('flipAfterR10'))),
         'flipAfterR10GivenExtended': rnd(mean([per_game(r)['flipAfterR10'] for r in comp if r['round'] > 10])),
         'deckScore': ds, 'deckSpread': rnd(max(ds.values()) - min(ds.values())),
-        'minutes': rnd(mean(col('minutes')), 1), 'decisions': rnd(mean(col('decisions')), 1), 'expiredShare': rnd(mean(col('expiredShare'))),
+        'minutes': rnd(mean(col('minutes')), 1), 'minutesActions': rnd(mean(col('minutesActions')), 1), 'actions': rnd(mean(col('actions')), 1), 'passes': rnd(mean(col('passes')), 1), 'decisions': rnd(mean(col('decisions')), 1), 'expiredShare': rnd(mean(col('expiredShare'))),
         'lateRounds': late, 'card': card,
     }
 
@@ -182,7 +186,7 @@ MAIN = load_runs('MAIN')
 byv = index(REF + MAIN)
 V = {c: NAMES[c] for c in MAINC}
 out['conditions'] = {c: summary(list(byv[v].values())) for c, v in V.items()}
-metrics = ['holdWin', 'draw', 'firstSeat', 'growth', 'margin', 'close', 'endRound', 'ext11', 'ext12', 'lastTwoChanged', 'flipAfterR10', 'minutes', 'expiredShare', 'reach100']
+metrics = ['holdWin', 'draw', 'firstSeat', 'growth', 'margin', 'close', 'endRound', 'ext11', 'ext12', 'lastTwoChanged', 'flipAfterR10', 'minutes', 'minutesActions', 'actions', 'expiredShare', 'reach100']
 mf = {m: (lambda kk: (lambda r: per_game(r)[kk]))(m) for m in metrics}
 pairs = {'X0-A0（カード交換だけの影響）': ('X0', 'A0'), 'A5-A0（固定12R・120、参考）': ('A5', 'A0')}
 for c in ['A1', 'A1a', 'A1t', 'A2', 'A2s', 'A3', 'A4']:
@@ -211,8 +215,8 @@ out['cardAccess'] = {c: access(c) for c in ['A1', 'A1a', 'A1t', 'A2', 'A2s', 'A3
 SENS = index(load_runs('SENS'))
 sub = lambda v: {k: r for k, r in byv[v].items() if k in SENS['L-A1c4']}
 sb = {**{v: sub(v) for v in ('L-X0', 'L-A1', 'L-A1a')}, **SENS}
-out['sensitivity'] = {c: {'summary': {k: summary(list(sb[NAMES[c]].values()))[k] for k in ('games', 'completed', 'replayMatch', 'finalRound', 'ext11Rate', 'ext12Rate', 'holdWinRate', 'closeRate', 'lastTwoChanged', 'flipAfterR10', 'minutes', 'deckSpread', 'firstSeatScore', 'card')},
-                          'vsX0': {m: contrast(sb, NAMES[c], 'L-X0', mf[m]) for m in ('ext11', 'ext12', 'close', 'lastTwoChanged', 'flipAfterR10', 'minutes', 'holdWin')}}
+out['sensitivity'] = {c: {'summary': {k: summary(list(sb[NAMES[c]].values()))[k] for k in ('games', 'completed', 'replayMatch', 'finalRound', 'ext11Rate', 'ext12Rate', 'holdWinRate', 'closeRate', 'lastTwoChanged', 'flipAfterR10', 'minutes', 'minutesActions', 'deckSpread', 'firstSeatScore', 'card')},
+                          'vsX0': {m: contrast(sb, NAMES[c], 'L-X0', mf[m]) for m in ('ext11', 'ext12', 'close', 'lastTwoChanged', 'flipAfterR10', 'minutes', 'minutesActions', 'holdWin')}}
                       for c in ('X0', 'A1', 'A1a', 'A1c4', 'A1n1', 'A1aL')}
 
 # Equivalence: L-A0 (this build, no experiment cards) vs PR #495 G-A on seeds 001-003
