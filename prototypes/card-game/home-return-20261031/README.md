@@ -29,5 +29,9 @@
 CI（`naopoyo-chapter1.yml` の card ブラウザ確認）にも追加。WebKit はこの作業環境に無いため未実行です。
 
 ## 本人限定 iPhone Safari 試遊版
+https://claude.ai/artifact/CRvzQ1uKoBjfU2QidPbrTE（HEAD `e6c9a06b` から作成。457ファイル。公開前に同じ `home-return-browser.cjs` を試遊版に対して実行し、成功）
+
 `trial/build-trial.mjs` が正式ファイルを読むだけで組み立てます。保存の鍵は `naotocchi-home-return-trial:` 付きで正式版と分離。
 試遊版では育成画面の代わりに仮の画面 `home.html` へ移動します（「CARD GAME をひらく」で戻れます）。
+
+正式アプリの「保存ファイルを書き出す」は、公開先がダウンロードを許可しないため試遊版では働きません（前回の B1 試遊版と同じ）。
