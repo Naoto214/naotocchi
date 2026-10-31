@@ -10,7 +10,7 @@ Node22.23.4をローカルに用意して調査した。`clockNow:1000`はUTC/Ja
 
 fixtureの時計を**正の時刻となるローカル2026-10-02正午**に統一した。この日は対象tanukiが通常のnear/tier1となる。住民を動かしたりtierを直接代入したりせず、tier1の前提確認、6フレーム後の疲労・通常画像assertionを維持する。case13の乱数と最寄り選択修正も維持。UTC、America/Chicago、Asia/Tokyoそれぞれ18/18、失敗0。
 
-レビュー途中で試した1969年の日付は、負のDate.now()によりbusy期限0との比較が変わるため不採用。正の日付で全試験をやり直した。途中の全体回帰は明示的に中断（exit130）し、完成結果に数えない。正の日付のNode22/UTC全回帰を別ログで再実行中。
+レビュー途中で試した1969年の日付は、負のDate.now()によりbusy期限0との比較が変わるため不採用。正の日付で全試験をやり直した。途中の全体回帰は明示的に中断（exit130）し、完成結果に数えない。正の日付のNode22.23.4/UTC全回帰は3,745/3,745成功、失敗0、exit0で完走（32＋24＋3292＋159＋238）。
 
 ## 山・28体: 操作準備中の自律移動を分離
 
@@ -27,3 +27,13 @@ fixtureの時計を**正の時刻となるローカル2026-10-02正午**に統�
 [CI追補証拠](ci-followup-20261031/)にCI失敗箇所、山の全snapshot/trace、UTCでの修正前再現、3タイムゾーンの修正後18/18ログを保存。元の`final-20261031/evidence.tar.gz`は前段の原票として保持。
 
 最終CIの全成功確認、本人のiPhone Safari実機QAは未完了。過去19/24の正確な5条件一覧とchicken失敗のblockerは当時の原票不足により未確定。main・本番は引き続き変更しない。
+
+## 都会WebKit: reload時の自動保存を正しく分離
+
+`06e3bd980`では山jobとproduction-contractsは成功した。一方、都会WebKit/390px/28体/tapは候補2件から経路を得られず、入力前に失敗した（job124489244628）。先行するChromiumの全入力・WebKit6体tap/dragは成功していた。
+
+`script.js`のbeforeunloadは正常にsaveState()を呼ぶ。そのためreloadは元のseedへのリセットではなく、直前に準備した地域・人数を復元する。これにより「時計を止めてから初めて対象構成を作る」という試験の前提が一部で成立しなかった。再読込直後のregion/count/partnerがoriginal seedと一致するassertionを追加し、ローカルChromiumでも `city/4companions/partnerあり` と `home/0companions/partnerなし` の差で決定的にredを確認。
+
+各通常入力の開始時だけsessionStorageへ一回限りの印を置き、new documentのinit scriptでQA専用保存キーを元のseedに戻して印を消す。旧ページの自動保存より後、新ページのゲーム起動より前に実行する。QAページとQA保存キーだけが対象。本番の保存処理・保存形式は変更なし。診断recordをreloadより前に作り、復元seedと印の消費を毎回assertする。最終save/resumeの前には印がないことをassertし、実際の保存復元検証を保護する。
+
+修正後の都会・おうちは各24/24表示、8/8通常入力、2/2会話停止（両engine）が成功。8通常入力の全てでoriginal seed（home/仲間0/partnerなし）への復元とリセット印の消費を確認し、最終save/resumeも成功。新HEADのCI結果はPR本文へ記録する。最終CIの全部成功確認前は未完了のまま。

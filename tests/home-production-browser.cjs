@@ -11,6 +11,13 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  for(let tap=0;tap<5;tap++){await page.locator('#playWithBtn').click();await page.waitForTimeout(120);}
  await page.waitForFunction(()=>!document.querySelector('.home-v6-egg-world')&&document.body.dataset.livingHome==='art-25d');
  const original=JSON.parse(fs.readFileSync(path.join(out,'release-qa-seed.json')));await page.evaluate(s=>localStorage.setItem('naotocchi-home-release-qa-v1',JSON.stringify(s)),original);
+ // beforeunload legitimately saves the old scene. Reset only explicitly
+ // marked input fixtures, in the new document before application startup.
+ await page.addInitScript(seed=>{
+  if(!location.pathname.endsWith('/release-qa.html')||sessionStorage.getItem('home-release-reset-fixture')!=='1')return;
+  localStorage.setItem('naotocchi-home-release-qa-v1',JSON.stringify(seed));
+  sessionStorage.removeItem('home-release-reset-fixture');
+ },original);
  await page.goto(base+'/release-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);
  for(const width of [320,375,390,430])for(const region of (process.env.HOME_RELEASE_REGION?[process.env.HOME_RELEASE_REGION]:['home','forest','river_lake','city','countryside','mountain','snow','sea','jungle','desert','deepsea','star_stop','memory_lake']))for(const count of [1,6,28]){
  await page.setViewportSize({width,height:844});await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
@@ -35,12 +42,15 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  // greeting scheduled during preceding screenshots/moves can legitimately
  // block pointerdown. The native matrix separately exercises tap then drag
  // without reloading, including the crowded 320px post-tap position.
- await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);
  // Keep the sampled cast still only during candidate selection + physical
  // event delivery. Slow browser protocol round trips must not let a resident
  // walk into a ground-tap point between sampling and pointerdown.
  const input={engine:engineName,region:inputRegion,count:inputCount,kind,status:'preparing'};inputs.push(input);saveInputs();
  try{
+ await page.evaluate(()=>sessionStorage.setItem('home-release-reset-fixture','1'));
+ await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);
+ input.fixture=await page.evaluate(()=>{const s=HomeReleaseQA.state();return {region:s.regionId,companions:s.companions.length,partner:!!s.partner,reset:sessionStorage.getItem('home-release-reset-fixture')};});saveInputs();
+ assert.deepEqual(input.fixture,{region:original.regionId,companions:original.companions.length,partner:!!original.partner,reset:null},'physical input starts from the original QA save');
  // Fast-forward once with enough margin for a slow protocol round trip;
  // pauseAt rejects a past timestamp. Create the cast only after pausing:
  // syncing an already populated scene retains residents that have wandered
@@ -86,6 +96,7 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>matchMedia('(prefers-reduced-motion: reduce)').matches&&document.getElementById('castStage').dataset.dioramaReduced==='true');await page.waitForTimeout(100);const clock=await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime);assert.ok(Number.isFinite(clock),'real environment clock');await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>HomeReleaseQA.detail().world.animationTime),clock);
  await page.setViewportSize({width:844,height:390});await page.evaluate(()=>HomeReleaseQA.scene('star_stop',28));await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region==='star_stop'&&d.world.loaded&&d.actors.length===28&&d.actors.every(a=>a.safe);},null,{timeout:30000});
  assert.ok(await page.evaluate(()=>HomeReleaseQA.move()));
+ assert.equal(await page.evaluate(()=>sessionStorage.getItem('home-release-reset-fixture')),null,'save resume never resets the fixture');
  const saved=await page.evaluate(()=>HomeReleaseQA.save());await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);const restored=await page.evaluate(()=>HomeReleaseQA.state());assert.equal(restored.regionId,saved.regionId);assert.equal(restored.companions.length,saved.companions.length);assert.equal(restored.partner.id,saved.partner.id);assert.equal(restored.lifetime.money,saved.lifetime.money);
  await page.close();
  }finally{await browser.close();}
