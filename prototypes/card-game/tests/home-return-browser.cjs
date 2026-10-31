@@ -1,6 +1,6 @@
 // CARD GAME のもどる導線。リポジトリ直下を配信した静的サーバーに対して実行する。
-// 開始画面ヘッダーの「なおとっちへもどる」、対戦の準備の「カードゲームトップへもどる」、☰ 対戦メニューの4つの操作
-// （対戦をつづける／対戦の準備へもどる／カードゲームトップへもどる／なおとっちへもどる）、保存と再開、保存失敗時の警告、
+// カードゲームトップ（対戦の準備を含む同じページ）の「なおとっちへもどる」だけが出ること、☰ 対戦メニューの3つの操作
+// （対戦をつづける／カードゲームトップへもどる／なおとっちへもどる）、保存と再開、保存失敗時の警告、
 // ボタンの文字が折り返さず縮みすぎていないことを、
 // CPU対戦・2人対戦の両方、iPhone 縦横の大きさで確かめる。対戦終了後の移動は browser.cjs の最後で確かめる。
 const {chromium,webkit}=require('playwright'),assert=require('node:assert/strict');
@@ -13,7 +13,7 @@ const inView=async(p,sel)=>{await p.locator(sel).scrollIntoViewIfNeeded();const 
 // 「閉じる ×」は全ダイアログ共通の既存の大きさ（12px）なので、行数だけを見る。
 const oneLine=async(p,sel,minFont=14)=>{for(const r of await p.locator(sel).evaluateAll(ns=>ns.filter(n=>n.offsetParent).map(n=>{const g=document.createRange();g.selectNodeContents(n);const tops=new Set([...g.getClientRects()].filter(x=>x.width>0).map(x=>Math.round(x.top)));return {text:n.innerText,lines:tops.size,font:parseFloat(getComputedStyle(n).fontSize)};})))assert.ok(r.lines===1&&r.font>=minFont,`${sel}「${r.text}」 ${r.lines}行 ${r.font}px`);};
 const atHome=async p=>{await p.waitForURL(u=>u.href===HOME||u.href===HOME+'index.html');};
-const MENU=['menu-continue','menu-setup','menu-top','menu-home'];
+const MENU=['menu-continue','menu-top','menu-home'];
 // 手札の並び順・CPUデッキ設定は対戦を始めると正規に書かれるので、比べるのはマイデッキと戦績。
 const PROTECT=['naotocchi-my-decks-v1','naotocchi-card-records-v1','naotocchi-card-records-v1-backup'];
 (async()=>{const b=await (process.env.BROWSER==='webkit'?webkit:chromium).launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});
@@ -32,40 +32,38 @@ for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscape',{
  await p.goto(GAME);await inView(p,'#home-return');assert.equal(await p.locator('#home-return').innerText(),'なおとっちへもどる');
  if(shots)await p.screenshot({path:`${shots}/${name}-welcome.png`});
  await p.locator('#home-return').tap();await atHome(p);
- // 2) 対戦の準備：「カードゲームトップへもどる」で同じページの CARD GAME トップ（メインメニュー）へ。
- await p.goto(GAME);await oneLine(p,'#home-return');await p.locator('#solo-open').tap();await inView(p,'#setup-back');assert.equal(await p.locator('#setup-back').innerText(),'カードゲームトップへもどる');await oneLine(p,'#setup-back');
+ // 2) 対戦の準備（同じページ）：自分自身へ戻るボタンは置かない。もどる操作は「なおとっちへもどる」だけ。
+ await p.goto(GAME);await oneLine(p,'#home-return');await p.locator('#solo-open').tap();
+ assert.equal(await p.locator('#setup-back').count(),0);
+ assert.deepEqual(await p.locator('#welcome button:visible, body>header a:visible').evaluateAll(ns=>ns.map(n=>n.innerText).filter(t=>/もどる/.test(t))),['なおとっちへもどる'],'カードゲームトップの戻る操作は「なおとっちへもどる」だけ');
  if(shots)await p.screenshot({path:`${shots}/${name}-setup.png`});
- await p.locator('#setup-back').tap();assert.ok(await p.evaluate(()=>scrollY)<=1,'トップへ戻る');assert.equal(await focused(),'solo-open');
  const before=await snap();
 
  for(const mode of ['cpu','hotseat']){
   const key=mode==='cpu'?'naotocchi-cpu-match-v1':'naotocchi-hotseat-v1',route=mode==='cpu'?'ひとりであそぶ':'ふたりであそぶ';
   await p.goto(GAME);await startMatch(mode);
   assert.equal(await p.locator('#home-return').isVisible(),false,'対戦中はヘッダーを出さない');
-  // ☰ に4つの操作。「対戦をつづける」で閉じて対戦のまま。
+  // ☰ の「もどる」は3つだけ。「対戦をつづける」で閉じて対戦のまま。
   await openMenu();for(const id of MENU)await inView(p,'#'+id);
-  assert.deepEqual(await p.locator('#menu-leave button').allInnerTexts(),['対戦をつづける','対戦の準備へもどる','カードゲームトップへもどる','なおとっちへもどる']);await oneLine(p,'#menu-leave button');await oneLine(p,'#menu-dialog [data-close]',0);
+  assert.deepEqual(await p.locator('#menu-leave button').allInnerTexts(),['対戦をつづける','カードゲームトップへもどる','なおとっちへもどる']);assert.equal(await p.locator('#menu-setup').count(),0);
+  await oneLine(p,'#menu-leave button');await oneLine(p,'#menu-dialog [data-close]',0);
   if(shots&&mode==='cpu')await p.screenshot({path:`${shots}/${name}-menu.png`});
   await p.locator('#menu-continue').tap();assert.equal(await p.locator('#menu-dialog').isVisible(),false);assert.ok(await p.locator('#game').isVisible(),'対戦画面のまま');
-  // 対戦の準備へ：確認 → つづける（何も変わらない）→ もう一度 → もどる → 「保存した対戦に戻る」で再開。
-  await openMenu();await p.locator('#menu-setup').tap();await p.locator('#menu-home-confirm').waitFor({state:'visible'});
-  assert.match(await p.locator('#menu-home-confirm').innerText(),/対戦の準備へもどりますか[\s\S]*端末に保存しました[\s\S]*「保存した対戦に戻る」/);
-  assert.equal(await focused(),'menu-home-stay','既定のフォーカスは「対戦をつづける」');assert.equal(await p.locator('#menu-home-go').innerText(),'対戦の準備へもどる');await oneLine(p,'#menu-home-confirm button');await inView(p,'#menu-home-go');await inView(p,'#menu-home-stay');
+  // カードゲームトップへ：確認 → つづける（何も変わらない）→ もう一度 → もどる → 「あそびかた」→「保存した対戦に戻る」で再開。
+  await openMenu();await p.locator('#menu-top').tap();await p.locator('#menu-home-confirm').waitFor({state:'visible'});
+  assert.match(await p.locator('#menu-home-confirm').innerText(),new RegExp(`カードゲームトップへもどりますか[\\s\\S]*端末に保存しました[\\s\\S]*「${route}」→「保存した対戦に戻る」`));
+  assert.equal(await focused(),'menu-home-stay','既定のフォーカスは「対戦をつづける」');assert.equal(await p.locator('#menu-home-go').innerText(),'カードゲームトップへもどる');await oneLine(p,'#menu-home-confirm button');await inView(p,'#menu-home-go');await inView(p,'#menu-home-stay');
   if(shots&&mode==='cpu')await p.screenshot({path:`${shots}/${name}-confirm.png`});
-  await p.locator('#menu-home-stay').tap();assert.equal(await p.locator('#menu-home-confirm').isVisible(),false);assert.ok(await p.locator('#menu-leave').isVisible());assert.equal(await focused(),'menu-setup');
-  await p.locator('#menu-home-go').count().then(n=>assert.equal(n,0));
-  await p.locator('#menu-setup').tap();let saved=await p.evaluate(k=>localStorage.getItem(k),key);assert.ok(saved);
+  await p.locator('#menu-home-stay').tap();assert.equal(await p.locator('#menu-home-confirm').isVisible(),false);assert.ok(await p.locator('#menu-leave').isVisible());assert.equal(await focused(),'menu-top');
+  assert.equal(await p.locator('#menu-home-go').count(),0);
+  await p.locator('#menu-top').tap();let saved=await p.evaluate(k=>localStorage.getItem(k),key);assert.ok(saved);
   await p.locator('#menu-home-go').tap();await welcomeShown();
-  assert.equal(await p.locator('#match-mode').inputValue(),mode,'戻った準備は今の対戦のあそびかた');assert.equal(await focused(),'restore','「保存した対戦に戻る」に合わせる');
-  const v=p.viewportSize();for(const sel of ['#restore','#resume-note']){const r=await p.locator(sel).boundingBox();assert.ok(r.y>=0&&r.y+r.height<=v.height,`${sel} がスクロールなしで見える ${JSON.stringify(r)}`);}
-  assert.match(await p.locator('#resume-note').innerText(),new RegExp(`「${route}」の「保存した対戦に戻る」`));
-  if(shots&&mode==='cpu')await p.screenshot({path:`${shots}/${name}-back-to-setup.png`});
-  await resume(key,saved);
-  // カードゲームトップへ：メインメニューへ戻り、「あそびかた」→「保存した対戦に戻る」で再開。
-  await openMenu();await p.locator('#menu-top').tap();assert.match(await p.locator('#menu-home-confirm').innerText(),new RegExp(`カードゲームトップへもどりますか[\\s\\S]*「${route}」→「保存した対戦に戻る」`));assert.equal(await p.locator('#menu-home-go').innerText(),'カードゲームトップへもどる');await oneLine(p,'#menu-home-confirm button');
-  saved=await p.evaluate(k=>localStorage.getItem(k),key);await p.locator('#menu-home-go').tap();await welcomeShown();
   assert.ok(await p.evaluate(()=>scrollY)<=1,'トップの位置へ');assert.equal(await focused(),'solo-open');
-  assert.ok(await p.locator('#resume-note').count());await p.locator(mode==='cpu'?'#solo-open':'#hotseat-open').tap();await resume(key,saved);assert.equal(await p.locator('#resume-note').isVisible(),false,'再開したら案内を消す');
+  assert.equal(await p.locator('#match-mode').inputValue(),mode,'戻った準備は今の対戦のあそびかた');
+  await p.locator(mode==='cpu'?'#solo-open':'#hotseat-open').tap();
+  assert.match(await p.locator('#resume-note').innerText(),new RegExp(`「${route}」の「保存した対戦に戻る」`));
+  if(shots&&mode==='cpu')await p.screenshot({path:`${shots}/${name}-back-to-top-setup.png`});
+  await resume(key,saved);assert.equal(await p.locator('#resume-note').isVisible(),false,'再開したら案内を消す');
   // なおとっちへ：ページを移動し、開き直して再開。
   await openMenu();await p.locator('#menu-home').tap();assert.match(await p.locator('#menu-home-confirm').innerText(),new RegExp(`なおとっちへもどりますか[\\s\\S]*「${route}」→「保存した対戦に戻る」`));
   saved=await p.evaluate(k=>localStorage.getItem(k),key);await p.locator('#menu-home-go').tap();await atHome(p);
@@ -75,7 +73,7 @@ for(const [name,viewport] of [['portrait',{width:390,height:844}],['landscape',{
  // 保存に失敗する端末：どの戻り先でも警告し、既定は「対戦をつづける」。
  await p.goto(GAME);await startMatch('cpu');
  await p.evaluate(()=>{Storage.prototype.setItem=function(){throw new Error('quota');};});
- for(const id of ['menu-setup','menu-top','menu-home']){
+ for(const id of ['menu-top','menu-home']){
   await openMenu();await p.locator('#'+id).tap();
   assert.match(await p.locator('#menu-home-confirm').innerText(),/保存できませんでした/);assert.equal(await focused(),'menu-home-stay');assert.equal(await p.locator('#menu-home-go').innerText(),'保存せずにもどる');await oneLine(p,'#menu-home-confirm button');
   await p.locator('#menu-home-stay').tap();await p.locator('#menu-continue').tap();assert.ok(await p.locator('#game').isVisible());
