@@ -36,18 +36,21 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  // block pointerdown. The native matrix separately exercises tap then drag
  // without reloading, including the crowded 320px post-tap position.
  await page.reload();await page.waitForFunction(()=>window.HomeReleaseQA);
- await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
- await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world.loaded&&d.world.region===r&&d.actors.length===c;},[inputRegion,inputCount]);
- await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';},null,{timeout:15000});
  // Keep the sampled cast still only during candidate selection + physical
  // event delivery. Slow browser protocol round trips must not let a resident
  // walk into a ground-tap point between sampling and pointerdown.
  const input={engine:engineName,region:inputRegion,count:inputCount,kind,status:'preparing'};inputs.push(input);saveInputs();
  try{
  // Fast-forward once with enough margin for a slow protocol round trip;
- // pauseAt rejects a past timestamp. Prepare the healthy scene after pausing.
+ // pauseAt rejects a past timestamp. Create the cast only after pausing:
+ // syncing an already populated scene retains residents that have wandered
+ // during this clock jump and can legitimately close the initial exit route.
  await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+10000));
  await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[inputRegion,inputCount]);
+ await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return d.world.loaded&&d.world.region===r&&d.actors.length===c&&!d.blocked&&d.paused==='false';},[inputRegion,inputCount],{polling:100,timeout:15000});
+ // Image.onload is asynchronous; paint the new canvas/cast before sampling.
+ // runFor leaves the clock paused after these three normal animation frames.
+ await page.clock.runFor(50);
  input.before=await page.evaluate(()=>HomeReleaseQA.detail());input.status='started';saveInputs();
  const t=await page.evaluate(targetFn,kind),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
  input.target=t;input.from=from;input.to=to;input.selectionMs=t.selectionMs;saveInputs();

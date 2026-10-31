@@ -27,7 +27,11 @@ class LoadedImage { constructor() { this.complete = true; this.naturalWidth = 12
 
 // ずかんの 全コマ + なかま 26(canonical)+ こいびと 18 を ぜんいん 住民に する。手がきの 一覧は つかわない
 function makeHarness(opts = {}) {
-  const h = harness({ fullDisplay: true, pinDate: true, clockNow: 1000, imageClass: LoadedImage });
+  // buildRegistry uses dailyKey's local calendar date for companion regions.
+  // Epoch + 1s was Dec 31 in America/Chicago but Jan 1 in UTC/Asia/Tokyo,
+  // selecting different residents and update tiers even with the same RNG seed.
+  const clockNow = new Date(2026, 9, 2, 12).getTime();
+  const h = harness({ fullDisplay: true, pinDate: true, clockNow, imageClass: LoadedImage });
   const s = h.api.state();
   Object.assign(s.lifetime, FIXED_ENV);
   Object.assign(s, { stage: 'growing', isSleeping: false, energy: 100, health: 100, hunger: 80, speciesLine: 'dog', stageIndex: 4, ageTicks: 500, regionId: opts.regionId || 'forest' });
