@@ -183,6 +183,79 @@
    "margin": 12.71,
    "earlyWinBy": 0.024,
    "gameMinutes": 35.6
+  },
+  "main+dup": {
+   "seats": 420,
+   "score": 0.499,
+   "scoreVs": {
+    "main": 0.433,
+    "companion": 0.442,
+    "partner": 0.508,
+    "challenge": 0.767,
+    "growth": 0.392,
+    "item": 0.458,
+    "balance": 0.492
+   },
+   "growth": 66.36,
+   "reach8": 0.0,
+   "reach7plus": 0.648,
+   "maxStage": {
+    "3": 5,
+    "4": 2,
+    "5": 27,
+    "6": 114,
+    "7": 272
+   },
+   "stageAtR5": 4.92,
+   "stageAtEnd": 6.5,
+   "reach8RoundMedian": null,
+   "timeSkips": 2.05,
+   "transforms": 1.27,
+   "challenges": 7.15,
+   "turnsAfter8": 0.0,
+   "passOnlyAfter8": 0.0,
+   "growthPerTurnAfter8": 0.0,
+   "main8Abil": null,
+   "firstBirthRound": 1.5,
+   "margin": -0.64,
+   "earlyWinBy": 0.0,
+   "gameMinutes": 27.2
+  },
+  "balance+67": {
+   "seats": 420,
+   "score": 0.789,
+   "scoreVs": {
+    "main": 0.808,
+    "companion": 0.625,
+    "partner": 0.892,
+    "challenge": 0.908,
+    "growth": 0.683,
+    "item": 0.783,
+    "balance": 0.825
+   },
+   "growth": 81.38,
+   "reach8": 0.0,
+   "reach7plus": 0.874,
+   "maxStage": {
+    "4": 1,
+    "5": 8,
+    "6": 44,
+    "7": 367
+   },
+   "stageAtR5": 5.81,
+   "stageAtEnd": 6.85,
+   "reach8RoundMedian": null,
+   "timeSkips": 2.49,
+   "transforms": 0.0,
+   "challenges": 6.77,
+   "turnsAfter8": 0.0,
+   "passOnlyAfter8": 0.0,
+   "growthPerTurnAfter8": 0.0,
+   "main8Abil": null,
+   "firstBirthRound": 2.11,
+   "margin": 16.67,
+   "earlyWinBy": 0.026,
+   "gameMinutes": 35.6
   }
  },
  "R12": {
@@ -287,6 +360,42 @@
     0.332
    ],
    "sameResult": 0.592
+  },
+  "main+dup vs main": {
+   "pairs": 420,
+   "scoreDiff": -0.042,
+   "ci95": [
+    -0.092,
+    0.011
+   ],
+   "sameResult": 0.743
+  },
+  "main+8lite vs main+dup": {
+   "pairs": 420,
+   "scoreDiff": -0.049,
+   "ci95": [
+    -0.087,
+    -0.012
+   ],
+   "sameResult": 0.831
+  },
+  "balance+67 vs balance": {
+   "pairs": 360,
+   "scoreDiff": 0.315,
+   "ci95": [
+    0.254,
+    0.376
+   ],
+   "sameResult": 0.575
+  },
+  "balance+8 vs balance+67": {
+   "pairs": 420,
+   "scoreDiff": -0.05,
+   "ci95": [
+    -0.101,
+    -0.004
+   ],
+   "sameResult": 0.755
   }
  },
  "MAINofficial": {

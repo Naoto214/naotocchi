@@ -23,12 +23,14 @@ def seats(rs, deck, variant='R10'):
                 out[(base, r['first'], a if r['seat'][other(a)]['deck'] == deck else '')] = (r, a)
     return out
 
-E8, C8, MAIN = rows('E8'), rows('C8'), rows('MAIN')
+E8, C8, C8b, MAIN = rows('E8'), rows('C8'), rows('C8b'), rows('MAIN')
 # C8 rows carry the E8 seed label in 'base' through the manifest; re-attach it from the manifest to be explicit.
 cm = {m['match']: m['base'] for m in json.load(open('runs/C8-manifest.json'))['matches']}
 for r in C8: r['base'] = cm[r['match']]
 em = {m['match']: m['base'] for m in json.load(open('runs/E8-manifest.json'))['matches']}
 for r in E8: r['base'] = em[r['match']]
+bm = {m['match']: m['base'] for m in json.load(open('runs/C8b-manifest.json'))['matches']}
+for r in C8b: r['base'] = bm[r['match']]
 
 def profile(pairs, F=10):
     xs = [(r, a, r['seat'][a]) for r, a in pairs]
@@ -65,11 +67,15 @@ def paired(ctrl, var, n=2000, seed=20261030):
 
 out = {}
 ctrl = {'main': seats(C8, 'main'), 'balance': seats(C8, 'balance')}
-var = {'main+8': seats(E8, 'main+8'), 'main+8lite': seats(C8, 'main+8lite'), 'balance+8': seats(E8, 'balance+8')}
+var = {'main+8': seats(E8, 'main+8'), 'main+8lite': seats(C8, 'main+8lite'), 'balance+8': seats(E8, 'balance+8'),
+       'main+dup': seats(C8b, 'main+dup'), 'balance+67': seats(C8b, 'balance+67')}
 out['R10'] = {k: profile(v.values()) for k, v in {**ctrl, **var}.items()}
 out['R12'] = {k: profile(seats(E8, k, 'R12').values(), 12) for k in ('main+8', 'balance+8')}
 out['pairedR10'] = {'main+8 vs main': paired(ctrl['main'], var['main+8']), 'main+8lite vs main': paired(ctrl['main'], var['main+8lite']),
-                    'balance+8 vs balance': paired(ctrl['balance'], var['balance+8'])}
+                    'balance+8 vs balance': paired(ctrl['balance'], var['balance+8']),
+                    # Separating "cards removed / high stages added" from "⑧ added" (same removals, no ⑧)
+                    'main+dup vs main': paired(ctrl['main'], var['main+dup']), 'main+8lite vs main+dup': paired(var['main+dup'], var['main+8lite']),
+                    'balance+67 vs balance': paired(ctrl['balance'], var['balance+67']), 'balance+8 vs balance+67': paired(var['balance+67'], var['balance+8'])}
 # Official decks in MAIN (R10 and R12): highest stage per deck and how many main cards of each stage the list holds
 dk = {d['id'] if 'id' in d else k: d for k, d in json.load(open('runs/MAIN-manifest.json'))['decks'].items()}
 out['MAINofficial'] = {v: {d: profile([(r, a) for r in MAIN if r['variant'] == v for a in 'AB' if r['seat'][a]['deck'] == d], 10 if v == 'R10' else 12) | {} for d in OFF} for v in ('R10', 'R12')}
