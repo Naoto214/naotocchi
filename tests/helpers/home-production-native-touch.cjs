@@ -47,7 +47,7 @@ exports.actors=async(page,region,count)=>{
   try{for(const kind of ['tap','drag']){
     const record={kind,status:'preparing'};records.push(record);
     try{
-    await page.evaluate(()=>{window.__homeNativeTrace.length=0;});
+    await page.evaluate(()=>{window.__homeNativeTrace.length=0;window.HomeReleaseInputTrace.length=0;});
     await page.waitForFunction(()=>{const a=HomeReleaseQA.detail().actors[0];return !a.target||a.source==='ambient';},null,{timeout:15000});
     await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
     await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world.region===r&&d.world.loaded&&d.actors.length===c;},[region,count]);
@@ -77,7 +77,7 @@ exports.actors=async(page,region,count)=>{
     record.status='passed';
     }catch(error){record.status='failed';record.error=error.message;throw error;}
     finally{
-      record.observation=await page.evaluate(()=>({detail:HomeReleaseQA.detail(),trace:window.__homeNativeTrace,
+      record.observation=await page.evaluate(()=>({detail:HomeReleaseQA.detail(),trace:window.__homeNativeTrace,inputTrace:window.HomeReleaseInputTrace,
         frame:document.querySelector('.screen-frame').getBoundingClientRect().toJSON(),bounds:HomeReleaseQA.inspect().bounds})).catch(()=>null);
       save();
     }
