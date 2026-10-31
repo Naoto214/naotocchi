@@ -1,0 +1,862 @@
+{
+ "source": "prototypes/card-game/*.mjs",
+ "sourceCommit": "7c1f18c77b902d06159157899c36104e5d8c4a8d",
+ "sourceSha256": {
+  "ability-copy.mjs": "00f51aabdd6a8a2195fbfed7da52a33914b62897919041874b6f56807e47526b",
+  "advanced-effects.mjs": "b9b844ebae604993e5c93900a9ccc41a24af113b6a816e2a1367255e26f378a5",
+  "advanced-equipment.mjs": "cedaf38d64c5f4c46b24551d6d385c95e30167b963151248548287c34036cf15",
+  "advanced-inspection.mjs": "5918ae6f58150294be9336ba64dc785f6e88181c84cf6957facc977f7000166a",
+  "app.mjs": "3c9810053ebf05c4d1e3fa4780db66bacb0536c491207045552394ffaff2e7db",
+  "auto-capabilities.mjs": "ca806bedbe86e01cbede12829726084ac325ebdf07efbdbf53b17671df7fbaf3",
+  "auto-progress.mjs": "06d9dcd8c29a274c919546c966ef026c445e93d7e3da82f499136cb458dcbc17",
+  "cards.mjs": "d1cb610608860d83d69a8577ac624b9d9248f3cf1cf6b5535337a5d48276563a",
+  "collection-ui.mjs": "bbcd80f61b08b1ede1f0e00a34ae0d1bc9fa7e10eef7590c4fd26371f3b9c1d1",
+  "collection.mjs": "7a3d4bb37322efa104fc693b720d9787ca095239084df2676892b5be9ae49263",
+  "costs.mjs": "f500b1b421f74ee6a37aa7b2864a198b87e5ddd94671668f61ac3df6da82f1d7",
+  "cpu-decks.mjs": "2a1bc2f06138695f0ceeec5f334e52629acae46f9f92a4aadaa85bde018d13d1",
+  "cpu-observation.mjs": "0d599bdabcff86aaf81352ed6bd34b16290e31f4cc57b789662cdc86d37935f1",
+  "cpu-policy.mjs": "aae0b594975eba444eec5b5c7059dc4dcdd92de10e3b27317f6cf9b74710cee1",
+  "cpu-scheduler.mjs": "082917562bf83be16dfd48953b6435bdeea1ce9e58d1e8d5b01844e0cbe827ac",
+  "cpu-session.mjs": "d203ee3b483cb6fbda7fd9d632611bb13bf78d17f6d60e623a663447ce480f1a",
+  "effects.mjs": "e312e04b581cb6234ff2ea59e8342036c6fe21019ff9b948169e02f7ce036a1e",
+  "engine.mjs": "4acbe0d525d68425e04c859f285d69d3b144abb33c3067a36ab4d5f59dc8a6cc",
+  "equipment-rules.mjs": "d81eb4bb47b72dc6a59ae19cc1161f62000876624828f32a5e553fa0093619af",
+  "event-effects.mjs": "572ecff5958cf7f23da938abc699f9b42002b4b84e767b20997b20be30005f27",
+  "full-catalog.mjs": "82092ba76ccddaf65f173e4ee56d691217b9619f7c57c4f0f09fc64d5096bd2e",
+  "late-conditions.mjs": "e5e154df1d6b2280c67984ac992a9becbd5f17e635a350ad4b99ae55ba498de0",
+  "learning-ui.mjs": "2357291aeee686d33bac65dbaa8dfee88e47820f25116f406a96e2102a2b8ffe",
+  "legacy-engine.mjs": "8d78d0d9936caeeaf4cd819802e881c62a9c23c4e023111b73f4d9342dbd32bf",
+  "main-rules.mjs": "fdea46657b7a7d537e67d0194ee6b860197e041c87d780bd551c45a3cd99a8f6",
+  "my-decks-ui.mjs": "4edddc4738fb8e88cfa9c36d840b2024e3da29024e20f0ac402bdece8c4813f1",
+  "my-decks.mjs": "3b2a893e443171db4c4177dc475009a3e720a7d153a4b7ceb507e81c2c40e77f",
+  "records-match.mjs": "842a5248ec3bedc9bdf448acf956437af8e96540b7c4c3e36a87d3392d6b4f41",
+  "records-ui.mjs": "cc871a5c5b5dc64ebec4b10859eacffc6937b47aad226543c50e4c0a8dd628fe",
+  "records.mjs": "c49a09a224630902bbcbe9e3a7b45e55c65a6c4f206bfd0ebd706f4d7e896dc3",
+  "remaining-rules.mjs": "52efeb513e032a34667eb45173ec3efc80672ae4bd704ceb68d64ad642d9e326",
+  "replacements.mjs": "63b5313fa654c1a95c4e766dc3585ef88deb29ffd1ad91d71c7a0ebd27af75f6",
+  "rulebook-content.mjs": "b04e2ea0594df99ab1c9b7375980920613628df75fae6b34e32f3a398ca4b451",
+  "rulebook-sources.mjs": "34e35915bd6f9075367b56d3c1b7a4506c9949c7f7b426a4b72a275e3082abc7",
+  "rules.mjs": "d6444da68be0e090ebac3bc8c53525b4cdb6101eb284a951159278c61e6ffe00",
+  "selection.mjs": "a0b1a39293701945d114dae0461f0c5b0e3773ce9bbd6022e261040e6478430c",
+  "tutorial.mjs": "6d3d437cd52b0d48b4b427f1663d45e6d6d03d08183d04dc65de2680d15a9d48",
+  "ui-art-loading.mjs": "21563ff97627c292e02b890cb52f60764151207101e375493f202ad2c6b7dfe8",
+  "ui-art.mjs": "b6a9eac88bddfa41fe8732f6c94768f437f6e3acac78b380de616f344149cbfe",
+  "ui-context.mjs": "41e286f4b44e8852891e5f1a565a0673d34f7fdff4752da4f27e7e165a8f79aa",
+  "ui-drag.mjs": "16fe32677d3948856287207e07095b998a7989111d70a3bcb3fc25c8f79dd312",
+  "ui-hand.mjs": "d1de129db70925dbb1893114e737a6995cf19a6b79dae0d298bcfd1e9be7a756",
+  "ui-presentation.mjs": "06e6dc11effa39e9ac6f28fb514bb42bfdbc6da188bfb7205ff74be3a78ee6f7",
+  "ui-render.mjs": "f7e8891a8a5eb02d2d29803ee3d5944654d3164604e114b0b7487d96e6e17b4b",
+  "ui-result-feedback.mjs": "ad5e6f92f82b1cbf774a1b82dcb2945059c60fb3df21b2b89785c8f621e7cf66",
+  "ui-results.mjs": "f22d60e5e07297ef70384513def336b094ec59ecdd7b6969d6fe67d107b99170",
+  "ui-session.mjs": "a4a9c6bd613a7edcd7f15da3a1f3c77899c0d462ea0b5dcec4a5582f32ae976d",
+  "ui-viewport.mjs": "af1b7f0746f9e57a9ae1afac8ad140062d91dfdb06e8a1472a90cdbcffd49269"
+ },
+ "variants": {
+  "L-A0": {
+   "note": "A0 現行：公式デッキ・公式ルール（X札なし。等価性確認用）",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "7379d7dbd1081e08bf32309c292bc9817caf79d802fcfe63fa91ba72fb7b6382",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-X0": {
+   "note": "X0 対照：2枚を「効果なしの対照札」に交換（ルールは現行）",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "7379d7dbd1081e08bf32309c292bc9817caf79d802fcfe63fa91ba72fb7b6382",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A1": {
+   "ext": {
+    "method": "quick",
+    "cost": 2,
+    "timing": "final",
+    "perMatch": null
+   },
+   "note": "A1 人生延長：すぐつかう・時2・最終ラウンドのみ",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "7379d7dbd1081e08bf32309c292bc9817caf79d802fcfe63fa91ba72fb7b6382",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A1a": {
+   "ext": {
+    "method": "quick",
+    "cost": 2,
+    "timing": "any",
+    "perMatch": null
+   },
+   "note": "A1a 人生延長：すぐつかう・時2・いつでも",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "c4afad2338173731e52c5ac3dce673b71f00dab8fa8630bb187eba53a3739b11",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "eeaf97f6fba977d4a5ddfa0220d8b4a22d64ef81f2c52a67e584b242a9765497",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A1t": {
+   "ext": {
+    "method": "trap",
+    "cost": 2,
+    "timing": "final",
+    "perMatch": null
+   },
+   "note": "A1t 人生延長：しかける・時2・最終ラウンドの自分のターン終了時",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "自分のターン終了時、現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "しかける"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "8fbedbee1a6aeece14a306a0086075c5071934014319f5412c2ac97ebf1b3a90",
+    "rules.mjs": "229d545aa34f91cec349710d0d0de26d089f5d7a6296d04585053e4298602741"
+   }
+  },
+  "L-A2": {
+   "raise": {
+    "cost": 2,
+    "scope": "shared"
+   },
+   "note": "A2 そだち上限解放：共通・時2・いつでも",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "7379d7dbd1081e08bf32309c292bc9817caf79d802fcfe63fa91ba72fb7b6382",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A2s": {
+   "raise": {
+    "cost": 2,
+    "scope": "self"
+   },
+   "note": "A2s そだち上限解放：自分だけ・時2・いつでも",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "自分のそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "4b38c09b68dbb619a06027079b52c113c5bbe18a6d516569a20816f8ef7cb9d0",
+    "effects.mjs": "77c732e50c0be0fd8ebf203aa4f5dd234f8142e7d47148828aecece801070463",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "57c098e540e019736d24325f61306a4ae62e127801f27ba0e92f7918b31896d7",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A3": {
+   "ext": {
+    "method": "quick",
+    "cost": 2,
+    "timing": "final",
+    "perMatch": null
+   },
+   "raise": {
+    "cost": 2,
+    "scope": "shared"
+   },
+   "note": "A3 人生延長1枚＋上限解放1枚（独立カード）",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "7379d7dbd1081e08bf32309c292bc9817caf79d802fcfe63fa91ba72fb7b6382",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A4": {
+   "both": {
+    "cost": 3,
+    "timing": "final"
+   },
+   "note": "A4 延長＋上限解放を1枚で：すぐつかう・時3・最終ラウンドのみ",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "7379d7dbd1081e08bf32309c292bc9817caf79d802fcfe63fa91ba72fb7b6382",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A1c4": {
+   "ext": {
+    "method": "quick",
+    "cost": 4,
+    "timing": "final",
+    "perMatch": null
+   },
+   "note": "感度：A1 の時コスト4",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 4,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "2a053ba39564e01f97b9decff1ecde05bfdab2392569fc3e1aa4f3fb04dc1a66",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A1n1": {
+   "ext": {
+    "method": "quick",
+    "cost": 2,
+    "timing": "final",
+    "perMatch": null
+   },
+   "note": "感度：A1 を1枚だけ（残り1枠は対照札）",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "7379d7dbd1081e08bf32309c292bc9817caf79d802fcfe63fa91ba72fb7b6382",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A1aL": {
+   "ext": {
+    "method": "quick",
+    "cost": 2,
+    "timing": "any",
+    "perMatch": 1
+   },
+   "note": "感度：A1a に「各プレイヤー1試合1回」",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。この名前のカードは各プレイヤー1試合1回までしか発動できない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "19240d4b7451305aa30fd2408b87f31e18375672ce67a5a1ba089588ba56a050",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "3a6a8cc2e245e05121ef05e13bdedaabd4251032de7bbca0493320d2edd8f007",
+    "rules.mjs": "7b776c50b69083f80380fd5060cd550ccbbca721576acde437b6d5b405d1afb3"
+   }
+  },
+  "L-A1t1": {
+   "ext": {
+    "method": "trap",
+    "cost": 2,
+    "timing": "final",
+    "perMatch": null
+   },
+   "note": "追加：A1t（しかける）を1枚だけ（残り1枠は対照札）",
+   "cards": {
+    "X-blank": {
+     "id": "X-blank",
+     "name": "対照札（効果なし・仮）",
+     "type": "event",
+     "cost": 1,
+     "rare": false,
+     "text": "（実験の対照用。プレイできない。）",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-extend": {
+     "id": "X-life-extend",
+     "name": "人生延長（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "自分のターン終了時、現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばす（両プレイヤー共通・最大R12）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "しかける"
+    },
+    "X-cap-raise": {
+     "id": "X-cap-raise",
+     "name": "そだち上限解放（仮）",
+     "type": "event",
+     "cost": 2,
+     "rare": false,
+     "text": "両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大120）。現在のそだちは変わらない。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    },
+    "X-life-both": {
+     "id": "X-life-both",
+     "name": "人生延長・上限解放（仮）",
+     "type": "event",
+     "cost": 3,
+     "rare": false,
+     "text": "現在のラウンドが最終ラウンドの場合に発動できる。最終ラウンドを1つ後ろへのばし、両プレイヤーのそだちの上限と維持勝利の値を10上げる（最大R12・120）。",
+     "source": "variable-life-20261031（実験専用の仮カード）",
+     "source_sha256": "experimental",
+     "method": "すぐつかう"
+    }
+   },
+   "patchedSha256": {
+    "cpu-observation.mjs": "1a621e00cb226d918857d3ef7b5f61542ea0588415594d5b7b5f02f714a83265",
+    "cpu-policy.mjs": "e4433a8c18e092421bf26770ca08efbc4c3481cbb541edd2d7578deaf00511bd",
+    "effects.mjs": "9d58e9557b5db2345a3f983d6c6789970ebdd5626ef4df53d24c63b9bcd04380",
+    "engine.mjs": "142559ecb6909294ae844fab33ee40cbe10ea8d53797402a093dd95250cfeb07",
+    "full-catalog.mjs": "8fbedbee1a6aeece14a306a0086075c5071934014319f5412c2ac97ebf1b3a90",
+    "rules.mjs": "229d545aa34f91cec349710d0d0de26d089f5d7a6296d04585053e4298602741"
+   }
+  }
+ },
+ "officialUnchanged": true
+}
