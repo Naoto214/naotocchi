@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>なおとっち CARD GAME</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="collection.css"><link rel="stylesheet" href="learning.css"><link rel="stylesheet" href="records.css"></head>
-<body><header><h1>なおとっち CARD GAME</h1></header>
+<body><header><h1>なおとっち CARD GAME</h1><a id="home-return" class="home-return" href="../../">なおとっちへもどる</a></header>
 <main><section id="welcome">
 <nav class="main-menu" aria-label="メインメニュー">
 <button id="solo-open" type="button" class="primary">ひとりであそぶ</button><button id="hotseat-open" type="button">ふたりであそぶ</button>
@@ -21,7 +21,7 @@
 <div id="catalog-list"></div><details><summary id="deck-contents-count">投入中のカード</summary><div id="deck-list"></div></details>
 <details class="deck-tools"><summary>読み込み・書き出し・リセット</summary><div class="deck-toolbar"><button id="deck-export">マイデッキをすべて書き出す</button><button id="deck-legacy-export">A・Bを旧形式で書き出す</button><label>読み込み方法<select id="deck-import-mode"><option value="append">既存を残して追加</option><option value="replace">バックアップから全件復元（確認あり）</option></select></label><label class="file">デッキJSONを読み込む<input id="deck-import" type="file" accept="application/json,.json"></label><button id="deck-default">標準デッキに戻す</button><button id="deck-clear">空にする</button></div><p>読み込みは既存デッキを残して追加します。別URLへ移すときはJSONを書き出し、新しいURLで読み込んでください。</p></details></details><p id="coverage" class="welcome-collection-count"></p></section>
 <div id="game" hidden></div><p id="status" role="status" aria-live="polite"></p>
-<dialog id="menu-dialog" aria-label="保存と受け渡し"><header class="detail-toolbar"><h2>対戦メニュー</h2><button type="button" data-close>閉じる ×</button></header><nav class="utility-nav"><button id="menu-rulebook-open" type="button">ルールブック</button><button id="menu-tutorial-open" type="button">あそびかたを覚える</button><button id="menu-collection-open" type="button">カードコレクション</button><button id="hide" hidden>手札を隠して渡す</button><button id="export" hidden>保存ファイルを書き出す</button><label class="file">保存ファイルを読み込む<input id="import" type="file" accept="application/json,.json"></label></nav></dialog>
+<dialog id="menu-dialog" aria-label="保存と受け渡し"><header class="detail-toolbar"><h2>対戦メニュー</h2><button type="button" data-close>閉じる ×</button></header><nav class="utility-nav"><button id="menu-rulebook-open" type="button">ルールブック</button><button id="menu-tutorial-open" type="button">あそびかたを覚える</button><button id="menu-collection-open" type="button">カードコレクション</button><button id="hide" hidden>手札を隠して渡す</button><button id="export" hidden>保存ファイルを書き出す</button><label class="file">保存ファイルを読み込む<input id="import" type="file" accept="application/json,.json"></label><button id="menu-home" type="button" class="home-return">なおとっちへもどる</button></nav><section id="menu-home-confirm" class="menu-home-confirm" hidden aria-live="polite"></section></dialog>
 <p class="foot">横画面でも遊べます。</p></main>
 <div id="curtain" hidden role="dialog" aria-modal="true" aria-labelledby="handoff-title"><section><small>HANDOFF</small><h2 id="handoff-title"></h2><p>前のプレイヤーは画面から目を離してください。確認するまで手札は表示されません。</p><button id="reveal">準備OK</button></section></div>
 <dialog id="card-dialog" aria-label="カード詳細"></dialog><dialog id="confirm-dialog" aria-label="行動の確認"></dialog>

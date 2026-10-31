@@ -219,6 +219,25 @@ $('new').onclick=()=>{try{const seeds=crypto.getRandomValues(new Uint32Array(3))
 $('restore').onclick=()=>{try{const raw=localStorage.getItem($('match-mode').value==='cpu'?CPU_KEY:KEY);if(!raw)throw Error('保存された対戦がありません');cpu.cancel();{const loaded=decodeMatch(raw);session=loaded.session;matchMetadata=loaded.metadata;recordedId=null;}bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();message(matchMetadata?'保存を検証して復帰しました':'保存を検証して復帰しました（旧形式のため戦績には記録しません）');}catch(e){message(`復帰できません：${e.message}`);}};
 $('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
 $('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([saveMatch()],{type:'application/json'})),a=el('a');a.href=url;a.download=session.mode==='cpu'?'naotocchi-cpu.json':'naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+// なおとっち（育成画面）へもどる。対戦中は先にこの端末へ保存し、保存できたか・続きの遊び方を確認してから移動する。
+const HOME_URL=$('home-return').href;// 戻り先は開始画面ヘッダーのリンクと同じ（index.html の href が唯一の定義）
+function homeConfirmReset(){$('menu-home-confirm').hidden=true;$('menu-home-confirm').replaceChildren();document.querySelector('#menu-dialog .utility-nav').hidden=false;}
+function leaveForHome(){cpu.cancel();location.assign(HOME_URL);}
+$('menu-home').onclick=()=>{
+ if(!session.active||session.finished){leaveForHome();return;}
+ cpu.cancel();
+ const key=session.mode==='cpu'?CPU_KEY:KEY;let saved=false;
+ try{const data=saveMatch();localStorage.setItem(key,data);saved=localStorage.getItem(key)===data;}catch{saved=false;}
+ const route=session.mode==='cpu'?'ひとりであそぶ':'ふたりであそぶ',box=$('menu-home-confirm');
+ box.innerHTML=saved
+  ?`<h3>なおとっちへもどりますか？</h3><p>この対戦は端末に保存しました。あとで CARD GAME の「${route}」→「保存した対戦に戻る」で続きから遊べます。</p><div class="menu-home-actions"><button type="button" id="menu-home-go" class="primary">なおとっちへもどる</button><button type="button" id="menu-home-stay">対戦をつづける</button></div>`
+  :`<h3>保存できませんでした</h3><p class="menu-home-warn">いまもどると、この対戦の続きは遊べません。先に「対戦をつづける」→「保存ファイルを書き出す」で保存してください。</p><div class="menu-home-actions"><button type="button" id="menu-home-stay" class="primary">対戦をつづける</button><button type="button" id="menu-home-go">保存せずにもどる</button></div>`;
+ document.querySelector('#menu-dialog .utility-nav').hidden=true;box.hidden=false;
+ $('menu-home-go').onclick=leaveForHome;
+ $('menu-home-stay').onclick=()=>{homeConfirmReset();$('menu-home').focus();};
+ $('menu-home-stay').focus();
+};
+$('menu-dialog').addEventListener('close',homeConfirmReset);
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=decodeMatch(await file.text());cpu.cancel();session=restored.session;matchMetadata=restored.metadata;recordedId=null;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
 window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
