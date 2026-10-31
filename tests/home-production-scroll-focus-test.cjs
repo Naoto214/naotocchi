@@ -25,6 +25,14 @@ test('a delayed scroll event still preserves the latest viewport position',()=>{
  const h=boot();h.frame.scrollTop=279;h.flush();h.listeners.scroll();
  assert.equal(h.frame.scrollTop,279);assert.equal(h.properties['--home-center-scroll'],'279px');
 });
+test('scroll after entry focus paints even when WebKit delays the scroll event',()=>{
+ const h=boot();h.flush();
+ h.frame.scrollTop=279;h.flush();
+ assert.equal(h.frame.scrollTop,279,'background synchronization must not refocus the viewport');
+ assert.equal(h.properties['--home-center-scroll'],'279px');
+ h.frame.scrollTop=472;h.flush();
+ assert.equal(h.properties['--home-center-scroll'],'472px');
+});
 test('a later real resize may reveal the actor again after an interrupted focus',()=>{
  const h=boot();h.frame.scrollTop=472;h.flush();h.frame.clientHeight=152;h.resize();h.flush();
  assert.equal(h.frame.scrollTop,181);assert.equal(h.properties['--home-center-scroll'],'181px');

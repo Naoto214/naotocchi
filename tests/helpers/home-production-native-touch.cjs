@@ -55,19 +55,8 @@ exports.actors=async(page,region,count)=>{
       const frame=document.querySelector('.screen-frame'),stage=document.getElementById('castStage'),a=HomeReleaseQA.detail().actors[0];
       frame.scrollTop+=stage.getBoundingClientRect().top+a.y-a.h*.4-frame.getBoundingClientRect().top-frame.clientHeight/2;
     });
-    const target=await page.evaluate(()=>{
-      const q=HomeReleaseQA,d=q.detail(),a=d.actors[0],b=q.inspect().bounds[0],nav=q.inspect().scene.navigation,s=d.slots.castStage,f=document.querySelector('.screen-frame').getBoundingClientRect();
-      const free=p=>d.actors.slice(1).every(c=>Math.hypot((p.x-c.x)/((a.w+c.w)*.5+10),(p.y-c.y)/((a.h+c.h)*.38+10))>=1)&&q.inspect().scene.visible(p,a);
-      const from={x:s.x+a.x,y:s.y+a.y-a.h*.4};
-      if(from.y<f.top||from.y>f.bottom)throw Error('Protagonist cannot be reached by touch');
-      for(const distance of [45,12])for(let y=b.top;y<b.bottom;y+=4)for(let x=b.left;x<b.right;x+=4){
-        const p={x,y},to={x:s.x+x,y:s.y+y};
-        if(to.y<f.top+5||to.y>f.bottom-5||to.x<f.left+5||to.x>f.right-5||Math.hypot(x-a.x,y-a.y)<distance||!free(p)||!nav.valid(p))continue;
-        if(d.actors.some(c=>Math.abs(x-c.x)<=Math.max(22,c.w/2)&&y>=c.y-Math.max(44,c.h)&&y<=c.y+10))continue;
-        if(nav.route(a,p,b,free).length)return {a,from,to};
-      }
-      throw Error('No visible grounded destination for native touch');
-    });
+    await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false';},null,{timeout:15000});
+    const target=await page.evaluate(require('./home-production-pointer-target.cjs'));
     record.target=target;record.status='input';
     if(kind==='tap'){
       await page.touchscreen.tap(target.from.x,target.from.y);

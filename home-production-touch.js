@@ -3,9 +3,18 @@
   const device=document.getElementById('device'),frame=device?.querySelector('.screen-frame');
   if(!device||!frame)return;
   const terrain=()=>document.body.dataset.homeProduction==='true'&&document.body.dataset.homeTerrain==='true'&&device.dataset.homeFixed==='true';
+  let paintedScroll='',paintedOverflow='',paintScheduled=false;
   function paintScroll(){
-    document.body.style.setProperty('--home-center-scroll',(terrain()?frame.scrollTop:0)+'px');
-    document.body.style.setProperty('--home-center-overflow',(terrain()?Math.max(0,frame.scrollHeight-frame.clientHeight):0)+'px');
+    const scroll=(terrain()?frame.scrollTop:0)+'px',overflow=(terrain()?Math.max(0,frame.scrollHeight-frame.clientHeight):0)+'px';
+    if(scroll!==paintedScroll){paintedScroll=scroll;document.body.style.setProperty('--home-center-scroll',scroll);}
+    if(overflow!==paintedOverflow){paintedOverflow=overflow;document.body.style.setProperty('--home-center-overflow',overflow);}
+  }
+  // WebKit may update scrollTop before delivering its scroll event. Read the
+  // presentation offset at paint time too; never write the viewport or model.
+  function queueScrollPaint(){
+    if(paintScheduled||!terrain()||document.visibilityState==='hidden')return;
+    paintScheduled=true;
+    requestAnimationFrame(()=>{paintScheduled=false;paintScroll();queueScrollPaint();});
   }
   frame.addEventListener('scroll',paintScroll,{passive:true});
   // A short landscape viewport may initially show only the information lanes.
@@ -40,7 +49,8 @@
     observer.observe(frame);observer.observe(document.getElementById('screenNormal'));
   }
   let wasTerrain=terrain();
-  function modeChanged(){const active=terrain();if(active!==wasTerrain){wasTerrain=active;focusPending=true;}if(active)revealOnResize();}
+  function modeChanged(){const active=terrain();if(active!==wasTerrain){wasTerrain=active;focusPending=true;}if(active){revealOnResize();queueScrollPaint();}}
+  document.addEventListener('visibilitychange',queueScrollPaint);
   new MutationObserver(modeChanged).observe(device,{attributes:true,attributeFilter:['data-home-fixed']});
   new MutationObserver(modeChanged).observe(document.body,{attributes:true,attributeFilter:['data-home-terrain']});
   new MutationObserver(revealOnResize).observe(document.getElementById('castStage'),{subtree:true,childList:true,attributes:true,attributeFilter:['data-diorama-actor']});
@@ -74,5 +84,5 @@
     if(event.cancelable)event.preventDefault();
   },{passive:false,capture:true});
   for(const name of ['touchend','touchcancel'])document.addEventListener(name,()=>{gesture=null;},{passive:true,capture:true});
-  paintScroll();
+  paintScroll();queueScrollPaint();
 })();

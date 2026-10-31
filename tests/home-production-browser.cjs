@@ -22,7 +22,7 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  }
  await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'no-preference'});
  const inputRegion=process.env.HOME_RELEASE_REGION||'river_lake';
- const targetFn=require('./helpers/home-ground-target.cjs');
+ const targetFn=require('./helpers/home-production-pointer-target.cjs');
  // Matrix moves and physical inputs share a live model. Finish the preceding
  // manual move before changing the cast or measuring the next pointer origin.
  const settled=()=>page.waitForFunction(()=>{const a=HomeReleaseQA.detail().actors[0];return !a.target||a.source==='ambient';},null,{timeout:15000});
@@ -35,7 +35,7 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  const input={engine:engineName,region:inputRegion,count:inputCount,kind,before:await page.evaluate(()=>HomeReleaseQA.detail()),status:'started'};inputs.push(input);saveInputs();
  try{
  const t=await page.evaluate(targetFn),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
- input.from=from;input.to=to;saveInputs();
+ input.from=from;input.to=to;input.selectionMs=t.selectionMs;saveInputs();
  if(kind==='tap'){await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');await page.mouse.click(to.x,to.y);}
  else{await page.mouse.move(from.x,from.y);await page.mouse.down();await page.mouse.move(to.x,to.y,{steps:8});await page.mouse.up();}
  await page.waitForFunction(({a,source})=>{const p=HomeReleaseQA.detail().actors[0];return p.source===source&&Math.hypot(p.x-a.x,p.y-a.y)>5;},{a:t.a,source:kind==='tap'?'ground':'drag'},{timeout:15000});

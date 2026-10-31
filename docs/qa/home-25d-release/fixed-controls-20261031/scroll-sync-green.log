@@ -1,0 +1,14 @@
+✔ entry brings the existing actor into the central viewport (6.994334ms)
+✔ a pending entry focus cannot undo a later scroll to the meters (0.779562ms)
+✔ a delayed scroll event still preserves the latest viewport position (0.677098ms)
+✔ scroll after entry focus paints even when WebKit delays the scroll event (0.665951ms)
+✔ a later real resize may reveal the actor again after an interrupted focus (0.792171ms)
+✔ resize keeps an active question reachable using the existing speech slot (4.828349ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 229.239695

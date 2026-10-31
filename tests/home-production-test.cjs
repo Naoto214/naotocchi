@@ -1,4 +1,14 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
+const cp=require('node:child_process');
+// A PR merge checkout includes newer main work (for example CARD GAME).
+// Compare its first parent, the actual tested main, rather than attributing
+// those independent commits to this home change. Local branch checks retain
+// the reviewed integration baseline.
+const integratedCheckout=(process.env.GITHUB_EVENT_NAME==='pull_request'&&/^refs\/pull\/\d+\/merge$/.test(process.env.GITHUB_REF||''))
+ || (process.env.GITHUB_EVENT_NAME==='push'&&process.env.GITHUB_REF==='refs/heads/main');
+const testedMain=integratedCheckout
+ ? cp.execFileSync('git',['rev-parse','HEAD^1'],{encoding:'utf8'}).trim()
+ : '851cf09a80c7ed41ba7293888084272917e4582c';
 test('production entry activates approved art and egg presentation without preview save keys',()=>{
  const html=fs.readFileSync('index.html','utf8');
  assert.match(html,/home-production-diorama\.js/);
@@ -18,7 +28,7 @@ test('all thirteen default scenes use approved source images and valid navigatio
 test('production distribution retains every existing main file and includes only approved home art',async()=>{
  const allow=JSON.parse(fs.readFileSync('tools/pages/allowlist.json'));
  assert.ok(allow.files.includes('home-production-world.mjs'));
- const main=JSON.parse(require('child_process').execFileSync('git',['show','851cf09a80c7ed41ba7293888084272917e4582c:tools/pages/allowlist.json']));
+ const main=JSON.parse(cp.execFileSync('git',['show',testedMain+':tools/pages/allowlist.json']));
  for(const f of main.files)assert.ok(allow.files.includes(f),'retained '+f);
  const {ART_CANDIDATES}=await import('../home-production-manifest.mjs');
  for(const a of ART_CANDIDATES)assert.ok(allow.files.includes(a.src),a.src);
@@ -34,7 +44,7 @@ test('production runtime harness loads the exact shipped presenter and model',()
 });
 test('latest-main game catalogs, conversations, formal images and other games stay byte-identical',()=>{
  const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','style.css','ui.css','character-world-master.v1.js'];
- assert.equal(cp.execFileSync('git',['diff','--name-only','851cf09a80c7ed41ba7293888084272917e4582c','--',...unchanged],{encoding:'utf8'}).trim(),'');
+ assert.equal(cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim(),'');
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original],{encoding:'utf8'}).trim(),'');
 });
