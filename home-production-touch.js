@@ -95,7 +95,7 @@
   let scheduled=false,last=-1;
   const watched=new WeakSet();
   const resize=new ResizeObserver(schedule);
-  function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(measure);}
+  function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(measure);}
   function measure(){
     scheduled=false;
     let height=0,count=0;

@@ -6,6 +6,9 @@ cp.execFileSync(process.execPath,['tools/home-production-qa.cjs',out]);
 let js=fs.readFileSync(path.join(out,'release-qa-script.js'),'utf8');
 js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
  noticeCase(kind){
+  // Isolate a single authored sample in this disposable test surface.
+  clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;
+  el.storyFlash.classList.add('hidden');
   const forest=REGIONS.find(r=>r.id==='forest');
   const texts={forest:forest.emoji+' '+forest.label+'にやってきた!'+REGION_RUNTIME_META.forest.lines[2],
    travel:STORY_EVENT_POOLS.travel[1].message,court:STORY_EVENT_POOLS.court[1].message,
