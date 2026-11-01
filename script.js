@@ -3833,10 +3833,7 @@
     // still announce each new beat, even when its words match the last beat.
     if (!force && commentTextCache.get(target)===value) return false;
     commentTextCache.set(target,value);
-    const isNotice=document.body.dataset.homeProduction==='true' && terrainNoticeMode()
-      && [el.message,el.storyFlashText,el.birthdayToast,el.mgResultToast].includes(target);
-    const chunks=isNotice?window.NaotocchiHomeDiorama.noticeChunks?.(value):null;
-    const html=chunks?chunks.map(chunk=>/^\s+$/.test(chunk)?escapeHtml(chunk):'<span class="notice-phrase">'+commentTextHTML(chunk,character)+'</span>').join(''):commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
+    const html=commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
     const property=illustrated?'innerHTML':'textContent';
     const rendered=illustrated?html:value;
     if (!force && target[property]===rendered) return false;
@@ -3874,7 +3871,9 @@
   function renderLaneSpeaker(node, speaker, container) {
     if(!node)return;
     const visual=speaker&&commentActorVisual(speaker);
-    node.innerHTML=visual?.asset?commentPictureHTML(visual.asset,'',compactJapaneseText(speaker.label)):'';
+    const production=document.body.dataset.homeProduction==='true' && terrainNoticeMode();
+    node.innerHTML=visual?.asset?commentPictureHTML(visual.asset,'',compactJapaneseText(speaker.label))
+      +(production?'<span class="lane-speaker-name">'+escapeHtml(compactJapaneseText(speaker.label))+'</span>':''):'';
     node.dataset.label=visual?compactJapaneseText(speaker.label):'';
     node.title=node.dataset.label;
     node.classList.toggle('hidden',!visual);
@@ -4051,6 +4050,11 @@
   function setMessage(msg) {
     if (criticalUntil && Date.now() < criticalUntil) { if (msg) deferredMessage = msg; return; }
     showMessage(msg, MESSAGE_DURATION_MS);
+  }
+  function setActionComment(text) {
+    if(document.body.dataset.homeProduction==='true' && terrainNoticeMode())
+      showStoryEvent({message:text,petReaction:true,characterComment:true});
+    else setMessage(text);
   }
   function showMessage(msg, duration) {
     el.message.classList.remove('birth-notice');
@@ -11429,10 +11433,10 @@
       careStoryTimer = setTimeout(() => {
         careStoryTimer = null;
         if (state !== life || careReactionSerial !== serial || !emotionCueContextVisible()) return;
-        showStoryEvent({...event,petReaction:true});
+        showStoryEvent({...event,petReaction:true,characterComment:true});
       },delayMs);
     } else {
-      showStoryEvent({...event,petReaction:true});
+      showStoryEvent({...event,petReaction:true,characterComment:true});
     }
   }
 
@@ -11441,6 +11445,12 @@
 
   function showStoryEvent(event) {
     if(terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('story',event);return;}
+    // Classification comes from the source, never from Japanese wording or emoji.
+    // Growth, birthdays and sex transition also carry petReaction: keep them above.
+    const lower=document.body.dataset.homeProduction==='true' && terrainNoticeMode() && !!event.characterComment;
+    el.storyFlash.dataset.comment=String(lower);
+    const destination=lower?(document.getElementById('homeCommentDock')||el.speechSlot):document.getElementById('homeEventSlot');
+    if(document.body.dataset.homeProduction==='true' && destination && el.storyFlash.parentNode!==destination)destination.appendChild(el.storyFlash);
     homeStoryCurrent=event;
     invalidateCareAfterglow();
     clearPetExpression();
@@ -11454,10 +11464,10 @@
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
     const noticeSpeaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.petReaction?petSpeaker():event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:null;
-    if(noticeSpeaker)renderLaneSpeaker(el.storyFlashEmoji,noticeSpeaker,el.storyFlash);
+    if(noticeSpeaker){renderLaneSpeaker(el.storyFlashEmoji,noticeSpeaker,el.storyFlash);if(!lower && document.body.dataset.homeProduction==='true')el.storyFlashEmoji.innerHTML=commentSpeakerHTML(noticeSpeaker);}
     else {el.storyFlashEmoji.dataset.label='';el.storyFlash.dataset.speakerId='';el.storyFlash.dataset.kind='';el.storyFlashEmoji.classList.remove('hidden');}
     if(el.storyFlashName){
-      const label=document.body.dataset.homeProduction==='true' && terrainNoticeMode() ? el.storyFlashEmoji.dataset.label||'' : '';
+      const label=document.body.dataset.homeProduction==='true' && terrainNoticeMode() && !lower ? el.storyFlashEmoji.dataset.label||'' : '';
       el.storyFlashName.textContent=label;
       el.storyFlashName.classList.toggle('hidden',!label);
     }
@@ -15731,7 +15741,7 @@
   }
   function startMeguru() {
     if (!meguruMod || gameActive || meguruActive || !el.meguruOverlay) return false;
-    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }
+    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }
     closeAllMenuOverlays();
     clearConversationTimers();
     hideSpeechBubble();
@@ -18113,7 +18123,7 @@
 
   el.feedBtn.addEventListener('click', withFeedback(() => {
     if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingFeed'));
+      setActionComment(randomBlockedMessage('sleepingFeed'));
       return;
     }
     const overfed = state.hunger >= 80;
@@ -18146,7 +18156,7 @@
     state.happiness = clamp(state.happiness + 3, 0, 100);
     applyGrowth(4); applyDecline(-4);
     if (!checkMeters()) {
-      setMessage(randomActionMessage('feed'));
+      setActionComment(randomActionMessage('feed'));
       speakEvent('feed');
       checkStoryEvents('feed');
       return {fed:true,reacted:true};
@@ -18248,7 +18258,7 @@
   function tryStartPlay(chosenGame) {
     if (gameActive) return false;
     if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingPlay'));
+      setActionComment(randomBlockedMessage('sleepingPlay'));
       saveState();
       render();
       return false;
@@ -18257,7 +18267,7 @@
     if (state.stage === STAGE.DEAD || state.stage === STAGE.EGG || state.transformOptions) return false;
     if (!isQuick && Date.now() < gamePassReadyAt()) return false;
     if (!isQuick && state.energy < 10) {
-      setMessage(randomBlockedMessage('lowEnergyPlay'));
+      setActionComment(randomBlockedMessage('lowEnergyPlay'));
       saveState();
       render();
       return false;
@@ -18289,7 +18299,7 @@
 
   el.cleanBtn.addEventListener('click', withFeedback(() => {
     if (state.poopCount === 0) {
-      setMessage(randomBlockedMessage('cleanAlready'));
+      setActionComment(randomBlockedMessage('cleanAlready'));
       return;
     }
     state.poopCount = 0;
@@ -18300,7 +18310,7 @@
     applyGrowth(4); applyDecline(-5);
     checkStoryEvents('poop-clean');
     if (!checkMeters()) {
-      setMessage(randomActionMessage('clean'));
+      setActionComment(randomActionMessage('clean'));
       speakEvent('clean');
     }
     emotePet('happy');
@@ -18317,7 +18327,7 @@
       // 回復は専用タイマーで連続して行う。最初の1ステップも押した瞬間に
       // 入るので見た目の待ち時間はない。成長ボーナスは十分な睡眠時間を
       // とった場合だけなので、寝る/起きる連打で得をすることはない
-      setMessage(randomActionMessage('sleep'));
+      setActionComment(randomActionMessage('sleep'));
       speakEvent('sleep');
       startSleepRecovery();
       return;    }
@@ -18327,7 +18337,7 @@
     if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }
     state.sleptTicks = 0;
     if (!checkMeters()) {
-      setMessage(randomActionMessage('wake'));
+      setActionComment(randomActionMessage('wake'));
       speakEvent('wake');
       checkStoryEvents('wake');
     }
@@ -18346,7 +18356,7 @@
       recordSicknessCure();
       checkStoryEvents('medicine-cure');
       if (!checkMeters()) {
-        setMessage(randomActionMessage('cure'));
+        setActionComment(randomActionMessage('cure'));
         speakEvent('medicine_cure');
         return {cured:true,reacted:true};
       }
@@ -18399,7 +18409,7 @@
     // たまごの あいだは「あたためる」あつかい。せいちょうが たまると かえる
     if (warmEgg()) return;
     if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingPet'));
+      setActionComment(randomBlockedMessage('sleepingPet'));
       return;
     }
     state.affectionStreak += 1;
@@ -18465,9 +18475,9 @@
       `${candidate.emoji} ${candidate.label}とはじめて目があった。`,
       'なんとなく、また会う気がした。',
     ];
-    showStoryEvent({ emoji: candidate.emoji, character:candidate, message: beats[0] });
+    showStoryEvent({ emoji: candidate.emoji, character:candidate, characterComment:true, message: beats[0] });
     beats.slice(1).filter(Boolean).forEach((text, index) => {
-      conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, character:candidate, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, character:candidate, characterComment:true, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));
     });
     pushLifeLog(candidate.emoji, `${candidate.label}とはじめてであった`);
     state.happiness = clamp(state.happiness + 3, 0, 100);
@@ -18480,7 +18490,7 @@
   // 一生のあいだ 1にん だけの、じみに おだやかな 恋愛システム
   el.courtBtn.addEventListener('click', withFeedback(() => {
     if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingCourt'));
+      setActionComment(randomBlockedMessage('sleepingCourt'));
       return;
     }
     state.affectionStreak = 0;
@@ -18760,7 +18770,7 @@
     const info = await requestEnvironment();
     const locality = window.NaotocchiLocalScenery?.resolveLocality?.(info?.municipality);
     if (intent !== currentLocationIntent || !overlayIs('travel') || !locality) return;
-    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); render(); return; }
+    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); render(); return; }
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD || state.transformOptions || gameActive) return;
     // The real municipality labels the home region; it is never invented as a
     // new biome or allowed to unlock special regions/region achievements.
@@ -18801,7 +18811,7 @@
   // ランダム移動時と まったく おなじ ロジックで、行き先だけが
   // 「ランダムに えらばれた もの」から「タップで えらんだ もの」に かわった
   function travelToRegion(region, choice) {
-    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }
+    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }
     if (region?.special && !hasPerk(70)) { setMessage('そのばしょへつづく道はまだ見つからない');render();return false; }
     if (!travelStartAllowed(region)) return false;
     const sameLocalHome = region.id === 'home' && currentRegionId() === 'home' && state.lifetime.currentLocationSelected;

@@ -1,3 +1,4 @@
+.home-comment-dock{display:contents}
 /* Production only. Keep the approved world at its intrinsic size; a short
    viewport scrolls the central pane while the 5+4 care controls stay reachable. */
 html:has(body[data-home-production="true"][data-home-terrain="true"] .device[data-home-fixed="true"]){overflow:hidden;overscroll-behavior:none}
@@ -70,3 +71,44 @@ body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .noti
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(.care-icon,.ui-icon,.comment-drawing,.comment-picture,.display-icon,.catalog-icon,.display-icon-visual,.item-picture){width:24px;height:24px;max-width:100%;max-height:24px;flex-basis:24px}
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji[data-label]:not([data-label=""]) .comment-picture{flex:0 0 20px}
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(img,svg){max-width:100%;max-height:100%;object-fit:contain}
+
+/* V7: native wrapping. The historical phrase helper is retained only for the
+   old comparison contracts; live notices never insert word-group elements. */
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot :is(#message,.story-flash-text){white-space:normal;line-break:auto;text-wrap:wrap;word-break:normal;overflow-wrap:anywhere}
+/* The 76px world reservation remains unchanged. Only the presentation dock is
+   viewport anchored; its intrinsic content cannot resize the cast or camera. */
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock{
+ position:fixed;left:var(--comment-left,8px);bottom:var(--comment-bottom,150px);width:var(--comment-width,calc(100% - 16px));
+ display:flex;flex-direction:column;align-items:center;gap:4px;height:auto;max-height:var(--comment-max-height,70vh);overflow:auto;
+ z-index:1200;pointer-events:none;scrollbar-width:thin;overscroll-behavior:contain;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock:empty{display:none}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock :is(#speechBubble,#homeChoiceResult,#storyFlash[data-comment="true"]){
+ position:relative;inset:auto;transform:none;display:flex;flex-direction:column;align-items:stretch;flex:0 0 auto;gap:3px;
+ width:max-content;max-width:100%;min-width:0;height:auto;min-height:0;max-height:none;box-sizing:border-box;
+ margin:0;padding:6px 9px;overflow:visible;text-align:left;font-size:16px;line-height:1.4;
+ white-space:normal;text-wrap:wrap;overflow-wrap:anywhere;word-break:normal;line-break:auto;pointer-events:auto;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock :is(#speechBubble,#homeChoiceResult,#storyFlash).hidden{display:none}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock :is(#speechSpeaker,#homeChoiceSpeaker,#storyFlashEmoji){
+ display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:4px;min-width:0;max-width:100%;width:auto;height:auto;
+ flex:0 0 auto;align-self:stretch;max-height:none;overflow:visible;font:11px/1.4 system-ui;white-space:normal;text-wrap:wrap;animation:none;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock :is(#speechSpeaker,#homeChoiceSpeaker,#storyFlashEmoji)::after{content:none}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock .lane-speaker-name{min-width:0;overflow-wrap:anywhere}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock .comment-picture{width:20px;height:20px;flex:0 0 20px}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock .comment-picture img{width:100%;height:100%;object-fit:contain}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock :is(#speechText,#homeChoiceText,#storyFlashText){
+ display:block;flex:none;width:auto;min-width:0;max-width:100%;height:auto;max-height:none;overflow:visible;
+ text-align:left;white-space:normal!important;text-wrap:wrap!important;word-break:normal;line-break:auto;overflow-wrap:anywhere;line-height:1.4;padding:0;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock #speechBubble::before{display:none}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot.is-asking{display:flex;background:none;overflow:visible;padding:2px 4px}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock #speechSpeaker{position:static}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock #speechChoices{flex:none;pointer-events:auto;width:100%;max-width:100%;background:#f8fff5;padding:4px;box-sizing:border-box}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock>.individual-dialog.home-choice-popup{position:relative;inset:auto;transform:none;width:100%;height:auto;max-height:none;pointer-events:auto;overflow:visible}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock>.individual-dialog.home-choice-popup .individual-panel{height:auto;max-height:none;min-height:0;display:flex;flex-direction:column;gap:3px}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock #individualitySpeaker{display:flex;flex-direction:row;max-width:100%;width:auto;max-height:none;overflow:visible}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock #individualitySpeaker::after{content:none}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock:has(>.individual-dialog.home-choice-popup:not(.hidden))>:is(#speechBubble,#speechChoices,#homeChoiceResult){display:none}
+body[data-home-production="true"][data-home-terrain="true"] #homeCommentDock:has(#homeChoiceResult:not(.hidden)) #speechBubble{display:none}

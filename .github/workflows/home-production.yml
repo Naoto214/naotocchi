@@ -29,12 +29,27 @@ jobs:
       - run: npx playwright install --with-deps ${{ matrix.engine }}
       - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
       - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
-      - name: Build private V6 actual-notice corpus
+      # V6's word-boundary contract is intentionally historical in V7. Keep
+      # the complete test, running against its frozen source, and add the new
+      # live native-wrap/portrait/bottom-dock gate below.
+      - name: Preserve V6 Japanese-break regression on frozen V6 source
         run: |
+          git fetch origin b3c48ef52fbc78687a35d4b14b5506f18d2c935d --depth=1
+          git worktree add "${{ runner.temp }}/v6-source" b3c48ef52fbc78687a35d4b14b5506f18d2c935d
           cp -a "${{ runner.temp }}/fixed-controls" "${{ runner.temp }}/v6-controls"
+          cd "${{ runner.temp }}/v6-source"
+          for file in script.js index.html home-production-layout.css home-production-touch.js; do
+            cp "$file" "${{ runner.temp }}/v6-controls/$file"
+          done
           node tools/home-production-v6-qa.cjs "${{ runner.temp }}/v6-controls"
-      - name: V6 Japanese breaks, event icons and speaker bounds
+      - name: V6 frozen baseline
         run: node tests/home-production-notice-v6-browser.cjs "${{ runner.temp }}/v6-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - name: V7 actual character comments and native wrapping
+        run: |
+          node tools/home-production-v7-qa.cjs "${{ runner.temp }}/fixed-controls"
+          node tests/home-production-comments-v7-browser.cjs "${{ runner.temp }}/fixed-controls"
         env:
           HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
       - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
@@ -81,6 +96,7 @@ jobs:
             test-results/home-production-guide/
             test-results/home-production-notices/
             test-results/home-production-notice-v6/
+            test-results/home-production-comments-v7/
   production-contracts:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -95,7 +111,7 @@ jobs:
       - run: node --test tests/home-production-backdrop-test.cjs tests/home-production-birth-test.cjs tests/egg-birth-story-test.cjs tests/egg-hatching-test.cjs
       - run: node tools/home-production-regression.cjs
       - run: node --test tests/home-production-startup-test.cjs tests/harness-determinism-test.cjs tests/meguru-resident-expression-test.cjs
-      - run: node --test tests/home-production-notice-queue-test.cjs tests/home-production-scroll-focus-test.cjs tests/home-production-notice-layout-test.cjs
+      - run: node --test tests/home-production-comments-v7-test.cjs tests/home-production-notice-queue-test.cjs tests/home-production-scroll-focus-test.cjs tests/home-production-notice-layout-test.cjs
   production:
     runs-on: ubuntu-latest
     timeout-minutes: 45

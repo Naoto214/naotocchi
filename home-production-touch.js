@@ -87,6 +87,27 @@
   paintScroll();queueScrollPaint();
 })();
 
+/* V7 presentation dock: measure the controls, never text length or world geometry. */
+(() => {
+ const slot=document.getElementById('speechSlot'),controls=document.getElementById('careActions');
+ if(!slot||!controls||document.body.dataset.homeProduction!=='true')return;
+ const dock=document.getElementById('homeCommentDock');if(!dock)return;
+ for(const node of [...slot.children])if(node!==dock)dock.appendChild(node);
+ // The terrain controller moves the existing individuality dialog later.
+ new MutationObserver(()=>{for(const node of [...slot.children])if(node!==dock)dock.appendChild(node);}).observe(slot,{childList:true});
+ function place(){
+  const r=controls.getBoundingClientRect(),viewport=window.visualViewport;
+  const bottom=viewport?viewport.offsetTop+viewport.height:innerHeight;
+  dock.style.setProperty('--comment-left',r.left+'px');
+  dock.style.setProperty('--comment-width',r.width+'px');
+  dock.style.setProperty('--comment-bottom',Math.max(0,innerHeight-Math.min(r.top,bottom))+4+'px');
+  dock.style.setProperty('--comment-max-height',Math.max(76,r.top-8)+'px');
+ }
+ new ResizeObserver(place).observe(controls);
+ window.addEventListener('resize',place);window.visualViewport?.addEventListener('resize',place);
+ document.fonts?.ready.then(place);place();
+})();
+
 /* Notice layout only. Observe the actual font/wrapping result, never text
    length or game state. Keep the 42px slot and reserve all extra ink in flow. */
 (() => {
