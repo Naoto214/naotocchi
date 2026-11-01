@@ -43,7 +43,7 @@
   let historyLayer = false, ignoreNextPop = 0, historySyncQueued = false;
   // RH-10: 優先度 0(critical)の おしらせ(setCriticalMessage)
   const CRITICAL_MESSAGE_MS = 8000;
-  let criticalUntil = 0, deferredMessage = null, criticalTimer = null;
+  let criticalUntil = 0, deferredMessage = null, deferredMessageSpeaker = null, criticalTimer = null;
   let knownSaveRevision = 0;
   // どの タブが 書いたか(sessionStorage は reload でも 同じ タブなら のこる)。reload の とき、同じ タブの まえの ページが
   // 閉じぎわに 書いた save も storage event で とどく ので、それを ほかの タブと 区別する。save の 中身には 入れない
@@ -3556,6 +3556,7 @@
     );
   }
   let message = '';
+  let messageSpeaker = null, messageSpeakerText = null;
   let gameActive = false;
   // 「めぐる」(meguru.js)を あるいている あいだ true。ミニゲームとは べつの がめん
   let meguruActive = false;
@@ -3854,7 +3855,8 @@
     }
     else if (speaker.kind==='partner') {
       const id=speaker.id||state.partner?.id;
-      visual=WORLD_MASTER?.partners?.find(p=>p.id===(WORLD_MASTER.compatibility?.partnerAliases?.[id]||id));
+      const guest=id==='guest' ? (state.partner?.id==='guest' ? state.partner.guestSnapshot : state.guest) : null;
+      visual=guest ? personalVisualStage(guest,guest.stageIndex) : WORLD_MASTER?.partners?.find(p=>p.id===(WORLD_MASTER.compatibility?.partnerAliases?.[id]||id));
       if(visual?.asset&&state.partner&&canonicalPartnerId(state.partner.id)===canonicalPartnerId(id))visual={...visual,...relationshipVisual('partner',state.partner,visual.asset)};
     }
     else if(speaker.kind==='author')visual=WORLD_MASTER?.playerSpecies?.author;
@@ -4016,6 +4018,17 @@
       text=eventText || warnings;
       el.message.title=warnings;
     }
+    // Presentation-only routing preserves the message timer and care reactions.
+    const actionPanel=document.getElementById('homeActionComment');
+    const lower=!!(messageSpeaker && message && message===messageSpeakerText && visible && document.body.dataset.homeProduction==='true' && terrainNoticeMode());
+    if(actionPanel){
+      actionPanel.classList.toggle('hidden',!lower);
+      if(lower){
+        renderLaneSpeaker(document.getElementById('homeActionSpeaker'),messageSpeaker,actionPanel);
+        setCommentText(document.getElementById('homeActionText'),message);
+        text='';
+      }
+    }
     if (setCommentText(el.message, text)) el.message.scrollTop = 0;
     el.message.dataset.careKind = display?.kind || '';
     el.message.dataset.careSeverity = display?.severity || '';
@@ -4038,25 +4051,24 @@
   // (優先度 1〜3 の queue と 雑談の 間隔は 決めて いない。いままでどおり)
   function setCriticalMessage(msg) {
     criticalUntil = Date.now() + CRITICAL_MESSAGE_MS;
-    deferredMessage = null;
+    deferredMessage = null; deferredMessageSpeaker = null;
     showMessage(msg, CRITICAL_MESSAGE_MS);
     clearTimeout(criticalTimer);
     criticalTimer = setTimeout(() => {
       criticalTimer = null; criticalUntil = 0;
-      const next = deferredMessage; deferredMessage = null;
-      if (next) showMessage(next, MESSAGE_DURATION_MS);
+      const next = deferredMessage, speaker=deferredMessageSpeaker; deferredMessage = null; deferredMessageSpeaker = null;
+      if (next) showMessage(next, MESSAGE_DURATION_MS,speaker);
     }, CRITICAL_MESSAGE_MS);
   }
-  function setMessage(msg) {
-    if (criticalUntil && Date.now() < criticalUntil) { if (msg) deferredMessage = msg; return; }
-    showMessage(msg, MESSAGE_DURATION_MS);
+  function setMessage(msg, speaker=null) {
+    if (criticalUntil && Date.now() < criticalUntil) { if (msg) {deferredMessage = msg;deferredMessageSpeaker=speaker;} return; }
+    showMessage(msg, MESSAGE_DURATION_MS,speaker);
   }
-  function setActionComment(text) {
-    if(document.body.dataset.homeProduction==='true' && terrainNoticeMode())
-      showStoryEvent({message:text,petReaction:true,characterComment:true});
-    else setMessage(text);
+  function setActionComment(text, speaker=petSpeaker()) {
+    setMessage(text,document.body.dataset.homeProduction==='true' && terrainNoticeMode() ? speaker : null);
   }
-  function showMessage(msg, duration) {
+  function showMessage(msg, duration, speaker=null) {
+    messageSpeaker=speaker; messageSpeakerText=compactJapaneseText(msg);
     el.message.classList.remove('birth-notice');
     message = compactJapaneseText(msg);
     if (CARE_STATUS) renderCareNotice();
@@ -4073,7 +4085,7 @@
     if (msg) {
       messageTimer = setTimeout(() => {
         messageTimer = null;
-        message = '';
+        message = ''; messageSpeaker=null;
         if (!gameActive) render();
       }, duration);
     }
@@ -18625,7 +18637,7 @@
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         if(document.body.dataset.homeProduction==='true' && terrainNoticeMode())
-          showStoryEvent({character:candidate,characterComment:true,message:reaction});
+          setActionComment(reaction,{...candidate,kind:'partner'});
         else setMessage(`${candidate.emoji} ${candidate.label}:${reaction}`);
       }
       emotePet('happy');
@@ -18965,7 +18977,9 @@
     const companion = allCompanionsById(pendingCompanionId);
     pendingCompanionId = null;
     closeCompanionInvite();
-    setMessage(companion
+    if(companion && document.body.dataset.homeProduction==='true' && terrainNoticeMode())
+      setActionComment('「またこんどね」とかえっていった',{kind:'companion',id:companion.id,label:companion.name});
+    else setMessage(companion
       ? `${companion.emoji} ${companion.name}は「またこんどね」とかえっていった`
       : 'またこんどあそぼう');
     emotePet('happy');

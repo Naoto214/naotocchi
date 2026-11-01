@@ -45,8 +45,10 @@ for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split('
  await page.evaluate(()=>HomeReleaseQA.clearComment());await page.clock.runFor(100);assert.equal((await page.evaluate(inspect)).dock.height,0,'empty dock leaves no painted panel');
  // Exercise the actual court action source, not only an injected story.
  await page.evaluate(()=>HomeReleaseQA.courtFriend());await page.clock.runFor(80);
- assert.equal(await page.locator('#storyFlash').getAttribute('data-comment'),'true','actual court friend source is lower');
- assert.ok(await page.locator('#homeCommentDock #storyFlash img').count());
+ assert.equal(await page.locator('#homeActionComment').isVisible(),true,'actual court friend source is lower');
+ assert.ok(await page.locator('#homeCommentDock #homeActionSpeaker img').count());
+ const action=await page.locator('#homeActionComment').evaluate(e=>{const r=e.getBoundingClientRect(),n=document.getElementById('homeActionSpeaker').getBoundingClientRect(),t=document.getElementById('homeActionText').getBoundingClientRect(),c=document.getElementById('careActions').getBoundingClientRect();return {inside:r.left>=0&&r.right<=innerWidth&&r.bottom<c.top,rows:n.bottom<=t.top+1,full:e.scrollWidth<=e.clientWidth+1};});
+ assert.ok(action.inside&&action.rows&&action.full,'real action narration fits above controls in two rows');
  await page.clock.runFor(5000);await page.evaluate(()=>HomeReleaseQA.clearComment());
  // Existing question engine and real choice buttons remain usable after rotation.
  assert.equal(await page.evaluate(()=>HomeReleaseQA.question()),true,'question starts');await page.clock.runFor(100);

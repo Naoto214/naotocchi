@@ -26,3 +26,10 @@ First encounters without an existing partner; repeated comments alongside system
 - Review found an actual court-friend source still using setMessage; corrected with candidate identity, plus author greeting. Added mixed-queue duration tests and browser choice/menu/rotation/exchange checks.
 - Ruling: legacy touch tests now measure the new scroll owner (dock), retaining overflow, edge containment and tapability assertions; the 76px reservation is no longer the painted text scroll box.
 - Git CLI lacks write credentials; used GitHub Git-data API with tree equality verification and a non-force expected-head update. First remote V7 commit 2413151b.
+
+## Continuation review — 2026-11-01
+- Resumed at dbbb729b8d8a968e7ff595950a6443e90309bff8 in an isolated worktree; main remains aec03c20. V6 source f10871d8 and private saved version 6 remain available.
+- Fresh review reproduced three important issues: plain action messages interrupted care afterglow through story semantics; guest-code replies lost their portrait/name; companion farewell still used the upper lane.
+- Ruling: original setMessage-based narration uses a dedicated presentation panel in the same bottom dock, with the original message timer/critical priority and shared speaker renderer. It must not invoke the semantic story engine or change its movement/afterglow gates. Existing genuine stories keep their queue and interruption behavior.
+- RED→GREEN: four feed/cure and reduced-motion cases, companion farewell, guest portrait; added critical deferral/lifetime regression. Actual court reply browser test targets the presentation panel while retaining loaded portrait, containment and two-row assertions.
+- Browser runtime currently unavailable: cua backend connection closes before initialization. No local alternate browser-control path used. Required Chromium/WebKit checks remain gated on GitHub CI; no V7 deployment until they pass.

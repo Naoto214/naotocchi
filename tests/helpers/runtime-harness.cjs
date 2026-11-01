@@ -317,7 +317,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
         unit:() => conv2Unit && {kind:conv2Unit.kind, id:conv2Unit.id, awaiting:conv2Unit.awaiting, held:conv2Unit.held.length},
         data:CONVERSATION_BANTER, postgame:CONVERSATION_POSTGAME, quick:CONVERSATION_QUICK, away:CONVERSATION_AWAY, checkAway:conv2CheckAway, quickRuns:() => conv2QuickRuns, recordQuickRun, lastQuickRun:() => quickLastRun, leaveScene:conv2LeaveScene, syncLayer:syncHistoryLayer, director:() => conversationDirector, config:CONV2,
         visitorLeaves:() => {homePresentPartner=()=>null;homePresentCompanions=()=>[];}, pools:() => CONVERSATION_POOLS, setLifeEventOpen:v => {individualityDialogOpen=!!v;}},
-      speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, scheduleIdleGreeting, scheduleItemContextMessage, renderHomeCast,
+      speakEvent, setMessage, setCriticalMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, scheduleIdleGreeting, scheduleItemContextMessage, renderHomeCast,
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       achievementIconHTML: (...args) => achievementIconHTML(...args),
       minigameFoodHTML: (...args) => minigameFoodHTML(...args),
