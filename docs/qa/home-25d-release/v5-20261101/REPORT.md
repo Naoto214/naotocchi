@@ -16,7 +16,7 @@ An intermediate RAF-scheduled measurement delayed in a throttled iframe and fail
 - Local Chromium rendered iframe matrix: 48 cases, zero clipping/overlap failures after microtask fix (4 widths x portrait/rotated landscape x 6 samples). Covers authored forest, travel and court pools, explicit newline stress case, short and cleared notices. This is not desktop WebKit or iPhone Safari evidence.
 - Existing queue/birth/scroll tests: 14 pass. Production lifecycle/conversation/save contracts: 365 pass, fail/skip/cancel zero.
 - Final focused queue/birth/layout/focus suite: 16 pass.
-- Full npm regression and final-head browser CI pending. Earlier HEAD 1476d675 includes the superseded RAF measurement; its CI must not be presented as final V5 validation.
+- Full npm regression: 3,750 pass, fail/skip/cancel zero; process exit 0 (five suites: 37 + 24 + 3,292 + 159 + 238). Final-head browser CI pending. Earlier HEAD 1476d675 includes the superseded RAF measurement; its CI must not be presented as final V5 validation.
 
 Package HTTP integrity: 4,123 files / 220,206,186 bytes, missing 0 / hash mismatch 0; seven excluded routes return 404. See package-integrity.json. Local DOM measurements: local-notice-matrix.json (48). jungle-320.jpg shows the complete authored story notice and fixed controls at 320px; this capture fixture repeats the same notice solely to hold it for photography, and is not timing evidence.
 
@@ -30,3 +30,5 @@ Keep forest unchanged. J2 should center an open, broad forest-floor clearing, wi
 
 ## Protection / remaining gates
 No main merge, no GitHub Pages publication. No changes to script.js, adopted backgrounds, formal character assets, simulation, travel unlock rules or save schema. Draft retained. Existing successful tests retained without assertion relaxation. Need final CI (including Chromium/WebKit), artifact integrity, private V5 deployment and post-publication access checks, and owner iPhone QA. Extremely short landscape retains the pre-existing scrollable central pane; simultaneous visibility of every lane is not claimed without evidence.
+
+Read-only code review found no critical/important source issue. Strengthened save-isolation browser test after its minor finding: seed the normal-save sentinel once on a non-QA page, never recreate it during resume, and inspect its raw value both before and after resume. Local Chromium also opened memory_lake with 28 actors and resumed that region/count through the QA resume link. Physical iPhone and WebKit remain unverified pending their respective gates.
