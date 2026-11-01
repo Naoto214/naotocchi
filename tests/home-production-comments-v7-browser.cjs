@@ -54,7 +54,7 @@ for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split('
  assert.equal(await page.evaluate(()=>HomeReleaseQA.question()),true,'question starts');await page.clock.runFor(100);
  await page.setViewportSize({width:844,height:width});await page.clock.runFor(100);
  const question=await page.locator('#speechChoices').evaluate(e=>{const r=e.getBoundingClientRect(),c=document.getElementById('careActions').getBoundingClientRect();return {bottom:r.bottom,controls:c.top,buttons:[...e.querySelectorAll('button')].map(b=>{const q=b.getBoundingClientRect(),hit=document.elementFromPoint(q.x+q.width/2,q.y+q.height/2);return {h:q.height,hit:b===hit||b.contains(hit)}})};});
- assert.ok(question.bottom<question.controls&&question.buttons.every(b=>b.h>=44&&b.hit),'rotated choices remain tappable above care controls');
+ assert.ok(question.bottom<question.controls&&question.buttons.every(b=>b.h>=44&&b.hit),'rotated choices remain tappable above care controls '+JSON.stringify({engine,width,question}));
  await page.locator('#speechChoices button').first().click();await page.clock.runFor(100);
  assert.equal(await page.locator('#speechChoices').isVisible(),false,'answer consumes choices');
  await page.locator('#menuBtn').click();assert.equal(await page.locator('#speechBubble').isVisible(),false,'menu dismisses speech');

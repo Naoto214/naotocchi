@@ -114,3 +114,8 @@ body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCom
 body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock:has(#homeChoiceResult:not(.hidden)) #speechBubble{display:none}
 
 body[data-home-production="true"][data-home-terrain="true"] #homeActionComment::before{display:none}
+/* A short landscape viewport has room beside choices, not below them. Keep
+   every 44px target in the dock instead of clipping the last single-column row. */
+@media (min-width:640px) and (orientation:landscape){
+ body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechChoices{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+}
