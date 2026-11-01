@@ -226,13 +226,17 @@
     {
       "version": "V21",
       "description": "Clock-only fix: button/keyboard zoom anchors the visible stage center; enlarged resize recenters scroll. V20 artwork, CSS layout, card interaction and game state unchanged."
+    },
+    {
+      "version": "V22",
+      "description": "Clock pinch in/out in both orientations; one-finger enlarged pan; V21 centering retained. Card pinch and artwork/game unchanged."
     }
   ],
   "interactionCandidate": {
-    "version": "V21",
+    "version": "V22",
     "designVersion": "V19",
-    "baselineCommit": "bddda69004630bcccfbcf83be56c08957c0cc772",
+    "baselineCommit": "699bc1a4320de66657a1bd082df696812c7e438c",
     "sharedControls": "../inspection-controls.mjs",
-    "verification": "../../../docs/card-game/life-clock-v21-verification.md"
+    "verification": "../../../docs/card-game/life-clock-v22-verification.md"
   }
 }
