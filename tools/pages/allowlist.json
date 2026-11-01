@@ -4127,7 +4127,8 @@
     "prototypes/card-game/life-clock/v16/plate.webp",
     "prototypes/card-game/life-clock/v16/layout.mjs",
     "prototypes/card-game/life-clock-turn.mjs",
-    "prototypes/card-game/life-clock/v18/clock-v18.mjs"
+    "prototypes/card-game/life-clock/v18/clock-v18.mjs",
+    "prototypes/card-game/life-clock/v19/clock-v19.mjs"
   ],
   "dynamic_families": [
     "assets/characters/**/*.png",
@@ -4256,7 +4257,7 @@
     "prototypes/card-game/ui-context.mjs": "41e286f4b44e8852891e5f1a565a0673d34f7fdff4752da4f27e7e165a8f79aa",
     "prototypes/card-game/ui-drag.mjs": "16fe32677d3948856287207e07095b998a7989111d70a3bcb3fc25c8f79dd312",
     "prototypes/card-game/ui-hand.mjs": "d1de129db70925dbb1893114e737a6995cf19a6b79dae0d298bcfd1e9be7a756",
-    "prototypes/card-game/ui-presentation.mjs": "171842b8b9bdc2ac71cbf7e6339871392c81808878b29b3515c6b8eef501ce92",
+    "prototypes/card-game/ui-presentation.mjs": "7d621115bbf9cb48f1691feace920eca519238d435be3ec5c61f4c6ce16a2ecf",
     "prototypes/card-game/ui-render.mjs": "f7e8891a8a5eb02d2d29803ee3d5944654d3164604e114b0b7487d96e6e17b4b",
     "prototypes/card-game/ui-result-feedback.mjs": "ad5e6f92f82b1cbf774a1b82dcb2945059c60fb3df21b2b89785c8f621e7cf66",
     "prototypes/card-game/ui-results.mjs": "f22d60e5e07297ef70384513def336b094ec59ecdd7b6969d6fe67d107b99170",
@@ -4327,10 +4328,10 @@
     "prototypes/naopoyo-chapter2/stages.mjs": "472de6e602d6c6a0c2de9dc0bd155ad2a8945de158a39f8a0eed2c56a2ae0aad",
     "prototypes/naopoyo-chapter2/stone.mjs": "37d5dc9152b4deafaa20a10e77a2b170b555e6955a34c5c6bf665d451031addd",
     "prototypes/naopoyo-chapter2/style.css": "f14af0660ad9a71e33a63b5e8407b9ff4a617fdb04c11e2677505c041fba5e8d",
-    "prototypes/card-game/life-clock.css": "51890fb586fa36d24cb27e97a459d85558fc3973d0e50c9c6987e796ca4bfdd2",
-    "prototypes/card-game/life-clock-view.mjs": "a2080e77f5547281cb3deadb6a53dcbe76613a0622e52266eaa57e640828a7e8",
+    "prototypes/card-game/life-clock.css": "10fcaf17e59ec7ca3743e59c4415b05b5ff0dc9dc29f8ab167cf09838545a88e",
+    "prototypes/card-game/life-clock-view.mjs": "260849022a2db22ed5d8348f18db4d6384fb74acf16d16738240cf232df4f83b",
     "prototypes/card-game/life-clock-state.mjs": "36ba44b023d255753f38ef2c658d04e50ab295a1fbac1f1a29ef36486263e663",
-    "prototypes/card-game/life-clock-render.mjs": "faf3db9625bc4eef1e460435ef40fb28ec6d3d9ba72fe1894abf99f1dbd11bea",
+    "prototypes/card-game/life-clock-render.mjs": "99972a00312f29ec6978c63d93e216fcdb7e2e0d363bcdc20e74803b6e29cb46",
     "prototypes/card-game/life-clock/clock.mjs": "bf85e60421260941e4e3ba5ca63a19a42182d4cce26cb3119950f165aa8fd7c2",
     "prototypes/card-game/life-clock/v11/clock-v11.mjs": "8f1cbc3801207dd25ebbbb9cc611d8dc3f98473631c35435ed3e932fa09cb8e0",
     "prototypes/card-game/life-clock/v11/layout.mjs": "afbeedc45d93e8759bcef0d77b3f76b7442b2efa6c4a513a643031eb899c95c0",
@@ -4353,7 +4354,8 @@
     "prototypes/card-game/life-clock/v16/clock-v16.mjs": "4397a8bb0a0a5c9d591405f84da4df21e6ae96ce9907aa3c870307ec8a378ced",
     "prototypes/card-game/life-clock/v16/layout.mjs": "9c6f2513076a643fc46a8deff4582dfe79f5bf2176c2a3e9533e1afe50432013",
     "prototypes/card-game/life-clock-turn.mjs": "a9b6ad7b80bc56484b9b224e7841254b9b80b2d217881cf0d4675fe58d316a50",
-    "prototypes/card-game/life-clock/v18/clock-v18.mjs": "86f898293fa34b6a3d430a9f8df4245ae30a9903d91b558104d308cca6329993"
+    "prototypes/card-game/life-clock/v18/clock-v18.mjs": "86f898293fa34b6a3d430a9f8df4245ae30a9903d91b558104d308cca6329993",
+    "prototypes/card-game/life-clock/v19/clock-v19.mjs": "ad0e03d173344ae24324d81bfbb8ab2284a83e913e5c47d7f4b25ad3d78734a7"
   },
   "forbidden_patterns": [
     "^(?:docs|tests|tools|\\.github)/",

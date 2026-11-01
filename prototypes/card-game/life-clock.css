@@ -26,5 +26,22 @@
 .clock-value.green{border-color:#83bc9f}.clock-value.green strong{color:#a6d9bf}
 .life-clock-note{font-size:11px;line-height:1.5;margin:8px 0 0;text-align:center;color:#b8cbd6}
 #life-clock-dialog.life-clock-zoomed .life-clock-scene{width:max(100%,720px);height:max(100%,720px)}
-@media(orientation:landscape){.life-clock-body{grid-template-columns:minmax(0,1fr) 210px;grid-template-rows:minmax(0,1fr)}#life-clock-values{grid-template-columns:1fr;gap:4px}.life-clock-info{max-height:100%;overflow:auto}.life-clock-note{margin-top:6px}}
+@media(orientation:landscape){
+ .life-clock-body{grid-template-columns:minmax(0,1fr) minmax(240px,42%);grid-template-rows:minmax(0,1fr)}
+ #life-clock-values{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 8px}
+ .life-clock-info{min-width:0;line-height:1.4}
+ .clock-value{padding:4px 6px;line-height:1.45}
+ .clock-value strong{line-height:1.4}
+ .life-clock-note{margin-top:6px;line-height:1.4}
+}
+@media(orientation:landscape) and (max-height:340px){
+ #life-clock-dialog[open]{gap:4px}
+ .life-clock-body{gap:6px}
+ #life-clock-status{margin-bottom:4px}
+ #life-clock-values{gap:4px 6px}
+ .clock-value{padding:2px 4px}
+ .clock-value strong{margin-bottom:2px}
+ .life-clock-note{margin-top:4px}
+}
+.table-top .workflow-history-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;width:44px;min-width:44px;height:44px;padding:2px;line-height:1.25;text-align:center}
 @media(max-width:360px){.table-top:has(.life-clock-button){gap:4px}.life-clock-toolbar{gap:5px}.life-clock-toolbar button{padding:6px 10px}.life-clock-toolbar h2{font-size:16px}}
