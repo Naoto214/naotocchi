@@ -31,7 +31,8 @@
       if(frame.scrollTop!==requestedScroll){focusPending=false;paintScroll();return;}
       const speech=document.getElementById('speechSlot');
       const choiceVisible=speech?.classList.contains('is-asking')||speech?.querySelector('.home-choice-popup:not(.hidden)');
-      const target=choiceVisible?speech:document.querySelector('[data-diorama-actor^="pet:"]');
+      const dock=document.getElementById('homeCommentDock');
+      const target=choiceVisible?(dock?.getBoundingClientRect?dock:speech):document.querySelector('[data-diorama-actor^="pet:"]');
       if(!target)return;
       const viewport=frame.getBoundingClientRect(),rect=target.getBoundingClientRect();
       if(!rect.height||!viewport.height)return;
@@ -90,7 +91,7 @@
 /* V7 presentation dock: measure the controls, never text length or world geometry. */
 (() => {
  const slot=document.getElementById('speechSlot'),controls=document.getElementById('careActions');
- if(!slot||!controls||document.body.dataset.homeProduction!=='true')return;
+ if(!slot?.children||!controls?.getBoundingClientRect||document.body.dataset.homeProduction!=='true')return;
  const dock=document.getElementById('homeCommentDock');if(!dock)return;
  for(const node of [...slot.children])if(node!==dock)dock.appendChild(node);
  // The terrain controller moves the existing individuality dialog later.

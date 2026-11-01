@@ -43,6 +43,25 @@ for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split('
  const story=await page.evaluate(()=>{const b=document.getElementById('storyFlash'),n=document.getElementById('storyFlashEmoji'),t=document.getElementById('storyFlashText');return {parent:b.parentNode.id,comment:b.dataset.comment,top:t.getBoundingClientRect().top,nameBottom:n.getBoundingClientRect().bottom,bottom:b.getBoundingClientRect().bottom,controls:document.getElementById('careActions').getBoundingClientRect().top,portrait:n.querySelector('img')?.src};});
  assert.equal(story.parent,'homeCommentDock');assert.equal(story.comment,'true');assert.ok(story.nameBottom<=story.top+1&&story.bottom<story.controls);assert.match(story.portrait,/snow_spirit/);
  await page.evaluate(()=>HomeReleaseQA.clearComment());await page.clock.runFor(100);assert.equal((await page.evaluate(inspect)).dock.height,0,'empty dock leaves no painted panel');
+ // Exercise the actual court action source, not only an injected story.
+ await page.evaluate(()=>HomeReleaseQA.courtFriend());await page.clock.runFor(80);
+ assert.equal(await page.locator('#storyFlash').getAttribute('data-comment'),'true','actual court friend source is lower');
+ assert.ok(await page.locator('#homeCommentDock #storyFlash img').count());
+ await page.clock.runFor(5000);await page.evaluate(()=>HomeReleaseQA.clearComment());
+ // Existing question engine and real choice buttons remain usable after rotation.
+ assert.equal(await page.evaluate(()=>HomeReleaseQA.question()),true,'question starts');await page.clock.runFor(100);
+ await page.setViewportSize({width:844,height:width});await page.clock.runFor(100);
+ const question=await page.locator('#speechChoices').evaluate(e=>{const r=e.getBoundingClientRect(),c=document.getElementById('careActions').getBoundingClientRect();return {bottom:r.bottom,controls:c.top,buttons:[...e.querySelectorAll('button')].map(b=>{const q=b.getBoundingClientRect(),hit=document.elementFromPoint(q.x+q.width/2,q.y+q.height/2);return {h:q.height,hit:b===hit||b.contains(hit)}})};});
+ assert.ok(question.bottom<question.controls&&question.buttons.every(b=>b.h>=44&&b.hit),'rotated choices remain tappable above care controls');
+ await page.locator('#speechChoices button').first().click();await page.clock.runFor(100);
+ assert.equal(await page.locator('#speechChoices').isVisible(),false,'answer consumes choices');
+ await page.locator('#menuBtn').click();assert.equal(await page.locator('#speechBubble').isVisible(),false,'menu dismisses speech');
+ await page.locator('#menuCloseBtn').click();await page.setViewportSize({width,height:844});await page.clock.runFor(100);
+ assert.equal(await page.evaluate(()=>HomeReleaseQA.exchange()),true,'real companion exchange starts');await page.clock.runFor(100);
+ const exchange=await page.locator('#individualityDialog').evaluate(e=>{const n=document.getElementById('individualitySpeaker'),t=document.getElementById('individualityText'),r=e.getBoundingClientRect();return {portrait:n.querySelector('img')?.getAttribute('src'),nameBottom:n.getBoundingClientRect().bottom,textTop:t.getBoundingClientRect().top,bottom:r.bottom,controls:document.getElementById('careActions').getBoundingClientRect().top};});
+ assert.ok(exchange.nameBottom<=exchange.textTop+1&&exchange.bottom<exchange.controls);assert.match(exchange.portrait,/assets\/characters\//);
+ await page.locator('#individualityChoices button').first().click();await page.clock.runFor(100);
+ assert.equal(await page.locator('#homeChoiceResult').isVisible(),true,'exchange reply stays in bottom component');
  await page.close();fs.writeFileSync(path.join(out,'progress.json'),JSON.stringify({results,errors},null,2));
  }
  }finally{await browser.close();}

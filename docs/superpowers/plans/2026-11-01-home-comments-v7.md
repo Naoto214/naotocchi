@@ -21,3 +21,8 @@ First encounters without an existing partner; repeated comments alongside system
 ## Decisions / progress
 - User has already approved the design and implementation/publication; proceed inline without another design gate.
 - Starting PR branch b3c48ef5, main aec03c20; baseline 9 workflow runs successful. Other checkout's uncommitted work left untouched. Working in an isolated worktree.
+
+- Runtime tests RED→GREEN for native text, portrait/name markup, candidate encounters and actual court replies. Existing 365 production regression tests passed.
+- Review found an actual court-friend source still using setMessage; corrected with candidate identity, plus author greeting. Added mixed-queue duration tests and browser choice/menu/rotation/exchange checks.
+- Ruling: legacy touch tests now measure the new scroll owner (dock), retaining overflow, edge containment and tapability assertions; the 76px reservation is no longer the painted text scroll box.
+- Git CLI lacks write credentials; used GitHub Git-data API with tree equality verification and a non-force expected-head update. First remote V7 commit 2413151b.

@@ -17,6 +17,16 @@ js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
   clearTimeout(storyFlashTimer);storyFlashTimer=null;
   return {text,name:speaker.label,kind};
  },
+ courtFriend(){
+  clearConversationTimers();hideSpeechBubble();clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;el.storyFlash.classList.add('hidden');
+  state.regionId='snow';state.partner=null;state.orientationId='aro';state.attractedTo=[];state.energy=100;state.hunger=100;state.health=100;
+  state.lifetime.partnerEncounters=findRegion('snow').candidates.map(c=>c.id);render();el.courtBtn.click();
+ },
+ exchange(){
+  clearConversationTimers();hideSpeechBubble();clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;el.storyFlash.classList.add('hidden');message='';
+  state.individuality.lastExchangeAge=-1;state.isSick=false;state.isSleeping=false;
+  return maybeIndividualExchange();
+ },
  clearComment(){hideSpeechBubble();el.storyFlash.classList.add('hidden');},
 `);
 js=js.replace(/\}\)\(\);\s*$/,`

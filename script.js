@@ -9434,7 +9434,7 @@
       // ④を経ずに⑤へ進んでも、名前を名乗りつつ世界の答えは説明しない。
       perfect: 'ナオト「……きみも、ここを見つけたんだ。ここまで来てくれて、ありがとう。」',
     };
-    showStoryEvent({ author:true, message:lines[kind] || lines.hello });
+    showStoryEvent({ author:true, characterComment:true, message:lines[kind] || lines.hello });
     return true;
   }
 
@@ -18624,7 +18624,9 @@
       const reaction = pickReaction(COURT_FRIEND_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
-        setMessage(`${candidate.emoji} ${candidate.label}:${reaction}`);
+        if(document.body.dataset.homeProduction==='true' && terrainNoticeMode())
+          showStoryEvent({character:candidate,characterComment:true,message:reaction});
+        else setMessage(`${candidate.emoji} ${candidate.label}:${reaction}`);
       }
       emotePet('happy');
       return;
