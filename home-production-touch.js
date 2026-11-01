@@ -22,7 +22,7 @@
   // once on entry/resize. Ordinary user scrolling never triggers this focus.
   let focusPending=true,focusRequest=0,frameSize='';
   function revealOnResize(){
-    if(!focusPending||!terrain())return;
+    if(!focusPending||!terrain()||document.body.dataset.homeViewportV8==='true')return;
     const request=++focusRequest,requestedScroll=frame.scrollTop;
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
       if(request!==focusRequest||!focusPending||!terrain())return;
@@ -146,3 +146,62 @@
   document.fonts?.ready.then(schedule);
   schedule();
 })();
+
+/* V8 viewport: presentation geometry and camera scrolling only. */
+((root)=>{
+ const revealDelta=(v,r)=>({
+  x:r.left<v.left+8||r.right>v.right-8?(r.left+r.right-v.left-v.right)/2:0,
+  y:r.top<v.top+8||r.bottom>v.bottom-8?(r.top+r.bottom-v.top-v.bottom)/2:0
+ });
+ function layout({width,height,left,headerBottom,controlsTop,controlsBottom}){
+  const landscape=width>height,railWidth=Math.min(260,width*.46),railLeft=width-left-railWidth,frameTop=headerBottom+48,commentTop=controlsTop-80;
+  return {landscape,railWidth,railLeft,frameTop,commentTop,frameWidth:landscape?railLeft-8-left:width-left*2,frameHeight:Math.max(0,(landscape?controlsBottom:commentTop)-frameTop)};
+ }
+ root.NaotocchiHomeViewport={revealDelta,layout};
+ const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
+ if(!frame||doc.body.dataset.homeViewportVersion!=='8')return;
+ const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
+ if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
+ const rect=e=>e.getBoundingClientRect(),saved=new Map();
+ let active=false,pending=false,markers=[],navigation=null,landscape=false,followKey='',followUntil=0,dragging=false,viewKey='';
+ const eligible=()=>doc.body.dataset.homeProduction==='true'&&doc.body.dataset.homeTerrain==='true'&&device.dataset.homeFixed==='true'&&device.classList.contains('ui-home-active')&&!normal.classList.contains('hidden');
+ function style(e,props){
+  if(!saved.has(e))saved.set(e,new Map());const previous=saved.get(e);
+  for(const [k,v]of Object.entries(props)){if(!previous.has(k))previous.set(k,[e.style.getPropertyValue(k),e.style.getPropertyPriority(k)]);e.style.setProperty(k,String(v),'important');}
+ }
+ function restore(){for(const [e,props]of saved)for(const [k,[v,p]]of props){if(v)e.style.setProperty(k,v,p);else e.style.removeProperty(k);}saved.clear();markers.forEach(e=>e.remove());markers=[];navigation?.remove();navigation=null;delete doc.body.dataset.homeViewportV8;active=false;}
+ function reserve(e){const marker=doc.createElement('div');marker.style.cssText='flex:0 0 '+rect(e).height+'px;height:'+rect(e).height+'px;pointer-events:none';e.before(marker);markers.push(marker);}
+ function actors(){return [...stage.querySelectorAll('[data-diorama-actor]')].filter(e=>rect(e).height>0);}
+ function reveal(actor){if(!actor||!active)return;const delta=revealDelta(rect(frame),rect(actor));frame.scrollLeft+=delta.x;frame.scrollTop+=delta.y;}
+ function selected(){return stage.querySelector('[data-diorama-selected="true"]')||stage.querySelector('[data-diorama-actor^="pet:"]')||doc.getElementById('petSprite');}
+ function go(step){const list=actors();if(!list.length)return;const current=list.findIndex(e=>e.dataset.dioramaActor===(viewKey||selected()?.dataset.dioramaActor));const actor=list[(current+step+list.length)%list.length];followKey='';viewKey=actor.dataset.dioramaActor;reveal(actor);navigation.setAttribute('aria-label',(actor.getAttribute('aria-label')||'住民')+'を表示中');}
+ function apply(){
+  pending=false;const should=eligible();restore();if(!should)return;
+  const fr=rect(frame),cr=rect(controls),hr=rect(device.querySelector('.device-header')),sw=rect(screen).width;
+  const p=layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
+  reserve(notice);if(p.landscape)reserve(info);
+  active=true;landscape=p.landscape;doc.body.dataset.homeViewportV8='true';
+  style(notice,{position:'fixed',top:(hr.bottom+3)+'px',left:fr.left+'px',width:p.frameWidth+'px',height:'42px','min-height':'42px','max-height':'42px',overflow:'auto','margin-bottom':'0','z-index':'1201'});
+  style(frame,{position:'fixed',top:p.frameTop+'px',left:fr.left+'px',width:p.frameWidth+'px',height:p.frameHeight+'px','min-height':'0','max-height':'none',overflow:'auto','touch-action':'pan-x pan-y pinch-zoom'});
+  style(dock,{display:'flex',height:'76px','min-height':'76px','max-height':'76px','pointer-events':'auto'});
+  if(landscape){
+   style(screen,{width:sw+'px','min-width':sw+'px','box-sizing':'border-box'});
+   style(controls,{position:'fixed',left:p.railLeft+'px',right:'auto',top:cr.top+'px',bottom:'auto',width:p.railWidth+'px',height:cr.height+'px','z-index':'1201'});
+   style(info,{position:'fixed',left:p.railLeft+'px',top:(hr.bottom+37)+'px',width:p.railWidth+'px',height:Math.max(24,p.commentTop-hr.bottom-40)+'px',overflow:'auto','z-index':'1201',background:'#fff9e8'});
+   navigation=doc.createElement('nav');navigation.id='homeViewportNavigation';navigation.setAttribute('aria-label','画面外の住民を表示');
+   for(const [label,step]of [['前の住民',-1],['次の住民',1]]){const b=doc.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>go(step));navigation.append(b);}
+   device.append(navigation);navigation.style.cssText=`position:fixed;left:${p.railLeft}px;top:${hr.bottom+3}px;width:${p.railWidth}px;height:32px;display:flex;gap:4px;z-index:1202`;
+  }
+  root.requestAnimationFrame(()=>root.requestAnimationFrame(()=>{if(active)reveal(selected());}));
+ }
+ function schedule(){if(pending)return;pending=true;root.requestAnimationFrame(apply);}
+ new MutationObserver(()=>{if(eligible()!==active)schedule();}).observe(device,{attributes:true,attributeFilter:['class','data-home-fixed'],subtree:true});
+ new MutationObserver(()=>{if(eligible()!==active)schedule();}).observe(doc.body,{attributes:true,attributeFilter:['data-home-production','data-home-terrain']});
+ root.addEventListener('resize',schedule);root.visualViewport?.addEventListener('resize',schedule);
+ doc.addEventListener('pointerdown',e=>{if(!active)return;dragging=stage.contains(e.target);if(frame.contains(e.target)&&!e.target.closest?.('[data-diorama-actor]'))followKey='';},{capture:true,passive:true});
+ doc.addEventListener('pointerup',()=>{if(dragging){dragging=false;root.requestAnimationFrame(()=>{followKey=selected()?.dataset.dioramaActor||'';followUntil=Date.now()+6000;});}},{passive:true});
+ doc.addEventListener('pointercancel',()=>{dragging=false;followKey='';},{passive:true});
+ frame.addEventListener('wheel',()=>{followKey='';},{passive:true});
+ function track(){if(active&&!dragging&&followKey&&Date.now()<followUntil){const a=actors().find(e=>e.dataset.dioramaActor===followKey);reveal(a);}root.requestAnimationFrame(track);}
+ schedule();root.requestAnimationFrame(track);
+})(typeof window==='object'?window:globalThis);

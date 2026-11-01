@@ -119,3 +119,10 @@ body[data-home-production="true"][data-home-terrain="true"] #homeActionComment::
 @media (min-width:640px) and (orientation:landscape){
  body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechChoices{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
 }
+
+/* V8 keeps the approved portrait lanes constant. Landscape is the owner-
+   approved compact rail; all world geometry remains at its original scale. */
+body[data-home-viewport-v8="true"] #castStage[data-diorama]{touch-action:pan-x pan-y pinch-zoom}
+body[data-home-viewport-v8="true"] #homeViewportNavigation button{flex:1;min-width:0;height:32px;padding:2px 6px;font:12px system-ui;border:1px solid #8b9a82;border-radius:6px;background:#fff9e8;color:#293d30}
+body[data-home-viewport-v8="true"] #speechSlot #homeCommentDock{background:#fff9e8dd;border-radius:8px;box-sizing:border-box;align-items:stretch;justify-content:flex-start}
+body[data-home-viewport-v8="true"] #speechSlot #homeCommentDock:empty{display:flex}

@@ -141,3 +141,31 @@ jobs:
         with:
           name: production-home-${{ matrix.region }}
           path: test-results/home-production/
+  viewport-v8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - run: node --test tests/home-production-viewport-v8-test.cjs
+      - run: python tools/pages/package.py --out "${{ runner.temp }}/viewport-v8" --report "${{ runner.temp }}/viewport-v8-package.json"
+      - run: node tools/home-production-v8-qa.cjs "${{ runner.temp }}/viewport-v8"
+      - run: node tests/home-production-viewport-v8-browser.cjs "${{ runner.temp }}/viewport-v8"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-viewport-v8-${{ matrix.engine }}
+          path: test-results/home-viewport-v8/
