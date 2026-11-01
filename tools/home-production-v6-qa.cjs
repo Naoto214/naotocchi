@@ -9,10 +9,15 @@ js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
  noticeCorpus(){
   const rows=${JSON.stringify(literals)};
   for(const [pool,events] of Object.entries(STORY_EVENT_POOLS))for(const event of events)if(typeof event.message==='string')rows.push({kind:'story',source:'STORY_EVENT_POOLS.'+pool,text:compactJapaneseText(event.message),event});
+  for(const [pool,events] of Object.entries(ACTION_RESULT_MESSAGES))for(const text of events)rows.push({kind:'message',source:'ACTION_RESULT_MESSAGES.'+pool,text});
+  for(const [pool,events] of Object.entries(ACTION_BLOCKED_MESSAGES))for(const text of events)rows.push({kind:'message',source:'ACTION_BLOCKED_MESSAGES.'+pool,text});
+  for(const [season,event] of Object.entries(SEASON_CHANGE_ANNOUNCE))rows.push({kind:'story',source:'SEASON_CHANGE_ANNOUNCE.'+season,text:event.text,event:{emoji:event.emoji}});
+  for(const [id,beats] of Object.entries(PARTNER_FIRST_ENCOUNTERS))for(const text of beats)rows.push({kind:'story',source:'PARTNER_FIRST_ENCOUNTERS.'+id,text,event:{character:WORLD_MASTER.partners.find(p=>p.id===id)}});
   for(const r of REGIONS)for(const line of REGION_RUNTIME_META[r.id]?.lines||[])rows.push({kind:'message',source:'REGION_RUNTIME_META.'+r.id,text:compactJapaneseText(r.label+'にやってきた！'+line)});
   rows.push({kind:'story',source:'long-name/reaction',text:STORY_EVENT_POOLS.travel[1].message,event:{...STORY_EVENT_POOLS.travel[1],petReaction:true},longName:true});
   rows.push({kind:'message',source:'emergency-long-token',text:'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.repeat(5)});
-  return rows.map(x=>({...x,text:compactJapaneseText(x.text)}));
+  // Empty notifications are checked explicitly by the expiry/reset case.
+  return rows.filter(x=>x.text).map(x=>({...x,text:compactJapaneseText(x.text)}));
  },
  presentNotice(row){
   clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;

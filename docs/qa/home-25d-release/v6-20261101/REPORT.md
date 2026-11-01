@@ -24,3 +24,5 @@ V5 remains live and owner-only (owner 1, groups 0, external 0). Recovery saved v
 Shared central receding path and dark green mass dominate both compositions despite temperate waterfall/stream vs subtropical red earth/foliage. J2 should use open fern-covered forest floor with large tree ferns and broad leaves, no central path, preserving safe central space. J2 is deferred until notification release gates; no assets changed, no separate PR yet.
 
 Pre-push: production contracts 365 passed (0 fail/skip/cancel), clean runtime HTTP verification 4123 files / 220210662 bytes, missing 0, mismatch 0, excluded 7 paths 404. Direct Git push unavailable (no credential); use GitHub connector non-force expected-HEAD update. Full npm regression still running.
+
+Corpus review before CI: include action results, blocked-action lines, seasonal announcements and partner encounters. Empty-message literals are exercised by the explicit reset/expiry case instead of asserting a visible body for an empty notice. Production source unchanged in this follow-up.
