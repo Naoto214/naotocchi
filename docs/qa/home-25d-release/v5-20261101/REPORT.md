@@ -15,8 +15,10 @@ An intermediate RAF-scheduled measurement delayed in a throttled iframe and fail
 - Reproduction: original forest text clipped 44/40; natural text after change 50/50, base reservation 42.
 - Local Chromium rendered iframe matrix: 48 cases, zero clipping/overlap failures after microtask fix (4 widths x portrait/rotated landscape x 6 samples). Covers authored forest, travel and court pools, explicit newline stress case, short and cleared notices. This is not desktop WebKit or iPhone Safari evidence.
 - Existing queue/birth/scroll tests: 14 pass. Production lifecycle/conversation/save contracts: 365 pass, fail/skip/cancel zero.
-- New layout timing tests plus existing focus suite: 8 pass.
+- Final focused queue/birth/layout/focus suite: 16 pass.
 - Full npm regression and final-head browser CI pending. Earlier HEAD 1476d675 includes the superseded RAF measurement; its CI must not be presented as final V5 validation.
+
+Package HTTP integrity: 4,123 files / 220,206,186 bytes, missing 0 / hash mismatch 0; seven excluded routes return 404. See package-integrity.json. Local DOM measurements: local-notice-matrix.json (48). jungle-320.jpg shows the complete authored story notice and fixed controls at 320px; this capture fixture repeats the same notice solely to hold it for photography, and is not timing evidence.
 
 ## QA surface
 Private artifact generator only: tools/home-production-v5-qa.cjs. Production allowlist excludes the generator and all generated QA pages. Reuses the existing release QA scene builder and exact adopted background, ground, collision, shadow and depth models. All storage access on the QA document is namespaced with naotocchi-home-v5-qa:, including backup and module markers. Region/count links deliberately rebuild only QA state; the resume link does not rebuild it. The normal game's special-region checks are unchanged.

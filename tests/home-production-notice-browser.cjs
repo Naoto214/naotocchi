@@ -14,6 +14,7 @@ const inspect=()=>{
  const browser=await require('playwright')[engine].launch();try{
  for(const width of [320,375,390,430])for(const landscape of [false,true])for(const region of ['forest','jungle','star_stop','memory_lake']){
  const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));await page.clock.install();
+ await page.addInitScript(()=>{const get=Storage.prototype.getItem;window.qaOriginalSave=()=>get.call(localStorage,'naotocchi-save-v1');if(!get.call(localStorage,'naotocchi-save-v1'))localStorage.setItem('naotocchi-save-v1','normal-save-sentinel');});
  await page.goto(base+'/v5-qa.html?region='+region+'&count=6');await page.waitForFunction(()=>window.HomeReleaseQA?.detail().world?.loaded);await page.evaluate(()=>document.fonts.ready);
  // Rotate the same live document, not a separate landscape-only fixture.
  if(landscape)await page.setViewportSize({width:844,height:width});
@@ -39,7 +40,7 @@ const inspect=()=>{
  await page.evaluate(()=>HomeReleaseQA.question());await page.evaluate(()=>HomeReleaseQA.noticeCase('forest'));await page.clock.runFor(100);const simultaneous=await page.evaluate(inspect);assert.equal(simultaneous.speech.height,76);assert.ok(simultaneous.content.every(c=>c.rect.bottom<=simultaneous.stage.top+1));
  await page.screenshot({path:path.join(output,[engine,width,landscape?'landscape':'portrait',region,'speech'].join('-')+'.png')});
  // Reload via resume URL: no new fixture reset. Main save sentinel is untouched.
- await page.evaluate(()=>HomeReleaseQA.save());await page.goto(base+'/v5-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA?.detail().world?.loaded);assert.equal(await page.evaluate(()=>HomeReleaseQA.state().regionId),region);
+ await page.evaluate(()=>HomeReleaseQA.save());await page.goto(base+'/v5-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA?.detail().world?.loaded);assert.equal(await page.evaluate(()=>HomeReleaseQA.state().regionId),region);assert.equal(await page.evaluate(()=>qaOriginalSave()),'normal-save-sentinel','QA never reads or replaces the normal save');
  await page.close();fs.writeFileSync(path.join(output,'progress.json'),JSON.stringify({results,errors},null,2));
  }
  }finally{await browser.close();}}

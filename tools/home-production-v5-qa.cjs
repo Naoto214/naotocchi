@@ -15,7 +15,7 @@ js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
    multiline:STORY_EVENT_POOLS.travel[1].message+'\\n'+STORY_EVENT_POOLS.court[1].message,
    short:STORY_EVENT_POOLS.pet[0].message};
   if(kind==='story'){showStoryEvent(STORY_EVENT_POOLS.travel[1]);return STORY_EVENT_POOLS.travel[1].message;}
-  setMessage(texts[kind]||'');render();return texts[kind]||'';
+  setMessage(texts[kind]||'');render();return compactJapaneseText(texts[kind]||'');
  },
 `);
 js=js.replace(/\}\)\(\);\s*$/,`
