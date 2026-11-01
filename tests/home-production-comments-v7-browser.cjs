@@ -7,7 +7,7 @@ const inspect=()=>{
  return {bubble:rect('speechBubble'),text:rect('speechText'),name:rect('speechSpeaker'),dock:rect('homeCommentDock'),stage:rect('castStage'),slot:rect('speechSlot'),controls:rect('careActions'),notice:rect('homeEventSlot'),pageWidth:document.documentElement.scrollWidth,
  content:text.textContent,whiteSpace:getComputedStyle(text).whiteSpace,wrap:getComputedStyle(text).textWrap,textScroll:text.scrollHeight,textClient:text.clientHeight,bubbleScroll:bubble.scrollWidth,bubbleClient:bubble.clientWidth,
  portrait:name.querySelector('img')?.getAttribute('src'),portraitLoaded:!!name.querySelector('img')?.naturalWidth,nameText:name.textContent,
- buttons:[...document.querySelectorAll('#careActions>button')].map(b=>{const r=b.getBoundingClientRect(),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {hit:hit===b||b.contains(hit),w:r.width,h:r.height}}),
+ buttons:[...document.querySelectorAll('#careActions>button')].map(b=>{const r=b.getBoundingClientRect(),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {id:b.id,rect:r.toJSON(),hitElement:hit?.outerHTML.slice(0,500),hit:hit===b||b.contains(hit),w:r.width,h:r.height}}),
  phrases:document.querySelectorAll('.notice-phrase').length,careIcon:document.getElementById('message').dataset.careIcon,recommended:document.getElementById('feedBtn').dataset.careRecommended};
 };
 const texts=['うれしいな','今日はいい日だった','遊びの途中で何かを思い出したような顔をした','きれいな景色を見て、しばらく立ちどまっていた。となりの仲間と目が合って、小さく笑った。','遊びの途中で、ふと何かを思い出したような顔をした。きれいな景色を見て、しばらく立ちどまっていた。となりの仲間と目が合って、小さく笑った。今日のことを、明日もおぼえていられたらいいなと思った。','ABCDEFGHIJKLMNOPQRSTUVWXYZ'.repeat(5)];
@@ -37,7 +37,9 @@ for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split('
  results.push({label,...d});if(!longName&&[0,4].includes(i))await page.screenshot({path:path.join(out,[engine,width,kind,i].join('-')+'.png')});
  }
  }
- await page.setViewportSize({width:844,height:width});await page.clock.runFor(100);let d=await page.evaluate(inspect);assert.ok(d.bubble.bottom<=d.controls.top-2,JSON.stringify({phase:'rotation',engine,width,d}));assert.ok(d.buttons.every(b=>b.hit));
+ await page.setViewportSize({width:844,height:width});await page.clock.runFor(100);let d=await page.evaluate(inspect);
+ fs.writeFileSync(path.join(out,'rotation-'+engine+'-'+width+'.json'),JSON.stringify(d,null,2));await page.screenshot({path:path.join(out,'rotation-'+engine+'-'+width+'.png')});
+ assert.ok(d.bubble.bottom<=d.controls.top-2,JSON.stringify({phase:'rotation',engine,width,d}));assert.ok(d.buttons.every(b=>b.hit),JSON.stringify({phase:'rotation-controls',engine,width,d}));
  await page.setViewportSize({width,height:844});await page.clock.runFor(100);d=await page.evaluate(inspect);assert.ok(d.bubble.bottom<=d.controls.top-2,JSON.stringify({phase:'rotation',engine,width,d}));
  await page.evaluate(()=>HomeReleaseQA.commentCase('partner','「じゃあまたね」と手を振った。いつもの距離だった','',true));await page.clock.runFor(100);
  const story=await page.evaluate(()=>{const b=document.getElementById('storyFlash'),n=document.getElementById('storyFlashEmoji'),t=document.getElementById('storyFlashText');return {parent:b.parentNode.id,comment:b.dataset.comment,top:t.getBoundingClientRect().top,nameBottom:n.getBoundingClientRect().bottom,bottom:b.getBoundingClientRect().bottom,controls:document.getElementById('careActions').getBoundingClientRect().top,portrait:n.querySelector('img')?.src};});

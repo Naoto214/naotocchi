@@ -24,6 +24,8 @@ js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
  },
  exchange(){
   clearConversationTimers();hideSpeechBubble();clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;el.storyFlash.classList.add('hidden');message='';
+  // The disposable adult scene skips hatching, where this is normally created.
+  state.individuality ||= INDIVIDUALITY.create(state.speciesLine,REGIONS.map(r=>r.id));
   state.individuality.lastExchangeAge=-1;state.isSick=false;state.isSleeping=false;
   return maybeIndividualExchange();
  },

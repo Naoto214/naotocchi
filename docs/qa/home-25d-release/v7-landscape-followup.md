@@ -34,3 +34,18 @@ Validation before this candidate is pushed:
 Keep private live V6 and its saved version
 `appgprj_6ae5bc78994481919b5d33849da61d0f~appgver_171565716e948191b37bcb864566cd1e`
 available. No main merge, Pages publication, force push, or access changes.
+
+## Subsequent CI evidence
+
+Run `41302157253` on `6bb8d8c5` passes the corrected Chromium rotated-choice
+assertion and reaches the later companion exchange check. That fixture fails
+because the disposable adult state skips hatching and has `individuality=null`.
+Initialize only that QA fixture with the real individuality creator before
+calling the existing exchange engine; production initialization is unchanged.
+
+WebKit reaches the landscape control hit-test and fails before questions.
+The test now saves the unchanged 100ms measurement, button rectangles and the
+actual hit element, plus a rotation screenshot. No assertion or timing is
+relaxed. Move V7 before the frozen V6 baseline in the CI job for earlier
+failure evidence; retain every baseline and regression step. V7 remains
+unpublished pending diagnosis and all required gates.

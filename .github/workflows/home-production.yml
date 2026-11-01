@@ -29,9 +29,15 @@ jobs:
       - run: npx playwright install --with-deps ${{ matrix.engine }}
       - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
       - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
+      - name: V7 actual character comments and native wrapping
+        run: |
+          node tools/home-production-v7-qa.cjs "${{ runner.temp }}/fixed-controls"
+          node tests/home-production-comments-v7-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
       # V6's word-boundary contract is intentionally historical in V7. Keep
       # the complete test, running against its frozen source, and add the new
-      # live native-wrap/portrait/bottom-dock gate below.
+      # live native-wrap/portrait/bottom-dock gate above.
       - name: Preserve V6 Japanese-break regression on frozen V6 source
         run: |
           git fetch origin b3c48ef52fbc78687a35d4b14b5506f18d2c935d --depth=1
@@ -44,12 +50,6 @@ jobs:
           node tools/home-production-v6-qa.cjs "${{ runner.temp }}/v6-controls"
       - name: V6 frozen baseline
         run: node tests/home-production-notice-v6-browser.cjs "${{ runner.temp }}/v6-controls"
-        env:
-          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
-      - name: V7 actual character comments and native wrapping
-        run: |
-          node tools/home-production-v7-qa.cjs "${{ runner.temp }}/fixed-controls"
-          node tests/home-production-comments-v7-browser.cjs "${{ runner.temp }}/fixed-controls"
         env:
           HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
       - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
