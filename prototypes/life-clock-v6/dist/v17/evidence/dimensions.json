@@ -1,0 +1,50 @@
+[
+  {
+    "variant": "V16",
+    "Dmm": 240,
+    "innerDiameter": 946,
+    "outerDiameter": 1026,
+    "bezelWidth": 40,
+    "imageSha256": "90596fcb89f1d5d896ae6a901f5ab8d0afd8b7a29686f3f975c20078471adec0",
+    "uniformImageWidth": 269.4736842105263,
+    "areaRatio": 1,
+    "thicknessMm": 24,
+    "tilt": 12
+  },
+  {
+    "variant": "A",
+    "Dmm": 240,
+    "innerDiameter": 946,
+    "outerDiameter": 1026,
+    "bezelWidth": 40,
+    "imageSha256": "532da5fae67c32792094d87441b0bee5ef3fb5a6b4897653d6924e047e6a5395",
+    "uniformImageWidth": 269.4736842105263,
+    "areaRatio": 1,
+    "thicknessMm": 24,
+    "tilt": 12
+  },
+  {
+    "variant": "B",
+    "Dmm": 251.06432748538015,
+    "innerDiameter": 993.3000000000001,
+    "outerDiameter": 1073.3000000000002,
+    "bezelWidth": 40,
+    "imageSha256": "86dbdac9855eb2d04dc8708ff100b8a17b4ac42daade1018545ecd743dfd4fa1",
+    "uniformImageWidth": 269.4736842105263,
+    "areaRatio": 1.0943280648556635,
+    "thicknessMm": 24,
+    "tilt": 12
+  },
+  {
+    "variant": "C",
+    "Dmm": 262.12865497076024,
+    "innerDiameter": 1040.6000000000001,
+    "outerDiameter": 1120.6000000000001,
+    "bezelWidth": 40,
+    "imageSha256": "c35fc2b68b5ad9657f8e8ad3cf861472802c63ab97d263ff61d3c0e0320b6240",
+    "uniformImageWidth": 269.4736842105263,
+    "areaRatio": 1.192906801332984,
+    "thicknessMm": 24,
+    "tilt": 12
+  }
+]
