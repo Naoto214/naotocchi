@@ -1,0 +1,58 @@
+{
+  "environment": "Chrome managed preview, iframe CSS dimensions; not physical iPhone Safari",
+  "nominalViewports": [
+    [
+      320,
+      568
+    ],
+    [
+      375,
+      667
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      568,
+      320
+    ],
+    [
+      667,
+      375
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      932,
+      430
+    ]
+  ],
+  "actualClientWidths": [
+    305,
+    360,
+    375,
+    415,
+    553,
+    652,
+    829,
+    917
+  ],
+  "scrollbarWidth": 15,
+  "all8Rendered": true,
+  "all8NoDocumentHorizontalOverflow": true,
+  "all8Growth100ButtonKeyboardAndBadge": true,
+  "width320Choice40ResetAndMouse100": true,
+  "desktopCombinedChoiceEnd12RoundIncrement": true,
+  "earlyEndpointClickDidNotChangeState": "After automatic smooth scroll, initial desktop click remained at 40; later isolated 320px mouse click and all 8 keyboard operations passed. No application exception observed.",
+  "iPhoneSafari": "unverified",
+  "physicalStability": "unverified",
+  "standNestedSvgFixVisuallyConfirmed": true,
+  "preview404RecoveredByRestart": true
+}
