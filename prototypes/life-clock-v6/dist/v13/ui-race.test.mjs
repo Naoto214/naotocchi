@@ -1,0 +1,4 @@
+import vm from'node:vm';import fs from'node:fs';import assert from'node:assert/strict';
+const source=fs.readFileSync(new URL('app.mjs',import.meta.url),'utf8').replace("import('./clock-v13.mjs')","loadEngine()");
+for(const action of ['stand','light']){const els=new Map();const get=id=>{if(!els.has(id))els.set(id,{innerHTML:'',textContent:'',hidden:false,value:'',setAttribute(){}});return els.get(id);};let resolve;const pending=new Promise(r=>resolve=r);vm.runInNewContext(source,{document:{getElementById:get},loadEngine:()=>pending});get('live').onclick();get(action).onclick();resolve({render:()=>'<svg>stale</svg>'});await new Promise(r=>setTimeout(r,0));assert.ok(get('display').innerHTML.includes('<img'),action+' must remain an image after a pending import resolves');if(action==='stand')assert.ok(get('display').innerHTML.includes('stand-A'));}
+console.log('Pending engine import cannot overwrite stand/light: 2 passed');
