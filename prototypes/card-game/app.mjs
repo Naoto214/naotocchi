@@ -1,3 +1,5 @@
+import {INSPECTION_MOTION,installDoubleTap} from './inspection-controls.mjs';
+import {mountLifeClock} from './life-clock-view.mjs';
 import {RecordsStore,buildRecord} from './records.mjs';
 import {newMetadata,encodeMatch,decodeMatch} from './records-match.mjs';
 import {mountRecords} from './records-ui.mjs';
@@ -31,7 +33,8 @@ function recordFinished(){if(!session.finished||!matchMetadata||recordedId===mat
 const input=installActionInputGuard(document,()=>({session,revision:session.projection?.revision,viewer:session.viewer}));
 let dragging=false;
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
-const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog','rulebook-dialog','tutorial-dialog','learning-card-dialog','learning-term-dialog','records-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
+const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog','rulebook-dialog','tutorial-dialog','learning-card-dialog','learning-term-dialog','records-dialog','life-clock-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
+const lifeClock=mountLifeClock({dialog:$('life-clock-dialog'),getView:()=>session.projection,onPause:()=>cpu.cancel(),onResume:()=>{applyHandVisibility();cpu.schedule();}});
 const turnFeedback=new TurnFeedback();
 const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
@@ -48,6 +51,9 @@ function button(text,handler){const n=el('button',text);n.type='button';n.addEve
 function message(text){$('status').textContent=text;}
 function persist(){if(session.finished&&matchMetadata&&matchMetadata.completedAt===null&&matchMetadata.startedAt!==null)matchMetadata.completedAt=Date.now();try{localStorage.setItem(session.mode==='cpu'?CPU_KEY:KEY,saveMatch());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}recordFinished();}
 function closeDialogs({focus=true}={}){
+ lifeClock.close({focus});
+ finishStageAnim();cardTaps.reset();cardPointers.clear();stagePinch=null;
+ delete $('card-dialog').dataset.stageZoom;delete $('card-dialog').dataset.stagePinch;
  input.invalidate();
  for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();delete d.dataset.browseSeat;delete d.dataset.browseZone;}
  input.stamp();pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;cpu.schedule();
@@ -126,7 +132,7 @@ function showZone(seat,zone,origin){
 // Motion is a transform on the card as it is already drawn; the real size (layout, card art at the new resolution) and
 // the scroll position change once, after the motion, with no transform left on the card. Changing the layout under a
 // running transform made iOS Safari stutter at the start and leave unpainted (white) parts of the enlarged card.
-const STAGE_ANIM_MS=260,clamp01=x=>Math.min(1,Math.max(0,x));let stageAnim=null;
+const clamp01=x=>Math.min(1,Math.max(0,x));let stageAnim=null;
 const stageSnap=d=>{const s=d.querySelector('.stage-scroll');return {zoom:d.dataset.stageZoom==='1',pinch:d.dataset.stagePinch??null,left:s.scrollLeft,top:s.scrollTop};};
 function stageApply(d,{zoom,pinch,left,top}){const s=d.querySelector('.stage-scroll');
  if(zoom){d.dataset.stageZoom='1';if(pinch)d.dataset.stagePinch=String(pinch);else delete d.dataset.stagePinch;}else{delete d.dataset.stageZoom;delete d.dataset.stagePinch;}
@@ -143,16 +149,17 @@ function zoomStage(d,state,from='none'){finishStageAnim();const card=d.querySele
  const {rect:n,after}=stageTarget(d,state),to=`translate(${n.left-lay.left}px,${n.top-lay.top}px) scale(${n.width/lay.width})`;
  const commit=()=>{card.style.transform='';card.style.transformOrigin='';stageApply(d,after);};
  if(!card.animate||matchMedia('(prefers-reduced-motion: reduce)').matches||base&&Math.abs(n.width-r0.width)<1&&Math.abs(n.left-r0.left)<1&&Math.abs(n.top-r0.top)<1){commit();return;}
- const anim=card.animate([{transformOrigin:'0 0',transform:from},{transformOrigin:'0 0',transform:to}],{duration:STAGE_ANIM_MS,easing:'cubic-bezier(.25,.8,.25,1)',fill:'forwards'});
+ const anim=card.animate([{transformOrigin:'0 0',transform:from},{transformOrigin:'0 0',transform:to}],INSPECTION_MOTION);
  stageAnim={anim,commit};anim.onfinish=()=>{if(stageAnim?.anim===anim)finishStageAnim();};}
-function toggleStageZoom(z,at=null){const d=z.closest('dialog'),card=d?.querySelector('.stage-card');if(!card)return;finishStageAnim();
+function toggleStageZoom(z,at=null){const d=z.closest('dialog'),card=d?.querySelector('.stage-card');if(!card)return;finishStageAnim();cardTaps.reset();
  const r=card.getBoundingClientRect(),f=at?{x:clamp01((at.x-r.left)/r.width),y:clamp01((at.y-r.top)/r.height)}:null;
  zoomStage(d,{zoom:d.dataset.stageZoom!=='1',at,f});}
 document.addEventListener('click',e=>{const z=e.target.closest('button[data-stage-zoom]');if(z)toggleStageZoom(z);});
 // Double tap and pinch on the detail card, built on pointer events: iOS Safari sends no click to a plain element through
 // a document listener. A drag, a long press, two slow taps or two taps apart are not a double tap; a single tap does nothing.
-const DOUBLE_TAP_MS=350,TAP_SLOP=12,DOUBLE_TAP_SLOP=36;
-const activePointers=new Set(),cardPointers=new Map();let tapStart=null,lastTap=null,stagePinch=null;
+const cardTaps=installDoubleTap({doc:document,resolve:target=>target.closest?.('#card-dialog[open] .stage-card'),onDouble:toggleStageZoom});
+window.addEventListener('resize',finishStageAnim);
+const cardPointers=new Map();let stagePinch=null;
 const pinchSpan=()=>{const [a,b]=[...cardPointers.values()];return {dist:Math.max(1,Math.hypot(a.x-b.x,a.y-b.y)),mid:{x:(a.x+b.x)/2,y:(a.y+b.y)/2}};};
 function beginPinch(card){const d=card.closest('dialog'),range=stageRange(d);if(!range)return;finishStageAnim();
  const r0=card.getBoundingClientRect(),base=parseFloat(card.style.getPropertyValue('--stage-scale'))||range.normal,{dist,mid}=pinchSpan();
@@ -164,32 +171,28 @@ function movePinch(){const p=stagePinch,{dist,mid}=pinchSpan();
 function endPinch(){const p=stagePinch;stagePinch=null;if(!p.card.isConnected)return;
  const s=Math.min(p.range.max,Math.max(p.range.normal,p.base*p.r)),f={x:clamp01((p.mid.x-p.r0.left)/p.r0.width),y:clamp01((p.mid.y-p.r0.top)/p.r0.height)};
  zoomStage(p.d,{zoom:s>p.range.normal*1.05,pinch:s,at:p.at,f},p.card.style.transform||'none');}
-document.addEventListener('pointerdown',e=>{activePointers.add(e.pointerId);
+document.addEventListener('pointerdown',e=>{
  const card=e.target.closest?.('#card-dialog[open] .stage-card');
  if(card&&e.pointerType!=='mouse'){cardPointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(cardPointers.size===2&&!stagePinch)beginPinch(card);}
- if(activePointers.size>1){tapStart=null;lastTap=null;return;}
- tapStart=card&&e.isPrimary?{id:e.pointerId,x:e.clientX,y:e.clientY,t:e.timeStamp,card}:null;},true);
+},true);
 document.addEventListener('pointermove',e=>{const p=cardPointers.get(e.pointerId);if(!p)return;p.x=e.clientX;p.y=e.clientY;if(stagePinch&&cardPointers.size>=2)movePinch();},true);
-function releasePointer(e){activePointers.delete(e.pointerId);cardPointers.delete(e.pointerId);if(stagePinch?.ids.includes(e.pointerId))endPinch();}
-document.addEventListener('pointercancel',e=>{releasePointer(e);tapStart=null;lastTap=null;},true);
-document.addEventListener('pointerup',e=>{releasePointer(e);const s=tapStart;tapStart=null;
- if(!s||s.id!==e.pointerId||!s.card.isConnected)return;
- if(Math.hypot(e.clientX-s.x,e.clientY-s.y)>TAP_SLOP||e.timeStamp-s.t>500){lastTap=null;return;}
- const l=lastTap;
- if(l&&l.card===s.card&&e.timeStamp-l.t<=DOUBLE_TAP_MS&&Math.hypot(e.clientX-l.x,e.clientY-l.y)<=DOUBLE_TAP_SLOP){lastTap=null;e.preventDefault();toggleStageZoom(s.card,{x:e.clientX,y:e.clientY});}
- else lastTap={card:s.card,x:e.clientX,y:e.clientY,t:e.timeStamp};},true);
+function releasePointer(e){cardPointers.delete(e.pointerId);if(stagePinch?.ids.includes(e.pointerId))endPinch();}
+document.addEventListener('pointercancel',releasePointer,true);
+document.addEventListener('pointerup',releasePointer,true);
 // iOS Safari: keep its own page pinch-zoom off the card (the card's touch-action already says so; older iOS needs this).
 for(const t of ['gesturestart','gesturechange'])document.addEventListener(t,e=>{if(e.target.closest?.('#card-dialog[open] .stage-card'))e.preventDefault();},{passive:false});
 document.addEventListener('keydown',e=>{const z=e.target.closest?.('div[data-stage-zoom]');if(z&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleStageZoom(z);}});
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b||b.disabled)return;
+ if(b.hasAttribute('data-life-clock')){lifeClock.open();return;}
+ if(lifeClock.isOpen)return;
  if(b.hasAttribute('data-result-collapse')){feedback.collapse();document.querySelector('[data-result-reopen]')?.focus({preventScroll:true});return;}
  if(b.hasAttribute('data-result-reopen')){feedback.reopen();return;}
  if(b.hasAttribute('data-close')||b.hasAttribute('data-cancel')){const back=b.hasAttribute('data-cancel')?returnDetail:null;const flow=b.hasAttribute('data-cancel')&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();return;}
  if(b.hasAttribute('data-result-history')){closeDialogs({focus:false});const d=$('card-dialog');d.classList.remove('card-detail');d.classList.add('workflow-dialog');d.innerHTML='<button type="button" class="dialog-close" data-close>閉じる ×</button>'+resultHistoryMarkup(session.projection,session.viewer);d.querySelector('details').open=true;d.showModal();input.stamp();d.scrollTop=0;return;}
  if(b.hasAttribute('data-workflow')){openWorkflow();return;}
  if(b.hasAttribute('data-hand-toggle')){handOpen=$('hand').classList.contains('hand-collapsed');applyHandVisibility();return;}
- if(b.hasAttribute('data-menu')){closeDialogs({focus:false});$('menu-dialog').showModal();return;}
+ if(b.hasAttribute('data-menu')){closeDialogs({focus:false});syncLeaveMenu();$('menu-dialog').showModal();return;}
  if(b.hasAttribute('data-reorder')){reordering=!reordering;handOpen=true;render();document.querySelector('[data-reorder]')?.focus();return;}
  if(b.hasAttribute('data-move')){
   if(!session.viewer||busy)return;const v=session.projection,id=b.dataset.handId,direction=Number(b.dataset.move),detail=$('card-dialog').open,scroll=document.querySelector('#hand .cards')?.scrollLeft??0;
@@ -208,7 +211,7 @@ document.addEventListener('click',e=>{
  if(b.dataset.inspect){inspect(b.dataset.inspect,{catalog:b.hasAttribute('data-catalog'),origin:b});return;}
  if(b.dataset.browse){inspect(b.dataset.browse,{readOnly:true,origin:b});return;}
  if(b.dataset.zone){showZone(b.dataset.seat,b.dataset.zone,b);return;}
- if(b.hasAttribute('data-home')){cpu.cancel();feedback.reset();session.clear();closeDialogs();$('game').replaceChildren();$('welcome').hidden=false;$('game').hidden=true;$('export').hidden=true;document.body.classList.remove('playing');renderDeck();$('new').focus();}
+ if(b.hasAttribute('data-home')){toWelcome();}// 対戦終了後の「カードゲームトップへもどる」
 });
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('close',()=>cpu.schedule());
 for(const id of ['card-dialog','confirm-dialog','menu-dialog'])$(id).addEventListener('cancel',e=>{e.preventDefault();const back=id==='confirm-dialog'?returnDetail:null;const flow=id==='confirm-dialog'&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();});
@@ -219,8 +222,54 @@ $('new').onclick=()=>{try{const seeds=crypto.getRandomValues(new Uint32Array(3))
 $('restore').onclick=()=>{try{const raw=localStorage.getItem($('match-mode').value==='cpu'?CPU_KEY:KEY);if(!raw)throw Error('保存された対戦がありません');cpu.cancel();{const loaded=decodeMatch(raw);session=loaded.session;matchMetadata=loaded.metadata;recordedId=null;}bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();message(matchMetadata?'保存を検証して復帰しました':'保存を検証して復帰しました（旧形式のため戦績には記録しません）');}catch(e){message(`復帰できません：${e.message}`);}};
 $('reveal').onclick=()=>{if(!session.active)return;session.reveal();$('curtain').hidden=true;render();continuePriority();};$('hide').onclick=hide;
 $('export').onclick=()=>{if(!session.active)return;hide();const url=URL.createObjectURL(new Blob([saveMatch()],{type:'application/json'})),a=el('a');a.href=url;a.download=session.mode==='cpu'?'naotocchi-cpu.json':'naotocchi-hotseat.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+// もどる操作（☰ 対戦メニュー・結果の「カードゲームトップへもどる」）。表記は移動先を書いた「〇〇へもどる」（矢印なし）。
+// 戻り先は2つ。CARD GAME はトップ（メインメニュー）と「対戦の準備」が同じページの上下にある1ページ構成なので、
+// そのページ全体を「カードゲームトップ」として扱い、ページ内で自分自身へ戻る操作は置かない。
+//   top:  カードゲームトップ（同じページの「対戦の準備」から「保存した対戦に戻る」で再開できる）
+//   home: なおとっち（育成画面）。ページを移動する
+// 対戦中は先にこの端末へ保存し直し、読み戻して保存できたことを確かめてから確認を出す。対戦終了後は確認なしで移動する。
+const HOME_URL=$('home-return').href;// 戻り先は開始画面ヘッダーのリンクと同じ（index.html の href が唯一の定義）
+const LEAVE={
+ top:{label:'カードゲームトップへもどる',title:'カードゲームトップへもどりますか？',resume:route=>`「${route}」→「保存した対戦に戻る」で`},
+ home:{label:'なおとっちへもどる',title:'なおとっちへもどりますか？',resume:route=>`あとで CARD GAME の「${route}」→「保存した対戦に戻る」で`},
+};
+const menuParts=()=>[document.querySelector('#menu-dialog .utility-nav'),$('menu-leave')];
+function leaveConfirmReset(){$('menu-home-confirm').hidden=true;$('menu-home-confirm').replaceChildren();menuParts().forEach(n=>n.hidden=false);syncLeaveMenu();}
+// 開始画面から開いたとき（対戦なし）は、もどる操作を出さない（ヘッダーの「なおとっちへもどる」がある）。
+function syncLeaveMenu(){const playing=!$('game').hidden;$('menu-leave').hidden=!playing;$('menu-continue').hidden=!session.active||session.finished;}
+// 対戦画面からカードゲームトップへ。保存済みの対戦は端末に残したまま（「保存した対戦に戻る」で再開できる）。
+function toWelcome({saved=false}={}){
+ const mode=session.mode==='cpu'?'cpu':'hotseat',had=session.active;
+ cpu.cancel();collection.close();closeDialogs({focus:false});feedback.reset();turnFeedback.hide();session.clear();
+ $('game').replaceChildren();$('game').hidden=true;$('curtain').hidden=true;$('welcome').hidden=false;$('export').hidden=true;document.body.classList.remove('playing');
+ if(had)$('match-mode').value=mode;// 「保存した対戦に戻る」がこの対戦の保存を読むように
+ modeGuide();renderDeck();
+ window.scrollTo?.(0,0);$('solo-open').focus({preventScroll:true});
+ const note=$('resume-note');note.hidden=!saved;
+ if(saved){note.textContent=`さっきの対戦を保存しました。「${mode==='cpu'?'ひとりであそぶ':'ふたりであそぶ'}」の「保存した対戦に戻る」で続きから遊べます。`;message(note.textContent);}
+}
+// 案内は、新しい対戦を始めたり保存から戻ったりしたら消す。
+for(const id of ['new','restore'])$(id).addEventListener('click',()=>{$('resume-note').hidden=true;});
+function go(target,saved){if(target==='home'){cpu.cancel();location.assign(HOME_URL);}else toWelcome({saved});}
+function requestLeave(target){
+ if(!session.active||session.finished){go(target,false);return;}
+ cpu.cancel();
+ const key=session.mode==='cpu'?CPU_KEY:KEY;let saved=false;
+ try{const data=saveMatch();localStorage.setItem(key,data);saved=localStorage.getItem(key)===data;}catch{saved=false;}
+ const route=session.mode==='cpu'?'ひとりであそぶ':'ふたりであそぶ',box=$('menu-home-confirm'),t=LEAVE[target];
+ box.innerHTML=saved
+  ?`<h3>${t.title}</h3><p>この対戦は端末に保存しました。${t.resume(route)}続きから遊べます。</p><div class="menu-home-actions"><button type="button" id="menu-home-go" class="primary">${t.label}</button><button type="button" id="menu-home-stay">対戦をつづける</button></div>`
+  :`<h3>保存できませんでした</h3><p class="menu-home-warn">いまもどると、この対戦の続きは遊べません。先に「対戦をつづける」→「保存ファイルを書き出す」で保存してください。</p><div class="menu-home-actions"><button type="button" id="menu-home-stay" class="primary">対戦をつづける</button><button type="button" id="menu-home-go">保存せずにもどる</button></div>`;
+ menuParts().forEach(n=>n.hidden=true);box.hidden=false;
+ $('menu-home-go').onclick=()=>go(target,saved);
+ $('menu-home-stay').onclick=()=>{leaveConfirmReset();$(target==='home'?'menu-home':'menu-top').focus();};
+ $('menu-home-stay').focus();
+}
+for(const b of document.querySelectorAll('#menu-leave [data-leave]'))b.onclick=()=>requestLeave(b.dataset.leave);
+$('menu-continue').onclick=()=>$('menu-dialog').close();
+$('menu-dialog').addEventListener('close',leaveConfirmReset);
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=decodeMatch(await file.text());cpu.cancel();session=restored.session;matchMetadata=restored.metadata;recordedId=null;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
-window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
+window.addEventListener('resize',()=>{if(lifeClock.isOpen)return;dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
 const strategyDeck=()=>$('match-mode').value==='cpu'&&$('cpu-deck-mode').value!=='mydeck';
 const myDecks=mountMyDecks({inspect,message,onChange:next=>{decks=next;},seats:()=>strategyDeck()?[$('human-seat').value]:['A','B']});

@@ -13,6 +13,8 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[8
   await page.evaluate(n=>HomeReleaseQA.scene('home',n),count);
   await page.waitForFunction(n=>{const d=HomeReleaseQA.detail();return d.world?.loaded&&!d.blocked&&d.actors.length===n;},count,{polling:100});await page.clock.runFor(100);
   const inspect=()=>page.evaluate(()=>{const r=e=>e.getBoundingClientRect().toJSON(),frame=r(document.querySelector('.screen-frame'));return {frame,notice:r(document.getElementById('homeEventSlot')),comment:r(document.getElementById('homeCommentDock')),stage:r(document.getElementById('castStage')),buttons:[...document.querySelectorAll('#careActions>button')].map(e=>{const b=r(e),hit=document.elementFromPoint(b.x+b.width/2,b.y+b.height/2);return {...b,hit:hit===e||e.contains(hit)}}),actors:HomeReleaseQA.detail().actors};});
+  const projection=()=>page.evaluate(()=>{const r=document.getElementById('castStage').getBoundingClientRect(),h=document.querySelector('.home-living-world').getBoundingClientRect();return {left:r.left-h.left,top:r.top-h.top,width:r.width,height:r.height,hostWidth:h.width};});
+  const originalProjection=await projection();
   const initial=await inspect();record.initial=initial;assert.equal(initial.notice.height,42);assert.equal(initial.comment.height,76);assert.equal(initial.buttons.length,9);
   assert.deepEqual(Object.values(initial.buttons.reduce((a,b)=>(a[Math.round(b.y)]=(a[Math.round(b.y)]||0)+1,a),{})),[5,4]);assert.ok(initial.buttons.every(b=>b.hit&&b.width>=44&&b.height>=44));
   assert.ok(initial.actors.every(a=>a.safe));
@@ -20,7 +22,7 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[8
   if(width>height){for(let i=0;i<count;i++){
    await page.getByRole('button',{name:'次の住民',exact:true}).click();await page.clock.runFor(20);
    const visible=await page.evaluate(()=>{const label=document.getElementById('homeViewportNavigation').getAttribute('aria-label').replace(/を表示中$/,''),actor=[...document.querySelectorAll('[data-diorama-actor]')].find(e=>e.getAttribute('aria-label')===label),v=document.querySelector('.screen-frame').getBoundingClientRect(),r=actor?.getBoundingClientRect();return {label,key:actor?.dataset.dioramaActor,full:r&&r.left>=v.left-1&&r.right<=v.right+1&&r.top>=v.top-1&&r.bottom<=v.bottom+1};});
-   record.navigation.push(visible);assert.ok(visible.full,'navigation must reveal entire actor '+JSON.stringify(visible));
+   record.navigation.push(visible);const translated=await projection();for(const k of ['left','top','width','height','hostWidth'])assert.ok(Math.abs(translated[k]-originalProjection[k])<1,'scroll changed terrain projection '+k);assert.ok(visible.full,'navigation must reveal entire actor '+JSON.stringify(visible));
   }assert.equal(new Set(record.navigation.map(x=>x.key)).size,count);}
   // A real pointer gesture, with deterministic clock, not a call to QA.move.
   const actor=page.locator('[data-diorama-actor^="pet:"]');await actor.scrollIntoViewIfNeeded();await page.clock.runFor(20);
@@ -37,6 +39,13 @@ for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[568,320],[8
   const long=await inspect();assert.equal(long.comment.height,76);assert.deepEqual(long.frame,initial.frame,'comment cannot change viewport');assert.deepEqual(long.buttons,initial.buttons,'comment cannot move buttons');
   const overflow=await page.locator('#homeCommentDock').evaluate(e=>({range:e.scrollHeight-e.clientHeight,text:e.textContent}));assert.ok(overflow.range>0&&overflow.text.includes(text));
   await page.locator('#homeCommentDock').evaluate(e=>{e.scrollTop=e.scrollHeight;});assert.ok(await page.locator('#homeCommentDock').evaluate(e=>e.scrollTop>0));
+  // Rotate the same live scene and return, preserving stage dimensions and
+  // unchanged fixed portrait geometry after the viewport event settles.
+  await page.setViewportSize({width:height,height:width});await page.clock.runFor(100);
+  await page.waitForFunction(([w,h])=>innerWidth===w&&innerHeight===h&&Number.parseFloat(document.documentElement.style.getPropertyValue('--app-height'))===Math.round(visualViewport?.height||innerHeight),[height,width],{polling:100});
+  await page.setViewportSize({width,height});await page.clock.runFor(100);
+  await page.waitForFunction(([w,h])=>innerWidth===w&&innerHeight===h&&Number.parseFloat(document.documentElement.style.getPropertyValue('--app-height'))===Math.round(visualViewport?.height||innerHeight),[width,height],{polling:100});
+  await page.clock.runFor(50);const returned=await inspect();assert.equal(returned.stage.width,initial.stage.width);assert.equal(returned.stage.height,initial.stage.height);assert.deepEqual(returned.frame,initial.frame);assert.equal(returned.comment.height,76);
   await page.screenshot({path:path.join(out,`${engine}-${width}x${height}-${count}.png`)});record.status='passed';
  }catch(e){record.status='failed';record.error=e.stack;failed=true;await page.screenshot({path:path.join(out,`${engine}-${width}x${height}-${count}-failed.png`)}).catch(()=>{});}finally{await page.close();fs.writeFileSync(path.join(out,engine+'.json'),JSON.stringify({records,errors},null,2));}
 }

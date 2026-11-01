@@ -3,9 +3,11 @@
   const device=document.getElementById('device'),frame=device?.querySelector('.screen-frame');
   if(!device||!frame)return;
   const terrain=()=>document.body.dataset.homeProduction==='true'&&document.body.dataset.homeTerrain==='true'&&device.dataset.homeFixed==='true';
-  let paintedScroll='',paintedOverflow='',paintScheduled=false;
+  let paintedScroll='',paintedOverflow='',paintedHorizontal='',paintScheduled=false;
   function paintScroll(){
     const scroll=(terrain()?frame.scrollTop:0)+'px',overflow=(terrain()?Math.max(0,frame.scrollHeight-frame.clientHeight):0)+'px';
+    const horizontal=(terrain()&&document.body.dataset.homeViewportV8==='true'?(frame.scrollLeft||0):0)+'px';
+    if(horizontal!==paintedHorizontal){paintedHorizontal=horizontal;document.body.style.setProperty('--home-center-scroll-x',horizontal);}
     if(scroll!==paintedScroll){paintedScroll=scroll;document.body.style.setProperty('--home-center-scroll',scroll);}
     if(overflow!==paintedOverflow){paintedOverflow=overflow;document.body.style.setProperty('--home-center-overflow',overflow);}
   }

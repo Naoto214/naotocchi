@@ -126,3 +126,5 @@ body[data-home-viewport-v8="true"] #castStage[data-diorama]{touch-action:pan-x p
 body[data-home-viewport-v8="true"] #homeViewportNavigation button{flex:1;min-width:0;height:32px;padding:2px 6px;font:12px system-ui;border:1px solid #8b9a82;border-radius:6px;background:#fff9e8;color:#293d30}
 body[data-home-viewport-v8="true"] #speechSlot #homeCommentDock{background:#fff9e8dd;border-radius:8px;box-sizing:border-box;align-items:stretch;justify-content:flex-start}
 body[data-home-viewport-v8="true"] #speechSlot #homeCommentDock:empty{display:flex}
+
+body[data-home-viewport-v8="true"] .home-living-world{transform:translate(calc(-1 * var(--home-center-scroll-x,0px)),calc(-1 * var(--home-center-scroll,0px)))}

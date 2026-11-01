@@ -14,7 +14,7 @@ test('card stage shows the official card and actions only: no repeated name/text
  // The ability text appears exactly once: on the card itself.
  assert.equal(html.split(c.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')).length-1,c.text?1:0);
  // Current state stays: turn/actor status and the back-to-board button.
- assert.match(html,/Aのターン・選択待ち/);assert.match(html,/data-close>盤面へ ×/);
+ assert.match(html,/Aのターン・選択待ち/);assert.match(html,/data-close>閉じる ×/);
 });
 test('egg exchange button: short main label plus the outcome note, and it carries the exact engine action',()=>{
  const x=opening(),v=x.projection,c=v.players.A.hand[0],[a]=cardActions(v,'A',c),html=cardStageMarkup(c,{v,viewer:'A'});

@@ -1,13 +1,13 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 
-function boot(){
+function boot(v8=false){
  const frames=[],properties={},listeners={},observers=[];
  const frame={scrollTop:0,scrollHeight:679,clientHeight:207,clientWidth:635,
   addEventListener(type,fn){listeners[type]=fn;},getBoundingClientRect(){return {top:49,bottom:49+this.clientHeight,height:this.clientHeight};}};
  const device={dataset:{homeFixed:'true'},querySelector:()=>frame};
  const actor={getBoundingClientRect:()=>({top:246-frame.scrollTop,bottom:366-frame.scrollTop,height:120})};
  const speech={classList:{contains:()=>false},querySelector:()=>null,getBoundingClientRect:()=>({top:564-frame.scrollTop,bottom:640-frame.scrollTop,height:76})};
- const doc={body:{dataset:{homeProduction:'true',homeTerrain:'true'},style:{setProperty:(k,v)=>properties[k]=v}},
+ const doc={body:{dataset:{homeProduction:'true',homeTerrain:'true',homeViewportV8:v8?'true':undefined},style:{setProperty:(k,v)=>properties[k]=v}},
   getElementById:id=>id==='device'?device:id==='speechSlot'?speech:{},querySelector:()=>actor,addEventListener(){}};
  vm.runInNewContext(fs.readFileSync('home-production-touch.js','utf8'),{document:doc,window:{},requestAnimationFrame:fn=>frames.push(fn),
   ResizeObserver:class{constructor(fn){observers.push(fn);}observe(){}},MutationObserver:class{observe(){}}});
@@ -52,4 +52,10 @@ test('comment dock remeasures controls after the rotation layout settles',()=>{
  for(let n=0;frames.length&&n<5;n++)frames.shift()();
  assert.equal(props['--comment-bottom'],'148px','bubble remains four pixels above the actual controls');
  assert.equal(props['--comment-max-height'],'692px');
+});
+
+test('V8 horizontal camera translates the world host with the stage',()=>{
+ const h=boot(true);h.frame.scrollLeft=112;h.listeners.scroll();
+ assert.equal(h.properties['--home-center-scroll-x'],'112px');
+ h.frame.scrollLeft=0;h.listeners.scroll();assert.equal(h.properties['--home-center-scroll-x'],'0px');
 });
