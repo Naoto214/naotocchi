@@ -196,7 +196,7 @@
         1152
       ]
     },
-    "release": "PR #501 Draft; V19 viewer awaiting owner device confirmation; not merged or deployed to Pages",
+    "release": "PR #501 Draft; V19 design confirmed by owner on iPhone Safari portrait/landscape in V20 instructions; V20 interaction candidate; not merged or deployed to Pages",
     "developmentCandidate": null,
     "sha256": {
       "v19/clock-v19.mjs": "ad0e03d173344ae24324d81bfbb8ab2284a83e913e5c47d7f4b25ad3d78734a7",
@@ -218,6 +218,17 @@
     {
       "version": "V19",
       "description": "Owner-requested central-hand stacking correction only; viewer landscape 2×2 and toolbar label change. Physical device review pending."
+    },
+    {
+      "version": "V20",
+      "description": "Shared card/clock double tap and display controls. V19 artwork and game state remain unchanged. Owner device QA pending."
     }
-  ]
+  ],
+  "interactionCandidate": {
+    "version": "V20",
+    "designVersion": "V19",
+    "baselineCommit": "9a1e387dc53dfcf4583790135c78dcff3280d486",
+    "sharedControls": "../inspection-controls.mjs",
+    "verification": "../../../docs/card-game/life-clock-v20-verification.md"
+  }
 }

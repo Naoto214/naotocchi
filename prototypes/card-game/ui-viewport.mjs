@@ -1,3 +1,4 @@
+import {syncZoomButton} from './inspection-controls.mjs';
 // The card is a 320 × 480 logical canvas. Fit both dimensions; never crop it.
 export function detailGeometry(width,height,insets={}){
  const safeWidth=Math.max(1,width-(insets.left??0)-(insets.right??0)),safeHeight=Math.max(1,height-(insets.top??0)-(insets.bottom??0));
@@ -36,11 +37,8 @@ export function fitStageCard(dialog,doc=document){
  const portrait=doc.documentElement.dataset.detailOrientation!=='landscape',zoom=dialog.dataset.stageZoom==='1';
  const pinch=zoom?parseFloat(dialog.dataset.stagePinch):NaN,range=stagePinchRange(w,h,{portrait});
  card.style.setProperty('--stage-scale',String(Number.isFinite(pinch)?Math.min(range.max,Math.max(range.normal,pinch)):stageScale(w,h,{zoom,portrait})));
- // The card always zooms (double tap). The portrait chip shows only where zoom widens the card to the stage width.
- const widens=Math.min(w/320,STAGE_MAX_SCALE)-stageScale(w,h,{portrait})>.05;card.toggleAttribute('data-zoomable',true);
- // Landscape: the card itself is the zoom control, so the chip stays hidden (portrait keeps it). There is no
- // "－ 縮小": while zoomed the chip is hidden and a double tap returns to normal.
- const chip=dialog.querySelector('.stage-zoom');if(chip){chip.hidden=zoom||!widens||!portrait;chip.textContent='＋ 拡大';}
+ card.toggleAttribute('data-zoomable',true);
+ syncZoomButton(dialog.querySelector('.stage-zoom'),zoom);
  markMoreChoices(dialog.querySelector('.stage-band'));
 }
 // A cue when more choices lie below in the action band; it goes once scrolled to the end. The card itself has no

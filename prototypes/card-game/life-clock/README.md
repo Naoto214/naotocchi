@@ -1,6 +1,6 @@
 # 人生の時計 — 採用版の正本
 
-採用デザインは **V18**。本人のVERSION 19指示による **中央3針の積層修正** を適用した最新版は `v19/clock-v19.mjs`。ゲームの表示版はV19、PR #501はDraftで実機確認待ち。本番採用・mainマージとは別に管理する。
+採用デザインは **V18**。本人のVERSION 19指示による **中央3針の積層修正** を適用した最新版は `v19/clock-v19.mjs`。V19デザイン・積層・横向き配置は本人がiPhone Safariで確認済み。ゲームの表示版はV20（操作UI候補）、PR #501はDraftでV20の実機確認待ち。本番採用・mainマージとは別に管理する。
 
 ## 一元管理
 
@@ -27,3 +27,7 @@ V18の完全保存点は `75d9a4d5e6c146a3f311de9c829d5fe22d4b570b`。`git show 
 `node --test prototypes/card-game/tests/life-clock*.test.mjs`
 
 既存6重なり条件、0と12、中央キャップ、寸法、V18との非針部分の一致、裏面一致、324状態の値・角度、保存互換性を確認する。表示サイズと実機QAの結果は `docs/card-game/life-clock-v19-verification.md` に記録する。
+
+## V20操作UI候補
+
+カードと時計のダブルタップ、表示ボタン、260msの動きを共通化。デザイン描画はV19を継続し、V18/V19原本と検証記録は保持。V19全体保存点は `9a1e387dc53dfcf4583790135c78dcff3280d486`。検証は `docs/card-game/life-clock-v20-verification.md`。

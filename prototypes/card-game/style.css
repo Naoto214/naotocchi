@@ -332,3 +332,9 @@ body>header h1{margin:0;min-width:0}
 .menu-leave-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:8px}.menu-leave-grid button{min-width:0;min-height:48px;padding:10px 14px;line-height:1.35;white-space:nowrap}
 .menu-leave-grid #menu-home{border-color:#c8ac6b;background:#2d4a33}.menu-leave-grid #menu-continue{grid-column:1/-1}
 .resume-note{margin:12px 0 0;padding:10px 12px;border:1px solid #c8ac6b;border-radius:10px;background:#2d4a33;color:#f9f1d9;font-size:14px;line-height:1.6}
+
+/* V20: display controls remain available in both orientations and zoom states. */
+#card-dialog.card-detail .stage-zoom,.life-clock-toolbar .inspection-control{min-height:44px;min-width:72px;padding:6px 10px;font-size:13px;white-space:nowrap;flex:none}
+#card-dialog.card-detail .detail-toolbar{flex-wrap:wrap}
+#card-dialog.card-detail .detail-toolbar>span{min-width:0;flex:1}
+#card-dialog.card-detail .stage-scroll{align-items:flex-start;overflow:auto}

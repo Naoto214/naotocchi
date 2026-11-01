@@ -8,7 +8,7 @@
 .life-clock-toolbar button{min-height:44px;min-width:44px;padding:6px 12px;font-size:13px;white-space:nowrap}
 .life-clock-body{display:grid;grid-template-rows:minmax(0,1fr) auto;flex:1;min-height:0;gap:8px}
 .life-clock-stage{min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-.life-clock-scene{position:relative;width:100%;height:100%;perspective:1800px;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+.life-clock-scene{position:relative;width:100%;height:100%;perspective:1800px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 #life-clock-face{position:relative;width:100%;height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform 650ms cubic-bezier(.22,.65,.24,1);transform-origin:50% 50%}
 .life-clock-surface{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;pointer-events:none}
 .life-clock-front{transform:rotateY(0deg) translateZ(1px)}
@@ -16,7 +16,7 @@
 .life-clock-surface>svg{display:block;width:100%;height:100%;overflow:visible}
 .life-clock-toolbar h2 small{display:block;font-size:10px;letter-spacing:.08em;color:#aec2cf;font-weight:400}
 @media(prefers-reduced-motion:reduce){#life-clock-face{transition:none}}
-#life-clock-dialog.life-clock-zoomed .life-clock-scene{touch-action:pan-x pan-y pinch-zoom}
+#life-clock-dialog.life-clock-zoomed .life-clock-scene{touch-action:pan-x pan-y}
 .life-clock-info{align-self:center;max-width:520px;width:100%;margin:auto;font-size:12px}
 #life-clock-status{text-align:center;margin:0 0 6px;color:#c0d1da}
 #life-clock-values{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}
@@ -25,7 +25,7 @@
 .clock-value.red{border-color:#cf8996}.clock-value.red strong{color:#e6a6b2}
 .clock-value.green{border-color:#83bc9f}.clock-value.green strong{color:#a6d9bf}
 .life-clock-note{font-size:11px;line-height:1.5;margin:8px 0 0;text-align:center;color:#b8cbd6}
-#life-clock-dialog.life-clock-zoomed .life-clock-scene{width:max(100%,720px);height:max(100%,720px)}
+#life-clock-dialog.life-clock-zoomed .life-clock-scene{width:calc(100% * var(--clock-zoom-scale,1.5));height:calc(100% * var(--clock-zoom-scale,1.5))}
 @media(orientation:landscape){
  .life-clock-body{grid-template-columns:minmax(0,1fr) minmax(240px,42%);grid-template-rows:minmax(0,1fr)}
  #life-clock-values{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 8px}
@@ -45,3 +45,9 @@
 }
 .table-top .workflow-history-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;width:44px;min-width:44px;height:44px;padding:2px;line-height:1.25;text-align:center}
 @media(max-width:360px){.table-top:has(.life-clock-button){gap:4px}.life-clock-toolbar{gap:5px}.life-clock-toolbar button{padding:6px 10px}.life-clock-toolbar h2{font-size:16px}}
+
+.life-clock-scene{cursor:zoom-in;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+.life-clock-zoomed .life-clock-scene{cursor:zoom-out}
+.life-clock-scene:focus-visible{outline:2px solid #ffdf88;outline-offset:-3px}
+.life-clock-toolbar{flex-wrap:wrap}
+.life-clock-toolbar h2{min-width:90px}
