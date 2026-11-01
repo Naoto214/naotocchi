@@ -28,4 +28,4 @@ V18の568×320を管理Chromeで再現し、右側1列と情報欄のscroll over
 ## 公開と保存
 既存の本人限定Site `appgprj_6ae71faa85448191977d6f89971d5d0b`（所有者1名・外部閲覧者0・グループ0）を更新する。公開結果・GitHub/Site commit・version/deployment IDはPR #501本文に記録する。
 
-ルール・engine・CPU・デッキ・save・clock state adapter・回転制御は差分なし。root npm testは別途実行し、結果確定後に追記する。
+ルール・engine・CPU・デッキ・save・clock state adapter・回転制御は差分なし。本編全体の `npm test` は追加で実行したが、未変更の `meguru-phase3b4-test.cjs` の地域経路総当たりが長時間継続したため中断した。中断前に失敗の報告はなかったが、**本編全回帰は未完了**であり全体成功とは扱わない。今回の変更対象のCARD GAME全回帰567件とDOM・配信パッケージ検証は完了している。
