@@ -2,7 +2,7 @@
 const fs=require('fs'),path=require('path'),http=require('http'),assert=require('node:assert/strict');
 const out=path.resolve(process.argv[2]),baseSource=path.resolve(process.argv[3]),dest=path.resolve(process.env.F2J3_OUTPUT||'test-results/f2j3');
 fs.mkdirSync(dest,{recursive:true});
-const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
+const mime={'.jpg':'image/jpeg','.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=http.createServer((req,res)=>{const p=decodeURIComponent(new URL(req.url,'http://local').pathname),f=path.resolve(out,'.'+(p==='/'?'/index.html':p));if(!f.startsWith(out+'/')||!fs.existsSync(f)||!fs.statSync(f).isFile()){res.writeHead(404).end();return;}res.setHeader('Content-Type',mime[path.extname(f)]||'application/octet-stream');fs.createReadStream(f).pipe(res);});
 const results=[],errors=[];const write=()=>fs.writeFileSync(path.join(dest,'results.json'),JSON.stringify({results,errors},null,2));
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port;
@@ -32,10 +32,14 @@ try{for(const engine of (process.env.F2J3_ENGINE||'chromium,webkit').split(','))
    row.exit=await page.evaluate(()=>HomeReleaseQA.move());assert.ok(row.exit,'protagonist safe exit');
    // Finish the model route before changing dimensions; movement rules untouched.
    await page.evaluate(()=>{for(let i=0;i<250;i++)F2J3QA.model.step(.1,{blocked:false,reducedMotion:true});});
-   await page.setViewportSize({width:844,height:width});await page.clock.runFor(150);
+   await page.clock.resume();await page.setViewportSize({width:844,height:width});
+   await page.waitForFunction(()=>parseInt(document.documentElement.style.getPropertyValue('--app-height'))===innerHeight,null,{timeout:10000});
+   await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+100));await page.clock.runFor(150);
    await page.waitForFunction(()=>{const s=document.getElementById('castStage').getBoundingClientRect(),d=HomeReleaseQA.detail();return s.width>400&&d.actors.every(a=>a.safe);},null,{timeout:10000});
    row.rotation=await page.evaluate(()=>{const d=HomeReleaseQA.detail(),s=F2J3QA.scene();return {feet:d.actors.every(a=>a.safe),visible:d.actors.every(a=>s.visible(a,a)),dock:document.getElementById('careActions').getBoundingClientRect().toJSON(),height:innerHeight};});assert.ok(row.rotation.visible,'rotated actors visible');assert.ok(row.rotation.dock.bottom<=row.rotation.height+1,'rotated 5+4 dock in viewport');
-   await page.setViewportSize({width,height:844});await page.clock.runFor(150);
+   await page.clock.resume();await page.setViewportSize({width,height:844});
+   await page.waitForFunction(()=>parseInt(document.documentElement.style.getPropertyValue('--app-height'))===innerHeight,null,{timeout:10000});
+   await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+100));await page.clock.runFor(150);
    await page.waitForFunction(w=>{const s=document.getElementById('castStage').getBoundingClientRect(),d=HomeReleaseQA.detail();return s.width<=w&&d.actors.every(a=>a.safe);},width,{timeout:10000});
    if(width===390&&['forest-f2','jungle-j3'].includes(scene)){
     for(const kind of ['tap','drag']){
@@ -57,7 +61,7 @@ try{for(const engine of (process.env.F2J3_ENGINE||'chromium,webkit').split(','))
   finally{write();await page.close();}
  }
  // Gallery must not create games or load missing files.
- const g=await browser.newPage();await g.goto(url);assert.equal(await g.locator('iframe').count(),0);assert.equal(await g.locator('article').count(),4);await g.close();
+ const g=await browser.newPage();await g.goto(url);assert.equal(await g.locator('iframe').count(),0);assert.equal(await g.locator('article').count(),4);for(const scene of ['forest-current','forest-f2','jungle-current','jungle-j3']){await g.goto(url+'/?scene='+scene);await g.locator('.shots img').last().scrollIntoViewIfNeeded();await g.waitForFunction(()=>[...document.querySelectorAll('.shots img')].length===3&&[...document.querySelectorAll('.shots img')].every(i=>i.complete&&i.naturalWidth>0));}await g.close();
  }finally{await browser.close();}
 }assert.equal(errors.length,0);console.log('F2J3 browser results',results.length,'passed');}finally{write();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

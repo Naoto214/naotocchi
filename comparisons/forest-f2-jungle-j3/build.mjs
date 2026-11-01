@@ -45,6 +45,7 @@ for(const name of ['forest-f2','jungle-j3']){
  copy(path.join(here,'runtime',name+'.webp'),'comparison-art/'+name+'.webp');
  copy(path.join(here,'originals',name+'.png'),'comparison-originals/'+name+'.png');
 }
+for(const f of fs.readdirSync(path.join(here,'evidence')).filter(f=>f.endsWith('.jpg')))copy(path.join(here,'evidence',f),'comparison-evidence/'+f);
 const entries=[['forest-current','forest','現行の森','滝と苔むした小道'],['forest-f2','forest','森F2 · 木漏れ日の広場','広葉樹に包まれた、優しい草地'],['jungle-current','jungle','現行のジャングル','赤土の小道と亜熱帯林'],['jungle-j3','jungle','ジャングルJ3 · 生命の水辺','濃密なシダ、光芒と静かな湿地']].map(([id,region,name,note])=>{
  const current=ART_CANDIDATES.find(a=>a.id===ART_SCENES[region].candidate),candidate=CANDIDATES.find(a=>a.id===id);
  return {id,region,name,note,src:candidate?.src||current.src,original:candidate?'comparison-originals/'+id+'.png':current.src,geometry:CANDIDATE_SCENES[id]||ART_SCENES[region]};
