@@ -65,16 +65,22 @@
   background:radial-gradient(circle,#fffbe800 0%,#fffbe829 22%,#ffe7a74d 44%,#fff5ce00 70%);
   animation:birth-glow 2.8s ease-out both;
 }
-.birth-panel {
-  position:absolute;left:50%;top:57%;transform:translateX(-50%);
-  width:calc(100% - 40px);max-width:340px;box-sizing:border-box;
-  padding:15px 12px;border:2px solid #eac777;border-radius:20px;
-  background:#fffbed;color:#49301e;text-align:center;
-  box-shadow:0 4px 24px #c9973b55,0 0 24px #fff5d9aa;
-  animation:birth-panel 2.8s ease-out both;
+/* Use the existing 42px notification lane, never an overlay on the cast. */
+body[data-home-terrain="true"] #homeEventSlot>#message.birth-notice {
+ box-sizing:border-box;min-height:0;
+ padding:3px 16px;border:1px solid #d6b368;border-radius:12px;
+ background:linear-gradient(110deg,#fffbedeb,#fff0cce6,#fffbedeb);
+ color:#49301e;font-size:clamp(15px,4.1vw,17px);font-weight:800;
+ line-height:1.2;overflow-wrap:anywhere;text-align:center;
+ box-shadow:inset 0 0 8px #fff8df,0 0 7px #e9c87866;
+ position:relative;
 }
-.birth-panel strong {display:block;font-size:clamp(19px,5.2vw,24px);line-height:1.45;overflow-wrap:anywhere;}
-.birth-panel > span {display:block;margin-top:5px;font-size:12px;line-height:1.5;color:#684c30;}
+#message.birth-notice::before,#message.birth-notice::after {
+ content:'✦';position:absolute;top:50%;transform:translateY(-50%);
+ font-size:10px;color:#9b6c18;pointer-events:none;
+}
+#message.birth-notice::before {left:3px}
+#message.birth-notice::after {right:3px}
 .birth-star {
   position:absolute;left:calc(50% + (var(--i) - 3.5)*27px);top:43%;
   color:#e8b449;font-size:calc(15px + var(--i)*1px);text-shadow:0 0 8px #fff;
@@ -90,13 +96,8 @@
   20%,65% {opacity:1}
   100% {opacity:0;transform:translateY(calc(-45px - var(--i)*6px)) rotate(35deg)}
 }
-@keyframes birth-panel {0% {opacity:0} 12%,85% {opacity:1} 100% {opacity:0}}
-@media (max-height:450px) {
-  .birth-panel {top:34%;max-width:300px;padding:8px 12px;}
-  .birth-panel strong {font-size:18px;}
-}
 @media (prefers-reduced-motion:reduce) {
-  .birth-halo,.birth-star,.birth-panel {animation:none;}
+  .birth-halo,.birth-star {animation:none;}
   .birth-star {transform:translateY(calc(-12px - var(--i)*4px));}
 }
 

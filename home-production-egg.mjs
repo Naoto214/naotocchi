@@ -1,4 +1,4 @@
-import {artTransform} from './home-production-transform.mjs';
+import {artTransform,backdropComposition} from './home-production-transform.mjs';
 export function eggPose(host,stage,box=[0,0,128,128]){
  const t=artTransform(host,stage),size=Math.min(140,host.width*.34);
  // Centre the painted body, not its transparent PNG frame or a world-space seat.
@@ -14,7 +14,11 @@ export function createEggPresentation(doc){
   if(!host){host=doc.createElement('div');host.className='home-living-world home-v6-egg-world';host.setAttribute('aria-hidden','true');img=doc.createElement('img');img.src='assets/home-v6-20261029/runtime/home-interior-c.webp';img.decoding='async';host.append(img);doc.body.append(host);}
   doc.body.dataset.homeV6Egg='true';
   const h=host.getBoundingClientRect(),s=stage.getBoundingClientRect(),p=eggPose(h,{left:s.left-h.left,top:s.top-h.top,width:s.width,height:s.height},doc.defaultView.NaotocchiCastBounds?.[asset]?.box);
-  Object.assign(img.style,{position:'absolute',width:p.transform.width+'px',height:p.transform.height+'px',left:p.transform.left+'px',top:p.transform.top+'px',filter:time==='night'?'brightness(.76) saturate(.85)':weather==='rain'?'brightness(.85)':'none'});
+  const composition=backdropComposition(h,{left:s.left-h.left,top:s.top-h.top,width:s.width,height:s.height});
+  host.style.backgroundImage=`url("${img.src}")`;host.style.backgroundSize='cover';host.style.backgroundPosition='center';
+  host.style.filter=time==='night'?'brightness(.76) saturate(.85)':weather==='rain'?'brightness(.85)':'none';
+  const mask=`linear-gradient(to bottom,transparent 0px,#000 ${composition.fadeTop}px,#000 ${p.transform.height-composition.fadeBottom}px,transparent ${p.transform.height}px)`;
+  Object.assign(img.style,{maskImage:mask,webkitMaskImage:mask,position:'absolute',width:p.transform.width+'px',height:p.transform.height+'px',left:p.transform.left+'px',top:p.transform.top+'px',filter:'none'});
   Object.assign(sprite.style,{left:p.left+'px',top:p.top+'px',width:p.size+'px',height:p.size+'px'});
   sprite.style.setProperty('--cast-art-offset-y','0px');
  },destroy(){host?.remove();host=null;img=null;delete doc.body.dataset.homeV6Egg;}};

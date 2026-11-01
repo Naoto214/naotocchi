@@ -4046,6 +4046,7 @@
     showMessage(msg, MESSAGE_DURATION_MS);
   }
   function showMessage(msg, duration) {
+    el.message.classList.remove('birth-notice');
     message = compactJapaneseText(msg);
     if (CARE_STATUS) renderCareNotice();
     else { setCommentText(el.message, message); el.message.scrollTop = 0; }
@@ -10466,15 +10467,16 @@
     if (!birthCelebration) return;
     clearTimeout(birthCelebration.timer);
     birthCelebration.node.remove();
+    el.message.classList.remove('birth-notice');
     birthCelebration = null;
+    drainHomeNotices();
   }
 
   function showBirthCelebration() {
     clearBirthCelebration();
     const node = document.createElement('div');
     node.className = 'birth-celebration';
-    node.setAttribute('role', 'status');
-    node.setAttribute('aria-live', 'polite');
+    node.setAttribute('aria-hidden', 'true');
     const halo = document.createElement('span');
     halo.className = 'birth-halo';
     halo.setAttribute('aria-hidden', 'true');
@@ -10487,13 +10489,7 @@
       star.style.setProperty('--i', i);
       node.appendChild(star);
     }
-    const panel = document.createElement('div');
-    panel.className = 'birth-panel';
-    const title = document.createElement('strong');
-    title.textContent = `${currentVisualStage().label}が うまれた！`;
-    const subtitle = document.createElement('span');
-    subtitle.textContent = 'はじめまして。これから、よろしくね。';
-    panel.appendChild(title); panel.appendChild(subtitle); node.appendChild(panel);
+    el.message.classList.add('birth-notice');
     el.petArea.appendChild(node);
     birthCelebration = {node, life:state, timer:setTimeout(clearBirthCelebration, 2800)};
   }
@@ -11305,7 +11301,7 @@
   }
   function drainHomeNotices(){
     if(homeNoticeLife!==state){homeNoticeQueue.length=0;homeNoticeLife=state;}
-    if(!terrainNoticeMode()||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)return;
+    if(!terrainNoticeMode()||birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)return;
     homeNoticeQueue.sort((a,b)=>b.priority-a.priority);
     const next=homeNoticeQueue.shift();if(!next)return;
     if(next.kind==='result')showMinigameResultToast(next.payload);else if(next.kind==='birthday')setBirthdayToast(next.payload);else showStoryEvent(next.payload);
@@ -11326,7 +11322,7 @@
   let birthdayToastTimer = null;
   function setBirthdayToast(text) {
     if (!el.birthdayToast) return;
-    if(terrainNoticeMode()&&(!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('birthday',text);return;}
+    if(terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('birthday',text);return;}
     homeBirthdayCurrent=text;
     setCommentText(el.birthdayToast, text, true);
     el.birthdayToast.classList.remove('hidden');
@@ -11437,7 +11433,7 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
-    if(terrainNoticeMode()&&(!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('story',event);return;}
+    if(terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('story',event);return;}
     homeStoryCurrent=event;
     invalidateCareAfterglow();
     clearPetExpression();
@@ -16855,7 +16851,7 @@
   }
   function showMinigameResultToast(result) {
     if (!el.mgResultToast || !result) return;
-    if(terrainNoticeMode()&&!pageVisible()){queueHomeNotice('result',result);return 0;}
+    if(terrainNoticeMode()&&(birthCelebration||!pageVisible())){queueHomeNotice('result',result);return 0;}
     let sub;
     let subClass = 'mg-result-sub';
     if (result.prevBest == null) sub = 'はじめての記録!';

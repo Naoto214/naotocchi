@@ -50,7 +50,10 @@ try{for(const engine of (process.env.HOME_BIRTH_ENGINES||'chromium,webkit').spli
  }
  await capture('ready');
  await page.locator('#playWithBtn').click();await page.clock.runFor(1050);
- assert.equal(await page.locator('.birth-panel strong').innerText(),'あかちゃんいぬが うまれた！');
+ assert.equal(await page.locator('.birth-panel').count(),0);
+ assert.equal(await page.locator('#message.birth-notice').innerText(),'あかちゃんいぬがうまれた！');
+ assert.equal(await page.locator('.birth-celebration').getAttribute('aria-hidden'),'true');
+ assert.equal(await page.locator('#message').evaluate(e=>e.scrollHeight<=e.clientHeight+1),true,'birth text fits its unchanged lane');
  assert.equal(await page.locator('.birth-star').count(),8);
  assert.equal(await page.locator('.birth-celebration').evaluate(e=>getComputedStyle(e).pointerEvents),'none');
  if(motion==='reduce')assert.equal(await page.locator('.birth-star').first().evaluate(e=>getComputedStyle(e).animationName),'none');

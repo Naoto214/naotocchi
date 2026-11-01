@@ -28,6 +28,18 @@ jobs:
       - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
       - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
       - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
+      - name: Capture unchanged VERSION 3 birth baseline
+        run: |
+          git fetch origin ed182b6d79422f1d85c95f5c8c2777849595f7ce --depth=1
+          cp -a "${{ runner.temp }}/fixed-controls" "${{ runner.temp }}/v3-baseline"
+          for file in script.js egg-hatching.css home-production-egg.mjs home-production-world.mjs home-production-transform.mjs index.html; do
+            git show "ed182b6d79422f1d85c95f5c8c2777849595f7ce:$file" > "${{ runner.temp }}/v3-baseline/$file"
+          done
+          git show ed182b6d79422f1d85c95f5c8c2777849595f7ce:tests/home-production-birth-browser.cjs > tests/.v3-birth-browser.cjs
+          node tests/.v3-birth-browser.cjs "${{ runner.temp }}/v3-baseline"
+        env:
+          HOME_BIRTH_ENGINES: ${{ matrix.engine }}
+          HOME_BIRTH_OUTPUT: test-results/home-production-v3-baseline
       - run: node tests/home-production-birth-browser.cjs "${{ runner.temp }}/fixed-controls"
         env:
           HOME_BIRTH_ENGINES: ${{ matrix.engine }}
@@ -46,6 +58,7 @@ jobs:
           name: fixed-home-controls-${{ matrix.engine }}
           path: |
             test-results/home-production-birth/
+            test-results/home-production-v3-baseline/
             test-results/home-production-layout/
             test-results/home-production-scroll/
             test-results/home-production-native/
@@ -59,7 +72,7 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: node --test tests/home-production-birth-test.cjs tests/egg-birth-story-test.cjs tests/egg-hatching-test.cjs
+      - run: node --test tests/home-production-backdrop-test.cjs tests/home-production-birth-test.cjs tests/egg-birth-story-test.cjs tests/egg-hatching-test.cjs
       - run: node tools/home-production-regression.cjs
       - run: node --test tests/home-production-startup-test.cjs tests/harness-determinism-test.cjs tests/meguru-resident-expression-test.cjs
       - run: node --test tests/home-production-notice-queue-test.cjs tests/home-production-scroll-focus-test.cjs
