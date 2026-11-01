@@ -11,7 +11,7 @@ const inspect=()=>{
  return {slot:rect(slot),speech:rect(document.getElementById('speechSlot')),stage:rect(stage),extra:parseFloat(getComputedStyle(slot).marginBottom),pageWidth:document.documentElement.scrollWidth,
   content:visible.map(e=>({id:e.id,rect:rect(e),client:e.clientHeight,scroll:e.scrollHeight})),
   text:target?.textContent,body:target?rect(target):null,phrases:target?[...target.querySelectorAll('.notice-phrase')].map(e=>({text:e.textContent,rect:rect(e),scroll:e.scrollWidth,client:e.clientWidth})):[],
-  name:rect(document.getElementById('storyFlashName')),icon:rect(document.getElementById('storyFlashEmoji')),lines,
+  name:rect(document.getElementById('storyFlashName')),icon:rect(document.getElementById('storyFlashEmoji')),art:[...document.querySelectorAll('#storyFlashEmoji *')].filter(e=>e.getClientRects().length&&e.getBoundingClientRect().width).map(rect),lines,
   careIcon:document.getElementById('message').dataset.careIcon,recommended:document.getElementById('feedBtn').dataset.careRecommended};
 };
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const results=[],errors=[];try{
@@ -29,7 +29,7 @@ const inspect=()=>{
  assert.ok(d.content.every(c=>c.scroll<=c.client+1&&c.rect.bottom<=d.stage.top+1),label+' full text, no actor overlap');
  assert.ok(d.phrases.every(p=>p.rect.left>=d.body.left-1&&p.rect.right<=d.body.right+1&&p.scroll<=p.client+1),label+' phrases inside body');
  assert.ok(d.pageWidth<=width,label+' no horizontal scrolling');
- if(row.kind==='story'&&d.icon.width){assert.ok(d.icon.right<=d.body.left+1,label+' icon/body separation');if(row.longName)assert.ok(d.name.bottom<=d.body.top+1,label+' name/body separation');}
+ if(row.kind==='story'&&d.icon.width){assert.ok(d.icon.right<=d.body.left+1,label+' icon/body separation');assert.ok(d.art.every(r=>r.right<=d.body.left+1),label+' actual artwork/body separation');if(row.longName)assert.ok(d.name.bottom<=d.body.top+1,label+' name/body separation');}
  for(const word of ['食べずに','しばらく','行き先を'])if(row.text.includes(word))assert.ok(d.lines.some(l=>l.text.includes(word)),label+' keep '+word);
  const key=row.text.includes('食べずに')?'forest':row.text.includes('しばらく立ち')?'desert':row.text.includes('迷いかけ')?'jungle':row.longName?'long-name':null;
  if(key){await page.screenshot({path:path.join(out,[engine,width,key].join('-')+'.png')});}

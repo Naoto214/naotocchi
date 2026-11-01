@@ -31,7 +31,7 @@ js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
 js=js.replace(/\}\)\(\);\s*$/,`
 const reviewCase=new URLSearchParams(location.search).get('notice');
 if(reviewCase)setTimeout(()=>{
- const rows=HomeReleaseQA.noticeCorpus(),row=rows.find(r=>reviewCase==='forest'?r.text.includes('食べずに'):reviewCase==='desert'?r.text.includes('しばらく立ち'):reviewCase==='jungle'?r.text.includes('迷いかけ'):r.longName);
+ const rows=HomeReleaseQA.noticeCorpus(),row=rows.find(r=>reviewCase==='food'?r.source==='STORY_EVENT_POOLS.feed':reviewCase==='forest'?r.text.includes('食べずに'):reviewCase==='desert'?r.text.includes('しばらく立ち'):reviewCase==='jungle'?r.text.includes('迷いかけ'):r.longName);
  HomeReleaseQA.presentNotice(row);clearTimeout(messageTimer);messageTimer=null;clearTimeout(storyFlashTimer);storyFlashTimer=null;
 },500);
 })();`);
@@ -42,4 +42,4 @@ fs.mkdirSync(path.join(out,'v6-review'),{recursive:true});
 fs.writeFileSync(path.join(out,'v6-review/index.html'),fs.readFileSync(path.join(out,'v5-review/index.html'),'utf8').replaceAll('VERSION 5','VERSION 6').replaceAll('v5-qa','v6-qa'));
 console.log('V6 private QA, literal system messages:',literals.length);
 
-fs.writeFileSync(path.join(out,'v6-notice-review.html'),`<!doctype html><html lang="ja"><meta charset="utf-8"><title>V6 notice review</title><style>body{font:16px system-ui;background:#e9efea}iframe{border:0;height:844px}a{display:inline-block;padding:8px}</style><h1>V6 実文・画面幅比較</h1><nav></nav><main></main><script>const p=new URLSearchParams(location.search),w=[320,375,390,430].includes(+p.get('width'))?+p.get('width'):320,n=['forest','desert','jungle','name'].includes(p.get('notice'))?p.get('notice'):'forest';document.querySelector('nav').innerHTML=['forest','desert','jungle','name'].flatMap(n=>[320,375,390,430].map(w=>'<a href="?width='+w+'&notice='+n+'">'+n+' '+w+'</a>')).join('');document.querySelector('main').innerHTML='<iframe width="'+w+'" src="v6-qa.html?region='+(n==='name'?'forest':n)+'&count=28&notice='+n+'"></iframe>';</script></html>`);
+fs.writeFileSync(path.join(out,'v6-notice-review.html'),`<!doctype html><html lang="ja"><meta charset="utf-8"><title>V6 notice review</title><style>body{font:16px system-ui;background:#e9efea}iframe{border:0;height:844px}a{display:inline-block;padding:8px}</style><h1>V6 実文・画面幅比較</h1><nav></nav><main></main><script>const p=new URLSearchParams(location.search),w=[320,375,390,430].includes(+p.get('width'))?+p.get('width'):320,n=['forest','desert','jungle','name','food'].includes(p.get('notice'))?p.get('notice'):'forest';document.querySelector('nav').innerHTML=['forest','desert','jungle','name','food'].flatMap(n=>[320,375,390,430].map(w=>'<a href="?width='+w+'&notice='+n+'">'+n+' '+w+'</a>')).join('');document.querySelector('main').innerHTML='<iframe width="'+w+'" src="v6-qa.html?region='+(['name','food'].includes(n)?'forest':n)+'&count=28&notice='+n+'"></iframe>';</script></html>`);

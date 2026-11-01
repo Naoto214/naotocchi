@@ -20,3 +20,10 @@ test('Japanese notice groups preserve all characters and the reported word bound
  for(const word of words)assert.ok(chunks.some(c=>c.includes(word)),word+' kept in one group');
  }
 });
+test('shared notice renderer remains compatible with retained legacy comparison controllers',()=>{
+ const h=harness({homeDiorama:true,worldScene:true});
+ h.document.body.dataset.homeProduction='true';
+ Object.assign(h.api.state(),{stage:'growing',speciesLine:'dog',stageIndex:3,regionId:'forest'});
+ assert.doesNotThrow(()=>h.api.setMessage('もりのけしきが見えた'));
+ assert.match(h.get('message').textContent,/もりのけしきが見えた/);
+});

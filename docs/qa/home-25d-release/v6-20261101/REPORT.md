@@ -26,3 +26,12 @@ Shared central receding path and dark green mass dominate both compositions desp
 Pre-push: production contracts 365 passed (0 fail/skip/cancel), clean runtime HTTP verification 4123 files / 220210662 bytes, missing 0, mismatch 0, excluded 7 paths 404. Direct Git push unavailable (no credential); use GitHub connector non-force expected-HEAD update. Full npm regression still running.
 
 Corpus review before CI: include action results, blocked-action lines, seasonal announcements and partner encounters. Empty-message literals are exercised by the explicit reset/expiry case instead of asserting a visible body for an empty notice. Production source unchanged in this follow-up.
+
+## Review follow-up
+- Full local npm test on 3b0bce5e: 3752 passed, fail/skip/cancel0. This precedes the following review fixes; final CI remains required.
+- Reviewer found legacy32px event art in24px grid cell. Reproduced with actual Chromium at320px: art right49px vs body left47px. After constraining actual art, right41px/width24px vs body left47px (6px gap). Browser regression now checks all visible artwork descendants, not just wrapper.
+- Added a defensive mixed-shell regression: shared renderer threw noticeChunks-is-not-a-function with a production-marked shell and legacy controller. Official retained comparison tooling normally strips the production flag; this is not an observed failure of that supported route. Optional helper invocation preserves fallback; the mixed-shell test failed first, then passed.
+- Actual generated V6 storage shim preserves normal and V5 QA sentinels through V6 write/read/clear.
+- A repeated package build rejected a nonempty output directory (intentional safety behavior); use a fresh directory for final packaging. No deployment occurred.
+
+Review-fix focused tests15 passed (0 fail/skip/cancel). Fresh clean runtime HTTP check4123 files /220211154 bytes, missing0/hash mismatch0/excluded7 paths404. Browser CI must still pass on the final pushed candidate.

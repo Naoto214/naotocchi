@@ -3835,7 +3835,7 @@
     commentTextCache.set(target,value);
     const isNotice=document.body.dataset.homeProduction==='true' && terrainNoticeMode()
       && [el.message,el.storyFlashText,el.birthdayToast,el.mgResultToast].includes(target);
-    const chunks=isNotice?window.NaotocchiHomeDiorama.noticeChunks(value):null;
+    const chunks=isNotice?window.NaotocchiHomeDiorama.noticeChunks?.(value):null;
     const html=chunks?chunks.map(chunk=>/^\s+$/.test(chunk)?escapeHtml(chunk):'<span class="notice-phrase">'+commentTextHTML(chunk,character)+'</span>').join(''):commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
     const property=illustrated?'innerHTML':'textContent';
     const rendered=illustrated?html:value;

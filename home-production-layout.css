@@ -62,3 +62,7 @@ body[data-home-production="true"][data-home-terrain="true"] #storyFlashName{grid
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash-text{grid-column:2;grid-row:2;width:100%;min-width:0;max-width:100%;text-align:left;text-wrap:wrap;white-space:pre-wrap;overflow-wrap:anywhere;line-break:strict}
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash:has(#storyFlashEmoji:empty) .story-flash-text{grid-column:1 / -1}
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .notice-phrase{display:inline-block;max-width:100%;vertical-align:top;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;text-wrap:wrap}
+/* Event illustrations have legacy 32px sizes. Bound the artwork itself, not
+   only its grid wrapper; named speaker portraits retain their existing 20px. */
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(.care-icon,.ui-icon,.comment-drawing,.comment-picture){width:24px;height:24px;max-width:100%;max-height:24px;flex-basis:24px}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(img,svg){max-width:100%;object-fit:contain}
