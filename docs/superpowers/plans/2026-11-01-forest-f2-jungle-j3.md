@@ -21,7 +21,7 @@
 - Narrow/rotated screens keep feet on ground without changing collision rules.
 - 28 actors remain visible and able to move; no duplicate/repainted characters.
 - Current candidates and other regions remain byte-identical.
-- Lazy gallery loads one playable iframe; does not run four games together.
+- Gallery opens one playable page at a time; does not run four games together.
 
 ### Task 1: Art and geometry
 - [x] Generate distinct F2/J3 originals with imagegen, no characters.

@@ -2,8 +2,6 @@ name: Forest F2 Jungle J3 private comparison
 on:
   pull_request:
     paths: ['comparisons/forest-f2-jungle-j3/**', '.github/workflows/forest-f2-jungle-j3.yml']
-  push:
-    branches: ['compare/forest-f2-jungle-j3-20261101']
 permissions:
   contents: read
 concurrency:

@@ -61,7 +61,7 @@ try{for(const engine of (process.env.F2J3_ENGINE||'chromium,webkit').split(','))
   finally{write();await page.close();}
  }
  // Gallery must not create games or load missing files.
- const g=await browser.newPage();await g.goto(url);assert.equal(await g.locator('iframe').count(),0);assert.equal(await g.locator('article').count(),4);for(const scene of ['forest-current','forest-f2','jungle-current','jungle-j3']){await g.goto(url+'/?scene='+scene);await g.locator('.shots img').last().scrollIntoViewIfNeeded();await g.waitForFunction(()=>[...document.querySelectorAll('.shots img')].length===3&&[...document.querySelectorAll('.shots img')].every(i=>i.complete&&i.naturalWidth>0));}await g.close();
+ const g=await browser.newPage();await g.goto(url);assert.equal(await g.locator('iframe').count(),0);assert.equal(await g.locator('article').count(),4);for(const scene of ['forest-current','forest-f2','jungle-current','jungle-j3']){await g.goto(url+'/?scene='+scene);await g.locator('#terrain').click();assert.equal(await g.locator('#mask').getAttribute('hidden'),null);assert.equal(await g.locator('#terrain').getAttribute('aria-pressed'),'true');await g.locator('.shots img').last().scrollIntoViewIfNeeded();await g.waitForFunction(()=>[...document.querySelectorAll('.shots img')].length===3&&[...document.querySelectorAll('.shots img')].every(i=>i.complete&&i.naturalWidth>0));}await g.close();
  }finally{await browser.close();}
 }assert.equal(errors.length,0);console.log('F2J3 browser results',results.length,'passed');}finally{write();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
