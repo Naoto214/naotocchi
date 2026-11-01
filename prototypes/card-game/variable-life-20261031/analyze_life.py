@@ -10,7 +10,8 @@ DECKS = ['main', 'companion', 'partner', 'challenge', 'growth', 'item', 'balance
 other = lambda a: 'B' if a == 'A' else 'A'
 NB = 2000
 NAMES = {'A0': 'G-A', 'A5': 'G-D', 'X0': 'L-X0', 'A1': 'L-A1', 'A1a': 'L-A1a', 'A1t': 'L-A1t', 'A2': 'L-A2', 'A2s': 'L-A2s', 'A3': 'L-A3', 'A4': 'L-A4',
-         'A1c4': 'L-A1c4', 'A1n1': 'L-A1n1', 'A1aL': 'L-A1aL', 'A1t1': 'L-A1t1'}
+         'A1c4': 'L-A1c4', 'A1n1': 'L-A1n1', 'A1aL': 'L-A1aL', 'A1t1': 'L-A1t1',
+         'WA': 'W-A', 'WB': 'W-B', 'WC': 'W-C', 'WXI1': 'W-XI1', 'WA3': 'W-A3', 'WB3': 'W-B3', 'WC3': 'W-C3', 'WBk': 'W-Bk', 'WBL': 'W-BL'}
 MAINC = ['A0', 'X0', 'A1', 'A1a', 'A1t', 'A2', 'A2s', 'A3', 'A4', 'A5']
 
 def load_runs(name):
@@ -49,7 +50,7 @@ events = lambda r: (r.get('life') or {}).get('events', [])
 ext_events = lambda r: [e for e in events(r) if e.get('extended')]
 raise_events = lambda r: [e for e in events(r) if e.get('raised')]
 used = lambda x: bool(x.get('xPlayed') or x.get('xFired'))
-FUNCTIONAL = {'X-life-extend', 'X-cap-raise', 'X-life-both'}
+FUNCTIONAL = {'X-life-extend', 'X-cap-raise', 'X-life-both'} | {f'X-{n}-{m}' for n in ('XI', 'XII') for m in ('A', 'B', 'C', 'BL')}
 seen_func = lambda x: any(s['card'] in FUNCTIONAL for s in x.get('xSeen', []))
 
 _PG = {}
@@ -248,4 +249,30 @@ if glob.glob('runs/NEXT-shard*.jsonl.gz'):
                    'contrasts': {name: {m: contrast(nb, NV[a], NV[b], f) for m, f in mf.items()} for name, (a, b) in npairs.items()},
                    'deckContrasts': {name: deck_contrasts(nb, NV[a], NV[b]) for name, (a, b) in npairs.items()},
                    'cardAccess': {c: access(c, nb, NV) for c in ('A1t1', 'A1n1')}}
+# World redesign (PLAN-WORLD.md): XI/XII as ordinary world cards. MAINW 001-020 (W-A/W-B/W-C/W-XI1), SENSW 001-010.
+if glob.glob('runs/MAINW-shard*.jsonl.gz'):
+    WR = index(load_runs('MAINW') + load_runs('SENSW'))
+    wb = {**{v: byv[v] for v in ('G-A', 'L-X0', 'G-D')}, 'L-A1t1': NX['L-A1t1'] if 'NX' in dir() else {}, **WR}
+    WV = {c: NAMES[c] for c in ('A0', 'X0', 'A5', 'A1t1', 'WA', 'WB', 'WC', 'WXI1', 'WA3', 'WB3', 'WC3', 'WBk', 'WBL')}
+    def world_extra(rs):
+        comp = [r for r in rs if r['status'] == 'completed']; ev = [(r, e) for r in comp for e in events(r) if e.get('op') == 'lifeFinal']
+        ext = [(r, e) for r, e in ev if e['extended']]; first = [(r, next(e for e in events(r) if e.get('extended'))) for r in comp if any(e.get('extended') for e in events(r))]
+        behind = [(r, e) for r, e in first if e['growth'][other(e['actor'])] > e['growth'][e['actor']]]
+        sc = lambda r, a: 1 if r['result']['winner'] == a else .5 if not r['result']['winner'] else 0
+        return {'placements': len(ev), 'placementsWithoutChange': sum(not e['extended'] for r, e in ev), 'extensionsBeforeR10': rnd(mean([e['round'] < 10 for r, e in ext])),
+                'firstExtensionRound': dict(sorted(Counter(e['round'] for r, e in first).items())), 'firstExtenderState': dict(Counter('behind' if e['growth'][other(e['actor'])] > e['growth'][e['actor']] else 'tied' if e['growth'][other(e['actor'])] == e['growth'][e['actor']] else 'ahead' for r, e in first)),
+                'firstExtenderScore': rnd(mean([sc(r, e['actor']) for r, e in first])), 'comebackRate': rnd(mean([r['result']['winner'] == e['actor'] for r, e in behind])),
+                'comebackOrDraw': rnd(mean([r['result']['winner'] in (e['actor'], None) for r, e in behind])), 'behindExtenders': len(behind),
+                'cardsByName': dict(Counter(e['card'] for r, e in ext))}
+    out['world'] = {'conditions': {c: {**summary(list(wb[WV[c]].values())), 'world': world_extra(list(wb[WV[c]].values()))} for c in WV if wb.get(WV[c])},
+                    'contrasts': {}, 'deckContrasts': {}}
+    wpairs = {f'{c}-X0（ルール効果）': (c, 'X0') for c in ('WA', 'WB', 'WC', 'WXI1', 'WA3', 'WB3', 'WC3', 'WBk', 'WBL')}
+    wpairs.update({f'{c}-A0（総合）': (c, 'A0') for c in ('WA', 'WB', 'WC', 'WXI1')})
+    wpairs.update({'WXI1-A1t1（しかける→セカイ、1枚）': ('WXI1', 'A1t1'), 'WB-WA（B−A）': ('WB', 'WA'), 'WC-WA（C−A）': ('WC', 'WA'), 'WB3-WB（時3−時2）': ('WB3', 'WB'), 'WA3-WA（時3−時2）': ('WA3', 'WA'), 'WC3-WC（時3−時2）': ('WC3', 'WC'),
+                   'WBk-WB（CPUが延長目的だけで出す）': ('WBk', 'WB'), 'WBL-WB（R8以降だけ）': ('WBL', 'WB')})
+    for name, (a, b) in wpairs.items():
+        if wb.get(WV[a]) and wb.get(WV[b]):
+            out['world']['contrasts'][name] = {m: contrast(wb, WV[a], WV[b], f) for m, f in mf.items()}
+            out['world']['deckContrasts'][name] = deck_contrasts(wb, WV[a], WV[b])
+    out['world']['cardAccess'] = {c: access(c, wb, WV) for c in ('WA', 'WB', 'WC', 'WXI1')}
 print(json.dumps(out, ensure_ascii=False, indent=1))
