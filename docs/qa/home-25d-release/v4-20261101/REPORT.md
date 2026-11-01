@@ -46,4 +46,6 @@ Candidate 97b9223 Chromium passed original V3 baseline (10 cases) but failed V4 
 
 Production contracts: 365 passed, 0 failed/skipped/cancelled on the preceding candidate. Final HEAD CI remains pending. VERSION 3 remains live.
 
-CI provenance follow-up: nine required workflows now explicitly checkout the PR head SHA (push events still use github.sha). Existing pinned comparison baseline checkout is unchanged. This prevents PR merge-tree artifacts being mistaken for the owner-private candidate. Test commands/assertions/deployment conditions remain unchanged.
+CI provenance follow-up: Production 2.5D home, Runtime smoke test and Pages runtime package explicitly checkout the PR head SHA (push events still use github.sha). The other six existing workflows retain PR merge-result validation. Existing pinned comparison baseline checkout is unchanged. Test commands/assertions/deployment conditions remain unchanged.
+
+An intermediate all-workflow HEAD pin exposed a main-only CARD GAME home-return-browser.cjs step absent from this unmerged branch, causing MODULE_NOT_FOUND in Naopoyo Chapter 1. Restore those six integration checkouts rather than remove the new main test or import unrelated game changes. Exact candidate runtime, all-region browsers and full regression remain explicitly pinned; other CI conclusions are reported as integration checks, not exact candidate artifacts.
