@@ -1,4 +1,4 @@
-name: Forest F2 Jungle J3 private comparison
+name: Forest Jungle private comparison V2
 on:
   pull_request:
     paths: ['comparisons/forest-f2-jungle-j3/**', '.github/workflows/forest-f2-jungle-j3.yml']
@@ -20,6 +20,8 @@ jobs:
         with:
           sparse-checkout: |
             comparisons/forest-f2-jungle-j3
+      - name: Fetch immutable VERSION 1 preservation baseline
+        run: git fetch --depth=1 origin 0598b20a021a614267663267d5b59933d113b203
       - uses: actions/checkout@v4
         with:
           ref: 323debc35f44136d64ae74fadf8f36da7f358e86

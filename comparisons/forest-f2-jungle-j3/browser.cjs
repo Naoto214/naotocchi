@@ -9,7 +9,7 @@ const results=[],errors=[];const write=()=>fs.writeFileSync(path.join(dest,'resu
 try{for(const engine of (process.env.F2J3_ENGINE||'chromium,webkit').split(',')){
  const browser=await require('playwright')[engine].launch({headless:true});
  try{
- for(const scene of ['forest-current','forest-f2','jungle-current','jungle-j3'])for(const width of [320,375,390,430])for(const count of [1,6,28]){
+ for(const scene of ['forest-current','forest-f2','forest-f3','jungle-current','jungle-j3','jungle-j4'])for(const width of [320,375,390,430])for(const count of [1,6,28]){
   const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'});const row={engine,scene,width,count};results.push(row);
   await page.clock.install();
   page.on('pageerror',e=>errors.push({scene,width,count,message:e.message}));
@@ -41,7 +41,7 @@ try{for(const engine of (process.env.F2J3_ENGINE||'chromium,webkit').split(','))
    await page.waitForFunction(()=>parseInt(document.documentElement.style.getPropertyValue('--app-height'))===innerHeight,null,{timeout:10000});
    await page.clock.pauseAt(new Date(await page.evaluate(()=>Date.now())+100));await page.clock.runFor(150);
    await page.waitForFunction(w=>{const s=document.getElementById('castStage').getBoundingClientRect(),d=HomeReleaseQA.detail();return s.width<=w&&d.actors.every(a=>a.safe);},width,{timeout:10000});
-   if(width===390&&['forest-f2','jungle-j3'].includes(scene)){
+   if(width===390&&['forest-f2','forest-f3','jungle-j3','jungle-j4'].includes(scene)){
     for(const kind of ['tap','drag']){
      await page.evaluate(([r,n])=>HomeReleaseQA.scene(r,n),[scene.startsWith('forest')?'forest':'jungle',count]);await page.clock.runFor(100);await page.waitForFunction(()=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.loaded&&d.actors.every(a=>a.safe);},null,{timeout:40000});
      await page.evaluate(()=>{HomeReleaseInputTrace.length=0;});
@@ -55,13 +55,26 @@ try{for(const engine of (process.env.F2J3_ENGINE||'chromium,webkit').split(','))
     }
     row.autonomy=await page.evaluate(()=>{const model=F2J3QA.model;model.cancel();const before=model.metrics().distance;for(let i=0;i<1200;i++)model.step(.1,{blocked:false,reducedMotion:false});return {delta:model.metrics().distance-before,metrics:model.metrics(),safe:HomeReleaseQA.detail().actors.every(a=>a.safe)};});
     assert.ok(row.autonomy.safe);assert.ok(row.autonomy.delta>0,'autonomy distance must increase after manual movement ends');
+    const activities=row.autonomy.metrics.activities;
+    assert.ok((activities.rest||0)+(activities.sit||0)>0,'rest recorded');
+    assert.ok((activities.observe||0)>0,'observation recorded');
+    if(count>1)assert.ok((activities.approach||0)+(activities.together||0)>0,'social activity recorded');
+    if(scene==='jungle-j4'){
+     row.wetland=await page.evaluate(()=>{
+      const d=HomeReleaseQA.detail(),nav=HomeReleaseQA.inspect().scene.navigation;let rejected=0;
+      for(const x of Array.from({length:12},(_,i)=>.25+i*.05))for(const z of Array.from({length:7},(_,i)=>.43+i*.025)){if(!nav.valid(nav.project({x,z})))rejected++;}
+      return {rejected,feetDry:d.actors.every(a=>nav.unproject(a).z>=.615-1e-6)};
+     });
+     assert.equal(row.wetland.rejected,84);assert.ok(row.wetland.feetDry);
+    }
    }
    row.status='passed';
   }catch(e){row.status='failed';row.error=e.stack;await page.screenshot({path:path.join(dest,`FAIL-${scene}-${width}-${count}.png`),fullPage:true}).catch(()=>{});throw e;}
   finally{write();await page.close();}
  }
+ for(const scene of ['forest-f3','jungle-j4'])for(const n of [1,6,28])fs.copyFileSync(path.join(dest,`${scene}-${n}.jpg`),path.join(out,'comparison-evidence',`${scene}-${n}.jpg`));
  // Gallery must not create games or load missing files.
- const g=await browser.newPage();await g.goto(url);assert.equal(await g.locator('iframe').count(),0);assert.equal(await g.locator('article').count(),4);for(const scene of ['forest-current','forest-f2','jungle-current','jungle-j3']){await g.goto(url+'/?scene='+scene);await g.locator('#terrain').click();assert.equal(await g.locator('#mask').getAttribute('hidden'),null);assert.equal(await g.locator('#terrain').getAttribute('aria-pressed'),'true');await g.locator('.shots img').last().scrollIntoViewIfNeeded();await g.waitForFunction(()=>[...document.querySelectorAll('.shots img')].length===3&&[...document.querySelectorAll('.shots img')].every(i=>i.complete&&i.naturalWidth>0));}await g.close();
+ const g=await browser.newPage();await g.goto(url);assert.equal(await g.locator('iframe').count(),0);assert.equal(await g.locator('article').count(),6);for(const scene of ['forest-current','forest-f2','forest-f3','jungle-current','jungle-j3','jungle-j4']){await g.goto(url+'/?scene='+scene);await g.locator('#terrain').click();assert.equal(await g.locator('#mask').getAttribute('hidden'),null);assert.equal(await g.locator('#terrain').getAttribute('aria-pressed'),'true');await g.locator('.shots img').last().scrollIntoViewIfNeeded();await g.waitForFunction(()=>[...document.querySelectorAll('.shots img')].length===3&&[...document.querySelectorAll('.shots img')].every(i=>i.complete&&i.naturalWidth>0));}await g.close();
  }finally{await browser.close();}
 }assert.equal(errors.length,0);console.log('F2J3 browser results',results.length,'passed');}finally{write();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

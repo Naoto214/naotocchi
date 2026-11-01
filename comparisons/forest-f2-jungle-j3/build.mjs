@@ -41,16 +41,16 @@ copy(path.join(here,'gallery.html'),'index.html');
 copy(path.join(here,'gallery.js'),'gallery.js');
 copy(path.join(here,'review.html'),'review.html');
 copy(path.join(here,'scenes.mjs'),'comparison-scenes.mjs');
-for(const name of ['forest-f2','jungle-j3']){
+for(const {id:name} of CANDIDATES){
  copy(path.join(here,'runtime',name+'.webp'),'comparison-art/'+name+'.webp');
  copy(path.join(here,'originals',name+'.png'),'comparison-originals/'+name+'.png');
 }
 for(const f of fs.readdirSync(path.join(here,'evidence')).filter(f=>f.endsWith('.jpg')))copy(path.join(here,'evidence',f),'comparison-evidence/'+f);
-const entries=[['forest-current','forest','現行の森','滝と苔むした小道'],['forest-f2','forest','森F2 · 木漏れ日の広場','広葉樹に包まれた、優しい草地'],['jungle-current','jungle','現行のジャングル','赤土の小道と亜熱帯林'],['jungle-j3','jungle','ジャングルJ3 · 生命の水辺','濃密なシダ、光芒と静かな湿地']].map(([id,region,name,note])=>{
+const entries=[['forest-current','forest','現行の森','滝と苔むした小道'],['forest-f2','forest','森F2 · 木漏れ日の広場','広葉樹に包まれた、優しい草地'],['forest-f3','forest','森F3 · 輝く新緑の広場','透明な若葉と、草地まで届く爽やかな午前の光'],['jungle-current','jungle','現行のジャングル','赤土の小道と亜熱帯林'],['jungle-j3','jungle','ジャングルJ3 · 生命の水辺','濃密なシダ、光芒と静かな湿地'],['jungle-j4','jungle','ジャングルJ4 · 深緑の神秘的な湿地','深い翡翠の水面、薄霧と原生林の光芒']].map(([id,region,name,note])=>{
  const current=ART_CANDIDATES.find(a=>a.id===ART_SCENES[region].candidate),candidate=CANDIDATES.find(a=>a.id===id);
  return {id,region,name,note,src:candidate?.src||current.src,original:candidate?'comparison-originals/'+id+'.png':current.src,geometry:CANDIDATE_SCENES[id]||ART_SCENES[region]};
 });
-put('comparison.json',JSON.stringify({baseline:BASE_HEAD,entries},null,2));
+put('comparison.json',JSON.stringify({version:2,baseline:BASE_HEAD,entries},null,2));
 // Preserve and hash every original file. Only the new gallery occupies index.
 const preserved=Object.fromEntries(allow.map(f=>[f,sha(fs.readFileSync(path.join(base,f)))]));
 put('comparison-provenance.json',JSON.stringify({baseline:BASE_HEAD,branch:'compare/forest-f2-jungle-j3-20261101',originalFiles:preserved,candidateOnly:true,productionChanged:false},null,2));
