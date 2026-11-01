@@ -1,0 +1,30 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (72.489959ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (41.174316ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (405.805977ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.785146ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (75.695653ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (250.199764ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/96a2448b9fab/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/96a2448b9fab/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ shipped home adapters preserve real save pre-v3.json (212.693846ms)
+✔ shipped home adapters preserve real save v3.json (115.346249ms)
+✔ shipped home adapters preserve real save v4-pre-master.json (58.369613ms)
+✔ shipped home adapters preserve real save v5-pre-items-v2.json (632.365044ms)
+✔ shipped home adapters preserve real save sticker-points-meguru-p1.json (279.753296ms)
+✔ shipped home adapters preserve real save meguru-p2.json (260.866803ms)
+✔ production entry activates approved art and egg presentation without preview save keys (6.347346ms)
+✔ all thirteen default scenes use approved source images and valid navigation (1.790113ms)
+✔ production distribution retains every existing main file and includes only approved home art (22.638678ms)
+✔ QA measures the fixed notification slot rather than the optional message contents (0.298351ms)
+✔ production runtime harness loads the exact shipped presenter and model (180.354027ms)
+✔ latest-main game catalogs, conversations, formal images and other games stay byte-identical (66.966496ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1916.651096

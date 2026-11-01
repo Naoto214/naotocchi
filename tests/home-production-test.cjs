@@ -1,12 +1,9 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
 const cp=require('node:child_process');
-// A PR merge checkout includes newer main work (for example CARD GAME).
-// Compare its first parent, the actual tested main, rather than attributing
-// those independent commits to this home change. Local checks compare the
-// latest main ancestor actually incorporated into this branch.
-const integratedCheckout=(process.env.GITHUB_EVENT_NAME==='pull_request'&&/^refs\/pull\/\d+\/merge$/.test(process.env.GITHUB_REF||''))
- || (process.env.GITHUB_EVENT_NAME==='push'&&process.env.GITHUB_REF==='refs/heads/main');
-const testedMain=integratedCheckout
+// Workflows check out the exact PR head even though GITHUB_REF names the
+// synthetic merge ref. Compare the main ancestor actually incorporated into
+// that checkout; HEAD^1 is a previous PR commit in this configuration.
+const testedMain=(process.env.GITHUB_EVENT_NAME==='push'&&process.env.GITHUB_REF==='refs/heads/main')
  ? cp.execFileSync('git',['rev-parse','HEAD^1'],{encoding:'utf8'}).trim()
  : cp.execFileSync('git',['merge-base','HEAD','origin/main'],{encoding:'utf8'}).trim();
 test('production entry activates approved art and egg presentation without preview save keys',()=>{
