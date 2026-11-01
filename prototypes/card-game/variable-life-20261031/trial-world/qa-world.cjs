@@ -26,7 +26,7 @@ try{for(const [name,viewport] of [['iphone-portrait',{width:390,height:844}],['i
   if(i>=0){await cards.nth(i).click();await p.waitForTimeout(410);const use=p.locator('#card-dialog .stage-band [data-inspect]');if(await use.count())await use.click();x=await find();if(x)return x;}
   await closeDetail();await p.locator('#operation-panel [data-workflow]').click();x=await find();if(x)return x;throw Error('画面から選べない操作 '+a.label);};
  const press=async a=>{await (await button(a)).click();if(await p.locator('#confirm-dialog').isVisible())await p.locator('[data-confirm]').click();};
- const placeAction=(v,n)=>v.actions.find(a=>a.kind==='place'&&a.slot==='world'&&a.label.startsWith(n+'を配置'));
+ const placeAction=(v,n)=>v.actions.find(a=>a.kind==='place'&&a.label.startsWith(n+'を配置'));
  // 1つの操作のあと、強制の能力（出した時）や応答を、パス・見送り・強制の発動で進めて、自分の行動機会に戻す。
  const settle=async()=>{for(let n=0;n<40;n++){await reveal();const v=await view();if(v.phase==='normal'&&v.actor==='A'||v.result)return v;const a=v.actions.find(x=>x.kind==='choose')??v.actions.find(x=>x.kind==='skip')??v.actions.find(x=>x.kind==='pass')??v.actions[0];await press(a);}throw Error('進みません');};
  const place=async n=>{let v=await view();const a=placeAction(v,n);assert.ok(a,n+' を出せる');await press(a);v=await settle();return v;};
