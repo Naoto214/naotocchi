@@ -28,3 +28,17 @@ body[data-home-production="true"][data-home-terrain="true"] #homeGestureGuide{ma
 /* Dismissing the guide must not resize/reproject the live terrain. Retain its
    existing 26px lane; hidden controls remain invisible and unfocusable. */
 body[data-home-production="true"][data-home-terrain="true"] #homeGestureGuide[hidden]{display:flex!important;visibility:hidden;min-height:26px}
+/* V5: the compatibility reservation stays 42px. Natural notice content owns
+   an explicitly measured extension below it; the following terrain/speech
+   remain in normal flow, so overflowing text never paints over another lane. */
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot{
+ overflow:visible;justify-content:flex-start;margin-bottom:var(--home-notice-extra,0px);
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){
+ flex:0 0 auto;height:auto;max-height:none;min-height:28px;overflow:visible;
+ padding:4px 8px;line-height:1.4;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash-text{
+ max-height:none;overflow:visible;flex:0 1 auto;padding:1px 0;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot:not([data-expanded="true"]){justify-content:center}

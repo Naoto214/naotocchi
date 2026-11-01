@@ -86,3 +86,33 @@
   for(const name of ['touchend','touchcancel'])document.addEventListener(name,()=>{gesture=null;},{passive:true,capture:true});
   paintScroll();queueScrollPaint();
 })();
+
+/* Notice layout only. Observe the actual font/wrapping result, never text
+   length or game state. Keep the 42px slot and reserve all extra ink in flow. */
+(() => {
+  const slot=document.getElementById('homeEventSlot');
+  if(!slot?.children||typeof ResizeObserver!=='function')return;
+  let scheduled=false,last=-1;
+  const watched=new WeakSet();
+  const resize=new ResizeObserver(schedule);
+  function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(measure);}
+  function measure(){
+    scheduled=false;
+    let height=0,count=0;
+    const active=document.body.dataset.homeProduction==='true'&&document.body.dataset.homeTerrain==='true';
+    for(const child of slot.children){
+      if(!watched.has(child)){watched.add(child);resize.observe(child);}
+      if(!active||!child.getClientRects().length)continue;
+      const rect=child.getBoundingClientRect();
+      if(!rect.height)continue;
+      height+=rect.height;count++;
+    }
+    const extra=active?Math.max(0,Math.ceil(height+Math.max(0,count-1)*2)-42):0;
+    if(extra!==last){last=extra;slot.style.setProperty('--home-notice-extra',extra+'px');slot.dataset.expanded=extra?'true':'false';}
+  }
+  resize.observe(slot);
+  new MutationObserver(schedule).observe(slot,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class','hidden']});
+  new MutationObserver(schedule).observe(document.body,{attributes:true,attributeFilter:['data-home-terrain','data-home-production']});
+  document.fonts?.ready.then(schedule);
+  schedule();
+})();
