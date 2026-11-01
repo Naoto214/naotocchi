@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "name": "All 84 independently varied valid values in all 3 variants: exact V4 hand markup and numbers",
+      "pass": true
+    },
+    {
+      "name": "Classic exact ratios and widths, overlap6 and 0/100 identical",
+      "pass": true
+    },
+    {
+      "name": "Every A/B differs only in the 3 material colors after unique IDs are normalized",
+      "pass": true
+    },
+    {
+      "name": "All detail crops and immutable C baseline",
+      "pass": true
+    },
+    {
+      "name": "Individual detail crops preserve complete hand and number markup",
+      "pass": true
+    },
+    {
+      "name": "Invalid values remain rejected",
+      "pass": true
+    },
+    {
+      "name": "No original tracked file changed",
+      "pass": true
+    },
+    {
+      "name": "No game or save access in V5",
+      "pass": true
+    },
+    {
+      "name": "Subdial numbers >=4.5, red/green hands >=3",
+      "pass": true
+    }
+  ],
+  "cases": 252,
+  "failed": 0,
+  "contrastResults": [
+    {
+      "variant": "A",
+      "numberMinimum": 7.868915352749511,
+      "red": 5.323257349120685,
+      "green": 4.150883797367279,
+      "gold": 2.1025488410875655
+    },
+    {
+      "variant": "B",
+      "numberMinimum": 8.116685165478263,
+      "red": 5.490871615810912,
+      "green": 4.154038896868947,
+      "gold": 2.070084797101452
+    }
+  ],
+  "note": "Gold hand contrast is reported, not claimed to pass 3:1. V4 hand color/geometry preserved.",
+  "originalHashes": {
+    "clock.mjs": "bf85e60421260941e4e3ba5ca63a19a42182d4cce26cb3119950f165aa8fd7c2",
+    "app.mjs": "f083a8602ac157f66a8d27678cb736c7316af6ff4d3a4dd9e469f25ed78e82f9",
+    "index.html": "4fa935101771d816a032311f7ff0922395f6c03de16ae8ba524fe8aa7788f6ab",
+    "assets/dial-art-v4.png": "656315389e2c1f7e297fd843941167a9e7b3473f0bb2bd66814064093197d073",
+    "assets/official-card-back.png": "028114e02034a5c5d84a0ace2c97babb92363e19eed6249f87cc591897189872"
+  }
+}
