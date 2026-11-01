@@ -45,3 +45,5 @@ All 13 regions were captured at 390x844 with 28 actors in the isolated QA fixtur
 Candidate 97b9223 Chromium passed original V3 baseline (10 cases) but failed V4 post-birth centre assertions with normal motion. Reduced-motion cases remained centred. Actor records prove ambient movement started while achievements were deferred. Fix: include the 2800ms birth presentation in the existing homeDioramaBlocked predicate; no coordinate/model/navigation changes. A new test fails before and passes after this fix, and verifies free life resumes. Care buttons remain independently available. Browser assertions are unchanged. This failure is not counted as success.
 
 Production contracts: 365 passed, 0 failed/skipped/cancelled on the preceding candidate. Final HEAD CI remains pending. VERSION 3 remains live.
+
+CI provenance follow-up: nine required workflows now explicitly checkout the PR head SHA (push events still use github.sha). Existing pinned comparison baseline checkout is unchanged. This prevents PR merge-tree artifacts being mistaken for the owner-private candidate. Test commands/assertions/deployment conditions remain unchanged.
