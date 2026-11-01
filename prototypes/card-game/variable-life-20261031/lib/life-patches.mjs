@@ -24,6 +24,16 @@ export const VARIANTS={
  'L-A1aL':{ext:{...EXT,timing:'any',perMatch:1},note:'感度：A1a に「各プレイヤー1試合1回」'},
  // follow-up (PLAN-NEXT.md): the untested best candidate from REPORT.md §9
  'L-A1t1':{ext:{...EXT,method:'trap'},note:'追加：A1t（しかける）を1枚だけ（残り1枠は対照札）'},
+ // world redesign (PLAN-WORLD.md): せかい「XI」「XII」 as ordinary world cards. The deck decides the mode (card IDs X-XI-A …),
+ // so a save always replays with the rule it was played with.
+ 'W-A':{world:{cost:2},note:'A：XI→XIIの順（XIIは終了ラウンド11以上のときだけ出せる）・時2'},
+ 'W-B':{world:{cost:2},note:'B：XI・XIIを独立に出せる（終了ラウンドを11／12にする。短くはならない）・時2'},
+ 'W-C':{world:{cost:2},note:'C：XI・XIIとも終了ラウンドを1のばす（最大12）・時2'},
+ 'W-XI1':{world:{cost:2},note:'XI（B方式）1枚だけ（残り1枠は対照札）・時2'},
+ 'W-A3':{world:{cost:3},note:'感度：W-A の時3'},'W-B3':{world:{cost:3},note:'感度：W-B の時3'},'W-C3':{world:{cost:3},note:'感度：W-C の時3'},
+ // diagnostics added after the pilot (PLAN-WORLD.md §2): why the extension happens so early
+ 'W-Bk':{world:{cost:2,cpu:'keep'},note:'診断（CPU）：W-B のまま、CPU は XI・XII を延長のためだけに出す（ただのセカイとしては出さない）'},
+ 'W-BL':{world:{cost:2},note:'診断（ルール）：B方式で、XI・XII は R8 以降にだけ出せる'},
 };
 
 // ---- cards ----------------------------------------------------------------------------------------------------
@@ -125,3 +135,48 @@ function lifeValue(op,o){const L=o.life;if(!L)return 0;const me=o.players[o.seat
   ['cpu-ops'," case 'look':v=p.deckCount?1.5:0;break;"," case 'look':v=p.deckCount?1.5:0;break;\n case 'lifeExtend':case 'lifeRaise':case 'lifeBoth':v=lifeValue(s.op,o);break;"],
  ];
 }
+
+// ---- world redesign: せかい「XI」「XII」 (PLAN-WORLD.md) ------------------------------------------------------------
+// Ordinary world cards: placed from hand as a normal action with the normal world cost, replacing the owner's current world.
+// A forced 'place' trigger (same pattern as こねこのしゃちょう) changes the final round for both players. The world then stays as a
+// plain world. Its leaving the field later does NOT undo the change (no shortening in this experiment).
+// The final round is changed only through one op, lifeFinal {set:n} (never lowers) or {add:n}, clamped to [current final, 12].
+// A future shortening card (IX, VIII) would need a separately approved rule: it must keep final >= the current round, and it is
+// rejected here on purpose (allowLower is not implemented).
+export const WORLD_MODES={A:'XIはいつでも、XIIはXIのあと（終了ラウンド11以上）だけ',B:'XI・XIIを独立に（11／12にする。短くはならない）',C:'XI・XIIとも1のばす（最大12）'};
+export function worldCards(cost=2){
+ const c=(id,name,text)=>({id,name,type:'world',cost,rare:false,text,source:'variable-life-20261031 world（実験専用の仮カード）',source_sha256:'experimental'});
+ const raise=n=>`このカードを手札から出した時、終了ラウンドを${n}にする（両プレイヤー共通。すでに${n}以上なら変わらない）。`;
+ const add='このカードを手札から出した時、終了ラウンドを1つ後ろへのばす（両プレイヤー共通・最大12）。';
+ return {
+  'X-XI-A':c('X-XI-A','XI',raise(11)),'X-XII-A':c('X-XII-A','XII','終了ラウンドが11以上の場合にだけ、手札から出せる。'+raise(12)),
+  'X-XI-B':c('X-XI-B','XI',raise(11)),'X-XII-B':c('X-XII-B','XII',raise(12)),
+  'X-XI-C':c('X-XI-C','XI',add),'X-XII-C':c('X-XII-C','XII',add),
+  'X-XI-BL':c('X-XI-BL','XI','現在のラウンドがR8以降の場合にだけ、手札から出せる。'+raise(11)),'X-XII-BL':c('X-XII-BL','XII','現在のラウンドがR8以降の場合にだけ、手札から出せる。'+raise(12)),
+ };
+}
+export function worldRules(){
+ const r=(id,step,extra='')=>`add('${id}',{mode:'world',${extra}triggers:[{when:'place',mandatory:true,steps:[${JSON.stringify(step)}]}]});`;
+ return `\n// ---- variable-life-20261031 world: せかい「XI」「XII」 ----\n`+[
+  r('X-XI-A',{op:'lifeFinal',set:11}),r('X-XII-A',{op:'lifeFinal',set:12},"placeCondition:'lifeFinalAtLeast11',"),
+  r('X-XI-B',{op:'lifeFinal',set:11}),r('X-XII-B',{op:'lifeFinal',set:12}),
+  r('X-XI-C',{op:'lifeFinal',add:1}),r('X-XII-C',{op:'lifeFinal',add:1}),
+  r('X-XI-BL',{op:'lifeFinal',set:11},"placeCondition:'lifeRound8',"),r('X-XII-BL',{op:'lifeFinal',set:12},"placeCondition:'lifeRound8',")].join('\n')+'\n';
+}
+// A world with a placeCondition is offered only when the condition holds (no new UI: the placement simply is not listed).
+export const ENGINE_WORLD=[
+ ['world-place-condition',"if(c.type==='world'){const cost=fx.payment(s,a,'world',c.cost);","if(c.type==='world'&&(!RULES[c.id]?.placeCondition||fx.condition(s,a,RULES[c.id].placeCondition,{source:id}))){const cost=fx.payment(s,a,'world',c.cost);"],
+];
+export const EFFECTS_WORLD=[
+ ['world-condition'," case 'finalTime':return s.round===10||m?.stage===8;"," case 'lifeFinalAtLeast11':return s.life.final>=11; case 'lifeRound8':return s.round>=8; case 'finalTime':return s.round===10||m?.stage===8;"],
+ ['world-op'," default:throw Error('効果handlerが未実装：'+e.op);"," case 'lifeFinal':{if(e.allowLower)throw Error('終了ラウンドの短縮は未実装');const from=s.life.final,to=Math.min(12,Math.max(from,e.add?from+e.add:e.set));if(to!==from){s.life.final=to;l.applied=true;h.log(s,'終了ラウンドがR'+to+'になった（'+card(s,l.source).name+'）');}s.life.events.push({op:'lifeFinal',extended:to>from,raised:false,from,to,card:card(s,l.source).id,actor:a,round:s.round,turn:s.turn,serial:s.serial,final:s.life.final,cap:{...s.life.cap},growth:{A:owner(s,'A').growth,B:owner(s,'B').growth},reached:{A:owner(s,'A').reached,B:owner(s,'B').reached}});break;}\n default:throw Error('効果handlerが未実装：'+e.op);"],
+];
+// CPU helper: an XI/XII world is scored as an ordinary world plus the value of the rounds it adds (lifeValue, per round added).
+// cpu 'keep' (diagnostic W-Bk): an XI/XII world is worth only its extension value minus its cost and the world it replaces.
+export const policyWorld=(cpu='filler')=>[...POLICY_WORLD.slice(0,1),cpu==='keep'
+ ?['world-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world')return XW.test(c?.cardId??'')?worldLifeValue(c,o)-spend-(b.world?4:0):(b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;"]
+ :POLICY_WORLD[1]];
+export const POLICY_WORLD=[
+ ['world-helper',"const growthMult=o=>","const XW=/^X-(XI|XII)-(A|B|C|BL)$/;\nfunction worldLifeValue(c,o){const m=XW.exec(c?.cardId??''),L=o.life;if(!m||!L)return 0;const from=L.final,to=Math.min(12,m[2]==='C'?from+1:Math.max(from,m[1]==='XI'?11:12));return to>from?lifeValue('lifeExtend',o)*(to-from):0;}\nconst growthMult=o=>"],
+ ['world-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend+worldLifeValue(c,o);"],
+];

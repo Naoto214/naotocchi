@@ -27,7 +27,7 @@ const treeBefore=tree();
 const before=Object.fromEntries(files.map(f=>[f,sha(source(f))]));
 function patch(text,from,to,label){const n=text.split(from).length-1;if(n!==1)throw Error(`patch ${label}: expected 1 match, found ${n}`);return text.replace(from,()=>to);}
 
-import {VARIANTS,cards,rulesAppendix,HOOKS,ENGINE,effectsPatches,OBSERVATION,policyPatches} from './life-patches.mjs';
+import {VARIANTS,cards,rulesAppendix,HOOKS,ENGINE,effectsPatches,OBSERVATION,policyPatches,worldCards,worldRules,ENGINE_WORLD,EFFECTS_WORLD,policyWorld} from './life-patches.mjs';
 
 
 for(const v of Object.keys(VARIANTS))rmSync(join(OUT,v),{recursive:true,force:true});
@@ -41,6 +41,10 @@ for(const [v,cfg] of Object.entries(VARIANTS)){
  let pol=out['cpu-policy.mjs'];for(const [l,a,b] of policyPatches(cfg))pol=patch(pol,a,b,l);out['cpu-policy.mjs']=pol;
  out['full-catalog.mjs']+=`\n// ---- variable-life-20261031: experiment-only cards ----\nObject.assign(CATALOG,${JSON.stringify(cards(cfg),null,1)});\n`;
  out['rules.mjs']+=rulesAppendix(cfg);
+ if(cfg.world){ // world redesign: only these variants get the world cards and their patches (older builds stay byte-identical)
+  for(const [f,list] of [['engine.mjs',ENGINE_WORLD],['effects.mjs',EFFECTS_WORLD],['cpu-policy.mjs',policyWorld(cfg.world.cpu)]])for(const [l,a,b] of list)out[f]=patch(out[f],a,b,l);
+  out['full-catalog.mjs']+=`\n// ---- variable-life-20261031 world cards ----\nObject.assign(CATALOG,${JSON.stringify(worldCards(cfg.world.cost),null,1)});\n`;
+  out['rules.mjs']+=worldRules();}
  for(const [f,t] of Object.entries(out))writeFileSync(join(dir,f),t);
  manifest.variants[v]={...cfg,cards:cards(cfg),patchedSha256:Object.fromEntries(Object.entries(out).filter(([f,t])=>sha(t)!==before[f]).map(([f,t])=>[f,sha(t)]))};
 }
