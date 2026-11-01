@@ -43,3 +43,14 @@ test('an achievement waits until the birth notice finishes',()=>{
  assert.equal(h.get('storyFlash').classList.contains('hidden'),false);
  assert.match(h.get('storyFlashText').textContent,/じっせき/);
 });
+
+test('birth presentation holds the hatch pose until its notice ends',()=>{
+ const h=harness({resume:true,homeDiorama:true,productionHome:true,worldScene:true});
+ h.get('lifeCardOverlay').classList.add('hidden');h.api.render();
+ for(let i=0;i<5;i++)warm(h);
+ h.get('storyFlash').classList.add('hidden');
+ assert.equal(h.api.homeDioramaBlocked(),true,'birth itself holds the pose without an achievement overlay');
+ h.advance(2801);
+ h.get('storyFlash').classList.add('hidden');
+ assert.equal(h.api.homeDioramaBlocked(),false,'normal free life resumes after celebration');
+});

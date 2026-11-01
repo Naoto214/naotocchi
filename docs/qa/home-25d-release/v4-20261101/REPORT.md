@@ -37,3 +37,11 @@ Viewport, html/body layout, --app-height, fixed UI and safe-area padding are unc
 ## Pending release gates
 
 Final-head regression/CI, actual birth visibility, all13 regional screenshots and inputs, portrait/landscape/safe-area, 390px before/after artifact, archive integrity, private deployment and post-deploy access. No main merge, production Pages update, image changes, save migration, or force push authorized/performed.
+
+## Browser evidence and follow-up
+
+All 13 regions were captured at 390x844 with 28 actors in the isolated QA fixture; see all-13-regions-390.jpg. home-390-before-after.jpg contains actual CI captures (V3 / candidate 97b9223): egg, celebration, normal growing screen. No generated backgrounds.
+
+Candidate 97b9223 Chromium passed original V3 baseline (10 cases) but failed V4 post-birth centre assertions with normal motion. Reduced-motion cases remained centred. Actor records prove ambient movement started while achievements were deferred. Fix: include the 2800ms birth presentation in the existing homeDioramaBlocked predicate; no coordinate/model/navigation changes. A new test fails before and passes after this fix, and verifies free life resumes. Care buttons remain independently available. Browser assertions are unchanged. This failure is not counted as success.
+
+Production contracts: 365 passed, 0 failed/skipped/cancelled on the preceding candidate. Final HEAD CI remains pending. VERSION 3 remains live.

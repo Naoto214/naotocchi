@@ -15119,7 +15119,8 @@
     }).filter(Boolean);
   }
   function homeDioramaBlocked() {
-    return gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()
+    // Keep the existing hatch pose while its 2.8s presentation owns the notice.
+    return !!birthCelebration || gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()
       || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || speechActive || conversationIsBusy()
       || !el.lifeCardOverlay.classList.contains('hidden') || !el.storyFlash.classList.contains('hidden')
       || document.body.classList.contains('movie-active') || el.screenNormal.classList.contains('hidden')
