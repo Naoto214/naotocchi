@@ -49,3 +49,23 @@ actual hit element, plus a rotation screenshot. No assertion or timing is
 relaxed. Move V7 before the frozen V6 baseline in the CI job for earlier
 failure evidence; retain every baseline and regression step. V7 remains
 unpublished pending diagnosis and all required gates.
+
+Run `41302903501`, WebKit job `124837426437`, confirms the resize race:
+the landscape stage/controls already use 792px width (844px viewport), but
+the controls remain at y=728..831 from the old 844px-tall portrait layout.
+All nine hit tests return false with no hit element; they are outside the
+320px-tall viewport, rather than covered by the comment. The bubble ends at
+198px, so the previous comment-boundary assertion passes.
+
+The existing production scroll matrix already synchronizes WebKit's resize
+handler before measuring. Apply the same bounded precondition to all V7
+rotations: requested inner/visual viewport dimensions and `--app-height`
+must agree within 5 seconds, then run the existing 100ms clock interval.
+No geometry, hit-test, size, wrapping or choice assertion changes. This is
+a browser-test synchronization correction; production viewport code stays
+unchanged. Missing resize handling still fails the bounded precondition.
+
+At `0ca494ae`, Chromium V7 passes; full local npm test is 3,766 pass with
+fail/skip/cancel zero, and the separate production regression is 365 pass.
+These results do not establish WebKit or final CI completion. Re-run the
+browser matrix with the synchronization correction before publication.

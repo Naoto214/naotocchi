@@ -1,6 +1,14 @@
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const root=path.resolve(process.argv[2]),out=path.resolve('test-results/home-production-comments-v7');fs.mkdirSync(out,{recursive:true});
 const server=http.createServer((req,res)=>{const f=path.resolve(root,'.'+new URL(req.url,'http://local').pathname);if(!f.startsWith(root+'/')||!fs.existsSync(f)){res.writeHead(404).end();return;}res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp'})[path.extname(f)]||'application/octet-stream');fs.createReadStream(f).pipe(res);});
+async function rotate(page,width,height){
+ await page.setViewportSize({width,height});
+ // As in the production scroll matrix, WebKit can acknowledge the resize
+ // before dispatching its event. Start the existing 100ms check only once
+ // the real viewport handler has consumed the requested dimensions.
+ await page.waitForFunction(([w,h])=>innerWidth===w&&innerHeight===h&&Math.round(visualViewport?.height||innerHeight)===h&&Number.parseFloat(document.documentElement.style.getPropertyValue('--app-height'))===h,[width,height],{timeout:5000});
+ await page.clock.runFor(100);
+}
 const inspect=()=>{
  const rect=id=>document.getElementById(id).getBoundingClientRect().toJSON();
  const bubble=document.getElementById('speechBubble'),text=document.getElementById('speechText'),name=document.getElementById('speechSpeaker');
@@ -37,10 +45,10 @@ for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split('
  results.push({label,...d});if(!longName&&[0,4].includes(i))await page.screenshot({path:path.join(out,[engine,width,kind,i].join('-')+'.png')});
  }
  }
- await page.setViewportSize({width:844,height:width});await page.clock.runFor(100);let d=await page.evaluate(inspect);
+ await rotate(page,844,width);let d=await page.evaluate(inspect);
  fs.writeFileSync(path.join(out,'rotation-'+engine+'-'+width+'.json'),JSON.stringify(d,null,2));await page.screenshot({path:path.join(out,'rotation-'+engine+'-'+width+'.png')});
  assert.ok(d.bubble.bottom<=d.controls.top-2,JSON.stringify({phase:'rotation',engine,width,d}));assert.ok(d.buttons.every(b=>b.hit),JSON.stringify({phase:'rotation-controls',engine,width,d}));
- await page.setViewportSize({width,height:844});await page.clock.runFor(100);d=await page.evaluate(inspect);assert.ok(d.bubble.bottom<=d.controls.top-2,JSON.stringify({phase:'rotation',engine,width,d}));
+ await rotate(page,width,844);d=await page.evaluate(inspect);assert.ok(d.bubble.bottom<=d.controls.top-2,JSON.stringify({phase:'rotation',engine,width,d}));
  await page.evaluate(()=>HomeReleaseQA.commentCase('partner','「じゃあまたね」と手を振った。いつもの距離だった','',true));await page.clock.runFor(100);
  const story=await page.evaluate(()=>{const b=document.getElementById('storyFlash'),n=document.getElementById('storyFlashEmoji'),t=document.getElementById('storyFlashText');return {parent:b.parentNode.id,comment:b.dataset.comment,top:t.getBoundingClientRect().top,nameBottom:n.getBoundingClientRect().bottom,bottom:b.getBoundingClientRect().bottom,controls:document.getElementById('careActions').getBoundingClientRect().top,portrait:n.querySelector('img')?.src};});
  assert.equal(story.parent,'homeCommentDock');assert.equal(story.comment,'true');assert.ok(story.nameBottom<=story.top+1&&story.bottom<story.controls);assert.match(story.portrait,/snow_spirit/);
@@ -54,13 +62,13 @@ for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split('
  await page.clock.runFor(5000);await page.evaluate(()=>HomeReleaseQA.clearComment());
  // Existing question engine and real choice buttons remain usable after rotation.
  assert.equal(await page.evaluate(()=>HomeReleaseQA.question()),true,'question starts');await page.clock.runFor(100);
- await page.setViewportSize({width:844,height:width});await page.clock.runFor(100);
+ await rotate(page,844,width);
  const question=await page.locator('#speechChoices').evaluate(e=>{const r=e.getBoundingClientRect(),c=document.getElementById('careActions').getBoundingClientRect();return {bottom:r.bottom,controls:c.top,buttons:[...e.querySelectorAll('button')].map(b=>{const q=b.getBoundingClientRect(),hit=document.elementFromPoint(q.x+q.width/2,q.y+q.height/2);return {h:q.height,hit:b===hit||b.contains(hit)}})};});
  assert.ok(question.bottom<question.controls&&question.buttons.every(b=>b.h>=44&&b.hit),'rotated choices remain tappable above care controls '+JSON.stringify({engine,width,question}));
  await page.locator('#speechChoices button').first().click();await page.clock.runFor(100);
  assert.equal(await page.locator('#speechChoices').isVisible(),false,'answer consumes choices');
  await page.locator('#menuBtn').click();assert.equal(await page.locator('#speechBubble').isVisible(),false,'menu dismisses speech');
- await page.locator('#menuCloseBtn').click();await page.setViewportSize({width,height:844});await page.clock.runFor(100);
+ await page.locator('#menuCloseBtn').click();await rotate(page,width,844);
  assert.equal(await page.evaluate(()=>HomeReleaseQA.exchange()),true,'real companion exchange starts');await page.clock.runFor(100);
  const exchange=await page.locator('#individualityDialog').evaluate(e=>{const n=document.getElementById('individualitySpeaker'),t=document.getElementById('individualityText'),r=e.getBoundingClientRect();return {portrait:n.querySelector('img')?.getAttribute('src'),nameBottom:n.getBoundingClientRect().bottom,textTop:t.getBoundingClientRect().top,bottom:r.bottom,controls:document.getElementById('careActions').getBoundingClientRect().top};});
  assert.ok(exchange.nameBottom<=exchange.textTop+1&&exchange.bottom<exchange.controls);assert.match(exchange.portrait,/assets\/characters\//);
