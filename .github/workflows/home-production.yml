@@ -60,6 +60,12 @@ jobs:
         run: node tests/home-production-notice-browser.cjs "${{ runner.temp }}/fixed-controls"
         env:
           HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - name: Build private V6 actual-notice corpus
+        run: node tools/home-production-v6-qa.cjs "${{ runner.temp }}/fixed-controls"
+      - name: V6 Japanese breaks, event icons and speaker bounds
+        run: node tests/home-production-notice-v6-browser.cjs "${{ runner.temp }}/fixed-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -72,6 +78,7 @@ jobs:
             test-results/home-production-native/
             test-results/home-production-guide/
             test-results/home-production-notices/
+            test-results/home-production-notice-v6/
   production-contracts:
     runs-on: ubuntu-latest
     timeout-minutes: 15

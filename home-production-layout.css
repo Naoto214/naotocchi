@@ -45,3 +45,20 @@ body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .stor
  max-height:none;overflow:visible;flex:0 1 auto;padding:1px 0;
 }
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot:not([data-expanded="true"]){justify-content:center}
+
+/* V6: one full-width text lane, independent event art and speaker metadata.
+   Override the old centered max-content/balanced wrapping and narrow name
+   pseudo-element together. Long tokens retain an emergency wrapping path. */
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){
+ width:100%;max-width:100%;margin-left:0;margin-right:0;text-align:left;text-wrap:wrap;overflow-wrap:anywhere;word-break:normal;line-break:strict;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash:not(.hidden){
+ display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:6px;row-gap:0;align-items:center;
+}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji{grid-column:1;grid-row:1 / span 2;min-width:0;max-width:24px;width:24px;align-self:start}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji:empty{display:none}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji::after{content:none!important}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashName{grid-column:2;grid-row:1;min-width:0;font:11px/1.4 system-ui;text-align:left;white-space:normal;overflow-wrap:anywhere;color:#315247}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash-text{grid-column:2;grid-row:2;width:100%;min-width:0;max-width:100%;text-align:left;text-wrap:wrap;white-space:pre-wrap;overflow-wrap:anywhere;line-break:strict}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash:has(#storyFlashEmoji:empty) .story-flash-text{grid-column:1 / -1}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .notice-phrase{display:inline-block;max-width:100%;vertical-align:top;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;text-wrap:wrap}

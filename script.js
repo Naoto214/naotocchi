@@ -1107,6 +1107,7 @@
     storyFlash: document.getElementById('storyFlash'),
     storyFlashEmoji: document.getElementById('storyFlashEmoji'),
     storyFlashText: document.getElementById('storyFlashText'),
+    storyFlashName: document.getElementById('storyFlashName'),
     gameClearOverlay: document.getElementById('gameClearOverlay'),
     gameClearArt: document.getElementById('gameClearArt'),
     gameClearConfettiTop: document.getElementById('gameClearConfettiTop'),
@@ -3832,7 +3833,10 @@
     // still announce each new beat, even when its words match the last beat.
     if (!force && commentTextCache.get(target)===value) return false;
     commentTextCache.set(target,value);
-    const html=commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
+    const isNotice=document.body.dataset.homeProduction==='true' && terrainNoticeMode()
+      && [el.message,el.storyFlashText,el.birthdayToast,el.mgResultToast].includes(target);
+    const chunks=isNotice?window.NaotocchiHomeDiorama.noticeChunks(value):null;
+    const html=chunks?chunks.map(chunk=>/^\s+$/.test(chunk)?escapeHtml(chunk):'<span class="notice-phrase">'+commentTextHTML(chunk,character)+'</span>').join(''):commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
     const property=illustrated?'innerHTML':'textContent';
     const rendered=illustrated?html:value;
     if (!force && target[property]===rendered) return false;
@@ -4016,7 +4020,10 @@
     if (setCommentText(el.message, text)) el.message.scrollTop = 0;
     el.message.dataset.careKind = display?.kind || '';
     el.message.dataset.careSeverity = display?.severity || '';
-    el.message.dataset.careIcon = display?.icon || '';
+    // The terrain event text is independent of the current care assessment.
+    // Never attach a persistent hunger/sleep glyph to an unrelated event.
+    // Icons authored in event text and story event art are rendered separately.
+    el.message.dataset.careIcon = document.body.dataset.homeProduction==='true' && terrainNoticeMode() ? '' : display?.icon || '';
     el.message.dataset.careTone = display?.kind === 'change'
       ? careFeedback.text.includes('−') ? careFeedback.text.includes('+') ? 'mixed' : 'loss' : 'gain' : '';
     el.screen.dataset.careSeverity = visible ? notice?.severity || '' : '';
@@ -11449,6 +11456,11 @@
     const noticeSpeaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.petReaction?petSpeaker():event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:null;
     if(noticeSpeaker)renderLaneSpeaker(el.storyFlashEmoji,noticeSpeaker,el.storyFlash);
     else {el.storyFlashEmoji.dataset.label='';el.storyFlash.dataset.speakerId='';el.storyFlash.dataset.kind='';el.storyFlashEmoji.classList.remove('hidden');}
+    if(el.storyFlashName){
+      const label=document.body.dataset.homeProduction==='true' && terrainNoticeMode() ? el.storyFlashEmoji.dataset.label||'' : '';
+      el.storyFlashName.textContent=label;
+      el.storyFlashName.classList.toggle('hidden',!label);
+    }
     setCommentText(el.storyFlashText, compactJapaneseText(terrainNoticeMode() && event.environmentMoment ? window.NaotocchiHomeDiorama.homeText(event.message) : event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
     renderPetVisual();

@@ -16,6 +16,26 @@
     return lines.join('\n');
   }
 
+  // Presentation only: retain short Japanese grammatical groups as inline
+  // boxes. Each box may still wrap when narrower than the available lane.
+  // No source text is removed, normalized or stored back into game state.
+  let noticeSegmenter;
+  function noticeChunks(text) {
+    text=String(text??'');
+    if(typeof Intl==='undefined'||typeof Intl.Segmenter!=='function')return [text];
+    noticeSegmenter ||= new Intl.Segmenter('ja',{granularity:'word'});
+    const chunks=[];
+    for(const {segment} of noticeSegmenter.segment(text)){
+      const last=chunks[chunks.length-1];
+      const suffix=/^[ぁ-ゖー]{1,2}$/.test(segment)||/^(から|まで|だけ|けれど|ながら|ので|のに)$/.test(segment);
+      const closing=/^[、。，．！？!?：:；;…」』）】〉》]+$/.test(segment);
+      const open=last&&/^[「『（【〈《]+$/.test(last);
+      if(last&&!/[\s。！？!?]$/.test(last)&&(suffix||closing||open))chunks[chunks.length-1]+=segment;
+      else chunks.push(segment);
+    }
+    return chunks;
+  }
+
   // Display-only sizing. The browser supplies font measurements, not character counts.
   function textLayout(text,width,kind,measure){
     width=Math.max(1,width);text=String(text||'');
@@ -401,5 +421,5 @@
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
+  return {noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
