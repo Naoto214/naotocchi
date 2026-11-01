@@ -1,0 +1,58 @@
+name: Forest F2 Jungle J3 private comparison
+on:
+  pull_request:
+    paths: ['comparisons/forest-f2-jungle-j3/**', '.github/workflows/forest-f2-jungle-j3.yml']
+  push:
+    branches: ['compare/forest-f2-jungle-j3-20261101']
+permissions:
+  contents: read
+concurrency:
+  group: f2j3-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            comparisons/forest-f2-jungle-j3
+      - uses: actions/checkout@v4
+        with:
+          ref: 323debc35f44136d64ae74fadf8f36da7f358e86
+          path: baseline
+          sparse-checkout: |
+            assets
+            character-3d
+            prototypes
+            tests
+            tools
+            vendor
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - name: Candidate terrain contracts
+        run: node --test comparisons/forest-f2-jungle-j3/geometry.test.mjs
+        env:
+          F2J3_BASE: ./baseline
+      - name: Build and verify unchanged baseline
+        run: node comparisons/forest-f2-jungle-j3/build.mjs baseline "${{ runner.temp }}/f2j3"
+      - name: Baseline production contracts
+        run: node tools/home-production-regression.cjs
+        working-directory: baseline
+      - name: Browser placement and physical inputs
+        run: node comparisons/forest-f2-jungle-j3/browser.cjs "${{ runner.temp }}/f2j3" baseline
+        env:
+          F2J3_ENGINE: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: f2j3-${{ matrix.engine }}
+          path: test-results/f2j3
