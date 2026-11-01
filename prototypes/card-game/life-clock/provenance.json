@@ -1,0 +1,126 @@
+{
+  "commit": "71bcbde2c1457bc0caa0613bc9690f5c069cad5b",
+  "variant": "A",
+  "files": {
+    "assets/dial-art-v4.png": {
+      "source": "prototypes/life-clock-v6/dist/assets/dial-art-v4.png",
+      "sha256": "656315389e2c1f7e297fd843941167a9e7b3473f0bb2bd66814064093197d073",
+      "gitBlob": "ad12e1cba480ecb50e3a5c7cf91653779cbc2b78"
+    },
+    "clock.mjs": {
+      "source": "prototypes/life-clock-v6/dist/clock.mjs",
+      "sha256": "bf85e60421260941e4e3ba5ca63a19a42182d4cce26cb3119950f165aa8fd7c2",
+      "gitBlob": "99b152bc841930d1b08475ef3698063d6574776b"
+    },
+    "v10/clock-v10.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v10/clock-v10.mjs",
+      "sha256": "e3e807a4d5af011be5e1e1a1cd26ef5abb2b3506be15e9341a14b69e1d2cd092",
+      "gitBlob": "d270ece207709e613249ce5422c0915032273332"
+    },
+    "v11/clock-v11.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v11/clock-v11.mjs",
+      "sha256": "8f1cbc3801207dd25ebbbb9cc611d8dc3f98473631c35435ed3e932fa09cb8e0",
+      "gitBlob": "0f53753826b862dc8dcc8dfe9df556ad57150665"
+    },
+    "v11/layout.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v11/layout.mjs",
+      "sha256": "afbeedc45d93e8759bcef0d77b3f76b7442b2efa6c4a513a643031eb899c95c0",
+      "gitBlob": "d4854446139d211839e8678a8ba3457bb04984ee"
+    },
+    "v12/clock-v12.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v12/clock-v12.mjs",
+      "sha256": "89b2743073f9993d2d8c8f9c42cc889129082427796cd10df26f4ce787e3342e",
+      "gitBlob": "91c2061604971560b46ea12c4adfecd262059838"
+    },
+    "v12/layout.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v12/layout.mjs",
+      "sha256": "4c6737c203c7df7cbdd533356f690cd73ef09282c731583168d92f49c3d957e9",
+      "gitBlob": "cc2e37f26d25b233a3ff85be68baf1155f90f079"
+    },
+    "v13/clock-v13.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v13/clock-v13.mjs",
+      "sha256": "536c679fb4b7158d7373d5e4feac039f3a62db04f5095257a864ef36b23736c7",
+      "gitBlob": "2a8a332989301ca66a787cae817889bc215ee421"
+    },
+    "v13/decoration.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v13/decoration.mjs",
+      "sha256": "b23e76f8d262ec47322f981e49780218b756d5158789c1937c8420e5d4905c4d",
+      "gitBlob": "eb61ae016fdd4a440296f8684c55a2dc04b1ef50"
+    },
+    "v13/layout.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v13/layout.mjs",
+      "sha256": "6fa7a5a9b7b46d7de306f331ad10caf28e96b0528e75cda800b0a5037154d67c",
+      "gitBlob": "7e70fdb0a27fbe3e9053921f7a185fc8949775a4"
+    },
+    "v14/clock-v14.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v14/clock-v14.mjs",
+      "sha256": "f3ba88dec50ab4b2a5cb71a5d57b9575dbcd362b30f233f724d73fe53cbf6169",
+      "gitBlob": "9384dc657895af75c96301c8a7c253b5ad6102a4"
+    },
+    "v14/layout.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v14/layout.mjs",
+      "sha256": "bc7d5b4467e0bd0edfd48e630696a71753f7c565a6eda94ee01c813a8b8c56f6",
+      "gitBlob": "416e9060c041ea4f16b138c680e8ac5435995869"
+    },
+    "v16/clock-v16.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v16/clock-v16.mjs",
+      "sha256": "4397a8bb0a0a5c9d591405f84da4df21e6ae96ce9907aa3c870307ec8a378ced",
+      "gitBlob": "1ab12a67969b78090eeed7c9bb9875d3dacf49c7"
+    },
+    "v16/layout.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v16/layout.mjs",
+      "sha256": "9c6f2513076a643fc46a8deff4582dfe79f5bf2176c2a3e9533e1afe50432013",
+      "gitBlob": "ac07678085f4e2c1bf10b2e2b2aea3f53f7ef19d"
+    },
+    "v16/occlusion.png": {
+      "source": "prototypes/life-clock-v6/dist/v16/occlusion.png",
+      "sha256": "fa92d868697ce214738984c379ad3d1d2103ac89db2451dff1bc99025f5fd4c4",
+      "gitBlob": "7e6d5aaf4682bcd2fb772d623e701a470faa86b9"
+    },
+    "v16/plate.webp": {
+      "source": "prototypes/life-clock-v6/dist/v16/plate.webp",
+      "sha256": "2dd2362ba0a9c7b43c457246bf27d77a3a951a9384b59a5c402bbd8ccce19ff3",
+      "gitBlob": "b34bba399b4ded46f1e15e306a9cdfc8c57f9551"
+    },
+    "v16/ring.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v16/ring.mjs",
+      "sha256": "7be1f5c184cb8e385a0cc4b108ebaf15a5584ed47cc745b7acf4ea0f72d2bde7",
+      "gitBlob": "9b4824a832addda5837a7bf4b0ae061397cda234"
+    },
+    "v17/clock-v17.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v17/clock-v17.mjs",
+      "sha256": "10b4228972c98d83357bb816dcc9c604968069bfebf02a46e989e9798dc405dd",
+      "gitBlob": "5e59af75e821a992b54cfdea86e61c1ab8c5f484"
+    },
+    "v17/metrics.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v17/metrics.mjs",
+      "sha256": "03579290e5d51e7963dde4b89836d338a5b70f22c2bbc54890189994dc6b49c6",
+      "gitBlob": "28f101c812745e9fe9b2c23a7c602fc4a5658695"
+    },
+    "v5/clock-v5.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v5/clock-v5.mjs",
+      "sha256": "1ade38b66c1f3ed9b2a210e695a215ab82e872f025736af88c44ecedf3107830",
+      "gitBlob": "075b7c28dc960d415f1e2d3a580f12ea67bd4a13"
+    },
+    "v6/clock-v6.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v6/clock-v6.mjs",
+      "sha256": "c5e9ac4876aae42ff745d93f9b15ae5fb96605da87ade92f756a45c30f26080d",
+      "gitBlob": "a59ff3153735c27923fd77996f5d1a16a715b82f"
+    },
+    "v7/clock-v7.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v7/clock-v7.mjs",
+      "sha256": "980111f68624d446bb706728de9ae75b60b84377ff96bbb5577fd72cb6b47763",
+      "gitBlob": "8796346e1784fd8e0634db673b46c990f7965063"
+    },
+    "v8/clock-v8.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v8/clock-v8.mjs",
+      "sha256": "90c25ad00b86852052bb898fc790875587e766b77110328b684cad99110463c8",
+      "gitBlob": "51f6e75fdc7e1820ab0cdf062f08723a575d6723"
+    },
+    "v9/clock-v9.mjs": {
+      "source": "prototypes/life-clock-v6/dist/v9/clock-v9.mjs",
+      "sha256": "e77a17cbad1e048ade57896d64e77a7e64b193533694df5badc30263499136ac",
+      "gitBlob": "2200eca62c6813ec174d8c89e673b1033453bafb"
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import {mountLifeClock} from './life-clock-view.mjs';
 import {RecordsStore,buildRecord} from './records.mjs';
 import {newMetadata,encodeMatch,decodeMatch} from './records-match.mjs';
 import {mountRecords} from './records-ui.mjs';
@@ -31,7 +32,8 @@ function recordFinished(){if(!session.finished||!matchMetadata||recordedId===mat
 const input=installActionInputGuard(document,()=>({session,revision:session.projection?.revision,viewer:session.viewer}));
 let dragging=false;
 let busy=false,pending=null,dialogOrigin=null,selected=null,reordering=false,returnDetail=null,returnWorkflow=false,dragCleanup=()=>{},handOpen=null;
-const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog','rulebook-dialog','tutorial-dialog','learning-card-dialog','learning-term-dialog','records-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
+const cpu=new CpuScheduler({getSession:()=>session,canRun:()=>!document.hidden&&!busy&&!reordering&&!dragging&&!['card-dialog','confirm-dialog','menu-dialog','collection-dialog','rulebook-dialog','tutorial-dialog','learning-card-dialog','learning-term-dialog','records-dialog','life-clock-dialog'].some(id=>$(id)?.open),onStep:()=>{persist();render();}});
+const lifeClock=mountLifeClock({dialog:$('life-clock-dialog'),getView:()=>session.projection,onPause:()=>cpu.cancel(),onResume:()=>{applyHandVisibility();cpu.schedule();}});
 const turnFeedback=new TurnFeedback();
 const feedbackHost=document.createElement('div');feedbackHost.id='result-feedback';feedbackHost.setAttribute('role','status');feedbackHost.setAttribute('aria-live','polite');feedbackHost.setAttribute('aria-atomic','true');
 function clearResultMotion(){document.querySelectorAll('.result-arrive,.result-deck').forEach(n=>n.classList.remove('result-arrive','result-deck'));}
@@ -48,6 +50,7 @@ function button(text,handler){const n=el('button',text);n.type='button';n.addEve
 function message(text){$('status').textContent=text;}
 function persist(){if(session.finished&&matchMetadata&&matchMetadata.completedAt===null&&matchMetadata.startedAt!==null)matchMetadata.completedAt=Date.now();try{localStorage.setItem(session.mode==='cpu'?CPU_KEY:KEY,saveMatch());message('この端末に保存しました');}catch{message('自動保存できません。保存ファイルを書き出してください。');}recordFinished();}
 function closeDialogs({focus=true}={}){
+ lifeClock.close({focus});
  input.invalidate();
  for(const id of ['card-dialog','confirm-dialog','menu-dialog']){const d=$(id);if(d.open)d.close();if(id!=='menu-dialog')d.replaceChildren();delete d.dataset.browseSeat;delete d.dataset.browseZone;}
  input.stamp();pending=null;if(focus&&dialogOrigin?.isConnected)dialogOrigin.focus();dialogOrigin=null;cpu.schedule();
@@ -183,6 +186,8 @@ for(const t of ['gesturestart','gesturechange'])document.addEventListener(t,e=>{
 document.addEventListener('keydown',e=>{const z=e.target.closest?.('div[data-stage-zoom]');if(z&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleStageZoom(z);}});
 document.addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b||b.disabled)return;
+ if(b.hasAttribute('data-life-clock')){lifeClock.open();return;}
+ if(lifeClock.isOpen)return;
  if(b.hasAttribute('data-result-collapse')){feedback.collapse();document.querySelector('[data-result-reopen]')?.focus({preventScroll:true});return;}
  if(b.hasAttribute('data-result-reopen')){feedback.reopen();return;}
  if(b.hasAttribute('data-close')||b.hasAttribute('data-cancel')){const back=b.hasAttribute('data-cancel')?returnDetail:null;const flow=b.hasAttribute('data-cancel')&&returnWorkflow;returnDetail=null;returnWorkflow=false;closeDialogs();if(back)inspect(back);else if(flow)openWorkflow();return;}
@@ -266,7 +271,7 @@ for(const b of document.querySelectorAll('#menu-leave [data-leave]'))b.onclick=(
 $('menu-continue').onclick=()=>$('menu-dialog').close();
 $('menu-dialog').addEventListener('close',leaveConfirmReset);
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;hide();try{if(file.size>2000000)throw Error('保存ファイルが大きすぎます');const restored=decodeMatch(await file.text());cpu.cancel();session=restored.session;matchMetadata=restored.metadata;recordedId=null;bindOrder();$('welcome').hidden=true;$('game').hidden=false;$('export').hidden=false;document.body.classList.add('playing');myDecks.release();hide();persist();}catch(error){message(`読込を拒否しました：${error.message}`);}finally{e.target.value='';}};
-window.addEventListener('resize',()=>{dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
+window.addEventListener('resize',()=>{if(lifeClock.isOpen)return;dragCleanup();if(session.viewer){render();applyHandVisibility();}});window.addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});window.addEventListener('pagehide',hide);
 let decks={A:[...DEFAULT_DECK],B:[...DEFAULT_DECK]};
 const strategyDeck=()=>$('match-mode').value==='cpu'&&$('cpu-deck-mode').value!=='mydeck';
 const myDecks=mountMyDecks({inspect,message,onChange:next=>{decks=next;},seats:()=>strategyDeck()?[$('human-seat').value]:['A','B']});
