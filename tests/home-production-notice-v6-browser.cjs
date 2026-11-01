@@ -14,7 +14,7 @@ const inspect=()=>{
   name:rect(document.getElementById('storyFlashName')),icon:rect(document.getElementById('storyFlashEmoji')),art:[...document.querySelectorAll('#storyFlashEmoji *')].filter(e=>e.getClientRects().length&&e.getBoundingClientRect().width).map(rect),lines,
   careIcon:document.getElementById('message').dataset.careIcon,recommended:document.getElementById('feedBtn').dataset.careRecommended};
 };
-(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const results=[],errors=[];try{
+(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const results=[],motionResults=[],errors=[];try{
  for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split(',')){
  const browser=await require('playwright')[engine].launch();try{
  for(const width of [320,375,390,430]){
@@ -45,9 +45,21 @@ const inspect=()=>{
  if(key){await page.screenshot({path:path.join(out,[engine,width,key].join('-')+'.png')});}
  results.push({engine,width,index:i,source:row.source,...d});
  }
+ // Check the two WebKit overshoot repros with normal motion at entry frames,
+ // rather than hiding transient overflow behind a longer settling delay.
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ for(const row of corpus.filter(r=>r.text.includes('食べ終わって、お皿')||r.text.includes('帰り道、小さく鼻歌'))){
+ await page.evaluate(r=>HomeReleaseQA.presentNotice(r),row);
+ let previous=0;for(const elapsed of [0,60,180,500]){
+ await page.clock.runFor(elapsed-previous);previous=elapsed;const d=await page.evaluate(inspect),c=d.content.find(c=>c.id==='storyFlash');
+ assert.ok(c&&c.scroll<=c.client+1&&c.rect.bottom<=d.stage.top+1,'normal motion notice bounds');
+ assert.ok(d.art.every(r=>r.top>=c.rect.top-1&&r.bottom<=c.rect.bottom+1&&r.right<=d.body.left+1),'normal motion artwork stays inside notice');
+ motionResults.push({engine,width,elapsed,source:row.source,...d});
+ }
+ }
  await page.evaluate(()=>HomeReleaseQA.presentNotice(null));await page.clock.runFor(100);assert.equal((await page.evaluate(inspect)).extra,0,'expiry restores base');
- await page.close();fs.writeFileSync(path.join(out,'progress.json'),JSON.stringify({results,errors},null,2));
+ await page.close();fs.writeFileSync(path.join(out,'progress.json'),JSON.stringify({results,motionResults,errors},null,2));
  }
  }finally{await browser.close();}}
- assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'passed',results,errors},null,2));console.log('PASS V6 authored corpus',results.length);
+ assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'passed',results,motionResults,errors},null,2));console.log('PASS V6 authored corpus',results.length,'normal motion frames',motionResults.length);
  }finally{server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

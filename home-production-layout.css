@@ -55,7 +55,10 @@ body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash:not(.hidden){
  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:6px;row-gap:0;align-items:center;
 }
-body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji{grid-column:1;grid-row:1 / span 2;min-width:0;max-width:24px;width:24px;align-self:start}
+/* The old inline line box plus impact-pop overshoot enlarged WebKit's scroll
+   bounds during entry. Notice art is a stable 24px flex box; character motion
+   and the story container's existing transition remain independent. */
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji{grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;min-width:0;max-width:24px;width:24px;height:24px;line-height:1;align-self:start;animation:none}
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji:empty{display:none}
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji::after{content:none!important}
 body[data-home-production="true"][data-home-terrain="true"] #storyFlashName{grid-column:2;grid-row:1;min-width:0;font:11px/1.4 system-ui;text-align:left;white-space:normal;overflow-wrap:anywhere;color:#315247}
@@ -64,5 +67,6 @@ body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .stor
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .notice-phrase{display:inline-block;max-width:100%;vertical-align:top;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;text-wrap:wrap}
 /* Event illustrations have legacy 32px sizes. Bound the artwork itself, not
    only its grid wrapper; named speaker portraits retain their existing 20px. */
-body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(.care-icon,.ui-icon,.comment-drawing,.comment-picture){width:24px;height:24px;max-width:100%;max-height:24px;flex-basis:24px}
-body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(img,svg){max-width:100%;object-fit:contain}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(.care-icon,.ui-icon,.comment-drawing,.comment-picture,.display-icon,.catalog-icon,.display-icon-visual,.item-picture){width:24px;height:24px;max-width:100%;max-height:24px;flex-basis:24px}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji[data-label]:not([data-label=""]) .comment-picture{flex:0 0 20px}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(img,svg){max-width:100%;max-height:100%;object-fit:contain}
