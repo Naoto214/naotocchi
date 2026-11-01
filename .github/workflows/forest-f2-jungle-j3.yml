@@ -44,6 +44,10 @@ jobs:
           F2J3_BASE: ./baseline
       - name: Build and verify unchanged baseline
         run: node comparisons/forest-f2-jungle-j3/build.mjs baseline "${{ runner.temp }}/f2j3"
+      - name: Generated comparison contracts
+        run: node --test comparisons/forest-f2-jungle-j3/build-contract.test.mjs
+        env:
+          F2J3_OUT: ${{ runner.temp }}/f2j3
       - name: Baseline production contracts
         run: node tools/home-production-regression.cjs
         working-directory: baseline

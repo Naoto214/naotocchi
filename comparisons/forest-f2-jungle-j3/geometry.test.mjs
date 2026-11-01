@@ -15,7 +15,7 @@ if(fs.existsSync(local)){
    for(const [x,z]of [...s.seats,...s.points])assert.ok(nav.valid(nav.project({x,z})),`${name}: ${x},${z}`);
    for(const [x,z]of s.forbidden)assert.equal(nav.valid(nav.project({x,z})),false,`${name} forbidden ${x},${z}`);
   });
-  test(name+' all resolved paths stay on ground at four widths and landscape',()=>{
+  test(name+' all resolved paths stay on ground at five projection widths',()=>{
    for(const width of [320,375,390,430,844]){
     const nav=createRecoveredNavigation(s,{width,height:width*1.5},{left:0,top:0,width,height:width*1.5});
     for(const a of s.seats)for(const b of s.seats){

@@ -11,6 +11,7 @@ const base=path.resolve(baseArg),out=path.resolve(outArg);
 export const BASE_HEAD='323debc35f44136d64ae74fadf8f36da7f358e86';
 const head=cp.execFileSync('git',['rev-parse','HEAD'],{cwd:base,encoding:'utf8'}).trim();
 if(head!==BASE_HEAD)throw Error('Wrong runtime HEAD: '+head);
+cp.execFileSync('git',['diff','--quiet','HEAD'],{cwd:base}); // Reject modified tracked build inputs.
 const read=f=>fs.readFileSync(path.join(base,f),'utf8');
 const put=(f,s)=>{const p=path.join(out,f);fs.mkdirSync(path.dirname(p),{recursive:true});fs.writeFileSync(p,s);};
 const copy=(from,to)=>put(to,fs.readFileSync(from));
@@ -26,18 +27,19 @@ put('comparison-world.mjs',read('home-production-world.mjs').replace("'./home-pr
 let diorama=fs.readFileSync(path.join(out,'v5-qa-diorama.js'),'utf8').replace("'./home-production-world.mjs'","'./comparison-world.mjs'");
 put('comparison-diorama.js',diorama);
 let js=fs.readFileSync(path.join(out,'v5-qa-script.js'),'utf8');
-// The fixture bypasses hatching only. Initialize its normal individuality field.
+// Owner play retains the normal clock; only explicit QA freezes gameplay time.
+js=js.replace('/* deterministic QA clock */',"if(!new URLSearchParams(location.search).has('qa'))setInterval(loop, TICK_MS);");
+// The fixture starts in adulthood. Initialize its normal individuality field.
 js=js.replace('homeCastLayoutKey=\'\';render();homeDiorama.sync();return this.detail();',"state.individuality ||= INDIVIDUALITY.create(state.speciesLine,REGIONS.map(r=>r.id));homeCastLayoutKey='';render();homeDiorama.sync();return this.detail();");
 js=js.replace('const qaRegion=qaParams.get(\'region\');',"const qaRegion=qaParams.get('scene')?.startsWith('jungle')?'jungle':'forest';");
 js=js.replace(/\}\)\(\);\s*$/,`\nwindow.F2J3QA={model:homeDiorama.model,scene:()=>homeDiorama.inspectScene(),detail:()=>HomeReleaseQA.detail()};\n})();`);
 put('comparison-script.js',js);
 let html=fs.readFileSync(path.join(out,'v5-qa.html'),'utf8').replaceAll('v5-qa-script.js','comparison-script.js').replaceAll('v5-qa-diorama.js','comparison-diorama.js').replace("n='naotocchi-home-v5-qa:'","n='naotocchi-f2j3-qa:'+new URLSearchParams(location.search).get('scene')+':'+new URLSearchParams(location.search).get('count')+':'");
-html=html.replace('</head>','<script src="comparison-controls.js" defer></script></head>');
 put('play.html',html);
 copy(path.join(base,'index.html'),'home-original.html');
 copy(path.join(here,'gallery.html'),'index.html');
 copy(path.join(here,'gallery.js'),'gallery.js');
-copy(path.join(here,'comparison-controls.js'),'comparison-controls.js');
+copy(path.join(here,'review.html'),'review.html');
 copy(path.join(here,'scenes.mjs'),'comparison-scenes.mjs');
 for(const name of ['forest-f2','jungle-j3']){
  copy(path.join(here,'runtime',name+'.webp'),'comparison-art/'+name+'.webp');
