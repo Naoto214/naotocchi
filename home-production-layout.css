@@ -36,8 +36,11 @@ body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot{
 }
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){
  flex:0 0 auto;height:auto;max-height:none;min-height:28px;overflow:visible;
- padding:4px 8px;line-height:1.4;
 }
+/* Preserve the existing normal padding and the birth notice's own gold
+   border, star inset and leading. Extra padding would move the terrain when
+   the queued post-birth notice replaces the one-line birth message. */
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message):not(.birth-notice){padding:1px 8px;line-height:1.4}
 body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash-text{
  max-height:none;overflow:visible;flex:0 1 auto;padding:1px 0;
 }
