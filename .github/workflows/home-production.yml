@@ -29,6 +29,14 @@ jobs:
       - run: npx playwright install --with-deps ${{ matrix.engine }}
       - run: python tools/pages/package.py --out "${{ runner.temp }}/fixed-controls" --report "${{ runner.temp }}/fixed-package.json"
       - run: python tools/pages/verify.py --artifact "${{ runner.temp }}/fixed-controls" --package-report "${{ runner.temp }}/fixed-package.json" --report "${{ runner.temp }}/fixed-http.json"
+      - name: Build private V6 actual-notice corpus
+        run: |
+          cp -a "${{ runner.temp }}/fixed-controls" "${{ runner.temp }}/v6-controls"
+          node tools/home-production-v6-qa.cjs "${{ runner.temp }}/v6-controls"
+      - name: V6 Japanese breaks, event icons and speaker bounds
+        run: node tests/home-production-notice-v6-browser.cjs "${{ runner.temp }}/v6-controls"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
       - run: node tools/home-production-qa.cjs "${{ runner.temp }}/fixed-controls"
       - name: Capture unchanged VERSION 3 birth baseline
         run: |
@@ -58,12 +66,6 @@ jobs:
         run: node tools/home-production-v5-qa.cjs "${{ runner.temp }}/fixed-controls"
       - name: Natural long notices and isolated special-region resume
         run: node tests/home-production-notice-browser.cjs "${{ runner.temp }}/fixed-controls"
-        env:
-          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
-      - name: Build private V6 actual-notice corpus
-        run: node tools/home-production-v6-qa.cjs "${{ runner.temp }}/fixed-controls"
-      - name: V6 Japanese breaks, event icons and speaker bounds
-        run: node tests/home-production-notice-v6-browser.cjs "${{ runner.temp }}/fixed-controls"
         env:
           HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
       - uses: actions/upload-artifact@v4

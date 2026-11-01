@@ -4,10 +4,20 @@ const out=path.resolve(process.argv[2]);
 cp.execFileSync(process.execPath,['tools/home-production-v5-qa.cjs',out]);
 const src=fs.readFileSync('script.js','utf8'),literals=[];
 for(const m of src.matchAll(/setMessage\(\s*('(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*")\s*\)/g))literals.push({kind:'message',source:'script.js:'+src.slice(0,m.index).split('\n').length,text:vm.runInNewContext(m[1])});
+// Keep interpolated notices tied to their actual production templates.
+const marriage=src.match(/setMessage\((`💍[^`]+`)\)/)?.[1];
+const recruit=src.match(/resultMessage = isRare\s*\?\s*(`\$\{companion\.emoji\}[^`]*`)\s*:\s*(`[^`]*`)/);
+if(!marriage||!recruit)throw new Error('Dynamic marriage/recruitment notice templates must be reviewed');
+const origin=template=>'script.js:'+src.slice(0,src.indexOf(template)).split('\n').length;
 let js=fs.readFileSync(path.join(out,'v5-qa-script.js'),'utf8');
 js=js.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
  noticeCorpus(){
   const rows=${JSON.stringify(literals)};
+  const longest=list=>list.reduce((a,b)=>(b.name||b.label||'').length>(a.name||a.label||'').length?b:a);
+  const partner=longest(WORLD_MASTER.partners);
+  rows.push({kind:'message',source:'dynamic.marriage/${origin(marriage)}',text:(state=>${marriage})({partner:{label:partner.name||partner.label}}),expectedIcon:'ring'});
+  rows.push({kind:'message',source:'dynamic.companion.normal/${origin(recruit[2])}',text:(companion=>${recruit[2]})(longest(WORLD_MASTER.companions.normal))});
+  rows.push({kind:'message',source:'dynamic.companion.rare/${origin(recruit[1])}',text:(companion=>${recruit[1]})(longest(WORLD_MASTER.companions.rare))});
   for(const [pool,events] of Object.entries(STORY_EVENT_POOLS))for(const event of events)if(typeof event.message==='string')rows.push({kind:'story',source:'STORY_EVENT_POOLS.'+pool,text:compactJapaneseText(event.message),event});
   for(const [pool,events] of Object.entries(ACTION_RESULT_MESSAGES))for(const text of events)rows.push({kind:'message',source:'ACTION_RESULT_MESSAGES.'+pool,text});
   for(const [pool,events] of Object.entries(ACTION_BLOCKED_MESSAGES))for(const text of events)rows.push({kind:'message',source:'ACTION_BLOCKED_MESSAGES.'+pool,text});

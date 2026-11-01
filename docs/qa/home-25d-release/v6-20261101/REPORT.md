@@ -35,3 +35,9 @@ Corpus review before CI: include action results, blocked-action lines, seasonal 
 - A repeated package build rejected a nonempty output directory (intentional safety behavior); use a fresh directory for final packaging. No deployment occurred.
 
 Review-fix focused tests15 passed (0 fail/skip/cancel). Fresh clean runtime HTTP check4123 files /220211154 bytes, missing0/hash mismatch0/excluded7 paths404. Browser CI must still pass on the final pushed candidate.
+
+## Final-candidate gate found a WebKit issue
+- Candidate 0b6ca435: local and GitHub Runtime smoke each3753 pass, fail/skip/cancel0. All13 regional jobs pass:312 display/130 input cases. Chromium corpus288x4=1152 passes; critical three texts reviewed at all4 widths.
+- WebKit existing birth/guide/layout/scroll/V5 notices pass, but V6 corpus fails at320px row33 STORY_EVENT_POOLS.feed: full-text/no-actor-overlap assertion. V6 remains unpublished; V5 is retained. Do not claim WebKit success.
+- Add failure DOM+PNG diagnostics (initial and after500ms), preserving the failing assertion. Run the same V6 corpus earlier on a separate copied runtime directory, retaining every existing suite afterward.
+- Coverage review found interpolated marriage and normal/rare companion-join notices were not in the literal/pool extraction. Extract those3 actual templates with actual master names; add category-presence, ring-art and feed-recommendation checks. Birth/evolution/conversation remain covered by the existing dedicated suites/pools. Runtime implementation is unchanged in this diagnostic follow-up.
