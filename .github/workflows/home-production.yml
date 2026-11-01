@@ -169,3 +169,14 @@ jobs:
         with:
           name: home-viewport-v8-${{ matrix.engine }}
           path: test-results/home-viewport-v8/
+
+      - run: node --test tests/home-production-v9-test.cjs
+      - run: node tools/home-production-v9-qa.cjs "${{ runner.temp }}/viewport-v8"
+      - run: node tests/home-production-v9-browser.cjs "${{ runner.temp }}/viewport-v8"
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-viewport-v9-${{ matrix.engine }}
+          path: test-results/home-viewport-v9/

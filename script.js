@@ -4321,7 +4321,7 @@
 
 
   function petSpeaker() {
-    return { kind: 'pet', emoji: currentSprite(), label: SPECIES_DISPLAY_NAMES[state.speciesLine] || 'なおとっち' };
+    return { kind: 'pet', emoji: currentSprite(), label: document.body.dataset.homeProduction==='true' ? (currentVisualStage().label || 'なおとっち') : (SPECIES_DISPLAY_NAMES[state.speciesLine] || 'なおとっち') };
   }
 
   function partnerSpeaker() {
@@ -11472,7 +11472,7 @@
     if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
     else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
     else if (event.item) el.storyFlashEmoji.innerHTML = itemIconHTML(event.item);
-    else if (event.achievement) el.storyFlashEmoji.innerHTML = achievementIconHTML(event.achievement);
+    else if (event.achievement) el.storyFlashEmoji.innerHTML = document.body.dataset.homeProduction==='true' ? commentIconHTML('🏆') : achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
     const noticeSpeaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.petReaction?petSpeaker():event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:null;
@@ -12610,7 +12610,7 @@
     if (el.moneyLabel.innerHTML !== moneyHTML) el.moneyLabel.innerHTML = moneyHTML;
     el.moneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
     const visualForm = currentVisualForm();
-    el.mainNameLabel.textContent = isEgg ? 'たまご' : (SPECIES_DISPLAY_NAMES[visualForm.line] || currentStageLabel());
+    el.mainNameLabel.textContent = isEgg ? 'たまご' : document.body.dataset.homeProduction==='true' ? currentStageLabel() : (SPECIES_DISPLAY_NAMES[visualForm.line] || currentStageLabel());
     el.stageLabel.textContent = currentStageLabel();
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
     // だけ(長押し/ホバーで わかる)
@@ -17361,7 +17361,7 @@
       pendingCompanionId = null;
       if (companion) message = `${companion.name}とのあそびは途中でおわり。また今度さそってみよう`;
     }
-    if (game && minigameInfo(game).name) message = `${minigameInfo(game).emoji} ${message}`;
+    if (game && minigameInfo(game).name) message = `${document.body.dataset.homeProduction==='true' ? '🎮' : minigameInfo(game).emoji} ${message}`;
     setMessage(message);
     emotePet('happy');
     if (!isQuick) checkMeters();

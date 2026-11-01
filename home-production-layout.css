@@ -128,3 +128,31 @@ body[data-home-viewport-v8="true"] #speechSlot #homeCommentDock{background:#fff9
 body[data-home-viewport-v8="true"] #speechSlot #homeCommentDock:empty{display:flex}
 
 body[data-home-viewport-v8="true"] .home-living-world{transform:translate(calc(-1 * var(--home-center-scroll-x,0px)),calc(-1 * var(--home-center-scroll,0px)))}
+
+/* V9: one presentation lane. Keep the independent gameplay timers intact;
+   an active reply/action takes precedence over ambient narration. */
+body[data-home-viewport-version="9"] #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#homeChoiceResult:not(.hidden)) :is(#homeActionComment,#storyFlash[data-comment="true"],#speechBubble),
+body[data-home-viewport-version="9"] #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#homeActionComment:not(.hidden)):not(:has(#homeChoiceResult:not(.hidden))) :is(#storyFlash[data-comment="true"],#speechBubble),
+body[data-home-viewport-version="9"] #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#storyFlash[data-comment="true"]:not(.hidden)):not(:has(#homeChoiceResult:not(.hidden))):not(:has(#homeActionComment:not(.hidden))) #speechBubble,
+body[data-home-viewport-version="9"] #homeCommentDock:has(>.individual-dialog:not(.hidden)) :is(#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"],#speechBubble,#speechChoices){display:none!important}
+body[data-home-viewport-version="9"] #homeCommentDock:has(#speechChoices:not(.hidden)) :is(#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"]){display:none!important}
+body[data-home-viewport-version="9"] #homeCommentDock:not(:has(>.individual-dialog:not(.hidden))):has(#speechChoices:not(.hidden)) #speechBubble{display:flex!important}
+body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #homeInformation,
+body[data-home-viewport-version="9"][data-home-viewport-v8="true"] .home-meters{box-sizing:border-box;border-radius:8px;scrollbar-width:thin;overscroll-behavior:contain;flex-shrink:0}
+body[data-home-viewport-version="9"] #homeCommentDock>*{flex-shrink:0!important}
+body[data-home-viewport-version="9"] #homeViewportNavigation button{height:24px;padding:0 4px}
+body[data-home-viewport-version="9"] #homeEventSlot>:is(.story-flash,#message){min-height:0}
+@media(orientation:landscape){
+ body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #careActions>button{height:38px;min-height:38px;padding:1px;gap:0;font-size:15px}
+ body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #careActions>button span{font-size:11px}
+ body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #careActions>button :is(.care-icon,.display-icon,.ui-icon){width:18px;height:18px}
+ body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #careActions{gap:4px}
+}
+/* Neutral browser edge color; the original region cover still paints the page. */
+html:has(body[data-home-viewport-version="9"]),body[data-home-viewport-version="9"]{background-color:#342b25}
+body[data-home-viewport-version="9"][data-home-viewport-v8="true"] :is(#homeInformation,.home-meters){overflow-x:hidden!important}
+body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #homeGestureGuide{display:none!important}
+body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #stageLabel{display:none}
+body[data-home-viewport-version="9"][data-home-viewport-v8="true"] .home-meters .bars .bar-line{grid-template-rows:12px 4px 12px;gap:1px}
+body[data-home-viewport-version="9"][data-home-viewport-v8="true"] .home-meters :is(.bar-label,.bar-value){font-size:10px;line-height:12px}
+body[data-home-viewport-version="9"][data-home-viewport-v8="true"] .home-meters .bar{height:4px}

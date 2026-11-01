@@ -159,11 +159,21 @@
   const landscape=width>height,railWidth=Math.min(260,width*.46),railLeft=width-left-railWidth,frameTop=headerBottom+48,commentTop=controlsTop-80;
   return {landscape,railWidth,railLeft,frameTop,commentTop,frameWidth:landscape?railLeft-8-left:width-left*2,frameHeight:Math.max(0,(landscape?controlsBottom:commentTop)-frameTop)};
  }
- root.NaotocchiHomeViewport={revealDelta,layout};
+ function layoutV9({width,height,left,headerBottom,controlsHeight,offsetTop=0}){
+  const landscape=width>height,railWidth=Math.min(260,width*.46),railLeft=width-left-railWidth;
+  const bottom=offsetTop+height-8,noticeTop=headerBottom+3,noticeHeight=42,commentHeight=76;
+  const ch=landscape?80:controlsHeight,controlsTop=bottom-ch,commentTop=controlsTop-4-commentHeight;
+  const metersHeight=80,metersTop=commentTop-4-metersHeight,infoTop=noticeTop+noticeHeight+3,infoHeight=64;
+  const frameTop=landscape?infoTop:infoTop+infoHeight+3;
+  return {landscape,railWidth,railLeft,noticeTop,noticeHeight,commentTop,commentHeight,controlsTop,controlsHeight:ch,metersTop,metersHeight,infoTop,infoHeight,frameTop,frameWidth:landscape?railLeft-8-left:width-left*2,frameHeight:Math.max(0,(landscape?bottom-28:metersTop-4)-frameTop)};
+ }
+ root.NaotocchiHomeViewport={revealDelta,layout,layoutV9};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
- if(!frame||doc.body.dataset.homeViewportVersion!=='8')return;
+ if(!frame||!['8','9'].includes(doc.body.dataset.homeViewportVersion))return;
+ const v9=doc.body.dataset.homeViewportVersion==='9';
  const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
  if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
+ const meters=normal.querySelector('.home-meters');
  const rect=e=>e.getBoundingClientRect(),saved=new Map();
  let active=false,pending=false,markers=[],navigation=null,landscape=false,followKey='',followUntil=0,dragging=false,viewKey='';
  const eligible=()=>doc.body.dataset.homeProduction==='true'&&doc.body.dataset.homeTerrain==='true'&&device.dataset.homeFixed==='true'&&device.classList.contains('ui-home-active')&&!normal.classList.contains('hidden');
@@ -178,10 +188,12 @@
  function selected(){return stage.querySelector('[data-diorama-selected="true"]')||stage.querySelector('[data-diorama-actor^="pet:"]')||doc.getElementById('petSprite');}
  function go(step){const list=actors();if(!list.length)return;const current=list.findIndex(e=>e.dataset.dioramaActor===(viewKey||selected()?.dataset.dioramaActor));const actor=list[(current+step+list.length)%list.length];followKey='';viewKey=actor.dataset.dioramaActor;reveal(actor);navigation.setAttribute('aria-label',(actor.getAttribute('aria-label')||'住民')+'を表示中');}
  function apply(){
-  pending=false;const should=eligible();restore();if(!should)return;
+  pending=false;const should=eligible();if(!should){restore();return;}if(v9&&root.visualViewport&&root.visualViewport.scale!==1)return;restore();
   const fr=rect(frame),cr=rect(controls),hr=rect(device.querySelector('.device-header')),sw=rect(screen).width;
-  const p=layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
-  reserve(notice);if(p.landscape)reserve(info);
+  const viewport=root.visualViewport;
+  if(v9&&viewport&&viewport.scale!==1)return;
+  const p=v9?layoutV9({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
+  reserve(notice);if(p.landscape||v9)reserve(info);if(v9&&meters)reserve(meters);
   active=true;landscape=p.landscape;doc.body.dataset.homeViewportV8='true';
   style(notice,{position:'fixed',top:(hr.bottom+3)+'px',left:fr.left+'px',width:p.frameWidth+'px',height:'42px','min-height':'42px','max-height':'42px',overflow:'auto','margin-bottom':'0','z-index':'1201'});
   style(frame,{position:'fixed',top:p.frameTop+'px',left:fr.left+'px',width:p.frameWidth+'px',height:p.frameHeight+'px','min-height':'0','max-height':'none',overflow:'auto','touch-action':'pan-x pan-y pinch-zoom'});
@@ -193,6 +205,20 @@
    navigation=doc.createElement('nav');navigation.id='homeViewportNavigation';navigation.setAttribute('aria-label','画面外の住民を表示');
    for(const [label,step]of [['前の住民',-1],['次の住民',1]]){const b=doc.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>go(step));navigation.append(b);}
    device.append(navigation);navigation.style.cssText=`position:fixed;left:${p.railLeft}px;top:${hr.bottom+3}px;width:${p.railWidth}px;height:32px;display:flex;gap:4px;z-index:1202`;
+  }
+  if(v9){
+   style(controls,{position:'fixed',left:(landscape?p.railLeft:fr.left)+'px',top:p.controlsTop+'px',bottom:'auto',right:'auto',width:(landscape?p.railWidth:p.frameWidth)+'px',height:p.controlsHeight+'px','z-index':'1201'});
+   style(dock,{position:'fixed',left:(landscape?p.railLeft:fr.left)+'px',top:p.commentTop+'px',bottom:'auto',width:(landscape?p.railWidth:p.frameWidth)+'px',height:'76px','max-height':'76px',overflow:'auto'});
+   style(info,{position:'fixed',left:(landscape?p.railLeft:fr.left)+'px',top:(landscape?hr.bottom+3:p.infoTop)+'px',width:(landscape?p.railWidth:p.frameWidth)+'px',height:(landscape?Math.max(16,p.commentTop-hr.bottom-7):p.infoHeight)+'px',overflow:'auto','overflow-x':'hidden','z-index':'1201',background:'#fff9e8c9'});
+   if(meters)style(meters,{position:'fixed',left:(landscape?p.railLeft:fr.left)+'px',top:(landscape?hr.bottom+3:p.metersTop)+'px',width:(landscape?p.railWidth:p.frameWidth)+'px',height:p.metersHeight+'px',overflow:'auto','overflow-x':'hidden','z-index':'1201',background:'#fff9e8c9'});
+   // The right rail shares a scrollable information panel; its meter copy is
+   // reparented only in presentation, with a same-size placeholder in the world.
+   if(landscape&&meters){
+    const originalParent=meters.parentNode,next=meters.nextSibling;info.appendChild(meters);
+    markers.push({remove(){originalParent.insertBefore(meters,next);}});
+    style(meters,{position:'static',height:'auto',width:'100%',overflow:'visible'});
+   }
+   if(navigation)navigation.style.cssText=`position:fixed;left:${fr.left}px;top:${p.frameTop+p.frameHeight+3}px;width:${p.frameWidth}px;height:24px;display:flex;gap:4px;z-index:1202`;
   }
   root.requestAnimationFrame(()=>root.requestAnimationFrame(()=>{if(active)reveal(selected());}));
  }
