@@ -1,2 +1,2 @@
-[(('E8', 'completed', 'match'), 420), (('EQ', 'completed', 'match'), 112), (('MAIN', 'completed', 'match'), 8960), (('SENS', 'completed', 'match'), 1680), (('pilot', 'completed', 'match'), 672)] 11844
-Counter({'R11 end': 2719, 'R12 end': 698, '110維持': 20, '120維持': 2})
+[(('E8', 'completed', 'match'), 420), (('EQ', 'completed', 'match'), 112), (('MAIN', 'completed', 'match'), 8960), (('MAINW', 'completed', 'match'), 4480), (('NEXT', 'completed', 'match'), 1120), (('NEXTn1', 'completed', 'match'), 560), (('SENS', 'completed', 'match'), 1680), (('SENSW', 'completed', 'match'), 2800), (('pilot', 'completed', 'match'), 672), (('wpilot', 'completed', 'match'), 504)] 21308
+Counter({'R11 end': 5608, 'R12 end': 3854, '110維持': 20, '120維持': 2})
