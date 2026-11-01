@@ -1,0 +1,1306 @@
+{
+  "mode": "D",
+  "baselineStage": {
+    "x": 16,
+    "y": -54,
+    "width": 526,
+    "height": 380,
+    "top": -54,
+    "right": 542,
+    "bottom": 326,
+    "left": 16
+  },
+  "viewport": [
+    568,
+    320
+  ],
+  "header": {
+    "x": 16,
+    "y": 6,
+    "width": 536,
+    "height": 40,
+    "top": 6,
+    "right": 552,
+    "bottom": 46,
+    "left": 16
+  },
+  "buttons": [
+    {
+      "id": "playBtn",
+      "rect": {
+        "x": 292,
+        "y": 204,
+        "width": 48.796875,
+        "height": 49,
+        "top": 204,
+        "right": 340.796875,
+        "bottom": 253,
+        "left": 292
+      }
+    },
+    {
+      "id": "feedBtn",
+      "rect": {
+        "x": 344.796875,
+        "y": 204,
+        "width": 48.796875,
+        "height": 49,
+        "top": 204,
+        "right": 393.59375,
+        "bottom": 253,
+        "left": 344.796875
+      }
+    },
+    {
+      "id": "cleanBtn",
+      "rect": {
+        "x": 397.59375,
+        "y": 204,
+        "width": 48.796875,
+        "height": 49,
+        "top": 204,
+        "right": 446.390625,
+        "bottom": 253,
+        "left": 397.59375
+      }
+    },
+    {
+      "id": "sleepBtn",
+      "rect": {
+        "x": 450.390625,
+        "y": 204,
+        "width": 48.796875,
+        "height": 49,
+        "top": 204,
+        "right": 499.1875,
+        "bottom": 253,
+        "left": 450.390625
+      }
+    },
+    {
+      "id": "medicineBtn",
+      "rect": {
+        "x": 503.1875,
+        "y": 204,
+        "width": 48.796875,
+        "height": 49,
+        "top": 204,
+        "right": 551.984375,
+        "bottom": 253,
+        "left": 503.1875
+      }
+    },
+    {
+      "id": "playWithBtn",
+      "rect": {
+        "x": 292,
+        "y": 258,
+        "width": 61.984375,
+        "height": 49,
+        "top": 258,
+        "right": 353.984375,
+        "bottom": 307,
+        "left": 292
+      }
+    },
+    {
+      "id": "courtBtn",
+      "rect": {
+        "x": 357.984375,
+        "y": 258,
+        "width": 62,
+        "height": 49,
+        "top": 258,
+        "right": 419.984375,
+        "bottom": 307,
+        "left": 357.984375
+      }
+    },
+    {
+      "id": "travelBtn",
+      "rect": {
+        "x": 423.984375,
+        "y": 258,
+        "width": 62,
+        "height": 49,
+        "top": 258,
+        "right": 485.984375,
+        "bottom": 307,
+        "left": 423.984375
+      }
+    },
+    {
+      "id": "menuBtn",
+      "rect": {
+        "x": 489.984375,
+        "y": 258,
+        "width": 62,
+        "height": 49,
+        "top": 258,
+        "right": 551.984375,
+        "bottom": 307,
+        "left": 489.984375
+      }
+    }
+  ],
+  "information": {
+    "x": 292,
+    "y": 49,
+    "width": 260,
+    "height": 72,
+    "top": 49,
+    "right": 552,
+    "bottom": 121,
+    "left": 292
+  },
+  "notice": {
+    "x": 16,
+    "y": 49,
+    "width": 268,
+    "height": 42,
+    "top": 49,
+    "right": 284,
+    "bottom": 91,
+    "left": 16
+  },
+  "comment": {
+    "x": 292,
+    "y": 124,
+    "width": 260,
+    "height": 76,
+    "top": 124,
+    "right": 552,
+    "bottom": 200,
+    "left": 292
+  },
+  "controls": {
+    "x": 292,
+    "y": 204,
+    "width": 260,
+    "height": 103,
+    "top": 204,
+    "right": 552,
+    "bottom": 307,
+    "left": 292
+  },
+  "central": {
+    "x": 16,
+    "y": 94,
+    "width": 268,
+    "height": 213,
+    "top": 94,
+    "right": 284,
+    "bottom": 307,
+    "left": 16
+  },
+  "stage": {
+    "x": -170,
+    "y": -95,
+    "width": 526,
+    "height": 380,
+    "top": -95,
+    "right": 356,
+    "bottom": 285,
+    "left": -170
+  },
+  "scroll": 324,
+  "scrollRange": 476,
+  "actors": [
+    {
+      "key": "companion:cat_friend",
+      "rect": {
+        "x": 97.38681030273438,
+        "y": 153.49319458007812,
+        "width": 126.02166748046875,
+        "height": 126.02166748046875,
+        "top": 153.49319458007812,
+        "right": 223.40847778320312,
+        "bottom": 279.5148620605469,
+        "left": 97.38681030273438
+      },
+      "overlapsLane": false,
+      "fullyInsideViewport": true,
+      "centerHit": true,
+      "tallerThanViewport": false
+    },
+    {
+      "key": "companion:tanuki",
+      "rect": {
+        "x": -37.30775451660156,
+        "y": 77.7706298828125,
+        "width": 106.87294006347656,
+        "height": 106.87295532226562,
+        "top": 77.7706298828125,
+        "right": 69.565185546875,
+        "bottom": 184.64358520507812,
+        "left": -37.30775451660156
+      },
+      "overlapsLane": false,
+      "fullyInsideViewport": false,
+      "centerHit": true,
+      "tallerThanViewport": false
+    },
+    {
+      "key": "partner:forest_bear",
+      "rect": {
+        "x": -18.084259033203125,
+        "y": 143.6152801513672,
+        "width": 124.24093627929688,
+        "height": 124.24092102050781,
+        "top": 143.6152801513672,
+        "right": 106.15667724609375,
+        "bottom": 267.856201171875,
+        "left": -18.084259033203125
+      },
+      "overlapsLane": false,
+      "fullyInsideViewport": true,
+      "centerHit": true,
+      "tallerThanViewport": false
+    },
+    {
+      "key": "pet:dog",
+      "rect": {
+        "x": 105.30264282226562,
+        "y": 41.022308349609375,
+        "width": 133.95993041992188,
+        "height": 133.95993041992188,
+        "top": 41.022308349609375,
+        "right": 239.2625732421875,
+        "bottom": 174.98223876953125,
+        "left": 105.30264282226562
+      },
+      "overlapsLane": false,
+      "fullyInsideViewport": false,
+      "centerHit": true,
+      "tallerThanViewport": false
+    },
+    {
+      "key": "companion:rabbit_friend",
+      "rect": {
+        "x": 21.684188842773438,
+        "y": 46.28436279296875,
+        "width": 99.31135559082031,
+        "height": 99.31135559082031,
+        "top": 46.28436279296875,
+        "right": 120.99554443359375,
+        "bottom": 145.59571838378906,
+        "left": 21.684188842773438
+      },
+      "overlapsLane": false,
+      "fullyInsideViewport": false,
+      "centerHit": true,
+      "tallerThanViewport": false
+    },
+    {
+      "key": "companion:squirrel",
+      "rect": {
+        "x": -40.0340576171875,
+        "y": 133.8886260986328,
+        "width": 113.99043273925781,
+        "height": 113.99043273925781,
+        "top": 133.8886260986328,
+        "right": 73.95637512207031,
+        "bottom": 247.87905883789062,
+        "left": -40.0340576171875
+      },
+      "overlapsLane": false,
+      "fullyInsideViewport": true,
+      "centerHit": false,
+      "tallerThanViewport": false
+    }
+  ],
+  "model": {
+    "blocked": false,
+    "paused": "false",
+    "world": {
+      "mode": "art-25d",
+      "region": "home",
+      "candidate": "home-interior-c",
+      "loaded": true,
+      "error": null,
+      "destroyed": false,
+      "animationTime": 58949.8,
+      "projectionRevision": 5,
+      "renderer": {
+        "mode": "canvas-2d-art",
+        "objects": 1,
+        "images": 1,
+        "decodedBytes": 6291456
+      }
+    },
+    "actors": [
+      {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 45.10445641962076,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "together",
+          "rest"
+        ],
+        "after": "rest",
+        "faceKey": null,
+        "visualReaction": "art-home-floor",
+        "visualTarget": {
+          "x": 238.82,
+          "y": 287.93000000000006
+        },
+        "nextVisualAt": 74.51090851922716,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      {
+        "key": "partner:forest_bear",
+        "kind": "partner",
+        "id": "forest_bear",
+        "x": 213.5715099715099,
+        "y": 355.0920634920635,
+        "w": 105.77777777777779,
+        "h": 108.80000000000001,
+        "extent": {
+          "left": 57.5715099715099,
+          "right": 116.45502645502648,
+          "top": 198.40341880341882,
+          "bottom": 12.907936507936512
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 47.01641000000022,
+        "nextAt": 37.01641000000022,
+        "lastWalk": 13.81641000000009,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.23425542995435428,
+          "z": 0.8507242419070377,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:cat_friend",
+        "kind": "companion",
+        "id": "cat_friend",
+        "x": 330.4,
+        "y": 366.65185185185186,
+        "w": 108.80000000000001,
+        "h": 88.65185185185186,
+        "extent": {
+          "left": 54.400000000000006,
+          "right": 54.400000000000006,
+          "top": 100.65185185185186,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "solitude",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 45.72873886118839,
+        "lastWalk": 33.01641000000019,
+        "recent": [
+          "together",
+          "solitude"
+        ],
+        "after": "solitude",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.8623655913978493,
+          "z": 0.8921571750962434,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:tanuki",
+        "kind": "companion",
+        "id": "tanuki",
+        "x": 186.15073125956144,
+        "y": 272.9846486486486,
+        "w": 94.55335849056604,
+        "h": 102.272,
+        "extent": {
+          "left": 47.27667924528302,
+          "right": 47.27667924528302,
+          "top": 114.272,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "approach",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 47.30560910099382,
+        "lastWalk": 13.81641000000009,
+        "recent": [
+          "look",
+          "approach"
+        ],
+        "after": "approach",
+        "faceKey": "companion:cat_friend",
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.08683188849226581,
+          "z": 0.5564324324324322,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "kind": "companion",
+        "id": "rabbit_friend",
+        "x": 241.35891074391907,
+        "y": 234.40065535420098,
+        "w": 75.75703703703704,
+        "h": 102.272,
+        "extent": {
+          "left": 37.87851851851852,
+          "right": 37.87851851851852,
+          "top": 114.272,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "look",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 46.74252619411061,
+        "lastWalk": 13.81641000000009,
+        "recent": [
+          "together",
+          "look"
+        ],
+        "after": "look",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.38365005776300576,
+          "z": 0.4181385496566343,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:squirrel",
+        "kind": "companion",
+        "id": "squirrel",
+        "x": 186.97196019900497,
+        "y": 335.7708656716418,
+        "w": 90.90844444444446,
+        "h": 102.272,
+        "extent": {
+          "left": 45.45422222222223,
+          "right": 45.45422222222223,
+          "top": 114.272,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "observe",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 47.04328136428455,
+        "lastWalk": 13.81641000000009,
+        "recent": [
+          "together",
+          "observe"
+        ],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.09124709784411274,
+          "z": 0.7814726368159204,
+          "y": 0
+        }
+      }
+    ],
+    "slots": {
+      "castStage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "notice": 42,
+      "speech": 76
+    },
+    "metrics": {
+      "distance": 458.65783844299193,
+      "moves": 12,
+      "turns": 4,
+      "activities": {
+        "walk": 12,
+        "turn": 3,
+        "look": 6,
+        "sit": 5,
+        "approach": 10,
+        "together": 10,
+        "solitude": 8,
+        "rest": 2,
+        "observe": 4
+      },
+      "clock": 42.01641000000032
+    }
+  },
+  "inputTrace": [
+    {
+      "type": "pointermove",
+      "at": 53274.200000000186,
+      "x": 38.03620910644531,
+      "y": 209.23574829101562,
+      "target": "character-asset",
+      "actor": "partner:forest_bear",
+      "blocked": true,
+      "blockers": [
+        [
+          "speech",
+          true
+        ]
+      ],
+      "paused": "true",
+      "selected": "partner:forest_bear",
+      "pet": {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 37.01641000000022,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "sit",
+          "together"
+        ],
+        "after": "approach",
+        "faceKey": "companion:rabbit_friend",
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      "stage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "scroll": 324,
+      "conversation": {
+        "context": true,
+        "canStart": false,
+        "message": "",
+        "speechActive": true,
+        "busy": false,
+        "emotion": {
+          "state": "normal",
+          "severity": "none",
+          "motion": null,
+          "cueMinMs": 0,
+          "cueMaxMs": 0,
+          "gentle": false,
+          "suppressPetIdle": false
+        },
+        "careAfterglow": false,
+        "petBusy": false,
+        "petMotion": true
+      }
+    },
+    {
+      "type": "pointermove",
+      "at": 54296.5,
+      "x": 35.03620910644531,
+      "y": 210.98574829101562,
+      "target": "character-asset",
+      "actor": "partner:forest_bear",
+      "blocked": false,
+      "blockers": [],
+      "paused": "true",
+      "selected": "partner:forest_bear",
+      "pet": {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 37.01641000000022,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "sit",
+          "together"
+        ],
+        "after": "approach",
+        "faceKey": "companion:rabbit_friend",
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      "stage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "scroll": 324,
+      "conversation": {
+        "context": true,
+        "canStart": false,
+        "message": "",
+        "speechActive": false,
+        "busy": false,
+        "emotion": {
+          "state": "normal",
+          "severity": "none",
+          "motion": null,
+          "cueMinMs": 0,
+          "cueMaxMs": 0,
+          "gentle": false,
+          "suppressPetIdle": false
+        },
+        "careAfterglow": false,
+        "petBusy": false,
+        "petMotion": true
+      }
+    },
+    {
+      "type": "pointermove",
+      "at": 55309.10000000009,
+      "x": 32.03620910644531,
+      "y": 212.73574829101562,
+      "target": "character-asset",
+      "actor": "partner:forest_bear",
+      "blocked": false,
+      "blockers": [],
+      "paused": "false",
+      "selected": "partner:forest_bear",
+      "pet": {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 37.01641000000022,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "sit",
+          "together"
+        ],
+        "after": "approach",
+        "faceKey": "companion:rabbit_friend",
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      "stage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "scroll": 324,
+      "conversation": {
+        "context": true,
+        "canStart": false,
+        "message": "",
+        "speechActive": false,
+        "busy": false,
+        "emotion": {
+          "state": "normal",
+          "severity": "none",
+          "motion": null,
+          "cueMinMs": 0,
+          "cueMaxMs": 0,
+          "gentle": false,
+          "suppressPetIdle": false
+        },
+        "careAfterglow": false,
+        "petBusy": false,
+        "petMotion": true
+      }
+    },
+    {
+      "type": "pointermove",
+      "at": 56323.80000000028,
+      "x": 29.036209106445312,
+      "y": 214.48574829101562,
+      "target": "character-asset",
+      "actor": "partner:forest_bear",
+      "blocked": false,
+      "blockers": [],
+      "paused": "false",
+      "selected": "partner:forest_bear",
+      "pet": {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 45.10445641962076,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "together",
+          "rest"
+        ],
+        "after": "rest",
+        "faceKey": null,
+        "visualReaction": "art-home-floor",
+        "visualTarget": {
+          "x": 238.82,
+          "y": 287.93000000000006
+        },
+        "nextVisualAt": 74.51090851922716,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      "stage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "scroll": 324,
+      "conversation": {
+        "context": true,
+        "canStart": true,
+        "message": "",
+        "speechActive": false,
+        "busy": false,
+        "emotion": {
+          "state": "normal",
+          "severity": "none",
+          "motion": null,
+          "cueMinMs": 0,
+          "cueMaxMs": 0,
+          "gentle": false,
+          "suppressPetIdle": false
+        },
+        "careAfterglow": false,
+        "petBusy": false,
+        "petMotion": false
+      }
+    },
+    {
+      "type": "pointermove",
+      "at": 57340.5,
+      "x": 26.036209106445312,
+      "y": 216.23574829101562,
+      "target": "character-asset",
+      "actor": "partner:forest_bear",
+      "blocked": false,
+      "blockers": [],
+      "paused": "false",
+      "selected": "partner:forest_bear",
+      "pet": {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 45.10445641962076,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "together",
+          "rest"
+        ],
+        "after": "rest",
+        "faceKey": null,
+        "visualReaction": "art-home-floor",
+        "visualTarget": {
+          "x": 238.82,
+          "y": 287.93000000000006
+        },
+        "nextVisualAt": 74.51090851922716,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      "stage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "scroll": 324,
+      "conversation": {
+        "context": true,
+        "canStart": true,
+        "message": "",
+        "speechActive": false,
+        "busy": false,
+        "emotion": {
+          "state": "normal",
+          "severity": "none",
+          "motion": null,
+          "cueMinMs": 0,
+          "cueMaxMs": 0,
+          "gentle": false,
+          "suppressPetIdle": false
+        },
+        "careAfterglow": false,
+        "petBusy": false,
+        "petMotion": false
+      }
+    },
+    {
+      "type": "pointermove",
+      "at": 58360.30000000028,
+      "x": 23.036209106445312,
+      "y": 217.98574829101562,
+      "target": "character-asset",
+      "actor": "partner:forest_bear",
+      "blocked": false,
+      "blockers": [],
+      "paused": "false",
+      "selected": "partner:forest_bear",
+      "pet": {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 45.10445641962076,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "together",
+          "rest"
+        ],
+        "after": "rest",
+        "faceKey": null,
+        "visualReaction": "art-home-floor",
+        "visualTarget": {
+          "x": 238.82,
+          "y": 287.93000000000006
+        },
+        "nextVisualAt": 74.51090851922716,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      "stage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "scroll": 324,
+      "conversation": {
+        "context": true,
+        "canStart": false,
+        "message": "",
+        "speechActive": false,
+        "busy": false,
+        "emotion": {
+          "state": "normal",
+          "severity": "none",
+          "motion": null,
+          "cueMinMs": 0,
+          "cueMaxMs": 0,
+          "gentle": false,
+          "suppressPetIdle": false
+        },
+        "careAfterglow": false,
+        "petBusy": true,
+        "petMotion": false
+      }
+    },
+    {
+      "type": "pointermove",
+      "at": 59373.30000000028,
+      "x": 20.036209106445312,
+      "y": 219.73574829101562,
+      "target": "character-asset",
+      "actor": "partner:forest_bear",
+      "blocked": false,
+      "blockers": [],
+      "paused": "false",
+      "selected": "partner:forest_bear",
+      "pet": {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 45.10445641962076,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "together",
+          "rest"
+        ],
+        "after": "rest",
+        "faceKey": null,
+        "visualReaction": "art-home-floor",
+        "visualTarget": {
+          "x": 238.82,
+          "y": 287.93000000000006
+        },
+        "nextVisualAt": 74.51090851922716,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      "stage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "scroll": 324,
+      "conversation": {
+        "context": true,
+        "canStart": false,
+        "message": "",
+        "speechActive": false,
+        "busy": false,
+        "emotion": {
+          "state": "normal",
+          "severity": "none",
+          "motion": null,
+          "cueMinMs": 0,
+          "cueMaxMs": 0,
+          "gentle": false,
+          "suppressPetIdle": false
+        },
+        "careAfterglow": false,
+        "petBusy": true,
+        "petMotion": false
+      }
+    },
+    {
+      "type": "pointerup",
+      "at": 59382.60000000009,
+      "x": 20.036209106445312,
+      "y": 219.73574829101562,
+      "target": "character-asset",
+      "actor": "partner:forest_bear",
+      "blocked": false,
+      "blockers": [],
+      "paused": "false",
+      "selected": "partner:forest_bear",
+      "pet": {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 342.2857142857143,
+        "y": 270,
+        "w": 116.57142857142856,
+        "h": 136,
+        "extent": {
+          "left": 58.28571428571428,
+          "right": 58.28571428571428,
+          "top": 148,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": -1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 45.10445641962076,
+        "lastWalk": 27.81641000000012,
+        "recent": [
+          "together",
+          "rest"
+        ],
+        "after": "rest",
+        "faceKey": null,
+        "visualReaction": "art-home-floor",
+        "visualTarget": {
+          "x": 238.82,
+          "y": 287.93000000000006
+        },
+        "nextVisualAt": 74.51090851922716,
+        "safe": true,
+        "ground": {
+          "x": 0.9262672811059908,
+          "z": 0.5457347670250896,
+          "y": 0
+        }
+      },
+      "stage": {
+        "x": -170,
+        "y": -95,
+        "width": 526,
+        "height": 380,
+        "top": -95,
+        "right": 356,
+        "bottom": 285,
+        "left": -170
+      },
+      "scroll": 324,
+      "conversation": {
+        "context": true,
+        "canStart": false,
+        "message": "",
+        "speechActive": false,
+        "busy": false,
+        "emotion": {
+          "state": "normal",
+          "severity": "none",
+          "motion": null,
+          "cueMinMs": 0,
+          "cueMaxMs": 0,
+          "gentle": false,
+          "suppressPetIdle": false
+        },
+        "careAfterglow": false,
+        "petBusy": true,
+        "petMotion": false
+      }
+    }
+  ]
+}
