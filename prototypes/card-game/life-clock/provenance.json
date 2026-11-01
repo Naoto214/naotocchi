@@ -222,13 +222,17 @@
     {
       "version": "V20",
       "description": "Shared card/clock double tap and display controls. V19 artwork and game state remain unchanged. Owner device QA pending."
+    },
+    {
+      "version": "V21",
+      "description": "Clock-only fix: button/keyboard zoom anchors the visible stage center; enlarged resize recenters scroll. V20 artwork, CSS layout, card interaction and game state unchanged."
     }
   ],
   "interactionCandidate": {
-    "version": "V20",
+    "version": "V21",
     "designVersion": "V19",
-    "baselineCommit": "9a1e387dc53dfcf4583790135c78dcff3280d486",
+    "baselineCommit": "bddda69004630bcccfbcf83be56c08957c0cc772",
     "sharedControls": "../inspection-controls.mjs",
-    "verification": "../../../docs/card-game/life-clock-v20-verification.md"
+    "verification": "../../../docs/card-game/life-clock-v21-verification.md"
   }
 }

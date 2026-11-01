@@ -3,7 +3,7 @@ import {clockState} from './life-clock-state.mjs';
 import {mountClockTurn} from './life-clock-turn.mjs';
 // Public projection only: this component cannot commit or save a match.
 export function mountLifeClock({dialog,getView,onPause,onResume,loadRenderer=()=>import('./life-clock-render.mjs')}){
- dialog.innerHTML=`<header class="life-clock-toolbar"><h2 id="life-clock-title">人生の時計 <small>V20</small></h2><button type="button" id="life-clock-flip" aria-pressed="false">裏へ</button><button type="button" class="inspection-control" id="life-clock-zoom" aria-pressed="false">拡大</button><button type="button" id="life-clock-close" autofocus>閉じる ×</button></header><div class="life-clock-body"><div class="life-clock-stage"><div class="life-clock-scene"><div id="life-clock-face"></div></div></div><aside class="life-clock-info"><p id="life-clock-status" role="status">対戦のいまを映しています</p><div id="life-clock-values"></div><p id="life-clock-hint" class="life-clock-note"></p><p class="life-clock-note">閲覧中は対戦の進行を止めています。閉じると対戦へ戻ります。</p></aside></div>`;
+ dialog.innerHTML=`<header class="life-clock-toolbar"><h2 id="life-clock-title">人生の時計 <small>V21</small></h2><button type="button" id="life-clock-flip" aria-pressed="false">裏へ</button><button type="button" class="inspection-control" id="life-clock-zoom" aria-pressed="false">拡大</button><button type="button" id="life-clock-close" autofocus>閉じる ×</button></header><div class="life-clock-body"><div class="life-clock-stage"><div class="life-clock-scene"><div id="life-clock-face"></div></div></div><aside class="life-clock-info"><p id="life-clock-status" role="status">対戦のいまを映しています</p><div id="life-clock-values"></div><p id="life-clock-hint" class="life-clock-note"></p><p class="life-clock-note">閲覧中は対戦の進行を止めています。閉じると対戦へ戻ります。</p></aside></div>`;
  const face=dialog.querySelector('#life-clock-face'),status=dialog.querySelector('#life-clock-status'),values=dialog.querySelector('#life-clock-values'),zoom=dialog.querySelector('#life-clock-zoom');
  const turn=mountClockTurn({scene:dialog.querySelector('.life-clock-scene'),rotor:face,button:dialog.querySelector('#life-clock-flip'),hint:dialog.querySelector('#life-clock-hint')});
  const scene=dialog.querySelector('.life-clock-scene'),stage=dialog.querySelector('.life-clock-stage');
@@ -14,6 +14,8 @@ export function mountLifeClock({dialog,getView,onPause,onResume,loadRenderer=()=
  function toggleZoom(target,at=null){
   if(zoom.disabled||!dialog.open)return;finishZoom();taps.reset();fitZoom();
   const before=scene.getBoundingClientRect(),old=zoomed,left=stage.scrollLeft,top=stage.scrollTop;
+  // Button/keyboard zoom keeps the visible stage center, just like a double tap there.
+  if(!old&&!at){const r=stage.getBoundingClientRect();at={x:r.left+stage.clientWidth/2,y:r.top+stage.clientHeight/2};}
   const f=at?{x:Math.max(0,Math.min(1,(at.x-before.left)/before.width)),y:Math.max(0,Math.min(1,(at.y-before.top)/before.height))}:null;
   applyZoom(!old);
   if(!old&&at){const n=scene.getBoundingClientRect();stage.scrollLeft+=n.left+f.x*n.width-at.x;stage.scrollTop+=n.top+f.y*n.height-at.y;}
@@ -25,7 +27,7 @@ export function mountLifeClock({dialog,getView,onPause,onResume,loadRenderer=()=
   zoomAnim={anim,commit};anim.onfinish=()=>{if(zoomAnim?.anim===anim)finishZoom();};
  }
  const taps=installDoubleTap({doc:dialog.ownerDocument,resolve:target=>dialog.open&&!zoom.disabled&&scene.contains(target)?scene:null,onDouble:toggleZoom});
- dialog.ownerDocument.defaultView.addEventListener('resize',()=>{finishZoom();fitZoom();});
+ dialog.ownerDocument.defaultView.addEventListener('resize',()=>{finishZoom();fitZoom();if(dialog.open&&zoomed){stage.scrollLeft=(scene.clientWidth-stage.clientWidth)/2;stage.scrollTop=(scene.clientHeight-stage.clientHeight)/2;}});
  scene.tabIndex=0;scene.setAttribute('role','button');scene.setAttribute('aria-label','時計・ダブルタップで拡大／全体表示');
  scene.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleZoom();}});
 
