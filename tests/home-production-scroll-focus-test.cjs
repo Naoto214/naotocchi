@@ -40,3 +40,16 @@ test('a later real resize may reveal the actor again after an interrupted focus'
 test('resize keeps an active question reachable using the existing speech slot',()=>{
  const h=boot();h.speech.classList.contains=()=>true;h.flush();assert.equal(h.frame.scrollTop,449.5);
 });
+
+test('comment dock remeasures controls after the rotation layout settles',()=>{
+ const frames=[],events={},props={},rect={left:8,width:304,top:200};
+ const dock={style:{setProperty:(k,v)=>props[k]=v}},slot={children:[dock]};
+ const controls={getBoundingClientRect:()=>({...rect})};
+ const context={innerHeight:320,document:{body:{dataset:{homeProduction:'true'}},getElementById:id=>({speechSlot:slot,careActions:controls,homeCommentDock:dock})[id]},window:{addEventListener:(k,f)=>events[k]=f},requestAnimationFrame:f=>frames.push(f),ResizeObserver:class{observe(){}},MutationObserver:class{observe(){}}};
+ const src=fs.readFileSync('home-production-touch.js','utf8');vm.runInNewContext(src.slice(src.indexOf('/* V7 presentation dock:'),src.indexOf('/* Notice layout only.')),context);
+ events.resize(); // WebKit can deliver resize before the final viewport/control layout.
+ context.innerHeight=844;rect.top=700;rect.width=304;
+ for(let n=0;frames.length&&n<5;n++)frames.shift()();
+ assert.equal(props['--comment-bottom'],'148px','bubble remains four pixels above the actual controls');
+ assert.equal(props['--comment-max-height'],'692px');
+});

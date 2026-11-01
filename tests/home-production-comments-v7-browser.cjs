@@ -37,8 +37,8 @@ for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split('
  results.push({label,...d});if(!longName&&[0,4].includes(i))await page.screenshot({path:path.join(out,[engine,width,kind,i].join('-')+'.png')});
  }
  }
- await page.setViewportSize({width:844,height:width});await page.clock.runFor(100);let d=await page.evaluate(inspect);assert.ok(d.bubble.bottom<=d.controls.top-2);assert.ok(d.buttons.every(b=>b.hit));
- await page.setViewportSize({width,height:844});await page.clock.runFor(100);d=await page.evaluate(inspect);assert.ok(d.bubble.bottom<=d.controls.top-2);
+ await page.setViewportSize({width:844,height:width});await page.clock.runFor(100);let d=await page.evaluate(inspect);assert.ok(d.bubble.bottom<=d.controls.top-2,JSON.stringify({phase:'rotation',engine,width,d}));assert.ok(d.buttons.every(b=>b.hit));
+ await page.setViewportSize({width,height:844});await page.clock.runFor(100);d=await page.evaluate(inspect);assert.ok(d.bubble.bottom<=d.controls.top-2,JSON.stringify({phase:'rotation',engine,width,d}));
  await page.evaluate(()=>HomeReleaseQA.commentCase('partner','「じゃあまたね」と手を振った。いつもの距離だった','',true));await page.clock.runFor(100);
  const story=await page.evaluate(()=>{const b=document.getElementById('storyFlash'),n=document.getElementById('storyFlashEmoji'),t=document.getElementById('storyFlashText');return {parent:b.parentNode.id,comment:b.dataset.comment,top:t.getBoundingClientRect().top,nameBottom:n.getBoundingClientRect().bottom,bottom:b.getBoundingClientRect().bottom,controls:document.getElementById('careActions').getBoundingClientRect().top,portrait:n.querySelector('img')?.src};});
  assert.equal(story.parent,'homeCommentDock');assert.equal(story.comment,'true');assert.ok(story.nameBottom<=story.top+1&&story.bottom<story.controls);assert.match(story.portrait,/snow_spirit/);

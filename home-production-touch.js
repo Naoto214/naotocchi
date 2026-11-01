@@ -104,9 +104,17 @@
   dock.style.setProperty('--comment-bottom',Math.max(0,innerHeight-Math.min(r.top,bottom))+4+'px');
   dock.style.setProperty('--comment-max-height',Math.max(76,r.top-8)+'px');
  }
- new ResizeObserver(place).observe(controls);
- window.addEventListener('resize',place);window.visualViewport?.addEventListener('resize',place);
- document.fonts?.ready.then(place);place();
+ // Resize may arrive before WebKit commits the new viewport and control row.
+ // Keep the immediate placement, then read the settled layout at paint time.
+ let placementPending=false;
+ function schedulePlace(){
+  place();if(placementPending)return;placementPending=true;
+  requestAnimationFrame(()=>{place();requestAnimationFrame(()=>{placementPending=false;place();});});
+ }
+ new ResizeObserver(schedulePlace).observe(controls);
+ window.addEventListener('resize',schedulePlace);window.visualViewport?.addEventListener('resize',schedulePlace);
+ window.visualViewport?.addEventListener('scroll',schedulePlace);
+ document.fonts?.ready.then(schedulePlace);schedulePlace();
 })();
 
 /* Notice layout only. Observe the actual font/wrapping result, never text
