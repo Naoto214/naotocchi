@@ -1,0 +1,45 @@
+{
+  "browser": "Cloud Chrome",
+  "sizes": [
+    {
+      "width": 320,
+      "height": 850,
+      "overflow": 0,
+      "minButtonHeight": 44,
+      "romanTextCollisions": 0
+    },
+    {
+      "width": 375,
+      "height": 850,
+      "overflow": 0,
+      "minButtonHeight": 44,
+      "romanTextCollisions": 0
+    },
+    {
+      "width": 390,
+      "height": 850,
+      "overflow": 0,
+      "minButtonHeight": 44,
+      "romanTextCollisions": 0
+    },
+    {
+      "width": 430,
+      "height": 850,
+      "overflow": 0,
+      "minButtonHeight": 44,
+      "romanTextCollisions": 0
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "overflow": 0,
+      "minButtonHeight": 44,
+      "romanTextCollisions": 0
+    }
+  ],
+  "endPositions": "B and C all12 checked;30deg increments;XII=0",
+  "AUnsupported": "I\u2013IX annotated as referenceX;angle120",
+  "growth": "0/100 badge checked",
+  "overlap": "central hands all300deg checked",
+  "iphoneSafari": "not tested"
+}
