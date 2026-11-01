@@ -1,0 +1,7 @@
+import fs from 'node:fs';import {createRequire} from 'node:module';import {render,sample} from './clock-v10.mjs';
+const sharp=createRequire(import.meta.url)(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/sharp');
+const art='data:image/png;base64,'+fs.readFileSync(new URL('../assets/dial-art-v4.png',import.meta.url)).toString('base64');
+const names=['A','B','C'],labels=['A / V9 B ORIGINAL','B / NUMERALS +10%','C / NUMERALS +15%'];
+async function raster(v,crop,w,h){return sharp(Buffer.from(render(sample,{variant:v,crop}).replace(/viewBox="[^"]+"/,crop==='end'?'viewBox="392 568 240 240"':render(sample,{variant:v,crop}).match(/viewBox="[^"]+"/)[0]).replaceAll('../assets/dial-art-v4.png',art))).resize(w,h).png().toBuffer();}
+async function sheet(file,crops,width,height){const items=[];for(let i=0;i<3;i++){items.push({input:Buffer.from(`<svg width="${width}" height="40"><text x="${width/2}" y="28" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#233e4e">${labels[i]}</text></svg>`),left:i*width,top:0});for(let j=0;j<crops.length;j++)items.push({input:await raster(names[i],crops[j],width,height),left:i*width,top:40+j*height});}await sharp({create:{width:width*3,height:40+height*crops.length,channels:3,background:'#f5f6f5'}}).composite(items).jpeg({quality:94}).toFile(new URL('evidence/'+file,import.meta.url).pathname);}
+await sheet('comparison.jpg',['full'],600,600);await sheet('details.jpg',['upper'],470,340);await sheet('leaves.jpg',['leaves'],465,390);await sheet('phone.jpg',['full'],354,354);
