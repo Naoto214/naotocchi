@@ -6722,5 +6722,6112 @@
     "neitherDrew": 398
    }
   }
+ },
+ "world": {
+  "conditions": {
+   "A0": {
+    "games": 1120,
+    "completed": 1120,
+    "replayMatch": 1120,
+    "endReason": {
+     "R10最終比較": 1088,
+     "100維持": 32
+    },
+    "endRound": {
+     "8": 10,
+     "9": 22,
+     "10": 1088
+    },
+    "finalRound": {
+     "10": 1120
+    },
+    "ext11Rate": 0.0,
+    "ext12Rate": 0.0,
+    "holdWinRate": 0.029,
+    "holdWinByValue": {
+     "100維持": 32
+    },
+    "drawRate": 0.096,
+    "firstSeatScore": 0.516,
+    "growthMean": 69.83,
+    "reach": {
+     "100": 0.052,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.052,
+     "brokenPerStart": 0.0,
+     "winsPerStart": 0.274,
+     "holdWinRound": {
+      "8": 10,
+      "9": 22
+     }
+    },
+    "margin": 18.22,
+    "closeRate": 0.406,
+    "lastTwoChanged": 0.208,
+    "flipAfterR10": 0.0,
+    "flipAfterR10GivenExtended": null,
+    "deckScore": {
+     "main": 0.531,
+     "companion": 0.41,
+     "partner": 0.508,
+     "challenge": 0.537,
+     "growth": 0.431,
+     "item": 0.646,
+     "balance": 0.435
+    },
+    "deckSpread": 0.236,
+    "minutes": 29.0,
+    "minutesActions": 24.1,
+    "actions": 112.4,
+    "passes": 97.4,
+    "decisions": 209.7,
+    "expiredShare": 0.657,
+    "lateRounds": {
+     "9": {
+      "turns": 2212,
+      "nonPass": 1.4,
+      "passOnly": 0.155,
+      "growthDelta": 5.07,
+      "hand": 5.93
+     },
+     "10": {
+      "turns": 2176,
+      "nonPass": 1.27,
+      "passOnly": 0.195,
+      "growthDelta": 4.64,
+      "hand": 6.54
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.0,
+     "seatsUsedOfDrew": null,
+     "seatsDrewButUnused": null,
+     "gamesNoCardUsed": 1.0,
+     "unusedAtEnd": {
+      "hand": null
+     },
+     "extensions": {
+      "perGame": 0.0,
+      "byRound": {},
+      "byTurnOwner": {},
+      "actorBehind": null,
+      "actorTied": null,
+      "actorAhead": null,
+      "meanDeficit": null,
+      "actorScore": null,
+      "actorScoreWhenBehind": null,
+      "firstExtenderBehindWonOrDrew": null,
+      "byFirstSeat": null
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {}
+     }
+    },
+    "world": {
+     "placements": 0,
+     "placementsWithoutChange": 0,
+     "extensionsBeforeR10": null,
+     "firstExtensionRound": {},
+     "firstExtenderState": {},
+     "firstExtenderScore": null,
+     "comebackRate": null,
+     "comebackOrDraw": null,
+     "behindExtenders": 0,
+     "cardsByName": {}
+    }
+   },
+   "X0": {
+    "games": 1120,
+    "completed": 1120,
+    "replayMatch": 1120,
+    "endReason": {
+     "R10最終比較": 1088,
+     "100維持": 32
+    },
+    "endRound": {
+     "8": 9,
+     "9": 23,
+     "10": 1088
+    },
+    "finalRound": {
+     "10": 1120
+    },
+    "ext11Rate": 0.0,
+    "ext12Rate": 0.0,
+    "holdWinRate": 0.029,
+    "holdWinByValue": {
+     "100維持": 32
+    },
+    "drawRate": 0.109,
+    "firstSeatScore": 0.504,
+    "growthMean": 68.72,
+    "reach": {
+     "100": 0.041,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.041,
+     "brokenPerStart": 0.0,
+     "winsPerStart": 0.348,
+     "holdWinRound": {
+      "8": 9,
+      "9": 23
+     }
+    },
+    "margin": 17.83,
+    "closeRate": 0.452,
+    "lastTwoChanged": 0.226,
+    "flipAfterR10": 0.0,
+    "flipAfterR10GivenExtended": null,
+    "deckScore": {
+     "main": 0.527,
+     "companion": 0.425,
+     "partner": 0.5,
+     "challenge": 0.567,
+     "growth": 0.427,
+     "item": 0.581,
+     "balance": 0.473
+    },
+    "deckSpread": 0.156,
+    "minutes": 26.7,
+    "minutesActions": 22.0,
+    "actions": 101.6,
+    "passes": 94.5,
+    "decisions": 196.1,
+    "expiredShare": 0.671,
+    "lateRounds": {
+     "9": {
+      "turns": 2212,
+      "nonPass": 1.44,
+      "passOnly": 0.16,
+      "growthDelta": 5.06,
+      "hand": 6.35
+     },
+     "10": {
+      "turns": 2176,
+      "nonPass": 1.28,
+      "passOnly": 0.194,
+      "growthDelta": 4.72,
+      "hand": 6.92
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.0,
+     "seatsUsedOfDrew": null,
+     "seatsDrewButUnused": null,
+     "gamesNoCardUsed": 1.0,
+     "unusedAtEnd": {
+      "hand": null
+     },
+     "extensions": {
+      "perGame": 0.0,
+      "byRound": {},
+      "byTurnOwner": {},
+      "actorBehind": null,
+      "actorTied": null,
+      "actorAhead": null,
+      "meanDeficit": null,
+      "actorScore": null,
+      "actorScoreWhenBehind": null,
+      "firstExtenderBehindWonOrDrew": null,
+      "byFirstSeat": null
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 1120
+      }
+     }
+    },
+    "world": {
+     "placements": 0,
+     "placementsWithoutChange": 0,
+     "extensionsBeforeR10": null,
+     "firstExtensionRound": {},
+     "firstExtenderState": {},
+     "firstExtenderScore": null,
+     "comebackRate": null,
+     "comebackOrDraw": null,
+     "behindExtenders": 0,
+     "cardsByName": {}
+    }
+   },
+   "A5": {
+    "games": 1120,
+    "completed": 1120,
+    "replayMatch": 1120,
+    "endReason": {
+     "R12最終比較": 1086,
+     "120維持": 34
+    },
+    "endRound": {
+     "9": 2,
+     "10": 9,
+     "11": 23,
+     "12": 1086
+    },
+    "finalRound": {
+     "12": 1120
+    },
+    "ext11Rate": 1.0,
+    "ext12Rate": 1.0,
+    "holdWinRate": 0.03,
+    "holdWinByValue": {
+     "120維持": 34
+    },
+    "drawRate": 0.09,
+    "firstSeatScore": 0.514,
+    "growthMean": 81.49,
+    "reach": {
+     "100": 0.201,
+     "110": 0.102,
+     "120": 0.042
+    },
+    "hold": {
+     "startsPerSeat": 0.042,
+     "brokenPerStart": 0.0,
+     "winsPerStart": 0.366,
+     "holdWinRound": {
+      "9": 2,
+      "10": 9,
+      "11": 23
+     }
+    },
+    "margin": 21.77,
+    "closeRate": 0.353,
+    "lastTwoChanged": 0.161,
+    "flipAfterR10": 0.159,
+    "flipAfterR10GivenExtended": 0.161,
+    "deckScore": {
+     "main": 0.552,
+     "companion": 0.39,
+     "partner": 0.519,
+     "challenge": 0.527,
+     "growth": 0.371,
+     "item": 0.669,
+     "balance": 0.473
+    },
+    "deckSpread": 0.298,
+    "minutes": 35.7,
+    "minutesActions": 29.3,
+    "actions": 136.7,
+    "passes": 127.1,
+    "decisions": 263.8,
+    "expiredShare": 0.726,
+    "lateRounds": {
+     "9": {
+      "turns": 2239,
+      "nonPass": 1.4,
+      "passOnly": 0.155,
+      "growthDelta": 5.12,
+      "hand": 5.92
+     },
+     "10": {
+      "turns": 2231,
+      "nonPass": 1.28,
+      "passOnly": 0.192,
+      "growthDelta": 4.78,
+      "hand": 6.52
+     },
+     "11": {
+      "turns": 2213,
+      "nonPass": 1.25,
+      "passOnly": 0.188,
+      "growthDelta": 5.08,
+      "hand": 7.15
+     },
+     "12": {
+      "turns": 2172,
+      "nonPass": 1.17,
+      "passOnly": 0.212,
+      "growthDelta": 4.83,
+      "hand": 7.83
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.0,
+     "seatsUsedOfDrew": null,
+     "seatsDrewButUnused": null,
+     "gamesNoCardUsed": 1.0,
+     "unusedAtEnd": {
+      "hand": null
+     },
+     "extensions": {
+      "perGame": 0.0,
+      "byRound": {},
+      "byTurnOwner": {},
+      "actorBehind": null,
+      "actorTied": null,
+      "actorAhead": null,
+      "meanDeficit": null,
+      "actorScore": null,
+      "actorScoreWhenBehind": null,
+      "firstExtenderBehindWonOrDrew": null,
+      "byFirstSeat": null
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {}
+     }
+    },
+    "world": {
+     "placements": 0,
+     "placementsWithoutChange": 0,
+     "extensionsBeforeR10": null,
+     "firstExtensionRound": {},
+     "firstExtenderState": {},
+     "firstExtenderScore": null,
+     "comebackRate": null,
+     "comebackOrDraw": null,
+     "behindExtenders": 0,
+     "cardsByName": {}
+    }
+   },
+   "A1t1": {
+    "games": 1120,
+    "completed": 1120,
+    "replayMatch": 1120,
+    "endReason": {
+     "R10最終比較": 784,
+     "R11最終比較": 298,
+     "R12最終比較": 10,
+     "100維持": 28
+    },
+    "endRound": {
+     "8": 7,
+     "9": 21,
+     "10": 784,
+     "11": 298,
+     "12": 10
+    },
+    "finalRound": {
+     "10": 812,
+     "11": 298,
+     "12": 10
+    },
+    "ext11Rate": 0.275,
+    "ext12Rate": 0.009,
+    "holdWinRate": 0.025,
+    "holdWinByValue": {
+     "100維持": 28
+    },
+    "drawRate": 0.104,
+    "firstSeatScore": 0.514,
+    "growthMean": 70.64,
+    "reach": {
+     "100": 0.07,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.07,
+     "brokenPerStart": 0.0,
+     "winsPerStart": 0.179,
+     "holdWinRound": {
+      "8": 7,
+      "9": 21
+     }
+    },
+    "margin": 18.75,
+    "closeRate": 0.412,
+    "lastTwoChanged": 0.217,
+    "flipAfterR10": 0.032,
+    "flipAfterR10GivenExtended": 0.117,
+    "deckScore": {
+     "main": 0.504,
+     "companion": 0.419,
+     "partner": 0.517,
+     "challenge": 0.546,
+     "growth": 0.425,
+     "item": 0.617,
+     "balance": 0.473
+    },
+    "deckSpread": 0.198,
+    "minutes": 28.1,
+    "minutesActions": 23.0,
+    "actions": 106.7,
+    "passes": 101.7,
+    "decisions": 208.4,
+    "expiredShare": 0.667,
+    "lateRounds": {
+     "9": {
+      "turns": 2215,
+      "nonPass": 1.5,
+      "passOnly": 0.147,
+      "growthDelta": 5.16,
+      "hand": 6.05
+     },
+     "10": {
+      "turns": 2184,
+      "nonPass": 1.33,
+      "passOnly": 0.182,
+      "growthDelta": 4.8,
+      "hand": 6.57
+     },
+     "11": {
+      "turns": 616,
+      "nonPass": 1.26,
+      "passOnly": 0.19,
+      "growthDelta": 4.38,
+      "hand": 7.27
+     },
+     "12": {
+      "turns": 20,
+      "nonPass": 1.3,
+      "passOnly": 0.25,
+      "growthDelta": 3.75,
+      "hand": 6.55
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.412,
+     "seatsUsedOfDrew": 0.344,
+     "seatsDrewButUnused": 0.656,
+     "gamesNoCardUsed": 0.725,
+     "unusedAtEnd": {
+      "hand": 0.55
+     },
+     "extensions": {
+      "perGame": 0.284,
+      "byRound": {
+       "10": 308,
+       "11": 10
+      },
+      "byTurnOwner": {
+       "own": 318
+      },
+      "actorBehind": 0.855,
+      "actorTied": 0.145,
+      "actorAhead": 0.0,
+      "meanDeficit": 15.88,
+      "actorScore": 0.116,
+      "actorScoreWhenBehind": 0.055,
+      "firstExtenderBehindWonOrDrew": 0.082,
+      "byFirstSeat": 0.447
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 1120
+      }
+     }
+    },
+    "world": {
+     "placements": 0,
+     "placementsWithoutChange": 0,
+     "extensionsBeforeR10": null,
+     "firstExtensionRound": {
+      "10": 308
+     },
+     "firstExtenderState": {
+      "behind": 267,
+      "tied": 41
+     },
+     "firstExtenderScore": 0.109,
+     "comebackRate": 0.015,
+     "comebackOrDraw": 0.082,
+     "behindExtenders": 267,
+     "cardsByName": {}
+    }
+   },
+   "WA": {
+    "games": 1120,
+    "completed": 1120,
+    "replayMatch": 1120,
+    "endReason": {
+     "R10最終比較": 376,
+     "R11最終比較": 225,
+     "R12最終比較": 436,
+     "100維持": 83
+    },
+    "endRound": {
+     "7": 1,
+     "8": 7,
+     "9": 19,
+     "10": 401,
+     "11": 256,
+     "12": 436
+    },
+    "finalRound": {
+     "10": 390,
+     "11": 242,
+     "12": 488
+    },
+    "ext11Rate": 0.652,
+    "ext12Rate": 0.436,
+    "holdWinRate": 0.074,
+    "holdWinByValue": {
+     "100維持": 83
+    },
+    "drawRate": 0.096,
+    "firstSeatScore": 0.509,
+    "growthMean": 73.94,
+    "reach": {
+     "100": 0.101,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.101,
+     "brokenPerStart": 0.009,
+     "winsPerStart": 0.366,
+     "holdWinRound": {
+      "7": 1,
+      "8": 7,
+      "9": 19,
+      "10": 25,
+      "11": 31
+     }
+    },
+    "margin": 19.3,
+    "closeRate": 0.413,
+    "lastTwoChanged": 0.21,
+    "flipAfterR10": 0.112,
+    "flipAfterR10GivenExtended": 0.181,
+    "deckScore": {
+     "main": 0.512,
+     "companion": 0.425,
+     "partner": 0.537,
+     "challenge": 0.558,
+     "growth": 0.385,
+     "item": 0.669,
+     "balance": 0.412
+    },
+    "deckSpread": 0.284,
+    "minutes": 30.6,
+    "minutesActions": 25.1,
+    "actions": 116.2,
+    "passes": 110.2,
+    "decisions": 226.5,
+    "expiredShare": 0.679,
+    "lateRounds": {
+     "9": {
+      "turns": 2216,
+      "nonPass": 1.52,
+      "passOnly": 0.141,
+      "growthDelta": 5.12,
+      "hand": 5.73
+     },
+     "10": {
+      "turns": 2179,
+      "nonPass": 1.4,
+      "passOnly": 0.168,
+      "growthDelta": 4.83,
+      "hand": 6.22
+     },
+     "11": {
+      "turns": 1375,
+      "nonPass": 1.36,
+      "passOnly": 0.169,
+      "growthDelta": 4.58,
+      "hand": 6.62
+     },
+     "12": {
+      "turns": 872,
+      "nonPass": 1.27,
+      "passOnly": 0.19,
+      "growthDelta": 4.32,
+      "hand": 7.18
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.754,
+     "seatsUsedOfDrew": 0.728,
+     "seatsDrewButUnused": 0.272,
+     "gamesNoCardUsed": 0.348,
+     "unusedAtEnd": {
+      "hand": 0.26
+     },
+     "extensions": {
+      "perGame": 1.087,
+      "byRound": {
+       "2": 168,
+       "3": 108,
+       "4": 207,
+       "5": 234,
+       "6": 161,
+       "7": 112,
+       "8": 79,
+       "9": 64,
+       "10": 68,
+       "11": 17
+      },
+      "byTurnOwner": {
+       "own": 1218
+      },
+      "actorBehind": 0.423,
+      "actorTied": 0.293,
+      "actorAhead": 0.284,
+      "meanDeficit": 2.12,
+      "actorScore": 0.434,
+      "actorScoreWhenBehind": 0.28,
+      "firstExtenderBehindWonOrDrew": 0.368,
+      "byFirstSeat": 0.5
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 1120
+      }
+     }
+    },
+    "world": {
+     "placements": 1689,
+     "placementsWithoutChange": 471,
+     "extensionsBeforeR10": 0.93,
+     "firstExtensionRound": {
+      "2": 162,
+      "3": 89,
+      "4": 151,
+      "5": 117,
+      "6": 70,
+      "7": 52,
+      "8": 28,
+      "9": 29,
+      "10": 32
+     },
+     "firstExtenderState": {
+      "behind": 288,
+      "tied": 249,
+      "ahead": 193
+     },
+     "firstExtenderScore": 0.462,
+     "comebackRate": 0.264,
+     "comebackOrDraw": 0.368,
+     "behindExtenders": 288,
+     "cardsByName": {
+      "X-XI-A": 730,
+      "X-XII-A": 488
+     }
+    }
+   },
+   "WB": {
+    "games": 1120,
+    "completed": 1120,
+    "replayMatch": 1120,
+    "endReason": {
+     "R10最終比較": 150,
+     "R11最終比較": 192,
+     "R12最終比較": 655,
+     "100維持": 123
+    },
+    "endRound": {
+     "8": 8,
+     "9": 18,
+     "10": 189,
+     "11": 250,
+     "12": 655
+    },
+    "finalRound": {
+     "10": 155,
+     "11": 206,
+     "12": 759
+    },
+    "ext11Rate": 0.862,
+    "ext12Rate": 0.678,
+    "holdWinRate": 0.11,
+    "holdWinByValue": {
+     "100維持": 123
+    },
+    "drawRate": 0.093,
+    "firstSeatScore": 0.509,
+    "growthMean": 75.8,
+    "reach": {
+     "100": 0.13,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.132,
+     "brokenPerStart": 0.02,
+     "winsPerStart": 0.417,
+     "holdWinRound": {
+      "8": 8,
+      "9": 18,
+      "10": 39,
+      "11": 58
+     }
+    },
+    "margin": 19.7,
+    "closeRate": 0.403,
+    "lastTwoChanged": 0.197,
+    "flipAfterR10": 0.142,
+    "flipAfterR10GivenExtended": 0.176,
+    "deckScore": {
+     "main": 0.527,
+     "companion": 0.454,
+     "partner": 0.529,
+     "challenge": 0.548,
+     "growth": 0.375,
+     "item": 0.675,
+     "balance": 0.392
+    },
+    "deckSpread": 0.3,
+    "minutes": 32.0,
+    "minutesActions": 26.1,
+    "actions": 121.2,
+    "passes": 116.5,
+    "decisions": 237.7,
+    "expiredShare": 0.685,
+    "lateRounds": {
+     "9": {
+      "turns": 2216,
+      "nonPass": 1.51,
+      "passOnly": 0.144,
+      "growthDelta": 5.05,
+      "hand": 5.58
+     },
+     "10": {
+      "turns": 2176,
+      "nonPass": 1.4,
+      "passOnly": 0.159,
+      "growthDelta": 4.83,
+      "hand": 6.06
+     },
+     "11": {
+      "turns": 1792,
+      "nonPass": 1.34,
+      "passOnly": 0.172,
+      "growthDelta": 4.56,
+      "hand": 6.66
+     },
+     "12": {
+      "turns": 1310,
+      "nonPass": 1.27,
+      "passOnly": 0.19,
+      "growthDelta": 4.36,
+      "hand": 7.28
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.764,
+     "seatsUsedOfDrew": 0.927,
+     "seatsDrewButUnused": 0.073,
+     "gamesNoCardUsed": 0.138,
+     "unusedAtEnd": {
+      "hand": 0.07
+     },
+     "extensions": {
+      "perGame": 1.076,
+      "byRound": {
+       "2": 284,
+       "3": 184,
+       "4": 240,
+       "5": 176,
+       "6": 106,
+       "7": 75,
+       "8": 55,
+       "9": 38,
+       "10": 33,
+       "11": 14
+      },
+      "byTurnOwner": {
+       "own": 1205
+      },
+      "actorBehind": 0.382,
+      "actorTied": 0.383,
+      "actorAhead": 0.236,
+      "meanDeficit": 1.57,
+      "actorScore": 0.441,
+      "actorScoreWhenBehind": 0.322,
+      "firstExtenderBehindWonOrDrew": 0.388,
+      "byFirstSeat": 0.51
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 1120
+      }
+     }
+    },
+    "world": {
+     "placements": 2106,
+     "placementsWithoutChange": 901,
+     "extensionsBeforeR10": 0.961,
+     "firstExtensionRound": {
+      "2": 279,
+      "3": 175,
+      "4": 212,
+      "5": 130,
+      "6": 59,
+      "7": 49,
+      "8": 23,
+      "9": 22,
+      "10": 16
+     },
+     "firstExtenderState": {
+      "behind": 361,
+      "tied": 411,
+      "ahead": 193
+     },
+     "firstExtenderScore": 0.451,
+     "comebackRate": 0.31,
+     "comebackOrDraw": 0.388,
+     "behindExtenders": 361,
+     "cardsByName": {
+      "X-XI-B": 446,
+      "X-XII-B": 759
+     }
+    }
+   },
+   "WC": {
+    "games": 1120,
+    "completed": 1120,
+    "replayMatch": 1120,
+    "endReason": {
+     "R10最終比較": 139,
+     "R12最終比較": 550,
+     "R11最終比較": 320,
+     "100維持": 111
+    },
+    "endRound": {
+     "8": 9,
+     "9": 17,
+     "10": 181,
+     "11": 363,
+     "12": 550
+    },
+    "finalRound": {
+     "10": 144,
+     "11": 351,
+     "12": 625
+    },
+    "ext11Rate": 0.871,
+    "ext12Rate": 0.558,
+    "holdWinRate": 0.099,
+    "holdWinByValue": {
+     "100維持": 111
+    },
+    "drawRate": 0.085,
+    "firstSeatScore": 0.506,
+    "growthMean": 75.37,
+    "reach": {
+     "100": 0.12,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.121,
+     "brokenPerStart": 0.015,
+     "winsPerStart": 0.411,
+     "holdWinRound": {
+      "8": 9,
+      "9": 17,
+      "10": 42,
+      "11": 43
+     }
+    },
+    "margin": 19.86,
+    "closeRate": 0.4,
+    "lastTwoChanged": 0.191,
+    "flipAfterR10": 0.13,
+    "flipAfterR10GivenExtended": 0.16,
+    "deckScore": {
+     "main": 0.531,
+     "companion": 0.452,
+     "partner": 0.529,
+     "challenge": 0.554,
+     "growth": 0.358,
+     "item": 0.688,
+     "balance": 0.388
+    },
+    "deckSpread": 0.33,
+    "minutes": 31.7,
+    "minutesActions": 25.9,
+    "actions": 120.1,
+    "passes": 115.0,
+    "decisions": 235.1,
+    "expiredShare": 0.684,
+    "lateRounds": {
+     "9": {
+      "turns": 2214,
+      "nonPass": 1.5,
+      "passOnly": 0.147,
+      "growthDelta": 5.04,
+      "hand": 5.59
+     },
+     "10": {
+      "turns": 2176,
+      "nonPass": 1.4,
+      "passOnly": 0.161,
+      "growthDelta": 4.83,
+      "hand": 6.08
+     },
+     "11": {
+      "turns": 1814,
+      "nonPass": 1.32,
+      "passOnly": 0.176,
+      "growthDelta": 4.58,
+      "hand": 6.69
+     },
+     "12": {
+      "turns": 1100,
+      "nonPass": 1.29,
+      "passOnly": 0.178,
+      "growthDelta": 4.45,
+      "hand": 7.26
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.762,
+     "seatsUsedOfDrew": 0.894,
+     "seatsDrewButUnused": 0.106,
+     "gamesNoCardUsed": 0.129,
+     "unusedAtEnd": {
+      "hand": 0.11
+     },
+     "extensions": {
+      "perGame": 1.429,
+      "byRound": {
+       "2": 280,
+       "3": 207,
+       "4": 332,
+       "5": 297,
+       "6": 144,
+       "7": 124,
+       "8": 76,
+       "9": 51,
+       "10": 51,
+       "11": 39
+      },
+      "byTurnOwner": {
+       "own": 1601
+      },
+      "actorBehind": 0.385,
+      "actorTied": 0.332,
+      "actorAhead": 0.283,
+      "meanDeficit": 1.25,
+      "actorScore": 0.443,
+      "actorScoreWhenBehind": 0.3,
+      "firstExtenderBehindWonOrDrew": 0.372,
+      "byFirstSeat": 0.493
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 1120
+      }
+     }
+    },
+    "world": {
+     "placements": 2033,
+     "placementsWithoutChange": 432,
+     "extensionsBeforeR10": 0.944,
+     "firstExtensionRound": {
+      "2": 267,
+      "3": 175,
+      "4": 217,
+      "5": 149,
+      "6": 61,
+      "7": 53,
+      "8": 20,
+      "9": 19,
+      "10": 15
+     },
+     "firstExtenderState": {
+      "behind": 358,
+      "tied": 395,
+      "ahead": 223
+     },
+     "firstExtenderScore": 0.44,
+     "comebackRate": 0.291,
+     "comebackOrDraw": 0.372,
+     "behindExtenders": 358,
+     "cardsByName": {
+      "X-XI-C": 767,
+      "X-XII-C": 834
+     }
+    }
+   },
+   "WXI1": {
+    "games": 1120,
+    "completed": 1120,
+    "replayMatch": 1120,
+    "endReason": {
+     "R10最終比較": 377,
+     "R11最終比較": 695,
+     "100維持": 48
+    },
+    "endRound": {
+     "8": 8,
+     "9": 21,
+     "10": 396,
+     "11": 695
+    },
+    "finalRound": {
+     "10": 391,
+     "11": 729
+    },
+    "ext11Rate": 0.651,
+    "ext12Rate": 0.0,
+    "holdWinRate": 0.043,
+    "holdWinByValue": {
+     "100維持": 48
+    },
+    "drawRate": 0.104,
+    "firstSeatScore": 0.517,
+    "growthMean": 71.83,
+    "reach": {
+     "100": 0.073,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.073,
+     "brokenPerStart": 0.006,
+     "winsPerStart": 0.293,
+     "holdWinRound": {
+      "8": 8,
+      "9": 21,
+      "10": 19
+     }
+    },
+    "margin": 18.8,
+    "closeRate": 0.428,
+    "lastTwoChanged": 0.223,
+    "flipAfterR10": 0.09,
+    "flipAfterR10GivenExtended": 0.145,
+    "deckScore": {
+     "main": 0.525,
+     "companion": 0.446,
+     "partner": 0.533,
+     "challenge": 0.56,
+     "growth": 0.379,
+     "item": 0.629,
+     "balance": 0.427
+    },
+    "deckSpread": 0.25,
+    "minutes": 29.1,
+    "minutesActions": 23.9,
+    "actions": 110.6,
+    "passes": 103.7,
+    "decisions": 214.3,
+    "expiredShare": 0.678,
+    "lateRounds": {
+     "9": {
+      "turns": 2215,
+      "nonPass": 1.47,
+      "passOnly": 0.152,
+      "growthDelta": 5.05,
+      "hand": 5.94
+     },
+     "10": {
+      "turns": 2177,
+      "nonPass": 1.36,
+      "passOnly": 0.171,
+      "growthDelta": 4.86,
+      "hand": 6.48
+     },
+     "11": {
+      "turns": 1390,
+      "nonPass": 1.29,
+      "passOnly": 0.187,
+      "growthDelta": 4.5,
+      "hand": 7.08
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.509,
+     "seatsUsedOfDrew": 0.904,
+     "seatsDrewButUnused": 0.096,
+     "gamesNoCardUsed": 0.349,
+     "unusedAtEnd": {
+      "hand": 0.59
+     },
+     "extensions": {
+      "perGame": 0.651,
+      "byRound": {
+       "2": 162,
+       "3": 89,
+       "4": 154,
+       "5": 121,
+       "6": 65,
+       "7": 51,
+       "8": 30,
+       "9": 28,
+       "10": 29
+      },
+      "byTurnOwner": {
+       "own": 729
+      },
+      "actorBehind": 0.392,
+      "actorTied": 0.343,
+      "actorAhead": 0.265,
+      "meanDeficit": 1.56,
+      "actorScore": 0.456,
+      "actorScoreWhenBehind": 0.292,
+      "firstExtenderBehindWonOrDrew": 0.343,
+      "byFirstSeat": 0.52
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 1120
+      }
+     }
+    },
+    "world": {
+     "placements": 1030,
+     "placementsWithoutChange": 301,
+     "extensionsBeforeR10": 0.96,
+     "firstExtensionRound": {
+      "2": 162,
+      "3": 89,
+      "4": 154,
+      "5": 121,
+      "6": 65,
+      "7": 51,
+      "8": 30,
+      "9": 28,
+      "10": 29
+     },
+     "firstExtenderState": {
+      "behind": 286,
+      "tied": 250,
+      "ahead": 193
+     },
+     "firstExtenderScore": 0.456,
+     "comebackRate": 0.241,
+     "comebackOrDraw": 0.343,
+     "behindExtenders": 286,
+     "cardsByName": {
+      "X-XI-B": 729
+     }
+    }
+   },
+   "WA3": {
+    "games": 560,
+    "completed": 560,
+    "replayMatch": 560,
+    "endReason": {
+     "R10最終比較": 196,
+     "R11最終比較": 117,
+     "R12最終比較": 205,
+     "100維持": 42
+    },
+    "endRound": {
+     "7": 1,
+     "8": 6,
+     "9": 9,
+     "10": 207,
+     "11": 132,
+     "12": 205
+    },
+    "finalRound": {
+     "10": 203,
+     "11": 127,
+     "12": 230
+    },
+    "ext11Rate": 0.637,
+    "ext12Rate": 0.411,
+    "holdWinRate": 0.075,
+    "holdWinByValue": {
+     "100維持": 42
+    },
+    "drawRate": 0.084,
+    "firstSeatScore": 0.501,
+    "growthMean": 74.66,
+    "reach": {
+     "100": 0.121,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.121,
+     "brokenPerStart": 0.007,
+     "winsPerStart": 0.311,
+     "holdWinRound": {
+      "7": 1,
+      "8": 6,
+      "9": 9,
+      "10": 11,
+      "11": 15
+     }
+    },
+    "margin": 19.12,
+    "closeRate": 0.425,
+    "lastTwoChanged": 0.194,
+    "flipAfterR10": 0.109,
+    "flipAfterR10GivenExtended": 0.181,
+    "deckScore": {
+     "main": 0.608,
+     "companion": 0.354,
+     "partner": 0.546,
+     "challenge": 0.562,
+     "growth": 0.346,
+     "item": 0.675,
+     "balance": 0.408
+    },
+    "deckSpread": 0.329,
+    "minutes": 30.3,
+    "minutesActions": 24.7,
+    "actions": 114.6,
+    "passes": 110.2,
+    "decisions": 224.8,
+    "expiredShare": 0.664,
+    "lateRounds": {
+     "9": {
+      "turns": 1101,
+      "nonPass": 1.52,
+      "passOnly": 0.134,
+      "growthDelta": 5.52,
+      "hand": 5.74
+     },
+     "10": {
+      "turns": 1086,
+      "nonPass": 1.42,
+      "passOnly": 0.149,
+      "growthDelta": 4.88,
+      "hand": 6.25
+     },
+     "11": {
+      "turns": 668,
+      "nonPass": 1.36,
+      "passOnly": 0.157,
+      "growthDelta": 4.85,
+      "hand": 6.52
+     },
+     "12": {
+      "turns": 410,
+      "nonPass": 1.3,
+      "passOnly": 0.173,
+      "growthDelta": 4.41,
+      "hand": 7.18
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.754,
+     "seatsUsedOfDrew": 0.695,
+     "seatsDrewButUnused": 0.305,
+     "gamesNoCardUsed": 0.363,
+     "unusedAtEnd": {
+      "hand": 0.28
+     },
+     "extensions": {
+      "perGame": 1.048,
+      "byRound": {
+       "3": 36,
+       "4": 93,
+       "5": 145,
+       "6": 128,
+       "7": 68,
+       "8": 41,
+       "9": 33,
+       "10": 35,
+       "11": 8
+      },
+      "byTurnOwner": {
+       "own": 587
+      },
+      "actorBehind": 0.475,
+      "actorTied": 0.215,
+      "actorAhead": 0.31,
+      "meanDeficit": 2.58,
+      "actorScore": 0.438,
+      "actorScoreWhenBehind": 0.28,
+      "firstExtenderBehindWonOrDrew": 0.358,
+      "byFirstSeat": 0.48
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 560
+      }
+     }
+    },
+    "world": {
+     "placements": 812,
+     "placementsWithoutChange": 225,
+     "extensionsBeforeR10": 0.927,
+     "firstExtensionRound": {
+      "3": 36,
+      "4": 82,
+      "5": 103,
+      "6": 64,
+      "7": 26,
+      "8": 14,
+      "9": 13,
+      "10": 19
+     },
+     "firstExtenderState": {
+      "behind": 173,
+      "tied": 82,
+      "ahead": 102
+     },
+     "firstExtenderScore": 0.452,
+     "comebackRate": 0.254,
+     "comebackOrDraw": 0.358,
+     "behindExtenders": 173,
+     "cardsByName": {
+      "X-XI-A": 357,
+      "X-XII-A": 230
+     }
+    }
+   },
+   "WB3": {
+    "games": 560,
+    "completed": 560,
+    "replayMatch": 560,
+    "endReason": {
+     "R10最終比較": 81,
+     "R11最終比較": 105,
+     "R12最終比較": 308,
+     "100維持": 66
+    },
+    "endRound": {
+     "7": 1,
+     "8": 6,
+     "9": 8,
+     "10": 102,
+     "11": 135,
+     "12": 308
+    },
+    "finalRound": {
+     "10": 84,
+     "11": 115,
+     "12": 361
+    },
+    "ext11Rate": 0.85,
+    "ext12Rate": 0.645,
+    "holdWinRate": 0.118,
+    "holdWinByValue": {
+     "100維持": 66
+    },
+    "drawRate": 0.086,
+    "firstSeatScore": 0.491,
+    "growthMean": 76.43,
+    "reach": {
+     "100": 0.146,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.146,
+     "brokenPerStart": 0.012,
+     "winsPerStart": 0.402,
+     "holdWinRound": {
+      "7": 1,
+      "8": 6,
+      "9": 8,
+      "10": 21,
+      "11": 30
+     }
+    },
+    "margin": 19.71,
+    "closeRate": 0.393,
+    "lastTwoChanged": 0.187,
+    "flipAfterR10": 0.134,
+    "flipAfterR10GivenExtended": 0.169,
+    "deckScore": {
+     "main": 0.617,
+     "companion": 0.367,
+     "partner": 0.562,
+     "challenge": 0.55,
+     "growth": 0.308,
+     "item": 0.725,
+     "balance": 0.371
+    },
+    "deckSpread": 0.417,
+    "minutes": 31.6,
+    "minutesActions": 25.8,
+    "actions": 119.4,
+    "passes": 115.9,
+    "decisions": 235.3,
+    "expiredShare": 0.667,
+    "lateRounds": {
+     "9": {
+      "turns": 1101,
+      "nonPass": 1.52,
+      "passOnly": 0.135,
+      "growthDelta": 5.48,
+      "hand": 5.58
+     },
+     "10": {
+      "turns": 1082,
+      "nonPass": 1.41,
+      "passOnly": 0.143,
+      "growthDelta": 4.81,
+      "hand": 6.09
+     },
+     "11": {
+      "turns": 876,
+      "nonPass": 1.33,
+      "passOnly": 0.161,
+      "growthDelta": 4.8,
+      "hand": 6.58
+     },
+     "12": {
+      "turns": 616,
+      "nonPass": 1.29,
+      "passOnly": 0.177,
+      "growthDelta": 4.33,
+      "hand": 7.31
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.768,
+     "seatsUsedOfDrew": 0.892,
+     "seatsDrewButUnused": 0.108,
+     "gamesNoCardUsed": 0.15,
+     "unusedAtEnd": {
+      "hand": 0.08
+     },
+     "extensions": {
+      "perGame": 1.046,
+      "byRound": {
+       "3": 70,
+       "4": 148,
+       "5": 167,
+       "6": 94,
+       "7": 43,
+       "8": 21,
+       "9": 25,
+       "10": 13,
+       "11": 5
+      },
+      "byTurnOwner": {
+       "own": 586
+      },
+      "actorBehind": 0.462,
+      "actorTied": 0.268,
+      "actorAhead": 0.27,
+      "meanDeficit": 1.89,
+      "actorScore": 0.428,
+      "actorScoreWhenBehind": 0.306,
+      "firstExtenderBehindWonOrDrew": 0.365,
+      "byFirstSeat": 0.497
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 560
+      }
+     }
+    },
+    "world": {
+     "placements": 1018,
+     "placementsWithoutChange": 432,
+     "extensionsBeforeR10": 0.969,
+     "firstExtensionRound": {
+      "3": 70,
+      "4": 139,
+      "5": 146,
+      "6": 63,
+      "7": 28,
+      "8": 9,
+      "9": 13,
+      "10": 8
+     },
+     "firstExtenderState": {
+      "behind": 222,
+      "tied": 137,
+      "ahead": 117
+     },
+     "firstExtenderScore": 0.441,
+     "comebackRate": 0.284,
+     "comebackOrDraw": 0.365,
+     "behindExtenders": 222,
+     "cardsByName": {
+      "X-XI-B": 225,
+      "X-XII-B": 361
+     }
+    }
+   },
+   "WC3": {
+    "games": 560,
+    "completed": 560,
+    "replayMatch": 560,
+    "endReason": {
+     "R10最終比較": 72,
+     "R11最終比較": 179,
+     "R12最終比較": 250,
+     "100維持": 59
+    },
+    "endRound": {
+     "7": 1,
+     "8": 5,
+     "9": 9,
+     "10": 92,
+     "11": 203,
+     "12": 250
+    },
+    "finalRound": {
+     "10": 75,
+     "11": 194,
+     "12": 291
+    },
+    "ext11Rate": 0.866,
+    "ext12Rate": 0.52,
+    "holdWinRate": 0.105,
+    "holdWinByValue": {
+     "100維持": 59
+    },
+    "drawRate": 0.082,
+    "firstSeatScore": 0.496,
+    "growthMean": 76.05,
+    "reach": {
+     "100": 0.139,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.14,
+     "brokenPerStart": 0.006,
+     "winsPerStart": 0.376,
+     "holdWinRound": {
+      "7": 1,
+      "8": 5,
+      "9": 9,
+      "10": 20,
+      "11": 24
+     }
+    },
+    "margin": 19.76,
+    "closeRate": 0.395,
+    "lastTwoChanged": 0.198,
+    "flipAfterR10": 0.132,
+    "flipAfterR10GivenExtended": 0.163,
+    "deckScore": {
+     "main": 0.621,
+     "companion": 0.383,
+     "partner": 0.554,
+     "challenge": 0.542,
+     "growth": 0.3,
+     "item": 0.725,
+     "balance": 0.375
+    },
+    "deckSpread": 0.425,
+    "minutes": 31.3,
+    "minutesActions": 25.6,
+    "actions": 118.5,
+    "passes": 114.5,
+    "decisions": 233.0,
+    "expiredShare": 0.666,
+    "lateRounds": {
+     "9": {
+      "turns": 1103,
+      "nonPass": 1.52,
+      "passOnly": 0.137,
+      "growthDelta": 5.49,
+      "hand": 5.57
+     },
+     "10": {
+      "turns": 1083,
+      "nonPass": 1.41,
+      "passOnly": 0.146,
+      "growthDelta": 4.84,
+      "hand": 6.08
+     },
+     "11": {
+      "turns": 895,
+      "nonPass": 1.32,
+      "passOnly": 0.16,
+      "growthDelta": 4.88,
+      "hand": 6.62
+     },
+     "12": {
+      "turns": 500,
+      "nonPass": 1.31,
+      "passOnly": 0.166,
+      "growthDelta": 4.31,
+      "hand": 7.21
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.767,
+     "seatsUsedOfDrew": 0.863,
+     "seatsDrewButUnused": 0.137,
+     "gamesNoCardUsed": 0.134,
+     "unusedAtEnd": {
+      "hand": 0.12
+     },
+     "extensions": {
+      "perGame": 1.386,
+      "byRound": {
+       "3": 70,
+       "4": 160,
+       "5": 219,
+       "6": 151,
+       "7": 70,
+       "8": 34,
+       "9": 32,
+       "10": 24,
+       "11": 16
+      },
+      "byTurnOwner": {
+       "own": 776
+      },
+      "actorBehind": 0.455,
+      "actorTied": 0.226,
+      "actorAhead": 0.32,
+      "meanDeficit": 1.42,
+      "actorScore": 0.423,
+      "actorScoreWhenBehind": 0.271,
+      "firstExtenderBehindWonOrDrew": 0.352,
+      "byFirstSeat": 0.483
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 560
+      }
+     }
+    },
+    "world": {
+     "placements": 989,
+     "placementsWithoutChange": 213,
+     "extensionsBeforeR10": 0.948,
+     "firstExtensionRound": {
+      "3": 68,
+      "4": 136,
+      "5": 156,
+      "6": 71,
+      "7": 31,
+      "8": 6,
+      "9": 10,
+      "10": 7
+     },
+     "firstExtenderState": {
+      "behind": 213,
+      "tied": 133,
+      "ahead": 139
+     },
+     "firstExtenderScore": 0.46,
+     "comebackRate": 0.263,
+     "comebackOrDraw": 0.352,
+     "behindExtenders": 213,
+     "cardsByName": {
+      "X-XI-C": 366,
+      "X-XII-C": 410
+     }
+    }
+   },
+   "WBk": {
+    "games": 560,
+    "completed": 560,
+    "replayMatch": 560,
+    "endReason": {
+     "R10最終比較": 154,
+     "R11最終比較": 106,
+     "R12最終比較": 241,
+     "100維持": 59
+    },
+    "endRound": {
+     "7": 1,
+     "8": 5,
+     "9": 12,
+     "10": 169,
+     "11": 132,
+     "12": 241
+    },
+    "finalRound": {
+     "10": 160,
+     "11": 116,
+     "12": 284
+    },
+    "ext11Rate": 0.714,
+    "ext12Rate": 0.507,
+    "holdWinRate": 0.105,
+    "holdWinByValue": {
+     "100維持": 59
+    },
+    "drawRate": 0.091,
+    "firstSeatScore": 0.517,
+    "growthMean": 75.21,
+    "reach": {
+     "100": 0.132,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.132,
+     "brokenPerStart": 0.014,
+     "winsPerStart": 0.399,
+     "holdWinRound": {
+      "7": 1,
+      "8": 5,
+      "9": 12,
+      "10": 15,
+      "11": 26
+     }
+    },
+    "margin": 19.29,
+    "closeRate": 0.404,
+    "lastTwoChanged": 0.197,
+    "flipAfterR10": 0.105,
+    "flipAfterR10GivenExtended": 0.158,
+    "deckScore": {
+     "main": 0.617,
+     "companion": 0.388,
+     "partner": 0.529,
+     "challenge": 0.537,
+     "growth": 0.388,
+     "item": 0.675,
+     "balance": 0.367
+    },
+    "deckSpread": 0.308,
+    "minutes": 30.4,
+    "minutesActions": 24.9,
+    "actions": 115.1,
+    "passes": 110.9,
+    "decisions": 226.0,
+    "expiredShare": 0.688,
+    "lateRounds": {
+     "9": {
+      "turns": 1104,
+      "nonPass": 1.52,
+      "passOnly": 0.134,
+      "growthDelta": 5.42,
+      "hand": 5.98
+     },
+     "10": {
+      "turns": 1080,
+      "nonPass": 1.36,
+      "passOnly": 0.164,
+      "growthDelta": 4.82,
+      "hand": 6.48
+     },
+     "11": {
+      "turns": 738,
+      "nonPass": 1.29,
+      "passOnly": 0.157,
+      "growthDelta": 4.79,
+      "hand": 7.02
+     },
+     "12": {
+      "turns": 482,
+      "nonPass": 1.19,
+      "passOnly": 0.195,
+      "growthDelta": 4.14,
+      "hand": 7.86
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.76,
+     "seatsUsedOfDrew": 0.536,
+     "seatsDrewButUnused": 0.464,
+     "gamesNoCardUsed": 0.286,
+     "unusedAtEnd": {
+      "hand": 0.7
+     },
+     "extensions": {
+      "perGame": 0.768,
+      "byRound": {
+       "2": 26,
+       "3": 29,
+       "4": 52,
+       "5": 39,
+       "6": 30,
+       "7": 17,
+       "8": 133,
+       "9": 55,
+       "10": 43,
+       "11": 6
+      },
+      "byTurnOwner": {
+       "own": 430
+      },
+      "actorBehind": 0.756,
+      "actorTied": 0.244,
+      "actorAhead": 0.0,
+      "meanDeficit": 10.91,
+      "actorScore": 0.216,
+      "actorScoreWhenBehind": 0.149,
+      "firstExtenderBehindWonOrDrew": 0.19,
+      "byFirstSeat": 0.423
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 560
+      }
+     }
+    },
+    "world": {
+     "placements": 474,
+     "placementsWithoutChange": 44,
+     "extensionsBeforeR10": 0.886,
+     "firstExtensionRound": {
+      "2": 26,
+      "3": 29,
+      "4": 51,
+      "5": 38,
+      "6": 30,
+      "7": 15,
+      "8": 133,
+      "9": 39,
+      "10": 39
+     },
+     "firstExtenderState": {
+      "behind": 300,
+      "tied": 100
+     },
+     "firstExtenderScore": 0.225,
+     "comebackRate": 0.123,
+     "comebackOrDraw": 0.19,
+     "behindExtenders": 300,
+     "cardsByName": {
+      "X-XI-B": 146,
+      "X-XII-B": 284
+     }
+    }
+   },
+   "WBL": {
+    "games": 560,
+    "completed": 560,
+    "replayMatch": 560,
+    "endReason": {
+     "R10最終比較": 131,
+     "R11最終比較": 89,
+     "R12最終比較": 287,
+     "100維持": 53
+    },
+    "endRound": {
+     "7": 1,
+     "8": 5,
+     "9": 10,
+     "10": 148,
+     "11": 109,
+     "12": 287
+    },
+    "finalRound": {
+     "10": 139,
+     "11": 99,
+     "12": 322
+    },
+    "ext11Rate": 0.752,
+    "ext12Rate": 0.575,
+    "holdWinRate": 0.095,
+    "holdWinByValue": {
+     "100維持": 53
+    },
+    "drawRate": 0.091,
+    "firstSeatScore": 0.506,
+    "growthMean": 75.68,
+    "reach": {
+     "100": 0.137,
+     "110": 0.0,
+     "120": 0.0
+    },
+    "hold": {
+     "startsPerSeat": 0.137,
+     "brokenPerStart": 0.013,
+     "winsPerStart": 0.346,
+     "holdWinRound": {
+      "7": 1,
+      "8": 5,
+      "9": 10,
+      "10": 17,
+      "11": 20
+     }
+    },
+    "margin": 19.37,
+    "closeRate": 0.412,
+    "lastTwoChanged": 0.189,
+    "flipAfterR10": 0.13,
+    "flipAfterR10GivenExtended": 0.184,
+    "deckScore": {
+     "main": 0.592,
+     "companion": 0.375,
+     "partner": 0.554,
+     "challenge": 0.579,
+     "growth": 0.321,
+     "item": 0.679,
+     "balance": 0.4
+    },
+    "deckSpread": 0.358,
+    "minutes": 31.2,
+    "minutesActions": 25.4,
+    "actions": 117.9,
+    "passes": 115.1,
+    "decisions": 233.0,
+    "expiredShare": 0.679,
+    "lateRounds": {
+     "9": {
+      "turns": 1104,
+      "nonPass": 1.66,
+      "passOnly": 0.129,
+      "growthDelta": 5.38,
+      "hand": 5.75
+     },
+     "10": {
+      "turns": 1083,
+      "nonPass": 1.41,
+      "passOnly": 0.155,
+      "growthDelta": 4.83,
+      "hand": 6.11
+     },
+     "11": {
+      "turns": 787,
+      "nonPass": 1.32,
+      "passOnly": 0.156,
+      "growthDelta": 4.62,
+      "hand": 6.5
+     },
+     "12": {
+      "turns": 574,
+      "nonPass": 1.25,
+      "passOnly": 0.185,
+      "growthDelta": 4.18,
+      "hand": 7.14
+     }
+    },
+    "card": {
+     "seatsDrewCard": 0.763,
+     "seatsUsedOfDrew": 0.801,
+     "seatsDrewButUnused": 0.199,
+     "gamesNoCardUsed": 0.248,
+     "unusedAtEnd": {
+      "hand": 0.17
+     },
+     "extensions": {
+      "perGame": 0.863,
+      "byRound": {
+       "8": 396,
+       "9": 57,
+       "10": 23,
+       "11": 7
+      },
+      "byTurnOwner": {
+       "own": 483
+      },
+      "actorBehind": 0.716,
+      "actorTied": 0.137,
+      "actorAhead": 0.147,
+      "meanDeficit": 9.52,
+      "actorScore": 0.339,
+      "actorScoreWhenBehind": 0.22,
+      "firstExtenderBehindWonOrDrew": 0.271,
+      "byFirstSeat": 0.482
+     },
+     "raises": {
+      "perGame": 0.0,
+      "byRound": {},
+      "brokeOpponentHold": 0,
+      "actorAtCapBefore": null,
+      "actorScore": null,
+      "finalCap": {
+       "100": 560
+      }
+     }
+    },
+    "world": {
+     "placements": 938,
+     "placementsWithoutChange": 455,
+     "extensionsBeforeR10": 0.938,
+     "firstExtensionRound": {
+      "8": 368,
+      "9": 36,
+      "10": 17
+     },
+     "firstExtenderState": {
+      "behind": 325,
+      "ahead": 45,
+      "tied": 51
+     },
+     "firstExtenderScore": 0.319,
+     "comebackRate": 0.169,
+     "comebackOrDraw": 0.271,
+     "behindExtenders": 325,
+     "cardsByName": {
+      "X-XI-BL": 161,
+      "X-XII-BL": 322
+     }
+    }
+   }
+  },
+  "contrasts": {
+   "WA-X0（ルール効果）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.046,
+     "ci95": [
+      0.031,
+      0.061
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": -0.012,
+     "ci95": [
+      -0.034,
+      0.009
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": 0.004,
+     "ci95": [
+      -0.011,
+      0.021
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 5.228,
+     "ci95": [
+      4.728,
+      5.732
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 1.473,
+     "ci95": [
+      0.781,
+      2.147
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": -0.038,
+     "ci95": [
+      -0.068,
+      -0.009
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 1.012,
+     "ci95": [
+      0.946,
+      1.079
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.652,
+     "ci95": [
+      0.616,
+      0.688
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.436,
+     "ci95": [
+      0.399,
+      0.473
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": -0.016,
+     "ci95": [
+      -0.043,
+      0.012
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.112,
+     "ci95": [
+      0.088,
+      0.133
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 3.879,
+     "ci95": [
+      3.575,
+      4.193
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 3.091,
+     "ci95": [
+      2.848,
+      3.346
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 14.615,
+     "ci95": [
+      13.44,
+      15.863
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.008,
+     "ci95": [
+      0.005,
+      0.01
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.06,
+     "ci95": [
+      0.048,
+      0.073
+     ]
+    }
+   },
+   "WB-X0（ルール効果）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.081,
+     "ci95": [
+      0.062,
+      0.099
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": -0.016,
+     "ci95": [
+      -0.039,
+      0.007
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": 0.004,
+     "ci95": [
+      -0.012,
+      0.021
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 7.08,
+     "ci95": [
+      6.549,
+      7.609
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 1.875,
+     "ci95": [
+      1.071,
+      2.665
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": -0.049,
+     "ci95": [
+      -0.083,
+      -0.016
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 1.399,
+     "ci95": [
+      1.34,
+      1.458
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.862,
+     "ci95": [
+      0.834,
+      0.886
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.678,
+     "ci95": [
+      0.643,
+      0.711
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": -0.029,
+     "ci95": [
+      -0.061,
+      0.001
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.142,
+     "ci95": [
+      0.12,
+      0.164
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 5.249,
+     "ci95": [
+      4.956,
+      5.557
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 4.149,
+     "ci95": [
+      3.915,
+      4.4
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 19.588,
+     "ci95": [
+      18.434,
+      20.826
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.014,
+     "ci95": [
+      0.01,
+      0.017
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.089,
+     "ci95": [
+      0.075,
+      0.104
+     ]
+    }
+   },
+   "WC-X0（ルール効果）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.071,
+     "ci95": [
+      0.054,
+      0.088
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": -0.024,
+     "ci95": [
+      -0.046,
+      -0.002
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": 0.001,
+     "ci95": [
+      -0.015,
+      0.019
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 6.656,
+     "ci95": [
+      6.152,
+      7.194
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 2.036,
+     "ci95": [
+      1.281,
+      2.763
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": -0.052,
+     "ci95": [
+      -0.084,
+      -0.019
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 1.312,
+     "ci95": [
+      1.254,
+      1.369
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.871,
+     "ci95": [
+      0.845,
+      0.895
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.558,
+     "ci95": [
+      0.521,
+      0.595
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": -0.035,
+     "ci95": [
+      -0.067,
+      -0.005
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.13,
+     "ci95": [
+      0.108,
+      0.154
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 4.946,
+     "ci95": [
+      4.64,
+      5.25
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 3.92,
+     "ci95": [
+      3.679,
+      4.164
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 18.517,
+     "ci95": [
+      17.351,
+      19.7
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.013,
+     "ci95": [
+      0.01,
+      0.016
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.079,
+     "ci95": [
+      0.066,
+      0.092
+     ]
+    }
+   },
+   "WXI1-X0（ルール効果）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.014,
+     "ci95": [
+      0.005,
+      0.023
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": -0.004,
+     "ci95": [
+      -0.024,
+      0.016
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": 0.012,
+     "ci95": [
+      -0.002,
+      0.027
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 3.109,
+     "ci95": [
+      2.766,
+      3.469
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 0.978,
+     "ci95": [
+      0.42,
+      1.527
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": -0.024,
+     "ci95": [
+      -0.047,
+      0.001
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 0.624,
+     "ci95": [
+      0.589,
+      0.661
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.651,
+     "ci95": [
+      0.616,
+      0.687
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": -0.003,
+     "ci95": [
+      -0.027,
+      0.022
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.09,
+     "ci95": [
+      0.072,
+      0.11
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 2.362,
+     "ci95": [
+      2.178,
+      2.547
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 1.902,
+     "ci95": [
+      1.75,
+      2.059
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 8.991,
+     "ci95": [
+      8.253,
+      9.752
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.006,
+     "ci95": [
+      0.004,
+      0.008
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.032,
+     "ci95": [
+      0.024,
+      0.042
+     ]
+    }
+   },
+   "WA3-X0（ルール効果）": {
+    "holdWin": {
+     "n": 560,
+     "diff": 0.045,
+     "ci95": [
+      0.023,
+      0.068
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.016,
+     "ci95": [
+      -0.046,
+      0.014
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": -0.001,
+     "ci95": [
+      -0.023,
+      0.021
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": 5.058,
+     "ci95": [
+      4.353,
+      5.786
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 1.384,
+     "ci95": [
+      0.42,
+      2.384
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": -0.009,
+     "ci95": [
+      -0.05,
+      0.034
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": 0.966,
+     "ci95": [
+      0.871,
+      1.057
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": 0.637,
+     "ci95": [
+      0.586,
+      0.688
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": 0.411,
+     "ci95": [
+      0.362,
+      0.463
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.037,
+     "ci95": [
+      -0.076,
+      0.002
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": 0.109,
+     "ci95": [
+      0.08,
+      0.139
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": 3.546,
+     "ci95": [
+      3.124,
+      3.964
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": 2.841,
+     "ci95": [
+      2.511,
+      3.165
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": 13.407,
+     "ci95": [
+      11.818,
+      14.959
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": -0.003,
+     "ci95": [
+      -0.007,
+      0.001
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": 0.074,
+     "ci95": [
+      0.054,
+      0.096
+     ]
+    }
+   },
+   "WB3-X0（ルール効果）": {
+    "holdWin": {
+     "n": 560,
+     "diff": 0.087,
+     "ci95": [
+      0.059,
+      0.118
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.014,
+     "ci95": [
+      -0.046,
+      0.02
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": -0.011,
+     "ci95": [
+      -0.036,
+      0.013
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": 6.83,
+     "ci95": [
+      6.125,
+      7.522
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 1.982,
+     "ci95": [
+      0.83,
+      3.107
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": -0.041,
+     "ci95": [
+      -0.088,
+      0.007
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": 1.341,
+     "ci95": [
+      1.255,
+      1.43
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": 0.85,
+     "ci95": [
+      0.812,
+      0.887
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": 0.645,
+     "ci95": [
+      0.595,
+      0.696
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.044,
+     "ci95": [
+      -0.088,
+      -0.003
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": 0.134,
+     "ci95": [
+      0.105,
+      0.168
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": 4.841,
+     "ci95": [
+      4.441,
+      5.266
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": 3.853,
+     "ci95": [
+      3.533,
+      4.195
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": 18.159,
+     "ci95": [
+      16.625,
+      19.811
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": 0.001,
+     "ci95": [
+      -0.004,
+      0.006
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": 0.1,
+     "ci95": [
+      0.078,
+      0.122
+     ]
+    }
+   },
+   "WC3-X0（ルール効果）": {
+    "holdWin": {
+     "n": 560,
+     "diff": 0.075,
+     "ci95": [
+      0.048,
+      0.105
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.018,
+     "ci95": [
+      -0.05,
+      0.016
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": -0.005,
+     "ci95": [
+      -0.03,
+      0.02
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": 6.451,
+     "ci95": [
+      5.759,
+      7.129
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 2.027,
+     "ci95": [
+      0.946,
+      3.098
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": -0.039,
+     "ci95": [
+      -0.086,
+      0.009
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": 1.257,
+     "ci95": [
+      1.177,
+      1.345
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": 0.866,
+     "ci95": [
+      0.829,
+      0.902
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": 0.52,
+     "ci95": [
+      0.468,
+      0.571
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.033,
+     "ci95": [
+      -0.076,
+      0.008
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": 0.132,
+     "ci95": [
+      0.104,
+      0.166
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": 4.581,
+     "ci95": [
+      4.197,
+      5.001
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": 3.661,
+     "ci95": [
+      3.35,
+      3.994
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": 17.27,
+     "ci95": [
+      15.777,
+      18.891
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": -0.0,
+     "ci95": [
+      -0.005,
+      0.004
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": 0.093,
+     "ci95": [
+      0.072,
+      0.115
+     ]
+    }
+   },
+   "WBk-X0（ルール効果）": {
+    "holdWin": {
+     "n": 560,
+     "diff": 0.075,
+     "ci95": [
+      0.052,
+      0.1
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.009,
+     "ci95": [
+      -0.039,
+      0.021
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": 0.015,
+     "ci95": [
+      -0.009,
+      0.039
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": 5.616,
+     "ci95": [
+      4.96,
+      6.339
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 1.554,
+     "ci95": [
+      0.67,
+      2.464
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": -0.03,
+     "ci95": [
+      -0.07,
+      0.014
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": 1.093,
+     "ci95": [
+      1.009,
+      1.182
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": 0.714,
+     "ci95": [
+      0.67,
+      0.762
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": 0.507,
+     "ci95": [
+      0.457,
+      0.559
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.034,
+     "ci95": [
+      -0.077,
+      0.008
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": 0.105,
+     "ci95": [
+      0.079,
+      0.134
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": 3.696,
+     "ci95": [
+      3.313,
+      4.114
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": 2.955,
+     "ci95": [
+      2.646,
+      3.312
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": 13.871,
+     "ci95": [
+      12.395,
+      15.596
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": 0.022,
+     "ci95": [
+      0.018,
+      0.026
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": 0.086,
+     "ci95": [
+      0.067,
+      0.106
+     ]
+    }
+   },
+   "WBL-X0（ルール効果）": {
+    "holdWin": {
+     "n": 560,
+     "diff": 0.064,
+     "ci95": [
+      0.043,
+      0.089
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.009,
+     "ci95": [
+      -0.043,
+      0.023
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": 0.004,
+     "ci95": [
+      -0.021,
+      0.029
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": 6.085,
+     "ci95": [
+      5.397,
+      6.839
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 1.634,
+     "ci95": [
+      0.75,
+      2.518
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": -0.021,
+     "ci95": [
+      -0.062,
+      0.025
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": 1.22,
+     "ci95": [
+      1.134,
+      1.314
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": 0.752,
+     "ci95": [
+      0.707,
+      0.8
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": 0.575,
+     "ci95": [
+      0.525,
+      0.625
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.042,
+     "ci95": [
+      -0.086,
+      0.001
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": 0.13,
+     "ci95": [
+      0.1,
+      0.163
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": 4.488,
+     "ci95": [
+      4.081,
+      4.944
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": 3.537,
+     "ci95": [
+      3.221,
+      3.895
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": 16.675,
+     "ci95": [
+      15.152,
+      18.407
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": 0.013,
+     "ci95": [
+      0.009,
+      0.016
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": 0.09,
+     "ci95": [
+      0.069,
+      0.112
+     ]
+    }
+   },
+   "WA-A0（総合）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.046,
+     "ci95": [
+      0.03,
+      0.062
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": 0.0,
+     "ci95": [
+      -0.021,
+      0.022
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": -0.007,
+     "ci95": [
+      -0.026,
+      0.011
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 4.109,
+     "ci95": [
+      3.522,
+      4.676
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 1.076,
+     "ci95": [
+      0.308,
+      1.848
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": 0.007,
+     "ci95": [
+      -0.026,
+      0.039
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 1.012,
+     "ci95": [
+      0.947,
+      1.083
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.652,
+     "ci95": [
+      0.617,
+      0.688
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.436,
+     "ci95": [
+      0.401,
+      0.475
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": 0.002,
+     "ci95": [
+      -0.03,
+      0.033
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.112,
+     "ci95": [
+      0.09,
+      0.134
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 1.589,
+     "ci95": [
+      1.246,
+      1.933
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 0.946,
+     "ci95": [
+      0.639,
+      1.235
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 3.894,
+     "ci95": [
+      2.395,
+      5.301
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.022,
+     "ci95": [
+      0.019,
+      0.025
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.049,
+     "ci95": [
+      0.036,
+      0.062
+     ]
+    }
+   },
+   "WB-A0（総合）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.081,
+     "ci95": [
+      0.062,
+      0.1
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": -0.004,
+     "ci95": [
+      -0.027,
+      0.019
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": -0.007,
+     "ci95": [
+      -0.027,
+      0.013
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 5.962,
+     "ci95": [
+      5.415,
+      6.547
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 1.478,
+     "ci95": [
+      0.656,
+      2.348
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": -0.004,
+     "ci95": [
+      -0.038,
+      0.03
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 1.4,
+     "ci95": [
+      1.343,
+      1.456
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.862,
+     "ci95": [
+      0.837,
+      0.887
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.678,
+     "ci95": [
+      0.644,
+      0.714
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": -0.011,
+     "ci95": [
+      -0.043,
+      0.022
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.142,
+     "ci95": [
+      0.119,
+      0.166
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 2.959,
+     "ci95": [
+      2.62,
+      3.283
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 2.004,
+     "ci95": [
+      1.704,
+      2.294
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 8.866,
+     "ci95": [
+      7.381,
+      10.272
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.028,
+     "ci95": [
+      0.025,
+      0.031
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.078,
+     "ci95": [
+      0.064,
+      0.093
+     ]
+    }
+   },
+   "WC-A0（総合）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.071,
+     "ci95": [
+      0.054,
+      0.087
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": -0.012,
+     "ci95": [
+      -0.034,
+      0.011
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": -0.01,
+     "ci95": [
+      -0.031,
+      0.009
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 5.538,
+     "ci95": [
+      4.993,
+      6.116
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 1.638,
+     "ci95": [
+      0.795,
+      2.451
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": -0.006,
+     "ci95": [
+      -0.04,
+      0.028
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 1.312,
+     "ci95": [
+      1.258,
+      1.368
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.871,
+     "ci95": [
+      0.846,
+      0.896
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.558,
+     "ci95": [
+      0.522,
+      0.595
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": -0.017,
+     "ci95": [
+      -0.051,
+      0.016
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.13,
+     "ci95": [
+      0.108,
+      0.153
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 2.656,
+     "ci95": [
+      2.334,
+      2.983
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 1.776,
+     "ci95": [
+      1.489,
+      2.054
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 7.796,
+     "ci95": [
+      6.386,
+      9.149
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.027,
+     "ci95": [
+      0.024,
+      0.03
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.067,
+     "ci95": [
+      0.054,
+      0.081
+     ]
+    }
+   },
+   "WXI1-A0（総合）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.014,
+     "ci95": [
+      0.004,
+      0.025
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": 0.008,
+     "ci95": [
+      -0.015,
+      0.03
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": 0.0,
+     "ci95": [
+      -0.018,
+      0.02
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 1.991,
+     "ci95": [
+      1.525,
+      2.478
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 0.58,
+     "ci95": [
+      -0.147,
+      1.326
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": 0.021,
+     "ci95": [
+      -0.009,
+      0.054
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 0.625,
+     "ci95": [
+      0.586,
+      0.662
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.651,
+     "ci95": [
+      0.615,
+      0.687
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": 0.015,
+     "ci95": [
+      -0.017,
+      0.047
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.09,
+     "ci95": [
+      0.072,
+      0.109
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 0.072,
+     "ci95": [
+      -0.21,
+      0.352
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": -0.242,
+     "ci95": [
+      -0.514,
+      0.013
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": -1.73,
+     "ci95": [
+      -3.065,
+      -0.459
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.021,
+     "ci95": [
+      0.018,
+      0.024
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.021,
+     "ci95": [
+      0.011,
+      0.031
+     ]
+    }
+   },
+   "WXI1-A1t1（しかける→セカイ、1枚）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.018,
+     "ci95": [
+      0.008,
+      0.029
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": 0.0,
+     "ci95": [
+      -0.019,
+      0.02
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": 0.003,
+     "ci95": [
+      -0.01,
+      0.017
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 1.183,
+     "ci95": [
+      0.824,
+      1.551
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 0.054,
+     "ci95": [
+      -0.482,
+      0.54
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": 0.016,
+     "ci95": [
+      -0.004,
+      0.038
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 0.335,
+     "ci95": [
+      0.296,
+      0.375
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.376,
+     "ci95": [
+      0.34,
+      0.413
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": -0.009,
+     "ci95": [
+      -0.016,
+      -0.004
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": 0.006,
+     "ci95": [
+      -0.016,
+      0.028
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.058,
+     "ci95": [
+      0.04,
+      0.077
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 0.945,
+     "ci95": [
+      0.783,
+      1.098
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 0.845,
+     "ci95": [
+      0.703,
+      0.985
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 3.946,
+     "ci95": [
+      3.261,
+      4.628
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.01,
+     "ci95": [
+      0.008,
+      0.013
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.004,
+     "ci95": [
+      -0.005,
+      0.012
+     ]
+    }
+   },
+   "WB-WA（B−A）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.036,
+     "ci95": [
+      0.022,
+      0.049
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": -0.004,
+     "ci95": [
+      -0.017,
+      0.01
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": 0.0,
+     "ci95": [
+      -0.012,
+      0.011
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 1.853,
+     "ci95": [
+      1.484,
+      2.219
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 0.402,
+     "ci95": [
+      -0.094,
+      0.875
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": -0.011,
+     "ci95": [
+      -0.032,
+      0.012
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 0.388,
+     "ci95": [
+      0.333,
+      0.441
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.21,
+     "ci95": [
+      0.18,
+      0.238
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.242,
+     "ci95": [
+      0.211,
+      0.272
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": -0.013,
+     "ci95": [
+      -0.032,
+      0.005
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.03,
+     "ci95": [
+      0.015,
+      0.046
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 1.37,
+     "ci95": [
+      1.161,
+      1.592
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 1.058,
+     "ci95": [
+      0.885,
+      1.238
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 4.972,
+     "ci95": [
+      4.156,
+      5.832
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.006,
+     "ci95": [
+      0.004,
+      0.008
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.029,
+     "ci95": [
+      0.02,
+      0.038
+     ]
+    }
+   },
+   "WC-WA（C−A）": {
+    "holdWin": {
+     "n": 1120,
+     "diff": 0.025,
+     "ci95": [
+      0.014,
+      0.037
+     ]
+    },
+    "draw": {
+     "n": 1120,
+     "diff": -0.012,
+     "ci95": [
+      -0.025,
+      0.001
+     ]
+    },
+    "firstSeat": {
+     "n": 1120,
+     "diff": -0.003,
+     "ci95": [
+      -0.016,
+      0.009
+     ]
+    },
+    "growth": {
+     "n": 1120,
+     "diff": 1.429,
+     "ci95": [
+      1.096,
+      1.759
+     ]
+    },
+    "margin": {
+     "n": 1120,
+     "diff": 0.562,
+     "ci95": [
+      0.094,
+      1.0
+     ]
+    },
+    "close": {
+     "n": 1120,
+     "diff": -0.013,
+     "ci95": [
+      -0.035,
+      0.009
+     ]
+    },
+    "endRound": {
+     "n": 1120,
+     "diff": 0.3,
+     "ci95": [
+      0.256,
+      0.346
+     ]
+    },
+    "ext11": {
+     "n": 1120,
+     "diff": 0.22,
+     "ci95": [
+      0.191,
+      0.247
+     ]
+    },
+    "ext12": {
+     "n": 1120,
+     "diff": 0.122,
+     "ci95": [
+      0.096,
+      0.149
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 1120,
+     "diff": -0.019,
+     "ci95": [
+      -0.041,
+      0.001
+     ]
+    },
+    "flipAfterR10": {
+     "n": 1120,
+     "diff": 0.019,
+     "ci95": [
+      0.003,
+      0.035
+     ]
+    },
+    "minutes": {
+     "n": 1120,
+     "diff": 1.067,
+     "ci95": [
+      0.877,
+      1.26
+     ]
+    },
+    "minutesActions": {
+     "n": 1120,
+     "diff": 0.83,
+     "ci95": [
+      0.679,
+      0.985
+     ]
+    },
+    "actions": {
+     "n": 1120,
+     "diff": 3.902,
+     "ci95": [
+      3.173,
+      4.644
+     ]
+    },
+    "expiredShare": {
+     "n": 1120,
+     "diff": 0.005,
+     "ci95": [
+      0.003,
+      0.007
+     ]
+    },
+    "reach100": {
+     "n": 1120,
+     "diff": 0.018,
+     "ci95": [
+      0.01,
+      0.027
+     ]
+    }
+   },
+   "WB3-WB（時3−時2）": {
+    "holdWin": {
+     "n": 560,
+     "diff": 0.0,
+     "ci95": [
+      -0.021,
+      0.02
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.016,
+     "ci95": [
+      -0.041,
+      0.009
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": -0.017,
+     "ci95": [
+      -0.038,
+      0.005
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": -0.17,
+     "ci95": [
+      -0.692,
+      0.348
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 0.429,
+     "ci95": [
+      -0.429,
+      1.241
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": 0.0,
+     "ci95": [
+      -0.034,
+      0.036
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": -0.061,
+     "ci95": [
+      -0.116,
+      -0.004
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": -0.029,
+     "ci95": [
+      -0.048,
+      -0.011
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": -0.041,
+     "ci95": [
+      -0.068,
+      -0.014
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.025,
+     "ci95": [
+      -0.057,
+      0.008
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": -0.02,
+     "ci95": [
+      -0.05,
+      0.011
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": -0.362,
+     "ci95": [
+      -0.647,
+      -0.083
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": -0.291,
+     "ci95": [
+      -0.511,
+      -0.066
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": -1.404,
+     "ci95": [
+      -2.477,
+      -0.305
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": -0.015,
+     "ci95": [
+      -0.019,
+      -0.011
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": 0.006,
+     "ci95": [
+      -0.007,
+      0.021
+     ]
+    }
+   },
+   "WA3-WA（時3−時2）": {
+    "holdWin": {
+     "n": 560,
+     "diff": -0.004,
+     "ci95": [
+      -0.018,
+      0.011
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.014,
+     "ci95": [
+      -0.034,
+      0.004
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": -0.002,
+     "ci95": [
+      -0.017,
+      0.014
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": -0.246,
+     "ci95": [
+      -0.656,
+      0.125
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 0.598,
+     "ci95": [
+      -0.071,
+      1.321
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": 0.002,
+     "ci95": [
+      -0.025,
+      0.029
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": -0.05,
+     "ci95": [
+      -0.093,
+      -0.009
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": -0.023,
+     "ci95": [
+      -0.041,
+      -0.009
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": -0.029,
+     "ci95": [
+      -0.054,
+      -0.005
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.024,
+     "ci95": [
+      -0.048,
+      -0.003
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": -0.014,
+     "ci95": [
+      -0.037,
+      0.007
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": -0.299,
+     "ci95": [
+      -0.537,
+      -0.079
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": -0.24,
+     "ci95": [
+      -0.437,
+      -0.05
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": -1.157,
+     "ci95": [
+      -2.123,
+      -0.225
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": -0.012,
+     "ci95": [
+      -0.015,
+      -0.01
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": 0.011,
+     "ci95": [
+      0.001,
+      0.021
+     ]
+    }
+   },
+   "WC3-WC（時3−時2）": {
+    "holdWin": {
+     "n": 560,
+     "diff": 0.0,
+     "ci95": [
+      -0.021,
+      0.02
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.011,
+     "ci95": [
+      -0.036,
+      0.013
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": -0.014,
+     "ci95": [
+      -0.037,
+      0.009
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": -0.174,
+     "ci95": [
+      -0.701,
+      0.366
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 0.223,
+     "ci95": [
+      -0.598,
+      1.054
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": 0.004,
+     "ci95": [
+      -0.03,
+      0.038
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": -0.045,
+     "ci95": [
+      -0.096,
+      0.011
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": -0.025,
+     "ci95": [
+      -0.043,
+      -0.009
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": -0.03,
+     "ci95": [
+      -0.061,
+      0.0
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.011,
+     "ci95": [
+      -0.042,
+      0.021
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": -0.011,
+     "ci95": [
+      -0.041,
+      0.02
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": -0.274,
+     "ci95": [
+      -0.546,
+      0.0
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": -0.219,
+     "ci95": [
+      -0.434,
+      0.006
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": -1.055,
+     "ci95": [
+      -2.104,
+      0.039
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": -0.015,
+     "ci95": [
+      -0.019,
+      -0.011
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": 0.009,
+     "ci95": [
+      -0.005,
+      0.023
+     ]
+    }
+   },
+   "WBk-WB（CPUが延長目的だけで出す）": {
+    "holdWin": {
+     "n": 560,
+     "diff": -0.012,
+     "ci95": [
+      -0.03,
+      0.004
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.011,
+     "ci95": [
+      -0.039,
+      0.016
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": 0.009,
+     "ci95": [
+      -0.012,
+      0.03
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": -1.384,
+     "ci95": [
+      -1.929,
+      -0.83
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 0.0,
+     "ci95": [
+      -0.777,
+      0.786
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": 0.011,
+     "ci95": [
+      -0.023,
+      0.046
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": -0.309,
+     "ci95": [
+      -0.373,
+      -0.248
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": -0.164,
+     "ci95": [
+      -0.2,
+      -0.129
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": -0.179,
+     "ci95": [
+      -0.218,
+      -0.137
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.015,
+     "ci95": [
+      -0.05,
+      0.018
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": -0.048,
+     "ci95": [
+      -0.079,
+      -0.02
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": -1.507,
+     "ci95": [
+      -1.8,
+      -1.225
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": -1.189,
+     "ci95": [
+      -1.415,
+      -0.96
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": -5.691,
+     "ci95": [
+      -6.784,
+      -4.573
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": 0.006,
+     "ci95": [
+      0.002,
+      0.009
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": -0.008,
+     "ci95": [
+      -0.022,
+      0.006
+     ]
+    }
+   },
+   "WBL-WB（R8以降だけ）": {
+    "holdWin": {
+     "n": 560,
+     "diff": -0.023,
+     "ci95": [
+      -0.041,
+      -0.005
+     ]
+    },
+    "draw": {
+     "n": 560,
+     "diff": -0.011,
+     "ci95": [
+      -0.039,
+      0.016
+     ]
+    },
+    "firstSeat": {
+     "n": 560,
+     "diff": -0.002,
+     "ci95": [
+      -0.026,
+      0.022
+     ]
+    },
+    "growth": {
+     "n": 560,
+     "diff": -0.915,
+     "ci95": [
+      -1.527,
+      -0.295
+     ]
+    },
+    "margin": {
+     "n": 560,
+     "diff": 0.08,
+     "ci95": [
+      -0.759,
+      0.946
+     ]
+    },
+    "close": {
+     "n": 560,
+     "diff": 0.02,
+     "ci95": [
+      -0.014,
+      0.055
+     ]
+    },
+    "endRound": {
+     "n": 560,
+     "diff": -0.182,
+     "ci95": [
+      -0.252,
+      -0.114
+     ]
+    },
+    "ext11": {
+     "n": 560,
+     "diff": -0.127,
+     "ci95": [
+      -0.161,
+      -0.093
+     ]
+    },
+    "ext12": {
+     "n": 560,
+     "diff": -0.111,
+     "ci95": [
+      -0.15,
+      -0.071
+     ]
+    },
+    "lastTwoChanged": {
+     "n": 560,
+     "diff": -0.023,
+     "ci95": [
+      -0.055,
+      0.009
+     ]
+    },
+    "flipAfterR10": {
+     "n": 560,
+     "diff": -0.023,
+     "ci95": [
+      -0.054,
+      0.007
+     ]
+    },
+    "minutes": {
+     "n": 560,
+     "diff": -0.715,
+     "ci95": [
+      -1.04,
+      -0.389
+     ]
+    },
+    "minutesActions": {
+     "n": 560,
+     "diff": -0.607,
+     "ci95": [
+      -0.867,
+      -0.339
+     ]
+    },
+    "actions": {
+     "n": 560,
+     "diff": -2.888,
+     "ci95": [
+      -4.154,
+      -1.57
+     ]
+    },
+    "expiredShare": {
+     "n": 560,
+     "diff": -0.003,
+     "ci95": [
+      -0.007,
+      0.0
+     ]
+    },
+    "reach100": {
+     "n": 560,
+     "diff": -0.004,
+     "ci95": [
+      -0.017,
+      0.011
+     ]
+    }
+   }
+  },
+  "deckContrasts": {
+   "WA-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.127,
+     "ci95": [
+      0.012,
+      0.186
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.015,
+      "ci95": [
+       -0.063,
+       0.031
+      ]
+     },
+     "companion": {
+      "diff": 0.0,
+      "ci95": [
+       -0.054,
+       0.054
+      ]
+     },
+     "partner": {
+      "diff": 0.037,
+      "ci95": [
+       -0.014,
+       0.089
+      ]
+     },
+     "challenge": {
+      "diff": -0.008,
+      "ci95": [
+       -0.059,
+       0.041
+      ]
+     },
+     "growth": {
+      "diff": -0.042,
+      "ci95": [
+       -0.096,
+       0.009
+      ]
+     },
+     "item": {
+      "diff": 0.087,
+      "ci95": [
+       0.04,
+       0.139
+      ]
+     },
+     "balance": {
+      "diff": -0.06,
+      "ci95": [
+       -0.117,
+       -0.006
+      ]
+     }
+    }
+   },
+   "WB-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.144,
+     "ci95": [
+      0.024,
+      0.207
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.0,
+      "ci95": [
+       -0.056,
+       0.053
+      ]
+     },
+     "companion": {
+      "diff": 0.029,
+      "ci95": [
+       -0.03,
+       0.09
+      ]
+     },
+     "partner": {
+      "diff": 0.029,
+      "ci95": [
+       -0.022,
+       0.08
+      ]
+     },
+     "challenge": {
+      "diff": -0.019,
+      "ci95": [
+       -0.071,
+       0.034
+      ]
+     },
+     "growth": {
+      "diff": -0.052,
+      "ci95": [
+       -0.111,
+       0.004
+      ]
+     },
+     "item": {
+      "diff": 0.094,
+      "ci95": [
+       0.048,
+       0.144
+      ]
+     },
+     "balance": {
+      "diff": -0.081,
+      "ci95": [
+       -0.142,
+       -0.019
+      ]
+     }
+    }
+   },
+   "WC-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.173,
+     "ci95": [
+      0.048,
+      0.231
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.004,
+      "ci95": [
+       -0.052,
+       0.06
+      ]
+     },
+     "companion": {
+      "diff": 0.027,
+      "ci95": [
+       -0.031,
+       0.088
+      ]
+     },
+     "partner": {
+      "diff": 0.029,
+      "ci95": [
+       -0.024,
+       0.08
+      ]
+     },
+     "challenge": {
+      "diff": -0.012,
+      "ci95": [
+       -0.065,
+       0.039
+      ]
+     },
+     "growth": {
+      "diff": -0.069,
+      "ci95": [
+       -0.128,
+       -0.013
+      ]
+     },
+     "item": {
+      "diff": 0.106,
+      "ci95": [
+       0.059,
+       0.158
+      ]
+     },
+     "balance": {
+      "diff": -0.085,
+      "ci95": [
+       -0.145,
+       -0.026
+      ]
+     }
+    }
+   },
+   "WXI1-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.094,
+     "ci95": [
+      -0.017,
+      0.14
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.002,
+      "ci95": [
+       -0.043,
+       0.035
+      ]
+     },
+     "companion": {
+      "diff": 0.021,
+      "ci95": [
+       -0.027,
+       0.071
+      ]
+     },
+     "partner": {
+      "diff": 0.033,
+      "ci95": [
+       -0.002,
+       0.073
+      ]
+     },
+     "challenge": {
+      "diff": -0.006,
+      "ci95": [
+       -0.047,
+       0.033
+      ]
+     },
+     "growth": {
+      "diff": -0.048,
+      "ci95": [
+       -0.091,
+       -0.008
+      ]
+     },
+     "item": {
+      "diff": 0.048,
+      "ci95": [
+       0.008,
+       0.092
+      ]
+     },
+     "balance": {
+      "diff": -0.046,
+      "ci95": [
+       -0.093,
+       -0.002
+      ]
+     }
+    }
+   },
+   "WA3-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.083,
+     "ci95": [
+      -0.031,
+      0.22
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.017,
+      "ci95": [
+       -0.082,
+       0.045
+      ]
+     },
+     "companion": {
+      "diff": -0.025,
+      "ci95": [
+       -0.095,
+       0.045
+      ]
+     },
+     "partner": {
+      "diff": 0.021,
+      "ci95": [
+       -0.038,
+       0.079
+      ]
+     },
+     "challenge": {
+      "diff": 0.004,
+      "ci95": [
+       -0.064,
+       0.07
+      ]
+     },
+     "growth": {
+      "diff": -0.104,
+      "ci95": [
+       -0.177,
+       -0.036
+      ]
+     },
+     "item": {
+      "diff": 0.129,
+      "ci95": [
+       0.054,
+       0.202
+      ]
+     },
+     "balance": {
+      "diff": -0.008,
+      "ci95": [
+       -0.077,
+       0.06
+      ]
+     }
+    }
+   },
+   "WB3-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.171,
+     "ci95": [
+      -0.006,
+      0.311
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.008,
+      "ci95": [
+       -0.093,
+       0.082
+      ]
+     },
+     "companion": {
+      "diff": -0.013,
+      "ci95": [
+       -0.093,
+       0.068
+      ]
+     },
+     "partner": {
+      "diff": 0.037,
+      "ci95": [
+       -0.019,
+       0.095
+      ]
+     },
+     "challenge": {
+      "diff": -0.008,
+      "ci95": [
+       -0.078,
+       0.06
+      ]
+     },
+     "growth": {
+      "diff": -0.142,
+      "ci95": [
+       -0.228,
+       -0.058
+      ]
+     },
+     "item": {
+      "diff": 0.179,
+      "ci95": [
+       0.105,
+       0.254
+      ]
+     },
+     "balance": {
+      "diff": -0.046,
+      "ci95": [
+       -0.13,
+       0.029
+      ]
+     }
+    }
+   },
+   "WC3-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.179,
+     "ci95": [
+      -0.003,
+      0.314
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.004,
+      "ci95": [
+       -0.079,
+       0.075
+      ]
+     },
+     "companion": {
+      "diff": 0.004,
+      "ci95": [
+       -0.074,
+       0.086
+      ]
+     },
+     "partner": {
+      "diff": 0.029,
+      "ci95": [
+       -0.027,
+       0.083
+      ]
+     },
+     "challenge": {
+      "diff": -0.017,
+      "ci95": [
+       -0.089,
+       0.055
+      ]
+     },
+     "growth": {
+      "diff": -0.15,
+      "ci95": [
+       -0.231,
+       -0.078
+      ]
+     },
+     "item": {
+      "diff": 0.179,
+      "ci95": [
+       0.105,
+       0.254
+      ]
+     },
+     "balance": {
+      "diff": -0.042,
+      "ci95": [
+       -0.114,
+       0.03
+      ]
+     }
+    }
+   },
+   "WBk-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.063,
+     "ci95": [
+      -0.055,
+      0.201
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.008,
+      "ci95": [
+       -0.081,
+       0.067
+      ]
+     },
+     "companion": {
+      "diff": 0.008,
+      "ci95": [
+       -0.058,
+       0.076
+      ]
+     },
+     "partner": {
+      "diff": 0.004,
+      "ci95": [
+       -0.045,
+       0.054
+      ]
+     },
+     "challenge": {
+      "diff": -0.021,
+      "ci95": [
+       -0.095,
+       0.049
+      ]
+     },
+     "growth": {
+      "diff": -0.062,
+      "ci95": [
+       -0.128,
+       0.0
+      ]
+     },
+     "item": {
+      "diff": 0.129,
+      "ci95": [
+       0.062,
+       0.198
+      ]
+     },
+     "balance": {
+      "diff": -0.05,
+      "ci95": [
+       -0.114,
+       0.013
+      ]
+     }
+    }
+   },
+   "WBL-X0（ルール効果）": {
+    "spread": {
+     "diff": 0.112,
+     "ci95": [
+      -0.047,
+      0.249
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.033,
+      "ci95": [
+       -0.107,
+       0.043
+      ]
+     },
+     "companion": {
+      "diff": -0.004,
+      "ci95": [
+       -0.073,
+       0.064
+      ]
+     },
+     "partner": {
+      "diff": 0.029,
+      "ci95": [
+       -0.022,
+       0.08
+      ]
+     },
+     "challenge": {
+      "diff": 0.021,
+      "ci95": [
+       -0.045,
+       0.085
+      ]
+     },
+     "growth": {
+      "diff": -0.129,
+      "ci95": [
+       -0.208,
+       -0.055
+      ]
+     },
+     "item": {
+      "diff": 0.133,
+      "ci95": [
+       0.052,
+       0.214
+      ]
+     },
+     "balance": {
+      "diff": -0.017,
+      "ci95": [
+       -0.088,
+       0.054
+      ]
+     }
+    }
+   },
+   "WA-A0（総合）": {
+    "spread": {
+     "diff": 0.048,
+     "ci95": [
+      -0.048,
+      0.124
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.019,
+      "ci95": [
+       -0.074,
+       0.035
+      ]
+     },
+     "companion": {
+      "diff": 0.015,
+      "ci95": [
+       -0.038,
+       0.067
+      ]
+     },
+     "partner": {
+      "diff": 0.029,
+      "ci95": [
+       -0.028,
+       0.088
+      ]
+     },
+     "challenge": {
+      "diff": 0.021,
+      "ci95": [
+       -0.024,
+       0.067
+      ]
+     },
+     "growth": {
+      "diff": -0.046,
+      "ci95": [
+       -0.096,
+       0.002
+      ]
+     },
+     "item": {
+      "diff": 0.023,
+      "ci95": [
+       -0.034,
+       0.078
+      ]
+     },
+     "balance": {
+      "diff": -0.023,
+      "ci95": [
+       -0.084,
+       0.037
+      ]
+     }
+    }
+   },
+   "WB-A0（総合）": {
+    "spread": {
+     "diff": 0.065,
+     "ci95": [
+      -0.032,
+      0.147
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.004,
+      "ci95": [
+       -0.058,
+       0.051
+      ]
+     },
+     "companion": {
+      "diff": 0.044,
+      "ci95": [
+       -0.004,
+       0.093
+      ]
+     },
+     "partner": {
+      "diff": 0.021,
+      "ci95": [
+       -0.032,
+       0.071
+      ]
+     },
+     "challenge": {
+      "diff": 0.01,
+      "ci95": [
+       -0.036,
+       0.059
+      ]
+     },
+     "growth": {
+      "diff": -0.056,
+      "ci95": [
+       -0.103,
+       -0.011
+      ]
+     },
+     "item": {
+      "diff": 0.029,
+      "ci95": [
+       -0.027,
+       0.085
+      ]
+     },
+     "balance": {
+      "diff": -0.044,
+      "ci95": [
+       -0.102,
+       0.014
+      ]
+     }
+    }
+   },
+   "WC-A0（総合）": {
+    "spread": {
+     "diff": 0.094,
+     "ci95": [
+      -0.01,
+      0.168
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.0,
+      "ci95": [
+       -0.055,
+       0.057
+      ]
+     },
+     "companion": {
+      "diff": 0.042,
+      "ci95": [
+       -0.007,
+       0.091
+      ]
+     },
+     "partner": {
+      "diff": 0.021,
+      "ci95": [
+       -0.032,
+       0.071
+      ]
+     },
+     "challenge": {
+      "diff": 0.017,
+      "ci95": [
+       -0.028,
+       0.066
+      ]
+     },
+     "growth": {
+      "diff": -0.073,
+      "ci95": [
+       -0.121,
+       -0.028
+      ]
+     },
+     "item": {
+      "diff": 0.042,
+      "ci95": [
+       -0.014,
+       0.094
+      ]
+     },
+     "balance": {
+      "diff": -0.048,
+      "ci95": [
+       -0.105,
+       0.009
+      ]
+     }
+    }
+   },
+   "WXI1-A0（総合）": {
+    "spread": {
+     "diff": 0.015,
+     "ci95": [
+      -0.087,
+      0.089
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.006,
+      "ci95": [
+       -0.056,
+       0.044
+      ]
+     },
+     "companion": {
+      "diff": 0.035,
+      "ci95": [
+       -0.017,
+       0.088
+      ]
+     },
+     "partner": {
+      "diff": 0.025,
+      "ci95": [
+       -0.03,
+       0.077
+      ]
+     },
+     "challenge": {
+      "diff": 0.023,
+      "ci95": [
+       -0.031,
+       0.08
+      ]
+     },
+     "growth": {
+      "diff": -0.052,
+      "ci95": [
+       -0.1,
+       -0.004
+      ]
+     },
+     "item": {
+      "diff": -0.017,
+      "ci95": [
+       -0.074,
+       0.037
+      ]
+     },
+     "balance": {
+      "diff": -0.008,
+      "ci95": [
+       -0.064,
+       0.045
+      ]
+     }
+    }
+   },
+   "WXI1-A1t1（しかける→セカイ、1枚）": {
+    "spread": {
+     "diff": 0.052,
+     "ci95": [
+      -0.042,
+      0.108
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.021,
+      "ci95": [
+       -0.02,
+       0.058
+      ]
+     },
+     "companion": {
+      "diff": 0.027,
+      "ci95": [
+       -0.016,
+       0.071
+      ]
+     },
+     "partner": {
+      "diff": 0.017,
+      "ci95": [
+       -0.017,
+       0.048
+      ]
+     },
+     "challenge": {
+      "diff": 0.015,
+      "ci95": [
+       -0.021,
+       0.051
+      ]
+     },
+     "growth": {
+      "diff": -0.046,
+      "ci95": [
+       -0.091,
+       -0.009
+      ]
+     },
+     "item": {
+      "diff": 0.012,
+      "ci95": [
+       -0.036,
+       0.059
+      ]
+     },
+     "balance": {
+      "diff": -0.046,
+      "ci95": [
+       -0.094,
+       0.002
+      ]
+     }
+    }
+   },
+   "WB-WA（B−A）": {
+    "spread": {
+     "diff": 0.017,
+     "ci95": [
+      -0.037,
+      0.069
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.015,
+      "ci95": [
+       -0.018,
+       0.053
+      ]
+     },
+     "companion": {
+      "diff": 0.029,
+      "ci95": [
+       0.004,
+       0.057
+      ]
+     },
+     "partner": {
+      "diff": -0.008,
+      "ci95": [
+       -0.046,
+       0.027
+      ]
+     },
+     "challenge": {
+      "diff": -0.01,
+      "ci95": [
+       -0.033,
+       0.013
+      ]
+     },
+     "growth": {
+      "diff": -0.01,
+      "ci95": [
+       -0.055,
+       0.032
+      ]
+     },
+     "item": {
+      "diff": 0.006,
+      "ci95": [
+       -0.018,
+       0.031
+      ]
+     },
+     "balance": {
+      "diff": -0.021,
+      "ci95": [
+       -0.055,
+       0.018
+      ]
+     }
+    }
+   },
+   "WC-WA（C−A）": {
+    "spread": {
+     "diff": 0.046,
+     "ci95": [
+      -0.017,
+      0.099
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.019,
+      "ci95": [
+       -0.017,
+       0.058
+      ]
+     },
+     "companion": {
+      "diff": 0.027,
+      "ci95": [
+       0.002,
+       0.056
+      ]
+     },
+     "partner": {
+      "diff": -0.008,
+      "ci95": [
+       -0.047,
+       0.027
+      ]
+     },
+     "challenge": {
+      "diff": -0.004,
+      "ci95": [
+       -0.028,
+       0.021
+      ]
+     },
+     "growth": {
+      "diff": -0.027,
+      "ci95": [
+       -0.075,
+       0.017
+      ]
+     },
+     "item": {
+      "diff": 0.019,
+      "ci95": [
+       -0.008,
+       0.046
+      ]
+     },
+     "balance": {
+      "diff": -0.025,
+      "ci95": [
+       -0.061,
+       0.014
+      ]
+     }
+    }
+   },
+   "WB3-WB（時3−時2）": {
+    "spread": {
+     "diff": 0.05,
+     "ci95": [
+      -0.031,
+      0.13
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.008,
+      "ci95": [
+       -0.063,
+       0.077
+      ]
+     },
+     "companion": {
+      "diff": -0.062,
+      "ci95": [
+       -0.133,
+       0.004
+      ]
+     },
+     "partner": {
+      "diff": 0.025,
+      "ci95": [
+       -0.039,
+       0.092
+      ]
+     },
+     "challenge": {
+      "diff": 0.046,
+      "ci95": [
+       0.004,
+       0.1
+      ]
+     },
+     "growth": {
+      "diff": -0.025,
+      "ci95": [
+       -0.085,
+       0.04
+      ]
+     },
+     "item": {
+      "diff": 0.025,
+      "ci95": [
+       -0.025,
+       0.073
+      ]
+     },
+     "balance": {
+      "diff": -0.017,
+      "ci95": [
+       -0.093,
+       0.061
+      ]
+     }
+    }
+   },
+   "WA3-WA（時3−時2）": {
+    "spread": {
+     "diff": -0.013,
+     "ci95": [
+      -0.062,
+      0.083
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.033,
+      "ci95": [
+       -0.01,
+       0.086
+      ]
+     },
+     "companion": {
+      "diff": -0.037,
+      "ci95": [
+       -0.096,
+       0.01
+      ]
+     },
+     "partner": {
+      "diff": -0.025,
+      "ci95": [
+       -0.069,
+       0.013
+      ]
+     },
+     "challenge": {
+      "diff": 0.025,
+      "ci95": [
+       -0.012,
+       0.073
+      ]
+     },
+     "growth": {
+      "diff": 0.013,
+      "ci95": [
+       -0.025,
+       0.06
+      ]
+     },
+     "item": {
+      "diff": 0.0,
+      "ci95": [
+       -0.043,
+       0.043
+      ]
+     },
+     "balance": {
+      "diff": -0.008,
+      "ci95": [
+       -0.053,
+       0.029
+      ]
+     }
+    }
+   },
+   "WC3-WC（時3−時2）": {
+    "spread": {
+     "diff": 0.058,
+     "ci95": [
+      -0.037,
+      0.13
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.013,
+      "ci95": [
+       -0.061,
+       0.08
+      ]
+     },
+     "companion": {
+      "diff": -0.046,
+      "ci95": [
+       -0.112,
+       0.016
+      ]
+     },
+     "partner": {
+      "diff": 0.017,
+      "ci95": [
+       -0.046,
+       0.082
+      ]
+     },
+     "challenge": {
+      "diff": 0.033,
+      "ci95": [
+       -0.004,
+       0.076
+      ]
+     },
+     "growth": {
+      "diff": -0.038,
+      "ci95": [
+       -0.104,
+       0.032
+      ]
+     },
+     "item": {
+      "diff": 0.021,
+      "ci95": [
+       -0.029,
+       0.067
+      ]
+     },
+     "balance": {
+      "diff": 0.0,
+      "ci95": [
+       -0.075,
+       0.082
+      ]
+     }
+    }
+   },
+   "WBk-WB（CPUが延長目的だけで出す）": {
+    "spread": {
+     "diff": -0.058,
+     "ci95": [
+      -0.132,
+      0.071
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": 0.008,
+      "ci95": [
+       -0.057,
+       0.068
+      ]
+     },
+     "companion": {
+      "diff": -0.042,
+      "ci95": [
+       -0.106,
+       0.014
+      ]
+     },
+     "partner": {
+      "diff": -0.008,
+      "ci95": [
+       -0.064,
+       0.045
+      ]
+     },
+     "challenge": {
+      "diff": 0.033,
+      "ci95": [
+       0.0,
+       0.069
+      ]
+     },
+     "growth": {
+      "diff": 0.054,
+      "ci95": [
+       0.004,
+       0.112
+      ]
+     },
+     "item": {
+      "diff": -0.025,
+      "ci95": [
+       -0.078,
+       0.027
+      ]
+     },
+     "balance": {
+      "diff": -0.021,
+      "ci95": [
+       -0.09,
+       0.049
+      ]
+     }
+    }
+   },
+   "WBL-WB（R8以降だけ）": {
+    "spread": {
+     "diff": -0.008,
+     "ci95": [
+      -0.098,
+      0.088
+     ]
+    },
+    "decks": {
+     "main": {
+      "diff": -0.017,
+      "ci95": [
+       -0.096,
+       0.062
+      ]
+     },
+     "companion": {
+      "diff": -0.054,
+      "ci95": [
+       -0.123,
+       0.004
+      ]
+     },
+     "partner": {
+      "diff": 0.017,
+      "ci95": [
+       -0.052,
+       0.088
+      ]
+     },
+     "challenge": {
+      "diff": 0.075,
+      "ci95": [
+       0.031,
+       0.129
+      ]
+     },
+     "growth": {
+      "diff": -0.012,
+      "ci95": [
+       -0.072,
+       0.054
+      ]
+     },
+     "item": {
+      "diff": -0.021,
+      "ci95": [
+       -0.082,
+       0.033
+      ]
+     },
+     "balance": {
+      "diff": 0.013,
+      "ci95": [
+       -0.06,
+       0.085
+      ]
+     }
+    }
+   }
+  },
+  "cardAccess": {
+   "WA": {
+    "games": 386,
+    "scoreOfHolder": 0.492,
+    "diffVsX0": -0.032,
+    "ci95": [
+     -0.073,
+     0.007
+    ],
+    "bothDrew": 652,
+    "neitherDrew": 82
+   },
+   "WB": {
+    "games": 365,
+    "scoreOfHolder": 0.492,
+    "diffVsX0": -0.036,
+    "ci95": [
+     -0.081,
+     0.005
+    ],
+    "bothDrew": 673,
+    "neitherDrew": 82
+   },
+   "WC": {
+    "games": 370,
+    "scoreOfHolder": 0.485,
+    "diffVsX0": -0.046,
+    "ci95": [
+     -0.087,
+     -0.005
+    ],
+    "bothDrew": 668,
+    "neitherDrew": 82
+   },
+   "WXI1": {
+    "games": 482,
+    "scoreOfHolder": 0.488,
+    "diffVsX0": -0.003,
+    "ci95": [
+     -0.04,
+     0.032
+    ],
+    "bothDrew": 329,
+    "neitherDrew": 309
+   }
+  }
  }
 }
