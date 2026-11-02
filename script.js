@@ -3834,7 +3834,8 @@
     // still announce each new beat, even when its words match the last beat.
     if (!force && commentTextCache.get(target)===value) return false;
     commentTextCache.set(target,value);
-    const html=commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
+    const upperV12=document.body.dataset.homeViewportVersion==='12' && ['message','homeActionText','homeChoiceText','storyFlashText','birthdayToast','mgResultToast'].includes(target.id);
+    const html=upperV12 ? escapeHtml(value).replace(COMMENT_EMOJI,emoji=>character?.asset&&emoji===character.emoji?commentPictureHTML(character.asset,emoji,character.label):(commentIconHTML(emoji)||(!/assets\/characters\//.test(DISPLAY_CATALOG?.resolve(emoji)?.asset||'')?DISPLAY_CATALOG?.html(emoji):'')||'<span class="comment-drawing v12-unresolved-icon">'+escapeHtml(emoji)+'</span>')) : commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
     const property=illustrated?'innerHTML':'textContent';
     const rendered=illustrated?html:value;
     if (!force && target[property]===rendered) return false;
@@ -11341,7 +11342,7 @@
   }
 
   // V11 presentation ownership. Queues contain render callbacks, never rewards or save data.
-  function homeUIV11(){return document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='11';}
+  function homeUIV11(){return document.body.dataset.homeProduction==='true' && ['11','12'].includes(document.body.dataset.homeViewportVersion);}
   function homeV11Presentation(){
     if(conv2Unit && conv2Unit.life!==state){conv2Abort('life');hideSpeechBubbleOnly();conversationTimers.forEach(clearTimeout);conversationTimers=[];conversationBusyUntil=0;}
     let p=homeV11Presentation.current;

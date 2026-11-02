@@ -340,11 +340,13 @@
           const cacheKey=point?[Math.round(point.x/24),Math.round(point.z/24),host.width,host.height,scene.region,world.stats().projectionRevision,scene.groundTop,scene.floor].join(':'):'';
           if(point&&row.maskKey!==cacheKey){
             row.maskKey=cacheKey;const polygons=polygonsAt(a);
-            row.maskURL=polygons.length?'url("data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="'+host.width+'" height="'+host.height+'"><defs><mask id="m"><rect width="100%" height="100%" fill="white"/>'+polygons.map(ps=>'<polygon fill="black" points="'+ps.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ')+'"/>').join('')+'</mask></defs><rect width="100%" height="100%" fill="white" mask="url(#m)"/></svg>')+'")':'';
+            // Extend only the transparent mask canvas, preserving world polygon coordinates.
+            const maskPad=doc.body?.dataset.homeViewportVersion==='12'?256:0;row.maskPad=maskPad;
+            row.maskURL=polygons.length?'url("data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="'+(host.width+2*maskPad)+'" height="'+(host.height+2*maskPad)+'" viewBox="'+(-maskPad)+' '+(-maskPad)+' '+(host.width+2*maskPad)+' '+(host.height+2*maskPad)+'"><defs><mask id="m"><rect x="'+(-maskPad)+'" y="'+(-maskPad)+'" width="'+(host.width+2*maskPad)+'" height="'+(host.height+2*maskPad)+'" fill="white"/>'+polygons.map(ps=>'<polygon fill="black" points="'+ps.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ')+'"/>').join('')+'</mask></defs><rect x="'+(-maskPad)+'" y="'+(-maskPad)+'" width="'+(host.width+2*maskPad)+'" height="'+(host.height+2*maskPad)+'" fill="white" mask="url(#m)"/></svg>')+'")':'';
           }
           const maskPose=[depthScale.toFixed(4),cacheKey,dx.toFixed(2),dy.toFixed(2),row.x,row.y,row.w,row.h].join(':');
           if(row.lastMaskPose!==maskPose){row.lastMaskPose=maskPose;
-          for(const n of [row.owner,...(row.attachments||[])]){const r=n.getBoundingClientRect();n.style.maskImage=n.style.webkitMaskImage=row.maskURL||'';n.style.maskSize=n.style.webkitMaskSize=(host.width/depthScale)+'px '+(host.height/depthScale)+'px';n.style.maskPosition=n.style.webkitMaskPosition=((host.left-r.left)/depthScale)+'px '+((host.top-r.top)/depthScale)+'px';n.style.maskRepeat=n.style.webkitMaskRepeat='no-repeat';n.style.maskClip=n.style.webkitMaskClip='no-clip';}}
+          for(const n of [row.owner,...(row.attachments||[])]){const r=n.getBoundingClientRect();n.style.maskImage=n.style.webkitMaskImage=row.maskURL||'';n.style.maskSize=n.style.webkitMaskSize=((host.width+2*(row.maskPad||0))/depthScale)+'px '+((host.height+2*(row.maskPad||0))/depthScale)+'px';n.style.maskPosition=n.style.webkitMaskPosition=((host.left-r.left-(row.maskPad||0))/depthScale)+'px '+((host.top-r.top-(row.maskPad||0))/depthScale)+'px';n.style.maskRepeat=n.style.webkitMaskRepeat='no-repeat';n.style.maskClip=n.style.webkitMaskClip='no-clip';}}
         }
         onPosition(a,dx,dy);
       }
