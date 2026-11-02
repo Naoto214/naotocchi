@@ -4061,13 +4061,16 @@
     }, CRITICAL_MESSAGE_MS);
   }
   function setMessage(msg, speaker=null) {
-    if (criticalUntil && Date.now() < criticalUntil) { if (msg) {deferredMessage = msg;deferredMessageSpeaker=speaker;} return; }
+    if (!homeUIV11() && criticalUntil && Date.now() < criticalUntil) { if (msg) {deferredMessage = msg;deferredMessageSpeaker=speaker;} return; }
     showMessage(msg, MESSAGE_DURATION_MS,speaker);
   }
   function setActionComment(text, speaker=petSpeaker()) {
     setMessage(text,document.body.dataset.homeProduction==='true' && terrainNoticeMode() ? speaker : null);
   }
   function showMessage(msg, duration, speaker=null) {
+    if(msg && homeV11Upper('message',duration===CRITICAL_MESSAGE_MS?100:2,duration,()=>showMessage(msg,duration,speaker)))return;
+    if(homeUIV11() && !msg && homeV11Presentation().upper)return;
+    el.message.classList.remove('hidden');
     messageSpeaker=speaker; messageSpeakerText=compactJapaneseText(msg);
     el.message.classList.remove('birth-notice');
     message = compactJapaneseText(msg);
@@ -4274,6 +4277,7 @@
   }
 
   function hideSpeechBubble() {
+    if(homeUIV11() && (conv2Unit?.awaiting || homeV11Presentation().lowerUntil>Date.now() || (conv2Unit && conv2Unit.kind!=='banter')))return;
     // 吹き出しを消す場面(メニュー・ゲーム・別の会話)では、掛け合い・問いかけも途中でやめる
     conv2Abort('hidden');
     speechActive = false;
@@ -4284,10 +4288,13 @@
 
   function setSpeechBubble(text, speaker, reaction = {}) {
     if (!el.speechBubble || !text || !speaker) return;
-    if (speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
+    if (!(homeUIV11() && reaction.storySpeaker) && speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
     if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
-    hideMinigameResultToast();
-    hideHomeChoiceResult();
+    if(homeUIV11()){
+      if(!reaction.unit && homeV11HoldSpeech(()=>setSpeechBubble(text,speaker,reaction),!!reaction.important))return;
+      if(!reaction.unit && conversationIsBusy())clearConversationTimers();
+      if(reaction.important)homeV11Presentation().lowerUntil=Date.now()+(reaction.holdMs||SPEECH_DURATION_MS);
+    }else{hideMinigameResultToast();hideHomeChoiceResult();}
     if (speechTimer) clearTimeout(speechTimer);
     speechActive = true;
     if (speaker.kind === 'pet') {
@@ -4308,9 +4315,11 @@
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
       speechTimer = null;
+      if(homeUIV11() && (conv2Unit?.awaiting || homeV11Presentation().lowerUntil>Date.now() || (conv2Unit && conv2Unit.kind!=='banter')))return;
       speechActive = false;
       el.speechBubble.classList.add('hidden');
       castMotion?.clearSpeaker();
+      homeV11DrainSpeech();
     }, reaction.holdMs || SPEECH_DURATION_MS);
   }
 
@@ -5020,6 +5029,7 @@
   let conversationBusyUntil = 0;
   let recentConversationLines = [];
   function clearConversationTimers() {
+    if(homeUIV11() && (homeV11Presentation().lowerUntil>Date.now() || (conv2Unit && conv2Unit.kind!=='banter')))return;
     conv2Abort('cleared');
     conversationTimers.forEach((t) => clearTimeout(t));
     conversationTimers = [];
@@ -6354,6 +6364,7 @@
   }
 
   function speakEvent(eventKey, ctx = {}) {
+    if(homeUIV11() && homeV11HoldSpeech(()=>speakEvent(eventKey,ctx),!['idle','pet_idle'].includes(eventKey)))return;
     // ミニゲームの けっか処理の さいちゅう(そだち・とし など)は、けっかトーストを けさない よう
     // いったん ためて、トーストの あとに まわす(dispatchMinigameReaction)
     if (minigameResultSpeechHold) { minigameResultSpeechHold.push([eventKey, ctx]); return; }
@@ -6566,17 +6577,19 @@
   }
 
   function playConversationBeats(beats, event = 'idle', delayMs = 0, target = null) {
+    if(homeUIV11() && homeV11HoldSpeech(()=>playConversationBeats(beats,event,delayMs,target),event!=='idle'))return;
     clearConversationTimers();
     hideSpeechBubble();
     const visibleBeats = beats.filter((beat) => beat.speaker && beat.text).slice(0, 4);
     // 掛け合いが終わるまでは放置会話などに上書きさせない。
     conversationBusyUntil = Date.now() + delayMs + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * SPEECH_DURATION_MS) + SPEECH_DURATION_MS);
+    if(homeUIV11() && event!=='idle')homeV11Presentation().lowerUntil=conversationBusyUntil;
     visibleBeats.forEach((beat, i) => {
       const listener = beat.speaker.kind === 'pet'
         ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
           : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
         : petSpeaker();
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0,unit:homeUIV11()}), delayMs + i * SPEECH_DURATION_MS));
     });
   }
 
@@ -6687,6 +6700,17 @@
     return def ? {kind:'companion', id:def.id, emoji:def.emoji, label:def.name} : null;
   }
   function conv2Later(unit, fn, ms) {
+    if(homeUIV11() && unit.kind!=='banter'){
+      const life=state,index=unit.timers.length;let remaining=Math.max(1,ms),last=Date.now();
+      unit.timers.push(null);
+      const tick=()=>{
+        if(conv2Unit!==unit || state!==life)return;
+        const now=Date.now();if(conv2ContextOk())remaining-=now-last;last=now;
+        if(remaining<=0){fn();return;}
+        unit.timers[index]=setTimeout(tick,Math.min(100,remaining));
+      };
+      unit.timers[index]=setTimeout(tick,Math.min(100,remaining));return;
+    }
     const timer = setTimeout(() => { if (conv2Unit === unit) fn(); }, Math.max(1, ms));
     unit.timers.push(timer);
   }
@@ -6702,6 +6726,7 @@
   //  あとから流すと、いま始まったケアの反応を消してしまう)
   function conv2Abort(reason) {
     const unit = conv2Unit;
+    if(homeUIV11() && unit && unit.kind!=='banter' && ['cleared','player','hidden','scene','pagehide','pageshow'].includes(reason))return;
     if (!unit) return;
     conv2Unit = null;
     unit.timers.forEach(t => clearTimeout(t));
@@ -6714,14 +6739,15 @@
     const unit = conv2Unit;
     if (!unit) return;
     conv2Abort(reason);
-    if (unit.shown) hideSpeechBubbleOnly();
+    if (unit.shown && conv2Unit !== unit) hideSpeechBubbleOnly();
   }
   function conv2Finish(unit) {
     if (conv2Unit !== unit) return;
     conv2Unit = null;
     unit.timers.forEach(t => clearTimeout(t));
     conv2HideChoices();
-    conv2Flush(unit.held);
+    if(homeUIV11())hideSpeechBubbleOnly();
+    conv2Flush(unit.held);homeV11DrainSpeech();
   }
   function conv2Flush(held) {
     for (const [eventKey, ctx] of held) speakEvent(eventKey, ctx);
@@ -6736,7 +6762,7 @@
         const visitor = visitorKey ? conv2VisitorSpeaker(visitorKey) : null;
         const speaker = b.role === 'pet' ? petSpeaker() : visitor;
         if (!speaker || (visitorKey && !visitor)) { conv2Abort('visitor_left'); return; }
-        setSpeechBubble(b.text, speaker, {listener:b.role === 'pet' ? visitor : petSpeaker(), holdMs:hold});
+        setSpeechBubble(b.text, speaker, {listener:b.role === 'pet' ? visitor : petSpeaker(), holdMs:hold,unit:homeUIV11()});
         unit.shown = true;
         if (unit.onShow) { const onShow = unit.onShow; unit.onShow = null; onShow(); }
       }, at);
@@ -6747,7 +6773,7 @@
   }
   // deferNote: 最初の一言を出したときに履歴へ入れる(出す前にやめた会話は「使った」に数えない)
   function conv2NewUnit(kind, id, visitorKey, {deferNote = false} = {}) {
-    conv2Unit = {kind, id, visitorKey, startedAt:Date.now(), held:[], timers:[], awaiting:false};
+    conv2Unit = {kind, id, visitorKey, life:state, startedAt:Date.now(), held:[], timers:[], awaiting:false};
     if (deferNote) conv2Unit.onShow = () => conversationDirector.noteUnit(id, kind);
     else conversationDirector.noteUnit(id, kind);
     return conv2Unit;
@@ -6813,11 +6839,11 @@
   function conv2AskBeat(unit, q) {
     if (conv2Unit !== unit) return;
     if (!conv2ContextOk()) { conv2Abort('context'); return; }
-    setSpeechBubble(q.ask, petSpeaker(), {holdMs:CONV2.answerWaitMs});
+    setSpeechBubble(q.ask, petSpeaker(), {holdMs:CONV2.answerWaitMs,unit:homeUIV11()});
     conv2ShowChoices(q);
     unit.awaiting = true;
     conversationBusyUntil = Math.max(conversationBusyUntil, Date.now() + CONV2.answerWaitMs);
-    conv2Later(unit, () => conv2NoAnswer(unit), CONV2.answerWaitMs);
+    if(!homeUIV11())conv2Later(unit, () => conv2NoAnswer(unit), CONV2.answerWaitMs);
   }
 
   // ---- ゲームのあと ----
@@ -10967,6 +10993,7 @@
     renderLaneSpeaker(document.getElementById('homeChoiceSpeaker'),null,result);
   }
   function showHomeChoiceResult(text, speaker = null) {
+    if(homeV11Upper('choice',4,MESSAGE_DURATION_MS,()=>showHomeChoiceResult(text,speaker)))return;
     const result=document.getElementById('homeChoiceResult');
     if (!result) return;
     hideHomeChoiceResult();
@@ -10984,7 +11011,7 @@
     dialog.classList.toggle('home-choice-popup',home);
     dialog.setAttribute('aria-modal',String(!home));
     individualityPopupFocus=home ? document.activeElement : null;
-    hideHomeChoiceResult();
+    if(!homeUIV11())hideHomeChoiceResult();
     renderLaneSpeaker(document.getElementById('individualitySpeaker'),null,dialog);
     dialog.scrollTop=0;if(el.speechSlot)el.speechSlot.scrollTop=0;
     if (!dialog.dataset.choiceInputBound) {
@@ -11313,6 +11340,65 @@
     pushLifeLog('💊', 'びょうきをなおしてもらった');
   }
 
+  // V11 presentation ownership. Queues contain render callbacks, never rewards or save data.
+  function homeUIV11(){return document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='11';}
+  function homeV11Presentation(){
+    if(conv2Unit && conv2Unit.life!==state){conv2Abort('life');hideSpeechBubbleOnly();conversationTimers.forEach(clearTimeout);conversationTimers=[];conversationBusyUntil=0;}
+    let p=homeV11Presentation.current;
+    if(!p || p.life!==state){
+      if(p){clearTimeout(p.upperTimer);clearTimeout(p.lowerTimer);conv2Abort('life');hideSpeechBubbleOnly();conversationTimers.forEach(clearTimeout);conversationTimers=[];conversationBusyUntil=0;}
+      p=homeV11Presentation.current={life:state,upper:null,upperQueue:[],running:false,lowerUntil:0,lowerQueue:[],lowerTimer:null};
+    }
+    return p;
+  }
+  function homeV11ClearUpper(){
+    clearTimeout(messageTimer);messageTimer=null;message='';messageSpeaker=null;
+    clearTimeout(storyFlashTimer);storyFlashTimer=null;homeStoryCurrent=null;
+    clearTimeout(birthdayToastTimer);birthdayToastTimer=null;homeBirthdayCurrent=null;
+    clearTimeout(mgResultToastTimer);mgResultToastTimer=null;homeResultCurrent=null;
+    clearTimeout(homeChoiceResultTimer);homeChoiceResultTimer=null;
+    el.message.textContent='';el.message.classList.remove('hidden');
+    for(const id of ['homeActionComment','homeChoiceResult','storyFlash','birthdayToast','mgResultToast'])document.getElementById(id)?.classList.add('hidden');
+  }
+  function homeV11Upper(kind,priority,duration,draw){
+    if(!homeUIV11())return false;
+    const p=homeV11Presentation();if(p.running)return false;
+    const entry={kind,priority,duration,draw};
+    if(p.upper && priority===100){
+      clearTimeout(p.upperTimer);p.upperQueue.unshift(p.upper);p.upper=null;homeV11ClearUpper();
+    }
+    p.upperQueue.push(entry);homeV11DrainUpper();return true;
+  }
+  function homeV11DrainUpper(){
+    const p=homeV11Presentation();if(p.upper || !p.upperQueue.length)return;
+    if(!pageVisible() || gameActive || meguruActive || isAnyMenuOverlayOpen()){clearTimeout(p.upperTimer);p.upperTimer=setTimeout(homeV11DrainUpper,150);return;}
+    p.upperQueue.sort((a,b)=>b.priority-a.priority);
+    p.upper=p.upperQueue.shift();homeV11ClearUpper();
+    document.body.dataset.homeUpper=p.upper.kind;
+    p.running=true;try{p.upper.draw();}finally{p.running=false;}
+    p.upperTimer=setTimeout(()=>{if(p!==homeV11Presentation.current)return;p.upper=null;homeV11ClearUpper();delete document.body.dataset.homeUpper;homeV11DrainUpper();},p.upper.duration);
+  }
+  function homeV11SpeechBlocked(){
+    const p=homeV11Presentation();return p.lowerUntil>Date.now() || !!conv2Unit || individualityDialogOpen;
+  }
+  function homeV11HoldSpeech(run,important){
+    if(!homeUIV11())return false;
+    if(important && conv2Unit?.kind==='banter'){conv2Abort('interrupted');conversationBusyUntil=0;}
+    if(!homeV11SpeechBlocked())return false;
+    if(important)homeV11Presentation().lowerQueue.push(run);
+    homeV11DrainSpeech();return true;
+  }
+  function homeV11DrainSpeech(){
+    if(!homeUIV11())return;
+    const p=homeV11Presentation();clearTimeout(p.lowerTimer);
+    if(!p.lowerQueue.length)return;
+    p.lowerTimer=setTimeout(()=>{
+      if(p!==homeV11Presentation.current)return;
+      if(!pageVisible() || !emotionCueContextVisible() || homeV11SpeechBlocked()){homeV11DrainSpeech();return;}
+      const run=p.lowerQueue.shift();run();homeV11DrainSpeech();
+    },100);
+  }
+
   // Ephemeral display queue: rewards and event generation stay with their owners.
   const homeNoticeQueue=[];
   let homeNoticeLife=null,homeStoryCurrent=null,homeBirthdayCurrent=null,homeResultCurrent=null;
@@ -11323,6 +11409,7 @@
     homeNoticeQueue.push({kind,payload,priority});
   }
   function drainHomeNotices(){
+    if(homeUIV11()){homeV11DrainUpper();return;}
     if(homeNoticeLife!==state){homeNoticeQueue.length=0;homeNoticeLife=state;}
     if(!terrainNoticeMode()||birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)return;
     homeNoticeQueue.sort((a,b)=>b.priority-a.priority);
@@ -11331,6 +11418,13 @@
   }
 
   document.addEventListener('visibilitychange',()=>{
+    if(homeUIV11()){
+      const p=homeV11Presentation();
+      if(pageVisible()){homeV11DrainUpper();return;}
+      clearTimeout(p.upperTimer);
+      if(p.upper){p.upperQueue.unshift(p.upper);p.upper=null;}
+      homeV11ClearUpper();delete document.body.dataset.homeUpper;return;
+    }
     if(!terrainNoticeMode())return;
     if(pageVisible()){drainHomeNotices();return;}
     // Restart the interrupted display on return; no event or reward is generated here.
@@ -11344,8 +11438,9 @@
   // 1さいごとの ちいさな トースト(操作を とめない)
   let birthdayToastTimer = null;
   function setBirthdayToast(text) {
+    if(homeV11Upper('birthday',1,1200,()=>setBirthdayToast(text)))return;
     if (!el.birthdayToast) return;
-    if(terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('birthday',text);return;}
+    if(!homeUIV11()&&terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('birthday',text);return;}
     homeBirthdayCurrent=text;
     setCommentText(el.birthdayToast, text, true);
     el.birthdayToast.classList.remove('hidden');
@@ -11445,10 +11540,10 @@
       careStoryTimer = setTimeout(() => {
         careStoryTimer = null;
         if (state !== life || careReactionSerial !== serial || !emotionCueContextVisible()) return;
-        showStoryEvent({...event,petReaction:true,characterComment:true});
+        showStoryEvent({...event,petReaction:true,characterComment:!homeUIV11()});
       },delayMs);
     } else {
-      showStoryEvent({...event,petReaction:true,characterComment:true});
+      showStoryEvent({...event,petReaction:true,characterComment:!homeUIV11()});
     }
   }
 
@@ -11456,7 +11551,14 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
-    if(terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('story',event);return;}
+    if(homeUIV11()){
+      if(event.characterComment){
+        const speaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:petSpeaker();
+        setSpeechBubble(event.message,speaker,{important:true,storySpeaker:true,holdMs:STORY_FLASH_DURATION_MS});return;
+      }
+      if(homeV11Upper('story',event.achievement?5:3,STORY_FLASH_DURATION_MS,()=>showStoryEvent(event)))return;
+    }
+    if(!homeUIV11()&&terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('story',event);return;}
     // Classification comes from the source, never from Japanese wording or emoji.
     // Growth, birthdays and sex transition also carry petReaction: keep them above.
     const lower=document.body.dataset.homeProduction==='true' && terrainNoticeMode() && !!event.characterComment;
@@ -16885,8 +16987,9 @@
     if(continueNotices)drainHomeNotices();
   }
   function showMinigameResultToast(result) {
+    if(homeUIV11() && result && homeV11Upper('result',5,lastMinigame?6000:3600,()=>showMinigameResultToast(result)))return lastMinigame?6000:3600;
     if (!el.mgResultToast || !result) return;
-    if(terrainNoticeMode()&&(birthCelebration||!pageVisible())){queueHomeNotice('result',result);return 0;}
+    if(!homeUIV11()&&terrainNoticeMode()&&(birthCelebration||!pageVisible())){queueHomeNotice('result',result);return 0;}
     let sub;
     let subClass = 'mg-result-sub';
     if (result.prevBest == null) sub = 'はじめての記録!';
@@ -16911,7 +17014,7 @@
       if(storyFlashTimer){clearTimeout(storyFlashTimer);storyFlashTimer=null;el.storyFlash.classList.add('hidden');if(homeStoryCurrent)queueHomeNotice('story',homeStoryCurrent);homeStoryCurrent=null;}
       if(birthdayToastTimer){clearTimeout(birthdayToastTimer);birthdayToastTimer=null;el.birthdayToast.classList.add('hidden');if(homeBirthdayCurrent)queueHomeNotice('birthday',homeBirthdayCurrent);homeBirthdayCurrent=null;}
     }
-    hideSpeechBubble();
+    if(!homeUIV11())hideSpeechBubble();
     void el.mgResultToast.offsetWidth;
     el.mgResultToast.classList.remove('hidden');
     // ボタンが あるときは おす よゆうを もたせて ながめに 出す
@@ -18637,7 +18740,7 @@
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         if(document.body.dataset.homeProduction==='true' && terrainNoticeMode())
-          setActionComment(reaction,{...candidate,kind:'partner'});
+          (homeUIV11()?setSpeechBubble:setActionComment)(reaction,{...candidate,kind:'partner'}, {important:true,storySpeaker:true});
         else setMessage(`${candidate.emoji} ${candidate.label}:${reaction}`);
       }
       emotePet('happy');
