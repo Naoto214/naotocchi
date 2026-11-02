@@ -441,8 +441,15 @@
       "http": 200,
       "servedSha256": "db4f05dd0403a7c68ecd1adf93cb845d6b5d57264dee45b5b2eeeef3b15020dd",
       "matches": true
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "f8103bc6c775f029d7427f95db58f87be48b9db030b7398b43dd5b50fe44a98d",
+      "http": 200,
+      "servedSha256": "f8103bc6c775f029d7427f95db58f87be48b9db030b7398b43dd5b50fe44a98d",
+      "matches": true
     }
   ],
-  "matched": 63,
-  "total": 63
+  "matched": 64,
+  "total": 64
 }
