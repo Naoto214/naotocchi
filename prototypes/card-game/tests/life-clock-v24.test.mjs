@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {renderClock} from '../life-clock-render.mjs';
+import {render as renderClock} from '../life-clock/v24/clock-v24.mjs';
 import {render as v23} from '../life-clock/v23/clock-v23.mjs';
 import {sample,overlapCases} from '../life-clock/clock.mjs';
 const groups=s=>[...s.matchAll(/<g data-hand="([012])"[^]*?<\/g>/g)];
