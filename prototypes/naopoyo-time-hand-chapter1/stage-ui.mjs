@@ -6,4 +6,4 @@ export function stageGrid(stages,progress){
  return `<button class="level ${cleared?'cleared':open?'available':'locked'}" data-stage="${i}" ${open?'':'disabled'}><b>${String(i+1).padStart(2,'0')}</b><span>${cleared?'★ クリア':open?'✧ 挑戦できる':'🔒 未開放'}</span><small>${open?s.title:'まだ見ぬ星の道'}</small></button>`;
  }).join('')+`</div><small>開いた道には、いつでも戻れます。</small>`;
 }
-export function victory(index){return `<div class="victory-star">★</div><h2>${index<9?'みんな、おかえり。':'第1章 クリア！'}</h2><p>${index<9?'みんな、行こう。次の光が見えてきた。':'ふたりの向こうに、仲間たちの足音。まだ知らない洞窟へ。'}</p>${index<9?'<p class="unlock">✧ 新しい星の道が開きました</p><button class="primary" id="nextStage">次の星の道へ →</button>':'<p>第2章「地底洞窟」へつづく</p><button class="primary" id="chapterMap">星の道をふりかえる</button>'}`;}
+export function victory(index){return `<div class="victory-star">★</div><h2>${index<9?'みんな、おかえり。':'第1章 クリア！'}</h2><p>${index<9?'みんな、行こう。次の光が見えてきた。':'古い鉄格子の向こうに、やわらかな光。みんなで抜けた地下牢の先に、地底洞窟が広がっていた。'}</p>${index<9?'<p class="unlock">✧ 新しい星の道が開きました</p><button class="primary" id="nextStage">次の星の道へ →</button>':'<p>第2章「地底洞窟」へつづく</p><button class="primary" id="chapterMap">星の道をふりかえる</button>'}`;}

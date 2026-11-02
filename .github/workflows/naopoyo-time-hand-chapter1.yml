@@ -15,7 +15,7 @@ jobs:
           node-version: '22'
       - run: node --test prototypes/naopoyo-time-hand-chapter1/tests/*.test.mjs
       - run: npm install --prefix /tmp/naopoyo-dom --no-audit --no-fund jsdom@26.1.0
-      - run: NAOPOYO_JSDOM=/tmp/naopoyo-dom/node_modules/jsdom node docs/naopoyo-time-hand-chapter1-20261102/v4/dom-check.cjs
+      - run: NAOPOYO_JSDOM=/tmp/naopoyo-dom/node_modules/jsdom node docs/naopoyo-time-hand-chapter1-20261102/v5/dom-check.cjs
       - run: node prototypes/naopoyo-time-hand-chapter1/build-preview.mjs /tmp/chapter1-preview
   formal-puzzles:
     runs-on: ubuntu-latest

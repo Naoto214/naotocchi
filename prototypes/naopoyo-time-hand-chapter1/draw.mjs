@@ -1,3 +1,4 @@
+import {drawDungeonFloor,drawDungeonWallDetails} from './dungeon-art.mjs';
 import {drawActors} from '../naopoyo-chapter1/render.mjs';
 import {drawStone} from '../naopoyo-chapter2/stone.mjs';
 import {drawGate} from '../naopoyo-chapter2/gate-art.mjs';
@@ -8,9 +9,9 @@ function drawSpike(c,p){c.fillStyle='#ac7089';c.fillRect(p.x+.1,p.y+.75,.8,.13);
 export function drawBoard(canvas,s,{candidates=[],showRanks=false,route=null,turns=[],children=[],selected=null,origin=null,target=null,stage=null,debugCoordinates=false,effects=[],stateEffects=[],now=performance.now(),reduced=false,gates=s.gates}={}){
  const width=canvas.getBoundingClientRect().width||320,dpr=Math.min(2,globalThis.devicePixelRatio||1);canvas.width=Math.round(width*dpr);canvas.height=Math.round(width*dpr);const c=canvas.getContext('2d');c.setTransform(dpr*width/8,0,0,dpr*width/8,0,0);
  const rawFill=c.fillText.bind(c),rawStroke=c.strokeText.bind(c);const text=(fn,t,x,y)=>{const font=c.font;c.save();c.translate(x,y);c.scale(.01,.01);c.lineWidth*=100;c.font=font.replace(/([\d.]+)px/,(_,n)=>`${Number(n)*100}px`);fn(t,0,0);c.restore();};c.fillText=(t,x,y)=>text(rawFill,t,x,y);c.strokeText=(t,x,y)=>text(rawStroke,t,x,y);
- c.fillStyle='#e8efde';c.fillRect(0,0,8,8);for(let y=0;y<8;y++)for(let x=0;x<8;x++){c.fillStyle=(x+y)%2?'#ced8cb':'#dce4d3';c.fillRect(x,y,1,1);c.strokeStyle='#aabcaa55';c.lineWidth=.015;c.strokeRect(x,y,1,1);}
+ drawDungeonFloor(c,s,stage?.scene);
  if(showRanks)for(const p of candidates){c.fillStyle=p.distance===1?'#b6dded99':'#f5d4a699';c.fillRect(p.x+.02,p.y+.02,.96,.96);}
- for(const [x,y]of s.walls)drawStone(c,x,y);for(const g of gates)drawGate(c,g);for(const e of s.exits){drawExit(c,e);drawCondition(c,e);}for(const p of s.spikes)drawSpike(c,p);
+ for(const [x,y]of s.walls)drawStone(c,x,y);drawDungeonWallDetails(c,s,stage?.scene);for(const g of gates)drawGate(c,g);for(const e of s.exits){drawExit(c,e);drawCondition(c,e);}for(const p of s.spikes)drawSpike(c,p);
  if(target){c.strokeStyle='#b88b36';c.lineWidth=.055;c.strokeRect(target[0]+.05,target[1]+.05,.9,.9);c.fillStyle='#a36b19';c.font='.4px system-ui';c.textAlign='center';c.fillText('★',target[0]+.5,target[1]+.55);}
  const cell=width/8,active=selected?{id:s.actors.find(a=>a.x===selected[0]&&a.y===selected[1])?.id}:null;
  c.save();c.setTransform(dpr,0,0,dpr,0,0);
