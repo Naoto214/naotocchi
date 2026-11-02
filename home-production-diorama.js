@@ -2,9 +2,9 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.NaotocchiHomeDiorama=api;})(typeof window!=='undefined'?window:null,function(){
   'use strict';
   // Home presentation boundary. Raw feedback, history and state remain canonical.
-  function homeText(text) {
+  function homeText(text, preserveMilestone = false) {
     return String(text || '')
-      .replace(/そだち\s*[+＋−-]\s*\d+(?:\.\d+)?[：:]\s*(?:せいちょうした|おとろえでさがった)/g, '')
+      .replace(/そだち\s*[+＋−-]\s*\d+(?:\.\d+)?[：:]\s*(せいちょうした|おとろえでさがった)/g, (_, prose) => preserveMilestone ? prose : '')
       .replace(/(?:おなか|ごきげん|げんき|けんこう|いのち|せいちょう|おとろえ|へんしん|そだち)\s*(?:[+＋−-]|[↑↓])\s*\d+(?:\.\d+)?\s*[%％]?/g, '')
       .replace(/(?:\s*[/／、]\s*){2,}/g, ' / ').replace(/^[\s/／、]+|[\s/／、]+$/g, '').trim();
   }
@@ -427,3 +427,4 @@
   }
   return {noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
+

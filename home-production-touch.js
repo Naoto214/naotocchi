@@ -318,7 +318,7 @@
     const scale=Math.min(p.frameWidth/nativeWidth,p.frameHeight/gameHeight)*.94;
     const cropTop=Math.max(0,rect(stage).top-rect(screen).top-80);
     const viewHeight=p.frameHeight/scale,viewWidth=p.frameWidth/scale,inset=(viewWidth-nativeWidth)/2;
-    style(screen,{'margin-left':inset+'px'});
+    style(screen,{'margin-left':inset+'px',height:nativeHeight+'px','min-height':nativeHeight+'px'});
     presentation={x:fr.left,y:p.frameTop,scale};
     style(frame,{width:viewWidth+'px',height:viewHeight+'px',transform:'scale('+scale+')','transform-origin':'0 0'});
     frame.scrollLeft=0;frame.scrollTop=cropTop;

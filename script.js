@@ -3829,12 +3829,13 @@
   const commentTextCache = new WeakMap();
   function setCommentText(target, text, force = false, character = null) {
     if (!target) return false;
-    const value=String(text??'');
+    const upperV12=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12' && ['message','homeActionText','homeChoiceText','storyFlashText','storyFlashEmoji','birthdayToast','mgResultToast'].includes(target.id);
+    const raw=String(text??'');
+    const value=upperV12 && !['storyFlashEmoji','homeActionText'].includes(target.id) ? window.NaotocchiHomeDiorama?.homeText(raw,true) ?? raw : raw;
     // Only the notice renderer deduplicates repeated renders. Other surfaces
     // still announce each new beat, even when its words match the last beat.
     if (!force && commentTextCache.get(target)===value) return false;
     commentTextCache.set(target,value);
-    const upperV12=document.body.dataset.homeViewportVersion==='12' && ['message','homeActionText','homeChoiceText','storyFlashText','storyFlashEmoji','birthdayToast','mgResultToast'].includes(target.id);
     const html=upperV12 ? escapeHtml(value).replace(COMMENT_EMOJI,emoji=>character?.asset&&emoji===character.emoji?commentPictureHTML(character.asset,emoji,character.label):(commentIconHTML(emoji)||((!/assets\/characters\//.test(DISPLAY_CATALOG?.resolve(emoji)?.asset||'') || /assets\/characters\/(?:egg|companions|partners)\//.test(DISPLAY_CATALOG?.resolve(emoji)?.asset||''))?DISPLAY_CATALOG?.html(emoji):'')||'<span class="comment-drawing v12-unresolved-icon">'+escapeHtml(emoji)+'</span>')) : commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
     const property=illustrated?'innerHTML':'textContent';
     const rendered=illustrated?html:value;
@@ -4013,7 +4014,7 @@
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
         : state.stage === STAGE.EGG ? 'たまごをタップするか「あたためる」をおしてね' : '');
     if (terrainNoticeMode() && state.stage === STAGE.GROWING) {
-      const eventText=window.NaotocchiHomeDiorama.homeText(message);
+      const eventText=window.NaotocchiHomeDiorama.homeText(message,document.body.dataset.homeViewportVersion==='12');
       const warnings=visible ? window.NaotocchiHomeDiorama.homeWarnings(state,notice) : '';
       // Ephemeral events take the one slot; the warning is re-derived after expiry.
       text=eventText || warnings;
