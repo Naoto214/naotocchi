@@ -4,3 +4,11 @@ node_modules/
 test-results/
 .worktrees/
 __pycache__/
+
+# New Work output only; never ignore originals, approved previews or nested dist/.
+/.work-output/
+/work-output/
+/playwright-report/
+/pages-runtime/
+/pages-runtime.tar
+/pages-runtime.tar.gz
