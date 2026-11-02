@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {renderClock,renderBack} from '../life-clock-render.mjs';
+import {render as renderClock,renderBack} from '../life-clock/v19/clock-v19.mjs';
 import {render as v18,renderBack as back18} from '../life-clock/v18/clock-v18.mjs';
 import {sample,overlapCases} from '../life-clock/clock.mjs';
 const normalize=s=>s.replace(/v6-\d+/g,'v6-ID').replace(/(?:file|https?):[^"<>]*\/life-clock\/v16\//g,'../v16/');

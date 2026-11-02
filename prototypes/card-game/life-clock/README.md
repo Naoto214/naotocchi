@@ -1,39 +1,14 @@
-# 人生の時計 — 採用版の正本
+# 人生の時計 — 最終正式採用版 V23
 
-採用デザインは **V18**。本人のVERSION 19指示による **中央3針の積層修正** を適用した最新版は `v19/clock-v19.mjs`。V19デザイン・積層・横向き配置は本人がiPhone Safariで確認済み。ゲームの表示版はV22（縦横ピンチ拡大縮小候補）、PR #501はDraftでV22の実機確認待ち。本番採用・mainマージとは別に管理する。
+2026年11月3日、本人の最終判断で **V23を正式採用、V24を不採用** と確定。
+[正式仕様・復元手順](../../../docs/card-game/life-clock-final-design.md) が人向けの正本、`provenance.json` が機械可読台帳です。
 
-## 一元管理
+- 正式レンダラー：`v23/clock-v23.mjs`。ゲーム入口：`../life-clock-render.mjs`。
+- 上から金（ラウンド）→赤（先攻Aの残り時）→緑（後攻Bの残り時）。SVG描画順は逆の緑→赤→金→中心キャップ。
+- V23復元点：`0ac97d1681c117dc1ceb1744172418bb9d5f412f`。
+- 最新制作版はV24、正式採用版はV23。`v24/`は不採用比較履歴として保持。
+- V22の承認済み本体、操作、表裏、保存・ゲーム計算を継承。V23の針と中心軸は原本から変更しない。
+- `v23/front.svg`、`v23/back.svg`、`v23/comparison.svg`を保存。再生成は `node prototypes/card-game/life-clock/v23/export.mjs`。相対参照画像も一緒に保持する。
+- PR #506はDraft継続。デザイン採用は確定、本番GitHub Pagesへの反映は未実施。
 
-`provenance.json` が採用状態・参照先・版履歴・原本ハッシュの唯一の台帳。`adoption.renderer` が最新採用描画、`adoption.developmentCandidate` が未採用候補（現在null）。候補を作っても採用参照を変更せず、本人の承認後に台帳とゲーム入口を同時に更新する。
-
-- ゲーム入口：`../life-clock-render.mjs`。V19描画を呼び、画像URLを解決する。
-- V19：V18のSVGから中央針グループだけを金→赤→緑に並べ替える。中央キャップは上に残る。
-- V18：`v18/clock-v18.mjs`。V17 Aの外側クリップ、銀色小針と銀色裏面。原本を変更しない。
-- 表面画像：`v16/plate.webp`、前面銀葉：`v16/occlusion.png`、真円リング：`v16/ring.mjs`。
-- 透過SVG：`v19/front.svg`、`v19/back.svg`。前面は既存画像を相対参照するため、このフォルダー構成ごと利用する。文字は端末のGeorgia/serifを使用し、ゲームでは既存の`alignNumerals`で字形を補正する。
-- 透過SVG再生成：リポジトリルートで `node prototypes/card-game/life-clock/v19/export.mjs`。画像再生成・白色キー除去は行わない。
-- 針の形状・長さ・太さ・角度：`clock.mjs`。金90%/5、赤80%/16、緑70%/32（基準半径432）。V19はこれらを変更しない。
-- メタリック配色：`v8/clock-v8.mjs` のC。数字と軸：`v17/clock-v17.mjs` のA（52px、元40pxの+30%）。銀小針・透過・裏面：V18。
-- 180度回転：`../life-clock-turn.mjs` と `../life-clock.css`。対戦値の投影：`../life-clock-state.mjs`（変更なし）。
-
-## 旧版の復元
-
-V18の完全保存点は `75d9a4d5e6c146a3f311de9c829d5fe22d4b570b`。`git show <commit>:<path>` で読み出し、別の検証ブランチで復元する。旧版を破壊するreset/force pushは不要。
-
-時計だけをV18に戻す場合は、検証ブランチで `life-clock-render.mjs` のimport/exportを `v18/clock-v18.mjs` に戻す。台帳・表示版・allowlistのレビュー済みハッシュも更新し、時計および対戦回帰を実施する。V17 A以前の原本保存点・各ファイルSHA-256は台帳の既存`commit`/`files`に残す。V8〜V18および既存の比較資料は削除・上書きしない。
-
-## V19検証
-
-`node --test prototypes/card-game/tests/life-clock*.test.mjs`
-
-既存6重なり条件、0と12、中央キャップ、寸法、V18との非針部分の一致、裏面一致、324状態の値・角度、保存互換性を確認する。表示サイズと実機QAの結果は `docs/card-game/life-clock-v19-verification.md` に記録する。
-
-## V20操作UI候補
-
-カードと時計のダブルタップ、表示ボタン、260msの動きを共通化。デザイン描画はV19を継続し、V18/V19原本と検証記録は保持。V19全体保存点は `9a1e387dc53dfcf4583790135c78dcff3280d486`。検証は `docs/card-game/life-clock-v20-verification.md`。
-
-## V21横向き拡大の修正
-
-V20の完全保存点は `bddda69004630bcccfbcf83be56c08957c0cc772`。ボタン拡大の中心座標と拡大中の回転後スクロールだけを修正。V20のデザイン・共通操作・資料は保持。検証と未完了の実機確認は `docs/card-game/life-clock-v21-verification.md` に記録。
-
-V22は時計のピンチ拡大縮小を追加。V21復元点は `699bc1a4320de66657a1bd082df696812c7e438c`。[V22検証記録](../../../docs/card-game/life-clock-v22-verification.md)。
+V18〜V24の各原本・過去の検証記録は履歴として保存しています。旧版の採用記述より、この正本と台帳の採用欄を優先してください。
