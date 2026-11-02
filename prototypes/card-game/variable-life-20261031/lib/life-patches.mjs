@@ -34,6 +34,13 @@ export const VARIANTS={
  // diagnostics added after the pilot (PLAN-WORLD.md §2): why the extension happens so early
  'W-Bk':{world:{cost:2,cpu:'keep'},note:'診断（CPU）：W-B のまま、CPU は XI・XII を延長のためだけに出す（ただのセカイとしては出さない）'},
  'W-BL':{world:{cost:2},note:'診断（ルール）：B方式で、XI・XII は R8 以降にだけ出せる'},
+ // time cards IX–XII with the special counter (PLAN-TIME.md). Controls: T-X4 / T-X8 = 4 / 8 blank cards in the same slots.
+ 'T-X4':{blanks:true,note:'対照：4枠を効果なしの対照札に（ルールは現行）'},'T-X8':{blanks:true,note:'対照：8枠を効果なしの対照札に（ルールは現行）'},
+ 'T-2s':{time:{cost:2,counter:true,cpu:'smart'},note:'IX・X・XI・XII 各1・時2・特殊カウンターあり・CPU は終盤の勝敗見込みで判断'},
+ 'T-2f':{time:{cost:2,counter:true,cpu:'filler'},note:'同上・CPU は時のカードも普通のセカイとして出す（PR #498 W-* と同じ考え方）'},
+ 'T-3s':{time:{cost:3,counter:true,cpu:'smart'},note:'各1・時3・特殊カウンターあり'},
+ 'T-2n':{time:{cost:2,counter:false,cpu:'smart'},note:'各1・時2・特殊カウンターなし（比較用）'},
+ 'T-8s':{time:{cost:2,counter:true,cpu:'smart'},note:'各2（8枚）・時2・特殊カウンターあり'},
 };
 
 // ---- cards ----------------------------------------------------------------------------------------------------
@@ -180,3 +187,57 @@ export const POLICY_WORLD=[
  ['world-helper',"const growthMult=o=>","const XW=/^X-(XI|XII)-(A|B|C|BL)$/;\nfunction worldLifeValue(c,o){const m=XW.exec(c?.cardId??''),L=o.life;if(!m||!L)return 0;const from=L.final,to=Math.min(12,m[2]==='C'?from+1:Math.max(from,m[1]==='XI'?11:12));return to>from?lifeValue('lifeExtend',o)*(to-from):0;}\nconst growthMult=o=>"],
  ['world-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend+worldLifeValue(c,o);"],
 ];
+
+// ---- time cards IX・X・XI・XII with the special counter (PLAN-TIME.md, TIME.md) --------------------------------------
+// Ordinary world cards (normal placement, normal world cost, replacing the owner's world). Placing one triggers a forced
+// 'place' ability (same pattern as XI/XII): set the final round to N. N must not be before the current round (the card is
+// simply not offered then). Special counter: while the opponent's time card ability is waiting on the chain, a player may place
+// a time card from hand as a response (it is placed in the world slot like a normal world, paying its world cost). The chain
+// resolves last-in-first-out: the last (top) time card that is not negated applies its N and marks every earlier time card of
+// the same chain as countered: negated, and moved from its owner's world slot to the discard pile. So IX → XII → X → XI ends with
+// XI applied, the other three in the discard piles, and the final round fixed only after every response (not mid-chain).
+export const TIME_N={IX:9,X:10,XI:11,XII:12};
+export function timeCards(cost=2,counter=true){
+ const c=(n,name)=>({id:'X-T-'+name,name,type:'world',cost,rare:false,
+  text:`このカードを出したとき、終了ラウンドを${n}にする（両者共通。現在のラウンドより前にはできない）。`+(counter?'相手の時のカードに対して、カウンターとして出してもよい。カウンターされた時のカードは捨て札に置く。':''),
+  source:'variable-life-20261031 time（実験専用の仮カード）',source_sha256:'experimental'});
+ return Object.fromEntries(Object.entries(TIME_N).map(([name,n])=>['X-T-'+name,c(n,name)]));
+}
+export function timeRules(counter=true){
+ return '\n// ---- variable-life-20261031 time cards IX–XII ----\n'+Object.entries(TIME_N).map(([name,n])=>
+  `add('X-T-${name}',{mode:'world',placeCondition:'roundAtMost${n}',${counter?"reaction:'timeCounter',":''}triggers:[{when:'place',mandatory:true,steps:[{op:'timeSet',n:${n}}]}]});`).join('\n')+'\n';
+}
+export const ENGINE_TIME=[
+ // Response-window counter: offered only to the player whose opponent owns the top-most live time card ability on the chain.
+ ['time-counter',"for(const source of p.hand){const c=card(s,source);if(p.time<fx.payment(s,a,'quick_'+c.type,c.cost)&&RULES[c.id]?.mode!=='trap')continue;",
+  "for(const source of p.hand){const c=card(s,source);if(RULES[c.id]?.reaction==='timeCounter'){if(s.phase==='response'&&!s.choice&&!s.pending.length&&fx.condition(s,a,RULES[c.id].placeCondition,{source})){const top=[...s.chain].reverse().find(l=>!l.negated&&RULES[card(s,l.source)?.id]?.reaction==='timeCounter');if(top&&top.actor!==a){const cost=fx.payment(s,a,'world',c.cost);if(cost!==Infinity)add('place',`${c.name}でカウンター（時${cost}）`,{source,slot:'world',cost,counter:true});}}continue;}if(p.time<fx.payment(s,a,'quick_'+c.type,c.cost)&&RULES[c.id]?.mode!=='trap')continue;"],
+];
+export const EFFECTS_TIME=[
+ ['time-conditions'," case 'finalTime':return s.round===10||m?.stage===8;"," case 'roundAtMost9':return s.round<=9; case 'roundAtMost10':return s.round<=10; case 'roundAtMost11':return s.round<=11; case 'roundAtMost12':return s.round<=12; case 'finalTime':return s.round===10||m?.stage===8;"],
+ ['time-op'," default:throw Error('効果handlerが未実装：'+e.op);"," case 'timeSet':{const from=s.life.final,to=Math.min(12,Math.max(e.n,s.round)),superseded=[],names=[];for(const x of s.chain){if(x.negated||!/^X-T-/.test(card(s,x.source)?.id??'')||!RULES[card(s,x.source).id]?.reaction)continue;x.negated=true;const own=s.cards[x.source].owner;if(owner(s,own).board.world===x.source)h.discardField(s,own,x.source,{cause:'effect',effectActor:a});superseded.push(card(s,x.source).id);names.push(card(s,x.source).name);}s.life.final=to;l.applied=true;h.log(s,(names.length?'カウンター成立：'+names.join('・')+' は捨て札へ。':'')+'終了ラウンドがR'+to+'になった（'+card(s,l.source).name+'）');s.life.events.push({op:'timeSet',n:e.n,extended:to>from,shortened:to<from,from,to,battle:superseded.length+1,superseded,card:card(s,l.source).id,actor:a,round:s.round,turn:s.turn,serial:s.serial,final:s.life.final,cap:{...s.life.cap},growth:{A:owner(s,'A').growth,B:owner(s,'B').growth},reached:{A:owner(s,'A').reached,B:owner(s,'B').reached}});break;}\n default:throw Error('効果handlerが未実装：'+e.op);"],
+];
+// CPU helper. smart: a time card is worth only the change it makes to the pending final round, weighted by how close the end is
+// and by the standings (behind → longer, ahead → shorter), minus its cost and the world it replaces. filler: an ordinary world's
+// value plus the same change value (the PR #498 W-* behaviour). The pending final round is read from the public chain (the
+// names of time cards waiting to resolve), so a counter is valued against the card it would beat.
+export function policyTime(cpu='smart'){
+ const helper=`
+const TIMEN={IX:9,X:10,XI:11,XII:12};
+function pendingFinal(o){for(let i=(o.chain?.length??0)-1;i>=0;i--){const n=TIMEN[o.chain[i].name];if(n)return n;}return o.life?.final??10;}
+function timeValue(c,o){const n=TIMEN[c?.name],L=o.life;if(!n||!L)return null;const F=pendingFinal(o);if(n===F)return 0;
+ const me=o.players[o.seat],op=o.players[other(o.seat)],d=op.growth-me.growth,w=o.round>=F-1?1:o.round>=F-3?.5:.15;
+ let v=w*(n-F)*(d>0?4+.4*Math.min(d,30):d<0?-(4+.4*Math.min(-d,30)):0);
+ if(L.holding[other(o.seat)])v+=n>F?-20:10;if(L.holding[o.seat])v+=n>F?10:-10;return v;}
+`;
+ const score=cpu==='smart'
+  ?"if(a.slot==='world'){const tv=timeValue(c,o);if(tv!==null)return (tv===0?-1:tv)-spend-(b.world&&!TIMEN[b.world.name]?3:0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"
+  :"if(a.slot==='world'){const tv=timeValue(c,o);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend+(tv??0);}";
+ return [['time-helper',"const growthMult=o=>",helper+"const growthMult=o=>"],
+  ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;",score]];
+}
+
+// More blank control cards for the 4- and 8-slot controls: each name is an ordinary card (3 copies at most), so the controls use
+// X-blank, X-blank-2 and X-blank-3 — identical, unplayable, only the names differ.
+export const EXTRA_BLANKS={'X-blank-2':{id:'X-blank-2',name:'対照札2（効果なし・仮）',type:'event',cost:1,rare:false,text:'（実験の対照用。プレイできない。）',source:'variable-life-20261031（実験専用の仮カード）',source_sha256:'experimental',method:'すぐつかう'},
+ 'X-blank-3':{id:'X-blank-3',name:'対照札3（効果なし・仮）',type:'event',cost:1,rare:false,text:'（実験の対照用。プレイできない。）',source:'variable-life-20261031（実験専用の仮カード）',source_sha256:'experimental',method:'すぐつかう'}};
+export const extraBlankRules="\nadd('X-blank-2',{mode:'quick',condition:'lifeNever',steps:[]});\nadd('X-blank-3',{mode:'quick',condition:'lifeNever',steps:[]});\n";

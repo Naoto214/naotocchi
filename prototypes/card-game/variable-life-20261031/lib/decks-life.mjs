@@ -30,8 +30,18 @@ export const FILL={
  'W-A':['X-XI-A','X-XII-A'],'W-B':['X-XI-B','X-XII-B'],'W-C':['X-XI-C','X-XII-C'],'W-XI1':['X-XI-B','X-blank'],
  'W-A3':['X-XI-A','X-XII-A'],'W-B3':['X-XI-B','X-XII-B'],'W-C3':['X-XI-C','X-XII-C'],'W-Bk':['X-XI-B','X-XII-B'],'W-BL':['X-XI-BL','X-XII-BL'],'L-A1aL':['X-life-extend','X-life-extend'],
 };
+// k > 2 slots (time cards, PLAN-TIME.md): repeatedly take one copy from the non-main card name with the most copies left (ties:
+// first listed), always the last remaining copy of that name. For k <= 2 the original rule above is used unchanged.
+export function slotsK(cards,k){
+ const left={},order=[];for(const id of cards){if(id.startsWith('M-'))continue;if(!(id in left)){left[id]=0;order.push(id);}left[id]++;}
+ const idx=[...cards.keys()],out=[];for(let n=0;n<k;n++){const id=[...order].sort((x,y)=>left[y]-left[x]||order.indexOf(x)-order.indexOf(y))[0];
+  const index=idx.filter(i=>cards[i]===id&&!out.some(o=>o.index===i)).pop();out.push({id,index});left[id]--;}
+ return out;
+}
+const T4=['X-T-IX','X-T-X','X-T-XI','X-T-XII'];
+Object.assign(FILL,{'T-X4':['X-blank','X-blank-2','X-blank','X-blank-2'],'T-X8':['X-blank','X-blank-2','X-blank-3','X-blank','X-blank-2','X-blank-3','X-blank','X-blank-2'],'T-2s':T4,'T-2f':T4,'T-3s':T4,'T-2n':T4,'T-8s':[...T4,...T4]});
 export function deckFor(id,variant){
  const cards=[...BASE_DECKS[id].cards],fill=FILL[variant];if(fill===undefined)throw Error('unknown variant '+variant);if(!fill)return {cards,replaced:[]};
- const s=slots(BASE_DECKS[id].cards);s.forEach((x,k)=>{cards[x.index]=fill[k];});
+ const s=fill.length>2?slotsK(BASE_DECKS[id].cards,fill.length):slots(BASE_DECKS[id].cards);s.forEach((x,k)=>{cards[x.index]=fill[k];});
  return {cards,replaced:s.map((x,k)=>({from:x.id,index:x.index,to:fill[k]}))};
 }

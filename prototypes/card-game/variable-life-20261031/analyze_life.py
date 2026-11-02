@@ -11,7 +11,8 @@ other = lambda a: 'B' if a == 'A' else 'A'
 NB = 2000
 NAMES = {'A0': 'G-A', 'A5': 'G-D', 'X0': 'L-X0', 'A1': 'L-A1', 'A1a': 'L-A1a', 'A1t': 'L-A1t', 'A2': 'L-A2', 'A2s': 'L-A2s', 'A3': 'L-A3', 'A4': 'L-A4',
          'A1c4': 'L-A1c4', 'A1n1': 'L-A1n1', 'A1aL': 'L-A1aL', 'A1t1': 'L-A1t1',
-         'WA': 'W-A', 'WB': 'W-B', 'WC': 'W-C', 'WXI1': 'W-XI1', 'WA3': 'W-A3', 'WB3': 'W-B3', 'WC3': 'W-C3', 'WBk': 'W-Bk', 'WBL': 'W-BL'}
+         'WA': 'W-A', 'WB': 'W-B', 'WC': 'W-C', 'WXI1': 'W-XI1', 'WA3': 'W-A3', 'WB3': 'W-B3', 'WC3': 'W-C3', 'WBk': 'W-Bk', 'WBL': 'W-BL',
+         'TX4': 'T-X4', 'TX8': 'T-X8', 'T2s': 'T-2s', 'T2f': 'T-2f', 'T3s': 'T-3s', 'T2n': 'T-2n', 'T8s': 'T-8s'}
 MAINC = ['A0', 'X0', 'A1', 'A1a', 'A1t', 'A2', 'A2s', 'A3', 'A4', 'A5']
 
 def load_runs(name):
@@ -50,7 +51,7 @@ events = lambda r: (r.get('life') or {}).get('events', [])
 ext_events = lambda r: [e for e in events(r) if e.get('extended')]
 raise_events = lambda r: [e for e in events(r) if e.get('raised')]
 used = lambda x: bool(x.get('xPlayed') or x.get('xFired'))
-FUNCTIONAL = {'X-life-extend', 'X-cap-raise', 'X-life-both'} | {f'X-{n}-{m}' for n in ('XI', 'XII') for m in ('A', 'B', 'C', 'BL')}
+FUNCTIONAL = {'X-life-extend', 'X-cap-raise', 'X-life-both'} | {f'X-{n}-{m}' for n in ('XI', 'XII') for m in ('A', 'B', 'C', 'BL')} | {f'X-T-{n}' for n in ('IX', 'X', 'XI', 'XII')}
 seen_func = lambda x: any(s['card'] in FUNCTIONAL for s in x.get('xSeen', []))
 
 _PG = {}
@@ -196,10 +197,10 @@ out['contrasts'] = {name: {m: contrast(byv, V[c1], V[c0], f) for m, f in mf.item
 out['deckContrasts'] = {name: deck_contrasts(byv, V[c1], V[c0]) for name, (c1, c0) in pairs.items()}
 
 # Card access fairness: games where exactly one seat drew a working life card. That seat's score vs the same seat in X0.
-def access(c, byv=byv, V=V):
+def access(c, byv=byv, V=V, ctrl='L-X0'):
     rows = []
     for k, r in byv[V[c]].items():
-        x0 = byv['L-X0'].get(k)
+        x0 = byv[ctrl].get(k)
         if not x0: continue
         s = [a for a in 'AB' if seen_func(r['seat'][a])]
         if len(s) == 1: a = s[0]; rows.append((k, SC[r['seat'][a]['result']] - SC[x0['seat'][a]['result']], SC[r['seat'][a]['result']]))
@@ -275,4 +276,45 @@ if glob.glob('runs/MAINW-shard*.jsonl.gz'):
             out['world']['contrasts'][name] = {m: contrast(wb, WV[a], WV[b], f) for m, f in mf.items()}
             out['world']['deckContrasts'][name] = deck_contrasts(wb, WV[a], WV[b])
     out['world']['cardAccess'] = {c: access(c, wb, WV) for c in ('WA', 'WB', 'WC', 'WXI1')}
+# Time cards IX–XII with the special counter (PLAN-TIME.md). MAINT 001-020, SENST 001-010 (8 cards).
+if glob.glob('runs/MAINT-shard*.jsonl.gz'):
+    TR = index(load_runs('MAINT') + load_runs('SENST'))
+    tb = {**{v: byv[v] for v in ('G-A', 'L-X0', 'G-D')}, **TR}
+    TV = {c: NAMES[c] for c in ('A0', 'X0', 'A5', 'TX4', 'T2s', 'T2f', 'T3s', 'T2n', 'TX8', 'T8s')}
+    def time_extra(rs):
+        comp = [r for r in rs if r['status'] == 'completed']
+        ev = [(r, e) for r in comp for e in events(r) if e.get('op') == 'timeSet']
+        sc = lambda r, a: 1 if r['result']['winner'] == a else .5 if not r['result']['winner'] else 0
+        seats = [r['seat'][a] for r in comp for a in 'AB']
+        win = lambda a: mean([r['result']['winner'] == a for r in comp])
+        changers = [(r, e) for r, e in ev if e['to'] != e['from']]
+        behind = lambda e: e['growth'][other(e['actor'])] > e['growth'][e['actor']]
+        ahead = lambda e: e['growth'][other(e['actor'])] < e['growth'][e['actor']]
+        return {
+            'endRoundMean': rnd(mean([r['round'] for r in comp]), 2), 'finalRoundMean': rnd(mean([r['final'] for r in comp]), 2),
+            'finalRound': {str(k): rnd(mean([r['final'] == k for r in comp])) for k in (9, 10, 11, 12)},
+            'gamesWithTimeCard': rnd(mean([any(e.get('op') == 'timeSet' for e in events(r)) for r in comp])),
+            'resolutionsPerGame': rnd(len(ev) / len(comp), 3), 'resolutionRound': dict(sorted(Counter(e['round'] for r, e in ev).items())),
+            'timeCardsPlayedPerGame': rnd(sum(e['battle'] for r, e in ev) / len(comp), 3),
+            'counterBattleRate': rnd(mean([any(e.get('op') == 'timeSet' and e['battle'] > 1 for e in events(r)) for r in comp])),
+            'battleSize': dict(sorted(Counter(e['battle'] for r, e in ev).items())), 'maxBattle': max([e['battle'] for r, e in ev], default=0),
+            'counteredCardsPerGame': rnd(sum(len(e['superseded']) for r, e in ev) / len(comp), 3),
+            'changes': {'extend': sum(e['to'] > e['from'] for r, e in ev), 'shorten': sum(e['to'] < e['from'] for r, e in ev), 'noChange': sum(e['to'] == e['from'] for r, e in ev)},
+            'changerScore': rnd(mean([sc(r, e['actor']) for r, e in changers])),
+            'extenderBehindScore': rnd(mean([sc(r, e['actor']) for r, e in changers if e['to'] > e['from'] and behind(e)])),
+            'shortenerAheadScore': rnd(mean([sc(r, e['actor']) for r, e in changers if e['to'] < e['from'] and ahead(e)])),
+            'firstSeatWin': rnd(win('A')), 'secondSeatWin': rnd(win('B')),
+            'timeSpentOnTimeCardsPerGame': rnd(sum(e['battle'] for r, e in ev) * 2 / len(comp), 2),
+        }
+    out['time'] = {'conditions': {c: {**summary(list(tb[TV[c]].values())), 'time': time_extra(list(tb[TV[c]].values()))} for c in TV if tb.get(TV[c])},
+                   'contrasts': {}, 'deckContrasts': {}}
+    tpairs = {'T2s-TX4（ルール効果）': ('T2s', 'TX4'), 'T2f-TX4（ルール効果・CPU序盤もセカイとして出す）': ('T2f', 'TX4'), 'T3s-TX4（ルール効果・時3）': ('T3s', 'TX4'),
+              'T2n-TX4（ルール効果・カウンターなし）': ('T2n', 'TX4'), 'T8s-TX8（ルール効果・各2枚）': ('T8s', 'TX8'),
+              'T2s-A0（総合）': ('T2s', 'A0'), 'T3s-A0（総合）': ('T3s', 'A0'), 'T2n-A0（総合）': ('T2n', 'A0'), 'T8s-A0（総合）': ('T8s', 'A0'), 'TX4-A0（4枚抜いた影響）': ('TX4', 'A0'), 'TX8-A0（8枚抜いた影響）': ('TX8', 'A0'),
+              'T2s-T2n（カウンターの効果）': ('T2s', 'T2n'), 'T3s-T2s（時3−時2）': ('T3s', 'T2s'), 'T2f-T2s（CPU：セカイとしても出す−終盤判断）': ('T2f', 'T2s'), 'T8s-T2s（各2−各1）': ('T8s', 'T2s')}
+    for name, (a, b) in tpairs.items():
+        if tb.get(TV[a]) and tb.get(TV[b]):
+            out['time']['contrasts'][name] = {m: contrast(tb, TV[a], TV[b], f) for m, f in mf.items()}
+            out['time']['deckContrasts'][name] = deck_contrasts(tb, TV[a], TV[b])
+    out['time']['cardAccess'] = {c: access(c, tb, TV, 'T-X4') for c in ('T2s', 'T2f', 'T3s', 'T2n')}
 print(json.dumps(out, ensure_ascii=False, indent=1))
