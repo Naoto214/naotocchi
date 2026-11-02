@@ -15161,8 +15161,8 @@
     // Measure after changing this attribute, before starting a speech reaction.
     el.device.dataset.castCrowded = String(recruited.length > 0);
     el.device.dataset.homeHousehold = 1 + Number(!!p) + recruited.length > 5 ? 'crowded' : 'small';
-    const stageRect = el.castStage.getBoundingClientRect();
-    const width = Math.floor(stageRect.width);
+    const stageRect = (document.body.dataset.homeViewportVersion==='12' && window.NaotocchiHomeViewport?.presentationRect?.(el.castStage)) || el.castStage.getBoundingClientRect();
+    const width = document.body.dataset.homeViewportVersion==='12'?Math.round(stageRect.width):Math.floor(stageRect.width);
     const conversationHeight = terrainNoticeMode() ? 44 : el.speechSlot.getBoundingClientRect().height || 44;
     const height = el.device.classList.contains('ui-home-active') ? Math.max(108+conversationHeight,Math.floor(stageRect.height)) : undefined;
     if (width < 240) return;

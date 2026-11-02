@@ -273,3 +273,8 @@ body[data-home-viewport-version="12"][data-home-tiny-overview="true"] .home-livi
 
 /* Double only the transparent SVG canvas, retaining the original unit scale. */
 body[data-home-viewport-version="12"] .pet-expression-accent>svg[data-home-effect-canvas="expanded"]{position:absolute;left:-50%;top:-50%;width:200%;height:200%;overflow:visible}
+
+/* Fixed V12 lanes keep long text inside their own scrollable panel. Choices
+   remain separate fixed overlays; typography and authored text are unchanged. */
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){max-height:100%!important;overflow:auto!important;overscroll-behavior:contain}
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #speechSlot #homeCommentDock>:is(#speechBubble,#storyFlash){max-height:100%!important;overflow:auto!important;overscroll-behavior:contain}

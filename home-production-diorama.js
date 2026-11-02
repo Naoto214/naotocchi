@@ -305,7 +305,35 @@
       }
       rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
       if(newbornPoint)newbornPending=false;
+      publishPaintEnvelope();
       paint();
+    }
+    function publishPaintEnvelope(){
+      if(doc.body?.dataset.homeViewportVersion!=='12')return;
+      let top=Infinity,bottom=-Infinity;
+      for(const a of model.snapshot()){
+        const row=rows.get(a.key);if(!row)continue;
+        const b=model.bounds(a),frameHeight=parseFloat(row.owner.style.height)||row.h;
+        const foot=row.y-(parseFloat(row.owner.style.top)||0);
+        let above=Math.max(a.extent?.top||a.h,a.h*1.08+a.w*.12),below=Math.max(6,a.extent?.bottom||0);
+        // Reserve every expression, not just the currently visible mark.
+        if(a.kind==='pet')for(const kind of Object.keys(accentCenters)){
+          const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'';
+          const m=html.match(/translate\(\s*[-\d.]+[ ,]+([-\d.]+)/);if(!m)continue;
+          const dy=Number(m[1]);
+          above=Math.max(above,foot-(2+dy)*frameHeight/104);
+          below=Math.max(below,(46+dy)*frameHeight/104-foot);
+        }
+        for(const y of [b.top,(b.top+b.bottom)/2,b.bottom]){
+          const d=scene.navigation?.depthScale?.({x:(b.left+b.right)/2,y})||1;
+          top=Math.min(top,y-above*d-24);bottom=Math.max(bottom,y+below*d+24);
+        }
+      }
+      if(!Number.isFinite(top))return;
+      const value={top:Math.floor(top+1e-4),bottom:Math.ceil(bottom-1e-4),width:Math.round(scene.width*100)/100,height:Math.round(scene.height*100)/100};
+      if(JSON.stringify(value)===JSON.stringify(stage.__homePaintEnvelope))return;
+      stage.__homePaintEnvelope=value;
+      if(env.CustomEvent)stage.dispatchEvent(new env.CustomEvent('home-paint-envelope'));
     }
     function paint(){
       // Care and visibility changes can interrupt before activation or after exit.
