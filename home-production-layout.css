@@ -242,3 +242,21 @@ body[data-home-viewport-version="12"][data-home-production="true"][data-home-ter
  body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #careActions>button span{line-height:13px}
  body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #careActions>button :is(.care-icon,.display-icon,.ui-icon){width:16px;height:16px}
 }
+
+/* V12 final portrait lanes: no content-driven camera/layout changes. */
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot{justify-content:center!important;align-items:flex-start!important}
+body[data-home-viewport-version="12"][data-home-production="true"] #speechSlot #homeCommentDock{justify-content:flex-end!important;align-items:center!important}
+@media (orientation:portrait){
+ body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechBubble{padding:4px 9px;gap:2px}
+}
+
+body[data-home-viewport-version="12"][data-home-tiny-overview="true"] .home-living-world{
+ left:var(--home-overview-x)!important;top:var(--home-overview-y)!important;right:auto!important;bottom:auto!important;
+ width:var(--home-overview-width)!important;height:var(--home-overview-height)!important;
+ transform:scale(var(--home-overview-scale))!important;transform-origin:0 0!important;
+}
+
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .cast-title-line{display:none}
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .cast-heading:not(:has(#partnerLabel:not(:empty))){display:none}
+
+@media(orientation:landscape){body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){font-size:9px;line-height:11px}}

@@ -7,7 +7,8 @@ export function createHomeWorld(options){
  const painting=doc.createElement('canvas');let paintingKey='';
  const canvas=doc.createElement('canvas');canvas.className='home-art-canvas';container.appendChild(canvas);const ctx=canvas.getContext('2d');
  let env={},spec=null,img=null,loaded=false,error=null,generation=0,time=0,dead=false,nav=null,navKey='',revision=0,lastPaint='',legacy=null;
- const geometry=()=>{const host=container.getBoundingClientRect(),r=doc.getElementById('castStage').getBoundingClientRect();return {host,stage:{left:r.left-host.left,top:r.top-host.top,width:r.width,height:r.height}};};
+ const displayRect=e=>win.NaotocchiHomeViewport?.presentationRect?.(e)||e.getBoundingClientRect();
+ const geometry=()=>{const host=displayRect(container),r=displayRect(doc.getElementById('castStage'));return {host,stage:{left:r.left-host.left,top:r.top-host.top,width:r.width,height:r.height}};};
  function setEnvironment(e){if(dead)return;env={...e};const selected=selectRecoveredScene(e.region);if(!selected){generation++;canvas.style.display='none';if(!legacy)legacy=createLegacyWorld(options);legacy.setEnvironment(e);return;}
   legacy?.destroy();legacy=null;canvas.style.display='';if(spec===selected&&loaded){onStatus('art-25d');return;}spec=selected;loaded=false;error=null;nav=null;navKey='';lastPaint='';time=0;revision++;const token=++generation;const next=new win.Image();next.decoding='async';next.onload=()=>{if(dead||token!==generation)return;img=next;loaded=true;lastPaint='';onStatus('art-25d');};next.onerror=()=>{if(dead||token!==generation)return;error='背景画像を読み込めませんでした';onStatus('unavailable',error);};next.src=ART_CANDIDATES.find(a=>a.id===spec.candidate).src;onStatus('art-25d-loading');
  }

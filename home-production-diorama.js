@@ -208,6 +208,7 @@
       drag({actor,success}){if(actor&&success)finish();}};
   }
   function createController({stage,document:doc,env=window,getActors,isBlocked=()=>false,isVisible=()=>true,onGesture=()=>{},onPosition=()=>{},onViewChange=()=>{},getProfile=()=>({}),getWorld=()=>({}),getMeguru=()=>null,guideKey='naotocchi-home-guide-v1'}){
+    const displayRect=e=>env.NaotocchiHomeViewport?.presentationRect?.(e)||e.getBoundingClientRect();
     const modelAPI=env.NaotocchiHomeDioramaModel;if(!stage||!modelAPI)return null;
     let enabled=false,dead=false,scene=null,environment=null,flags={},rows=new Map(),raf=0,last=0,gesture=null,sceneKey='',wasBlocked=false;
     let propNodes=[],world=null,worldLoading=false,worldHost=null,activeTime=0,frames=0,frameGaps=[],loadGeneration=0;
@@ -251,9 +252,9 @@
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
       import('./home-production-world.mjs').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
         world=mod.createHomeWorld({M,container:worldHost,document:doc,window:env,
-          getGroundAnchor:()=>scene?stage.getBoundingClientRect().top-worldHost.getBoundingClientRect().top+scene.floor*.8:undefined,
+          getGroundAnchor:()=>scene?displayRect(stage).top-displayRect(worldHost).top+scene.floor*.8:undefined,
           onStatus:(mode,error)=>{stage.dataset.worldRenderer=mode;if(error)stage.dataset.worldError=error;else delete stage.dataset.worldError;doc.body.dataset.livingHome=mode;}});
-        worldLoading=false;world.setEnvironment(environment);if(scene){scene.navigation=world.navigation(stage.getBoundingClientRect());scene.visualPoints=world.observationPoints?.(scene.navigation)||[];scene.visible=visibleAt;sync();}
+        worldLoading=false;world.setEnvironment(environment);if(scene){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];scene.visible=visibleAt;sync();}
       }).catch(error=>{if(generation!==loadGeneration)return;worldLoading=false;stage.dataset.worldRenderer='unavailable';stage.dataset.worldError=String(error.message);});
     }
     function clearWorld(){loadGeneration++;worldLoading=false;world?.destroy();world=null;worldHost?.remove();worldHost=null;if(doc.body)delete doc.body.dataset.livingHome;}
@@ -262,7 +263,7 @@
     function clearGesture(){if(gesture){try{stage.releasePointerCapture(gesture.pointerId);}catch(_){}gesture=null;}marker.hidden=true;}
     function interrupt(){clearGesture();model.cancel();paint();}
     function clearStage(){const poop=doc.getElementById?.('poopRow');if(poop){delete poop.dataset.groundKey;for(const n of [...poop.children]){n.style.left='';n.style.top='';n.style.visibility='';}}for(const k of Object.keys(stage.dataset))if(k.startsWith('diorama')||k.startsWith('world')||k==='livingMetrics')delete stage.dataset[k];}
-    function restore(row){effectPaints.delete(row.owner);for(const accent of row.owner.querySelectorAll?.('.pet-expression-accent')||[]){accent.style.translate='';accent.style.removeProperty('--sleep-drift');for(const path of accent.querySelectorAll('path'))path.removeAttribute('transform');}delete row.owner.dataset.effectFlipped;row.owner.style.removeProperty('--effect-reflect-offset');onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.scale='';n.style.transformOrigin='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');n.style.removeProperty('--diorama-sleep-shift');}
+    function restore(row){for(const image of row.owner.querySelectorAll?.('.character-asset')||[]){for(const key of ['mask-image','-webkit-mask-image','mask-position','-webkit-mask-position','mask-size','-webkit-mask-size','mask-repeat','-webkit-mask-repeat','mask-clip','-webkit-mask-clip'])image.style.removeProperty(key);}effectPaints.delete(row.owner);for(const accent of row.owner.querySelectorAll?.('.pet-expression-accent')||[]){accent.style.translate='';accent.style.removeProperty('--sleep-drift');for(const path of accent.querySelectorAll('path'))path.removeAttribute('transform');}delete row.owner.dataset.effectFlipped;row.owner.style.removeProperty('--effect-reflect-offset');onPosition(row,0,0);for(const n of [row.owner,...(row.attachments||[])]){n.style.translate='';n.style.scale='';n.style.transformOrigin='';n.style.zIndex='';n.style.maskImage='';n.style.webkitMaskImage='';n.style.maskPosition='';n.style.webkitMaskPosition='';n.style.maskClip='';n.style.webkitMaskClip='';delete n.dataset.dioramaActor;delete n.dataset.dioramaSelected;delete n.dataset.dioramaWalking;delete n.dataset.dioramaActivity;delete n.dataset.dioramaDirection;n.style.removeProperty('--diorama-facing');n.style.removeProperty('--diorama-origin');n.style.removeProperty('--diorama-sleep-shift');}
       for(const [k,v]of Object.entries(row.original||{}))v===null?row.owner.removeAttribute?.(k):row.owner.setAttribute(k,v);row.shadow.remove();}
     const occlusionCache=new Map();
     function polygonsAt(p){
@@ -274,7 +275,7 @@
     function visibleAt(p,a){
       if(!world||!scene?.navigation)return true;
       const polys=polygonsAt(p);if(!polys.length)return true;
-      const stageRect=stage.getBoundingClientRect(),host=worldHost.getBoundingClientRect();
+      const stageRect=displayRect(stage),host=displayRect(worldHost);
       const inside=(x,y,poly)=>{let yes=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const u=poly[i],v=poly[j];if((u[1]>y)!==(v[1]>y)&&x<(v[0]-u[0])*(y-u[1])/(v[1]-u[1])+u[0])yes=!yes;}return yes;};
       // Keep the face and body centre visible; true triangle masks still cover feet/edges.
       return [.22,.5,.8].every(f=>[-.3,0,.3].every(x=>!polys.some(poly=>inside(p.x+a.w*x+stageRect.left-host.left,p.y-a.h*f+stageRect.top-host.top,poly))));
@@ -294,7 +295,7 @@
       let newbornPoint=null;
       const newborn=list.find(a=>a.kind==='pet');
       if(newbornPending&&newborn&&scene.navigation){
-        const r=stage.getBoundingClientRect(),pane=stage.closest?.('.screen-frame')?.getBoundingClientRect()||r;
+        const r=displayRect(stage),pane=stage.closest?.('.screen-frame')?.getBoundingClientRect()||r;
         const x=(Math.max(r.left,pane.left)+Math.min(r.right,pane.right))/2-r.left;
         const y=(Math.max(r.top,pane.top)+Math.min(r.bottom,pane.bottom))/2-r.top;
         newbornPoint={x,y:y+newborn.h/2};
@@ -336,7 +337,7 @@
         row.owner.dataset.dioramaWalking=String(!!a.target&&!isPaused&&!media?.matches);row.owner.dataset.dioramaDirection=String(a.direction);
         row.shadow.style.left=a.x+'px';row.shadow.style.top=a.y+'px';row.shadow.style.width=Math.max(20,a.w*.8*depthScale)+'px';row.shadow.dataset.selected=String(model.selected()===a.key);
         if(world&&scene.navigation&&doc.createElementNS&&world.stats().renderer?.objects>0){
-          const point=scene.navigation.unproject(a),host=worldHost.getBoundingClientRect();
+          const point=scene.navigation.unproject(a),host=displayRect(worldHost);
           const cacheKey=point?[Math.round(point.x/24),Math.round(point.z/24),host.width,host.height,scene.region,world.stats().projectionRevision,scene.groundTop,scene.floor].join(':'):'';
           if(point&&row.maskKey!==cacheKey){
             row.maskKey=cacheKey;const polygons=polygonsAt(a);
@@ -346,7 +347,7 @@
           }
           const maskPose=[depthScale.toFixed(4),cacheKey,dx.toFixed(2),dy.toFixed(2),row.x,row.y,row.w,row.h].join(':');
           if(row.lastMaskPose!==maskPose){row.lastMaskPose=maskPose;
-          for(const n of [row.owner,...(row.attachments||[])]){const r=n.getBoundingClientRect();n.style.maskImage=n.style.webkitMaskImage=row.maskURL||'';n.style.maskSize=n.style.webkitMaskSize=((host.width+2*(row.maskPad||0))/depthScale)+'px '+((host.height+2*(row.maskPad||0))/depthScale)+'px';n.style.maskPosition=n.style.webkitMaskPosition=((host.left-r.left-(row.maskPad||0))/depthScale)+'px '+((host.top-r.top-(row.maskPad||0))/depthScale)+'px';n.style.maskRepeat=n.style.webkitMaskRepeat='no-repeat';n.style.maskClip=n.style.webkitMaskClip='no-clip';}}
+          for(const n of (doc.body?.dataset.homeViewportVersion==='12'?[...row.owner.querySelectorAll('.character-asset'),...(row.attachments||[])]:[row.owner,...(row.attachments||[])])){const r=displayRect(n);n.style.maskImage=n.style.webkitMaskImage=row.maskURL||'';n.style.maskSize=n.style.webkitMaskSize=((host.width+2*(row.maskPad||0))/depthScale)+'px '+((host.height+2*(row.maskPad||0))/depthScale)+'px';n.style.maskPosition=n.style.webkitMaskPosition=((host.left-r.left-(row.maskPad||0))/depthScale)+'px '+((host.top-r.top-(row.maskPad||0))/depthScale)+'px';n.style.maskRepeat=n.style.webkitMaskRepeat='no-repeat';n.style.maskClip=n.style.webkitMaskClip='no-clip';}}
         }
         onPosition(a,dx,dy);
       }
@@ -382,13 +383,13 @@
       if(!next){placeHomeSlots(false);enabled=false;view.hidden=true;selectedLabel.hidden=true;showGuide();stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
       enabled=true;placeHomeSlots(true);stage.dataset.diorama=e.region;stage.dataset.dioramaReduced=String(!!media?.matches);stage.dataset.dioramaTier=String(f.tier||0);stage.dataset.dioramaTime=e.time;stage.dataset.dioramaWeather=e.weather;
       art.hidden=false;overlay.hidden=false;showGuide();
-      const r=stage.getBoundingClientRect();scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
+      const r=displayRect(stage);scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
       const key=JSON.stringify([e,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
-      ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(stage.getBoundingClientRect());scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;sync();stage.dataset.dioramaPaused=String(blocked());
+      ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;sync();stage.dataset.dioramaPaused=String(blocked());
       if(blocked()&&!wasBlocked){interrupt();wasBlocked=true;}
       if(!blocked()){wasBlocked=false;model.step(0,{blocked:false,reducedMotion:!!media?.matches,heldActor:gesture?(gesture.key||model.selected()):null});}resume();
     }
-    function point(e){const r=stage.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+    function point(e){const r=displayRect(stage);const p=env.NaotocchiHomeViewport?.unscalePoint?.({x:e.clientX,y:e.clientY})||{x:e.clientX,y:e.clientY};return {x:p.x-r.left,y:p.y-r.top};}
     function hit(p,target){
       const items=model.snapshot().sort((a,b)=>b.y-a.y);
       const owner=target?.closest?.('[data-diorama-actor]');

@@ -7,14 +7,14 @@ let qa=fs.readFileSync(path.join(out,'v11-qa-script.js'),'utf8').replaceAll("doc
 const runtime=fs.readFileSync('script.js','utf8'),start=runtime.indexOf('const upperV12='),end=runtime.indexOf('\n    const property=',start);
 if(!qa.includes('const upperV12='))qa=qa.replace('const html=commentTextHTML(value,character),illustrated=html!==escapeHtml(value);',runtime.slice(start,end));
 qa=qa.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
+ markCase(kind){this.resetDisplay();Object.assign(state,{speciesLine:"woman",stageIndex:1,ageTicks:4*AGE_TICKS_PER_YEAR,hunger:kind==="hungry"?5:95,happiness:kind==="sulky"?5:95});render();},
  actualLong(){this.resetDisplay();this.commentCase('pet','なんで人間がいるの?と思ったが、なぜかだれも気にしていない');setCriticalMessage('⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。');},
  iconProbe(){this.resetDisplay();setMessage('🏆 🎮 🥚 ✨ 💰 ❤️ 🏠 🌲 🐕 💤 📋 ⚠️');},
 `);
 fs.writeFileSync(path.join(out,'v12-qa-script.js'),qa);
-let diorama=fs.readFileSync(path.join(out,'v11-qa-diorama.js'),'utf8'),current=fs.readFileSync('home-production-diorama.js','utf8');
-const a=diorama.indexOf('            row.maskKey=cacheKey;'),b=diorama.indexOf('\n        }',a),c=current.indexOf('            row.maskKey=cacheKey;'),d=current.indexOf('\n        }',c);
-if([a,b,c,d].some(n=>n<0))throw Error('V11 mask fixture anchor missing');
-diorama=diorama.slice(0,a)+current.slice(c,d)+diorama.slice(b);fs.writeFileSync(path.join(out,'v12-qa-diorama.js'),diorama);
+for(const file of ['v12-home-production-diorama.js','v12-qa-diorama.js'])fs.writeFileSync(path.join(out,file),fs.readFileSync('home-production-diorama.js','utf8').replace("import('./home-production-world.mjs')","import('./v12-home-production-world.mjs')"));
+const qaDiorama=path.join(out,'v12-qa-diorama.js');fs.writeFileSync(qaDiorama,fs.readFileSync(qaDiorama,'utf8').replace('return {model,update,sync,interrupt,','return {inspectScene:()=>scene,inspectWorld:()=>world?.stats(),model,update,sync,interrupt,'));
+fs.copyFileSync('home-production-world.mjs',path.join(out,'v12-home-production-world.mjs'));
 for(const entry of ['v11.html','v11-qa.html']){
  let s=fs.readFileSync(path.join(out,entry),'utf8').replaceAll('viewport-version="11"','viewport-version="12"').replaceAll('v11-qa','v12-qa');
  for(const file of ['script.js','home-production-touch.js','home-production-layout.css','home-production-diorama.js'])s=s.replaceAll('"'+file+'?','"v12-'+file+'?');
