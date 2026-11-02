@@ -236,13 +236,6 @@ body[data-home-viewport-version="12"][data-home-production="true"][data-home-ter
  body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){padding:2px 5px;font-size:12px;line-height:14px}
 }
 
-@media (orientation:landscape) and (min-height:301px){
- body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters{grid-auto-rows:27px}
- body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bars .bar-line{grid-template-columns:minmax(0,1fr);grid-template-rows:12px 3px 10px;gap:1px}
- body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bar-label{grid-column:1;grid-row:1;line-height:12px}
- body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bar-value{grid-column:1;grid-row:3;line-height:10px}
- body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bar{height:3px}
-}
 
 @media (orientation:landscape){
  body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #careActions>button{line-height:16px}

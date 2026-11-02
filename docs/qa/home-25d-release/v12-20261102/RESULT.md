@@ -23,3 +23,25 @@ All nine parameters and 5+4 controls now fit the requested short landscape dimen
 The original iPhone Safari mark-edge symptom remains unconfirmed: sampled Chromium hungry expression has no reproduced crop; assets and animation are untouched. Notification substitutions are unchanged. The notification QA shows OS glyphs for unresolved animal identity (🐕) and egg (🥚); zero remaining OS emoji is not claimed. Existing icons.json is a source inventory, not proof of zero runtime glyphs.
 
 Keep V11 live. PR remains Draft; no main merge or production Pages update. No new images or deletions. Normal disk remains approximately 6.3 GiB free.
+
+## Full-text follow-up (2026-11-02, supersedes the prior real-text gate)
+
+The owner selected full text at once, not paging. No paging, truncation, new images, queue-priority changes, or timer changes were introduced.
+
+- The former blocker used a synthetic sentence repeated 15 times. It is not an authored runtime conversation. Arbitrarily long injected text remains a physical size constraint; its failure is retained as a diagnostic and is not described as fixed.
+- Landscape rail width is now min(400px, 60% viewport width). All nine meters use three columns in 62px; all 5+4 buttons remain 34px high. The notice and comment share the available text height according to their actual rendered content. Portrait text grows into the character viewing window without changing the reserved world or fixed meter/button coordinates.
+- The optional partner information row uses its natural height, rather than a scrollable 40px panel. Selection labels follow the adjusted presentation window. Asset load and content changes remeasure the presentation.
+- The real 80-character save-error notice plus a real 29-character character statement were tested together. This is a representative long runtime case, not an exhaustive proof over every interpolated string or user name.
+
+|Viewport|Notice height|Comment height|Document scroll size|Result|
+|---|---:|---:|---|---|
+|844×280|46|34|844×280|Both texts entirely visible; nine meters/buttons retained|
+|568×320|46|74|568×320|Both texts entirely visible; no meter text overflow|
+|320×568|74|80|320×568|Both texts entirely visible; character window becomes 112px with one actor|
+|375×667|57|80|375×667|Both texts entirely visible|
+
+The final 28-actor 844×280 check retained all 28 actor nodes, natural-height partner information, a 129px character viewing window, and all nine meters/buttons. The centered choice overlay remains x242/y88/w360/h104 and closes after clicking an actual answer. Existing tap/drag handlers and world code were not edited; physical iPhone touch and every actor's drag have not been revalidated in this session.
+
+Final local checks: **72 runtime tests (69 previous + 3 focused V12 geometry additions), 11 package guards passed**. Original iPhone Safari expression-edge symptom remains **unreproduced/unconfirmed**, not claimed fixed. Existing symbol substitutions and unresolved character/egg glyph inventory remain as previously recorded.
+
+The measured runtime cases are ready for the owner-private V12 preview. Extreme synthetic text / smaller character viewports remain explicit limitations; no claim is made that all possible text lengths can fit without scrolling. Draft status and main/Pages protections remain mandatory. Deployment result is recorded in the PR after the hosting service confirms it.
