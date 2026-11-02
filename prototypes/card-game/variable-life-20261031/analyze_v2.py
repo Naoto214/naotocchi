@@ -37,6 +37,7 @@ def per_game(r):
          'growthMean': (A['growth'] + B['growth']) / 2}
     return g
 
+N = {'X-T-IX': 9, 'X-T-X': 10, 'X-T-XI': 11, 'X-T-XII': 12}
 def events_summary(rows):
     c = Counter(); rounds = Counter(); battles = Counter(); maxb = 0
     decisive = Counter()  # last applied change that set the final: (state, kind) -> [n, wins]
@@ -46,7 +47,9 @@ def events_summary(rows):
         for e in ev:
             a = e['actor']; o = 'B' if a == 'A' else 'A'; d = e['growth'][a] - e['growth'][o]
             st = 'ahead' if d > 0 else 'behind' if d < 0 else 'tie'
-            kind = 'extend' if e['extended'] else 'shorten' if e['shortened'] else 'same'
+            # Direction relative to what the card replaced: the opponent's countered card (battle > 1) or the final round before.
+            ref = N[e['superseded'][-1]] if e.get('superseded') else e['from']; tgt = max(e['n'], e['round'])
+            kind = 'extend' if tgt > ref else 'shorten' if tgt < ref else 'same'
             c[(st, kind)] += 1; rounds[e['round']] += 1; battles[e['battle']] += 1; maxb = max(maxb, e['battle'])
         ch = [e for e in ev if e['extended'] or e['shortened']]
         if ch:
