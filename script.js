@@ -3834,8 +3834,8 @@
     // still announce each new beat, even when its words match the last beat.
     if (!force && commentTextCache.get(target)===value) return false;
     commentTextCache.set(target,value);
-    const upperV12=document.body.dataset.homeViewportVersion==='12' && ['message','homeActionText','homeChoiceText','storyFlashText','birthdayToast','mgResultToast'].includes(target.id);
-    const html=upperV12 ? escapeHtml(value).replace(COMMENT_EMOJI,emoji=>character?.asset&&emoji===character.emoji?commentPictureHTML(character.asset,emoji,character.label):(commentIconHTML(emoji)||(!/assets\/characters\//.test(DISPLAY_CATALOG?.resolve(emoji)?.asset||'')?DISPLAY_CATALOG?.html(emoji):'')||'<span class="comment-drawing v12-unresolved-icon">'+escapeHtml(emoji)+'</span>')) : commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
+    const upperV12=document.body.dataset.homeViewportVersion==='12' && ['message','homeActionText','homeChoiceText','storyFlashText','storyFlashEmoji','birthdayToast','mgResultToast'].includes(target.id);
+    const html=upperV12 ? escapeHtml(value).replace(COMMENT_EMOJI,emoji=>character?.asset&&emoji===character.emoji?commentPictureHTML(character.asset,emoji,character.label):(commentIconHTML(emoji)||((!/assets\/characters\//.test(DISPLAY_CATALOG?.resolve(emoji)?.asset||'') || /assets\/characters\/(?:egg|companions|partners)\//.test(DISPLAY_CATALOG?.resolve(emoji)?.asset||''))?DISPLAY_CATALOG?.html(emoji):'')||'<span class="comment-drawing v12-unresolved-icon">'+escapeHtml(emoji)+'</span>')) : commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
     const property=illustrated?'innerHTML':'textContent';
     const rendered=illustrated?html:value;
     if (!force && target[property]===rendered) return false;
@@ -4306,6 +4306,7 @@
     setCommentText(el.speechText, compactJapaneseText(text), true);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.dataset.speakerId = speaker.id || '';
+    el.speechBubble.dataset.reactionEvent = reaction.event || 'idle';
     el.speechBubble.classList.remove('hidden');
     // Director は「実際に表示した行」だけを記録する(抽選しただけの行は数えない)
     conversationDirector?.noteShown(compactJapaneseText(text), conversationSpeakerKey(speaker));
@@ -15256,13 +15257,19 @@
     }).filter(Boolean);
   }
   function homeDioramaBlocked() {
+    const passiveHome=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12';
+    const idleSpeech=passiveHome && speechActive && el.speechBubble.dataset.reactionEvent==='idle';
+    const conversationLock=passiveHome
+      ? individualityDialogOpen || !!(conv2Unit && conv2Unit.kind!=='banter') || homeV11Presentation().lowerUntil>Date.now()
+      : speechActive || conversationIsBusy();
     // Keep the existing hatch pose while its 2.8s presentation owns the notice.
     return !!birthCelebration || gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()
-      || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || speechActive || conversationIsBusy()
-      || !el.lifeCardOverlay.classList.contains('hidden') || !el.storyFlash.classList.contains('hidden')
+      || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || conversationLock
+      || !el.lifeCardOverlay.classList.contains('hidden') || (!passiveHome && !el.storyFlash.classList.contains('hidden'))
       || document.body.classList.contains('movie-active') || el.screenNormal.classList.contains('hidden')
       || !!el.castResponse.dataset.reaction
-      || homeCastActors().some(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction));
+      || homeCastActors().some(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction)
+        && !(idleSpeech && ['bounce','settle','shy','wiggle'].includes(a.node.dataset.reaction)));
   }
   window.addEventListener('home-v6-egg-ready',()=>renderHomeCast());
   function renderHomeDiorama() {
@@ -20296,3 +20303,4 @@
   globalThis.__naotocchiBooted = true;
   globalThis.__naotocchiBootGuard?.done?.();
 })();
+

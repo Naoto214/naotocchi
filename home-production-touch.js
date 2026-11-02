@@ -313,20 +313,23 @@
     const nativeWidth=Math.max(320,p.frameWidth*gameHeight/p.frameHeight);
     style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px'});
     const nativeHeight=Math.max(screen.scrollHeight,rect(screen).height);
-    const scale=Math.min(p.frameWidth/nativeWidth,p.frameHeight/gameHeight);
+    // Zoom the complete scene, retaining the full-size left presentation pane
+    // and the original native stage width/navigation geometry.
+    const scale=Math.min(p.frameWidth/nativeWidth,p.frameHeight/gameHeight)*.94;
     const cropTop=Math.max(0,rect(stage).top-rect(screen).top-80);
-    const viewHeight=p.frameHeight/scale;
+    const viewHeight=p.frameHeight/scale,viewWidth=p.frameWidth/scale,inset=(viewWidth-nativeWidth)/2;
+    style(screen,{'margin-left':inset+'px'});
     presentation={x:fr.left,y:p.frameTop,scale};
-    style(frame,{width:nativeWidth+'px',height:viewHeight+'px',transform:'scale('+scale+')','transform-origin':'0 0'});
+    style(frame,{width:viewWidth+'px',height:viewHeight+'px',transform:'scale('+scale+')','transform-origin':'0 0'});
     frame.scrollLeft=0;frame.scrollTop=cropTop;
     doc.body.dataset.homeTinyOverview='true';
-    for(const [key,value]of Object.entries({'--home-overview-x':fr.left+'px','--home-overview-y':(p.frameTop-frame.scrollTop*scale)+'px','--home-overview-width':nativeWidth+'px','--home-overview-height':nativeHeight+'px','--home-overview-scale':scale,'--home-overview-crop-top':frame.scrollTop+'px','--home-overview-crop-bottom':Math.max(0,nativeHeight-viewHeight-frame.scrollTop)+'px'}))style(doc.body,{[key]:value});
+    for(const [key,value]of Object.entries({'--home-overview-x':(fr.left+inset*scale)+'px','--home-overview-y':(p.frameTop-frame.scrollTop*scale)+'px','--home-overview-width':nativeWidth+'px','--home-overview-height':nativeHeight+'px','--home-overview-scale':scale,'--home-overview-crop-top':frame.scrollTop+'px','--home-overview-crop-bottom':Math.max(0,nativeHeight-viewHeight-frame.scrollTop)+'px'}))style(doc.body,{[key]:value});
    }else{
     // The screen is a paint layer, not a character clipping boundary. Keep a
     // fixed camera covering the whole legal floor, independent of selection.
     style(screen,{transform:'translateY(var(--home-portrait-camera,0px))','transform-origin':'0 0'});
     frame.scrollTop=0;frame.scrollLeft=0;
-    const shift=p.metersTop-8-rect(stage).bottom;
+    const shift=p.commentTop-8-rect(stage).bottom;
     style(screen,{'--home-portrait-camera':shift+'px'});
     style(doc.body,{'--home-portrait-camera':shift+'px'});
    }
@@ -355,3 +358,4 @@
  function track(){if(!v12&&v11&&active&&!dragging&&!followKey&&Date.now()>=resumeAt){followKey=selected()?.dataset.dioramaActor||'';followUntil=Infinity;}if(v10&&active){const single=actors().length<=1?'true':'false';if(stage.dataset.homeSingleActor!==single)stage.dataset.homeSingleActor=single;}if(!v12&&active&&!dragging&&followKey&&Date.now()<followUntil){const a=actors().find(e=>e.dataset.dioramaActor===followKey);reveal(a);}root.requestAnimationFrame(track);}
  schedule();root.requestAnimationFrame(track);
 })(typeof window==='object'?window:globalThis);
+
