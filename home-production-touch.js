@@ -179,7 +179,16 @@
   p.noticeTop=p.landscape?p.infoTop:p.infoTop+p.infoHeight+3;
   p.frameTop=p.landscape?p.infoTop+p.infoHeight+3:p.noticeTop+p.noticeHeight+3;
   if(!p.landscape){p.commentTop=p.metersTop-8-p.commentHeight;p.frameHeight=Math.max(0,p.commentTop-4-p.frameTop);}
-  else p.frameHeight=Math.max(0,(args.offsetTop||0)+args.height-36-p.frameTop);
+  else {
+   p.railWidth=Math.min(350,args.width*.48);p.railLeft=args.width-args.left-p.railWidth;
+   p.frameWidth=p.railLeft-8-args.left;
+   p.noticeHeight=34;p.metersHeight=args.height>300?88:62;p.controlsHeight=72;
+   p.controlsTop=(args.offsetTop||0)+args.height-8-p.controlsHeight;
+   p.metersTop=p.controlsTop-3-p.metersHeight;
+   p.commentTop=p.noticeTop+p.noticeHeight+3;
+   p.commentHeight=p.metersTop-3-p.commentTop;
+   p.frameHeight=Math.max(0,(args.offsetTop||0)+args.height-36-p.frameTop);
+  }
   return p;
  }
  root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12};
@@ -264,7 +273,11 @@
   if(v12){
    style(info,{left:fr.left+'px',top:p.infoTop+'px',width:p.frameWidth+'px',height:p.infoHeight+'px'});
    style(notice,{left:(landscape?p.railLeft:fr.left)+'px',top:p.noticeTop+'px',width:(landscape?p.railWidth:p.frameWidth)+'px','justify-content':'center'});
-   if(landscape&&meters){movePresentation(meters,device);style(meters,{top:(p.noticeTop+45)+'px',height:Math.max(1,p.commentTop-p.noticeTop-48)+'px'});}
+   if(landscape){
+    style(notice,{height:p.noticeHeight+'px','min-height':p.noticeHeight+'px','max-height':p.noticeHeight+'px'});
+    style(dock,{height:p.commentHeight+'px','min-height':p.commentHeight+'px','max-height':p.commentHeight+'px'});
+    if(meters){movePresentation(meters,device);style(meters,{top:p.metersTop+'px',height:p.metersHeight+'px'});}
+   }
    const vw=viewport?.width||root.innerWidth,vh=viewport?.height||root.innerHeight,ot=viewport?.offsetTop||0;
    style(dock,{'--v12-choice-x':(vw/2)+'px','--v12-choice-y':(ot+vh/2)+'px','--v12-choice-width':Math.min(360,vw-32)+'px','--v12-choice-height':Math.max(44,vh-32)+'px'});
   }
