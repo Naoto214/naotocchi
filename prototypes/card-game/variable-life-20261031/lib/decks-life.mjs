@@ -45,3 +45,23 @@ export function deckFor(id,variant){
  const s=fill.length>2?slotsK(BASE_DECKS[id].cards,fill.length):slots(BASE_DECKS[id].cards);s.forEach((x,k)=>{cards[x.index]=fill[k];});
  return {cards,replaced:s.map((x,k)=>({from:x.id,index:x.index,to:fill[k]}))};
 }
+// ---- VERSION 2 (PLAN-V2.md): per-deck time-card configurations. Same slot rule (slotsK), so a configuration with k cards
+// replaces the same first k slots as every other k-card configuration of that deck. Names: N = number of each card.
+FILL['T-2v']=T4;
+const rep=(id,n)=>Array(n).fill(id);
+export const CONFIGS={
+ B4:{label:'各1（VERSION 1）',fill:T4},
+ S2:{label:'IX×2（短縮）',fill:rep('X-T-IX',2)},
+ S3:{label:'IX×2・X×1（短縮）',fill:[...rep('X-T-IX',2),'X-T-X']},
+ L2:{label:'XII×2（延長）',fill:rep('X-T-XII',2)},
+ L3:{label:'XI×1・XII×2（延長）',fill:['X-T-XII','X-T-XI','X-T-XII']},
+ SL2:{label:'IX×1・XII×1（両方）',fill:['X-T-IX','X-T-XII']},
+ H8:{label:'各2（8枚）',fill:[...T4,...T4]},
+ H12:{label:'各3（12枚・上限まで）',fill:[...T4,...T4,...T4]},
+};
+export function deckForConfig(id,config){
+ if(config==='N0')return {cards:[...BASE_DECKS[id].cards],replaced:[]};
+ const fill=CONFIGS[config]?.fill;if(!fill)throw Error('unknown config '+config);const cards=[...BASE_DECKS[id].cards];
+ const s=fill.length>2?slotsK(BASE_DECKS[id].cards,fill.length):slots(BASE_DECKS[id].cards);s.forEach((x,k)=>{cards[x.index]=fill[k];});
+ return {cards,replaced:s.map((x,k)=>({from:x.id,index:x.index,to:fill[k]}))};
+}

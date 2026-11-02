@@ -40,6 +40,7 @@ export const VARIANTS={
  'T-2f':{time:{cost:2,counter:true,cpu:'filler'},note:'同上・CPU は時のカードも普通のセカイとして出す（PR #498 W-* と同じ考え方）'},
  'T-3s':{time:{cost:3,counter:true,cpu:'smart'},note:'各1・時3・特殊カウンターあり'},
  'T-2n':{time:{cost:2,counter:false,cpu:'smart'},note:'各1・時2・特殊カウンターなし（比較用）'},
+ 'T-2v':{time:{cost:2,counter:true,cpu:'smart2'},note:'VERSION 2：時2・特殊カウンターあり・CPU は勝率見込み（smart2）で判断。デッキ構成はマニフェストで指定'},
  'T-8s':{time:{cost:2,counter:true,cpu:'smart'},note:'各2（8枚）・時2・特殊カウンターあり'},
 };
 
@@ -220,7 +221,35 @@ export const EFFECTS_TIME=[
 // and by the standings (behind → longer, ahead → shorter), minus its cost and the world it replaces. filler: an ordinary world's
 // value plus the same change value (the PR #498 W-* behaviour). The pending final round is read from the public chain (the
 // names of time cards waiting to resolve), so a counter is valued against the card it would beat.
+// smart2 (VERSION 2, PLAN-V2.md): a time card is worth the change in the estimated win probability between the pending final
+// round F and its N, times the chance that it stands (not countered now, not overwritten before the end), minus its cost and the
+// world it replaces. Win probability: projected growth difference at the end of a final round = current difference + (own rate −
+// opponent rate) × rounds left, rates = growth gained so far per round blended with a prior, adjusted by each side's deck tendency
+// read from public information only (own main card / own deck list; the opponent's face-up main card). Growth is capped at 100
+// in the projection. Hold (100 reached) keeps the V1 adjustments. Nothing about hidden or future cards is used: the opponent's
+// chance of holding a time card is a fixed prior per unknown hand card.
+const SMART2=`
+const TIMEN={IX:9,X:10,XI:11,XII:12};
+function pendingFinal(o){for(let i=(o.chain?.length??0)-1;i>=0;i--){const n=TIMEN[o.chain[i].name];if(n)return n;}return o.life?.final??10;}
+const TREND={'M-turtle':-2,'M-mushroom':-.5,'M-cat':0,'M-dog':.5,'M-beetle':.5,'M-sakura':.5,'M-dragon':.5,'M-venus_flytrap':1,'M-salmon':1};
+const spec=id=>id?.replace(/-\d+$/,'')??null;
+function trendOf(o,seat){const m=o.players[seat]?.board?.main;let k=m&&!m.hidden?spec(m.cardId):null;
+ if(!k&&seat===o.seat){const n={};for(const c of o.deck??[])if(c.type==='main')n[spec(c.cardId)]=(n[spec(c.cardId)]??0)+c.count;k=Object.keys(n).sort((x,y)=>n[y]-n[x])[0]??null;}
+ return TREND[k]??0;}
+const PHI=x=>{const t=1/(1+.2316419*Math.abs(x)),y=.3989423*Math.exp(-x*x/2)*t*(.3193815+t*(-.3565638+t*(1.781478+t*(-1.821256+t*1.330274))));return x>0?1-y:y;};
+function winP(o,F){const me=o.players[o.seat],op=o.players[other(o.seat)],r=o.round,done=Math.max(.5,r-(o.turn===o.seat?.5:0)-.5);
+ const wt=done/(done+5),rate=(g,tr)=>wt*(g-20)/done+(1-wt)*7+tr;
+ const left=Math.max(0,F-r+.5),a=Math.min(100,me.growth+rate(me.growth,trendOf(o,o.seat))*left),b=Math.min(100,op.growth+rate(op.growth,trendOf(o,other(o.seat)))*left);
+ return PHI((a-b)/(6*Math.sqrt(left+.3)+2));}
+function timeValue(c,o){const n=TIMEN[c?.name],L=o.life;if(!n||!L)return null;const F=pendingFinal(o);if(n===F)return 0;
+ let v=80*(winP(o,n)-winP(o,F));
+ if(L.holding[other(o.seat)])v+=n>F?-20:10;if(L.holding[o.seat])v+=n>F?10:-10;
+ const op=o.players[other(o.seat)],h=(op.hand?.length??op.handCount??0),qNow=(op.time??0)>=2?1-Math.pow(.92,h):0;
+ const stand=(1-qNow)*Math.pow(.9,Math.max(0,Math.min(n,F)-o.round));return v>0?v*stand:v;}
+`;
 export function policyTime(cpu='smart'){
+ if(cpu==='smart2')return [['time-helper',"const growthMult=o=>",SMART2+"const growthMult=o=>"],
+  ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const tv=timeValue(c,o);if(tv!==null)return (tv<=.5?-1:tv)-spend-(b.world&&!TIMEN[b.world.name]?3:0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"]];
  const helper=`
 const TIMEN={IX:9,X:10,XI:11,XII:12};
 function pendingFinal(o){for(let i=(o.chain?.length??0)-1;i>=0;i--){const n=TIMEN[o.chain[i].name];if(n)return n;}return o.life?.final??10;}
