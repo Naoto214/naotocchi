@@ -18,7 +18,8 @@ export class BoardInput {
   const cells=enteredCells(this.previous,point);this.previous=point;
   for(const [x,y]of cells){if(!this.down)break;const a=this.getState().actors.find(a=>a.id===this.gestureActor);if(!a){this.cancel();break;}// WorldSession.travel: finger cursor, not the post-gravity actor position.
    const dx=x-this.cursor.x,dy=y-this.cursor.y;if(dx===0&&dy===0)continue;
-   if(Math.max(Math.abs(dx),Math.abs(dy))!==1||!this.step(a.id,dx,dy).ok){this.cancel();break;}
+   // Formal ForestSession.travel preserves the stroke on a blocked move.
+   if(Math.max(Math.abs(dx),Math.abs(dy))!==1||!this.step(a.id,dx,dy).ok)continue;
    this.cursor={x,y};
   }
  }

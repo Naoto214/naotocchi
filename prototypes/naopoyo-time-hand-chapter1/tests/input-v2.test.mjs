@@ -26,3 +26,4 @@ test('rescue ends the gesture even if rendering selects a survivor',()=>{
 test('visible animation hit selects logical survivor without moving',()=>{
  const {s,input}=fixture();input.select('b');input.start({x:1.8,y:3.5},{hit:s.actors[0]});input.end();assert.equal(input.selected,'a');assert.equal(s.moves,0);
 });
+test('blocked drag keeps the stroke available like formal travel',()=>{const {s,input}=fixture();s.walls.push([1,3]);input.start({x:2.5,y:3.5});input.drag({x:1.5,y:3.5});assert.equal(s.moves,0);input.drag({x:2.5,y:3.5});input.drag({x:2.5,y:4.5});assert.equal(s.moves,1);assert.equal(s.actors.find(a=>a.id==='a').y,4);});
