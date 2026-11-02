@@ -61,6 +61,6 @@ V1は学習目的（分裂数、曲がり回数、仲間による誘導、ゲー
 
 正式ファイルへのdiffなし。新章boardデータ・solutionsもV2と同一。旧盤面・解答・独自仕様はV2コミットに完全保存。独立Undo/save/replay/入力アダプターの全面共通化は行っていない（本番改変と保存契約変更を避けるため）。
 
-52/52新章、1529/1529正式。DOM単体試験はjsdom＋描画/画像/寸法stubであり、ブラウザーQAやスクリーンショットの代替証拠ではない。Chrome接続はERR_CONNECTION_REFUSED、その後ブラウザーURLアクセス制御により拒否。指定viewport、実指、Safari、画面スクロール、視覚的モーション一致は未確認。ブラウザーQAを必須条件とするため、本人限定公開は保留。V2公開を保持する。
+52/52新章、1529/1529正式。DOM単体試験はjsdom＋描画/画像/寸法stubであり、ブラウザーQAやスクリーンショットの代替証拠ではない。Chrome接続はERR_CONNECTION_REFUSED、その後ブラウザーURLアクセス制御により拒否。指定viewport、実指、Safari、画面スクロール、視覚的モーション一致は未確認。監査時点では公開を保留。その後、成功済みの自動検証と未確認事項を区別し、本人が承認済みの本人限定V3公開を実施。最新状況はREPORT.md参照。
 
 ローカル全体 `npm test` はsparse checkoutに本編テスト4ファイル（menu-12/story-navigation/individuality/individuality-runtime）が無いため開始不可。省略したまま成功と扱わない。本編/CARD GAMEは完全checkoutの既存GitHub CIで確認する。
