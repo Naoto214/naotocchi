@@ -1,3 +1,4 @@
+import {actorLayout} from '../naopoyo-world/render.mjs';
 import {drawSprite} from '../naopoyo-rescue/sprites.mjs';
 import {drawStone} from '../naopoyo-chapter2/stone.mjs';
 import {drawGate} from '../naopoyo-chapter2/gate-art.mjs';
@@ -5,14 +6,19 @@ import {drawExit,drawCondition} from '../naopoyo-rescue/fixtures.mjs';
 import {blockedReason} from './priorities.mjs';
 // Same procedural spike asset as the shipped forest renderer.
 function drawSpike(c,p){c.fillStyle='#ac7089';c.fillRect(p.x+.1,p.y+.75,.8,.13);const spacing=Math.min(.23,.8/p.power),half=Math.min(.11,spacing*.48);for(let n=0;n<p.power;n++){const x=p.x+.5+(n-(p.power-1)/2)*spacing;c.beginPath();c.moveTo(x-half,p.y+.75);c.lineTo(x,p.y+.32);c.lineTo(x+half,p.y+.75);c.fill();}}
-export function drawBoard(canvas,s,{candidates=[],showRanks=false,route=null,turns=[],children=[],selected=null,origin=null,target=null,stage=null}={}){
+export function drawBoard(canvas,s,{candidates=[],showRanks=false,route=null,turns=[],children=[],selected=null,origin=null,target=null,stage=null,debugCoordinates=false,effects=[]}={}){
  const width=canvas.getBoundingClientRect().width||320,dpr=Math.min(3,globalThis.devicePixelRatio||1);canvas.width=Math.round(width*dpr);canvas.height=Math.round(width*dpr);const c=canvas.getContext('2d');c.setTransform(dpr*width/8,0,0,dpr*width/8,0,0);
  const rawFill=c.fillText.bind(c),rawStroke=c.strokeText.bind(c);const text=(fn,t,x,y)=>{const font=c.font;c.save();c.translate(x,y);c.scale(.01,.01);c.lineWidth*=100;c.font=font.replace(/([\d.]+)px/,(_,n)=>`${Number(n)*100}px`);fn(t,0,0);c.restore();};c.fillText=(t,x,y)=>text(rawFill,t,x,y);c.strokeText=(t,x,y)=>text(rawStroke,t,x,y);
  c.fillStyle='#e8efde';c.fillRect(0,0,8,8);for(let y=0;y<8;y++)for(let x=0;x<8;x++){c.fillStyle=(x+y)%2?'#ced8cb':'#dce4d3';c.fillRect(x,y,1,1);c.strokeStyle='#aabcaa55';c.lineWidth=.015;c.strokeRect(x,y,1,1);}
  if(showRanks)for(const p of candidates){c.fillStyle=p.distance===1?'#b6dded99':'#f5d4a699';c.fillRect(p.x+.02,p.y+.02,.96,.96);}
  for(const [x,y]of s.walls)drawStone(c,x,y);for(const g of s.gates)drawGate(c,{...g,openAmount:g.open?1:0});for(const e of s.exits){drawExit(c,e);drawCondition(c,e);}for(const p of s.spikes)drawSpike(c,p);
  if(target){c.strokeStyle='#b88b36';c.lineWidth=.055;c.strokeRect(target[0]+.05,target[1]+.05,.9,.9);c.fillStyle='#a36b19';c.font='.4px system-ui';c.textAlign='center';c.fillText('★',target[0]+.5,target[1]+.55);}
- for(const a of s.actors){c.save();c.globalAlpha=a.opacity??1;c.fillStyle='#284e3830';c.beginPath();c.ellipse(a.x+.5,a.y+.91,.29,.07,0,0,7);c.fill();drawSprite(c,a.species,a.level,{x:a.x+.12,y:a.y+.17,w:.76,h:.76});c.font='bold .23px system-ui';c.textAlign='center';c.textBaseline='middle';c.lineWidth=.055;c.strokeStyle='#fff';c.strokeText(a.level,a.x+.8,a.y+.19);c.fillStyle='#294939';c.fillText(a.level,a.x+.8,a.y+.19);c.restore();}
+ for(const a of [...s.actors].sort((a,b)=>Number(selected&&a.x===selected[0]&&a.y===selected[1])-Number(selected&&b.x===selected[0]&&b.y===selected[1]))){
+  const held=!!selected&&a.x===selected[0]&&a.y===selected[1],cell=width/8,lay=actorLayout(a,held,cell,width,width);
+  c.save();c.globalAlpha=a.opacity??1;c.fillStyle='#14293c44';c.beginPath();c.ellipse(a.x+.5,a.y+.81,.28,.09,0,0,Math.PI*2);c.fill();
+  drawSprite(c,a.species,a.level,{x:lay.bx/cell,y:lay.by/cell,w:lay.bw/cell,h:lay.bh/cell});
+  c.font=`900 ${lay.numberSize/cell}px system-ui`;c.textAlign='center';c.textBaseline='middle';c.lineJoin='round';c.lineWidth=3.5/cell;c.strokeStyle='#243a50';c.strokeText(a.level,a.x+.5,lay.numberY/cell);c.fillStyle=held?'#ffe6a5':'#fff';c.fillText(a.level,a.x+.5,lay.numberY/cell);c.restore();
+ }
  if(stage?.cage){const cage=stage.cage;
   for(const [p,color,label] of [[cage.switch,'#ad8334','=3'],[cage.partnerSwitch,'#428c9b','♡']]){c.strokeStyle=color;c.lineWidth=.06;c.strokeRect(p.x+.08,p.y+.08,.84,.84);c.font='bold .24px system-ui';c.textAlign='center';c.fillStyle=color;c.fillText(label,p.x+.5,p.y+.24);}
   if(!s.cageOpen){for(let x=5.12;x<7;x+=.23){c.strokeStyle='#203c46';c.lineWidth=.065;c.beginPath();c.moveTo(x,3.05);c.lineTo(x,3.95);c.stroke();c.strokeStyle='#bacbcc';c.lineWidth=.018;c.beginPath();c.moveTo(x-.02,3.05);c.lineTo(x-.02,3.95);c.stroke();}c.strokeStyle='#273e43';c.lineWidth=.07;c.strokeRect(5.02,3.08,1.93,.84);}
@@ -24,7 +30,7 @@ export function drawBoard(canvas,s,{candidates=[],showRanks=false,route=null,tur
  if(route){c.strokeStyle='#d15a36';c.lineWidth=.065;c.setLineDash([.12,.07]);c.beginPath();route.forEach(([x,y],i)=>{if(i)c.lineTo(x+.5,y+.5);else c.moveTo(x+.5,y+.5)});c.stroke();c.setLineDash([]);for(const [x,y]of route){c.fillStyle='#d15a36';c.beginPath();c.arc(x+.5,y+.5,.065,0,7);c.fill();}}
  if(route){for(let i=1;i<route.length;i++){const [x,y]=route[i],prev=route[i-1],angle=Math.atan2(y-prev[1],x-prev[0]);c.save();c.translate(x+.5,y+.5);c.rotate(angle);c.fillStyle='#c45736';c.beginPath();c.moveTo(-.04,0);c.lineTo(-.24,-.11);c.lineTo(-.24,.11);c.closePath();c.fill();c.restore();}}
  for(const p of turns.filter(p=>p.turns)){c.fillStyle='#a93d28';c.font='bold .27px system-ui';c.textAlign='center';c.fillText('↻'+p.turns,p.from[0]+.5,p.from[1]+.2);}
- if(selected){c.strokeStyle='#ca7140';c.lineWidth=.08;c.strokeRect(selected[0]+.05,selected[1]+.05,.9,.9);}
- c.font='.14px system-ui';c.textAlign='left';c.textBaseline='bottom';c.fillStyle='#38503a99';for(let y=0;y<8;y++)for(let x=0;x<8;x++)c.fillText(`${'ABCDEFGH'[x]}${y+1}`,x+.04,y+.98);c.fillText=rawFill;c.strokeText=rawStroke;
+ for(const e of effects){c.save();c.globalAlpha=Math.max(0,1-e.progress);c.strokeStyle='#bc8c3a';c.lineWidth=2/(width/8);c.beginPath();c.arc(e.x+.5,e.y+.5,.15+e.progress*.38,0,Math.PI*2);c.stroke();c.restore();}
+ c.font='.14px system-ui';c.textAlign='left';c.textBaseline='bottom';c.fillStyle='#38503a99';if(debugCoordinates)for(let y=0;y<8;y++)for(let x=0;x<8;x++)c.fillText(`${'ABCDEFGH'[x]}${y+1}`,x+.04,y+.98);c.fillText=rawFill;c.strokeText=rawStroke;
 }
 
