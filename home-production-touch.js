@@ -198,10 +198,20 @@
 
   return p;
  }
+ function landscapeOverview({paneWidth,paneHeight,nativeWidth,nativeHeight,stageTop,stageHeight}){
+  // Same 2:3 artwork and .94 ground anchor as artTransform. Reserve the
+  // clipped upper artwork in presentation space, without moving world points.
+  const artHeight=nativeWidth*1.5,pad=Math.max(0,artHeight*.94-stageTop-stageHeight);
+  const contentHeight=Math.max(nativeHeight+pad,stageTop+pad+stageHeight+artHeight*.06);
+  const scale=Math.min(paneWidth/nativeWidth,paneHeight/contentHeight)*.94;
+  const viewWidth=paneWidth/scale,viewHeight=paneHeight/scale;
+  const artTop=stageTop+pad+stageHeight-artHeight*.94;
+  return {pad,contentHeight,scale,viewWidth,viewHeight,inset:(viewWidth-nativeWidth)/2,cropTop:artTop,cropBottom:Math.max(0,contentHeight-artTop-artHeight)};
+ }
  let presentation=null;
  function unscalePoint(p,t=presentation){return t?{x:t.x+(p.x-t.x)/t.scale,y:t.y+(p.y-t.y)/t.scale}:p;}
  function presentationRect(e){const r=e.getBoundingClientRect();if(!presentation||!e.closest?.('.screen-frame,.home-living-world'))return r;const p=unscalePoint({x:r.left,y:r.top});return {left:p.x,top:p.y,width:r.width/presentation.scale,height:r.height/presentation.scale,right:p.x+r.width/presentation.scale,bottom:p.y+r.height/presentation.scale};}
- root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,fitV12Text,presentationRect,unscalePoint};
+ root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,fitV12Text,landscapeOverview,presentationRect,unscalePoint};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
  if(!frame||!['8','9','10','11','12'].includes(doc.body.dataset.homeViewportVersion))return;
  const v12=doc.body.dataset.homeViewportVersion==='12',v11=v12||doc.body.dataset.homeViewportVersion==='11',v10=v11||doc.body.dataset.homeViewportVersion==='10',v9=v10||doc.body.dataset.homeViewportVersion==='9';
@@ -313,17 +323,15 @@
     const nativeWidth=Math.max(320,p.frameWidth*gameHeight/p.frameHeight);
     style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px'});
     const nativeHeight=Math.max(screen.scrollHeight,rect(screen).height);
-    // Zoom the complete scene, retaining the full-size left presentation pane
-    // and the original native stage width/navigation geometry.
-    const scale=Math.min(p.frameWidth/nativeWidth,p.frameHeight/gameHeight)*.94;
-    const cropTop=Math.max(0,rect(stage).top-rect(screen).top-80);
-    const viewHeight=p.frameHeight/scale,viewWidth=p.frameWidth/scale,inset=(viewWidth-nativeWidth)/2;
-    style(screen,{'margin-left':inset+'px',height:nativeHeight+'px','min-height':nativeHeight+'px'});
+    const {scale,viewHeight,viewWidth,inset,pad,contentHeight,cropTop,cropBottom}=landscapeOverview({paneWidth:p.frameWidth,paneHeight:p.frameHeight,nativeWidth,nativeHeight,stageTop:rect(stage).top-rect(screen).top,stageHeight:rect(stage).height});
+    style(screen,{'margin-left':inset+'px','margin-top':pad+'px',height:nativeHeight+'px','min-height':nativeHeight+'px'});
     presentation={x:fr.left,y:p.frameTop,scale};
     style(frame,{width:viewWidth+'px',height:viewHeight+'px',transform:'scale('+scale+')','transform-origin':'0 0'});
-    frame.scrollLeft=0;frame.scrollTop=cropTop;
+    frame.scrollLeft=0;frame.scrollTop=0;
+    // The scaled frame is the fixed label's containing block.
+    style(stage,{'--home-selection-top':(4/scale)+'px','--home-selection-left':(4/scale)+'px'});
     doc.body.dataset.homeTinyOverview='true';
-    for(const [key,value]of Object.entries({'--home-overview-x':(fr.left+inset*scale)+'px','--home-overview-y':(p.frameTop-frame.scrollTop*scale)+'px','--home-overview-width':nativeWidth+'px','--home-overview-height':nativeHeight+'px','--home-overview-scale':scale,'--home-overview-crop-top':frame.scrollTop+'px','--home-overview-crop-bottom':Math.max(0,nativeHeight-viewHeight-frame.scrollTop)+'px'}))style(doc.body,{[key]:value});
+    for(const [key,value]of Object.entries({'--home-overview-x':(fr.left+inset*scale)+'px','--home-overview-y':p.frameTop+'px','--home-overview-width':nativeWidth+'px','--home-overview-height':contentHeight+'px','--home-overview-scale':scale,'--home-overview-crop-top':cropTop+'px','--home-overview-crop-bottom':cropBottom+'px'}))style(doc.body,{[key]:value});
    }else{
     // The screen is a paint layer, not a character clipping boundary. Keep a
     // fixed camera covering the whole legal floor, independent of selection.
@@ -358,4 +366,3 @@
  function track(){if(!v12&&v11&&active&&!dragging&&!followKey&&Date.now()>=resumeAt){followKey=selected()?.dataset.dioramaActor||'';followUntil=Infinity;}if(v10&&active){const single=actors().length<=1?'true':'false';if(stage.dataset.homeSingleActor!==single)stage.dataset.homeSingleActor=single;}if(!v12&&active&&!dragging&&followKey&&Date.now()<followUntil){const a=actors().find(e=>e.dataset.dioramaActor===followKey);reveal(a);}root.requestAnimationFrame(track);}
  schedule();root.requestAnimationFrame(track);
 })(typeof window==='object'?window:globalThis);
-

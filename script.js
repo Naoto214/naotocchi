@@ -3807,6 +3807,7 @@
   }
   function commentIconHTML(emoji, fallback = emoji) {
     const key = emoji.replace(/[\uFE0E\uFE0F]/g,'');
+    if(key==='🪼' && document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12')return commentPictureHTML('assets/ui/home-notices/jellyfish-v12.png',emoji,'くらげ');
     if (Object.hasOwn(COMMENT_SYMBOL_KEYS,key)) {
       const symbol=COMMENT_SYMBOL_KEYS[key],[label,art]=COMMENT_SYMBOLS[symbol];
       return `<span class="comment-drawing" data-comment-symbol="${symbol}" role="img" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">${art}</svg>${iconFallbackHTML(fallback)}</span>`;
