@@ -167,10 +167,17 @@
   const frameTop=landscape?infoTop:infoTop+infoHeight+3;
   return {landscape,railWidth,railLeft,noticeTop,noticeHeight,commentTop,commentHeight,controlsTop,controlsHeight:ch,metersTop,metersHeight,infoTop,infoHeight,frameTop,frameWidth:landscape?railLeft-8-left:width-left*2,frameHeight:Math.max(0,(landscape?bottom-28:metersTop-4)-frameTop)};
  }
- root.NaotocchiHomeViewport={revealDelta,layout,layoutV9};
+ function layoutV10(args){
+  const p=layoutV9(args);if(p.landscape)return p;
+  p.infoHeight=40;p.frameTop=p.infoTop+p.infoHeight+3;
+  p.metersTop=p.controlsTop-4-p.metersHeight;
+  p.commentTop=p.metersTop-4-p.commentHeight;
+  p.frameHeight=Math.max(0,p.commentTop-4-p.frameTop);return p;
+ }
+ root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
- if(!frame||!['8','9'].includes(doc.body.dataset.homeViewportVersion))return;
- const v9=doc.body.dataset.homeViewportVersion==='9';
+ if(!frame||!['8','9','10'].includes(doc.body.dataset.homeViewportVersion))return;
+ const v10=doc.body.dataset.homeViewportVersion==='10',v9=v10||doc.body.dataset.homeViewportVersion==='9';
  const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
  if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
  const meters=normal.querySelector('.home-meters');
@@ -181,8 +188,13 @@
   if(!saved.has(e))saved.set(e,new Map());const previous=saved.get(e);
   for(const [k,v]of Object.entries(props)){if(!previous.has(k))previous.set(k,[e.style.getPropertyValue(k),e.style.getPropertyPriority(k)]);e.style.setProperty(k,String(v),'important');}
  }
- function restore(){for(const [e,props]of saved)for(const [k,[v,p]]of props){if(v)e.style.setProperty(k,v,p);else e.style.removeProperty(k);}saved.clear();markers.forEach(e=>e.remove());markers=[];navigation?.remove();navigation=null;delete doc.body.dataset.homeViewportV8;active=false;}
+ function restore(){for(const [e,props]of saved)for(const [k,[v,p]]of props){if(v)e.style.setProperty(k,v,p);else e.style.removeProperty(k);}saved.clear();[...markers].reverse().forEach(e=>e.remove());markers=[];navigation?.remove();navigation=null;delete doc.body.dataset.homeViewportV8;active=false;}
  function reserve(e){const marker=doc.createElement('div');marker.style.cssText='flex:0 0 '+rect(e).height+'px;height:'+rect(e).height+'px;pointer-events:none';e.before(marker);markers.push(marker);}
+ function movePresentation(e,parent){
+  if(!e||e.parentNode===parent)return;
+  const original=e.parentNode,next=e.nextSibling;parent.appendChild(e);
+  markers.push({remove(){original.insertBefore(e,next?.parentNode===original?next:null);}});
+ }
  function actors(){return [...stage.querySelectorAll('[data-diorama-actor]')].filter(e=>rect(e).height>0);}
  function reveal(actor){if(!actor||!active)return;const delta=revealDelta(rect(frame),rect(actor));frame.scrollLeft+=delta.x;frame.scrollTop+=delta.y;}
  function selected(){return stage.querySelector('[data-diorama-selected="true"]')||stage.querySelector('[data-diorama-actor^="pet:"]')||doc.getElementById('petSprite');}
@@ -192,7 +204,7 @@
   const fr=rect(frame),cr=rect(controls),hr=rect(device.querySelector('.device-header')),sw=rect(screen).width;
   const viewport=root.visualViewport;
   if(v9&&viewport&&viewport.scale!==1)return;
-  const p=v9?layoutV9({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
+  const p=v9?(v10?layoutV10:layoutV9)({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
   reserve(notice);if(p.landscape||v9)reserve(info);if(v9&&meters)reserve(meters);
   active=true;landscape=p.landscape;doc.body.dataset.homeViewportV8='true';
   style(notice,{position:'fixed',top:(hr.bottom+3)+'px',left:fr.left+'px',width:p.frameWidth+'px',height:'42px','min-height':'42px','max-height':'42px',overflow:'auto','margin-bottom':'0','z-index':'1201'});
@@ -220,16 +232,31 @@
    }
    if(navigation)navigation.style.cssText=`position:fixed;left:${fr.left}px;top:${p.frameTop+p.frameHeight+3}px;width:${p.frameWidth}px;height:24px;display:flex;gap:4px;z-index:1202`;
   }
-  root.requestAnimationFrame(()=>root.requestAnimationFrame(()=>{if(active)reveal(selected());}));
+  if(v10){
+   // Fixed UI must not inherit the scrolling/clipping pane (notably WebKit).
+   // Keep the old in-flow reservations, so the world retains its dimensions.
+   movePresentation(notice,device);movePresentation(info,device);
+   if(!landscape)movePresentation(meters,device);
+   const speech=doc.getElementById('speechSlot');reserve(speech);movePresentation(speech,device);
+   style(speech,{position:'fixed',width:'0',height:'0','min-height':'0','max-height':'0',padding:'0',bottom:'0',overflow:'visible'});
+   movePresentation(doc.getElementById('homeActionComment'),notice);
+   movePresentation(doc.getElementById('homeChoiceResult'),notice);
+   // Clip painted actors to the central viewport; never alter world bounds.
+   style(frame,{'clip-path':'inset(0)','scrollbar-width':'none'});
+   style(stage,{'--home-selection-top':(p.frameTop+4)+'px','--home-selection-left':(fr.left+4)+'px'});
+   style(info,{background:'transparent'});
+   style(dock,{background:'transparent'});
+  }
+  root.requestAnimationFrame(()=>root.requestAnimationFrame(()=>{if(active){reveal(selected());if(v10&&!landscape){followKey=selected()?.dataset.dioramaActor||'';followUntil=Infinity;}}}));
  }
  function schedule(){if(pending)return;pending=true;root.requestAnimationFrame(apply);}
  new MutationObserver(()=>{if(eligible()!==active)schedule();}).observe(device,{attributes:true,attributeFilter:['class','data-home-fixed'],subtree:true});
  new MutationObserver(()=>{if(eligible()!==active)schedule();}).observe(doc.body,{attributes:true,attributeFilter:['data-home-production','data-home-terrain']});
  root.addEventListener('resize',schedule);root.visualViewport?.addEventListener('resize',schedule);
  doc.addEventListener('pointerdown',e=>{if(!active)return;dragging=stage.contains(e.target);if(frame.contains(e.target)&&!e.target.closest?.('[data-diorama-actor]'))followKey='';},{capture:true,passive:true});
- doc.addEventListener('pointerup',()=>{if(dragging){dragging=false;root.requestAnimationFrame(()=>{followKey=selected()?.dataset.dioramaActor||'';followUntil=Date.now()+6000;});}},{passive:true});
+ doc.addEventListener('pointerup',()=>{if(dragging){dragging=false;root.requestAnimationFrame(()=>{followKey=selected()?.dataset.dioramaActor||'';followUntil=v10&&!landscape?Infinity:Date.now()+6000;});}},{passive:true});
  doc.addEventListener('pointercancel',()=>{dragging=false;followKey='';},{passive:true});
  frame.addEventListener('wheel',()=>{followKey='';},{passive:true});
- function track(){if(active&&!dragging&&followKey&&Date.now()<followUntil){const a=actors().find(e=>e.dataset.dioramaActor===followKey);reveal(a);}root.requestAnimationFrame(track);}
+ function track(){if(v10&&active){const single=actors().length<=1?'true':'false';if(stage.dataset.homeSingleActor!==single)stage.dataset.homeSingleActor=single;}if(active&&!dragging&&followKey&&Date.now()<followUntil){const a=actors().find(e=>e.dataset.dioramaActor===followKey);reveal(a);}root.requestAnimationFrame(track);}
  schedule();root.requestAnimationFrame(track);
 })(typeof window==='object'?window:globalThis);

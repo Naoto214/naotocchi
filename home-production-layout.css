@@ -131,28 +131,53 @@ body[data-home-viewport-v8="true"] .home-living-world{transform:translate(calc(-
 
 /* V9: one presentation lane. Keep the independent gameplay timers intact;
    an active reply/action takes precedence over ambient narration. */
-body[data-home-viewport-version="9"] #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#homeChoiceResult:not(.hidden)) :is(#homeActionComment,#storyFlash[data-comment="true"],#speechBubble),
-body[data-home-viewport-version="9"] #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#homeActionComment:not(.hidden)):not(:has(#homeChoiceResult:not(.hidden))) :is(#storyFlash[data-comment="true"],#speechBubble),
-body[data-home-viewport-version="9"] #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#storyFlash[data-comment="true"]:not(.hidden)):not(:has(#homeChoiceResult:not(.hidden))):not(:has(#homeActionComment:not(.hidden))) #speechBubble,
-body[data-home-viewport-version="9"] #homeCommentDock:has(>.individual-dialog:not(.hidden)) :is(#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"],#speechBubble,#speechChoices){display:none!important}
-body[data-home-viewport-version="9"] #homeCommentDock:has(#speechChoices:not(.hidden)) :is(#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"]){display:none!important}
-body[data-home-viewport-version="9"] #homeCommentDock:not(:has(>.individual-dialog:not(.hidden))):has(#speechChoices:not(.hidden)) #speechBubble{display:flex!important}
-body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #homeInformation,
-body[data-home-viewport-version="9"][data-home-viewport-v8="true"] .home-meters{box-sizing:border-box;border-radius:8px;scrollbar-width:thin;overscroll-behavior:contain;flex-shrink:0}
-body[data-home-viewport-version="9"] #homeCommentDock>*{flex-shrink:0!important}
-body[data-home-viewport-version="9"] #homeViewportNavigation button{height:24px;padding:0 4px}
-body[data-home-viewport-version="9"] #homeEventSlot>:is(.story-flash,#message){min-height:0}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#homeChoiceResult:not(.hidden)) :is(#homeActionComment,#storyFlash[data-comment="true"],#speechBubble),
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#homeActionComment:not(.hidden)):not(:has(#homeChoiceResult:not(.hidden))) :is(#storyFlash[data-comment="true"],#speechBubble),
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#storyFlash[data-comment="true"]:not(.hidden)):not(:has(#homeChoiceResult:not(.hidden))):not(:has(#homeActionComment:not(.hidden))) #speechBubble,
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeCommentDock:has(>.individual-dialog:not(.hidden)) :is(#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"],#speechBubble,#speechChoices){display:none!important}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeCommentDock:has(#speechChoices:not(.hidden)) :is(#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"]){display:none!important}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeCommentDock:not(:has(>.individual-dialog:not(.hidden))):has(#speechChoices:not(.hidden)) #speechBubble{display:flex!important}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] #homeInformation,
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] .home-meters{box-sizing:border-box;border-radius:8px;scrollbar-width:thin;overscroll-behavior:contain;flex-shrink:0}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeCommentDock>*{flex-shrink:0!important}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeViewportNavigation button{height:24px;padding:0 4px}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]) #homeEventSlot>:is(.story-flash,#message){min-height:0}
 @media(orientation:landscape){
- body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #careActions>button{height:38px;min-height:38px;padding:1px;gap:0;font-size:15px}
- body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #careActions>button span{font-size:11px}
- body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #careActions>button :is(.care-icon,.display-icon,.ui-icon){width:18px;height:18px}
- body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #careActions{gap:4px}
+ body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] #careActions>button{height:38px;min-height:38px;padding:1px;gap:0;font-size:15px}
+ body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] #careActions>button span{font-size:11px}
+ body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] #careActions>button :is(.care-icon,.display-icon,.ui-icon){width:18px;height:18px}
+ body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] #careActions{gap:4px}
 }
 /* Neutral browser edge color; the original region cover still paints the page. */
-html:has(body[data-home-viewport-version="9"]),body[data-home-viewport-version="9"]{background-color:#342b25}
-body[data-home-viewport-version="9"][data-home-viewport-v8="true"] :is(#homeInformation,.home-meters){overflow-x:hidden!important}
-body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #homeGestureGuide{display:none!important}
-body[data-home-viewport-version="9"][data-home-viewport-v8="true"] #stageLabel{display:none}
-body[data-home-viewport-version="9"][data-home-viewport-v8="true"] .home-meters .bars .bar-line{grid-template-rows:12px 4px 12px;gap:1px}
-body[data-home-viewport-version="9"][data-home-viewport-v8="true"] .home-meters :is(.bar-label,.bar-value){font-size:10px;line-height:12px}
-body[data-home-viewport-version="9"][data-home-viewport-v8="true"] .home-meters .bar{height:4px}
+html:has(body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])),body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"]){background-color:#342b25}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] :is(#homeInformation,.home-meters){overflow-x:hidden!important}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] #homeGestureGuide{display:none!important}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] #stageLabel{display:none}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] .home-meters .bars .bar-line{grid-template-rows:12px 4px 12px;gap:1px}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] .home-meters :is(.bar-label,.bar-value){font-size:10px;line-height:12px}
+body:is([data-home-viewport-version="9"],[data-home-viewport-version="10"])[data-home-viewport-v8="true"] .home-meters .bar{height:4px}
+
+/* V10: native content width, upper action/result notices, one lower speaker. */
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeEventSlot{display:flex;align-items:flex-start;justify-content:flex-start!important;scrollbar-width:none}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){
+ position:relative;inset:auto;transform:none;flex:0 0 auto;width:fit-content;max-width:100%;height:auto;min-height:0;max-height:none;margin:0;padding:3px 7px;box-sizing:border-box;white-space:normal;text-wrap:wrap;word-break:normal;line-break:auto;overflow-wrap:anywhere;overflow:visible;font-size:12px;line-height:1.4;
+}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeEventSlot :is(#homeActionSpeaker,#homeChoiceSpeaker){display:none}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeEventSlot :is(#homeActionText,#homeChoiceText){display:block;white-space:normal;text-wrap:wrap;overflow-wrap:anywhere}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeEventSlot:has(#homeChoiceResult:not(.hidden))>:is(#homeActionComment,#message),
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeEventSlot:has(#homeActionComment:not(.hidden))>#message{display:none!important}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #speechSlot #homeCommentDock{align-items:flex-start;scrollbar-width:none}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #speechSlot #homeCommentDock:has(#storyFlash[data-comment="true"]:not(.hidden)):not(:has(#speechChoices:not(.hidden))) #speechBubble{display:none!important}
+/* Actor wrappers can be nested; only the explicit rendered count decides. */
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #castStage[data-home-single-actor="true"] .diorama-selected-label{display:none!important}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #castStage[data-home-single-actor="false"] .diorama-selected-label:not([hidden]){display:block}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] .screen-frame::-webkit-scrollbar{display:none}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeInformation :is(.status-row,.sub-status-row,.cast-names)::before{background:transparent;backdrop-filter:none}
+
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeInformation{scrollbar-width:none}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeInformation::-webkit-scrollbar{display:none}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #mainNameLabel{display:none}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] .diorama-selected-label{position:fixed;top:var(--home-selection-top);left:var(--home-selection-left)}
+
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] #homeInformation{scrollbar-width:none!important}
+body[data-home-viewport-version="10"][data-home-viewport-v8="true"] .home-meters .bar-fill.devo.high{box-shadow:0 0 6px #b3541580}
