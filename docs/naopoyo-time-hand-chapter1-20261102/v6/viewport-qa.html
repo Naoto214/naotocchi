@@ -1,0 +1,17 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><title>V6 viewport QA (local only)</title><style>body{margin:12px;background:#e5e8ec;font:14px system-ui}nav{display:flex;gap:8px;margin:8px 0}button,select{padding:8px}iframe{border:0;display:block;background:#192b3d}pre{white-space:pre-wrap}</style><nav><button id="run">全70条件を測定</button><select id="stage" aria-label="QA面"></select></nav><nav id="sizes"></nav><iframe title="V6 game" width="320" height="568"></iframe><pre id="result">準備中</pre><script type="module">
+import {ChapterProgress} from '/prototypes/naopoyo-time-hand-chapter1/progress.mjs';
+import {STORAGE_KEY} from '/prototypes/naopoyo-time-hand-chapter1/session.mjs';
+import {stages} from '/prototypes/naopoyo-time-hand-chapter1/stages.mjs';
+import {solutions} from '/prototypes/naopoyo-time-hand-chapter1/solutions.mjs';
+const sizes=[[320,568],[375,667],[390,844],[430,932],[320,480],[844,280],[667,375]],f=document.querySelector('iframe'),result=document.querySelector('#result'),select=document.querySelector('#stage');
+for(const s of stages)select.add(new Option(s.id+' '+s.title,s.number-1));
+for(const [w,h] of sizes){const b=document.createElement('button');b.textContent=w+'×'+h;b.onclick=()=>{f.width=w;f.height=h};document.querySelector('#sizes').append(b);}
+async function show(i){const p=new ChapterProgress();for(let n=0;n<i;n++)for(const a of solutions[n])p.sessions[n].step(...a);p.record();p.index=i;localStorage.setItem(STORAGE_KEY,p.serialize());return new Promise(resolve=>{f.onload=()=>resolve();f.src='/prototypes/naopoyo-time-hand-chapter1/?qa='+i;});}
+select.onchange=()=>show(+select.value);
+const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom}};
+function measure(i,w,h){const d=f.contentDocument,v=f.contentWindow,c=rect(d.querySelector('canvas')),intro=rect(d.querySelector('.intro')),checks=[];
+for(const button of d.querySelectorAll('#play-tools button')){const r=rect(button),range=d.createRange();range.selectNodeContents(button.querySelector('span'));const t=range.getBoundingClientRect();checks.push({label:button.textContent.trim(),height:r.height,fits:t.left>=r.x-.5&&t.right<=r.right+.5&&t.top>=r.y-.5&&t.bottom<=r.bottom+.5&&r.bottom<=h});}
+return {stage:i+1,viewport:[w,h],canvas:c,infoHeight:intro.height,gravity:d.querySelector('#gravity').textContent,scroll:[d.documentElement.scrollWidth>w,d.documentElement.scrollHeight>h,d.body.scrollHeight>h],buttons:checks,ok:checks.every(b=>b.fits&&b.height>=44)&&d.documentElement.scrollHeight<=h&&d.documentElement.scrollWidth<=w&&d.body.scrollHeight<=h&&Math.abs(c.width-c.height)<1&&c.height>120&&d.querySelector('#gravity').textContent===(stages[i].board.gravity?'↓ 重力あり':'平面')};}
+document.querySelector('#run').onclick=async()=>{const records=[];for(const [w,h] of sizes){f.width=w;f.height=h;for(let i=0;i<10;i++){await show(i);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));records.push(measure(i,w,h));result.textContent=records.length+'/70 測定中';}}result.textContent=JSON.stringify({passed:records.filter(r=>r.ok).length,total:70,records},null,2);select.value=7;f.width=375;f.height=667;await show(7);};
+await show(0);result.textContent='測定できます';
+</script></html>

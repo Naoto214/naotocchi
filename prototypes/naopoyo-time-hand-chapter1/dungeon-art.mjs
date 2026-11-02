@@ -16,15 +16,5 @@ export function drawDungeonFloor(c,s,scene='cell'){
   if((x*5+y*3)%11===0){c.fillStyle=p.moss;c.fillRect(x+.04,y+.9,.2,.025);}
  }
 }
-export function drawDungeonWallDetails(c,s,scene='cell'){
- const p=palettes[scene]||palettes.cell;
- for(const [x,y]of s.walls){
-  // Grilles are strictly on already-solid wall cells: no new collision semantics.
-  if((x+2*y)%7!==0)continue;
-  c.save();c.fillStyle='#203544aa';c.fillRect(x+.24,y+.2,.52,.58);
-  c.strokeStyle=p.iron;c.lineWidth=.055;c.beginPath();
-  for(const dx of [.3,.5,.7]){c.moveTo(x+dx,y+.2);c.lineTo(x+dx,y+.78);}
-  c.moveTo(x+.22,y+.37);c.lineTo(x+.78,y+.37);c.moveTo(x+.22,y+.65);c.lineTo(x+.78,y+.65);c.stroke();
-  c.fillStyle=p.light;c.globalAlpha=.35;c.fillRect(x+.26,y+.23,.025,.45);c.restore();
- }
-}
+// Keep the wall renderer from the formal game; no overlays on stone.
+export function drawDungeonWallDetails() {}

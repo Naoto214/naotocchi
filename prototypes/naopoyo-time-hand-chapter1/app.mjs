@@ -59,8 +59,8 @@ function draw(){const q=shown(),s=q.state,stage=q.stage;syncPresentation();let s
  syncPresentation();const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,now=performance.now(),stateEffects=sampleEffects(q,now).items,gates=gateEffects.sample(presentation,state.actors,now,reduced);
  drawBoard(canvas,state,{stage,selected,stateEffects,now,reduced,gates,candidates,route,turns,showRanks:!!candidates.length,target:stage.objective?.target,effects:motion?contactEffects(motion,Math.min(1,motion.elapsed/motion.duration)):[]});
 }
-function render(){const q=shown(),s=q.stage,isDemo=mode==='demo';$('scene').dataset.scene=s.scene;$('number').textContent=s.id;$('title').textContent=s.title;$('difficulty').textContent='★'.repeat(s.difficulty)+'☆'.repeat(5-s.difficulty);$('goal').textContent=s.goal;$('hint-text').textContent=s.hint;
- $('phase').textContent=isDemo?'おてほん · 通常プレイと別の盤面':'プレイ中';$('moves').textContent=q.state.moves+' 手';$('mass').textContent='段階合計 '+mass(q.state);$('gravity').textContent=q.state.gravity?'重力あり · 仲間も足場':'平面';$('progress').textContent=progress.completed.filter(Boolean).length+' / 10 クリア';
+function render(){const q=shown(),s=q.stage,isDemo=mode==='demo';$('scene').dataset.scene=s.scene;$('number').textContent=s.id;$('title').textContent=s.title;$('difficulty').textContent='★'.repeat(s.difficulty)+'☆'.repeat(5-s.difficulty);$('goal').textContent=s.goal;$('lesson-text').textContent=s.text;$('lesson-goal').textContent=s.goal;$('hint-text').textContent=s.hint;
+ $('phase').textContent=isDemo?'おてほん · 通常プレイと別の盤面':'プレイ中';$('moves').textContent=q.state.moves+' 手';$('mass').textContent='段階合計 '+mass(q.state);$('gravity').textContent=q.state.gravity?'↓ 重力あり':'平面';$('progress').textContent=progress.completed.filter(Boolean).length+' / 10 クリア';
  $('dialogue').textContent=q.cleared?'みんなで、自由へ。':s.text;
  $('status').textContent=message||(q.cleared?'全員脱出！':isDemo?'前後に進めて、操作を確かめよう。':'キャラをタップして選択。なぞって移動。');
  $('play-tools').hidden=isDemo;$('replay').hidden=true;$('predict').disabled=isDemo;$('undo').disabled=!current().actions.length;

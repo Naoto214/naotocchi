@@ -34,3 +34,11 @@ body:has(.scene[data-scene="moss"]){background-color:#293e3e}
 body:has(.scene[data-scene="hall"]){background-color:#253f4c;background-image:radial-gradient(ellipse at 50% 90%,#9bc8c240,transparent 65%),repeating-linear-gradient(0deg,transparent 0 62px,#111f3038 63px 66px),repeating-linear-gradient(90deg,transparent 0 92px,#15273940 93px 96px)}
 body:has(.scene[data-scene="dawn"]){background-color:#42515a;background-image:radial-gradient(ellipse at 50% 0,#ffe1a378,transparent 70%),repeating-linear-gradient(0deg,transparent 0 62px,#111f3028 63px 66px),repeating-linear-gradient(90deg,transparent 0 92px,#15273930 93px 96px)}
 @media(orientation:landscape) and (max-height:550px){main{grid-template-columns:minmax(280px,1fr) minmax(0,2fr);column-gap:8px}#play-tools button span{font-size:9px}}
+
+/* V6: existing information region grows to fit concise teaching text. */
+main{grid-template-rows:44px auto minmax(0,1fr) 22px 46px}
+#gravity{font-weight:700;letter-spacing:0;color:#f0cf8c;white-space:nowrap}
+#lesson-text,#lesson-goal{margin:2px 0 0;font-size:11px;line-height:1.45;letter-spacing:0;overflow-wrap:anywhere}
+#lesson-text{color:#c4d1dd}#lesson-goal{color:#f2e1ba;font-weight:600}
+@media(max-height:570px) and (orientation:portrait){main{grid-template-rows:36px auto minmax(0,1fr) 20px 44px}}
+@media(orientation:landscape) and (max-height:550px){main{grid-template-rows:44px auto minmax(0,1fr) 46px}.arena{grid-row:1/5}}

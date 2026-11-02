@@ -1,0 +1,1141 @@
+[
+  {
+    "stage": "01",
+    "title": "めざめ",
+    "gravity": false,
+    "moves": 3,
+    "states": 4,
+    "solution": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "move": {
+        "exhausted": true,
+        "states": 1
+      }
+    },
+    "events": [
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 5,
+        "y": 2,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "stage": "02",
+    "title": "うしろにひとり",
+    "gravity": false,
+    "moves": 4,
+    "states": 5,
+    "solution": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "rear": {
+        "exhausted": true,
+        "states": 1
+      }
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "parent",
+        "x": 4,
+        "y": 3,
+        "count": 1,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 3
+          }
+        ]
+      },
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 5,
+        "y": 3,
+        "level": 1
+      },
+      {
+        "type": "rescue",
+        "id": "child1",
+        "x": 5,
+        "y": 3,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "stage": "03",
+    "title": "まっすぐの針",
+    "gravity": false,
+    "moves": 7,
+    "states": 16,
+    "solution": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "line": {
+        "exhausted": true,
+        "states": 2
+      }
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "parent",
+        "x": 5,
+        "y": 4,
+        "count": 2,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 4
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 6,
+        "y": 4,
+        "level": 1
+      },
+      {
+        "type": "rescue",
+        "id": "child1",
+        "x": 6,
+        "y": 4,
+        "level": 1
+      },
+      {
+        "type": "rescue",
+        "id": "child2",
+        "x": 6,
+        "y": 4,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "stage": "04",
+    "title": "岩で曲がる針",
+    "gravity": false,
+    "moves": 10,
+    "states": 78,
+    "solution": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        0
+      ],
+      [
+        "child2",
+        1,
+        0
+      ],
+      [
+        "child3",
+        1,
+        1
+      ],
+      [
+        "child3",
+        1,
+        0
+      ],
+      [
+        "child3",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "turn": {
+        "exhausted": true,
+        "states": 3
+      }
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "parent",
+        "x": 5,
+        "y": 4,
+        "count": 3,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 4
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 4
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 3
+          }
+        ]
+      },
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 6,
+        "y": 4,
+        "level": 1
+      },
+      {
+        "type": "rescue",
+        "id": "child1",
+        "x": 6,
+        "y": 4,
+        "level": 1
+      },
+      {
+        "type": "rescue",
+        "id": "child2",
+        "x": 6,
+        "y": 4,
+        "level": 1
+      },
+      {
+        "type": "rescue",
+        "id": "child3",
+        "x": 6,
+        "y": 4,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "stage": "05",
+    "title": "時間を合わせる",
+    "gravity": false,
+    "moves": 3,
+    "states": 9,
+    "solution": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "merge": {
+        "exhausted": true,
+        "states": 6
+      }
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "parent",
+        "x": 4,
+        "y": 4,
+        "level": 4,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "friend",
+            "species": "dog",
+            "level": 2,
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "contact": {
+          "incoming": {
+            "id": "parent",
+            "species": "dog",
+            "level": 2,
+            "x": 3,
+            "y": 4
+          },
+          "target": {
+            "id": "friend",
+            "species": "dog",
+            "level": 2,
+            "x": 4,
+            "y": 4
+          },
+          "remainderId": null,
+          "origin": {
+            "x": 3,
+            "y": 4
+          }
+        }
+      },
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 5,
+        "y": 4,
+        "level": 4
+      }
+    ]
+  },
+  {
+    "stage": "06",
+    "title": "はじめての重力",
+    "gravity": true,
+    "moves": 3,
+    "states": 4,
+    "solution": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "fall": {
+        "exhausted": true,
+        "states": 1
+      }
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 3,
+        "to": 4,
+        "x": 3
+      },
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 4,
+        "to": 5,
+        "x": 3
+      },
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 5,
+        "y": 5,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "stage": "07",
+    "title": "仲間が足場に",
+    "gravity": true,
+    "moves": 7,
+    "states": 31,
+    "solution": [
+      [
+        "friend",
+        -1,
+        0
+      ],
+      [
+        "friend",
+        -1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        -1
+      ],
+      [
+        "friend",
+        1,
+        0
+      ],
+      [
+        "friend",
+        1,
+        0
+      ],
+      [
+        "friend",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "support": {
+        "exhausted": true,
+        "states": 18
+      }
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 4,
+        "to": 5,
+        "x": 3
+      },
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 4,
+        "y": 4,
+        "level": 2
+      },
+      {
+        "type": "rescue",
+        "id": "friend",
+        "x": 6,
+        "y": 6,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "stage": "08",
+    "title": "通れるななめ",
+    "gravity": true,
+    "moves": 4,
+    "states": 5,
+    "solution": [
+      [
+        "parent",
+        1,
+        -1
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        -1
+      ],
+      [
+        "child1",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "diagonalSplit": {
+        "exhausted": true,
+        "states": 1
+      }
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "parent",
+        "x": 4,
+        "y": 2,
+        "count": 1,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 3
+          }
+        ]
+      },
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 5,
+        "y": 2,
+        "level": 1
+      },
+      {
+        "type": "rescue",
+        "id": "child1",
+        "x": 5,
+        "y": 2,
+        "level": 1
+      }
+    ]
+  },
+  {
+    "stage": "09",
+    "title": "落ちて、ひとつに",
+    "gravity": true,
+    "moves": 2,
+    "states": 3,
+    "solution": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "split": {
+        "exhausted": true,
+        "states": 1
+      },
+      "fallMerge": {
+        "exhausted": true,
+        "states": 1
+      }
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 3,
+        "to": 4,
+        "x": 4
+      },
+      {
+        "type": "split",
+        "id": "parent",
+        "x": 4,
+        "y": 5,
+        "count": 2,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 4
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 3
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 4,
+        "to": 5,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child1",
+        "from": 4,
+        "to": 5,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child2",
+        "from": 3,
+        "to": 4,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "parent",
+        "x": 4,
+        "y": 6,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "contact": {
+          "incoming": {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          "target": {
+            "id": "parent",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          },
+          "remainderId": null,
+          "origin": {
+            "x": 4,
+            "y": 5
+          }
+        }
+      },
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child2",
+        "from": 4,
+        "to": 5,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "parent",
+        "x": 4,
+        "y": 6,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "contact": {
+          "incoming": {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          "target": {
+            "id": "parent",
+            "species": "dog",
+            "level": 2,
+            "x": 4,
+            "y": 6
+          },
+          "remainderId": null,
+          "origin": {
+            "x": 4,
+            "y": 5
+          }
+        }
+      },
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "rescue",
+        "id": "parent",
+        "x": 5,
+        "y": 6,
+        "level": 3
+      }
+    ]
+  },
+  {
+    "stage": "10",
+    "title": "地下牢の出口",
+    "gravity": true,
+    "moves": 9,
+    "states": 23,
+    "solution": [
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "parent",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child1",
+        1,
+        0
+      ],
+      [
+        "child3",
+        1,
+        0
+      ],
+      [
+        "child3",
+        1,
+        0
+      ],
+      [
+        "child3",
+        1,
+        0
+      ],
+      [
+        "child4",
+        1,
+        0
+      ],
+      [
+        "child4",
+        1,
+        0
+      ]
+    ],
+    "necessary": {
+      "split": {
+        "exhausted": true,
+        "states": 2
+      },
+      "turn": {
+        "exhausted": true,
+        "states": 2
+      },
+      "merge": {
+        "exhausted": true,
+        "states": 2
+      },
+      "fall": {
+        "exhausted": true,
+        "states": 2
+      }
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "parent",
+        "x": 5,
+        "y": 4,
+        "count": 3,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 4
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 4
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 3
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child3",
+        "x": 3,
+        "y": 4,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "contact": {
+          "incoming": {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 3
+          },
+          "target": {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 3,
+            "y": 4
+          },
+          "remainderId": null,
+          "origin": {
+            "x": 3,
+            "y": 3
+          }
+        }
+      },
+      {
+        "type": "fall",
+        "id": "child3",
+        "from": 3,
+        "to": 4,
+        "x": 3
+      },
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 4,
+        "to": 5,
+        "x": 6
+      },
+      {
+        "type": "fall",
+        "id": "parent",
+        "from": 5,
+        "to": 6,
+        "x": 6
+      },
+      {
+        "type": "fall",
+        "id": "child1",
+        "from": 4,
+        "to": 5,
+        "x": 6
+      },
+      {
+        "type": "merge",
+        "id": "child1",
+        "x": 6,
+        "y": 6,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "parent",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "contact": {
+          "incoming": {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 5
+          },
+          "target": {
+            "id": "parent",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 6
+          },
+          "remainderId": null,
+          "origin": {
+            "x": 6,
+            "y": 5
+          }
+        }
+      },
+      {
+        "type": "fall",
+        "id": "child1",
+        "from": 5,
+        "to": 6,
+        "x": 6
+      },
+      {
+        "type": "split",
+        "id": "child3",
+        "x": 5,
+        "y": 4,
+        "count": 1,
+        "children": [
+          {
+            "id": "child4",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child3",
+        "from": 4,
+        "to": 5,
+        "x": 6
+      },
+      {
+        "type": "merge",
+        "id": "child3",
+        "x": 6,
+        "y": 6,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 2,
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "contact": {
+          "incoming": {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 5
+          },
+          "target": {
+            "id": "child1",
+            "species": "dog",
+            "level": 2,
+            "x": 6,
+            "y": 6
+          },
+          "remainderId": null,
+          "origin": {
+            "x": 6,
+            "y": 5
+          }
+        }
+      },
+      {
+        "type": "fall",
+        "id": "child3",
+        "from": 5,
+        "to": 6,
+        "x": 6
+      },
+      {
+        "type": "fall",
+        "id": "child4",
+        "from": 4,
+        "to": 5,
+        "x": 6
+      },
+      {
+        "type": "merge",
+        "id": "child4",
+        "x": 6,
+        "y": 6,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 3,
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "contact": {
+          "incoming": {
+            "id": "child4",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 5
+          },
+          "target": {
+            "id": "child3",
+            "species": "dog",
+            "level": 3,
+            "x": 6,
+            "y": 6
+          },
+          "remainderId": null,
+          "origin": {
+            "x": 6,
+            "y": 5
+          }
+        }
+      },
+      {
+        "type": "rescue",
+        "id": "child4",
+        "x": 6,
+        "y": 6,
+        "level": 4
+      },
+      {
+        "type": "fall",
+        "id": "child4",
+        "from": 5,
+        "to": 6,
+        "x": 6
+      }
+    ]
+  }
+]

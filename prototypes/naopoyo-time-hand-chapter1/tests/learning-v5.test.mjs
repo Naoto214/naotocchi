@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {stages} from '../stages.mjs';
-import {solutions} from '../solutions.mjs';
+import {stages} from '../archive/v5/stages.mjs';
+import {solutions} from '../archive/v5/solutions.mjs';
 import {createState,move,mass,validState,complete,cornerBlocked} from '../engine.mjs';
 import {timeHandTrace} from '../priorities.mjs';
 const replay=i=>{const s=createState(stages[i].board),events=[],splits=[];for(const action of solutions[i]){const r=move(s,...action,{observeSplit:sample=>splits.push(sample)});assert.ok(r.ok,`${i+1}: ${action}: ${r.reason}`);events.push(...r.events);assert.equal(mass(s),mass(createState(stages[i].board)));assert.ok(validState(stages[i].board,s));}return {s,events,splits};};

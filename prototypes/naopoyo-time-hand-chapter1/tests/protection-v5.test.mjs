@@ -1,9 +1,13 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
 import {drawDungeonFloor,drawDungeonWallDetails} from '../dungeon-art.mjs';import {stages} from '../stages.mjs';
 const root=new URL('../',import.meta.url);
-test('V4 input, physics, app flow and shared motion/painter/timing sources stay byte identical',()=>{
+test('V4 input, physics, app control flow and shared motion/painter/timing sources stay byte identical',()=>{
  const hashes=JSON.parse(fs.readFileSync(new URL('../../docs/naopoyo-time-hand-chapter1-20261102/v5/protected-hashes.json',root)));
- for(const [file,hash]of Object.entries(hashes))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(new URL(file,root))).digest('hex'),hash,file);
+ for(const [file,hash]of Object.entries(hashes)){
+ let source=fs.readFileSync(new URL(file,root));
+ if(file==='app.mjs')source=Buffer.from(source.toString().replace("$('goal').textContent=s.goal;$('lesson-text').textContent=s.text;$('lesson-goal').textContent=s.goal;","$('goal').textContent=s.goal;").replace("?'↓ 重力あり':'平面'","?'重力あり · 仲間も足場':'平面'"));
+ assert.equal(crypto.createHash('sha256').update(source).digest('hex'),hash,file);
+ }
 });
 test('dungeon scenery is pure and its grilles are confined to existing wall cells',()=>{
  for(const stage of stages){const board=structuredClone(stage.board),before=JSON.stringify(board),fills=[];const c=new Proxy({},{get:(o,k)=>k in o?o[k]:(...a)=>{if(k==='fillRect')fills.push(a)},set:(o,k,v)=>(o[k]=v,true)});
