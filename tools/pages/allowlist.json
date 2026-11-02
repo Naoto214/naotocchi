@@ -4129,7 +4129,8 @@
     "prototypes/card-game/life-clock-turn.mjs",
     "prototypes/card-game/life-clock/v18/clock-v18.mjs",
     "prototypes/card-game/life-clock/v19/clock-v19.mjs",
-    "prototypes/card-game/inspection-controls.mjs"
+    "prototypes/card-game/inspection-controls.mjs",
+    "prototypes/card-game/life-clock/v23/clock-v23.mjs"
   ],
   "dynamic_families": [
     "assets/characters/**/*.png",
@@ -4330,9 +4331,9 @@
     "prototypes/naopoyo-chapter2/stone.mjs": "37d5dc9152b4deafaa20a10e77a2b170b555e6955a34c5c6bf665d451031addd",
     "prototypes/naopoyo-chapter2/style.css": "f14af0660ad9a71e33a63b5e8407b9ff4a617fdb04c11e2677505c041fba5e8d",
     "prototypes/card-game/life-clock.css": "c1dca359d8217feca1311f690b951c798c8c7df282a2958db900507a2668fdfb",
-    "prototypes/card-game/life-clock-view.mjs": "c810a7020822bf25d99da9e02617976d8e36ce349817fdbf60bbc1fc9b093e05",
+    "prototypes/card-game/life-clock-view.mjs": "86a7e5147b058addcd1c19b243945bb713c87786c2912d32faa88f81b7eccb4f",
     "prototypes/card-game/life-clock-state.mjs": "36ba44b023d255753f38ef2c658d04e50ab295a1fbac1f1a29ef36486263e663",
-    "prototypes/card-game/life-clock-render.mjs": "99972a00312f29ec6978c63d93e216fcdb7e2e0d363bcdc20e74803b6e29cb46",
+    "prototypes/card-game/life-clock-render.mjs": "e05ceb65d66699afe6da83139266e6245ebb5813ea6c0dc60c9a704e73de88db",
     "prototypes/card-game/life-clock/clock.mjs": "bf85e60421260941e4e3ba5ca63a19a42182d4cce26cb3119950f165aa8fd7c2",
     "prototypes/card-game/life-clock/v11/clock-v11.mjs": "8f1cbc3801207dd25ebbbb9cc611d8dc3f98473631c35435ed3e932fa09cb8e0",
     "prototypes/card-game/life-clock/v11/layout.mjs": "afbeedc45d93e8759bcef0d77b3f76b7442b2efa6c4a513a643031eb899c95c0",
@@ -4357,7 +4358,8 @@
     "prototypes/card-game/life-clock-turn.mjs": "a9b6ad7b80bc56484b9b224e7841254b9b80b2d217881cf0d4675fe58d316a50",
     "prototypes/card-game/life-clock/v18/clock-v18.mjs": "86f898293fa34b6a3d430a9f8df4245ae30a9903d91b558104d308cca6329993",
     "prototypes/card-game/life-clock/v19/clock-v19.mjs": "ad0e03d173344ae24324d81bfbb8ab2284a83e913e5c47d7f4b25ad3d78734a7",
-    "prototypes/card-game/inspection-controls.mjs": "1ed04a073db25afb285a04c04e087cb4d33aab555c61c6d5e8add7233d758385"
+    "prototypes/card-game/inspection-controls.mjs": "1ed04a073db25afb285a04c04e087cb4d33aab555c61c6d5e8add7233d758385",
+    "prototypes/card-game/life-clock/v23/clock-v23.mjs": "637b67d972edafb615a2514770fa22a05a8b7dda98f04af57823f9d6b7ed4654"
   },
   "forbidden_patterns": [
     "^(?:docs|tests|tools|\\.github)/",
