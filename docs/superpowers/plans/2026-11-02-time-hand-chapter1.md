@@ -20,17 +20,20 @@ Reuse PR503 physics rather than fork formal production or replace physics. Draw 
 - Narrow/short/landscape layouts keep all controls reachable.
 
 ### Task 1: chapter state and stages
-- [ ] Tests fail for missing chapter session/stages.
-- [ ] Add stages.mjs, session.mjs; exact D dispatch retained.
-- [ ] Verify objectives, cage/partner seal, atomic restore and gesture Undo.
+- [x] Tests fail for missing chapter session/stages.
+- [x] Add stages.mjs, session.mjs; exact D dispatch retained.
+- [x] Verify objectives, cage/partner seal, atomic restore and gesture Undo.
 ### Task 2: ten legal witnesses
-- [ ] Add solutions.mjs and replay.mjs. Verify each move, per-species mass, all-actor escape and objective events.
-- [ ] Check known witnesses for naturalness; label confirmed, not shortest.
+- [x] Add solutions.mjs and replay.mjs. Verify each move, per-species mass, all-actor escape and objective events.
+- [x] Check known witnesses for naturalness; label confirmed, not shortest.
 ### Task 3: playable presentation
-- [ ] Add app.mjs, index.html, style.css; adapt draw.mjs with dungeon scene/cage/switches.
-- [ ] Persistent sequential unlock, tap/drag/stroke, replay previous/next/autoplay/pause/position retention.
+- [x] Add app.mjs, index.html, style.css; adapt draw.mjs with dungeon scene/cage/switches.
+- [x] Persistent sequential unlock, tap/drag/stroke, replay previous/next/autoplay/pause/position retention.
 ### Task 4: validate and deliver
-- [ ] New physics/session/replay suite, published puzzle and CARD/runtime/Pages checks, independent review.
-- [ ] Browser QA sizes + pointer interactions; record device limitations.
-- [ ] Add independent CI; commit/push new branch, create Draft PR.
-- [ ] Package private Site, verify delivery bytes and access; report all remaining limits.
+- [x] New physics/session/replay suite, published puzzle and CARD/runtime/Pages checks, independent review.
+- [x] Browser QA sizes + pointer interactions; record device limitations.
+- [x] Add independent CI; commit/push new branch, create Draft PR.
+- [x] Package private Site, verify delivery bytes and access; report all remaining limits.
+
+## Execution ledger
+Task1-3 complete: 32/32 tests, ten normal and demo browser clears. Review fixed live selection changed by demo; browser RED→GREEN. Task4 private deployment and byte verification complete; full runtime CI pending at report time. Local sparse regression failures retained in LOCAL-ATTEMPTS.md. User supplied explicit execution/publication approval.
