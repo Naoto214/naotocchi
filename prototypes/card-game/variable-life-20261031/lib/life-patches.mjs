@@ -248,6 +248,10 @@ function timeValue(c,o){const n=TIMEN[c?.name],L=o.life;if(!n||!L)return null;co
  const stand=(1-qNow)*Math.pow(.9,Math.max(0,Math.min(n,F)-o.round));return v>0?v*stand:v;}
 `;
 export function policyTime(cpu='smart'){
+ // Trial only: both CPUs in one bundle, chosen at run time by globalThis.__timeCpu ('v1' = smart, otherwise smart2).
+ if(cpu==='switch'){const v1=policyTime('smart')[0][2].replace('const growthMult=o=>','').replace(/const TIMEN=[^\n]*\n/,'').replace(/function pendingFinal[^\n]*\n/,'').replace('function timeValue(','function timeValueV1(');
+  return [['time-helper',"const growthMult=o=>",SMART2+v1+"const growthMult=o=>"],
+  ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const V1=globalThis.__timeCpu==='v1',tv=V1?timeValueV1(c,o):timeValue(c,o);if(tv!==null)return (V1?(tv===0?-1:tv):(tv<=.5?-1:tv))-spend-(b.world&&!TIMEN[b.world.name]?3:0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"]];}
  if(cpu==='smart2')return [['time-helper',"const growthMult=o=>",SMART2+"const growthMult=o=>"],
   ['time-score',"if(a.slot==='world')return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;","if(a.slot==='world'){const tv=timeValue(c,o);if(tv!==null)return (tv<=.5?-1:tv)-spend-(b.world&&!TIMEN[b.world.name]?3:0);return (b.world?.cardId===c?.cardId?-6:b.world?3:9)-spend;}"]];
  const helper=`

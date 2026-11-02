@@ -40,14 +40,23 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  const restore=async raw=>{key=KEY;await p.evaluate(([k,r])=>localStorage.setItem(k,r),[KEY,raw]);await p.reload();await p.locator('#hotseat-open').tap();await p.locator('#restore').tap();await reveal();await p.locator('#game').waitFor({state:'visible'});};
  const finish=async(round)=>{const v=await until(()=>false);const result=await p.locator('#result').innerText();assert.match(result,new RegExp(`R${round}最終比較|維持`),'終了');note(name,'結果：',result.replace(/\s+/g,' ').slice(0,90));return v;};
 
- // 0) 準備：各2枚 → 新しい2人対戦。両者のデッキに各2枚。選んだ枚数は次も残る。保存の鍵は専用。
+ // 0) 準備（VERSION 2）：A は各2、B は XI×1・XII×2 → 新しい2人対戦。デッキの中身・表示・選択の記憶・保存の鍵。
  await p.goto(URL0);await p.locator('#hotseat-open').tap();await p.locator('#life-trial-note').scrollIntoViewIfNeeded();
- assert.match(await p.locator('#life-trial-note').innerText(),/特殊カウンター[\s\S]*最後に出したカードだけが成立/);await p.locator('#time-count').selectOption('2');await shot('setup');
+ assert.match(await p.locator('#life-trial-note').innerText(),/特殊カウンター[\s\S]*最後に出したカードだけが成立/);
+ await p.locator('#time-config-A').selectOption('H8');await p.locator('#time-config-B').selectOption('L3');await shot('setup');
  await p.locator('#new').tap();await reveal();await p.locator('#game').waitFor({state:'visible'});
- assert.match(await p.locator('body').innerText(),/時のカード試遊版：各2枚／A：8枚を時のカードに／B：8枚を時のカードに/);
- {const g=JSON.parse(await saved());for(const s of ['A','B'])for(const id of ['X-T-IX','X-T-X','X-T-XI','X-T-XII'])assert.equal(g.decks[s].filter(c=>c===id).length,2,`${s}に${id}×2`);}
+ assert.match(await p.locator('body').innerText(),/時のカード試遊版：CPU判断 VERSION 2／A：各2（8枚）（8枚入れ替え）／B：XI×1・XII×2（延長）（3枚入れ替え）/);
+ {const g=JSON.parse(await saved()),n=(s,id)=>g.decks[s].filter(c=>c===id).length;for(const id of ['X-T-IX','X-T-X','X-T-XI','X-T-XII'])assert.equal(n('A',id),2,`Aに${id}×2`);
+  assert.deepEqual([n('B','X-T-IX'),n('B','X-T-X'),n('B','X-T-XI'),n('B','X-T-XII')],[0,0,1,2],'B は XI×1・XII×2');assert.equal(g.decks.A.length,40);assert.equal(g.decks.B.length,40);}
  const keys=await p.evaluate(()=>{const out=[];for(let i=0;i<localStorage.length;i++)out.push(localStorage.key(i));return out;});assert.ok(keys.every(k=>k.startsWith(PREFIX)));
- await p.reload();await p.locator('#hotseat-open').tap();assert.equal(await p.locator('#time-count').inputValue(),'2');note(name,'準備 OK');
+ await p.reload();await p.locator('#hotseat-open').tap();assert.equal(await p.locator('#time-config-A').inputValue(),'H8');assert.equal(await p.locator('#time-config-B').inputValue(),'L3');note(name,'準備 OK（A 各2・B XI×1・XII×2）');
+ // マイデッキ：時のカードは通常のセカイと同じく同名3枚まで（4種類合計の上限なし）。
+ await p.locator('#my-decks-open').tap();await p.locator('#deck-create').tap();await p.locator('#card-search').fill('終了ラウンドを12');
+ const row=p.locator('#catalog-list [data-card-id="X-T-XII"]');await row.waitFor();for(let i=0;i<3;i++)await row.locator('[data-add]').tap();
+ assert.equal((await row.locator('.deck-card-controls span').innerText()).replace(/\s/g,''),'3/3');assert.equal(await row.locator('[data-add]').isDisabled(),true,'4枚目は入れられない');
+ await p.locator('#card-search').fill('終了ラウンドを9');const r9=p.locator('#catalog-list [data-card-id="X-T-IX"]');await r9.waitFor();for(let i=0;i<3;i++)await r9.locator('[data-add]').tap();
+ assert.equal((await r9.locator('.deck-card-controls span').innerText()).replace(/\s/g,''),'3/3');await shot('mydeck');note(name,'マイデッキ：XII×3・IX×3（同名3枚まで）OK');
+ await p.goto(URL0);
 
  // 1) IX → XII → X → XI：途中の時計は X のまま、最後の XI だけ成立。R11 で終了。
  await restore(SAVE);assert.match(await indicator(),/ROUND 8\/10/);await clock(10);
@@ -71,10 +80,17 @@ try{for(const [name,viewport] of process.env.QA_ONLY_CPU?[]:[['iphone-portrait',
  assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'横スクロールなし');
  await ctx.close();note(name,'OK');
 }
-// 5) CPU 対戦（各1枚）：人はパスだけ、CPU は時のカードを使う。最後まで正常に終わる。
+// 5) CPU 対戦（VERSION 2）：CPU の判断の切り替え、CPU はデッキ別の推奨構成（アイテム・じゅんび）、人は各1。人はパスだけで最後まで。
 {const ctx=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2});const p=await ctx.newPage();p.on('pageerror',e=>errors.push(`cpu: ${e.message}`));
- await p.goto(URL0);await p.locator('#solo-open').tap();await p.locator('#time-count').selectOption('1');await p.locator('#new').tap();await p.locator('#game').waitFor({state:'visible'});
- const saved=()=>p.evaluate(k=>localStorage.getItem(k),CPU_KEY);const g=JSON.parse(await saved());for(const s of ['A','B'])assert.equal(g.game.decks[s].filter(c=>/^X-T-/.test(c)).length,4,'各1枚×4種');
+ await p.goto(URL0);await p.locator('#solo-open').tap();await p.locator('#time-cpu').selectOption('v1');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v1');
+ await p.locator('#time-cpu').selectOption('v2');assert.equal(await p.evaluate(()=>globalThis.__timeCpu),'v2');
+ await p.locator('#cpu-deck-mode').selectOption('choose');await p.locator('#cpu-deck-type').selectOption('item');
+ const human=await p.locator('#human-seat').inputValue(),cpuSeat=human==='A'?'B':'A';await p.locator('#time-config-'+human).selectOption('B4');await p.locator('#time-config-'+cpuSeat).selectOption('rec');
+ await p.locator('#new').tap();await p.locator('#game').waitFor({state:'visible'});
+ const saved=()=>p.evaluate(k=>localStorage.getItem(k),CPU_KEY);const g=JSON.parse(await saved());
+ assert.equal(g.game.decks[human].filter(c=>/^X-T-/.test(c)).length,4,'人は各1');
+ const REC=JSON.parse(process.env.REC??'{}'),FILL=JSON.parse(process.env.FILL??'{}'),want=FILL[REC.item??'B4']??[];
+ assert.equal(g.game.decks[cpuSeat].filter(c=>/^X-T-/.test(c)).sort().join(),[...want].sort().join(),'CPU はアイテム・じゅんびの推奨構成 '+(REC.item??'B4'));note('cpu','CPU 推奨構成（アイテム）：',REC.item);
  for(let n=0;n<4000&&!(await p.locator('#result').count());n++){const {session}=decodeMatch(await saved());session.reveal();const v=session.projection;if(v.result)break;if(v.actor!==v.humanSeat||!v.actions?.length){await p.waitForTimeout(80);continue;}
   const a=v.actions.find(x=>x.kind==='choose')??v.actions.find(x=>x.kind==='skip')??v.actions.find(x=>x.kind==='pass')??v.actions[0];
   const ns=p.locator('#operation-panel [data-action], #card-dialog [data-action]');const i=await ns.evaluateAll((ns,id)=>ns.findIndex(n=>n.dataset.action===id),a.id);

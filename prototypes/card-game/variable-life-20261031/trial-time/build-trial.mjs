@@ -6,6 +6,7 @@
 // 保存の鍵はすべて `naotocchi-time-trial:` 付き（正式版・ほかの試遊版の保存には触れない）。
 import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';import {fileURLToPath} from 'node:url';
 import {ENGINE,effectsPatches,OBSERVATION,policyPatches,ENGINE_WORLD,ENGINE_TIME,EFFECTS_TIME,policyTime,timeCards,timeRules} from '../lib/life-patches.mjs';
+import {CONFIGS} from '../lib/decks-life.mjs';
 const HERE=path.dirname(fileURLToPath(import.meta.url)),CG=path.resolve(HERE,'../..'),REPO=path.resolve(CG,'../..');
 const OUT=path.resolve(process.argv[2]??'');if(!process.argv[2]||OUT.startsWith(REPO+path.sep))throw Error('出力先はリポジトリの外を指定してください');
 const largeOnly=process.argv.includes('--large-only'),artifact=process.argv.includes('--artifact'),stageOnly=process.argv.includes('--stage-only');
@@ -28,7 +29,8 @@ apply('engine.mjs',[...ENGINE,...ENGINE_WORLD,...ENGINE_TIME,
 ]);
 apply('effects.mjs',[...effectsPatches(CFG),...EFFECTS_TIME]);
 apply('cpu-observation.mjs',OBSERVATION);
-apply('cpu-policy.mjs',[...policyPatches(CFG),...policyTime('smart')]);
+// VERSION 2：CPU の判断は smart2（既定）と VERSION 1 の smart を、準備画面で切り替えられる（globalThis.__timeCpu）。
+apply('cpu-policy.mjs',[...policyPatches(CFG),...policyTime('switch')]);
 const W=Object.fromEntries(Object.entries(timeCards(2,true)).map(([id,c])=>[id,{...c,source:'variable-life-20261031 時のカード試遊版（仮カード・画像は後日）'}]));
 src['full-catalog.mjs']+=`\n// ---- variable-life-20261031 time trial: provisional cards ----\nObject.assign(CATALOG,${JSON.stringify(W,null,1)});\n`;
 src['rules.mjs']+=timeRules(true);
@@ -45,19 +47,27 @@ apply('ui-presentation.mjs',[
  ['trial-round',"<small>ROUND ${v.round}/10","<small>ROUND ${v.round}/${v.life?.final??10}${(v.life?.final??10)!==10?`<span class=\"life-badge life-r${v.life.final}\">${v.life.final>10?'延長':'短縮'}</span>`:''}"],
  ['trial-result',"<p>${h(v.result.reason)} · A ${v.result.growth.A} / B ${v.result.growth.B}</p>","<p>${h(v.result.reason)} · A ${v.result.growth.A} / B ${v.result.growth.B}</p>${v.life?.r10?`<p class=\"life-r10\">R10終了時点 · A ${v.life.r10.A} / B ${v.life.r10.B}（延長でR${v.life.final}まで）</p>`:''}"],
 ]);
-// 対戦開始時、両者のデッキに IX・X・XI・XII を各1枚（選択で各2枚）入れる。入れ替える枠は実験と同じ：メイン以外で残り枚数が最も多いカードから1枚ずつ。
+// VERSION 2：対戦開始時、各席のデッキに選んだ構成の時のカードを入れる（入れ替える枠は実験と同じ：メイン以外で残り枚数が最も多いカードから）。
+// 「おすすめ」は CPU の戦略デッキ別の推奨構成（results/summary-v2.json の selected。人の席・マイデッキでは各1）。
 // すでに時のカードがデッキに入っている場合（マイデッキに自分で入れた場合）は、そのまま使う。
+const SUMMARY=path.join(HERE,'../results/summary-v2.json');
+const REC=fs.existsSync(SUMMARY)?JSON.parse(fs.readFileSync(SUMMARY,'utf8')).selected??{}:{};
+const CONF=Object.fromEntries(Object.entries(CONFIGS).map(([k,v])=>[k,{label:v.label,fill:v.fill}]));
 src['app.mjs']=`import {CARDS as __LC} from './engine.mjs';
-const __lifeTrial=(()=>{let last=[];const X=/^X-T-/,T=['X-T-IX','X-T-X','X-T-XI','X-T-XII'];
- const count=()=>{const m=document.getElementById('time-count')?.value;return m==='2'?2:1;};
- const inject=(list,k)=>{if(list.some(id=>X.test(id)))return {cards:[...list],from:[]};const left={},order=[];for(const id of list)if(!id.startsWith('M-')){if(!(id in left)){left[id]=0;order.push(id);}left[id]++;}
-  const cards=[...list],from=[],fill=k===2?[...T,...T]:T;for(const to of fill){const id=[...order].sort((x,y)=>left[y]-left[x]||order.indexOf(x)-order.indexOf(y))[0];const i=cards.lastIndexOf(id);from.push(id);cards[i]=to;left[id]--;}return {cards,from};};
- return {inject(match){const k=count();try{localStorage.setItem('naotocchi-time-count',String(k));}catch{}last=['各'+k+'枚'];const out={};for(const seat of ['A','B']){const r=inject(match[seat],k);out[seat]=r.cards;last.push(seat+'：'+(r.from.length?r.from.length+'枚を時のカードに':'時のカードはデッキに入っています'));}return out;},
-  note(){return '時のカード試遊版：'+last.join('／');}};})();
-try{const m=localStorage.getItem('naotocchi-time-count');const sel=document.getElementById('time-count');if(sel&&['1','2'].includes(m))sel.value=m;}catch{}
+const __lifeTrial=(()=>{let last=[];const X=/^X-T-/,CONF=${JSON.stringify(CONF)},REC=${JSON.stringify(REC)};
+ const pick=seat=>document.getElementById('time-config-'+seat)?.value??'rec';
+ const inject=(list,conf)=>{if(list.some(id=>X.test(id)))return {cards:[...list],from:[],conf:'own'};if(conf==='N0')return {cards:[...list],from:[],conf};const left={},order=[];for(const id of list)if(!id.startsWith('M-')){if(!(id in left)){left[id]=0;order.push(id);}left[id]++;}
+  const cards=[...list],from=[];for(const to of CONF[conf].fill){const id=[...order].sort((x,y)=>left[y]-left[x]||order.indexOf(x)-order.indexOf(y))[0];const i=cards.lastIndexOf(id);from.push(id);cards[i]=to;left[id]--;}return {cards,from,conf};};
+ const save=()=>{try{for(const k of ['time-config-A','time-config-B','time-cpu'])localStorage.setItem('naotocchi-'+k,document.getElementById(k).value);}catch{}};
+ const cpuMode=()=>{globalThis.__timeCpu=document.getElementById('time-cpu')?.value==='v1'?'v1':'v2';};
+ return {inject(match,cpuSeat=null,cpuDeckId=null){save();cpuMode();const out={};last=['CPU判断 '+(globalThis.__timeCpu==='v1'?'VERSION 1':'VERSION 2')];for(const seat of ['A','B']){let c=pick(seat);if(c==='rec')c=seat===cpuSeat&&REC[cpuDeckId]?REC[cpuDeckId]:'B4';const r=inject(match[seat],c);out[seat]=r.cards;
+   last.push(seat+'：'+(r.conf==='own'?'マイデッキの時のカード':r.conf==='N0'?'時のカードなし':CONF[r.conf].label+'（'+r.from.length+'枚入れ替え）'));}return out;},
+  cpuMode,note(){return '時のカード試遊版：'+last.join('／');}};})();
+try{for(const k of ['time-config-A','time-config-B','time-cpu']){const m=localStorage.getItem('naotocchi-'+k),sel=document.getElementById(k);if(sel&&m&&[...sel.options].some(o=>o.value===m))sel.value=m;}}catch{}
+__lifeTrial.cpuMode();document.getElementById('time-cpu')?.addEventListener('change',()=>__lifeTrial.cpuMode());
 `+src['app.mjs'];
 apply('app.mjs',[
- ['inject',"match={...decks,...(label?{[cpuSeat]:label.cards}:{})};","match=__lifeTrial.inject({...decks,...(label?{[cpuSeat]:label.cards}:{})});"],
+ ['inject',"match={...decks,...(label?{[cpuSeat]:label.cards}:{})};","match=__lifeTrial.inject({...decks,...(label?{[cpuSeat]:label.cards}:{})},solo?cpuSeat:null,label?.id??null);"],
  ['metadata',"myDecks.list().find(d=>d.id===$('select-deck-'+seat).value)","{...myDecks.list().find(d=>d.id===$('select-deck-'+seat).value),cards:[...match[seat]]}"],
  ['notice',"if(label)writePref({last:label.id});persist();}catch","if(label)writePref({last:label.id});persist();message(__lifeTrial.note());}catch"],
 ]);
@@ -93,8 +103,9 @@ const storage=`(()=>{const P=${JSON.stringify(PREFIX)},S=Storage.prototype,{getI
 const css=`.life-badge{display:inline-block;margin-left:4px;padding:0 5px;border-radius:6px;font-weight:700;color:#fff}.life-r9{background:#b03030}.life-r11{background:#2e9b5f}.life-r12{background:#2f6fd6}`
  +`.life-r10{margin-top:4px;font-size:.9em;color:#5a4a33}.life-trial-note{margin:8px 0 12px;padding:10px 12px;border-radius:10px;background:#fff4e0;border:2px solid #d64545;color:#3d3326;line-height:1.6;font-size:14px}`
  +`.life-trial-note select{max-width:100%;min-height:44px;font-size:14px;margin:4px 0}.life-trial-note strong{color:#b03030}.life-trial-note .c10{color:#d64545;font-weight:700}.life-trial-note .c11{color:#2e9b5f;font-weight:700}.life-trial-note .c12{color:#2f6fd6;font-weight:700}`;
-const note=`<div id="life-trial-note" class="life-trial-note"><strong>試遊版：時のカード IX・X・XI・XII</strong><br>通常どおり<span class="c10">R10</span>で終わります。対戦を始めると、両者のデッキに時のカード IX・X・XI・XII（せかい・時2）が入ります（入れ替えたカードは画面下に表示）。<br>自分の番に、ふつうのセカイと同じように出すと、終了ラウンドが9・10・11・12のどれかになります（両者共通。現在のラウンドより前にはできない）。<br><b>特殊カウンター：</b>相手が時のカードを出したら、応答のときに手札の時のカードを「カウンター」として出せます（時2・何回でも続けられる）。最後に出したカードだけが成立し、それまでのカードは捨て札へ。終了ラウンドはすべての応答が終わってから決まります。<br>人生の時計の下中央の小針が、決まった終了ラウンド（IX・X・XI・XII）を指します。カウンターの途中では動きません。<br><label for="time-count">時のカードの枚数</label> <select id="time-count"><option value="1">各1枚（計4枚）</option><option value="2">各2枚（計8枚）</option></select><br>新カードの絵はまだありません（「画像を表示できません」と出ます）。この試遊版の保存・戦績・マイデッキは、正式版・ほかの試遊版とは別に保存されます。</div>`;
-swap('<title>なおとっち CARD GAME</title>','<title>CARD GAME 時のカード 試遊</title>');
+const OPTS=`<option value="rec">おすすめ（CPUはデッキ別の推奨、人は各1）</option>`+Object.entries(CONFIGS).map(([k,v])=>`<option value="${k}">${v.label}</option>`).join('')+'<option value="N0">時のカードなし</option>';
+const note=`<div id="life-trial-note" class="life-trial-note"><strong>試遊版 VERSION 2：時のカード IX・X・XI・XII</strong><br>ふつうは<span class="c10">R10</span>で終わります。時のカード（せかい・時2・同名3枚まで）を自分の番にふつうのセカイと同じように出すと、終了ラウンドが9・10・11・12のどれかになります（両者共通。現在のラウンドより前にはできない）。<br><b>特殊カウンター：</b>相手が時のカードを出したら、応答のときに手札の時のカードで「カウンター」できます（時2・何回でも）。最後に出したカードだけが成立し、それまでの時のカードは捨て札へ。終了ラウンドはすべての応答が終わってから決まり、人生の時計の下中央の小針がそのラウンドを指します。<br><label for="time-config-A">Aのデッキの時のカード</label> <select id="time-config-A">${OPTS}</select><br><label for="time-config-B">Bのデッキの時のカード</label> <select id="time-config-B">${OPTS}</select><br><label for="time-cpu">CPUの判断</label> <select id="time-cpu"><option value="v2">VERSION 2（勝率見込み・上書きされる見込みも考える）</option><option value="v1">VERSION 1（終盤の点差だけで判断）</option></select><br>選んだ枚数だけ、デッキのカード（メイン以外で枚数の多いもの）と入れ替えます。マイデッキにすでに時のカードを入れている場合は、そのまま使います。新カードの絵はまだありません。この試遊版の保存・戦績・マイデッキは、正式版・ほかの試遊版とは別です。</div>`;
+swap('<title>なおとっち CARD GAME</title>','<title>CARD GAME 時のカード 試遊 V2</title>');
 swap('<link rel="stylesheet" href="records.css">','<link rel="stylesheet" href="records.css"><style>'+css+'</style><script>'+storage+'</script>');
 swap('<h2 id="match-setup-title">対戦の準備</h2>','<h2 id="match-setup-title">対戦の準備</h2>'+note);
 swap('<a id="home-return" class="home-return" href="../../">','<a id="home-return" class="home-return" href="home.html">');
@@ -108,7 +119,7 @@ if(artifact){
  if(/<\/?(html|head|body)[ >]/.test(html))throw Error('外枠タグが残っています');
 }
 fs.writeFileSync(path.join(OUT,'index.html'),html);
-fs.writeFileSync(path.join(OUT,'home.html'),`<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>なおとっち（試遊用の仮画面）</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fff8e7;color:#3d3326;font-family:system-ui,sans-serif;padding:16px;box-sizing:border-box}main{max-width:420px;text-align:center}h1{font-size:1.4rem}p{line-height:1.7}a{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:12px;background:#315e62;color:#fff;text-decoration:none;font-weight:700}</style></head><body><main><h1>なおとっち</h1><p>（試遊用の仮画面）<br>本番では、ここが通常のなおとっち育成画面です。</p><p><a id="open-card-game" href="./">CARD GAME 時のカード 試遊をひらく</a></p></main></body></html>\n`);
+fs.writeFileSync(path.join(OUT,'home.html'),`<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>なおとっち（試遊用の仮画面）</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fff8e7;color:#3d3326;font-family:system-ui,sans-serif;padding:16px;box-sizing:border-box}main{max-width:420px;text-align:center}h1{font-size:1.4rem}p{line-height:1.7}a{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:12px;background:#315e62;color:#fff;text-decoration:none;font-weight:700}</style></head><body><main><h1>なおとっち</h1><p>（試遊用の仮画面）<br>本番では、ここが通常のなおとっち育成画面です。</p><p><a id="open-card-game" href="./">CARD GAME 時のカード 試遊 V2をひらく</a></p></main></body></html>\n`);
 fs.rmSync(STAGE,{recursive:true,force:true});
 if(JSON.stringify(officialSha())!==JSON.stringify(before))throw Error('正式ファイルが変わりました');
 const files=[];(function walk(d){for(const n of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,n.name);if(n.isDirectory())walk(p);else files.push(path.relative(OUT,p));}})(OUT);
