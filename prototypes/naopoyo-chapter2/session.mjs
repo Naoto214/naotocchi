@@ -32,8 +32,7 @@ export class ForestSession extends WorldSession {
    this.lastResults.push(result);
    if(result.ok){
     d.cursor={x,y};this.rebase();
-    const swap=result.events.some(e=>e.type==='swap'),fall=result.events.some(e=>e.type==='fall'),split=result.events.some(e=>e.type==='split');
-    this.motion.push({before,after:clone(this.state),events:result.events,id:d.id,dx,dy,elapsed:0,duration:split?340:swap?(fall?420:180):fall?340:before.movementRules==='contact-v2'&&result.events.some(e=>e.type==='merge')?(result.overflow?240:180):110});
+    this.motion.push(motionFrame(before,this.state,result,d.id,dx,dy));
    }
   }
   d.last={...p};this.updatePreview(p);return this.lastResults;
@@ -86,4 +85,10 @@ export function visualActors(q){
   const shown=hasBodySplit&&t>=manualEnd?{...old,level:Math.max(1,splitLevel)}:old;
   return {...(t>.85&&now?now:shown),x,y,opacity:now?1:Math.max(0,1-t),landing:falls.length&&t>.8?Math.sin((t-.8)*Math.PI/ .2):0};
  });
+}
+
+// One source for live/replay timing, including overflow and fall combinations.
+export function motionFrame(before,after,result,id,dx,dy){
+ const swap=result.events.some(e=>e.type==='swap'),fall=result.events.some(e=>e.type==='fall'),split=result.events.some(e=>e.type==='split');
+ return {before,after:clone(after),events:result.events,id,dx,dy,elapsed:0,duration:split?340:swap?(fall?420:180):fall?340:before.movementRules==='contact-v2'&&result.events.some(e=>e.type==='merge')?(result.overflow?240:180):110};
 }
