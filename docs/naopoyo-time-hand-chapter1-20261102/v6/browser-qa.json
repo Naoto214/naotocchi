@@ -1,0 +1,61 @@
+{
+  "browser": "Chrome via managed browser; actual CSS iframe viewport, not iPhone Safari",
+  "passed": 70,
+  "total": 70,
+  "checks": [
+    "no document/body scrolling",
+    "square visible canvas",
+    "five button labels inside each control",
+    "tap height >=44px",
+    "correct gravity badge"
+  ],
+  "viewports": [
+    {
+      "size": "320x568",
+      "passed": 10,
+      "total": 10,
+      "min_board_px": 296
+    },
+    {
+      "size": "375x667",
+      "passed": 10,
+      "total": 10,
+      "min_board_px": 351
+    },
+    {
+      "size": "390x844",
+      "passed": 10,
+      "total": 10,
+      "min_board_px": 366
+    },
+    {
+      "size": "430x932",
+      "passed": 10,
+      "total": 10,
+      "min_board_px": 406
+    },
+    {
+      "size": "320x480",
+      "passed": 10,
+      "total": 10,
+      "min_board_px": 247
+    },
+    {
+      "size": "844x280",
+      "passed": 10,
+      "total": 10,
+      "min_board_px": 260
+    },
+    {
+      "size": "667x375",
+      "passed": 10,
+      "total": 10,
+      "min_board_px": 355
+    }
+  ],
+  "interactions": {
+    "08_closed_corner": "rejected,0 moves",
+    "08_legal_diagonal": "accepted,1 move",
+    "08_undo": "returned to0 moves"
+  }
+}
