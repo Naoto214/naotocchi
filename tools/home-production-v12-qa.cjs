@@ -7,7 +7,8 @@ let qa=fs.readFileSync(path.join(out,'v11-qa-script.js'),'utf8').replaceAll("doc
 const runtime=fs.readFileSync('script.js','utf8'),start=runtime.indexOf('const upperV12='),end=runtime.indexOf('\n    const property=',start);
 if(!qa.includes('const upperV12='))qa=qa.replace('const html=commentTextHTML(value,character),illustrated=html!==escapeHtml(value);',runtime.slice(start,end));
 qa=qa.replace('window.HomeReleaseQA={',`window.HomeReleaseQA={
- markCase(kind){this.resetDisplay();Object.assign(state,{speciesLine:"woman",stageIndex:1,ageTicks:4*AGE_TICKS_PER_YEAR,hunger:kind==="hungry"?5:95,happiness:kind==="sulky"?5:95});render();},
+ edgeCase(edge){this.resetDisplay();const m=homeDiorama.model,a=m.snapshot().find(a=>a.kind==='pet'),b=m.bounds(a);m.select(a.key);const ok=m.move(a.key,{x:a.x,y:edge==='bottom'?b.bottom:b.top},'drag');for(let i=0;i<240;i++)m.step(.1,{autonomy:false});m.select(a.key);return {ok,bounds:b,actor:m.snapshot().find(row=>row.key===a.key)};},
+ markCase(kind){this.resetDisplay();Object.assign(state,{speciesLine:"woman",stageIndex:1,ageTicks:16*AGE_TICKS_PER_YEAR,hunger:kind==="hungry"?5:95,happiness:kind==="sulky"?5:95});render();},
  actualLong(){this.resetDisplay();this.commentCase('pet','なんで人間がいるの?と思ったが、なぜかだれも気にしていない');setCriticalMessage('⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。');},
  iconProbe(){this.resetDisplay();setMessage('🏆 🎮 🥚 ✨ 💰 ❤️ 🏠 🌲 🐕 💤 📋 ⚠️');},
 `);

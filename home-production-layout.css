@@ -260,3 +260,16 @@ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .cast-title-
 body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .cast-heading:not(:has(#partnerLabel:not(:empty))){display:none}
 
 @media(orientation:landscape){body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){font-size:9px;line-height:11px}}
+
+/* V12 additional: lane decoration must not inherit night-mode haze. */
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot{flex-direction:row!important;align-items:flex-start!important;justify-content:center!important;padding:0!important}
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot>:is(#message,#homeActionComment,#homeChoiceResult,#storyFlash,#birthdayToast,#mgResultToast){align-self:flex-start!important;margin:0 auto!important;background:#f4f8ed!important;color:#173e32!important;box-shadow:none!important;filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot>:is(#message,#homeActionComment,#homeChoiceResult,#storyFlash,#birthdayToast,#mgResultToast)::after,
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot>:is(#birthdayToast,#mgResultToast)::before{display:none!important}
+body[data-home-viewport-version="12"] #castStage[data-diorama] [data-diorama-selected="true"] .character-visual{filter:none!important}
+body[data-home-viewport-version="12"] #castStage [data-diorama-actor]{-webkit-tap-highlight-color:transparent}
+body[data-home-viewport-version="12"] .diorama-shadow[data-selected="true"]{outline:1px solid #d7ddd080;box-shadow:none;background:#25352d25}
+body[data-home-viewport-version="12"][data-home-tiny-overview="true"] .home-living-world{clip-path:inset(var(--home-overview-crop-top,0px) 0 var(--home-overview-crop-bottom,0px))}
+
+/* Double only the transparent SVG canvas, retaining the original unit scale. */
+body[data-home-viewport-version="12"] .pet-expression-accent>svg[data-home-effect-canvas="expanded"]{position:absolute;left:-50%;top:-50%;width:200%;height:200%;overflow:visible}
