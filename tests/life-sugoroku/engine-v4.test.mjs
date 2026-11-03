@@ -81,3 +81,12 @@ test('official four-seat game reload fixes seed, records every score and pays on
   const loaded=E.restore(E.serialize(s)),next=E.dispatch(s,c);assert.deepEqual(next,E.dispatch(loaded,c));s=next;assert.throws(()=>E.dispatch(s,c));}
  assert.equal(s.phase,'official-result');assert.deepEqual(s.players.map(p=>p.money),[35,30,30,20]);assert.equal(s.miniHistory.length,1);assert.deepEqual(E.restore(E.serialize(s)),s);s=command(s,'continue');assert.equal(s.active,1);assert.equal(s.phase,'turn');
 });
+
+test('CPU skip from official results advances once without paying rewards again',()=>{
+ let s=arrival(game(),5);s.players.forEach(p=>p.human=false);
+ for(const score of [100,50,50,0]){const m=s.pending;s=command(s,'official-checkpoint',{requestId:m.requestId,seat:m.seat,snapshot:{gameId:m.gameId,seed:m.seed,cpu:true,difficulty:'normal',frame:300,inputs:[],done:true,score,summary:'結果'}});}
+ assert.equal(s.phase,'official-result');
+ const expected=command(s,'continue'),actual=command(E.restore(E.serialize(s)),'skip-cpu');
+ assert.deepEqual(actual,expected);assert.equal(actual.active,1);assert.equal(actual.miniHistory.length,1);
+ assert.deepEqual(actual.players.map(p=>p.money),s.players.map(p=>p.money));
+});

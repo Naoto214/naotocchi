@@ -70,7 +70,7 @@ export function dispatch(state,c){
    const action=cpuAction(s);need(action&&count++<256);s=dispatch(s,action);
   }
   // An already visible result advances once, just like its normal continue.
-  if(count===0&&s.phase==='result')return dispatch(s,{type:'continue',revision:s.revision});
+  if(count===0&&['result','official-result'].includes(s.phase))return dispatch(s,{type:'continue',revision:s.revision});
   s.cpuPresentation={skipped:true,text:active(s).history.filter(h=>h.round===s.round).map(h=>h.text).join(' ')};return s;
  }
  // Legacy item handling is reused unchanged (prices, clock, charm, seed, box).
