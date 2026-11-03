@@ -1,0 +1,110 @@
+[
+  {
+    "id": "home-morning",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 296848,
+    "sha256": "af34773caed260fddd3d6179bd5091b1a632d7b47eca22499b1fb3ca3a81d95b",
+    "generatedPNG": "383af32a9322ce928e6aa7aa91f991be7d98b28b6429832daf6c392971af235c",
+    "status": "candidate"
+  },
+  {
+    "id": "home-evening",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 284542,
+    "sha256": "88744af65f8fc18ff4656345fcf51c21bd5b3976ccfd8a5f8cf56a7a655f4288",
+    "generatedPNG": "8d6be6cdb423525617b1489b7dc12123180169e39de512d944489954b600aebc",
+    "status": "candidate"
+  },
+  {
+    "id": "home-night",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 297908,
+    "sha256": "901b098576b4099ce840fc0791e28c909a35385c35c28055839340404893720e",
+    "generatedPNG": "f9ee45a1cab412e00fa348ee7c08bdb971b525627cac968301482a36adec1802",
+    "status": "candidate"
+  },
+  {
+    "id": "forest-morning",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 664290,
+    "sha256": "5af8839826a83b9757fcbadb0ec5f097635471a3b4a8bfe6dbb73145ff7eb6df",
+    "generatedPNG": "0030fee295c7b6859ede86168555e2b00a964e9f96fd44058b34a1fb3461f48f",
+    "status": "candidate"
+  },
+  {
+    "id": "forest-evening",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 688750,
+    "sha256": "bba2bd0fac41238055c850a6243808e3edb04c12246fde86aaba6ef396f20bef",
+    "generatedPNG": "aa1d3c7350757d4aa3910cdc6eb39fa781389a13ee1e1d061627171800480374",
+    "status": "candidate"
+  },
+  {
+    "id": "forest-night",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 542100,
+    "sha256": "dda3e6ab522af0a4806af1882498263e2393a22ef0d87bd7dc32ef389646101e",
+    "generatedPNG": "260e36bdce0fdac52a76759decbe6927960b294d0713f7ed17b7cd87d7e88045",
+    "status": "candidate"
+  },
+  {
+    "id": "city-morning",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 514908,
+    "sha256": "387c946d151d18a72b0f3d470b7c4642e716db2b5c458f7f386580c09eb72798",
+    "generatedPNG": "848d0a5f7d85e8e0add0215eceffe651b92cc2c8cc73f0f0e7ee890cda04a89b",
+    "status": "candidate"
+  },
+  {
+    "id": "city-day",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 549458,
+    "sha256": "3993af7a127623c64402cf681c86f6543a95083c0064a3d130d75ff54c4af788",
+    "generatedPNG": "1b05d336e225d0a0c450d95f50fef68922b987ace1b1c92cb8d181f401ebf51e",
+    "status": "candidate"
+  },
+  {
+    "id": "city-night",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 402722,
+    "sha256": "02a1e04715639f35e2cf4e2ddb53cedecffc7b8bc2bdbf127661ec3389198759",
+    "generatedPNG": "8c0593753a24b1f5420e170e121da4f66cdab38391d51bb3275c9dc17f6bc0cb",
+    "status": "candidate"
+  },
+  {
+    "id": "home-day",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 322278,
+    "sha256": "99c8468508b00b0c4f48a4adebb14dfc8d396d6cf30f8e29aef1cbbc8109d2e0",
+    "sourceSHA256": "99c8468508b00b0c4f48a4adebb14dfc8d396d6cf30f8e29aef1cbbc8109d2e0",
+    "status": "approved-original-reuse"
+  },
+  {
+    "id": "forest-day",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 741998,
+    "sha256": "723354a24b1cf05c06cecbbcb33f94fa8e23139775dd0939905d699ce0f3aaa6",
+    "sourceSHA256": "e0dd899f2e2338c9ca58f791664737108605cadc439e0f5d797e98c1cea08ea5",
+    "status": "approved-original-reuse"
+  },
+  {
+    "id": "city-evening",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 428974,
+    "sha256": "ba92d1667679edfa72e41dd9b3e96c9eabe005a1520541caa5e3b49801ca6e0b",
+    "sourceSHA256": "ba92d1667679edfa72e41dd9b3e96c9eabe005a1520541caa5e3b49801ca6e0b",
+    "status": "approved-original-reuse"
+  }
+]
