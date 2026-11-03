@@ -214,6 +214,17 @@
   }
   return p;
  }
+ function portraitHeader({headerTop,titleHeight,infoTop,labelsRight,actionsLeft,seasonRight,moneyLeft}){
+  // Reuse the empty space below the title, beside the existing action buttons.
+  // Wide labels/currency retain their original rows instead of overlapping.
+  if(labelsRight+4>actionsLeft||seasonRight+4>moneyLeft)return {infoTop};
+  return {infoTop:Math.min(infoTop,headerTop+titleHeight+5),titleTop:headerTop+3};
+ }
+ function portraitFooter(p,{contentHeight,safeBottom=0}){
+  const controlsTop=p.controlsTop-Math.max(0,safeBottom-8);
+  const metersHeight=Math.ceil(contentHeight),metersTop=controlsTop-3-metersHeight;
+  return {...p,controlsTop,metersHeight,metersTop,commentTop:metersTop-2-p.commentHeight};
+ }
  function fitV12Text(base,noticeContentHeight,commentContentHeight){
   const p={...base},nh=Math.ceil(noticeContentHeight),ch=Math.ceil(commentContentHeight);
   // Text may wrap inside its reserved lane; it never resizes the world.
@@ -276,7 +287,7 @@
   const p=unscalePoint({x:r.left,y:r.top}),sx=presentation.scaleX||presentation.scale,sy=presentation.scaleY||presentation.scale;
   return {left:p.x,top:p.y,width:Math.round(r.width/sx*1000)/1000,height:Math.round(r.height/sy*1000)/1000,right:p.x+r.width/sx,bottom:p.y+r.height/sy};
  }
- root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,layoutV14,layoutV17,layoutV18,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
+ root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,layoutV14,layoutV17,layoutV18,portraitHeader,portraitFooter,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
  if(!frame||!['8','9','10','11','12'].includes(doc.body.dataset.homeViewportVersion))return;
  const v18=doc.body.dataset.homeDisplayVersion==='18';
@@ -394,6 +405,31 @@
    }
    // Keep the optional partner row visible too; only presentation grows.
    style(info,{height:'auto',overflow:'visible'});
+   if(v18&&!landscape){
+    const title=device.querySelector('.header-title'),actions=device.querySelector('.header-actions'),money=info.querySelector('#moneyLabel'),season=info.querySelector('.sub-status-row');
+    if(title&&actions&&money&&season){
+     const tr=rect(title),mr=rect(money),labels=[...info.querySelectorAll('#ageLabel,#sodachiLabel')],seasonItems=[...season.children].filter(e=>rect(e).height>0);
+     const compact=portraitHeader({headerTop:hr.top,titleHeight:tr.height,infoTop:p.infoTop,labelsRight:Math.max(...labels.map(e=>rect(e).right)),actionsLeft:rect(actions).left,seasonRight:Math.max(...seasonItems.map(e=>rect(e).right)),moneyLeft:mr.left});
+     if(compact.infoTop<p.infoTop){
+      // The transparent information row shares the header's vertical band.
+      // Keep the original action buttons above that row for their full hit area.
+      style(device.querySelector('.device-header'),{'z-index':'1202'});
+      style(title,{translate:'0 '+(compact.titleTop-tr.top)+'px'});
+      // Translate, rather than remove from flow: row heights and native cast
+      // geometry remain identical. Currency stays below the action buttons.
+      style(money,{translate:'0 '+(p.infoTop-compact.infoTop)+'px'});
+      p.infoTop=compact.infoTop;style(info,{top:p.infoTop+'px'});
+     }
+    }
+    if(meters){
+     const r=rect(meters),css=root.getComputedStyle(meters),bottom=Math.max(r.top,...[...meters.children].filter(e=>rect(e).height>0).map(e=>rect(e).bottom));
+     const safeBottom=parseFloat(root.getComputedStyle(doc.documentElement).getPropertyValue('--safe-bottom'))||0;
+     Object.assign(p,portraitFooter(p,{contentHeight:bottom-r.top+(parseFloat(css.paddingBottom)||0),safeBottom}));
+     style(meters,{top:p.metersTop+'px',height:p.metersHeight+'px'});
+     style(controls,{top:p.controlsTop+'px'});
+     style(dock,{'--v11-choice-bottom':(root.innerHeight-p.commentTop+4)+'px','--v11-choice-height':Math.max(44,p.commentTop-hr.bottom-8)+'px'});
+    }
+   }
    if(v16&&landscape){
     const header=device.querySelector('.device-header'),title=header.querySelector('.header-title'),actions=header.querySelector('.header-actions');
     const left=p.railLeft,top=(viewport?.offsetTop||0)+(v18&&p.compact?2:4),width=Math.max(120,p.railWidth-rect(actions).width-8);
@@ -406,7 +442,10 @@
    const infoHeight=v16&&landscape?Math.ceil(rect(info).height):Math.max(p.infoHeight,Math.ceil(rect(info).height));
    const infoExtra=infoHeight-p.infoHeight;p.infoHeight=infoHeight;
    if(!landscape){p.frameTop+=infoExtra;p.frameHeight=Math.max(0,p.frameHeight-infoExtra);}
-   if(!landscape){const season=info.querySelector('.sub-status-row');p.noticeTop=(season?rect(season).bottom:rect(info).bottom)+3;}
+   if(!landscape){
+    const season=info.querySelector('.sub-status-row'),money=info.querySelector('#moneyLabel'),partner=info.querySelector('#partnerLabel');
+    p.noticeTop=Math.max(season?rect(season).bottom:rect(info).bottom,v18&&money?rect(money).bottom:0,v18&&partner&&partner.textContent.trim()?rect(partner).bottom:0)+3;
+   }
    style(info,{height:infoHeight+'px'});
    if(v16&&!v17&&landscape){
     p.noticeTop=Math.max(p.noticeTop,rect(info).bottom+3);
@@ -495,6 +534,9 @@
  function schedule(){if(pending)return;pending=true;root.requestAnimationFrame(apply);}
  new MutationObserver(()=>{if(eligible()!==active)schedule();}).observe(device,{attributes:true,attributeFilter:['class','data-home-fixed'],subtree:true});
  new MutationObserver(()=>{if(eligible()!==active)schedule();}).observe(doc.body,{attributes:true,attributeFilter:['data-home-production','data-home-terrain']});
+ // Currency and age can change without a new resident paint envelope. Recheck
+ // the portrait overlap guard on text updates; our own style writes are ignored.
+ if(v18)new MutationObserver(()=>{if(active&&!landscape&&textKey()!==textLayoutKey)schedule();}).observe(info,{childList:true,characterData:true,subtree:true});
 
  stage.addEventListener('home-paint-envelope',schedule);
  if(v14&&invite)new MutationObserver(schedule).observe(invite,{attributes:true,attributeFilter:['class','data-companion-id']});

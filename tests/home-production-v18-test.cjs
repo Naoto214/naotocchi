@@ -1,5 +1,27 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
 const vm=require('node:vm'),window={};const source=fs.readFileSync('home-production-touch.js','utf8');vm.runInNewContext(source.slice(source.indexOf('/* V8 viewport:')),{window});const viewport=window.NaotocchiHomeViewport;
+test('portrait redistribution preserves UI sizes while reaching both V17 cumulative targets',()=>{
+ const p=viewport.layoutV18({width:375,height:667,left:16,headerBottom:46,controlsHeight:103});
+ const header=viewport.portraitHeader({headerTop:6,titleHeight:21.59375,infoTop:49,labelsRight:193,actionsLeft:254,seasonRight:276,moneyLeft:326});
+ const footer=viewport.portraitFooter(p,{contentHeight:70,safeBottom:0});
+ assert.equal(header.infoTop,32.59375);assert.equal(header.titleTop,9);
+ assert.equal(footer.commentTop,405);assert.equal(footer.commentHeight,76);assert.equal(footer.controlsTop,556);assert.equal(footer.controlsHeight,103);
+ assert.equal(footer.metersHeight,70);assert.ok(footer.commentTop+76< footer.metersTop);assert.ok(footer.metersTop+70<footer.controlsTop);
+ const frameTop=header.infoTop+40+3+42+2,frameBottom=footer.commentTop-2;
+ const e={left:48.717,right:294.283,top:80,bottom:376,above:169.770632,below:11,side:84.53495,fitVertical:[[80,129.864150,9.4],[376,159.635147,10.925934]]};
+ const fit=viewport.portraitPresentation({paneWidth:343,paneHeight:frameBottom-frameTop,nativeWidth:343,stageTop:0,envelope:e,count:1,edgeGap:1});
+ const foot=y=>frameTop+(fit.pad+y-fit.scrollTop)*fit.scaleY;
+ assert.equal(fit.bodyScale,1);assert.ok(275.923099-foot(88.480374)>=20);assert.ok(foot(376)-375.975862>=15);
+ assert.ok(foot(88.480374)-130.560622>=frameTop);assert.ok(foot(376)+10.925934<=frameBottom);
+});
+test('portrait position reuse declines crowded header space and respects safe-area bottom',()=>{
+ const args={headerTop:6,titleHeight:21.59375,infoTop:49,labelsRight:253,actionsLeft:254,seasonRight:276,moneyLeft:326};
+ assert.equal(viewport.portraitHeader(args).infoTop,49);
+ assert.equal(viewport.portraitHeader({...args,labelsRight:193,moneyLeft:270}).infoTop,49);
+ const p=viewport.layoutV18({width:375,height:667,left:16,headerBottom:46,controlsHeight:103});
+ const f=viewport.portraitFooter(p,{contentHeight:70,safeBottom:34});
+ assert.equal(f.controlsTop+f.controlsHeight,633);assert.equal(f.metersHeight,70);assert.equal(f.commentHeight,76);
+});
 test('V18 extends only home portrait floor bounds, retaining native nav',()=>{
  const d=require('../home-production-diorama.js'),b={left:48,right:295,top:151,bottom:368};
  assert.deepEqual(d.portraitWalkingBounds(b,{region:'forest',height:380},false),b);
