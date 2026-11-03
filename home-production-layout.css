@@ -251,9 +251,9 @@ body[data-home-viewport-version="12"][data-home-production="true"] #speechSlot #
 }
 
 body[data-home-viewport-version="12"][data-home-tiny-overview="true"] .home-living-world{
- left:var(--home-overview-x)!important;top:var(--home-overview-y)!important;right:auto!important;bottom:auto!important;
- width:var(--home-overview-width)!important;height:var(--home-overview-height)!important;
- transform:scale(var(--home-overview-scale))!important;transform-origin:0 0!important;
+ left:0!important;top:var(--home-backdrop-top,0px)!important;right:auto!important;bottom:auto!important;
+ width:var(--home-backdrop-width,100vw)!important;height:var(--home-backdrop-height,100dvh)!important;
+ transform:none!important;clip-path:none!important;
 }
 
 body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .cast-title-line{display:none}
@@ -269,7 +269,6 @@ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSl
 body[data-home-viewport-version="12"] #castStage[data-diorama] [data-diorama-selected="true"] .character-visual{filter:none!important}
 body[data-home-viewport-version="12"] #castStage [data-diorama-actor]{-webkit-tap-highlight-color:transparent}
 body[data-home-viewport-version="12"] .diorama-shadow[data-selected="true"]{outline:1px solid #d7ddd080;box-shadow:none;background:#25352d25}
-body[data-home-viewport-version="12"][data-home-tiny-overview="true"] .home-living-world{clip-path:inset(var(--home-overview-crop-top,0px) 0 var(--home-overview-crop-bottom,0px))}
 
 /* Double only the transparent SVG canvas, retaining the original unit scale. */
 body[data-home-viewport-version="12"] .pet-expression-accent>svg[data-home-effect-canvas="expanded"]{position:absolute;left:-50%;top:-50%;width:200%;height:200%;overflow:visible}

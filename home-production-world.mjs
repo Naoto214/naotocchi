@@ -1,5 +1,5 @@
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
-import {artTransform,paintBackdrop} from './home-production-transform.mjs';
+import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
 import {createRecoveredNavigation} from './home-recovered-navigation.mjs';
 import {createHomeWorld as createLegacyWorld} from './home-world.mjs';
 export function createHomeWorld(options){
@@ -15,12 +15,14 @@ export function createHomeWorld(options){
  function navigation(rect){if(legacy)return legacy.navigation(rect);if(!spec)return null;const {host}=geometry(),stage={left:rect.left-host.left,top:rect.top-host.top,width:rect.width,height:rect.height},key=JSON.stringify([env.region,host.width,host.height,stage]);if(key!==navKey){navKey=key;nav=createRecoveredNavigation(spec,host,stage);revision++;lastPaint='';}return nav;}
  function draw(dt,flags={}){if(dead||flags.paused)return;if(legacy){legacy.draw(dt,flags);return;}if(!spec)return;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
-  const {host,stage}=geometry(),t=artTransform(host,stage),stamp=JSON.stringify([host.width,host.height,t.top,env.time,env.weather,loaded,flags.reducedMotion,Math.floor(time/120)]);if(stamp===lastPaint)return;lastPaint=stamp;
+  const fullBackdrop=doc.body.dataset.homeViewportVersion==='12'&&doc.body.dataset.homeTinyOverview==='true';
+  const native=geometry(),host=fullBackdrop?container.getBoundingClientRect():native.host,stage=native.stage;
+  const t=fullBackdrop?backdropComposition(host,stage).cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,host.width,host.height,t.top,env.time,env.weather,loaded,flags.reducedMotion,Math.floor(time/120)]);if(stamp===lastPaint)return;lastPaint=stamp;
   const dpr=Math.min(2,win.devicePixelRatio||1),W=Math.round(host.width*dpr),H=Math.round(host.height*dpr);if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;}
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=env.region==='city'?'#ac8c90':env.region==='forest'?'#173d35':'#b5d4d9';ctx.fillRect(0,0,host.width,host.height);
   if(!loaded||!img)return;
-  const key=JSON.stringify([generation,W,H,t.left,t.top,t.width,t.height,stage.top,stage.height]);
-  if(key!==paintingKey){paintingKey=key;painting.width=W;painting.height=H;const pc=painting.getContext('2d');pc.setTransform(dpr,0,0,dpr,0,0);paintBackdrop(pc,img,host,stage);}
+  const key=JSON.stringify([fullBackdrop,generation,W,H,t.left,t.top,t.width,t.height,stage.top,stage.height]);
+  if(key!==paintingKey){paintingKey=key;painting.width=W;painting.height=H;const pc=painting.getContext('2d');pc.setTransform(dpr,0,0,dpr,0,0);if(fullBackdrop)pc.drawImage(img,t.left,t.top,t.width,t.height);else paintBackdrop(pc,img,host,stage);}
   ctx.drawImage(painting,0,0,host.width,host.height);
   // A representative painting is retained. This restrained overlay is not a
   // claim that baked sunset/sunbeams have become a completed night artwork.
