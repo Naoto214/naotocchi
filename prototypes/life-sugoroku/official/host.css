@@ -1,10 +1,27 @@
-/* Verbatim formal style.css lines 2385–2408,3652–3653,4511–4547. */
+/* Verbatim formal styles pinned to main 81c044a9977dbd013f1632372a72785b540fb463. */
 .mg-header {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
   font-weight: bold;
   margin-bottom: 6px;
+  gap: 6px;
+}
+
+/* のこり時間(games.js の mgTimerHud)。ヘッダーの さいごに 小さく おく。
+   のこり わずかは ⏳ の きごうと こい いろで しらせる(いろだけに たよらない) */
+.mg-header:has(> .mg-timer) > :first-child {
+  margin-right: auto;
+}
+
+.mg-timer {
+  flex: none;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.mg-timer.low {
+  color: #b3261e;
 }
 
 .mg-title {
