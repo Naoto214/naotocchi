@@ -1,0 +1,65 @@
+[
+  {
+    "id": "forest",
+    "prompt": "Precise sky-only edit of the attached finished portrait 1024x1536 game background. Increase stars substantially only in TRUE SKY gaps at the very TOP behind the overhead branches. The broad blue region behind center trees is a forested mountain, NOT SKY: do not put stars on that mountain, leaves, trees or grass. Remove misplaced existing stars from that mountain. Fill visible actual upper sky gaps with distinct white and ice-blue points, including a few brighter medium size points visible on a phone. Preserve exact camera, composition, geometry, all foreground texture, colors and brightness. No new objects, no text, no fireflies, no stars on terrain, no streaks or lines. Round distinct star points with restrained small twinkles, not visual noise. Preserve original dimensions. Output one image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-00b5109d-ef3c-46c5-83a6-1da43e54c1cd.png"
+  },
+  {
+    "id": "river_lake",
+    "prompt": "Precise sky-only edit of the attached finished portrait 1024x1536 game background. Substantially increase dense visible white/ice-blue stars in the open sky above mountain/cloud silhouettes at top of image. Approximately triple the visible points, varied size with some bright points discernible on a phone. Keep the narrow sky extent, clouds, mountain, jade river and pebbled shore. Preserve exact camera, composition, geometry, all foreground texture, colors and brightness. No new objects, no text, no fireflies, no stars on terrain, no streaks or lines. Round distinct star points with restrained small twinkles, not visual noise. Preserve original dimensions. Output one image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-c1bf5619-2249-409f-91d9-6b148707fbbf.png"
+  },
+  {
+    "id": "countryside",
+    "prompt": "Precise sky-only edit of the attached finished portrait 1024x1536 game background. Substantially increase stars in the open night sky, approximately triple the visible points with varied sizes, some distinct bright small twinkles legible on a phone. A beautiful rich Achi starry sky. Preserve exact clouds, moon, mountain ridges, houses, rice fields, road. Preserve exact camera, composition, geometry, all foreground texture, colors and brightness. No new objects, no text, no fireflies, no stars on terrain, no streaks or lines. Round distinct star points with restrained small twinkles, not visual noise. Preserve original dimensions. Output one image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-9f415332-1325-474d-bcca-6eb3d1c819d0.png"
+  },
+  {
+    "id": "snow",
+    "prompt": "Precise sky-only edit. Attached finished portrait 1024x1536 game background is EDIT TARGET. Roughly triple the number of clearly visible stars above the snow-covered mountain silhouette. Vary small and medium white/ice-blue star points, a few delicate bright twinkles, visibly rich stars at phone size. Keep moon, clouds, mountain, trees, houses and snow-covered path identical. Preserve composition, camera, ground geometry, texture, all colors and brightness. No global retouching, no added structures, no text, no lines/streaks. Output one portrait 1024x1536 image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-c8554cf4-4209-441c-b0c7-4dfa07793952.png"
+  },
+  {
+    "id": "sea",
+    "prompt": "Precise sky-only edit. Attached finished portrait 1024x1536 game background is EDIT TARGET. Dramatically increase the visible stars in the dark open gaps BETWEEN existing clouds above the ocean. Rich round white/icy blue stars with varied sizes and brightness, approximately triple prior visible stars, some clear small twinkles that remain visible on phone. Keep every cloud, sea horizon, wave and sandy shore identical. No new moon or objects. Preserve composition, camera, ground geometry, texture, all colors and brightness. No global retouching, no added structures, no text, no lines/streaks. Output one portrait 1024x1536 image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-b22ac957-7b37-4dce-8f87-644b23f7cdbc.png"
+  },
+  {
+    "id": "jungle",
+    "prompt": "Precise sky-only edit. Attached finished portrait 1024x1536 game background is EDIT TARGET. Increase the visibility and number of distant stars ONLY inside the existing small sky gaps at the VERY TOP between canopy leaves. Add distinct white/blue points, enough to recognize on phone, but keep foliage silhouettes intact. The misty blue interior of the forest and shafts of light are NOT open sky, do NOT put stars there. No fireflies or fairy lights, no stars on vegetation or ground. Keep light shafts, foliage, pool and black soil exactly. Preserve composition, camera, ground geometry, texture, all colors and brightness. No global retouching, no added structures, no text, no lines/streaks. Output one portrait 1024x1536 image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-e01fc8ef-bf3c-45b3-9248-0b260b13426c.png"
+  },
+  {
+    "id": "desert",
+    "prompt": "Precise sky-only edit. Attached finished portrait 1024x1536 game background is EDIT TARGET. Greatly increase the stars in open dark sky between clouds: hundreds of clean round points of varied sizes, white and pale icy blue, with a few medium bright delicate twinkles. Clearly visible star field at phone size, not faint texture. Keep existing moon and every cloud exactly, keep dunes, sand ripples, sea horizon and light unchanged. No streaks, no squiggles, no star trails. Preserve exact camera, framing, composition, ground texture, geometry, colors and brightness. No new objects or text. No global color grading. Output one portrait 1024x1536 image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-00bc6484-0181-4e61-8b8f-113d65d7d655.png"
+  },
+  {
+    "id": "star_stop",
+    "prompt": "Precise sky-only edit. Attached finished portrait 1024x1536 game background is EDIT TARGET. Increase stars in the cosmic sky substantially. Add more clearly distinct round white/icy blue/pale gold points, some brighter medium stars discernible at phone size among fine stars. Preserve the exact galaxy, nebula, planets, floating islands, arches, buildings, clouds and engraved foreground floor. No stars on the foreground, no additional galaxies or planets; preserve sky colors and its dark background. Preserve exact camera, framing, composition, ground texture, geometry, colors and brightness. No new objects or text. No global color grading. Output one portrait 1024x1536 image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-3790394a-9d6d-4d8f-9577-88570613031c.png"
+  },
+  {
+    "id": "memory_lake",
+    "prompt": "Precise sky-only edit. Attached finished portrait 1024x1536 game background is EDIT TARGET. Increase to a rich field of numerous clearly luminous round white/ice-blue stars in true sky above mountain ridges, behind willow leaves and clouds. Approximately triple the visible stars with varied sizes and small delicate twinkles clearly visible on phone. Keep mood quiet and wistful. Preserve exact clouds, mountains, willow, lake reflections, mist and foreground stone floor. Do not add a moon. Preserve exact camera, framing, composition, ground texture, geometry, colors and brightness. No new objects or text. No global color grading. Output one portrait 1024x1536 image.",
+    "path": "/workspace/scratch/e241d8bb6b9e/generated_images/exec-4a75d04c-99b1-4fc1-8081-a1faa2ffb455.png"
+  },
+  {
+    "id": "home",
+    "path": "/workspace/scratch/e241d8bb6b9e/recovered/窓辺に広がる満天の星空.png",
+    "source_library_filename": "窓辺に広がる満天の星空.png",
+    "prompt": "Recovered completed revision from the preceding user request; original prompt unavailable in this session."
+  },
+  {
+    "id": "mountain",
+    "path": "/workspace/scratch/e241d8bb6b9e/recovered/星降る夜空と山影.png",
+    "source_library_filename": "星降る夜空と山影.png",
+    "prompt": "Recovered completed revision from the preceding user request; original prompt unavailable in this session."
+  },
+  {
+    "id": "city",
+    "path": "/workspace/scratch/e241d8bb6b9e/recovered/霞に包まれた三日月の街.png",
+    "source_library_filename": "霞に包まれた三日月の街.png",
+    "prompt": "Recovered completed revision from the preceding user request; original prompt unavailable in this session."
+  }
+]
