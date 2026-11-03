@@ -57,8 +57,8 @@ function draw(){const q=shown(),s=q.state,stage=q.stage;syncPresentation();let s
  if(motion){const t=Math.min(1,motion.elapsed/motion.duration);state={...s,actors:contactVisualActors(motion,t)};}
  const a=mode==='play'&&input.down?state.actors.find(a=>a.id===input.gestureActor):null;if(a)selected=[a.x,a.y];
  syncPresentation();const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,now=performance.now(),stateEffects=sampleEffects(q,now).items,gates=gateEffects.sample(presentation,state.actors,now,reduced);
- const sign=document.querySelector('.gravity-sign'),bounds=canvas.getBoundingClientRect(),cell=bounds.width/8,scale=Math.min(1,cell/40);canvas.parentElement.append(sign);sign.hidden=!state.gravity;sign.style.left=(bounds.left+cell*.12)+'px';sign.style.top=(bounds.top+bounds.height-18*scale)+'px';sign.style.transform=`scale(${scale})`;
- drawBoard(canvas,state,{stage,selected,stateEffects,now,reduced,gates,candidates,route,turns,showRanks:!!candidates.length,target:stage.objective?.target,effects:motion?contactEffects(motion,Math.min(1,motion.elapsed/motion.duration)):[]});
+ const sign=document.querySelector('.gravity-sign'),bounds=canvas.getBoundingClientRect(),cell=bounds.width/8,scale=cell/40;canvas.parentElement.append(sign);sign.hidden=!state.gravity;sign.style.left=bounds.left+'px';sign.style.top=(bounds.top+bounds.height-cell)+'px';sign.style.transform=`scale(${scale})`;
+ drawBoard(canvas,state,{gravitySign:sign,stage,selected,stateEffects,now,reduced,gates,candidates,route,turns,showRanks:!!candidates.length,target:stage.objective?.target,effects:motion?contactEffects(motion,Math.min(1,motion.elapsed/motion.duration)):[]});
 }
 function render(){const q=shown(),s=q.stage,isDemo=mode==='demo';$('scene').dataset.scene=s.scene;$('number').textContent=s.id;$('title').textContent=s.title;$('difficulty').textContent='★'.repeat(s.difficulty)+'☆'.repeat(5-s.difficulty);$('goal').textContent=s.goal;$('lesson-text').textContent=s.text;$('lesson-goal').textContent=s.goal;$('hint-text').textContent=s.hint;
  $('phase').textContent=isDemo?'おてほん · 通常プレイと別の盤面':'プレイ中';$('moves').textContent=q.state.moves+' 手';$('mass').textContent='段階合計 '+mass(q.state);$('gravity').textContent=q.state.gravity?'重力 ↓ ・ 支えがないと落ちる':'ひかりの牢屋';$('progress').textContent=progress.completed.filter(Boolean).length+' / 10 クリア';
@@ -85,5 +85,6 @@ canvas.onpointercancel=canvas.onlostpointercapture=e=>{if(e.pointerId===pointer)
 $('details-open').onclick=()=>{end();$('details').showModal();};$('details-close').onclick=()=>$('details').close();
 window.addEventListener('resize',()=>{end();sizeBoard();});document.addEventListener('visibilitychange',()=>{lastFrame=performance.now();if(document.hidden){stopAuto();end();}});
 window.addEventListener('keydown',e=>{if(mode!=='play'||current().cleared||$('details').open||$('dialog').open||/INPUT|SELECT|BUTTON/.test(e.target.tagName))return;const d={ArrowUp:[0,-1],ArrowRight:[1,0],ArrowDown:[0,1],ArrowLeft:[-1,0],Home:[-1,-1],PageUp:[1,-1],End:[-1,1],PageDown:[1,1]}[e.key];if(d){e.preventDefault();cancel();command(input.selected,...d);}});
+document.querySelector('.gravity-sign').addEventListener('load',draw);
 new ResizeObserver(sizeBoard).observe(document.querySelector('.arena'));window.visualViewport?.addEventListener('resize',sizeBoard);switchStage(progress.index);
 const failed=await loadSprites();loaded=!failed.length;if(failed.length)message='キャラクター画像を読み込めません。再読み込みしてください。';render();

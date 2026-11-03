@@ -5,11 +5,12 @@ import {drawExit,drawCondition} from '../naopoyo-rescue/fixtures.mjs';
 import {blockedReason} from './priorities.mjs';
 // Exact formal chapter1 spike painter (same geometry, colour and spacing).
 function drawSpike(c,p){c.fillStyle='#ba879e';c.fillRect(p.x+.09,p.y+.73,.82,.11);for(let n=0;n<p.power;n++){const x=p.x+.5+(n-(p.power-1)/2)*.25;c.beginPath();c.moveTo(x-.13,p.y+.75);c.lineTo(x,p.y+.28);c.lineTo(x+.13,p.y+.75);c.fillStyle='#f2b7ce';c.fill()}}
-export function drawBoard(canvas,s,{candidates=[],showRanks=false,route=null,turns=[],children=[],selected=null,origin=null,target=null,stage=null,debugCoordinates=false,effects=[],stateEffects=[],now=performance.now(),reduced=false,gates=s.gates}={}){
+export function drawBoard(canvas,s,{candidates=[],showRanks=false,route=null,turns=[],children=[],selected=null,origin=null,target=null,stage=null,debugCoordinates=false,effects=[],stateEffects=[],now=performance.now(),reduced=false,gravitySign=null,gates=s.gates}={}){
  const width=canvas.getBoundingClientRect().width||320,dpr=Math.min(2,globalThis.devicePixelRatio||1);canvas.width=Math.round(width*dpr);canvas.height=Math.round(width*dpr);const c=canvas.getContext('2d');c.setTransform(dpr*width/8,0,0,dpr*width/8,0,0);
  const rawFill=c.fillText.bind(c),rawStroke=c.strokeText.bind(c);const text=(fn,t,x,y,maxWidth)=>{const font=c.font;c.save();c.translate(x,y);c.scale(.01,.01);c.lineWidth*=100;c.font=font.replace(/([\d.]+)px/,(_,n)=>`${Number(n)*100}px`);if(maxWidth===undefined)fn(t,0,0);else fn(t,0,0,maxWidth*100);c.restore();};c.fillText=(t,x,y,m)=>text(rawFill,t,x,y,m);c.strokeText=(t,x,y,m)=>text(rawStroke,t,x,y,m);
- // Suppress only the old terrain arrow; the fixed frame sign uses real gravity.
+ // Approved gravity sign is scenery below actors, exits, and effects.
  drawTerrain(c,{...s,id:'01',gravity:false});
+ if(s.gravity&&gravitySign?.complete&&gravitySign.naturalWidth)c.drawImage(gravitySign,0,7,1,1);
  if(showRanks)for(const p of candidates){c.fillStyle=p.distance===1?'#b6dded99':'#f5d4a699';c.fillRect(p.x+.02,p.y+.02,.96,.96);}
  for(const g of gates)drawGate(c,g);for(const e of s.exits){drawExit(c,e);drawCondition(c,e);}for(const p of s.spikes)drawSpike(c,p);
  if(target){c.strokeStyle='#b88b36';c.lineWidth=.055;c.strokeRect(target[0]+.05,target[1]+.05,.9,.9);c.fillStyle='#a36b19';c.font='.4px system-ui';c.textAlign='center';c.fillText('★',target[0]+.5,target[1]+.55);}
