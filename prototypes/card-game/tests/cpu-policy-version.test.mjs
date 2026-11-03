@@ -35,6 +35,9 @@ test('heuristic-1 の途中保存は再開でき、続きも heuristic-1 で指�
 test('未知の方針の版は従来どおり拒否する',()=>{assert.throws(()=>restoreMatch(cpuSave(F['ski:power'],'heuristic-9',1)),/CPU保存形式が異なります/);});
 test('heuristic-1 のCPU同士の対戦は、実装前の main の保存と完全に一致する',()=>{
  const got=goldenGames('heuristic-1');got.forEach((g,i)=>assert.equal(g.sha,golden[i].sha,`game ${i} seed ${g.seed}`));});
+test('新しいルールの版（hotseat-7）でも、同じCPU対戦は同じ手順になる（別れのないデッキ）',()=>{
+ const old=goldenGames('heuristic-1'),now=goldenGames('heuristic-1',e.VERSION);assert.equal(e.VERSION,'hotseat-7');
+ now.forEach((g,i)=>{assert.equal(g.commandsSha,old[i].commandsSha,`game ${i}`);assert.deepEqual(g.result,old[i].result);});});
 test('heuristic-2：初級だけの対戦は heuristic-1 と同一、中級を含む対戦も完走する',()=>{
  const got=goldenGames('heuristic-2');GAMES.forEach((g,i)=>{const beginnerOnly=g.difficulty.A==='beginner'&&g.difficulty.B==='beginner';
   if(beginnerOnly)assert.equal(got[i].sha,golden[i].sha,`beginner-only game ${i}`);assert.equal(got[i].result.reason,'R10最終比較');});});
