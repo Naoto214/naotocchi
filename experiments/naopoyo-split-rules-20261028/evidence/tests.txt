@@ -1,0 +1,42 @@
+✔ A retains same-split upper child; B recombines it (6.50452ms)
+✔ C prioritizes left then right independently of entry (1.778915ms)
+✔ C postpones the direct-above cell even behind reachable distance-two side cells (0.424633ms)
+✔ instrumented A equals the untouched V9 on stage20 reproduction (3.145462ms)
+✔ B reports and atomically rolls back a real recurrent split/merge (1.387541ms)
+✔ one successful activation per spike terminates the same recurrence (1.849048ms)
+✔ C cannot avoid an upper child when the well has no side exit (3.490145ms)
+✔ next engine move discards family protection and allows merging (1.215703ms)
+✔ A: rock and magic gate roofs support all 8 levels (0.666787ms)
+✔ A: spikes and mismatching exits do not support (0.68902ms)
+✔ A: different species and lower level8 support, lower5 normally merges (0.624894ms)
+✔ A: diagonal corner and closed gate remain blocked; exchanges remain symmetric (0.705214ms)
+✔ A: special/occupied/wall cells are never births, inaccessible ring2 is excluded (0.514653ms)
+✔ A: overflow and multiple spike cascades conserve mass (1.647159ms)
+✔ B: rock and magic gate roofs support all 8 levels (0.730428ms)
+✔ B: spikes and mismatching exits do not support (1.437562ms)
+✔ B: different species and lower level8 support, lower5 normally merges (0.183566ms)
+✔ B: diagonal corner and closed gate remain blocked; exchanges remain symmetric (0.989343ms)
+✔ B: special/occupied/wall cells are never births, inaccessible ring2 is excluded (0.175773ms)
+✔ B: overflow and multiple spike cascades conserve mass (1.729137ms)
+✔ C: rock and magic gate roofs support all 8 levels (0.918104ms)
+✔ C: spikes and mismatching exits do not support (0.488879ms)
+✔ C: different species and lower level8 support, lower5 normally merges (0.185478ms)
+✔ C: diagonal corner and closed gate remain blocked; exchanges remain symmetric (0.84813ms)
+✔ C: special/occupied/wall cells are never births, inaccessible ring2 is excluded (0.329057ms)
+✔ C: overflow and multiple spike cascades conserve mass (1.078306ms)
+✔ Once: rock and magic gate roofs support all 8 levels (0.75982ms)
+✔ Once: spikes and mismatching exits do not support (0.410049ms)
+✔ Once: different species and lower level8 support, lower5 normally merges (0.287854ms)
+✔ Once: diagonal corner and closed gate remain blocked; exchanges remain symmetric (0.681778ms)
+✔ Once: special/occupied/wall cells are never births, inaccessible ring2 is excluded (0.205261ms)
+✔ Once: overflow and multiple spike cascades conserve mass (1.160229ms)
+✔ one activation guard does not consume a spike on a minimum-level no-op (0.631379ms)
+✔ B-once distinguishes a repeated arrangement with a newly spent spike (0.847069ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 219.679899
