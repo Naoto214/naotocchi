@@ -5,6 +5,7 @@ const paths=new Set(['audio.js','character-world-master.v1.js','individuality-da
 for(const c of catalog(ctx.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1))for(let stage=1;stage<=8;stage++)for(const emotion of ['normal','positive','strained'])paths.add(resolver.resolve({id:c.id,kind:c.kind,asset:imageFor(c,stage)},emotion).asset);
 function collect(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const file=dir+'/'+entry.name;if(entry.isDirectory())collect(file);else paths.add(file);}}
 collect('prototypes/life-sugoroku');
+for(const file of JSON.parse(fs.readFileSync('prototypes/life-sugoroku/official/art-assets-v6.json','utf8')))paths.add(file);
 for(const file of paths){if(!fs.existsSync(file))throw Error('Missing asset '+file);const dest=path.join(target,file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(file,dest);}
 fs.writeFileSync(path.join(target,'index.html'),'<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>なおころ。</title><meta http-equiv="refresh" content="0;url=prototypes/life-sugoroku/"></head><body><a href="prototypes/life-sugoroku/">なおころ。を開く</a></body></html>');
 const manifest={githubCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),fileCount:paths.size,files:[...paths].sort()};fs.writeFileSync(path.join(target,'build-manifest.json'),JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({files:paths.size,githubCommit:manifest.githubCommit}));
