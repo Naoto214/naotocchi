@@ -141,9 +141,12 @@ test('every possible representative in a dense 26-companion Home receives one sa
 test('26 simultaneous expiries coalesce Home work while removing every transient',()=>{
  const h=harness(),s=setup(h,{companions:companionIds.map(id=>({id,bond:20}))});
  vm.runInContext('Math.random=()=>0.99',h.sandbox);h.dispatch(h.get('playWithBtn'),'click');h.advance(2499);
- let measures=0;const node=h.get('castStage'),original=node.getBoundingClientRect;
- node.getBoundingClientRect=()=>{measures++;return original();};h.advance(2);
- assert.ok(measures<=3,'must not render once per rescued actor: '+measures);
+ // Each complete Home render writes the age label once. Geometry reads also
+ // include weather positioning and are not a count of Home renders.
+ let renders=0;const label=h.get('ageLabel');let text=label.textContent;
+ Object.defineProperty(label,'textContent',{configurable:true,get:()=>text,set:value=>{renders++;text=value;}});
+ h.advance(2);
+ assert.equal(renders,1,'all 26 expiries must share exactly one Home render');
  assert.ok(!companionHTML(h).includes('/positive.png'));
  assert.equal(positiveHearts(h).length,0);
 });
