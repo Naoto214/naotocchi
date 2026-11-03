@@ -1,7 +1,7 @@
 // Tournament bookkeeping only. Scores come exclusively from the original game
 // callback in an isolated host; no random or difficulty-based score synthesis.
-export const POOLS=Object.freeze({quick:Object.freeze(['eat','dodge','clean','charge','jump','button','coins','flee','slice','defend']),game:Object.freeze(['lights-out'])});
-export const GAME_NAMES=Object.freeze({eat:'たべろ！',dodge:'よけろ！',clean:'そうじしろ！',charge:'ためて…はなせ！',jump:'とべ！',button:'みどりでおせ！',coins:'あつめろ！',flee:'にげろ！',slice:'きれ！',defend:'まもれ！','lights-out':'ライツアウト'});
+export const POOLS=Object.freeze({quick:Object.freeze(["eat", "dodge", "catch", "mash", "clean", "stop", "swipe", "medicine", "find", "charge", "partner", "season", "jump", "pull", "pet", "button", "flames", "coins", "cliff", "throw", "flee", "mole", "slice", "guard", "bento", "lift", "tickle", "balance", "color", "count", "bigger", "odd", "order", "holdlid", "umbrella", "shutter", "sort", "trace", "pushbox", "fish", "stack", "pair", "doors", "feather", "weather"]),game:Object.freeze(['lights-out','takoyaki-grill'])});
+export const GAME_NAMES=Object.freeze({defend:"旧V4クイック","eat": "たべろ！", "dodge": "よけろ！", "catch": "つかまえろ！", "mash": "れんだ！", "clean": "そうじしろ！", "stop": "とめろ！", "swipe": "スワイプ！", "medicine": "くすりをのませろ！", "find": "さがせ！", "charge": "ためて…はなせ！", "partner": "こいびとは？", "season": "きせつは？", "jump": "とべ！", "pull": "ひっぱれ！", "pet": "なでろ！", "button": "みどりでおせ！", "flames": "けせ！", "coins": "あつめろ！", "cliff": "とまれ！", "throw": "なげろ！", "knock": "たたけ！", "wait": "まて！", "flee": "にげろ！", "mole": "でたらたたけ！", "slice": "きれ！", "guard": "まもれ！", "bento": "つめろ！", "spin": "まわせ！", "lift": "もちあげろ！", "tickle": "くすぐれ！", "balance": "バランス！", "color": "いろは？", "count": "いくつ？", "bigger": "おおきいほう！", "odd": "ちがうの！", "order": "じゅんばんに！", "holdlid": "おさえろ！", "umbrella": "あめがきたらかさ！", "shutter": "とれ！", "sort": "ごはんはひだり！", "rhythm": "リズム！", "trace": "なぞれ！", "pushbox": "おしだせ！", "fish": "ひいたら つれ！", "stack": "つめ！", "pair": "おなじの！", "doors": "どっち？", "sneak": "そっとはこべ！", "feather": "ふけ！", "weather": "てんきは？", "lights-out": "ライツアウト", "takoyaki-grill": "たこやきやさん"});
 const need=v=>{if(!v)throw Error('正式ゲームの保存・対戦状態が不正です');};
 const integer=(v,a,b)=>Number.isInteger(v)&&v>=a&&v<=b;
 export function openTournament(s,pool,draw){
@@ -19,7 +19,7 @@ export function validAttempt(a,m,p){
  return a.inputs.every((e,i)=>e&&integer(e.frame,1,a.frame)&&(i===0||e.frame>=a.inputs[i-1].frame)&&['pointerdown','pointermove','pointerup','pointercancel'].includes(e.type)&&Number.isFinite(e.x)&&Number.isFinite(e.y)&&Math.abs(e.x)<=10000&&Math.abs(e.y)<=10000);
 }
 export function validateTournament(s,m){
- if(m?.kind!=='official'||!POOLS[m.pool]?.includes(m.gameId)||!integer(m.seed,1,4294967295)||m.landingPlayer!==s.active||m.tileId!==s.players[s.active].pos||typeof m.requestId!=='string'||!integer(m.seat,0,s.players.length)||!Array.isArray(m.scores)||m.scores.length!==m.seat)return false;
+ if(m?.kind!=='official'||!(POOLS[m.pool]?.includes(m.gameId)||(m.pool==='quick'&&m.gameId==='defend'))||!integer(m.seed,1,4294967295)||m.landingPlayer!==s.active||m.tileId!==s.players[s.active].pos||typeof m.requestId!=='string'||!integer(m.seat,0,s.players.length)||!Array.isArray(m.scores)||m.scores.length!==m.seat)return false;
  if(!m.scores.every((r,i)=>r.id===i&&integer(r.score,0,100)&&integer(r.frame,1,m.pool==='quick'?1800:3600)&&typeof r.summary==='string'))return false;
  if(m.seat===s.players.length)return m.attempt===null&&Array.isArray(m.results)&&m.results.length===m.seat&&m.results.every((r,i)=>r.id===i&&r.score===m.scores[i].score&&r.rank===1+m.scores.filter(q=>q.score>r.score).length&&r.reward===Math.max(0,20-5*r.rank));
  return m.results===null&&(m.attempt===null||!m.attempt.done&&validAttempt(m.attempt,m,s.players[m.seat]));

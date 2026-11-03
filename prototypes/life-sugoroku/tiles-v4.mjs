@@ -27,3 +27,18 @@ export const TYPES=Object.freeze([
 ]);
 export const BOARD=Object.freeze(LEGACY_BOARD.map(n=>Object.freeze({...n,next:Object.freeze([...n.next]),type:TYPES[n.id]})));
 export function tileDefinition(type){const def=TILE_SCHEMA[type];if(!def)throw new RangeError(`Unknown V4 tile: ${type}`);return def;}
+
+// The board camera translates and positively scales this coordinate space; it
+// never rotates/mirrors the map. IDs/order do not describe screen directions.
+export function branchChoices(id){
+ const from=BOARD[id];if(!from)throw new RangeError('Unknown branch');
+ const destinations=from.next.map(to=>BOARD[to]);
+ const straddles=destinations.some(n=>n.x<from.x)&&destinations.some(n=>n.x>from.x);
+ return destinations.slice().sort((a,b)=>a.x-b.x||a.y-b.y).map(n=>{
+  const horizontal=n.x<from.x?'left':n.x>from.x?'right':'';
+  const vertical=n.y<from.y?'up':n.y>from.y?'down':'';
+  const direction=straddles?horizontal:[vertical,horizontal].filter(Boolean).join('-');
+  const words={left:'ひだり',right:'みぎ',up:'上',down:'下','up-right':'右上','down-right':'右下','up-left':'左上','down-left':'左下'};
+  return {to:n.id,direction,label:`${words[direction]||'先'}の道 · ${n.label}へ`};
+ });
+}

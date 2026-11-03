@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><title>V5 正式ゲーム ブラウザーQA</title>
+<style>body{font:14px sans-serif}#hosts{display:flex;flex-wrap:wrap}pre{white-space:pre-wrap;max-height:180px;overflow:auto}button{padding:12px}</style>
+<h1>V5 正式ゲーム ブラウザーQA</h1><button id="run">全47候補を原本iframeで検証</button><div id="hosts"></div><pre id="report">未実行</pre>
+<script type="module">
+import {mountOfficialFrame} from '../../prototypes/life-sugoroku/official-host-v4.js';
+import {POOLS} from '../../prototypes/life-sugoroku/tournament-v4.mjs';
+const report=document.getElementById('report'),hosts=document.getElementById('hosts');
+document.getElementById('run').onclick=async()=>{
+ const rows=[],queue=Object.entries(POOLS).flatMap(([pool,ids])=>ids.map(id=>({pool,id})));let index=0;
+ const show=()=>report.textContent=JSON.stringify({complete:rows.length===queue.length,count:rows.length,expected:queue.length,rows},null,2);
+ async function worker(){while(index<queue.length){const {pool,id}=queue[index++],box=document.createElement('div');hosts.append(box);let host,timer,finished=false;await new Promise(async resolve=>{
+  const end=row=>{if(finished)return;finished=true;clearTimeout(timer);rows.push({id,...row});show();host?.destroy();box.remove();resolve();};
+  timer=setTimeout(()=>end({error:'timeout'}),15000);
+  try{host=await mountOfficialFrame(box,{onError:error=>end({error}),onSnapshot:s=>{if(s.done)end({done:s.done,frame:s.frame,withinLimit:s.frame<=(pool==='quick'?1800:3600),score:s.score,inputs:s.inputs.length});}});await host.start({gameId:id,seed:3,cpu:true,difficulty:'normal'});host.speed(60);}catch(error){end({error:String(error)});}
+ });}}
+ await Promise.all(Array.from({length:1},worker));show();
+};
+</script>

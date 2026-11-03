@@ -5,7 +5,7 @@ const game=()=>E.createGame({seed:17,rounds:15,players:['dog','cat','frog','peng
 const snap=(m,p,score)=>({gameId:m.gameId,seed:m.seed,difficulty:p.difficulty,cpu:!p.human,frame:300,inputs:[],done:score!==undefined,...(score===undefined?{}:{score,summary:'正式ゲームの結果'})});
 test('draw uses uniform candidates, separate pools, excludes only previous ID and fixes seed',()=>{
  let s=game();for(const pool of ['quick','game']){const seen=new Set();for(let n=0;n<T.POOLS[pool].length;n++){let calls=0;const m=T.openTournament(s,pool,x=>{calls++;return n%x;});assert.equal(calls,2);seen.add(m.gameId);assert.ok(T.POOLS[pool].includes(m.gameId));assert.equal(m.seat,0);assert.equal(m.scores.length,0);}assert.equal(seen.size,T.POOLS[pool].length);}
- s.lastOfficial='eat';for(let n=0;n<9;n++)assert.notEqual(T.openTournament(s,'quick',x=>n%x).gameId,'eat');s.lastOfficial='lights-out';assert.equal(T.openTournament(s,'game',()=>0).gameId,'lights-out');
+ s.lastOfficial='eat';for(let n=0;n<9;n++)assert.notEqual(T.openTournament(s,'quick',x=>n%x).gameId,'eat');s.lastOfficial='lights-out';assert.notEqual(T.openTournament(s,'game',()=>0).gameId,'lights-out');
 });
 test('same challenge, sequential seats and tie rank resource-only rewards apply once',()=>{
  for(const pool of ['quick','game']){let s=game(),m=T.openTournament(s,pool,()=>0);const seed=m.seed;for(const score of [100,70,70,20]){const p=s.players[m.seat];T.checkpoint(s,m,snap(m,p,score));assert.equal(m.seed,seed);}

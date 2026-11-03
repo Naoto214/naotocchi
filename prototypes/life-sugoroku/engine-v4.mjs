@@ -120,7 +120,7 @@ export function restore(raw){
   need(p.rerollLedger.every(h=>h.round<=s.round));
  }
  need(Array.isArray(s.miniHistory)&&s.miniHistory.length<=s.rounds*s.players.length);
- need(s.lastOfficial==null||Object.values(POOLS).flat().includes(s.lastOfficial));
+ need(s.lastOfficial==null||s.lastOfficial==='defend'||Object.values(POOLS).flat().includes(s.lastOfficial));
  const p=active(s),m=s.pending;
  if(['dice','reroll','moving','branch'].includes(s.phase)){
   need(m?.staged===true&&m.dice?.length===(p.dieMode==='double'?2:1)&&m.dice.every(v=>v<=(p.dieMode==='slow'?3:6))&&Array.isArray(m.dice)&&m.dice.length>=1&&m.dice.length<=2&&m.dice.every(v=>integer(v,1,6))&&integer(m.remaining,1,12));
