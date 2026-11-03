@@ -1,0 +1,652 @@
+{
+  "sourceHead": "abed89099d2b548863ab9b7b219891382b43dbda",
+  "source_files": [
+    {
+      "path": "prototypes/naopoyo-chapter2/stone.mjs",
+      "expected": "2b2917c948dd0cff629bf9f7e39f5b9a0d052f57",
+      "actual": "2b2917c948dd0cff629bf9f7e39f5b9a0d052f57",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/expansion-stages.mjs",
+      "expected": "ab3b2e0b1a1b8fad373d9cd389dde4a0e3fddfbd",
+      "actual": "ab3b2e0b1a1b8fad373d9cd389dde4a0e3fddfbd",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprite-data.mjs",
+      "expected": "e3937ad3596dd0668962da3cb2fefadfd4a401b2",
+      "actual": "e3937ad3596dd0668962da3cb2fefadfd4a401b2",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/render.mjs",
+      "expected": "551f3bcd7052e3892c66f0c2a104dc7d56838351",
+      "actual": "551f3bcd7052e3892c66f0c2a104dc7d56838351",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/app.mjs",
+      "expected": "fb4f29bfb1474185bb78b0bfacc6f1f174db1d32",
+      "actual": "fb4f29bfb1474185bb78b0bfacc6f1f174db1d32",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/stages.mjs",
+      "expected": "4fbbb8a2c26be35a1f1de58e16001f4748cf53ac",
+      "actual": "4fbbb8a2c26be35a1f1de58e16001f4748cf53ac",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter2/style.css",
+      "expected": "6ae386f6497adab2f24db886353b23e46859c248",
+      "actual": "6ae386f6497adab2f24db886353b23e46859c248",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-chapter1/style.css",
+      "expected": "bc9474fb7acbaa1978738a6e041d5a5e689a46e3",
+      "actual": "bc9474fb7acbaa1978738a6e041d5a5e689a46e3",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-world/style.css",
+      "expected": "c8bd06a9e557c9e0079f0b32c799c95adaddb429",
+      "actual": "c8bd06a9e557c9e0079f0b32c799c95adaddb429",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/fixtures.mjs",
+      "expected": "7931cac2974f5bd51ba153df7c0e8f8e3ac08bce",
+      "actual": "7931cac2974f5bd51ba153df7c0e8f8e3ac08bce",
+      "match": true
+    },
+    {
+      "path": "prototypes/naopoyo-rescue/sprites.mjs",
+      "expected": "5a77c967924bfc1ecc73959fc35544a750c99280",
+      "actual": "5a77c967924bfc1ecc73959fc35544a750c99280",
+      "match": true
+    },
+    {
+      "path": "assets/world/forest-v1.webp",
+      "expected": "a1cf3b5bbc016e74cc4f5ab3126a7f82c38d99c7",
+      "actual": "a1cf3b5bbc016e74cc4f5ab3126a7f82c38d99c7",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/03.png",
+      "expected": "932da9c2379f687eda7d0b71d306deedf50e4cbd",
+      "actual": "932da9c2379f687eda7d0b71d306deedf50e4cbd",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/04.png",
+      "expected": "8ddd04f3dce8431f65e6405544aa8642128bad53",
+      "actual": "8ddd04f3dce8431f65e6405544aa8642128bad53",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/06.png",
+      "expected": "40b97aee35a8dbdfa49490e78a9229967f5227c3",
+      "actual": "40b97aee35a8dbdfa49490e78a9229967f5227c3",
+      "match": true
+    },
+    {
+      "path": "assets/characters/dog/08.png",
+      "expected": "618a13a464fd665d04e2e559ba1c154c1794f4d7",
+      "actual": "618a13a464fd665d04e2e559ba1c154c1794f4d7",
+      "match": true
+    }
+  ],
+  "images": [
+    {
+      "file": "V6-stage19-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "V6-stage20-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "V6-situations-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "A-stage19-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "A-stage20-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "A-situations-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "B-stage19-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "B-stage20-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "B-situations-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "C-stage19-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "C-stage20-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "C-situations-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "D-stage19-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "D-stage20-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "D-situations-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "E-stage19-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "E-stage20-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "E-situations-375.png",
+      "dimensions": [
+        694,
+        694
+      ],
+      "match": true
+    },
+    {
+      "file": "V6-stage19-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "V6-stage20-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "V6-situations-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "A-stage19-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "A-stage20-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "A-situations-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "B-stage19-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "B-stage20-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "B-situations-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "C-stage19-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "C-stage20-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "C-situations-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "D-stage19-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "D-stage20-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "D-situations-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "E-stage19-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "E-stage20-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "E-situations-390.png",
+      "dimensions": [
+        724,
+        724
+      ],
+      "match": true
+    },
+    {
+      "file": "V6-stage19-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "V6-stage20-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "V6-situations-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "A-stage19-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "A-stage20-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "A-situations-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "B-stage19-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "B-stage20-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "B-situations-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "C-stage19-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "C-stage20-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "C-situations-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "D-stage19-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "D-stage20-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "D-situations-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "E-stage19-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "E-stage20-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    },
+    {
+      "file": "E-situations-430.png",
+      "dimensions": [
+        804,
+        804
+      ],
+      "match": true
+    }
+  ],
+  "gifs": [
+    {
+      "file": "E-particles.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "A-particles.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "A-halo.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "B-digit.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "E-halo.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "A-veil.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "E-digit.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "B-particles.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "A-digit.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "B-veil.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "E-veil.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    },
+    {
+      "file": "B-halo.gif",
+      "frames": 45,
+      "duration_ms": 1500,
+      "dimensions": [
+        390,
+        456
+      ]
+    }
+  ],
+  "source_hash_mismatches": 0,
+  "dimension_mismatches": 0,
+  "browser_execution": "not completed: local file URL denied by browser security policy; no bypass attempted",
+  "safari_device": "not performed",
+  "stage_data": "imported unchanged from pinned source; no authored stage edits",
+  "scope": "docs-only standalone design study",
+  "copy_normalization": "One extra terminal newline introduced by local patch import was removed after SHA comparison; all 16 snapshots now match their GitHub blob SHA."
+}
