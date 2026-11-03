@@ -13,8 +13,8 @@
   function timeOfDay(mode, date) {
     if (mode === 'morning' || mode === 'day' || mode === 'evening' || mode === 'night') return mode;
     var hour = (date || new Date()).getHours();
-    if (hour >= 5 && hour <= 10) return 'morning';
-    if (hour >= 11 && hour <= 15) return 'day';
+    if (hour >= 5 && hour <= 9) return 'morning';
+    if (hour >= 10 && hour <= 15) return 'day';
     if (hour >= 16 && hour <= 18) return 'evening';
     return 'night';
   }
