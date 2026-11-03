@@ -14,15 +14,15 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  // beforeunload legitimately saves the old scene. Reset only explicitly
  // marked input fixtures, in the new document before application startup.
  await page.addInitScript(seed=>{
-  if(!location.pathname.endsWith('/release-qa.html')||sessionStorage.getItem('home-release-reset-fixture')!=='1')return;
+  if(!location.pathname.endsWith('/current-production-qa.html')||sessionStorage.getItem('home-release-reset-fixture')!=='1')return;
   localStorage.setItem('naotocchi-home-release-qa-v1',JSON.stringify(seed));
   sessionStorage.removeItem('home-release-reset-fixture');
  },original);
- await page.goto(base+'/release-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);
+ await page.goto(base+'/current-production-qa.html');await page.waitForFunction(()=>window.HomeReleaseQA);
  for(const width of [320,375,390,430])for(const region of (process.env.HOME_RELEASE_REGION?[process.env.HOME_RELEASE_REGION]:['home','forest','river_lake','city','countryside','mountain','snow','sea','jungle','desert','deepsea','star_stop','memory_lake']))for(const count of [1,6,28]){
  await page.setViewportSize({width,height:844});await page.evaluate(([r,c])=>HomeReleaseQA.scene(r,c),[region,count]);
  await page.waitForFunction(([r,c])=>{const d=HomeReleaseQA.detail();return !d.blocked&&d.paused==='false'&&d.world?.mode==='art-25d'&&d.world.loaded&&d.world.region===r&&d.actors.length===c&&d.actors.every(a=>a.safe);},[region,count],{timeout:30000});
- const detail=await page.evaluate(()=>HomeReleaseQA.detail());assert.equal(Math.round(detail.slots.notice),42);assert.equal(Math.round(detail.slots.speech),76);assert.ok(await page.evaluate(()=>HomeReleaseQA.move()),`${region}/${width}/${count} pet exit: ${JSON.stringify(detail)}`);
+ const detail=await page.evaluate(()=>HomeReleaseQA.detail());assert.deepEqual(detail.layout,{viewport:'12',display:'18'},'regional matrix uses the shipped home');assert.equal(Math.round(detail.slots.notice),42);assert.equal(Math.round(detail.slots.speech),76);assert.ok(await page.evaluate(()=>HomeReleaseQA.move()),`${region}/${width}/${count} pet exit: ${JSON.stringify(detail)}`);
  results.push({engine:engineName,width,region,count,candidate:detail.world.candidate,safe:detail.actors.every(a=>a.safe),slots:detail.slots});
  if(width===390&&count===28)await page.screenshot({path:path.join(dest,`${engineName}-${region}-28.png`),fullPage:true});
  fs.writeFileSync(path.join(dest,'progress.json'),JSON.stringify({results,errors},null,2));
@@ -61,8 +61,8 @@ const server=http.createServer((req,res)=>{let p=decodeURIComponent(new URL(req.
  // Image.onload is asynchronous; paint the new canvas/cast before sampling.
  // runFor leaves the clock paused after these three normal animation frames.
  await page.clock.runFor(50);
- input.before=await page.evaluate(()=>HomeReleaseQA.detail());input.status='started';saveInputs();
- const t=await page.evaluate(targetFn,kind),from={x:t.stage.x+t.a.x,y:t.stage.y+t.a.y-t.a.h*.4},to={x:t.stage.x+t.p.x,y:t.stage.y+t.p.y};
+ input.before=await page.evaluate(()=>HomeReleaseQA.detail());assert.deepEqual(input.before.layout,{viewport:'12',display:'18'},'physical input uses the shipped home');input.status='started';saveInputs();
+ const t=await page.evaluate(targetFn,kind),{from,to}=t;
  input.target=t;input.from=from;input.to=to;input.selectionMs=t.selectionMs;saveInputs();
  if(kind==='tap'){await page.mouse.click(from.x,from.y);await page.waitForTimeout(100);assert.equal(await page.locator('[data-diorama-actor="pet:dog"]').getAttribute('aria-pressed'),'true');await page.mouse.click(to.x,to.y);}
  else{await page.mouse.move(from.x,from.y);await page.mouse.down();await page.mouse.move(to.x,to.y,{steps:8});await page.mouse.up();}

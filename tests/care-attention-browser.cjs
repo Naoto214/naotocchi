@@ -24,7 +24,9 @@ async function attentionState(page) {
       sweatContent:getComputedStyle(el('petSprite'),'::after').content,
       sweatMotion:getComputedStyle(el('petSprite'),'::after').animationName,
       sweatTop:parseFloat(getComputedStyle(el('petSprite'),'::after').top),
-      spriteHeight:el('petSprite').getBoundingClientRect().height,
+      // Pseudo-element top is in local CSS pixels. The production diorama
+      // scales the actor, so its screen bounding height is a different unit.
+      spriteHeight:parseFloat(getComputedStyle(el('petSprite')).height),
       action:recommended?.id || '',actionMotion:recommended && getComputedStyle(recommended).animationName,
       actionShadow:recommended && getComputedStyle(recommended).boxShadow,
       medicineClickable:hit===button || button.contains(hit),

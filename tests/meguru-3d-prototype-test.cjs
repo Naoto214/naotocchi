@@ -10,6 +10,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { expectedAssetToken } = require('./helpers/asset-token.cjs');
 const { harness } = require('./helpers/party-geometry-harness.cjs');
 
 const ROOT = path.join(__dirname, '..');
@@ -314,7 +315,9 @@ test('8. フラグは URL だけ・セーブに のこさない。Three.js は v
   assert.ok(fs.existsSync(path.join(ROOT, imp[1])) && fs.existsSync(path.join(ROOT, 'vendor/three-' + imp[2] + '/LICENSE')));
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   assert.ok(!/<script[^>]+meguru-3d/.test(html) && !/modulepreload[^>]+meguru-3d|three\.module/.test(html), 'index.html は 3D を よみこまない(template の data-src だけ)');
-  assert.match(html, /<template id="meguru3dModule" data-src="meguru-3d\.mjs\?v=\d{8}-[0-9a-f]{8}"><\/template>/);
+  const lazyModule = html.match(/<template id="meguru3dModule" data-src="meguru-3d\.mjs\?v=([^"&]+)"><\/template>/);
+  assert.ok(lazyModule, 'the lazy 3D module carries a cache token');
+  assert.equal(lazyModule[1], expectedAssetToken(lazyModule[1], fs.readFileSync(path.join(ROOT, 'meguru-3d.mjs'))), 'the lazy 3D token matches the module bytes');
 });
 
 // ===== 全地域 3D v0(共通の 契約 × 地域の profile)。地域の 数は registry(WORLDS)から =====

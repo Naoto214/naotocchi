@@ -15284,6 +15284,7 @@
         && !(idleSpeech && ['bounce','settle','shy','wiggle'].includes(a.node.dataset.reaction)));
   }
   window.addEventListener('home-v6-egg-ready',()=>renderHomeCast());
+  window.addEventListener('dayparts-qa-change',()=>renderHomeDiorama());
   function renderHomeDiorama() {
     if (!window.NaotocchiHomeDiorama) return;
     if (!homeDiorama) homeDiorama=window.NaotocchiHomeDiorama.createController({
@@ -15360,6 +15361,7 @@
     }
     maybeRefreshEnvironment();
     renderWorldScene();
+    renderHomeDiorama();
   }
 
   function renderWorldScene(paused = false) {

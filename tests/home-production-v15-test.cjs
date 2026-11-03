@@ -16,9 +16,9 @@ test('V15 all companion invitations retain home presentation, blocking and origi
 test('V15 single full-height landscape image leaves white margins even at night',async()=>{
  const {createHomeWorld}=await import('../home-production-world.mjs');
  for(const time of ['day','night']){const contexts=[];const canvas=()=>{const calls=[],fills=[],ctx={drawImage:(...a)=>calls.push(a),setTransform(){},fillRect(...a){fills.push({color:this.fillStyle,rect:a})},save(){},restore(){}};contexts.push({calls,fills,ctx});return {style:{},getContext:()=>ctx,remove(){}};};
- const host={left:0,top:0,width:420,height:280},stage={left:16,top:134,width:343,height:380},container={appendChild(){},getBoundingClientRect:()=>host},doc={body:{dataset:{homeViewportVersion:'12',homeTinyOverview:'true',homeDisplayVersion:'15'}},createElement:canvas,getElementById:()=>({getBoundingClientRect:()=>stage})};class Image{set src(v){this.onload();}}
+ const host={left:0,top:0,width:420,height:280},stage={left:16,top:134,width:343,height:380},container={appendChild(){},getBoundingClientRect:()=>host},doc={body:{style:{setProperty(){}},dataset:{homeViewportVersion:'12',homeTinyOverview:'true',homeDisplayVersion:'15'}},createElement:tag=>tag==='canvas'?canvas():{style:{},dataset:{},remove(){}},getElementById:()=>({getBoundingClientRect:()=>stage})};class Image{set src(v){this.onload();}}
  const world=createHomeWorld({container,document:doc,window:{Image,devicePixelRatio:1,NaotocchiHomeViewport:{residentPresentation:()=>({landscape:true})}}});world.setEnvironment({region:'home',time,weather:'sunny'});world.draw(0,{reducedMotion:true});
- assert.equal(contexts[0].calls.length,1);assert.equal(contexts[0].ctx.filter,undefined);const [,x,y,w,h]=contexts[0].calls[0];assert.equal(h,280);assert.equal(y,0);assert.equal(h/w,1.5);assert.equal(contexts[1].fills[0].color,'#ffffff');if(time==='night')assert.deepEqual(contexts[1].fills[1].rect,[x,y,w,h]);
+ assert.equal(contexts[0].calls.length,1);assert.equal(contexts[0].ctx.filter,undefined);const [,x,y,w,h]=contexts[0].calls[0];assert.equal(h,280);assert.equal(y,0);assert.equal(h/w,1.5);assert.equal(contexts[1].fills[0].color,'#ffffff');assert.equal(contexts[1].fills.length,1,'authored night has no dark overlay');
  }
 });
 test('V15 tight SVG reservation retains the existing body motion margin when marks sit below the head',()=>{

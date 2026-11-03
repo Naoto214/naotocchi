@@ -99,8 +99,9 @@
 <link rel="stylesheet" href="home-v8.css?v=5b8d58a9f12f">
 <link rel="stylesheet" href="home-production-layout.css?v=db939f84c1f2">
 <style>body[data-home-v6-egg] .world-scene{display:none}body[data-home-v6-egg] .device{position:relative;z-index:1}.home-v6-egg-world{pointer-events:none;overflow:hidden}.home-v6-egg-world img{max-width:none}body[data-home-v6-egg] #petSprite{filter:drop-shadow(0 3px 2px #36230c55)}</style>
-<script type="module" src="home-production-egg.mjs?v=cb72e194cb16"></script>
-<meta name="theme-color" content="#342b25"></head>
+<script type="module" src="home-production-egg.mjs?v=9084dc40fb2d"></script>
+<meta name="theme-color" content="#342b25"><link rel="stylesheet" href="home-dayparts.css?v=0a21aac3b5be">
+</head>
 <body data-home-display-version="18" data-home-viewport-version="12" data-home-production="true">
   <div class="world-scene" id="worldScene" aria-hidden="true" hidden>
     <div class="world-backdrop" id="worldBackdrop"></div>
@@ -863,11 +864,11 @@
     </div>
     <div class="message" id="message" role="status" aria-live="polite" tabindex="0" aria-label="おしらせ">たまごがやってきた…</div>
     <nav class="buttons" id="careActions" aria-label="お世話とメニュー">
-      <button id="playBtn" title="あそぶ"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>あそぶ</span></button>
       <button id="feedBtn" title="ごはん"><i class="care-icon" data-care-icon="food" aria-hidden="true"></i><span>ごはん</span></button>
       <button id="cleanBtn" title="そうじ"><i class="care-icon" data-care-icon="clean" aria-hidden="true"></i><span>そうじ</span></button>
       <button id="sleepBtn" title="ねる"><i class="care-icon" data-care-icon="sleep" aria-hidden="true"></i><span>ねる</span></button>
       <button id="medicineBtn" title="くすり"><i class="care-icon" data-care-icon="medicine" aria-hidden="true"></i><span>くすり</span></button>
+      <button id="playBtn" title="あそぶ"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>あそぶ</span></button>
       <button id="playWithBtn" title="じゃれる"><i class="care-icon" data-care-icon="play" aria-hidden="true"></i><span>じゃれる</span></button>
       <button id="courtBtn" title="きゅうあい"><i class="care-icon" data-care-icon="love" aria-hidden="true"></i><span>きゅうあい</span></button>
       <button id="travelBtn" title="たび">🧭<span>たび</span></button>
@@ -891,7 +892,7 @@
   <script src="cast-motion.js?v=1e8d37ab6841"></script>
   <script src="cast-layout.js?v=0ccb5535b52c"></script>
   <script src="local-scenery.js?v=92cd3ea0c093"></script>
-  <script src="world-environment.js?v=f35a8b6f7785"></script>
+  <script src="world-environment.js?v=1bd1b9931d99"></script>
   <script src="world-scene.js?v=a3c7451223d3"></script>
   <script src="prop-illustrations.js?v=e924f8be4ed5"></script>
   <script src="game-symbol-art.js?v=1cfbbe95b2b7"></script>
@@ -926,10 +927,11 @@
   <script src="individuality.js?v=58f2b79761d4"></script>
   <script src="minigame-reactions.js?v=b610f680bcab"></script>
   <script src="home-production-model.js?v=4cfc77877b9a"></script>
-  <script src="home-production-diorama.js?v=81c54521129f"></script>
-  <script src="script.js?v=cad67080243d"></script>
+  <script src="home-production-diorama.js?v=352cd0772255"></script>
+  <script src="script.js?v=9ea4fc20dfe0"></script>
   <script src="home-production-touch.js?v=84c359688ae8"></script>
 <div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><span id="individualitySpeaker" class="lane-speaker hidden"></span><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
+<script type="module" src="home-dayparts-qa.mjs?v=e19726c2c045"></script>
 </body>
 </html>
 

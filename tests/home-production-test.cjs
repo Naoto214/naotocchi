@@ -41,7 +41,13 @@ test('production runtime harness loads the exact shipped presenter and model',()
 });
 test('latest-main game catalogs, conversations, formal images and other games stay byte-identical',()=>{
  const cp=require('child_process');const unchanged=['assets/characters','prototypes','conversation-*.js','relationship-*.js','individuality*.js','item-*.js','games.js','quick.js','style.css','ui.css','character-world-master.v1.js'];
- assert.equal(cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim(),'');
+ // FIRST START permits only the exact owner-approved files/bytes from PR #511.
+ // Keep every other prototype (CARD GAME/naopoyo included) and asset protected.
+ const firstStart='8de189af03dc3bf9ca0139982341edc5c33b5518';
+ const approved=new Set(cp.execFileSync('git',['ls-tree','-r','--name-only',firstStart,'--','prototypes/life-sugoroku'],{encoding:'utf8'}).trim().split('\n'));
+ const changed=cp.execFileSync('git',['diff','--name-only',testedMain,'--',...unchanged],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
+ assert.deepEqual(changed.filter(file=>!approved.has(file)),[],'unapproved protected file changes');
+ if(changed.length) assert.equal(cp.execFileSync('git',['diff','--name-only',firstStart,'--',...changed],{encoding:'utf8'}).trim(),'','FIRST START additions must match approved bytes');
  const original=cp.execFileSync('git',['ls-tree','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa'],{encoding:'utf8'}).trim().split('\n').filter(p=>p.startsWith('home-')&&/\.(js|mjs|css)$/.test(p));
  assert.equal(cp.execFileSync('git',['diff','--name-only','e0c5c52671666e8ab06b37afabf3eeae29f530fa','--',...original],{encoding:'utf8'}).trim(),'');
 });

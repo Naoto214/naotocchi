@@ -1,3 +1,4 @@
+// Validate the shipped display first, then preserve the full historical V7 matrix.
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict');
 const root=path.resolve(process.argv[2]),out=path.resolve('test-results/home-production-comments-v7');fs.mkdirSync(out,{recursive:true});
 const server=http.createServer((req,res)=>{const f=path.resolve(root,'.'+new URL(req.url,'http://local').pathname);if(!f.startsWith(root+'/')||!fs.existsSync(f)){res.writeHead(404).end();return;}res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp'})[path.extname(f)]||'application/octet-stream');fs.createReadStream(f).pipe(res);});
@@ -22,6 +23,7 @@ const texts=['うれしいな','今日はいい日だった','遊びの途中で
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const results=[],errors=[];try{
 for(const engine of (process.env.HOME_LAYOUT_ENGINES||'chromium,webkit').split(',')){
  const browser=await require('playwright')[engine].launch();try{
+ await require('./helpers/home-production-current-browser.cjs')(browser,engine,'http://127.0.0.1:'+server.address().port,out);
  for(const width of [320,375,390,430]){
  const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));await page.clock.install();
  await page.goto('http://127.0.0.1:'+server.address().port+'/v7-qa.html?region=forest&count=28');await page.waitForFunction(()=>window.HomeReleaseQA?.detail().world?.loaded);await page.evaluate(()=>document.fonts.ready);

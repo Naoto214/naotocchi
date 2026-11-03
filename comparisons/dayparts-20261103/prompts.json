@@ -1,0 +1,47 @@
+[
+  [
+    "home-morning",
+    "home.webp",
+    "Soft early morning at 07:00. Gentle pale gold morning sunlight from the existing window, fresh cool pale blue outside. Keep existing indoor lamps subtle."
+  ],
+  [
+    "home-evening",
+    "home.webp",
+    "Warm late afternoon sunset at 17:30. Low amber sunlight and longer soft shadows on the same wooden floor, peach sky and warm distant mountains."
+  ],
+  [
+    "home-night",
+    "home.webp",
+    "Night at 21:00. Dark blue night landscape outside with subtle lights in the existing distant town windows; existing floor lamp and lantern illuminate the room warmly. Remove daytime sun patches and leaf shadows; keep wood floor clearly readable."
+  ],
+  [
+    "forest-morning",
+    "forest.png",
+    "Early morning at 07:00. Soft oblique golden light through the existing canopy, fresh cool air and delicate atmospheric haze only in the distant trees, clear fresh green clearing."
+  ],
+  [
+    "forest-evening",
+    "forest.png",
+    "Late afternoon at 17:30. Low warm amber sunlight through the existing canopy, long soft tree shadows across the same grass clearing. Keep green summer leaves, do NOT turn leaves autumn orange."
+  ],
+  [
+    "forest-night",
+    "forest.png",
+    "Night at 21:00. Natural cool silvery moonlight from off-frame through the same canopy, deep blue atmosphere, readable green grass clearing and tree silhouettes. Remove the bright daytime sun glow and sunlit leaf patches. Do NOT add a visible moon, fireflies, flowers or lights."
+  ],
+  [
+    "city-morning",
+    "city.webp",
+    "Morning at 07:00. Pale blue sky with subtle peach morning horizon, cool clear morning urban light, soft warm low sunlight on the existing stone plaza. Most existing window and street lights off; daytime natural materials visible."
+  ],
+  [
+    "city-day",
+    "city.webp",
+    "Midday at 13:00. Bright natural daylight, blue sky and soft white clouds replacing the orange sunset, neutral building surfaces, crisp readable plaza with natural daylight shadows. Existing shop windows and lamps not glowing intensely."
+  ],
+  [
+    "city-night",
+    "city.webp",
+    "Night at 21:00. Deep navy night sky without sunset orange; existing street lights and existing shop/window lights create warm pools of light and natural reflections on the existing stone plaza. Buildings softly readable, calm urban night. Do NOT add stars or moon."
+  ]
+]
