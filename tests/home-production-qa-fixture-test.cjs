@@ -1,5 +1,16 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),cp=require('node:child_process');
 
+test('current layout stability tolerates only subpixel browser rounding',()=>{
+ const {assertStableRect}=require('./helpers/home-production-current-browser.cjs');
+ const before={x:9,y:138,left:9,top:138,right:310.99365234375,width:301.99365234375,bottom:303.9997863769531,height:165.99978637695312};
+ const rounded={...before,bottom:303.9996643066406,height:165.99966430664062};
+ assert.doesNotThrow(()=>assertStableRect(rounded,before,'observed Chromium rounding'));
+ for(const key of Object.keys(before)){
+  assert.throws(()=>assertStableRect({...before,[key]:before[key]+.1},before,key),/layout moved/);
+  assert.throws(()=>assertStableRect({...before,[key]:NaN},before,key),/layout moved/);
+ }
+});
+
 test('historical production fixtures select one layout while the current entry preserves the shipped body',()=>{
  const out=fs.mkdtempSync(path.join(os.tmpdir(),'home-production-fixtures-'));
  const source=fs.readFileSync('index.html','utf8'),body=html=>html.match(/<body\b[^>]*>/)[0];

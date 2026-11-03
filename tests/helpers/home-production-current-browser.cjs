@@ -3,6 +3,15 @@
 // same production renderer; only state seeding and read-only evidence are QA.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 
+function assertStableRect(actual,expected,label){
+ // Chromium can differ by 0.00012 CSS px between identical layout samples.
+ // Permit one 1/64 CSS-pixel layout unit; real shifts (even 0.1px) still fail.
+ for(const key of ['x','y','top','right','bottom','left','width','height']){
+  assert.ok(Number.isFinite(actual[key])&&Number.isFinite(expected[key])&&Math.abs(actual[key]-expected[key])<=1/64,
+   `${label}: layout moved ${key}: ${expected[key]} -> ${actual[key]}`);
+ }
+}
+
 module.exports=async function currentProduction(browser,engine,base,out){
  const records=[],errors=[];
  const inspect=()=>{
@@ -44,7 +53,7 @@ module.exports=async function currentProduction(browser,engine,base,out){
     assert.equal(await page.locator('#speechBubble').isVisible(),true,label+' comment visible');
     await page.waitForFunction(()=>document.querySelector('#speechSpeaker img')?.naturalWidth>0);
     const after=await page.evaluate(inspect);geometry(after,width,height,count,label);
-    for(const key of ['notice','comment','controls','frame'])assert.deepEqual(after[key],before[key],label+' text does not move '+key);
+    for(const key of ['notice','comment','controls','frame'])assertStableRect(after[key],before[key],label+' text does not move '+key);
     const textFit=await page.locator('#speechBubble').evaluate(e=>{
      e.scrollTop=e.scrollHeight;
      const text=document.getElementById('speechText'),walker=document.createTreeWalker(text,NodeFilter.SHOW_TEXT);let last,n;while(n=walker.nextNode())if(n.length)last=n;
@@ -71,3 +80,4 @@ module.exports=async function currentProduction(browser,engine,base,out){
  assert.deepEqual(errors,[],engine+' current production page errors');
  console.log('PASS current production V18',engine,records.length);
 };
+module.exports.assertStableRect=assertStableRect;
