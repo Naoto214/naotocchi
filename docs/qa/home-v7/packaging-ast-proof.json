@@ -1,0 +1,141 @@
+{
+  "kind": "comments and whitespace only; AST verified",
+  "files": [
+    {
+      "file": "art-play-script.js",
+      "sourceSha256": "a24db227b150d2e32595e3d3043f304de16fb12640d24a7e6d3768bcda241187",
+      "deliveredSha256": "bebaca36cefdd951862d4573a16f8415cdb5ce2f736e98e25276ce2a00ab85af",
+      "sourceBytes": 1169819,
+      "deliveredBytes": 790617,
+      "astEqual": true
+    },
+    {
+      "file": "home-ab-play-script.js",
+      "sourceSha256": "601936b2898f6015be769b97a3921bfde3491c779c2d3f8b71413022f24496e9",
+      "deliveredSha256": "9501a5f8cb4137ef28d3b7dafd6bb75e31735044f8d678ebd8c9102be1e42d12",
+      "sourceBytes": 1169823,
+      "deliveredBytes": 790621,
+      "astEqual": true
+    },
+    {
+      "file": "home-v6-play-script.js",
+      "sourceSha256": "5013bc7a2402ce3eb41961faa5e33bd80fe77ca30c50eec6773f03071b03b0e3",
+      "deliveredSha256": "becc5b70ad07ae66a0387fe7c24b62076de22aeeed9d196ee6729cf5b0b18be2",
+      "sourceBytes": 1170086,
+      "deliveredBytes": 790880,
+      "astEqual": true
+    },
+    {
+      "file": "home-v7-play-script.js",
+      "sourceSha256": "691ec9212a36d4dfe755bafcf5febc3b83be12775ebb89b93f7fce63cf12b0a1",
+      "deliveredSha256": "5e561885dcdcaf44fe0095dad338340578d15f16483d92e7ffe7176830f73387",
+      "sourceBytes": 1170086,
+      "deliveredBytes": 790880,
+      "astEqual": true
+    },
+    {
+      "file": "japan-play-script.js",
+      "sourceSha256": "b1c64ad0575a3cc35176179d75026a0765cd13370939525f81c2a8704309e6e6",
+      "deliveredSha256": "a9b7943e78ee0e9d0469b0ff8f7e410782a0f3ad396a82b16024f63e1792e2eb",
+      "sourceBytes": 1169815,
+      "deliveredBytes": 790613,
+      "astEqual": true
+    },
+    {
+      "file": "qa-art-script.js",
+      "sourceSha256": "8373f0524dba0623dce5d323ff0c0413a95cd628adeecf0bfee466d170d9fe0b",
+      "deliveredSha256": "f8a175fb48c578193afe6b00a9f4c832249eac82aff87f305ddd222b90251736",
+      "sourceBytes": 1186291,
+      "deliveredBytes": 806762,
+      "astEqual": true
+    },
+    {
+      "file": "qa-home-ab-a-script.js",
+      "sourceSha256": "ce9d4d09aca562d9d94cfd25596740dff24498068ebe4295dc093d4afd0f5a48",
+      "deliveredSha256": "a464c79a50aad1286913c278df12262896518a54874e0b155487ca03dc9d804e",
+      "sourceBytes": 1186303,
+      "deliveredBytes": 806774,
+      "astEqual": true
+    },
+    {
+      "file": "qa-home-ab-b-script.js",
+      "sourceSha256": "21d603a8f57fa10469f5c9697fe4b423f767be0ac02522270234b8316f9d4731",
+      "deliveredSha256": "19a182bf53b1d43f66a194d6198c48670df07723f66e0ee5a09c39ce83ccf3c3",
+      "sourceBytes": 1186303,
+      "deliveredBytes": 806774,
+      "astEqual": true
+    },
+    {
+      "file": "qa-home-v6-baseline-script.js",
+      "sourceSha256": "e676c68d7b4fbb6a48c5710ae7a4f01de3fb42d1e2a227e8f335e6bad24cbd39",
+      "deliveredSha256": "4f77815d1289a6771adbcf0b3caa4b7deef6e2a1d13f8918ec6932d9766774bf",
+      "sourceBytes": 1186319,
+      "deliveredBytes": 806790,
+      "astEqual": true
+    },
+    {
+      "file": "qa-home-v6-script.js",
+      "sourceSha256": "51fe2722e84dfa9017693137cf9383708f140140e8551d4bc9f6cdf4811b7aea",
+      "deliveredSha256": "f9292287885343bfe46ba0767ed5fa138c6b38ed9c2eefba702cc3d63d8864aa",
+      "sourceBytes": 1187090,
+      "deliveredBytes": 807552,
+      "astEqual": true
+    },
+    {
+      "file": "qa-home-v6-sheet-script.js",
+      "sourceSha256": "1515e47a329914d86f6dd1bcb49696e21f77eca7fee17c29b293edb99fb00aca",
+      "deliveredSha256": "ce4da0cab386f8958f22958081b8611c9062984c032dfcf6aec6c0e8966007b2",
+      "sourceBytes": 1187102,
+      "deliveredBytes": 807564,
+      "astEqual": true
+    },
+    {
+      "file": "qa-home-v7-script.js",
+      "sourceSha256": "a5807f37021b084ebe134eed0da9f7ab5a23493a8b6f87b25204ba15885a22a5",
+      "deliveredSha256": "ce562148bf15a3895f71683b303eeaa3d5af115c3361b998b79abbac0139f823",
+      "sourceBytes": 1187090,
+      "deliveredBytes": 807552,
+      "astEqual": true
+    },
+    {
+      "file": "qa-home-v7-sheet-script.js",
+      "sourceSha256": "24ebf7fd438d669a6b88c08b2cf7109d14163a2ec6128ebf5820fcc255fa90b6",
+      "deliveredSha256": "2364e3da353ba60aa358df9aec65c55d9548a010767c0b0449619f9051be5a09",
+      "sourceBytes": 1187102,
+      "deliveredBytes": 807564,
+      "astEqual": true
+    },
+    {
+      "file": "qa-japan-script.js",
+      "sourceSha256": "5a43a904b22208c64180ae99f956fad99984c57dd5973901d37d98e2531c40d6",
+      "deliveredSha256": "10a270fd7fde5fd6637942b1eadf35e57e40b3eeee563d5bf3a6b81c9ff62a3c",
+      "sourceBytes": 1186287,
+      "deliveredBytes": 806758,
+      "astEqual": true
+    },
+    {
+      "file": "qa-recovered-script.js",
+      "sourceSha256": "71d6b5f5dbc4f6a6b1b4442946ebb8bf54ad3b90a412c564303733f892aaefe0",
+      "deliveredSha256": "3f7b0880369a0bf907f8e2f673022726fffc144fc874feba39dd010eb9f29d61",
+      "sourceBytes": 1186303,
+      "deliveredBytes": 806774,
+      "astEqual": true
+    },
+    {
+      "file": "qa-v22-script.js",
+      "sourceSha256": "dab49ff73bd3ee987daf3550cc9e058555c302fb83b3b0ee3f37fa81afa95bbf",
+      "deliveredSha256": "95285e0a99b125fbb0d4b500d4912ca4344f644886a34991398764c2439797be",
+      "sourceBytes": 1186315,
+      "deliveredBytes": 806786,
+      "astEqual": true
+    },
+    {
+      "file": "recovered-play-script.js",
+      "sourceSha256": "f4372ac560581f940e73da3fe2190d26474141f112d50415bc541b24220bd2b0",
+      "deliveredSha256": "72f971aea6dafca8b07cb73bc181fdb0698329365045878846a0444ec15ef867",
+      "sourceBytes": 1169831,
+      "deliveredBytes": 790629,
+      "astEqual": true
+    }
+  ]
+}

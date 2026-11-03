@@ -1,0 +1,21 @@
+{
+  "run": 41175667003,
+  "head": "e381c59184d43c164e06804754cf073e4a982c3a",
+  "checkout": "479eed84111234c8e157403ae367f056e780cf43",
+  "checkout_parents": [
+    "7c1f18c77b902d06159157899c36104e5d8c4a8d",
+    "e381c59184d43c164e06804754cf073e4a982c3a"
+  ],
+  "river_job": 124462589542,
+  "failure": "11/12 contracts pass; protected prototypes/card-game differs from fixed 851cf09a baseline before browser step",
+  "fixed_webkit_job": 124462589311,
+  "observed_passed_steps": [
+    "package HTTP integrity",
+    "guide dismissal browser",
+    "fixed controls layout browser"
+  ],
+  "scroll_matrix": "not completed at observation",
+  "production_contract_job": 124462589552,
+  "production_contract_result": "success",
+  "note": "PR merge checkout is not the branch tree. Concurrent 38c3d068 corrects baseline selection."
+}

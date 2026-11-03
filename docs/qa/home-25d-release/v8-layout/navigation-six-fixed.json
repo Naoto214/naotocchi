@@ -1,0 +1,764 @@
+[
+  {
+    "label": "すばしっこいうさぎをえらぶを表示中",
+    "central": {
+      "x": 16,
+      "y": 94,
+      "width": 268,
+      "height": 213,
+      "top": 94,
+      "right": 284,
+      "bottom": 307,
+      "left": 16
+    },
+    "stage": {
+      "x": -28,
+      "y": -97,
+      "width": 526,
+      "height": 380,
+      "top": -97,
+      "right": 498,
+      "bottom": 283,
+      "left": -28
+    },
+    "actors": [
+      {
+        "key": "companion:cat_friend",
+        "rect": {
+          "x": 278.65850830078125,
+          "y": 37.12762451171875,
+          "width": 111.4794921875,
+          "height": 111.4794921875,
+          "top": 37.12762451171875,
+          "right": 390.13800048828125,
+          "bottom": 148.60711669921875,
+          "left": 278.65850830078125
+        },
+        "overlapsLane": true,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:tanuki",
+        "rect": {
+          "x": 179.80982971191406,
+          "y": 10.787353515625,
+          "width": 102.89823913574219,
+          "height": 102.89825439453125,
+          "top": 10.787353515625,
+          "right": 282.70806884765625,
+          "bottom": 113.68560791015625,
+          "left": 179.80982971191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "partner:forest_bear",
+        "rect": {
+          "x": 81.212890625,
+          "y": 52.93568420410156,
+          "width": 113.56404113769531,
+          "height": 113.56404113769531,
+          "top": 52.93568420410156,
+          "right": 194.7769317626953,
+          "bottom": 166.49972534179688,
+          "left": 81.212890625
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "pet:dog",
+        "rect": {
+          "x": 177.8865509033203,
+          "y": 68.34944152832031,
+          "width": 144.4517059326172,
+          "height": 144.4517059326172,
+          "top": 68.34944152832031,
+          "right": 322.3382568359375,
+          "bottom": 212.8011474609375,
+          "left": 177.8865509033203
+        },
+        "overlapsLane": true,
+        "fullyInsideViewport": false,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "rect": {
+          "x": 91.41282653808594,
+          "y": 141.67059326171875,
+          "width": 116.89280700683594,
+          "height": 116.89279174804688,
+          "top": 141.67059326171875,
+          "right": 208.30563354492188,
+          "bottom": 258.5633850097656,
+          "left": 91.41282653808594
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:squirrel",
+        "rect": {
+          "x": 244.26766967773438,
+          "y": -8.945602416992188,
+          "width": 98.34805297851562,
+          "height": 98.34806823730469,
+          "top": -8.945602416992188,
+          "right": 342.61572265625,
+          "bottom": 89.4024658203125,
+          "left": 244.26766967773438
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      }
+    ]
+  },
+  {
+    "label": "おっちょこちょいリスをえらぶを表示中",
+    "central": {
+      "x": 16,
+      "y": 94,
+      "width": 268,
+      "height": 213,
+      "top": 94,
+      "right": 284,
+      "bottom": 307,
+      "left": 16
+    },
+    "stage": {
+      "x": -171,
+      "y": 63,
+      "width": 526,
+      "height": 380,
+      "top": 63,
+      "right": 355,
+      "bottom": 443,
+      "left": -171
+    },
+    "actors": [
+      {
+        "key": "companion:cat_friend",
+        "rect": {
+          "x": 135.65850830078125,
+          "y": 197.12762451171875,
+          "width": 111.4794921875,
+          "height": 111.4794921875,
+          "top": 197.12762451171875,
+          "right": 247.13800048828125,
+          "bottom": 308.60711669921875,
+          "left": 135.65850830078125
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:tanuki",
+        "rect": {
+          "x": 36.80982971191406,
+          "y": 170.787353515625,
+          "width": 102.89823913574219,
+          "height": 102.89825439453125,
+          "top": 170.787353515625,
+          "right": 139.70806884765625,
+          "bottom": 273.68560791015625,
+          "left": 36.80982971191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "partner:forest_bear",
+        "rect": {
+          "x": -61.787109375,
+          "y": 212.93568420410156,
+          "width": 113.56404113769531,
+          "height": 113.56404113769531,
+          "top": 212.93568420410156,
+          "right": 51.77693176269531,
+          "bottom": 326.4997253417969,
+          "left": -61.787109375
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "pet:dog",
+        "rect": {
+          "x": 34.8870849609375,
+          "y": 228.34796142578125,
+          "width": 144.45065307617188,
+          "height": 144.45065307617188,
+          "top": 228.34796142578125,
+          "right": 179.33773803710938,
+          "bottom": 372.7986145019531,
+          "left": 34.8870849609375
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "rect": {
+          "x": -51.58717346191406,
+          "y": 301.67059326171875,
+          "width": 116.89280700683594,
+          "height": 116.89279174804688,
+          "top": 301.67059326171875,
+          "right": 65.30563354492188,
+          "bottom": 418.5633850097656,
+          "left": -51.58717346191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:squirrel",
+        "rect": {
+          "x": 101.26766967773438,
+          "y": 151.0543975830078,
+          "width": 98.34805297851562,
+          "height": 98.34806823730469,
+          "top": 151.0543975830078,
+          "right": 199.61572265625,
+          "bottom": 249.4024658203125,
+          "left": 101.26766967773438
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": false,
+        "tallerThanViewport": false
+      }
+    ]
+  },
+  {
+    "label": "きまぐれなねこをえらぶを表示中",
+    "central": {
+      "x": 16,
+      "y": 94,
+      "width": 268,
+      "height": 213,
+      "top": 94,
+      "right": 284,
+      "bottom": 307,
+      "left": 16
+    },
+    "stage": {
+      "x": -171,
+      "y": 11,
+      "width": 526,
+      "height": 380,
+      "top": 11,
+      "right": 355,
+      "bottom": 391,
+      "left": -171
+    },
+    "actors": [
+      {
+        "key": "companion:cat_friend",
+        "rect": {
+          "x": 135.65850830078125,
+          "y": 145.12762451171875,
+          "width": 111.4794921875,
+          "height": 111.4794921875,
+          "top": 145.12762451171875,
+          "right": 247.13800048828125,
+          "bottom": 256.60711669921875,
+          "left": 135.65850830078125
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:tanuki",
+        "rect": {
+          "x": 36.80982971191406,
+          "y": 118.787353515625,
+          "width": 102.89823913574219,
+          "height": 102.89825439453125,
+          "top": 118.787353515625,
+          "right": 139.70806884765625,
+          "bottom": 221.68560791015625,
+          "left": 36.80982971191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "partner:forest_bear",
+        "rect": {
+          "x": -61.787109375,
+          "y": 160.93568420410156,
+          "width": 113.56404113769531,
+          "height": 113.56404113769531,
+          "top": 160.93568420410156,
+          "right": 51.77693176269531,
+          "bottom": 274.4997253417969,
+          "left": -61.787109375
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "pet:dog",
+        "rect": {
+          "x": 34.88629150390625,
+          "y": 176.3495330810547,
+          "width": 144.45220947265625,
+          "height": 144.4522247314453,
+          "top": 176.3495330810547,
+          "right": 179.3385009765625,
+          "bottom": 320.8017578125,
+          "left": 34.88629150390625
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "rect": {
+          "x": -51.58717346191406,
+          "y": 249.67059326171875,
+          "width": 116.89280700683594,
+          "height": 116.89279174804688,
+          "top": 249.67059326171875,
+          "right": 65.30563354492188,
+          "bottom": 366.5633850097656,
+          "left": -51.58717346191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:squirrel",
+        "rect": {
+          "x": 101.26766967773438,
+          "y": 99.05439758300781,
+          "width": 98.34805297851562,
+          "height": 98.34806823730469,
+          "top": 99.05439758300781,
+          "right": 199.61572265625,
+          "bottom": 197.4024658203125,
+          "left": 101.26766967773438
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": false,
+        "tallerThanViewport": false
+      }
+    ]
+  },
+  {
+    "label": "いたずらたぬきをえらぶを表示中",
+    "central": {
+      "x": 16,
+      "y": 94,
+      "width": 268,
+      "height": 213,
+      "top": 94,
+      "right": 284,
+      "bottom": 307,
+      "left": 16
+    },
+    "stage": {
+      "x": -171,
+      "y": 11,
+      "width": 526,
+      "height": 380,
+      "top": 11,
+      "right": 355,
+      "bottom": 391,
+      "left": -171
+    },
+    "actors": [
+      {
+        "key": "companion:cat_friend",
+        "rect": {
+          "x": 135.65850830078125,
+          "y": 145.12762451171875,
+          "width": 111.4794921875,
+          "height": 111.4794921875,
+          "top": 145.12762451171875,
+          "right": 247.13800048828125,
+          "bottom": 256.60711669921875,
+          "left": 135.65850830078125
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:tanuki",
+        "rect": {
+          "x": 36.80982971191406,
+          "y": 118.787353515625,
+          "width": 102.89823913574219,
+          "height": 102.89825439453125,
+          "top": 118.787353515625,
+          "right": 139.70806884765625,
+          "bottom": 221.68560791015625,
+          "left": 36.80982971191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "partner:forest_bear",
+        "rect": {
+          "x": -61.787109375,
+          "y": 160.93568420410156,
+          "width": 113.56404113769531,
+          "height": 113.56404113769531,
+          "top": 160.93568420410156,
+          "right": 51.77693176269531,
+          "bottom": 274.4997253417969,
+          "left": -61.787109375
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "pet:dog",
+        "rect": {
+          "x": 34.88629150390625,
+          "y": 176.3495330810547,
+          "width": 144.45220947265625,
+          "height": 144.4522247314453,
+          "top": 176.3495330810547,
+          "right": 179.3385009765625,
+          "bottom": 320.8017578125,
+          "left": 34.88629150390625
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "rect": {
+          "x": -51.58717346191406,
+          "y": 249.67059326171875,
+          "width": 116.89280700683594,
+          "height": 116.89279174804688,
+          "top": 249.67059326171875,
+          "right": 65.30563354492188,
+          "bottom": 366.5633850097656,
+          "left": -51.58717346191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:squirrel",
+        "rect": {
+          "x": 101.26766967773438,
+          "y": 99.05439758300781,
+          "width": 98.34805297851562,
+          "height": 98.34806823730469,
+          "top": 99.05439758300781,
+          "right": 199.61572265625,
+          "bottom": 197.4024658203125,
+          "left": 101.26766967773438
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": false,
+        "tallerThanViewport": false
+      }
+    ]
+  },
+  {
+    "label": "もりのクマさんをえらぶを表示中",
+    "central": {
+      "x": 16,
+      "y": 94,
+      "width": 268,
+      "height": 213,
+      "top": 94,
+      "right": 284,
+      "bottom": 307,
+      "left": 16
+    },
+    "stage": {
+      "x": -16,
+      "y": 11,
+      "width": 526,
+      "height": 380,
+      "top": 11,
+      "right": 510,
+      "bottom": 391,
+      "left": -16
+    },
+    "actors": [
+      {
+        "key": "companion:cat_friend",
+        "rect": {
+          "x": 290.65850830078125,
+          "y": 145.12762451171875,
+          "width": 111.4794921875,
+          "height": 111.4794921875,
+          "top": 145.12762451171875,
+          "right": 402.13800048828125,
+          "bottom": 256.60711669921875,
+          "left": 290.65850830078125
+        },
+        "overlapsLane": true,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:tanuki",
+        "rect": {
+          "x": 191.80982971191406,
+          "y": 118.787353515625,
+          "width": 102.89823913574219,
+          "height": 102.89825439453125,
+          "top": 118.787353515625,
+          "right": 294.70806884765625,
+          "bottom": 221.68560791015625,
+          "left": 191.80982971191406
+        },
+        "overlapsLane": true,
+        "fullyInsideViewport": false,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "partner:forest_bear",
+        "rect": {
+          "x": 93.212890625,
+          "y": 160.93568420410156,
+          "width": 113.56404113769531,
+          "height": 113.56404113769531,
+          "top": 160.93568420410156,
+          "right": 206.7769317626953,
+          "bottom": 274.4997253417969,
+          "left": 93.212890625
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "pet:dog",
+        "rect": {
+          "x": 203.6631317138672,
+          "y": 183.793212890625,
+          "width": 145.67848205566406,
+          "height": 145.67849731445312,
+          "top": 183.793212890625,
+          "right": 349.34161376953125,
+          "bottom": 329.4717102050781,
+          "left": 203.6631317138672
+        },
+        "overlapsLane": true,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "rect": {
+          "x": 103.41282653808594,
+          "y": 249.67059326171875,
+          "width": 116.89280700683594,
+          "height": 116.89279174804688,
+          "top": 249.67059326171875,
+          "right": 220.30563354492188,
+          "bottom": 366.5633850097656,
+          "left": 103.41282653808594
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:squirrel",
+        "rect": {
+          "x": 256.2676696777344,
+          "y": 99.05439758300781,
+          "width": 98.34805297851562,
+          "height": 98.34806823730469,
+          "top": 99.05439758300781,
+          "right": 354.61572265625,
+          "bottom": 197.4024658203125,
+          "left": 256.2676696777344
+        },
+        "overlapsLane": true,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      }
+    ]
+  },
+  {
+    "label": "大人のいぬをえらぶを表示中",
+    "central": {
+      "x": 16,
+      "y": 94,
+      "width": 268,
+      "height": 213,
+      "top": 94,
+      "right": 284,
+      "bottom": 307,
+      "left": 16
+    },
+    "stage": {
+      "x": -172,
+      "y": -60,
+      "width": 526,
+      "height": 380,
+      "top": -60,
+      "right": 354,
+      "bottom": 320,
+      "left": -172
+    },
+    "actors": [
+      {
+        "key": "companion:cat_friend",
+        "rect": {
+          "x": 134.65850830078125,
+          "y": 74.12762451171875,
+          "width": 111.4794921875,
+          "height": 111.4794921875,
+          "top": 74.12762451171875,
+          "right": 246.13800048828125,
+          "bottom": 185.60711669921875,
+          "left": 134.65850830078125
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:tanuki",
+        "rect": {
+          "x": 35.80982971191406,
+          "y": 47.787353515625,
+          "width": 102.89823913574219,
+          "height": 102.89825439453125,
+          "top": 47.787353515625,
+          "right": 138.70806884765625,
+          "bottom": 150.68560791015625,
+          "left": 35.80982971191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "partner:forest_bear",
+        "rect": {
+          "x": -62.787109375,
+          "y": 89.93568420410156,
+          "width": 113.56404113769531,
+          "height": 113.56404113769531,
+          "top": 89.93568420410156,
+          "right": 50.77693176269531,
+          "bottom": 203.49972534179688,
+          "left": -62.787109375
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "pet:dog",
+        "rect": {
+          "x": 117.3775634765625,
+          "y": 132.63201904296875,
+          "width": 148.94952392578125,
+          "height": 148.94952392578125,
+          "top": 132.63201904296875,
+          "right": 266.32708740234375,
+          "bottom": 281.58154296875,
+          "left": 117.3775634765625
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": true,
+        "centerHit": true,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "rect": {
+          "x": -52.58717346191406,
+          "y": 178.67059326171875,
+          "width": 116.89280700683594,
+          "height": 116.89279174804688,
+          "top": 178.67059326171875,
+          "right": 64.30563354492188,
+          "bottom": 295.5633850097656,
+          "left": -52.58717346191406
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      },
+      {
+        "key": "companion:squirrel",
+        "rect": {
+          "x": 100.26766967773438,
+          "y": 28.054397583007812,
+          "width": 98.34805297851562,
+          "height": 98.34806823730469,
+          "top": 28.054397583007812,
+          "right": 198.61572265625,
+          "bottom": 126.4024658203125,
+          "left": 100.26766967773438
+        },
+        "overlapsLane": false,
+        "fullyInsideViewport": false,
+        "centerHit": false,
+        "tallerThanViewport": false
+      }
+    ]
+  }
+]

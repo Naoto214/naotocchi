@@ -1,0 +1,13 @@
+{
+  "candidate": "home-interior-c",
+  "status": "first-choice comparison candidate; not adopted; static composites only",
+  "bytes": 2732394,
+  "sha256": "e138c6e62ebae0cf3ac47c7daf8de634ca93ef0f212d3cd62b2ffb051d275593",
+  "size": [
+    1024,
+    1536
+  ],
+  "reference": "assets/world/home-interior-v2.webp",
+  "concept": "Warm Japanese-Western living room, large South Shinshu window, peripheral sofa/books/tatami and open wooden floor",
+  "integration": "Not connected to 2.5D movement; next phase requires floor/furniture collision, egg lifecycle and full runtime QA"
+}

@@ -1,0 +1,103 @@
+{
+  "run": 41176250616,
+  "head": "38c3d068440f68e78b969837c42a4897a32de729",
+  "jobs": [
+    {
+      "id": 124464394360,
+      "name": "fixed-controls (webkit)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 124464394517,
+      "name": "production (sea)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394532,
+      "name": "fixed-controls (chromium)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 124464394546,
+      "name": "production (countryside)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394555,
+      "name": "production (home)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 124464394574,
+      "name": "production (forest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394592,
+      "name": "production (star_stop)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 124464394605,
+      "name": "production (jungle)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394625,
+      "name": "production (memory_lake)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394627,
+      "name": "production-contracts",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394628,
+      "name": "production (river_lake)",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 124464394640,
+      "name": "production (deepsea)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394673,
+      "name": "production (city)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394680,
+      "name": "production (desert)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394681,
+      "name": "production (snow)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124464394711,
+      "name": "production (mountain)",
+      "status": "in_progress",
+      "conclusion": null
+    }
+  ],
+  "note": "Intermediate observation, not final all-green result"
+}

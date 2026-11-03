@@ -1,0 +1,178 @@
+{
+  "resident_failures": [
+    {
+      "job_id": 124479109072,
+      "run_id": 41181313454,
+      "head": "1206ff887b7279440eade77b97e98084da958482",
+      "excerpt": [
+        "2026-10-31T07:59:20.5559174Z   ...",
+        "2026-10-31T07:59:20.5559901Z # Subtest: 6. a tired resident (low energy) shows the tired picture and says a tired line; a companion stays on its base picture",
+        "2026-10-31T07:59:20.5560622Z not ok 1387 - 6. a tired resident (low energy) shows the tired picture and says a tired line; a companion stays on its base picture",
+        "2026-10-31T07:59:20.5560717Z   ---",
+        "2026-10-31T07:59:20.5560834Z   duration_ms: 132.244042",
+        "2026-10-31T07:59:20.5560941Z   type: 'test'",
+        "2026-10-31T07:59:20.5561381Z   location: '/home/runner/work/naotocchi/naotocchi/tests/meguru-resident-expression-test.cjs:193:1'",
+        "2026-10-31T07:59:20.5561544Z   failureType: 'testCodeFailure'",
+        "2026-10-31T07:59:20.5561656Z   error: |-",
+        "2026-10-31T07:59:20.5561847Z     this fixture exercises the throttled near tier",
+        "2026-10-31T07:59:20.5561947Z     ",
+        "2026-10-31T07:59:20.5562042Z     0 !== 1",
+        "2026-10-31T07:59:20.5562140Z     ",
+        "2026-10-31T07:59:20.5562255Z   code: 'ERR_ASSERTION'",
+        "2026-10-31T07:59:20.5562367Z   name: 'AssertionError'",
+        "2026-10-31T07:59:20.5562478Z   expected: 1",
+        "2026-10-31T07:59:20.5562577Z   actual: 0",
+        "2026-10-31T07:59:20.5562700Z   operator: 'strictEqual'",
+        "2026-10-31T07:59:20.5562803Z   stack: |-",
+        "2026-10-31T07:59:20.5563213Z     /home/runner/work/naotocchi/naotocchi/tests/meguru-resident-expression-test.cjs:213:10",
+        "2026-10-31T07:59:20.5563652Z     withSeed (/home/runner/work/naotocchi/naotocchi/tests/meguru-resident-expression-test.cjs:51:80)",
+        "2026-10-31T07:59:20.5564177Z     TestContext.<anonymous> (/home/runner/work/naotocchi/naotocchi/tests/meguru-resident-expression-test.cjs:193:133)",
+        "2026-10-31T07:59:20.5564366Z     Test.runInAsyncScope (node:async_hooks:214:14)",
+        "2026-10-31T07:59:20.5564568Z     Test.run (node:internal/test_runner/test:1047:25)",
+        "2026-10-31T07:59:20.5564871Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)",
+        "2026-10-31T07:59:20.5565091Z     Test.postRun (node:internal/test_runner/test:1173:19)",
+        "2026-10-31T07:59:20.5565301Z     Test.run (node:internal/test_runner/test:1101:12)",
+        "2026-10-31T07:59:20.5565616Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)",
+        "2026-10-31T07:59:20.5565714Z   ...",
+        "2026-10-31T07:59:20.5566436Z # Subtest: 7. a temporary reaction expires back to the persistent state of that moment (tired), not to a fixed normal; sleeping overrides reactions",
+        "2026-10-31T07:59:20.5567140Z ok 1388 - 7. a temporary reaction expires back to the persistent state of that moment (tired), not to a fixed normal; sleeping overrides reactions",
+        "2026-10-31T07:59:20.5567232Z   ---"
+      ]
+    },
+    {
+      "job_id": 124479109414,
+      "run_id": 41181313439,
+      "head": "1206ff887b7279440eade77b97e98084da958482",
+      "excerpt": [
+        "2026-10-31T08:05:01.5674794Z   ...",
+        "2026-10-31T08:05:01.5675156Z # Subtest: 6. a tired resident (low energy) shows the tired picture and says a tired line; a companion stays on its base picture",
+        "2026-10-31T08:05:01.5675546Z not ok 1387 - 6. a tired resident (low energy) shows the tired picture and says a tired line; a companion stays on its base picture",
+        "2026-10-31T08:05:01.5675615Z   ---",
+        "2026-10-31T08:05:01.5675688Z   duration_ms: 212.905894",
+        "2026-10-31T08:05:01.5675766Z   type: 'test'",
+        "2026-10-31T08:05:01.5676050Z   location: '/home/runner/work/naotocchi/naotocchi/tests/meguru-resident-expression-test.cjs:193:1'",
+        "2026-10-31T08:05:01.5676152Z   failureType: 'testCodeFailure'",
+        "2026-10-31T08:05:01.5676235Z   error: |-",
+        "2026-10-31T08:05:01.5676370Z     this fixture exercises the throttled near tier",
+        "2026-10-31T08:05:01.5676436Z     ",
+        "2026-10-31T08:05:01.5676512Z     0 !== 1",
+        "2026-10-31T08:05:01.5676576Z     ",
+        "2026-10-31T08:05:01.5676659Z   code: 'ERR_ASSERTION'",
+        "2026-10-31T08:05:01.5676740Z   name: 'AssertionError'",
+        "2026-10-31T08:05:01.5676811Z   expected: 1",
+        "2026-10-31T08:05:01.5676886Z   actual: 0",
+        "2026-10-31T08:05:01.5676968Z   operator: 'strictEqual'",
+        "2026-10-31T08:05:01.5677043Z   stack: |-",
+        "2026-10-31T08:05:01.5677467Z     /home/runner/work/naotocchi/naotocchi/tests/meguru-resident-expression-test.cjs:213:10",
+        "2026-10-31T08:05:01.5677743Z     withSeed (/home/runner/work/naotocchi/naotocchi/tests/meguru-resident-expression-test.cjs:51:80)",
+        "2026-10-31T08:05:01.5678107Z     TestContext.<anonymous> (/home/runner/work/naotocchi/naotocchi/tests/meguru-resident-expression-test.cjs:193:133)",
+        "2026-10-31T08:05:01.5678314Z     Test.runInAsyncScope (node:async_hooks:214:14)",
+        "2026-10-31T08:05:01.5678513Z     Test.run (node:internal/test_runner/test:1047:25)",
+        "2026-10-31T08:05:01.5678825Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)",
+        "2026-10-31T08:05:01.5679046Z     Test.postRun (node:internal/test_runner/test:1173:19)",
+        "2026-10-31T08:05:01.5679434Z     Test.run (node:internal/test_runner/test:1101:12)",
+        "2026-10-31T08:05:01.5679757Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)",
+        "2026-10-31T08:05:01.5679865Z   ...",
+        "2026-10-31T08:05:01.5680587Z # Subtest: 7. a temporary reaction expires back to the persistent state of that moment (tired), not to a fixed normal; sleeping overrides reactions",
+        "2026-10-31T08:05:01.5681416Z ok 1388 - 7. a temporary reaction expires back to the persistent state of that moment (tired), not to a fixed normal; sleeping overrides reactions",
+        "2026-10-31T08:05:01.5681520Z   ---"
+      ]
+    }
+  ],
+  "ci_at_66": {
+    "workflow_runs": [
+      {
+        "id": 41183281718,
+        "name": "World visual quality",
+        "status": "pending",
+        "conclusion": null,
+        "run_number": 439,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281718/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281718/logs",
+        "workflow_id": 374398717
+      },
+      {
+        "id": 41183281678,
+        "name": "Naopoyo official release",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 214,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281678/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281678/logs",
+        "workflow_id": 391609802
+      },
+      {
+        "id": 41183281733,
+        "name": "Naopoyo slide series",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 186,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281733/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281733/logs",
+        "workflow_id": 385183335
+      },
+      {
+        "id": 41183281646,
+        "name": "Pages runtime package",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 408,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281646/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281646/logs",
+        "workflow_id": 389281874
+      },
+      {
+        "id": 41183281653,
+        "name": "Naopoyo integration",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 177,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281653/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281653/logs",
+        "workflow_id": 384103111
+      },
+      {
+        "id": 41183281787,
+        "name": "Home layout",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_number": 1331,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281787/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281787/logs",
+        "workflow_id": 355795733
+      },
+      {
+        "id": 41183281648,
+        "name": "Naopoyo Chapter 1",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 177,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281648/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281648/logs",
+        "workflow_id": 393756683
+      },
+      {
+        "id": 41183281652,
+        "name": "Production 2.5D home",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_number": 20,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281652/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281652/logs",
+        "workflow_id": 401591473
+      },
+      {
+        "id": 41183281645,
+        "name": "Runtime smoke test",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_number": 1858,
+        "jobs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281645/jobs",
+        "logs_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/runs/41183281645/logs",
+        "workflow_id": 351596585
+      }
+    ]
+  },
+  "mountain_artifact_id": 13036410356,
+  "mountain_job_id": 124484976415
+}

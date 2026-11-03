@@ -1,0 +1,51 @@
+✔ landmarks use the real Meguru profile and stage bounds (134.939218ms)
+✔ tap selects, release after drag sets destination without teleport (5.569833ms)
+✔ cancel and lost capture never dispatch a movement (0.748345ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (1.023391ms)
+✔ Pilot exit restores original actor styles and input ownership (0.620466ms)
+✔ departed actor cannot receive stale drag release (1.52428ms)
+✔ leaving a paused Pilot removes all animation pause state (0.507329ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (4.91787ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.877826ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (2.416287ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.446529ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.587497ms)
+✔ overview changes presentation mode and preserves all actors (0.506858ms)
+✔ resizing an actor around its unchanged foot repositions the terrain mask (4.005964ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a3496550164/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a3496550164/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ crowded terrain layout fits all visible bodies at 288px (164.372565ms)
+✔ crowded terrain layout fits all visible bodies at 343px (89.754276ms)
+✔ crowded terrain layout fits all visible bodies at 358px (42.016199ms)
+✔ crowded terrain layout fits all visible bodies at 398px (27.055903ms)
+✔ 28 residents retain varied life for ten minutes, with at most two ambient walkers (158.748673ms)
+✔ household 0 companions / partner false exists before any visit (286.318346ms)
+✔ household 0 companions / partner true exists before any visit (402.084793ms)
+✔ household 1 companions / partner false exists before any visit (4172.042685ms)
+✔ household 1 companions / partner true exists before any visit (2033.722558ms)
+✔ household 5 companions / partner false exists before any visit (2060.326373ms)
+✔ household 5 companions / partner true exists before any visit (1821.800515ms)
+✔ household 13 companions / partner false exists before any visit (2207.669496ms)
+✔ household 13 companions / partner true exists before any visit (2112.712131ms)
+✔ household 20 companions / partner false exists before any visit (2356.584286ms)
+✔ household 20 companions / partner true exists before any visit (2332.351112ms)
+✔ household 26 companions / partner false exists before any visit (2033.296014ms)
+✔ household 26 companions / partner true exists before any visit (2717.016986ms)
+✔ visit expiry keeps resident, while relationship departure removes selection and actor (2255.967344ms)
+✔ duplicate or unknown old-save entries never create additional actors or change the save (2251.888755ms)
+✔ terrain seating rejects a position that hides the resident behind scenery (2101.170224ms)
+✔ short viewports reserve readable household space instead of shrinking bodies to single digits (117.016278ms)
+✔ A: small-cast protagonist uses 85 percent with attachments following the painted foot (9.727681ms)
+✔ A: QA comparison supports all four protagonist scales without changing companion scale (56.865385ms)
+✔ D: curved depth placement differs from previous grid and retains everyone (6.669837ms)
+✔ B: care order follows approved keyboard and visual order (0.646474ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32016.994548

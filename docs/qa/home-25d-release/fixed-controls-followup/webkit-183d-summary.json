@@ -1,0 +1,11 @@
+{
+  "sourceCommit": "183d25139bdba168bd2a41216a134b386b109602",
+  "workflow": 41065721758,
+  "lines": [
+    "2026-10-30T13:51:35.0362713Z PASS fixed care layout 11",
+    "2026-10-30T13:51:37.1481103Z FAIL webkit/320x568/home/1 background and actors must scroll together: {\"before\":{\"stage\":{\"x\":9,\"y\":184,\"w\":302,\"h\":380,\"b\":564},\"host\":{\"x\":0,\"y\":0,\"w\":320,\"h\":847,\"b\":847},\"frame\":{\"x\":9,\"y\":49,\"w\":302,\"h\":400,\"b\":449,\"scroll\":0}},\"after\":{\"stage\":{\"x\":9,\"y\":-95,\"w\":302,\"h\":380,\"b\":285},\"host\":{\"x\":0,\"y\":0,\"w\":320,\"h\":847,\"b\":847},\"frame\":{\"x\":9,\"y\":49,\"w\":302,\"h\":400,\"b\":449,\"scroll\":279}}}",
+    "2026-10-30T13:52:17.4502052Z FAIL webkit/320x568/sea/28 background and actors must scroll together: {\"before\":{\"stage\":{\"x\":9,\"y\":-47,\"w\":302,\"h\":380,\"b\":333},\"host\":{\"x\":0,\"y\":-231,\"w\":320,\"h\":847,\"b\":616},\"frame\":{\"x\":9,\"y\":49,\"w\":302,\"h\":400,\"b\":449,\"scroll\":231}},\"after\":{\"stage\":{\"x\":9,\"y\":-95,\"w\":302,\"h\":380,\"b\":285},\"host\":{\"x\":0,\"y\":-231,\"w\":320,\"h\":847,\"b\":616},\"frame\":{\"x\":9,\"y\":49,\"w\":302,\"h\":400,\"b\":449,\"scroll\":279}}}",
+    "2026-10-30T14:01:03.1305798Z Artifact fixed-home-controls-webkit.zip successfully finalized. Artifact ID 12983047001",
+    "2026-10-30T14:01:03.1307826Z Artifact fixed-home-controls-webkit has been successfully uploaded! Final size is 8788222 bytes. Artifact ID is 12983047001"
+  ]
+}

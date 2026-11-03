@@ -1,0 +1,18 @@
+(node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/208adb8bf351/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/208adb8bf351/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Home compositions reuse official geometry, preserve sources and keep cast foreground clear (2895.282777ms)
+✔ Living environment remains bounded with correct routes and pauses (99.622147ms)
+✔ Home recovers the same region after lost GPU without resetting its life clock (1261.304537ms)
+✔ Home renderer recovery is bounded, pauses while hidden and stops on destroy (2285.146601ms)
+✔ Home contains resize errors so the frame loop can recover (1252.129587ms)
+✔ Home contains level errors so the frame loop can recover (1205.122314ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9206.828924

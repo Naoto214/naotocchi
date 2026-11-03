@@ -1,0 +1,264 @@
+{
+  "region": "river_lake",
+  "actors": [
+    {
+      "key": "pet:dog",
+      "x": 214.28571428571428,
+      "y": 304.66666666666663,
+      "w": 84.57142857142857,
+      "h": 98.66666666666666,
+      "activity": "rest",
+      "ground": {
+        "x": 0.5904761904761905,
+        "z": 0.8112250712250711,
+        "y": 0
+      },
+      "safe": true,
+      "visible": true,
+      "scale": 0.9435681304646821
+    },
+    {
+      "key": "partner:forest_bear",
+      "x": 69.8,
+      "y": 166.88091168091165,
+      "w": 76.74074074074073,
+      "h": 78.93333333333334,
+      "activity": "rest",
+      "ground": {
+        "x": 0.22,
+        "z": 0.5756938661212164,
+        "y": 0
+      },
+      "safe": true,
+      "visible": true,
+      "scale": 0.8542287078390821
+    },
+    {
+      "key": "companion:cat_friend",
+      "x": 147.46666666666667,
+      "y": 198.31604938271607,
+      "w": 78.93333333333334,
+      "h": 64.31604938271606,
+      "activity": "rest",
+      "ground": {
+        "x": 0.41914529914529913,
+        "z": 0.629429144243959,
+        "y": 0
+      },
+      "safe": true,
+      "visible": true,
+      "scale": 0.8746110547132259
+    },
+    {
+      "key": "companion:tanuki",
+      "x": 286.2987672955975,
+      "y": 256.19733333333335,
+      "w": 68.59753459119497,
+      "h": 74.19733333333333,
+      "activity": "rest",
+      "ground": {
+        "x": 0.7751250443476858,
+        "z": 0.72837150997151,
+        "y": 0
+      },
+      "safe": true,
+      "visible": true,
+      "scale": 0.9121409175754004
+    },
+    {
+      "key": "companion:rabbit_friend",
+      "x": 119.4804938271605,
+      "y": 328.19733333333335,
+      "w": 54.96098765432099,
+      "h": 74.19733333333333,
+      "activity": "rest",
+      "ground": {
+        "x": 0.34738588160810385,
+        "z": 0.851448433048433,
+        "y": 0
+      },
+      "safe": true,
+      "visible": true,
+      "scale": 0.9588252677080263
+    },
+    {
+      "key": "companion:squirrel",
+      "x": 288.2,
+      "y": 344.9,
+      "w": 65.95318518518519,
+      "h": 74.19733333333333,
+      "activity": "rest",
+      "ground": {
+        "x": 0.7799999999999999,
+        "z": 0.8799999999999999,
+        "y": 0
+      },
+      "safe": true,
+      "visible": true,
+      "scale": 0.9696551724137931
+    }
+  ],
+  "visualPoints": [
+    {
+      "x": 206.29999999999998,
+      "y": 192.8,
+      "activity": "observe",
+      "id": "art-river_lake-stream",
+      "tag": "stream",
+      "target": {
+        "x": 214.1,
+        "y": 169.39999999999998
+      }
+    },
+    {
+      "x": 159.5,
+      "y": 274.70000000000005,
+      "activity": "rest",
+      "id": "art-river_lake-pebbles",
+      "tag": "pebbles",
+      "target": {
+        "x": 167.3,
+        "y": 251.3
+      }
+    }
+  ],
+  "header": {
+    "rect": {
+      "x": 16,
+      "y": 10,
+      "width": 358,
+      "height": 40,
+      "top": 10,
+      "right": 374,
+      "bottom": 50,
+      "left": 16
+    },
+    "buttons": [
+      {
+        "x": 268.96875,
+        "y": 10,
+        "width": 44.015625,
+        "height": 40,
+        "top": 10,
+        "right": 312.984375,
+        "bottom": 50,
+        "left": 268.96875
+      },
+      {
+        "x": 315.984375,
+        "y": 10,
+        "width": 56.015625,
+        "height": 40,
+        "top": 10,
+        "right": 372,
+        "bottom": 50,
+        "left": 315.984375
+      }
+    ],
+    "grid": "40px 658px 117px 0px"
+  },
+  "metrics": {
+    "frames": 60,
+    "seconds": 45,
+    "fps": 1.3132022348951102,
+    "heapBytes": 179615693,
+    "cast": {
+      "distance": 33.488244205989645,
+      "moves": 1,
+      "turns": 0,
+      "activities": {
+        "walk": 1,
+        "rest": 1
+      },
+      "clock": 44.84980000000037
+    },
+    "world": {
+      "mode": "art-25d",
+      "region": "river_lake",
+      "candidate": "water-g",
+      "loaded": true,
+      "error": null,
+      "destroyed": false,
+      "animationTime": 44849.8,
+      "projectionRevision": 4,
+      "renderer": {
+        "mode": "canvas-2d-art",
+        "objects": 2,
+        "images": 1,
+        "decodedBytes": 6291456
+      }
+    }
+  },
+  "slots": {
+    "homeInformation": {
+      "x": 16,
+      "y": 53,
+      "width": 358,
+      "height": 65,
+      "top": 53,
+      "right": 374,
+      "bottom": 118,
+      "left": 16
+    },
+    "homeEventSlot": {
+      "x": 16,
+      "y": 123,
+      "width": 358,
+      "height": 42,
+      "top": 123,
+      "right": 374,
+      "bottom": 165,
+      "left": 16
+    },
+    "castStage": {
+      "x": 16,
+      "y": 170,
+      "width": 358,
+      "height": 380,
+      "top": 170,
+      "right": 374,
+      "bottom": 550,
+      "left": 16
+    },
+    "speechSlot": {
+      "x": 16,
+      "y": 550,
+      "width": 358,
+      "height": 76,
+      "top": 550,
+      "right": 374,
+      "bottom": 626,
+      "left": 16
+    },
+    "careMeters": {
+      "x": 21,
+      "y": 628,
+      "width": 348,
+      "height": 38,
+      "top": 628,
+      "right": 369,
+      "bottom": 666,
+      "left": 21
+    },
+    "lifeMeterRow": {
+      "x": 21,
+      "y": 670,
+      "width": 348,
+      "height": 38,
+      "top": 670,
+      "right": 369,
+      "bottom": 708,
+      "left": 21
+    },
+    "careActions": {
+      "x": 16,
+      "y": 720,
+      "width": 358,
+      "height": 111,
+      "top": 720,
+      "right": 374,
+      "bottom": 831,
+      "left": 16
+    }
+  }
+}

@@ -37,8 +37,8 @@ class NaopoyoPublicationTests(unittest.TestCase):
     def test_public_entry_has_one_official_destination(self):
         portal = (ROOT / 'prototypes/naopoyo/index.html').read_text()
         self.assertIn('<title>なおぽよ。</title>', portal)
-        self.assertIn('url=../naopoyo-chapter1/index.html', portal)
-        self.assertIn('href="../naopoyo-chapter1/index.html"', portal)
+        self.assertIn('url=../naopoyo-time-hand-chapter1/index.html', portal)
+        self.assertIn('href="../naopoyo-time-hand-chapter1/index.html"', portal)
         self.assertNotIn('series.mjs', portal)
         main = (ROOT / 'index.html').read_text()
         official = [href for href, labels in MenuLinks(main).links if 'なおぽよ。' in labels]
@@ -83,3 +83,14 @@ class NaopoyoPublicationTests(unittest.TestCase):
         self.assertIn('href="../naopoyo-rescue/index.html"',chapter)
         self.assertIn('href="../../"',chapter)
         self.assertNotIn('正式版と別の記録', (ROOT/'prototypes/naopoyo-chapter1/app.mjs').read_text())
+
+    def test_time_hand_only_normal_chapter_route(self):
+        for name in ['index.html', 'app.mjs', 'stage-ui.mjs', 'session.mjs', 'progress.mjs', 'assets/gravity-wood-approved.webp']:
+            self.assertIn('prototypes/naopoyo-time-hand-chapter1/' + name, self.files)
+        for name in ['index.html', 'stage-ui.mjs', 'app.mjs']:
+            text = (ROOT / 'prototypes/naopoyo-time-hand-chapter1' / name).read_text()
+            self.assertNotRegex(text, r'''(?:href=["']|location(?:\.href)?\s*=\s*["'])[^"']*naopoyo-chapter2/''')
+        self.assertIn('準備中', (ROOT / 'prototypes/naopoyo-time-hand-chapter1/stage-ui.mjs').read_text())
+        self.assertNotIn('本人限定', (ROOT / 'prototypes/naopoyo-time-hand-chapter1/index.html').read_text())
+        for name in ['stages.mjs', 'progress.mjs', 'session.mjs'] + [f'examples/{i}.json' for i in range(11, 21)]:
+            self.assertTrue((ROOT / 'prototypes/naopoyo-chapter2' / name).is_file())

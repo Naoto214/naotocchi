@@ -1,0 +1,102 @@
+✔ additive A/B builder keeps old runtime and separates each save family (0.855982ms)
+✔ comparison supports raw art, six, twenty-eight and actual operation (0.249428ms)
+✔ latest preset wins when clicked while a previous scene is loading (8.149206ms)
+✔ measurement controls preserve background errors instead of showing safe counts (1.244004ms)
+✔ measurement waits for the requested candidate before reporting readiness (1.081685ms)
+✔ static composites use the completed snapshot while a newer request is queued (4.139974ms)
+✔ loading locks layout and motion until both panes and exports agree (2.036032ms)
+✔ conversation state and away records are scoped to each AB save family (3.487702ms)
+✔ director save cannot replace the existing conversation history (5.144865ms)
+(node:40) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ A/B images and distinct geometry are present (8.422078ms)
+✔ home room, waterfall, stream, rocks and river are not walkable (46.238838ms)
+✔ A/B scenes: 320px / 1 actors remain safe and pet can move (6.678187ms)
+✔ A/B scenes: 320px / 6 actors remain safe and pet can move (110.095854ms)
+✔ A/B scenes: 320px / 28 actors remain safe and pet can move (605.779131ms)
+✔ A/B scenes: 375px / 1 actors remain safe and pet can move (1.160822ms)
+✔ A/B scenes: 375px / 6 actors remain safe and pet can move (105.713812ms)
+✔ A/B scenes: 375px / 28 actors remain safe and pet can move (640.671389ms)
+✔ A/B scenes: 390px / 1 actors remain safe and pet can move (1.209173ms)
+✔ A/B scenes: 390px / 6 actors remain safe and pet can move (289.751148ms)
+✔ A/B scenes: 390px / 28 actors remain safe and pet can move (970.275169ms)
+✔ A/B scenes: 430px / 1 actors remain safe and pet can move (0.852357ms)
+✔ A/B scenes: 430px / 6 actors remain safe and pet can move (38.213965ms)
+✔ A/B scenes: 430px / 28 actors remain safe and pet can move (423.358183ms)
+✔ actual browser dimensions preserve a pet exit despite cramped fallback seats (3241.2659ms)
+✔ B never replaces A defaults or mutates the recovered manifest (1.392113ms)
+(node:44) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ art transform preserves aspect and round trips at every phone width (48.707357ms)
+✔ three maps prohibit scenery and route around internal exclusions (24.570389ms)
+✔ real v22 crowd model retains 28 actors, safe feet, depth bands and protagonist escape (293.407971ms)
+✔ renderer discards stale image callbacks and freezes decorative time (7.007002ms)
+✔ authored rest and observation points use the v22 activity and reaction contract (0.636468ms)
+✔ fallback regions invalidate pending image callbacks and restore the art status on return (1635.566924ms)
+✔ landscape solo actor retains reachable ground when device is narrower than viewport (0.807341ms)
+✔ all original runtime, dialogue, rules, tests and formal assets remain byte-identical to v22 (19.494264ms)
+✔ C comparison preserves four candidates and the same formal roster in every scene (2.95007ms)
+✔ C remains clearly static and cannot write or clear any game save (0.600645ms)
+(node:51) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ real v22 crowd model retains 28 actors, safe feet, depth bands and protagonist escape (432.474004ms)
+✔ latest preset wins when clicked while a previous scene is loading (4.924962ms)
+✔ measurement controls preserve background errors instead of showing safe counts (0.84098ms)
+✔ measurement waits for the requested candidate before reporting readiness (0.767001ms)
+(node:97) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ six preserved images and distinct geometry are present (25.809696ms)
+✔ home room, waterfall, stream, rocks and river are not walkable (53.109662ms)
+✔ six scenes: 320px / 1 actors remain safe and pet can move (22.877648ms)
+✔ six scenes: 320px / 6 actors remain safe and pet can move (145.62569ms)
+✔ six scenes: 320px / 28 actors remain safe and pet can move (127.121057ms)
+✔ six scenes: 375px / 1 actors remain safe and pet can move (7.561309ms)
+✔ six scenes: 375px / 6 actors remain safe and pet can move (176.724174ms)
+✔ six scenes: 375px / 28 actors remain safe and pet can move (109.605255ms)
+✔ six scenes: 390px / 1 actors remain safe and pet can move (13.117662ms)
+✔ six scenes: 390px / 6 actors remain safe and pet can move (132.578863ms)
+✔ six scenes: 390px / 28 actors remain safe and pet can move (169.901144ms)
+✔ six scenes: 430px / 1 actors remain safe and pet can move (4.32036ms)
+✔ six scenes: 430px / 6 actors remain safe and pet can move (184.748466ms)
+✔ six scenes: 430px / 28 actors remain safe and pet can move (232.898867ms)
+✔ actual browser dimensions preserve a pet exit despite cramped fallback seats (7697.688998ms)
+✔ comparison capture omits hidden art surface and composites preserved 3D plus overlay in order (3.401436ms)
+✔ V6 baseline saves conversation and away state without touching existing production records (4.086836ms)
+✔ releasing a comparison frame navigates away and clears load readiness (0.965123ms)
+(node:123) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/naotocchi-home-b-75951/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/naotocchi-home-b-75951/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ V6 C images and distinct geometry are present (22.832667ms)
+✔ home room, waterfall, stream, rocks and river are not walkable (47.129521ms)
+✔ V6 C scenes: 320px / 1 actors remain safe and pet can move (29.418656ms)
+✔ V6 C scenes: 320px / 6 actors remain safe and pet can move (427.655054ms)
+✔ V6 C scenes: 320px / 28 actors remain safe and pet can move (2109.334955ms)
+✔ V6 C scenes: 375px / 1 actors remain safe and pet can move (15.578971ms)
+✔ V6 C scenes: 375px / 6 actors remain safe and pet can move (530.477332ms)
+✔ V6 C scenes: 375px / 28 actors remain safe and pet can move (3606.287659ms)
+✔ V6 C scenes: 390px / 1 actors remain safe and pet can move (6.217137ms)
+✔ V6 C scenes: 390px / 6 actors remain safe and pet can move (692.297179ms)
+✔ V6 C scenes: 390px / 28 actors remain safe and pet can move (4043.247308ms)
+✔ V6 C scenes: 430px / 1 actors remain safe and pet can move (9.102822ms)
+✔ V6 C scenes: 430px / 6 actors remain safe and pet can move (507.874094ms)
+✔ V6 C scenes: 430px / 28 actors remain safe and pet can move (5539.585433ms)
+✔ actual browser dimensions preserve a pet exit despite cramped fallback seats (6494.056334ms)
+✔ egg is centered on C floor using official alpha bounds at every width (1.243584ms)
+✔ all thirteen canonical regions select eleven paintings or protected legacy special worlds (0.25807ms)
+ℹ tests 74
+ℹ suites 0
+ℹ pass 74
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24384.918369

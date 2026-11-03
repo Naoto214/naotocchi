@@ -34,7 +34,7 @@ function installProbe() {
   globalThis.__qa = {
     snapshot() { const b = globalThis.__meguruBridge; return { state: JSON.stringify(b.getState()), storage: JSON.stringify(Object.fromEntries(Object.keys(localStorage).sort().map(k=>[k,localStorage.getItem(k)]))), writes: globalThis.__integrationSaveWrites, getter: b.getState }; },
     boundary(action) { const a=this.snapshot(); action(); const b=this.snapshot(); return Object.fromEntries(Object.keys(a).map(k=>[k,a[k]===b[k]])); },
-    sample() { const r=globalThis.__meguruRun, p=r.renderer.char3dPresenter; let holders=0; p?.scene?.traverse(o=>{if(o.name.startsWith('c3d-actor:'))holders++;}); return {region:r.world.regionId,is3D:r.renderer.is3D,failed:r.renderer.failed,player:r.renderer.playerVisible,stats:p?.stats(),holders,canvasCount:document.querySelectorAll('.meguru-3d-canvas').length}; }
+    sample() { const r=globalThis.__meguruRun, p=r.renderer.char3dPresenter; let holders=0; p?.scene?.traverse(o=>{if(o.name.startsWith('c3d-actor:'))holders++;}); return {region:r.world.regionId,is3D:r.renderer.is3D,failed:r.renderer.failed,player:r.renderer.playerVisible,stats:p?.stats(),holders,canvasCount:document.querySelectorAll('#meguruOverlay .meguru-3d-canvas').length}; }
   };
 }
 async function run(out) {
@@ -99,11 +99,11 @@ async function run(out) {
         const samples=[];
         for(const viewport of [{width:844,height:390},{width:390,height:844}]){
           await pg.setViewportSize(viewport);
-          const sample=await pg.evaluate(async()=>{const r=__meguruRun,rd=r.renderer,start=rd.frames3d();while(rd.frames3d()-start<30)await new Promise(requestAnimationFrame);return {party:r.party.length,player:rd.playerVisible,failed:rd.failed,canvasCount:document.querySelectorAll('.meguru-3d-canvas').length,stats:rd.char3dPresenter.stats(),frames:rd.frames3d()-start};});
+          const sample=await pg.evaluate(async()=>{const r=__meguruRun,rd=r.renderer,start=rd.frames3d();while(rd.frames3d()-start<30)await new Promise(requestAnimationFrame);return {party:r.party.length,player:rd.playerVisible,failed:rd.failed,canvasCount:document.querySelectorAll('#meguruOverlay .meguru-3d-canvas').length,stats:rd.char3dPresenter.stats(),frames:rd.frames3d()-start};});
           assert.equal(sample.party+1,27);assert.equal(sample.player.mode,'3d');assert.equal(sample.player.ok,true);assert.equal(sample.failed,false);assert.equal(sample.canvasCount,1);samples.push({viewport,...sample});
         }
         await pg.screenshot({path:path.join(out,'fixture-27-actors.png')});result.screenshots.push('fixture-27-actors.png');
-        await pg.locator('#mgrHome').click();assert.equal(await pg.locator('.meguru-3d-canvas').count(),0);
+        await pg.locator('#mgrHome').click();assert.equal(await pg.locator('#meguruOverlay .meguru-3d-canvas').count(),0);
         return {normal,fixture,samples,physicalIPhone:'NOT_RUN',RAM:'NOT_MEASURED',performanceComparison:'NOT_MEASURED'};
       }finally{await pg.context().close();}
     });

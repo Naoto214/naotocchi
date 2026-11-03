@@ -16,9 +16,12 @@ const {JSDOM}=require(process.env.NAOPOYO_JSDOM||'jsdom');const fs=require('node
  const {ChapterProgress}=await load('progress.mjs'),{ChapterSession,STORAGE_KEY}=await load('session.mjs'),{solutions}=await load('solutions.mjs'),{stages}=await load('stages.mjs');
  const {ChapterProgress:LegacyProgress}=await load('archive/v5/progress.mjs');const legacyKey='naopoyo.time-hand-dungeon.20261102.v5',legacy=new LegacyProgress().serialize();localStorage.setItem(legacyKey,legacy);localStorage.setItem(legacyKey+'.examples','[[0,{"index":2,"key":"old"}]]');
  localStorage.setItem('naopoyo.time-hand-dungeon.20261102.v6','V6 retained');
- const p=new ChapterProgress();for(const a of solutions[0])p.sessions[0].step(...a);p.record();const saved=p.serialize();localStorage.setItem(STORAGE_KEY,saved);
+ const protectedSaves={'naopoyo.chapter1.20261023.v1':JSON.stringify({version:1,current:'old-stage',boards:{'old-stage':{undo:['retained']}}}),'naopoyo.komorebi.contact-v2.20261030.v1':'old chapter 2 and Undo retained','naotocchi-save':'main retained','card-game-save':'card retained','naokoro-save':'other retained'};for(const [k,v] of Object.entries(protectedSaves))localStorage.setItem(k,v);
+ const reads=[],writes=[];const getItem=w.Storage.prototype.getItem,setItem=w.Storage.prototype.setItem;w.Storage.prototype.getItem=function(k){reads.push(k);return getItem.call(this,k)};w.Storage.prototype.setItem=function(k,v){writes.push(k);return setItem.call(this,k,v)};
+ const p=new ChapterProgress();for(const a of solutions[0])p.sessions[0].step(...a);p.record();const saved=p.serialize();if(!process.env.NAOPOYO_FRESH)localStorage.setItem(STORAGE_KEY,saved);
  await load('app.mjs');const $=id=>document.getElementById(id),board=$('board');
  const move=(q,step,id=1)=>{const [who,dx,dy]=step,a=q.state.actors.find(a=>a.id===who);const e={pointerId:id,isPrimary:true,clientX:(a.x+.5)*40,clientY:(a.y+.5)*40,preventDefault(){}};board.onpointerdown(e);board.onpointerup({...e,clientX:e.clientX+dx*40,clientY:e.clientY+dy*40});assert.ok(q.step(...step).ok);};
+ if(process.env.NAOPOYO_FRESH){assert.equal($('number').textContent,'01');assert.equal($('moves').textContent,'0 手');$('select').click();assert.equal(document.querySelectorAll('.level:disabled').length,9);document.querySelector('[data-stage="0"]').click();const fresh=new ChapterSession(0);for(const a of solutions[0])move(fresh,a);$('close').click();}
  assert.equal($('moves').textContent,solutions[0].length+' 手');assert.deepEqual(JSON.parse(localStorage.getItem(STORAGE_KEY)),JSON.parse(saved));$('undo').click();assert.equal($('moves').textContent,(solutions[0].length-1)+' 手');
  const restored=new ChapterSession(0);for(const a of solutions[0].slice(0,-1))restored.step(...a);move(restored,solutions[0].at(-1));assert.ok($('dialog').open);w.dispatchEvent(new w.Event('resize'));$('nextStage').click();assert.equal($('number').textContent,'02');
  $('select').click();assert.equal(document.querySelectorAll('.level:disabled').length,8);document.querySelector('[data-stage="0"]').click();assert.equal($('moves').textContent,'0 手');assert.equal(JSON.parse(localStorage.getItem(STORAGE_KEY)).completed[0],true);
@@ -65,5 +68,8 @@ const {JSDOM}=require(process.env.NAOPOYO_JSDOM||'jsdom');const fs=require('node
   for(const step of solutions[i])move(live,step);
   assert.ok($('dialog').open,`stage ${i+1} still clears`);$('close').click();
  }
+ assert.match(document.getElementById('content').textContent,/準備中/);assert.equal(document.querySelector('#content a'),null);assert.equal(document.getElementById('nextStage'),null);
+ for(const k of Object.keys(protectedSaves)){assert.equal(reads.includes(k),false,`must not read ${k}`);assert.equal(writes.includes(k),false,`must not write ${k}`);assert.equal(getItem.call(localStorage,k),protectedSaves[k]);}
+ assert.ok(writes.every(k=>k.startsWith(STORAGE_KEY)),JSON.stringify(writes));
  console.log('PASS: actual app sign show/hide, canceled/dragged pointer, resize, unchanged saves/moves, all10 live solutions plus existing all10 replay/save/Undo/A8 regressions.');
 })();

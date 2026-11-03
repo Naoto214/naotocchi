@@ -1,0 +1,334 @@
+{
+  "mode": "canvas-3d",
+  "viewport": "390x844 iframe; NOT physical iPhone",
+  "forest": {
+    "elapsed": 91.169,
+    "end": {
+      "frames": 105,
+      "seconds": 98,
+      "fps": 1.0565697507099143,
+      "heapBytes": 23425156,
+      "cast": {
+        "distance": 1803.8594901285771,
+        "moves": 39,
+        "turns": 7,
+        "activities": {
+          "turn": 5,
+          "walk": 39,
+          "approach": 3,
+          "together": 6,
+          "look": 3,
+          "observe": 4,
+          "rest": 7,
+          "solitude": 5,
+          "sit": 3
+        },
+        "clock": 97.76649999999873
+      },
+      "world": {
+        "mode": "canvas-3d",
+        "region": "forest",
+        "life": {
+          "clock": 97.76649999999873,
+          "spawned": 12,
+          "distance": 26263.22715598061,
+          "active": 8,
+          "capacity": 8
+        },
+        "recoveryAttempts": 0,
+        "renderer": {
+          "mode": "canvas-3d",
+          "calls": 20,
+          "triangles": 2275,
+          "textures": 0,
+          "geometries": 19,
+          "objects": 41,
+          "actors": 1,
+          "drawMsAvg": 6.054285714283053,
+          "drawMsP95": 13.699999999953434,
+          "pixelRatio": 1,
+          "char3d": null,
+          "ghosts": {
+            "hiddenObjects": 0,
+            "owners": [],
+            "visible": 0,
+            "attached": 0,
+            "total": 0
+          },
+          "water": {
+            "kind": null,
+            "meshes": [],
+            "ponds": 0
+          },
+          "player": {
+            "mode": "dom",
+            "pixelVisibility": "DOM_QA_REQUIRED",
+            "applicable": false
+          },
+          "diag": {
+            "on": false,
+            "ray": {
+              "seen": 3,
+              "of": 3,
+              "blk": ""
+            },
+            "occlFrames": 0,
+            "rayChecks": 0,
+            "uploads": 0,
+            "longFrames": 3,
+            "dprSteps": []
+          }
+        }
+      }
+    }
+  },
+  "city": {
+    "elapsed": 91.192,
+    "end": {
+      "frames": 255,
+      "seconds": 236,
+      "fps": 1.0615543320158958,
+      "heapBytes": 20514241,
+      "cast": {
+        "distance": 4126.866219744491,
+        "moves": 86,
+        "turns": 17,
+        "activities": {
+          "turn": 10,
+          "walk": 86,
+          "approach": 10,
+          "together": 20,
+          "look": 10,
+          "observe": 8,
+          "rest": 13,
+          "solitude": 12,
+          "sit": 11
+        },
+        "clock": 236.34949999999097
+      },
+      "world": {
+        "mode": "canvas-3d",
+        "region": "city",
+        "life": {
+          "clock": 79.36649999999977,
+          "spawned": 12,
+          "distance": 19866.603177692672,
+          "active": 8,
+          "capacity": 8
+        },
+        "recoveryAttempts": 0,
+        "renderer": {
+          "mode": "canvas-3d",
+          "calls": 23,
+          "triangles": 2165,
+          "textures": 0,
+          "geometries": 23,
+          "objects": 31,
+          "actors": 1,
+          "drawMsAvg": 4.515116279070309,
+          "drawMsP95": 10,
+          "pixelRatio": 1,
+          "char3d": null,
+          "ghosts": {
+            "hiddenObjects": 0,
+            "owners": [],
+            "visible": 0,
+            "attached": 0,
+            "total": 0
+          },
+          "water": {
+            "kind": null,
+            "meshes": [],
+            "ponds": 0
+          },
+          "player": {
+            "mode": "dom",
+            "pixelVisibility": "DOM_QA_REQUIRED",
+            "applicable": false
+          },
+          "diag": {
+            "on": false,
+            "ray": {
+              "seen": 3,
+              "of": 3,
+              "blk": ""
+            },
+            "occlFrames": 0,
+            "rayChecks": 0,
+            "uploads": 0,
+            "longFrames": 1,
+            "dprSteps": []
+          }
+        }
+      }
+    }
+  },
+  "waterExcluded": {
+    "elapsed": 59.335,
+    "end": {
+      "frames": 165,
+      "seconds": 154,
+      "fps": 1.0564577420104582,
+      "heapBytes": 34510484,
+      "cast": {
+        "distance": 2806.018004503583,
+        "moves": 58,
+        "turns": 12,
+        "activities": {
+          "turn": 6,
+          "walk": 58,
+          "approach": 8,
+          "together": 13,
+          "look": 8,
+          "observe": 6,
+          "rest": 9,
+          "solitude": 7,
+          "sit": 6
+        },
+        "clock": 153.66629999999557
+      },
+      "world": {
+        "mode": "canvas-3d",
+        "region": "river_lake",
+        "life": {
+          "clock": 55.29990000000051,
+          "spawned": 12,
+          "distance": 24506.830571946644,
+          "active": 6,
+          "capacity": 8
+        },
+        "recoveryAttempts": 0,
+        "renderer": {
+          "mode": "canvas-3d",
+          "calls": 17,
+          "triangles": 2181,
+          "textures": 0,
+          "geometries": 17,
+          "objects": 35,
+          "actors": 1,
+          "drawMsAvg": 5.305084745758766,
+          "drawMsP95": 15.699999999953434,
+          "pixelRatio": 1,
+          "char3d": null,
+          "ghosts": {
+            "hiddenObjects": 0,
+            "owners": [],
+            "visible": 0,
+            "attached": 0,
+            "total": 0
+          },
+          "water": {
+            "kind": "river",
+            "meshes": [
+              "water:bank",
+              "water:river"
+            ],
+            "ponds": 0
+          },
+          "player": {
+            "mode": "dom",
+            "pixelVisibility": "DOM_QA_REQUIRED",
+            "applicable": false
+          },
+          "diag": {
+            "on": false,
+            "ray": {
+              "seen": 3,
+              "of": 3,
+              "blk": ""
+            },
+            "occlFrames": 0,
+            "rayChecks": 0,
+            "uploads": 0,
+            "longFrames": 1,
+            "dprSteps": []
+          }
+        }
+      }
+    }
+  },
+  "water": {
+    "elapsed": 100.714,
+    "end": {
+      "frames": 375,
+      "seconds": 345,
+      "fps": 1.065008094061515,
+      "heapBytes": 15704040,
+      "cast": {
+        "distance": 6363.0329522883785,
+        "moves": 132,
+        "turns": 24,
+        "activities": {
+          "turn": 13,
+          "walk": 132,
+          "approach": 15,
+          "together": 34,
+          "look": 15,
+          "observe": 17,
+          "rest": 15,
+          "solitude": 16,
+          "sit": 14
+        },
+        "clock": 344.93270000001013
+      },
+      "world": {
+        "mode": "canvas-3d",
+        "region": "river_lake",
+        "life": {
+          "clock": 97.96669999999872,
+          "spawned": 20,
+          "distance": 44669.09978614462,
+          "active": 8,
+          "capacity": 8
+        },
+        "recoveryAttempts": 0,
+        "renderer": {
+          "mode": "canvas-3d",
+          "calls": 17,
+          "triangles": 2181,
+          "textures": 0,
+          "geometries": 17,
+          "objects": 35,
+          "actors": 1,
+          "drawMsAvg": 5.2990825687996495,
+          "drawMsP95": 8.800000000046566,
+          "pixelRatio": 1,
+          "char3d": null,
+          "ghosts": {
+            "hiddenObjects": 0,
+            "owners": [],
+            "visible": 0,
+            "attached": 0,
+            "total": 0
+          },
+          "water": {
+            "kind": "river",
+            "meshes": [
+              "water:bank",
+              "water:river"
+            ],
+            "ponds": 0
+          },
+          "player": {
+            "mode": "dom",
+            "pixelVisibility": "DOM_QA_REQUIRED",
+            "applicable": false
+          },
+          "diag": {
+            "on": false,
+            "ray": {
+              "seen": 3,
+              "of": 3,
+              "blk": ""
+            },
+            "occlFrames": 0,
+            "rayChecks": 0,
+            "uploads": 0,
+            "longFrames": 3,
+            "dprSteps": []
+          }
+        }
+      }
+    }
+  }
+}

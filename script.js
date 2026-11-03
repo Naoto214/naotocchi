@@ -5,6 +5,7 @@
   const SAVE_KEY = 'naotocchi-save-v1';
   const INDIVIDUALITY = window.NaotocchiIndividuality;
   let individualityDialogOpen=false, individualityDeferred=false, individualityDialogLife=null;
+  let individualityPopupSerial=0, individualityPopupFocus=null, homeChoiceResultTimer=null;
   let individualGameLifeId=null;
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const LIFE_STAGE_RULES = window.NaotocchiLifeStages || null;
@@ -25,6 +26,7 @@
   });
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
+  let homeDiorama = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   // じどうバックアップ: 20分いじょう あいだが あいた セーブを 3つまで
   // のこし、プロフィールの「もどす」で その時点に もどせる
@@ -41,7 +43,7 @@
   let historyLayer = false, ignoreNextPop = 0, historySyncQueued = false;
   // RH-10: 優先度 0(critical)の おしらせ(setCriticalMessage)
   const CRITICAL_MESSAGE_MS = 8000;
-  let criticalUntil = 0, deferredMessage = null, criticalTimer = null;
+  let criticalUntil = 0, deferredMessage = null, deferredMessageSpeaker = null, criticalTimer = null;
   let knownSaveRevision = 0;
   // どの タブが 書いたか(sessionStorage は reload でも 同じ タブなら のこる)。reload の とき、同じ タブの まえの ページが
   // 閉じぎわに 書いた save も storage event で とどく ので、それを ほかの タブと 区別する。save の 中身には 入れない
@@ -1105,6 +1107,7 @@
     storyFlash: document.getElementById('storyFlash'),
     storyFlashEmoji: document.getElementById('storyFlashEmoji'),
     storyFlashText: document.getElementById('storyFlashText'),
+    storyFlashName: document.getElementById('storyFlashName'),
     gameClearOverlay: document.getElementById('gameClearOverlay'),
     gameClearArt: document.getElementById('gameClearArt'),
     gameClearConfettiTop: document.getElementById('gameClearConfettiTop'),
@@ -3553,6 +3556,7 @@
     );
   }
   let message = '';
+  let messageSpeaker = null, messageSpeakerText = null;
   let gameActive = false;
   // 「めぐる」(meguru.js)を あるいている あいだ true。ミニゲームとは べつの がめん
   let meguruActive = false;
@@ -3803,6 +3807,7 @@
   }
   function commentIconHTML(emoji, fallback = emoji) {
     const key = emoji.replace(/[\uFE0E\uFE0F]/g,'');
+    if(key==='🪼' && document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12')return commentPictureHTML('assets/ui/home-notices/jellyfish-v12.png',emoji,'くらげ');
     if (Object.hasOwn(COMMENT_SYMBOL_KEYS,key)) {
       const symbol=COMMENT_SYMBOL_KEYS[key],[label,art]=COMMENT_SYMBOLS[symbol];
       return `<span class="comment-drawing" data-comment-symbol="${symbol}" role="img" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">${art}</svg>${iconFallbackHTML(fallback)}</span>`;
@@ -3825,12 +3830,14 @@
   const commentTextCache = new WeakMap();
   function setCommentText(target, text, force = false, character = null) {
     if (!target) return false;
-    const value=String(text??'');
+    const upperV12=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12' && ['message','homeActionText','homeChoiceText','storyFlashText','storyFlashEmoji','birthdayToast','mgResultToast'].includes(target.id);
+    const raw=String(text??'');
+    const value=upperV12 && !['storyFlashEmoji','homeActionText'].includes(target.id) ? window.NaotocchiHomeDiorama?.homeText(raw,true,['16','17','18'].includes(document.body.dataset.homeDisplayVersion)) ?? raw : raw;
     // Only the notice renderer deduplicates repeated renders. Other surfaces
     // still announce each new beat, even when its words match the last beat.
     if (!force && commentTextCache.get(target)===value) return false;
     commentTextCache.set(target,value);
-    const html=commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
+    const html=upperV12 ? escapeHtml(value).replace(COMMENT_EMOJI,emoji=>character?.asset&&emoji===character.emoji?commentPictureHTML(character.asset,emoji,character.label):(commentIconHTML(emoji)||((!/assets\/characters\//.test(DISPLAY_CATALOG?.resolve(emoji)?.asset||'') || /assets\/characters\/(?:egg|companions|partners)\//.test(DISPLAY_CATALOG?.resolve(emoji)?.asset||''))?DISPLAY_CATALOG?.html(emoji):'')||'<span class="comment-drawing v12-unresolved-icon">'+escapeHtml(emoji)+'</span>')) : commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
     const property=illustrated?'innerHTML':'textContent';
     const rendered=illustrated?html:value;
     if (!force && target[property]===rendered) return false;
@@ -3839,18 +3846,47 @@
   }
   function commentActorVisual(speaker) {
     let visual;
-    if (speaker.kind==='pet') visual=currentVisualStage();
-    else if (speaker.kind==='companion') visual=allCompanionsById(speaker.id);
+    if (speaker.kind==='pet') {
+      visual=currentVisualStage();
+      const expression=el.petSprite?.dataset.expression;
+      if(visual?.asset&&expression)visual={...visual,asset:PET_EXPRESSION?.assetFor(visual.asset,expression)||visual.asset};
+    }
+    else if (speaker.kind==='companion') {
+      visual=allCompanionsById(speaker.id);
+      const entity=state.companions.find(c=>canonicalCompanionId(c.id)===canonicalCompanionId(speaker.id));
+      if(entity&&visual?.asset)visual={...visual,...relationshipVisual('companion',entity,visual.asset)};
+    }
     else if (speaker.kind==='partner') {
       const id=speaker.id||state.partner?.id;
-      visual=WORLD_MASTER?.partners?.find(p=>p.id===(WORLD_MASTER.compatibility?.partnerAliases?.[id]||id));
+      const guest=id==='guest' ? (state.partner?.id==='guest' ? state.partner.guestSnapshot : state.guest) : null;
+      visual=guest ? personalVisualStage(guest,guest.stageIndex) : WORLD_MASTER?.partners?.find(p=>p.id===(WORLD_MASTER.compatibility?.partnerAliases?.[id]||id));
+      if(visual?.asset&&state.partner&&canonicalPartnerId(state.partner.id)===canonicalPartnerId(id))visual={...visual,...relationshipVisual('partner',state.partner,visual.asset)};
     }
+    else if(speaker.kind==='author')visual=WORLD_MASTER?.playerSpecies?.author;
     return visual?.asset ? {...visual,emoji:speaker.emoji||visual.emoji,label:speaker.label||visual.label||visual.name} : null;
   }
   function commentSpeakerHTML(speaker) {
     const visual=commentActorVisual(speaker),emoji=speaker.emoji||'💬';
     return visual?.asset ? commentPictureHTML(visual.asset,emoji,compactJapaneseText(speaker.label))
       : commentIconHTML(emoji)||escapeHtml(emoji);
+  }
+  // Presentation only: identity is supplied by the originating beat/event.
+  // A system outcome has no actor. Exchange prose remains narration about its
+  // companion; it is never rewritten as a quotation or assigned to the player.
+  function renderLaneSpeaker(node, speaker, container) {
+    if(!node)return;
+    const visual=speaker&&commentActorVisual(speaker);
+    const production=document.body.dataset.homeProduction==='true' && terrainNoticeMode();
+    node.innerHTML=visual?.asset?commentPictureHTML(visual.asset,'',compactJapaneseText(speaker.label))
+      +(production?'<span class="lane-speaker-name">'+escapeHtml(compactJapaneseText(speaker.label))+'</span>':''):'';
+    node.dataset.label=visual?compactJapaneseText(speaker.label):'';
+    node.title=node.dataset.label;
+    node.classList.toggle('hidden',!visual);
+    if(container){container.dataset.kind=visual?speaker.kind:'';container.dataset.speakerId=visual?(speaker.id||'pet'):'';}
+  }
+  function exchangeSpeaker(exchange) {
+    const def=allCompanionsById(exchange.companion);
+    return def?{kind:'companion',id:def.id,label:def.name,emoji:def.emoji}:null;
   }
   const DISPLAY_CATALOG = globalThis.NaotocchiIllustrationCatalog?.create({
     knownHTML:commentIconHTML, symbolKeys:COMMENT_SYMBOL_KEYS, symbols:COMMENT_SYMBOLS,
@@ -3927,7 +3963,7 @@
     const titles = {none:'',normal:'いのち おだやか',caution:'すこし気をつけよう'};
     const title = severity ? notice.title : titles[level] || '';
     const icon = sick ? 'sick' : level === 'normal' ? 'recovery' : 'danger';
-    setHTMLIfChanged(document.getElementById('worldCareState'), title
+    setHTMLIfChanged(document.getElementById('worldCareState'), !terrainNoticeMode() && title
       ? careIconHTML(icon) + `<span>${escapeHtml(title)}</span>` : '');
   }
 
@@ -3973,17 +4009,38 @@
       const pending = careMilestone; careMilestone = null; showCareFeedback(pending);
     }
     const display = urgent ? notice : visible && careFeedback
-      ? {kind:'change',severity:'info',icon:careFeedback.icon,text:[message,careFeedback.text].filter(Boolean).join('\n')}
+      ? {kind:'change',severity:'info',icon:careFeedback.icon,text:[message,terrainNoticeMode() ? CARE_STATUS.summary(careFeedback.text) : careFeedback.text].filter((text,index,all)=>text && all.indexOf(text)===index).join('\n')}
       : visible && !message ? notice : null;
-    const text = display ? display.text || `${display.title}\n${display.detail}`
+    let text = display ? display.text || `${display.title}\n${display.detail}`
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
-        : state.stage === STAGE.EGG ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
+        : state.stage === STAGE.EGG ? 'たまごをタップするか「あたためる」をおしてね' : '');
+    if (terrainNoticeMode() && state.stage === STAGE.GROWING) {
+      const eventText=window.NaotocchiHomeDiorama.homeText(message,document.body.dataset.homeViewportVersion==='12',['16','17','18'].includes(document.body.dataset.homeDisplayVersion));
+      const warnings=visible ? window.NaotocchiHomeDiorama.homeWarnings(state,notice) : '';
+      // Ephemeral events take the one slot; the warning is re-derived after expiry.
+      text=eventText || warnings;
+      el.message.title=warnings;
+    }
+    // Presentation-only routing preserves the message timer and care reactions.
+    const actionPanel=document.getElementById('homeActionComment');
+    const lower=!!(messageSpeaker && message && message===messageSpeakerText && visible && document.body.dataset.homeProduction==='true' && terrainNoticeMode());
+    if(actionPanel){
+      actionPanel.classList.toggle('hidden',!lower);
+      if(lower){
+        renderLaneSpeaker(document.getElementById('homeActionSpeaker'),messageSpeaker,actionPanel);
+        setCommentText(document.getElementById('homeActionText'),message);
+        text='';
+      }
+    }
     if (setCommentText(el.message, text)) el.message.scrollTop = 0;
     el.message.dataset.careKind = display?.kind || '';
     el.message.dataset.careSeverity = display?.severity || '';
-    el.message.dataset.careIcon = display?.icon || '';
+    // The terrain event text is independent of the current care assessment.
+    // Never attach a persistent hunger/sleep glyph to an unrelated event.
+    // Icons authored in event text and story event art are rendered separately.
+    el.message.dataset.careIcon = document.body.dataset.homeProduction==='true' && terrainNoticeMode() ? '' : display?.icon || '';
     el.message.dataset.careTone = display?.kind === 'change'
-      ? display.text.includes('−') ? display.text.includes('+') ? 'mixed' : 'loss' : 'gain' : '';
+      ? careFeedback.text.includes('−') ? careFeedback.text.includes('+') ? 'mixed' : 'loss' : 'gain' : '';
     el.screen.dataset.careSeverity = visible ? notice?.severity || '' : '';
     for (const id of ['feedBtn','playBtn','cleanBtn','sleepBtn','medicineBtn','playWithBtn']) {
       const recommended = visible && notice?.action === id;
@@ -3997,20 +4054,28 @@
   // (優先度 1〜3 の queue と 雑談の 間隔は 決めて いない。いままでどおり)
   function setCriticalMessage(msg) {
     criticalUntil = Date.now() + CRITICAL_MESSAGE_MS;
-    deferredMessage = null;
+    deferredMessage = null; deferredMessageSpeaker = null;
     showMessage(msg, CRITICAL_MESSAGE_MS);
     clearTimeout(criticalTimer);
     criticalTimer = setTimeout(() => {
       criticalTimer = null; criticalUntil = 0;
-      const next = deferredMessage; deferredMessage = null;
-      if (next) showMessage(next, MESSAGE_DURATION_MS);
+      const next = deferredMessage, speaker=deferredMessageSpeaker; deferredMessage = null; deferredMessageSpeaker = null;
+      if (next) showMessage(next, MESSAGE_DURATION_MS,speaker);
     }, CRITICAL_MESSAGE_MS);
   }
-  function setMessage(msg) {
-    if (criticalUntil && Date.now() < criticalUntil) { if (msg) deferredMessage = msg; return; }
-    showMessage(msg, MESSAGE_DURATION_MS);
+  function setMessage(msg, speaker=null) {
+    if (!homeUIV11() && criticalUntil && Date.now() < criticalUntil) { if (msg) {deferredMessage = msg;deferredMessageSpeaker=speaker;} return; }
+    showMessage(msg, MESSAGE_DURATION_MS,speaker);
   }
-  function showMessage(msg, duration) {
+  function setActionComment(text, speaker=petSpeaker()) {
+    setMessage(text,document.body.dataset.homeProduction==='true' && terrainNoticeMode() ? speaker : null);
+  }
+  function showMessage(msg, duration, speaker=null) {
+    if(msg && homeV11Upper('message',duration===CRITICAL_MESSAGE_MS?100:2,duration,()=>showMessage(msg,duration,speaker)))return;
+    if(homeUIV11() && !msg && homeV11Presentation().upper)return;
+    el.message.classList.remove('hidden');
+    messageSpeaker=speaker; messageSpeakerText=compactJapaneseText(msg);
+    el.message.classList.remove('birth-notice');
     message = compactJapaneseText(msg);
     if (CARE_STATUS) renderCareNotice();
     else { setCommentText(el.message, message); el.message.scrollTop = 0; }
@@ -4026,7 +4091,7 @@
     if (msg) {
       messageTimer = setTimeout(() => {
         messageTimer = null;
-        message = '';
+        message = ''; messageSpeaker=null;
         if (!gameActive) render();
       }, duration);
     }
@@ -4215,6 +4280,7 @@
   }
 
   function hideSpeechBubble() {
+    if(homeUIV11() && (conv2Unit?.awaiting || homeV11Presentation().lowerUntil>Date.now() || (conv2Unit && conv2Unit.kind!=='banter')))return;
     // 吹き出しを消す場面(メニュー・ゲーム・別の会話)では、掛け合い・問いかけも途中でやめる
     conv2Abort('hidden');
     speechActive = false;
@@ -4225,34 +4291,39 @@
 
   function setSpeechBubble(text, speaker, reaction = {}) {
     if (!el.speechBubble || !text || !speaker) return;
-    if (speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
+    if (!(homeUIV11() && reaction.storySpeaker) && speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
     if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
-    hideMinigameResultToast();
+    if(homeUIV11()){
+      if(!reaction.unit && homeV11HoldSpeech(()=>setSpeechBubble(text,speaker,reaction),!!reaction.important))return;
+      if(!reaction.unit && conversationIsBusy())clearConversationTimers();
+      if(reaction.important)homeV11Presentation().lowerUntil=Date.now()+(reaction.holdMs||SPEECH_DURATION_MS);
+    }else{hideMinigameResultToast();hideHomeChoiceResult();}
     if (speechTimer) clearTimeout(speechTimer);
     speechActive = true;
-    el.speechSpeaker.innerHTML = commentSpeakerHTML(speaker);
-    el.speechSpeaker.title = compactJapaneseText(speaker.label);
-    el.speechSpeaker.dataset.label = compactJapaneseText(speaker.label);
+    if (speaker.kind === 'pet') {
+      const expression = PET_EXPRESSION?.reactionFor(reaction.event);
+      if (expression) startPetExpression(expression,SPEECH_DURATION_MS);
+    }
+    renderLaneSpeaker(el.speechSpeaker,speaker);
     setCommentText(el.speechText, compactJapaneseText(text), true);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.dataset.speakerId = speaker.id || '';
+    el.speechBubble.dataset.reactionEvent = reaction.event || 'idle';
     el.speechBubble.classList.remove('hidden');
     // Director は「実際に表示した行」だけを記録する(抽選しただけの行は数えない)
     conversationDirector?.noteShown(compactJapaneseText(text), conversationSpeakerKey(speaker));
     // A display:none ancestor has no scroll box; reset after revealing it.
     el.speechText.scrollTop = 0;
-    if (speaker.kind === 'pet') {
-      const expression = PET_EXPRESSION?.reactionFor(reaction.event);
-      if (expression) startPetExpression(expression,SPEECH_DURATION_MS);
-    }
     renderHomeCast();
     stopActiveEmotionCue();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
       speechTimer = null;
+      if(homeUIV11() && (conv2Unit?.awaiting || homeV11Presentation().lowerUntil>Date.now() || (conv2Unit && conv2Unit.kind!=='banter')))return;
       speechActive = false;
       el.speechBubble.classList.add('hidden');
       castMotion?.clearSpeaker();
+      homeV11DrainSpeech();
     }, reaction.holdMs || SPEECH_DURATION_MS);
   }
 
@@ -4263,7 +4334,7 @@
 
 
   function petSpeaker() {
-    return { kind: 'pet', emoji: currentSprite(), label: SPECIES_DISPLAY_NAMES[state.speciesLine] || 'なおとっち' };
+    return { kind: 'pet', emoji: currentSprite(), label: document.body.dataset.homeProduction==='true' ? (currentVisualStage().label || 'なおとっち') : (SPECIES_DISPLAY_NAMES[state.speciesLine] || 'なおとっち') };
   }
 
   function partnerSpeaker() {
@@ -4962,6 +5033,7 @@
   let conversationBusyUntil = 0;
   let recentConversationLines = [];
   function clearConversationTimers() {
+    if(homeUIV11() && (homeV11Presentation().lowerUntil>Date.now() || (conv2Unit && conv2Unit.kind!=='banter')))return;
     conv2Abort('cleared');
     conversationTimers.forEach((t) => clearTimeout(t));
     conversationTimers = [];
@@ -6296,6 +6368,7 @@
   }
 
   function speakEvent(eventKey, ctx = {}) {
+    if(homeUIV11() && homeV11HoldSpeech(()=>speakEvent(eventKey,ctx),!['idle','pet_idle'].includes(eventKey)))return;
     // ミニゲームの けっか処理の さいちゅう(そだち・とし など)は、けっかトーストを けさない よう
     // いったん ためて、トーストの あとに まわす(dispatchMinigameReaction)
     if (minigameResultSpeechHold) { minigameResultSpeechHold.push([eventKey, ctx]); return; }
@@ -6508,17 +6581,19 @@
   }
 
   function playConversationBeats(beats, event = 'idle', delayMs = 0, target = null) {
+    if(homeUIV11() && homeV11HoldSpeech(()=>playConversationBeats(beats,event,delayMs,target),event!=='idle'))return;
     clearConversationTimers();
     hideSpeechBubble();
     const visibleBeats = beats.filter((beat) => beat.speaker && beat.text).slice(0, 4);
     // 掛け合いが終わるまでは放置会話などに上書きさせない。
     conversationBusyUntil = Date.now() + delayMs + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * SPEECH_DURATION_MS) + SPEECH_DURATION_MS);
+    if(homeUIV11() && event!=='idle')homeV11Presentation().lowerUntil=conversationBusyUntil;
     visibleBeats.forEach((beat, i) => {
       const listener = beat.speaker.kind === 'pet'
         ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
           : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
         : petSpeaker();
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0,unit:homeUIV11()}), delayMs + i * SPEECH_DURATION_MS));
     });
   }
 
@@ -6589,9 +6664,17 @@
     window.addEventListener('pageshow', (e) => { if (e && e.persisted) { conv2LeaveScene('pageshow'); conv2CheckAway(); } });
     document.addEventListener('visibilitychange', () => { if (pageVisible()) conv2CheckAway(); });
     setTimeout(() => conv2CheckAway(), 0);   // 起動(ほかのページから戻ってきた・reload)
+    // Home choices belong to the conversation, never to the terrain gesture.
+    // Keep click activation for native keyboard and assistive-technology input.
+    for (const type of ['pointerdown', 'pointerup']) el.speechChoices?.addEventListener(type, (e) => {
+      if (el.device.classList.contains('ui-home-active')) e.stopPropagation();
+    });
     el.speechChoices?.addEventListener('click', (e) => {
+      if (el.device.classList.contains('ui-home-active')) e.stopPropagation();
       const btn = e.target?.closest ? e.target.closest('[data-choice]') : e.target;
-      if (btn?.dataset?.choice != null) conv2Answer(Number(btn.dataset.choice));
+      // Reject an obsolete button after timeout, scene change or a later ask.
+      if (btn?.dataset?.choice != null && Array.from(el.speechChoices.children).includes(btn)
+          && !el.speechChoices.classList.contains('hidden')) conv2Answer(Number(btn.dataset.choice));
     });
   } catch (_) { /* 会話の演出は best effort */ }
 
@@ -6621,6 +6704,17 @@
     return def ? {kind:'companion', id:def.id, emoji:def.emoji, label:def.name} : null;
   }
   function conv2Later(unit, fn, ms) {
+    if(homeUIV11() && unit.kind!=='banter'){
+      const life=state,index=unit.timers.length;let remaining=Math.max(1,ms),last=Date.now();
+      unit.timers.push(null);
+      const tick=()=>{
+        if(conv2Unit!==unit || state!==life)return;
+        const now=Date.now();if(conv2ContextOk())remaining-=now-last;last=now;
+        if(remaining<=0){fn();return;}
+        unit.timers[index]=setTimeout(tick,Math.min(100,remaining));
+      };
+      unit.timers[index]=setTimeout(tick,Math.min(100,remaining));return;
+    }
     const timer = setTimeout(() => { if (conv2Unit === unit) fn(); }, Math.max(1, ms));
     unit.timers.push(timer);
   }
@@ -6629,12 +6723,14 @@
     el.speechChoices.classList.add('hidden');
     el.speechChoices.innerHTML = '';
     el.speechSlot?.classList.remove('is-asking');
+    pointHomeSpeech();
   }
   // 途中でやめる。言いかけの続きは出さない。ためていた自動の会話も捨てる
   // (やめる理由はケア操作・メニュー・ゲームなどで、v2 以前でもその会話はそこで上書きされていた。
   //  あとから流すと、いま始まったケアの反応を消してしまう)
   function conv2Abort(reason) {
     const unit = conv2Unit;
+    if(homeUIV11() && unit && unit.kind!=='banter' && ['cleared','player','hidden','scene','pagehide','pageshow'].includes(reason))return;
     if (!unit) return;
     conv2Unit = null;
     unit.timers.forEach(t => clearTimeout(t));
@@ -6647,14 +6743,15 @@
     const unit = conv2Unit;
     if (!unit) return;
     conv2Abort(reason);
-    if (unit.shown) hideSpeechBubbleOnly();
+    if (unit.shown && conv2Unit !== unit) hideSpeechBubbleOnly();
   }
   function conv2Finish(unit) {
     if (conv2Unit !== unit) return;
     conv2Unit = null;
     unit.timers.forEach(t => clearTimeout(t));
     conv2HideChoices();
-    conv2Flush(unit.held);
+    if(homeUIV11())hideSpeechBubbleOnly();
+    conv2Flush(unit.held);homeV11DrainSpeech();
   }
   function conv2Flush(held) {
     for (const [eventKey, ctx] of held) speakEvent(eventKey, ctx);
@@ -6669,7 +6766,7 @@
         const visitor = visitorKey ? conv2VisitorSpeaker(visitorKey) : null;
         const speaker = b.role === 'pet' ? petSpeaker() : visitor;
         if (!speaker || (visitorKey && !visitor)) { conv2Abort('visitor_left'); return; }
-        setSpeechBubble(b.text, speaker, {listener:b.role === 'pet' ? visitor : petSpeaker(), holdMs:hold});
+        setSpeechBubble(b.text, speaker, {listener:b.role === 'pet' ? visitor : petSpeaker(), holdMs:hold,unit:homeUIV11()});
         unit.shown = true;
         if (unit.onShow) { const onShow = unit.onShow; unit.onShow = null; onShow(); }
       }, at);
@@ -6680,7 +6777,7 @@
   }
   // deferNote: 最初の一言を出したときに履歴へ入れる(出す前にやめた会話は「使った」に数えない)
   function conv2NewUnit(kind, id, visitorKey, {deferNote = false} = {}) {
-    conv2Unit = {kind, id, visitorKey, startedAt:Date.now(), held:[], timers:[], awaiting:false};
+    conv2Unit = {kind, id, visitorKey, life:state, startedAt:Date.now(), held:[], timers:[], awaiting:false};
     if (deferNote) conv2Unit.onShow = () => conversationDirector.noteUnit(id, kind);
     else conversationDirector.noteUnit(id, kind);
     return conv2Unit;
@@ -6746,11 +6843,11 @@
   function conv2AskBeat(unit, q) {
     if (conv2Unit !== unit) return;
     if (!conv2ContextOk()) { conv2Abort('context'); return; }
-    setSpeechBubble(q.ask, petSpeaker(), {holdMs:CONV2.answerWaitMs});
+    setSpeechBubble(q.ask, petSpeaker(), {holdMs:CONV2.answerWaitMs,unit:homeUIV11()});
     conv2ShowChoices(q);
     unit.awaiting = true;
     conversationBusyUntil = Math.max(conversationBusyUntil, Date.now() + CONV2.answerWaitMs);
-    conv2Later(unit, () => conv2NoAnswer(unit), CONV2.answerWaitMs);
+    if(!homeUIV11())conv2Later(unit, () => conv2NoAnswer(unit), CONV2.answerWaitMs);
   }
 
   // ---- ゲームのあと ----
@@ -6872,6 +6969,9 @@
     el.speechChoices.dataset.count = String(q.choices.length);
     el.speechChoices.classList.remove('hidden');
     el.speechSlot?.classList.add('is-asking');
+    if(el.speechSlot)el.speechSlot.scrollTop=0;
+    el.speechText.style.whiteSpace='';el.speechText.style.textWrap='';
+    pointHomeSpeech();
   }
   function conv2Answer(index) {
     const unit = conv2Unit;
@@ -9376,7 +9476,7 @@
       // ④を経ずに⑤へ進んでも、名前を名乗りつつ世界の答えは説明しない。
       perfect: 'ナオト「……きみも、ここを見つけたんだ。ここまで来てくれて、ありがとう。」',
     };
-    showStoryEvent({ author:true, message:lines[kind] || lines.hello });
+    showStoryEvent({ author:true, characterComment:true, message:lines[kind] || lines.hello });
     return true;
   }
 
@@ -10415,6 +10515,38 @@
   // マイグレーション中や たまごの あいだは 演出を いっさい 出さない ための フラグ
   let suppressLifeEvents = false;
 
+  let birthCelebration = null;
+  function clearBirthCelebration() {
+    if (!birthCelebration) return;
+    clearTimeout(birthCelebration.timer);
+    birthCelebration.node.remove();
+    el.message.classList.remove('birth-notice');
+    birthCelebration = null;
+    drainHomeNotices();
+  }
+
+  function showBirthCelebration() {
+    clearBirthCelebration();
+    const node = document.createElement('div');
+    node.className = 'birth-celebration';
+    node.setAttribute('aria-hidden', 'true');
+    const halo = document.createElement('span');
+    halo.className = 'birth-halo';
+    halo.setAttribute('aria-hidden', 'true');
+    node.appendChild(halo);
+    for (let i = 0; i < 8; i += 1) {
+      const star = document.createElement('span');
+      star.className = 'birth-star';
+      star.textContent = '✦';
+      star.setAttribute('aria-hidden', 'true');
+      star.style.setProperty('--i', i);
+      node.appendChild(star);
+    }
+    el.message.classList.add('birth-notice');
+    el.petArea.appendChild(node);
+    birthCelebration = {node, life:state, timer:setTimeout(clearBirthCelebration, 2800)};
+  }
+
   function hatchEgg() {
     if (state.stage !== STAGE.EGG || state.infinite) return;
     clearPetExpression();
@@ -10422,6 +10554,7 @@
     const reservedLine = pickDreamLine();
     state.speciesLine = reservedLine || pickRandomLine();
     state.stage = STAGE.GROWING;
+    homeDiorama?.prepareNewborn?.();
     state.individuality = INDIVIDUALITY.create(state.speciesLine,REGIONS.map(r=>r.id));
     individualityDeferred=false;
     state.ageTicks = 0;
@@ -10437,7 +10570,8 @@
       recordItemUse(id);
       state.lifetime.nextEggLine = null; state.lifetime.nextEggKind = null;
     }
-    setMessage('たまごがぱかり。ちいさななおとっちと、目があった。');
+    setMessage(`${currentVisualStage().label}が うまれた！`);
+    showBirthCelebration();
     emotePet('happy');
     pushLifeLog('🥚', 'たまごからうまれた');
   }
@@ -10852,35 +10986,102 @@
     const hearts=Object.entries(d.hearts).map(([k,n])=>`${n}${'★'.repeat(s.hearts[k])}`).join('／');
     return `<div class="lifecard-line">${escapeHtml(traits)}<br>${escapeHtml(hearts)}<br>すき：${escapeHtml((s.place?findRegion(s.place)?.label:null)||'まだ わからない')}／${escapeHtml(d.games[s.game]||'まだ わからない')}</div>`;
   }
+  function homeIndividualityPopupVisible() {
+    return individualityDialogOpen && document.getElementById('individualityDialog')?.classList.contains('home-choice-popup');
+  }
+  function hideHomeChoiceResult() {
+    if (homeChoiceResultTimer) clearTimeout(homeChoiceResultTimer);
+    homeChoiceResultTimer=null;
+    const result=document.getElementById('homeChoiceResult');
+    result?.classList.add('hidden');
+    renderLaneSpeaker(document.getElementById('homeChoiceSpeaker'),null,result);
+  }
+  function showHomeChoiceResult(text, speaker = null) {
+    // The choice overlay is transient: history-layer cleanup can hide it before
+    // its timer expires. V18 uses the ordinary notice owner and its queue.
+    if(document.body.dataset.homeDisplayVersion==='18' && homeUIV11()){
+      if(homeV11Upper('message',4,MESSAGE_DURATION_MS,()=>showMessage(text,MESSAGE_DURATION_MS,speaker)))return;
+      showMessage(text,MESSAGE_DURATION_MS,speaker);return;
+    }
+    if(homeV11Upper('choice',4,MESSAGE_DURATION_MS,()=>showHomeChoiceResult(text,speaker)))return;
+    const result=document.getElementById('homeChoiceResult');
+    if (!result) return;
+    hideHomeChoiceResult();
+    // Same authored narration and duration; show the actual subject alongside.
+    renderLaneSpeaker(document.getElementById('homeChoiceSpeaker'),speaker,result);
+    document.getElementById('homeChoiceText').textContent=text;
+    result.setAttribute('role','status');
+    result.classList.remove('hidden');
+    result.scrollTop=0;document.getElementById('homeChoiceText').scrollTop=0;
+    pointHomeSpeech();
+    homeChoiceResultTimer=setTimeout(hideHomeChoiceResult,MESSAGE_DURATION_MS);
+  }
+  function prepareIndividualityPopup(dialog) {
+    const home=el.device.classList.contains('ui-home-active') && !gameActive && !meguruActive;
+    dialog.classList.toggle('home-choice-popup',home);
+    dialog.setAttribute('aria-modal',String(!home));
+    individualityPopupFocus=home ? document.activeElement : null;
+    if(!homeUIV11())hideHomeChoiceResult();
+    renderLaneSpeaker(document.getElementById('individualitySpeaker'),null,dialog);
+    dialog.scrollTop=0;if(el.speechSlot)el.speechSlot.scrollTop=0;
+    if (!dialog.dataset.choiceInputBound) {
+      for (const type of ['pointerdown','pointerup','click']) dialog.addEventListener(type,e=>{
+        if (dialog.classList.contains('home-choice-popup')) e.stopPropagation();
+      });
+      dialog.dataset.choiceInputBound='true';
+    }
+    return ++individualityPopupSerial;
+  }
+  function individualityPopupAction(serial,fn) {
+    return event => {
+      // Stop before the action removes the popup class from the ancestor.
+      if (homeIndividualityPopupVisible()) event?.stopPropagation?.();
+      return individualityDialogOpen && serial===individualityPopupSerial ? fn() : false;
+    };
+  }
+  function resetIndividualityPopup(restoreFocus=false) {
+    const dialog=document.getElementById('individualityDialog');
+    dialog?.classList.remove('home-choice-popup');
+    dialog?.setAttribute('aria-modal','true');
+    individualityPopupSerial++;
+    const focus=individualityPopupFocus;individualityPopupFocus=null;
+    if (restoreFocus && focus?.isConnected) focus.focus?.();
+  }
   function closeIndividualityDialog(defer=true) {
     individualityDialogOpen=false;individualityDeferred=defer;
     document.getElementById('individualityDialog')?.classList.add('hidden');
     render();
+    resetIndividualityPopup(true);
   }
   function chooseIndividualityEvent(age,heart,lifeId) {
     if (!individualityWritable(lifeId) || !INDIVIDUALITY.choose(state.individuality,age,heart,lifeId)) return false;
+    const homeResult=homeIndividualityPopupVisible();
     const e=INDIVIDUALITY.data.events.find(e=>e.age===age),choice=e.choices.find(c=>c.heart===heart);
     pushLifeLog('🌱',`${age}さい：${choice.label}`);
-    closeIndividualityDialog(false);saveState();setMessage('その気持ちを、思い出にしまった。');render();return true;
+    closeIndividualityDialog(false);saveState();if(!homeResult)setMessage('その気持ちを、思い出にしまった。');render();
+    if(homeResult)showHomeChoiceResult('その気持ちを、思い出にしまった。');return true;
   }
   function showIndividualityEvent(force=false) {
     if(force)individualityDeferred=false;
     if (!individualityWritable() || individualityDeferred || individualityDialogOpen || gameActive || isAnyMenuOverlayOpen() || state.transformOptions || !el.storyFlash.classList.contains('hidden')) return false;
     const e=INDIVIDUALITY.pending(state.individuality)[0];if(!e)return false;
     const dialog=document.getElementById('individualityDialog');if(!dialog)return false;
+    const popupSerial=prepareIndividualityPopup(dialog);
     individualityDialogLife=state.individuality.lifeId;individualityDialogOpen=true;
     document.getElementById('individualityTitle').textContent=`${e.age}さい・${e.title}`;
     document.getElementById('individualityText').textContent='この子は、どんな気持ちで過ごすだろう。';
     const choices=document.getElementById('individualityChoices');choices.innerHTML='';
-    for(const choice of e.choices){const b=document.createElement('button');b.type='button';b.textContent=choice.label;const lifeId=individualityDialogLife;b.onclick=()=>chooseIndividualityEvent(e.age,choice.heart,lifeId);choices.appendChild(b);}
-    document.getElementById('individualityLater').onclick=()=>closeIndividualityDialog(true);
-    dialog.classList.remove('hidden');scheduleHistoryLayerSync();choices.querySelector?.('button')?.focus?.();return true;
+    for(const choice of e.choices){const b=document.createElement('button');b.type='button';b.textContent=choice.label;const lifeId=individualityDialogLife;b.onclick=individualityPopupAction(popupSerial,()=>chooseIndividualityEvent(e.age,choice.heart,lifeId));choices.appendChild(b);}
+    document.getElementById('individualityLater').onclick=individualityPopupAction(popupSerial,()=>closeIndividualityDialog(true));
+    dialog.classList.remove('hidden');scheduleHistoryLayerSync();choices.querySelector?.('button')?.focus?.({preventScroll:true});dialog.scrollTop=0;return true;
   }
   function chooseIndividualExchange(id,lifeId) {
     const e=INDIVIDUALITY.data.exchanges.find(e=>e.id===id);
     if(!e || !individualityWritable(lifeId) || !state.companions.some(c=>c.id===e.companion))return false;
     if(!individualExperience('kindness',e.category,e.id,lifeId))return false;
-    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();setMessage(e.reaction);render();return true;
+    const homeResult=homeIndividualityPopupVisible();
+    individualMeeting(e.companion);pushLifeLog('💬',e.reaction);closeIndividualityDialog(false);saveState();if(!homeResult)setMessage(e.reaction);render();
+    if(homeResult)showHomeChoiceResult(e.reaction,exchangeSpeaker(e));return true;
   }
   function maybeIndividualExchange() {
     if(!individualityWritable() || individualityDialogOpen || gameActive || isAnyMenuOverlayOpen() || state.isSick || state.isSleeping || INDIVIDUALITY.pending(state.individuality).length)return false;
@@ -10889,10 +11090,12 @@
     if(!pool.length)return false;const e=pool[Math.floor(Math.random()*pool.length)],lifeId=s.lifeId;
     s.lastCompanion=e.companion;s.lastExchangeAge=age;saveState();
     const dialog=document.getElementById('individualityDialog');if(!dialog)return false;
+    const popupSerial=prepareIndividualityPopup(dialog);
     individualityDialogOpen=true;individualityDialogLife=lifeId;
+    renderLaneSpeaker(document.getElementById('individualitySpeaker'),exchangeSpeaker(e),dialog);
     document.getElementById('individualityTitle').textContent='なかまと、ひととき';document.getElementById('individualityText').textContent=e.text;
-    const choices=document.getElementById('individualityChoices');choices.innerHTML='';const b=document.createElement('button');b.type='button';b.textContent=e.label;b.onclick=()=>chooseIndividualExchange(e.id,lifeId);choices.appendChild(b);
-    document.getElementById('individualityLater').onclick=()=>closeIndividualityDialog(true);dialog.classList.remove('hidden');scheduleHistoryLayerSync();b.focus?.();return true;
+    const choices=document.getElementById('individualityChoices');choices.innerHTML='';const b=document.createElement('button');b.type='button';b.textContent=e.label;b.onclick=individualityPopupAction(popupSerial,()=>chooseIndividualExchange(e.id,lifeId));choices.appendChild(b);
+    document.getElementById('individualityLater').onclick=individualityPopupAction(popupSerial,()=>closeIndividualityDialog(true));dialog.classList.remove('hidden');scheduleHistoryLayerSync();b.focus?.({preventScroll:true});dialog.scrollTop=0;return true;
   }
   function individualityLines() {
     const s=state.individuality;if(!s)return [];
@@ -11147,15 +11350,113 @@
     pushLifeLog('💊', 'びょうきをなおしてもらった');
   }
 
+  // V11 presentation ownership. Queues contain render callbacks, never rewards or save data.
+  function homeUIV11(){return document.body.dataset.homeProduction==='true' && ['11','12'].includes(document.body.dataset.homeViewportVersion);}
+  function homeV11Presentation(){
+    if(conv2Unit && conv2Unit.life!==state){conv2Abort('life');hideSpeechBubbleOnly();conversationTimers.forEach(clearTimeout);conversationTimers=[];conversationBusyUntil=0;}
+    let p=homeV11Presentation.current;
+    if(!p || p.life!==state){
+      if(p){clearTimeout(p.upperTimer);clearTimeout(p.lowerTimer);conv2Abort('life');hideSpeechBubbleOnly();conversationTimers.forEach(clearTimeout);conversationTimers=[];conversationBusyUntil=0;}
+      p=homeV11Presentation.current={life:state,upper:null,upperQueue:[],running:false,lowerUntil:0,lowerQueue:[],lowerTimer:null};
+    }
+    return p;
+  }
+  function homeV11ClearUpper(){
+    clearTimeout(messageTimer);messageTimer=null;message='';messageSpeaker=null;
+    clearTimeout(storyFlashTimer);storyFlashTimer=null;homeStoryCurrent=null;
+    clearTimeout(birthdayToastTimer);birthdayToastTimer=null;homeBirthdayCurrent=null;
+    clearTimeout(mgResultToastTimer);mgResultToastTimer=null;homeResultCurrent=null;
+    clearTimeout(homeChoiceResultTimer);homeChoiceResultTimer=null;
+    el.message.textContent='';el.message.classList.remove('hidden');
+    for(const id of ['homeActionComment','homeChoiceResult','storyFlash','birthdayToast','mgResultToast'])document.getElementById(id)?.classList.add('hidden');
+  }
+  function homeV11Upper(kind,priority,duration,draw){
+    if(!homeUIV11())return false;
+    const p=homeV11Presentation();if(p.running)return false;
+    const entry={kind,priority,duration,draw};
+    if(p.upper && priority===100){
+      clearTimeout(p.upperTimer);p.upperQueue.unshift(p.upper);p.upper=null;homeV11ClearUpper();
+    }
+    p.upperQueue.push(entry);homeV11DrainUpper();return true;
+  }
+  function homeV11DrainUpper(){
+    const p=homeV11Presentation();if(p.upper || !p.upperQueue.length)return;
+    if(!pageVisible() || gameActive || meguruActive || isAnyMenuOverlayOpen()){clearTimeout(p.upperTimer);p.upperTimer=setTimeout(homeV11DrainUpper,150);return;}
+    p.upperQueue.sort((a,b)=>b.priority-a.priority);
+    p.upper=p.upperQueue.shift();homeV11ClearUpper();
+    document.body.dataset.homeUpper=p.upper.kind;
+    p.running=true;try{p.upper.draw();}finally{p.running=false;}
+    p.upperTimer=setTimeout(()=>{if(p!==homeV11Presentation.current)return;p.upper=null;homeV11ClearUpper();delete document.body.dataset.homeUpper;homeV11DrainUpper();},p.upper.duration);
+  }
+  function homeV11SpeechBlocked(){
+    const p=homeV11Presentation();return p.lowerUntil>Date.now() || !!conv2Unit || individualityDialogOpen;
+  }
+  function homeV11HoldSpeech(run,important){
+    if(!homeUIV11())return false;
+    if(important && conv2Unit?.kind==='banter'){conv2Abort('interrupted');conversationBusyUntil=0;}
+    if(!homeV11SpeechBlocked())return false;
+    if(important)homeV11Presentation().lowerQueue.push(run);
+    homeV11DrainSpeech();return true;
+  }
+  function homeV11DrainSpeech(){
+    if(!homeUIV11())return;
+    const p=homeV11Presentation();clearTimeout(p.lowerTimer);
+    if(!p.lowerQueue.length)return;
+    p.lowerTimer=setTimeout(()=>{
+      if(p!==homeV11Presentation.current)return;
+      if(!pageVisible() || !emotionCueContextVisible() || homeV11SpeechBlocked()){homeV11DrainSpeech();return;}
+      const run=p.lowerQueue.shift();run();homeV11DrainSpeech();
+    },100);
+  }
+
+  // Ephemeral display queue: rewards and event generation stay with their owners.
+  const homeNoticeQueue=[];
+  let homeNoticeLife=null,homeStoryCurrent=null,homeBirthdayCurrent=null,homeResultCurrent=null;
+  function terrainNoticeMode(){return !!homeDiorama && window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region);}
+  function queueHomeNotice(kind,payload){
+    if(homeNoticeLife!==state){homeNoticeQueue.length=0;homeNoticeLife=state;}
+    const priority=kind==='result'?4:kind==='birthday'?0:payload.author||payload.character?3:payload.environmentMoment?1:2;
+    homeNoticeQueue.push({kind,payload,priority});
+  }
+  function drainHomeNotices(){
+    if(homeUIV11()){homeV11DrainUpper();return;}
+    if(homeNoticeLife!==state){homeNoticeQueue.length=0;homeNoticeLife=state;}
+    if(!terrainNoticeMode()||birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)return;
+    homeNoticeQueue.sort((a,b)=>b.priority-a.priority);
+    const next=homeNoticeQueue.shift();if(!next)return;
+    if(next.kind==='result')showMinigameResultToast(next.payload);else if(next.kind==='birthday')setBirthdayToast(next.payload);else showStoryEvent(next.payload);
+  }
+
+  document.addEventListener('visibilitychange',()=>{
+    if(homeUIV11()){
+      const p=homeV11Presentation();
+      if(pageVisible()){homeV11DrainUpper();return;}
+      clearTimeout(p.upperTimer);
+      if(p.upper){p.upperQueue.unshift(p.upper);p.upper=null;}
+      homeV11ClearUpper();delete document.body.dataset.homeUpper;return;
+    }
+    if(!terrainNoticeMode())return;
+    if(pageVisible()){drainHomeNotices();return;}
+    // Restart the interrupted display on return; no event or reward is generated here.
+    const interrupted=[];
+    if(storyFlashTimer){clearTimeout(storyFlashTimer);storyFlashTimer=null;el.storyFlash.classList.add('hidden');if(homeStoryCurrent)interrupted.push(['story',homeStoryCurrent]);homeStoryCurrent=null;}
+    if(birthdayToastTimer){clearTimeout(birthdayToastTimer);birthdayToastTimer=null;el.birthdayToast.classList.add('hidden');if(homeBirthdayCurrent)interrupted.push(['birthday',homeBirthdayCurrent]);homeBirthdayCurrent=null;}
+    if(mgResultToastTimer){if(homeResultCurrent)interrupted.push(['result',homeResultCurrent]);hideMinigameResultToast(false);}
+    for(const [kind,payload]of interrupted){queueHomeNotice(kind,payload);homeNoticeQueue.unshift(homeNoticeQueue.pop());}
+  });
+
   // 1さいごとの ちいさな トースト(操作を とめない)
   let birthdayToastTimer = null;
   function setBirthdayToast(text) {
+    if(homeV11Upper('birthday',1,1200,()=>setBirthdayToast(text)))return;
     if (!el.birthdayToast) return;
+    if(!homeUIV11()&&terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('birthday',text);return;}
+    homeBirthdayCurrent=text;
     setCommentText(el.birthdayToast, text, true);
     el.birthdayToast.classList.remove('hidden');
     clearTimeout(birthdayToastTimer);
     birthdayToastTimer = setTimeout(() => {
-      el.birthdayToast.classList.add('hidden');
+      el.birthdayToast.classList.add('hidden');birthdayToastTimer=null;homeBirthdayCurrent=null;drainHomeNotices();
     }, 1200);
   }
 
@@ -11249,10 +11550,10 @@
       careStoryTimer = setTimeout(() => {
         careStoryTimer = null;
         if (state !== life || careReactionSerial !== serial || !emotionCueContextVisible()) return;
-        showStoryEvent({...event,petReaction:true});
+        showStoryEvent({...event,petReaction:true,characterComment:!homeUIV11()});
       },delayMs);
     } else {
-      showStoryEvent({...event,petReaction:true});
+      showStoryEvent({...event,petReaction:true,characterComment:!homeUIV11()});
     }
   }
 
@@ -11260,6 +11561,21 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
+    if(homeUIV11()){
+      if(event.characterComment){
+        const speaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:petSpeaker();
+        setSpeechBubble(event.message,speaker,{important:true,storySpeaker:true,holdMs:STORY_FLASH_DURATION_MS});return;
+      }
+      if(homeV11Upper('story',event.achievement?5:3,STORY_FLASH_DURATION_MS,()=>showStoryEvent(event)))return;
+    }
+    if(!homeUIV11()&&terrainNoticeMode()&&(birthCelebration||!pageVisible()||storyFlashTimer||mgResultToastTimer||birthdayToastTimer)){queueHomeNotice('story',event);return;}
+    // Classification comes from the source, never from Japanese wording or emoji.
+    // Growth, birthdays and sex transition also carry petReaction: keep them above.
+    const lower=document.body.dataset.homeProduction==='true' && terrainNoticeMode() && !!event.characterComment;
+    el.storyFlash.dataset.comment=String(lower);
+    const destination=lower?(document.getElementById('homeCommentDock')||el.speechSlot):document.getElementById('homeEventSlot');
+    if(document.body.dataset.homeProduction==='true' && destination && el.storyFlash.parentNode!==destination)destination.appendChild(el.storyFlash);
+    homeStoryCurrent=event;
     invalidateCareAfterglow();
     clearPetExpression();
     audio.play('notify');
@@ -11268,10 +11584,18 @@
     if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
     else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
     else if (event.item) el.storyFlashEmoji.innerHTML = itemIconHTML(event.item);
-    else if (event.achievement) el.storyFlashEmoji.innerHTML = achievementIconHTML(event.achievement);
+    else if (event.achievement) el.storyFlashEmoji.innerHTML = document.body.dataset.homeProduction==='true' ? commentIconHTML('🏆') : achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
-    setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
+    const noticeSpeaker=event.author?{...WORLD_MASTER?.playerSpecies?.author,kind:'author'}:event.petReaction?petSpeaker():event.character?{...event.character,kind:'partner',label:event.character.label||event.character.name}:null;
+    if(noticeSpeaker){renderLaneSpeaker(el.storyFlashEmoji,noticeSpeaker,el.storyFlash);if(!lower && document.body.dataset.homeProduction==='true')el.storyFlashEmoji.innerHTML=commentSpeakerHTML(noticeSpeaker);}
+    else {el.storyFlashEmoji.dataset.label='';el.storyFlash.dataset.speakerId='';el.storyFlash.dataset.kind='';el.storyFlashEmoji.classList.remove('hidden');}
+    if(el.storyFlashName){
+      const label=document.body.dataset.homeProduction==='true' && terrainNoticeMode() && !lower ? el.storyFlashEmoji.dataset.label||'' : '';
+      el.storyFlashName.textContent=label;
+      el.storyFlashName.classList.toggle('hidden',!label);
+    }
+    setCommentText(el.storyFlashText, compactJapaneseText(terrainNoticeMode() && event.environmentMoment ? window.NaotocchiHomeDiorama.homeText(event.message) : event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
     renderPetVisual();
     cancelEmotionCue(true);
@@ -11280,8 +11604,9 @@
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
     clearTimeout(storyFlashTimer);
     storyFlashTimer = setTimeout(() => {
-      el.storyFlash.classList.add('hidden');
-      showIndividualityEvent();
+      el.storyFlash.classList.add('hidden');storyFlashTimer=null;homeStoryCurrent=null;
+      drainHomeNotices();
+      if(!storyFlashTimer)showIndividualityEvent();
       renderWorldScene();
       syncHomeEmotion();
       renderPetVisual();
@@ -11832,6 +12157,7 @@
       ? `${companion.name}とめがあった`
       : reunited ? `${companion.name}がまたきた` : `${companion.name}がこっちをみている`;
     el.companionInviteFlavor.textContent = companion.flavor;
+    el.companionInviteOverlay.dataset.companionId = companion.id;
     el.companionInviteOverlay.classList.toggle('rare', !!isRare);
     // まだ ミニゲームが はじまる まえに、ちゃんと 目に はいるよう
     // ひとこと メッセージらんにも のこす
@@ -11994,6 +12320,7 @@
   }
 
   function renderPetVisual() {
+    if (birthCelebration && (birthCelebration.life !== state || state.stage !== STAGE.GROWING || gameActive || meguruActive)) clearBirthCelebration();
     const reaction = eggVisualReaction?.life === state ? eggVisualReaction.kind : '';
     eggVisualReaction = null;
     // A new inner visual restarts a finite reaction without forcing layout or
@@ -12396,7 +12723,7 @@
     if (el.moneyLabel.innerHTML !== moneyHTML) el.moneyLabel.innerHTML = moneyHTML;
     el.moneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
     const visualForm = currentVisualForm();
-    el.mainNameLabel.textContent = isEgg ? 'たまご' : (SPECIES_DISPLAY_NAMES[visualForm.line] || currentStageLabel());
+    el.mainNameLabel.textContent = isEgg ? 'たまご' : document.body.dataset.homeProduction==='true' ? currentStageLabel() : (SPECIES_DISPLAY_NAMES[visualForm.line] || currentStageLabel());
     el.stageLabel.textContent = currentStageLabel();
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
     // だけ(長押し/ホバーで わかる)
@@ -12421,6 +12748,8 @@
     updateMeter(el.deathBar, hideLife ? 100 : 100 - state.deathMeter, 'death');
     updateMeter(el.transformBar, hideLife ? 0 : state.transformMeter, 'transform');
     el.lifeMeterRow.classList.toggle('hidden', state.infinite);
+    el.lifeMeterRow.classList.toggle('egg-story-progress', isEgg);
+    document.getElementById('deathMeterItem')?.classList.toggle('hidden', state.infinite);
 
     const goalAge = currentAge();
     updateMeter(el.goalBar, isDead ? 0 : goalAge, 'goal');
@@ -12432,8 +12761,8 @@
     el.poopRow.setAttribute('aria-hidden', String(state.poopCount === 0));
 
     const badges = [];
-    if (state.isSick && !isEgg && !isOver) badges.push(careIconHTML('sick', compactJapaneseText(state.sicknessType || 'びょうき'), '🤒'));
-    if (state.isSleeping && !isOver) badges.push(careIconHTML('sleep', 'ねむっている', '😴'));
+    if (!terrainNoticeMode() && state.isSick && !isEgg && !isOver) badges.push(careIconHTML('sick', compactJapaneseText(state.sicknessType || 'びょうき'), '🤒'));
+    if (!terrainNoticeMode() && state.isSleeping && !isOver) badges.push(careIconHTML('sleep', 'ねむっている', '😴'));
     if (state.boostTicks > 0 && !isEgg && !isOver) badges.push(`<span class="badge badge-boost" title="せいちょう2ばい（あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}分）">✨2ばい</span>`);
     const badgesHTML = badges.join('');
     if (el.badges.innerHTML !== badgesHTML) el.badges.innerHTML = badgesHTML;
@@ -12474,10 +12803,10 @@
     const seasonInfo = SEASON_INFO[effectiveSeason];
     setHTMLIfChanged(el.seasonLabel, seasonInfo ? `${environmentIconHTML('season',effectiveSeason,seasonInfo.emoji)} ${escapeHtml(seasonInfo.label)}` : '');
     setHTMLIfChanged(el.partnerLabel, state.partner
-      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
+      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> <span class="partner-name">${escapeHtml(compactJapaneseText(state.partner.label))}</span>${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
       : '');
     el.partnerLabel.title = state.partner
-      ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender, state.partner.attractedTo)}・${state.partner.married ? '夫婦' : 'こいびと'}`
+      ? `${compactJapaneseText(state.partner.label)}・${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender, state.partner.attractedTo)}・${state.partner.married ? '夫婦' : 'こいびと'}`
       : '';
     el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
     el.profileBtn.classList.toggle('hidden', isEgg || isOver);
@@ -12506,7 +12835,7 @@
     if (hasTransformChoice) renderTransformChoices();
 
     const homeMessage = message || (isDead ? '「あたらしいたまご」で、つぎの子をむかえよう'
-      : isEgg ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
+      : isEgg ? 'たまごをタップするか「あたためる」をおしてね' : '');
     if (!CARE_STATUS && setCommentText(el.message, homeMessage)) {
       el.message.scrollTop = 0;
     }
@@ -12538,6 +12867,8 @@
     el.infiniteBtn.title = state.infinite ? 'この子のいっしょうにもどる' : '♾️のせかいへ';
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
+    el.sleepBtn.title = state.isSleeping ? 'おきる' : 'ねる';
+    el.sleepBtn.dataset.sleeping = String(state.isSleeping);
     el.playWithBtn.querySelector('span').textContent = isEgg ? 'あたためる' : 'じゃれる';
     el.playWithBtn.title = isEgg ? 'たまごをあたためる' : 'じゃれる';
     el.playWithBtn.querySelector('i').dataset.careIcon = isEgg ? 'egg' : 'play';
@@ -12605,18 +12936,24 @@
     // そうさを おもんじる かくオーバーレイ)を ひらいている あいだ とめる。
     // はいけいエフェクト(region-decor/season-bg-fx)は デバイスの うしろに
     // かくれた ままなので、ここでは とめない
-    const suppressFrontFx = gameActive || hasTransformChoice || lifeCardVisible || isAnyMenuOverlayOpen();
+    // A compact Home choice pauses gameplay without replacing the Home layout.
+    // Keep this visual exception separate from the authoritative pause guards.
+    const homeCoveringOverlay = isAnyMenuOverlayOpen() && !homeIndividualityPopupVisible();
+    const suppressFrontFx = gameActive || hasTransformChoice || lifeCardVisible || homeCoveringOverlay;
     el.seasonFrontFx.classList.toggle('suppressed', suppressFrontFx);
     if (el.weatherFx) el.weatherFx.classList.toggle('suppressed', suppressFrontFx);
     if (el.timeTint) el.timeTint.classList.toggle('suppressed', gameActive);
 
     el.device.classList.toggle('ui-game-active', gameActive || meguruActive);
-    el.device.classList.toggle('ui-menu-open', isAnyMenuOverlayOpen());
+    el.device.classList.toggle('ui-menu-open', homeCoveringOverlay);
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
     el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
-      && !el.screenNormal.classList.contains('hidden') && !suppressFrontFx);
+      && !el.screenNormal.classList.contains('hidden') && (!suppressFrontFx || (
+        (['15','16','17','18'].includes(document.body.dataset.homeDisplayVersion) || document.body.dataset.homeDisplayVersion==='14' && pendingCompanionId==='snail') && companionInviteOpen
+        && !gameActive && !hasTransformChoice && !lifeCardVisible && !activeOverlay && !dateOpen && !duelOpen
+        && !pendingItemScene && !itemSceneRecord && !grandGoalPending && !dexDetail && !meguruActive && !individualityDialogOpen)));
     renderWorldScene(suppressFrontFx);
     renderHomeCast();
     positionWeatherSky();
@@ -12653,6 +12990,7 @@
     if(individualityDialogOpen) {
       individualityDialogOpen=false;individualityDeferred=true;
       document.getElementById('individualityDialog')?.classList.add('hidden');
+      resetIndividualityPopup();
     }
     restoreFocusToMenu();
     activeOverlay = null;
@@ -13976,7 +14314,7 @@
       el.pickerHint.textContent = 'へんしんする姿を1つ選んでね。決めるまで使わない';
       el.pickerGrid.className = 'theme-grid';
       const options = item.picker === 'transform-ticket' ? ticketTransformOptions : state.transformOptions;
-      html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge(), line)].label}</button>`).join('');
+      html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge(), line)].label}${transformNewBadge(line)}</button>`).join('');
     } else if (item.picker === 'dex' || item.picker === 'dex-form') {
       el.pickerGrid.className = 'theme-grid';
       el.pickerHint.textContent = '図鑑の枠を1つ選んでね。？？？は選んだあとに登録され、5分だけその姿になります。決めるまで使いません。';
@@ -14255,7 +14593,7 @@
   // 本体キャラの左右の列に表示する。話者の安定IDで短い反応を結びつける。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
-    const recruited = homePresentCompanions()
+    const recruited = homeResidentCompanions()
       .map((sc) => {
         const def = allCompanionsById(sc.id);
         return def ? {...def, ...relationshipVisual('companion',sc,def.asset)} : null;
@@ -14275,7 +14613,7 @@
   // 状態別のハートを添える。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
-    const p = !hide && homePresentPartner();
+    const p = !hide && homeResidentPartner();
     el.partnerCompanion.classList.toggle('hidden', !p);
     if (!p) {
       el.partnerCompanion.innerHTML = '';
@@ -14690,7 +15028,7 @@
   });
 
   function homeCastMotionRadius() {
-    const count = homePresentCompanions().filter(c=>allCompanionsById(c.id)).length;
+    const count = homeResidentCompanions().filter(c=>allCompanionsById(c.id)).length;
     return window.NaotocchiCastMotion?.motionRadiusFor(count) || 0;
   }
 
@@ -14784,12 +15122,33 @@
   let homeSpeechAnchors = null;
   function pointHomeSpeech() {
     if (!homeSpeechAnchors || !el.speechBubble) return;
+    if (terrainNoticeMode() && document.body.dataset.homeTerrain==='true') {
+      // Stable bottom slot: speech changes no actor, camera or navigation geometry.
+      el.speechSlot.style.setProperty('--terrain-speech-max','100%');
+      return;
+    }
     const {area,pet,actors,poop} = homeSpeechAnchors;
     const {kind,speakerId} = el.speechBubble.dataset;
     const point = actors.find(a=>a.kind===kind && a.id===speakerId) || pet;
+    if(terrainNoticeMode()&&window.NaotocchiHomeDiorama?.speechPlacement){
+      const r=el.castStage.getBoundingClientRect(),result=document.getElementById('homeChoiceResult');
+      // Intrinsic sizing is independent of the last speaker/line's slot width.
+      const maxWidth=Math.min(340,r.width-12);
+      el.speechSlot.style.setProperty('--terrain-speech-max',maxWidth+'px');
+      const bubble=el.speechBubble.getBoundingClientRect();
+      const resultVisible=result&&!result.classList.contains('hidden');
+      const bh=Math.max((bubble.height||0)+(resultVisible?result.getBoundingClientRect().height:0),1);
+      const choices=document.getElementById('speechChoices');if(choices)choices.style.maxHeight=Math.max(0,Math.min(160,r.height-bh-17))+'px';const ch=choices&&!choices.classList.contains('hidden')?(choices.getBoundingClientRect().height||100)+5:0;
+      const place=window.NaotocchiHomeDiorama.speechPlacement({speaker:{x:point.x+(point.dioramaX||0),y:point.y+(point.dioramaY||0),h:point.h||40},width:r.width,height:r.height,bubbleWidth:resultVisible?maxWidth:Math.max(1,bubble.width),bubbleHeight:bh,choicesHeight:ch});
+      if(choices)choices.style.maxHeight=place.choicesMaxHeight+'px';
+      el.speechSlot.style.setProperty('--terrain-choice-offset',Math.max(6,Math.min(r.width-maxWidth-6,point.x+(point.dioramaX||0)-maxWidth/2))-place.x+'px');
+      el.speechSlot.style.setProperty('--terrain-speech-x',place.x+'px');el.speechSlot.style.setProperty('--terrain-speech-y',place.y+'px');el.speechSlot.style.setProperty('--terrain-speech-w',place.w+'px');
+      el.speechSlot.dataset.terrainSide=place.side;el.speechBubble.style.setProperty('--speech-tail-x',window.NaotocchiHomeDiorama.speechTail(place.tail,place.w,bubble.width)+'px');return;
+    }
     // Only constrain the tail when the completed poop row is at its height.
     // A row below the bubble must not pull even the main speaker's tail aside.
-    let x = clamp(point.x-area.x,12,area.w-12);
+    const pointX = point.x+(point.dioramaX||0);
+    let x = clamp(pointX-area.x,12,area.w-12);
     if (poop.y<area.y+1 && poop.y+poop.h>area.y-5) {
       const left=poop.x-area.x-9,right=poop.x+poop.w-area.x+9;
       if(x>left && x<right) {
@@ -14798,33 +15157,36 @@
       }
     }
     el.speechBubble.style.setProperty('--speech-tail-x',x+'px');
-    el.speechBubble.style.setProperty('--speech-tail-tip',point.x<area.x+area.w/2-16?'0%':point.x>area.x+area.w/2+16?'100%':'50%');
+    el.speechBubble.style.setProperty('--speech-tail-tip',pointX<area.x+area.w/2-16?'0%':pointX>area.x+area.w/2+16?'100%':'50%');
   }
 
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
     const main = currentVisualStage();
-    const p = homePresentPartner();
+    const p = homeResidentPartner();
     const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[p?.id] || p?.id;
     const partnerAsset = WORLD_MASTER?.partners?.find(def => def.id === partnerId)?.asset;
-    const recruited = homePresentCompanions().map(sc => allCompanionsById(sc.id)).filter(Boolean);
+    const recruited = homeResidentCompanions().map(sc => allCompanionsById(sc.id)).filter(Boolean);
     // Let sparse scenes share more of the available height with the care keys.
     // Measure after changing this attribute, before starting a speech reaction.
     el.device.dataset.castCrowded = String(recruited.length > 0);
-    const stageRect = el.castStage.getBoundingClientRect();
-    const width = Math.floor(stageRect.width);
-    const conversationHeight = el.speechSlot.getBoundingClientRect().height || 44;
+    el.device.dataset.homeHousehold = 1 + Number(!!p) + recruited.length > 5 ? 'crowded' : 'small';
+    const stageRect = (document.body.dataset.homeViewportVersion==='12' && window.NaotocchiHomeViewport?.presentationRect?.(el.castStage)) || el.castStage.getBoundingClientRect();
+    const width = document.body.dataset.homeViewportVersion==='12'?Math.round(stageRect.width):Math.floor(stageRect.width);
+    const conversationHeight = terrainNoticeMode() ? 44 : el.speechSlot.getBoundingClientRect().height || 44;
     const height = el.device.classList.contains('ui-home-active') ? Math.max(108+conversationHeight,Math.floor(stageRect.height)) : undefined;
     if (width < 240) return;
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
-    const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
-    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); return; }
+    const args = {width,height,conversationHeight,overview:homeDiorama?.overview()||false,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married, currentEnvironment().region, state.stage]);
+    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); renderHomeDiorama(); return; }
     homeCastLayoutKey = key;
     castMotion?.clear();
-    const layout = window.NaotocchiCast.layoutHomeCast(args);
+    const baseLayout = window.NaotocchiCast.layoutHomeCast(args);
+    const layout = window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region) && ![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)
+      ? window.NaotocchiHomeDiorama.layoutTerrainCast(args) : baseLayout;
     relationshipCastFrames={layout,recruited,args};
     for(const actor of homeCastActors())relationshipMotionTokens.delete(actor.node);
     const area=layout.conversation;
@@ -14837,7 +15199,7 @@
     el.petArea.style.setProperty('--home-poop-step',(layout.poops[1].x-layout.poops[0].x)+'px');
     const anchor=(frame,path)=>{
       const b=window.NaotocchiCastBounds?.[path]?.box || [0,0,128,128];
-      return {x:frame.x+frame.w*(b[0]+b[2])/256};
+      return {x:frame.x+frame.w*(b[0]+b[2])/256,y:frame.y+frame.h*b[3]/128+(frame.artOffsetY||0),h:frame.h*(b[3]-b[1])/128};
     };
     homeSpeechAnchors={area,poop:{...layout.poops[0],w:layout.poops[3].x+layout.poops[3].w-layout.poops[0].x},pet:anchor(layout.main,args.mainAsset),actors:[
       ...(layout.partner?[{kind:'partner',id:p.id,...anchor(layout.partner,args.partnerAsset)}]:[]),
@@ -14851,7 +15213,10 @@
       node.style.fontSize = Math.floor(frame.w * .8) + 'px';
     };
     el.castStage.style.height = height ? '' : layout.height + 'px';
-    el.castStage.style.minHeight = height && layout.height > height ? layout.height + 'px' : '';
+    // Keep the crowd floor applied at equality; clearing it here creates a
+    // shrink/grow ResizeObserver loop whenever notifications consume Home space.
+    const crowdFloor = window.NaotocchiHomeDioramaModel?.supported(currentEnvironment().region) && 1 + Number(hasPartner) + recruited.length > 5 && ![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage);
+    el.castStage.style.minHeight = crowdFloor ? '300px' : height && layout.height > height ? layout.height + 'px' : '';
     place(el.petSprite,layout.main);place(el.partnerCompanion,layout.partner);place(el.petAccessory,layout.accessory);
     el.petSprite.style.setProperty('--cast-art-offset-y',(layout.main.artOffsetY || 0) + 'px');
     // Attach illness marks to painted pixels, not the often-empty upper PNG
@@ -14877,6 +15242,64 @@
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
     renderRelationshipReactions();
+    renderHomeDiorama();
+  }
+
+  // This bridge supplies visual copies only: attendance, art and save stay owned above.
+  function dioramaActors() {
+    if (!relationshipCastFrames) return [];
+    const {layout,recruited,args}=relationshipCastFrames;
+    return homeCastActors().filter(a=>a.kind!=='accessory').map(a=>{
+      const i=recruited.findIndex(c=>c.id===a.id);
+      const f=a.kind==='pet'?layout.main:a.kind==='partner'?layout.partner:layout.companions[i];
+      const path=a.kind==='pet'?args.mainAsset:a.kind==='partner'?args.partnerAsset:args.companions[i];
+      if(!f)return null;
+      const b=window.NaotocchiCastBounds?.[path]?.box||[0,0,128,128];
+      const owner=a.kind==='partner'?el.partnerCompanion:a.node;
+      const label=a.kind==='pet'?(currentVisualStage().label||SPECIES_DISPLAY_NAMES[currentVisualForm().line]||currentStageLabel()):a.kind==='partner'?(state.partner?.label||'こいびと'):(recruited[i]?.name||recruited[i]?.label||'なかま');
+      const x=f.x+f.w*(b[0]+b[2])/256,y=f.y+f.h*b[3]/128+(f.artOffsetY||0);
+      const w=f.w*(b[2]-b[0])/128,h=f.h*(b[3]-b[1])/128;
+      const extras=(a.kind==='partner'?[layout.ring,...layout.hearts]:a.kind==='pet'?[layout.accessory]:[]).filter(Boolean);
+      // Reserve original solver-owned attachments, including ring/heart motion clearance.
+      const extent={left:w/2,right:w/2,top:h,bottom:0};
+      for(const r of extras){extent.left=Math.max(extent.left,x-r.x+6);extent.right=Math.max(extent.right,r.x+r.w-x+6);extent.top=Math.max(extent.top,y-r.y+6);extent.bottom=Math.max(extent.bottom,r.y+r.h-y+6);}
+      return {key:a.kind+':'+a.id,kind:a.kind,id:a.id,label,node:a.node,owner,asset:path,originX:(b[0]+b[2])/256*100,
+        temperament:a.kind==='pet'?{...state.individuality?.temperament}:null,
+        attachments:a.kind==='pet'&&!el.petAccessory.classList.contains('hidden')?[el.petAccessory]:[],x,y,w,h,extent};
+    }).filter(Boolean);
+  }
+  function homeDioramaBlocked() {
+    const passiveHome=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12';
+    const idleSpeech=passiveHome && speechActive && el.speechBubble.dataset.reactionEvent==='idle';
+    const conversationLock=passiveHome
+      ? individualityDialogOpen || !!(conv2Unit && conv2Unit.kind!=='banter') || homeV11Presentation().lowerUntil>Date.now()
+      : speechActive || conversationIsBusy();
+    // Keep the existing hatch pose while its 2.8s presentation owns the notice.
+    return !!birthCelebration || gameActive || meguruActive || document.visibilityState==='hidden' || isAnyMenuOverlayOpen()
+      || state.isSleeping || state.isSick || state.dying || !!state.transformOptions || conversationLock
+      || !el.lifeCardOverlay.classList.contains('hidden') || (!passiveHome && !el.storyFlash.classList.contains('hidden'))
+      || document.body.classList.contains('movie-active') || el.screenNormal.classList.contains('hidden')
+      || !!el.castResponse.dataset.reaction
+      || homeCastActors().some(a=>a.node.dataset.reaction&&!['look','curious','nod','breathe','sway','posture'].includes(a.node.dataset.reaction)
+        && !(idleSpeech && ['bounce','settle','shy','wiggle'].includes(a.node.dataset.reaction)));
+  }
+  window.addEventListener('home-v6-egg-ready',()=>renderHomeCast());
+  window.addEventListener('dayparts-qa-change',()=>renderHomeDiorama());
+  function renderHomeDiorama() {
+    if (!window.NaotocchiHomeDiorama) return;
+    if (!homeDiorama) homeDiorama=window.NaotocchiHomeDiorama.createController({
+      stage:el.castStage,document,env:window,guideKey:SAVE_KEY+':home-guide-v1',getActors:dioramaActors,isBlocked:homeDioramaBlocked,
+      isVisible:()=>!gameActive&&!meguruActive&&(!isAnyMenuOverlayOpen()||homeIndividualityPopupVisible())&&!el.screenNormal.classList.contains('hidden'),
+      getMeguru:()=>meguruMod,getProfile:region=>meguruMod?.REGION3D[region],getWorld:region=>meguruMod?.WORLDS[region],
+      onGesture:(actor,mood)=>castMotion?.gesture(actor,mood),
+      onViewChange:()=>{homeCastLayoutKey='';renderHomeCast();},
+      onPosition:(actor,dx,dy)=>{
+        const anchor=actor.kind==='pet'?homeSpeechAnchors?.pet:homeSpeechAnchors?.actors.find(a=>a.kind===actor.kind&&a.id===actor.id);
+        if(anchor&&(anchor.dioramaX!==dx||anchor.dioramaY!==dy)){anchor.dioramaX=dx;anchor.dioramaY=dy;pointHomeSpeech();}
+      },
+    });
+    homeDiorama?.update(currentEnvironment(),{tier:mgPerfTier,available:![STAGE.EGG,STAGE.DEAD,STAGE.FAREWELL].includes(state.stage)});
+    window.HomeV6Egg?.update({active:state.stage===STAGE.EGG&&currentEnvironment().region==='home',stage:el.castStage,sprite:el.petSprite,asset:currentVisualStage().asset,...currentEnvironment()});
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {
@@ -14938,6 +15361,7 @@
     }
     maybeRefreshEnvironment();
     renderWorldScene();
+    renderHomeDiorama();
   }
 
   function renderWorldScene(paused = false) {
@@ -14974,6 +15398,11 @@
     return line === SECRET_LINE && !state.discoveredStages.some((e) => e.startsWith(`${SECRET_LINE}:`));
   }
 
+  function transformNewBadge(line) {
+    const key = canonicalDexKey(`${line}:${stageForAge(currentAge(), line)}`);
+    return knownDexKeys().has(key) ? '' : '<span class="transform-new-badge" aria-label="未発見">NEW</span>';
+  }
+
   function renderTransformChoices() {
     // RH-8: 知らない しゅぞく(未来の save など)は えがかない(save には のこる)
     const options = (state.transformOptions || []).filter((line) => SPECIES[line] || isHiddenTransformLine(line));
@@ -14984,6 +15413,7 @@
             <button class="transform-choice-btn mystery" data-line="${line}">
               <span class="transform-choice-emoji">🕯️</span>
               <span>？？？</span>
+              ${transformNewBadge(line)}
             </button>
           `;
         }
@@ -14992,6 +15422,7 @@
           <button class="transform-choice-btn" data-line="${line}">
             <span class="transform-choice-emoji">${stageVisualHTML(stage, 'thumb')}</span>
             <span>${stage.label}</span>
+            ${transformNewBadge(line)}
           </button>
         `;
       })
@@ -15337,13 +15768,24 @@
     },
   };
   // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
-  // Home is a static care stage: project visits into the existing cast, not a second movement AI.
+  // One special visit event; household rendering is independent of that event.
   var homeVisits = null, homeVisitLast = null, homeVisitLife = null;
   function homeInitiative(type,key) {
     const session=meguruMod?.socialSession;
     if(!session || !session.attempt(type,key))return false;
     session.emit(type,key,{context:'home',reason:'idle'});return true;
   }
+  // Membership renders residents. Visits remain the sole conversation/event gate.
+  // Deduplicate legacy aliases without writing back into gameplay state.
+  function homeResidentCompanions() {
+    const seen=new Set();
+    return state.companions.filter(c=>{
+      const id=canonicalCompanionId(c.id);
+      if(seen.has(id)||!allCompanionsById(id))return false;
+      seen.add(id);return true;
+    });
+  }
+  function homeResidentPartner() {return state.partner;}
   function homePresentCompanions() {
     const key=homeVisits?.current?.key;
     return state.companions.filter(c=>'companion:'+canonicalCompanionId(c.id)===key);
@@ -15442,7 +15884,7 @@
   }
   function startMeguru() {
     if (!meguruMod || gameActive || meguruActive || !el.meguruOverlay) return false;
-    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }
+    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }
     closeAllMenuOverlays();
     clearConversationTimers();
     hideSpeechBubble();
@@ -16567,13 +17009,16 @@
   }
 
   let mgResultToastTimer = null;
-  function hideMinigameResultToast() {
+  function hideMinigameResultToast(continueNotices=true) {
     clearTimeout(mgResultToastTimer);
-    mgResultToastTimer = null;
+    mgResultToastTimer = null;homeResultCurrent=null;
     el.mgResultToast?.classList.add('hidden');
+    if(continueNotices)drainHomeNotices();
   }
   function showMinigameResultToast(result) {
+    if(homeUIV11() && result && homeV11Upper('result',5,lastMinigame?6000:3600,()=>showMinigameResultToast(result)))return lastMinigame?6000:3600;
     if (!el.mgResultToast || !result) return;
+    if(!homeUIV11()&&terrainNoticeMode()&&(birthCelebration||!pageVisible())){queueHomeNotice('result',result);return 0;}
     let sub;
     let subClass = 'mg-result-sub';
     if (result.prevBest == null) sub = 'はじめての記録!';
@@ -16593,8 +17038,12 @@
     const duration = retry ? 6000 : 3600;
     el.mgResultToast.style.animationDuration = `${duration}ms`;
     // アニメーションを あたまから やりなおす ために いちど けして つけなおす
-    hideMinigameResultToast();
-    hideSpeechBubble();
+    hideMinigameResultToast(false);homeResultCurrent=result;
+    if(terrainNoticeMode()){
+      if(storyFlashTimer){clearTimeout(storyFlashTimer);storyFlashTimer=null;el.storyFlash.classList.add('hidden');if(homeStoryCurrent)queueHomeNotice('story',homeStoryCurrent);homeStoryCurrent=null;}
+      if(birthdayToastTimer){clearTimeout(birthdayToastTimer);birthdayToastTimer=null;el.birthdayToast.classList.add('hidden');if(homeBirthdayCurrent)queueHomeNotice('birthday',homeBirthdayCurrent);homeBirthdayCurrent=null;}
+    }
+    if(!homeUIV11())hideSpeechBubble();
     void el.mgResultToast.offsetWidth;
     el.mgResultToast.classList.remove('hidden');
     // ボタンが あるときは おす よゆうを もたせて ながめに 出す
@@ -17044,7 +17493,7 @@
       pendingCompanionId = null;
       if (companion) message = `${companion.name}とのあそびは途中でおわり。また今度さそってみよう`;
     }
-    if (game && minigameInfo(game).name) message = `${minigameInfo(game).emoji} ${message}`;
+    if (game && minigameInfo(game).name) message = `${document.body.dataset.homeProduction==='true' ? '🎮' : minigameInfo(game).emoji} ${message}`;
     setMessage(message);
     emotePet('happy');
     if (!isQuick) checkMeters();
@@ -17343,7 +17792,7 @@
     // タイトル/せつめい文(.mg-title など、がめん じょうぶ)と おなじ いちに
     // 重なって かくれてしまう ことが あった ので、ミニゲームが はじまる
     // しゅんかんに かならず とじる ようにする
-    clearTimeout(storyFlashTimer);
+    clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;
     el.storyFlash.classList.add('hidden');
     el.screenNormal.classList.add('hidden');
     el.minigameOverlay.classList.remove('hidden');
@@ -17801,6 +18250,7 @@
 
   function withFeedback(fn, afterRender) {
     return () => {
+      homeDiorama?.interrupt();
       const reactionSerial = invalidateCareAfterglow();
       clearPetExpression();
       clearConversationTimers();
@@ -17817,7 +18267,7 @@
 
   el.feedBtn.addEventListener('click', withFeedback(() => {
     if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingFeed'));
+      setActionComment(randomBlockedMessage('sleepingFeed'));
       return;
     }
     const overfed = state.hunger >= 80;
@@ -17850,7 +18300,7 @@
     state.happiness = clamp(state.happiness + 3, 0, 100);
     applyGrowth(4); applyDecline(-4);
     if (!checkMeters()) {
-      setMessage(randomActionMessage('feed'));
+      setActionComment(randomActionMessage('feed'));
       speakEvent('feed');
       checkStoryEvents('feed');
       return {fed:true,reacted:true};
@@ -17952,7 +18402,7 @@
   function tryStartPlay(chosenGame) {
     if (gameActive) return false;
     if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingPlay'));
+      setActionComment(randomBlockedMessage('sleepingPlay'));
       saveState();
       render();
       return false;
@@ -17961,7 +18411,7 @@
     if (state.stage === STAGE.DEAD || state.stage === STAGE.EGG || state.transformOptions) return false;
     if (!isQuick && Date.now() < gamePassReadyAt()) return false;
     if (!isQuick && state.energy < 10) {
-      setMessage(randomBlockedMessage('lowEnergyPlay'));
+      setActionComment(randomBlockedMessage('lowEnergyPlay'));
       saveState();
       render();
       return false;
@@ -17993,7 +18443,7 @@
 
   el.cleanBtn.addEventListener('click', withFeedback(() => {
     if (state.poopCount === 0) {
-      setMessage(randomBlockedMessage('cleanAlready'));
+      setActionComment(randomBlockedMessage('cleanAlready'));
       return;
     }
     state.poopCount = 0;
@@ -18004,7 +18454,7 @@
     applyGrowth(4); applyDecline(-5);
     checkStoryEvents('poop-clean');
     if (!checkMeters()) {
-      setMessage(randomActionMessage('clean'));
+      setActionComment(randomActionMessage('clean'));
       speakEvent('clean');
     }
     emotePet('happy');
@@ -18021,7 +18471,7 @@
       // 回復は専用タイマーで連続して行う。最初の1ステップも押した瞬間に
       // 入るので見た目の待ち時間はない。成長ボーナスは十分な睡眠時間を
       // とった場合だけなので、寝る/起きる連打で得をすることはない
-      setMessage(randomActionMessage('sleep'));
+      setActionComment(randomActionMessage('sleep'));
       speakEvent('sleep');
       startSleepRecovery();
       return;    }
@@ -18031,7 +18481,7 @@
     if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }
     state.sleptTicks = 0;
     if (!checkMeters()) {
-      setMessage(randomActionMessage('wake'));
+      setActionComment(randomActionMessage('wake'));
       speakEvent('wake');
       checkStoryEvents('wake');
     }
@@ -18050,7 +18500,7 @@
       recordSicknessCure();
       checkStoryEvents('medicine-cure');
       if (!checkMeters()) {
-        setMessage(randomActionMessage('cure'));
+        setActionComment(randomActionMessage('cure'));
         speakEvent('medicine_cure');
         return {cured:true,reacted:true};
       }
@@ -18083,8 +18533,8 @@
     eggVisualReaction = { life:state, kind:state.stage === STAGE.EGG ? 'warm' : 'hatch' };
     if (state.stage === STAGE.EGG) {
       const pct = Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100));
-      const response = pct >= 80 ? 'ひびがひろがった。もうすぐ会えそう' : pct >= 40 ? '小さなひびがはいった。中でもぞもぞ' : '中でもぞもぞうごいている';
-      setMessage(`たまごをあたためた…${response} ${pct}%`);
+      const response = pct >= 80 ? 'もうすぐ、あえそうだ。' : pct >= 60 ? 'たまごが、こつんとゆれた。' : pct >= 40 ? 'なかで、なにかがうごいた気がする。' : 'たまごが、ほんのりあたたかい。';
+      setMessage(response);
     }
     return true;
   }
@@ -18103,7 +18553,7 @@
     // たまごの あいだは「あたためる」あつかい。せいちょうが たまると かえる
     if (warmEgg()) return;
     if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingPet'));
+      setActionComment(randomBlockedMessage('sleepingPet'));
       return;
     }
     state.affectionStreak += 1;
@@ -18169,9 +18619,9 @@
       `${candidate.emoji} ${candidate.label}とはじめて目があった。`,
       'なんとなく、また会う気がした。',
     ];
-    showStoryEvent({ emoji: candidate.emoji, character:candidate, message: beats[0] });
+    showStoryEvent({ emoji: candidate.emoji, character:candidate, characterComment:true, message: beats[0] });
     beats.slice(1).filter(Boolean).forEach((text, index) => {
-      conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, character:candidate, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, character:candidate, characterComment:true, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));
     });
     pushLifeLog(candidate.emoji, `${candidate.label}とはじめてであった`);
     state.happiness = clamp(state.happiness + 3, 0, 100);
@@ -18184,7 +18634,7 @@
   // 一生のあいだ 1にん だけの、じみに おだやかな 恋愛システム
   el.courtBtn.addEventListener('click', withFeedback(() => {
     if (state.isSleeping) {
-      setMessage(randomBlockedMessage('sleepingCourt'));
+      setActionComment(randomBlockedMessage('sleepingCourt'));
       return;
     }
     state.affectionStreak = 0;
@@ -18318,7 +18768,9 @@
       const reaction = pickReaction(COURT_FRIEND_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
-        setMessage(`${candidate.emoji} ${candidate.label}:${reaction}`);
+        if(document.body.dataset.homeProduction==='true' && terrainNoticeMode())
+          (homeUIV11()?setSpeechBubble:setActionComment)(reaction,{...candidate,kind:'partner'}, {important:true,storySpeaker:true});
+        else setMessage(`${candidate.emoji} ${candidate.label}:${reaction}`);
       }
       emotePet('happy');
       return;
@@ -18386,6 +18838,8 @@
     }
   }));
 
+  document.getElementById('homeGuideReplayBtn')?.addEventListener('click',()=>{closeOverlay('menu');render();homeDiorama?.replayGuide();render();});
+  document.getElementById('homeGuideDismissBtn')?.addEventListener('click',()=>{homeDiorama?.dismissGuide();render();});
   el.menuBtn.addEventListener('click', () => openExclusiveMenu('menu'));
   el.menuCloseBtn.addEventListener('click', () => { closeOverlay('menu'); render(); });
   el.worldBtn.addEventListener('click', () => openExclusiveMenu('world'));
@@ -18462,7 +18916,7 @@
     const info = await requestEnvironment();
     const locality = window.NaotocchiLocalScenery?.resolveLocality?.(info?.municipality);
     if (intent !== currentLocationIntent || !overlayIs('travel') || !locality) return;
-    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); render(); return; }
+    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); render(); return; }
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD || state.transformOptions || gameActive) return;
     // The real municipality labels the home region; it is never invented as a
     // new biome or allowed to unlock special regions/region achievements.
@@ -18503,7 +18957,7 @@
   // ランダム移動時と まったく おなじ ロジックで、行き先だけが
   // 「ランダムに えらばれた もの」から「タップで えらんだ もの」に かわった
   function travelToRegion(region, choice) {
-    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }
+    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }
     if (region?.special && !hasPerk(70)) { setMessage('そのばしょへつづく道はまだ見つからない');render();return false; }
     if (!travelStartAllowed(region)) return false;
     const sameLocalHome = region.id === 'home' && currentRegionId() === 'home' && state.lifetime.currentLocationSelected;
@@ -18655,7 +19109,9 @@
     const companion = allCompanionsById(pendingCompanionId);
     pendingCompanionId = null;
     closeCompanionInvite();
-    setMessage(companion
+    if(companion && document.body.dataset.homeProduction==='true' && terrainNoticeMode())
+      setActionComment('「またこんどね」とかえっていった',{kind:'companion',id:companion.id,label:companion.name});
+    else setMessage(companion
       ? `${companion.emoji} ${companion.name}は「またこんどね」とかえっていった`
       : 'またこんどあそぼう');
     emotePet('happy');
@@ -18797,7 +19253,7 @@
     // companionsRecruited/partnersRecorded/partnersMarried)は べつに
     // のこるので、これまで であった なかま/こいびとの コレクションじたいは
     // きえないが、つぎの いっしょうでは また いちから であいなおす ひつようが ある
-    clearTimeout(storyFlashTimer);
+    clearTimeout(storyFlashTimer);storyFlashTimer=null;homeNoticeQueue.length=0;homeStoryCurrent=null;
     el.storyFlash.classList.add('hidden');
     endingCelebrationShown = false;
     el.gameClearOverlay.querySelectorAll('.ending-particle').forEach((p) => p.remove());
@@ -19070,6 +19526,7 @@
   }
 
   el.profileBtn.addEventListener('click', () => openExclusiveMenu('profile'));
+  el.partnerLabel.addEventListener('click', () => openExclusiveMenu('profile'));
 
   el.profileCloseBtn.addEventListener('click', () => {
     closeOverlay('profile');
@@ -19817,7 +20274,7 @@
   // (Tab で うしろに 行かない・読み上げで 読まない)。下の ボタンの 列と ヘッダーは パネルの きりかえに つかう ので そのまま
   function syncModalInert() {
     if (!el.screenNormal) return;
-    const modal = isAnyMenuOverlayOpen() && !meguruActive || !!state.transformOptions
+    const modal = isAnyMenuOverlayOpen() && !meguruActive && !homeIndividualityPopupVisible() || !!state.transformOptions
       || !el.wipeConfirmOverlay.classList.contains('hidden') || !el.wipeOverlay.classList.contains('hidden')
       || !el.lifeCardOverlay.classList.contains('hidden');
     if (el.screenNormal.inert !== modal) el.screenNormal.inert = modal;
@@ -19826,7 +20283,7 @@
     historySyncQueued = false;
     syncModalInert();
     // ホームの上に別の画面が開いた。進行中の会話はここでおしまい(閉じて戻っても続きは出さない)
-    if (historyLayerOpen()) conv2LeaveScene('scene');
+    if (historyLayerOpen()) { hideHomeChoiceResult(); conv2LeaveScene('scene'); }
     if (typeof history === 'undefined' || typeof history.pushState !== 'function') return;
     const open = historyLayerOpen();
     if (open && !historyLayer) { history.pushState({ nt: 'layer' }, ''); historyLayer = true; }
@@ -19867,3 +20324,4 @@
   globalThis.__naotocchiBooted = true;
   globalThis.__naotocchiBootGuard?.done?.();
 })();
+

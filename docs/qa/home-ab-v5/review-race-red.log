@@ -1,0 +1,32 @@
+✔ latest preset wins when clicked while a previous scene is loading (5.829537ms)
+✔ measurement controls preserve background errors instead of showing safe counts (0.821371ms)
+✔ measurement waits for the requested candidate before reporting readiness (0.747082ms)
+✔ static composites use the completed snapshot while a newer request is queued (4.012507ms)
+✖ loading locks layout and motion until both panes and exports agree (2.049953ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 92.137676
+
+✖ failing tests:
+
+test at tests/home-ab-gallery-test.cjs:23:1
+✖ loading locks layout and motion until both panes and exports agree (2.049953ms)
+  AssertionError [ERR_ASSERTION]: landscape is locked during loading
+  
+  false !== true
+  
+      at TestContext.<anonymous> (/dev/shm/naotocchi-home-b-75951/tests/home-ab-gallery-test.cjs:27:120)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

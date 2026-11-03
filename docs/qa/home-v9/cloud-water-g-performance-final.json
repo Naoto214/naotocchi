@@ -1,0 +1,489 @@
+{
+  "candidate": "water-g",
+  "environment": {
+    "mode": "art-25d",
+    "region": "river_lake",
+    "candidate": "water-g",
+    "loaded": true,
+    "error": null,
+    "destroyed": false,
+    "animationTime": 12550,
+    "projectionRevision": 4,
+    "renderer": {
+      "mode": "canvas-2d-art",
+      "objects": 2,
+      "images": 1,
+      "decodedBytes": 6291456
+    }
+  },
+  "performance": {
+    "seconds": 10,
+    "frames": 13,
+    "medianFrameMs": 1016.3999999999996,
+    "p95FrameMs": 1016.5,
+    "metrics": {
+      "blocked": {
+        "isBlocked": false,
+        "sleeping": false,
+        "sick": false,
+        "dying": false,
+        "transform": false,
+        "speechActive": false,
+        "busy": false,
+        "gameActive": false,
+        "meguruActive": false,
+        "menu": false,
+        "life": false,
+        "story": false,
+        "normalHidden": false,
+        "reactions": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "cast": [
+        {
+          "key": "pet:dog",
+          "x": 207,
+          "y": 234.33333333333334,
+          "w": 38,
+          "h": 44.333333333333336,
+          "activity": "solitude",
+          "target": null
+        },
+        {
+          "key": "partner:forest_bear",
+          "x": 83.45,
+          "y": 119.09000000000003,
+          "w": 34.48148148148148,
+          "h": 35.46666666666667,
+          "activity": "approach",
+          "target": null
+        },
+        {
+          "key": "companion:cat_friend",
+          "x": 161.45,
+          "y": 171.74,
+          "w": 35.46666666666666,
+          "h": 28.89876543209876,
+          "activity": "look",
+          "target": null
+        },
+        {
+          "key": "companion:tanuki",
+          "x": 286.25,
+          "y": 247.79000000000002,
+          "w": 32.29808805031446,
+          "h": 34.934666666666665,
+          "activity": "sit",
+          "target": null
+        },
+        {
+          "key": "companion:owl",
+          "x": 160.52374842767296,
+          "y": 288.93466666666666,
+          "w": 25.04749685534591,
+          "h": 34.934666666666665,
+          "activity": "together",
+          "target": null
+        },
+        {
+          "key": "companion:hamster",
+          "x": 300.7615824915825,
+          "y": 328.93466666666666,
+          "w": 33.52316498316498,
+          "h": 34.934666666666665,
+          "activity": "turn",
+          "target": null
+        },
+        {
+          "key": "companion:monkey",
+          "x": 155.27221183800623,
+          "y": 248.40266666666668,
+          "w": 30.544423676012467,
+          "h": 34.402666666666676,
+          "activity": "look",
+          "target": null
+        },
+        {
+          "key": "companion:sheep",
+          "x": 45.20133333333334,
+          "y": 142.17286419753086,
+          "w": 34.40266666666667,
+          "h": 32.17286419753086,
+          "activity": "turn",
+          "target": null
+        },
+        {
+          "key": "companion:bat",
+          "x": 128.49530817610062,
+          "y": 192.40266666666668,
+          "w": 24.990616352201254,
+          "h": 34.40266666666666,
+          "activity": "approach",
+          "target": null
+        },
+        {
+          "key": "companion:penguin_friend",
+          "x": 252.93533333333335,
+          "y": 269.70367272727276,
+          "w": 33.870666666666665,
+          "h": 15.703672727272725,
+          "activity": "sit",
+          "target": null
+        },
+        {
+          "key": "companion:shiba",
+          "x": 124.93533333333333,
+          "y": 309.0481111111111,
+          "w": 33.870666666666665,
+          "h": 31.048111111111112,
+          "activity": "sit",
+          "target": null
+        },
+        {
+          "key": "companion:punyu",
+          "x": 260.93533333333335,
+          "y": 343.7166172839506,
+          "w": 33.870666666666665,
+          "h": 25.716617283950615,
+          "activity": "look",
+          "target": null
+        },
+        {
+          "key": "companion:chameleon",
+          "x": 236.66933333333333,
+          "y": 305.8832484848485,
+          "w": 33.33866666666667,
+          "h": 27.883248484848487,
+          "activity": "approach",
+          "target": null
+        },
+        {
+          "key": "companion:unicorn",
+          "x": 83.3054787878788,
+          "y": 159.33866666666665,
+          "w": 30.610957575757578,
+          "h": 33.33866666666667,
+          "activity": "look",
+          "target": null
+        },
+        {
+          "key": "companion:watcher",
+          "x": 169.81854088050315,
+          "y": 207.33866666666665,
+          "w": 11.63708176100629,
+          "h": 33.33866666666667,
+          "activity": "rest",
+          "target": null
+        },
+        {
+          "key": "companion:rabbit_friend",
+          "x": 289.1358024691358,
+          "y": 289.4666666666667,
+          "w": 26.2716049382716,
+          "h": 35.46666666666666,
+          "activity": "sit",
+          "target": null
+        },
+        {
+          "key": "companion:squirrel",
+          "x": 165.35,
+          "y": 327.35,
+          "w": 31.053037037037036,
+          "h": 34.934666666666665,
+          "activity": "sit",
+          "target": null
+        },
+        {
+          "key": "companion:otter",
+          "x": 301.46733333333333,
+          "y": 367.66431515151515,
+          "w": 34.93466666666667,
+          "h": 33.664315151515154,
+          "activity": "look",
+          "target": null
+        },
+        {
+          "key": "companion:panda",
+          "x": 212.83215757575758,
+          "y": 336.93466666666666,
+          "w": 33.664315151515154,
+          "h": 34.93466666666667,
+          "activity": "turn",
+          "target": null
+        },
+        {
+          "key": "companion:parrot",
+          "x": 51.449345679012346,
+          "y": 184.40266666666668,
+          "w": 30.898691358024692,
+          "h": 34.40266666666667,
+          "activity": "rest",
+          "target": null
+        },
+        {
+          "key": "companion:seal",
+          "x": 117.20133333333334,
+          "y": 229.58790303030304,
+          "w": 34.40266666666666,
+          "h": 31.587903030303025,
+          "activity": "sit",
+          "target": null
+        },
+        {
+          "key": "companion:chicken",
+          "x": 251.76788888888888,
+          "y": 224.40266666666668,
+          "w": 31.535777777777778,
+          "h": 34.40266666666667,
+          "activity": "rest",
+          "target": null
+        },
+        {
+          "key": "companion:hedgehog",
+          "x": 132.93533333333335,
+          "y": 351.52853872053873,
+          "w": 33.870666666666665,
+          "h": 33.52853872053872,
+          "activity": "turn",
+          "target": null
+        },
+        {
+          "key": "companion:snail",
+          "x": 244.93533333333335,
+          "y": 368,
+          "w": 33.870666666666665,
+          "h": 15.725666666666667,
+          "activity": "rest",
+          "target": null
+        },
+        {
+          "key": "companion:sekizou",
+          "x": 180.624475308642,
+          "y": 359.8706666666667,
+          "w": 17.24895061728395,
+          "h": 33.870666666666665,
+          "activity": "sit",
+          "target": null
+        },
+        {
+          "key": "companion:clock",
+          "x": 123.8976049382716,
+          "y": 151.33866666666665,
+          "w": 31.79520987654321,
+          "h": 33.33866666666667,
+          "activity": "turn",
+          "target": null
+        },
+        {
+          "key": "companion:many_tail_fox",
+          "x": 204.66933333333333,
+          "y": 190.7325090909091,
+          "w": 33.33866666666667,
+          "h": 32.73250909090909,
+          "activity": "sit",
+          "target": null
+        },
+        {
+          "key": "companion:box",
+          "x": 324.6693333333333,
+          "y": 270.98400000000004,
+          "w": 33.33866666666667,
+          "h": 32.984,
+          "activity": "look",
+          "target": null
+        }
+      ],
+      "metrics": {
+        "frames": 15,
+        "seconds": 13,
+        "fps": 1.1767290071545122,
+        "heapBytes": 179579227,
+        "cast": {
+          "distance": 54.44502425209592,
+          "moves": 2,
+          "turns": 7,
+          "activities": {
+            "walk": 2,
+            "approach": 5,
+            "sit": 8,
+            "together": 2,
+            "turn": 5,
+            "look": 6,
+            "rest": 4,
+            "solitude": 2
+          },
+          "clock": 12.549999999999972
+        },
+        "world": {
+          "mode": "art-25d",
+          "region": "river_lake",
+          "candidate": "water-g",
+          "loaded": true,
+          "error": null,
+          "destroyed": false,
+          "animationTime": 12550,
+          "projectionRevision": 4,
+          "renderer": {
+            "mode": "canvas-2d-art",
+            "objects": 2,
+            "images": 1,
+            "decodedBytes": 6291456
+          }
+        }
+      },
+      "stage": {
+        "x": 16,
+        "y": 170,
+        "width": 358,
+        "height": 380,
+        "top": 170,
+        "right": 374,
+        "bottom": 550,
+        "left": 16
+      },
+      "buttons": [
+        {
+          "id": "playBtn",
+          "x": 16,
+          "y": 720,
+          "width": 68.390625,
+          "height": 53,
+          "top": 720,
+          "right": 84.390625,
+          "bottom": 773,
+          "left": 16
+        },
+        {
+          "id": "feedBtn",
+          "x": 88.390625,
+          "y": 720,
+          "width": 68.40625,
+          "height": 53,
+          "top": 720,
+          "right": 156.796875,
+          "bottom": 773,
+          "left": 88.390625
+        },
+        {
+          "id": "cleanBtn",
+          "x": 160.796875,
+          "y": 720,
+          "width": 68.390625,
+          "height": 53,
+          "top": 720,
+          "right": 229.1875,
+          "bottom": 773,
+          "left": 160.796875
+        },
+        {
+          "id": "sleepBtn",
+          "x": 233.1875,
+          "y": 720,
+          "width": 68.40625,
+          "height": 53,
+          "top": 720,
+          "right": 301.59375,
+          "bottom": 773,
+          "left": 233.1875
+        },
+        {
+          "id": "medicineBtn",
+          "x": 305.59375,
+          "y": 720,
+          "width": 68.40625,
+          "height": 53,
+          "top": 720,
+          "right": 374,
+          "bottom": 773,
+          "left": 305.59375
+        },
+        {
+          "id": "playWithBtn",
+          "x": 16,
+          "y": 778,
+          "width": 86.5,
+          "height": 53,
+          "top": 778,
+          "right": 102.5,
+          "bottom": 831,
+          "left": 16
+        },
+        {
+          "id": "courtBtn",
+          "x": 106.5,
+          "y": 778,
+          "width": 86.5,
+          "height": 53,
+          "top": 778,
+          "right": 193,
+          "bottom": 831,
+          "left": 106.5
+        },
+        {
+          "id": "travelBtn",
+          "x": 197,
+          "y": 778,
+          "width": 86.5,
+          "height": 53,
+          "top": 778,
+          "right": 283.5,
+          "bottom": 831,
+          "left": 197
+        },
+        {
+          "id": "menuBtn",
+          "x": 287.5,
+          "y": 778,
+          "width": 86.5,
+          "height": 53,
+          "top": 778,
+          "right": 374,
+          "bottom": 831,
+          "left": 287.5
+        }
+      ]
+    },
+    "visibility": "visible"
+  },
+  "images": [
+    {
+      "file": "forest-waterfall.webp",
+      "durationMs": 2.900000000372529,
+      "transferBytes": 300
+    },
+    {
+      "file": "water-g.webp",
+      "durationMs": 3.899999998509884,
+      "transferBytes": 300
+    }
+  ],
+  "note": "Cloud Chrome, 10 seconds; not an iPhone measurement"
+}

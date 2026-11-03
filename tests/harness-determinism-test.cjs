@@ -65,6 +65,20 @@ const FIXED = {
   pinDate: true, clockNow: Date.parse('2026-09-16T12:00:00Z'),
 };
 
+test('seeded production Home presentation is repeatable and never consumes gameplay randomness', () => {
+  const sample = () => {
+    const h = harness({deterministic:true, seed:70, homeDiorama:true, productionHome:true});
+    const calls = h.rng.calls();
+    const model = h.window.NaotocchiHomeDioramaModel.createModel();
+    model.sync([{key:'pet:dog',kind:'pet',id:'dog',x:100,y:160,w:38,h:44}],
+      {region:'forest',width:390,height:300});
+    const result = model.snapshot().map(a => [a.key,a.nextAt,a.x,a.y]);
+    assert.equal(h.rng.calls(), calls, 'presentation uses a separate random stream');
+    return result;
+  };
+  assert.deepEqual(sample(), sample(), 'same fixture seed gives the same autonomous schedule');
+});
+
 test('the same environment + seed + pinned clock gives the same time, weather, season and randomness on any host clock and TZ', () => {
   const runs = HOSTS.map(([at, tz]) => probe(at, tz, FIXED, { PROBE_RANDOM: '1' }));
   for (const r of runs.slice(1)) assert.deepEqual(r, runs[0]);

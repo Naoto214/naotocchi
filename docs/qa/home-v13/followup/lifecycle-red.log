@@ -1,0 +1,78 @@
+✔ landmarks use the real Meguru profile and stage bounds (259.063744ms)
+✖ interrupt before a terrain scene exists leaves the legacy poop row untouched (2.8572ms)
+✖ leaving terrain preserves legacy poop visibility through interruption and permits reentry (3.948802ms)
+✔ tap selects, release after drag sets destination without teleport (3.223671ms)
+✔ cancel and lost capture never dispatch a movement (1.137069ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (1.335443ms)
+✔ Pilot exit restores original actor styles and input ownership (0.405399ms)
+✔ departed actor cannot receive stale drag release (0.434452ms)
+✔ leaving a paused Pilot removes all animation pause state (0.584723ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (9.10622ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (1.548998ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (1.303675ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.474811ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.702437ms)
+✔ overview changes presentation mode and preserves all actors (0.712832ms)
+✔ resizing an actor around its unchanged foot repositions the terrain mask (8.540053ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 14
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 560.825086
+
+✖ failing tests:
+
+test at tests/home-diorama-adapter-test.cjs:29:1
+✖ interrupt before a terrain scene exists leaves the legacy poop row untouched (2.8572ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception: care/conversation can interrupt an inactive controller
+  Actual message: "Cannot read properties of null (reading 'width')"
+      at TestContext.<anonymous> (/workspace/scratch/13927de53592/naotocchi/tests/home-diorama-adapter-test.cjs:32:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: Cannot read properties of null (reading 'width')
+        at paint (/workspace/scratch/13927de53592/naotocchi/home-diorama.js:227:35)
+        at Object.interrupt (/workspace/scratch/13927de53592/naotocchi/home-diorama.js:162:56)
+        at /workspace/scratch/13927de53592/naotocchi/tests/home-diorama-adapter-test.cjs:32:31
+        at getActual (node:assert:611:5)
+        at strict.doesNotThrow (node:assert:779:32)
+        at TestContext.<anonymous> (/workspace/scratch/13927de53592/naotocchi/tests/home-diorama-adapter-test.cjs:32:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+        at Test.postRun (node:internal/test_runner/test:1522:19),
+    expected: undefined,
+    operator: 'doesNotThrow',
+    diff: 'simple'
+  }
+
+test at tests/home-diorama-adapter-test.cjs:38:1
+✖ leaving terrain preserves legacy poop visibility through interruption and permits reentry (3.948802ms)
+  AssertionError [ERR_ASSERTION]: inactive paint must not hide or reposition the legacy row
+  + actual - expected
+  
+  + '[{"visibility":"hidden","left":"","top":""},{"visibility":"hidden","left":"","top":""},{"visibility":"hidden","left":"","top":""},{"visibility":"hidden","left":"","top":""}]'
+  - '[{"visibility":"","left":"","top":""},{"visibility":"","left":"","top":""},{"visibility":"","left":"","top":""},{"visibility":"","left":"","top":""}]'
+  
+      at TestContext.<anonymous> (/workspace/scratch/13927de53592/naotocchi/tests/home-diorama-adapter-test.cjs:42:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '[{"visibility":"hidden","left":"","top":""},{"visibility":"hidden","left":"","top":""},{"visibility":"hidden","left":"","top":""},{"visibility":"hidden","left":"","top":""}]',
+    expected: '[{"visibility":"","left":"","top":""},{"visibility":"","left":"","top":""},{"visibility":"","left":"","top":""},{"visibility":"","left":"","top":""}]',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

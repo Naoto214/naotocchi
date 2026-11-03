@@ -1,0 +1,73 @@
+{
+  "browser": "cloud Chrome; not iPhone Safari",
+  "focusedConditions": 72,
+  "regionConditions": 26,
+  "errors": [],
+  "coverage": [
+    {
+      "candidate": "water",
+      "rows": 24,
+      "widths": [
+        320,
+        375,
+        390,
+        430
+      ],
+      "counts": [
+        1,
+        6,
+        28
+      ]
+    },
+    {
+      "candidate": "water-g",
+      "rows": 24,
+      "widths": [
+        320,
+        375,
+        390,
+        430
+      ],
+      "counts": [
+        1,
+        6,
+        28
+      ]
+    },
+    {
+      "candidate": "sea-b2",
+      "rows": 24,
+      "widths": [
+        320,
+        375,
+        390,
+        430
+      ],
+      "counts": [
+        1,
+        6,
+        28
+      ]
+    }
+  ],
+  "regions": [
+    "city",
+    "countryside",
+    "deepsea",
+    "desert",
+    "forest",
+    "home",
+    "jungle",
+    "memory_lake",
+    "mountain",
+    "river_lake",
+    "sea",
+    "snow",
+    "star_stop"
+  ],
+  "limitations": [
+    "Initial continuous sea runs timed out; isolated retry and final 24-condition run passed. Initial reports retained.",
+    "No iPhone device measurement.",
+    "WebKit CI queued."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "github_runtime_commit": "367046f2fd7bb1be1017bc2fe0c0def435d62fae",
+  "integrated_main": "4a70f2c118651c50c190785c90ff857b3dc75703",
+  "site_version": 3,
+  "site_source_commit": "03e4c0ef611b6a5ae239bedbfefd734245ef3f32",
+  "deployment": {
+    "id": "appgdep_6adac0b068608191bdb664ef7015ce1f",
+    "project_id": "appgprj_6ad9985c831c8191917df5cec1594a69",
+    "title": "なおとっち — 旅先の箱庭 Pilot",
+    "version_id": "appgprj_6ad9985c831c8191917df5cec1594a69~appgver_5e78cc98ac248191b5c73606c4797f50",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naotocchi-home-diorama-20261022.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad9985c831c8191917df5cec1594a69",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-23T02:05:14.055278+00:00"
+  },
+  "access": {
+    "version": 3,
+    "mode": "custom",
+    "allowedCount": 1,
+    "externalCount": 0,
+    "users": [
+      {
+        "role": "owner"
+      }
+    ],
+    "url": "https://naotocchi-home-diorama-20261022.kerzion214.chatgpt.site"
+  },
+  "authenticated_publication_qa": "not verified: Cloud Browser requires owner sign-in",
+  "iphone_qa": "pending",
+  "production_github_pages_changed": false,
+  "merged_to_main": false
+}

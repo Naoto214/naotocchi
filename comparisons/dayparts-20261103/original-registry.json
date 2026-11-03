@@ -1,0 +1,148 @@
+[
+  {
+    "region": "home",
+    "name": "おうち · 南信州を望む室内C",
+    "id": "home-interior-c",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v6-20261029/runtime/home-interior-c.webp",
+    "original": "assets/home-c-20261029/home-interior-c.png",
+    "originalSHA256": "e138c6e62ebae0cf3ac47c7daf8de634ca93ef0f212d3cd62b2ffb051d275593",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "forest",
+    "name": "森F3 · 輝く新緑の広場",
+    "id": "forest-f3",
+    "referenceCommit": "edda341f852ba6b4d1c17135a6e07cb439734ba5",
+    "runtime": "comparisons/forest-f2-jungle-j3/runtime/forest-f3.webp",
+    "original": "comparisons/forest-f2-jungle-j3/originals/forest-f3.png",
+    "originalSHA256": "e0dd899f2e2338c9ca58f791664737108605cadc439e0f5d797e98c1cea08ea5",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true,
+    "adoptionEvidence": "comparisons/forest-f2-jungle-j3/ADOPTION-F3-V3-STATUS.md @ 5cb81cebd203514bebe68202df05e996352891ea",
+    "note": "No waterfall or water. PR490 still uses earlier forest-waterfall; do not copy its geometry."
+  },
+  {
+    "region": "river_lake",
+    "name": "水辺G · 翡翠色の清流",
+    "id": "water-g",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v9-20261030/runtime/water-g.webp",
+    "original": "assets/home-v9-20261030/water-g.png",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "city",
+    "name": "夕暮れの日本の街並み",
+    "id": "city",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v6-20261029/runtime/city.webp",
+    "original": "assets/home-art-recovered-20261029/city.png",
+    "originalSHA256": "6017830525bd802477a59aaa16afe11ea745c1684fd1a6b929851d11af75b373",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "countryside",
+    "name": "いなか",
+    "id": "countryside",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v6-20261029/runtime/countryside.webp",
+    "original": "assets/home-v6-20261029/countryside.png",
+    "originalSHA256": "b543aaf746a771bd0ab72bf9f8fe54773f493d98f28c434ccd09a49107e12ec6",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "mountain",
+    "name": "やま",
+    "id": "mountain",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v6-20261029/runtime/mountain.webp",
+    "original": "assets/home-v6-20261029/mountain.png",
+    "originalSHA256": "8078a44ecef8827f018894d74cf94b797b1470da7638aa47be87d294d805fef0",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "snow",
+    "name": "ゆきぐに",
+    "id": "snow",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v6-20261029/runtime/snow.webp",
+    "original": "assets/home-v6-20261029/snow.png",
+    "originalSHA256": "45b764b54dd7a260e5e7df4dd9697cb40e9d945a22d9efc683d935f4a406fa95",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "sea",
+    "name": "海B2 · 正面に広がる海",
+    "id": "sea-b2",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v8-20261029/runtime/sea-b2.webp",
+    "original": "assets/home-v8-20261029/sea-b2.png",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "jungle",
+    "name": "ジャングルJ5 · 土の細かな反射を抑えた採用版",
+    "id": "jungle-j5-adopted",
+    "referenceCommit": null,
+    "runtime": null,
+    "original": "originals/jungle-j5-adopted.png",
+    "originalSHA256": "788abc0fa508a4a7a3c9cfffdd8369bdfa23d8b7149974ececdfc20b0b0e6867",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true,
+    "libraryFileId": "libfile_29cf3b9db0dc8191b7a8b466fc8aac0d",
+    "originalFilename": "木漏れ日が映える静かなジャングルの土.png",
+    "createdAt": "2026-11-01T15:36:52.747454Z",
+    "adoptionEvidence": "Owner selected previous image at 2026-11-01T15:41:11Z, confirmed 15:44:29Z; next image 静寂の翡翠湿地と森の光.png created 15:39:16Z is excluded. J4 is not the adopted J5.",
+    "note": "First GitHub snapshot in this independent comparison PR. No gameplay geometry defined for J5 yet."
+  },
+  {
+    "region": "desert",
+    "name": "さばく",
+    "id": "desert",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v6-20261029/runtime/desert.webp",
+    "original": "assets/home-v6-20261029/desert.png",
+    "originalSHA256": "fb7974f6a4c6395222878333d0cb37c72b64cddeae8c1929a471cdfc9ab0ffdb",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "deepsea",
+    "name": "しんかい",
+    "id": "deepsea",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v6-20261029/runtime/deepsea.webp",
+    "original": "assets/home-v6-20261029/deepsea.png",
+    "originalSHA256": "c6544e3cd04d71a85f6c6de8af2a7f0fc22b78c6e4f63c13e8faa901ff4330b2",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "star_stop",
+    "name": "星空 · 新しい高品質背景",
+    "id": "star-new",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v7-20261029/runtime/star-new.webp",
+    "original": "assets/home-v7-20261029/star-new.png",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  },
+  {
+    "region": "memory_lake",
+    "name": "記憶の湖 · 新しい高品質背景",
+    "id": "lake-new",
+    "referenceCommit": "c0a05f8c4dd7f3ef335ed200f1459096bb05cc9e",
+    "runtime": "assets/home-v7-20261029/runtime/lake-new.webp",
+    "original": "assets/home-v7-20261029/lake-new.png",
+    "status": "owner-adopted-design; not merged into main",
+    "productionRuntimeUnchanged": true
+  }
+]

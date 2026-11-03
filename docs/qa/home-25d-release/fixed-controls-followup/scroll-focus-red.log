@@ -1,0 +1,57 @@
+✔ entry brings the existing actor into the central viewport (3.050292ms)
+✖ a pending entry focus cannot undo a later scroll to the meters (2.235646ms)
+✖ a delayed scroll event still preserves the latest viewport position (0.885734ms)
+✔ a later real resize may reveal the actor again after an interrupted focus (0.885182ms)
+✔ resize keeps an active question reachable using the existing speech slot (0.94321ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 3
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 141.636612
+
+✖ failing tests:
+
+test at tests/home-production-scroll-focus-test.cjs:20:1
+✖ a pending entry focus cannot undo a later scroll to the meters (2.235646ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  153.5 !== 472
+  
+      at TestContext.<anonymous> (/workspace/scratch/9c6745e0ed55/naotocchi/tests/home-production-scroll-focus-test.cjs:22:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 153.5,
+    expected: 472,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-production-scroll-focus-test.cjs:24:1
+✖ a delayed scroll event still preserves the latest viewport position (0.885734ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  153.5 !== 279
+  
+      at TestContext.<anonymous> (/workspace/scratch/9c6745e0ed55/naotocchi/tests/home-production-scroll-focus-test.cjs:26:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 153.5,
+    expected: 279,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -129,28 +129,29 @@
     }
   },
   "adoption": {
-    "design": "V18",
-    "revision": "V19-hand-stacking",
-    "status": "owner-approved-design",
-    "approvedBy": "owner instructions for VERSION 19",
-    "baselineCommit": "75d9a4d5e6c146a3f311de9c829d5fe22d4b570b",
-    "renderer": "v19/clock-v19.mjs",
+    "design": "V23",
+    "revision": "V23-final-owner-approved",
+    "status": "owner-approved-final-design",
+    "approvedBy": "owner final decision 2026-11-03: adopt V23, reject V24",
+    "baselineCommit": "0ac97d1681c117dc1ceb1744172418bb9d5f412f",
+    "renderer": "v23/clock-v23.mjs",
     "gameEntry": "../life-clock-render.mjs",
     "frontAsset": "v16/plate.webp",
     "foregroundAsset": "v16/occlusion.png",
     "backRenderer": "v18/clock-v18.mjs#renderBack",
     "transparentSnapshots": {
-      "front": "v19/front.svg",
-      "back": "v19/back.svg",
-      "rebuild": "node prototypes/card-game/life-clock/v19/export.mjs",
+      "front": "v23/front.svg",
+      "back": "v23/back.svg",
+      "rebuild": "node prototypes/card-game/life-clock/v23/export.mjs",
       "state": {
-        "round": 10,
-        "firstTime": 10,
-        "secondTime": 10,
+        "round": 7,
+        "firstTime": 4,
+        "secondTime": 9,
         "firstGrowth": 65,
         "secondGrowth": 40,
         "end": 10
-      }
+      },
+      "comparison": "v23/comparison.svg"
     },
     "centralHands": {
       "center": [
@@ -169,13 +170,23 @@
         "green": 32
       },
       "paintOrderBottomToTop": [
-        "gold",
-        "red",
         "green",
+        "red",
+        "gold",
         "bearing-cap"
       ],
       "geometrySource": "clock.mjs#hands",
-      "angleSource": "clock.mjs#angles"
+      "angleSource": "clock.mjs#angles",
+      "topToBottom": [
+        "gold",
+        "red",
+        "green"
+      ],
+      "roles": {
+        "gold": "round / second-like / longest and thinnest",
+        "red": "first A remaining time / minute-like",
+        "green": "second B remaining time / hour-like / shortest and thickest"
+      }
     },
     "faceSettings": {
       "numerals": "v17/clock-v17.mjs variant A, Georgia/serif 52 (=40 × 1.30)",
@@ -196,13 +207,16 @@
         1152
       ]
     },
-    "release": "PR #501 Draft; V19 design confirmed by owner on iPhone Safari portrait/landscape in V20 instructions; V20 interaction candidate; not merged or deployed to Pages",
+    "release": "PR #506 Draft; final design approved; main and production Pages not updated",
     "developmentCandidate": null,
     "sha256": {
-      "v19/clock-v19.mjs": "ad0e03d173344ae24324d81bfbb8ab2284a83e913e5c47d7f4b25ad3d78734a7",
-      "v19/front.svg": "f02b8ab9f44233a4a36859afc34cf43a2ee113ff091c318e8108bb6886822f89",
-      "v19/back.svg": "11e3c72c4b7eb77aa1dc7b2b21738d46a423a6f1b246f716e38c2f817c45bc4b"
-    }
+      "v23/clock-v23.mjs": "637b67d972edafb615a2514770fa22a05a8b7dda98f04af57823f9d6b7ed4654",
+      "v23/front.svg": "e78e2932303c7c4287f7c8373f7340ec16033d222cafdd51964f338bbe4ac1fb",
+      "v23/back.svg": "11e3c72c4b7eb77aa1dc7b2b21738d46a423a6f1b246f716e38c2f817c45bc4b",
+      "v23/comparison.svg": "a0990322ef2ef2ffa931ba3994c230032108ea5cbb89649ad95f9f411e0e75a4"
+    },
+    "latestProducedVersion": "V24",
+    "latestProducedStatus": "rejected-after-owner-comparison"
   },
   "history": [
     {
@@ -230,13 +244,106 @@
     {
       "version": "V22",
       "description": "Clock pinch in/out in both orientations; one-finger enlarged pan; V21 centering retained. Card pinch and artwork/game unchanged."
+    },
+    {
+      "version": "V23",
+      "sourceCommit": "0ac97d1681c117dc1ceb1744172418bb9d5f412f",
+      "status": "final-owner-approved",
+      "description": "2026-11-03 final decision; unchanged V23 hands and stepped bearing; V22 approved body and controls inherited."
+    },
+    {
+      "version": "V24",
+      "sourceCommit": "e08a0408471eba0823af9c582b2b1c6ec22c5f66",
+      "status": "rejected",
+      "description": "Comparison retained; explicitly not adopted by owner on 2026-11-03."
     }
   ],
-  "interactionCandidate": {
-    "version": "V22",
-    "designVersion": "V19",
-    "baselineCommit": "699bc1a4320de66657a1bd082df696812c7e438c",
-    "sharedControls": "../inspection-controls.mjs",
-    "verification": "../../../docs/card-game/life-clock-v22-verification.md"
+  "interactionCandidate": null,
+  "previousAdoption": {
+    "design": "V18",
+    "revision": "V19-hand-stacking",
+    "status": "owner-approved-design",
+    "approvedBy": "owner instructions for VERSION 19",
+    "baselineCommit": "75d9a4d5e6c146a3f311de9c829d5fe22d4b570b",
+    "renderer": "v19/clock-v19.mjs",
+    "gameEntry": "../life-clock-render.mjs",
+    "frontAsset": "v16/plate.webp",
+    "foregroundAsset": "v16/occlusion.png",
+    "backRenderer": "v18/clock-v18.mjs#renderBack",
+    "transparentSnapshots": {
+      "front": "v23/front.svg",
+      "back": "v23/back.svg",
+      "rebuild": "node prototypes/card-game/life-clock/v23/export.mjs",
+      "state": {
+        "round": 10,
+        "firstTime": 10,
+        "secondTime": 10,
+        "firstGrowth": 65,
+        "secondGrowth": 40,
+        "end": 10
+      },
+      "comparison": "v23/comparison.svg"
+    },
+    "centralHands": {
+      "center": [
+        512,
+        500
+      ],
+      "dialRadius": 432,
+      "lengthRatios": {
+        "gold": 0.9,
+        "red": 0.8,
+        "green": 0.7
+      },
+      "widths": {
+        "gold": 5,
+        "red": 16,
+        "green": 32
+      },
+      "paintOrderBottomToTop": [
+        "green",
+        "red",
+        "gold",
+        "bearing-cap"
+      ],
+      "geometrySource": "clock.mjs#hands",
+      "angleSource": "clock.mjs#angles",
+      "topToBottom": [
+        "gold",
+        "red",
+        "green"
+      ],
+      "roles": {
+        "gold": "round / second-like / longest and thinnest",
+        "red": "first A remaining time / minute-like",
+        "green": "second B remaining time / hour-like / shortest and thickest"
+      }
+    },
+    "faceSettings": {
+      "numerals": "v17/clock-v17.mjs variant A, Georgia/serif 52 (=40 × 1.30)",
+      "palette": "v8/clock-v8.mjs variant C",
+      "mainColors": "clock.mjs#colors",
+      "smallHands": "v18/clock-v18.mjs silver gradient",
+      "plateClip": {
+        "center": [
+          512,
+          495
+        ],
+        "radius": 493
+      },
+      "viewBox": [
+        -64,
+        -76,
+        1152,
+        1152
+      ]
+    },
+    "release": "PR #501 Draft; V19 design confirmed by owner on iPhone Safari portrait/landscape in V20 instructions; V20 interaction candidate; not merged or deployed to Pages",
+    "developmentCandidate": null,
+    "sha256": {
+      "v19/clock-v19.mjs": "ad0e03d173344ae24324d81bfbb8ab2284a83e913e5c47d7f4b25ad3d78734a7",
+      "v19/front.svg": "f02b8ab9f44233a4a36859afc34cf43a2ee113ff091c318e8108bb6886822f89",
+      "v19/back.svg": "11e3c72c4b7eb77aa1dc7b2b21738d46a423a6f1b246f716e38c2f817c45bc4b"
+    }
   }
 }
