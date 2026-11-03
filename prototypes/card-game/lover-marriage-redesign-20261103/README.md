@@ -12,3 +12,7 @@
 | `tools/marriage_stats.py` | PR #481 の保存済み対戦記録から、結婚時期・結婚後の残りターンを集計（読み取りだけ） |
 
 関連：`../breakup-penalty-20261029/`（PR #481。2026-10-29に本人がA案＝−10維持を正式採用）。
+
+## VERSION 2（2026-11-03）
+
+`v2/` に保存（V1のファイルは変更していない）。18種類の再調整案（`v2/proposals-v2.json`）、本人用の比較ページ（`v2/page/`、公開先 https://claude.ai/artifact/KYYxZVgs7Nk64xnUGJVX2Q ）、代表的な能力の追加検証720戦（`v2/proxy/`）、報告 `v2/REPORT.md`。
