@@ -1,0 +1,34 @@
+{
+ "card": "G-takoyaki-grill",
+ "ruling": "87 接続／88 X06：自身は対象にできない",
+ "implementation": "remaining-rules.mjs: triggers[{when:'end',target:'ownPrepared',...}]",
+ "selfTargetOffered": true,
+ "mismatch": true,
+ "cases": [
+  {
+   "case": "準備枠はたこやきだけ",
+   "triggerTargets": [
+    {
+     "label": "たこやきやさんの能力を発動 → たこやきやさん",
+     "targetIsSelf": true,
+     "targetIsOther": false
+    }
+   ]
+  },
+  {
+   "case": "準備枠にほかの札あり",
+   "triggerTargets": [
+    {
+     "label": "たこやきやさんの能力を発動 → たこやきやさん",
+     "targetIsSelf": true,
+     "targetIsOther": false
+    },
+    {
+     "label": "たこやきやさんの能力を発動 → おべんとうばこ",
+     "targetIsSelf": false,
+     "targetIsOther": true
+    }
+   ]
+  }
+ ]
+}
