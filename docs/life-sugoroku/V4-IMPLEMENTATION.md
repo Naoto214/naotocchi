@@ -1,6 +1,6 @@
 # VERSION 4 implementation ledger
 
-Status: in progress; not a release. Approved specification: user request dated 2026-11-03, sections 0–28.
+Historical implementation ledger. For current release validation see VERSION-4.md. Approved specification: user request dated 2026-11-03, sections 0–28.
 
 ## Baseline and protection
 

@@ -16,3 +16,21 @@ test('checkpoints preserve input prefix and reject wrong seed/cpu/player score',
  for(const change of [{seed:m.seed+1},{frame:299},{cpu:true},{inputs:[]},{done:true,score:101},{inputs:[{frame:301,type:'pointerdown',x:1,y:2}]},{inputs:[{frame:20,type:'keydown',x:1,y:2}]}])assert.throws(()=>T.checkpoint(s,m,{...a,...change}));
  const restored=structuredClone({s,m});T.checkpoint(s,m,{...a,frame:320,done:true,score:50,summary:'結果'});T.checkpoint(restored.s,restored.m,{...a,frame:320,done:true,score:50,summary:'結果'});assert.deepEqual({s,m},restored);
 });
+
+test('save boundary rejects malformed CPU seeds and pending inputs before choosing a backup',()=>{
+ const s=game(),m=T.openTournament(s,'game',()=>0),p=s.players[0],a={...snap(m,p),cpuSeed:123,pendingInputs:[{frame:301,type:'pointerdown',x:40,y:50}]};
+ assert.equal(T.validAttempt(a,m,p),true);
+ for(const change of [{cpuSeed:-1},{cpuSeed:4294967296},{cpuSeed:1.5},{pendingInputs:{}},{pendingInputs:null},{pendingInputs:[null]},{pendingInputs:[{frame:300,type:'pointerdown',x:0,y:0}]},{pendingInputs:[{frame:3601,type:'pointerdown',x:0,y:0}]},{pendingInputs:[{frame:301,type:'keydown',x:0,y:0}]},{pendingInputs:[{frame:301,type:'pointerdown',x:Infinity,y:0}]},{pendingInputs:[{frame:303,type:'pointerdown',x:0,y:0},{frame:302,type:'pointerup',x:0,y:0}]}]){
+  assert.equal(T.validAttempt({...a,...change},m,p),false,JSON.stringify(change));
+ }
+ T.checkpoint(s,m,a);assert.throws(()=>T.checkpoint(s,m,{...a,frame:301,inputs:a.pendingInputs,pendingInputs:[],cpuSeed:124}));
+});
+
+test('corrupted resumable official snapshot recovers the valid backup',async()=>{
+ const {readWithBackup}=await import('../../prototypes/life-sugoroku/storage.mjs');
+ let s=game();while(s.phase!=='official')s=E.dispatch(s,E.cpuAction(s));
+ const m=s.pending,p=s.players[m.seat];s=E.dispatch(s,{type:'official-checkpoint',revision:s.revision,requestId:m.requestId,seat:m.seat,snapshot:{...snap(m,p),cpuSeed:123,pendingInputs:[]}});
+ const valid=E.serialize(s),broken=JSON.parse(valid);broken.pending.attempt.cpuSeed=-1;
+ const storage={getItem:k=>k==='match'?JSON.stringify(broken):k==='match-backup'?valid:null};
+ const result=readWithBackup(storage,'match',E.restore);assert.equal(result.recovered,true);assert.deepEqual(result.value,E.restore(valid));
+});

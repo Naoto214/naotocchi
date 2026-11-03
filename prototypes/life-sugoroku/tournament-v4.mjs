@@ -12,7 +12,11 @@ export function openTournament(s,pool,draw){
 export function validAttempt(a,m,p){
  if(!a||a.gameId!==m.gameId||a.seed!==m.seed||a.difficulty!==p.difficulty||a.cpu!==!p.human||!integer(a.frame,0,m.pool==='quick'?1800:3600)||!Array.isArray(a.inputs)||a.inputs.length>20000||typeof a.done!=='boolean')return false;
  if(a.done?!(integer(a.score,0,100)&&a.frame>0&&typeof a.summary==='string'&&a.summary.length<=1000):a.score!==undefined)return false;
- return a.inputs.every((e,i)=>integer(e.frame,1,a.frame)&&(i===0||e.frame>=a.inputs[i-1].frame)&&['pointerdown','pointermove','pointerup','pointercancel'].includes(e.type)&&Number.isFinite(e.x)&&Number.isFinite(e.y)&&Math.abs(e.x)<=10000&&Math.abs(e.y)<=10000);
+ if(a.cpuSeed!==undefined&&!integer(a.cpuSeed,0,4294967295))return false;
+ const pending=a.pendingInputs===undefined?[]:a.pendingInputs;
+ if(!Array.isArray(pending)||pending.length+a.inputs.length>20000)return false;
+ if(!pending.every((e,i)=>e&&integer(e.frame,a.frame+1,m.pool==='quick'?1800:3600)&&(i===0||e.frame>=pending[i-1].frame)&&['pointerdown','pointermove','pointerup','pointercancel'].includes(e.type)&&Number.isFinite(e.x)&&Number.isFinite(e.y)&&Math.abs(e.x)<=10000&&Math.abs(e.y)<=10000))return false;
+ return a.inputs.every((e,i)=>e&&integer(e.frame,1,a.frame)&&(i===0||e.frame>=a.inputs[i-1].frame)&&['pointerdown','pointermove','pointerup','pointercancel'].includes(e.type)&&Number.isFinite(e.x)&&Number.isFinite(e.y)&&Math.abs(e.x)<=10000&&Math.abs(e.y)<=10000);
 }
 export function validateTournament(s,m){
  if(m?.kind!=='official'||!POOLS[m.pool]?.includes(m.gameId)||!integer(m.seed,1,4294967295)||m.landingPlayer!==s.active||m.tileId!==s.players[s.active].pos||typeof m.requestId!=='string'||!integer(m.seat,0,s.players.length)||!Array.isArray(m.scores)||m.scores.length!==m.seat)return false;
@@ -22,7 +26,7 @@ export function validateTournament(s,m){
 }
 export function checkpoint(s,m,a){
  need(validateTournament(s,m)&&m.seat<s.players.length&&validAttempt(a,m,s.players[m.seat]));
- if(m.attempt){need(a.frame>=m.attempt.frame&&a.inputs.length>=m.attempt.inputs.length);need(m.attempt.inputs.every((e,i)=>['frame','type','x','y'].every(k=>e[k]===a.inputs[i][k])));}
+ if(m.attempt){need((a.cpuSeed??m.seed)===(m.attempt.cpuSeed??m.seed));need(a.frame>=m.attempt.frame&&a.inputs.length>=m.attempt.inputs.length);need(m.attempt.inputs.every((e,i)=>['frame','type','x','y'].every(k=>e[k]===a.inputs[i][k])));}
  if(!a.done){m.attempt=structuredClone(a);return;}
  m.scores.push({id:m.seat,score:a.score,summary:a.summary,frame:a.frame});m.seat++;m.attempt=null;
  if(m.seat<s.players.length)return;

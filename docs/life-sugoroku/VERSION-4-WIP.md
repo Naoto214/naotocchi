@@ -1,3 +1,5 @@
+> Historical WIP checkpoint; resolved follow-up and current limits are documented in VERSION-4.md.
+
 # なおころ。VERSION 4 — 統合WIP・再開資料
 
 2026-11-03更新。**未完成・未公開。PR #461と本人限定試遊版はVERSION 3を維持。**

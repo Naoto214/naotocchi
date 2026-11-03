@@ -50,3 +50,8 @@ test('CPU official seat mounts and starts automatically without a start button',
  vm.runInContext("state=createGame({seed:405,rounds:20,players:seats.map(character=>({character,human:false}))});screen='game';while(state.phase!=='official')state=dispatch(state,cpuAction(state));persist();render()",context);
  await flush();assert.equal(mounts,1);assert.equal(host.calls.start,1);
 });
+
+test('transformation presentation names the selected species at the retained stage',()=>{
+ const {context,elements}=ui();vm.runInContext("transition={character:seats[0],nextCharacter:seats[1],before:1,after:1,human:true};evolutionModal()",context);
+ const expected=vm.runInContext('seats[1].stages[0]',context);assert.ok(elements.get('#modal').innerHTML.includes('<p>'+expected+'</p>'));
+});
