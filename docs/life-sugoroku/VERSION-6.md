@@ -1,7 +1,7 @@
 # なおころ。VERSION 6 第1段階
 
 基準HEAD: `373f5f7d32f2af133de1b7c9c6b0e1363a0e9aeb`。ブランチ `work/naokoro-v6-cpu-20261103`。
-PR #461、V5本人限定Site、main、本番GitHub Pages、本編/CARD GAME/なおぽよ。の実装は変更しない。Draft/WIPで保存する。
+[独立Draft PR #510](https://github.com/Naoto214/naotocchi/pull/510)。比較先はV5確定HEADだけを指す専用ブランチ `work/naokoro-v6-base-v5-20261103`。最新mainにはV5との競合があるため、この比較先でV6固有の差分/CIを独立させる。PR #461のブランチを比較先にはせず、変更もしない。mainへの統合は未実施。V5本人限定Site、本番GitHub Pages、本編/CARD GAME/なおぽよ。の実装も変更しない。Draft/WIPで保存する。
 
 ## 成果と範囲
 
