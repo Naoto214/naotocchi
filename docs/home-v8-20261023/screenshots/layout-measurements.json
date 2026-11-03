@@ -1,0 +1,582 @@
+{
+  "historical": [
+    {
+      "width": "320",
+      "evidence": [
+        {
+          "hidden": false,
+          "id": "homeInformation",
+          "rect": {
+            "bottom": 156.59375,
+            "height": 92,
+            "left": 9,
+            "right": 311,
+            "top": 64.59375,
+            "width": 302,
+            "x": 9,
+            "y": 64.59375
+          }
+        },
+        {
+          "hidden": true,
+          "id": "homeGestureGuide",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "hidden": false,
+          "id": "homeEventSlot",
+          "rect": {
+            "bottom": 204.59375,
+            "height": 43,
+            "left": 9,
+            "right": 311,
+            "top": 161.59375,
+            "width": 302,
+            "x": 9,
+            "y": 161.59375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "speechBubble",
+          "rect": {
+            "bottom": 514.78125,
+            "height": 43.1875,
+            "left": 48,
+            "right": 272,
+            "top": 471.59375,
+            "width": 224,
+            "x": 48,
+            "y": 471.59375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "careActions",
+          "rect": {
+            "bottom": 831,
+            "height": 164,
+            "left": 9,
+            "right": 311,
+            "top": 667,
+            "width": 302,
+            "x": 9,
+            "y": 667
+          }
+        }
+      ]
+    },
+    {
+      "width": "375",
+      "evidence": [
+        {
+          "hidden": false,
+          "id": "homeInformation",
+          "rect": {
+            "bottom": 157.984375,
+            "height": 93.390625,
+            "left": 16,
+            "right": 359,
+            "top": 64.59375,
+            "width": 343,
+            "x": 16,
+            "y": 64.59375
+          }
+        },
+        {
+          "hidden": true,
+          "id": "homeGestureGuide",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "hidden": false,
+          "id": "homeEventSlot",
+          "rect": {
+            "bottom": 205.984375,
+            "height": 43,
+            "left": 16,
+            "right": 359,
+            "top": 162.984375,
+            "width": 343,
+            "x": 16,
+            "y": 162.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "speechBubble",
+          "rect": {
+            "bottom": 511.171875,
+            "height": 43.1875,
+            "left": 75.5,
+            "right": 299.5,
+            "top": 467.984375,
+            "width": 224,
+            "x": 75.5,
+            "y": 467.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "careActions",
+          "rect": {
+            "bottom": 831,
+            "height": 164,
+            "left": 16,
+            "right": 359,
+            "top": 667,
+            "width": 343,
+            "x": 16,
+            "y": 667
+          }
+        }
+      ]
+    },
+    {
+      "width": "390",
+      "evidence": [
+        {
+          "hidden": false,
+          "id": "homeInformation",
+          "rect": {
+            "bottom": 157.984375,
+            "height": 93.390625,
+            "left": 16,
+            "right": 374,
+            "top": 64.59375,
+            "width": 358,
+            "x": 16,
+            "y": 64.59375
+          }
+        },
+        {
+          "hidden": true,
+          "id": "homeGestureGuide",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "hidden": false,
+          "id": "homeEventSlot",
+          "rect": {
+            "bottom": 205.984375,
+            "height": 43,
+            "left": 16,
+            "right": 374,
+            "top": 162.984375,
+            "width": 358,
+            "x": 16,
+            "y": 162.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "speechBubble",
+          "rect": {
+            "bottom": 511.171875,
+            "height": 43.1875,
+            "left": 83,
+            "right": 307,
+            "top": 467.984375,
+            "width": 224,
+            "x": 83,
+            "y": 467.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "careActions",
+          "rect": {
+            "bottom": 831,
+            "height": 164,
+            "left": 16,
+            "right": 374,
+            "top": 667,
+            "width": 358,
+            "x": 16,
+            "y": 667
+          }
+        }
+      ]
+    },
+    {
+      "width": "430",
+      "evidence": [
+        {
+          "hidden": false,
+          "id": "homeInformation",
+          "rect": {
+            "bottom": 157.984375,
+            "height": 93.390625,
+            "left": 16,
+            "right": 414,
+            "top": 64.59375,
+            "width": 398,
+            "x": 16,
+            "y": 64.59375
+          }
+        },
+        {
+          "hidden": true,
+          "id": "homeGestureGuide",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "hidden": false,
+          "id": "homeEventSlot",
+          "rect": {
+            "bottom": 205.984375,
+            "height": 43,
+            "left": 16,
+            "right": 414,
+            "top": 162.984375,
+            "width": 398,
+            "x": 16,
+            "y": 162.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "speechBubble",
+          "rect": {
+            "bottom": 511.171875,
+            "height": 43.1875,
+            "left": 103,
+            "right": 327,
+            "top": 467.984375,
+            "width": 224,
+            "x": 103,
+            "y": 467.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "careActions",
+          "rect": {
+            "bottom": 831,
+            "height": 164,
+            "left": 16,
+            "right": 414,
+            "top": 667,
+            "width": 398,
+            "x": 16,
+            "y": 667
+          }
+        }
+      ]
+    }
+  ],
+  "current": [
+    {
+      "width": 320,
+      "measurements": [
+        {
+          "hidden": false,
+          "id": "homeInformation",
+          "rect": {
+            "bottom": 156.59375,
+            "height": 92,
+            "left": 9,
+            "right": 311,
+            "top": 64.59375,
+            "width": 302,
+            "x": 9,
+            "y": 64.59375
+          }
+        },
+        {
+          "hidden": true,
+          "id": "homeGestureGuide",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "hidden": false,
+          "id": "homeEventSlot",
+          "rect": {
+            "bottom": 188.390625,
+            "height": 26.796875,
+            "left": 9,
+            "right": 311,
+            "top": 161.59375,
+            "width": 302,
+            "x": 9,
+            "y": 161.59375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "speechBubble",
+          "rect": {
+            "bottom": 509.578125,
+            "height": 43.1875,
+            "left": 76,
+            "right": 300,
+            "top": 466.390625,
+            "width": 224,
+            "x": 76,
+            "y": 466.390625
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "measurements": [
+        {
+          "hidden": false,
+          "id": "homeInformation",
+          "rect": {
+            "bottom": 157.984375,
+            "height": 93.390625,
+            "left": 16,
+            "right": 359,
+            "top": 64.59375,
+            "width": 343,
+            "x": 16,
+            "y": 64.59375
+          }
+        },
+        {
+          "hidden": true,
+          "id": "homeGestureGuide",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "hidden": false,
+          "id": "homeEventSlot",
+          "rect": {
+            "bottom": 189.78125,
+            "height": 26.796875,
+            "left": 16,
+            "right": 359,
+            "top": 162.984375,
+            "width": 343,
+            "x": 16,
+            "y": 162.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "speechBubble",
+          "rect": {
+            "bottom": 502.78125,
+            "height": 35,
+            "left": 75.5,
+            "right": 299.5,
+            "top": 467.78125,
+            "width": 224,
+            "x": 75.5,
+            "y": 467.78125
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "measurements": [
+        {
+          "hidden": false,
+          "id": "homeInformation",
+          "rect": {
+            "bottom": 157.984375,
+            "height": 93.390625,
+            "left": 16,
+            "right": 374,
+            "top": 64.59375,
+            "width": 358,
+            "x": 16,
+            "y": 64.59375
+          }
+        },
+        {
+          "hidden": true,
+          "id": "homeGestureGuide",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "hidden": false,
+          "id": "homeEventSlot",
+          "rect": {
+            "bottom": 189.78125,
+            "height": 26.796875,
+            "left": 16,
+            "right": 374,
+            "top": 162.984375,
+            "width": 358,
+            "x": 16,
+            "y": 162.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "speechBubble",
+          "rect": {
+            "bottom": 502.78125,
+            "height": 35,
+            "left": 83,
+            "right": 307,
+            "top": 467.78125,
+            "width": 224,
+            "x": 83,
+            "y": 467.78125
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "measurements": [
+        {
+          "hidden": false,
+          "id": "homeInformation",
+          "rect": {
+            "bottom": 157.984375,
+            "height": 93.390625,
+            "left": 16,
+            "right": 414,
+            "top": 64.59375,
+            "width": 398,
+            "x": 16,
+            "y": 64.59375
+          }
+        },
+        {
+          "hidden": true,
+          "id": "homeGestureGuide",
+          "rect": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "hidden": false,
+          "id": "homeEventSlot",
+          "rect": {
+            "bottom": 189.78125,
+            "height": 26.796875,
+            "left": 16,
+            "right": 414,
+            "top": 162.984375,
+            "width": 398,
+            "x": 16,
+            "y": 162.984375
+          }
+        },
+        {
+          "hidden": false,
+          "id": "speechBubble",
+          "rect": {
+            "bottom": 502.78125,
+            "height": 35,
+            "left": 103,
+            "right": 327,
+            "top": 467.78125,
+            "width": 224,
+            "x": 103,
+            "y": 467.78125
+          }
+        }
+      ]
+    }
+  ],
+  "size": [
+    {
+      "count": "2",
+      "scale": "0.9",
+      "label": "2体 / 90% / 主役の画像枠 198px"
+    },
+    {
+      "count": "2",
+      "scale": "0.8",
+      "label": "2体 / 80% / 主役の画像枠 176px"
+    },
+    {
+      "count": "2",
+      "scale": "0.7",
+      "label": "2体 / 70% / 主役の画像枠 154px"
+    },
+    {
+      "count": "2c",
+      "scale": "0.9",
+      "label": "2体 / 90% / 主役の画像枠 198px"
+    },
+    {
+      "count": "2c",
+      "scale": "0.8",
+      "label": "2体 / 80% / 主役の画像枠 176px"
+    },
+    {
+      "count": "2c",
+      "scale": "0.7",
+      "label": "2体 / 70% / 主役の画像枠 154px"
+    }
+  ]
+}

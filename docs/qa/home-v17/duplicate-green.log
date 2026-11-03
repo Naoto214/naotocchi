@@ -1,0 +1,55 @@
+✔ Home choice DOM input consumes exactly once and presents the existing reply/reaction (461.402941ms)
+✔ timed-out and scene-hidden choices cannot replay; non-Home choices keep native bubbling (53.444418ms)
+✔ a detached choice cannot answer a later question, even when its index is valid (89.754364ms)
+✔ Home selected pet uses its official current stage name (59.573137ms)
+✔ sleep action label, tooltip and presentation state follow sleep/wake (42.292663ms)
+✔ screenshot exchange opens a compact Home popup and shows its existing narrative exactly once (88.433457ms)
+✔ Home exchange later rejects its stale callback and keeps the original later effects (31.18572ms)
+✔ age choices reuse Home presentation with unchanged effects; non-Home remains modal (83.929575ms)
+✔ Home choice keeps fixed cast and care presentation across renders while gameplay stays paused (65.884522ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/53f8f12fa93e/repo/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/53f8f12fa93e/repo/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ home suppresses every routine delta family but retains meaningful outcomes and rewards (14.425063ms)
+✔ persistent warning combines life and illness without ordinary hunger/sleep messages (1.03914ms)
+✔ effect anchors reflect around artwork bounds while directional travel is independent of native facing (0.511084ms)
+✔ terrain runtime suppresses daily numeric feedback without mutating state; illness returns after event (1386.643229ms)
+✔ legacy markup retains four daily meters and five lifetime meters before terrain activation (41.040799ms)
+✔ terrain owns the five-plus-four meter move and restores legacy order on exit and destruction (5196.452444ms)
+✔ long partner names open existing profile details by tapping the header (46.078349ms)
+✔ actual effect adapter keeps every Z upright and reflects all approved stage anchors (15.962592ms)
+✔ infinite mode preserves the formerly hidden life gauge after its move (71.123465ms)
+✔ choice narration then an authored medicine response remain readable in the shared lane (56.77899ms)
+✔ v17 uses restrained fonts and tries readable single-line sizes before wrapping (14.147224ms)
+✔ exchange carries canonical companion identity through question and reaction without changing narrative or effects (553.938739ms)
+✔ system age outcome clears prior actor identity (150.265619ms)
+✔ ordinary speech uses an official asset and updates identity per actual beat (164.093675ms)
+✔ new authored speech takes the lane after an exchange reaction (922.240982ms)
+✔ speech portrait resolves the expression started by this beat (119.357336ms)
+✔ special author greeting has the canonical formal identity (247.792658ms)
+✔ hatching creates four traits, profile and new guest data (455.339265ms)
+✔ real minigame result grows C and B on first B; quick and repeats do not grow (131.782607ms)
+✔ real travel deduplicates natural experience (105.893713ms)
+✔ legacy personality removed from fresh save and registered achievements (88.522749ms)
+✔ twelve real age transitions queue one choice each, preserve midlife effects and 90 guard (227.232385ms)
+✔ pending choice reload and other-tab takeover reject stale choice (133.309767ms)
+✔ exchange handler supplies 10 experiences with four companions and 15 with five without romance (170.848672ms)
+✔ real completed B games supply natural-only perseverance, without A/S or permanent-best dependency (245.218517ms)
+✔ real travel, scenery and encounters reach natural-only wonder/courage without meguru (264.943477ms)
+✔ transform and infinity preserve individuality, ended life rejects all growth (540.908228ms)
+✔ old adult save keeps permanent progress and only future events (1312.234245ms)
+✔ closing menus dismisses the choice dialog and permits later resumption (602.771201ms)
+✔ automatic dialog synchronizes modal inert before the next user action (164.119745ms)
+✔ all fifty quick solo wrappers and the mixed run complete without changing individuality (663.567559ms)
+✔ registered achievement total is 92 and removed IDs cannot fill new heart slots (343.703407ms)
+✔ each heart reaches exactly 60 through ten adapter experiences and five legal age choices (4088.689865ms)
+✔ next life keeps permanent achievements and full prior choices but starts hearts and choices anew (122.120661ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 43
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10127.66502

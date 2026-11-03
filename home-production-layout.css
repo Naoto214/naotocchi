@@ -1,0 +1,321 @@
+.home-comment-dock{display:contents}
+/* Production only. Keep the approved world at its intrinsic size; a short
+   viewport scrolls the central pane while the 5+4 care controls stay reachable. */
+html:has(body[data-home-production="true"][data-home-terrain="true"] .device[data-home-fixed="true"]){overflow:hidden;overscroll-behavior:none}
+body.world-mode[data-home-production="true"][data-home-terrain="true"]:has(.device[data-home-fixed="true"]){height:var(--app-height);min-height:0;overflow:hidden;overscroll-behavior:none}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]:has(#screenNormal:not(.hidden)){
+ position:fixed;inset:0;height:var(--app-height);min-height:0;max-height:var(--app-height);
+ grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto auto;gap:3px;
+}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]>.device-header{grid-column:1;grid-row:1}
+/* Match the legacy landscape selector's #screenNormal specificity. Otherwise
+   its grid-row:1/-1 spans the header and controls at widths >=640px. */
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]:has(#screenNormal:not(.hidden))>.screen-frame{
+ grid-column:1;grid-row:2;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;scrollbar-width:thin;
+}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #screen{height:auto;min-height:100%;overflow:visible}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #screenNormal{container-type:normal;min-height:100%;height:auto}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #petArea{min-height:456px;flex:1 0 456px}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"] #careActions{grid-column:1;grid-row:3;margin-top:0}
+body[data-home-production="true"][data-home-terrain="true"] .device.ui-home-active[data-home-fixed="true"]>.life-actions{grid-column:1;grid-row:4}
+/* A scroll is a viewport translation, not a navigation reflow. The background
+   and cast move together, keeping existing world coordinates and masks intact. */
+body[data-home-production="true"] .home-living-world{height:calc(100% + var(--home-center-overflow,0px));transform:translateY(calc(-1 * var(--home-center-scroll,0px)))}
+body[data-home-production="true"][data-home-terrain="true"] #castStage[data-diorama]{touch-action:pan-y pinch-zoom}
+body[data-home-production="true"][data-home-terrain="true"] #castStage[data-diorama] [data-diorama-actor]{touch-action:none}
+/* Text and small lanes retain their existing intrinsic dimensions. */
+body[data-home-production="true"][data-home-terrain="true"] #homeInformation{gap:0}
+body[data-home-production="true"][data-home-terrain="true"] #homeGestureGuide{margin:0}
+/* Dismissing the guide must not resize/reproject the live terrain. Retain its
+   existing 26px lane; hidden controls remain invisible and unfocusable. */
+body[data-home-production="true"][data-home-terrain="true"] #homeGestureGuide[hidden]{display:flex!important;visibility:hidden;min-height:26px}
+/* V5: the compatibility reservation stays 42px. Natural notice content owns
+   an explicitly measured extension below it; the following terrain/speech
+   remain in normal flow, so overflowing text never paints over another lane. */
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot{
+ overflow:visible;justify-content:flex-start;margin-bottom:var(--home-notice-extra,0px);
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){
+ flex:0 0 auto;height:auto;max-height:none;min-height:28px;overflow:visible;
+}
+/* Preserve the existing normal padding and the birth notice's own gold
+   border, star inset and leading. Extra padding would move the terrain when
+   the queued post-birth notice replaces the one-line birth message. */
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message):not(.birth-notice){padding:1px 8px;line-height:1.4}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash-text{
+ max-height:none;overflow:visible;flex:0 1 auto;padding:1px 0;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot:not([data-expanded="true"]){justify-content:center}
+
+/* V6: one full-width text lane, independent event art and speaker metadata.
+   Override the old centered max-content/balanced wrapping and narrow name
+   pseudo-element together. Long tokens retain an emergency wrapping path. */
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message){
+ width:100%;max-width:100%;margin-left:0;margin-right:0;text-align:left;text-wrap:wrap;overflow-wrap:anywhere;word-break:normal;line-break:strict;
+}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash:not(.hidden){
+ display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:6px;row-gap:0;align-items:center;
+}
+/* The old inline line box plus impact-pop overshoot enlarged WebKit's scroll
+   bounds during entry. Notice art is a stable 24px flex box; character motion
+   and the story container's existing transition remain independent. */
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji{grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;min-width:0;max-width:24px;width:24px;height:24px;line-height:1;align-self:start;animation:none}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji:empty{display:none}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji::after{content:none!important}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashName{grid-column:2;grid-row:1;min-width:0;font:11px/1.4 system-ui;text-align:left;white-space:normal;overflow-wrap:anywhere;color:#315247}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash-text{grid-column:2;grid-row:2;width:100%;min-width:0;max-width:100%;text-align:left;text-wrap:wrap;white-space:pre-wrap;overflow-wrap:anywhere;line-break:strict}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .story-flash:has(#storyFlashEmoji:empty) .story-flash-text{grid-column:1 / -1}
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot .notice-phrase{display:inline-block;max-width:100%;vertical-align:top;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;text-wrap:wrap}
+/* Event illustrations have legacy 32px sizes. Bound the artwork itself, not
+   only its grid wrapper; named speaker portraits retain their existing 20px. */
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(.care-icon,.ui-icon,.comment-drawing,.comment-picture,.display-icon,.catalog-icon,.display-icon-visual,.item-picture){width:24px;height:24px;max-width:100%;max-height:24px;flex-basis:24px}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji[data-label]:not([data-label=""]) .comment-picture{flex:0 0 20px}
+body[data-home-production="true"][data-home-terrain="true"] #storyFlashEmoji :is(img,svg){max-width:100%;max-height:100%;object-fit:contain}
+
+/* V7: native wrapping. The historical phrase helper is retained only for the
+   old comparison contracts; live notices never insert word-group elements. */
+body[data-home-production="true"][data-home-terrain="true"] #homeEventSlot :is(#message,.story-flash-text){white-space:normal;line-break:auto;text-wrap:wrap;word-break:normal;overflow-wrap:anywhere}
+/* The 76px world reservation remains unchanged. Only the presentation dock is
+   viewport anchored; its intrinsic content cannot resize the cast or camera. */
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock{
+ position:fixed;left:var(--comment-left,8px);bottom:var(--comment-bottom,150px);width:var(--comment-width,calc(100% - 16px));
+ display:flex;flex-direction:column;align-items:center;gap:4px;height:auto;max-height:var(--comment-max-height,70vh);overflow:auto;
+ z-index:1200;pointer-events:none;scrollbar-width:thin;overscroll-behavior:contain;
+}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock:empty{display:none}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechBubble,#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"]){
+ position:relative;inset:auto;transform:none;display:flex;flex-direction:column;align-items:stretch;flex:0 0 auto;gap:3px;
+ width:max-content;max-width:100%;min-width:0;height:auto;min-height:0;max-height:none;box-sizing:border-box;
+ margin:0;padding:6px 9px;overflow:visible;text-align:left;font-size:16px;line-height:1.4;
+ white-space:normal;text-wrap:wrap;overflow-wrap:anywhere;word-break:normal;line-break:auto;pointer-events:auto;
+}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechBubble,#homeChoiceResult,#homeActionComment,#storyFlash).hidden{display:none}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechSpeaker,#homeChoiceSpeaker,#homeActionSpeaker,#storyFlashEmoji){
+ display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:4px;min-width:0;max-width:100%;width:auto;height:auto;
+ flex:0 0 auto;align-self:stretch;max-height:none;overflow:visible;font:11px/1.4 system-ui;white-space:normal;text-wrap:wrap;animation:none;
+}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechSpeaker,#homeChoiceSpeaker,#homeActionSpeaker,#storyFlashEmoji)::after{content:none}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock .lane-speaker-name{min-width:0;overflow-wrap:anywhere}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock .comment-picture{width:20px;height:20px;flex:0 0 20px}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock .comment-picture img{width:100%;height:100%;object-fit:contain}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechText,#homeChoiceText,#homeActionText,#storyFlashText){
+ display:block;flex:none;width:auto;min-width:0;max-width:100%;height:auto;max-height:none;overflow:visible;
+ text-align:left;white-space:normal!important;text-wrap:wrap!important;word-break:normal;line-break:auto;overflow-wrap:anywhere;line-height:1.4;padding:0;
+}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechBubble::before{display:none}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot.is-asking{display:flex;background:none;overflow:visible;padding:2px 4px}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechSpeaker{position:static}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechChoices{flex:none;pointer-events:auto;width:100%;max-width:100%;background:#f8fff5;padding:4px;box-sizing:border-box}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock>.individual-dialog.home-choice-popup{position:relative;inset:auto;transform:none;width:100%;height:auto;max-height:none;pointer-events:auto;overflow:visible}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock>.individual-dialog.home-choice-popup .individual-panel{height:auto;max-height:none;min-height:0;display:flex;flex-direction:column;gap:3px}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #individualitySpeaker{display:flex;flex-direction:row;max-width:100%;width:auto;max-height:none;overflow:visible}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #individualitySpeaker::after{content:none}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock:has(>.individual-dialog.home-choice-popup:not(.hidden))>:is(#speechBubble,#speechChoices,#homeChoiceResult){display:none}
+body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock:has(#homeChoiceResult:not(.hidden)) #speechBubble{display:none}
+
+body[data-home-production="true"][data-home-terrain="true"] #homeActionComment::before{display:none}
+/* A short landscape viewport has room beside choices, not below them. Keep
+   every 44px target in the dock instead of clipping the last single-column row. */
+@media (min-width:640px) and (orientation:landscape){
+ body[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechChoices{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+}
+
+/* V8 keeps the approved portrait lanes constant. Landscape is the owner-
+   approved compact rail; all world geometry remains at its original scale. */
+body[data-home-viewport-v8="true"] #castStage[data-diorama]{touch-action:pan-x pan-y pinch-zoom}
+body[data-home-viewport-v8="true"] #homeViewportNavigation button{flex:1;min-width:0;height:32px;padding:2px 6px;font:12px system-ui;border:1px solid #8b9a82;border-radius:6px;background:#fff9e8;color:#293d30}
+body[data-home-viewport-v8="true"] #speechSlot #homeCommentDock{background:#fff9e8dd;border-radius:8px;box-sizing:border-box;align-items:stretch;justify-content:flex-start}
+body[data-home-viewport-v8="true"] #speechSlot #homeCommentDock:empty{display:flex}
+
+body[data-home-viewport-v8="true"] .home-living-world{transform:translate(calc(-1 * var(--home-center-scroll-x,0px)),calc(-1 * var(--home-center-scroll,0px)))}
+
+/* V9: one presentation lane. Keep the independent gameplay timers intact;
+   an active reply/action takes precedence over ambient narration. */
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#homeChoiceResult:not(.hidden)) :is(#homeActionComment,#storyFlash[data-comment="true"],#speechBubble),
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#homeActionComment:not(.hidden)):not(:has(#homeChoiceResult:not(.hidden))) :is(#storyFlash[data-comment="true"],#speechBubble),
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeCommentDock:not(:has(#speechChoices:not(.hidden))):has(#storyFlash[data-comment="true"]:not(.hidden)):not(:has(#homeChoiceResult:not(.hidden))):not(:has(#homeActionComment:not(.hidden))) #speechBubble,
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeCommentDock:has(>.individual-dialog:not(.hidden)) :is(#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"],#speechBubble,#speechChoices){display:none!important}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeCommentDock:has(#speechChoices:not(.hidden)) :is(#homeChoiceResult,#homeActionComment,#storyFlash[data-comment="true"]){display:none!important}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeCommentDock:not(:has(>.individual-dialog:not(.hidden))):has(#speechChoices:not(.hidden)) #speechBubble{display:flex!important}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] #homeInformation,
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] .home-meters{box-sizing:border-box;border-radius:8px;scrollbar-width:thin;overscroll-behavior:contain;flex-shrink:0}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeCommentDock>*{flex-shrink:0!important}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeViewportNavigation button{height:24px;padding:0 4px}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))) #homeEventSlot>:is(.story-flash,#message){min-height:0}
+@media(orientation:landscape){
+ body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] #careActions>button{height:38px;min-height:38px;padding:1px;gap:0;font-size:15px}
+ body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] #careActions>button span{font-size:11px}
+ body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] #careActions>button :is(.care-icon,.display-icon,.ui-icon){width:18px;height:18px}
+ body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] #careActions{gap:4px}
+}
+/* Neutral browser edge color; the original region cover still paints the page. */
+html:has(body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))),body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))){background-color:#342b25}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] :is(#homeInformation,.home-meters){overflow-x:hidden!important}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] #homeGestureGuide{display:none!important}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] #stageLabel{display:none}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] .home-meters .bars .bar-line{grid-template-rows:12px 4px 12px;gap:1px}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] .home-meters :is(.bar-label,.bar-value){font-size:10px;line-height:12px}
+body:is([data-home-viewport-version="9"],:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])))[data-home-viewport-v8="true"] .home-meters .bar{height:4px}
+
+/* V10: native content width, upper action/result notices, one lower speaker. */
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeEventSlot{display:flex;align-items:flex-start;justify-content:flex-start!important;scrollbar-width:none}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){
+ position:relative;inset:auto;transform:none;flex:0 0 auto;width:fit-content;max-width:100%;height:auto;min-height:0;max-height:none;margin:0;padding:3px 7px;box-sizing:border-box;white-space:normal;text-wrap:wrap;word-break:normal;line-break:auto;overflow-wrap:anywhere;overflow:visible;font-size:12px;line-height:1.4;
+}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeEventSlot :is(#homeActionSpeaker,#homeChoiceSpeaker){display:none}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeEventSlot :is(#homeActionText,#homeChoiceText){display:block;white-space:normal;text-wrap:wrap;overflow-wrap:anywhere}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeEventSlot:has(#homeChoiceResult:not(.hidden))>:is(#homeActionComment,#message),
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeEventSlot:has(#homeActionComment:not(.hidden))>#message{display:none!important}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #speechSlot #homeCommentDock{align-items:flex-start;scrollbar-width:none}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #speechSlot #homeCommentDock:has(#storyFlash[data-comment="true"]:not(.hidden)):not(:has(#speechChoices:not(.hidden))) #speechBubble{display:none!important}
+/* Actor wrappers can be nested; only the explicit rendered count decides. */
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #castStage[data-home-single-actor="true"] .diorama-selected-label{display:none!important}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #castStage[data-home-single-actor="false"] .diorama-selected-label:not([hidden]){display:block}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] .screen-frame::-webkit-scrollbar{display:none}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeInformation :is(.status-row,.sub-status-row,.cast-names)::before{background:transparent;backdrop-filter:none}
+
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeInformation{scrollbar-width:none}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeInformation::-webkit-scrollbar{display:none}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #mainNameLabel{display:none}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] .diorama-selected-label{position:fixed;top:var(--home-selection-top);left:var(--home-selection-left)}
+
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] #homeInformation{scrollbar-width:none!important}
+body:is([data-home-viewport-version="10"],:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]))[data-home-viewport-v8="true"] .home-meters .bar-fill.devo.high{box-shadow:0 0 6px #b3541580}
+
+/* V11: one semantic owner per lane; decoration is independent of DOM ancestry. */
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])[data-home-viewport-v8="true"] #homeEventSlot,
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])[data-home-production="true"] #speechSlot #homeCommentDock{align-items:center;justify-content:flex-start!important}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])[data-home-production="true"][data-home-terrain="true"] :is(#homeEventSlot,#homeCommentDock)>:is(#message,#homeActionComment,#homeChoiceResult,#storyFlash,#birthdayToast,#mgResultToast,#speechBubble){
+ background:rgba(250,253,245,.88);color:#173e32;border:0;border-radius:10px;box-shadow:none;text-shadow:none;
+ width:fit-content;max-width:100%;margin:0 auto;box-sizing:border-box;animation:none;
+}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) :is(#storyFlashText,#speechText,#homeChoiceText,#homeActionText){color:inherit;text-shadow:none}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechBubble{width:max-content;max-width:100%;display:flex;flex-direction:column;gap:3px;padding:6px 9px}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) #homeEventSlot>*.hidden,
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) #speechSlot #homeCommentDock>.hidden{display:none!important}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) #homeEventSlot>:is(#message,#homeActionComment):not(:empty){visibility:visible}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) #homeEventSlot>#message:empty{display:none!important}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])[data-home-upper]:not([data-home-upper="message"]) #homeEventSlot>:is(#message,#homeActionComment),
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]):not([data-home-upper="story"]) #homeEventSlot>#storyFlash,
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]):not([data-home-upper="birthday"]) #homeEventSlot>#birthdayToast,
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]):not([data-home-upper="result"]) #homeEventSlot>#mgResultToast,
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]):not([data-home-upper="choice"]) #homeEventSlot>#homeChoiceResult{display:none!important}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) .home-meters,
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) .home-meters::before{background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
+/* Choices occupy a temporary overlay above the fixed comment, never a world reservation. */
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"])[data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock>:is(#speechChoices,.individual-dialog.home-choice-popup){
+ position:fixed;inset:auto;left:var(--v11-choice-left);bottom:var(--v11-choice-bottom);transform:none;
+ width:var(--v11-choice-width);max-width:var(--v11-choice-width);height:auto;max-height:var(--v11-choice-height)!important;
+ overflow:auto;box-sizing:border-box;z-index:1203;pointer-events:auto;margin:0;padding:6px;
+ border-radius:10px;background:rgba(250,253,245,.96);box-shadow:0 2px 10px #173e3220;
+}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) #speechChoices{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) #speechChoices .speech-choice{min-height:44px;white-space:normal}
+body:is([data-home-viewport-version="11"],[data-home-viewport-version="12"]) .individual-dialog.home-choice-popup .individual-panel{background:transparent;border:0;box-shadow:none;max-height:none}
+
+/* V12: choices are a temporary screen-centred overlay, with no world reservation. */
+body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock>:is(#speechChoices,.individual-dialog.home-choice-popup){
+ left:var(--v12-choice-x);top:var(--v12-choice-y);bottom:auto;transform:translate(-50%,-50%);width:var(--v12-choice-width);max-width:var(--v12-choice-width);max-height:var(--v12-choice-height)!important;
+}
+
+/* V12 compact landscape: three meter columns, all nine controls in 5+4.
+   These are presentation-only rules; the reserved world never changes. */
+@media (orientation:landscape){
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:19px;gap:2px 6px;padding:0 2px!important}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bars{display:contents!important}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bars .bar-line{grid-template-columns:1fr auto;grid-template-rows:14px 4px;gap:1px 2px;margin:0;padding:0}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bar-label{grid-column:1;grid-row:1;text-align:left;font-size:11px;line-height:14px}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bar-value{grid-column:2;grid-row:1;text-align:right;font-size:10px;line-height:14px}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .home-meters .bar{grid-column:1 / -1;grid-row:2}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #careActions{gap:4px;grid-template-rows:34px 34px}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #careActions>button{height:34px;min-height:34px;padding:1px;gap:0}
+ body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechBubble,#storyFlash){padding:2px 6px;gap:1px;font-size:12px;line-height:14px}
+ body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechText,#storyFlashText){line-height:14px}
+ body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock :is(#speechSpeaker,#storyFlashEmoji){font-size:10px;line-height:12px}
+ body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock .comment-picture{width:12px;height:12px;flex-basis:12px}
+ body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){padding:2px 5px;font-size:12px;line-height:14px}
+}
+
+
+@media (orientation:landscape){
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #careActions>button{line-height:16px}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #careActions>button span{line-height:13px}
+ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #careActions>button :is(.care-icon,.display-icon,.ui-icon){width:16px;height:16px}
+}
+
+/* V12 final portrait lanes: no content-driven camera/layout changes. */
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot{justify-content:center!important;align-items:flex-start!important}
+body[data-home-viewport-version="12"][data-home-production="true"] #speechSlot #homeCommentDock{justify-content:flex-end!important;align-items:center!important}
+@media (orientation:portrait){
+ body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #speechSlot #homeCommentDock #speechBubble{padding:4px 9px;gap:2px}
+}
+
+body[data-home-viewport-version="12"][data-home-tiny-overview="true"] .home-living-world{
+ left:0!important;top:var(--home-backdrop-top,0px)!important;right:auto!important;bottom:auto!important;
+ width:var(--home-backdrop-width,100vw)!important;height:var(--home-backdrop-height,100dvh)!important;
+ transform:none!important;clip-path:none!important;
+}
+
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .cast-title-line{display:none}
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] .cast-heading:not(:has(#partnerLabel:not(:empty))){display:none}
+
+@media(orientation:landscape){body[data-home-viewport-version="12"][data-home-production="true"][data-home-terrain="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){font-size:9px;line-height:11px}}
+
+/* V12 additional: lane decoration must not inherit night-mode haze. */
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot{flex-direction:row!important;align-items:flex-start!important;justify-content:center!important;padding:0!important}
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot>:is(#message,#homeActionComment,#homeChoiceResult,#storyFlash,#birthdayToast,#mgResultToast){align-self:flex-start!important;margin:0 auto!important;background:#f4f8ed!important;color:#173e32!important;box-shadow:none!important;filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot>:is(#message,#homeActionComment,#homeChoiceResult,#storyFlash,#birthdayToast,#mgResultToast)::after,
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot>:is(#birthdayToast,#mgResultToast)::before{display:none!important}
+body[data-home-viewport-version="12"] #castStage[data-diorama] [data-diorama-selected="true"] .character-visual{filter:none!important}
+body[data-home-viewport-version="12"] #castStage [data-diorama-actor]{-webkit-tap-highlight-color:transparent}
+body[data-home-viewport-version="12"] .diorama-shadow[data-selected="true"]{outline:1px solid #d7ddd080;box-shadow:none;background:#25352d25}
+
+/* Double only the transparent SVG canvas, retaining the original unit scale. */
+body[data-home-viewport-version="12"] .pet-expression-accent>svg[data-home-effect-canvas="expanded"]{position:absolute;left:-50%;top:-50%;width:200%;height:200%;overflow:visible}
+
+/* Fixed V12 lanes keep long text inside their own scrollable panel. Choices
+   remain separate fixed overlays; typography and authored text are unchanged. */
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #homeEventSlot>:is(.story-flash,.birthday-toast,.mg-result-toast,#message,#homeActionComment,#homeChoiceResult){max-height:100%!important;overflow:auto!important;overscroll-behavior:contain}
+body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #speechSlot #homeCommentDock>:is(#speechBubble,#storyFlash){max-height:100%!important;overflow:auto!important;overscroll-behavior:contain}
+
+/* V14 snail invitation: keep the modal hit surface, remove only its dark paint. */
+body[data-home-production="true"][data-home-display-version="14"] #companionInviteOverlay[data-companion-id="snail"]{background:transparent}
+body[data-home-production="true"][data-home-display-version="14"] #companionInviteOverlay[data-companion-id="snail"]>.companion-invite-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
+
+/* V15: retain the invitation's hit surface and card, remove only its dim paint. */
+body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #companionInviteOverlay{background:transparent}
+body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #companionInviteOverlay>.companion-invite-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
+@media(orientation:portrait){
+ body[data-home-production="true"][data-home-display-version="15"][data-home-viewport-v8="true"] #speechSlot #homeCommentDock{justify-content:flex-start!important}
+}
+@media(orientation:landscape){
+ html:has(body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #device[data-home-fixed="true"]),
+ body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))):has(#device[data-home-fixed="true"]){background:#fff}
+ body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #device[data-home-fixed="true"]{background:transparent;color:#17343d}
+ body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #device[data-home-fixed="true"] :is(.device-header,#homeInformation,#homeEventSlot,#homeCommentDock,.home-meters,#careActions){color:#17343d;text-shadow:none}
+ body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #device[data-home-fixed="true"] :is(.bar-label,.bar-value,#careActions button,.device-header button){color:#17343d;text-shadow:none}
+}
+
+/* V16 uses the existing right rail; portrait typography/placement is untouched. */
+@media(orientation:landscape){
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation .cast-heading{position:absolute;top:-19px;right:0;max-width:calc(100% - 92px);margin:0}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation #partnerLabel{font-size:9px;line-height:14px;min-height:0;margin:0;max-width:100%}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation .partner-affection{font-size:9px}
+
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] .header-title .name-plate{font-size:14px;line-height:17px;letter-spacing:0}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation :is(.status-row,.age-status,#ageLabel,#sodachiLabel,#moneyLabel){font-size:10px;line-height:12px;letter-spacing:0}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation :is(.sub-status-row,.world-status){font-size:9px;line-height:12px;gap:2px;flex-wrap:wrap}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation .care-icon{width:14px;height:14px}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation :is(.status-row,.sub-status-row){min-height:0}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation #homeGestureGuide[hidden],
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] .header-title .cast-badges:has(>.badges:empty):has(>.ending-badges:empty){display:none!important}
+}
+
+/* Safari's browser chrome can leave only ~176 CSS px. Keep existing rows,
+   9 meters and 5+4 buttons, using the remaining right-rail height explicitly. */
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] #homeInformation :is(.status-row,.sub-status-row){margin:0;gap:2px;min-height:12px;line-height:12px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] #homeInformation .care-icon{width:12px;height:12px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters{grid-auto-rows:15px;gap:1px 6px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters .bars .bar-line{grid-template-rows:11px 3px;gap:1px 2px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters :is(.bar-label,.bar-value){font-size:9px;line-height:11px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters .bar{height:3px}

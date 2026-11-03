@@ -1,0 +1,35 @@
+✔ v17 uses restrained fonts and tries readable single-line sizes before wrapping (1.312283ms)
+✖ exchange carries canonical companion identity through question and reaction without changing narrative or effects (150.661965ms)
+✔ system age outcome clears prior actor identity (52.042049ms)
+✔ ordinary speech uses an official asset and updates identity per actual beat (69.786537ms)
+✔ new authored speech takes the lane after an exchange reaction (61.740576ms)
+✔ speech portrait resolves the expression started by this beat (77.575901ms)
+✔ special author greeting has the canonical formal identity (69.347041ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 675.448841
+
+✖ failing tests:
+
+test at tests/home-v17-test.cjs:11:1
+✖ exchange carries canonical companion identity through question and reaction without changing narrative or effects (150.661965ms)
+  AssertionError [ERR_ASSERTION]: character reaction is not duplicated as an anonymous notice
+      at TestContext.<anonymous> (/workspace/scratch/53f8f12fa93e/repo/tests/home-v17-test.cjs:18:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '言葉がなくても、気持ちよさが伝わった。',
+    expected: '言葉がなくても、気持ちよさが伝わった。',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

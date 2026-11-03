@@ -1,0 +1,14 @@
+✔ one-finger drags cannot pan the home, including a drag starting on a care button (115.164302ms)
+✔ long text can scroll in both directions but cannot drag the home past its edges (24.1898ms)
+✔ pinch zoom and panning an enlarged view remain available (19.473998ms)
+✔ menus, minigames and life records keep their gestures and returning home restores the lock (33.136453ms)
+✔ home touch setup leaves the home height available after the fun strip retirement (34.340411ms)
+✔ crowded terrain home allows document scrolling while other fixed homes remain locked (32.36386ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 390.450582

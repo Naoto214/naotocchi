@@ -1,0 +1,45 @@
+✔ landmarks use the real Meguru profile and stage bounds (107.740939ms)
+✔ tap selects, release after drag sets destination without teleport (3.617176ms)
+✔ cancel and lost capture never dispatch a movement (0.741182ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.865009ms)
+✔ Pilot exit restores original actor styles and input ownership (0.492425ms)
+✔ departed actor cannot receive stale drag release (0.565627ms)
+✔ leaving a paused Pilot removes all animation pause state (0.499916ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (4.368433ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.853953ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (1.455113ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.372915ms)
+✖ keyboard selects and moves the focused actor without pointer coordinates (1.273788ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 233.799564
+
+✖ failing tests:
+
+test at tests/home-diorama-adapter-test.cjs:65:1
+✖ keyboard selects and moves the focused actor without pointer coordinates (1.273788ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + null
+  - 'companion:shiba'
+  
+      at TestContext.<anonymous> (/dev/shm/home426-resume/repo/tests/home-diorama-adapter-test.cjs:67:84)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'companion:shiba',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

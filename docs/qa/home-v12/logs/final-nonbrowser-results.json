@@ -1,0 +1,34 @@
+[
+  {
+    "name": "household-closure",
+    "start": "2026-10-24T03:38:46.534629+00:00",
+    "end": "2026-10-24T03:39:09.183678+00:00",
+    "command": "node --test --test-concurrency=2 tests/home-household-test.cjs",
+    "exit": 0,
+    "log": "docs/qa/home-v12/logs/final-household-closure.log"
+  },
+  {
+    "name": "naopoyo-rescue",
+    "start": "2026-10-24T03:39:09.184288+00:00",
+    "end": "2026-10-24T03:39:19.969311+00:00",
+    "command": "node --test --test-concurrency=2 prototypes/naopoyo-rescue/tests/*.test.mjs",
+    "exit": 1,
+    "log": "docs/qa/home-v12/logs/final-naopoyo-rescue.log"
+  },
+  {
+    "name": "card-game",
+    "start": "2026-10-24T03:39:19.969668+00:00",
+    "end": "2026-10-24T03:39:31.666821+00:00",
+    "command": "node --test --test-concurrency=2 prototypes/card-game/tests/*.test.mjs",
+    "exit": 1,
+    "log": "docs/qa/home-v12/logs/final-card-game.log"
+  },
+  {
+    "name": "publication",
+    "start": "2026-10-24T03:39:31.667637+00:00",
+    "end": "2026-10-24T03:39:31.744036+00:00",
+    "command": "python3 -m unittest discover -s tests/pages -v",
+    "exit": 0,
+    "log": "docs/qa/home-v12/logs/final-publication.log"
+  }
+]

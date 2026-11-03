@@ -1,0 +1,24 @@
+✔ index.html asset references exist and carry cache tokens (2.388343ms)
+✔ the bump tool rewrites only cache tokens (0.268255ms)
+(node:31) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0edf4eb086ab/diorama-worktree/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0edf4eb086ab/diorama-worktree/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (183.584395ms)
+✔ live attendance is unchanged; display only existing visitors (36.558203ms)
+✔ care button still runs official feeding and stops movement (4022.910518ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (2012.008359ms)
+✔ routine live render preserves a user walking destination (27.77797ms)
+✔ one-finger drags cannot pan the home, including a drag starting on a care button (143.173082ms)
+✔ long text can scroll in both directions but cannot drag the home past its edges (21.528ms)
+✔ pinch zoom and panning an enlarged view remain available (17.944223ms)
+✔ menus, minigames and life records keep their gestures and returning home restores the lock (50.280978ms)
+✔ home touch setup leaves the home height available after the fun strip retirement (22.774589ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8398.352614

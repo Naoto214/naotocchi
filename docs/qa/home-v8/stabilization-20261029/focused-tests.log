@@ -1,0 +1,29 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8450be5caff5/repo/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8450be5caff5/repo/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ ground destination is outside every actor body and touch padding, including the selected pet (60.108334ms)
+✔ v6 accepts ready renderer webgl (2.714063ms)
+✔ v6 accepts ready renderer canvas-3d (0.751488ms)
+✔ v6 still rejects {"mode":"loading"} (0.88883ms)
+✔ v6 still rejects {"mode":"unavailable"} (0.826278ms)
+✔ v6 still rejects {"mode":"art-25d","loaded":false} (0.946206ms)
+✔ v6 waits for decoded art (0.868551ms)
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/8450be5caff5/repo/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/8450be5caff5/repo/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ rotation of single large actor has legal floor in landscape and portrait (star-new / day) (56.192649ms)
+✔ rotation of single large actor has legal floor in landscape and portrait (star-new / night) (2.409875ms)
+✔ rotation of single large actor has legal floor in landscape and portrait (star_stop-original / day) (2.300503ms)
+✔ rotation of single large actor has legal floor in landscape and portrait (star_stop-original / night) (1.988032ms)
+✔ landscape married six-person cast keeps every foot legal (star-new) (70.352441ms)
+✔ landscape married six-person cast keeps every foot legal (star_stop-original) (144.303336ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 393.993158

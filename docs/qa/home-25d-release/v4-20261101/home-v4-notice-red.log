@@ -1,0 +1,39 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3fd642051846/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3fd642051846/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ egg changes are words only at all four warming stages without changing growth (313.738896ms)
+✔ birth uses the formal first-stage name, once; decoration is transient (92.934505ms)
+✔ birth has one notice, no central text panel, and the notice styling expires (67.980403ms)
+✖ an achievement waits until the birth notice finishes (219.007297ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1100.113214
+
+✖ failing tests:
+
+test at tests/egg-birth-story-test.cjs:36:1
+✖ an achievement waits until the birth notice finishes (219.007297ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (/workspace/scratch/3fd642051846/naotocchi/tests/egg-birth-story-test.cjs:41:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

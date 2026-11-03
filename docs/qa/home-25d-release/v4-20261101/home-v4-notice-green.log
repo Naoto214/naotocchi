@@ -1,0 +1,23 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3fd642051846/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3fd642051846/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ egg changes are words only at all four warming stages without changing growth (300.111814ms)
+✔ birth uses the formal first-stage name, once; decoration is transient (95.492204ms)
+✔ birth has one notice, no central text panel, and the notice styling expires (50.419648ms)
+✔ an achievement waits until the birth notice finishes (175.762796ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3fd642051846/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3fd642051846/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ production notice lane delivers male/gay transition after growth and story (572.943824ms)
+✔ production notice lane delivers male/straight transition after growth and story (71.485074ms)
+✔ production notice lane delivers nonbinary/straight transition after growth and story (121.613867ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3460.947317

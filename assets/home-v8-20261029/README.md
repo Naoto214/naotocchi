@@ -1,0 +1,3 @@
+# Sea B2 — 2026-10-29
+Built-in ImageGen; original 1024×1536 PNG preserved. Runtime WebP quality 86/method 6.
+Prompt: Premium painterly Japanese coast, front-facing open ocean and wide horizon near upper 22%, distant low island silhouettes, blue sky/clouds. Sea spans left-to-right. Clear shallows with small fish, seaweed, seabed sand/rocks and caustics across middle foreground. Broad continuous dry sand bottom 38%, modest corner rocks. No characters, text, aquarium cutaway, pool, tropical palms or left-land/right-water diagonal composition. Intended for formal 2D characters and 28-actor beach life. B2 remains a comparison candidate, sea B is the selected design pending owner's decision.

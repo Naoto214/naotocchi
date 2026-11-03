@@ -32,7 +32,7 @@ test('static script exposes the pure assessment interface on window', () => {
   vm.runInNewContext(fs.readFileSync(require.resolve('../care-status.js'), 'utf8'), context);
   assert.deepEqual(
     Object.keys(context.window.NaotocchiCareStatus).sort(),
-    ['assess', 'changes', 'signals', 'snapshot'],
+    ['assess', 'changes', 'signals', 'snapshot', 'summary'],
   );
 });
 

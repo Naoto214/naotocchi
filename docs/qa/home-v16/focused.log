@@ -1,0 +1,39 @@
+✔ central household and lower seats at 288 (141.024931ms)
+✔ central household and lower seats at 343 (136.873728ms)
+✔ central household and lower seats at 358 (97.903793ms)
+✔ central household and lower seats at 398 (94.376603ms)
+✔ shared role bounds permit ground/drag moves into lower strip and no UI overflow (4.161039ms)
+✔ facing belongs to image children, not the expression SVG wrapper (5.876687ms)
+✔ speaker overlays remain within the stage including choices at each edge (0.443235ms)
+✔ poop seats on unoccupied safe terrain near the protagonist, without save coordinates (2.305231ms)
+✔ short stages return the actual choices cap and keep result narration sized (0.387934ms)
+✔ initial terrain centering respects safe ground band without recentering manual actors (0.977007ms)
+✔ sleep emission reflects the approved per-stage small-Z center without changing expression artwork (14.702507ms)
+✔ routine care summary preserves numeric canonical feedback and important costs (1.667408ms)
+✔ small measured bubble dimensions survive edge clamping for each phone width (1.163988ms)
+✔ terrain dialogue measures intrinsic size and removes the 55px minimum (33.45921ms)
+✔ important story reward text remains intact and numeric state stays unchanged (370.834828ms)
+✔ ambient story hides only trailing routine deltas while preserving authored narration and rewards (0.456578ms)
+✔ result narration has independent width before measurement and mixed tone keeps original signs (16.602458ms)
+✔ short dialogue tail is local to its centered bubble beside result narration (0.610336ms)
+✔ home suppresses every routine delta family but retains meaningful outcomes and rewards (3.226877ms)
+✔ persistent warning combines life and illness without ordinary hunger/sleep messages (0.988249ms)
+✔ effect anchors reflect around artwork bounds while directional travel is independent of native facing (0.412948ms)
+✔ terrain runtime suppresses daily numeric feedback without mutating state; illness returns after event (469.433191ms)
+✔ legacy markup retains four daily meters and five lifetime meters before terrain activation (3.699626ms)
+✔ terrain owns the five-plus-four meter move and restores legacy order on exit and destruction (83.780963ms)
+✔ long partner names open existing profile details by tapping the header (32.25705ms)
+✔ actual effect adapter keeps every Z upright and reflects all approved stage anchors (13.903171ms)
+✔ infinite mode preserves the formerly hidden life gauge after its move (46.061297ms)
+✔ choice narration and a subsequent authored medicine response both remain readable (34.041632ms)
+✔ sleep preserves native right-up design for left-facing dog; reflection reverses only trajectory (1.9595ms)
+✔ text fitting prefers large short lines and preserves readable floors for Japanese/English (50.17984ms)
+✔ terrain reparents the same individuality dialog into shared lane and restores it on exit (321.645674ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 987.054594

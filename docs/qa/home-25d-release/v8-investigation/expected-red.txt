@@ -1,0 +1,56 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/f15a3240b783/work-v8/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/f15a3240b783/work-v8/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ V8 first-stage speaker uses the stage name without modifying the species identity (337.69964ms)
+✖ V8 ordinary speech queues three authored comments in arrival order (122.614784ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 748.590409
+
+✖ failing tests:
+
+test at docs/qa/home-25d-release/v8-investigation/reproduce-v8-contract.cjs:5:1
+✖ V8 first-stage speaker uses the stage name without modifying the species identity (337.69964ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /あかちゃん/. Input:
+
+  '<span class="comment-picture" role="img" aria-label="おんなのひと"><img class="comment-asset" src="assets/characters/woman/01.png" alt="" width="128" height="128" decoding="async" draggable="false"></span><span class="lane-speaker-name">おんなのひと</span>'
+
+      at TestContext.<anonymous> (/workspace/scratch/f15a3240b783/work-v8/docs/qa/home-25d-release/v8-investigation/reproduce-v8-contract.cjs:8:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<span class="comment-picture" role="img" aria-label="おんなのひと"><img class="comment-asset" src="assets/characters/woman/01.png" alt="" width="128" height="128" decoding="async" draggable="false"></span><span class="lane-speaker-name">おんなのひと</span>',
+    expected: /あかちゃん/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at docs/qa/home-25d-release/v8-investigation/reproduce-v8-contract.cjs:11:1
+✖ V8 ordinary speech queues three authored comments in arrival order (122.614784ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  '三番目' !== '一番目'
+
+      at TestContext.<anonymous> (/workspace/scratch/f15a3240b783/work-v8/docs/qa/home-25d-release/v8-investigation/reproduce-v8-contract.cjs:14:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '三番目',
+    expected: '一番目',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

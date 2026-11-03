@@ -1,0 +1,74 @@
+[
+  {
+    "action": "sleepLeft",
+    "actors": [
+      {
+        "direction": "1",
+        "imageScale": "-1 1",
+        "key": "companion:cat_friend",
+        "wrapperScale": "1"
+      },
+      {
+        "direction": "-1",
+        "imageScale": "1",
+        "key": "partner:forest_bear",
+        "wrapperScale": "1"
+      },
+      {
+        "direction": "-1",
+        "imageScale": "1",
+        "key": "pet:dog",
+        "wrapperScale": "1"
+      }
+    ],
+    "sleeping": "true"
+  },
+  {
+    "action": "sleepRight",
+    "actors": [
+      {
+        "direction": "1",
+        "imageScale": "-1 1",
+        "key": "companion:cat_friend",
+        "wrapperScale": "1"
+      },
+      {
+        "direction": "-1",
+        "imageScale": "1",
+        "key": "partner:forest_bear",
+        "wrapperScale": "1"
+      },
+      {
+        "direction": "1",
+        "imageScale": "-1 1",
+        "key": "pet:dog",
+        "wrapperScale": "1"
+      }
+    ],
+    "sleeping": "true"
+  },
+  {
+    "action": "wake",
+    "actors": [
+      {
+        "direction": "1",
+        "imageScale": "-1 1",
+        "key": "companion:cat_friend",
+        "wrapperScale": "1"
+      },
+      {
+        "direction": "-1",
+        "imageScale": "1",
+        "key": "partner:forest_bear",
+        "wrapperScale": "1"
+      },
+      {
+        "direction": "-1",
+        "imageScale": "1",
+        "key": "pet:dog",
+        "wrapperScale": "1"
+      }
+    ],
+    "sleeping": "false"
+  }
+]

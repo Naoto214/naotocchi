@@ -1,0 +1,33 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (90.74479ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (44.032356ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (175.580058ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.968387ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (56.173522ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (166.852579ms)
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 1. 明示2D: forest の world は いまの 2D の まま(props・あたり・3D の しるし なし) (1.109367ms)
+✔ 2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の そとへ(約 1.5 × 大きさ まで)。おけない ものは 3D では おかない (2.661231ms)
+✔ 3. 3D の かたい 物は かならず あたりが あり、あたまより 下の 見た目は あたり + 10 まで(とおれる 木・見えない かべ なし) (3.274951ms)
+✔ 3b. ランドマーク(3D だけ): spot から 見た むきを たもって おく(±30 度)。たきは がけ = あたりの 箱 で、たきつぼ・あわ と いっしょ (3.984554ms)
+✔ 3c. せかいは 3D・キャラだけ 2D: けしきの 物に 立て看板・意味の ちがう 置きかえ・なぞの placeholder は ない (3.492283ms)
+✔ 3d. すかし(occlusion)は カメラ → player の あいだに ある かたい 物 だけ。とおい から すける こと は ない (33.830865ms)
+✔ 3e. たき は うしろ・よこ からも 岩の おか: がけの うしろに 岩の かたまり(あたり つき)が あり、見た目 = あたり (4.478307ms)
+✔ 4. 3D モードでも 道は ふさがない: 道はばの 3/4 の なか・spot の まんなか は あいて いる (1767.669175ms)
+✔ 5. 3D モードの forest: 50 の spot に ぜんぶ あるいて 行ける (1386.433306ms)
+✔ 6. 3D モードの forest: 27 にんの なかまも player も かたい 物に めりこまない (1595.735538ms)
+✔ 7. レンダラー: WebGL が ない ところでは すぐ 2D(こわれない・この あいだ ずっと 2D) (2.438089ms)
+✔ 8. フラグは URL だけ・セーブに のこさない。Three.js は version 固定で repo の なか。明示2Dでは よみこまない (10.922381ms)
+✔ 9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し(unresolved 0・立て看板 0)、かくす ものは きまった しるし だけ、2D(明示2D)は かわらない (10830.847711ms)
+✔ 10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない (1309.74247ms)
+✔ 11. 全地域(registry から): 3D モードで ぜんぶの spot と gate に 道に そって あるいて 行ける(とじこめ なし) (11311.593672ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30102.11271

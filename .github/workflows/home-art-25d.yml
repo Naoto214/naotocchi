@@ -1,0 +1,246 @@
+name: Home art 2.5D independent experiment
+on:
+  push:
+    branches: [experiment/home-art-25d-20261028]
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: node --test tests/home-art-test.cjs tests/home-japan-test.cjs tests/home-recovered-test.cjs tests/home-recovered-gallery-test.cjs tests/home-ab-test.cjs tests/home-ab-build-test.cjs tests/home-ab-storage-test.cjs tests/home-ab-gallery-test.cjs tests/home-c-comparison-test.cjs tests/home-v6-test.cjs tests/home-v6-capture-test.cjs tests/home-v6-isolation-test.cjs tests/home-v7-test.cjs tests/home-v7-gallery-test.cjs tests/home-v7-build-test.cjs tests/home-ground-target-test.cjs tests/home-preview-readiness-test.cjs
+      - run: python tests/home-v8-package-test.py
+      - run: node tools/home-v22-regression.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-art-regression
+          path: test-results/home-v22-regression.log
+  browsers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [forest, river_lake, city]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-art-browser.cjs
+        env:
+          HOME_ART_REGION: ${{ matrix.region }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-art-${{ matrix.region }}
+          path: test-results/home-layout/art25d
+  japan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-japan-browser.cjs
+        env:
+          HOME_ART_REGION: ${{ matrix.region }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-japan-${{ matrix.region }}
+          path: test-results/home-layout/japan
+
+  recovered:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        candidate: [home-interior-a, home-garden, forest-waterfall, forest-no-waterfall, water, city]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-recovered-browser.cjs
+        env:
+          HOME_ART_CANDIDATE: ${{ matrix.candidate }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-recovered-${{ matrix.candidate }}
+          path: test-results/home-layout/recovered
+
+  home-ab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        candidate: [home-interior-a, home-interior-b]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-ab-browser.cjs
+        env:
+          HOME_ART_CANDIDATE: ${{ matrix.candidate }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-ab-${{ matrix.candidate }}
+          path: test-results/home-layout/home-ab
+
+  home-v6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [home, forest, river_lake, city, countryside, mountain, snow, sea, jungle, desert, deepsea, star_stop, memory_lake]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-v6-browser.cjs
+        env:
+          HOME_V6_REGION: ${{ matrix.region }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-v6-${{ matrix.region }}
+          path: test-results/home-layout/v6
+
+  home-v7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { region: sea, candidate: sea }
+          - { region: sea, candidate: sea-b }
+          - { region: star_stop, candidate: star_stop-original }
+          - { region: star_stop, candidate: star-new }
+          - { region: memory_lake, candidate: memory_lake-original }
+          - { region: memory_lake, candidate: lake-new }
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-v7-browser.cjs
+        env:
+          HOME_V7_REGION: ${{ matrix.region }}
+          HOME_V7_CANDIDATE: ${{ matrix.candidate }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-v7-${{ matrix.candidate }}
+          path: test-results/home-layout/v7
+
+  home-art-v8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        candidate: [water, sea, sea-b, sea-b2, star_stop-original, star-new, memory_lake-original, lake-new]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: node --test tests/home-art-v8-test.cjs tests/home-v8-rotation-test.cjs tests/home-v8-qa-movement-test.cjs
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-art-v8-browser.cjs
+        env:
+          HOME_V8_CANDIDATE: ${{ matrix.candidate }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-art-v8-${{ matrix.candidate }}
+          path: test-results/home-art-v8
+
+  home-art-v9:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        candidate: [water, water-g, sea-b2, regions]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/home-art-v9-browser.cjs
+        env:
+          HOME_V9_CANDIDATE: ${{ matrix.candidate }}
+      - run: node tests/home-art-v9-interactions.cjs
+        if: matrix.candidate != 'regions'
+        env:
+          HOME_V9_CANDIDATE: ${{ matrix.candidate }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-art-v9-${{ matrix.candidate }}
+          path: |
+            test-results/home-art-v9
+            test-results/home-art-v9-interactions

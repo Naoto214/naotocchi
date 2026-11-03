@@ -1,0 +1,21 @@
+✔ egg changes are words only at all four warming stages without changing growth (473.85717ms)
+✔ birth uses the formal first-stage name, once; decoration is transient (62.149161ms)
+✔ birth has one notice, no central text panel, and the notice styling expires (45.686749ms)
+✔ five warming taps show progressive egg art and hatch once at the existing boundary (478.862367ms)
+✔ each saved egg resumes its crack stage without replaying a touch reaction (388.776027ms)
+✔ reload immediately after the fifth tap keeps the same newborn and one birth record (71.318258ms)
+✔ reset during the hatch effect cannot alter or decorate the replacement egg (44.946624ms)
+✔ the egg itself can be warmed and newborn care remains available immediately (47.374233ms)
+✔ all 30 legal dream species keep their stable identity and first-form artwork (1015.428977ms)
+✔ a failed egg image uses the existing emoji fallback and can still hatch (31.258211ms)
+✔ finished reactions are removed and cannot replay when returning from a minigame (79.001944ms)
+✔ cancelled hatch animation is cleaned before an immediate minigame return (29.509622ms)
+✔ reduced motion shows the correct egg and newborn without a pending reveal (26.917923ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2412.541694

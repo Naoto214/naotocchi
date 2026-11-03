@@ -1,0 +1,37 @@
+✔ entry brings the existing actor into the central viewport (6.714063ms)
+✔ a pending entry focus cannot undo a later scroll to the meters (0.883949ms)
+✔ a delayed scroll event still preserves the latest viewport position (11.351385ms)
+✖ scroll after entry focus paints even when WebKit delays the scroll event (1.506855ms)
+✔ a later real resize may reveal the actor again after an interrupted focus (0.606943ms)
+✔ resize keeps an active question reachable using the existing speech slot (0.679171ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 269.764392
+
+✖ failing tests:
+
+test at tests/home-production-scroll-focus-test.cjs:28:1
+✖ scroll after entry focus paints even when WebKit delays the scroll event (1.506855ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  '153.5px' !== '279px'
+  
+      at TestContext.<anonymous> (/workspace/scratch/0a84d13ceb1d/naotocchi/tests/home-production-scroll-focus-test.cjs:32:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '153.5px',
+    expected: '279px',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

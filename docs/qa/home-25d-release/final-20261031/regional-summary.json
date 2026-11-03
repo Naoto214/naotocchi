@@ -1,0 +1,106 @@
+[
+  {
+    "region": "home",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-clock-margin-home"
+  },
+  {
+    "region": "forest",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v6/regions/forest"
+  },
+  {
+    "region": "river_lake",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v6/regions/river_lake"
+  },
+  {
+    "region": "city",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v6/regions/city"
+  },
+  {
+    "region": "countryside",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v6/regions/countryside"
+  },
+  {
+    "region": "mountain",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v5/regions/mountain"
+  },
+  {
+    "region": "snow",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v5/regions/snow"
+  },
+  {
+    "region": "sea",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v5/regions/sea"
+  },
+  {
+    "region": "jungle",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v5/regions/jungle"
+  },
+  {
+    "region": "desert",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v5/regions/desert"
+  },
+  {
+    "region": "deepsea",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v5/regions/deepsea"
+  },
+  {
+    "region": "star_stop",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v5/regions/star_stop"
+  },
+  {
+    "region": "memory_lake",
+    "status": "passed",
+    "display": 24,
+    "input": 8,
+    "blocked": 2,
+    "source": "/tmp/qa490-final-v5/regions/memory_lake"
+  }
+]
