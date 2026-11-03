@@ -55,3 +55,11 @@ test('transformation presentation names the selected species at the retained sta
  const {context,elements}=ui();vm.runInContext("transition={character:seats[0],nextCharacter:seats[1],before:1,after:1,human:true};evolutionModal()",context);
  const expected=vm.runInContext('seats[1].stages[0]',context);assert.ok(elements.get('#modal').innerHTML.includes('<p>'+expected+'</p>'));
 });
+
+test('CPU skip during iframe readiness waits until the formal game starts',async()=>{
+ const host=fakeHost(),speeds=[];let ready;host.ready=new Promise(r=>ready=r);host.speed=n=>speeds.push(n);
+ const {context}=ui(async()=>host);
+ vm.runInContext("state=createGame({seed:405,players:seats.map(character=>({character,human:false}))});screen='game';while(state.phase!=='official')state=dispatch(state,cpuAction(state));persist();render()",context);
+ await flush();vm.runInContext("go({type:'skip-cpu'})",context);assert.deepEqual(speeds,[],'no speed message before start');
+ ready();await flush();assert.equal(host.calls.start,1);assert.equal(speeds.at(-1),60,'queued skip applies after start');
+});
