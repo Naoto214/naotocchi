@@ -36,5 +36,7 @@ main{grid-template-rows:44px auto minmax(0,1fr) 22px 46px}
 .intro>div:first-child{flex-wrap:wrap;gap:2px 6px}
 
 /* Gravity marker inside A8, resting on the board floor; no input or collision. */
-.gravity-sign{position:fixed;transform-origin:top left;box-sizing:border-box;width:26px;height:18px;pointer-events:none;user-select:none;border:1px solid #687584;border-radius:3px;background:linear-gradient(135deg,#c0c5c8,#919ba5);box-shadow:inset 0 1px #e0e3e4;color:#a52a27;font:bold 17px/16px sans-serif;text-align:center}
+.gravity-sign{position:fixed;transform-origin:top left;box-sizing:border-box;width:26px;height:18px;pointer-events:none;user-select:none;isolation:isolate;color:#b52d23;font:bold 14px/10px sans-serif;text-align:center;text-shadow:0 1px #e0b77e}
+.gravity-sign::before{content:"";position:absolute;z-index:-1;inset:0 0 4px;border:1px solid #65452e;border-radius:1px;background:repeating-linear-gradient(0deg,transparent 0 3px,#75492740 3px 4px,transparent 4px 6px),linear-gradient(100deg,#ae7b49,#cfaa72 48%,#a77545);box-shadow:inset 0 1px #e5c48d,inset 0 -1px #865a35}
+.gravity-sign::after{content:"";position:absolute;z-index:-2;left:11px;bottom:0;width:4px;height:7px;box-sizing:border-box;border:1px solid #65452e;border-top:0;background:linear-gradient(90deg,#a87745,#c39761 50%,#88603a)}
 .gravity-sign[hidden]{display:none}
