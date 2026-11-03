@@ -1,7 +1,7 @@
 import {clone,createState,move,mass,totals} from './engine.mjs';
 import {timeHandTrace} from './priorities.mjs';
 import {stages} from './stages.mjs';
-export const STORAGE_KEY='naopoyo.time-hand-dungeon.20261102.v6';
+export const STORAGE_KEY='naopoyo.time-hand-dungeon.20261102.v8';
 // Includes stage layout and all explicit rule options; rejected before replay.
 export const stageSignature=index=>JSON.stringify(['dungeon-v6',stages[index].board]);
 export class ChapterSession {

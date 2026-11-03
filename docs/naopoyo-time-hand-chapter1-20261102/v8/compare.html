@@ -1,0 +1,9 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><title>正式版とV8・同一351px盤面比較</title><style>body{margin:16px;background:#192b3d;color:#e7e9ee;font:14px system-ui}section{display:grid;grid-template-columns:351px 351px;gap:18px}canvas{width:351px;height:351px}h2{font-size:16px}p{max-width:720px}</style><h1>正式版とV8：同一351px盤面</h1><p>左：main 6629642 正式第1章。右：V8の時の針チュートリアル。正式の床・岩・トゲ・出口を使用。問題の配置は異なります。</p><section id="boards"></section><script type="module">
+import {render} from '/prototypes/naopoyo-chapter1/qa-formal-render.mjs';
+import {stages as formal} from '/prototypes/naopoyo-chapter1/qa-formal-stages.mjs';
+import {stages} from '/prototypes/naopoyo-time-hand-chapter1/stages.mjs';
+import {createState} from '/prototypes/naopoyo-time-hand-chapter1/engine.mjs';
+import {drawBoard} from '/prototypes/naopoyo-time-hand-chapter1/draw.mjs';
+import {loadSprites} from '/prototypes/naopoyo-rescue/sprites.mjs';
+await loadSprites();for(const i of [0,6])for(const v of ['formal','v8']){const box=document.createElement('div'),h=document.createElement('h2'),c=document.createElement('canvas');h.textContent=(v==='formal'?'正式 ':'V8 ')+String(i+1).padStart(2,'0');box.append(h,c);document.querySelector('#boards').append(box);if(v==='formal')render(c,{state:createState(formal[i]),active:null},{dpr:2});else drawBoard(c,createState(stages[i].board),{stage:stages[i],reduced:true});}
+</script></html>
