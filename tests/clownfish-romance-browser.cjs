@@ -29,6 +29,18 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await page.goto(baseURL,{waitUntil:'networkidle'});
       await page.clock.runFor(3001);
       assert.equal(await page.locator('#storyFlash').isVisible(),true,label+': transition notice is hidden');
+      // The shared Home lane serializes growth, story and identity notices.
+      // Advance the real paused clock, keeping every content/identity/save
+      // assertion below. A missing notice still fails within three slots.
+      const noticeHistory=[];
+      for(let elapsed=0;elapsed<=12600;elapsed+=100){
+        const text=await page.locator('#storyFlashText').textContent();
+        const visible=await page.locator('#storyFlash').isVisible();
+        if(!noticeHistory.length||noticeHistory.at(-1).text!==text)noticeHistory.push({elapsed,text,visible});
+        if(visible&&/からだがメスになった。好きになる相手は、そのまま/.test(text))break;
+        if(elapsed<12600)await page.clock.runFor(100);
+      }
+      assert.equal(await page.locator('#storyFlash').isVisible(),true,label+': queued notice never became visible: '+JSON.stringify(noticeHistory));
       assert.match(await page.locator('#storyFlashText').textContent(),/からだがメスになった。好きになる相手は、そのまま/);
       await page.screenshot({path:path.join(output,label+'-notice.png')});
       await page.locator('#profileBtn').click();

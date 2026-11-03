@@ -1,0 +1,15 @@
+{
+  "candidate": "home-interior-b",
+  "status": "comparison-only; not adopted",
+  "created": "2026-10-29",
+  "method": "OpenAI image generation, reference image home-art-recovered-20261029/home-interior-a.png; new composition",
+  "size": [
+    1024,
+    1536
+  ],
+  "bytes": 3535133,
+  "sha256": "c0dbea72821511896075aa9e3ec839b6d3c5b9600315793a1ad0813f56e6be35",
+  "concept": "South Shinshu morning; broad open tatami room on left, chabudai and zabuton, wide engawa, continuous garden foreground, valley town and mountains on right",
+  "roomMovement": false,
+  "originalAUnchanged": true
+}

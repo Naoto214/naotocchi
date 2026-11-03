@@ -1,0 +1,100 @@
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a3f6baaf598f/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a3f6baaf598f/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ native artwork facing produces correct left and right body scales across expressions (1.502939ms)
+✖ presentation scaling preserves all cast ratios and attachment offsets without modifying source (0.25305ms)
+✖ river width is visible and swimming geometry remains submerged inside shared stream (764.350997ms)
+✖ body-size separation prevents one large actor hiding another on adjacent depth rows (0.950599ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 892.794321
+
+✖ failing tests:
+
+test at tests/home-iphone-qa-test.cjs:5:1
+✖ native artwork facing produces correct left and right body scales across expressions (1.502939ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (/workspace/scratch/a3f6baaf598f/naotocchi/tests/home-iphone-qa-test.cjs:6:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-iphone-qa-test.cjs:13:1
+✖ presentation scaling preserves all cast ratios and attachment offsets without modifying source (0.25305ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (/workspace/scratch/a3f6baaf598f/naotocchi/tests/home-iphone-qa-test.cjs:14:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-iphone-qa-test.cjs:20:1
+✖ river width is visible and swimming geometry remains submerged inside shared stream (764.350997ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(c.world.terrain.half>=500)
+  
+      at TestContext.<anonymous> (/workspace/scratch/a3f6baaf598f/naotocchi/tests/home-iphone-qa-test.cjs:22:79)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/home-iphone-qa-test.cjs:27:1
+✖ body-size separation prevents one large actor hiding another on adjacent depth rows (0.950599ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(a.x-b.x)>=60||Math.abs(a.y-b.y)>=75)
+  
+      at TestContext.<anonymous> (/workspace/scratch/a3f6baaf598f/naotocchi/tests/home-iphone-qa-test.cjs:29:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,32 @@
+✔ index.html asset references exist and carry cache tokens (9.55101ms)
+✔ the bump tool rewrites only cache tokens (0.364476ms)
+✔ Home choice DOM input consumes exactly once and presents the existing reply/reaction (341.013489ms)
+✔ timed-out and scene-hidden choices cannot replay; non-Home choices keep native bubbling (43.45271ms)
+✔ a detached choice cannot answer a later question, even when its index is valid (33.186771ms)
+✔ Home selected pet uses its official current stage name (40.181833ms)
+✔ sleep action label, tooltip and presentation state follow sleep/wake (33.963374ms)
+✔ screenshot exchange opens a compact Home popup and shows its existing narrative exactly once (43.681922ms)
+✔ Home exchange later rejects its stale callback and keeps the original later effects (32.973204ms)
+✔ age choices reuse Home presentation with unchanged effects; non-Home remains modal (64.329472ms)
+✔ Home choice keeps fixed cast and care presentation across renders while gameplay stays paused (38.242742ms)
+(node:22) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/2d83dcd79fd2/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/2d83dcd79fd2/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ home suppresses every routine delta family but retains meaningful outcomes and rewards (1.936453ms)
+✔ persistent warning combines life and illness without ordinary hunger/sleep messages (0.868538ms)
+✔ effect anchors reflect around artwork bounds while directional travel is independent of native facing (0.468302ms)
+✔ terrain runtime suppresses daily numeric feedback without mutating state; illness returns after event (241.2776ms)
+✔ semantic meter order is daily five then lifetime four (25.201502ms)
+✔ long partner names open existing profile details by tapping the header (1906.775127ms)
+✔ actual effect adapter keeps every Z upright and reflects all approved stage anchors (9.985311ms)
+✔ infinite mode preserves the formerly hidden life gauge after its move (22.265458ms)
+✔ choice narration and a subsequent authored medicine response both remain readable (27.677802ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2462.762507

@@ -1,0 +1,72 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/74ab9ab340a5/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/74ab9ab340a5/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ Home removes dedicated plaza pads and rebuilds canonical collision grid (1316.624074ms)
+✖ terrain navigation routes around a solid, rejects water and cannot cut corners (0.567018ms)
+✖ real terrain projection roundtrips and water/road remain unavailable (0.349652ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1509.900796
+
+✖ failing tests:
+
+test at tests/home-terrain-navigation-test.cjs:4:1
+✖ Home removes dedicated plaza pads and rebuilds canonical collision grid (1316.624074ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 0
+  
+      at TestContext.<anonymous> (/workspace/scratch/74ab9ab340a5/naotocchi/tests/home-terrain-navigation-test.cjs:6:86)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-terrain-navigation-test.cjs:8:1
+✖ terrain navigation routes around a solid, rejects water and cannot cut corners (0.567018ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (/workspace/scratch/74ab9ab340a5/naotocchi/tests/home-terrain-navigation-test.cjs:9:53)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/home-terrain-navigation-test.cjs:15:1
+✖ real terrain projection roundtrips and water/road remain unavailable (0.349652ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (/workspace/scratch/74ab9ab340a5/naotocchi/tests/home-terrain-navigation-test.cjs:16:53)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

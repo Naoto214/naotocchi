@@ -1,0 +1,29 @@
+(node:29) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///dev/shm/home426-resume/repo/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /dev/shm/home426-resume/repo/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normal URL requests both 3D layers, waits visibly and starts exactly once (4.195169ms)
+✔ QA URL priorities: any 2D override wins, char3d=0 keeps world (7.902922ms)
+✔ timeout ignores late load, remains Canvas on reopen, and counts one visit (2.381815ms)
+✔ cancel and reopen cannot let old completion start a stale run (2.228633ms)
+✔ module error and unavailable WebGL use Canvas without retries (4.396114ms)
+✔ runtime fallback locks subsequent visits to Canvas (2.108301ms)
+✔ diagnostic logger failure cannot interrupt fallback (2.146549ms)
+✔ wide 3D framing retains horizon, elevation and feet at every yaw (44.888892ms)
+✔ portrait projection is unchanged; wide compensation joins continuously (10.182572ms)
+✔ wide camera retains vertical field of view instead of cropping the distance (4.507322ms)
+✔ hybrid real routing requires approved region/world or both corridor endpoints (2.531761ms)
+✔ force2d and WebGL failure retain actual canvas fallback (1.871212ms)
+✔ diagnostics default off; explicit perf or QA opt-in survives lazy creation; reduced motion forwarded (3.170659ms)
+✔ resize failure falls back and cleanup failure cannot strand Canvas (1.184523ms)
+✔ real WebGL constructor failure removes partially inserted canvas (2.829192ms)
+✔ shader link failure is fatal and releases the partially initialized renderer (0.917699ms)
+✔ failed destroy is not called twice on the same GPU renderer (0.710586ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 176.251547

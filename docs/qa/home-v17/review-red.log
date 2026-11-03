@@ -1,0 +1,36 @@
+✔ v17 uses restrained fonts and tries readable single-line sizes before wrapping (1.441126ms)
+✔ exchange carries canonical companion identity through question and reaction without changing narrative or effects (324.630015ms)
+✔ system age outcome clears prior actor identity (48.242759ms)
+✔ ordinary speech uses an official asset and updates identity per actual beat (36.351357ms)
+✖ new authored speech takes the lane after an exchange reaction (94.303113ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 897.883019
+
+✖ failing tests:
+
+test at tests/home-v17-test.cjs:26:1
+✖ new authored speech takes the lane after an exchange reaction (94.303113ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (/workspace/scratch/53f8f12fa93e/repo/tests/home-v17-test.cjs:29:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

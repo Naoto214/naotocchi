@@ -1,0 +1,425 @@
+[
+  {
+    "name": "v15-390-single",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "speech-short",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "speech-medium",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "speech-long",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "speech-english",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "notice-sick",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "notice-multiple",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "notice-event-during-sick",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "notice-deltas-hidden",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "zzz-left-0",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "zzz-right-0",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "sick-left",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "sick-right",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "sad-left",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "sad-right",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "happy-left",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "happy-right",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "result-and-speech",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "notice-cured",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "gauges-extremes",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "reaction-strained",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "reaction-surprise",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "infinite-mode",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "two-partner",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "married-long-name-badges",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "320-long-name-badges",
+    "rect": {
+      "height": 844,
+      "width": 320,
+      "x": 514,
+      "y": 387
+    }
+  },
+  {
+    "name": "partner-speech-320",
+    "rect": {
+      "height": 844,
+      "width": 320,
+      "x": 521.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "no-partner-320",
+    "rect": {
+      "height": 844,
+      "width": 320,
+      "x": 521.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "cast-6",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "cast-13",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "cast-20",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "cast-28",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "cast-28-companion-speech",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "cast-28-notice-speech",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "conversation-question-28",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "conversation-reply-28",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "river_lake-28",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "city-28",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "320x568-single",
+    "rect": {
+      "height": 568,
+      "width": 320,
+      "x": 521.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "v14-before-single",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 343
+    }
+  },
+  {
+    "name": "v14-before-notice-speech",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 343
+    }
+  },
+  {
+    "name": "320x568-28",
+    "rect": {
+      "height": 568,
+      "width": 320,
+      "x": 514,
+      "y": 387
+    }
+  },
+  {
+    "name": "zzz-28-left-frame1",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 479,
+      "y": 387
+    }
+  },
+  {
+    "name": "zzz-28-right-frame1",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 387
+    }
+  },
+  {
+    "name": "wake-28",
+    "rect": {
+      "height": 844,
+      "width": 390,
+      "x": 486.5,
+      "y": 387
+    }
+  },
+  {
+    "name": "320x568-single-final",
+    "rect": {
+      "height": 568,
+      "width": 320,
+      "x": 514,
+      "y": 387
+    }
+  },
+  {
+    "name": "320-badges-final",
+    "rect": {
+      "height": 844,
+      "width": 320,
+      "x": 514,
+      "y": 387
+    }
+  }
+]

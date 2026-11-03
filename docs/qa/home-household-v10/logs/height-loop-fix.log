@@ -1,0 +1,19 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a9a24e90292e/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a9a24e90292e/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (137.191021ms)
+✔ household displays an acquired resident before its special visit (27.429583ms)
+✔ care button still runs official feeding and stops movement (2609.992272ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (1283.969474ms)
+✔ routine live render preserves a user walking destination (24.042438ms)
+✔ another resident expression change preserves a stationary moved speaker anchor (1376.844716ms)
+✔ crowded minimum height stays applied when the measured height equals its floor (1287.231365ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8263.217943

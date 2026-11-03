@@ -1,0 +1,20 @@
+✔ landmarks use the real Meguru profile and stage bounds (94.672378ms)
+✔ tap selects, release after drag sets destination without teleport (3.763557ms)
+✔ cancel and lost capture never dispatch a movement (0.861885ms)
+✔ hidden document cancels RAF and destination, visible resumes without catchup (0.801885ms)
+✔ Pilot exit restores original actor styles and input ownership (0.448885ms)
+✔ departed actor cannot receive stale drag release (0.562185ms)
+✔ leaving a paused Pilot removes all animation pause state (0.464899ms)
+✔ a 15-second held drag survives repeated normal render updates without autonomous movement (5.858516ms)
+✔ explicit visible actor target wins over a foreground actor padded touch area (0.834544ms)
+✔ first-use guide persists on cancelled gesture and collapses only on successful actor drag; replay works (1.107165ms)
+✔ transparent padding of foreground PNG does not steal a visible visitor tap (0.446741ms)
+✔ keyboard selects and moves the focused actor without pointer coordinates (0.437828ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 214.18931

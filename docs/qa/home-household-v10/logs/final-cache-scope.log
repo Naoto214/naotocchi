@@ -1,0 +1,31 @@
+✔ every static assets/… reference in HTML, CSS and JS exists with the exact case (54.198869ms)
+✔ every script and stylesheet carries a token whose hash matches the file (bump-versions formula) (27.748131ms)
+✔ dynamic paths: current species, unified items, egg frames and goal-art fallbacks exist (124.125838ms)
+✔ the checks catch a missing file, a case mismatch, a stale token, a missing token and a missing dynamic path (0.731541ms)
+✔ the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case (51.313862ms)
+✔ npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent (162.878716ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/a9a24e90292e/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/a9a24e90292e/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Home movement and idle change no saved state or relationship (130.874009ms)
+✔ household displays an acquired resident before its special visit (28.434234ms)
+✔ care button still runs official feeding and stops movement (2643.151137ms)
+✔ Pilot exits on egg/dead and non-Pilot regions without touching save schema (1272.699668ms)
+✔ routine live render preserves a user walking destination (19.217218ms)
+✔ another resident expression change preserves a stationary moved speaker anchor (1295.518245ms)
+✔ crowded minimum height stays applied when the measured height equals its floor (1290.585757ms)
+✔ one-finger drags cannot pan the home, including a drag starting on a care button (101.704908ms)
+✔ long text can scroll in both directions but cannot drag the home past its edges (16.979336ms)
+✔ pinch zoom and panning an enlarged view remain available (14.322605ms)
+✔ menus, minigames and life records keep their gestures and returning home restores the lock (30.327017ms)
+✔ home touch setup leaves the home height available after the fun strip retirement (15.925614ms)
+✔ crowded terrain home allows document scrolling while other fixed homes remain locked (20.151786ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8144.124176

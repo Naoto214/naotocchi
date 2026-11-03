@@ -1,0 +1,906 @@
+{
+  "status": "static-concept-comparison",
+  "time": "day",
+  "candidates": [
+    {
+      "id": "current",
+      "name": "正式室内 · 参考",
+      "src": "assets/world/home-interior-v2.webp",
+      "note": "原画を保護した参考合成。現在の本番の配置を再現したものではありません。",
+      "interactive": false,
+      "casts": {
+        "egg": [
+          {
+            "src": "assets/characters/egg/intact.png",
+            "x": 0.53,
+            "y": 0.75,
+            "size": 0.18
+          }
+        ],
+        "six": [
+          {
+            "src": "assets/characters/dog/04.png",
+            "x": 0.52,
+            "y": 0.71,
+            "size": 0.17
+          },
+          {
+            "src": "assets/characters/partners/forest_bear.png",
+            "x": 0.68,
+            "y": 0.64,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/cat_friend.png",
+            "x": 0.39,
+            "y": 0.62,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/tanuki.png",
+            "x": 0.77,
+            "y": 0.71,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/rabbit_friend.png",
+            "x": 0.4,
+            "y": 0.77,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/squirrel.png",
+            "x": 0.64,
+            "y": 0.8,
+            "size": 0.095
+          }
+        ],
+        "twentyeight": [
+          {
+            "src": "assets/characters/dog/04.png",
+            "x": 0.53,
+            "y": 0.7,
+            "size": 0.105
+          },
+          {
+            "src": "assets/characters/partners/forest_bear.png",
+            "x": 0.32,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/cat_friend.png",
+            "x": 0.42,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/tanuki.png",
+            "x": 0.52,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/owl.png",
+            "x": 0.62,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/hamster.png",
+            "x": 0.72,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/monkey.png",
+            "x": 0.82,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/sheep.png",
+            "x": 0.9,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/bat.png",
+            "x": 0.32,
+            "y": 0.63,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/penguin_friend.png",
+            "x": 0.42,
+            "y": 0.63,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/shiba.png",
+            "x": 0.62,
+            "y": 0.63,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/punyu.png",
+            "x": 0.72,
+            "y": 0.63,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/chameleon.png",
+            "x": 0.82,
+            "y": 0.63,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/unicorn.png",
+            "x": 0.9,
+            "y": 0.63,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/watcher.png",
+            "x": 0.32,
+            "y": 0.69,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/rabbit_friend.png",
+            "x": 0.72,
+            "y": 0.69,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/squirrel.png",
+            "x": 0.82,
+            "y": 0.69,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/otter.png",
+            "x": 0.9,
+            "y": 0.69,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/panda.png",
+            "x": 0.32,
+            "y": 0.75,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/parrot.png",
+            "x": 0.42,
+            "y": 0.75,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/seal.png",
+            "x": 0.72,
+            "y": 0.75,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/chicken.png",
+            "x": 0.82,
+            "y": 0.75,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/hedgehog.png",
+            "x": 0.9,
+            "y": 0.75,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/snail.png",
+            "x": 0.32,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/sekizou.png",
+            "x": 0.42,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/clock.png",
+            "x": 0.52,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/many_tail_fox.png",
+            "x": 0.62,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/box.png",
+            "x": 0.72,
+            "y": 0.81,
+            "size": 0.074
+          }
+        ]
+      }
+    },
+    {
+      "id": "a",
+      "name": "A · 庭と縁側",
+      "src": "assets/home-art-recovered-20261029/home-interior-a.png",
+      "note": "既存A案。庭と遠景の広がり。",
+      "interactive": true,
+      "casts": {
+        "egg": [
+          {
+            "src": "assets/characters/egg/intact.png",
+            "x": 0.53,
+            "y": 0.75,
+            "size": 0.18
+          }
+        ],
+        "six": [
+          {
+            "src": "assets/characters/dog/04.png",
+            "x": 0.54,
+            "y": 0.8799999999999999,
+            "size": 0.17
+          },
+          {
+            "src": "assets/characters/partners/forest_bear.png",
+            "x": 0.46,
+            "y": 0.6,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/cat_friend.png",
+            "x": 0.4601709401709402,
+            "y": 0.7217368365516513,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/tanuki.png",
+            "x": 0.3033301725528141,
+            "y": 0.6702518518518519,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/rabbit_friend.png",
+            "x": 0.6140525482747705,
+            "y": 0.6429014245014245,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/squirrel.png",
+            "x": 0.38199126305792974,
+            "y": 0.7796535612535612,
+            "size": 0.095
+          }
+        ],
+        "twentyeight": [
+          {
+            "src": "assets/characters/dog/04.png",
+            "x": 0.54,
+            "y": 0.8799999999999999,
+            "size": 0.105
+          },
+          {
+            "src": "assets/characters/partners/forest_bear.png",
+            "x": 0.49951615652470355,
+            "y": 0.5721503883897046,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/cat_friend.png",
+            "x": 0.615,
+            "y": 0.6639999999999999,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/tanuki.png",
+            "x": 0.42089498467989034,
+            "y": 0.8356148148148148,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/owl.png",
+            "x": 0.7192916626350588,
+            "y": 0.8219396011396011,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/hamster.png",
+            "x": 0.46499999999999997,
+            "y": 0.6839999999999999,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/monkey.png",
+            "x": 0.4391595175333493,
+            "y": 0.7663293447293447,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/sheep.png",
+            "x": 0.38256752136752137,
+            "y": 0.5984151524744117,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/bat.png",
+            "x": 0.5551161748105145,
+            "y": 0.7253037037037037,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/penguin_friend.png",
+            "x": 0.3408598290598291,
+            "y": 0.8711173892773892,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/shiba.png",
+            "x": 0.6485521367521367,
+            "y": 0.7742702754036087,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/punyu.png",
+            "x": 0.3613726495726496,
+            "y": 0.7104557560409411,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/chameleon.png",
+            "x": 0.668382905982906,
+            "y": 0.7141593991193991,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/unicorn.png",
+            "x": 0.3366807148407149,
+            "y": 0.6551088319088318,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/watcher.png",
+            "x": 0.7020988227705209,
+            "y": 0.6551088319088318,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/rabbit_friend.png",
+            "x": 0.4336815447926559,
+            "y": 0.904900284900285,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/squirrel.png",
+            "x": 0.7150000000000001,
+            "y": 0.89,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/otter.png",
+            "x": 0.5268393162393162,
+            "y": 0.6283150686350686,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/panda.png",
+            "x": 0.3405952758352758,
+            "y": 0.9194871794871794,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/parrot.png",
+            "x": 0.35756242481798034,
+            "y": 0.793679772079772,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/seal.png",
+            "x": 0.7517982905982905,
+            "y": 0.7341673556073556,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/chicken.png",
+            "x": 0.6455586894586894,
+            "y": 0.9194871794871794,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/hedgehog.png",
+            "x": 0.4229111111111111,
+            "y": 0.6417581858470747,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/snail.png",
+            "x": 0.3613726495726496,
+            "y": 0.7480780626780626,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/sekizou.png",
+            "x": 0.6477550648939538,
+            "y": 0.8474712250712251,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/clock.png",
+            "x": 0.7484553972776194,
+            "y": 0.9194871794871794,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/many_tail_fox.png",
+            "x": 0.6068444444444444,
+            "y": 0.6267222377622378,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/box.png",
+            "x": 0.46325470085470083,
+            "y": 0.7228786324786325,
+            "size": 0.074
+          }
+        ]
+      }
+    },
+    {
+      "id": "b",
+      "name": "B · 庭から広い室内",
+      "src": "assets/home-b-20261029/home-interior-b.png",
+      "note": "追加B案。庭を保ちながら畳と縁側の存在感を高める。",
+      "interactive": true,
+      "casts": {
+        "egg": [
+          {
+            "src": "assets/characters/egg/intact.png",
+            "x": 0.53,
+            "y": 0.75,
+            "size": 0.18
+          }
+        ],
+        "six": [
+          {
+            "src": "assets/characters/dog/04.png",
+            "x": 0.55,
+            "y": 0.76,
+            "size": 0.17
+          },
+          {
+            "src": "assets/characters/partners/forest_bear.png",
+            "x": 0.62,
+            "y": 0.59,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/cat_friend.png",
+            "x": 0.4099999999999999,
+            "y": 0.66,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/tanuki.png",
+            "x": 0.8366635058861474,
+            "y": 0.6292262108262108,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/rabbit_friend.png",
+            "x": 0.34738588160810385,
+            "y": 0.793328774928775,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/squirrel.png",
+            "x": 0.6600000000000001,
+            "y": 0.89,
+            "size": 0.095
+          }
+        ],
+        "twentyeight": [
+          {
+            "src": "assets/characters/dog/04.png",
+            "x": 0.55,
+            "y": 0.76,
+            "size": 0.105
+          },
+          {
+            "src": "assets/characters/partners/forest_bear.png",
+            "x": 0.655,
+            "y": 0.5539999999999999,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/cat_friend.png",
+            "x": 0.44499999999999995,
+            "y": 0.624,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/tanuki.png",
+            "x": 0.755,
+            "y": 0.6739999999999999,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/owl.png",
+            "x": 0.4115993549427512,
+            "y": 0.7262131054131054,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/hamster.png",
+            "x": 0.6950000000000001,
+            "y": 0.854,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/monkey.png",
+            "x": 0.5006979790718108,
+            "y": 0.6979532763532763,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/sheep.png",
+            "x": 0.5466700854700854,
+            "y": 0.5847399387991981,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/bat.png",
+            "x": 0.3499879696823093,
+            "y": 0.6569276353276353,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/penguin_friend.png",
+            "x": 0.6690649572649573,
+            "y": 0.7070148251748252,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/shiba.png",
+            "x": 0.29983418803418804,
+            "y": 0.7742702754036087,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/punyu.png",
+            "x": 0.6280393162393163,
+            "y": 0.9019087474939327,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/chameleon.png",
+            "x": 0.668382905982906,
+            "y": 0.7688602538202538,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/unicorn.png",
+            "x": 0.6853986635586635,
+            "y": 0.6140831908831909,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/watcher.png",
+            "x": 0.5585090791807773,
+            "y": 0.6551088319088318,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/rabbit_friend.png",
+            "x": 0.7618866729977841,
+            "y": 0.7407977207977208,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/squirrel.png",
+            "x": 0.41500000000000004,
+            "y": 0.79,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/otter.png",
+            "x": 0.7729931623931624,
+            "y": 0.8060928464128464,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/panda.png",
+            "x": 0.4226465578865579,
+            "y": 0.8629652421652421,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/parrot.png",
+            "x": 0.7678188350743906,
+            "y": 0.5748763532763532,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/seal.png",
+            "x": 0.28000341880341884,
+            "y": 0.7068169282569282,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/chicken.png",
+            "x": 0.8301740740740741,
+            "y": 0.629577207977208,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/hedgehog.png",
+            "x": 0.32034700854700854,
+            "y": 0.8332111773000662,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/snail.png",
+            "x": 0.5049623931623932,
+            "y": 0.9121806267806268,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/sekizou.png",
+            "x": 0.38108839822728713,
+            "y": 0.9194871794871794,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/clock.png",
+            "x": 0.25614770496992717,
+            "y": 0.6551088319088318,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/many_tail_fox.png",
+            "x": 0.83248547008547,
+            "y": 0.7087735198135198,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/box.png",
+            "x": 0.6478700854700854,
+            "y": 0.6681777777777778,
+            "size": 0.074
+          }
+        ]
+      }
+    },
+    {
+      "id": "c",
+      "name": "C · 室内と南信州の窓",
+      "src": "assets/home-c-20261029/home-interior-c.png",
+      "note": "新しい第一候補・未採用。室内の2.5D自由生活は未接続。",
+      "interactive": false,
+      "casts": {
+        "egg": [
+          {
+            "src": "assets/characters/egg/intact.png",
+            "x": 0.53,
+            "y": 0.75,
+            "size": 0.18
+          }
+        ],
+        "six": [
+          {
+            "src": "assets/characters/dog/04.png",
+            "x": 0.54,
+            "y": 0.73,
+            "size": 0.17
+          },
+          {
+            "src": "assets/characters/partners/forest_bear.png",
+            "x": 0.68,
+            "y": 0.67,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/cat_friend.png",
+            "x": 0.36,
+            "y": 0.64,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/tanuki.png",
+            "x": 0.78,
+            "y": 0.76,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/rabbit_friend.png",
+            "x": 0.4,
+            "y": 0.81,
+            "size": 0.095
+          },
+          {
+            "src": "assets/characters/companions/squirrel.png",
+            "x": 0.65,
+            "y": 0.85,
+            "size": 0.095
+          }
+        ],
+        "twentyeight": [
+          {
+            "src": "assets/characters/dog/04.png",
+            "x": 0.53,
+            "y": 0.73,
+            "size": 0.105
+          },
+          {
+            "src": "assets/characters/partners/forest_bear.png",
+            "x": 0.32,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/cat_friend.png",
+            "x": 0.42,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/tanuki.png",
+            "x": 0.52,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/owl.png",
+            "x": 0.62,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/hamster.png",
+            "x": 0.72,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/monkey.png",
+            "x": 0.82,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/sheep.png",
+            "x": 0.9,
+            "y": 0.57,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/bat.png",
+            "x": 0.32,
+            "y": 0.65,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/penguin_friend.png",
+            "x": 0.42,
+            "y": 0.65,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/shiba.png",
+            "x": 0.62,
+            "y": 0.65,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/punyu.png",
+            "x": 0.72,
+            "y": 0.65,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/chameleon.png",
+            "x": 0.82,
+            "y": 0.65,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/unicorn.png",
+            "x": 0.9,
+            "y": 0.65,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/watcher.png",
+            "x": 0.32,
+            "y": 0.73,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/rabbit_friend.png",
+            "x": 0.72,
+            "y": 0.73,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/squirrel.png",
+            "x": 0.82,
+            "y": 0.73,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/otter.png",
+            "x": 0.9,
+            "y": 0.73,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/panda.png",
+            "x": 0.32,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/parrot.png",
+            "x": 0.42,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/seal.png",
+            "x": 0.62,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/chicken.png",
+            "x": 0.72,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/hedgehog.png",
+            "x": 0.82,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/snail.png",
+            "x": 0.9,
+            "y": 0.81,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/sekizou.png",
+            "x": 0.32,
+            "y": 0.89,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/clock.png",
+            "x": 0.42,
+            "y": 0.89,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/many_tail_fox.png",
+            "x": 0.52,
+            "y": 0.89,
+            "size": 0.074
+          },
+          {
+            "src": "assets/characters/companions/box.png",
+            "x": 0.62,
+            "y": 0.89,
+            "size": 0.074
+          }
+        ]
+      }
+    }
+  ]
+}

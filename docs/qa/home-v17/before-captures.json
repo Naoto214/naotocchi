@@ -1,0 +1,3943 @@
+[
+  {
+    "version": 16,
+    "key": "short",
+    "rect": {
+      "bottom": 1110,
+      "height": 844,
+      "left": 514,
+      "right": 834,
+      "top": 266,
+      "width": 320,
+      "x": 514,
+      "y": 266
+    },
+    "report": {
+      "label": "短文5",
+      "width": 320,
+      "height": 844,
+      "slots": {
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      },
+      "actors": 28,
+      "panels": [
+        {
+          "id": "speechBubble",
+          "text": "\n              🐕\n              あくびに返事とられた\n            ",
+          "visible": true,
+          "rect": {
+            "x": 45.5,
+            "y": 561.90625,
+            "width": 229,
+            "height": 52.1875,
+            "top": 561.90625,
+            "right": 274.5,
+            "bottom": 614.09375,
+            "left": 45.5
+          },
+          "font": "17px",
+          "clientHeight": 52,
+          "scrollHeight": 52,
+          "clientWidth": 229,
+          "scrollWidth": 229,
+          "scrollTop": 0,
+          "kind": "pet",
+          "speakerId": "",
+          "style": "--speech-tail-x: 108px; --speech-tail-tip: 50%;",
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": [
+            {
+              "char": "あ",
+              "x": 96.5,
+              "y": 575.953125,
+              "right": 113.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "く",
+              "x": 113.484375,
+              "y": 575.953125,
+              "right": 130.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "び",
+              "x": 130.484375,
+              "y": 575.953125,
+              "right": 147.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "に",
+              "x": 147.484375,
+              "y": 575.953125,
+              "right": 164.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "返",
+              "x": 164.484375,
+              "y": 575.953125,
+              "right": 181.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "事",
+              "x": 181.484375,
+              "y": 575.953125,
+              "right": 198.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "と",
+              "x": 198.484375,
+              "y": 575.953125,
+              "right": 215.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "ら",
+              "x": 215.484375,
+              "y": 575.953125,
+              "right": 232.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "れ",
+              "x": 232.484375,
+              "y": 575.953125,
+              "right": 249.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "た",
+              "x": 249.484375,
+              "y": 575.953125,
+              "right": 266.5,
+              "bottom": 598.953125
+            }
+          ]
+        },
+        {
+          "id": "speechText",
+          "text": "あくびに返事とられた",
+          "visible": true,
+          "rect": {
+            "x": 96.5,
+            "y": 576.953125,
+            "width": 170,
+            "height": 22.09375,
+            "top": 576.953125,
+            "right": 266.5,
+            "bottom": 599.046875,
+            "left": 96.5
+          },
+          "font": "17px",
+          "clientHeight": 22,
+          "scrollHeight": 22,
+          "clientWidth": 170,
+          "scrollWidth": 170,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": [
+            {
+              "char": "あ",
+              "x": 96.5,
+              "y": 575.953125,
+              "right": 113.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "く",
+              "x": 113.484375,
+              "y": 575.953125,
+              "right": 130.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "び",
+              "x": 130.484375,
+              "y": 575.953125,
+              "right": 147.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "に",
+              "x": 147.484375,
+              "y": 575.953125,
+              "right": 164.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "返",
+              "x": 164.484375,
+              "y": 575.953125,
+              "right": 181.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "事",
+              "x": 181.484375,
+              "y": 575.953125,
+              "right": 198.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "と",
+              "x": 198.484375,
+              "y": 575.953125,
+              "right": 215.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "ら",
+              "x": 215.484375,
+              "y": 575.953125,
+              "right": 232.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "れ",
+              "x": 232.484375,
+              "y": 575.953125,
+              "right": 249.5,
+              "bottom": 598.953125
+            },
+            {
+              "char": "た",
+              "x": 249.484375,
+              "y": 575.953125,
+              "right": 266.5,
+              "bottom": 598.953125
+            }
+          ]
+        },
+        {
+          "id": "speechSpeaker",
+          "text": "🐕",
+          "visible": true,
+          "rect": {
+            "x": 53.5,
+            "y": 565.90625,
+            "width": 36,
+            "height": 44.1875,
+            "top": 565.90625,
+            "right": 89.5,
+            "bottom": 610.09375,
+            "left": 53.5
+          },
+          "font": "18px",
+          "clientHeight": 44,
+          "scrollHeight": 44,
+          "clientWidth": 36,
+          "scrollWidth": 36,
+          "scrollTop": 0,
+          "label": "いぬ",
+          "style": null,
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechChoices",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityDialog",
+          "text": "あとで",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceResult",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "17px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceText",
+          "missing": true
+        },
+        {
+          "id": "message",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlash",
+          "text": "\n          \n          \n        ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlashText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        }
+      ]
+    }
+  },
+  {
+    "version": 16,
+    "key": "long",
+    "rect": {
+      "bottom": 1110,
+      "height": 844,
+      "left": 514,
+      "right": 834,
+      "top": 266,
+      "width": 320,
+      "x": 514,
+      "y": 266
+    },
+    "report": {
+      "label": "長文",
+      "width": 320,
+      "height": 844,
+      "slots": {
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      },
+      "actors": 28,
+      "panels": [
+        {
+          "id": "speechBubble",
+          "text": "\n              🐶\n              ここからながめる景色が好き。風が通るたびに、葉っぱの色も少しずつ変わって見えるね。明日もいっしょに歩いてみよう。\n            ",
+          "visible": true,
+          "rect": {
+            "x": 28.5,
+            "y": 553,
+            "width": 263,
+            "height": 70,
+            "top": 553,
+            "right": 291.5,
+            "bottom": 623,
+            "left": 28.5
+          },
+          "font": "20px",
+          "clientHeight": 70,
+          "scrollHeight": 70,
+          "clientWidth": 263,
+          "scrollWidth": 263,
+          "scrollTop": 0,
+          "kind": "pet",
+          "speakerId": "dog",
+          "style": "--speech-tail-x: 108px; --speech-tail-tip: 50%; --lane-font: 20px; --lane-width: 263px;",
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": [
+            {
+              "char": "こ",
+              "x": 103.5,
+              "y": 556,
+              "right": 123.5,
+              "bottom": 584
+            },
+            {
+              "char": "こ",
+              "x": 123.484375,
+              "y": 556,
+              "right": 143.5,
+              "bottom": 584
+            },
+            {
+              "char": "か",
+              "x": 143.484375,
+              "y": 556,
+              "right": 163.5,
+              "bottom": 584
+            },
+            {
+              "char": "ら",
+              "x": 163.484375,
+              "y": 556,
+              "right": 183.5,
+              "bottom": 584
+            },
+            {
+              "char": "な",
+              "x": 183.484375,
+              "y": 556,
+              "right": 203.5,
+              "bottom": 584
+            },
+            {
+              "char": "が",
+              "x": 203.484375,
+              "y": 556,
+              "right": 223.5,
+              "bottom": 584
+            },
+            {
+              "char": "め",
+              "x": 223.484375,
+              "y": 556,
+              "right": 243.5,
+              "bottom": 584
+            },
+            {
+              "char": "る",
+              "x": 243.484375,
+              "y": 556,
+              "right": 263.5,
+              "bottom": 584
+            },
+            {
+              "char": "景",
+              "x": 103.5,
+              "y": 582,
+              "right": 123.5,
+              "bottom": 610
+            },
+            {
+              "char": "色",
+              "x": 123.484375,
+              "y": 582,
+              "right": 143.5,
+              "bottom": 610
+            },
+            {
+              "char": "が",
+              "x": 143.484375,
+              "y": 582,
+              "right": 163.5,
+              "bottom": 610
+            },
+            {
+              "char": "好",
+              "x": 163.484375,
+              "y": 582,
+              "right": 183.5,
+              "bottom": 610
+            },
+            {
+              "char": "き",
+              "x": 183.484375,
+              "y": 582,
+              "right": 203.5,
+              "bottom": 610
+            },
+            {
+              "char": "。",
+              "x": 203.484375,
+              "y": 582,
+              "right": 223.5,
+              "bottom": 610
+            },
+            {
+              "char": "風",
+              "x": 223.484375,
+              "y": 582,
+              "right": 243.5,
+              "bottom": 610
+            },
+            {
+              "char": "が",
+              "x": 243.484375,
+              "y": 582,
+              "right": 263.5,
+              "bottom": 610
+            },
+            {
+              "char": "通",
+              "x": 103.5,
+              "y": 608,
+              "right": 123.5,
+              "bottom": 636
+            },
+            {
+              "char": "る",
+              "x": 123.484375,
+              "y": 608,
+              "right": 143.5,
+              "bottom": 636
+            },
+            {
+              "char": "た",
+              "x": 143.484375,
+              "y": 608,
+              "right": 163.5,
+              "bottom": 636
+            },
+            {
+              "char": "び",
+              "x": 163.484375,
+              "y": 608,
+              "right": 183.5,
+              "bottom": 636
+            },
+            {
+              "char": "に",
+              "x": 183.484375,
+              "y": 608,
+              "right": 203.5,
+              "bottom": 636
+            },
+            {
+              "char": "、",
+              "x": 203.484375,
+              "y": 608,
+              "right": 223.5,
+              "bottom": 636
+            },
+            {
+              "char": "葉",
+              "x": 223.484375,
+              "y": 608,
+              "right": 243.5,
+              "bottom": 636
+            },
+            {
+              "char": "っ",
+              "x": 243.484375,
+              "y": 608,
+              "right": 263.5,
+              "bottom": 636
+            },
+            {
+              "char": "ぱ",
+              "x": 103.5,
+              "y": 634,
+              "right": 123.5,
+              "bottom": 662
+            },
+            {
+              "char": "の",
+              "x": 123.484375,
+              "y": 634,
+              "right": 143.5,
+              "bottom": 662
+            },
+            {
+              "char": "色",
+              "x": 143.484375,
+              "y": 634,
+              "right": 163.5,
+              "bottom": 662
+            },
+            {
+              "char": "も",
+              "x": 163.484375,
+              "y": 634,
+              "right": 183.5,
+              "bottom": 662
+            },
+            {
+              "char": "少",
+              "x": 183.484375,
+              "y": 634,
+              "right": 203.5,
+              "bottom": 662
+            },
+            {
+              "char": "し",
+              "x": 203.484375,
+              "y": 634,
+              "right": 223.5,
+              "bottom": 662
+            },
+            {
+              "char": "ず",
+              "x": 223.484375,
+              "y": 634,
+              "right": 243.5,
+              "bottom": 662
+            },
+            {
+              "char": "つ",
+              "x": 243.484375,
+              "y": 634,
+              "right": 263.5,
+              "bottom": 662
+            },
+            {
+              "char": "変",
+              "x": 113.5,
+              "y": 660,
+              "right": 133.5,
+              "bottom": 688
+            },
+            {
+              "char": "わ",
+              "x": 133.484375,
+              "y": 660,
+              "right": 153.5,
+              "bottom": 688
+            },
+            {
+              "char": "っ",
+              "x": 153.484375,
+              "y": 660,
+              "right": 173.5,
+              "bottom": 688
+            },
+            {
+              "char": "て",
+              "x": 173.484375,
+              "y": 660,
+              "right": 193.5,
+              "bottom": 688
+            },
+            {
+              "char": "見",
+              "x": 193.484375,
+              "y": 660,
+              "right": 213.5,
+              "bottom": 688
+            },
+            {
+              "char": "え",
+              "x": 213.484375,
+              "y": 660,
+              "right": 233.5,
+              "bottom": 688
+            },
+            {
+              "char": "る",
+              "x": 233.484375,
+              "y": 660,
+              "right": 253.5,
+              "bottom": 688
+            },
+            {
+              "char": "ね",
+              "x": 103.5,
+              "y": 686,
+              "right": 123.5,
+              "bottom": 714
+            },
+            {
+              "char": "。",
+              "x": 123.484375,
+              "y": 686,
+              "right": 143.5,
+              "bottom": 714
+            },
+            {
+              "char": "明",
+              "x": 143.484375,
+              "y": 686,
+              "right": 163.5,
+              "bottom": 714
+            },
+            {
+              "char": "日",
+              "x": 163.484375,
+              "y": 686,
+              "right": 183.5,
+              "bottom": 714
+            },
+            {
+              "char": "も",
+              "x": 183.484375,
+              "y": 686,
+              "right": 203.5,
+              "bottom": 714
+            },
+            {
+              "char": "い",
+              "x": 203.484375,
+              "y": 686,
+              "right": 223.5,
+              "bottom": 714
+            },
+            {
+              "char": "っ",
+              "x": 223.484375,
+              "y": 686,
+              "right": 243.5,
+              "bottom": 714
+            },
+            {
+              "char": "し",
+              "x": 243.484375,
+              "y": 686,
+              "right": 263.5,
+              "bottom": 714
+            },
+            {
+              "char": "ょ",
+              "x": 113.5,
+              "y": 712,
+              "right": 133.5,
+              "bottom": 740
+            },
+            {
+              "char": "に",
+              "x": 133.484375,
+              "y": 712,
+              "right": 153.5,
+              "bottom": 740
+            },
+            {
+              "char": "歩",
+              "x": 153.484375,
+              "y": 712,
+              "right": 173.5,
+              "bottom": 740
+            },
+            {
+              "char": "い",
+              "x": 173.484375,
+              "y": 712,
+              "right": 193.5,
+              "bottom": 740
+            },
+            {
+              "char": "て",
+              "x": 193.484375,
+              "y": 712,
+              "right": 213.5,
+              "bottom": 740
+            },
+            {
+              "char": "み",
+              "x": 213.484375,
+              "y": 712,
+              "right": 233.5,
+              "bottom": 740
+            },
+            {
+              "char": "よ",
+              "x": 233.484375,
+              "y": 712,
+              "right": 253.5,
+              "bottom": 740
+            },
+            {
+              "char": "う",
+              "x": 163.5,
+              "y": 738,
+              "right": 183.5,
+              "bottom": 766
+            },
+            {
+              "char": "。",
+              "x": 183.484375,
+              "y": 738,
+              "right": 203.5,
+              "bottom": 766
+            }
+          ]
+        },
+        {
+          "id": "speechText",
+          "text": "ここからながめる景色が好き。風が通るたびに、葉っぱの色も少しずつ変わって見えるね。明日もいっしょに歩いてみよう。",
+          "visible": true,
+          "rect": {
+            "x": 98.5,
+            "y": 557,
+            "width": 185,
+            "height": 62,
+            "top": 557,
+            "right": 283.5,
+            "bottom": 619,
+            "left": 98.5
+          },
+          "font": "20px",
+          "clientHeight": 62,
+          "scrollHeight": 209,
+          "clientWidth": 170,
+          "scrollWidth": 170,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": [
+            {
+              "char": "こ",
+              "x": 103.5,
+              "y": 556,
+              "right": 123.5,
+              "bottom": 584
+            },
+            {
+              "char": "こ",
+              "x": 123.484375,
+              "y": 556,
+              "right": 143.5,
+              "bottom": 584
+            },
+            {
+              "char": "か",
+              "x": 143.484375,
+              "y": 556,
+              "right": 163.5,
+              "bottom": 584
+            },
+            {
+              "char": "ら",
+              "x": 163.484375,
+              "y": 556,
+              "right": 183.5,
+              "bottom": 584
+            },
+            {
+              "char": "な",
+              "x": 183.484375,
+              "y": 556,
+              "right": 203.5,
+              "bottom": 584
+            },
+            {
+              "char": "が",
+              "x": 203.484375,
+              "y": 556,
+              "right": 223.5,
+              "bottom": 584
+            },
+            {
+              "char": "め",
+              "x": 223.484375,
+              "y": 556,
+              "right": 243.5,
+              "bottom": 584
+            },
+            {
+              "char": "る",
+              "x": 243.484375,
+              "y": 556,
+              "right": 263.5,
+              "bottom": 584
+            },
+            {
+              "char": "景",
+              "x": 103.5,
+              "y": 582,
+              "right": 123.5,
+              "bottom": 610
+            },
+            {
+              "char": "色",
+              "x": 123.484375,
+              "y": 582,
+              "right": 143.5,
+              "bottom": 610
+            },
+            {
+              "char": "が",
+              "x": 143.484375,
+              "y": 582,
+              "right": 163.5,
+              "bottom": 610
+            },
+            {
+              "char": "好",
+              "x": 163.484375,
+              "y": 582,
+              "right": 183.5,
+              "bottom": 610
+            },
+            {
+              "char": "き",
+              "x": 183.484375,
+              "y": 582,
+              "right": 203.5,
+              "bottom": 610
+            },
+            {
+              "char": "。",
+              "x": 203.484375,
+              "y": 582,
+              "right": 223.5,
+              "bottom": 610
+            },
+            {
+              "char": "風",
+              "x": 223.484375,
+              "y": 582,
+              "right": 243.5,
+              "bottom": 610
+            },
+            {
+              "char": "が",
+              "x": 243.484375,
+              "y": 582,
+              "right": 263.5,
+              "bottom": 610
+            },
+            {
+              "char": "通",
+              "x": 103.5,
+              "y": 608,
+              "right": 123.5,
+              "bottom": 636
+            },
+            {
+              "char": "る",
+              "x": 123.484375,
+              "y": 608,
+              "right": 143.5,
+              "bottom": 636
+            },
+            {
+              "char": "た",
+              "x": 143.484375,
+              "y": 608,
+              "right": 163.5,
+              "bottom": 636
+            },
+            {
+              "char": "び",
+              "x": 163.484375,
+              "y": 608,
+              "right": 183.5,
+              "bottom": 636
+            },
+            {
+              "char": "に",
+              "x": 183.484375,
+              "y": 608,
+              "right": 203.5,
+              "bottom": 636
+            },
+            {
+              "char": "、",
+              "x": 203.484375,
+              "y": 608,
+              "right": 223.5,
+              "bottom": 636
+            },
+            {
+              "char": "葉",
+              "x": 223.484375,
+              "y": 608,
+              "right": 243.5,
+              "bottom": 636
+            },
+            {
+              "char": "っ",
+              "x": 243.484375,
+              "y": 608,
+              "right": 263.5,
+              "bottom": 636
+            },
+            {
+              "char": "ぱ",
+              "x": 103.5,
+              "y": 634,
+              "right": 123.5,
+              "bottom": 662
+            },
+            {
+              "char": "の",
+              "x": 123.484375,
+              "y": 634,
+              "right": 143.5,
+              "bottom": 662
+            },
+            {
+              "char": "色",
+              "x": 143.484375,
+              "y": 634,
+              "right": 163.5,
+              "bottom": 662
+            },
+            {
+              "char": "も",
+              "x": 163.484375,
+              "y": 634,
+              "right": 183.5,
+              "bottom": 662
+            },
+            {
+              "char": "少",
+              "x": 183.484375,
+              "y": 634,
+              "right": 203.5,
+              "bottom": 662
+            },
+            {
+              "char": "し",
+              "x": 203.484375,
+              "y": 634,
+              "right": 223.5,
+              "bottom": 662
+            },
+            {
+              "char": "ず",
+              "x": 223.484375,
+              "y": 634,
+              "right": 243.5,
+              "bottom": 662
+            },
+            {
+              "char": "つ",
+              "x": 243.484375,
+              "y": 634,
+              "right": 263.5,
+              "bottom": 662
+            },
+            {
+              "char": "変",
+              "x": 113.5,
+              "y": 660,
+              "right": 133.5,
+              "bottom": 688
+            },
+            {
+              "char": "わ",
+              "x": 133.484375,
+              "y": 660,
+              "right": 153.5,
+              "bottom": 688
+            },
+            {
+              "char": "っ",
+              "x": 153.484375,
+              "y": 660,
+              "right": 173.5,
+              "bottom": 688
+            },
+            {
+              "char": "て",
+              "x": 173.484375,
+              "y": 660,
+              "right": 193.5,
+              "bottom": 688
+            },
+            {
+              "char": "見",
+              "x": 193.484375,
+              "y": 660,
+              "right": 213.5,
+              "bottom": 688
+            },
+            {
+              "char": "え",
+              "x": 213.484375,
+              "y": 660,
+              "right": 233.5,
+              "bottom": 688
+            },
+            {
+              "char": "る",
+              "x": 233.484375,
+              "y": 660,
+              "right": 253.5,
+              "bottom": 688
+            },
+            {
+              "char": "ね",
+              "x": 103.5,
+              "y": 686,
+              "right": 123.5,
+              "bottom": 714
+            },
+            {
+              "char": "。",
+              "x": 123.484375,
+              "y": 686,
+              "right": 143.5,
+              "bottom": 714
+            },
+            {
+              "char": "明",
+              "x": 143.484375,
+              "y": 686,
+              "right": 163.5,
+              "bottom": 714
+            },
+            {
+              "char": "日",
+              "x": 163.484375,
+              "y": 686,
+              "right": 183.5,
+              "bottom": 714
+            },
+            {
+              "char": "も",
+              "x": 183.484375,
+              "y": 686,
+              "right": 203.5,
+              "bottom": 714
+            },
+            {
+              "char": "い",
+              "x": 203.484375,
+              "y": 686,
+              "right": 223.5,
+              "bottom": 714
+            },
+            {
+              "char": "っ",
+              "x": 223.484375,
+              "y": 686,
+              "right": 243.5,
+              "bottom": 714
+            },
+            {
+              "char": "し",
+              "x": 243.484375,
+              "y": 686,
+              "right": 263.5,
+              "bottom": 714
+            },
+            {
+              "char": "ょ",
+              "x": 113.5,
+              "y": 712,
+              "right": 133.5,
+              "bottom": 740
+            },
+            {
+              "char": "に",
+              "x": 133.484375,
+              "y": 712,
+              "right": 153.5,
+              "bottom": 740
+            },
+            {
+              "char": "歩",
+              "x": 153.484375,
+              "y": 712,
+              "right": 173.5,
+              "bottom": 740
+            },
+            {
+              "char": "い",
+              "x": 173.484375,
+              "y": 712,
+              "right": 193.5,
+              "bottom": 740
+            },
+            {
+              "char": "て",
+              "x": 193.484375,
+              "y": 712,
+              "right": 213.5,
+              "bottom": 740
+            },
+            {
+              "char": "み",
+              "x": 213.484375,
+              "y": 712,
+              "right": 233.5,
+              "bottom": 740
+            },
+            {
+              "char": "よ",
+              "x": 233.484375,
+              "y": 712,
+              "right": 253.5,
+              "bottom": 740
+            },
+            {
+              "char": "う",
+              "x": 163.5,
+              "y": 738,
+              "right": 183.5,
+              "bottom": 766
+            },
+            {
+              "char": "。",
+              "x": 183.484375,
+              "y": 738,
+              "right": 203.5,
+              "bottom": 766
+            }
+          ]
+        },
+        {
+          "id": "speechSpeaker",
+          "text": "🐶",
+          "visible": true,
+          "rect": {
+            "x": 36.5,
+            "y": 565.90625,
+            "width": 55,
+            "height": 44.1875,
+            "top": 565.90625,
+            "right": 91.5,
+            "bottom": 610.09375,
+            "left": 36.5
+          },
+          "font": "18px",
+          "clientHeight": 44,
+          "scrollHeight": 44,
+          "clientWidth": 55,
+          "scrollWidth": 55,
+          "scrollTop": 0,
+          "label": "大人のいぬ",
+          "style": null,
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechChoices",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityDialog",
+          "text": "あとで",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceResult",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "17px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceText",
+          "missing": true
+        },
+        {
+          "id": "message",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlash",
+          "text": "\n          \n          \n        ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlashText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        }
+      ]
+    }
+  },
+  {
+    "version": 16,
+    "key": "choices",
+    "rect": {
+      "bottom": 1110,
+      "height": 844,
+      "left": 514,
+      "right": 834,
+      "top": 266,
+      "width": 320,
+      "x": 514,
+      "y": 266
+    },
+    "report": {
+      "label": "2択",
+      "width": 320,
+      "height": 844,
+      "slots": {
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      },
+      "actors": 28,
+      "panels": [
+        {
+          "id": "speechBubble",
+          "text": "\n              🐕\n              いっしょに歩く？\n            ",
+          "visible": true,
+          "rect": {
+            "x": 13,
+            "y": 552,
+            "width": 294,
+            "height": 20.1875,
+            "top": 552,
+            "right": 307,
+            "bottom": 572.1875,
+            "left": 13
+          },
+          "font": "14px",
+          "clientHeight": 20,
+          "scrollHeight": 20,
+          "clientWidth": 294,
+          "scrollWidth": 294,
+          "scrollTop": 0,
+          "kind": "pet",
+          "speakerId": "",
+          "style": "--speech-tail-x: 108px; --speech-tail-tip: 50%; --lane-font: 14px; --lane-width: 294px;",
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": [
+            {
+              "char": "い",
+              "x": 20,
+              "y": 552,
+              "right": 34,
+              "bottom": 571
+            },
+            {
+              "char": "っ",
+              "x": 33.984375,
+              "y": 552,
+              "right": 48,
+              "bottom": 571
+            },
+            {
+              "char": "し",
+              "x": 47.984375,
+              "y": 552,
+              "right": 62,
+              "bottom": 571
+            },
+            {
+              "char": "ょ",
+              "x": 61.984375,
+              "y": 552,
+              "right": 76,
+              "bottom": 571
+            },
+            {
+              "char": "に",
+              "x": 75.984375,
+              "y": 552,
+              "right": 90,
+              "bottom": 571
+            },
+            {
+              "char": "歩",
+              "x": 89.984375,
+              "y": 552,
+              "right": 104,
+              "bottom": 571
+            },
+            {
+              "char": "く",
+              "x": 103.984375,
+              "y": 552,
+              "right": 118,
+              "bottom": 571
+            },
+            {
+              "char": "？",
+              "x": 117.984375,
+              "y": 552,
+              "right": 132,
+              "bottom": 571
+            }
+          ]
+        },
+        {
+          "id": "speechText",
+          "text": "いっしょに歩く？",
+          "visible": true,
+          "rect": {
+            "x": 20,
+            "y": 553,
+            "width": 280,
+            "height": 18.1875,
+            "top": 553,
+            "right": 300,
+            "bottom": 571.1875,
+            "left": 20
+          },
+          "font": "14px",
+          "clientHeight": 18,
+          "scrollHeight": 18,
+          "clientWidth": 280,
+          "scrollWidth": 280,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": [
+            {
+              "char": "い",
+              "x": 20,
+              "y": 552,
+              "right": 34,
+              "bottom": 571
+            },
+            {
+              "char": "っ",
+              "x": 33.984375,
+              "y": 552,
+              "right": 48,
+              "bottom": 571
+            },
+            {
+              "char": "し",
+              "x": 47.984375,
+              "y": 552,
+              "right": 62,
+              "bottom": 571
+            },
+            {
+              "char": "ょ",
+              "x": 61.984375,
+              "y": 552,
+              "right": 76,
+              "bottom": 571
+            },
+            {
+              "char": "に",
+              "x": 75.984375,
+              "y": 552,
+              "right": 90,
+              "bottom": 571
+            },
+            {
+              "char": "歩",
+              "x": 89.984375,
+              "y": 552,
+              "right": 104,
+              "bottom": 571
+            },
+            {
+              "char": "く",
+              "x": 103.984375,
+              "y": 552,
+              "right": 118,
+              "bottom": 571
+            },
+            {
+              "char": "？",
+              "x": 117.984375,
+              "y": 552,
+              "right": 132,
+              "bottom": 571
+            }
+          ]
+        },
+        {
+          "id": "speechSpeaker",
+          "text": "🐕",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "18px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "label": "いぬ",
+          "style": null,
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechChoices",
+          "text": "座れる座れない",
+          "visible": true,
+          "rect": {
+            "x": 13,
+            "y": 572.1875,
+            "width": 294,
+            "height": 50,
+            "top": 572.1875,
+            "right": 307,
+            "bottom": 622.1875,
+            "left": 13
+          },
+          "font": "14px",
+          "clientHeight": 48,
+          "scrollHeight": 48,
+          "clientWidth": 292,
+          "scrollWidth": 292,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": [
+            {
+              "char": "座",
+              "x": 67,
+              "y": 587.4375,
+              "right": 81,
+              "bottom": 606.4375
+            },
+            {
+              "char": "れ",
+              "x": 80.984375,
+              "y": 587.4375,
+              "right": 95,
+              "bottom": 606.4375
+            },
+            {
+              "char": "る",
+              "x": 94.984375,
+              "y": 587.4375,
+              "right": 109,
+              "bottom": 606.4375
+            },
+            {
+              "char": "座",
+              "x": 204,
+              "y": 587.4375,
+              "right": 218,
+              "bottom": 606.4375
+            },
+            {
+              "char": "れ",
+              "x": 217.984375,
+              "y": 587.4375,
+              "right": 232,
+              "bottom": 606.4375
+            },
+            {
+              "char": "な",
+              "x": 231.984375,
+              "y": 587.4375,
+              "right": 246,
+              "bottom": 606.4375
+            },
+            {
+              "char": "い",
+              "x": 245.984375,
+              "y": 587.4375,
+              "right": 260,
+              "bottom": 606.4375
+            }
+          ]
+        },
+        {
+          "id": "individualityDialog",
+          "text": "あとで",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceResult",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "17px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceText",
+          "missing": true
+        },
+        {
+          "id": "message",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlash",
+          "text": "\n          \n          \n        ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlashText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        }
+      ]
+    }
+  },
+  {
+    "version": 16,
+    "key": "reply",
+    "rect": {
+      "bottom": 1110,
+      "height": 844,
+      "left": 514,
+      "right": 834,
+      "top": 266,
+      "width": 320,
+      "x": 514,
+      "y": 266
+    },
+    "report": {
+      "label": "返答",
+      "width": 320,
+      "height": 844,
+      "slots": {
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      },
+      "actors": 28,
+      "panels": [
+        {
+          "id": "speechBubble",
+          "text": "\n              🐕\n              じゃあ、席とっとく\n            ",
+          "visible": true,
+          "rect": {
+            "x": 13,
+            "y": 561.90625,
+            "width": 294,
+            "height": 52.1875,
+            "top": 561.90625,
+            "right": 307,
+            "bottom": 614.09375,
+            "left": 13
+          },
+          "font": "14px",
+          "clientHeight": 52,
+          "scrollHeight": 52,
+          "clientWidth": 294,
+          "scrollWidth": 294,
+          "scrollTop": 0,
+          "kind": "pet",
+          "speakerId": "",
+          "style": "--speech-tail-x: 108px; --speech-tail-tip: 50%; --lane-font: 14px; --lane-width: 294px;",
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": [
+            {
+              "char": "じ",
+              "x": 64,
+              "y": 577.90625,
+              "right": 78,
+              "bottom": 596.90625
+            },
+            {
+              "char": "ゃ",
+              "x": 77.984375,
+              "y": 577.90625,
+              "right": 92,
+              "bottom": 596.90625
+            },
+            {
+              "char": "あ",
+              "x": 91.984375,
+              "y": 577.90625,
+              "right": 106,
+              "bottom": 596.90625
+            },
+            {
+              "char": "、",
+              "x": 105.984375,
+              "y": 577.90625,
+              "right": 120,
+              "bottom": 596.90625
+            },
+            {
+              "char": "席",
+              "x": 119.984375,
+              "y": 577.90625,
+              "right": 134,
+              "bottom": 596.90625
+            },
+            {
+              "char": "と",
+              "x": 133.984375,
+              "y": 577.90625,
+              "right": 148,
+              "bottom": 596.90625
+            },
+            {
+              "char": "っ",
+              "x": 147.984375,
+              "y": 577.90625,
+              "right": 162,
+              "bottom": 596.90625
+            },
+            {
+              "char": "と",
+              "x": 161.984375,
+              "y": 577.90625,
+              "right": 176,
+              "bottom": 596.90625
+            },
+            {
+              "char": "く",
+              "x": 175.984375,
+              "y": 577.90625,
+              "right": 190,
+              "bottom": 596.90625
+            }
+          ]
+        },
+        {
+          "id": "speechText",
+          "text": "じゃあ、席とっとく",
+          "visible": true,
+          "rect": {
+            "x": 64,
+            "y": 578.90625,
+            "width": 235,
+            "height": 18.1875,
+            "top": 578.90625,
+            "right": 299,
+            "bottom": 597.09375,
+            "left": 64
+          },
+          "font": "14px",
+          "clientHeight": 18,
+          "scrollHeight": 18,
+          "clientWidth": 235,
+          "scrollWidth": 235,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": [
+            {
+              "char": "じ",
+              "x": 64,
+              "y": 577.90625,
+              "right": 78,
+              "bottom": 596.90625
+            },
+            {
+              "char": "ゃ",
+              "x": 77.984375,
+              "y": 577.90625,
+              "right": 92,
+              "bottom": 596.90625
+            },
+            {
+              "char": "あ",
+              "x": 91.984375,
+              "y": 577.90625,
+              "right": 106,
+              "bottom": 596.90625
+            },
+            {
+              "char": "、",
+              "x": 105.984375,
+              "y": 577.90625,
+              "right": 120,
+              "bottom": 596.90625
+            },
+            {
+              "char": "席",
+              "x": 119.984375,
+              "y": 577.90625,
+              "right": 134,
+              "bottom": 596.90625
+            },
+            {
+              "char": "と",
+              "x": 133.984375,
+              "y": 577.90625,
+              "right": 148,
+              "bottom": 596.90625
+            },
+            {
+              "char": "っ",
+              "x": 147.984375,
+              "y": 577.90625,
+              "right": 162,
+              "bottom": 596.90625
+            },
+            {
+              "char": "と",
+              "x": 161.984375,
+              "y": 577.90625,
+              "right": 176,
+              "bottom": 596.90625
+            },
+            {
+              "char": "く",
+              "x": 175.984375,
+              "y": 577.90625,
+              "right": 190,
+              "bottom": 596.90625
+            }
+          ]
+        },
+        {
+          "id": "speechSpeaker",
+          "text": "🐕",
+          "visible": true,
+          "rect": {
+            "x": 21,
+            "y": 565.90625,
+            "width": 36,
+            "height": 44.1875,
+            "top": 565.90625,
+            "right": 57,
+            "bottom": 610.09375,
+            "left": 21
+          },
+          "font": "18px",
+          "clientHeight": 44,
+          "scrollHeight": 44,
+          "clientWidth": 36,
+          "scrollWidth": 36,
+          "scrollTop": 0,
+          "label": "いぬ",
+          "style": null,
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechChoices",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityDialog",
+          "text": "あとで",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceResult",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "17px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceText",
+          "missing": true
+        },
+        {
+          "id": "message",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlash",
+          "text": "\n          \n          \n        ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlashText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        }
+      ]
+    }
+  },
+  {
+    "version": 16,
+    "key": "reaction",
+    "rect": {
+      "bottom": 1110,
+      "height": 844,
+      "left": 514,
+      "right": 834,
+      "top": 266,
+      "width": 320,
+      "x": 514,
+      "y": 266
+    },
+    "report": {
+      "label": "Reaction",
+      "width": 320,
+      "height": 844,
+      "slots": {
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      },
+      "actors": 28,
+      "panels": [
+        {
+          "id": "speechBubble",
+          "text": "\n              🐕\n              じゃあ、席とっとく\n            ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "20px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "kind": "pet",
+          "speakerId": "",
+          "style": "--speech-tail-x: 108px; --speech-tail-tip: 50%; --lane-font: 20px; --lane-width: 243px;",
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechText",
+          "text": "じゃあ、席とっとく",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "20px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "speechSpeaker",
+          "text": "🐕",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "18px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "label": "いぬ",
+          "style": null,
+          "images": [
+            "assets/characters/dog/06.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechChoices",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityDialog",
+          "text": "なかまと、ひとときしばいぬが涼しい風に鼻を向けた。いっしょに風を感じるあとで",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityText",
+          "text": "しばいぬが涼しい風に鼻を向けた。",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceResult",
+          "text": "言葉がなくても、気持ちよさが伝わった。",
+          "visible": true,
+          "rect": {
+            "x": 84.5,
+            "y": 552,
+            "width": 151,
+            "height": 72,
+            "top": 552,
+            "right": 235.5,
+            "bottom": 624,
+            "left": 84.5
+          },
+          "font": "17px",
+          "clientHeight": 70,
+          "scrollHeight": 107,
+          "clientWidth": 134,
+          "scrollWidth": 134,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": [
+            {
+              "char": "言",
+              "x": 95.5,
+              "y": 559,
+              "right": 112.5,
+              "bottom": 582
+            },
+            {
+              "char": "葉",
+              "x": 112.484375,
+              "y": 559,
+              "right": 129.5,
+              "bottom": 582
+            },
+            {
+              "char": "が",
+              "x": 129.484375,
+              "y": 559,
+              "right": 146.5,
+              "bottom": 582
+            },
+            {
+              "char": "な",
+              "x": 146.484375,
+              "y": 559,
+              "right": 163.5,
+              "bottom": 582
+            },
+            {
+              "char": "く",
+              "x": 163.484375,
+              "y": 559,
+              "right": 180.5,
+              "bottom": 582
+            },
+            {
+              "char": "て",
+              "x": 180.484375,
+              "y": 559,
+              "right": 197.5,
+              "bottom": 582
+            },
+            {
+              "char": "も",
+              "x": 95.5,
+              "y": 582.796875,
+              "right": 112.5,
+              "bottom": 605.796875
+            },
+            {
+              "char": "、",
+              "x": 112.484375,
+              "y": 582.796875,
+              "right": 129.5,
+              "bottom": 605.796875
+            },
+            {
+              "char": "気",
+              "x": 129.484375,
+              "y": 582.796875,
+              "right": 146.5,
+              "bottom": 605.796875
+            },
+            {
+              "char": "持",
+              "x": 146.484375,
+              "y": 582.796875,
+              "right": 163.5,
+              "bottom": 605.796875
+            },
+            {
+              "char": "ち",
+              "x": 163.484375,
+              "y": 582.796875,
+              "right": 180.5,
+              "bottom": 605.796875
+            },
+            {
+              "char": "よ",
+              "x": 180.484375,
+              "y": 582.796875,
+              "right": 197.5,
+              "bottom": 605.796875
+            },
+            {
+              "char": "さ",
+              "x": 95.5,
+              "y": 606.59375,
+              "right": 112.5,
+              "bottom": 629.59375
+            },
+            {
+              "char": "が",
+              "x": 112.484375,
+              "y": 606.59375,
+              "right": 129.5,
+              "bottom": 629.59375
+            },
+            {
+              "char": "伝",
+              "x": 129.484375,
+              "y": 606.59375,
+              "right": 146.5,
+              "bottom": 629.59375
+            },
+            {
+              "char": "わ",
+              "x": 146.484375,
+              "y": 606.59375,
+              "right": 163.5,
+              "bottom": 629.59375
+            },
+            {
+              "char": "っ",
+              "x": 163.484375,
+              "y": 606.59375,
+              "right": 180.5,
+              "bottom": 629.59375
+            },
+            {
+              "char": "た",
+              "x": 95.5,
+              "y": 630.390625,
+              "right": 112.5,
+              "bottom": 653.390625
+            },
+            {
+              "char": "。",
+              "x": 112.484375,
+              "y": 630.390625,
+              "right": 129.5,
+              "bottom": 653.390625
+            }
+          ]
+        },
+        {
+          "id": "homeChoiceText",
+          "missing": true
+        },
+        {
+          "id": "message",
+          "text": "言葉がなくても、気持ちよさが伝わった。",
+          "visible": true,
+          "rect": {
+            "x": 9,
+            "y": 124,
+            "width": 302,
+            "height": 40,
+            "top": 124,
+            "right": 311,
+            "bottom": 164,
+            "left": 9
+          },
+          "font": "16px",
+          "clientHeight": 40,
+          "scrollHeight": 41,
+          "clientWidth": 287,
+          "scrollWidth": 287,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": [
+            {
+              "char": "言",
+              "x": 24.484375,
+              "y": 124,
+              "right": 40.5,
+              "bottom": 146
+            },
+            {
+              "char": "葉",
+              "x": 40.484375,
+              "y": 124,
+              "right": 56.5,
+              "bottom": 146
+            },
+            {
+              "char": "が",
+              "x": 56.484375,
+              "y": 124,
+              "right": 72.5,
+              "bottom": 146
+            },
+            {
+              "char": "な",
+              "x": 72.484375,
+              "y": 124,
+              "right": 88.5,
+              "bottom": 146
+            },
+            {
+              "char": "く",
+              "x": 88.484375,
+              "y": 124,
+              "right": 104.5,
+              "bottom": 146
+            },
+            {
+              "char": "て",
+              "x": 104.484375,
+              "y": 124,
+              "right": 120.5,
+              "bottom": 146
+            },
+            {
+              "char": "も",
+              "x": 120.484375,
+              "y": 124,
+              "right": 136.5,
+              "bottom": 146
+            },
+            {
+              "char": "、",
+              "x": 136.484375,
+              "y": 124,
+              "right": 152.5,
+              "bottom": 146
+            },
+            {
+              "char": "気",
+              "x": 152.484375,
+              "y": 124,
+              "right": 168.5,
+              "bottom": 146
+            },
+            {
+              "char": "持",
+              "x": 168.484375,
+              "y": 124,
+              "right": 184.5,
+              "bottom": 146
+            },
+            {
+              "char": "ち",
+              "x": 184.484375,
+              "y": 124,
+              "right": 200.5,
+              "bottom": 146
+            },
+            {
+              "char": "よ",
+              "x": 200.484375,
+              "y": 124,
+              "right": 216.5,
+              "bottom": 146
+            },
+            {
+              "char": "さ",
+              "x": 216.484375,
+              "y": 124,
+              "right": 232.5,
+              "bottom": 146
+            },
+            {
+              "char": "が",
+              "x": 232.484375,
+              "y": 124,
+              "right": 248.5,
+              "bottom": 146
+            },
+            {
+              "char": "伝",
+              "x": 248.484375,
+              "y": 124,
+              "right": 264.5,
+              "bottom": 146
+            },
+            {
+              "char": "わ",
+              "x": 264.484375,
+              "y": 124,
+              "right": 280.5,
+              "bottom": 146
+            },
+            {
+              "char": "っ",
+              "x": 128.484375,
+              "y": 142.390625,
+              "right": 144.5,
+              "bottom": 164.390625
+            },
+            {
+              "char": "た",
+              "x": 144.484375,
+              "y": 142.390625,
+              "right": 160.5,
+              "bottom": 164.390625
+            },
+            {
+              "char": "。",
+              "x": 160.484375,
+              "y": 142.390625,
+              "right": 176.5,
+              "bottom": 164.390625
+            }
+          ]
+        },
+        {
+          "id": "storyFlash",
+          "text": "\n          \n          \n        ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlashText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        }
+      ]
+    }
+  },
+  {
+    "version": 16,
+    "key": "speaker",
+    "rect": {
+      "bottom": 1110,
+      "height": 844,
+      "left": 514,
+      "right": 834,
+      "top": 266,
+      "width": 320,
+      "x": 514,
+      "y": 266
+    },
+    "report": {
+      "label": "仲間発言",
+      "width": 320,
+      "height": 844,
+      "slots": {
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      },
+      "actors": 28,
+      "panels": [
+        {
+          "id": "speechBubble",
+          "text": "\n              💬\n              いっしょに歩こう\n            ",
+          "visible": true,
+          "rect": {
+            "x": 38.5,
+            "y": 558,
+            "width": 243,
+            "height": 60,
+            "top": 558,
+            "right": 281.5,
+            "bottom": 618,
+            "left": 38.5
+          },
+          "font": "20px",
+          "clientHeight": 60,
+          "scrollHeight": 60,
+          "clientWidth": 243,
+          "scrollWidth": 243,
+          "scrollTop": 0,
+          "kind": "companion",
+          "speakerId": "shiba",
+          "style": "--speech-tail-x: 108px; --speech-tail-tip: 50%; --lane-font: 20px; --lane-width: 243px;",
+          "images": [
+            "assets/characters/companions/shiba.png"
+          ],
+          "glyphs": [
+            {
+              "char": "い",
+              "x": 130,
+              "y": 561,
+              "right": 150,
+              "bottom": 589
+            },
+            {
+              "char": "っ",
+              "x": 149.984375,
+              "y": 561,
+              "right": 170,
+              "bottom": 589
+            },
+            {
+              "char": "し",
+              "x": 169.984375,
+              "y": 561,
+              "right": 190,
+              "bottom": 589
+            },
+            {
+              "char": "ょ",
+              "x": 189.984375,
+              "y": 561,
+              "right": 210,
+              "bottom": 589
+            },
+            {
+              "char": "に",
+              "x": 209.984375,
+              "y": 561,
+              "right": 230,
+              "bottom": 589
+            },
+            {
+              "char": "歩",
+              "x": 229.984375,
+              "y": 561,
+              "right": 250,
+              "bottom": 589
+            },
+            {
+              "char": "こ",
+              "x": 170,
+              "y": 587,
+              "right": 190,
+              "bottom": 615
+            },
+            {
+              "char": "う",
+              "x": 189.984375,
+              "y": 587,
+              "right": 210,
+              "bottom": 615
+            }
+          ]
+        },
+        {
+          "id": "speechText",
+          "text": "いっしょに歩こう",
+          "visible": true,
+          "rect": {
+            "x": 121.5,
+            "y": 562,
+            "width": 152,
+            "height": 52,
+            "top": 562,
+            "right": 273.5,
+            "bottom": 614,
+            "left": 121.5
+          },
+          "font": "20px",
+          "clientHeight": 52,
+          "scrollHeight": 53,
+          "clientWidth": 137,
+          "scrollWidth": 137,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": [
+            {
+              "char": "い",
+              "x": 130,
+              "y": 561,
+              "right": 150,
+              "bottom": 589
+            },
+            {
+              "char": "っ",
+              "x": 149.984375,
+              "y": 561,
+              "right": 170,
+              "bottom": 589
+            },
+            {
+              "char": "し",
+              "x": 169.984375,
+              "y": 561,
+              "right": 190,
+              "bottom": 589
+            },
+            {
+              "char": "ょ",
+              "x": 189.984375,
+              "y": 561,
+              "right": 210,
+              "bottom": 589
+            },
+            {
+              "char": "に",
+              "x": 209.984375,
+              "y": 561,
+              "right": 230,
+              "bottom": 589
+            },
+            {
+              "char": "歩",
+              "x": 229.984375,
+              "y": 561,
+              "right": 250,
+              "bottom": 589
+            },
+            {
+              "char": "こ",
+              "x": 170,
+              "y": 587,
+              "right": 190,
+              "bottom": 615
+            },
+            {
+              "char": "う",
+              "x": 189.984375,
+              "y": 587,
+              "right": 210,
+              "bottom": 615
+            }
+          ]
+        },
+        {
+          "id": "speechSpeaker",
+          "text": "💬",
+          "visible": true,
+          "rect": {
+            "x": 46.5,
+            "y": 565.90625,
+            "width": 68,
+            "height": 44.1875,
+            "top": 565.90625,
+            "right": 114.5,
+            "bottom": 610.09375,
+            "left": 46.5
+          },
+          "font": "18px",
+          "clientHeight": 44,
+          "scrollHeight": 44,
+          "clientWidth": 68,
+          "scrollWidth": 68,
+          "scrollTop": 0,
+          "label": "ひとなつっこいしばいぬ",
+          "style": null,
+          "images": [
+            "assets/characters/companions/shiba.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechChoices",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityDialog",
+          "text": "なかまと、ひとときしばいぬが涼しい風に鼻を向けた。いっしょに風を感じるあとで",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityText",
+          "text": "しばいぬが涼しい風に鼻を向けた。",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceResult",
+          "text": "言葉がなくても、気持ちよさが伝わった。",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "17px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": "--lane-font: 17px; --lane-width: 294px;",
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceText",
+          "missing": true
+        },
+        {
+          "id": "message",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": "--lane-font: 16px; --lane-width: 302px;",
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlash",
+          "text": "\n          \n          \n        ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlashText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        }
+      ]
+    }
+  },
+  {
+    "version": 16,
+    "key": "notice",
+    "rect": {
+      "bottom": 1110,
+      "height": 844,
+      "left": 514,
+      "right": 834,
+      "top": 266,
+      "width": 320,
+      "x": 514,
+      "y": 266
+    },
+    "report": {
+      "label": "通知",
+      "width": 320,
+      "height": 844,
+      "slots": {
+        "homeEventSlot": {
+          "x": 9,
+          "y": 123,
+          "width": 302,
+          "height": 42,
+          "top": 123,
+          "right": 311,
+          "bottom": 165,
+          "left": 9
+        },
+        "castStage": {
+          "x": 9,
+          "y": 170,
+          "width": 302,
+          "height": 380,
+          "top": 170,
+          "right": 311,
+          "bottom": 550,
+          "left": 9
+        },
+        "speechSlot": {
+          "x": 9,
+          "y": 550,
+          "width": 302,
+          "height": 76,
+          "top": 550,
+          "right": 311,
+          "bottom": 626,
+          "left": 9
+        },
+        "careMeters": {
+          "x": 14,
+          "y": 634,
+          "width": 292,
+          "height": 38,
+          "top": 634,
+          "right": 306,
+          "bottom": 672,
+          "left": 14
+        },
+        "careActions": {
+          "x": 9,
+          "y": 726,
+          "width": 302,
+          "height": 105,
+          "top": 726,
+          "right": 311,
+          "bottom": 831,
+          "left": 9
+        }
+      },
+      "actors": 28,
+      "panels": [
+        {
+          "id": "speechBubble",
+          "text": "\n              💬\n              いっしょに歩こう\n            ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "20px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "kind": "companion",
+          "speakerId": "shiba",
+          "style": "--speech-tail-x: 108px; --speech-tail-tip: 50%; --lane-font: 20px; --lane-width: 255px;",
+          "images": [
+            "assets/characters/companions/shiba.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechText",
+          "text": "いっしょに歩こう",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "20px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "speechSpeaker",
+          "text": "💬",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "18px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "label": "ひとなつっこいしばいぬ",
+          "style": null,
+          "images": [
+            "assets/characters/companions/shiba.png"
+          ],
+          "glyphs": []
+        },
+        {
+          "id": "speechChoices",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityDialog",
+          "text": "なかまと、ひとときしばいぬが涼しい風に鼻を向けた。いっしょに風を感じるあとで",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "individualityText",
+          "text": "しばいぬが涼しい風に鼻を向けた。",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "14px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceResult",
+          "text": "言葉がなくても、気持ちよさが伝わった。",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "17px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": "--lane-font: 17px; --lane-width: 294px;",
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "homeChoiceText",
+          "missing": true
+        },
+        {
+          "id": "message",
+          "text": "あくびの途中でねた",
+          "visible": true,
+          "rect": {
+            "x": 9,
+            "y": 129,
+            "width": 302,
+            "height": 30,
+            "top": 129,
+            "right": 311,
+            "bottom": 159,
+            "left": 9
+          },
+          "font": "16px",
+          "clientHeight": 30,
+          "scrollHeight": 30,
+          "clientWidth": 302,
+          "scrollWidth": 302,
+          "scrollTop": 0,
+          "style": "--lane-font: 16px; --lane-width: 302px;",
+          "images": [],
+          "glyphs": [
+            {
+              "char": "あ",
+              "x": 87.984375,
+              "y": 129,
+              "right": 104,
+              "bottom": 151
+            },
+            {
+              "char": "く",
+              "x": 103.984375,
+              "y": 129,
+              "right": 120,
+              "bottom": 151
+            },
+            {
+              "char": "び",
+              "x": 119.984375,
+              "y": 129,
+              "right": 136,
+              "bottom": 151
+            },
+            {
+              "char": "の",
+              "x": 135.984375,
+              "y": 129,
+              "right": 152,
+              "bottom": 151
+            },
+            {
+              "char": "途",
+              "x": 151.984375,
+              "y": 129,
+              "right": 168,
+              "bottom": 151
+            },
+            {
+              "char": "中",
+              "x": 167.984375,
+              "y": 129,
+              "right": 184,
+              "bottom": 151
+            },
+            {
+              "char": "で",
+              "x": 183.984375,
+              "y": 129,
+              "right": 200,
+              "bottom": 151
+            },
+            {
+              "char": "ね",
+              "x": 199.984375,
+              "y": 129,
+              "right": 216,
+              "bottom": 151
+            },
+            {
+              "char": "た",
+              "x": 215.984375,
+              "y": 129,
+              "right": 232,
+              "bottom": 151
+            }
+          ]
+        },
+        {
+          "id": "storyFlash",
+          "text": "\n          \n          \n        ",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        },
+        {
+          "id": "storyFlashText",
+          "text": "",
+          "visible": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "font": "16px",
+          "clientHeight": 0,
+          "scrollHeight": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrollTop": 0,
+          "style": null,
+          "images": [],
+          "glyphs": []
+        }
+      ]
+    }
+  }
+]

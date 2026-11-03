@@ -1,0 +1,16 @@
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
+const home=require('../home-diorama'),model=require('../home-diorama-model'),boxes=require('../cast-bounds');
+const master=vm.runInNewContext(fs.readFileSync('character-world-master.v1.js','utf8')+';NAOTOCCHI_CHARACTER_WORLD_MASTER_V1');
+const paths=[...master.companions.normal,...master.companions.rare].map(c=>c.asset),M=require('../tests/helpers/runtime-harness.cjs').harness({deterministic:true}).api.meguruMod;
+(async()=>{const world=await import('../home-world.mjs'),results=[];for(const region of ['forest','river_lake','city'])for(const [width,height]of [[320,844],[375,844],[390,844],[430,844],[320,568]]){
+ const composition=world.composeHomeWorld(M,region),sw=width-32,sh=height===568?300:390,floor=sh-12,scene={...home.sceneFor({region,time:'day',weather:'sunny'},sw,sh),navigation:world.createHomeNavigation(M,composition,{width,height,anchorY:235+floor*.8,offsetX:16,offsetY:235,stageWidth:sw,stageHeight:sh})};
+ for(const [count,partner]of [[1,false],[2,false],[2,true],[3,false],[6,false],[13,false],[20,false],[28,true]]){
+ const assets=['assets/characters/dog/06.png',...(partner?['assets/characters/partners/forest_bear.png']:[]),...paths.slice(0,count-1-Number(partner))],args={width:sw,height:sh,mainAsset:assets[0],hasPartner:partner,partnerAsset:assets[1],companions:assets.slice(partner?2:1)},l=home.layoutTerrainCast(args);
+ const actors=[l.main,...(partner?[l.partner]:[]),...l.companions].map((f,i)=>{const b=boxes[assets[i]].box;return{key:String(i),kind:i===0?'pet':partner&&i===1?'partner':'companion',id:String(i),x:f.x+f.w*(b[0]+b[2])/256,y:f.y+f.h*b[3]/128+(f.artOffsetY||0),w:f.w*(b[2]-b[0])/128,h:f.h*(b[3]-b[1])/128};});
+ let seed=7;const m=model.createModel({random:()=>((seed=Math.imul(seed,1664525)+1013904223)>>>0)/4294967296});m.sync(actors,scene);const initial=m.snapshot();let unsafe=initial.filter(a=>!scene.navigation.valid(a)).map(a=>a.key),outside=initial.filter(a=>{const b=m.bounds(a);return a.x<b.left-1||a.x>b.right+1||a.y<b.top-1||a.y>b.bottom+1}).length;
+ let below=initial.slice(1).filter(a=>a.y>initial[0].y+10).length,above=initial.slice(1).filter(a=>a.y<initial[0].y-10).length;
+ const pet=initial[0],b=m.bounds(pet),lower=scene.navigation.nearest({x:pet.x,y:b.bottom-2},b);let lowerReached=false;
+ if(count===1&&lower){m.move(pet.key,lower,'ground');for(let i=0;i<120;i++)m.step(.1,{autonomy:false});lowerReached=m.snapshot()[0].y>sh-35;}
+ const props=home.placeGroundProps(4,initial,scene);const row={region,width,height,count,partner,unsafe,outside,above,below,pet:{x:pet.x,y:pet.y},bottom:Math.max(...initial.map(a=>a.y)),props:props.length,lowerReached:count===1?lowerReached:null};results.push(row);
+ assert.equal(unsafe.length,0,JSON.stringify(row));assert.equal(outside,0,JSON.stringify(row));assert.equal(props.length,4,JSON.stringify(row));if(count===1)assert.ok(lowerReached,JSON.stringify(row));if(count>=6){assert.ok(above>0&&below>0,JSON.stringify(row));}
+ }}fs.writeFileSync('docs/qa/home-v13/terrain-matrix.json',JSON.stringify(results,null,2));console.log('PASS',results.length,'terrain/count/viewport cases, safe props and bottom movement');})().catch(e=>{console.error(e);process.exitCode=1;});

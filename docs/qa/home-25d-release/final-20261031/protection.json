@@ -1,0 +1,56 @@
+{
+  "head": "da52d2911addcfed95b5b477b9ad8b129a7f2310",
+  "main": "7c1f18c77b902d06159157899c36104e5d8c4a8d",
+  "protected_files": {
+    "home-production-model.js": {
+      "start": "cfedcb84922c7a32f475e9e2d4beea1e9442d6b1",
+      "current": "cfedcb84922c7a32f475e9e2d4beea1e9442d6b1"
+    },
+    "home-production-diorama.js": {
+      "start": "54183a6d675f222c7a50d3470168106510bd91f5",
+      "current": "54183a6d675f222c7a50d3470168106510bd91f5"
+    },
+    "home-production-world.mjs": {
+      "start": "1cade04eb52c03561afbbe797a59ea85f1605aed",
+      "current": "1cade04eb52c03561afbbe797a59ea85f1605aed"
+    },
+    "home-production-manifest.mjs": {
+      "start": "613e3f947f838ab068e3f3be18d7ae6d1a7477c1",
+      "current": "613e3f947f838ab068e3f3be18d7ae6d1a7477c1"
+    },
+    "home-recovered-navigation.mjs": {
+      "start": "94f18944df33648902ee55d138dc258da29c3d64",
+      "current": "94f18944df33648902ee55d138dc258da29c3d64"
+    },
+    "script.js": {
+      "start": "377c102121f81f4054517d547bdbb78a0abb2ce5",
+      "current": "377c102121f81f4054517d547bdbb78a0abb2ce5"
+    },
+    "style.css": {
+      "start": "5e626e43fff9a7d1fe6dabb59a0fdeed8490c772",
+      "current": "5e626e43fff9a7d1fe6dabb59a0fdeed8490c772"
+    },
+    "home-art-navigation.mjs": {
+      "start": "7453806e739bb61b1a7bc71ecd8831baea2a95e4",
+      "current": "7453806e739bb61b1a7bc71ecd8831baea2a95e4"
+    },
+    "home-v6-egg.mjs": {
+      "start": "c69bd541eb071bb63d4d90c656b513871d92ac40",
+      "current": "c69bd541eb071bb63d4d90c656b513871d92ac40"
+    }
+  },
+  "ancestry": {
+    "main": {
+      "sha": "7c1f18c77b902d06159157899c36104e5d8c4a8d",
+      "ancestor": true
+    },
+    "PR426": {
+      "sha": "8ba4ef1cb2030979664589d2e36423f58c4dedbd",
+      "ancestor": true
+    },
+    "PR462": {
+      "sha": "e0c5c52671666e8ab06b37afabf3eeae29f530fa",
+      "ancestor": true
+    }
+  }
+}

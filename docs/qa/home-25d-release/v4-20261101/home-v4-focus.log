@@ -1,0 +1,43 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3fd642051846/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3fd642051846/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ egg changes are words only at all four warming stages without changing growth (367.514917ms)
+✔ birth uses the formal first-stage name, once; decoration is transient (89.912696ms)
+✔ birth has one notice, no central text panel, and the notice styling expires (64.18992ms)
+✔ an achievement waits until the birth notice finishes (250.728837ms)
+✔ five warming taps show progressive egg art and hatch once at the existing boundary (300.827123ms)
+✔ each saved egg resumes its crack stage without replaying a touch reaction (392.625373ms)
+✔ reload immediately after the fifth tap keeps the same newborn and one birth record (54.76683ms)
+✔ reset during the hatch effect cannot alter or decorate the replacement egg (73.997352ms)
+✔ the egg itself can be warmed and newborn care remains available immediately (29.860658ms)
+✔ all 30 legal dream species keep their stable identity and first-form artwork (1068.327563ms)
+✔ a failed egg image uses the existing emoji fallback and can still hatch (32.251282ms)
+✔ finished reactions are removed and cannot replay when returning from a minigame (99.781182ms)
+✔ cancelled hatch animation is cleaned before an immediate minigame return (41.687526ms)
+✔ reduced motion shows the correct egg and newborn without a pending reveal (27.846925ms)
+(node:29) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3fd642051846/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3fd642051846/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ decorative cover fills all viewport shapes without changing the terrain transform (127.952454ms)
+✔ explicit newborn placement takes priority over the right-side default seat (7.327691ms)
+✔ newborn placement cannot bypass legal bounds or move existing actors (1.033361ms)
+✔ ordinary saved/established entries keep original seating and companion placement (10.859292ms)
+✔ a stale newborn request does not recenter a retained pet during crowd reflow (43.211953ms)
+✔ egg visible body is centred independently of transparent PNG padding (8.516842ms)
+(node:44) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3fd642051846/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3fd642051846/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ production notice lane delivers male/gay transition after growth and story (438.60697ms)
+✔ production notice lane delivers male/straight transition after growth and story (66.832439ms)
+✔ production notice lane delivers nonbinary/straight transition after growth and story (119.196367ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5002.003243

@@ -1,0 +1,87 @@
+{
+  "engine": "Cloud Chromium",
+  "method": "UI select width/mode; read C canvas count",
+  "viewportEmulation": false,
+  "rows": [
+    {
+      "width": 320,
+      "mode": "background",
+      "count": 0
+    },
+    {
+      "width": 320,
+      "mode": "egg",
+      "count": 1
+    },
+    {
+      "width": 320,
+      "mode": "six",
+      "count": 6
+    },
+    {
+      "width": 320,
+      "mode": "twentyeight",
+      "count": 28
+    },
+    {
+      "width": 375,
+      "mode": "background",
+      "count": 0
+    },
+    {
+      "width": 375,
+      "mode": "egg",
+      "count": 1
+    },
+    {
+      "width": 375,
+      "mode": "six",
+      "count": 6
+    },
+    {
+      "width": 375,
+      "mode": "twentyeight",
+      "count": 28
+    },
+    {
+      "width": 390,
+      "mode": "background",
+      "count": 0
+    },
+    {
+      "width": 390,
+      "mode": "egg",
+      "count": 1
+    },
+    {
+      "width": 390,
+      "mode": "six",
+      "count": 6
+    },
+    {
+      "width": 390,
+      "mode": "twentyeight",
+      "count": 28
+    },
+    {
+      "width": 430,
+      "mode": "background",
+      "count": 0
+    },
+    {
+      "width": 430,
+      "mode": "egg",
+      "count": 1
+    },
+    {
+      "width": 430,
+      "mode": "six",
+      "count": 6
+    },
+    {
+      "width": 430,
+      "mode": "twentyeight",
+      "count": 28
+    }
+  ]
+}

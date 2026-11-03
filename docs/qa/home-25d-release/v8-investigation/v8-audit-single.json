@@ -1,0 +1,204 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "regions": {
+    "homeEventSlot": {
+      "x": 16,
+      "y": 147,
+      "width": 348,
+      "height": 42,
+      "bottom": 189,
+      "right": 364
+    },
+    "castStage": {
+      "x": 16,
+      "y": 194,
+      "width": 348,
+      "height": 380,
+      "bottom": 574,
+      "right": 364
+    },
+    "speechSlot": {
+      "x": 16,
+      "y": 574,
+      "width": 348,
+      "height": 76,
+      "bottom": 650,
+      "right": 364
+    },
+    "homeCommentDock": {
+      "x": 16,
+      "y": 716,
+      "width": 358,
+      "height": 0,
+      "bottom": 716,
+      "right": 374
+    },
+    "speechBubble": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "careActions": {
+      "x": 16,
+      "y": 720,
+      "width": 358,
+      "height": 111,
+      "bottom": 831,
+      "right": 374
+    }
+  },
+  "meters": {
+    "x": 16,
+    "y": 655,
+    "width": 348,
+    "height": 86,
+    "bottom": 741,
+    "right": 364
+  },
+  "frame": {
+    "x": 16,
+    "y": 53,
+    "width": 358,
+    "height": 664,
+    "bottom": 717,
+    "right": 374
+  },
+  "scroll": 0,
+  "fixed76Target": {
+    "top": 640,
+    "bottom": 716
+  },
+  "actors": [
+    {
+      "key": "pet:dog",
+      "rect": {
+        "x": 141.02020263671875,
+        "y": 324.04046630859375,
+        "width": 135.94491577148438,
+        "height": 135.94491577148438,
+        "bottom": 459.9853820800781,
+        "right": 276.9651184082031
+      },
+      "display": "flex",
+      "visibility": "visible"
+    }
+  ],
+  "selected": [
+    {
+      "text": "",
+      "hidden": true,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0,
+        "right": 0
+      }
+    }
+  ],
+  "state": {
+    "blocked": false,
+    "paused": "false",
+    "world": {
+      "mode": "art-25d",
+      "region": "home",
+      "candidate": "home-interior-c",
+      "loaded": true,
+      "error": null,
+      "destroyed": false,
+      "animationTime": 1000,
+      "projectionRevision": 2,
+      "renderer": {
+        "mode": "canvas-2d-art",
+        "objects": 1,
+        "images": 1,
+        "decodedBytes": 6291456
+      }
+    },
+    "actors": [
+      {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 193.00000000000003,
+        "y": 266.00000000000006,
+        "w": 110.0376,
+        "h": 128.37720000000002,
+        "extent": {
+          "left": 55.0188,
+          "right": 55.0188,
+          "top": 140.37720000000002,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.5580916134640574,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.55,
+          "z": 0.74,
+          "y": 0
+        }
+      }
+    ],
+    "slots": {
+      "castStage": {
+        "x": 16,
+        "y": 194,
+        "width": 348,
+        "height": 380,
+        "top": 194,
+        "right": 364,
+        "bottom": 574,
+        "left": 16
+      },
+      "notice": 42,
+      "speech": 76
+    },
+    "metrics": {
+      "distance": 0,
+      "moves": 0,
+      "turns": 0,
+      "activities": {},
+      "clock": 0.9999999999999999
+    }
+  },
+  "sleepAsset": [
+    {
+      "src": "assets/characters/dog/06.png",
+      "complete": true,
+      "naturalWidth": 128,
+      "rect": {
+        "x": 141.02020263671875,
+        "y": 333.79986572265625,
+        "width": 135.94491577148438,
+        "height": 134.58544921875,
+        "bottom": 468.38531494140625,
+        "right": 276.9651184082031
+      }
+    }
+  ]
+}

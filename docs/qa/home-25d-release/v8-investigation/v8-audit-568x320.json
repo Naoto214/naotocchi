@@ -1,0 +1,1500 @@
+{
+  "viewport": {
+    "width": 568,
+    "height": 320
+  },
+  "regions": {
+    "homeEventSlot": {
+      "x": 16,
+      "y": 140,
+      "width": 526,
+      "height": 42,
+      "bottom": 182,
+      "right": 542
+    },
+    "castStage": {
+      "x": 16,
+      "y": 184,
+      "width": 526,
+      "height": 380,
+      "bottom": 564,
+      "right": 542
+    },
+    "speechSlot": {
+      "x": 16,
+      "y": 564,
+      "width": 526,
+      "height": 76,
+      "bottom": 640,
+      "right": 542
+    },
+    "homeCommentDock": {
+      "x": 16,
+      "y": 97.828125,
+      "width": 536,
+      "height": 102.171875,
+      "bottom": 200,
+      "right": 552
+    },
+    "speechBubble": {
+      "x": 16,
+      "y": 97.828125,
+      "width": 536,
+      "height": 102.171875,
+      "bottom": 200,
+      "right": 552
+    },
+    "careActions": {
+      "x": 16,
+      "y": 204,
+      "width": 536,
+      "height": 103,
+      "bottom": 307,
+      "right": 552
+    }
+  },
+  "meters": {
+    "x": 16,
+    "y": 642,
+    "width": 526,
+    "height": 86,
+    "bottom": 728,
+    "right": 542
+  },
+  "frame": {
+    "x": 16,
+    "y": 49,
+    "width": 536,
+    "height": 152,
+    "bottom": 201,
+    "right": 552
+  },
+  "scroll": 0,
+  "fixed76Target": {
+    "top": 124,
+    "bottom": 200
+  },
+  "actors": [
+    {
+      "key": "companion:cat_friend",
+      "rect": {
+        "x": 424.2062072753906,
+        "y": 206.64517211914062,
+        "width": 49.938140869140625,
+        "height": 49.938140869140625,
+        "bottom": 256.58331298828125,
+        "right": 474.14434814453125
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:tanuki",
+      "rect": {
+        "x": 189.23126220703125,
+        "y": 218.03854370117188,
+        "width": 51.167999267578125,
+        "height": 51.167999267578125,
+        "bottom": 269.20654296875,
+        "right": 240.39926147460938
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:owl",
+      "rect": {
+        "x": 434.0767517089844,
+        "y": 275.3472900390625,
+        "width": 52.532989501953125,
+        "height": 52.53302001953125,
+        "bottom": 327.88031005859375,
+        "right": 486.6097412109375
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:hamster",
+      "rect": {
+        "x": 330.4234619140625,
+        "y": 444.6632080078125,
+        "width": 59.426116943359375,
+        "height": 59.426116943359375,
+        "bottom": 504.0893249511719,
+        "right": 389.8495788574219
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:monkey",
+      "rect": {
+        "x": 255.48855590820312,
+        "y": 301.12164306640625,
+        "width": 51.566131591796875,
+        "height": 51.566162109375,
+        "bottom": 352.68780517578125,
+        "right": 307.0546875
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:sheep",
+      "rect": {
+        "x": 259.23114013671875,
+        "y": 212.45614624023438,
+        "width": 48.028839111328125,
+        "height": 48.02886962890625,
+        "bottom": 260.4850158691406,
+        "right": 307.2599792480469
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:bat",
+      "rect": {
+        "x": 372.4131774902344,
+        "y": 215.72299194335938,
+        "width": 50.052978515625,
+        "height": 50.052978515625,
+        "bottom": 265.7759704589844,
+        "right": 422.4661560058594
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:penguin_friend",
+      "rect": {
+        "x": 147.30691528320312,
+        "y": 246.65802001953125,
+        "width": 47.891845703125,
+        "height": 47.891845703125,
+        "bottom": 294.54986572265625,
+        "right": 195.19876098632812
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:shiba",
+      "rect": {
+        "x": 386.3685607910156,
+        "y": 289.9777526855469,
+        "width": 49.7662353515625,
+        "height": 49.766204833984375,
+        "bottom": 339.74395751953125,
+        "right": 436.1347961425781
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:punyu",
+      "rect": {
+        "x": 280.34295654296875,
+        "y": 470.8399963378906,
+        "width": 53.820526123046875,
+        "height": 53.820526123046875,
+        "bottom": 524.6605224609375,
+        "right": 334.1634826660156
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:chameleon",
+      "rect": {
+        "x": 297.7127990722656,
+        "y": 397.1077880859375,
+        "width": 50.1158447265625,
+        "height": 50.1158447265625,
+        "bottom": 447.2236328125,
+        "right": 347.8286437988281
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:unicorn",
+      "rect": {
+        "x": 297.6427001953125,
+        "y": 247.57290649414062,
+        "width": 46.896026611328125,
+        "height": 46.896026611328125,
+        "bottom": 294.46893310546875,
+        "right": 344.5387268066406
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:watcher",
+      "rect": {
+        "x": 403.8045349121094,
+        "y": 247.05780029296875,
+        "width": 48.665679931640625,
+        "height": 48.665679931640625,
+        "bottom": 295.7234802246094,
+        "right": 452.47021484375
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "partner:forest_bear",
+      "rect": {
+        "x": 239.73892211914062,
+        "y": 252.5147705078125,
+        "width": 51.00982666015625,
+        "height": 51.00982666015625,
+        "bottom": 303.52459716796875,
+        "right": 290.7487487792969
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "pet:dog",
+      "rect": {
+        "x": 274.8132019042969,
+        "y": 332.448974609375,
+        "width": 64.1427001953125,
+        "height": 64.14273071289062,
+        "bottom": 396.5917053222656,
+        "right": 338.9559020996094
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:rabbit_friend",
+      "rect": {
+        "x": 188.2306365966797,
+        "y": 270.22393798828125,
+        "width": 51.4239501953125,
+        "height": 51.4239501953125,
+        "bottom": 321.64788818359375,
+        "right": 239.6545867919922
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:squirrel",
+      "rect": {
+        "x": 431.27459716796875,
+        "y": 325.07379150390625,
+        "width": 51.63592529296875,
+        "height": 51.63592529296875,
+        "bottom": 376.709716796875,
+        "right": 482.9105224609375
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:otter",
+      "rect": {
+        "x": 328.3941650390625,
+        "y": 496.4983825683594,
+        "width": 55.655548095703125,
+        "height": 55.655548095703125,
+        "bottom": 552.1539306640625,
+        "right": 384.0497131347656
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:panda",
+      "rect": {
+        "x": 240.8149871826172,
+        "y": 388.63421630859375,
+        "width": 52.09800720214844,
+        "height": 52.097991943359375,
+        "bottom": 440.7322082519531,
+        "right": 292.9129943847656
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:parrot",
+      "rect": {
+        "x": 112.94863891601562,
+        "y": 215.42227172851562,
+        "width": 49.125579833984375,
+        "height": 49.125579833984375,
+        "bottom": 264.5478515625,
+        "right": 162.07421875
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:seal",
+      "rect": {
+        "x": 475.4002685546875,
+        "y": 235.957275390625,
+        "width": 48.66802978515625,
+        "height": 48.66802978515625,
+        "bottom": 284.62530517578125,
+        "right": 524.0682983398438
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:chicken",
+      "rect": {
+        "x": 136.66436767578125,
+        "y": 285.9325866699219,
+        "width": 49.67570495605469,
+        "height": 49.675689697265625,
+        "bottom": 335.6082763671875,
+        "right": 186.34007263183594
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:hedgehog",
+      "rect": {
+        "x": 399.41265869140625,
+        "y": 359.4549560546875,
+        "width": 56.100341796875,
+        "height": 56.100341796875,
+        "bottom": 415.5552978515625,
+        "right": 455.51300048828125
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:snail",
+      "rect": {
+        "x": 265.02978515625,
+        "y": 515.8126831054688,
+        "width": 51.451171875,
+        "height": 51.451171875,
+        "bottom": 567.2638549804688,
+        "right": 316.48095703125
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:sekizou",
+      "rect": {
+        "x": 341.88604736328125,
+        "y": 403.47186279296875,
+        "width": 52.31011962890625,
+        "height": 52.31011962890625,
+        "bottom": 455.781982421875,
+        "right": 394.1961669921875
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:clock",
+      "rect": {
+        "x": 313.4949645996094,
+        "y": 293.79510498046875,
+        "width": 48.798980712890625,
+        "height": 48.79901123046875,
+        "bottom": 342.5941162109375,
+        "right": 362.2939453125
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:many_tail_fox",
+      "rect": {
+        "x": 482.7411193847656,
+        "y": 301.6510314941406,
+        "width": 48.060516357421875,
+        "height": 48.060516357421875,
+        "bottom": 349.7115478515625,
+        "right": 530.8016357421875
+      },
+      "display": "flex",
+      "visibility": "visible"
+    },
+    {
+      "key": "companion:box",
+      "rect": {
+        "x": 198.44407653808594,
+        "y": 309.94891357421875,
+        "width": 56.63958740234375,
+        "height": 56.63958740234375,
+        "bottom": 366.5885009765625,
+        "right": 255.0836639404297
+      },
+      "display": "flex",
+      "visibility": "visible"
+    }
+  ],
+  "selected": [
+    {
+      "text": "",
+      "hidden": true,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "bottom": 0,
+        "right": 0
+      }
+    }
+  ],
+  "state": {
+    "blocked": true,
+    "paused": "true",
+    "world": {
+      "mode": "art-25d",
+      "region": "home",
+      "candidate": "home-interior-c",
+      "loaded": true,
+      "error": null,
+      "destroyed": false,
+      "animationTime": 1000,
+      "projectionRevision": 2,
+      "renderer": {
+        "mode": "canvas-2d-art",
+        "objects": 1,
+        "images": 1,
+        "decodedBytes": 6291456
+      }
+    },
+    "actors": [
+      {
+        "key": "pet:dog",
+        "kind": "pet",
+        "id": "dog",
+        "x": 290.90000000000003,
+        "y": 212.60000000000002,
+        "w": 51.918367346938766,
+        "h": 60.57142857142856,
+        "extent": {
+          "left": 25.959183673469383,
+          "right": 25.959183673469383,
+          "top": 72.57142857142856,
+          "bottom": 0
+        },
+        "temperament": {
+          "curiosity": 3,
+          "boldness": 3,
+          "sociability": 3,
+          "persistence": 3
+        },
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.55,
+          "z": 0.74,
+          "y": 0
+        }
+      },
+      {
+        "key": "partner:forest_bear",
+        "kind": "partner",
+        "id": "forest_bear",
+        "x": 249.05,
+        "y": 116.34774114774115,
+        "w": 47.111111111111114,
+        "h": 48.457142857142856,
+        "extent": {
+          "left": 28.96882376882374,
+          "right": 36.044118844118856,
+          "top": 98.34774114774115,
+          "bottom": 29.587603930461086
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.47500000000000003,
+          "z": 0.6250032749674326,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:cat_friend",
+        "kind": "companion",
+        "id": "cat_friend",
+        "x": 433.19000000000005,
+        "y": 69.4835978835979,
+        "w": 48.45714285714286,
+        "h": 39.48359788359789,
+        "extent": {
+          "left": 24.22857142857143,
+          "right": 24.22857142857143,
+          "top": 51.48359788359789,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.805,
+          "z": 0.5690126617486235,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:tanuki",
+        "kind": "companion",
+        "id": "tanuki",
+        "x": 198.83,
+        "y": 82.02800000000002,
+        "w": 44.800000000000004,
+        "h": 48.45714285714286,
+        "extent": {
+          "left": 22.400000000000002,
+          "right": 22.400000000000002,
+          "top": 60.45714285714286,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.385,
+          "z": 0.584,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:owl",
+        "kind": "companion",
+        "id": "owl",
+        "x": 444.35,
+        "y": 140.61799999999994,
+        "w": 34.74285714285715,
+        "h": 48.45714285714286,
+        "extent": {
+          "left": 17.371428571428574,
+          "right": 17.371428571428574,
+          "top": 60.45714285714286,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.5787693397141993,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.8250000000000001,
+          "z": 0.6539999999999999,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:hamster",
+        "kind": "companion",
+        "id": "hamster",
+        "x": 343.91,
+        "y": 316.38800000000003,
+        "w": 45.56929292929292,
+        "h": 47.48799999999999,
+        "extent": {
+          "left": 22.78464646464646,
+          "right": 22.78464646464646,
+          "top": 59.48799999999999,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.645,
+          "z": 0.864,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:monkey",
+        "kind": "companion",
+        "id": "monkey",
+        "x": 265.0811214953271,
+        "y": 165.488,
+        "w": 42.162242990654214,
+        "h": 47.48800000000001,
+        "extent": {
+          "left": 21.081121495327107,
+          "right": 21.081121495327107,
+          "top": 59.48800000000001,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.5037296084145647,
+          "z": 0.6837132616487456,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:sheep",
+        "kind": "companion",
+        "id": "sheep",
+        "x": 267.25942857142854,
+        "y": 73.50374603174603,
+        "w": 46.518857142857144,
+        "h": 43.50374603174603,
+        "extent": {
+          "left": 23.259428571428572,
+          "right": 23.259428571428572,
+          "top": 55.50374603174603,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.5076333845366103,
+          "z": 0.5738157061311182,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:bat",
+        "kind": "companion",
+        "id": "bat",
+        "x": 381.248,
+        "y": 77.488,
+        "w": 34.496,
+        "h": 47.488,
+        "extent": {
+          "left": 17.248,
+          "right": 17.248,
+          "top": 59.488,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.0085010575130582,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.7119139784946237,
+          "z": 0.5785758661887693,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:penguin_friend",
+        "kind": "companion",
+        "id": "penguin_friend",
+        "x": 155.25942857142857,
+        "y": 107.56783376623376,
+        "w": 46.518857142857144,
+        "h": 21.567833766233765,
+        "extent": {
+          "left": 23.259428571428572,
+          "right": 23.259428571428572,
+          "top": 33.56783376623376,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.3069165386584741,
+          "z": 0.6145135409393474,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:shiba",
+        "kind": "companion",
+        "id": "shiba",
+        "x": 395.25942857142854,
+        "y": 152.64228571428572,
+        "w": 46.518857142857144,
+        "h": 42.64228571428571,
+        "extent": {
+          "left": 23.259428571428572,
+          "right": 23.259428571428572,
+          "top": 54.64228571428571,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.209533218992874,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.7370240655401945,
+          "z": 0.6683659327530295,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:punyu",
+        "kind": "companion",
+        "id": "punyu",
+        "x": 291.25942857142854,
+        "y": 337.319873015873,
+        "w": 46.518857142857144,
+        "h": 35.319873015873014,
+        "extent": {
+          "left": 23.259428571428572,
+          "right": 23.259428571428572,
+          "top": 47.319873015873014,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.9064868981949985,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.5506441372247823,
+          "z": 0.8890082114884982,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:chameleon",
+        "kind": "companion",
+        "id": "chameleon",
+        "x": 306.7748571428572,
+        "y": 260.09612467532463,
+        "w": 45.54971428571428,
+        "h": 38.09612467532467,
+        "extent": {
+          "left": 22.77485714285714,
+          "right": 22.77485714285714,
+          "top": 50.09612467532467,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.5784495647721455,
+          "z": 0.7967456686682493,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:unicorn",
+        "kind": "companion",
+        "id": "unicorn",
+        "x": 304.9114597402597,
+        "y": 107.54971428571429,
+        "w": 41.822919480519474,
+        "h": 45.54971428571428,
+        "extent": {
+          "left": 20.911459740259737,
+          "right": 20.911459740259737,
+          "top": 57.54971428571428,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.5751101429036912,
+          "z": 0.6144918928144735,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:watcher",
+        "kind": "companion",
+        "id": "watcher",
+        "x": 411.9497142857143,
+        "y": 107.54971428571429,
+        "w": 15.899428571428569,
+        "h": 45.54971428571428,
+        "extent": {
+          "left": 7.949714285714284,
+          "right": 7.949714285714284,
+          "top": 57.54971428571428,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.9105141456238925,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.7669349718381977,
+          "z": 0.6144918928144735,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:rabbit_friend",
+        "kind": "companion",
+        "id": "rabbit_friend",
+        "x": 197.94708994708995,
+        "y": 134.45714285714286,
+        "w": 35.8941798941799,
+        "h": 48.45714285714286,
+        "extent": {
+          "left": 17.94708994708995,
+          "right": 17.94708994708995,
+          "top": 60.45714285714286,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.8064242124091834,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.38341772391951606,
+          "z": 0.6466393582522614,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:squirrel",
+        "kind": "companion",
+        "id": "squirrel",
+        "x": 441.1057777777778,
+        "y": 189.488,
+        "w": 42.211555555555556,
+        "h": 47.488,
+        "extent": {
+          "left": 21.105777777777778,
+          "right": 21.105777777777778,
+          "top": 59.488,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.8191859816806054,
+          "z": 0.7123870967741935,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:otter",
+        "kind": "companion",
+        "id": "otter",
+        "x": 340.2285714285714,
+        "y": 364.6950649350649,
+        "w": 48.457142857142856,
+        "h": 46.69506493506493,
+        "extent": {
+          "left": 24.228571428571428,
+          "right": 24.228571428571428,
+          "top": 58.69506493506493,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.6384024577572964,
+          "z": 0.9217145339725984,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:panda",
+        "kind": "companion",
+        "id": "panda",
+        "x": 250.88058181818184,
+        "y": 253.488,
+        "w": 45.76116363636365,
+        "h": 47.48800000000001,
+        "extent": {
+          "left": 22.880581818181824,
+          "right": 22.880581818181824,
+          "top": 59.48800000000001,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.7459198955912143,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.4782806125773868,
+          "z": 0.7888506571087217,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:parrot",
+        "kind": "companion",
+        "id": "parrot",
+        "x": 121.32562962962963,
+        "y": 77.488,
+        "w": 42.65125925925926,
+        "h": 47.488,
+        "extent": {
+          "left": 21.32562962962963,
+          "right": 21.32562962962963,
+          "top": 59.488,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.2461032789061463,
+          "z": 0.5785758661887693,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:seal",
+        "kind": "companion",
+        "id": "seal",
+        "x": 483.744,
+        "y": 97.60261818181819,
+        "w": 47.48800000000001,
+        "h": 43.60261818181819,
+        "extent": {
+          "left": 23.744000000000003,
+          "right": 23.744000000000003,
+          "top": 55.60261818181819,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.5368800102733076,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.8955985663082437,
+          "z": 0.6026076680786357,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:chicken",
+        "kind": "companion",
+        "id": "chicken",
+        "x": 145.32114285714286,
+        "y": 148.51885714285714,
+        "w": 42.64228571428571,
+        "h": 46.518857142857144,
+        "extent": {
+          "left": 21.321142857142856,
+          "right": 21.321142857142856,
+          "top": 58.518857142857144,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.28910599078341015,
+          "z": 0.6634394947943334,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:hedgehog",
+        "kind": "companion",
+        "id": "hedgehog",
+        "x": 411.25942857142854,
+        "y": 228.0489696969697,
+        "w": 46.51885714285713,
+        "h": 46.048969696969685,
+        "extent": {
+          "left": 23.259428571428565,
+          "right": 23.259428571428565,
+          "top": 58.048969696969685,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.08974505122751,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.7656979006656426,
+          "z": 0.7584575504145397,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:snail",
+        "kind": "companion",
+        "id": "snail",
+        "x": 274.7748571428572,
+        "y": 368,
+        "w": 45.54971428571428,
+        "h": 21.14808163265306,
+        "extent": {
+          "left": 22.77485714285714,
+          "right": 22.77485714285714,
+          "top": 33.14808163265306,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.5211018945212494,
+          "z": 0.9256630824372759,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:sekizou",
+        "kind": "companion",
+        "id": "sekizou",
+        "x": 351.84507936507936,
+        "y": 268.51885714285714,
+        "w": 23.690158730158732,
+        "h": 46.518857142857144,
+        "extent": {
+          "left": 11.845079365079366,
+          "right": 11.845079365079366,
+          "top": 58.518857142857144,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.6592205723388519,
+          "z": 0.8068086704215736,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:clock",
+        "kind": "companion",
+        "id": "clock",
+        "x": 321.7204656084656,
+        "y": 155.5497142857143,
+        "w": 43.44093121693121,
+        "h": 45.54971428571428,
+        "extent": {
+          "left": 21.720465608465606,
+          "right": 21.720465608465606,
+          "top": 57.54971428571428,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.6052338093341677,
+          "z": 0.6718395630653695,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:many_tail_fox",
+        "kind": "companion",
+        "id": "many_tail_fox",
+        "x": 490.7748571428572,
+        "y": 162.72153766233765,
+        "w": 45.54971428571428,
+        "h": 44.72153766233765,
+        "extent": {
+          "left": 22.77485714285714,
+          "right": 22.77485714285714,
+          "top": 56.72153766233765,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 1.9196032956242561,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.9081986687147978,
+          "z": 0.6804080497757916,
+          "y": 0
+        }
+      },
+      {
+        "key": "companion:box",
+        "kind": "companion",
+        "id": "box",
+        "x": 210.77485714285714,
+        "y": 179.06514285714286,
+        "w": 45.54971428571429,
+        "h": 45.06514285714286,
+        "extent": {
+          "left": 22.774857142857144,
+          "right": 22.774857142857144,
+          "top": 57.06514285714286,
+          "bottom": 0
+        },
+        "temperament": {},
+        "route": [],
+        "target": null,
+        "activity": "rest",
+        "direction": 1,
+        "source": "ambient",
+        "manualUntil": 0,
+        "nextAt": 2,
+        "lastWalk": -12,
+        "recent": [],
+        "after": "observe",
+        "faceKey": null,
+        "visualTarget": null,
+        "nextVisualAt": 0,
+        "safe": true,
+        "ground": {
+          "x": 0.40640655401945724,
+          "z": 0.6999344598054276,
+          "y": 0
+        }
+      }
+    ],
+    "slots": {
+      "castStage": {
+        "x": 16,
+        "y": 184,
+        "width": 526,
+        "height": 380,
+        "top": 184,
+        "right": 542,
+        "bottom": 564,
+        "left": 16
+      },
+      "notice": 42,
+      "speech": 76
+    },
+    "metrics": {
+      "distance": 0,
+      "moves": 0,
+      "turns": 0,
+      "activities": {},
+      "clock": 0
+    }
+  },
+  "sleepAsset": [
+    {
+      "src": "assets/characters/expressions/dog/06-hungry.png",
+      "complete": true,
+      "naturalWidth": 128,
+      "rect": {
+        "x": 274.8132019042969,
+        "y": 336.44525146484375,
+        "width": 64.1427001953125,
+        "height": 64.1427001953125,
+        "bottom": 400.58795166015625,
+        "right": 338.9559020996094
+      }
+    }
+  ]
+}
