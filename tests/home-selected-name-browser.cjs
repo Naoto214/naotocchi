@@ -36,7 +36,7 @@ async function target(page,kind){return page.evaluate(kind=>{
  for(const a of q.actors.filter(a=>a.kind===kind)){
   const node=document.querySelector('[data-diorama-actor="'+a.key+'"]');
   const x=v.x+(s.left+a.x-v.x)*v.scaleX,y=v.y+(s.top+a.y-v.y)*v.scaleY;
-  for(const dy of [.45,.65,.25,.85])for(const dx of [0,-.3,.3]){
+  for(const dy of [.45,.65,.25,.85,.95,.05])for(const dx of [0,-.3,.3,-.45,.45]){
    const p={x:x+dx*a.w*v.bodyScale,y:y-dy*a.h*v.bodyScale};
    if(p.x<=frame.left||p.x>=frame.right||p.y<=frame.top||p.y>=frame.bottom)continue;
    const hit=document.elementFromPoint(p.x,p.y);
