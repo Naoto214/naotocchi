@@ -283,30 +283,39 @@ body[data-home-production="true"][data-home-display-version="14"] #companionInvi
 body[data-home-production="true"][data-home-display-version="14"] #companionInviteOverlay[data-companion-id="snail"]>.companion-invite-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
 
 /* V15: retain the invitation's hit surface and card, remove only its dim paint. */
-body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-home-display-version="16"],[data-home-display-version="17"])) #companionInviteOverlay{background:transparent}
-body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-home-display-version="16"],[data-home-display-version="17"])) #companionInviteOverlay>.companion-invite-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
+body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #companionInviteOverlay{background:transparent}
+body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #companionInviteOverlay>.companion-invite-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
 @media(orientation:portrait){
  body[data-home-production="true"][data-home-display-version="15"][data-home-viewport-v8="true"] #speechSlot #homeCommentDock{justify-content:flex-start!important}
 }
 @media(orientation:landscape){
- html:has(body:is([data-home-display-version="15"],:is([data-home-display-version="16"],[data-home-display-version="17"])) #device[data-home-fixed="true"]),
- body:is([data-home-display-version="15"],:is([data-home-display-version="16"],[data-home-display-version="17"])):has(#device[data-home-fixed="true"]){background:#fff}
- body:is([data-home-display-version="15"],:is([data-home-display-version="16"],[data-home-display-version="17"])) #device[data-home-fixed="true"]{background:transparent;color:#17343d}
- body:is([data-home-display-version="15"],:is([data-home-display-version="16"],[data-home-display-version="17"])) #device[data-home-fixed="true"] :is(.device-header,#homeInformation,#homeEventSlot,#homeCommentDock,.home-meters,#careActions){color:#17343d;text-shadow:none}
- body:is([data-home-display-version="15"],:is([data-home-display-version="16"],[data-home-display-version="17"])) #device[data-home-fixed="true"] :is(.bar-label,.bar-value,#careActions button,.device-header button){color:#17343d;text-shadow:none}
+ html:has(body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #device[data-home-fixed="true"]),
+ body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))):has(#device[data-home-fixed="true"]){background:#fff}
+ body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #device[data-home-fixed="true"]{background:transparent;color:#17343d}
+ body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #device[data-home-fixed="true"] :is(.device-header,#homeInformation,#homeEventSlot,#homeCommentDock,.home-meters,#careActions){color:#17343d;text-shadow:none}
+ body:is([data-home-display-version="15"],:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))) #device[data-home-fixed="true"] :is(.bar-label,.bar-value,#careActions button,.device-header button){color:#17343d;text-shadow:none}
 }
 
 /* V16 uses the existing right rail; portrait typography/placement is untouched. */
 @media(orientation:landscape){
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] #homeInformation .cast-heading{position:absolute;top:-19px;right:0;max-width:calc(100% - 92px);margin:0}
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] #homeInformation #partnerLabel{font-size:9px;line-height:14px;min-height:0;margin:0;max-width:100%}
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] #homeInformation .partner-affection{font-size:9px}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation .cast-heading{position:absolute;top:-19px;right:0;max-width:calc(100% - 92px);margin:0}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation #partnerLabel{font-size:9px;line-height:14px;min-height:0;margin:0;max-width:100%}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation .partner-affection{font-size:9px}
 
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] .header-title .name-plate{font-size:14px;line-height:17px;letter-spacing:0}
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] #homeInformation :is(.status-row,.age-status,#ageLabel,#sodachiLabel,#moneyLabel){font-size:10px;line-height:12px;letter-spacing:0}
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] #homeInformation :is(.sub-status-row,.world-status){font-size:9px;line-height:12px;gap:2px;flex-wrap:wrap}
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] #homeInformation .care-icon{width:14px;height:14px}
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] #homeInformation :is(.status-row,.sub-status-row){min-height:0}
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] #homeInformation #homeGestureGuide[hidden],
- body:is([data-home-display-version="16"],[data-home-display-version="17"])[data-home-viewport-v8="true"] .header-title .cast-badges:has(>.badges:empty):has(>.ending-badges:empty){display:none!important}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] .header-title .name-plate{font-size:14px;line-height:17px;letter-spacing:0}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation :is(.status-row,.age-status,#ageLabel,#sodachiLabel,#moneyLabel){font-size:10px;line-height:12px;letter-spacing:0}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation :is(.sub-status-row,.world-status){font-size:9px;line-height:12px;gap:2px;flex-wrap:wrap}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation .care-icon{width:14px;height:14px}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation :is(.status-row,.sub-status-row){min-height:0}
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] #homeInformation #homeGestureGuide[hidden],
+ body:is([data-home-display-version="16"],:is([data-home-display-version="17"],[data-home-display-version="18"]))[data-home-viewport-v8="true"] .header-title .cast-badges:has(>.badges:empty):has(>.ending-badges:empty){display:none!important}
 }
+
+/* Safari's browser chrome can leave only ~176 CSS px. Keep existing rows,
+   9 meters and 5+4 buttons, using the remaining right-rail height explicitly. */
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] #homeInformation :is(.status-row,.sub-status-row){margin:0;gap:2px;min-height:12px;line-height:12px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] #homeInformation .care-icon{width:12px;height:12px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters{grid-auto-rows:15px;gap:1px 6px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters .bars .bar-line{grid-template-rows:11px 3px;gap:1px 2px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters :is(.bar-label,.bar-value){font-size:9px;line-height:11px}
+ body[data-home-display-version="18"][data-home-viewport-v8="true"][data-home-compact-v18="true"] .home-meters .bar{height:3px}

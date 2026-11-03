@@ -9,6 +9,11 @@
     if(Math.abs(det)<1e-9)return [];
     return polygons.map(poly=>poly.map(([px,py])=>[(d*(px-x)-c*(py-y))/det,(-b*(px-x)+a*(py-y))/det]));
   }
+  function portraitWalkingBounds(b,scene,landscape){
+    // Only the home portrait presentation opts out of the legacy body-height
+    // screen guard. The original floor polygons and path planner still apply.
+    return scene.region==='home'&&!landscape?{...b,top:24,bottom:scene.height-4}:b;
+  }
   function residentPaintExtent(actor,height,foot,boxes,fallback){
     if(!boxes?.length||boxes.some(b=>!Number.isFinite(b.y+b.height)||b.height<=0))return fallback;
     return {up:Math.max((actor.extent?.top||actor.h)+12,actor.h*1.08+(actor.w||0)*.12,...boxes.map(b=>foot-(b.y-3)*height/104)),
@@ -294,7 +299,8 @@
     const displayBoundsCache=new Map();
     function actorBounds(a,b){
       const v=env.NaotocchiHomeViewport,p=v?.residentPresentation?.(),row=rows.get(a.key),ink=row?.paintExtent;
-      if(doc.body?.dataset.homeDisplayVersion!=='17'||!p?.landscape||!ink||!scene?.navigation||!Number.isFinite(p.safeTop+p.safeBottom))return b;
+      if(doc.body?.dataset.homeDisplayVersion==='18'&&p&&!p.landscape)return portraitWalkingBounds(b,scene,false);
+      if(!['17','18'].includes(doc.body?.dataset.homeDisplayVersion)||!p?.landscape||!ink||!scene?.navigation||!Number.isFinite(p.safeTop+p.safeBottom))return b;
       const r=displayRect(stage),key=JSON.stringify([a.key,b,ink,p,r.left,r.top]);
       if(displayBoundsCache.has(key))return displayBoundsCache.get(key);
       const at=y=>{const depth=scene.navigation.depthScale({x:(b.left+b.right)/2,y}),foot=p.y+(r.top+y-p.y)*p.scaleY;return {depth,top:foot-(ink.up*depth+5)*p.bodyScale,bottom:foot+(ink.down*depth+3)*p.bodyScale};};
@@ -374,21 +380,21 @@
       publishPaintEnvelope();
       // A newly rendered shape has no measured ink until the pass above. Seat
       // it against that ink before its first paint, not at the next UI update.
-      if(doc.body?.dataset.homeDisplayVersion==='17'&&env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
+      if(['17','18'].includes(doc.body?.dataset.homeDisplayVersion)&&env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
         model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null});
       }
       paint();
     }
     let residentEnvelopeKey='';
     function publishResidentEnvelope(){
-      if(!['13','14','15','16','17'].includes(doc.body?.dataset.homeDisplayVersion))return;
-      const v15=['15','16','17'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
-      const key=JSON.stringify([scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
+      if(!['13','14','15','16','17','18'].includes(doc.body?.dataset.homeDisplayVersion))return;
+      const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
+      const key=JSON.stringify([doc.body.dataset.homeDisplayVersion==='18'?env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape:null,scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
       if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
       let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity,above=0,below=0,side=0;
       for(const a of model.snapshot()){
         const row=rows.get(a.key);if(!row)continue;
-        const b=modelAPI.bounds(a,{...scene,actorBounds:null}),h=parseFloat(row.owner.style.height)||row.h,foot=row.y-(parseFloat(row.owner.style.top)||0);
+        const base=modelAPI.bounds(a,{...scene,actorBounds:null}),b=doc.body.dataset.homeDisplayVersion==='18'?portraitWalkingBounds(base,scene,env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape!==false):base,h=parseFloat(row.owner.style.height)||row.h,foot=row.y-(parseFloat(row.owner.style.top)||0);
         let up=Math.max(a.extent?.top||a.h,a.h*1.08+a.w*.12),down=Math.max(8,a.extent?.bottom||0),wide=Math.max(a.extent?.left||a.w/2,a.extent?.right||a.w/2);
         if(a.kind==='pet')for(const kind of Object.keys(accentCenters)){
           const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'',m=html.match(/translate\(\s*[-\d.]+[ ,]+([-\d.]+)/);if(!m)continue;
@@ -488,7 +494,7 @@
         row.owner.style.setProperty('--diorama-sleep-shift',sleepAccentShift(sleep?.getAttribute?.('transform'),row.originX??50,facingScale(row,a.direction))+'%');
         placeActorEffects(row.owner,row.originX??50,facingScale(row,a.direction),a.direction);
         const stamp=[sx,sy,bod,depthScale.toFixed(4),dx.toFixed(2),dy.toFixed(2),a.activity,a.direction,!!a.target,model.selected()===a.key,isPaused,revision,row.x,row.y,row.w,row.h].join(':');
-        if(row.paintStamp===stamp){if(doc.body?.dataset.homeDisplayVersion==='17')paintForeground(a,row);onPosition(a,dx,dy);continue;}row.paintStamp=stamp;
+        if(row.paintStamp===stamp){if(['17','18'].includes(doc.body?.dataset.homeDisplayVersion))paintForeground(a,row);onPosition(a,dx,dy);continue;}row.paintStamp=stamp;
         for(const n of [row.owner,...(row.attachments||[])]){
           n.style.translate=`${dx.toFixed(2)}px ${dy.toFixed(2)}px`;
           // Individual scale composes with Motion v2's transform. Pin every
@@ -504,7 +510,7 @@
         row.owner.dataset.dioramaWalking=String(!!a.target&&!isPaused&&!media?.matches);row.owner.dataset.dioramaDirection=String(a.direction);
         row.shadow.style.scale=presentation?`${bod/sx} ${bod/sy}`:'';row.shadow.style.transformOrigin='0 0';
         row.shadow.style.left=a.x+'px';row.shadow.style.top=a.y+'px';row.shadow.style.width=Math.max(20,a.w*.8*depthScale)+'px';row.shadow.dataset.selected=String(model.selected()===a.key);
-        if(doc.body?.dataset.homeDisplayVersion==='17')paintForeground(a,row);
+        if(['17','18'].includes(doc.body?.dataset.homeDisplayVersion))paintForeground(a,row);
         else if(world&&scene.navigation&&doc.createElementNS&&world.stats().renderer?.objects>0){
           const point=scene.navigation.unproject(a),host=displayRect(worldHost);
           const cacheKey=point?[Math.round(point.x/24),Math.round(point.z/24),host.width,host.height,scene.region,world.stats().projectionRevision,scene.groundTop,scene.floor].join(':'):'';
@@ -593,7 +599,7 @@
     let lastSafePresentation='';
     function presentationChanged(){
       const p=env.NaotocchiHomeViewport?.residentPresentation?.();
-      const key=doc.body?.dataset.homeDisplayVersion==='17'?JSON.stringify([p?.landscape,p?.safeTop,p?.safeBottom,p?.scaleX,p?.scaleY,p?.bodyScale,p?.world,[...rows.values()].map(r=>[r.key,r.w,r.h,r.paintExtent])]):'';
+      const key=['17','18'].includes(doc.body?.dataset.homeDisplayVersion)?JSON.stringify([p?.landscape,p?.safeTop,p?.safeBottom,p?.scaleX,p?.scaleY,p?.bodyScale,p?.world,[...rows.values()].map(r=>[r.key,r.w,r.h,r.paintExtent])]):'';
       if(key!==lastSafePresentation){lastSafePresentation=key;displayBoundsCache.clear();occlusionCache.clear();for(const row of rows.values()){row.maskKey='';row.paintStamp='';}sync();}else paint();
     }
     const listeners={'home-presentation':presentationChanged,pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
@@ -601,6 +607,6 @@
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {localOcclusionPolygons,residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
+  return {portraitWalkingBounds,localOcclusionPolygons,residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
 

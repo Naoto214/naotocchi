@@ -3832,7 +3832,7 @@
     if (!target) return false;
     const upperV12=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12' && ['message','homeActionText','homeChoiceText','storyFlashText','storyFlashEmoji','birthdayToast','mgResultToast'].includes(target.id);
     const raw=String(text??'');
-    const value=upperV12 && !['storyFlashEmoji','homeActionText'].includes(target.id) ? window.NaotocchiHomeDiorama?.homeText(raw,true,['16','17'].includes(document.body.dataset.homeDisplayVersion)) ?? raw : raw;
+    const value=upperV12 && !['storyFlashEmoji','homeActionText'].includes(target.id) ? window.NaotocchiHomeDiorama?.homeText(raw,true,['16','17','18'].includes(document.body.dataset.homeDisplayVersion)) ?? raw : raw;
     // Only the notice renderer deduplicates repeated renders. Other surfaces
     // still announce each new beat, even when its words match the last beat.
     if (!force && commentTextCache.get(target)===value) return false;
@@ -4015,7 +4015,7 @@
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
         : state.stage === STAGE.EGG ? 'たまごをタップするか「あたためる」をおしてね' : '');
     if (terrainNoticeMode() && state.stage === STAGE.GROWING) {
-      const eventText=window.NaotocchiHomeDiorama.homeText(message,document.body.dataset.homeViewportVersion==='12',['16','17'].includes(document.body.dataset.homeDisplayVersion));
+      const eventText=window.NaotocchiHomeDiorama.homeText(message,document.body.dataset.homeViewportVersion==='12',['16','17','18'].includes(document.body.dataset.homeDisplayVersion));
       const warnings=visible ? window.NaotocchiHomeDiorama.homeWarnings(state,notice) : '';
       // Ephemeral events take the one slot; the warning is re-derived after expiry.
       text=eventText || warnings;
@@ -10997,6 +10997,12 @@
     renderLaneSpeaker(document.getElementById('homeChoiceSpeaker'),null,result);
   }
   function showHomeChoiceResult(text, speaker = null) {
+    // The choice overlay is transient: history-layer cleanup can hide it before
+    // its timer expires. V18 uses the ordinary notice owner and its queue.
+    if(document.body.dataset.homeDisplayVersion==='18' && homeUIV11()){
+      if(homeV11Upper('message',4,MESSAGE_DURATION_MS,()=>showMessage(text,MESSAGE_DURATION_MS,speaker)))return;
+      showMessage(text,MESSAGE_DURATION_MS,speaker);return;
+    }
     if(homeV11Upper('choice',4,MESSAGE_DURATION_MS,()=>showHomeChoiceResult(text,speaker)))return;
     const result=document.getElementById('homeChoiceResult');
     if (!result) return;
@@ -12945,7 +12951,7 @@
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
     el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
       && !el.screenNormal.classList.contains('hidden') && (!suppressFrontFx || (
-        (['15','16','17'].includes(document.body.dataset.homeDisplayVersion) || document.body.dataset.homeDisplayVersion==='14' && pendingCompanionId==='snail') && companionInviteOpen
+        (['15','16','17','18'].includes(document.body.dataset.homeDisplayVersion) || document.body.dataset.homeDisplayVersion==='14' && pendingCompanionId==='snail') && companionInviteOpen
         && !gameActive && !hasTransformChoice && !lifeCardVisible && !activeOverlay && !dateOpen && !duelOpen
         && !pendingItemScene && !itemSceneRecord && !grandGoalPending && !dexDetail && !meguruActive && !individualityDialogOpen)));
     renderWorldScene(suppressFrontFx);

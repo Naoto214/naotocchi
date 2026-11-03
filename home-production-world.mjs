@@ -17,8 +17,8 @@ export function createHomeWorld(options){
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const fullBackdrop=doc.body.dataset.homeViewportVersion==='12'&&doc.body.dataset.homeTinyOverview==='true';
   const native=geometry(),host=fullBackdrop?container.getBoundingClientRect():native.host,stage=native.stage;
-  const v15=['15','16','17'].includes(doc.body.dataset.homeDisplayVersion),v14=v15||doc.body.dataset.homeDisplayVersion==='14';
-  const contain=fullBackdrop&&['13','14','15','16','17'].includes(doc.body.dataset.homeDisplayVersion)&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
+  const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),v14=v15||doc.body.dataset.homeDisplayVersion==='14';
+  const contain=fullBackdrop&&['13','14','15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion)&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
   const cover=backdropComposition(host,stage).cover,cw=v14?host.height/1.5:Math.min(host.width,host.height/1.5);
   const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,env.time,env.weather,loaded,flags.reducedMotion,Math.floor(time/120)]);if(stamp===lastPaint)return;lastPaint=stamp;
   const dpr=Math.min(2,win.devicePixelRatio||1),W=Math.round(host.width*dpr),H=Math.round(host.height*dpr);if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;}
@@ -38,7 +38,7 @@ export function createHomeWorld(options){
  }
  return {setEnvironment,navigation,draw,observationPoints(n){return legacy?legacy.observationPoints(n):spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
   occlusion(p){if(legacy)return legacy.occlusion(p);if(!spec||!nav)return [];const {host,stage}=geometry();
-   if(doc.body.dataset.homeDisplayVersion==='17'&&doc.body.dataset.homeTinyOverview==='true'){
+   if(['17','18'].includes(doc.body.dataset.homeDisplayVersion)&&doc.body.dataset.homeTinyOverview==='true'){
     // Match the displayed painting, then invert only the resident presentation.
     // Native navigation, floor polygons and sprite foot coordinates are unchanged.
     const real=container.getBoundingClientRect(),vp=win.NaotocchiHomeViewport;
