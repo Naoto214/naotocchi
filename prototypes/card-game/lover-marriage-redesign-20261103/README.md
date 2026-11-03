@@ -16,3 +16,7 @@
 ## VERSION 2（2026-11-03）
 
 `v2/` に保存（V1のファイルは変更していない）。18種類の再調整案（`v2/proposals-v2.json`）、本人用の比較ページ（`v2/page/`、公開先 https://claude.ai/artifact/KYYxZVgs7Nk64xnUGJVX2Q ）、代表的な能力の追加検証720戦（`v2/proxy/`）、報告 `v2/REPORT.md`。
+
+## VERSION 3（2026-11-04）
+
+`v3/` に保存。共通ルール（結婚前の別れ−5）は PR #515 で正式実装。ここは未承認の結婚後追加能力だけを扱う：V3新案と推奨（`v3/proposals-v3.json`）、比較ページ（`v3/page/`、同じURL）、追加検証240戦（`v3/proxy/`）、報告 `v3/REPORT.md`。

@@ -1,0 +1,298 @@
+<title>こいびと結婚能力 V3</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: CARD GAME table felt (deep green) with cream card-copy panels; a sticky view bar, a tile grid, and a full-screen card sheet. */
+:root{
+  --felt:#132d2c; --felt-2:#1b3b33; --panel:#203d34; --line:#57736b;
+  --fg:#f6f0dc; --muted:#bdd0c1; --gold:#d7bc76; --gold-strong:#ead69e;
+  --cream:#fff4d9; --cream-2:#f8edcc; --ink:#352a20; --ink-soft:#5b4a37;
+  --rose:#c04479; --rose-soft:#e88fb3; --warn:#f0b35a; --ok:#8ed4ac;
+  --display:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+  --body:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--felt)}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#2d4e41,var(--felt) 60%) fixed,var(--felt);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--felt)}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid var(--gold-strong);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header.top{padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--muted)}
+h1{font-family:var(--display);font-size:clamp(22px,6vw,32px);line-height:1.25;color:var(--gold-strong);font-weight:600}
+h1 .heart{color:var(--rose-soft)}
+.notice{font-size:12px;color:var(--fg);border-left:3px solid var(--gold);padding:6px 10px;background:#d7bc7614;border-radius:4px}
+.rules{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.rule{background:var(--felt-2);border:1px solid var(--line);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.rule small{font-size:11px;color:var(--muted)}
+.rule b{font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums;color:var(--fg)}
+.rule b.minus{color:var(--rose-soft)} .rule b.plus{color:var(--gold-strong)}
+.rule span{font-size:11px;line-height:1.4}
+.rules-cap{font-size:11px;color:var(--muted)}
+@media (max-width:520px){.rules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:8px max(16px,env(safe-area-inset-left,0px));background:#132d2cf2;border-bottom:1px solid #57736b88;display:flex;flex-direction:column;gap:6px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.seg{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.seg button{flex:1 0 auto;min-height:40px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);font-size:13px;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--gold-strong);color:#24392c;border-color:var(--gold-strong);font-weight:700}
+.plan-switch{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.plan-switch .seg{flex:1}
+.plan-switch .seg button{min-height:36px;font-size:13px}
+.plan-switch .seg button[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+
+/* grid of 18 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{display:flex;flex-direction:column;text-align:left;padding:0;border:1px solid #a28538;border-radius:12px;overflow:hidden;background:var(--cream);color:var(--ink);box-shadow:inset 0 0 0 2px #fff5c5,0 3px 8px #0004;min-width:0}
+.tile img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;background:#e9c6d4}
+.tile .tbody{padding:8px 9px 10px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.tile .tname{font-family:var(--display);font-size:14px;line-height:1.3;font-weight:600}
+.tile .tline{font-size:11.5px;line-height:1.45;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:10.5px;line-height:1.2;padding:3px 7px;border-radius:999px;border:1px solid #b49b54;background:#fffdf0;color:var(--ink);white-space:nowrap}
+.chip.plan{background:var(--rose);border-color:var(--rose);color:#fff}
+.chip.picked{background:#2f6a4f;border-color:#2f6a4f;color:#fff}
+.chip.unpicked{background:transparent;color:var(--ink-soft);border-style:dashed}
+.chip.long{background:#fbe2b8;border-color:#d79a3a}
+
+/* summary view */
+.sum{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.copycard{background:linear-gradient(115deg,var(--cream),#fffef3 50%,var(--cream-2));color:var(--ink);border:1px solid #ad9048;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.copycard h3{font-family:var(--display);font-size:16px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.copycard h3 small{font-family:var(--body);font-size:11px;color:var(--ink-soft);font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap}
+.blk{display:flex;flex-direction:column;gap:2px}
+.blk-label{font-size:11px;font-weight:700;letter-spacing:.06em;color:#6e5a36}
+.blk.married{border-top:1px dashed #b79a51;padding-top:6px}
+.blk.married .blk-label{color:var(--rose)}
+.blk p{font-size:13.5px;line-height:1.65}
+.empty-plan{color:var(--ink-soft);font-style:normal}
+
+/* picks */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.picklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.picklist li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:8px 0;border-bottom:1px solid #57736b66;align-items:center}
+.picklist li button{grid-row:span 2;min-height:40px;padding:4px 12px;border-radius:8px;border:1px solid var(--line);background:var(--felt-2);font-size:12px}
+.picklist .pname{font-weight:700;font-size:14px}
+.picklist .ptext{font-size:12px;color:var(--muted);line-height:1.5}
+.progress{font-size:13px;color:var(--gold-strong)}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.btn{min-height:44px;padding:8px 16px;border-radius:9px;border:1px solid #738a75;background:#24483d;color:var(--fg);font-size:14px}
+.btn.primary{background:var(--gold-strong);border-color:var(--gold-strong);color:#24392c;font-weight:700}
+textarea{width:100%;min-height:220px;font:12px/1.6 ui-monospace,Menlo,monospace;color:var(--fg);background:#0f2522;border:1px solid var(--line);border-radius:8px;padding:10px;resize:vertical}
+.status{font-size:12px;color:var(--ok);min-height:18px}
+
+/* balance */
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--felt-2)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:12.5px}
+th,td{padding:8px 10px;border-bottom:1px solid #57736b66;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:11.5px;background:#18352f}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:999px;font-weight:700}
+.tag.fact{background:#2f6a4f;color:#fff}.tag.est{background:#7a5c22;color:#fff}
+.section{display:flex;flex-direction:column;gap:10px}
+.section h2{font-family:var(--display);font-size:19px;color:var(--gold-strong)}
+.section p,.section li{font-size:13.5px;max-width:68ch}
+.section ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+
+/* detail sheet */
+dialog.sheet{padding:0;border:1px solid #c8ac6b;border-radius:16px;background:var(--felt-2);color:var(--fg);
+  width:min(100vw - 16px,760px);max-width:none;max-height:calc(100dvh - 16px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));margin:auto;box-shadow:0 16px 60px #0009;overflow:hidden}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:#071c18dc}
+.sheet-head{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #57736b88;flex:none}
+.sheet-head h2{flex:1;min-width:0;font-family:var(--display);font-size:17px;line-height:1.25;overflow-wrap:anywhere}
+.iconbtn{min-width:44px;min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-size:15px;padding:0 10px}
+.sheet-body{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.sheet-art{border:1px solid #aa8b40;border-radius:12px;overflow:hidden;background:#e9c6d4;box-shadow:0 0 0 1px #fff5cc}
+.sheet-art img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.theme{font-size:12px;color:var(--muted)}
+.copy{background:linear-gradient(115deg,var(--cream),#fffef3 50%,var(--cream-2));color:var(--ink);border:1px solid #ad9048;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.plantabs{display:flex;gap:6px}
+.plantabs button{flex:1;min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-size:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:4px}
+.plantabs button small{font-size:10.5px;color:var(--muted)}
+.plantabs button[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+.plantabs button[aria-pressed="true"] small{color:#ffe3ee}
+.plantabs button .mine{font-size:10px;color:var(--ok)}
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 10px;font-size:13px;margin:0}
+.facts dt{color:var(--muted);font-size:12px;white-space:nowrap}
+.facts dd{margin:0;min-width:0}
+.pick{display:flex;flex-wrap:wrap;gap:6px}
+.pick button{min-height:44px;padding:6px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);font-size:13px}
+.pick button[aria-pressed="true"]{background:#2f6a4f;border-color:#8ed4ac;color:#fff;font-weight:700}
+.navrow{display:flex;justify-content:space-between;gap:8px}
+@media (min-width:700px){.sheet-body{grid-template-columns:minmax(0,300px) minmax(0,1fr);align-items:start}.sheet-left{position:sticky;top:0}}
+@media (orientation:landscape) and (max-height:500px){
+  .sheet-body{grid-template-columns:minmax(0,220px) minmax(0,1fr);align-items:start}
+  dialog.sheet{width:calc(100vw - 16px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px))}
+  header.top{padding-top:10px}
+}
+@media (prefers-reduced-motion:no-preference){.tile{transition:transform .15s}.tile:active{transform:scale(.98)}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow">なおとっち CARD GAME ・ こいびと18種類</span>
+    <h1><span class="heart">♥</span> 結婚したら能力　VERSION 3</h1>
+    <p class="notice">本人確認用の比較ページです。下の4つの共通ルールは2026-11-04に正式決定しました（PR #515）。「♥ 結婚したら」の追加能力はまだ案で、ここで選んでもゲーム本体には入りません。正式カードの本文と画像はそのまま使っています。</p>
+    <div class="rules" aria-label="共通ルール（C案）">
+      <div class="rule"><small>恋人になる</small><b>±0</b><span>恋人の能力が使える</span></div>
+      <div class="rule"><small>結婚前に別れる</small><b class="minus">−5</b><span>恋人の能力を失う</span></div>
+      <div class="rule"><small>結婚する</small><b class="plus">+10</b><span>（案）「♥ 結婚したら」が加わる</span></div>
+      <div class="rule"><small>結婚後に別れる</small><b class="minus">−10</b><span>両方の能力を失う</span></div>
+    </div>
+    <p class="rules-cap">正式ルール（2026-11-04）。結婚前の別れは −10 から −5 に変わりました。「♥ 結婚したら」の能力だけが、まだ選択待ちです。</p>
+  </header>
+
+  <nav class="bar" aria-label="表示の切り替え">
+    <div class="seg" role="group" aria-label="画面">
+      <button type="button" id="v-list" data-view="list" aria-pressed="true">一覧</button>
+      <button type="button" id="v-text" data-view="text" aria-pressed="false">本文まとめ</button>
+      <button type="button" id="v-picks" data-view="picks" aria-pressed="false">選んだ案</button>
+      <button type="button" id="v-balance" data-view="balance" aria-pressed="false">バランス</button>
+    </div>
+    <div class="plan-switch" id="planSwitch">
+      <span>表示する案</span>
+      <div class="seg" role="group" aria-label="表示する案">
+        <button type="button" id="p-A" data-plan="A" aria-pressed="false">A案</button>
+        <button type="button" id="p-B" data-plan="B" aria-pressed="false">B案</button>
+        <button type="button" id="p-C" data-plan="C" aria-pressed="false">C案</button>
+        <button type="button" id="p-N" data-plan="N" aria-pressed="false">V3新案</button>
+        <button type="button" id="p-rec" data-plan="rec" aria-pressed="false">推奨</button>
+        <button type="button" id="p-mine" data-plan="mine" aria-pressed="false">選んだ案</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="view-list" class="section" aria-label="一覧">
+      <p id="listCap" style="font-size:12px;color:var(--muted)"></p>
+      <div class="grid" id="grid"></div>
+    </section>
+    <section id="view-text" class="section" hidden aria-label="本文まとめ">
+      <p style="font-size:12px;color:var(--muted)">カードに表示する形です。上が正式な恋人の能力（変更しません）、下が「♥ 結婚したら」の案。字数は2つを合わせた数で、140字を超えるとカード面では文字が小さくなります（拡大表示では全文）。</p>
+      <div class="sum" id="sum"></div>
+    </section>
+    <section id="view-picks" class="section" hidden aria-label="選んだ案">
+      <div class="panel">
+        <p class="progress" id="progress"></p>
+        <ul class="picklist" id="picklist"></ul>
+      </div>
+      <div class="panel">
+        <h2 style="font-family:var(--display);font-size:17px;color:var(--gold-strong)">一覧をコピー</h2>
+        <p style="font-size:12px;color:var(--muted)">選んだ内容はこの端末のブラウザにだけ保存されます。返信に貼り付けて送ってください。</p>
+        <textarea id="out" readonly aria-label="コピーする一覧"></textarea>
+        <div class="actions">
+          <button type="button" class="btn primary" id="copyBtn">コピーする</button>
+          <button type="button" class="btn" id="clearBtn">選択をすべて消す</button>
+        </div>
+        <p class="status" id="copyStatus" role="status"></p>
+      </div>
+    </section>
+    <section id="view-balance" class="section" hidden aria-label="バランス"></section>
+  </main>
+</div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+  <div class="sheet-head">
+    <button type="button" class="iconbtn" id="prevBtn" aria-label="前の恋人">‹</button>
+    <h2 id="sheetTitle"></h2>
+    <button type="button" class="iconbtn" id="nextBtn" aria-label="次の恋人">›</button>
+    <button type="button" class="iconbtn" id="closeBtn">閉じる</button>
+  </div>
+  <div class="sheet-body" id="sheetBody"></div>
+</dialog>
+
+<script>
+const DATA=/*DATA*/null;
+const KEY='lover-marriage-v3-picks';
+let picks={};try{picks=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){picks={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(picks))}catch(e){}};
+let view='list',plan='rec',openIdx=-1,sheetPlan='A';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const len=s=>[...s].length;
+const planOf=(c,key)=>c.plans.find(p=>p.key===key);
+const NAME=k=>k==='N'?'V3新案':k+'案';
+function shownPlan(c){if(plan==='rec')return planOf(c,c.recommend);if(plan==='mine'){const k=picks[c.id];return k&&k!=='hold'?planOf(c,k):null;}return planOf(c,plan)||null;}
+function pickLabel(c){const k=picks[c.id];return !k?'未選択':k==='hold'?'保留':NAME(k);}
+
+function renderList(){
+  $('#listCap').textContent=plan==='rec'?'VERSION 3 の推奨案を表示しています。カードをタップすると、V2のA・B案、V3新案と比べて選べます。':plan==='N'?'V3新案：結婚した時の特別感を強めた案です。':plan==='mine'?'選んだ案を表示しています。未選択・保留の恋人は案を表示しません。':plan==='C'?'C案は、必要な恋人（ねこ社長・サソリ・ゆきだるま）だけにあります。ほかはC案なしと表示します。':'カードをタップすると、くわしい比較と案の選択ができます。';
+  $('#grid').innerHTML=DATA.cards.map((c,i)=>{const p=shownPlan(c);const k=picks[c.id];
+    return `<button type="button" class="tile" data-open="${i}" aria-label="${esc(c.name)}の詳細">
+      <img src="${esc(c.img)}" alt="${esc(c.name)}" loading="lazy" width="384" height="256">
+      <span class="tbody"><span class="tname">${esc(c.name)}</span>
+      <span class="tline">${p?'♥ '+esc(p.text):plan==='mine'?'（まだ選んでいません）':'（'+NAME(plan)+'はありません）'}</span>
+      <span class="chips">${p?`<span class="chip plan">${NAME(p.key)}・${esc(p.strength)}</span>${p.key===c.recommend?'<span class="chip">推奨</span>':''}`:''}<span class="chip ${k&&k!=='hold'?'picked':'unpicked'}">${pickLabel(c)}</span>${p&&len(c.text)+len(p.text)>140?'<span class="chip long">140字超</span>':''}</span></span></button>`;}).join('');
+}
+function renderText(){
+  $('#sum').innerHTML=DATA.cards.map((c,i)=>{const p=shownPlan(c);const n=len(c.text)+(p?len(p.text):0);
+    return `<article class="copycard"><h3>${esc(c.name)}<small>${p?NAME(p.key)+'・':''}${n}字${n>140?'（140字超）':''}</small></h3>
+    <div class="blk"><span class="blk-label">こいびとのとき</span><p>${esc(c.text)}</p></div>
+    <div class="blk married"><span class="blk-label">♥ 結婚したら</span><p>${p?esc(p.text):`<span class="empty-plan">${plan==='mine'?'まだ選んでいません':NAME(plan)+'はありません'}</span>`}</p></div></article>`;}).join('');
+}
+function renderPicks(){
+  const chosen=DATA.cards.filter(c=>picks[c.id]&&picks[c.id]!=='hold').length,held=DATA.cards.filter(c=>picks[c.id]==='hold').length;
+  $('#progress').textContent=`選んだ：${chosen} / 18　保留：${held}`;
+  $('#picklist').innerHTML=DATA.cards.map((c,i)=>{const k=picks[c.id],p=k&&k!=='hold'?planOf(c,k):null;
+    return `<li><span class="pname">${esc(c.name)}：${pickLabel(c)}</span><button type="button" data-open="${i}">選ぶ</button><span class="ptext">${p?esc(p.text):'—'}</span></li>`;}).join('');
+  const lines=['なおとっち CARD GAME こいびと結婚能力 VERSION 3 の選択',`選んだ：${chosen}/18　保留：${held}`,''];
+  DATA.cards.forEach((c,i)=>{const k=picks[c.id],p=k&&k!=='hold'?planOf(c,k):null;lines.push(`${i+1}. ${c.name}：${pickLabel(c)}${k&&k!=='hold'&&k===c.recommend?'（推奨どおり）':''}`+(p?`\n   ♥ 結婚したら：${p.text}`:''));});
+  $('#out').value=lines.join('\n');
+}
+function renderBalance(){$('#view-balance').innerHTML=DATA.balanceHtml;}
+function render(){
+  for(const v of ['list','text','picks','balance']){$('#view-'+v).hidden=view!==v;$('#v-'+v).setAttribute('aria-pressed',String(view===v));}
+  $('#planSwitch').hidden=!(view==='list'||view==='text');
+  for(const k of ['A','B','C','N','rec','mine'])$('#p-'+k).setAttribute('aria-pressed',String(plan===k));
+  if(view==='list')renderList();if(view==='text')renderText();if(view==='picks')renderPicks();if(view==='balance')renderBalance();
+}
+function renderSheet(){
+  const c=DATA.cards[openIdx];const p=planOf(c,sheetPlan)||c.plans[0];sheetPlan=p.key;const n=len(c.text)+len(p.text),k=picks[c.id];
+  $('#sheetTitle').textContent=`${openIdx+1}/18　${c.name}`;
+  $('#sheetBody').innerHTML=`<div class="sheet-left" style="display:flex;flex-direction:column;gap:8px">
+      <div class="sheet-art"><img src="${esc(c.img)}" alt="${esc(c.name)}の正式カード画像" width="384" height="256"></div>
+      <p class="theme">テーマ：${esc(c.theme)}</p>
+      <div class="copy"><div class="blk"><span class="blk-label">こいびとのとき（正式本文）</span><p>${esc(c.text)}</p></div>${c.readable?`<div class="blk married"><span class="blk-label" style="color:#2f6a4f">読みやすくした本文案（意味は同じ・${len(c.readable)}字）</span><p>${esc(c.readable)}</p></div>`:''}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+      <div class="plantabs" role="group" aria-label="案の切り替え">${c.plans.map(q=>`<button type="button" data-sheetplan="${q.key}" aria-pressed="${q.key===p.key}">${NAME(q.key)}${q.key===c.recommend?'★':''}<small>${q.origin==='V3'?'新提案':'V2'}・${esc(q.strength)}</small>${k===q.key?'<span class="mine">✓ 選択中</span>':''}</button>`).join('')}</div>
+      <div class="copy"><div class="blk married" style="border-top:0;padding-top:0"><span class="blk-label">♥ 結婚したら（${NAME(p.key)}${p.key===c.recommend?'・推奨':''}）</span><p>${esc(p.text)}</p></div></div>
+      <dl class="facts">
+        <dt>強さ（追加分）</dt><dd>${esc(p.strength)}</dd>
+        <dt>特徴</dt><dd>${esc(p.feature)}</dd>
+        <dt>字数</dt><dd>${len(c.text)}＋${len(p.text)}＝${n}字${n>140?'（140字超：カード面は小さい文字）':''}</dd>
+        <dt>V3の推奨</dt><dd>★ ${NAME(c.recommend)}：${esc(c.reason)}</dd>
+        <dt>合計の強さ</dt><dd>${esc(c.total)}（V2推奨案と既存能力の合計）</dd>
+        <dt>相乗効果</dt><dd>${esc(c.synergy)}</dd>
+        <dt>注意点</dt><dd>${esc(c.caution)}</dd>
+        <dt>V2での変更</dt><dd>${esc(c.change)}</dd>
+      </dl>
+      <div><p style="font-size:12px;color:var(--muted);margin-bottom:6px">この恋人の採用候補</p>
+      <div class="pick" role="group" aria-label="採用候補を選ぶ">${c.plans.map(q=>`<button type="button" data-pick="${q.key}" aria-pressed="${k===q.key}">${NAME(q.key)}にする</button>`).join('')}<button type="button" data-pick="hold" aria-pressed="${k==='hold'}">保留</button></div></div>
+      <div class="navrow"><button type="button" class="btn" data-step="-1">‹ 前の恋人</button><button type="button" class="btn" data-step="1">次の恋人 ›</button></div>
+    </div>`;
+}
+function openSheet(i){openIdx=i;const c=DATA.cards[i];sheetPlan=(picks[c.id]&&picks[c.id]!=='hold')?picks[c.id]:(planOf(c,plan)?plan:c.recommend);renderSheet();const d=$('#sheet');if(!d.open){d.showModal?d.showModal():d.setAttribute('open','');}$('#sheetBody').scrollTop=0;}
+function step(n){openSheet((openIdx+n+18)%18);}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;
+  if(t.dataset.view){view=t.dataset.view;render();window.scrollTo({top:0});}
+  else if(t.dataset.plan){plan=t.dataset.plan;render();}
+  else if(t.dataset.open){openSheet(Number(t.dataset.open));}
+  else if(t.dataset.sheetplan){sheetPlan=t.dataset.sheetplan;renderSheet();}
+  else if(t.dataset.pick){const c=DATA.cards[openIdx];if(picks[c.id]===t.dataset.pick)delete picks[c.id];else picks[c.id]=t.dataset.pick;if(t.dataset.pick!=='hold')sheetPlan=t.dataset.pick;save();renderSheet();render();}
+  else if(t.dataset.step){step(Number(t.dataset.step));}
+});
+$('#prevBtn').onclick=()=>step(-1);$('#nextBtn').onclick=()=>step(1);
+$('#closeBtn').onclick=()=>{const d=$('#sheet');d.close?d.close():d.removeAttribute('open');};
+$('#sheet').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
+$('#copyBtn').onclick=()=>{const ta=$('#out'),done=m=>$('#copyStatus').textContent=m;
+  const fallback=()=>{ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);done('文字を選択しました。長押しして「コピー」を選んでください。');};
+  try{navigator.clipboard.writeText(ta.value).then(()=>done('コピーしました。'),fallback);}catch(e){fallback();}};
+$('#clearBtn').onclick=()=>{if($('#clearBtn').dataset.armed){picks={};save();delete $('#clearBtn').dataset.armed;$('#clearBtn').textContent='選択をすべて消す';$('#copyStatus').textContent='選択を消しました。';render();}else{$('#clearBtn').dataset.armed='1';$('#clearBtn').textContent='もう一度押すと消えます';}};
+render();
+</script>
