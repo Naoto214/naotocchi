@@ -479,7 +479,10 @@
     style(frame,{width:viewWidth+'px',height:viewHeight+'px',transform:'scale('+scaleX+','+scaleY+')','transform-origin':'0 0'});
     frame.scrollLeft=0;frame.scrollTop=scrollTop;
     presentation.world={left:fr.left+inset,top:p.frameTop-frame.scrollTop,width:nativeWidth,height:nativeHeight+pad};
-    style(stage,{'--home-selection-top':(4/scaleY)+'px','--home-selection-left':(4/scaleX)+'px'});
+    // Fixed descendants share this transformed frame's camera scroll. Keep the
+    // existing 4px inset inside the resident viewport, below its notice lane.
+    const selectionTop=Math.max(0,(presentation.safeTop??p.frameTop)-p.frameTop)+4;
+    style(stage,{'--home-selection-top':(frame.scrollTop+selectionTop/scaleY)+'px','--home-selection-left':(4/scaleX)+'px'});
     doc.body.dataset.homeTinyOverview='true';
     doc.body.dataset.homePortraitScale=scale.toFixed(4);
    }else if(landscape){
