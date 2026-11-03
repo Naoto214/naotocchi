@@ -17,8 +17,8 @@ export function createHomeWorld(options){
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const fullBackdrop=doc.body.dataset.homeViewportVersion==='12'&&doc.body.dataset.homeTinyOverview==='true';
   const native=geometry(),host=fullBackdrop?container.getBoundingClientRect():native.host,stage=native.stage;
-  const v15=['15','16'].includes(doc.body.dataset.homeDisplayVersion),v14=v15||doc.body.dataset.homeDisplayVersion==='14';
-  const contain=fullBackdrop&&['13','14','15','16'].includes(doc.body.dataset.homeDisplayVersion)&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
+  const v15=['15','16','17'].includes(doc.body.dataset.homeDisplayVersion),v14=v15||doc.body.dataset.homeDisplayVersion==='14';
+  const contain=fullBackdrop&&['13','14','15','16','17'].includes(doc.body.dataset.homeDisplayVersion)&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
   const cover=backdropComposition(host,stage).cover,cw=v14?host.height/1.5:Math.min(host.width,host.height/1.5);
   const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,env.time,env.weather,loaded,flags.reducedMotion,Math.floor(time/120)]);if(stamp===lastPaint)return;lastPaint=stamp;
   const dpr=Math.min(2,win.devicePixelRatio||1),W=Math.round(host.width*dpr),H=Math.round(host.height*dpr);if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;}
@@ -37,7 +37,17 @@ export function createHomeWorld(options){
   if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
  }
  return {setEnvironment,navigation,draw,observationPoints(n){return legacy?legacy.observationPoints(n):spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
-  occlusion(p){if(legacy)return legacy.occlusion(p);if(!spec||!nav)return [];const {host,stage}=geometry(),t=artTransform(host,stage);return spec.foreground.map(poly=>poly.map(([x,y])=>[t.left+x*t.width,t.top+y*t.height]));},
+  occlusion(p){if(legacy)return legacy.occlusion(p);if(!spec||!nav)return [];const {host,stage}=geometry();
+   if(doc.body.dataset.homeDisplayVersion==='17'&&doc.body.dataset.homeTinyOverview==='true'){
+    // Match the displayed painting, then invert only the resident presentation.
+    // Native navigation, floor polygons and sprite foot coordinates are unchanged.
+    const real=container.getBoundingClientRect(),vp=win.NaotocchiHomeViewport;
+    const landscape=vp?.residentPresentation?.()?.landscape;
+    const width=landscape?real.height/1.5:Math.max(real.width,real.height/1.5),height=width*1.5;
+    const left=real.left+(real.width-width)/2,top=real.top+(real.height-height)/2;
+    return spec.foreground.map(poly=>poly.map(([x,z])=>{const p=vp.unscalePoint({x:left+x*width,y:top+z*height});return [p.x-host.left,p.y-host.top];}));
+   }
+   const t=artTransform(host,stage);return spec.foreground.map(poly=>poly.map(([x,y])=>[t.left+x*t.width,t.top+y*t.height]));},
   stats:()=>legacy?legacy.stats():({mode:'art-25d',region:env.region,candidate:spec?.candidate,loaded,error,destroyed:dead,animationTime:time,projectionRevision:revision,renderer:{mode:'canvas-2d-art',objects:spec?.foreground.length||0,images:loaded?1:0,decodedBytes:loaded?1024*1536*4:0}}),
   destroy(){dead=true;generation++;img=null;legacy?.destroy();canvas.remove();}};
 }

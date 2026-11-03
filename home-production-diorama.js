@@ -1,6 +1,14 @@
 /* Lightweight Home adapter. Existing code owns attendance, art and all care. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.NaotocchiHomeDiorama=api;})(typeof window!=='undefined'?window:null,function(){
   'use strict';
+  // Invert the complete painted affine transform, including facing and Motion
+  // v2. Only the mask moves in local space; the foreground stays on the artwork.
+  function localOcclusionPolygons(polygons,rect,width,height,[a,b,c,d]){
+    const x=rect.left-Math.min(0,a*width,c*height,a*width+c*height);
+    const y=rect.top-Math.min(0,b*width,d*height,b*width+d*height),det=a*d-b*c;
+    if(Math.abs(det)<1e-9)return [];
+    return polygons.map(poly=>poly.map(([px,py])=>[(d*(px-x)-c*(py-y))/det,(-b*(px-x)+a*(py-y))/det]));
+  }
   function residentPaintExtent(actor,height,foot,boxes,fallback){
     if(!boxes?.length||boxes.some(b=>!Number.isFinite(b.y+b.height)||b.height<=0))return fallback;
     return {up:Math.max((actor.extent?.top||actor.h)+12,actor.h*1.08+(actor.w||0)*.12,...boxes.map(b=>foot-(b.y-3)*height/104)),
@@ -283,6 +291,54 @@
       if(!occlusionCache.has(key)){if(occlusionCache.size>1200)occlusionCache.clear();occlusionCache.set(key,world.occlusion(q));}
       return occlusionCache.get(key);
     }
+    const displayBoundsCache=new Map();
+    function actorBounds(a,b){
+      const v=env.NaotocchiHomeViewport,p=v?.residentPresentation?.(),row=rows.get(a.key),ink=row?.paintExtent;
+      if(doc.body?.dataset.homeDisplayVersion!=='17'||!p?.landscape||!ink||!scene?.navigation||!Number.isFinite(p.safeTop+p.safeBottom))return b;
+      const r=displayRect(stage),key=JSON.stringify([a.key,b,ink,p,r.left,r.top]);
+      if(displayBoundsCache.has(key))return displayBoundsCache.get(key);
+      const at=y=>{const depth=scene.navigation.depthScale({x:(b.left+b.right)/2,y}),foot=p.y+(r.top+y-p.y)*p.scaleY;return {depth,top:foot-(ink.up*depth+5)*p.bodyScale,bottom:foot+(ink.down*depth+3)*p.bodyScale};};
+      let top=null,bottom=null,maxDepth=0;
+      // The old body-height clamp is a portrait screen guard, not a floor edge.
+      // Landscape may use the existing floor above it; navigation still rejects
+      // walls/furniture and the permanent display lanes remain authoritative.
+      const start=Math.min(b.top,scene.navigation.project({x:.5,z:0}).y);
+      for(let y=start;y<=b.bottom+.001;y=Math.min(b.bottom,y+1)){
+        const q=at(y);if(q.top>=p.safeTop&&q.bottom<=p.safeBottom){top??=y;bottom=y;maxDepth=Math.max(maxDepth,q.depth);}
+        if(y===b.bottom)break;
+      }
+      // Keep the original bounds if no full-body interval exists. Such a viewport
+      // is unsupported; do not silently shrink the approved resident size.
+      if(top===null)return b;
+      const side=(ink.side*maxDepth+5)*p.bodyScale;
+      const left=Math.max(b.left,(p.safeLeft+side-p.x)/p.scaleX-(r.left-p.x));
+      const right=Math.min(b.right,(p.safeRight-side-p.x)/p.scaleX-(r.left-p.x));
+      const result={left:Math.min(left,right),right:Math.max(left,right),top,bottom};
+      if(displayBoundsCache.size>128)displayBoundsCache.clear();displayBoundsCache.set(key,result);return result;
+    }
+    function paintForeground(a,row){
+      if(!world||!scene?.navigation||!env.DOMMatrix)return;
+      const vp=env.NaotocchiHomeViewport,p=vp?.residentPresentation?.(),host=displayRect(worldHost);
+      const polygons=polygonsAt(a).map(poly=>poly.map(([x,y])=>p?[p.x+(host.left+x-p.x)*p.scaleX,p.y+(host.top+y-p.y)*p.scaleY]:[host.left+x,host.top+y]));
+      for(const n of [...row.owner.querySelectorAll('.character-asset'),...(row.attachments||[])]){
+        const r=n.getBoundingClientRect();
+        const near=polygons.filter(poly=>Math.max(...poly.map(q=>q[0]))>=r.left&&Math.min(...poly.map(q=>q[0]))<=r.right&&Math.max(...poly.map(q=>q[1]))>=r.top&&Math.min(...poly.map(q=>q[1]))<=r.bottom);
+        if(!near.length){if(n.style.maskImage){n.style.maskImage=n.style.webkitMaskImage='';}continue;}
+        let m=new env.DOMMatrix();
+        for(let e=n;e&&e.nodeType===1;e=e.parentElement){
+          const css=env.getComputedStyle(e),scale=css.scale==='none'||!css.scale?[1,1]:css.scale.split(/\s+/).map(Number);
+          const angle=css.rotate==='none'?0:parseFloat(css.rotate)||0,deg=css.rotate?.endsWith('rad')?angle*180/Math.PI:css.rotate?.endsWith('turn')?angle*360:angle;
+          const zoom=parseFloat(css.zoom)||1;
+          const own=new env.DOMMatrix().rotate(deg).scale((scale[0]||1)*zoom,(scale[1]??scale[0]??1)*zoom).multiply(new env.DOMMatrix(css.transform==='none'?undefined:css.transform));
+          m=own.multiply(m);
+        }
+        const css=env.getComputedStyle(n),w=parseFloat(css.width)||n.offsetWidth,h=parseFloat(css.height)||n.offsetHeight;
+        const local=localOcclusionPolygons(near,r,w,h,[m.a,m.b,m.c,m.d]);
+        const svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><defs><mask id="m"><rect width="100%" height="100%" fill="white"/>'+local.map(ps=>'<polygon fill="black" points="'+ps.map(q=>q.map(v=>v.toFixed(3)).join(',')).join(' ')+'"/>').join('')+'</mask></defs><rect width="100%" height="100%" fill="white" mask="url(#m)"/></svg>';
+        const url='url("data:image/svg+xml,'+encodeURIComponent(svg)+'")';
+        n.style.maskImage=n.style.webkitMaskImage=url;n.style.maskSize=n.style.webkitMaskSize='100% 100%';n.style.maskPosition=n.style.webkitMaskPosition='0px 0px';n.style.maskRepeat=n.style.webkitMaskRepeat='no-repeat';n.style.maskClip=n.style.webkitMaskClip='no-clip';
+      }
+    }
     function visibleAt(p,a){
       if(!world||!scene?.navigation)return true;
       const polys=polygonsAt(p);if(!polys.length)return true;
@@ -316,18 +372,23 @@
       rows=next;view.hidden=!enabled||rows.size<=5;model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint});
       if(newbornPoint)newbornPending=false;
       publishPaintEnvelope();
+      // A newly rendered shape has no measured ink until the pass above. Seat
+      // it against that ink before its first paint, not at the next UI update.
+      if(doc.body?.dataset.homeDisplayVersion==='17'&&env.NaotocchiHomeViewport?.residentPresentation?.()?.landscape&&model.snapshot().some(a=>{const b=model.bounds(a);return a.x<b.left||a.x>b.right||a.y<b.top||a.y>b.bottom;})){
+        model.sync([...rows.values()].map(({key,kind,id,x,y,w,h,extent,temperament})=>({key,kind,id,x,y,w,h,extent:{...extent,top:Math.max(extent?.top||h,h)+12},temperament})),{...scene,newbornPoint:null});
+      }
       paint();
     }
     let residentEnvelopeKey='';
     function publishResidentEnvelope(){
-      if(!['13','14','15','16'].includes(doc.body?.dataset.homeDisplayVersion))return;
-      const v15=['15','16'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
+      if(!['13','14','15','16','17'].includes(doc.body?.dataset.homeDisplayVersion))return;
+      const v15=['15','16','17'].includes(doc.body.dataset.homeDisplayVersion),depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
       const key=JSON.stringify([scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
       if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
       let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity,above=0,below=0,side=0;
       for(const a of model.snapshot()){
         const row=rows.get(a.key);if(!row)continue;
-        const b=model.bounds(a),h=parseFloat(row.owner.style.height)||row.h,foot=row.y-(parseFloat(row.owner.style.top)||0);
+        const b=modelAPI.bounds(a,{...scene,actorBounds:null}),h=parseFloat(row.owner.style.height)||row.h,foot=row.y-(parseFloat(row.owner.style.top)||0);
         let up=Math.max(a.extent?.top||a.h,a.h*1.08+a.w*.12),down=Math.max(8,a.extent?.bottom||0),wide=Math.max(a.extent?.left||a.w/2,a.extent?.right||a.w/2);
         if(a.kind==='pet')for(const kind of Object.keys(accentCenters)){
           const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'',m=html.match(/translate\(\s*[-\d.]+[ ,]+([-\d.]+)/);if(!m)continue;
@@ -347,6 +408,7 @@
           }}catch(_){measurable=false;}finally{probe.remove();}
           paint=residentPaintExtent(row,h,foot,measurable?boxes:null,paint);
         }
+        row.paintExtent={...paint,side:wide};
         let maxDepth=1;
         // Read the existing navigation grid, without making a new walkable region.
         for(let y=b.top;y<=b.bottom+.001;y+=Math.min(8,Math.max(1,b.bottom-y))) {
@@ -380,7 +442,7 @@
       let top=Infinity,bottom=-Infinity;
       for(const a of model.snapshot()){
         const row=rows.get(a.key);if(!row)continue;
-        const b=model.bounds(a),frameHeight=parseFloat(row.owner.style.height)||row.h;
+        const b=modelAPI.bounds(a,{...scene,actorBounds:null}),frameHeight=parseFloat(row.owner.style.height)||row.h;
         const foot=row.y-(parseFloat(row.owner.style.top)||0);
         let above=Math.max(a.extent?.top||a.h,a.h*1.08+a.w*.12),below=Math.max(6,a.extent?.bottom||0);
         // Reserve every expression, not just the currently visible mark.
@@ -426,7 +488,7 @@
         row.owner.style.setProperty('--diorama-sleep-shift',sleepAccentShift(sleep?.getAttribute?.('transform'),row.originX??50,facingScale(row,a.direction))+'%');
         placeActorEffects(row.owner,row.originX??50,facingScale(row,a.direction),a.direction);
         const stamp=[sx,sy,bod,depthScale.toFixed(4),dx.toFixed(2),dy.toFixed(2),a.activity,a.direction,!!a.target,model.selected()===a.key,isPaused,revision,row.x,row.y,row.w,row.h].join(':');
-        if(row.paintStamp===stamp){onPosition(a,dx,dy);continue;}row.paintStamp=stamp;
+        if(row.paintStamp===stamp){if(doc.body?.dataset.homeDisplayVersion==='17')paintForeground(a,row);onPosition(a,dx,dy);continue;}row.paintStamp=stamp;
         for(const n of [row.owner,...(row.attachments||[])]){
           n.style.translate=`${dx.toFixed(2)}px ${dy.toFixed(2)}px`;
           // Individual scale composes with Motion v2's transform. Pin every
@@ -442,7 +504,8 @@
         row.owner.dataset.dioramaWalking=String(!!a.target&&!isPaused&&!media?.matches);row.owner.dataset.dioramaDirection=String(a.direction);
         row.shadow.style.scale=presentation?`${bod/sx} ${bod/sy}`:'';row.shadow.style.transformOrigin='0 0';
         row.shadow.style.left=a.x+'px';row.shadow.style.top=a.y+'px';row.shadow.style.width=Math.max(20,a.w*.8*depthScale)+'px';row.shadow.dataset.selected=String(model.selected()===a.key);
-        if(world&&scene.navigation&&doc.createElementNS&&world.stats().renderer?.objects>0){
+        if(doc.body?.dataset.homeDisplayVersion==='17')paintForeground(a,row);
+        else if(world&&scene.navigation&&doc.createElementNS&&world.stats().renderer?.objects>0){
           const point=scene.navigation.unproject(a),host=displayRect(worldHost);
           const cacheKey=point?[Math.round(point.x/24),Math.round(point.z/24),host.width,host.height,scene.region,world.stats().projectionRevision,scene.groundTop,scene.floor].join(':'):'';
           if(point&&row.maskKey!==cacheKey){
@@ -492,7 +555,7 @@
       art.hidden=false;overlay.hidden=false;showGuide();
       const r=displayRect(stage);scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
       const key=JSON.stringify([e,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
-      ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;sync();stage.dataset.dioramaPaused=String(blocked());
+      ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;scene.actorBounds=actorBounds;sync();stage.dataset.dioramaPaused=String(blocked());
       if(blocked()&&!wasBlocked){interrupt();wasBlocked=true;}
       if(!blocked()){wasBlocked=false;model.step(0,{blocked:false,reducedMotion:!!media?.matches,heldActor:gesture?(gesture.key||model.selected()):null});}resume();
     }
@@ -527,11 +590,17 @@
       if(delta){const a=model.snapshot().find(a=>a.key===key);model.select(key);model.move(key,{x:a.x+delta[0],y:a.y+delta[1]},'keyboard');paint();resume();e.preventDefault();}}
     function visibility(){if(doc.visibilityState==='hidden'){interrupt();stop();stage.dataset.dioramaPaused='true';}else if(environment)update(environment,flags);}
     function preference(){if(environment)update(environment,flags);}
-    const listeners={'home-presentation':paint,pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
+    let lastSafePresentation='';
+    function presentationChanged(){
+      const p=env.NaotocchiHomeViewport?.residentPresentation?.();
+      const key=doc.body?.dataset.homeDisplayVersion==='17'?JSON.stringify([p?.landscape,p?.safeTop,p?.safeBottom,p?.scaleX,p?.scaleY,p?.bodyScale,p?.world,[...rows.values()].map(r=>[r.key,r.w,r.h,r.paintExtent])]):'';
+      if(key!==lastSafePresentation){lastSafePresentation=key;displayBoundsCache.clear();occlusionCache.clear();for(const row of rows.values()){row.maskKey='';row.paintStamp='';}sync();}else paint();
+    }
+    const listeners={'home-presentation':presentationChanged,pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
+  return {localOcclusionPolygons,residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
 

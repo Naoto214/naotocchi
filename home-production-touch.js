@@ -200,6 +200,11 @@
   }
   return p;
  }
+ function layoutV17(args){
+  const p=layoutV14(args);
+  if(p.landscape){p.noticeTop=args.offsetTop||0;p.noticeHeight=42;p.commentHeight=76;p.commentTop=(args.offsetTop||0)+args.height-p.commentHeight;}
+  return p;
+ }
  function fitV12Text(base,noticeContentHeight,commentContentHeight){
   const p={...base},nh=Math.ceil(noticeContentHeight),ch=Math.ceil(commentContentHeight);
   // Text may wrap inside its reserved lane; it never resizes the world.
@@ -262,15 +267,37 @@
   const p=unscalePoint({x:r.left,y:r.top}),sx=presentation.scaleX||presentation.scale,sy=presentation.scaleY||presentation.scale;
   return {left:p.x,top:p.y,width:Math.round(r.width/sx*1000)/1000,height:Math.round(r.height/sy*1000)/1000,right:p.x+r.width/sx,bottom:p.y+r.height/sy};
  }
- root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,layoutV14,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
+ root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,layoutV14,layoutV17,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
  if(!frame||!['8','9','10','11','12'].includes(doc.body.dataset.homeViewportVersion))return;
- const v16=doc.body.dataset.homeDisplayVersion==='16',v15=v16||doc.body.dataset.homeDisplayVersion==='15',v14=v15||doc.body.dataset.homeDisplayVersion==='14',v13=v14||doc.body.dataset.homeDisplayVersion==='13';
+ const v17=doc.body.dataset.homeDisplayVersion==='17',v16=v17||doc.body.dataset.homeDisplayVersion==='16',v15=v16||doc.body.dataset.homeDisplayVersion==='15',v14=v15||doc.body.dataset.homeDisplayVersion==='14',v13=v14||doc.body.dataset.homeDisplayVersion==='13';
  const v12=doc.body.dataset.homeViewportVersion==='12',v11=v12||doc.body.dataset.homeViewportVersion==='11',v10=v11||doc.body.dataset.homeViewportVersion==='10',v9=v10||doc.body.dataset.homeViewportVersion==='9';
  const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
  if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
  const meters=normal.querySelector('.home-meters'),invite=doc.getElementById('companionInviteOverlay');
  const rect=e=>e.getBoundingClientRect(),saved=new Map();
+ // Travel has its own lifetime: opening a modal intentionally disables Home's
+ // fixed layout, so its viewport tracking must survive restore().
+ if(v17){
+  const travel=doc.getElementById('travelOverlay');let prior=null;
+  const fitTravel=()=>{
+   if(!travel)return;
+   const v=root.visualViewport,w=v?.width||root.innerWidth,h=v?.height||root.innerHeight;
+   const show=w>h&&!travel.classList.contains('hidden');
+   if(prior){for(const [e,css]of prior.styles)e.style.cssText=css;prior.parent.insertBefore(travel,prior.next?.parentNode===prior.parent?prior.next:null);prior=null;}
+   if(!show)return;
+   const content=travel.querySelector('.theme-scroll'),header=travel.querySelector('.dex-header');
+   prior={parent:travel.parentNode,next:travel.nextSibling,styles:[travel,content,header,doc.documentElement,doc.body].filter(Boolean).map(e=>[e,e.style.cssText])};
+   doc.body.appendChild(travel);const width=Math.min(600,w-24);
+   Object.assign(travel.style,{position:'fixed',inset:'auto',left:((v?.offsetLeft||0)+(w-width)/2)+'px',top:((v?.offsetTop||0)+8)+'px',width:width+'px',height:Math.max(80,h-16)+'px',maxHeight:Math.max(80,h-16)+'px',boxSizing:'border-box',transform:'none',overflow:'hidden',zIndex:'1300'});
+   if(content)Object.assign(content.style,{flex:'1 1 0',minHeight:'0',overflowY:'auto',overscrollBehavior:'contain'});
+   if(header)header.style.flex='0 0 auto';
+   doc.documentElement.style.overflow='hidden';doc.body.style.overflow='hidden';
+  };
+  if(travel)new MutationObserver(fitTravel).observe(travel,{attributes:true,attributeFilter:['class']});
+  root.addEventListener('resize',fitTravel);root.visualViewport?.addEventListener('resize',fitTravel);root.visualViewport?.addEventListener('scroll',fitTravel);
+ }
+
  let resumeAt=0,textLayoutKey='',settleTimer=0;
  let active=false,pending=false,markers=[],navigation=null,landscape=false,followKey='',followUntil=0,dragging=false,viewKey='';
  const eligible=()=>doc.body.dataset.homeProduction==='true'&&doc.body.dataset.homeTerrain==='true'&&device.dataset.homeFixed==='true'&&device.classList.contains('ui-home-active')&&!normal.classList.contains('hidden');
@@ -298,7 +325,7 @@
   const fr=rect(frame),cr=rect(controls),hr=rect(device.querySelector('.device-header')),sw=rect(screen).width;
   const viewport=root.visualViewport;
   if(v9&&viewport&&viewport.scale!==1)return;
-  const p=v9?(v14?layoutV14:v12?layoutV12:v10?layoutV10:layoutV9)({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
+  const p=v9?(v17?layoutV17:v14?layoutV14:v12?layoutV12:v10?layoutV10:layoutV9)({width:viewport?.width||root.innerWidth,height:viewport?.height||root.innerHeight,offsetTop:viewport?.offsetTop||0,left:fr.left,headerBottom:hr.bottom,controlsHeight:cr.height}):layout({width:root.innerWidth,height:root.innerHeight,left:fr.left,headerBottom:hr.bottom,controlsTop:cr.top,controlsBottom:cr.bottom});
   reserve(notice);if(p.landscape||v9)reserve(info);if(v9&&meters)reserve(meters);
   active=true;landscape=p.landscape;doc.body.dataset.homeViewportV8='true';
   style(notice,{position:'fixed',top:(hr.bottom+3)+'px',left:fr.left+'px',width:p.frameWidth+'px',height:'42px','min-height':'42px','max-height':'42px',overflow:'auto','margin-bottom':'0','z-index':'1201'});
@@ -370,10 +397,14 @@
    if(!landscape){p.frameTop+=infoExtra;p.frameHeight=Math.max(0,p.frameHeight-infoExtra);}
    if(!landscape){const season=info.querySelector('.sub-status-row');p.noticeTop=(season?rect(season).bottom:rect(info).bottom)+3;}
    style(info,{height:infoHeight+'px'});
-   if(v16&&landscape){
+   if(v16&&!v17&&landscape){
     p.noticeTop=Math.max(p.noticeTop,rect(info).bottom+3);
     p.commentTop=p.noticeTop+p.noticeHeight+3;
     p.commentHeight=Math.max(0,p.metersTop-3-p.commentTop);
+   }
+   if(v17&&landscape){
+    style(notice,{left:fr.left+'px',width:p.frameWidth+'px'});
+    style(dock,{left:fr.left+'px',width:p.frameWidth+'px'});
    }
    style(notice,{top:p.noticeTop+'px'});
    if(!landscape){p.frameTop=p.noticeTop+p.noticeHeight+2;p.frameHeight=Math.max(1,p.commentTop-2-p.frameTop);}
@@ -393,7 +424,7 @@
     style(stage,{height:stageHeight+'px','min-height':stageHeight+'px','max-height':stageHeight+'px',flex:'0 0 '+stageHeight+'px'});
     // Extra empty flow allows the fixed camera offset without changing cast dimensions.
     style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px',height:Math.max(nativeHeight,scrollTop+viewHeight-pad)+'px','min-height':nativeHeight+'px','margin-left':inset+'px','margin-top':pad+'px'});
-    presentation={x:fr.left,y:p.frameTop,scale,scaleX,scaleY,bodyScale,bodyScaleLimit:fit.bodyScaleLimit??bodyScale,landscape};
+    presentation={x:fr.left,y:p.frameTop,scale,scaleX,scaleY,bodyScale,bodyScaleLimit:fit.bodyScaleLimit??bodyScale,landscape,...(v17&&landscape?{safeTop:p.noticeTop+p.noticeHeight+3,safeBottom:p.commentTop-3,safeLeft:fr.left+3,safeRight:fr.left+p.frameWidth-3}: {})};
     if(fit.bodyScaleLimit>bodyScale+.001){root.clearTimeout(settleTimer);settleTimer=root.setTimeout(schedule,350);}
     style(frame,{width:viewWidth+'px',height:viewHeight+'px',transform:'scale('+scaleX+','+scaleY+')','transform-origin':'0 0'});
     frame.scrollLeft=0;frame.scrollTop=scrollTop;

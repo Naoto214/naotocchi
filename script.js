@@ -3832,7 +3832,7 @@
     if (!target) return false;
     const upperV12=document.body.dataset.homeProduction==='true' && document.body.dataset.homeViewportVersion==='12' && ['message','homeActionText','homeChoiceText','storyFlashText','storyFlashEmoji','birthdayToast','mgResultToast'].includes(target.id);
     const raw=String(text??'');
-    const value=upperV12 && !['storyFlashEmoji','homeActionText'].includes(target.id) ? window.NaotocchiHomeDiorama?.homeText(raw,true,document.body.dataset.homeDisplayVersion==='16') ?? raw : raw;
+    const value=upperV12 && !['storyFlashEmoji','homeActionText'].includes(target.id) ? window.NaotocchiHomeDiorama?.homeText(raw,true,['16','17'].includes(document.body.dataset.homeDisplayVersion)) ?? raw : raw;
     // Only the notice renderer deduplicates repeated renders. Other surfaces
     // still announce each new beat, even when its words match the last beat.
     if (!force && commentTextCache.get(target)===value) return false;
@@ -4015,7 +4015,7 @@
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
         : state.stage === STAGE.EGG ? 'たまごをタップするか「あたためる」をおしてね' : '');
     if (terrainNoticeMode() && state.stage === STAGE.GROWING) {
-      const eventText=window.NaotocchiHomeDiorama.homeText(message,document.body.dataset.homeViewportVersion==='12',document.body.dataset.homeDisplayVersion==='16');
+      const eventText=window.NaotocchiHomeDiorama.homeText(message,document.body.dataset.homeViewportVersion==='12',['16','17'].includes(document.body.dataset.homeDisplayVersion));
       const warnings=visible ? window.NaotocchiHomeDiorama.homeWarnings(state,notice) : '';
       // Ephemeral events take the one slot; the warning is re-derived after expiry.
       text=eventText || warnings;
@@ -12945,7 +12945,7 @@
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
     el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
       && !el.screenNormal.classList.contains('hidden') && (!suppressFrontFx || (
-        (['15','16'].includes(document.body.dataset.homeDisplayVersion) || document.body.dataset.homeDisplayVersion==='14' && pendingCompanionId==='snail') && companionInviteOpen
+        (['15','16','17'].includes(document.body.dataset.homeDisplayVersion) || document.body.dataset.homeDisplayVersion==='14' && pendingCompanionId==='snail') && companionInviteOpen
         && !gameActive && !hasTransformChoice && !lifeCardVisible && !activeOverlay && !dateOpen && !duelOpen
         && !pendingItemScene && !itemSceneRecord && !grandGoalPending && !dexDetail && !meguruActive && !individualityDialogOpen)));
     renderWorldScene(suppressFrontFx);
