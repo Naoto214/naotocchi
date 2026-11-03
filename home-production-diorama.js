@@ -555,16 +555,19 @@
     function resume(){if(!raf&&!dead&&enabled&&doc.visibilityState!=='hidden')raf=env.requestAnimationFrame(frame);}
     function update(e,f={}){
       environment=e;flags=f;
+      if(env.NaotocchiDaypartsQA)e={...e,...env.NaotocchiDaypartsQA};
       const next=modelAPI.supported(e.region)&&f.available!==false;
       if(!next){placeHomeSlots(false);enabled=false;view.hidden=true;selectedLabel.hidden=true;showGuide();stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();model.sync([],{...e,width:350,height:240,tags:[]});clearStage();art.hidden=true;overlay.hidden=true;hint.hidden=true;return;}
       enabled=true;placeHomeSlots(true);stage.dataset.diorama=e.region;stage.dataset.dioramaReduced=String(!!media?.matches);stage.dataset.dioramaTier=String(f.tier||0);stage.dataset.dioramaTime=e.time;stage.dataset.dioramaWeather=e.weather;
       art.hidden=false;overlay.hidden=false;showGuide();
       const r=displayRect(stage);scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
-      const key=JSON.stringify([e,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
+      const key=JSON.stringify([e.region,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
       ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;scene.actorBounds=actorBounds;sync();stage.dataset.dioramaPaused=String(blocked());
       if(blocked()&&!wasBlocked){interrupt();wasBlocked=true;}
       if(!blocked()){wasBlocked=false;model.step(0,{blocked:false,reducedMotion:!!media?.matches,heldActor:gesture?(gesture.key||model.selected()):null});}resume();
     }
+    const refreshDayparts=()=>{if(environment)update(environment,flags);};
+    env.addEventListener?.('dayparts-qa-change',refreshDayparts);
     function point(e){const r=displayRect(stage);const p=env.NaotocchiHomeViewport?.unscalePoint?.({x:e.clientX,y:e.clientY})||{x:e.clientX,y:e.clientY};return {x:p.x-r.left,y:p.y-r.top};}
     function hit(p,target){
       const items=model.snapshot().sort((a,b)=>b.y-a.y);
@@ -605,7 +608,7 @@
     const listeners={'home-presentation':presentationChanged,pointerdown:down,pointermove:move,pointerup:up,pointercancel:clearGesture,lostpointercapture:clearGesture,keydown};
     for(const [name,fn]of Object.entries(listeners))stage.addEventListener(name,fn);
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
-    return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
+    return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){env.removeEventListener?.('dayparts-qa-change',refreshDayparts);placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
   return {portraitWalkingBounds,localOcclusionPolygons,residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
