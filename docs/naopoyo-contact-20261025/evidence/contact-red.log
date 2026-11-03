@@ -1,0 +1,900 @@
+✖ 8-way exchange 0,-1, mixed=false (3.486789ms)
+✖ 8-way exchange 0,-1, mixed=true (0.262846ms)
+✖ 8-way exchange 1,-1, mixed=false (0.164157ms)
+✖ 8-way exchange 1,-1, mixed=true (0.295335ms)
+✖ 8-way exchange 1,0, mixed=false (0.297475ms)
+✖ 8-way exchange 1,0, mixed=true (1.45286ms)
+✖ 8-way exchange 1,1, mixed=false (0.199907ms)
+✖ 8-way exchange 1,1, mixed=true (0.181537ms)
+✖ 8-way exchange 0,1, mixed=false (0.22774ms)
+✖ 8-way exchange 0,1, mixed=true (0.228453ms)
+✖ 8-way exchange -1,1, mixed=false (0.143136ms)
+✖ 8-way exchange -1,1, mixed=true (0.138771ms)
+✖ 8-way exchange -1,0, mixed=false (0.106406ms)
+✖ 8-way exchange -1,0, mixed=true (0.082829ms)
+✖ 8-way exchange -1,-1, mixed=false (0.105871ms)
+✖ 8-way exchange -1,-1, mixed=true (0.240038ms)
+✔ merge and overflow take priority over exchange (1.311524ms)
+✔ blocked merge does not fall back to exchange (1.159997ms)
+✖ both exchange destinations check gates even when already open (0.456349ms)
+✖ reverse species terrain rejection leaves both actors unchanged (0.510929ms)
+✖ diagonal gate exchange checks the displaced actor (0.209914ms)
+✖ two rock sides block diagonal empty entry and exchange; one side permits (0.428054ms)
+✔ actors and adjacent closed gates do not become corner walls (0.203568ms)
+✖ split placement cannot tunnel through a double-rock corner (2.249366ms)
+✖ gravity exchange validates ascent for displaced actor and cannot exchange vertically (0.295011ms)
+✖ legal supported diagonal exchange stabilizes both actors immediately (15.541722ms)
+✖ exchange then unsupported partner falls in same operation (3.385925ms)
+✔ gravity never exchanges nonmerging actors (0.272788ms)
+✖ exact-3 exit is traversable for level 1 (0.375163ms)
+✔ exact-3 exit is traversable for level 3 (0.402916ms)
+✖ exact-3 exit is traversable for level 5 (2.142099ms)
+✖ exact-3 exit is traversable for level 8 (0.403807ms)
+✖ exit offers no support and mismatched actor falls through it (0.382277ms)
+✔ gravity rescue occurs at matching exit before further falling (0.202688ms)
+✖ exchange rescues matching arrival while preserving mismatched partner (0.358176ms)
+✖ displaced actor also gets rescued on reverse exit entry (0.372194ms)
+✖ merge result and overflow remainder independently satisfy exits (0.430859ms)
+✖ exchange dispatches actual spike entry for both participants (0.875702ms)
+✔ exchange plus split and gravity is deterministic and conserves mass (0.222731ms)
+✖ movement version is checked on restore and invalid gate occupant rejected (0.185758ms)
+✖ cycle after exchange rolls back all terrain effects and move count (0.177522ms)
+✔ overflow4 cannot return to an 8-only gate (0.114509ms)
+✖ external contact also validates reverse ascent (0.880989ms)
+✔ omitted movement version keeps old saturation, corner and exit behavior (0.362146ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 9
+ℹ fail 35
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 249.276027
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 0,-1, mixed=false (3.486789ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 0,-1, mixed=true (0.262846ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 1,-1, mixed=false (0.164157ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 1,-1, mixed=true (0.295335ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 1,0, mixed=false (0.297475ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 1,0, mixed=true (1.45286ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 1,1, mixed=false (0.199907ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 1,1, mixed=true (0.181537ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 0,1, mixed=false (0.22774ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange 0,1, mixed=true (0.228453ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange -1,1, mixed=false (0.143136ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange -1,1, mixed=true (0.138771ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange -1,0, mixed=false (0.106406ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange -1,0, mixed=true (0.082829ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange -1,-1, mixed=false (0.105871ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:7:2
+✖ 8-way exchange -1,-1, mixed=true (0.240038ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:9:36)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:14:1
+✖ both exchange destinations check gates even when already open (0.456349ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'species' !== 'gate'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:14:286)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'species',
+    expected: 'gate',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:15:1
+✖ reverse species terrain rejection leaves both actors unchanged (0.510929ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'species'
+  - 'terrain'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:15:178)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'species',
+    expected: 'terrain',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:16:1
+✖ diagonal gate exchange checks the displaced actor (0.209914ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'species' !== 'gate'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:16:205)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'species',
+    expected: 'gate',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:17:1
+✖ two rock sides block diagonal empty entry and exchange; one side permits (0.428054ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:17:329)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:19:1
+✖ split placement cannot tunnel through a double-rock corner (2.249366ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   {
+  +     distance: 1,
+  +     x: 1,
+  +     y: 1
+  +   },
+  +   {
+  +     distance: 1,
+  +     x: 1,
+  +     y: 3
+  +   },
+  +   {
+  +     distance: 1,
+  +     x: 3,
+  +     y: 1
+  +   },
+  +   {
+  +     distance: 1,
+  +     x: 3,
+  +     y: 3
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 0,
+  +     y: 1
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 1,
+  +     y: 0
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 0,
+  +     y: 0
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 0,
+  +     y: 2
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 2,
+  +     y: 0
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 0,
+  +     y: 3
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 1,
+  +     y: 4
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 0,
+  +     y: 4
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 2,
+  +     y: 4
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 3,
+  +     y: 0
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 0
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 2
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 1
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 3,
+  +     y: 4
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 4
+  +   },
+  +   {
+  +     distance: 2,
+  +     x: 4,
+  +     y: 3
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:19:158)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { x: 1, y: 1, distance: 1 }, { x: 1, y: 3, distance: 1 }, { x: 3, y: 1, distance: 1 }, { x: 3, y: 3, distance: 1 }, { x: 0, y: 1, distance: 2 }, { x: 1, y: 0, distance: 2 }, { x: 0, y: 0, distance: 2 }, { x: 0, y: 2, distance: 2 }, { x: 2, y: 0, distance: 2 }, { x: 0, y: 3, distance: 2 }, { x: 1, y: 4, distance: 2 }, { x: 0, y: 4, distance: 2 }, { x: 2, y: 4, distance: 2 }, { x: 3, y: 0, distance: 2 }, { x: 4, y: 0, distance: 2 }, { x: 4, y: 2, distance: 2 }, { x: 4, y: 1, distance: 2 }, { x: 3, y: 4, distance: 2 }, { x: 4, y: 4, distance: 2 }, { x: 4, y: 3, distance: 2 } ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:20:1
+✖ gravity exchange validates ascent for displaced actor and cannot exchange vertically (0.295011ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'species'
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:22:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'species',
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:25:1
+✖ legal supported diagonal exchange stabilizes both actors immediately (15.541722ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:26:117)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:28:1
+✖ exchange then unsupported partner falls in same operation (3.385925ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:29:125)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:32:30
+✖ exact-3 exit is traversable for level 1 (0.375163ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:33:110)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:32:30
+✖ exact-3 exit is traversable for level 5 (2.142099ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:33:110)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:32:30
+✖ exact-3 exit is traversable for level 8 (0.403807ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:33:110)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:35:1
+✖ exit offers no support and mismatched actor falls through it (0.382277ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:36:111)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:40:1
+✖ exchange rescues matching arrival while preserving mismatched partner (0.358176ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:41:130)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:43:1
+✖ displaced actor also gets rescued on reverse exit entry (0.372194ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:43:193)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:44:1
+✖ merge result and overflow remainder independently satisfy exits (0.430859ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  8 !== 12
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:44:228)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 8,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:45:1
+✖ exchange dispatches actual spike entry for both participants (0.875702ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:45:237)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:47:1
+✖ movement version is checked on restore and invalid gate occupant rejected (0.185758ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:47:166)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:48:1
+✖ cycle after exchange rolls back all terrain effects and move count (0.177522ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'saturated'
+  - 'gravity-cycle'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:48:188)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'saturated',
+    expected: 'gravity-cycle',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:50:1
+✖ external contact also validates reverse ascent (0.880989ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'saturated'
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3c88600963cc/naotocchi/prototypes/naopoyo-chapter2/tests/contact-rules.test.mjs:50:142)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'saturated',
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -39,3 +39,11 @@
 - CPU操作は通知batchを変更しない。既存4秒キューと履歴を維持。
 - mainの既存カタログ再生成はcheck-design-data.pyがFUN_ITEMSを前提とするため失敗。全452出典hash検証は成功。正本を変更して通過させない。
 - UI検証限界: Sites managed環境にcontrol-browserがないため、ブラウザの設置/迂回起動は行わず、描画・実機SafariはHuman QAへ残す。
+
+## 方針の版（2026-10-30、PR #491 の B1）
+- `cpu-policy.mjs` の `POLICY_VERSION` は `heuristic-2`。既知の版は `POLICY_VERSIONS=['heuristic-1','heuristic-2']`。
+  - `heuristic-1`：2026-10-30 までの方針。
+  - `heuristic-2`：`heuristic-1` に、中級だけ `statChoice` を加えた方針。ちょうせんの最中は、能力値を選ぶ候補（スキージャンプのちから／ちえ、かくとうバトルのパンチ・キック・ガード、`chosenStat` の型）を、比べる能力値で評価する。選択肢のない固定の能力値カードの評価は変えない。初級は両方の版で同一。
+- `cpu-observation.mjs` は、`if` の `{variant}` 条件を `variantCond` として渡す。対象は自分のカードの静的な本文だけで、公開範囲は変わらない。
+- CPU対戦の保存（`cpu-match-1`）の `policy` には、その対戦を始めた版を書く。再開した対戦は保存の版で続きを指す。`heuristic-1` の途中保存は `heuristic-1` のまま進み、未知の版は従来どおり拒否する。保存の外枠と engine save の形式は変えていない。
+- 根拠：`cpu-b123-20261030/`（PR #491）と `cpu-b1-adoption-20261030/`。

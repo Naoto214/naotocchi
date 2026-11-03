@@ -1,0 +1,115 @@
+[
+  {
+    "name": "original",
+    "stage": {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 1,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、門の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "門には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で門を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "左端の6を右上へ動かして落下合体。8を右の4へ動かすと、上に余った4も下へ集まる。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1"
+    },
+    "result": {
+      "status": "limit",
+      "visited": 433666,
+      "expanded": 408226,
+      "edges": 4241701,
+      "shortestProven": false,
+      "elapsedMs": 30000,
+      "method": "greedy"
+    }
+  }
+]

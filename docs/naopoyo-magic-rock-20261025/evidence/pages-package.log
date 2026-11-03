@@ -1,0 +1,24 @@
+{
+  "bytes": 213462526,
+  "file_count": 4053,
+  "static_references": 1680,
+  "dynamic_references": 2954,
+  "source_head": "6e7521c39b9ec1a15d0351cd009f1f3688aa5020",
+  "allowlist_sha256": "d3b440443e4df7c2c6bc0cdd6d6cc8097658c512e5815d4be21c55cdd7e288e7",
+  "max_bytes": 350000000,
+  "tar": {
+    "bytes": 216576000,
+    "sha256": "ef1f9ea3506575b1a2e74e0277f99f25fea1840ae6cb49874c142f8fe9c9fcad"
+  }
+}
+{
+  "http_files": 4053,
+  "http_bytes": 213462526,
+  "entrypoints": 5,
+  "card_ids": 452,
+  "card_images": 904,
+  "excluded_paths_return_404": 7,
+  "missing_files": 0,
+  "hash_mismatches": 0,
+  "prefix": "/naotocchi/"
+}

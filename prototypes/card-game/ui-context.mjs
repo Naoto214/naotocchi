@@ -16,8 +16,9 @@ export function projectOperation(s,v,viewer){
  for(let i=0;i<(s.chain??[]).length;i++){const l=s.chain[i],publicLink=v.chain[i],definition=CATALOG[s.cards[l.source]?.cardId];if(publicLink&&definition&&!safe.has(l.source))safe.set(l.source,{...definition,cardId:definition.id,id:l.source,name:publicLink.name});}
  const q=s.choice,d=s.activationDraft,spec=d?.rule?.select?.[d.index]??q?.spec;
  const destination=spec?.cost??(d?.rule?.steps??spec?.steps??[]).find(x=>x.op==='selectedMove'&&x.key===spec.key)?.destination;
- const move=bottomKinds.has(q?.kind)?moves.bottom:q?.kind==='program_handTop'?moves.top:moves[destination];
- v.actions=v.actions.map(a=>({...a,displayLabel:a.kind==='choose'&&move&&a.choiceCard?spec?.cost?`${safe.get(a.choiceCard)?.name??a.label}を支払いに選ぶ（${move}）`:`${safe.get(a.choiceCard)?.name??a.label}を${move}${spec?'対象に選ぶ':''}`:a.label}));
+ const moveKey=bottomKinds.has(q?.kind)?'bottom':q?.kind==='program_handTop'?'top':destination,move=moves[moveKey];
+ // moveKey/moveCost let the card detail split a pick into a short label and an outcome note; displayLabel is unchanged.
+ v.actions=v.actions.map(a=>({...a,...(a.kind==='choose'&&a.choiceCard&&q?{moveKey:move?moveKey:null,moveCost:Boolean(spec?.cost),pickKind:q.kind,pickName:safe.get(a.choiceCard)?.name??a.label}:{}),displayLabel:a.kind==='choose'&&move&&a.choiceCard?spec?.cost?`${safe.get(a.choiceCard)?.name??a.label}を支払いに選ぶ（${move}）`:`${safe.get(a.choiceCard)?.name??a.label}を${move}${spec?'対象に選ぶ':''}`:a.label}));
  const describe=(link,status)=>{if(!link)return null;const c=safe.get(link.source);return {kind:'card',card:c??null,name:c?.name??'カードの効果',ability:link.kind==='birth'?'たんじょう時の効果':c?.source?.match(/「([^」]+)」/)?.[1]??'カード効果',actor:link.actor??v.actor,status,instruction:''};};
  const chain=(s.chain??[]).map(l=>describe(l,'応答を待っています')).reverse();v.effectQueue=chain;
  let current;

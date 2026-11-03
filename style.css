@@ -2388,6 +2388,23 @@ body.region-deepsea .season-fx-item {
   font-size: 11px;
   font-weight: bold;
   margin-bottom: 6px;
+  gap: 6px;
+}
+
+/* のこり時間(games.js の mgTimerHud)。ヘッダーの さいごに 小さく おく。
+   のこり わずかは ⏳ の きごうと こい いろで しらせる(いろだけに たよらない) */
+.mg-header:has(> .mg-timer) > :first-child {
+  margin-right: auto;
+}
+
+.mg-timer {
+  flex: none;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.mg-timer.low {
+  color: #b3261e;
 }
 
 .mg-title {

@@ -1,0 +1,32 @@
+/* 比較試遊版だけの案内パネルと切り替えボタン。正式ゲームの配色（深緑・金）に合わせる。 */
+.trial-panel{margin:0 0 16px;padding:14px 16px;border:1px solid #c8ac6b;border-radius:12px;background:linear-gradient(135deg,#173e32,#22483a);color:#f4edce;line-height:1.6}
+.trial-panel h2{margin:0 0 6px;font-size:17px;color:#eed39b}.trial-panel h3{margin:14px 0 4px;font-size:14px;color:#eed39b}
+.trial-panel p{margin:4px 0;font-size:13px}.trial-note{font-size:12px!important;color:#d5dcc8}
+.trial-variants{display:flex;gap:8px;margin:10px 0}.trial-variants button{flex:1;min-height:44px;border:1px solid #c3b06a;border-radius:8px;background:#f1ead1;color:#20432e;font-weight:700}
+.trial-variants button[aria-pressed=true]{background:#e9c766;border-width:2px;box-shadow:0 0 0 2px #ffdf8855}
+.trial-scenarios{display:grid;gap:8px}.trial-scenarios>div{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px;align-items:center;font-size:12px}
+.trial-scenarios button{min-height:44px;padding:6px 10px;border:1px solid #c3b06a;border-radius:8px;background:#f1ead1;color:#20432e;font-size:12px}
+#card-dialog .trial-cycle{flex:none;min-width:56px;min-height:44px;margin:0 0 0 auto;padding:4px 8px;border:1px dashed #e4c780;border-radius:8px;background:#e4c78018;color:#f4e2ad;font-size:12px;font-weight:700}
+#card-dialog .detail-toolbar:has(.trial-cycle)>span{min-width:0;overflow-wrap:anywhere}
+#card-dialog .detail-toolbar:has(.trial-cycle) .stage-zoom{margin-left:0}
+/* カード拡大の比較モード（試遊版だけ。html 要素の data-zoom-variant / data-zoom-diag）。右下の白い表示崩れの切り分け用。 */
+.trial-zoom{margin:10px 0;padding:10px;border:1px dashed #e4c780;border-radius:10px}
+.trial-zoom select{width:100%;min-height:44px;margin:4px 0;font-size:14px}
+.trial-zoom label{display:block;font-size:13px}
+#card-dialog .trial-zoom-badge[hidden]{display:none}
+#card-dialog .trial-zoom-badge{flex:none;padding:2px 6px;border-radius:6px;background:#e4c780;color:#20432e;font-size:11px;font-weight:700;white-space:nowrap}
+/* C: 角丸の切り取りを overflow:hidden から clip-path に替える（カード面・絵・本文の枠） */
+html[data-zoom-variant=clippath] #card-dialog.card-detail .stage-card .card-face{overflow:visible;clip-path:inset(0 round 5%)}
+html[data-zoom-variant=clippath] #card-dialog.card-detail .stage-card .card-art,html[data-zoom-variant=clippath] #card-dialog.card-detail .stage-card .card-copy{overflow:visible;clip-path:inset(0 round 8%)}
+/* D: カードを常に独立した描画層にする */
+html[data-zoom-variant=layer] #card-dialog.card-detail .stage-card{will-change:transform}
+/* E: 拡大中は変形（transform: scale）を使わず、実寸の大きさ（zoom）で描く */
+html[data-zoom-variant=zoom] #card-dialog.card-detail[data-stage-zoom="1"] .stage-card-canvas{transform:none;zoom:var(--stage-scale)}
+/* 色分け: 白く見える部分がどの要素かを色で判別する（ページ・詳細・スクロール枠・カード枠・カード面・絵・本文） */
+html[data-zoom-diag]{background:#1e5bff!important}
+html[data-zoom-diag] #card-dialog.card-detail{background:#7a1fa2}
+html[data-zoom-diag] #card-dialog.card-detail .stage-scroll{background:#4cd14c}
+html[data-zoom-diag] #card-dialog.card-detail .stage-card{background:#00d5e0}
+html[data-zoom-diag] #card-dialog.card-detail .stage-card .card-face{background:#ff2bd6}
+html[data-zoom-diag] #card-dialog.card-detail .stage-card .card-art{background:#ff8a00}
+html[data-zoom-diag] #card-dialog.card-detail .stage-card .card-copy{background:#ffe600}

@@ -1,0 +1,66 @@
+TAP version 13
+# Subtest: five distinct types and unreachable prefixes
+ok 1 - five distinct types and unreachable prefixes
+  ---
+  duration_ms: 15.052882
+  type: 'test'
+  ...
+# Subtest: same type three, source excluded, metadata untouched
+ok 2 - same type three, source excluded, metadata untouched
+  ---
+  duration_ms: 2.750714
+  type: 'test'
+  ...
+# Subtest: optional count and order; unsupported spec fails closed
+ok 3 - optional count and order; unsupported spec fails closed
+  ---
+  duration_ms: 1.890759
+  type: 'test'
+  ...
+# Subtest: 40 physical cards use bounded existence checks
+not ok 4 - 40 physical cards use bounded existence checks
+  ---
+  duration_ms: 16330.720676
+  type: 'test'
+  location: '/workspace/scratch/b6f4b035b2fd/naotocchi/prototypes/card-game/tests/selection.test.mjs:10:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(performance.now()-start<1000)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/naotocchi/prototypes/card-game/tests/selection.test.mjs:10:240)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: prepared attachments and printed filters
+ok 5 - prepared attachments and printed filters
+  ---
+  duration_ms: 16.792644
+  type: 'test'
+  ...
+# Subtest: cross-selection types and canonical-name exclusions
+ok 6 - cross-selection types and canonical-name exclusions
+  ---
+  duration_ms: 6.324364
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 5
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 23213.744287

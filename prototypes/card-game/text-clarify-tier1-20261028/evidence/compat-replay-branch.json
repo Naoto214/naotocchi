@@ -1,0 +1,561 @@
+{
+ "saves": {
+  "doodle-jump-hotseat2-saves.json:/rows/0": {
+   "version": "hotseat-2",
+   "revision": 368,
+   "state": "f06200ea4d9a7a3a82e3f4bf4e62a7cd78bce9e034dbf03bd548540c7ae30d4d",
+   "stateNoText": "5bbbb473b3fc75f044fd69ea48aaf964ddf0033d1c549e991ef2e2fc7152277a",
+   "save": "3585904eb4aeeee2195265025cf8517c7b7f482115bfac747b5b948f204493ad",
+   "viewA": {
+    "all": "28122547c07bfa82d5cd3adf1c8409511a3fa2792762f61c41a728ef9d8b8099",
+    "noText": "a26b5db6b17bd895dca4e7edee48e9338356c415b4c2036541766d4de024ff64"
+   },
+   "viewB": {
+    "all": "8a6b69ef329c99df00cab1edfa0a1436b01e6228e6123434302e8e04eadd36b8",
+    "noText": "fa9742f08e89f146ddea7b7b747e49374db896e67f4e3dced2a23e492503b251"
+   }
+  },
+  "doodle-jump-hotseat2-saves.json:/rows/1": {
+   "version": "hotseat-2",
+   "revision": 350,
+   "state": "b1ecf43c6fbff810f2c7eb8610b784cdbd05eb831528398d8c9223ae853916f1",
+   "stateNoText": "b7a50ab27db1a569aaac8947a0fb2166d91a6931d18bf49bfd5391311dc5d8bf",
+   "save": "0364463818036e6b43328b2227885341db94810dabdf3de6daf12a0fda8c098f",
+   "viewA": {
+    "all": "fa28a575d8a73bcd5cbef676ccc03f592a198e8001cd583f008fea0d90a4c877",
+    "noText": "847d22d3d0386bfedd443e80c4c0efe6e6b9f895113d632f6c8924ff15de3055"
+   },
+   "viewB": {
+    "all": "8909d9db262a13edd7c83aa3bd63650ab89686fef43702a911cb147a77573fc9",
+    "noText": "f6c4a5ba767cb33993d033c1da81edec74b320092d6aa0409757927406f4d947"
+   }
+  },
+  "doodle-jump-hotseat2-saves.json:/rows/2": {
+   "version": "hotseat-2",
+   "revision": 358,
+   "state": "26107c8cc5e605107f2c72f6a2fe922a588d4d43072a95c15d3657a2ed7eebd3",
+   "stateNoText": "ed841359b3dd4434b97e950b934b43f63ec97a4a47a734c542f98a7c41730e66",
+   "save": "bf77b1018b1767c05802ad0580b41b226c3e4e3a294ba2eac8c3b91c88dd2a17",
+   "viewA": {
+    "all": "6eef6bb0615a7941c1daec3d6ce503b4c89709e5427009b4955d45569bb7ec36",
+    "noText": "d8887d25709340c72bdfe2c9f4c24d37712456f8e3881b23bfe3751f6dbe8e8b"
+   },
+   "viewB": {
+    "all": "a827effc5991e9776290c5f5c3eb781e1d3cd42a3512967236bf75cfc4abd902",
+    "noText": "4f234310022c28c960c287bf6a475b4398cfa7c638a32c27089caa69356f985b"
+   }
+  },
+  "hotseat1-saves.json:/mid": {
+   "version": "hotseat-1",
+   "revision": 160,
+   "state": "b96341ffd60bd6498fd7b520f9ce982f5476c134d3450fbf22e340b19ca8d432",
+   "stateNoText": "3e5988d0370c54537a4904a31d4048a65016bf6b46981957bdbe2539293fe4bf",
+   "save": "0bb3e8bd5edef90ed9e23a593d8e38ba5d9a4c813060eff4ebe2b77632c54310",
+   "viewA": {
+    "all": "06a3e12d4419419d28f596158783c2fdbcc3e598c9d48576f9f873a0615c36fa",
+    "noText": "66bd6b3cdd4205e935a56badbd49bd6acf52f60036d2eff55850cf158c962063"
+   },
+   "viewB": {
+    "all": "9c3323b32a691694655476e752a1121646427d1c3c651dac967f9a3e9236bc2e",
+    "noText": "518f468d6677da0e3ebf48080de5082038112c720b4feb25c7ef7db89a299e41"
+   }
+  },
+  "hotseat1-saves.json:/finished": {
+   "version": "hotseat-1",
+   "revision": 320,
+   "state": "f62b24525c27df1a4748741a1ae34694cabcd5b002742b20b71f24c9f6884e01",
+   "stateNoText": "067a30544ead4c8280c73aca81b25e6ab70ef0e256b3ca6eca29c8303a75936f",
+   "save": "88cadd0efce760ccaa76df39b2c56cf25ce1510a1e720a0ad3fe35aebe81e92a",
+   "viewA": {
+    "all": "e7694e167382ebbb60c276141d8f775cad208f55a118a52e33da2e5957ea6c11",
+    "noText": "80a48f2d970046226504be7e0016ada8ae96db110179dc3aebbe481efeb320f0"
+   },
+   "viewB": {
+    "all": "078da3cc9bbd335f6dc8f863a16183aa3967573326623315baad186546db144f",
+    "noText": "358d49f9e435c234d2aacdb388a431240162499ef75d54bf3b46a07c45416a4b"
+   }
+  },
+  "lover-fix-hotseat2-saves.json:/rows/0": {
+   "version": "hotseat-2",
+   "revision": 246,
+   "state": "bea0cb61692223140c1086a8ff5c952c2f3975e128605a529888938f4ff64904",
+   "stateNoText": "5ad0225ba90e3c03fc4c3289f2eb25bdc227dd398ce8812520e3c49242be79da",
+   "save": "5dcbb42917e1a755b872c7a8785b8dd2a3eee2ef3d6ffcf517922774b462aeab",
+   "viewA": {
+    "all": "4f7f5995894e0063c0b73f161bc001aa0865ab5433604d8ba04e7004de9c0bdd",
+    "noText": "06c53e681e1d5db516e8c90ee878d1b439edf000d61ac0ef9632c346b1207771"
+   },
+   "viewB": {
+    "all": "ea81889c174f7770cfe8037ce5e3181183f1ee10caff4247d8d0123e05568e36",
+    "noText": "0a591d18ed5a223931f7e4f2c036b103168cf6407cf91af2ba4500872ca1d3f0"
+   }
+  },
+  "lover-fix-hotseat2-saves.json:/rows/1": {
+   "version": "hotseat-2",
+   "revision": 325,
+   "state": "fb6be36a28a03886e1d099fa2a42d2d60e15fafeb048d22b1952f9d9a49d9145",
+   "stateNoText": "53ec84f7da1608f27faaf205f1dc7d980e1674f44e4927a3c627c0d3dcaab049",
+   "save": "b8291c6fdf9070e65ff7ece0180b1ecdabf7b9d5748301683236c78e003dfd49",
+   "viewA": {
+    "all": "6ff05502d3bc10eea8106b664872a559126e26f4104ba4b4a4e484e9d9e71ef8",
+    "noText": "19b996e6a64bdab048a3d4f888e7b36ae36d90c03dbf6b6e543b35e5c566d072"
+   },
+   "viewB": {
+    "all": "0d07290d74ca6d0ec2d1d086086381b70aa510e6b134db7d2ca6ef16bfb45280",
+    "noText": "d32e7750bb64a5023ab89b0fcf75f2d37f725a8cd2968fb42f3f012ca4092313"
+   }
+  }
+ },
+ "games": {
+  "hotseat-2/beginner/1": {
+   "phase": "finished",
+   "revision": 283,
+   "commands": "f8dec8a8ae231bac184540cd8a626211c0a49a3cf2102362632b87405e8a139c",
+   "state": "5dbeaafe8c5299a5b0ee77ee2a86ea6753bdb1adbf24807ed3b94ad417f73634",
+   "stateNoText": "22f111b9c9209120b1564be5e7bf396bfb9b36976767d626ac78833578fe0acb",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "a0fe5cb23970ac3989e4d6c5e7efefed91b4c8a5036a2d5f5b0673af29f31d02",
+    "noText": "6372702ec9c311e0d092d96c75a06f76b9b9d17de18d20cce1cf55aa88a97c46"
+   },
+   "viewB": {
+    "all": "3e3f8e83675f7dcd35d66010b33c979d3af761a3f5f8e1f13cf56adb7bb5dcce",
+    "noText": "993ef6a71e1f350523be4ac6cb8273d669366ae42f0543f45731a97c30aef3f8"
+   },
+   "used": {
+    "lunar": 2,
+    "lunarHit": 2,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-2/beginner/2": {
+   "phase": "finished",
+   "revision": 272,
+   "commands": "be53a6c40b8e12c8b3613626e13b31515c2722d44c6baa4085951f90c4a8583b",
+   "state": "3cfafe0fb0f087498041d05ee6f29b67b8ec3200f8166f82da8041bef010c6f1",
+   "stateNoText": "14d0a6cde9c62ee88b4244165888e480d8cddd565f185a50d28d75c35100a7d7",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "bb68f7d8fb762c77f2ff483963065eb387ac42ecb46600c279390059455f3d3b",
+    "noText": "52f64eeaf9a1fba1dd420810a28408091c9885e4c078f7f1e98467003ea96409"
+   },
+   "viewB": {
+    "all": "fcc3069ed30d355283802b8448599561a9138b3be3e4fbf00d49bc45dbcae5e3",
+    "noText": "8b6fb525147f39ce9e50df7aa096cd83cffbeabab9fa46f6ad781db0b6c861b4"
+   },
+   "used": {
+    "lunar": 4,
+    "lunarHit": 4,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-2/beginner/3": {
+   "phase": "finished",
+   "revision": 251,
+   "commands": "9277f882711d095eadb521b20cc826339f9778c0103f966480f13d67c07d7721",
+   "state": "a3e3e6454e26a8df686ac81fe14cff4c782482a62ab0a590286da7b9754102af",
+   "stateNoText": "5c128fe7a706c7e3b7c769721efec4d1160b0aa48be28927a722a9b499dea44b",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "d564e9b12c410c499df9444d31ef45cd34a8bd6660ab961d7895b67f3dc41a39",
+    "noText": "e8964d2cbfd804ac26f5cc1455aadd80647579417a3e79d2cf65d0a2a7710def"
+   },
+   "viewB": {
+    "all": "7f3964fcac3affa127ff5db5e932b61ae44f83e5d4aa8affb1f46758a3b3954e",
+    "noText": "c8f97669694fd6a23a4cd44ba6e00dac13c367dabd6ad69e6108f512d8f28b47"
+   },
+   "used": {
+    "lunar": 3,
+    "lunarHit": 3,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-2/intermediate/1": {
+   "phase": "finished",
+   "revision": 301,
+   "commands": "f81c3ba0bb0cebe7e12f5bdee31eb8087f6d13251d648b231c2c83a270a5585a",
+   "state": "0784048c0a15f2628c514108591031dc8d1b5c4e05154339f6ed156655836da8",
+   "stateNoText": "d46410776971005c3dab7a7e8e487c1c8023a82b2d202ac31e23958b1b9b0341",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "47791de65041f902692c9d84f1401b2f83fbea7232e36c1407175a384a907b78",
+    "noText": "32e1d9ae20e2418f867e66deb36e47d05ea597cdf91515e7973eec024619a860"
+   },
+   "viewB": {
+    "all": "89c5e6f3e29121e8d96bc8628e945e9f3a140b1821f5d1537d0e1668cb4305aa",
+    "noText": "77825afddcfae023fef84e36cea676b39780738d61265dd1fe4864ddf45f67af"
+   },
+   "used": {
+    "lunar": 4,
+    "lunarHit": 4,
+    "submarine": {
+     "0": 1,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-2/intermediate/2": {
+   "phase": "finished",
+   "revision": 282,
+   "commands": "5741560719a8cbb97cf54e4234831ae22dc638b9c3f41485379d0cbd3a210d0f",
+   "state": "9043a772da0adb38e912959dfc9d4395fb234bf433f3f5dbcd9dc4f462034563",
+   "stateNoText": "616a8a3db8117a4a6bfe365ad85e04d02ef5f4706250a8e46bd92431fe9a94e6",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "ada1293d59fb2e00cc298f43654740891ee2265635912291ea5aba78a52244bf",
+    "noText": "4850281109ff07ef6c99fecb81307625d4053e08a4f530ed6b6a8fd70752f5ef"
+   },
+   "viewB": {
+    "all": "bca004f5633321582cc779c712bddbf331115822effa58cbc54126573831a82f",
+    "noText": "8432f4374962358fdeb86ce7f73d97d05848c239d023ac9e8a0d540074e7fb31"
+   },
+   "used": {
+    "lunar": 3,
+    "lunarHit": 3,
+    "submarine": {
+     "0": 1,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-2/intermediate/3": {
+   "phase": "finished",
+   "revision": 259,
+   "commands": "979c04eacc4b3bbc9167bf056a127a61d7ea92e49e8625b05e1aa0d7207f316e",
+   "state": "fe3fde46d49affa344382be77aee8a7a9eae693c2f9613dfddf56dbdd7199613",
+   "stateNoText": "15f858649bdf11d658831113aa655d55269a7bb525cf69d98e0e8064494fc3f1",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "1a867ca0dba823993c5f83d78e0e940c0ec0353d5b7f9149220c97c7364294aa",
+    "noText": "c83718e70ce54d09e966ad546d736cd586a691485cda4344654abafb068c2ffa"
+   },
+   "viewB": {
+    "all": "52a662c689d8f17534224b398a09ed944db99b4d0f26e0fcb94b3c581f1163c2",
+    "noText": "c6bf4abf943d74ada1b2267fd0ce6b5904b76529a27da47d5915b7616aca4ab5"
+   },
+   "used": {
+    "lunar": 2,
+    "lunarHit": 2,
+    "submarine": {
+     "0": 1,
+     "1": 1,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-3/beginner/1": {
+   "phase": "finished",
+   "revision": 283,
+   "commands": "f8dec8a8ae231bac184540cd8a626211c0a49a3cf2102362632b87405e8a139c",
+   "state": "5dbeaafe8c5299a5b0ee77ee2a86ea6753bdb1adbf24807ed3b94ad417f73634",
+   "stateNoText": "22f111b9c9209120b1564be5e7bf396bfb9b36976767d626ac78833578fe0acb",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "a0fe5cb23970ac3989e4d6c5e7efefed91b4c8a5036a2d5f5b0673af29f31d02",
+    "noText": "6372702ec9c311e0d092d96c75a06f76b9b9d17de18d20cce1cf55aa88a97c46"
+   },
+   "viewB": {
+    "all": "3e3f8e83675f7dcd35d66010b33c979d3af761a3f5f8e1f13cf56adb7bb5dcce",
+    "noText": "993ef6a71e1f350523be4ac6cb8273d669366ae42f0543f45731a97c30aef3f8"
+   },
+   "used": {
+    "lunar": 2,
+    "lunarHit": 2,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-3/beginner/2": {
+   "phase": "finished",
+   "revision": 272,
+   "commands": "be53a6c40b8e12c8b3613626e13b31515c2722d44c6baa4085951f90c4a8583b",
+   "state": "3cfafe0fb0f087498041d05ee6f29b67b8ec3200f8166f82da8041bef010c6f1",
+   "stateNoText": "14d0a6cde9c62ee88b4244165888e480d8cddd565f185a50d28d75c35100a7d7",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "bb68f7d8fb762c77f2ff483963065eb387ac42ecb46600c279390059455f3d3b",
+    "noText": "52f64eeaf9a1fba1dd420810a28408091c9885e4c078f7f1e98467003ea96409"
+   },
+   "viewB": {
+    "all": "fcc3069ed30d355283802b8448599561a9138b3be3e4fbf00d49bc45dbcae5e3",
+    "noText": "8b6fb525147f39ce9e50df7aa096cd83cffbeabab9fa46f6ad781db0b6c861b4"
+   },
+   "used": {
+    "lunar": 4,
+    "lunarHit": 4,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-3/beginner/3": {
+   "phase": "finished",
+   "revision": 251,
+   "commands": "9277f882711d095eadb521b20cc826339f9778c0103f966480f13d67c07d7721",
+   "state": "a3e3e6454e26a8df686ac81fe14cff4c782482a62ab0a590286da7b9754102af",
+   "stateNoText": "5c128fe7a706c7e3b7c769721efec4d1160b0aa48be28927a722a9b499dea44b",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "d564e9b12c410c499df9444d31ef45cd34a8bd6660ab961d7895b67f3dc41a39",
+    "noText": "e8964d2cbfd804ac26f5cc1455aadd80647579417a3e79d2cf65d0a2a7710def"
+   },
+   "viewB": {
+    "all": "7f3964fcac3affa127ff5db5e932b61ae44f83e5d4aa8affb1f46758a3b3954e",
+    "noText": "c8f97669694fd6a23a4cd44ba6e00dac13c367dabd6ad69e6108f512d8f28b47"
+   },
+   "used": {
+    "lunar": 3,
+    "lunarHit": 3,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-3/intermediate/1": {
+   "phase": "finished",
+   "revision": 301,
+   "commands": "f81c3ba0bb0cebe7e12f5bdee31eb8087f6d13251d648b231c2c83a270a5585a",
+   "state": "0784048c0a15f2628c514108591031dc8d1b5c4e05154339f6ed156655836da8",
+   "stateNoText": "d46410776971005c3dab7a7e8e487c1c8023a82b2d202ac31e23958b1b9b0341",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "47791de65041f902692c9d84f1401b2f83fbea7232e36c1407175a384a907b78",
+    "noText": "32e1d9ae20e2418f867e66deb36e47d05ea597cdf91515e7973eec024619a860"
+   },
+   "viewB": {
+    "all": "89c5e6f3e29121e8d96bc8628e945e9f3a140b1821f5d1537d0e1668cb4305aa",
+    "noText": "77825afddcfae023fef84e36cea676b39780738d61265dd1fe4864ddf45f67af"
+   },
+   "used": {
+    "lunar": 4,
+    "lunarHit": 4,
+    "submarine": {
+     "0": 1,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-3/intermediate/2": {
+   "phase": "finished",
+   "revision": 282,
+   "commands": "5741560719a8cbb97cf54e4234831ae22dc638b9c3f41485379d0cbd3a210d0f",
+   "state": "9043a772da0adb38e912959dfc9d4395fb234bf433f3f5dbcd9dc4f462034563",
+   "stateNoText": "616a8a3db8117a4a6bfe365ad85e04d02ef5f4706250a8e46bd92431fe9a94e6",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "ada1293d59fb2e00cc298f43654740891ee2265635912291ea5aba78a52244bf",
+    "noText": "4850281109ff07ef6c99fecb81307625d4053e08a4f530ed6b6a8fd70752f5ef"
+   },
+   "viewB": {
+    "all": "bca004f5633321582cc779c712bddbf331115822effa58cbc54126573831a82f",
+    "noText": "8432f4374962358fdeb86ce7f73d97d05848c239d023ac9e8a0d540074e7fb31"
+   },
+   "used": {
+    "lunar": 3,
+    "lunarHit": 3,
+    "submarine": {
+     "0": 1,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-3/intermediate/3": {
+   "phase": "finished",
+   "revision": 259,
+   "commands": "979c04eacc4b3bbc9167bf056a127a61d7ea92e49e8625b05e1aa0d7207f316e",
+   "state": "fe3fde46d49affa344382be77aee8a7a9eae693c2f9613dfddf56dbdd7199613",
+   "stateNoText": "15f858649bdf11d658831113aa655d55269a7bb525cf69d98e0e8064494fc3f1",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "1a867ca0dba823993c5f83d78e0e940c0ec0353d5b7f9149220c97c7364294aa",
+    "noText": "c83718e70ce54d09e966ad546d736cd586a691485cda4344654abafb068c2ffa"
+   },
+   "viewB": {
+    "all": "52a662c689d8f17534224b398a09ed944db99b4d0f26e0fcb94b3c581f1163c2",
+    "noText": "c6bf4abf943d74ada1b2267fd0ce6b5904b76529a27da47d5915b7616aca4ab5"
+   },
+   "used": {
+    "lunar": 2,
+    "lunarHit": 2,
+    "submarine": {
+     "0": 1,
+     "1": 1,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-4/beginner/1": {
+   "phase": "finished",
+   "revision": 283,
+   "commands": "f8dec8a8ae231bac184540cd8a626211c0a49a3cf2102362632b87405e8a139c",
+   "state": "5dbeaafe8c5299a5b0ee77ee2a86ea6753bdb1adbf24807ed3b94ad417f73634",
+   "stateNoText": "22f111b9c9209120b1564be5e7bf396bfb9b36976767d626ac78833578fe0acb",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "a0fe5cb23970ac3989e4d6c5e7efefed91b4c8a5036a2d5f5b0673af29f31d02",
+    "noText": "6372702ec9c311e0d092d96c75a06f76b9b9d17de18d20cce1cf55aa88a97c46"
+   },
+   "viewB": {
+    "all": "3e3f8e83675f7dcd35d66010b33c979d3af761a3f5f8e1f13cf56adb7bb5dcce",
+    "noText": "993ef6a71e1f350523be4ac6cb8273d669366ae42f0543f45731a97c30aef3f8"
+   },
+   "used": {
+    "lunar": 2,
+    "lunarHit": 2,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-4/beginner/2": {
+   "phase": "finished",
+   "revision": 272,
+   "commands": "be53a6c40b8e12c8b3613626e13b31515c2722d44c6baa4085951f90c4a8583b",
+   "state": "3cfafe0fb0f087498041d05ee6f29b67b8ec3200f8166f82da8041bef010c6f1",
+   "stateNoText": "14d0a6cde9c62ee88b4244165888e480d8cddd565f185a50d28d75c35100a7d7",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "bb68f7d8fb762c77f2ff483963065eb387ac42ecb46600c279390059455f3d3b",
+    "noText": "52f64eeaf9a1fba1dd420810a28408091c9885e4c078f7f1e98467003ea96409"
+   },
+   "viewB": {
+    "all": "fcc3069ed30d355283802b8448599561a9138b3be3e4fbf00d49bc45dbcae5e3",
+    "noText": "8b6fb525147f39ce9e50df7aa096cd83cffbeabab9fa46f6ad781db0b6c861b4"
+   },
+   "used": {
+    "lunar": 4,
+    "lunarHit": 4,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-4/beginner/3": {
+   "phase": "finished",
+   "revision": 251,
+   "commands": "9277f882711d095eadb521b20cc826339f9778c0103f966480f13d67c07d7721",
+   "state": "a3e3e6454e26a8df686ac81fe14cff4c782482a62ab0a590286da7b9754102af",
+   "stateNoText": "5c128fe7a706c7e3b7c769721efec4d1160b0aa48be28927a722a9b499dea44b",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "d564e9b12c410c499df9444d31ef45cd34a8bd6660ab961d7895b67f3dc41a39",
+    "noText": "e8964d2cbfd804ac26f5cc1455aadd80647579417a3e79d2cf65d0a2a7710def"
+   },
+   "viewB": {
+    "all": "7f3964fcac3affa127ff5db5e932b61ae44f83e5d4aa8affb1f46758a3b3954e",
+    "noText": "c8f97669694fd6a23a4cd44ba6e00dac13c367dabd6ad69e6108f512d8f28b47"
+   },
+   "used": {
+    "lunar": 3,
+    "lunarHit": 3,
+    "submarine": {
+     "0": 0,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-4/intermediate/1": {
+   "phase": "finished",
+   "revision": 301,
+   "commands": "f81c3ba0bb0cebe7e12f5bdee31eb8087f6d13251d648b231c2c83a270a5585a",
+   "state": "0784048c0a15f2628c514108591031dc8d1b5c4e05154339f6ed156655836da8",
+   "stateNoText": "d46410776971005c3dab7a7e8e487c1c8023a82b2d202ac31e23958b1b9b0341",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "47791de65041f902692c9d84f1401b2f83fbea7232e36c1407175a384a907b78",
+    "noText": "32e1d9ae20e2418f867e66deb36e47d05ea597cdf91515e7973eec024619a860"
+   },
+   "viewB": {
+    "all": "89c5e6f3e29121e8d96bc8628e945e9f3a140b1821f5d1537d0e1668cb4305aa",
+    "noText": "77825afddcfae023fef84e36cea676b39780738d61265dd1fe4864ddf45f67af"
+   },
+   "used": {
+    "lunar": 4,
+    "lunarHit": 4,
+    "submarine": {
+     "0": 1,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-4/intermediate/2": {
+   "phase": "finished",
+   "revision": 282,
+   "commands": "5741560719a8cbb97cf54e4234831ae22dc638b9c3f41485379d0cbd3a210d0f",
+   "state": "9043a772da0adb38e912959dfc9d4395fb234bf433f3f5dbcd9dc4f462034563",
+   "stateNoText": "616a8a3db8117a4a6bfe365ad85e04d02ef5f4706250a8e46bd92431fe9a94e6",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "ada1293d59fb2e00cc298f43654740891ee2265635912291ea5aba78a52244bf",
+    "noText": "4850281109ff07ef6c99fecb81307625d4053e08a4f530ed6b6a8fd70752f5ef"
+   },
+   "viewB": {
+    "all": "bca004f5633321582cc779c712bddbf331115822effa58cbc54126573831a82f",
+    "noText": "8432f4374962358fdeb86ce7f73d97d05848c239d023ac9e8a0d540074e7fb31"
+   },
+   "used": {
+    "lunar": 3,
+    "lunarHit": 3,
+    "submarine": {
+     "0": 1,
+     "1": 0,
+     "2": 0
+    }
+   }
+  },
+  "hotseat-4/intermediate/3": {
+   "phase": "finished",
+   "revision": 259,
+   "commands": "979c04eacc4b3bbc9167bf056a127a61d7ea92e49e8625b05e1aa0d7207f316e",
+   "state": "fe3fde46d49affa344382be77aee8a7a9eae693c2f9613dfddf56dbdd7199613",
+   "stateNoText": "15f858649bdf11d658831113aa655d55269a7bb525cf69d98e0e8064494fc3f1",
+   "restoredEqual": true,
+   "viewA": {
+    "all": "1a867ca0dba823993c5f83d78e0e940c0ec0353d5b7f9149220c97c7364294aa",
+    "noText": "c83718e70ce54d09e966ad546d736cd586a691485cda4344654abafb068c2ffa"
+   },
+   "viewB": {
+    "all": "52a662c689d8f17534224b398a09ed944db99b4d0f26e0fcb94b3c581f1163c2",
+    "noText": "c6bf4abf943d74ada1b2267fd0ce6b5904b76529a27da47d5915b7616aca4ab5"
+   },
+   "used": {
+    "lunar": 2,
+    "lunarHit": 2,
+    "submarine": {
+     "0": 1,
+     "1": 1,
+     "2": 0
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,42 @@
+name: Work storage guard
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  generated-output:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 1
+          sparse-checkout: |
+            tools/work
+            tools/pages
+            tests/work
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test lightweight checkout and evidence guard
+        run: python -m unittest discover -s tests/work -v
+      - name: Find PR merge base and fetch only its metadata
+        id: comparison
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          MERGE_BASE="$(gh api "repos/$GITHUB_REPOSITORY/compare/$BASE_SHA...$HEAD_SHA" --jq '.merge_base_commit.sha')"
+          [[ "$MERGE_BASE" =~ ^[0-9a-f]{40}$ ]]
+          git fetch --filter=blob:none --depth=1 --no-tags origin "$MERGE_BASE"
+          printf 'sha=%s\n' "$MERGE_BASE" >> "$GITHUB_OUTPUT"
+      - name: Check changed output only
+        env:
+          MERGE_BASE: ${{ steps.comparison.outputs.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python tools/work/check_storage.py --merge-base "$MERGE_BASE" --head "$HEAD_SHA"

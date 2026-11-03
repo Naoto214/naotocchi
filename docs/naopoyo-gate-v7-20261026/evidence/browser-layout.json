@@ -1,0 +1,248 @@
+[
+  [
+    {
+      "version": "v6",
+      "width": 390,
+      "height": 570,
+      "cell": 45.25,
+      "board": {
+        "x": 14,
+        "y": 109,
+        "width": 362,
+        "height": 362,
+        "top": 109,
+        "right": 376,
+        "bottom": 471,
+        "left": 14
+      },
+      "scroll": false,
+      "moves": 0,
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4
+        }
+      ],
+      "stored": true,
+      "gateModule": 3
+    },
+    {
+      "version": "v7",
+      "width": 390,
+      "height": 570,
+      "cell": 45.25,
+      "board": {
+        "x": 14,
+        "y": 109,
+        "width": 362,
+        "height": 362,
+        "top": 109,
+        "right": 376,
+        "bottom": 471,
+        "left": 14
+      },
+      "scroll": false,
+      "moves": 0,
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4
+        }
+      ],
+      "stored": true,
+      "gateModule": 3
+    }
+  ],
+  [
+    {
+      "version": "v6",
+      "width": 390,
+      "height": 664,
+      "cell": 45.25,
+      "board": {
+        "x": 14,
+        "y": 161,
+        "width": 362,
+        "height": 362,
+        "top": 161,
+        "right": 376,
+        "bottom": 523,
+        "left": 14
+      },
+      "scroll": false,
+      "moves": 0,
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4
+        }
+      ],
+      "stored": true,
+      "gateModule": 3
+    },
+    {
+      "version": "v7",
+      "width": 390,
+      "height": 664,
+      "cell": 45.25,
+      "board": {
+        "x": 14,
+        "y": 161,
+        "width": 362,
+        "height": 362,
+        "top": 161,
+        "right": 376,
+        "bottom": 523,
+        "left": 14
+      },
+      "scroll": false,
+      "moves": 0,
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4
+        }
+      ],
+      "stored": true,
+      "gateModule": 3
+    }
+  ],
+  [
+    {
+      "version": "v6",
+      "width": 390,
+      "height": 844,
+      "cell": 45.25,
+      "board": {
+        "x": 14,
+        "y": 251,
+        "width": 362,
+        "height": 362,
+        "top": 251,
+        "right": 376,
+        "bottom": 613,
+        "left": 14
+      },
+      "scroll": false,
+      "moves": 0,
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4
+        }
+      ],
+      "stored": true,
+      "gateModule": 3
+    },
+    {
+      "version": "v7",
+      "width": 390,
+      "height": 844,
+      "cell": 45.25,
+      "board": {
+        "x": 14,
+        "y": 251,
+        "width": 362,
+        "height": 362,
+        "top": 251,
+        "right": 376,
+        "bottom": 613,
+        "left": 14
+      },
+      "scroll": false,
+      "moves": 0,
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4
+        }
+      ],
+      "stored": true,
+      "gateModule": 3
+    }
+  ]
+]

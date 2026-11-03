@@ -1,0 +1,4761 @@
+[
+ {
+  "viewport": "320x568",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 121,
+    "h": 182,
+    "visibleArea": 21995,
+    "viewportShare": 0.121
+   },
+   "onCard": {
+    "fontPx": 4.3,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "とかいセカイ通常時コスト 2通常 · 同名3枚まで1ターンに1回。自分がこのターンに、手札から通常のたんじょう・ときおくり・へんしん、なかま・こいびと・セカイの通常配置、またはアクションカードのプレイで出したカードの合計が2枚になった時、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。このカード自身を出した場",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "とかいを山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.174,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 269,
+    "h": 403,
+    "visibleArea": 108273,
+    "viewportShare": 0.596
+   },
+   "onCard": {
+    "fontPx": 9.5,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "とかいを選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.111,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "onCard": {
+    "fontPx": 10.1,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "とかいを選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.111,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 121,
+    "h": 182,
+    "visibleArea": 21995,
+    "viewportShare": 0.121
+   },
+   "onCard": {
+    "fontPx": 4.1,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "丸いあかちゃんメイン · ヒトデ · うみちから 2 · ちえ 2 · 通常時コスト 1通常 · 同名3枚まで能力なし。必須選択：このカードを選ぶたまご：手札から選び、山札の下へ戻す。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ヒトデ①を山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.174,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 269,
+    "h": 403,
+    "visibleArea": 108273,
+    "viewportShare": 0.596
+   },
+   "onCard": {
+    "fontPx": 9.1,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ヒトデ①を選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.111,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "onCard": {
+    "fontPx": 9.7,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ヒトデ①を選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.111,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 121,
+    "h": 182,
+    "visibleArea": 21995,
+    "viewportShare": 0.121
+   },
+   "onCard": {
+    "fontPx": 4.3,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "まねっこサルなかま通常時コスト 0通常 · 同名3枚まで1ターンに1回。自分のメインカードが能力を発動した時、その発動した能力1つを対象として発動できる。このターン、このカードは、その能力の発動時の本文をコピーする。対象の能力の発動や効果が後から無効になっても、その本文を参照する。コピーした能力の発動は別に行い、その条",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ配置先：なかま①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 71,
+   "bandShare": 0.125,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 270,
+    "h": 405,
+    "visibleArea": 109350,
+    "viewportShare": 0.602
+   },
+   "onCard": {
+    "fontPx": 9.6,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ",
+     "note": "※ 配置先：なかま①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 52,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 61,
+   "bandShare": 0.107,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "onCard": {
+    "fontPx": 10.1,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ",
+     "note": "※ 配置先：なかま①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 52,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 61,
+   "bandShare": 0.107,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 121,
+    "h": 182,
+    "visibleArea": 21995,
+    "viewportShare": 0.121
+   },
+   "onCard": {
+    "fontPx": 4.3,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ラッキーコインあいてむ通常時コスト 1通常 · 同名3枚まで山札上1枚を公開し、山札の一番下に置く。公開したカードがメインだった場合、自分のそだち+5。メイン以外だった場合、1枚引く。このカードでできる行動たまご：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 160,
+   "bandShare": 0.282,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "onCard": {
+    "fontPx": 10.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.199,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 121,
+    "h": 182,
+    "visibleArea": 21995,
+    "viewportShare": 0.121
+   },
+   "onCard": {
+    "fontPx": 4.3,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "サングラスのカメレオンなかま通常時コスト 0レア · 同名1枚まで自分と相手の両方にセカイがある間、それらの名前が同じなら自分のメインのちえ+1、異なるなら自分のメインのちから+1。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 49,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 190,
+   "bandShare": 0.335,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "onCard": {
+    "fontPx": 10.1,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代",
+     "note": "※ なかま③のまねっこサルと入れ替えます",
+     "h": 72,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 72,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 241,
+   "bandShare": 0.424,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 121,
+    "h": 182,
+    "visibleArea": 21995,
+    "viewportShare": 0.121
+   },
+   "onCard": {
+    "fontPx": 4.3,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "おべんとうばこあいてむ通常時コスト 2通常 · 同名3枚までメイン・なかま・こいびとのいずれかにみにつける。1ターンに1回。自分のターン開始時、手札が2枚以下の場合、発動できる。1枚引く。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）配置先：準備①",
+     "note": "",
+     "h": 46,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）配置先：準備①",
+     "note": "",
+     "h": 46,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）配置先：準備①",
+     "note": "",
+     "h": 46,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）配置先：準備①",
+     "note": "",
+     "h": 46,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 46,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 236,
+   "bandShare": 0.415,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "onCard": {
+    "fontPx": 10.1,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 72,
+     "tappable": false
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 72,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 261,
+   "bandShare": 0.46,
+   "moreHint": true,
+   "scrollers": [
+    "stage-scroll",
+    "stage-band"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 121,
+    "h": 182,
+    "visibleArea": 21995,
+    "viewportShare": 0.121
+   },
+   "onCard": {
+    "fontPx": 4.3,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ヒット&ブローあそび通常時コスト 1通常 · 同名3枚まで発動時にカード種を1つ宣言する。山札上1枚を公開する。宣言した種類なら手札に加え、自分のそだち+5。違うなら山札下へ置き、1枚引く。行動を選択光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 175,
+   "bandShare": 0.308,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "onCard": {
+    "fontPx": 10.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 48,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 141,
+   "bandShare": 0.248,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 121,
+    "h": 182,
+    "visibleArea": 21995,
+    "viewportShare": 0.121
+   },
+   "onCard": {
+    "fontPx": 4.3,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "はじめてのデートできごと通常時コスト 1通常 · 同名3枚まで自分のこいびと1枚を対象として発動できる。対象が自分のこいびと枠にいて、その交際段階が0の場合、1枚引き、自分のそだち+5。このカードでできる行動はじめてのデート：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 160,
+   "bandShare": 0.282,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 286,
+    "h": 429,
+    "visibleArea": 122694,
+    "viewportShare": 0.675
+   },
+   "onCard": {
+    "fontPx": 10.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 55,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 120,
+   "bandShare": 0.211,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.124
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "とかいセカイ通常時コスト 2通常 · 同名3枚まで1ターンに1回。自分がこのターンに、手札から通常のたんじょう・ときおくり・へんしん、なかま・こいびと・セカイの通常配置、またはアクションカードのプレイで出したカードの合計が2枚になった時、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。このカード自身を出した場",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "とかいを山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.148,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 335,
+    "h": 502,
+    "visibleArea": 168003,
+    "viewportShare": 0.672
+   },
+   "onCard": {
+    "fontPx": 11.9,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "とかいを選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.094,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.124
+   },
+   "onCard": {
+    "fontPx": 4.9,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "丸いあかちゃんメイン · ヒトデ · うみちから 2 · ちえ 2 · 通常時コスト 1通常 · 同名3枚まで能力なし。必須選択：このカードを選ぶたまご：手札から選び、山札の下へ戻す。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ヒトデ①を山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.148,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 335,
+    "h": 502,
+    "visibleArea": 168003,
+    "viewportShare": 0.672
+   },
+   "onCard": {
+    "fontPx": 11.3,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ヒトデ①を選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.094,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.124
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "まねっこサルなかま通常時コスト 0通常 · 同名3枚まで1ターンに1回。自分のメインカードが能力を発動した時、その発動した能力1つを対象として発動できる。このターン、このカードは、その能力の発動時の本文をコピーする。対象の能力の発動や効果が後から無効になっても、その本文を参照する。コピーした能力の発動は別に行い、その条",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ配置先：なかま①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 71,
+   "bandShare": 0.106,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 336,
+    "h": 504,
+    "visibleArea": 169344,
+    "viewportShare": 0.677
+   },
+   "onCard": {
+    "fontPx": 11.9,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ",
+     "note": "※ 配置先：なかま①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 52,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 61,
+   "bandShare": 0.091,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.124
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ラッキーコインあいてむ通常時コスト 1通常 · 同名3枚まで山札上1枚を公開し、山札の一番下に置く。公開したカードがメインだった場合、自分のそだち+5。メイン以外だった場合、1枚引く。このカードでできる行動たまご：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 143,
+   "bandShare": 0.214,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 301,
+    "h": 452,
+    "visibleArea": 136203,
+    "viewportShare": 0.545
+   },
+   "onCard": {
+    "fontPx": 10.7,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.169,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 341,
+    "h": 512,
+    "visibleArea": 174422,
+    "viewportShare": 0.697
+   },
+   "onCard": {
+    "fontPx": 12.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.169,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.124
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "サングラスのカメレオンなかま通常時コスト 0レア · 同名1枚まで自分と相手の両方にセカイがある間、それらの名前が同じなら自分のメインのちえ+1、異なるなら自分のメインのちから+1。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 49,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 190,
+   "bandShare": 0.285,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 341,
+    "h": 512,
+    "visibleArea": 174422,
+    "viewportShare": 0.697
+   },
+   "onCard": {
+    "fontPx": 12.1,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代",
+     "note": "※ なかま③のまねっこサルと入れ替えます",
+     "h": 72,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 72,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 241,
+   "bandShare": 0.361,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.124
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "おべんとうばこあいてむ通常時コスト 2通常 · 同名3枚までメイン・なかま・こいびとのいずれかにみにつける。1ターンに1回。自分のターン開始時、手札が2枚以下の場合、発動できる。1枚引く。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）配置先：準備①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）配置先：準備①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）配置先：準備①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）配置先：準備①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 49,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 247,
+   "bandShare": 0.37,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 341,
+    "h": 512,
+    "visibleArea": 174422,
+    "viewportShare": 0.697
+   },
+   "onCard": {
+    "fontPx": 12.1,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 52,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 262,
+   "bandShare": 0.393,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.124
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ヒット&ブローあそび通常時コスト 1通常 · 同名3枚まで発動時にカード種を1つ宣言する。山札上1枚を公開する。宣言した種類なら手札に加え、自分のそだち+5。違うなら山札下へ置き、1枚引く。行動を選択光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 175,
+   "bandShare": 0.262,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 283,
+    "h": 424,
+    "visibleArea": 119851,
+    "viewportShare": 0.479
+   },
+   "onCard": {
+    "fontPx": 10,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 48,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 141,
+   "bandShare": 0.211,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 341,
+    "h": 512,
+    "visibleArea": 174422,
+    "viewportShare": 0.697
+   },
+   "onCard": {
+    "fontPx": 12.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 48,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 141,
+   "bandShare": 0.211,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.124
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "はじめてのデートできごと通常時コスト 1通常 · 同名3枚まで自分のこいびと1枚を対象として発動できる。対象が自分のこいびと枠にいて、その交際段階が0の場合、1枚引き、自分のそだち+5。このカードでできる行動はじめてのデート：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 160,
+   "bandShare": 0.24,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 301,
+    "h": 452,
+    "visibleArea": 136203,
+    "viewportShare": 0.545
+   },
+   "onCard": {
+    "fontPx": 10.7,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.169,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 341,
+    "h": 512,
+    "visibleArea": 174422,
+    "viewportShare": 0.697
+   },
+   "onCard": {
+    "fontPx": 12.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.169,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.094
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "とかいセカイ通常時コスト 2通常 · 同名3枚まで1ターンに1回。自分がこのターンに、手札から通常のたんじょう・ときおくり・へんしん、なかま・こいびと・セカイの通常配置、またはアクションカードのプレイで出したカードの合計が2枚になった時、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。このカード自身を出した場",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "とかいを山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.117,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "onCard": {
+    "fontPx": 12.6,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "とかいを選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.075,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.094
+   },
+   "onCard": {
+    "fontPx": 4.9,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "丸いあかちゃんメイン · ヒトデ · うみちから 2 · ちえ 2 · 通常時コスト 1通常 · 同名3枚まで能力なし。必須選択：このカードを選ぶたまご：手札から選び、山札の下へ戻す。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ヒトデ①を山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.117,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "onCard": {
+    "fontPx": 12,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ヒトデ①を選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.075,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.094
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "まねっこサルなかま通常時コスト 0通常 · 同名3枚まで1ターンに1回。自分のメインカードが能力を発動した時、その発動した能力1つを対象として発動できる。このターン、このカードは、その能力の発動時の本文をコピーする。対象の能力の発動や効果が後から無効になっても、その本文を参照する。コピーした能力の発動は別に行い、その条",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ配置先：なかま①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 71,
+   "bandShare": 0.084,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "onCard": {
+    "fontPx": 12.6,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ",
+     "note": "※ 配置先：なかま①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 52,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 61,
+   "bandShare": 0.072,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.094
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ラッキーコインあいてむ通常時コスト 1通常 · 同名3枚まで山札上1枚を公開し、山札の一番下に置く。公開したカードがメインだった場合、自分のそだち+5。メイン以外だった場合、1枚引く。このカードでできる行動たまご：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 143,
+   "bandShare": 0.169,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "onCard": {
+    "fontPx": 12.6,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.134,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.094
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "サングラスのカメレオンなかま通常時コスト 0レア · 同名1枚まで自分と相手の両方にセカイがある間、それらの名前が同じなら自分のメインのちえ+1、異なるなら自分のメインのちから+1。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 49,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 190,
+   "bandShare": 0.225,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 334,
+    "h": 501,
+    "visibleArea": 167334,
+    "viewportShare": 0.508
+   },
+   "onCard": {
+    "fontPx": 11.9,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代",
+     "note": "※ なかま③のまねっこサルと入れ替えます",
+     "h": 72,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 72,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 241,
+   "bandShare": 0.286,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "onCard": {
+    "fontPx": 12.6,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代",
+     "note": "※ なかま③のまねっこサルと入れ替えます",
+     "h": 72,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 72,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 241,
+   "bandShare": 0.286,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.094
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "おべんとうばこあいてむ通常時コスト 2通常 · 同名3枚までメイン・なかま・こいびとのいずれかにみにつける。1ターンに1回。自分のターン開始時、手札が2枚以下の場合、発動できる。1枚引く。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）配置先：準備①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）配置先：準備①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）配置先：準備①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）配置先：準備①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 242,
+   "bandShare": 0.287,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 320,
+    "h": 480,
+    "visibleArea": 153600,
+    "viewportShare": 0.467
+   },
+   "onCard": {
+    "fontPx": 11.4,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 52,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 262,
+   "bandShare": 0.31,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "onCard": {
+    "fontPx": 12.6,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 52,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 262,
+   "bandShare": 0.31,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.094
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ヒット&ブローあそび通常時コスト 1通常 · 同名3枚まで発動時にカード種を1つ宣言する。山札上1枚を公開する。宣言した種類なら手札に加え、自分のそだち+5。違うなら山札下へ置き、1枚引く。行動を選択光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 175,
+   "bandShare": 0.207,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "onCard": {
+    "fontPx": 12.6,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 48,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 141,
+   "bandShare": 0.167,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.094
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "はじめてのデートできごと通常時コスト 1通常 · 同名3枚まで自分のこいびと1枚を対象として発動できる。対象が自分のこいびと枠にいて、その交際段階が0の場合、1枚引き、自分のそだち+5。このカードでできる行動はじめてのデート：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 160,
+   "bandShare": 0.19,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 356,
+    "h": 534,
+    "visibleArea": 190104,
+    "viewportShare": 0.578
+   },
+   "onCard": {
+    "fontPx": 12.6,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.134,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.078
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "とかいセカイ通常時コスト 2通常 · 同名3枚まで1ターンに1回。自分がこのターンに、手札から通常のたんじょう・ときおくり・へんしん、なかま・こいびと・セカイの通常配置、またはアクションカードのプレイで出したカードの合計が2枚になった時、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。このカード自身を出した場",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "とかいを山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.106,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 396,
+    "h": 594,
+    "visibleArea": 235224,
+    "viewportShare": 0.587
+   },
+   "onCard": {
+    "fontPx": 14.1,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "とかいを選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.068,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.078
+   },
+   "onCard": {
+    "fontPx": 4.9,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "丸いあかちゃんメイン · ヒトデ · うみちから 2 · ちえ 2 · 通常時コスト 1通常 · 同名3枚まで能力なし。必須選択：このカードを選ぶたまご：手札から選び、山札の下へ戻す。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ヒトデ①を山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.106,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 396,
+    "h": 594,
+    "visibleArea": 235224,
+    "viewportShare": 0.587
+   },
+   "onCard": {
+    "fontPx": 13.4,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ヒトデ①を選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 54,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 54,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 63,
+   "bandShare": 0.068,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.078
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "まねっこサルなかま通常時コスト 0通常 · 同名3枚まで1ターンに1回。自分のメインカードが能力を発動した時、その発動した能力1つを対象として発動できる。このターン、このカードは、その能力の発動時の本文をコピーする。対象の能力の発動や効果が後から無効になっても、その本文を参照する。コピーした能力の発動は別に行い、その条",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ配置先：なかま①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 71,
+   "bandShare": 0.076,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 396,
+    "h": 594,
+    "visibleArea": 235224,
+    "viewportShare": 0.587
+   },
+   "onCard": {
+    "fontPx": 14.1,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ",
+     "note": "※ 配置先：なかま①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 52,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 61,
+   "bandShare": 0.065,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.078
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ラッキーコインあいてむ通常時コスト 1通常 · 同名3枚まで山札上1枚を公開し、山札の一番下に置く。公開したカードがメインだった場合、自分のそだち+5。メイン以外だった場合、1枚引く。このカードでできる行動たまご：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 143,
+   "bandShare": 0.153,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 396,
+    "h": 594,
+    "visibleArea": 235224,
+    "viewportShare": 0.587
+   },
+   "onCard": {
+    "fontPx": 14.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.121,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.078
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "サングラスのカメレオンなかま通常時コスト 0レア · 同名1枚まで自分と相手の両方にセカイがある間、それらの名前が同じなら自分のメインのちえ+1、異なるなら自分のメインのちから+1。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 49,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 190,
+   "bandShare": 0.204,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 396,
+    "h": 594,
+    "visibleArea": 235224,
+    "viewportShare": 0.587
+   },
+   "onCard": {
+    "fontPx": 14.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代",
+     "note": "※ なかま③のまねっこサルと入れ替えます",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 52,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 221,
+   "bandShare": 0.237,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.078
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "おべんとうばこあいてむ通常時コスト 2通常 · 同名3枚までメイン・なかま・こいびとのいずれかにみにつける。1ターンに1回。自分のターン開始時、手札が2枚以下の場合、発動できる。1枚引く。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）配置先：準備①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）配置先：準備①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）配置先：準備①",
+     "note": "",
+     "h": 49,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）配置先：準備①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 232,
+   "bandShare": 0.249,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 391,
+    "h": 587,
+    "visibleArea": 229713,
+    "viewportShare": 0.573
+   },
+   "onCard": {
+    "fontPx": 13.9,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 52,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 52,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 243,
+   "bandShare": 0.261,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.078
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ヒット&ブローあそび通常時コスト 1通常 · 同名3枚まで発動時にカード種を1つ宣言する。山札上1枚を公開する。宣言した種類なら手札に加え、自分のそだち+5。違うなら山札下へ置き、1枚引く。行動を選択光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 175,
+   "bandShare": 0.188,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 396,
+    "h": 594,
+    "visibleArea": 235224,
+    "viewportShare": 0.587
+   },
+   "onCard": {
+    "fontPx": 14.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 48,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 141,
+   "bandShare": 0.151,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 144,
+    "h": 216,
+    "visibleArea": 31104,
+    "viewportShare": 0.078
+   },
+   "onCard": {
+    "fontPx": 5.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "はじめてのデートできごと通常時コスト 1通常 · 同名3枚まで自分のこいびと1枚を対象として発動できる。対象が自分のこいびと枠にいて、その交際段階が0の場合、1枚引き、自分のそだち+5。このカードでできる行動はじめてのデート：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 143,
+   "bandShare": 0.153,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 396,
+    "h": 594,
+    "visibleArea": 235224,
+    "viewportShare": 0.587
+   },
+   "onCard": {
+    "fontPx": 14.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 48,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 48,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 113,
+   "bandShare": 0.121,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 200,
+    "h": 300,
+    "visibleArea": 60000,
+    "viewportShare": 0.182
+   },
+   "onCard": {
+    "fontPx": 7.1,
+    "lines": 6,
+    "visibleLines": 6
+   },
+   "outsideText": "とかいセカイ通常時コスト 2通常 · 同名3枚まで1ターンに1回。自分がこのターンに、手札から通常のたんじょう・ときおくり・へんしん、なかま・こいびと・セカイの通常配置、またはアクションカードのプレイで出したカードの合計が2枚になった時、発動できる。山札上1枚を見て、山札の一番上か一番下に置く。このカード自身を出した場",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "とかいを山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.254,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "choice-long",
+  "card": "W-city",
+  "text": "長文 141字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 304,
+    "h": 456,
+    "visibleArea": 96368,
+    "viewportShare": 0.293
+   },
+   "onCard": {
+    "fontPx": 10.8,
+    "lines": 6,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "とかいを選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 49,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 442,
+    "h": 663,
+    "visibleArea": 140114,
+    "viewportShare": 0.426
+   },
+   "onCard": {
+    "fontPx": 15.7,
+    "lines": 6,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "とかいを選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 49,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 200,
+    "h": 300,
+    "visibleArea": 60000,
+    "viewportShare": 0.182
+   },
+   "onCard": {
+    "fontPx": 6.8,
+    "lines": 1,
+    "visibleLines": 1
+   },
+   "outsideText": "丸いあかちゃんメイン · ヒトデ · うみちから 2 · ちえ 2 · 通常時コスト 1通常 · 同名3枚まで能力なし。必須選択：このカードを選ぶたまご：手札から選び、山札の下へ戻す。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ヒトデ①を山札の下へ戻す",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 99,
+   "bandShare": 0.254,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "choice-short",
+  "card": "M-starfish-01",
+  "text": "短文 5字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 304,
+    "h": 456,
+    "visibleArea": 96368,
+    "viewportShare": 0.293
+   },
+   "onCard": {
+    "fontPx": 10.3,
+    "lines": 1,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ヒトデ①を選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 49,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 442,
+    "h": 663,
+    "visibleArea": 140114,
+    "viewportShare": 0.426
+   },
+   "onCard": {
+    "fontPx": 14.9,
+    "lines": 1,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ヒトデ①を選ぶ",
+     "note": "※ 山札の一番下へ戻します",
+     "h": 49,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 49,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 200,
+    "h": 300,
+    "visibleArea": 60000,
+    "viewportShare": 0.182
+   },
+   "onCard": {
+    "fontPx": 7.1,
+    "lines": 7,
+    "visibleLines": 7
+   },
+   "outsideText": "まねっこサルなかま通常時コスト 0通常 · 同名3枚まで1ターンに1回。自分のメインカードが能力を発動した時、その発動した能力1つを対象として発動できる。このターン、このカードは、その能力の発動時の本文をコピーする。対象の能力の発動や効果が後から無効になっても、その本文を参照する。コピーした能力の発動は別に行い、その条",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ配置先：なかま①",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 71,
+   "bandShare": 0.182,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "normal-long",
+  "card": "C-monkey",
+  "text": "長文 146字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 304,
+    "h": 456,
+    "visibleArea": 96368,
+    "viewportShare": 0.293
+   },
+   "onCard": {
+    "fontPx": 10.8,
+    "lines": 7,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ",
+     "note": "※ 配置先：なかま①",
+     "h": 47,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 47,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 442,
+    "h": 663,
+    "visibleArea": 140114,
+    "viewportShare": 0.426
+   },
+   "onCard": {
+    "fontPx": 15.7,
+    "lines": 7,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "まねっこサルをなかまへ",
+     "note": "※ 配置先：なかま①",
+     "h": 47,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 47,
+   "minGap": null,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 200,
+    "h": 300,
+    "visibleArea": 60000,
+    "viewportShare": 0.182
+   },
+   "onCard": {
+    "fontPx": 7.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ラッキーコインあいてむ通常時コスト 1通常 · 同名3枚まで山札上1枚を公開し、山札の一番下に置く。公開したカードがメインだった場合、自分のそだち+5。メイン以外だった場合、1枚引く。このカードでできる行動たまご：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 143,
+   "bandShare": 0.367,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "response",
+  "card": "I-c_coin2",
+  "text": "中 51字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 304,
+    "h": 456,
+    "visibleArea": 96368,
+    "viewportShare": 0.293
+   },
+   "onCard": {
+    "fontPx": 10.8,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 442,
+    "h": 663,
+    "visibleArea": 140114,
+    "viewportShare": 0.426
+   },
+   "onCard": {
+    "fontPx": 15.7,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "ラッキーコイン（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 200,
+    "h": 300,
+    "visibleArea": 60000,
+    "viewportShare": 0.182
+   },
+   "onCard": {
+    "fontPx": 7.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "サングラスのカメレオンなかま通常時コスト 0レア · 同名1枚まで自分と相手の両方にセカイがある間、それらの名前が同じなら自分のメインのちえ+1、異なるなら自分のメインのちから+1。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま①",
+     "note": "",
+     "h": 67,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代配置先：なかま②",
+     "note": "",
+     "h": 67,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代配置先：なかま③",
+     "note": "",
+     "h": 67,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 67,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 93,
+   "bandShare": 0.238,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "target",
+  "card": "C-chameleon",
+  "text": "中 61字",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 304,
+    "h": 456,
+    "visibleArea": 96368,
+    "viewportShare": 0.293
+   },
+   "onCard": {
+    "fontPx": 10.8,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代",
+     "note": "※ なかま③のまねっこサルと入れ替えます",
+     "h": 65,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 65,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 442,
+    "h": 663,
+    "visibleArea": 140114,
+    "viewportShare": 0.426
+   },
+   "onCard": {
+    "fontPx": 15.7,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／きまぐれなねこと交代",
+     "note": "※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tappable": true
+    },
+    {
+     "main": "サングラスのカメレオンを出す／まねっこサルと交代",
+     "note": "※ なかま③のまねっこサルと入れ替えます",
+     "h": 65,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 3,
+   "minButtonH": 65,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 200,
+    "h": 300,
+    "visibleArea": 60000,
+    "viewportShare": 0.182
+   },
+   "onCard": {
+    "fontPx": 7.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "おべんとうばこあいてむ通常時コスト 2通常 · 同名3枚までメイン・なかま・こいびとのいずれかにみにつける。1ターンに1回。自分のターン開始時、手札が2枚以下の場合、発動できる。1枚引く。行動を選択",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）配置先：準備①",
+     "note": "",
+     "h": 67,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）配置先：準備①",
+     "note": "",
+     "h": 67,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）配置先：準備①",
+     "note": "",
+     "h": 67,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）配置先：準備①",
+     "note": "",
+     "h": 67,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 67,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 168,
+   "bandShare": 0.431,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "many",
+  "card": "I-bowtie",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 304,
+    "h": 456,
+    "visibleArea": 96368,
+    "viewportShare": 0.293
+   },
+   "onCard": {
+    "fontPx": 10.8,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 47,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 47,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 65,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 47,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 47,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 442,
+    "h": 663,
+    "visibleArea": 140114,
+    "viewportShare": 0.426
+   },
+   "onCard": {
+    "fontPx": 15.7,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "おべんとうばこ → アリジゴク①（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 47,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → がけのヤギさん（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 47,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → サングラスのカメレオン（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 65,
+     "tappable": true
+    },
+    {
+     "main": "おべんとうばこ → きまぐれなねこ（時2）",
+     "note": "※ 配置先：準備①",
+     "h": 47,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 4,
+   "minButtonH": 47,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 200,
+    "h": 300,
+    "visibleArea": 60000,
+    "viewportShare": 0.182
+   },
+   "onCard": {
+    "fontPx": 7.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "ヒット&ブローあそび通常時コスト 1通常 · 同名3枚まで発動時にカード種を1つ宣言する。山札上1枚を公開する。宣言した種類なら手札に加え、自分のそだち+5。違うなら山札下へ置き、1枚引く。行動を選択光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 175,
+   "bandShare": 0.449,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "declare",
+  "card": "G-hit-blow",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 304,
+    "h": 456,
+    "visibleArea": 96368,
+    "viewportShare": 0.293
+   },
+   "onCard": {
+    "fontPx": 10.8,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 442,
+    "h": 663,
+    "visibleArea": 140114,
+    "viewportShare": 0.426
+   },
+   "onCard": {
+    "fontPx": 15.7,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 1,
+   "minButtonH": 44,
+   "minGap": null,
+   "declaration": true,
+   "declarationTappable": true,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "old",
+  "initial": {
+   "ui": "old",
+   "card": {
+    "w": 200,
+    "h": 300,
+    "visibleArea": 60000,
+    "viewportShare": 0.182
+   },
+   "onCard": {
+    "fontPx": 7.1,
+    "lines": 3,
+    "visibleLines": 3
+   },
+   "outsideText": "はじめてのデートできごと通常時コスト 1通常 · 同名3枚まで自分のこいびと1枚を対象として発動できる。対象が自分のこいびと枠にいて、その交際段階が0の場合、1枚引き、自分のそだち+5。このカードでできる行動はじめてのデート：光るカードで応答するか、パスしてください。",
+   "cardTextRepeatedOutside": true,
+   "ruleLink": true,
+   "guideBox": true,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 143,
+   "bandShare": 0.367,
+   "moreHint": false,
+   "scrollers": [],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "case": "chain",
+  "card": "E-first-date",
+  "text": "中",
+  "ui": "new",
+  "initial": {
+   "ui": "new",
+   "card": {
+    "w": 304,
+    "h": 456,
+    "visibleArea": 96368,
+    "viewportShare": 0.293
+   },
+   "onCard": {
+    "fontPx": 10.8,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "zoomed": {
+   "ui": "new",
+   "card": {
+    "w": 442,
+    "h": 663,
+    "visibleArea": 140114,
+    "viewportShare": 0.426
+   },
+   "onCard": {
+    "fontPx": 15.7,
+    "lines": 3,
+    "visibleLines": 0
+   },
+   "outsideText": "",
+   "cardTextRepeatedOutside": false,
+   "ruleLink": false,
+   "guideBox": false,
+   "buttons": [
+    {
+     "main": "はじめてのデート → がけのヤギさん（時1）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    },
+    {
+     "main": "応答しない（パス）",
+     "note": "",
+     "h": 44,
+     "tappable": true
+    }
+   ],
+   "buttonsTappable": 2,
+   "minButtonH": 44,
+   "minGap": 8,
+   "declaration": false,
+   "declarationTappable": null,
+   "bandH": 302,
+   "bandShare": 0.774,
+   "moreHint": false,
+   "scrollers": [
+    "stage-scroll"
+   ],
+   "closeTappable": true,
+   "overflowX": false
+  },
+  "errors": []
+ }
+]

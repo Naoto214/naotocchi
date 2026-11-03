@@ -1,0 +1,95 @@
+✔ stage 1: unsupported upper spike is not a foothold (2.006041ms)
+✔ stage 1: rock diagonal step and destination-only corner crossing (0.680124ms)
+✔ stage 1: unrelated side rock cannot grant diagonal air ascent (0.150071ms)
+✔ stage 1: airborne departure cannot ascend even onto a ledge (4.133232ms)
+✔ stage 2: unsupported upper spike is not a foothold (0.163181ms)
+✔ stage 2: rock diagonal step and destination-only corner crossing (0.165694ms)
+✔ stage 2: unrelated side rock cannot grant diagonal air ascent (0.130543ms)
+✔ stage 2: airborne departure cannot ascend even onto a ledge (0.104734ms)
+✔ stage 3: unsupported upper spike is not a foothold (0.158684ms)
+✔ stage 3: rock diagonal step and destination-only corner crossing (0.174969ms)
+✔ stage 3: unrelated side rock cannot grant diagonal air ascent (0.160287ms)
+✔ stage 3: airborne departure cannot ascend even onto a ledge (0.082872ms)
+✔ stage 4: unsupported upper spike is not a foothold (0.120158ms)
+✔ stage 4: rock diagonal step and destination-only corner crossing (0.108991ms)
+✔ stage 4: unrelated side rock cannot grant diagonal air ascent (0.056143ms)
+✔ stage 4: airborne departure cannot ascend even onto a ledge (0.046649ms)
+✔ stage 5: unsupported upper spike is not a foothold (0.112756ms)
+✔ stage 5: rock diagonal step and destination-only corner crossing (0.099627ms)
+✔ stage 5: unrelated side rock cannot grant diagonal air ascent (0.048302ms)
+✔ stage 5: airborne departure cannot ascend even onto a ledge (0.043004ms)
+✔ stage 6: unsupported upper spike is not a foothold (0.103734ms)
+✔ stage 6: rock diagonal step and destination-only corner crossing (0.118626ms)
+✔ stage 6: unrelated side rock cannot grant diagonal air ascent (0.053199ms)
+✔ stage 6: airborne departure cannot ascend even onto a ledge (0.04107ms)
+✔ stage 7: unsupported upper spike is not a foothold (0.06759ms)
+✔ stage 7: rock diagonal step and destination-only corner crossing (0.065356ms)
+✔ stage 7: unrelated side rock cannot grant diagonal air ascent (0.075131ms)
+✔ stage 7: airborne departure cannot ascend even onto a ledge (0.049523ms)
+✔ stage 8: unsupported upper spike is not a foothold (0.075732ms)
+✔ stage 8: rock diagonal step and destination-only corner crossing (0.097143ms)
+✔ stage 8: unrelated side rock cannot grant diagonal air ascent (0.074751ms)
+✔ stage 8: airborne departure cannot ascend even onto a ledge (0.077845ms)
+✔ spike occupant and fragments fall during same event (0.83324ms)
+✔ initial unsupported spike occupant falls without triggering a new entry (0.194927ms)
+✔ 8 on 1..7 is legal ascent followed by automatic merge/overflow; 8 on 8 stays (0.396135ms)
+✔ rule version cannot be injected or omitted in saved state (0.326442ms)
+✔ power 1: all-direction entry (0,-1) uses v2 calculation (0.31214ms)
+✔ power 1: all-direction entry (1,-1) uses v2 calculation (1.261242ms)
+✔ power 1: all-direction entry (1,0) uses v2 calculation (0.143572ms)
+✔ power 1: all-direction entry (1,1) uses v2 calculation (0.206275ms)
+✔ power 1: all-direction entry (0,1) uses v2 calculation (0.186285ms)
+✔ power 1: all-direction entry (-1,1) uses v2 calculation (0.307404ms)
+✔ power 1: all-direction entry (-1,0) uses v2 calculation (0.190861ms)
+✔ power 1: all-direction entry (-1,-1) uses v2 calculation (0.104635ms)
+✔ power 2: all-direction entry (0,-1) uses v2 calculation (0.127378ms)
+✔ power 2: all-direction entry (1,-1) uses v2 calculation (0.132746ms)
+✔ power 2: all-direction entry (1,0) uses v2 calculation (0.089552ms)
+✔ power 2: all-direction entry (1,1) uses v2 calculation (0.12166ms)
+✔ power 2: all-direction entry (0,1) uses v2 calculation (0.110663ms)
+✔ power 2: all-direction entry (-1,1) uses v2 calculation (0.089362ms)
+✔ power 2: all-direction entry (-1,0) uses v2 calculation (0.081701ms)
+✔ power 2: all-direction entry (-1,-1) uses v2 calculation (0.07488ms)
+✔ power 3: all-direction entry (0,-1) uses v2 calculation (0.077064ms)
+✔ power 3: all-direction entry (1,-1) uses v2 calculation (0.29164ms)
+✔ power 3: all-direction entry (1,0) uses v2 calculation (0.167297ms)
+✔ power 3: all-direction entry (1,1) uses v2 calculation (0.11523ms)
+✔ power 3: all-direction entry (0,1) uses v2 calculation (0.075131ms)
+✔ power 3: all-direction entry (-1,1) uses v2 calculation (0.071956ms)
+✔ power 3: all-direction entry (-1,0) uses v2 calculation (0.068421ms)
+✔ power 3: all-direction entry (-1,-1) uses v2 calculation (0.068161ms)
+✔ supported spike fires once while stationary, again after leaving and reentering (0.189089ms)
+✔ level 1 and blocked/partial split can pass legally (0.476243ms)
+✔ separate actors entering the same spike in one cascade each split (0.222138ms)
+✖ a closed exit physically blocks falling and provides the same ascent support (4.54463ms)
+ℹ tests 64
+ℹ suites 0
+ℹ pass 63
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 127.37505
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:53:1
+✖ a closed exit physically blocks falling and provides the same ascent support (4.54463ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.ok)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:55:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

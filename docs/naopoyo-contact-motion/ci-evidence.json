@@ -1,0 +1,84 @@
+{
+  "implementationCommit": "b09b1866c101ae97e4c2af2e86a6003a45bbf02d",
+  "implementationTree": "db2933918a33eae758c372f189f8d25cf4fba553",
+  "ciMergeCommit": "234b00c398117b14c05f6625b9637fd77af0211c",
+  "ciTreeMatchesImplementation": true,
+  "workflows": [
+    {
+      "id": 40916925328,
+      "name": "Naopoyo World Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/40916925328"
+    },
+    {
+      "id": 40916925791,
+      "name": "Naopoyo Chapter 1",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/40916925791"
+    },
+    {
+      "id": 40916925566,
+      "name": "Naopoyo Insight Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/40916925566"
+    },
+    {
+      "id": 40916925625,
+      "name": "Naopoyo Contact Experiment",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/40916925625"
+    },
+    {
+      "id": 40916925927,
+      "name": "Naopoyo Chapter 2 Pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/40916925927"
+    }
+  ],
+  "checks": [
+    {
+      "name": "puzzle",
+      "tests": 1484,
+      "pass": 1484,
+      "fail": 0,
+      "skipped": 0,
+      "jobId": 123599537712
+    },
+    {
+      "name": "card",
+      "tests": 494,
+      "pass": 494,
+      "fail": 0,
+      "skipped": 0,
+      "jobId": 123599538226
+    },
+    {
+      "name": "runtime",
+      "tests": 3504,
+      "pass": 3504,
+      "fail": 0,
+      "skipped": 0,
+      "groups": [
+        32,
+        24,
+        3289,
+        159
+      ],
+      "additional": "smoke, dialogue, visual-qa scripts completed in npm test",
+      "jobId": 123599538217
+    },
+    {
+      "name": "pages",
+      "tests": 16,
+      "pass": 16,
+      "fail": 0,
+      "jobId": 123599536284
+    }
+  ],
+  "note": "Final documentation-only delivery commit does not alter tested product, tests, workflows or deployed files."
+}

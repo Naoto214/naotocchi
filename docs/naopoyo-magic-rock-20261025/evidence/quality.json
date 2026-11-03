@@ -1,0 +1,68 @@
+[
+  {
+    "number": 19,
+    "name": "no-split",
+    "status": "exhausted",
+    "visited": 56,
+    "expanded": 56,
+    "edges": 216,
+    "shortestProven": false,
+    "elapsedMs": 26,
+    "method": "bfs"
+  },
+  {
+    "number": 19,
+    "name": "no-merge",
+    "status": "exhausted",
+    "visited": 5632,
+    "expanded": 5632,
+    "edges": 33661,
+    "shortestProven": false,
+    "elapsedMs": 2811,
+    "method": "bfs"
+  },
+  {
+    "number": 19,
+    "name": "no-overflow",
+    "status": "limit",
+    "visited": 16239,
+    "expanded": 8381,
+    "edges": 102564,
+    "shortestProven": false,
+    "elapsedMs": 5007,
+    "method": "bfs"
+  },
+  {
+    "number": 20,
+    "name": "no-split",
+    "status": "exhausted",
+    "visited": 80,
+    "expanded": 80,
+    "edges": 445,
+    "shortestProven": false,
+    "elapsedMs": 19,
+    "method": "bfs"
+  },
+  {
+    "number": 20,
+    "name": "no-merge",
+    "status": "exhausted",
+    "visited": 1,
+    "expanded": 1,
+    "edges": 0,
+    "shortestProven": false,
+    "elapsedMs": 19,
+    "method": "bfs"
+  },
+  {
+    "number": 20,
+    "name": "no-overflow",
+    "status": "exhausted",
+    "visited": 1,
+    "expanded": 1,
+    "edges": 0,
+    "shortestProven": false,
+    "elapsedMs": 0,
+    "method": "bfs"
+  }
+]

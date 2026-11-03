@@ -1,0 +1,42 @@
+{
+ "saves": {
+  "main_only": [],
+  "branch_only": [],
+  "common": 11,
+  "identical": 9,
+  "different": [
+   "frogger-hotseat5-saves.json:/rows/0",
+   "frogger-hotseat5-saves.json:/rows/1"
+  ],
+  "fields_identical": {
+   "save": 11,
+   "state": 9,
+   "stateNoMeta": 11,
+   "version": 11
+  }
+ },
+ "games": {
+  "main_only": [],
+  "branch_only": [],
+  "common": 24,
+  "identical": 18,
+  "different": [
+   "hotseat-5/beginner/1",
+   "hotseat-5/beginner/2",
+   "hotseat-5/beginner/3",
+   "hotseat-5/intermediate/1",
+   "hotseat-5/intermediate/2",
+   "hotseat-5/intermediate/3"
+  ],
+  "fields_identical": {
+   "commands": 24,
+   "phase": 24,
+   "restoredEqual": 24,
+   "selfTargets": 24,
+   "state": 18,
+   "stateNoMeta": 24
+  }
+ },
+ "games_self_target_total": 30,
+ "games_finished_and_restore_equal": true
+}

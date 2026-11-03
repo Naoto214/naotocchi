@@ -1,0 +1,198 @@
+✖ all seven persistent stages exist exactly once with three hints (3.615546ms)
+✖ 13→20 unlocks survive reload/retry and QA never changes normal records (0.829494ms)
+✖ 14 real session pointer steps, save/undo/retry and all-rescued witness (0.258672ms)
+✖ 15 real session pointer steps, save/undo/retry and all-rescued witness (0.168709ms)
+✖ 16 real session pointer steps, save/undo/retry and all-rescued witness (0.104865ms)
+✖ 17 real session pointer steps, save/undo/retry and all-rescued witness (0.097113ms)
+✖ 18 real session pointer steps, save/undo/retry and all-rescued witness (0.109882ms)
+✖ 19 real session pointer steps, save/undo/retry and all-rescued witness (0.075892ms)
+✖ 20 real session pointer steps, save/undo/retry and all-rescued witness (0.146887ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 0
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 97.876072
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:6:1
+✖ all seven persistent stages exist exactly once with three hints (3.615546ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   14,
+  -   15,
+  -   16,
+  -   17,
+  -   18,
+  -   19,
+  -   20
+  - ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:6:84)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [
+      14, 15, 16, 17,
+      18, 19, 20
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:7:1
+✖ 13→20 unlocks survive reload/retry and QA never changes normal records (0.829494ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 10
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:8:135)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 10,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:11:39
+✖ 14 real session pointer steps, save/undo/retry and all-rescued witness (0.258672ms)
+  AssertionError [ERR_ASSERTION]: stage 14 exists
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:12:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:11:39
+✖ 15 real session pointer steps, save/undo/retry and all-rescued witness (0.168709ms)
+  AssertionError [ERR_ASSERTION]: stage 15 exists
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:12:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:11:39
+✖ 16 real session pointer steps, save/undo/retry and all-rescued witness (0.104865ms)
+  AssertionError [ERR_ASSERTION]: stage 16 exists
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:12:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:11:39
+✖ 17 real session pointer steps, save/undo/retry and all-rescued witness (0.097113ms)
+  AssertionError [ERR_ASSERTION]: stage 17 exists
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:12:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:11:39
+✖ 18 real session pointer steps, save/undo/retry and all-rescued witness (0.109882ms)
+  AssertionError [ERR_ASSERTION]: stage 18 exists
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:12:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:11:39
+✖ 19 real session pointer steps, save/undo/retry and all-rescued witness (0.075892ms)
+  AssertionError [ERR_ASSERTION]: stage 19 exists
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:12:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/expansion.test.mjs:11:39
+✖ 20 real session pointer steps, save/undo/retry and all-rescued witness (0.146887ms)
+  AssertionError [ERR_ASSERTION]: stage 20 exists
+      at TestContext.<anonymous> (file:///workspace/scratch/af98b6e9e445/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:12:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

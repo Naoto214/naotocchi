@@ -1,0 +1,16 @@
+{
+  "main": "0b3bb1fe77f7b9829e94f2284ce2b56eb3fe1e0e",
+  "implementation": "73e358df74d70a805682c5e4538233e6f61c7929",
+  "virtualTree": "91aa7b85eb479b213397d3063af9fba4377340ad",
+  "refChanged": false,
+  "conflicts": 0,
+  "protectedPathDifferences": [],
+  "note": "git merge-tree only; no merge commit/ref/deployment. Not a runtime test of integration.",
+  "allowlistCombinedHashes": {
+    "games.js": true,
+    "index.html": true,
+    "quick.js": true,
+    "style.css": true,
+    "prototypes/naopoyo-v2/engine.mjs": true
+  }
+}

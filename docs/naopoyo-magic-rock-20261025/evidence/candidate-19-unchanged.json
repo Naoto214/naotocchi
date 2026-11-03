@@ -1,0 +1,166 @@
+{
+  "name": "unchanged",
+  "stage": {
+    "id": "komorebi-reverse-stars",
+    "w": 8,
+    "h": 8,
+    "gravity": true,
+    "walls": [
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        7,
+        6
+      ]
+    ],
+    "gates": [
+      {
+        "x": 2,
+        "y": 7,
+        "exact": 8
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "exact": 8
+      }
+    ],
+    "exits": [
+      {
+        "x": 5,
+        "y": 5,
+        "exact": 3
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "exact": 5
+      }
+    ],
+    "spikes": [
+      {
+        "x": 3,
+        "y": 6,
+        "power": 3
+      }
+    ],
+    "water": [],
+    "guests": [],
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 0,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "number": 19,
+    "title": "19 星から逆算",
+    "revision": 4,
+    "theme": "forest",
+    "showSpecies": false,
+    "difficulty": 7,
+    "discovery": "3と5の出口から必要な組み合わせを逆算し、8の魔法岩が小さい仲間を止める性質を足場として使う。",
+    "lesson": "行き止まりに見える場所が、支えになる。",
+    "story": "右の星は高い。足もとには、8しか通れない魔法岩があった。",
+    "ending": "帰り道を決めてから、支える場所を選んだ。",
+    "hints": [
+      "8の魔法岩は、5を通さない。上から落ちる5もそこで止まれる。",
+      "全員で16。3を二回、5を二回帰す形を考えよう。5を魔法岩の上へ上げる横の支えを残して。",
+      "二つの8を中央へ。トゲを右下側から使い、3の材料と5を分けて置こう。"
+    ],
+    "hint": "8の魔法岩は、5を通さない。上から落ちる5もそこで止まれる。",
+    "gravityRules": "supported-v1",
+    "movementRules": "contact-v1",
+    "terrainRules": "magic-rock-v1"
+  },
+  "result": {
+    "status": "limit",
+    "parts": [
+      {
+        "at": 10,
+        "status": "solved",
+        "visited": 5822,
+        "expanded": 4628,
+        "edges": 34376,
+        "depth": 17,
+        "shortestProven": false,
+        "elapsedMs": 2224,
+        "method": "greedy"
+      },
+      {
+        "at": 12,
+        "status": "solved",
+        "visited": 20339,
+        "expanded": 15699,
+        "edges": 121807,
+        "depth": 34,
+        "shortestProven": false,
+        "elapsedMs": 5109,
+        "method": "greedy"
+      },
+      {
+        "at": 23,
+        "status": "solved",
+        "visited": 2182,
+        "expanded": 2109,
+        "edges": 15451,
+        "depth": 9,
+        "shortestProven": false,
+        "elapsedMs": 497,
+        "method": "greedy"
+      },
+      {
+        "at": 29,
+        "status": "solved",
+        "visited": 156,
+        "expanded": 131,
+        "edges": 646,
+        "depth": 16,
+        "shortestProven": false,
+        "elapsedMs": 41,
+        "method": "greedy"
+      },
+      {
+        "at": 37,
+        "status": "solved",
+        "visited": 447,
+        "expanded": 413,
+        "edges": 2456,
+        "depth": 20,
+        "shortestProven": false,
+        "elapsedMs": 54,
+        "method": "greedy"
+      },
+      {
+        "at": 40,
+        "status": "exhausted",
+        "visited": 3,
+        "expanded": 3,
+        "edges": 4,
+        "shortestProven": false,
+        "elapsedMs": 0,
+        "method": "greedy"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+.trial-panel{margin:0 0 16px;padding:12px;border:1px solid #7a6431;border-radius:10px;background:#1d1a14;color:#f3ead6;font-size:14px;line-height:1.5}
+.trial-panel h2{margin:0 0 6px;font-size:17px;color:#e4c780}
+.trial-panel h3{margin:12px 0 6px;font-size:15px;color:#e4c780}
+.trial-panel ol{margin:4px 0 0;padding-left:1.3em}
+.trial-scenarios>div{display:grid;grid-template-columns:1fr;gap:6px;padding:8px 0;border-top:1px solid #3b3326}
+.trial-scenarios .row{display:flex;gap:8px;flex-wrap:wrap}
+.trial-scenarios button{min-height:44px;padding:6px 10px;border-radius:8px;border:1px solid #b8963f;background:#2b2418;color:#f3ead6;font-size:14px}
+.trial-scenarios small{color:#c9bc9c}
+.trial-badge{position:fixed;left:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:50;max-width:calc(100vw - 16px);padding:6px 10px;border-radius:8px;background:rgba(20,17,12,.92);border:1px solid #b8963f;color:#f3ead6;font-size:12px;line-height:1.4;pointer-events:none}
+.trial-badge[hidden]{display:none}

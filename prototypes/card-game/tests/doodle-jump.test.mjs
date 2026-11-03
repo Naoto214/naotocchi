@@ -63,8 +63,9 @@ test('他のときおくり関連カード（しばいぬ）は変わらない',
  assert.ok(s.phase==='trigger'&&s.pending.some(r=>s.cards[r.source].cardId==='C-shiba'),'しばいぬの誘発');
 });
 
-test('新規対戦は hotseat-4、旧版（hotseat-2・hotseat-3）を指定した対戦は旧効果のまま',()=>{
- assert.equal(e.VERSION,'hotseat-4');assert.deepEqual([...e.RULE_VERSIONS],['hotseat-2','hotseat-3','hotseat-4']);assert.ok(e.RULE_VERSIONS.includes(e.VERSION));
+// hotseat-5・6（たこやきやさん・かえるのおうちがえりの対象修正）以降も、ぴょんぴょんジャンプは改善案Bのまま（hotseat-4 以降に含まれる）。
+test('新規対戦は最新の版（hotseat-4 以降）、旧版（hotseat-2・hotseat-3）を指定した対戦は旧効果のまま',()=>{
+ assert.equal(e.VERSION,e.RULE_VERSIONS.at(-1));assert.deepEqual([...e.RULE_VERSIONS].slice(0,3),['hotseat-2','hotseat-3','hotseat-4']);assert.ok(e.RULE_VERSIONS.includes(e.VERSION));
  assert.equal(e.createGame(1).version,e.VERSION);
  for(const version of ['hotseat-2','hotseat-3']){let {s,targets:[two,three]}=setup(version,{to:['M-dog-02','M-dog-03']});s=playDJ(s);
   const g0=s.players.A.growth,h0=s.players.A.hand.length;s=skipTo(s,two);
@@ -121,7 +122,9 @@ test('CPU：予約中は1段階だけのときおくりに+5の価値を見込�
 
 // --- 正式カタログの保護 ---
 test('カタログ：変わったのはぴょんぴょんジャンプの本文と、同じ設計正本（85）の出典hashだけ',()=>{
- const norm=c=>{const x={...c};delete x.source_sha256;if(x.id==='G-doodle-jump')delete x.text;return x;};
+ // 478（ルナランダー・サブマリン3Dの本文明確化、処理は不変）はこの固定hashより後なので、旧本文へ戻して照合する。
+ const before478={'G-lunar-lander':'自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。','G-submarine-3d':'発動時に0・1・2から数を1つ選び、時コストをその数だけ増やす。山札の上から、3に選んだ数の2倍を足した枚数を見る。その中から1枚までを手札に加え、残りを好きな順で山札の一番下に置く。'};
+ const norm=c=>{const x={...c};delete x.source_sha256;if(x.id==='G-doodle-jump')delete x.text;if(before478[x.id])x.text=before478[x.id];return x;};
  const dig=createHash('sha256').update(JSON.stringify(Object.keys(CATALOG).sort().map(k=>norm(CATALOG[k])))).digest('hex');
  assert.equal(Object.keys(CATALOG).length,452);
  assert.equal(dig,'8b5081a639cb6ac36308cb1251a585fb8a95c34b9abaeb65790568415c4ceec2','main 518037d6（PR #449 統合後）と同じ（本文1件と出典hashを除く）');

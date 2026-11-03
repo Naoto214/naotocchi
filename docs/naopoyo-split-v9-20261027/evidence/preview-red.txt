@@ -1,0 +1,173 @@
+✖ one-step prediction shows settled body and children without mutating its source (1.578529ms)
+✖ illegal moves, non-splitting moves and level-one spike passage have no preview (0.213112ms)
+✖ slow approach previews BEFORE committing and cancel removes all transient state (6.520941ms)
+✖ retry, restore, actor switch and invalid pointer clear predictions (0.725474ms)
+✖ fast continuous drag remains identical with preview calculations enabled (4.246302ms)
+✖ relative drag after gravity previews from the logical actor, not the pointer row (0.651031ms)
+✖ all shipped witness split/merge/overflow/rescue/gate outcomes use exact engine results (0.78922ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 98.601561
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:7:1
+✖ one-step prediction shows settled body and children without mutating its source (1.578529ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at simulate (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:6:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:8:61)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:14:1
+✖ illegal moves, non-splitting moves and level-one spike passage have no preview (0.213112ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at simulate (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:6:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:15:46)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:19:1
+✖ slow approach previews BEFORE committing and cancel removes all transient state (6.520941ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(q.preview)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:21:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:26:1
+✖ retry, restore, actor switch and invalid pointer clear predictions (0.725474ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(q.preview)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:27:98)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:32:1
+✖ fast continuous drag remains identical with preview calculations enabled (4.246302ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - null
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:34:125)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:36:1
+✖ relative drag after gravity previews from the logical actor, not the pointer row (0.651031ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(q.preview)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:38:34)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:40:1
+✖ all shipped witness split/merge/overflow/rescue/gate outcomes use exact engine results (0.78922ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at simulate (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:6:35)
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:43:159)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

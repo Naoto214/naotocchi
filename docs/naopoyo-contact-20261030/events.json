@@ -1,0 +1,7127 @@
+{
+  "scope": "Current rules only; no physics or shipped assets changed",
+  "screenshot": {
+    "coordinates": "zero based",
+    "source": "IMG_7149.png",
+    "ids": "synthetic labels; user save and exact move history unavailable",
+    "board": {
+      "id": "komorebi-forest-trial",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 4
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 3,
+          "exact": 7
+        },
+        {
+          "x": 7,
+          "y": 7,
+          "exact": 3
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "power": 2
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "four",
+          "x": 5,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 6,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 7,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 7,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "number": 20,
+      "title": "20 森の結び目",
+      "revision": 6,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 8,
+      "discovery": "二つの8で魔法岩を越え、片方を足場にもう片方を分ける。上の作業場で7を組み、足場役も3ずつ回収する。",
+      "lesson": "支える場所も、分かれる順番も、きみたちで。",
+      "story": "ふくろうが、枝の上から静かに見ていた。「通れる大きさと、帰れる大きさは違うよ」",
+      "ending": "最後の光が星へ届くと、枝の向こうに水のきらめきが見えた。——第2章 おわり——",
+      "hints": [
+        "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+        "下の魔法岩の先では、もう一人を足場にしてトゲへ登ろう。7の材料と、支える仲間を同時に残したい。",
+        "3の魔法岩の向こうの作業場で7を作ろう。7は左上の岩を回って星へ。下に残った仲間は3ずつ帰そう。"
+      ],
+      "hint": "全部で16。上の星は7、下の星は3。帰す組み合わせから考えよう。",
+      "narrator": {
+        "id": "owl",
+        "name": "ものしりふくろう",
+        "asset": "assets/characters/companions/owl.png"
+      },
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1",
+      "terrainRules": "magic-gate-v2",
+      "splitRules": "recombine-once-v1"
+    }
+  },
+  "traces": [
+    {
+      "label": "screenshot/original/four",
+      "initialSettlement": [],
+      "selected": {
+        "id": "four",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "eight",
+        "x": 6,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 5,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 6,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 7,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 7,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 6,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 5,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 7,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 7,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 6,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 6,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "four",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "screenshot/original/eight",
+      "initialSettlement": [],
+      "selected": {
+        "id": "eight",
+        "x": 6,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "four",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 5,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 6,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 7,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 7,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 6,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 5,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 7,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 7,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 5,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 5,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "eight",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "screenshot/mirror/four",
+      "initialSettlement": [],
+      "selected": {
+        "id": "four",
+        "x": 2,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "eight",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 0,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 0,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 0,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 0,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "four",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "screenshot/mirror/eight",
+      "initialSettlement": [],
+      "selected": {
+        "id": "eight",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "four",
+        "x": 2,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 0,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 0,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 1,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 0,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        {
+          "id": "upper",
+          "x": 0,
+          "y": 4,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "eight",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "floor/four",
+      "initialSettlement": [],
+      "selected": {
+        "id": "four",
+        "x": 3,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "eight",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "four",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "floor/eight",
+      "initialSettlement": [],
+      "selected": {
+        "id": "eight",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "four",
+        "x": 3,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "eight",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "rock/four",
+      "initialSettlement": [],
+      "selected": {
+        "id": "four",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "eight",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "four",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "rock/eight",
+      "initialSettlement": [],
+      "selected": {
+        "id": "eight",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "four",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "eight",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gate/four",
+      "initialSettlement": [],
+      "selected": {
+        "id": "four",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "eight",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "four",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gate/eight",
+      "initialSettlement": [],
+      "selected": {
+        "id": "eight",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "four",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "eight",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "spike/four",
+      "initialSettlement": [],
+      "selected": {
+        "id": "four",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "eight",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "four",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "spike/eight",
+      "initialSettlement": [],
+      "selected": {
+        "id": "eight",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "four",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "eight",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "exit/four",
+      "initialSettlement": [],
+      "selected": {
+        "id": "four",
+        "x": 3,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "eight",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "four",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "exit/eight",
+      "initialSettlement": [],
+      "selected": {
+        "id": "eight",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "four",
+        "x": 3,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "eight",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "neighbor/four",
+      "initialSettlement": [],
+      "selected": {
+        "id": "four",
+        "x": 3,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "eight",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 5,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 5,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 14,
+      "massAfter": 14,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "four",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "neighbor/eight",
+      "initialSettlement": [],
+      "selected": {
+        "id": "eight",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "four",
+        "x": 3,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "four",
+          "x": 3,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 4,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 5,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "four",
+          "x": 4,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "two",
+          "x": 5,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 14,
+      "massAfter": 14,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "eight",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "eight",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-dog/0,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 2,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-4-dog/0,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 2,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 2,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/6-6-dog/0,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 2,
+        "level": 6,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 2,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-8-dog/0,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 2,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 2
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 2
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-fish/0,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 2,
+        "level": 8,
+        "species": "fish"
+      },
+      "direction": [
+        0,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 2,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 2,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 2
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 2
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-dog/1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 2,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-4-dog/1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 2,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 2,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/6-6-dog/1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 2,
+        "level": 6,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 2,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-8-dog/1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 2,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 2
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 2
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-fish/1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 2,
+        "level": 8,
+        "species": "fish"
+      },
+      "direction": [
+        1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 2,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 2,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 2
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 2
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-dog/1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-4-dog/1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/6-6-dog/1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-8-dog/1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 3
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 3
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-fish/1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 3,
+        "level": 8,
+        "species": "fish"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 3
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 3
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-dog/1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-4-dog/1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/6-6-dog/1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 4,
+        "level": 6,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 4,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-8-dog/1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 4
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 4
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-fish/1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "fish"
+      },
+      "direction": [
+        1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 4
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 4,
+            "y": 4
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-dog/0,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-4-dog/0,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/6-6-dog/0,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 4,
+        "level": 6,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-8-dog/0,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 4
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 4
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-fish/0,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "fish"
+      },
+      "direction": [
+        0,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 4
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 4
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-dog/-1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-4-dog/-1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/6-6-dog/-1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 4,
+        "level": 6,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 4,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-8-dog/-1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 4
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 4
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-fish/-1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 4,
+        "level": 8,
+        "species": "fish"
+      },
+      "direction": [
+        -1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 4
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 4
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-dog/-1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-4-dog/-1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/6-6-dog/-1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-8-dog/-1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 3
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 3
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-fish/-1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 3,
+        "level": 8,
+        "species": "fish"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 3
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 3
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-dog/-1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 2,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-4-dog/-1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 2,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 2,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/6-6-dog/-1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 6,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 2,
+        "level": 6,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 2,
+          "level": 6,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/8-8-dog/-1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 2,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 16,
+      "massAfter": 16,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 2
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 2
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "no-gravity/4-8-fish/-1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 2,
+        "level": 8,
+        "species": "fish"
+      },
+      "direction": [
+        -1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 2,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 2,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 8,
+          "species": "fish"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 2
+          }
+        }
+      ],
+      "merge": [],
+      "overflow": [],
+      "swap": [
+        {
+          "type": "swap",
+          "id": "a",
+          "otherId": "b",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 2
+          }
+        }
+      ],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/4-8/0,-1",
+      "initialSettlement": [
+        {
+          "type": "merge",
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": true,
+          "absorbed": []
+        },
+        {
+          "type": "fall",
+          "id": "b",
+          "from": 3,
+          "to": 4,
+          "x": 3
+        }
+      ],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": null,
+      "direction": [
+        0,
+        -1
+      ],
+      "legal": false,
+      "reason": "foothold",
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 0,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [],
+      "merge": [],
+      "overflow": [],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/8-4/0,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        -1
+      ],
+      "legal": false,
+      "reason": "foothold",
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 0,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [],
+      "merge": [],
+      "overflow": [],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/4-8/1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/8-4/1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/4-8/1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/8-4/1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/4-8/1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 5,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/8-4/1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 4,
+        "y": 5,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 5,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 4,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 4,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/4-8/0,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 3,
+        "y": 5,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        0,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/8-4/0,1",
+      "initialSettlement": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 3,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": true,
+          "absorbed": []
+        },
+        {
+          "type": "fall",
+          "id": "a",
+          "from": 4,
+          "to": 5,
+          "x": 3
+        }
+      ],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 5,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": null,
+      "direction": [
+        0,
+        1
+      ],
+      "legal": false,
+      "reason": "wall",
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 0,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [],
+      "merge": [],
+      "overflow": [],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/4-8/-1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 5,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/8-4/-1,1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 5,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 5,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 5,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/4-8/-1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/8-4/-1,0",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        0
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 4,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/4-8/-1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 4,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 3,
+        "level": 8,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    },
+    {
+      "label": "gravity/8-4/-1,-1",
+      "initialSettlement": [],
+      "selected": {
+        "id": "a",
+        "x": 3,
+        "y": 4,
+        "level": 8,
+        "species": "dog"
+      },
+      "target": {
+        "id": "b",
+        "x": 2,
+        "y": 3,
+        "level": 4,
+        "species": "dog"
+      },
+      "direction": [
+        -1,
+        -1
+      ],
+      "legal": true,
+      "reason": null,
+      "before": [
+        {
+          "id": "a",
+          "x": 3,
+          "y": 4,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 2,
+          "y": 3,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 3,
+          "y": 4,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "movesBefore": 0,
+      "movesAfter": 1,
+      "massBefore": 12,
+      "massAfter": 12,
+      "valid": true,
+      "events": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "merge": [
+        {
+          "type": "merge",
+          "id": "a",
+          "x": 2,
+          "y": 3,
+          "level": 8,
+          "overflow": 4,
+          "fall": false,
+          "absorbed": []
+        }
+      ],
+      "overflow": [
+        {
+          "id": "a",
+          "level": 8,
+          "remainder": 4
+        }
+      ],
+      "swap": [],
+      "gravity": [],
+      "split": []
+    }
+  ],
+  "examples": [
+    {
+      "stage": 11,
+      "moves": 5,
+      "rescued": 3,
+      "remaining": 0
+    },
+    {
+      "stage": 12,
+      "moves": 5,
+      "rescued": 10,
+      "remaining": 0
+    },
+    {
+      "stage": 13,
+      "moves": 10,
+      "rescued": 12,
+      "remaining": 0
+    },
+    {
+      "stage": 14,
+      "moves": 11,
+      "rescued": 12,
+      "remaining": 0
+    },
+    {
+      "stage": 15,
+      "moves": 23,
+      "rescued": 12,
+      "remaining": 0
+    },
+    {
+      "stage": 16,
+      "moves": 70,
+      "rescued": 13,
+      "remaining": 0
+    },
+    {
+      "stage": 17,
+      "moves": 26,
+      "rescued": 11,
+      "remaining": 0
+    },
+    {
+      "stage": 18,
+      "moves": 19,
+      "rescued": 16,
+      "remaining": 0
+    },
+    {
+      "stage": 19,
+      "moves": 91,
+      "rescued": 16,
+      "remaining": 0
+    },
+    {
+      "stage": 20,
+      "moves": 156,
+      "rescued": 16,
+      "remaining": 0
+    }
+  ]
+}

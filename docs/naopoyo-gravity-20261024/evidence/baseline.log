@@ -1,0 +1,46 @@
+✔ all seven persistent stages exist exactly once with three hints (1.9985ms)
+✔ 13→20 unlocks survive reload/retry and QA never changes normal records (14.19608ms)
+✔ 14 real session pointer steps, save/undo/retry and all-rescued witness (16.733525ms)
+✔ 15 real session pointer steps, save/undo/retry and all-rescued witness (25.454696ms)
+✔ 16 real session pointer steps, save/undo/retry and all-rescued witness (24.320567ms)
+✔ 17 real session pointer steps, save/undo/retry and all-rescued witness (20.060865ms)
+✔ 18 real session pointer steps, save/undo/retry and all-rescued witness (59.3515ms)
+✔ 19 real session pointer steps, save/undo/retry and all-rescued witness (49.716245ms)
+✔ 20 real session pointer steps, save/undo/retry and all-rescued witness (56.213539ms)
+✔ 20 held drag survives fall, overflow and gate entry; one Undo restores entire gesture (0.912938ms)
+✔ 20 selected candidate factory preserves the audited geometry (2.213056ms)
+✔ normal chapter 10 → 11 → 12 → 13 and replay never relocks (9.610873ms)
+✔ read-only chapter-one completion seeds trial; all writes are isolated (2.381234ms)
+✔ QA unlocks only 11–20 and never modifies normal progress (1.49064ms)
+✔ unknown future save is preserved and corruption backup stays in pilot namespace (0.337248ms)
+✔ future board slot and outer board copy survive normal autosave (0.588168ms)
+✔ damaged board slot is preserved before writing a replacement (0.553136ms)
+✔ completed old Pilot unlocks new 14 from whole-save without replaying 13 (0.740102ms)
+✔ completed old Pilot unlocks new 14 from append-only-marker without replaying 13 (0.592073ms)
+✔ uncleared final Pilot stage does not unlock 14 (0.486027ms)
+✔ compact BFS equals reference: komorebi-fall (21.328471ms)
+✔ compact BFS equals reference: komorebi-support (12.798948ms)
+✔ compact BFS equals reference: komorebi-last-friend (20.559712ms)
+✔ caps are explicitly unproven (3.383163ms)
+✔ identity renaming preserves successors including spike families and overflow (2.268959ms)
+✔ custom heuristic and intermediate goal do not acquire a full-puzzle shortest claim (0.389284ms)
+✔ initial gravity runs before touch, retry and restore remain stable (2.693665ms)
+✔ falling drag keeps its active ID, Undo restores start and motion clears (1.264016ms)
+✔ fast and slow drag commit identical gravity states (1.862849ms)
+✔ overflow remainder moves back smoothly instead of overlapping the 8 (0.925245ms)
+✔ komorebi-fall: stable initial board and real-engine all-rescued witness (16.330841ms)
+✔ komorebi-support: stable initial board and real-engine all-rescued witness (6.082456ms)
+✔ komorebi-last-friend: stable initial board and real-engine all-rescued witness (15.719439ms)
+✔ 11 cannot finish without a gravity event (3.200263ms)
+✔ 12 cannot finish without using a companion as a vertical support (4.457048ms)
+✔ 13 cannot finish without using a companion as a vertical support (4.304222ms)
+✔ 13 cannot rescue the 8 before the 4: exhaustive state graph (13.359796ms)
+✔ solver reports capped exploration as unproven (0.577382ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 400.373591

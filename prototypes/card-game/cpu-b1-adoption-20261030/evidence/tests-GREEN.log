@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: 方針の版：現在は heuristic-2、既知の版は heuristic-1 と heuristic-2
+ok 1 - 方針の版：現在は heuristic-2、既知の版は heuristic-1 と heuristic-2
+  ---
+  duration_ms: 4.069141
+  type: 'test'
+  ...
+# Subtest: 新しいCPU対戦は heuristic-2 で保存される
+ok 2 - 新しいCPU対戦は heuristic-2 で保存される
+  ---
+  duration_ms: 5.368894
+  type: 'test'
+  ...
+# Subtest: heuristic-1 の途中保存は再開でき、続きも heuristic-1 で指す（再保存しても heuristic-1）
+ok 3 - heuristic-1 の途中保存は再開でき、続きも heuristic-1 で指す（再保存しても heuristic-1）
+  ---
+  duration_ms: 41823.267215
+  type: 'test'
+  ...
+# Subtest: 未知の方針の版は従来どおり拒否する
+ok 4 - 未知の方針の版は従来どおり拒否する
+  ---
+  duration_ms: 0.904395
+  type: 'test'
+  ...
+# Subtest: heuristic-1 のCPU同士の対戦は、実装前の main の保存と完全に一致する
+ok 5 - heuristic-1 のCPU同士の対戦は、実装前の main の保存と完全に一致する
+  ---
+  duration_ms: 10272.769811
+  type: 'test'
+  ...
+# Subtest: heuristic-2：初級だけの対戦は heuristic-1 と同一、中級を含む対戦も完走する
+ok 6 - heuristic-2：初級だけの対戦は heuristic-1 と同一、中級を含む対戦も完走する
+  ---
+  duration_ms: 10156.847411
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・ちからの勝負 では勝負の種目の能力値を選ぶ
+ok 7 - 中級 heuristic-2：スキージャンプ・ちからの勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 299.143372
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・ちえの勝負 では勝負の種目の能力値を選ぶ
+ok 8 - 中級 heuristic-2：スキージャンプ・ちえの勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 155.842497
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・同点（勝敗が変わる） では勝負の種目の能力値を選ぶ
+ok 9 - 中級 heuristic-2：スキージャンプ・同点（勝敗が変わる） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 167.033121
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・大差（勝敗が変わらない） では勝負の種目の能力値を選ぶ
+ok 10 - 中級 heuristic-2：スキージャンプ・大差（勝敗が変わらない） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 57.610405
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・相手のちからの勝負（連鎖中） では勝負の種目の能力値を選ぶ
+ok 11 - 中級 heuristic-2：かくとうバトル・相手のちからの勝負（連鎖中） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 652.641101
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・相手のちえの勝負（連鎖2段） では勝負の種目の能力値を選ぶ
+ok 12 - 中級 heuristic-2：かくとうバトル・相手のちえの勝負（連鎖2段） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 80.524033
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・同点（連鎖中） では勝負の種目の能力値を選ぶ
+ok 13 - 中級 heuristic-2：かくとうバトル・同点（連鎖中） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 27.913534
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・自分の勝負 では勝負の種目の能力値を選ぶ
+ok 14 - 中級 heuristic-2：かくとうバトル・自分の勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 90.778678
+  type: 'test'
+  ...
+# Subtest: heuristic-1（旧保存の続き）と初級は、実装前の main と同じ選択（全局面・20 seed）
+ok 15 - heuristic-1（旧保存の続き）と初級は、実装前の main と同じ選択（全局面・20 seed）
+  ---
+  duration_ms: 1620.065207
+  type: 'test'
+  ...
+# Subtest: 選択肢のない能力値カード（ビーチバレー）の評価は変えない（あそびずきカワウソの誘発など別の理由を残す）
+ok 16 - 選択肢のない能力値カード（ビーチバレー）の評価は変えない（あそびずきカワウソの誘発など別の理由を残す）
+  ---
+  duration_ms: 70.286551
+  type: 'test'
+  ...
+# Subtest: 勝負と無関係な候補の評価は変えない
+ok 17 - 勝負と無関係な候補の評価は変えない
+  ---
+  duration_ms: 2000.202439
+  type: 'test'
+  ...
+# Subtest: ほかの能力値選択（ペンギン⑥型）：ちえの勝負ではちえ、勝負の外では差の大きい能力値を優先
+ok 18 - ほかの能力値選択（ペンギン⑥型）：ちえの勝負ではちえ、勝負の外では差の大きい能力値を優先
+  ---
+  duration_ms: 0.688717
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 62482.213935

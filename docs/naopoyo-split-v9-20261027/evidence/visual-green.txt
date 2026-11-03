@@ -1,0 +1,11 @@
+✔ wide and tall official sprites put cropped feet on the same cell baseline (1.380271ms)
+✔ split children are not visible before the body reaches the spike (3.786779ms)
+✔ falling body shows its split number after contact, not the pre-split number (0.844172ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 102.318247

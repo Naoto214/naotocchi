@@ -1,0 +1,32 @@
+<!doctype html><meta charset="utf-8"><title>V12 browser QA</title><style>body{background:#dde7df;font:14px sans-serif}iframe{display:block;margin-top:10px;border:0;width:390px;height:650px}pre{white-space:pre-wrap;position:absolute;left:470px;top:60px;width:430px;max-height:600px;overflow:auto}button{padding:10px}</style>
+<button id="run">Run functional QA</button><button data-size="320,480">320</button><button data-size="375,667">375</button><button data-size="390,650">390</button><button data-size="430,750">430</button><button data-size="844,390">Landscape</button><pre id="result">Ready</pre><iframe id="game" src="/prototypes/naopoyo-chapter2/qa.html"></iframe>
+<script type="module">
+const frame=document.querySelector('iframe'),out=document.querySelector('pre'),results=[];
+const wait=()=>new Promise(r=>setTimeout(r,40));
+const until=async(fn)=>{for(let i=0;i<250;i++){if(fn())return;await wait()}throw Error('timeout')};
+function check(ok,label){if(!ok)throw Error(label);results.push(label);out.textContent=JSON.stringify({status:'running',checks:results},null,2)}
+for(const b of document.querySelectorAll('[data-size]'))b.onclick=()=>{const [w,h]=b.dataset.size.split(',');frame.style.width=w+'px';frame.style.height=h+'px'};
+document.querySelector('#run').onclick=async()=>{try{
+ await until(()=>frame.contentWindow.pilot);const w=frame.contentWindow,d=w.document,p=w.pilot;const click=s=>d.querySelector(s).click();
+ if(d.querySelector('#dialog').open)click('#close');
+ const {stages}=await import('/prototypes/naopoyo-chapter2/stages.mjs');p.choose(stages[9].id);if(d.querySelector('#dialog').open)click('#close');
+ click('#retry');await until(()=>!p.session.paused);let q=p.session;
+ const answer=await fetch('/prototypes/naopoyo-chapter2/examples/20.json').then(r=>r.json());
+ function move(step){q.motion=[];const r=d.querySelector('#board').getBoundingClientRect();const [x,y]=step.at,[dx,dy]=step.d;const send=(type,x,y)=>d.querySelector('#board').dispatchEvent(new w.PointerEvent(type,{clientX:r.x+(x+.5)*r.width/8,clientY:r.y+(y+.5)*r.height/8,pointerId:7,bubbles:true}));send('pointerdown',x,y);send('pointermove',x+dx,y+dy);send('pointerup',x+dx,y+dy)}
+ // Programmatic PointerEvent cannot acquire a native pointer capture. Use the real
+ // ForestSession input for setup; Undo itself is the actual DOM button handler.
+ function step(s){const a=q.state.actors.find(a=>a.x===s.at[0]&&a.y===s.at[1]);if(!q.begin(a.id,{x:a.x+.5,y:a.y+.5}))throw Error('setup input paused');q.travel({x:a.x+.5+s.d[0],y:a.y+.5+s.d[1]});q.end()}
+ const start=JSON.stringify(q.state);step(answer.path[0]);step(answer.path[1]);const before=JSON.stringify(q.state);const history=q.history.length;
+ click('#example');if(d.querySelector('#exampleConfirm'))click('#exampleConfirm');await until(()=>!d.querySelector('[data-reset]').disabled);
+ click('[data-reset]');for(let i=0;i<80;i++)click('[data-next]');check(d.querySelector('.example-count').textContent.includes('80 /'),'80 moves');
+ click('[data-close]');await until(()=>!d.querySelector('dialog.example'));check(JSON.stringify(q.state)===before&&q.history.length===history,'normal board and Undo protected');
+ click('#example');await until(()=>d.querySelector('.example-count')?.textContent.includes('80 /'));check(true,'reopen at 80');click('[data-prev]');check(d.querySelector('.example-count').textContent.includes('79 /'),'previous');click('[data-next]');click('[data-play]');await until(()=>!d.querySelector('.example-count').textContent.includes('80 /'));click('[data-play]');const paused=d.querySelector('.example-count').textContent;await new Promise(r=>setTimeout(r,1200));check(d.querySelector('.example-count').textContent===paused,'autoplay pause');click('[data-close]');await until(()=>!d.querySelector('dialog.example'));
+ click('#undo');check(!q.paused&&d.querySelector('#paused').hidden,'Undo has no pause overlay');check(q.history.length===1,'Undo one history');click('#undo');check(JSON.stringify(q.state)===start,'continuous Undo');step(answer.path[0]);check(JSON.stringify(q.state)!==start,'move after Undo');
+ click('#example');await until(()=>d.querySelector('.example-count')?.textContent===paused);click('[data-close]');await until(()=>!d.querySelector('dialog.example'));
+ click('#pause');click('#pause');const savedState=JSON.stringify(q.state),savedHistory=q.history.length;
+ const loaded=new Promise(r=>frame.addEventListener('load',r,{once:true}));w.location.reload();await loaded;await until(()=>frame.contentWindow.pilot);
+ const p2=frame.contentWindow.pilot,d2=frame.contentDocument;check(JSON.stringify(p2.session.state)===savedState&&p2.session.history.length===savedHistory,'reload preserves board and Undo');
+ d2.querySelector('#example').click();await until(()=>d2.querySelector('.example-count')?.textContent===paused);check(true,'reload resumes previous example position');d2.querySelector('[data-reset]').click();check(d2.querySelector('.example-count').textContent.includes('0 /'),'reset to zero');d2.querySelector('[data-close]').click();await until(()=>!d2.querySelector('dialog.example'));d2.querySelector('#undo').click();check(!p2.session.paused&&JSON.stringify(p2.session.state)===start,'Undo immediately after reload');
+ out.textContent=JSON.stringify({status:'PASS',checks:results},null,2);
+ }catch(e){out.textContent=JSON.stringify({status:'FAIL',error:e.stack,checks:results},null,2)}};
+</script>

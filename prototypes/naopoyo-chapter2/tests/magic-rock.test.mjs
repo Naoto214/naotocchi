@@ -1,0 +1,20 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createState,move,settle,supportsAt,validState,splitCandidates,externalSplit,mass} from '../../naopoyo-v2/engine.mjs';
+const a=(id,x,y,level=3,species='dog')=>({id,x,y,level,species});
+const board=(actors,extra={})=>({id:'magic',w:8,h:8,gravity:false,gravityRules:'supported-v1',movementRules:'contact-v1',terrainRules:'magic-rock-v1',walls:[],gates:[],spikes:[],exits:[],actors,...extra});
+for(let level=1;level<=8;level++){
+ test(`rock8 horizontal and gravity passage/support level${level}`,()=>{
+  const b=board([a('a',2,4,level)],{gates:[{x:3,y:4,exact:8}]}),s=createState(b),before=structuredClone(s),r=move(s,'a',1,0);assert.equal(r.ok,level===8);if(!r.ok)assert.deepEqual(s,before);else {assert.ok(validState(b,s));assert.ok(r.events.some(e=>e.type==='phase'&&e.x===3&&e.y===4));}
+  const f=createState(board([a('a',3,2,level)],{gravity:true,gates:[{x:3,y:4,exact:8}]}));assert.equal(supportsAt(f,3,4,f.actors[0]),level!==8);settle(f);assert.equal(f.actors[0].y,level===8?7:3);
+ });
+ test(`rock and mismatched magic rock share ascent level${level}`,()=>{
+  for(const magic of [false,true])for(const grounded of [false,true]){const s=createState(board([a('a',2,5,level)],{gravity:true,walls:[...(grounded?[[2,6]]:[]),...(magic?[]:[[3,5]])],gates:magic?[{x:3,y:5,exact:level===8?7:8}]:[]}));const r=move(s,'a',1,-1);assert.equal(r.ok,grounded);if(!grounded)assert.equal(r.reason,'foothold');}
+ });
+}
+test('corner uses moving number and legacy contact remains unchanged',()=>{for(const level of [3,8])for(const modern of [false,true]){const b=board([a('a',2,3,level)],{walls:[[2,2]],gates:[{x:3,y:3,exact:8}]});if(!modern)delete b.terrainRules;const s=createState(b),old=structuredClone(s),r=move(s,'a',1,-1);assert.equal(r.ok,!modern||level===8);if(!r.ok){assert.equal(r.reason,'corner');assert.deepEqual(s,old);}}});
+test('reverse exchange has its own corner number',()=>{const s=createState(board([a('a',2,3,8),a('b',3,2,3,'fish')],{walls:[[2,2]],gates:[{x:3,y:3,exact:8}]})),old=structuredClone(s);assert.equal(move(s,'a',1,-1).reason,'corner');assert.deepEqual(s,old);});
+test('split level1 cannot escape a parent8-only rock corner',()=>{const s=createState(board([a('a',2,2,8)],{walls:[[1,2],[2,1],[2,3]],gates:[{x:3,y:2,exact:8}]}));assert.deepEqual(splitCandidates(s,2,2,1,0,s.actors[0]),[]);});
+test('restore rejects old terrain rules and invalid rock occupants',()=>{const b=board([a('a',2,3)]),s=createState(b);delete s.terrainRules;assert.equal(validState(b,s),false);const g=board([a('a',2,3,3)],{gates:[{x:2,y:3,exact:8,open:true}]});assert.equal(validState(g,createState(g)),false);});
+test('merge overflow and external split cannot change rock qualification',()=>{const b=board([a('a',2,3,8),a('b',3,3,4)],{gates:[{x:2,y:3,exact:8,open:true}]}),s=createState(b),old=structuredClone(s);assert.equal(move(s,'a',1,0).reason,'gate');assert.deepEqual(s,old);assert.equal(externalSplit(s,'a',2).reason,'gate');assert.deepEqual(s,old);assert.equal(mass(s),12);});
+test('all eight entry directions use the same rock qualification',()=>{for(const [dx,dy]of [[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]])for(const level of [3,8]){const b=board([a('a',3,3,level)],{gates:[{x:3+dx,y:3+dy,exact:8}]}),s=createState(b),before=structuredClone(s),r=move(s,'a',dx,dy);assert.equal(r.ok,level===8);if(!r.ok)assert.deepEqual(s,before);else assert.ok(validState(b,s));}});
+test('stage19 reported level3 climb is blocked in old corner and legal through redesigned opening',async()=>{const{stages}=await import('../stages.mjs');const stage=stages.find(s=>s.number===19);for(const closed of [false,true]){const s=createState({...stage,actors:[a('a',5,7,3)],walls:closed?[...stage.walls,[5,6]]:stage.walls});const r=move(s,'a',1,-1);assert.equal(r.ok,!closed);if(closed)assert.equal(r.reason,'corner');else assert.deepEqual([s.actors[0].x,s.actors[0].y],[6,6]);}const airborne=createState({...stage,actors:[a('a',5,5,3)]});assert.equal(move(airborne,'a',1,-1).reason,'foothold');});

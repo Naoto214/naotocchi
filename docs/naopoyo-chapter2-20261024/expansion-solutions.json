@@ -1,0 +1,1836 @@
+{
+  "engine": "shared v2 with gate occupancy fix",
+  "unit": "one accepted 8-neighbor engine move, not a pointer gesture",
+  "stages": [
+    {
+      "id": "komorebi-fall-order",
+      "number": 14,
+      "candidate": "bfs-order-final",
+      "humanDifficulty": "provisional",
+      "shortestProven": true,
+      "depth": 11,
+      "search": {
+        "status": "solved",
+        "visited": 628,
+        "expanded": 557,
+        "edges": 3600,
+        "depth": 11,
+        "shortestProven": true,
+        "elapsedMs": 31,
+        "method": "bfs"
+      },
+      "path": [
+        {
+          "at": [
+            0,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            5
+          ],
+          "level": 5,
+          "d": [
+            -1,
+            0
+          ]
+        },
+        {
+          "at": [
+            1,
+            6
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            5
+          ],
+          "level": 4,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            5
+          ],
+          "level": 4,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "finalBfs": {
+        "status": "solved",
+        "visited": 628,
+        "expanded": 557,
+        "edges": 3600,
+        "depth": 11,
+        "shortestProven": true,
+        "elapsedMs": 32,
+        "method": "bfs"
+      }
+    },
+    {
+      "id": "komorebi-thorn-ledge",
+      "number": 15,
+      "candidate": "bfs-spike-a",
+      "humanDifficulty": "provisional",
+      "shortestProven": true,
+      "depth": 15,
+      "search": {
+        "status": "solved",
+        "visited": 86514,
+        "expanded": 67001,
+        "edges": 1184003,
+        "depth": 15,
+        "shortestProven": true,
+        "elapsedMs": 8073,
+        "method": "bfs"
+      },
+      "path": [
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 6,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 2,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 4,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "finalBfs": {
+        "status": "solved",
+        "visited": 86514,
+        "expanded": 67001,
+        "edges": 1184003,
+        "depth": 15,
+        "shortestProven": true,
+        "elapsedMs": 8197,
+        "method": "bfs"
+      }
+    },
+    {
+      "id": "komorebi-woven-path",
+      "number": 16,
+      "candidate": "short-split-b-thirteen",
+      "humanDifficulty": "provisional",
+      "shortestProven": false,
+      "depth": 15,
+      "search": {
+        "status": "solved",
+        "visited": 5601,
+        "expanded": 3258,
+        "edges": 33387,
+        "depth": 15,
+        "shortestProven": false,
+        "elapsedMs": 162,
+        "method": "greedy",
+        "shortening": {
+          "rewrites": 6,
+          "originalDepth": 21
+        }
+      },
+      "path": [
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 3,
+          "d": [
+            -1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 6,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 4,
+          "d": [
+            1,
+            1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 1,
+          "d": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "finalBfs": {
+        "status": "limit",
+        "visited": 257814,
+        "expanded": 147395,
+        "edges": 3406963,
+        "shortestProven": false,
+        "elapsedMs": 30000,
+        "method": "bfs"
+      }
+    },
+    {
+      "id": "komorebi-relay-foothold",
+      "number": 17,
+      "candidate": "bfs-high-3",
+      "humanDifficulty": "provisional",
+      "shortestProven": true,
+      "depth": 16,
+      "search": {
+        "status": "solved",
+        "visited": 40322,
+        "expanded": 37605,
+        "edges": 695964,
+        "depth": 16,
+        "shortestProven": true,
+        "elapsedMs": 4162,
+        "method": "bfs"
+      },
+      "path": [
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 6,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 2,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        }
+      ],
+      "finalBfs": {
+        "status": "solved",
+        "visited": 40322,
+        "expanded": 37605,
+        "edges": 695964,
+        "depth": 16,
+        "shortestProven": true,
+        "elapsedMs": 4497,
+        "method": "bfs"
+      }
+    },
+    {
+      "id": "komorebi-remainder-lift",
+      "number": 18,
+      "candidate": "short-forest-a-no8",
+      "humanDifficulty": "provisional",
+      "shortestProven": false,
+      "depth": 33,
+      "search": {
+        "status": "solved",
+        "visited": 23249,
+        "expanded": 16008,
+        "edges": 135008,
+        "depth": 33,
+        "shortestProven": false,
+        "elapsedMs": 984,
+        "method": "greedy",
+        "shortening": {
+          "rewrites": 8,
+          "originalDepth": 65
+        }
+      },
+      "path": [
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 8,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 5,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 2,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 1,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            6,
+            4
+          ],
+          "level": 8,
+          "d": [
+            -1,
+            1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 8,
+          "d": [
+            -1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            4
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 1,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            6,
+            4
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 1,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 3,
+          "d": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 2,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 1,
+          "d": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 1,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "finalBfs": {
+        "status": "limit",
+        "visited": 343824,
+        "expanded": 203689,
+        "edges": 3641742,
+        "shortestProven": false,
+        "elapsedMs": 30000,
+        "method": "bfs"
+      }
+    },
+    {
+      "id": "komorebi-reverse-stars",
+      "number": 19,
+      "candidate": "short-forest-c-no8",
+      "humanDifficulty": "provisional",
+      "shortestProven": false,
+      "depth": 30,
+      "search": {
+        "status": "solved",
+        "visited": 13095,
+        "expanded": 9417,
+        "edges": 92255,
+        "depth": 30,
+        "shortestProven": false,
+        "elapsedMs": 503,
+        "method": "greedy",
+        "shortening": {
+          "rewrites": 2,
+          "originalDepth": 35
+        }
+      },
+      "path": [
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            6
+          ],
+          "level": 8,
+          "d": [
+            1,
+            1
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 8,
+          "d": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            5
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 5,
+          "d": [
+            1,
+            1
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 8,
+          "d": [
+            -1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 1,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            6
+          ],
+          "level": 5,
+          "d": [
+            -1,
+            1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 8,
+          "d": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 1,
+          "d": [
+            -1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 5,
+          "d": [
+            1,
+            1
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            6,
+            6
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            6,
+            6
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 2,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 1,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        }
+      ],
+      "finalBfs": {
+        "status": "limit",
+        "visited": 387297,
+        "expanded": 148236,
+        "edges": 3157030,
+        "shortestProven": false,
+        "elapsedMs": 30000,
+        "method": "bfs"
+      }
+    },
+    {
+      "id": "komorebi-forest-trial",
+      "number": 20,
+      "candidate": "ledge-lift-3-4",
+      "humanDifficulty": "provisional",
+      "shortestProven": true,
+      "depth": 26,
+      "search": {
+        "status": "solved",
+        "visited": 1303,
+        "expanded": 465,
+        "edges": 3435,
+        "depth": 43,
+        "shortestProven": false,
+        "elapsedMs": 17,
+        "method": "greedy"
+      },
+      "path": [
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 5,
+          "d": [
+            1,
+            1
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 5,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            6,
+            6
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            7,
+            5
+          ],
+          "level": 4,
+          "d": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 6,
+          "d": [
+            0,
+            1
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 2,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 6,
+          "d": [
+            0,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            7
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            7
+          ],
+          "level": 2,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            7
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            4
+          ],
+          "level": 7,
+          "d": [
+            -1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            4
+          ],
+          "level": 7,
+          "d": [
+            1,
+            -1
+          ]
+        }
+      ],
+      "shortening": {
+        "from": 43,
+        "to": 26,
+        "rewrites": 9
+      },
+      "finalBfs": {
+        "status": "solved",
+        "visited": 138217,
+        "expanded": 117351,
+        "edges": 1482633,
+        "depth": 26,
+        "shortestProven": true,
+        "elapsedMs": 7749,
+        "method": "bfs"
+      }
+    }
+  ]
+}

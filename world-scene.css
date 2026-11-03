@@ -262,6 +262,7 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
   background:var(--world-detail-glass);color:var(--world-ink);
   text-shadow:var(--world-text-halo);border-radius:10px;opacity:1;
 }
+.world-mode .minigame-overlay .mg-timer.low {color:var(--world-critical-ink,#871e25)}
 .world-mode .minigame-overlay .mg-intro {
   background:var(--world-glass);color:var(--world-ink);
   text-shadow:var(--world-text-halo);box-shadow:inset 0 0 0 1px #ffffff70;

@@ -1,0 +1,65 @@
+✖ one-step prediction shows settled body and children without mutating its source (5.880596ms)
+✔ illegal moves, non-splitting moves and level-one spike passage have no preview (1.60547ms)
+✔ slow approach previews BEFORE committing and cancel removes all transient state (3.904497ms)
+✔ retry, restore, actor switch and invalid pointer clear predictions (4.226302ms)
+✔ fast continuous drag remains identical with preview calculations enabled (2.875435ms)
+✔ relative drag after gravity previews from the logical actor, not the pointer row (1.187971ms)
+✔ all shipped witness split/merge/overflow/rescue/gate outcomes use exact engine results (26.00021ms)
+✔ wide and tall official sprites put cropped feet on the same cell baseline (1.661655ms)
+✔ split children are not visible before the body reaches the spike (5.736719ms)
+✔ falling body shows its split number after contact, not the pre-split number (1.201051ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 158.161099
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:7:1
+✖ one-step prediction shows settled body and children without mutating its source (5.880596ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      [
+        'a',
+        3,
+  +     6,
+  -     7,
+        3
+      ],
+      [
+        'child1',
+        2,
+  ...
+        3,
+  +     5,
+  -     6,
+        1
+      ],
+      [
+        'child3',
+        3,
+  +     7,
+  -     5,
+        1
+      ]
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:10:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ [ 'a', 3, 6, 3 ], [ 'child1', 2, 4, 1 ], [ 'child2', 3, 5, 1 ], [ 'child3', 3, 7, 1 ] ],
+    expected: [ [ 'a', 3, 7, 3 ], [ 'child1', 2, 4, 1 ], [ 'child2', 3, 6, 1 ], [ 'child3', 3, 5, 1 ] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

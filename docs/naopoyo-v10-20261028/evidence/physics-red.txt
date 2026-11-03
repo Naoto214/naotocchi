@@ -1,0 +1,119 @@
+✖ V10 parent and child merge normally in the same operation; V9 remains versioned (5.175538ms)
+✖ V10 same spike succeeds once, then resets for the next adjacent move (2.036062ms)
+✖ V10 finite chain includes spent spike set in cycle signature (1.443662ms)
+✔ V10 level-one no-op does not spend spike before following larger body (3.110478ms)
+✖ V10 overflow/multiple spikes preserve species totals and determinism (9.188172ms)
+✖ V10 save validation rejects V9 and mismatching rule identity (0.86004ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 1
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 231.747978
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:5:1
+✖ V10 parent and child merge normally in the same operation; V9 remains versioned (5.175538ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  2 !== 1
+
+      at TestContext.<anonymous> (file:///workspace/scratch/492bdcdec025/naotocchi-v10/prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:6:186)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:8:1
+✖ V10 same spike succeeds once, then resets for the next adjacent move (2.036062ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  1 !== 0
+
+      at TestContext.<anonymous> (file:///workspace/scratch/492bdcdec025/naotocchi-v10/prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:9:118)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:14:1
+✖ V10 finite chain includes spent spike set in cycle signature (1.443662ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  1 !== 2
+
+      at TestContext.<anonymous> (file:///workspace/scratch/492bdcdec025/naotocchi-v10/prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:16:76)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:21:1
+✖ V10 overflow/multiple spikes preserve species totals and determinism (9.188172ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  2 !== 3
+
+      at TestContext.<anonymous> (file:///workspace/scratch/492bdcdec025/naotocchi-v10/prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:22:337)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:24:1
+✖ V10 save validation rejects V9 and mismatching rule identity (0.86004ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  true !== false
+
+      at TestContext.<anonymous> (file:///workspace/scratch/492bdcdec025/naotocchi-v10/prototypes/naopoyo-chapter2/tests/split-v10.test.mjs:24:143)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

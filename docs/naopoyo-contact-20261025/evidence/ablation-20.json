@@ -1,0 +1,72 @@
+[
+  {
+    "name": "no-split",
+    "status": "exhausted",
+    "visited": 80,
+    "expanded": 80,
+    "edges": 445,
+    "shortestProven": false,
+    "elapsedMs": 11,
+    "method": "bfs"
+  },
+  {
+    "name": "no-merge",
+    "status": "exhausted",
+    "visited": 1,
+    "expanded": 1,
+    "edges": 0,
+    "shortestProven": false,
+    "elapsedMs": 1,
+    "method": "bfs"
+  },
+  {
+    "name": "no-overflow",
+    "status": "exhausted",
+    "visited": 1,
+    "expanded": 1,
+    "edges": 0,
+    "shortestProven": false,
+    "elapsedMs": 0,
+    "method": "bfs"
+  },
+  {
+    "name": "no-swap",
+    "status": "limit",
+    "visited": 34652,
+    "expanded": 31368,
+    "edges": 329832,
+    "shortestProven": false,
+    "elapsedMs": 12000,
+    "method": "bfs"
+  },
+  {
+    "name": "no-gate-3-7",
+    "status": "exhausted",
+    "visited": 25,
+    "expanded": 25,
+    "edges": 172,
+    "shortestProven": false,
+    "elapsedMs": 3,
+    "method": "bfs"
+  },
+  {
+    "name": "no-gate-5-5",
+    "status": "limit",
+    "visited": 33899,
+    "expanded": 31811,
+    "edges": 314293,
+    "shortestProven": false,
+    "elapsedMs": 12000,
+    "method": "bfs"
+  },
+  {
+    "name": "no-gate-7-5",
+    "status": "limit",
+    "visited": 34999,
+    "expanded": 31951,
+    "edges": 333490,
+    "shortestProven": false,
+    "elapsedMs": 12000,
+    "method": "bfs"
+  }
+]

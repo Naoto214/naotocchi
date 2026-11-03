@@ -1,0 +1,30 @@
+✔ wide and tall official sprites put cropped feet on the same cell baseline (1.216544ms)
+✔ split children are not visible before the body reaches the spike (3.900898ms)
+✔ falling body shows its split number after contact, not the pre-split number (3.1851ms)
+✔ a gravity-triggered split waits until the animated body reaches its actual spike (8.151174ms)
+✔ invisible newborns cannot intercept a regrab at birth or final cell (1.296714ms)
+✖ coincident split and later merge keep the intermediate number until the donor arrives (18.863768ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130.977881
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/split-v9-visual.test.mjs:46:1
+✖ coincident split and later merge keep the intermediate number until the donor arrives (18.863768ms)
+  AssertionError [ERR_ASSERTION]: split body 4 must be shown
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-v9-visual.test.mjs:59:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

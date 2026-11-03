@@ -307,7 +307,9 @@ test('checkers win message matches how the game ended; score band unchanged (B19
     assert.equal(g.scores.length, 1);
     const [me, ai] = cnt.textContent.match(/\d+/g).map(Number);
     if (/かち/.test(hint.textContent)) {
-      assert.equal(g.scores[0], Math.min(100, Math.max(78, 78 + me * 4)), 'win score band unchanged');
+      // 決着の かちは いままでの 帯。時間切れの かちは T1 の 判定かちの 帯(55〜69、決着の 点を こえない)
+      const decided = Math.min(100, Math.max(78, 78 + me * 4));
+      assert.equal(g.scores[0], /時間切れ/.test(hint.textContent) ? Math.min(decided, Math.round(55 + 14 * Math.min(1, (me - ai) / 6))) : decided, 'win score band');
       if (ai > 0) assert.doesNotMatch(hint.textContent, /ぜんぶとった/, `seed ${seed}: pieces remain (${me}-${ai})`);
       if (ai > 0 && /時間切れ/.test(hint.textContent)) timeUpWins++;
     }

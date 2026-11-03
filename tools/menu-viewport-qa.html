@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><title>Menu viewport QA</title>
+<style>body{margin:0;background:#ddd;font:14px sans-serif}#result{white-space:pre-wrap;position:absolute;left:450px;top:0;margin:8px}iframe{border:0;display:block;margin:0}</style>
+<pre id="result">Testing…</pre><iframe title="Menu viewport"></iframe>
+<script>
+const params=new URLSearchParams(location.search),width=+(params.get('w')||390),height=+(params.get('h')||600);
+const frame=document.querySelector('iframe');frame.width=width;frame.height=height;frame.src='index.html';
+frame.onload=async()=>{
+ const d=frame.contentDocument;await d.fonts.ready;
+ if(params.has('large')){const s=d.createElement('style');s.textContent='#menuOverlay .menu-label{font-size:32px}#menuOverlay small{font-size:24px}';d.head.append(s);}
+ d.querySelector('#menuBtn').click();
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+ const grid=d.querySelector('.menu-grid'),cards=[...grid.children],rects=cards.map(e=>e.getBoundingClientRect()),g=grid.getBoundingClientRect();
+ const errors=[];const check=(ok,msg)=>{if(!ok)errors.push(msg)};
+ check(cards.length===11,'11 items');
+ if(!params.has('large')&&height>=480){check(grid.scrollHeight<=grid.clientHeight+1,'grid scrolls');check(rects.at(-1).bottom<=height,'story below viewport');check(rects.at(-1).bottom<=g.bottom+1,'story clipped');}
+ check(rects.every(r=>r.height>=44&&r.width>=44),'tap targets');
+ rects.forEach((r,i)=>{if(i>=2)check(r.top>=rects[i===10?9:i-2].bottom,'overlap '+i)});
+ cards.forEach((e,i)=>{check(e.scrollWidth<=e.clientWidth+1,'horizontal overflow '+i);check(e.scrollHeight<=e.clientHeight+1,'content clipped '+i)});
+ d.querySelector('#menuCloseBtn').click();check(d.querySelector('#menuOverlay').classList.contains('hidden'),'close');d.querySelector('#menuBtn').click();
+ document.querySelector('#result').textContent=JSON.stringify({width,height,status:errors.length?'FAIL':'PASS',errors,scrollHeight:grid.scrollHeight,clientHeight:grid.clientHeight,cardHeights:rects.map(r=>Math.round(r.height)),storyBottom:Math.round(rects.at(-1).bottom)},null,2);
+ }));
+};
+</script>

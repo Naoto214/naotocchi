@@ -18,7 +18,7 @@ async function actionButton(page,a){
  if(i>=0){await cards.nth(i).click();
  // ui-drag suppresses synthesized post-tap clicks for 400ms. Start the next
  // distinct human gesture after that existing input contract, without bypassing it.
- await page.waitForTimeout(410);const use=page.locator('#card-dialog .detail-copy [data-inspect]');if(await use.count())await use.click();b=await find();if(b)return b;}
+ await page.waitForTimeout(410);const use=page.locator('#card-dialog .stage-band [data-inspect]');if(await use.count())await use.click();b=await find();if(b)return b;}
  await closeDetail(page);await page.locator('#operation-panel [data-workflow]').click();b=await find();if(b)return b;
  throw Error('UI cannot reach engine action '+a.label);
 }

@@ -1,0 +1,6 @@
+import fs from 'node:fs';import {stages} from '../stages.mjs';import {createState,settle,move,mass,validState,complete} from '../../naopoyo-v2/engine.mjs';
+const dir='docs/naopoyo-contact-20261025',w=JSON.parse(fs.readFileSync(`${dir}/solutions.json`)),rows=[];
+for(const stage of stages){const solution=w.stages.find(r=>r.id===stage.id),s=createState(stage),counts={},gateUse=new Set(),trace=[];settle(s);const total=mass(s);
+ for(const [i,p]of solution.path.entries()){const a=s.actors.find(a=>a.x===p.at[0]&&a.y===p.at[1]);const r=move(s,a.id,...p.d);if(!r.ok||!validState(stage,s)||mass(s)!==total)throw Error(stage.number+':'+i);for(const e of r.events){counts[e.type]=(counts[e.type]||0)+1;if(e.overflow)counts.overflow=(counts.overflow||0)+1;}for(const g of s.gates)if(s.actors.some(a=>a.x===g.x&&a.y===g.y))gateUse.add(`${g.x},${g.y}`);trace.push({i,p,events:r.events,actors:structuredClone(s.actors),rescued:s.rescued});}
+ rows.push({number:stage.number,id:stage.id,moves:solution.path.length,shortestProven:solution.shortestProven,complete:complete(s),counts,gateUse:[...gateUse]});if(stage.number===20)fs.writeFileSync(`${dir}/evidence/stage20-trace.json`,JSON.stringify(trace,null,2));}
+fs.writeFileSync(`${dir}/evidence/witness-audit.json`,JSON.stringify(rows,null,2));console.log(rows);

@@ -1,0 +1,31 @@
+✔ initial gravity runs before touch, retry and restore remain stable (3.534334ms)
+✔ falling drag keeps its active ID, Undo restores start and motion clears (1.221452ms)
+✔ fast and slow drag commit identical gravity states (2.111665ms)
+✖ overflow remainder moves back smoothly instead of overlapping the 8 (5.612019ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 116.989959
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/session.test.mjs:21:1
+✖ overflow remainder moves back smoothly instead of overlapping the 8 (5.612019ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(remainder.x<1.2)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/da39237aa27f/naotocchi/prototypes/naopoyo-chapter2/tests/session.test.mjs:25:61)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

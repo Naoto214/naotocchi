@@ -1,0 +1,40 @@
+✔ all seven persistent stages exist exactly once with three hints (2.01244ms)
+✔ 13→20 unlocks survive reload/retry and QA never changes normal records (10.39971ms)
+✔ 14 real session pointer steps, save/undo/retry and all-rescued witness (16.473676ms)
+✔ 15 real session pointer steps, save/undo/retry and all-rescued witness (20.911726ms)
+✔ 16 real session pointer steps, save/undo/retry and all-rescued witness (17.312554ms)
+✔ 17 real session pointer steps, save/undo/retry and all-rescued witness (16.559071ms)
+✔ 18 real session pointer steps, save/undo/retry and all-rescued witness (61.75986ms)
+✔ 19 real session pointer steps, save/undo/retry and all-rescued witness (45.794354ms)
+✔ 20 real session pointer steps, save/undo/retry and all-rescued witness (101.272392ms)
+✔ normal chapter 10 → 11 → 12 → 13 and replay never relocks (6.912313ms)
+✔ read-only chapter-one completion seeds trial; all writes are isolated (2.048634ms)
+✔ QA unlocks only 11–20 and never modifies normal progress (0.706754ms)
+✔ unknown future save is preserved and corruption backup stays in pilot namespace (1.793887ms)
+✔ future board slot and outer board copy survive normal autosave (0.438267ms)
+✔ damaged board slot is preserved before writing a replacement (0.458868ms)
+✔ compact BFS equals reference: komorebi-fall (23.239702ms)
+✔ compact BFS equals reference: komorebi-support (6.201744ms)
+✔ compact BFS equals reference: komorebi-last-friend (16.539123ms)
+✔ caps are explicitly unproven (0.361925ms)
+✔ identity renaming preserves successors including spike families and overflow (1.922378ms)
+✔ initial gravity runs before touch, retry and restore remain stable (3.853257ms)
+✔ falling drag keeps its active ID, Undo restores start and motion clears (1.743433ms)
+✔ fast and slow drag commit identical gravity states (3.198872ms)
+✔ overflow remainder moves back smoothly instead of overlapping the 8 (0.951445ms)
+✔ komorebi-fall: stable initial board and real-engine all-rescued witness (17.31648ms)
+✔ komorebi-support: stable initial board and real-engine all-rescued witness (8.081098ms)
+✔ komorebi-last-friend: stable initial board and real-engine all-rescued witness (13.465405ms)
+✔ 11 cannot finish without a gravity event (4.091299ms)
+✔ 12 cannot finish without using a companion as a vertical support (6.618163ms)
+✔ 13 cannot finish without using a companion as a vertical support (2.787164ms)
+✔ 13 cannot rescue the 8 before the 4: exhaustive state graph (12.71646ms)
+✔ solver reports capped exploration as unproven (0.484294ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 411.082553

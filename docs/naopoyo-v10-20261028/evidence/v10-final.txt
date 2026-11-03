@@ -1,0 +1,30 @@
+✔ V10 parent and child merge normally in the same operation; V9 remains versioned (6.049577ms)
+✔ V10 same spike succeeds once, then resets for the next adjacent move (1.815155ms)
+✔ V10 finite chain includes spent spike set in cycle signature (5.742366ms)
+✔ V10 level-one no-op does not spend spike before following larger body (0.951413ms)
+✔ V10 overflow/multiple spikes preserve species totals and determinism (7.776532ms)
+✔ V10 save validation rejects V9 and mismatching rule identity (0.208765ms)
+✔ V10 exhausted placement space leaves spike available within the shared settling context (1.774132ms)
+✔ V10 opts in every Chapter 2 stage without changing Chapter 1 (2.425117ms)
+✔ V9 clears migrate read-only; V9 boards and Undo remain isolated in normal and QA (2.749013ms)
+✔ V9 serialized board/history cannot restore into V10 session (3.960212ms)
+✔ V10 11 saved B-once witness: preview, stability, session save/undo/retry (40.004837ms)
+✔ V10 12 saved B-once witness: preview, stability, session save/undo/retry (18.439392ms)
+✔ V10 13 saved B-once witness: preview, stability, session save/undo/retry (22.400668ms)
+✔ V10 14 saved B-once witness: preview, stability, session save/undo/retry (19.614215ms)
+✔ V10 15 saved B-once witness: preview, stability, session save/undo/retry (73.192116ms)
+✔ V10 16 saved B-once witness: preview, stability, session save/undo/retry (762.176733ms)
+✔ V10 17 saved B-once witness: preview, stability, session save/undo/retry (138.77541ms)
+✔ V10 18 saved B-once witness: preview, stability, session save/undo/retry (89.367575ms)
+✔ V10 19 saved B-once witness: preview, stability, session save/undo/retry (1099.936792ms)
+✔ V10 20 saved B-once witness: preview, stability, session save/undo/retry (2195.144854ms)
+✔ V10 stage20: the upper 1 reaches 5 before the number becomes 6 (22.311358ms)
+✔ V10 current with a V9 Undo snapshot is refused atomically (2.049765ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4855.673316

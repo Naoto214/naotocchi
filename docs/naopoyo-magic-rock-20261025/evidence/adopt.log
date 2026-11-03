@@ -1,0 +1,19 @@
+11 5
+12 5
+13 10
+14 11
+15 23
+16 25
+17 26
+18 20
+file:///workspace/scratch/10b8cc61b1a5/naotocchi/prototypes/naopoyo-chapter2/design/magic-rock-adopt.mjs:6
+ if(!path)throw Error(`no witness ${n}`);const reduced=shortestProven?{path,rewrites:0}:shorten(stage,path,{passes:15,limit:700,depth:4});if(!complete(replay(stage,reduced.path)))throw Error('incomplete');rows.push({number:n,id:stage.id,source,searchMoves:path.length,path:reduced.path,moves:reduced.path.length,shortestProven,rewrites:reduced.rewrites,stage});console.log(n,reduced.path.length);fs.writeFileSync(`${dir}/solutions.json`,JSON.stringify({rules:'magic-rock-v1',method:'fresh real-engine search (19 uses a newly constructed legal prefix); bounded shortcut reduction; shortest only for BFS11-14',stages:rows},null,2));}
+                ^
+
+Error: no witness 19
+    at file:///workspace/scratch/10b8cc61b1a5/naotocchi/prototypes/naopoyo-chapter2/design/magic-rock-adopt.mjs:6:17
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.1

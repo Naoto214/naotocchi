@@ -1,0 +1,60 @@
+✔ normal chapter 10 → 11 → 12 → 13 and replay never relocks (3.544699ms)
+✔ read-only chapter-one completion seeds trial; all writes are isolated (1.206179ms)
+✔ QA unlocks only 11–13 and never modifies normal progress (0.299762ms)
+✔ unknown future save is preserved and corruption backup stays in pilot namespace (0.218623ms)
+✖ future board slot and outer board copy survive normal autosave (1.066694ms)
+✖ damaged board slot is preserved before writing a replacement (0.447921ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 4
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 93.568224
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/progress.test.mjs:22:1
+✖ future board slot and outer board copy survive normal autosave (1.066694ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/da39237aa27f/naotocchi/prototypes/naopoyo-chapter2/tests/progress.test.mjs:25:39)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/progress.test.mjs:27:1
+✖ damaged board slot is preserved before writing a replacement (0.447921ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + null
+  - '{broken board'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/da39237aa27f/naotocchi/prototypes/naopoyo-chapter2/tests/progress.test.mjs:29:63)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: '{broken board',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

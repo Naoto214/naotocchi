@@ -1,0 +1,36 @@
+{
+  "projectId": "appgprj_6adc23fed6a08191946282f35ecfd94a",
+  "version": 7,
+  "sourceCommit": "403379e2116225cc2654ae9096f9715715c1ad00",
+  "sitesSourceCommit": "5a0146f8d1a239e6782e001773a6027444741e12",
+  "deployment": {
+    "id": "appgdep_6ade24e0f6288191a96be5561e9301cd",
+    "project_id": "appgprj_6adc23fed6a08191946282f35ecfd94a",
+    "title": "なおぽよ。第2章 こもれびの森 Pilot",
+    "version_id": "appgprj_6adc23fed6a08191946282f35ecfd94a~appgver_d22b8433782c819183c14a191d5657ba",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://naopoyo-komorebi-20261024.kerzion214.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6adc23fed6a08191946282f35ecfd94a",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-25T15:49:00.397236+00:00"
+  },
+  "access": {
+    "mode": "custom",
+    "allowedUsers": 1,
+    "roles": [
+      "owner"
+    ],
+    "groups": 0,
+    "externalVisitors": 0,
+    "revision": 1
+  },
+  "browser": {
+    "localRealGame": "verified",
+    "publishedAuthenticatedGame": "not verified; sign-in page",
+    "iphoneSafariHardware": "not tested"
+  }
+}

@@ -1,0 +1,32 @@
+✖ preview paints final digits once at destinations and never the obsolete split numbers (1.404527ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.042613
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/preview-art.test.mjs:3:1
+✖ preview paints final digits once at destinations and never the obsolete split numbers (1.404527ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/preview-art.test.mjs:4:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

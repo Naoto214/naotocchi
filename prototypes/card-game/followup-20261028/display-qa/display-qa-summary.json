@@ -1,0 +1,59 @@
+{
+ "summary": {
+  "cards": 20,
+  "tags": [
+   "320x568",
+   "375x667",
+   "390x844",
+   "430x932",
+   "landscape-844x390"
+  ],
+  "faceClippedCells": 0,
+  "cellsTotal": 84,
+  "finalClass": {
+   "D": 20
+  },
+  "byTag": {
+   "320x568": {
+    "D": 20
+   },
+   "375x667": {
+    "D": 20
+   },
+   "390x844": {
+    "A": 20
+   },
+   "430x932": {
+    "A": 20
+   },
+   "landscape-844x390": {
+    "D": 4
+   }
+  },
+  "cardsNeverClipped": 20,
+  "panelsAlwaysFullTextAvailable": true,
+  "innerScrollCells": 44
+ },
+ "final": {
+  "M-cicada-08": "D",
+  "M-coral-06": "D",
+  "M-dragon-04": "D",
+  "M-frog-06": "D",
+  "M-ghost-07": "D",
+  "M-god-03": "D",
+  "M-god-06": "D",
+  "M-god-08": "D",
+  "M-man-07": "D",
+  "M-mushroom-05": "D",
+  "M-mushroom-07": "D",
+  "M-mushroom-08": "D",
+  "M-phoenix-05": "D",
+  "M-sakura-08": "D",
+  "M-stagbeetle-06": "D",
+  "M-woman-01": "D",
+  "M-woman-02": "D",
+  "M-woman-06": "D",
+  "M-world_tree-07": "D",
+  "M-sakura-06": "D"
+ }
+}

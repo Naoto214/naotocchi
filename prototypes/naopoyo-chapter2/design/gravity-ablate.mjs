@@ -1,0 +1,5 @@
+import fs from 'node:fs';import{createState,settle,move}from'../../naopoyo-v2/engine.mjs';import{search}from'../search.mjs';
+const row=JSON.parse(fs.readFileSync('docs/naopoyo-gravity-20261024/evidence/20-minimal-bfs.json'));const s=createState(row.stage);settle(s);let counts={};for(const p of row.result.path){const a=s.actors.find(a=>a.x===p.at[0]&&a.y===p.at[1]);move(s,a.id,...p.d);for(const g of s.gates)if(s.actors.some(a=>a.x===g.x&&a.y===g.y))counts[g.x+','+g.y]=true;}console.log('gate use',counts,'rescued',s.rescued);
+const cases=[['no-split',(_s,_n,r)=>!r.events.some(e=>e.type==='split')],['no-merge',(_s,_n,r)=>!r.events.some(e=>e.type==='merge')],['no-overflow',(_s,_n,r)=>!r.events.some(e=>e.type==='merge'&&e.overflow)]];
+for(const g of row.stage.gates)cases.push(['no-gate-'+g.x+'-'+g.y,(_s,_n,_r,a,dx,dy)=>!(a.x+dx===g.x&&a.y+dy===g.y)]);
+const out=[];for(const [name,filter]of cases){const r=search(row.stage,{filter,method:'bfs',limit:250000,maxMs:12000});out.push({name,...r});console.log(name,r.status,r.depth,r.visited);fs.writeFileSync('docs/naopoyo-gravity-20261024/evidence/20-ablation.json',JSON.stringify(out,null,2));}

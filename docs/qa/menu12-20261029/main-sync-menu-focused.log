@@ -1,0 +1,27 @@
+✔ index.html asset references exist and carry cache tokens (2.275305ms)
+✔ the bump tool rewrites only cache tokens (0.373551ms)
+✔ menu retains existing destinations in the requested order and includes the prepared entry (2.076091ms)
+✔ prepared dialog keeps Escape from closing the underlying menu (0.2783ms)
+✔ browser Back dismisses the prepared dialog before the menu and keeps menu history (163.349765ms)
+✔ only one main overlay is open at a time (114.240825ms)
+✔ an unknown kind opens nothing and close buttons only close their own overlay (22.735166ms)
+✔ every overlay kind renders its own panel (27.610052ms)
+✔ performance tiers step up on slow frames and back down after sustained fast frames (21.174255ms)
+✔ game entry opens the white cover without clearing any saved bookmark (2.503923ms)
+✔ reload and browser back preserve reader restoration state (2.417355ms)
+✔ direct reader entry stays unchanged and cannot accept arbitrary return destinations (1.540022ms)
+✔ the clock runs on the home screen but stops while めぐる is open, and resumes after returning (424.03251ms)
+✔ a starving pet cannot die while exploring, only once it is back home (297.313519ms)
+✔ the clock stops during a minigame and during quick mode, and resumes when the game ends (19.392347ms)
+✔ the clock stops while the transformation choice is open, and resumes after choosing to stay (27.342271ms)
+✔ every menu overlay kind pauses the clock and closing it resumes (38.260733ms)
+✔ while めぐる is open no companion invitation, idle chatter or care notice is layered over it, and menus refuse to open (1448.525136ms)
+✔ the clock also stays stopped for date, duel, companion invitation and the grand goal celebration screens (15.890513ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2423.215841

@@ -1,0 +1,764 @@
+[
+  {
+    "name": "remove-lower-support",
+    "stage": {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、門の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "門には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で門を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "まず二つの8を作り、下の門へ。門から右上のトゲへは、その下の岩を足場に登れるよ。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "result": {
+      "status": "limit",
+      "visited": 128337,
+      "expanded": 94021,
+      "edges": 1158159,
+      "shortestProven": false,
+      "elapsedMs": 18000,
+      "method": "bfs"
+    },
+    "greedy": {
+      "status": "limit",
+      "visited": 56928,
+      "expanded": 50726,
+      "edges": 445830,
+      "shortestProven": false,
+      "elapsedMs": 18000,
+      "method": "greedy"
+    }
+  },
+  {
+    "name": "relocate-support-right",
+    "stage": {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、門の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "門には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で門を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "まず二つの8を作り、下の門へ。門から右上のトゲへは、その下の岩を足場に登れるよ。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "result": {
+      "status": "limit",
+      "visited": 31762,
+      "expanded": 31159,
+      "edges": 390757,
+      "shortestProven": false,
+      "elapsedMs": 18001,
+      "method": "bfs"
+    },
+    "greedy": {
+      "status": "exhausted",
+      "visited": 32161,
+      "expanded": 32161,
+      "edges": 406722,
+      "shortestProven": false,
+      "elapsedMs": 14890,
+      "method": "greedy"
+    }
+  },
+  {
+    "name": "remove-wall-corner",
+    "stage": {
+      "id": "komorebi-remainder-lift",
+      "w": 8,
+      "h": 8,
+      "gravity": true,
+      "walls": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "gates": [
+        {
+          "x": 3,
+          "y": 7,
+          "exact": 8
+        }
+      ],
+      "exits": [
+        {
+          "x": 6,
+          "y": 5,
+          "exact": 3
+        },
+        {
+          "x": 7,
+          "y": 5,
+          "exact": 5
+        }
+      ],
+      "spikes": [
+        {
+          "x": 4,
+          "y": 6,
+          "power": 3
+        }
+      ],
+      "water": [],
+      "guests": [],
+      "events": [],
+      "actors": [
+        {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        {
+          "id": "c",
+          "x": 2,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        }
+      ],
+      "number": 18,
+      "title": "18 あまりを上へ",
+      "revision": 3,
+      "theme": "forest",
+      "showSpecies": false,
+      "difficulty": 6,
+      "discovery": "6＋6の余剰を重力で回収して二つの8を作り、門の先で3と5へ組み直す。",
+      "lesson": "通るための大きさと、帰るための大きさ。",
+      "story": "門には8。けれど、森の向こうに8の星はなかった。",
+      "ending": "大きくなって渡り、小さく分かれて帰った。",
+      "hints": [
+        "全員で16。星は3と5だけ。",
+        "二つの8で門を越え、その先で5と3を二組作ろう。分裂で上下に散る1の回収も考えて。",
+        "まず二つの8を作り、下の門へ。門から右上のトゲへは、その下の岩を足場に登れるよ。"
+      ],
+      "hint": "全員で16。星は3と5だけ。",
+      "gravityRules": "supported-v1",
+      "movementRules": "contact-v1"
+    },
+    "result": {
+      "status": "limit",
+      "visited": 37003,
+      "expanded": 17067,
+      "edges": 286679,
+      "shortestProven": false,
+      "elapsedMs": 18000,
+      "method": "bfs"
+    },
+    "greedy": {
+      "status": "solved",
+      "visited": 5812,
+      "expanded": 3914,
+      "edges": 28388,
+      "depth": 35,
+      "path": [
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 4,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            0,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 2,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            1,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 2,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            2,
+            7
+          ],
+          "level": 6,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            6,
+            5
+          ],
+          "level": 1,
+          "d": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            7
+          ],
+          "level": 8,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 6,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 2,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 3,
+          "d": [
+            -1,
+            1
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 5,
+          "d": [
+            -1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            5
+          ],
+          "level": 5,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 6,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            5
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 2,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 3,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            3,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            6,
+            5
+          ],
+          "level": 2,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 3,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            4,
+            6
+          ],
+          "level": 1,
+          "d": [
+            1,
+            -1
+          ]
+        },
+        {
+          "at": [
+            5,
+            5
+          ],
+          "level": 1,
+          "d": [
+            1,
+            0
+          ]
+        },
+        {
+          "at": [
+            7,
+            5
+          ],
+          "level": 2,
+          "d": [
+            -1,
+            -1
+          ]
+        }
+      ],
+      "shortestProven": false,
+      "elapsedMs": 899,
+      "method": "greedy"
+    },
+    "replayed": true
+  }
+]

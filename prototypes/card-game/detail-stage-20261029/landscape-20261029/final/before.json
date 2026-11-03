@@ -1,0 +1,4520 @@
+[
+ {
+  "viewport": "844x390",
+  "orientation": "landscape",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 390,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "own": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 108,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 293,
+     "bottom": 376,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 62
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 233,
+    "h": 350,
+    "top": 19,
+    "bottom": 369
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.3,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 49,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "orientation": "landscape",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 390,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "own": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 293,
+     "bottom": 376,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 62
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 233,
+    "h": 350,
+    "top": 19,
+    "bottom": 369
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.3,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "orientation": "landscape",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 390,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "own": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 293,
+     "bottom": 376,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 62
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 233,
+    "h": 350,
+    "top": 19,
+    "bottom": 369
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.3,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 44,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "orientation": "landscape",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 390,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "own": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 293,
+     "bottom": 376,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 62
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 233,
+    "h": 350,
+    "top": 19,
+    "bottom": 369
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.3,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 65,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "orientation": "landscape",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 390,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "own": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 293,
+     "bottom": 376,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 62
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 233,
+    "h": 350,
+    "top": 19,
+    "bottom": 369
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.3,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "844x390",
+  "orientation": "landscape",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 390,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "own": {
+     "top": 50,
+     "bottom": 287,
+     "inView": true,
+     "h": 237
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 293,
+     "bottom": 376,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 62
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 233,
+    "h": 350,
+    "top": 19,
+    "bottom": 369
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.3,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "852x393",
+  "orientation": "landscape",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 393,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "own": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 108,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 296,
+     "bottom": 379,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 63
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 235,
+    "h": 353,
+    "top": 19,
+    "bottom": 372
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.4,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 49,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "852x393",
+  "orientation": "landscape",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 393,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "own": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 296,
+     "bottom": 379,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 63
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 235,
+    "h": 353,
+    "top": 19,
+    "bottom": 372
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.4,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "852x393",
+  "orientation": "landscape",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 393,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "own": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 296,
+     "bottom": 379,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 63
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 235,
+    "h": 353,
+    "top": 19,
+    "bottom": 372
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.4,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 44,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "852x393",
+  "orientation": "landscape",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 393,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "own": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 296,
+     "bottom": 379,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 63
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 235,
+    "h": 353,
+    "top": 19,
+    "bottom": 372
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.4,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 65,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "852x393",
+  "orientation": "landscape",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 393,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "own": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 296,
+     "bottom": 379,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 63
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 235,
+    "h": 353,
+    "top": 19,
+    "bottom": 372
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.4,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "852x393",
+  "orientation": "landscape",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 393,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "own": {
+     "top": 50,
+     "bottom": 290,
+     "inView": true,
+     "h": 240
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 296,
+     "bottom": 379,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 63
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 235,
+    "h": 353,
+    "top": 19,
+    "bottom": 372
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.4,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "932x430",
+  "orientation": "landscape",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 430,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "own": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 108,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 333,
+     "bottom": 416,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 75
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 260,
+    "h": 390,
+    "top": 19,
+    "bottom": 409
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 9.2,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 49,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "932x430",
+  "orientation": "landscape",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 430,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "own": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 333,
+     "bottom": 416,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 75
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 260,
+    "h": 390,
+    "top": 19,
+    "bottom": 409
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 9.2,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "932x430",
+  "orientation": "landscape",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 430,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "own": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 333,
+     "bottom": 416,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 75
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 260,
+    "h": 390,
+    "top": 19,
+    "bottom": 409
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 9.2,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 44,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "932x430",
+  "orientation": "landscape",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 430,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "own": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 333,
+     "bottom": 416,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 75
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 260,
+    "h": 390,
+    "top": 19,
+    "bottom": 409
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 9.2,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "932x430",
+  "orientation": "landscape",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 430,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "own": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 333,
+     "bottom": 416,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 75
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 260,
+    "h": 390,
+    "top": 19,
+    "bottom": 409
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 9.2,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "932x430",
+  "orientation": "landscape",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 430,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "own": {
+     "top": 50,
+     "bottom": 327,
+     "inView": true,
+     "h": 277
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 333,
+     "bottom": 416,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 75
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 260,
+    "h": 390,
+    "top": 19,
+    "bottom": 409
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 9.2,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "736x414",
+  "orientation": "landscape",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 414,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "own": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 108,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 317,
+     "bottom": 400,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 70
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 249,
+    "h": 374,
+    "top": 19,
+    "bottom": 393
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.8,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 49,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "736x414",
+  "orientation": "landscape",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 414,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "own": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 317,
+     "bottom": 400,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 70
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 249,
+    "h": 374,
+    "top": 19,
+    "bottom": 393
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.8,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "736x414",
+  "orientation": "landscape",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 414,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "own": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 317,
+     "bottom": 400,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 70
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 249,
+    "h": 374,
+    "top": 19,
+    "bottom": 393
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.8,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 44,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "736x414",
+  "orientation": "landscape",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 414,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "own": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 317,
+     "bottom": 400,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 70
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 249,
+    "h": 374,
+    "top": 19,
+    "bottom": 393
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.8,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 65,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "736x414",
+  "orientation": "landscape",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 414,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "own": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 317,
+     "bottom": 400,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 70
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 249,
+    "h": 374,
+    "top": 19,
+    "bottom": 393
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.8,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "736x414",
+  "orientation": "landscape",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 414,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "own": {
+     "top": 50,
+     "bottom": 311,
+     "inView": true,
+     "h": 261
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 317,
+     "bottom": 400,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 70
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 249,
+    "h": 374,
+    "top": 19,
+    "bottom": 393
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 8.8,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "667x375",
+  "orientation": "landscape",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 375,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "own": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 108,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 278,
+     "bottom": 361,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 57
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 2,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 223,
+    "h": 335,
+    "top": 19,
+    "bottom": 354
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 7.9,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 49,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "667x375",
+  "orientation": "landscape",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 375,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "own": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 278,
+     "bottom": 361,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 57
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 223,
+    "h": 335,
+    "top": 19,
+    "bottom": 354
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 7.9,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 47,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "667x375",
+  "orientation": "landscape",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 375,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "own": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 278,
+     "bottom": 361,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 57
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 2,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 223,
+    "h": 335,
+    "top": 19,
+    "bottom": 354
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 7.9,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 44,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "667x375",
+  "orientation": "landscape",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 375,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "own": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 278,
+     "bottom": 361,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 57
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 223,
+    "h": 335,
+    "top": 19,
+    "bottom": 354
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 7.9,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 65,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "667x375",
+  "orientation": "landscape",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 375,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "own": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 278,
+     "bottom": 361,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 57
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 223,
+    "h": 335,
+    "top": 19,
+    "bottom": 354
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 7.9,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 65,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 65,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "667x375",
+  "orientation": "landscape",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 375,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "own": {
+     "top": 50,
+     "bottom": 272,
+     "inView": true,
+     "h": 222
+    },
+    "operation": {
+     "top": 48,
+     "bottom": 156,
+     "inView": true,
+     "h": 108
+    },
+    "hand": {
+     "top": 278,
+     "bottom": 361,
+     "inView": true,
+     "h": 83
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 57
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 2,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 223,
+    "h": 335,
+    "top": 19,
+    "bottom": 354
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 7.9,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 44,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "orientation": "portrait",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 568,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 446,
+     "inView": true,
+     "h": 260
+    },
+    "operation": {
+     "top": 375,
+     "bottom": 435,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 439,
+     "bottom": 554,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [
+    {
+     "el": ".board-shell",
+     "client": 187,
+     "scroll": 264
+    }
+   ],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 2,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 269,
+    "h": 403,
+    "top": 73,
+    "bottom": 476
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 9.5,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 54,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "orientation": "portrait",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 568,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 446,
+     "inView": true,
+     "h": 260
+    },
+    "operation": {
+     "top": 375,
+     "bottom": 435,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 439,
+     "bottom": 554,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [
+    {
+     "el": ".board-shell",
+     "client": 187,
+     "scroll": 264
+    }
+   ],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 270,
+    "h": 405,
+    "top": 73,
+    "bottom": 478
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 9.6,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 52,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "orientation": "portrait",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 568,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 446,
+     "inView": true,
+     "h": 260
+    },
+    "operation": {
+     "top": 375,
+     "bottom": 435,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 439,
+     "bottom": 554,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [
+    {
+     "el": ".board-shell",
+     "client": 187,
+     "scroll": 264
+    }
+   ],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 286,
+    "h": 429,
+    "top": 73,
+    "bottom": 502
+   },
+   "wholeCardVisible": false,
+   "stageScrolls": true,
+   "textPx": 10.1,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 48,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 48,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "orientation": "portrait",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 568,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 446,
+     "inView": true,
+     "h": 260
+    },
+    "operation": {
+     "top": 375,
+     "bottom": 435,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 439,
+     "bottom": 554,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [
+    {
+     "el": ".board-shell",
+     "client": 187,
+     "scroll": 264
+    }
+   ],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 286,
+    "h": 429,
+    "top": 73,
+    "bottom": 502
+   },
+   "wholeCardVisible": false,
+   "stageScrolls": true,
+   "textPx": 10.1,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 72,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "orientation": "portrait",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 568,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 446,
+     "inView": true,
+     "h": 260
+    },
+    "operation": {
+     "top": 375,
+     "bottom": 435,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 439,
+     "bottom": 554,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [
+    {
+     "el": ".board-shell",
+     "client": 187,
+     "scroll": 264
+    }
+   ],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 286,
+    "h": 429,
+    "top": 73,
+    "bottom": 502
+   },
+   "wholeCardVisible": false,
+   "stageScrolls": true,
+   "textPx": 10.1,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 72,
+     "tap": false
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "320x568",
+  "orientation": "portrait",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 568,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 446,
+     "inView": true,
+     "h": 260
+    },
+    "operation": {
+     "top": 375,
+     "bottom": 435,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 439,
+     "bottom": 554,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [
+    {
+     "el": ".board-shell",
+     "client": 187,
+     "scroll": 264
+    }
+   ],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 286,
+    "h": 429,
+    "top": 73,
+    "bottom": 502
+   },
+   "wholeCardVisible": false,
+   "stageScrolls": true,
+   "textPx": 10.1,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 48,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "orientation": "portrait",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 667,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 468,
+     "inView": true,
+     "h": 282
+    },
+    "operation": {
+     "top": 474,
+     "bottom": 534,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 538,
+     "bottom": 653,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 335,
+    "h": 502,
+    "top": 73,
+    "bottom": 575
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 11.9,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 54,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "orientation": "portrait",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 667,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 468,
+     "inView": true,
+     "h": 282
+    },
+    "operation": {
+     "top": 474,
+     "bottom": 534,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 538,
+     "bottom": 653,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 336,
+    "h": 504,
+    "top": 73,
+    "bottom": 577
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 11.9,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 52,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "orientation": "portrait",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 667,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 468,
+     "inView": true,
+     "h": 282
+    },
+    "operation": {
+     "top": 474,
+     "bottom": 534,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 538,
+     "bottom": 653,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 301,
+    "h": 452,
+    "top": 73,
+    "bottom": 525
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 10.7,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 48,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 48,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "orientation": "portrait",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 667,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 468,
+     "inView": true,
+     "h": 282
+    },
+    "operation": {
+     "top": 474,
+     "bottom": 534,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 538,
+     "bottom": 653,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 341,
+    "h": 512,
+    "top": 73,
+    "bottom": 585
+   },
+   "wholeCardVisible": false,
+   "stageScrolls": true,
+   "textPx": 12.1,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 72,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "orientation": "portrait",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 667,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 468,
+     "inView": true,
+     "h": 282
+    },
+    "operation": {
+     "top": 474,
+     "bottom": 534,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 538,
+     "bottom": 653,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 341,
+    "h": 512,
+    "top": 73,
+    "bottom": 585
+   },
+   "wholeCardVisible": false,
+   "stageScrolls": true,
+   "textPx": 12.1,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "375x667",
+  "orientation": "portrait",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 667,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 468,
+     "inView": true,
+     "h": 282
+    },
+    "operation": {
+     "top": 474,
+     "bottom": 534,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 538,
+     "bottom": 653,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 283,
+    "h": 424,
+    "top": 73,
+    "bottom": 497
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 10,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 48,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "orientation": "portrait",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 844,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 645,
+     "inView": true,
+     "h": 459
+    },
+    "operation": {
+     "top": 651,
+     "bottom": 711,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 715,
+     "bottom": 830,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 356,
+    "h": 534,
+    "top": 145,
+    "bottom": 679
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 12.6,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 54,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "orientation": "portrait",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 844,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 645,
+     "inView": true,
+     "h": 459
+    },
+    "operation": {
+     "top": 651,
+     "bottom": 711,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 715,
+     "bottom": 830,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 356,
+    "h": 534,
+    "top": 146,
+    "bottom": 680
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 12.6,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 52,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "orientation": "portrait",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 844,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 645,
+     "inView": true,
+     "h": 459
+    },
+    "operation": {
+     "top": 651,
+     "bottom": 711,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 715,
+     "bottom": 830,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 356,
+    "h": 534,
+    "top": 121,
+    "bottom": 655
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 12.6,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 48,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 48,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "orientation": "portrait",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 844,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 645,
+     "inView": true,
+     "h": 459
+    },
+    "operation": {
+     "top": 651,
+     "bottom": 711,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 715,
+     "bottom": 830,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 334,
+    "h": 501,
+    "top": 73,
+    "bottom": 574
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 11.9,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 72,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "orientation": "portrait",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 844,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 645,
+     "inView": true,
+     "h": 459
+    },
+    "operation": {
+     "top": 651,
+     "bottom": 711,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 715,
+     "bottom": 830,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 320,
+    "h": 480,
+    "top": 73,
+    "bottom": 553
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 11.4,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": "＋ 拡大",
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "orientation": "portrait",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 844,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 645,
+     "inView": true,
+     "h": 459
+    },
+    "operation": {
+     "top": 651,
+     "bottom": 711,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 715,
+     "bottom": 830,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 356,
+    "h": 534,
+    "top": 107,
+    "bottom": 641
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 12.6,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 48,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "orientation": "portrait",
+  "scenario": "choice",
+  "card": "W-city",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 932,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 733,
+     "inView": true,
+     "h": 547
+    },
+    "operation": {
+     "top": 739,
+     "bottom": 799,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 803,
+     "bottom": 918,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 8,
+   "handVisible": 8,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの選択待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 396,
+    "h": 594,
+    "top": 159,
+    "bottom": 753
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 14.1,
+   "buttons": [
+    {
+     "t": "とかいを選ぶ / ※ 山札の一番下へ戻します",
+     "h": 54,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "orientation": "portrait",
+  "scenario": "normal",
+  "card": "C-monkey",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 932,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 733,
+     "inView": true,
+     "h": 547
+    },
+    "operation": {
+     "top": 739,
+     "bottom": 799,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 803,
+     "bottom": 918,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 7,
+   "handVisible": 7,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 396,
+    "h": 594,
+    "top": 160,
+    "bottom": 754
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 14.1,
+   "buttons": [
+    {
+     "t": "まねっこサルをなかまへ / ※ 配置先：なかま①",
+     "h": 52,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "orientation": "portrait",
+  "scenario": "response",
+  "card": "I-c_coin2",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 932,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 733,
+     "inView": true,
+     "h": 547
+    },
+    "operation": {
+     "top": 739,
+     "bottom": 799,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 803,
+     "bottom": 918,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Bのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 396,
+    "h": 594,
+    "top": 135,
+    "bottom": 729
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 14.1,
+   "buttons": [
+    {
+     "t": "ラッキーコイン（時1）",
+     "h": 48,
+     "tap": true
+    },
+    {
+     "t": "応答しない（パス）",
+     "h": 48,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "orientation": "portrait",
+  "scenario": "target",
+  "card": "C-chameleon",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 932,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 733,
+     "inView": true,
+     "h": 547
+    },
+    "operation": {
+     "top": 739,
+     "bottom": 799,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 803,
+     "bottom": 918,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 396,
+    "h": 594,
+    "top": 80,
+    "bottom": 674
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 14.1,
+   "buttons": [
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま①のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／きまぐれなねこと交代 / ※ なかま②のきまぐれなねこと入れ替えます",
+     "h": 72,
+     "tap": true
+    },
+    {
+     "t": "サングラスのカメレオンを出す／まねっこサルと交代 / ※ なかま③のまねっこサルと入れ替えます",
+     "h": 52,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "orientation": "portrait",
+  "scenario": "many",
+  "card": "I-bowtie",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 932,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 733,
+     "inView": true,
+     "h": 547
+    },
+    "operation": {
+     "top": 739,
+     "bottom": 799,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 803,
+     "bottom": 918,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 4,
+   "handVisible": 4,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aの通常行動",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 391,
+    "h": 587,
+    "top": 73,
+    "bottom": 660
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 13.9,
+   "buttons": [
+    {
+     "t": "おべんとうばこ → アリジゴク①（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → がけのヤギさん（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → サングラスのカメレオン（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    },
+    {
+     "t": "おべんとうばこ → きまぐれなねこ（時2） / ※ 配置先：準備①",
+     "h": 52,
+     "tap": true
+    }
+   ],
+   "declaration": false,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ },
+ {
+  "viewport": "430x932",
+  "orientation": "portrait",
+  "scenario": "declare",
+  "card": "G-hit-blow",
+  "board": {
+   "clipped": [],
+   "pageScroll": false,
+   "pageScrollH": 932,
+   "overflowX": false,
+   "regions": {
+    "top": {
+     "top": 0,
+     "bottom": 44,
+     "inView": true,
+     "h": 44
+    },
+    "opponent": {
+     "top": 48,
+     "bottom": 180,
+     "inView": true,
+     "h": 132
+    },
+    "own": {
+     "top": 186,
+     "bottom": 733,
+     "inView": true,
+     "h": 547
+    },
+    "operation": {
+     "top": 739,
+     "bottom": 799,
+     "inView": true,
+     "h": 60
+    },
+    "hand": {
+     "top": 803,
+     "bottom": 918,
+     "inView": true,
+     "h": 115
+    }
+   },
+   "innerScrollers": [],
+   "handCards": 5,
+   "handVisible": 5,
+   "slots": 18,
+   "slotsInView": 18,
+   "minSlotH": 28
+  },
+  "detail": {
+   "status": {
+    "text": "Aのターン・Aの応答待ち",
+    "lines": 1,
+    "px": 12,
+    "clipped": false
+   },
+   "card": {
+    "w": 396,
+    "h": 594,
+    "top": 121,
+    "bottom": 715
+   },
+   "wholeCardVisible": true,
+   "stageScrolls": false,
+   "textPx": 14.1,
+   "buttons": [
+    {
+     "t": "応答しない（パス）",
+     "h": 48,
+     "tap": true
+    }
+   ],
+   "declaration": true,
+   "zoomChip": null,
+   "overflowX": false
+  },
+  "errors": []
+ }
+]

@@ -86,8 +86,9 @@ test('late loading, malformed atlases and decode errors keep the original prop w
 test('illustrated roads keep input, timing, score and saved rewards identical in normal, reduced and low modes',()=>{
   function play(id,propIllustrations,mode){
     const r=start(id,{propIllustrations,...mode}),h=r.h,c=h.get('minigameOverlay');
-    for(const [delay,button] of [[1800,'lrLeft'],[2300,'lrRight'],[1700,'lrRight'],[2200,'lrLeft']]){
-      h.advance(delay);h.dispatch(c.querySelector('#'+button),'pointerdown',{pointerId:1});
+    // レーンの 左・右を キャンバスで タップ(T7: 4びょうの 区切り 2つ いじょうで そうさした ふつうの プレイ)
+    for(const [delay,x] of [[1800,10],[2300,290],[1700,290],[2200,10]]){
+      h.advance(delay);h.dispatch(c.querySelector('#lrCanvas'),'pointerdown',{pointerId:1,clientX:x,clientY:100});
     }
     h.advance(20000);assert.equal(h.api.state().lifetime.minigamesPlayed,1);
     return {state:JSON.stringify(h.api.state()),message:h.get('message').textContent};
@@ -133,7 +134,8 @@ test('missing prop module keeps the complete original game and safe text fallbac
   const h=harness({propIllustrations:false});
   assert.equal(h.api.commentTextHTML('🏞️🐦'),'🏞️🐦');
   assert.equal(h.api.commentTextHTML('<img onerror=x>🏞️'),'&lt;img onerror=x&gt;🏞️');
-  const r=start('p3-space',{propIllustrations:false});r.h.advance(20000);
+  const r=start('p3-space',{propIllustrations:false}),lane=(x)=>r.h.dispatch(r.h.get('minigameOverlay').querySelector('#lrCanvas'),'pointerdown',{pointerId:1,clientX:x,clientY:100});
+  r.h.advance(1500);lane(10);r.h.advance(4500);lane(290);r.h.advance(14000);
   assert.equal(r.h.api.state().lifetime.minigamesPlayed,1);
   assert.equal(r.calls.some(c=>c[0]==='drawImage'),false);
 });

@@ -1,0 +1,31 @@
+[
+  'state.history.N.text',
+  'viewA.players.A.discard.N.text',
+  'viewA.players.A.discard.N.source_sha256',
+  'viewA.players.A.hand.N.text',
+  'viewA.players.A.hand.N.source_sha256',
+  'viewA.players.B.discard.N.text',
+  'viewA.players.B.discard.N.source_sha256'
+]
+[
+  [
+    'state.history.103.text',
+    '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。',
+    '解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  ],
+  [
+    'state.history.126.text',
+    '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。',
+    '解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  ],
+  [
+    'viewA.players.A.discard.4.text',
+    '自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。',
+    '解決時に自分の残り時がちょうど2なら、1枚引き、自分のそだち+5。'
+  ],
+  [
+    'viewA.players.A.discard.4.source_sha256',
+    '058e22933751975a89577346a557b05284f8e633ca43abcd6a2f0937150a',
+    '17ecafca7771fec4730b78ccda4d93255631d19f5a57dc93021e8f92f6b9'
+  ]
+]

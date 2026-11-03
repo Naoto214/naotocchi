@@ -1,0 +1,14 @@
+✔ wide and tall official sprites put cropped feet on the same cell baseline (1.193118ms)
+✔ split children are not visible before the body reaches the spike (4.672464ms)
+✔ falling body shows its split number after contact, not the pre-split number (1.191045ms)
+✔ a gravity-triggered split waits until the animated body reaches its actual spike (7.62308ms)
+✔ invisible newborns cannot intercept a regrab at birth or final cell (0.680126ms)
+✔ coincident split and later merge keep the intermediate number until the donor arrives (7.406114ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.294776

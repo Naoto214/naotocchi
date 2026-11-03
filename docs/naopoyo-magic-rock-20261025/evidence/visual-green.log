@@ -1,0 +1,32 @@
+✔ magic rock number is large and centered in its actual cell (2.678264ms)
+✔ contact progress migrates without board/Undo or writes to old key (2.327118ms)
+✔ phase glow is transient, reduced motion clears it, Undo restores board (4.423152ms)
+✔ rock8 horizontal and gravity passage/support level1 (4.465038ms)
+✔ rock and mismatched magic rock share ascent level1 (1.580872ms)
+✔ rock8 horizontal and gravity passage/support level2 (0.508085ms)
+✔ rock and mismatched magic rock share ascent level2 (0.778699ms)
+✔ rock8 horizontal and gravity passage/support level3 (0.948173ms)
+✔ rock and mismatched magic rock share ascent level3 (1.061259ms)
+✔ rock8 horizontal and gravity passage/support level4 (0.449806ms)
+✔ rock and mismatched magic rock share ascent level4 (0.476934ms)
+✔ rock8 horizontal and gravity passage/support level5 (0.464346ms)
+✔ rock and mismatched magic rock share ascent level5 (2.040221ms)
+✔ rock8 horizontal and gravity passage/support level6 (0.45502ms)
+✔ rock and mismatched magic rock share ascent level6 (0.362844ms)
+✔ rock8 horizontal and gravity passage/support level7 (0.239785ms)
+✔ rock and mismatched magic rock share ascent level7 (0.149713ms)
+✔ rock8 horizontal and gravity passage/support level8 (1.206774ms)
+✔ rock and mismatched magic rock share ascent level8 (0.205302ms)
+✔ corner uses moving number and legacy contact remains unchanged (0.302652ms)
+✔ reverse exchange has its own corner number (0.339428ms)
+✔ split level1 cannot escape a parent8-only rock corner (0.405925ms)
+✔ restore rejects old terrain rules and invalid rock occupants (0.273027ms)
+✔ merge overflow and external split cannot change rock qualification (0.751718ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 203.008953

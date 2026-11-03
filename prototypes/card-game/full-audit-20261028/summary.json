@@ -1,0 +1,1452 @@
+{
+ "summary": {
+  "generatedFrom": {
+   "head": "ref: refs/heads/claude/card-game-full452-audit-20261028"
+  },
+  "total": 452,
+  "byType": {
+   "companion": 26,
+   "event": 21,
+   "play": 100,
+   "item": 26,
+   "main": 248,
+   "partner": 18,
+   "world": 13
+  },
+  "byPrimary": {
+   "A": 404,
+   "B": 28,
+   "D": 2,
+   "E": 18
+  },
+  "byStrength": {
+   "M": 212,
+   "S": 206,
+   "W": 34
+  },
+  "byImpl": {
+   "RULES": 438,
+   "LEGACY": 14
+  },
+  "rulesEntries": 438,
+  "legacyBase": 15,
+  "cardsWithDirectTest": 229,
+  "cardsWithoutDirectTest": 223,
+  "cardsWithRulingDoc": 399,
+  "artOk": 452,
+  "textLen": {
+   "max": 148,
+   "over140": 5
+  },
+  "flagCounts": {
+   "H1": 7,
+   "H7": 45,
+   "H5": 19,
+   "provenance": 34,
+   "H2": 34,
+   "provenance-text-differs": 2,
+   "H3": 9,
+   "H8": 19
+  },
+  "chapters": 15,
+  "currentRulings": 79
+ },
+ "chapterReport": [
+  {
+   "id": 1,
+   "title": "CARD GAMEとは",
+   "details": 4,
+   "cards": 3,
+   "missingCards": [],
+   "stale": [
+    "HP"
+   ],
+   "sources": [
+    "01-core-rules.md"
+   ],
+   "chars": 332
+  },
+  {
+   "id": 2,
+   "title": "ゲームの目的・勝利条件",
+   "details": 5,
+   "cards": 0,
+   "missingCards": [],
+   "stale": [],
+   "sources": [
+    "01-core-rules.md",
+    "06-action-chain-checkpoint.md"
+   ],
+   "chars": 487
+  },
+  {
+   "id": 3,
+   "title": "40枚デッキの作り方",
+   "details": 4,
+   "cards": 2,
+   "missingCards": [],
+   "stale": [
+    "コスト"
+   ],
+   "sources": [
+    "01-core-rules.md"
+   ],
+   "chars": 332
+  },
+  {
+   "id": 4,
+   "title": "盤面の見方・3×3フィールド",
+   "details": 4,
+   "cards": 0,
+   "missingCards": [],
+   "stale": [],
+   "sources": [
+    "01-core-rules.md",
+    "02-main-system.md"
+   ],
+   "chars": 334
+  },
+  {
+   "id": 5,
+   "title": "たまご状態・ドロー・返却",
+   "details": 5,
+   "cards": 0,
+   "missingCards": [],
+   "stale": [
+    "コスト"
+   ],
+   "sources": [
+    "02-main-system.md",
+    "01-core-rules.md"
+   ],
+   "chars": 471
+  },
+  {
+   "id": 6,
+   "title": "たんじょう",
+   "details": 4,
+   "cards": 2,
+   "missingCards": [],
+   "stale": [
+    "コスト"
+   ],
+   "sources": [
+    "02-main-system.md",
+    "01-core-rules.md"
+   ],
+   "chars": 347
+  },
+  {
+   "id": 7,
+   "title": "ときおくり・へんしん",
+   "details": 5,
+   "cards": 3,
+   "missingCards": [],
+   "stale": [],
+   "sources": [
+    "02-main-system.md",
+    "06-action-chain-checkpoint.md"
+   ],
+   "chars": 395
+  },
+  {
+   "id": 8,
+   "title": "時コスト・通常行動",
+   "details": 5,
+   "cards": 1,
+   "missingCards": [],
+   "stale": [
+    "コスト"
+   ],
+   "sources": [
+    "01-core-rules.md",
+    "06-action-chain-checkpoint.md"
+   ],
+   "chars": 462
+  },
+  {
+   "id": 9,
+   "title": "なかま・こいびと・交際・結婚",
+   "details": 6,
+   "cards": 2,
+   "missingCards": [],
+   "stale": [],
+   "sources": [
+    "01-core-rules.md",
+    "02-main-system.md",
+    "06-action-chain-checkpoint.md"
+   ],
+   "chars": 558
+  },
+  {
+   "id": 10,
+   "title": "セカイ・あそび・アイテム・できごと",
+   "details": 4,
+   "cards": 4,
+   "missingCards": [],
+   "stale": [],
+   "sources": [
+    "01-core-rules.md"
+   ],
+   "chars": 346
+  },
+  {
+   "id": 11,
+   "title": "すぐつかう・みにつける・しかける",
+   "details": 5,
+   "cards": 3,
+   "missingCards": [],
+   "stale": [
+    "コスト"
+   ],
+   "sources": [
+    "01-core-rules.md",
+    "06-action-chain-checkpoint.md"
+   ],
+   "chars": 486
+  },
+  {
+   "id": 12,
+   "title": "ちょうせん（ちから・ちえ）",
+   "details": 5,
+   "cards": 2,
+   "missingCards": [],
+   "stale": [
+    "コスト"
+   ],
+   "sources": [
+    "02-main-system.md",
+    "06-action-chain-checkpoint.md"
+   ],
+   "chars": 459
+  },
+  {
+   "id": 13,
+   "title": "応答・チェーン・逆順解決",
+   "details": 7,
+   "cards": 2,
+   "missingCards": [],
+   "stale": [],
+   "sources": [
+    "06-action-chain-checkpoint.md",
+    "01-core-rules.md"
+   ],
+   "chars": 714
+  },
+  {
+   "id": 14,
+   "title": "ターン終了・ラウンド進行",
+   "details": 5,
+   "cards": 0,
+   "missingCards": [],
+   "stale": [],
+   "sources": [
+    "01-core-rules.md",
+    "06-action-chain-checkpoint.md"
+   ],
+   "chars": 504
+  },
+  {
+   "id": 15,
+   "title": "特殊な状況・よくある質問",
+   "details": 9,
+   "cards": 0,
+   "missingCards": [],
+   "stale": [
+    "コスト"
+   ],
+   "sources": [
+    "01-core-rules.md",
+    "02-main-system.md",
+    "06-action-chain-checkpoint.md",
+    "07-advanced-rules-checkpoint.md"
+   ],
+   "chars": 900
+  }
+ ],
+ "rulingReport": [
+  {
+   "id": "rule-01-1",
+   "chapter": 1,
+   "title": "コンセプト",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "HP"
+   ],
+   "chars": 137
+  },
+  {
+   "id": "rule-01-2",
+   "chapter": 3,
+   "title": "デッキ",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 138
+  },
+  {
+   "id": "rule-01-3",
+   "chapter": 1,
+   "title": "7種類",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 195
+  },
+  {
+   "id": "rule-01-4",
+   "chapter": 8,
+   "title": "通常行動と反応",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 813
+  },
+  {
+   "id": "rule-01-5",
+   "chapter": 10,
+   "title": "アクションカードのプレイ",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 470
+  },
+  {
+   "id": "rule-01-6",
+   "chapter": 11,
+   "title": "みにつける語彙",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 97
+  },
+  {
+   "id": "rule-01-7",
+   "chapter": 11,
+   "title": "しかける語彙",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 102
+  },
+  {
+   "id": "rule-01-8",
+   "chapter": 13,
+   "title": "発動／解決／効果の適用",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 300
+  },
+  {
+   "id": "rule-01-9",
+   "chapter": 13,
+   "title": "対象の決定",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 335
+  },
+  {
+   "id": "rule-01-10",
+   "chapter": 15,
+   "title": "一部が実行不能な効果",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 286
+  },
+  {
+   "id": "rule-01-11",
+   "chapter": 13,
+   "title": "効果の無効／発動の無効",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 483
+  },
+  {
+   "id": "rule-01-12",
+   "chapter": 8,
+   "title": "時",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 525
+  },
+  {
+   "id": "rule-01-13",
+   "chapter": 14,
+   "title": "10ラウンド＝100歳",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 65
+  },
+  {
+   "id": "rule-01-14",
+   "chapter": 14,
+   "title": "ターンの開始と終了",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 519
+  },
+  {
+   "id": "rule-01-15",
+   "chapter": 2,
+   "title": "そだち",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 61
+  },
+  {
+   "id": "rule-01-16",
+   "chapter": 2,
+   "title": "勝利",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 529
+  },
+  {
+   "id": "rule-01-17",
+   "chapter": 4,
+   "title": "盤面",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 446
+  },
+  {
+   "id": "rule-01-18",
+   "chapter": 9,
+   "title": "なかま",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 48
+  },
+  {
+   "id": "rule-01-19",
+   "chapter": 9,
+   "title": "満員交代の手順",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 365
+  },
+  {
+   "id": "rule-01-20",
+   "chapter": 9,
+   "title": "こいびと",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 331
+  },
+  {
+   "id": "rule-01-21",
+   "chapter": 9,
+   "title": "交際の開始・進行・結婚の区別",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 772
+  },
+  {
+   "id": "rule-01-22",
+   "chapter": 10,
+   "title": "セカイ",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 54
+  },
+  {
+   "id": "rule-01-23",
+   "chapter": 8,
+   "title": "通常の時コスト",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 110
+  },
+  {
+   "id": "rule-01-24",
+   "chapter": 12,
+   "title": "勝負",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 420
+  },
+  {
+   "id": "rule-02-1",
+   "chapter": 6,
+   "title": "たまご／たんじょう",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 708
+  },
+  {
+   "id": "rule-02-2",
+   "chapter": 5,
+   "title": "たまご状態と周辺カード",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 421
+  },
+  {
+   "id": "rule-02-3",
+   "chapter": 5,
+   "title": "たまごと未解決のこいびと能力",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 874
+  },
+  {
+   "id": "rule-02-4",
+   "chapter": 7,
+   "title": "ときおくり",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 213
+  },
+  {
+   "id": "rule-02-5",
+   "chapter": 7,
+   "title": "へんしん",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 261
+  },
+  {
+   "id": "rule-02-6",
+   "chapter": 7,
+   "title": "通常のメイン移動の実行時点",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 472
+  },
+  {
+   "id": "rule-02-7",
+   "chapter": 7,
+   "title": "メイン移動のカード文語彙",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 240
+  },
+  {
+   "id": "rule-02-8",
+   "chapter": 15,
+   "title": "メイン除去",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 822
+  },
+  {
+   "id": "rule-02-9",
+   "chapter": 15,
+   "title": "メインが捨て札へ行く原因の区別",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 187
+  },
+  {
+   "id": "rule-02-10",
+   "chapter": 12,
+   "title": "ちから／ちえ",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 262
+  },
+  {
+   "id": "rule-02-11",
+   "chapter": 12,
+   "title": "ちょうせん",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 835
+  },
+  {
+   "id": "rule-02-12",
+   "chapter": 12,
+   "title": "勝負中に参加メインが場を離れた場合",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 693
+  },
+  {
+   "id": "rule-02-13",
+   "chapter": 12,
+   "title": "ちょうせんのカード文表記",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 378
+  },
+  {
+   "id": "rule-02-14",
+   "chapter": 12,
+   "title": "得点と挑む判断",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 201
+  },
+  {
+   "id": "rule-02-15",
+   "chapter": 1,
+   "title": "8段階／固有能力",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 40
+  },
+  {
+   "id": "rule-02-16",
+   "chapter": 1,
+   "title": "8属性",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 279
+  },
+  {
+   "id": "rule-02-17",
+   "chapter": 1,
+   "title": "固定属性相性なし",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 59
+  },
+  {
+   "id": "rule-02-18",
+   "chapter": 1,
+   "title": "属性は能力を独占しない",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 37
+  },
+  {
+   "id": "rule-02-20",
+   "chapter": 1,
+   "title": "げんそう／ふしぎの差",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 88
+  },
+  {
+   "id": "rule-02-21",
+   "chapter": 1,
+   "title": "みずべ／うみの差",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 40
+  },
+  {
+   "id": "rule-06-1",
+   "chapter": 8,
+   "title": "通常行動・発動の開始手順",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 994
+  },
+  {
+   "id": "rule-06-3",
+   "chapter": 13,
+   "title": "条件／コスト／効果",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 127
+  },
+  {
+   "id": "rule-06-4",
+   "chapter": 9,
+   "title": "交際開始・進行後の反応",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 356
+  },
+  {
+   "id": "rule-06-5",
+   "chapter": 13,
+   "title": "コスト／効果で起きた出来事の参照",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 105
+  },
+  {
+   "id": "rule-06-6",
+   "chapter": 13,
+   "title": "反応機会・パス",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 112
+  },
+  {
+   "id": "rule-06-7",
+   "chapter": 13,
+   "title": "通常行動の完了後・元の処理への復帰",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 424
+  },
+  {
+   "id": "rule-06-8",
+   "chapter": 13,
+   "title": "強制発動／通常任意発動／しかける",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 140
+  },
+  {
+   "id": "rule-06-9",
+   "chapter": 13,
+   "title": "同じタイミングで複数条件成立",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 123
+  },
+  {
+   "id": "rule-06-10",
+   "chapter": 13,
+   "title": "解決中に新しい発動条件が成立",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 93
+  },
+  {
+   "id": "rule-06-11",
+   "chapter": 13,
+   "title": "同じ能力が解決中に複数回条件成立",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 71
+  },
+  {
+   "id": "rule-06-12",
+   "chapter": 15,
+   "title": "回数制限の共通語彙",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 269
+  },
+  {
+   "id": "rule-06-13",
+   "chapter": 13,
+   "title": "「対象にする」と「選ぶ」",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 112
+  },
+  {
+   "id": "rule-06-14",
+   "chapter": 15,
+   "title": "発動条件と空撃ち",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 94
+  },
+  {
+   "id": "rule-06-15",
+   "chapter": 15,
+   "title": "適用済みの期限付き・遅延効果と発動元の離脱",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 417
+  },
+  {
+   "id": "rule-06-16",
+   "chapter": 12,
+   "title": "ちょうせんの開始・結果・途中終了との接続",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 65
+  },
+  {
+   "id": "rule-06-17",
+   "chapter": 12,
+   "title": "宣言から結果まで",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 496
+  },
+  {
+   "id": "rule-06-18",
+   "chapter": 12,
+   "title": "途中終了と、処理を残す範囲",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 682
+  },
+  {
+   "id": "rule-06-19",
+   "chapter": 12,
+   "title": "終了と完了",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 404
+  },
+  {
+   "id": "rule-06-22",
+   "chapter": 14,
+   "title": "開始・終了という出来事と発動機会",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 607
+  },
+  {
+   "id": "rule-06-23",
+   "chapter": 14,
+   "title": "ターン開始",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 578
+  },
+  {
+   "id": "rule-06-24",
+   "chapter": 14,
+   "title": "適用済み予約の自動実行",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 351
+  },
+  {
+   "id": "rule-06-25",
+   "chapter": 14,
+   "title": "ターン終了",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 747
+  },
+  {
+   "id": "rule-06-26",
+   "chapter": 14,
+   "title": "期限・履歴の読み方",
+   "sourcePath": "docs/card-game/06-action-chain-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 694
+  },
+  {
+   "id": "rule-07-1",
+   "chapter": 15,
+   "title": "③ 数値変更の重複",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 509
+  },
+  {
+   "id": "rule-07-2",
+   "chapter": 15,
+   "title": "④ コピー",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 305
+  },
+  {
+   "id": "rule-07-3",
+   "chapter": 15,
+   "title": "⑤ 置換",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 571
+  },
+  {
+   "id": "rule-07-4",
+   "chapter": 15,
+   "title": "⑥ 防止",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 214
+  },
+  {
+   "id": "rule-07-5",
+   "chapter": 15,
+   "title": "⑦ 置換・防止と連鎖",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 207
+  },
+  {
+   "id": "rule-07-6",
+   "chapter": 15,
+   "title": "⑧ すでに有効な「～ならない」と発動条件",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 267
+  },
+  {
+   "id": "rule-07-7",
+   "chapter": 15,
+   "title": "⑨ 「～なる時」と「～なった時」",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [
+    "コスト"
+   ],
+   "chars": 385
+  },
+  {
+   "id": "rule-07-8",
+   "chapter": 15,
+   "title": "⑩ 領域移動",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 295
+  },
+  {
+   "id": "rule-07-9",
+   "chapter": 15,
+   "title": "⑪ カード本文と基本ルールの優先関係",
+   "sourcePath": "docs/card-game/07-advanced-rules-checkpoint.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 240
+  },
+  {
+   "id": "rule-person-example",
+   "chapter": 9,
+   "title": "人物の通常配置と交際進行の例",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 379
+  },
+  {
+   "id": "rule-egg-start",
+   "chapter": 5,
+   "title": "たまごの開始時ドローと返却",
+   "sourcePath": "docs/card-game/02-main-system.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 149
+  },
+  {
+   "id": "rule-preparation-slots",
+   "chapter": 11,
+   "title": "準備枠と通常の使用機会",
+   "sourcePath": "docs/card-game/01-core-rules.md",
+   "sourceExists": true,
+   "headingFound": true,
+   "stale": [],
+   "chars": 122
+  }
+ ],
+ "factTable": [
+  {
+   "fact": "デッキ枚数",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 9,
+   "tutorial.mjs": 0,
+   "docs/card-game-design-current.md": 1,
+   "prototypes/card-game/README.md": 2,
+   "docs/card-game/01-core-rules.md": 3,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "初手5枚",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 1,
+   "tutorial.mjs": 0,
+   "docs/card-game-design-current.md": 1,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 1,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "そだち20から",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 1,
+   "tutorial.mjs": 2,
+   "docs/card-game-design-current.md": 0,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 0,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "10ラウンド",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 5,
+   "tutorial.mjs": 1,
+   "docs/card-game-design-current.md": 4,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 3,
+   "docs/card-game/02-main-system.md": 1
+  },
+  {
+   "fact": "同名3枚",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 2,
+   "tutorial.mjs": 0,
+   "docs/card-game-design-current.md": 1,
+   "prototypes/card-game/README.md": 1,
+   "docs/card-game/01-core-rules.md": 1,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "レア同名1枚",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 1,
+   "tutorial.mjs": 0,
+   "docs/card-game-design-current.md": 1,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 1,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "本編解禁(旧)",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 0,
+   "tutorial.mjs": 0,
+   "docs/card-game-design-current.md": 1,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 1,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "全452枚を最初から使用",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 2,
+   "tutorial.mjs": 0,
+   "docs/card-game-design-current.md": 0,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 0,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "先攻R1ドロー",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 1,
+   "tutorial.mjs": 0,
+   "docs/card-game-design-current.md": 1,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 1,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "ときとばし(旧語)",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 0,
+   "tutorial.mjs": 0,
+   "docs/card-game-design-current.md": 3,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 0,
+   "docs/card-game/02-main-system.md": 0
+  },
+  {
+   "fact": "ときおくり",
+   "ルールブック(CHAPTERS+CURRENT_RULINGS)": 19,
+   "tutorial.mjs": 2,
+   "docs/card-game-design-current.md": 0,
+   "prototypes/card-game/README.md": 0,
+   "docs/card-game/01-core-rules.md": 5,
+   "docs/card-game/02-main-system.md": 16
+  }
+ ],
+ "termTable": [
+  {
+   "term": "たんじょう",
+   "cards": 23,
+   "rulebook": 37,
+   "tutorial": 4
+  },
+  {
+   "term": "ときおくり",
+   "cards": 22,
+   "rulebook": 19,
+   "tutorial": 2
+  },
+  {
+   "term": "へんしん",
+   "cards": 12,
+   "rulebook": 27,
+   "tutorial": 3
+  },
+  {
+   "term": "たまご",
+   "cards": 7,
+   "rulebook": 73,
+   "tutorial": 5
+  },
+  {
+   "term": "そだち",
+   "cards": 73,
+   "rulebook": 29,
+   "tutorial": 10
+  },
+  {
+   "term": "なかま枠",
+   "cards": 8,
+   "rulebook": 0,
+   "tutorial": 0
+  },
+  {
+   "term": "こいびと枠",
+   "cards": 9,
+   "rulebook": 0,
+   "tutorial": 0
+  },
+  {
+   "term": "セカイ枠",
+   "cards": 6,
+   "rulebook": 0,
+   "tutorial": 0
+  },
+  {
+   "term": "準備枠",
+   "cards": 54,
+   "rulebook": 16,
+   "tutorial": 5
+  },
+  {
+   "term": "すぐつかう",
+   "cards": 18,
+   "rulebook": 18,
+   "tutorial": 2
+  },
+  {
+   "term": "みにつける",
+   "cards": 31,
+   "rulebook": 15,
+   "tutorial": 1
+  },
+  {
+   "term": "しかける",
+   "cards": 9,
+   "rulebook": 23,
+   "tutorial": 1
+  },
+  {
+   "term": "ちょうせん",
+   "cards": 72,
+   "rulebook": 46,
+   "tutorial": 2
+  },
+  {
+   "term": "発動",
+   "cards": 371,
+   "rulebook": 228,
+   "tutorial": 9
+  },
+  {
+   "term": "解決",
+   "cards": 12,
+   "rulebook": 76,
+   "tutorial": 5
+  },
+  {
+   "term": "対象",
+   "cards": 120,
+   "rulebook": 54,
+   "tutorial": 2
+  },
+  {
+   "term": "捨て札",
+   "cards": 136,
+   "rulebook": 40,
+   "tutorial": 3
+  },
+  {
+   "term": "山札",
+   "cards": 183,
+   "rulebook": 17,
+   "tutorial": 3
+  },
+  {
+   "term": "手札",
+   "cards": 190,
+   "rulebook": 53,
+   "tutorial": 5
+  },
+  {
+   "term": "時",
+   "cards": 310,
+   "rulebook": 361,
+   "tutorial": 20
+  },
+  {
+   "term": "交際",
+   "cards": 10,
+   "rulebook": 53,
+   "tutorial": 8
+  },
+  {
+   "term": "結婚",
+   "cards": 7,
+   "rulebook": 35,
+   "tutorial": 3
+  },
+  {
+   "term": "別れ",
+   "cards": 0,
+   "rulebook": 2,
+   "tutorial": 1
+  },
+  {
+   "term": "離婚",
+   "cards": 0,
+   "rulebook": 2,
+   "tutorial": 1
+  },
+  {
+   "term": "裏向き",
+   "cards": 0,
+   "rulebook": 4,
+   "tutorial": 1
+  },
+  {
+   "term": "表向き",
+   "cards": 34,
+   "rulebook": 1,
+   "tutorial": 0
+  },
+  {
+   "term": "公開",
+   "cards": 66,
+   "rulebook": 13,
+   "tutorial": 1
+  },
+  {
+   "term": "装備",
+   "cards": 9,
+   "rulebook": 18,
+   "tutorial": 2
+  },
+  {
+   "term": "段階",
+   "cards": 36,
+   "rulebook": 53,
+   "tutorial": 5
+  },
+  {
+   "term": "メイン",
+   "cards": 236,
+   "rulebook": 115,
+   "tutorial": 6
+  }
+ ],
+ "variantTable": [
+  {
+   "a": "手札に戻す",
+   "aCount": 40,
+   "b": "手札へ戻す",
+   "bCount": 0
+  },
+  {
+   "a": "手札に加える",
+   "aCount": 40,
+   "b": "手札へ加える",
+   "bCount": 0
+  },
+  {
+   "a": "山札の一番下",
+   "aCount": 132,
+   "b": "山札の底",
+   "bCount": 0
+  },
+  {
+   "a": "捨て札に置く",
+   "aCount": 19,
+   "b": "捨て札へ置く",
+   "bCount": 2
+  },
+  {
+   "a": "なかま枠",
+   "aCount": 8,
+   "b": "なかま欄",
+   "bCount": 0
+  },
+  {
+   "a": "発動できる",
+   "aCount": 359,
+   "b": "発動する",
+   "bCount": 1
+  },
+  {
+   "a": "このターン",
+   "aCount": 155,
+   "b": "今ターン",
+   "bCount": 0
+  },
+  {
+   "a": "自分のターン",
+   "aCount": 116,
+   "b": "自ターン",
+   "bCount": 0
+  },
+  {
+   "a": "相手のターン",
+   "aCount": 12,
+   "b": "相手ターン",
+   "bCount": 1
+  },
+  {
+   "a": "能力なし",
+   "aCount": 7,
+   "b": "なし。",
+   "bCount": 7
+  },
+  {
+   "a": "1枚引く",
+   "aCount": 72,
+   "b": "1枚ドローする",
+   "bCount": 0
+  },
+  {
+   "a": "デッキ",
+   "aCount": 0,
+   "b": "山札",
+   "bCount": 183
+  }
+ ]
+}

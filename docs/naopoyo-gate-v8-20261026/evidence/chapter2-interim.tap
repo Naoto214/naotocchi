@@ -1,0 +1,1412 @@
+TAP version 13
+# Subtest: real pointer handlers accept regrab during swap and follow visible actor ID
+ok 1 - real pointer handlers accept regrab during swap and follow visible actor ID
+  ---
+  duration_ms: 186.610815
+  type: 'test'
+  ...
+# Subtest: real pointer fast/slow/coalesced swap sequences reach identical state
+ok 2 - real pointer fast/slow/coalesced swap sequences reach identical state
+  ---
+  duration_ms: 146.462184
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 0,-1, mixed=false
+ok 3 - 8-way exchange 0,-1, mixed=false
+  ---
+  duration_ms: 15.195751
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 0,-1, mixed=true
+ok 4 - 8-way exchange 0,-1, mixed=true
+  ---
+  duration_ms: 1.085772
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 1,-1, mixed=false
+ok 5 - 8-way exchange 1,-1, mixed=false
+  ---
+  duration_ms: 1.277345
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 1,-1, mixed=true
+ok 6 - 8-way exchange 1,-1, mixed=true
+  ---
+  duration_ms: 5.233236
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 1,0, mixed=false
+ok 7 - 8-way exchange 1,0, mixed=false
+  ---
+  duration_ms: 1.592727
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 1,0, mixed=true
+ok 8 - 8-way exchange 1,0, mixed=true
+  ---
+  duration_ms: 0.449407
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 1,1, mixed=false
+ok 9 - 8-way exchange 1,1, mixed=false
+  ---
+  duration_ms: 0.598585
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 1,1, mixed=true
+ok 10 - 8-way exchange 1,1, mixed=true
+  ---
+  duration_ms: 0.95037
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 0,1, mixed=false
+ok 11 - 8-way exchange 0,1, mixed=false
+  ---
+  duration_ms: 2.200393
+  type: 'test'
+  ...
+# Subtest: 8-way exchange 0,1, mixed=true
+ok 12 - 8-way exchange 0,1, mixed=true
+  ---
+  duration_ms: 0.965245
+  type: 'test'
+  ...
+# Subtest: 8-way exchange -1,1, mixed=false
+ok 13 - 8-way exchange -1,1, mixed=false
+  ---
+  duration_ms: 0.64605
+  type: 'test'
+  ...
+# Subtest: 8-way exchange -1,1, mixed=true
+ok 14 - 8-way exchange -1,1, mixed=true
+  ---
+  duration_ms: 0.824238
+  type: 'test'
+  ...
+# Subtest: 8-way exchange -1,0, mixed=false
+ok 15 - 8-way exchange -1,0, mixed=false
+  ---
+  duration_ms: 0.512699
+  type: 'test'
+  ...
+# Subtest: 8-way exchange -1,0, mixed=true
+ok 16 - 8-way exchange -1,0, mixed=true
+  ---
+  duration_ms: 0.410995
+  type: 'test'
+  ...
+# Subtest: 8-way exchange -1,-1, mixed=false
+ok 17 - 8-way exchange -1,-1, mixed=false
+  ---
+  duration_ms: 1.267788
+  type: 'test'
+  ...
+# Subtest: 8-way exchange -1,-1, mixed=true
+ok 18 - 8-way exchange -1,-1, mixed=true
+  ---
+  duration_ms: 0.706198
+  type: 'test'
+  ...
+# Subtest: merge and overflow take priority over exchange
+ok 19 - merge and overflow take priority over exchange
+  ---
+  duration_ms: 0.979633
+  type: 'test'
+  ...
+# Subtest: blocked merge does not fall back to exchange
+ok 20 - blocked merge does not fall back to exchange
+  ---
+  duration_ms: 1.132843
+  type: 'test'
+  ...
+# Subtest: both exchange destinations check gates even when already open
+ok 21 - both exchange destinations check gates even when already open
+  ---
+  duration_ms: 1.559304
+  type: 'test'
+  ...
+# Subtest: reverse species terrain rejection leaves both actors unchanged
+ok 22 - reverse species terrain rejection leaves both actors unchanged
+  ---
+  duration_ms: 3.108583
+  type: 'test'
+  ...
+# Subtest: diagonal gate exchange checks the displaced actor
+ok 23 - diagonal gate exchange checks the displaced actor
+  ---
+  duration_ms: 4.821693
+  type: 'test'
+  ...
+# Subtest: two rock sides block diagonal empty entry and exchange; one side permits
+ok 24 - two rock sides block diagonal empty entry and exchange; one side permits
+  ---
+  duration_ms: 2.021791
+  type: 'test'
+  ...
+# Subtest: actors and adjacent closed gates do not become corner walls
+ok 25 - actors and adjacent closed gates do not become corner walls
+  ---
+  duration_ms: 3.296808
+  type: 'test'
+  ...
+# Subtest: split placement cannot tunnel through a double-rock corner
+ok 26 - split placement cannot tunnel through a double-rock corner
+  ---
+  duration_ms: 2.06554
+  type: 'test'
+  ...
+# Subtest: gravity exchange validates ascent for displaced actor and cannot exchange vertically
+ok 27 - gravity exchange validates ascent for displaced actor and cannot exchange vertically
+  ---
+  duration_ms: 2.931632
+  type: 'test'
+  ...
+# Subtest: legal supported diagonal exchange stabilizes both actors immediately
+ok 28 - legal supported diagonal exchange stabilizes both actors immediately
+  ---
+  duration_ms: 1.36751
+  type: 'test'
+  ...
+# Subtest: exchange then unsupported partner falls in same operation
+ok 29 - exchange then unsupported partner falls in same operation
+  ---
+  duration_ms: 1.049649
+  type: 'test'
+  ...
+# Subtest: gravity never exchanges nonmerging actors
+ok 30 - gravity never exchanges nonmerging actors
+  ---
+  duration_ms: 0.806268
+  type: 'test'
+  ...
+# Subtest: exact-3 exit is traversable for level 1
+ok 31 - exact-3 exit is traversable for level 1
+  ---
+  duration_ms: 1.073132
+  type: 'test'
+  ...
+# Subtest: exact-3 exit is traversable for level 3
+ok 32 - exact-3 exit is traversable for level 3
+  ---
+  duration_ms: 2.727553
+  type: 'test'
+  ...
+# Subtest: exact-3 exit is traversable for level 5
+ok 33 - exact-3 exit is traversable for level 5
+  ---
+  duration_ms: 1.079022
+  type: 'test'
+  ...
+# Subtest: exact-3 exit is traversable for level 8
+ok 34 - exact-3 exit is traversable for level 8
+  ---
+  duration_ms: 0.872422
+  type: 'test'
+  ...
+# Subtest: exit offers no support and mismatched actor falls through it
+ok 35 - exit offers no support and mismatched actor falls through it
+  ---
+  duration_ms: 1.879164
+  type: 'test'
+  ...
+# Subtest: gravity rescue occurs at matching exit before further falling
+ok 36 - gravity rescue occurs at matching exit before further falling
+  ---
+  duration_ms: 0.971744
+  type: 'test'
+  ...
+# Subtest: exchange rescues matching arrival while preserving mismatched partner
+ok 37 - exchange rescues matching arrival while preserving mismatched partner
+  ---
+  duration_ms: 2.047717
+  type: 'test'
+  ...
+# Subtest: displaced actor also gets rescued on reverse exit entry
+ok 38 - displaced actor also gets rescued on reverse exit entry
+  ---
+  duration_ms: 1.508323
+  type: 'test'
+  ...
+# Subtest: merge result and overflow remainder independently satisfy exits
+ok 39 - merge result and overflow remainder independently satisfy exits
+  ---
+  duration_ms: 1.237479
+  type: 'test'
+  ...
+# Subtest: exchange dispatches actual spike entry for both participants
+ok 40 - exchange dispatches actual spike entry for both participants
+  ---
+  duration_ms: 9.010643
+  type: 'test'
+  ...
+# Subtest: exchange plus split and gravity is deterministic and conserves mass
+ok 41 - exchange plus split and gravity is deterministic and conserves mass
+  ---
+  duration_ms: 3.410861
+  type: 'test'
+  ...
+# Subtest: movement version is checked on restore and invalid gate occupant rejected
+ok 42 - movement version is checked on restore and invalid gate occupant rejected
+  ---
+  duration_ms: 0.853166
+  type: 'test'
+  ...
+# Subtest: injected cycle error after exchange rolls back positions and move count
+ok 43 - injected cycle error after exchange rolls back positions and move count
+  ---
+  duration_ms: 3.66451
+  type: 'test'
+  ...
+# Subtest: overflow4 cannot return to an 8-only gate
+ok 44 - overflow4 cannot return to an 8-only gate
+  ---
+  duration_ms: 1.048559
+  type: 'test'
+  ...
+# Subtest: external contact also validates reverse ascent
+ok 45 - external contact also validates reverse ascent
+  ---
+  duration_ms: 0.394033
+  type: 'test'
+  ...
+# Subtest: omitted movement version keeps old saturation, corner and exit behavior
+ok 46 - omitted movement version keeps old saturation, corner and exit behavior
+  ---
+  duration_ms: 0.79201
+  type: 'test'
+  ...
+# Subtest: two spike exchange reports each child once and aggregates split count
+ok 47 - two spike exchange reports each child once and aggregates split count
+  ---
+  duration_ms: 2.332825
+  type: 'test'
+  ...
+# Subtest: rollback restores gate effect before later gravity failure
+ok 48 - rollback restores gate effect before later gravity failure
+  ---
+  duration_ms: 2.086336
+  type: 'test'
+  ...
+# Subtest: rollback restores exit effect before later gravity failure
+ok 49 - rollback restores exit effect before later gravity failure
+  ---
+  duration_ms: 0.962223
+  type: 'test'
+  ...
+# Subtest: rollback restores spike effect before later gravity failure
+ok 50 - rollback restores spike effect before later gravity failure
+  ---
+  duration_ms: 1.462186
+  type: 'test'
+  ...
+# Subtest: all chapter2 stages select contact rules; published chapter1 does not
+ok 51 - all chapter2 stages select contact rules; published chapter1 does not
+  ---
+  duration_ms: 5.101485
+  type: 'test'
+  ...
+# Subtest: swap draws two separated arcs for 180ms while logical board is immediate
+ok 52 - swap draws two separated arcs for 180ms while logical board is immediate
+  ---
+  duration_ms: 12.469882
+  type: 'test'
+  ...
+# Subtest: diagonal arcs separate and finish on exact logical feet
+ok 53 - diagonal arcs separate and finish on exact logical feet
+  ---
+  duration_ms: 4.519146
+  type: 'test'
+  ...
+# Subtest: fast/slow multi-swap gesture has one Undo and survives save/restore
+ok 54 - fast/slow multi-swap gesture has one Undo and survives save/restore
+  ---
+  duration_ms: 27.014581
+  type: 'test'
+  ...
+# Subtest: exchange followed by fall keeps held ID and next drag uses new logical position
+ok 55 - exchange followed by fall keeps held ID and next drag uses new logical position
+  ---
+  duration_ms: 7.769434
+  type: 'test'
+  ...
+# Subtest: supported-v1 progress migrates read-only with no old board/Undo
+ok 56 - supported-v1 progress migrates read-only with no old board/Undo
+  ---
+  duration_ms: 11.698858
+  type: 'test'
+  ...
+# Subtest: mismatched exit occupant restores and Undo returns to origin
+ok 57 - mismatched exit occupant restores and Undo returns to origin
+  ---
+  duration_ms: 14.193124
+  type: 'test'
+  ...
+# Subtest: all seven persistent stages exist exactly once with three hints
+ok 58 - all seven persistent stages exist exactly once with three hints
+  ---
+  duration_ms: 14.35452
+  type: 'test'
+  ...
+# Subtest: 13→20 unlocks survive reload/retry and QA never changes normal records
+ok 59 - 13→20 unlocks survive reload/retry and QA never changes normal records
+  ---
+  duration_ms: 232.950185
+  type: 'test'
+  ...
+# Subtest: 14 real session pointer steps, save/undo/retry and all-rescued witness
+ok 60 - 14 real session pointer steps, save/undo/retry and all-rescued witness
+  ---
+  duration_ms: 191.157735
+  type: 'test'
+  ...
+# Subtest: 15 real session pointer steps, save/undo/retry and all-rescued witness
+ok 61 - 15 real session pointer steps, save/undo/retry and all-rescued witness
+  ---
+  duration_ms: 591.998765
+  type: 'test'
+  ...
+# Subtest: 16 real session pointer steps, save/undo/retry and all-rescued witness
+ok 62 - 16 real session pointer steps, save/undo/retry and all-rescued witness
+  ---
+  duration_ms: 1236.216653
+  type: 'test'
+  ...
+# Subtest: 17 real session pointer steps, save/undo/retry and all-rescued witness
+ok 63 - 17 real session pointer steps, save/undo/retry and all-rescued witness
+  ---
+  duration_ms: 409.459155
+  type: 'test'
+  ...
+# Subtest: 18 real session pointer steps, save/undo/retry and all-rescued witness
+ok 64 - 18 real session pointer steps, save/undo/retry and all-rescued witness
+  ---
+  duration_ms: 314.380664
+  type: 'test'
+  ...
+# Subtest: 19 real session pointer steps, save/undo/retry and all-rescued witness
+ok 65 - 19 real session pointer steps, save/undo/retry and all-rescued witness
+  ---
+  duration_ms: 2509.703425
+  type: 'test'
+  ...
+# Subtest: 20 real session pointer steps, save/undo/retry and all-rescued witness
+not ok 66 - 20 real session pointer steps, save/undo/retry and all-rescued witness
+  ---
+  duration_ms: 238.519135
+  type: 'test'
+  location: '/workspace/scratch/b6f4b035b2fd/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:11:39'
+  failureType: 'testCodeFailure'
+  error: 'step 12'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/b6f4b035b2fd/naotocchi/prototypes/naopoyo-chapter2/tests/expansion.test.mjs:16:107)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: 20 held drag survives fall, overflow and gate entry; one Undo restores entire gesture
+ok 67 - 20 held drag survives fall, overflow and gate entry; one Undo restores entire gesture
+  ---
+  duration_ms: 11.400467
+  type: 'test'
+  ...
+# Subtest: 20 selected candidate factory preserves the audited geometry
+ok 68 - 20 selected candidate factory preserves the audited geometry
+  ---
+  duration_ms: 26.218851
+  type: 'test'
+  ...
+# Subtest: matching passage starts one short pulse, then expires even with actor stationary
+ok 69 - matching passage starts one short pulse, then expires even with actor stationary
+  ---
+  duration_ms: 36.003708
+  type: 'test'
+  ...
+# Subtest: mismatch, support and a restored occupant never flash
+ok 70 - mismatch, support and a restored occupant never flash
+  ---
+  duration_ms: 2.72232
+  type: 'test'
+  ...
+# Subtest: continuous travel pulses both entered gates without locking logical moves or serialization
+ok 71 - continuous travel pulses both entered gates without locking logical moves or serialization
+  ---
+  duration_ms: 4.976997
+  type: 'test'
+  ...
+# Subtest: reduced motion, Undo and Retry clear outstanding effects, resuming never replays old events
+ok 72 - reduced motion, Undo and Retry clear outstanding effects, resuming never replays old events
+  ---
+  duration_ms: 20.524782
+  type: 'test'
+  ...
+# Subtest: gate overlap follows interpolated actors, not the already committed final board
+ok 73 - gate overlap follows interpolated actors, not the already committed final board
+  ---
+  duration_ms: 2.36513
+  type: 'test'
+  ...
+# Subtest: legacy gravity passage waits until the visible fall reaches the gate
+ok 74 - legacy gravity passage waits until the visible fall reaches the gate
+  ---
+  duration_ms: 3.235631
+  type: 'test'
+  ...
+# Subtest: legal position exchange emits a pulse; compressed queued passages are not lost
+ok 75 - legal position exchange emits a pulse; compressed queued passages are not lost
+  ---
+  duration_ms: 18.187885
+  type: 'test'
+  ...
+# Subtest: roof landing emits no passage pulse while lateral entry still does
+ok 76 - roof landing emits no passage pulse while lateral entry still does
+  ---
+  duration_ms: 2.268923
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 1
+ok 77 - gate roof supports and permits grounded ascent for level 1
+  ---
+  duration_ms: 17.150594
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 1
+ok 78 - gate landing is stable and lateral entry is qualified for level 1
+  ---
+  duration_ms: 4.00662
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 1
+ok 79 - roof does not allow airborne ascent or closed corner for level 1
+  ---
+  duration_ms: 1.237178
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 2
+ok 80 - gate roof supports and permits grounded ascent for level 2
+  ---
+  duration_ms: 1.504132
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 2
+ok 81 - gate landing is stable and lateral entry is qualified for level 2
+  ---
+  duration_ms: 1.298815
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 2
+ok 82 - roof does not allow airborne ascent or closed corner for level 2
+  ---
+  duration_ms: 1.249191
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 3
+ok 83 - gate roof supports and permits grounded ascent for level 3
+  ---
+  duration_ms: 2.341181
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 3
+ok 84 - gate landing is stable and lateral entry is qualified for level 3
+  ---
+  duration_ms: 3.102768
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 3
+ok 85 - roof does not allow airborne ascent or closed corner for level 3
+  ---
+  duration_ms: 2.012584
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 4
+ok 86 - gate roof supports and permits grounded ascent for level 4
+  ---
+  duration_ms: 3.228839
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 4
+ok 87 - gate landing is stable and lateral entry is qualified for level 4
+  ---
+  duration_ms: 1.660234
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 4
+ok 88 - roof does not allow airborne ascent or closed corner for level 4
+  ---
+  duration_ms: 1.016505
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 5
+ok 89 - gate roof supports and permits grounded ascent for level 5
+  ---
+  duration_ms: 0.528466
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 5
+ok 90 - gate landing is stable and lateral entry is qualified for level 5
+  ---
+  duration_ms: 1.400761
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 5
+ok 91 - roof does not allow airborne ascent or closed corner for level 5
+  ---
+  duration_ms: 1.869121
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 6
+ok 92 - gate roof supports and permits grounded ascent for level 6
+  ---
+  duration_ms: 0.641577
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 6
+ok 93 - gate landing is stable and lateral entry is qualified for level 6
+  ---
+  duration_ms: 0.48425
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 6
+ok 94 - roof does not allow airborne ascent or closed corner for level 6
+  ---
+  duration_ms: 2.081242
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 7
+ok 95 - gate roof supports and permits grounded ascent for level 7
+  ---
+  duration_ms: 1.532022
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 7
+ok 96 - gate landing is stable and lateral entry is qualified for level 7
+  ---
+  duration_ms: 0.578953
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 7
+ok 97 - roof does not allow airborne ascent or closed corner for level 7
+  ---
+  duration_ms: 0.653909
+  type: 'test'
+  ...
+# Subtest: gate roof supports and permits grounded ascent for level 8
+ok 98 - gate roof supports and permits grounded ascent for level 8
+  ---
+  duration_ms: 1.248812
+  type: 'test'
+  ...
+# Subtest: gate landing is stable and lateral entry is qualified for level 8
+ok 99 - gate landing is stable and lateral entry is qualified for level 8
+  ---
+  duration_ms: 3.211244
+  type: 'test'
+  ...
+# Subtest: roof does not allow airborne ascent or closed corner for level 8
+ok 100 - roof does not allow airborne ascent or closed corner for level 8
+  ---
+  duration_ms: 0.997264
+  type: 'test'
+  ...
+# Subtest: stage19 right pocket: rock and roof stop diagonal, matching side passage remains legal
+ok 101 - stage19 right pocket: rock and roof stop diagonal, matching side passage remains legal
+  ---
+  duration_ms: 3.576275
+  type: 'test'
+  ...
+# Subtest: gate interior can fall out below, but a falling actor above stops on roof
+ok 102 - gate interior can fall out below, but a falling actor above stops on roof
+  ---
+  duration_ms: 1.076362
+  type: 'test'
+  ...
+# Subtest: reverse diagonal exchange cannot cut a closed roof-rock corner
+ok 103 - reverse diagonal exchange cannot cut a closed roof-rock corner
+  ---
+  duration_ms: 0.506932
+  type: 'test'
+  ...
+# Subtest: exchange and overflow preserve interior qualification transactionally
+ok 104 - exchange and overflow preserve interior qualification transactionally
+  ---
+  duration_ms: 5.215243
+  type: 'test'
+  ...
+# Subtest: roof version cannot restore old terrain snapshots
+ok 105 - roof version cannot restore old terrain snapshots
+  ---
+  duration_ms: 1.995289
+  type: 'test'
+  ...
+# Subtest: stage 1: unsupported upper spike is not a foothold
+ok 106 - stage 1: unsupported upper spike is not a foothold
+  ---
+  duration_ms: 147.156974
+  type: 'test'
+  ...
+# Subtest: stage 1: rock diagonal step and destination-only corner crossing
+ok 107 - stage 1: rock diagonal step and destination-only corner crossing
+  ---
+  duration_ms: 4.737919
+  type: 'test'
+  ...
+# Subtest: stage 1: unrelated side rock cannot grant diagonal air ascent
+ok 108 - stage 1: unrelated side rock cannot grant diagonal air ascent
+  ---
+  duration_ms: 1.191122
+  type: 'test'
+  ...
+# Subtest: stage 1: airborne departure cannot ascend even onto a ledge
+ok 109 - stage 1: airborne departure cannot ascend even onto a ledge
+  ---
+  duration_ms: 0.934614
+  type: 'test'
+  ...
+# Subtest: stage 2: unsupported upper spike is not a foothold
+ok 110 - stage 2: unsupported upper spike is not a foothold
+  ---
+  duration_ms: 1.313572
+  type: 'test'
+  ...
+# Subtest: stage 2: rock diagonal step and destination-only corner crossing
+ok 111 - stage 2: rock diagonal step and destination-only corner crossing
+  ---
+  duration_ms: 2.780227
+  type: 'test'
+  ...
+# Subtest: stage 2: unrelated side rock cannot grant diagonal air ascent
+ok 112 - stage 2: unrelated side rock cannot grant diagonal air ascent
+  ---
+  duration_ms: 8.708987
+  type: 'test'
+  ...
+# Subtest: stage 2: airborne departure cannot ascend even onto a ledge
+ok 113 - stage 2: airborne departure cannot ascend even onto a ledge
+  ---
+  duration_ms: 0.392601
+  type: 'test'
+  ...
+# Subtest: stage 3: unsupported upper spike is not a foothold
+ok 114 - stage 3: unsupported upper spike is not a foothold
+  ---
+  duration_ms: 0.834483
+  type: 'test'
+  ...
+# Subtest: stage 3: rock diagonal step and destination-only corner crossing
+ok 115 - stage 3: rock diagonal step and destination-only corner crossing
+  ---
+  duration_ms: 2.421381
+  type: 'test'
+  ...
+# Subtest: stage 3: unrelated side rock cannot grant diagonal air ascent
+ok 116 - stage 3: unrelated side rock cannot grant diagonal air ascent
+  ---
+  duration_ms: 1.585079
+  type: 'test'
+  ...
+# Subtest: stage 3: airborne departure cannot ascend even onto a ledge
+ok 117 - stage 3: airborne departure cannot ascend even onto a ledge
+  ---
+  duration_ms: 0.619058
+  type: 'test'
+  ...
+# Subtest: stage 4: unsupported upper spike is not a foothold
+ok 118 - stage 4: unsupported upper spike is not a foothold
+  ---
+  duration_ms: 0.949307
+  type: 'test'
+  ...
+# Subtest: stage 4: rock diagonal step and destination-only corner crossing
+ok 119 - stage 4: rock diagonal step and destination-only corner crossing
+  ---
+  duration_ms: 0.853221
+  type: 'test'
+  ...
+# Subtest: stage 4: unrelated side rock cannot grant diagonal air ascent
+ok 120 - stage 4: unrelated side rock cannot grant diagonal air ascent
+  ---
+  duration_ms: 0.158679
+  type: 'test'
+  ...
+# Subtest: stage 4: airborne departure cannot ascend even onto a ledge
+ok 121 - stage 4: airborne departure cannot ascend even onto a ledge
+  ---
+  duration_ms: 0.549258
+  type: 'test'
+  ...
+# Subtest: stage 5: unsupported upper spike is not a foothold
+ok 122 - stage 5: unsupported upper spike is not a foothold
+  ---
+  duration_ms: 0.232748
+  type: 'test'
+  ...
+# Subtest: stage 5: rock diagonal step and destination-only corner crossing
+ok 123 - stage 5: rock diagonal step and destination-only corner crossing
+  ---
+  duration_ms: 0.39264
+  type: 'test'
+  ...
+# Subtest: stage 5: unrelated side rock cannot grant diagonal air ascent
+ok 124 - stage 5: unrelated side rock cannot grant diagonal air ascent
+  ---
+  duration_ms: 0.179026
+  type: 'test'
+  ...
+# Subtest: stage 5: airborne departure cannot ascend even onto a ledge
+ok 125 - stage 5: airborne departure cannot ascend even onto a ledge
+  ---
+  duration_ms: 0.369208
+  type: 'test'
+  ...
+# Subtest: stage 6: unsupported upper spike is not a foothold
+ok 126 - stage 6: unsupported upper spike is not a foothold
+  ---
+  duration_ms: 0.283782
+  type: 'test'
+  ...
+# Subtest: stage 6: rock diagonal step and destination-only corner crossing
+ok 127 - stage 6: rock diagonal step and destination-only corner crossing
+  ---
+  duration_ms: 0.821888
+  type: 'test'
+  ...
+# Subtest: stage 6: unrelated side rock cannot grant diagonal air ascent
+ok 128 - stage 6: unrelated side rock cannot grant diagonal air ascent
+  ---
+  duration_ms: 0.164791
+  type: 'test'
+  ...
+# Subtest: stage 6: airborne departure cannot ascend even onto a ledge
+ok 129 - stage 6: airborne departure cannot ascend even onto a ledge
+  ---
+  duration_ms: 0.213046
+  type: 'test'
+  ...
+# Subtest: stage 7: unsupported upper spike is not a foothold
+ok 130 - stage 7: unsupported upper spike is not a foothold
+  ---
+  duration_ms: 0.357098
+  type: 'test'
+  ...
+# Subtest: stage 7: rock diagonal step and destination-only corner crossing
+ok 131 - stage 7: rock diagonal step and destination-only corner crossing
+  ---
+  duration_ms: 0.241065
+  type: 'test'
+  ...
+# Subtest: stage 7: unrelated side rock cannot grant diagonal air ascent
+ok 132 - stage 7: unrelated side rock cannot grant diagonal air ascent
+  ---
+  duration_ms: 0.252706
+  type: 'test'
+  ...
+# Subtest: stage 7: airborne departure cannot ascend even onto a ledge
+ok 133 - stage 7: airborne departure cannot ascend even onto a ledge
+  ---
+  duration_ms: 0.117582
+  type: 'test'
+  ...
+# Subtest: stage 8: unsupported upper spike is not a foothold
+ok 134 - stage 8: unsupported upper spike is not a foothold
+  ---
+  duration_ms: 0.41799
+  type: 'test'
+  ...
+# Subtest: stage 8: rock diagonal step and destination-only corner crossing
+ok 135 - stage 8: rock diagonal step and destination-only corner crossing
+  ---
+  duration_ms: 1.261744
+  type: 'test'
+  ...
+# Subtest: stage 8: unrelated side rock cannot grant diagonal air ascent
+ok 136 - stage 8: unrelated side rock cannot grant diagonal air ascent
+  ---
+  duration_ms: 0.902497
+  type: 'test'
+  ...
+# Subtest: stage 8: airborne departure cannot ascend even onto a ledge
+ok 137 - stage 8: airborne departure cannot ascend even onto a ledge
+  ---
+  duration_ms: 0.554966
+  type: 'test'
+  ...
+# Subtest: spike occupant and fragments fall during same event
+ok 138 - spike occupant and fragments fall during same event
+  ---
+  duration_ms: 4.189973
+  type: 'test'
+  ...
+# Subtest: initial unsupported spike occupant falls without triggering a new entry
+ok 139 - initial unsupported spike occupant falls without triggering a new entry
+  ---
+  duration_ms: 1.128434
+  type: 'test'
+  ...
+# Subtest: 8 on 1..7 is legal ascent followed by automatic merge/overflow; 8 on 8 stays
+ok 140 - 8 on 1..7 is legal ascent followed by automatic merge/overflow; 8 on 8 stays
+  ---
+  duration_ms: 56.477568
+  type: 'test'
+  ...
+# Subtest: rule version cannot be injected or omitted in saved state
+ok 141 - rule version cannot be injected or omitted in saved state
+  ---
+  duration_ms: 3.268524
+  type: 'test'
+  ...
+# Subtest: power 1: all-direction entry (0,-1) uses v2 calculation
+ok 142 - power 1: all-direction entry (0,-1) uses v2 calculation
+  ---
+  duration_ms: 2.091322
+  type: 'test'
+  ...
+# Subtest: power 1: all-direction entry (1,-1) uses v2 calculation
+ok 143 - power 1: all-direction entry (1,-1) uses v2 calculation
+  ---
+  duration_ms: 0.826159
+  type: 'test'
+  ...
+# Subtest: power 1: all-direction entry (1,0) uses v2 calculation
+ok 144 - power 1: all-direction entry (1,0) uses v2 calculation
+  ---
+  duration_ms: 1.301757
+  type: 'test'
+  ...
+# Subtest: power 1: all-direction entry (1,1) uses v2 calculation
+ok 145 - power 1: all-direction entry (1,1) uses v2 calculation
+  ---
+  duration_ms: 2.170875
+  type: 'test'
+  ...
+# Subtest: power 1: all-direction entry (0,1) uses v2 calculation
+ok 146 - power 1: all-direction entry (0,1) uses v2 calculation
+  ---
+  duration_ms: 1.159313
+  type: 'test'
+  ...
+# Subtest: power 1: all-direction entry (-1,1) uses v2 calculation
+ok 147 - power 1: all-direction entry (-1,1) uses v2 calculation
+  ---
+  duration_ms: 3.852136
+  type: 'test'
+  ...
+# Subtest: power 1: all-direction entry (-1,0) uses v2 calculation
+ok 148 - power 1: all-direction entry (-1,0) uses v2 calculation
+  ---
+  duration_ms: 1.961987
+  type: 'test'
+  ...
+# Subtest: power 1: all-direction entry (-1,-1) uses v2 calculation
+ok 149 - power 1: all-direction entry (-1,-1) uses v2 calculation
+  ---
+  duration_ms: 1.380221
+  type: 'test'
+  ...
+# Subtest: power 2: all-direction entry (0,-1) uses v2 calculation
+ok 150 - power 2: all-direction entry (0,-1) uses v2 calculation
+  ---
+  duration_ms: 0.857192
+  type: 'test'
+  ...
+# Subtest: power 2: all-direction entry (1,-1) uses v2 calculation
+ok 151 - power 2: all-direction entry (1,-1) uses v2 calculation
+  ---
+  duration_ms: 0.307063
+  type: 'test'
+  ...
+# Subtest: power 2: all-direction entry (1,0) uses v2 calculation
+ok 152 - power 2: all-direction entry (1,0) uses v2 calculation
+  ---
+  duration_ms: 0.268018
+  type: 'test'
+  ...
+# Subtest: power 2: all-direction entry (1,1) uses v2 calculation
+ok 153 - power 2: all-direction entry (1,1) uses v2 calculation
+  ---
+  duration_ms: 2.188848
+  type: 'test'
+  ...
+# Subtest: power 2: all-direction entry (0,1) uses v2 calculation
+ok 154 - power 2: all-direction entry (0,1) uses v2 calculation
+  ---
+  duration_ms: 0.527213
+  type: 'test'
+  ...
+# Subtest: power 2: all-direction entry (-1,1) uses v2 calculation
+ok 155 - power 2: all-direction entry (-1,1) uses v2 calculation
+  ---
+  duration_ms: 0.707036
+  type: 'test'
+  ...
+# Subtest: power 2: all-direction entry (-1,0) uses v2 calculation
+ok 156 - power 2: all-direction entry (-1,0) uses v2 calculation
+  ---
+  duration_ms: 1.059209
+  type: 'test'
+  ...
+# Subtest: power 2: all-direction entry (-1,-1) uses v2 calculation
+ok 157 - power 2: all-direction entry (-1,-1) uses v2 calculation
+  ---
+  duration_ms: 0.578991
+  type: 'test'
+  ...
+# Subtest: power 3: all-direction entry (0,-1) uses v2 calculation
+ok 158 - power 3: all-direction entry (0,-1) uses v2 calculation
+  ---
+  duration_ms: 1.270368
+  type: 'test'
+  ...
+# Subtest: power 3: all-direction entry (1,-1) uses v2 calculation
+ok 159 - power 3: all-direction entry (1,-1) uses v2 calculation
+  ---
+  duration_ms: 1.409347
+  type: 'test'
+  ...
+# Subtest: power 3: all-direction entry (1,0) uses v2 calculation
+ok 160 - power 3: all-direction entry (1,0) uses v2 calculation
+  ---
+  duration_ms: 0.513915
+  type: 'test'
+  ...
+# Subtest: power 3: all-direction entry (1,1) uses v2 calculation
+ok 161 - power 3: all-direction entry (1,1) uses v2 calculation
+  ---
+  duration_ms: 3.161743
+  type: 'test'
+  ...
+# Subtest: power 3: all-direction entry (0,1) uses v2 calculation
+ok 162 - power 3: all-direction entry (0,1) uses v2 calculation
+  ---
+  duration_ms: 1.148199
+  type: 'test'
+  ...
+# Subtest: power 3: all-direction entry (-1,1) uses v2 calculation
+ok 163 - power 3: all-direction entry (-1,1) uses v2 calculation
+  ---
+  duration_ms: 1.007522
+  type: 'test'
+  ...
+# Subtest: power 3: all-direction entry (-1,0) uses v2 calculation
+ok 164 - power 3: all-direction entry (-1,0) uses v2 calculation
+  ---
+  duration_ms: 0.711779
+  type: 'test'
+  ...
+# Subtest: power 3: all-direction entry (-1,-1) uses v2 calculation
+ok 165 - power 3: all-direction entry (-1,-1) uses v2 calculation
+  ---
+  duration_ms: 0.224507
+  type: 'test'
+  ...
+# Subtest: supported spike fires once while stationary, again after leaving and reentering
+ok 166 - supported spike fires once while stationary, again after leaving and reentering
+  ---
+  duration_ms: 1.112787
+  type: 'test'
+  ...
+# Subtest: level 1 and blocked/partial split can pass legally
+ok 167 - level 1 and blocked/partial split can pass legally
+  ---
+  duration_ms: 2.541021
+  type: 'test'
+  ...
+# Subtest: separate actors entering the same spike in one cascade each split
+ok 168 - separate actors entering the same spike in one cascade each split
+  ---
+  duration_ms: 2.868541
+  type: 'test'
+  ...
+# Subtest: a closed exit physically blocks falling and provides the same ascent support
+ok 169 - a closed exit physically blocks falling and provides the same ascent support
+  ---
+  duration_ms: 1.458042
+  type: 'test'
+  ...
+# Subtest: overflow remaining on its original spike is not a new entry
+ok 170 - overflow remaining on its original spike is not a new entry
+  ---
+  duration_ms: 3.375661
+  type: 'test'
+  ...
+# Subtest: external split rolls back a detected gravity cycle atomically (guard fault injection)
+ok 171 - external split rolls back a detected gravity cycle atomically (guard fault injection)
+  ---
+  duration_ms: 10.153002
+  type: 'test'
+  ...
+# Subtest: new rules retain old normal/QA saves byte for byte and import progress only
+ok 172 - new rules retain old normal/QA saves byte for byte and import progress only
+  ---
+  duration_ms: 37.836119
+  type: 'test'
+  ...
+# Subtest: every chapter2 board explicitly selects supported physics
+ok 173 - every chapter2 board explicitly selects supported physics
+  ---
+  duration_ms: 0.529484
+  type: 'test'
+  ...
+# Subtest: newborn fragments animate from placement to their gravity landing
+ok 174 - newborn fragments animate from placement to their gravity landing
+  ---
+  duration_ms: 27.535493
+  type: 'test'
+  ...
+# Subtest: shipped stage19 transient child is visible between its birth and absorption
+ok 175 - shipped stage19 transient child is visible between its birth and absorption
+  ---
+  duration_ms: 108.325336
+  type: 'test'
+  ...
+# Subtest: new physics fast/slow held drag matches across split and falling; one Undo restores start
+ok 176 - new physics fast/slow held drag matches across split and falling; one Undo restores start
+  ---
+  duration_ms: 30.590146
+  type: 'test'
+  ...
+# Subtest: gate numbers 1–8 remain large and centered in the actual cell after Canvas transforms
+ok 177 - gate numbers 1–8 remain large and centered in the actual cell after Canvas transforms
+  ---
+  duration_ms: 28.351688
+  type: 'test'
+  ...
+# Subtest: contact progress migrates without board/Undo or writes to old key
+ok 178 - contact progress migrates without board/Undo or writes to old key
+  ---
+  duration_ms: 8.119481
+  type: 'test'
+  ...
+# Subtest: phase glow is transient, reduced motion clears it, Undo restores board
+ok 179 - phase glow is transient, reduced motion clears it, Undo restores board
+  ---
+  duration_ms: 15.936418
+  type: 'test'
+  ...
+# Subtest: overlapping and diagonally moving actors never relocate or duplicate the gate number
+ok 180 - overlapping and diagonally moving actors never relocate or duplicate the gate number
+  ---
+  duration_ms: 3.766748
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level1
+ok 181 - rock8 horizontal and gravity passage/support level1
+  ---
+  duration_ms: 12.769551
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level1
+ok 182 - rock and mismatched magic rock share ascent level1
+  ---
+  duration_ms: 1.136936
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level2
+ok 183 - rock8 horizontal and gravity passage/support level2
+  ---
+  duration_ms: 0.586016
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level2
+ok 184 - rock and mismatched magic rock share ascent level2
+  ---
+  duration_ms: 1.938127
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level3
+ok 185 - rock8 horizontal and gravity passage/support level3
+  ---
+  duration_ms: 0.971169
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level3
+ok 186 - rock and mismatched magic rock share ascent level3
+  ---
+  duration_ms: 0.863734
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level4
+ok 187 - rock8 horizontal and gravity passage/support level4
+  ---
+  duration_ms: 0.950908
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level4
+ok 188 - rock and mismatched magic rock share ascent level4
+  ---
+  duration_ms: 1.081936
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level5
+ok 189 - rock8 horizontal and gravity passage/support level5
+  ---
+  duration_ms: 1.47451
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level5
+ok 190 - rock and mismatched magic rock share ascent level5
+  ---
+  duration_ms: 6.312971
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level6
+ok 191 - rock8 horizontal and gravity passage/support level6
+  ---
+  duration_ms: 0.421974
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level6
+ok 192 - rock and mismatched magic rock share ascent level6
+  ---
+  duration_ms: 2.513002
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level7
+ok 193 - rock8 horizontal and gravity passage/support level7
+  ---
+  duration_ms: 0.846844
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level7
+ok 194 - rock and mismatched magic rock share ascent level7
+  ---
+  duration_ms: 1.637069
+  type: 'test'
+  ...
+# Subtest: rock8 horizontal and gravity passage/support level8
+ok 195 - rock8 horizontal and gravity passage/support level8
+  ---
+  duration_ms: 9.055828
+  type: 'test'
+  ...
+# Subtest: rock and mismatched magic rock share ascent level8
+ok 196 - rock and mismatched magic rock share ascent level8
+  ---
+  duration_ms: 0.355489
+  type: 'test'
+  ...
+# Subtest: corner uses moving number and legacy contact remains unchanged
+ok 197 - corner uses moving number and legacy contact remains unchanged
+  ---
+  duration_ms: 3.038352
+  type: 'test'
+  ...
+# Subtest: reverse exchange has its own corner number
+ok 198 - reverse exchange has its own corner number
+  ---
+  duration_ms: 1.256702
+  type: 'test'
+  ...
+# Subtest: split level1 cannot escape a parent8-only rock corner
+ok 199 - split level1 cannot escape a parent8-only rock corner
+  ---
+  duration_ms: 2.930886
+  type: 'test'
+  ...
+# Subtest: restore rejects old terrain rules and invalid rock occupants
+ok 200 - restore rejects old terrain rules and invalid rock occupants
+  ---
+  duration_ms: 1.355833
+  type: 'test'
+  ...
+# Subtest: merge overflow and external split cannot change rock qualification
+ok 201 - merge overflow and external split cannot change rock qualification
+  ---
+  duration_ms: 1.926941
+  type: 'test'
+  ...
+# Subtest: all eight entry directions use the same rock qualification
+ok 202 - all eight entry directions use the same rock qualification
+  ---
+  duration_ms: 3.66034
+  type: 'test'
+  ...
+# Subtest: stage19 reported level3 climb is blocked in old corner and legal through redesigned opening
+ok 203 - stage19 reported level3 climb is blocked in old corner and legal through redesigned opening
+  ---
+  duration_ms: 10.798934
+  type: 'test'
+  ...
+# Subtest: normal chapter 10 → 11 → 12 → 13 and replay never relocks
+ok 204 - normal chapter 10 → 11 → 12 → 13 and replay never relocks
+  ---
+  duration_ms: 61.958256
+  type: 'test'
+  ...
+# Subtest: read-only chapter-one completion seeds trial; all writes are isolated
+ok 205 - read-only chapter-one completion seeds trial; all writes are isolated
+  ---
+  duration_ms: 35.068787
+  type: 'test'
+  ...
+# Subtest: QA unlocks only 11–20 and never modifies normal progress
+ok 206 - QA unlocks only 11–20 and never modifies normal progress
+  ---
+  duration_ms: 2.301072
+  type: 'test'
+  ...
+# Subtest: unknown future save is preserved and corruption backup stays in pilot namespace
+ok 207 - unknown future save is preserved and corruption backup stays in pilot namespace
+  ---
+  duration_ms: 4.970264
+  type: 'test'
+  ...
+# Subtest: future board slot and outer board copy survive normal autosave
+ok 208 - future board slot and outer board copy survive normal autosave
+  ---
+  duration_ms: 2.072018
+  type: 'test'
+  ...
+# Subtest: damaged board slot is preserved before writing a replacement
+ok 209 - damaged board slot is preserved before writing a replacement
+  ---
+  duration_ms: 18.595773
+  type: 'test'
+  ...
+# Subtest: completed old Pilot unlocks new 14 from whole-save without replaying 13
+ok 210 - completed old Pilot unlocks new 14 from whole-save without replaying 13
+  ---
+  duration_ms: 5.408847
+  type: 'test'
+  ...
+# Subtest: completed old Pilot unlocks new 14 from append-only-marker without replaying 13
+ok 211 - completed old Pilot unlocks new 14 from append-only-marker without replaying 13
+  ---
+  duration_ms: 3.506443
+  type: 'test'
+  ...
+# Subtest: uncleared final Pilot stage does not unlock 14
+ok 212 - uncleared final Pilot stage does not unlock 14
+  ---
+  duration_ms: 1.57397
+  type: 'test'
+  ...
+# Subtest: VERSION 7 progress survives migration without rewriting board or undo history
+ok 213 - VERSION 7 progress survives migration without rewriting board or undo history
+  ---
+  duration_ms: 1.070918
+  type: 'test'
+  ...
+# Subtest: compact BFS equals reference: komorebi-fall
+ok 214 - compact BFS equals reference: komorebi-fall
+  ---
+  duration_ms: 206.67141
+  type: 'test'
+  ...
+# Subtest: compact BFS equals reference: komorebi-support
+ok 215 - compact BFS equals reference: komorebi-support
+  ---
+  duration_ms: 78.982385
+  type: 'test'
+  ...
+# Subtest: compact BFS equals reference: komorebi-last-friend
+ok 216 - compact BFS equals reference: komorebi-last-friend
+  ---
+  duration_ms: 296.196117
+  type: 'test'
+  ...
+# Subtest: caps are explicitly unproven
+ok 217 - caps are explicitly unproven
+  ---
+  duration_ms: 3.262907
+  type: 'test'
+  ...
+# Subtest: identity renaming preserves successors including spike families and overflow
+ok 218 - identity renaming preserves successors including spike families and overflow
+  ---
+  duration_ms: 17.270982
+  type: 'test'
+  ...
+# Subtest: custom heuristic and intermediate goal do not acquire a full-puzzle shortest claim
+ok 219 - custom heuristic and intermediate goal do not acquire a full-puzzle shortest claim
+  ---
+  duration_ms: 1.107098
+  type: 'test'
+  ...
+# Subtest: initial gravity runs before touch, retry and restore remain stable
+ok 220 - initial gravity runs before touch, retry and restore remain stable
+  ---
+  duration_ms: 15.683559
+  type: 'test'
+  ...
+# Subtest: falling drag keeps its active ID, Undo restores start and motion clears
+ok 221 - falling drag keeps its active ID, Undo restores start and motion clears
+  ---
+  duration_ms: 5.903881
+  type: 'test'
+  ...
+# Subtest: fast and slow drag commit identical gravity states
+ok 222 - fast and slow drag commit identical gravity states
+  ---
+  duration_ms: 31.074805
+  type: 'test'
+  ...
+# Subtest: overflow remainder moves back smoothly instead of overlapping the 8
+ok 223 - overflow remainder moves back smoothly instead of overlapping the 8
+  ---
+  duration_ms: 2.830972
+  type: 'test'
+  ...
+# Subtest: komorebi-fall: stable initial board and real-engine all-rescued witness
+ok 224 - komorebi-fall: stable initial board and real-engine all-rescued witness
+  ---
+  duration_ms: 285.815354
+  type: 'test'
+  ...
+# Subtest: komorebi-support: stable initial board and real-engine all-rescued witness
+ok 225 - komorebi-support: stable initial board and real-engine all-rescued witness
+  ---
+  duration_ms: 160.386605
+  type: 'test'
+  ...
+# Subtest: komorebi-last-friend: stable initial board and real-engine all-rescued witness
+ok 226 - komorebi-last-friend: stable initial board and real-engine all-rescued witness
+  ---
+  duration_ms: 299.717058
+  type: 'test'
+  ...
+# Subtest: 11 cannot finish without a gravity event
+ok 227 - 11 cannot finish without a gravity event
+  ---
+  duration_ms: 203.35621
+  type: 'test'
+  ...
+# Subtest: 12 cannot finish without using a companion as a vertical support
+ok 228 - 12 cannot finish without using a companion as a vertical support
+  ---
+  duration_ms: 45.502516
+  type: 'test'
+  ...
+# Subtest: 13 cannot finish without using a companion as a vertical support
+ok 229 - 13 cannot finish without using a companion as a vertical support
+  ---
+  duration_ms: 50.030478
+  type: 'test'
+  ...
+# Subtest: 13 old exit-support shortcut remains legacy-only; new rule requires rescuing 4 first
+ok 230 - 13 old exit-support shortcut remains legacy-only; new rule requires rescuing 4 first
+  ---
+  duration_ms: 434.679095
+  type: 'test'
+  ...
+# Subtest: solver reports capped exploration as unproven
+ok 231 - solver reports capped exploration as unproven
+  ---
+  duration_ms: 12.668804
+  type: 'test'
+  ...
+1..231
+# tests 231
+# suites 0
+# pass 230
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15635.896283

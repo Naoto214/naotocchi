@@ -1,0 +1,50 @@
+{
+  "implementationCommit": "5599e8625be4aec49c913a96175d1b021d3dd1f1",
+  "baseline": "1e1e04661e2f59b7ad6bd3e56dc3cef7c2d623c5",
+  "latestObservedMain": "85a59bb3de1cfb473485757bfa7a8b6cb9088034",
+  "files": {
+    "prototypes/naopoyo-chapter2/app.mjs": "8248b57239c9221fd65ef4a1e34ce4c320dd5d460b170f9e3bb1af0ba5768ee4",
+    "prototypes/naopoyo-chapter2/build-preview.mjs": "8272c3690b41c03c87fa0f6df626665d63455b270ac97251323962d09a8b28ff",
+    "prototypes/naopoyo-chapter2/design/v10-audit.mjs": "7c2414e36f5c771dbdae8570e977e6cde28bba44b0fd41c6f56eab48dc91f437",
+    "prototypes/naopoyo-chapter2/design/verify.mjs": "06360073334706cf773d49176f953f83b1b7aafdefecbb3091b0f339ab3e65d4",
+    "prototypes/naopoyo-chapter2/index.html": "9a589fcf663c606cd2c108d1474517a4ff21d9ab85063dd6587fb52e00ef5257",
+    "prototypes/naopoyo-chapter2/progress.mjs": "3ded0f95e47ead4615ed38e3658f0229cfdc2da4e20452900fee2b9d46fae9de",
+    "prototypes/naopoyo-chapter2/qa.html": "f838d0fe26dd704adf7a26e1b06dd1dfc1c0c553b30116dfffe4168a0c016db7",
+    "prototypes/naopoyo-chapter2/stages.mjs": "7f858eb53d12188ec251d1c855c40f40fb5c7ceb51e08d59d13b7999ad041cff",
+    "prototypes/naopoyo-chapter2/tests/contact-session.test.mjs": "1d377e47a6f2b3c5b3082ab3b190fe266edf572fcd86fcfd8c087836ebd606fe",
+    "prototypes/naopoyo-chapter2/tests/expansion.test.mjs": "6c8a3d3f5cc72b0df19af633edee9faf3a0ee7cdb647a9c8357c9a7df9e2dd06",
+    "prototypes/naopoyo-chapter2/tests/gravity-session.test.mjs": "2474e1cb05680ccf3de123a975b68d3f0a34046ba9ff6750ab3414950a4bfa5c",
+    "prototypes/naopoyo-chapter2/tests/magic-rock-visual.test.mjs": "63c58f91f9cca6e79041b283f79fa429194a578b327b591dea6f3a83eb9dbcd0",
+    "prototypes/naopoyo-chapter2/tests/split-preview.test.mjs": "826ae7d140aabd6371ed3305127ea7ffa9a567829149756304633df54daedb8e",
+    "prototypes/naopoyo-chapter2/tests/split-v10.test.mjs": "f323e8fdfd42f5a28bcfb73e6f7e0b7742f15f810367cba592ac85f8d4480c07",
+    "prototypes/naopoyo-chapter2/tests/split-v9-visual.test.mjs": "131c5561727594d278a6b2160f4962ea25d2b022fb91b8315e347f9966cbd079",
+    "prototypes/naopoyo-chapter2/tests/v10-fixtures.mjs": "26097fbd08a59b22d15a4c1a63131213d6cc815395e72885f6bfdbb8538e0c0d",
+    "prototypes/naopoyo-chapter2/tests/v10-integration.test.mjs": "b0ce3d45205ed97e6c91155fb3791cbf08d007c73b8f2710011f8ce1e69b5a2f",
+    "prototypes/naopoyo-v2/engine.mjs": "ceda32934fa812c428aa6c6e5aea38a2b06a2d864ae9ef53f92f75bbfecf8a11",
+    "tools/pages/allowlist.json": "606c7a14a85d247f2fdc3cf624375dda4e6a882b803668042d2c9b21e448dbda"
+  },
+  "puzzle": {
+    "pass": 808,
+    "fail": 0
+  },
+  "card": {
+    "pass": 412,
+    "fail": 0
+  },
+  "pagesUnit": {
+    "pass": 16,
+    "fail": 0
+  },
+  "pagesHTTP": {
+    "http_files": 4053,
+    "http_bytes": 213464029,
+    "entrypoints": 5,
+    "card_ids": 452,
+    "card_images": 904,
+    "excluded_paths_return_404": 7,
+    "missing_files": 0,
+    "hash_mismatches": 0,
+    "prefix": "/naotocchi/"
+  },
+  "runtime": "Full npm test in progress locally when this evidence snapshot was committed; final result and latest-HEAD CI are recorded in PR #436."
+}

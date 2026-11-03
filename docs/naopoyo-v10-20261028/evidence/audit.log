@@ -1,0 +1,11 @@
+{"number":11,"moves":5,"split":0,"children":0,"merge":1,"overflow":0,"fall":5,"rescue":1,"immediateRecombinations":0,"distanceTwoBirths":0,"remoteSurvivors":0,"uniqueStates":5,"complete":true}
+{"number":12,"moves":5,"split":0,"children":0,"merge":2,"overflow":1,"fall":2,"rescue":2,"immediateRecombinations":0,"distanceTwoBirths":0,"remoteSurvivors":0,"uniqueStates":5,"complete":true}
+{"number":13,"moves":10,"split":0,"children":0,"merge":0,"overflow":0,"fall":1,"rescue":2,"immediateRecombinations":0,"distanceTwoBirths":0,"remoteSurvivors":0,"uniqueStates":10,"complete":true}
+{"number":14,"moves":11,"split":0,"children":0,"merge":2,"overflow":1,"fall":4,"rescue":2,"immediateRecombinations":0,"distanceTwoBirths":0,"remoteSurvivors":0,"uniqueStates":11,"complete":true}
+{"number":15,"moves":23,"split":3,"children":5,"merge":7,"overflow":2,"fall":10,"rescue":2,"immediateRecombinations":2,"distanceTwoBirths":0,"remoteSurvivors":0,"uniqueStates":23,"complete":true}
+{"number":16,"moves":70,"split":14,"children":39,"merge":42,"overflow":3,"fall":53,"rescue":2,"immediateRecombinations":21,"distanceTwoBirths":0,"remoteSurvivors":0,"uniqueStates":70,"complete":true}
+{"number":17,"moves":26,"split":4,"children":9,"merge":11,"overflow":2,"fall":16,"rescue":2,"immediateRecombinations":4,"distanceTwoBirths":0,"remoteSurvivors":0,"uniqueStates":26,"complete":true}
+{"number":18,"moves":19,"split":5,"children":15,"merge":21,"overflow":7,"fall":21,"rescue":4,"immediateRecombinations":6,"distanceTwoBirths":8,"remoteSurvivors":5,"uniqueStates":19,"complete":true}
+{"number":19,"moves":91,"split":9,"children":23,"merge":26,"overflow":5,"fall":55,"rescue":4,"immediateRecombinations":9,"distanceTwoBirths":0,"remoteSurvivors":0,"uniqueStates":91,"complete":true}
+{"number":20,"moves":156,"split":30,"children":66,"merge":83,"overflow":18,"fall":89,"rescue":4,"immediateRecombinations":20,"distanceTwoBirths":25,"remoteSurvivors":22,"uniqueStates":156,"complete":true}
+{"attempted":30528,"accepted":8950,"cycles":0,"previewMatches":835,"frames":6565,"noSplit":[[15,"exhausted",4],[16,"exhausted",76],[17,"exhausted",4],[18,"exhausted",34],[19,"exhausted",69],[20,"exhausted",80]]}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": [
+    "retry shows0",
+    "selection costs0",
+    "blocked move costs0",
+    "five cells count while finger held",
+    "one stroke one history",
+    "example retains independent 3/97 count",
+    "example leaves normal5",
+    "example preserves normal save keys",
+    "reload restores5 and history",
+    "one Undo returns5→0",
+    "Undo stays in game",
+    "move after Undo works",
+    "retry returns0"
+  ]
+}

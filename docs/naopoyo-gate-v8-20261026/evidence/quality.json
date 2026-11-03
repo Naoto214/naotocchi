@@ -1,0 +1,90 @@
+[
+  {
+    "number": 19,
+    "name": "no-split",
+    "status": "exhausted",
+    "visited": 69,
+    "expanded": 69,
+    "edges": 287,
+    "shortestProven": false,
+    "elapsedMs": 1368,
+    "method": "bfs"
+  },
+  {
+    "number": 19,
+    "name": "no-merge",
+    "status": "limit",
+    "visited": 285,
+    "expanded": 154,
+    "edges": 938,
+    "shortestProven": false,
+    "elapsedMs": 6003,
+    "method": "bfs"
+  },
+  {
+    "number": 19,
+    "name": "no-overflow",
+    "status": "limit",
+    "visited": 1480,
+    "expanded": 603,
+    "edges": 6378,
+    "shortestProven": false,
+    "elapsedMs": 6622,
+    "method": "bfs"
+  },
+  {
+    "number": 19,
+    "name": "under-20-moves",
+    "status": "limit",
+    "visited": 1229,
+    "expanded": 421,
+    "edges": 5034,
+    "shortestProven": false,
+    "elapsedMs": 6034,
+    "method": "bfs"
+  },
+  {
+    "number": 20,
+    "name": "no-split",
+    "status": "exhausted",
+    "visited": 80,
+    "expanded": 80,
+    "edges": 445,
+    "shortestProven": false,
+    "elapsedMs": 227,
+    "method": "bfs"
+  },
+  {
+    "number": 20,
+    "name": "no-merge",
+    "status": "exhausted",
+    "visited": 1,
+    "expanded": 1,
+    "edges": 0,
+    "shortestProven": false,
+    "elapsedMs": 1,
+    "method": "bfs"
+  },
+  {
+    "number": 20,
+    "name": "no-overflow",
+    "status": "exhausted",
+    "visited": 1,
+    "expanded": 1,
+    "edges": 0,
+    "shortestProven": false,
+    "elapsedMs": 1,
+    "method": "bfs"
+  },
+  {
+    "number": 20,
+    "name": "under-20-moves",
+    "status": "limit",
+    "visited": 2158,
+    "expanded": 720,
+    "edges": 8545,
+    "shortestProven": false,
+    "elapsedMs": 6001,
+    "method": "bfs"
+  }
+]

@@ -1,0 +1,5947 @@
+[
+  {
+    "i": 0,
+    "p": {
+      "at": [
+        0,
+        7
+      ],
+      "level": 6,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "overflow": 4,
+        "fall": true,
+        "absorbed": []
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 1
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 1,
+        "y": 6,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "c",
+        "x": 2,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 1,
+    "p": {
+      "at": [
+        1,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 2,
+        "y": 7,
+        "level": 8,
+        "overflow": 4,
+        "fall": false,
+        "absorbed": []
+      },
+      {
+        "type": "merge",
+        "id": "b",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "c",
+            "x": 1,
+            "y": 7,
+            "level": 4,
+            "species": "dog"
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "b",
+        "from": 6,
+        "to": 7,
+        "x": 1
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 2,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 2,
+    "p": {
+      "at": [
+        2,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 3,
+    "p": {
+      "at": [
+        1,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 2,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 4,
+    "p": {
+      "at": [
+        3,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 2,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 5,
+    "p": {
+      "at": [
+        2,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 6,
+    "p": {
+      "at": [
+        3,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "b",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child1",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "b",
+        "x": 4,
+        "y": 6,
+        "level": 5,
+        "species": "dog"
+      },
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 5
+      },
+      {
+        "id": "child3",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 7,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child1",
+        "x": 6,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child3",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child1",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      },
+      {
+        "type": "merge",
+        "id": "child2",
+        "x": 4,
+        "y": 6,
+        "level": 6,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "b",
+            "x": 4,
+            "y": 6,
+            "level": 5,
+            "species": "dog"
+          }
+        ]
+      },
+      {
+        "type": "split",
+        "id": "child2",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child4",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child5",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child6",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child2",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child2",
+        "species": "dog",
+        "level": 3,
+        "x": 4,
+        "y": 6
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 5
+      },
+      {
+        "id": "child5",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child6",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 8,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 2,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child1",
+        "x": 5,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child5",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child4",
+        "x": 4,
+        "y": 6,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child2",
+            "species": "dog",
+            "level": 3,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "split",
+        "id": "child4",
+        "x": 4,
+        "y": 6,
+        "count": 1,
+        "children": [
+          {
+            "id": "child7",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child4",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 4,
+        "y": 6
+      },
+      {
+        "id": "child6",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 5
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 9,
+    "p": {
+      "at": [
+        4,
+        5
+      ],
+      "level": 1,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child7",
+        "x": 5,
+        "y": 4,
+        "level": 2,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child6",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 4,
+        "y": 6
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 2,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 10,
+    "p": {
+      "at": [
+        4,
+        6
+      ],
+      "level": 3,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 2,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 11,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 8,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 2,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 12,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child1",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 2,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "i": 13,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "rescue",
+        "id": "child1",
+        "x": 7,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 2,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 14,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 2,
+      "d": [
+        -1,
+        1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child7",
+        "x": 4,
+        "y": 6,
+        "count": 1,
+        "children": [
+          {
+            "id": "child8",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child7",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child7",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child8",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child8",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 6
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 15,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "child8",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child8",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 16,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 3,
+        "y": 7,
+        "level": 8,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child8",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 17,
+    "p": {
+      "at": [
+        3,
+        7
+      ],
+      "level": 8,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "a",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child9",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child10",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child11",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 6,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child8",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child10",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 7,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child10",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 7,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child7",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child9",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child11",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 18,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child9",
+        "x": 6,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child7",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child9",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 7,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child9",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child11",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 19,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 7,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 7,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child9",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child11",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 20,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        -1,
+        1
+      ]
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "child11",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child11",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 7,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child9",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child11",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 21,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 7,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "a",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child12",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child13",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child14",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 5,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child11",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child13",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 6,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child13",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 6,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child9",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child12",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child14",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 22,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child12",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child9",
+            "species": "dog",
+            "level": 2,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child12",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 6,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child12",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child14",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 23,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 6,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 6,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child12",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child14",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 24,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        -1,
+        1
+      ]
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "child14",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child14",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 6,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child12",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child14",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 25,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 6,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "a",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child15",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child16",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child17",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child14",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child16",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 5,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child16",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 5,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child12",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child17",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 26,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 6,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child12",
+            "species": "dog",
+            "level": 3,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 5,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child17",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 27,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 5,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 5,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child17",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 28,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        -1,
+        1
+      ]
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "child17",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child17",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 5,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child17",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 29,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 5,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "a",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child18",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child19",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child20",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child17",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child19",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child19",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child18",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child20",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 30,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child18",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child20",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 31,
+    "p": {
+      "at": [
+        5,
+        5
+      ],
+      "level": 3,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child4",
+        "x": 6,
+        "y": 4,
+        "level": 4,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child20",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 4
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child18",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 32,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child18",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 33,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child18",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 34,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child18",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 35,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "a",
+        "x": 6,
+        "y": 6,
+        "count": 2,
+        "children": [
+          {
+            "id": "child21",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child22",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child18",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child21",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child22",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 36,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 3,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child21",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child22",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 37,
+    "p": {
+      "at": [
+        7,
+        7
+      ],
+      "level": 4,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "a",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child22",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 38,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 4,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "a",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child23",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child24",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child25",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child22",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child24",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child24",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 3,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child23",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child25",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 39,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 4,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 5,
+        "y": 7,
+        "level": 5,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child23",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "a",
+        "x": 4,
+        "y": 7,
+        "level": 3,
+        "species": "dog"
+      },
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child25",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 40,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 5,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child26",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child27",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child28",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 5,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "a",
+            "x": 4,
+            "y": 7,
+            "level": 3,
+            "species": "dog"
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child27",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 6,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child27",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 6,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child25",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child28",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 41,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child26",
+        "x": 6,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child28",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child26",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 6,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child25",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 42,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 6,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 6,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child25",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 43,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        -1,
+        1
+      ]
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "child25",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child25",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 6,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child25",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 44,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 6,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child29",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child30",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child31",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child25",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child30",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 5,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child30",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child29",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 45,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 2,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child29",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 46,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child29",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 47,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 5,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child4",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child29",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 48,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child31",
+        "x": 6,
+        "y": 4,
+        "level": 5,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child4",
+            "species": "dog",
+            "level": 4,
+            "x": 6,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child31",
+        "from": 3,
+        "to": 4,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child29",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 5,
+        "x": 6,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 49,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 5,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 6,
+        "y": 6,
+        "count": 2,
+        "children": [
+          {
+            "id": "child32",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child33",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 6,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child29",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 5,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child32",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child33",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 50,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 4,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 5,
+        "y": 7,
+        "level": 5,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child32",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 5,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child33",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 51,
+    "p": {
+      "at": [
+        7,
+        7
+      ],
+      "level": 2,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 5,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child33",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 52,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 5,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child34",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child35",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child36",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child33",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child35",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child35",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 5,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child34",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child36",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 53,
+    "p": {
+      "at": [
+        6,
+        4
+      ],
+      "level": 5,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child31",
+        "x": 5,
+        "y": 4,
+        "level": 6,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child36",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child34",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 54,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 2,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child34",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 55,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child34",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 56,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child34",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 57,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 6,
+        "y": 6,
+        "count": 2,
+        "children": [
+          {
+            "id": "child37",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child38",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child34",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child37",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child38",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 58,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 3,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child37",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child38",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 59,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 6,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child38",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 60,
+    "p": {
+      "at": [
+        7,
+        7
+      ],
+      "level": 2,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child38",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 61,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 4,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child39",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child40",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child41",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child38",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child40",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child40",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 3,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child39",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 62,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child39",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child26",
+        "species": "dog",
+        "level": 2,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 63,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 6,
+        "y": 6,
+        "count": 2,
+        "children": [
+          {
+            "id": "child42",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child43",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 6,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child26",
+            "species": "dog",
+            "level": 2,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child42",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child43",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 64,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 4,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 5,
+        "y": 7,
+        "level": 5,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child42",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child31",
+        "species": "dog",
+        "level": 6,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child43",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 65,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child41",
+        "x": 6,
+        "y": 4,
+        "level": 7,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child31",
+            "species": "dog",
+            "level": 6,
+            "x": 6,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child41",
+        "from": 3,
+        "to": 4,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 5,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child43",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 66,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 5,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child44",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child45",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child46",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child43",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child45",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child45",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child44",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 67,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child44",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 7,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 68,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child44",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 7,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 69,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child44",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 7,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 70,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 6,
+        "y": 6,
+        "count": 2,
+        "children": [
+          {
+            "id": "child47",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child48",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child44",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child47",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child48",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 71,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 3,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child47",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 7,
+        "y": 7
+      },
+      {
+        "id": "child48",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 72,
+    "p": {
+      "at": [
+        7,
+        7
+      ],
+      "level": 1,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child48",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 73,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 4,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 4,
+        "y": 6,
+        "count": 3,
+        "children": [
+          {
+            "id": "child49",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child50",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "id": "child51",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 4
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child48",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      },
+      {
+        "type": "fall",
+        "id": "child50",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 4,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child50",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 6
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 3,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child49",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 74,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 5,
+        "y": 7,
+        "level": 4,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child49",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 4,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child46",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 75,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 4,
+      "d": [
+        1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "split",
+        "id": "child15",
+        "x": 6,
+        "y": 6,
+        "count": 2,
+        "children": [
+          {
+            "id": "child52",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          },
+          {
+            "id": "child53",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "merge",
+        "id": "child15",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child46",
+            "species": "dog",
+            "level": 1,
+            "x": 6,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child15",
+        "from": 6,
+        "to": 7,
+        "x": 6
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child52",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child53",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 76,
+    "p": {
+      "at": [
+        6,
+        4
+      ],
+      "level": 7,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 7,
+        "y": 4
+      },
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child52",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child53",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 77,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child41",
+        "species": "dog",
+        "level": 7,
+        "x": 7,
+        "y": 4
+      },
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child52",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child53",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "i": 78,
+    "p": {
+      "at": [
+        7,
+        4
+      ],
+      "level": 7,
+      "d": [
+        -1,
+        -1
+      ]
+    },
+    "events": [
+      {
+        "type": "rescue",
+        "id": "child41",
+        "x": 6,
+        "y": 3,
+        "level": 7
+      }
+    ],
+    "actors": [
+      {
+        "id": "child15",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child52",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child53",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 10
+  },
+  {
+    "i": 79,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "rescue",
+        "id": "child15",
+        "x": 7,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "actors": [
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 1,
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "child52",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child53",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 13
+  },
+  {
+    "i": 80,
+    "p": {
+      "at": [
+        6,
+        4
+      ],
+      "level": 1,
+      "d": [
+        -1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 4
+      },
+      {
+        "id": "child52",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      },
+      {
+        "id": "child53",
+        "species": "dog",
+        "level": 1,
+        "x": 4,
+        "y": 7
+      }
+    ],
+    "rescued": 13
+  },
+  {
+    "i": 81,
+    "p": {
+      "at": [
+        5,
+        4
+      ],
+      "level": 1,
+      "d": [
+        -1,
+        1
+      ]
+    },
+    "events": [
+      {
+        "type": "fall",
+        "id": "child51",
+        "from": 5,
+        "to": 6,
+        "x": 4
+      },
+      {
+        "type": "merge",
+        "id": "child51",
+        "x": 4,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": true,
+        "absorbed": [
+          {
+            "id": "child53",
+            "species": "dog",
+            "level": 1,
+            "x": 4,
+            "y": 7
+          }
+        ]
+      },
+      {
+        "type": "fall",
+        "id": "child51",
+        "from": 6,
+        "to": 7,
+        "x": 4
+      }
+    ],
+    "actors": [
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 2,
+        "x": 4,
+        "y": 7
+      },
+      {
+        "id": "child52",
+        "species": "dog",
+        "level": 1,
+        "x": 5,
+        "y": 7
+      }
+    ],
+    "rescued": 13
+  },
+  {
+    "i": 82,
+    "p": {
+      "at": [
+        4,
+        7
+      ],
+      "level": 2,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "merge",
+        "id": "child51",
+        "x": 5,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": false,
+        "absorbed": [
+          {
+            "id": "child52",
+            "species": "dog",
+            "level": 1,
+            "x": 5,
+            "y": 7
+          }
+        ]
+      }
+    ],
+    "actors": [
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 3,
+        "x": 5,
+        "y": 7
+      }
+    ],
+    "rescued": 13
+  },
+  {
+    "i": 83,
+    "p": {
+      "at": [
+        5,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [],
+    "actors": [
+      {
+        "id": "child51",
+        "species": "dog",
+        "level": 3,
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "rescued": 13
+  },
+  {
+    "i": 84,
+    "p": {
+      "at": [
+        6,
+        7
+      ],
+      "level": 3,
+      "d": [
+        1,
+        0
+      ]
+    },
+    "events": [
+      {
+        "type": "rescue",
+        "id": "child51",
+        "x": 7,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "actors": [],
+    "rescued": 16
+  }
+]

@@ -1,0 +1,13 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>なおぽよ。接触 A/B</title><link rel="stylesheet" href="./style.css"></head><body><main>
+<header><span>なおぽよ。</span><small>独立比較実験</small></header>
+<nav aria-label="方式"><button id="mode-a" aria-pressed="false">A 現行V11</button><button id="mode-b" aria-pressed="true">B 新方式</button></nav>
+<div class="selectors"><label>場面<select id="scene"></select></label><label>方向<select id="direction"></select></label></div>
+<p id="rule">同種族は合体・余剰分離／異種族は交換</p>
+<div class="board-wrap"><canvas id="board" width="390" height="390" aria-label="ドラッグで操作できる盤面"></canvas></div>
+<p id="status" role="status"></p>
+<div class="actions"><button id="action">1回動かす</button><button id="undo">Undo</button><button id="retry">最初から</button></div>
+<div class="options"><label><input id="slow" type="checkbox">ゆっくり比較</label><button id="example">おてほん</button><button id="restore">保存から復帰</button></div>
+<div id="playback" hidden><span id="step"></span><div class="actions"><button id="prev">前へ</button><button id="next">次へ</button><button id="auto">自動再生</button><button id="close">とじる</button></div></div>
+<footer>盤面をなぞって操作。A/B切替は同じ初期配置に戻ります。<br>保存はこの比較版・方式ごとに独立しています。</footer>
+<details><summary>接触ログ</summary><pre id="events">まだ操作していません</pre></details>
+</main><script type="module" src="./app.mjs"></script></body></html>

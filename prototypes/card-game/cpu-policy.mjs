@@ -1,5 +1,11 @@
 // Pure replaceable decision policy. No engine import, transition, random source or hidden state.
-export const POLICY_VERSION='heuristic-1';
+// Policy versions. A CPU match is saved with the version it was started with and keeps using it after a restore
+// (cpu-session.mjs), so a saved match never changes its CPU. heuristic-1 = the policy up to 2026-10-30.
+// heuristic-2 = heuristic-1 + `statChoice` for the intermediate CPU (stat-choosing candidates follow the compared stat
+// of an open challenge; PR #491 B1). The beginner is identical in both versions.
+export const POLICY_VERSION='heuristic-2';
+export const POLICY_VERSIONS=Object.freeze(['heuristic-1','heuristic-2']);
+const VERSION_FEATURES=Object.freeze({'heuristic-1':{},'heuristic-2':{intermediate:{statChoice:true}}});
 export const DIFFICULTIES=['beginner','intermediate'];
 // Difficulty = judgment quality, not injected randomness. Beginner keeps the earlier, simpler evaluations:
 // flat time penalty, flat search value, declares a challenge only when already ahead, and does not react on the
@@ -26,6 +32,10 @@ function expectedHits(N,K,n,max){n=Math.min(n,N);if(!N||!K||!n)return 0;let e=0;
 function searchValue(s,o,prof){if(prof.search!=='deck')return null;const mean=deckMean(o);if(!s.hit||!mean)return null;const K=s.hit.matches.reduce((n,c)=>n+c.count,0);if(!K)return 0;
  const best=Math.max(0,...s.hit.matches.map(c=>cardValue(c,o)));return 3*expectedHits(s.hit.N,K,s.n,s.max??1)*best/mean;}
 const growthMult=o=>o.round>=8?2.2:1.6;
+// statChoice (heuristic-2): only the compared stat matters in an open challenge.
+const STAT_KEYS=new Set(['power','wisdom']);
+const openChallenge=o=>Boolean(o.challenge&&!o.challenge.completed);
+function largerMargin(o){const me=o.players[o.seat].stats,op=o.players[other(o.seat)].stats;if(!me||!op)return null;const dp=me.power-op.power,dw=me.wisdom-op.wisdom;return dp===dw?null:dp>dw?'power':'wisdom';}
 // Growth-point value of a challenge result from the seat's view: +5 for the winner (capped at 100), draw 0.
 function outcomeValue(sign,o){const me=o.players[o.seat],op=o.players[other(o.seat)];return sign>0?Math.min(5,100-me.growth)*growthMult(o):sign<0?-Math.min(5,100-op.growth)*growthMult(o):0;}
 // Public-information estimate that the opponent answers a challenge with a 2-point swing (assumption: each face-down
@@ -39,15 +49,24 @@ function stepValue(steps,o,a,prof=PROFILES.intermediate){
  case 'draw':v=(s.to==='opponent'?-1:1)*Math.min(n,p.deckCount)*3;break;
  case 'search':v=searchValue(s,o,prof)??(p.deckCount?5:0);break;
  case 'chooseTop':case 'revealTopType':case 'deepseaFishing':v=p.deckCount?5:0;break;
- case 'stat':v=targetSign*((s.power??0)+(s.wisdom??0))*(o.challenge?2.4:s.duration==='turn'&&o.turn!==o.seat?.2:1.1);break;
- case 'chosenStat':case 'battleStat':v=n*(o.challenge?2:1);break;
+ // statChoice applies only when the action itself chooses the stat (a variant such as パンチ/ガード). A fixed-stat card
+ // (ビーチバレー) keeps its value: whether to play it is not a stat choice and it can have other reasons (あそびずきカワウソ).
+ case 'stat':if(prof.statChoice&&openChallenge(o)&&a.variant!=null){const k=o.challenge.parameter,on=(k==='power'?s.power:s.wisdom)??0,off=(k==='power'?s.wisdom:s.power)??0;v=targetSign*(on*2.4+(s.duration==='turn'?off*.2:0));break;}
+  v=targetSign*((s.power??0)+(s.wisdom??0))*(o.challenge?2.4:s.duration==='turn'&&o.turn!==o.seat?.2:1.1);break;
+ case 'chosenStat':case 'battleStat':if(prof.statChoice&&s.op==='chosenStat'&&STAT_KEYS.has(a.variant)){
+   // In an open challenge only the compared stat counts; a turn-long boost of the other stat keeps a small value (a later
+   // own challenge this turn). Outside a challenge, a small preference for the stat with the larger own margin.
+   if(openChallenge(o))v=a.variant===o.challenge.parameter?n*2:(s.duration==='turn'?n*.2:0);else v=n+(a.variant===largerMargin(o)?.3:0);break;}
+  v=n*(o.challenge?2:1);break;
  case 'move':case 'selectedMove':{const mean=deckMean(o);v=a.targetSeat===o.seat?(s.destination==='hand'?(a.targetZone==='ownDiscard'&&a.target&&!a.target.hidden&&mean?3*Math.max(0,cardValue(a.target,o))/mean:3):-6):a.targetSeat?7:2;break;}
  case 'negate':v=o.chain.some(l=>l.actor!==o.seat)?12:0;break;
  case 'discount':v=o.turn===o.seat?n*2:0.5;break;
  case 'handBottom':case 'handTop':v=-3;break;
  case 'schedule':v=stepValue(s.steps,o,a,prof)*(o.round===10?.1:.65);break;
  // targetPresent re-checks the action's own target, which is on the field whenever the action is offered.
- case 'if':v=stepValue(s.steps,o,a,prof)*(s.condition==='targetPresent'&&a.target?1:s.condition==='singleStageTimeSkip'?(a.timeSkipAfter?.includes(1)?1:0):.45);break;
+ // statChoice: a branch guarded by the chosen variant (cpu-observation.mjs `variantCond`) applies exactly for that variant.
+ case 'if':if(prof.statChoice&&s.variantCond!=null){v=a.variant===s.variantCond?stepValue(s.steps,o,a,prof):0;break;}
+  v=stepValue(s.steps,o,a,prof)*(s.condition==='targetPresent'&&a.target?1:s.condition==='singleStageTimeSkip'?(a.timeSkipAfter?.includes(1)?1:0):.45);break;
  // A reserved time-skip effect is only worth something when a time-skip is still affordable this turn after paying for it.
  case 'reserve':v=s.when==='time_skip'?(a.timeSkipAfter?.length?stepValue(s.steps,o,a,prof):-20):s.steps?.length?stepValue(s.steps,o,a,prof)*.5:1;break;
  case 'chance':v=stepValue(s.steps,o,a,prof)*Math.max(0,Math.min(1,Number(s.p)||0));break;
@@ -126,12 +145,13 @@ export function timeOpportunity(o,prof=PROFILES.intermediate){
   return base[i]-Math.max(alt,reserve);});
 }
 // `profile` overrides individual evaluation features (verification experiments only; play uses `difficulty`).
-export function chooseCpuAction(observation,{difficulty='intermediate',seed=1,step=0,profile=null}={}){
+export function chooseCpuAction(observation,{difficulty='intermediate',seed=1,step=0,profile=null,version=POLICY_VERSION}={}){
  if(!DIFFICULTIES.includes(difficulty))throw Error('Unsupported CPU difficulty');
+ if(!POLICY_VERSIONS.includes(version))throw Error('Unsupported CPU policy version');
  if(!observation?.actions?.length)throw Error('CPU has no legal candidates');
- const prof={...PROFILES[difficulty],...profile},o=observation,timed=timeOpportunity(o,prof);
+ const prof={...PROFILES[difficulty],...VERSION_FEATURES[version][difficulty],...profile},o=observation,timed=timeOpportunity(o,prof);
  // Beginner does not react on the opponent's turn: only required choices/triggers and passing.
  const idle=!prof.opponentTurn&&o.turn!==o.seat&&o.phase==='response';
  const ranked=o.actions.map((a,i)=>{let score=timed?timed[i]:scoreCpuAction(a,o,legacySpend,prof);if(!Number.isFinite(score))throw Error('Non-finite CPU evaluation');if(idle&&a.kind!=='pass'&&!a.mandatory)score=Math.min(score,-1);if(prof.cap!==null&&score>0&&a.kind!=='choose')score=Math.min(score,prof.cap);return {id:a.id,score,tie:tie(seed,step,i)};}).sort((a,b)=>b.score-a.score||b.tie-a.tie);
- return {id:ranked[0].id,score:ranked[0].score,policy:POLICY_VERSION};
+ return {id:ranked[0].id,score:ranked[0].score,policy:version};
 }

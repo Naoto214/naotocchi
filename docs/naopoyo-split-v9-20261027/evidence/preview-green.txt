@@ -1,0 +1,18 @@
+✔ one-step prediction shows settled body and children without mutating its source (9.790095ms)
+✔ illegal moves, non-splitting moves and level-one spike passage have no preview (0.830622ms)
+✔ slow approach previews BEFORE committing and cancel removes all transient state (3.696643ms)
+✔ retry, restore, actor switch and invalid pointer clear predictions (4.18881ms)
+✔ fast continuous drag remains identical with preview calculations enabled (3.457964ms)
+✔ relative drag after gravity previews from the logical actor, not the pointer row (1.401654ms)
+✔ all shipped witness split/merge/overflow/rescue/gate outcomes use exact engine results (39.081798ms)
+✔ wide and tall official sprites put cropped feet on the same cell baseline (1.206569ms)
+✔ split children are not visible before the body reaches the spike (4.01306ms)
+✔ falling body shows its split number after contact, not the pre-split number (1.085737ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 180.509554

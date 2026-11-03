@@ -1,0 +1,7 @@
+11 {"status":"solved","visited":52,"expanded":42,"edges":179,"depth":5,"shortestProven":true,"elapsedMs":7,"method":"bfs"} { complete: true }
+12 {"status":"solved","visited":34,"expanded":32,"edges":129,"depth":5,"shortestProven":true,"elapsedMs":2,"method":"bfs"} { complete: true }
+13 {"status":"solved","visited":65,"expanded":62,"edges":213,"depth":10,"shortestProven":true,"elapsedMs":6,"method":"bfs"} { complete: true }
+14 {"status":"solved","visited":863,"expanded":768,"edges":4316,"depth":11,"shortestProven":true,"elapsedMs":62,"method":"bfs"} { error: 'witness rejected 6: foothold' }
+16 {"status":"limit","visited":136534,"expanded":88617,"edges":1185051,"shortestProven":false,"elapsedMs":25001,"method":"bfs"} { complete: true }
+17 {"status":"limit","visited":100643,"expanded":81583,"edges":1250648,"shortestProven":false,"elapsedMs":25000,"method":"bfs"} { complete: true }
+20 {"status":"exhausted","visited":34,"expanded":34,"edges":221,"shortestProven":false,"elapsedMs":9,"method":"bfs"} { error: 'witness rejected 3: corner' }

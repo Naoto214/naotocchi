@@ -1,0 +1,35 @@
+{
+  "puzzle": {
+    "tests": 1484,
+    "pass": 1484,
+    "fail": 0,
+    "skip": 0
+  },
+  "newTests": 553,
+  "baseline": 55,
+  "browser": {
+    "engine": "Chrome",
+    "iframeWidths": [
+      320,
+      375,
+      390,
+      430
+    ],
+    "horizontalOverflow": false,
+    "buttonHeight": 44,
+    "physicalDrag390": true,
+    "example11": {
+      "moves": 5,
+      "closedToNormalMoves": 0
+    },
+    "example20": {
+      "moves": 156,
+      "complete": true,
+      "method": "auto and manual next mixed"
+    }
+  },
+  "reviewImportantFixed": 2,
+  "deferredMinor": 2,
+  "latestV12": "4dfa17df30640253468f07bf95873ae784138344",
+  "v12SolutionsUnchanged": true
+}

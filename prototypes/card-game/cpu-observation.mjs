@@ -6,9 +6,10 @@ import {visibleCards} from './ui-context.mjs';
 import {CARDS} from './engine.mjs';
 const other=a=>a==='A'?'B':'A';
 const freeze=o=>{if(o&&typeof o==='object'){Object.values(o).forEach(freeze);Object.freeze(o);}return o;};
-// Only static evaluation hints, never raw link/event/contract internals.
+// Only static evaluation hints, never raw link/event/contract internals. `variantCond` (own card's static text: the mode
+// a branch belongs to, e.g. かくとうバトル パンチ) is used by policy heuristic-2 only.
 function hints(r){if(!r||!Object.keys(r).length)return null; // effectiveRule(...,undefined) yields {}: no rule program, not an empty one.
-return {steps:(r.steps??[]).map(step=>({op:step.op,n:typeof step.n==='number'?step.n:null,power:step.power??0,wisdom:step.wisdom??0,to:step.to??'self',destination:step.destination??null,duration:step.duration??null,steps:hints(step)?.steps??[],...(step.op==='search'?{filter:step.filter??{},max:step.max??1}:{}),...(step.op==='if'&&typeof step.condition==='string'?{condition:step.condition}:{}),...(step.op==='reserve'?{when:step.when??null}:{})})),handCost:Boolean(r.handCost),selfCost:Boolean(r.selfCost),select:(r.select??[]).map(g=>({cost:Boolean(g.cost),count:g.count??g.min??0,zone:g.zone}))};}
+return {steps:(r.steps??[]).map(step=>({op:step.op,n:typeof step.n==='number'?step.n:null,power:step.power??0,wisdom:step.wisdom??0,to:step.to??'self',destination:step.destination??null,duration:step.duration??null,steps:hints(step)?.steps??[],...(step.op==='search'?{filter:step.filter??{},max:step.max??1}:{}),...(step.op==='if'&&typeof step.condition==='string'?{condition:step.condition}:{}),...(step.op==='if'&&step.condition&&typeof step.condition==='object'&&step.condition.variant!=null?{variantCond:step.condition.variant}:{}),...(step.op==='reserve'?{when:step.when??null}:{})})),handCost:Boolean(r.handCost),selfCost:Boolean(r.selfCost),select:(r.select??[]).map(g=>({cost:Boolean(g.cost),count:g.count??g.min??0,zone:g.zone}))};}
 // Legacy hard-coded play cards (engine.mjs listActions/resolve: I-c_coin2, G-hit-blow, G-area-claim, E-first-date,
 // G-animal-shogi, G-archery-3d) have no RULES program. Describe their resolution with existing hint ops, from the
 // actor's own public view only. Steps are empty when the resolution would do nothing (empty deck, unmet condition).

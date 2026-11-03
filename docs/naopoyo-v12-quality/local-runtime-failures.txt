@@ -1,0 +1,284 @@
+ℹ tests 2918
+ℹ suites 0
+ℹ pass 2894
+ℹ fail 24
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 858451.076516
+
+✖ failing tests:
+
+test at tests/character-3d-quality-test.cjs:117:1
+✖ Claude QA uses the current actor input adapter while preserving immutable geometry and presenter (15.84767ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/character-3d-quality-2026-10-02/claude/runtime.mjs'
+      at Object.readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/character-3d-quality-test.cjs:122:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/character-3d-quality-2026-10-02/claude/runtime.mjs'
+  }
+
+test at tests/character-3d-rollout-inventory-test.cjs:27:1
+✖ legacy coverage references the reviewed rightmost four tiles without claiming raw photos or later gates (2.169959ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/character-3d-full-v0/legacy-four-view-review.json'
+      at Object.readFileSync (node:fs:483:20)
+      at legacyFixture (/workspace/scratch/41a27f33444c/repo/tests/character-3d-rollout-inventory-test.cjs:23:29)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/character-3d-rollout-inventory-test.cjs:28:21)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/character-3d-full-v0/legacy-four-view-review.json'
+  }
+
+test at tests/character-3d-rollout-inventory-test.cjs:40:1
+✖ legacy coverage rejects unreviewed, missing, changed, or wrongly mapped boards (1.169275ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/character-3d-full-v0/legacy-four-view-review.json'
+      at Object.readFileSync (node:fs:483:20)
+      at legacyFixture (/workspace/scratch/41a27f33444c/repo/tests/character-3d-rollout-inventory-test.cjs:23:29)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/character-3d-rollout-inventory-test.cjs:41:26)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/character-3d-full-v0/legacy-four-view-review.json'
+  }
+
+test at tests/character-3d-rollout-inventory-test.cjs:49:1
+✖ legacy board reuse requires the exact companion model at stage zero (2.001822ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/character-3d-full-v0/legacy-four-view-review.json'
+      at Object.readFileSync (node:fs:483:20)
+      at legacyFixture (/workspace/scratch/41a27f33444c/repo/tests/character-3d-rollout-inventory-test.cjs:23:29)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/character-3d-rollout-inventory-test.cjs:50:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/character-3d-full-v0/legacy-four-view-review.json'
+  }
+
+test at tests/meguru-3d-art-direction-test.cjs:280:1
+✖ AD-17. Human QA gate の 記録: 13 地域 × 7 条件(ひと目で 地域・さびしく ない・箱っぽく ない・いろ・歩きたい・見どころ・前景 / 中景 / 遠景)が status doc に ある。main merge / Ready は しない (1.024271ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/meguru-3d-art-direction-v1-status.md'
+      at Object.readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/meguru-3d-art-direction-test.cjs:281:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/meguru-3d-art-direction-v1-status.md'
+  }
+
+test at tests/meguru-3d-geometry-terrain-test.cjs:199:1
+✖ GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない (0.509171ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/meguru-3d-art-direction-v1-human-qa.md'
+      at Object.readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/meguru-3d-geometry-terrain-test.cjs:200:17)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/meguru-3d-art-direction-v1-human-qa.md'
+  }
+
+test at tests/meguru-discovery-test.cjs:599:1
+✖ ⑦-7 監査の けっかと 実装が そろって いる (23.576747ms)
+  Error: ENOENT: no such file or directory, open 'docs/qa/meguru-spot-audit-2026-09-21.csv'
+      at Object.readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/meguru-discovery-test.cjs:601:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'docs/qa/meguru-spot-audit-2026-09-21.csv'
+  }
+
+test at tests/meguru-phase3b4-test.cjs:1:1
+✖ tests/meguru-phase3b4-test.cjs (768542.691456ms)
+  'test failed'
+
+test at tests/meguru-scenery-final-qa-test.cjs:1:1
+✖ tests/meguru-scenery-final-qa-test.cjs (5420.912979ms)
+  'test failed'
+
+test at tests/meguru-scenery-polish-test.cjs:1:1
+✖ tests/meguru-scenery-polish-test.cjs (4850.082094ms)
+  'test failed'
+
+test at tests/meguru-scenery-polish2-test.cjs:1:1
+✖ tests/meguru-scenery-polish2-test.cjs (5576.450622ms)
+  'test failed'
+
+test at tests/meguru-visual-completion-test.cjs:1:1
+✖ tests/meguru-visual-completion-test.cjs (7755.202492ms)
+  'test failed'
+
+test at tests/minigame-phase2-fishing-sea-test.cjs:1:1
+✖ tests/minigame-phase2-fishing-sea-test.cjs (10862.666628ms)
+  'test failed'
+
+test at tests/minigame-phase2-randomization-test.cjs:1:1
+✖ tests/minigame-phase2-randomization-test.cjs (6332.622068ms)
+  'test failed'
+
+test at tests/minigame-phase2-timers-test.cjs:1:1
+✖ tests/minigame-phase2-timers-test.cjs (3491.583512ms)
+  'test failed'
+
+test at tests/pet-expression-assets-test.cjs:363:3
+✖ starfish/01 master is the exact approved candidate; normal routing uses it (6.806021ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/starfish-baseline-candidates-20260925/01-candidate.png'
+      at Object.openSync (node:fs:621:18)
+      at Object.readFileSync (node:fs:487:35)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs:366:26)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/starfish-baseline-candidates-20260925/01-candidate.png'
+  }
+
+test at tests/pet-expression-assets-test.cjs:363:3
+✖ starfish/02 master is the exact approved candidate; normal routing uses it (5.772693ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/starfish-baseline-candidates-20260925/02-candidate.png'
+      at Object.openSync (node:fs:621:18)
+      at Object.readFileSync (node:fs:487:35)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs:366:26)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/starfish-baseline-candidates-20260925/02-candidate.png'
+  }
+
+test at tests/pet-expression-assets-test.cjs:363:3
+✖ starfish/03 master is the exact approved candidate; normal routing uses it (1.965799ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/41a27f33444c/repo/docs/qa/starfish-baseline-candidates-20260925/03-candidate.png'
+      at Object.openSync (node:fs:621:18)
+      at Object.readFileSync (node:fs:487:35)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs:366:26)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/41a27f33444c/repo/docs/qa/starfish-baseline-candidates-20260925/03-candidate.png'
+  }
+
+test at tests/pet-expression-assets-test.cjs:375:3
+✖ starfish/01 has ten distinct transparent expressions with projected approved master bounds (3.730721ms)
+  Error: Cannot find module '../docs/qa/starfish-expressions-step3-20260927-manifest.json'
+  Require stack:
+  - /workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+      at Module._load (node:internal/modules/cjs/loader:1341:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+      at Module.require (node:internal/modules/cjs/loader:1674:12)
+      at require (node:internal/modules/helpers:157:16)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs:387:41)
+      at Test.runInAsyncScope (node:async_hooks:227:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs' ]
+  }
+
+test at tests/pet-expression-assets-test.cjs:375:3
+✖ starfish/02 has ten distinct transparent expressions with projected approved master bounds (3.73001ms)
+  Error: Cannot find module '../docs/qa/starfish-expressions-step3-20260927-manifest.json'
+  Require stack:
+  - /workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+      at Module._load (node:internal/modules/cjs/loader:1341:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+      at Module.require (node:internal/modules/cjs/loader:1674:12)
+      at require (node:internal/modules/helpers:157:16)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs:387:41)
+      at Test.runInAsyncScope (node:async_hooks:227:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs' ]
+  }
+
+test at tests/pet-expression-assets-test.cjs:375:3
+✖ starfish/03 has ten distinct transparent expressions with projected approved master bounds (3.497647ms)
+  Error: Cannot find module '../docs/qa/starfish-expressions-step3-20260927-manifest.json'
+  Require stack:
+  - /workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+      at Module._load (node:internal/modules/cjs/loader:1341:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+      at Module.require (node:internal/modules/cjs/loader:1674:12)
+      at require (node:internal/modules/helpers:157:16)
+      at TestContext.<anonymous> (/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs:387:41)
+      at Test.runInAsyncScope (node:async_hooks:227:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/workspace/scratch/41a27f33444c/repo/tests/pet-expression-assets-test.cjs' ]
+  }
+
+test at tests/pet-expression-integration-test.cjs:1:1
+✖ tests/pet-expression-integration-test.cjs (15579.759203ms)
+  'test failed'
+
+test at tests/prop-illustrations-test.cjs:1:1
+✖ tests/prop-illustrations-test.cjs (13409.139232ms)
+  'test failed'
+
+test at tests/save-compat-test.cjs:1:1
+✖ tests/save-compat-test.cjs (3718.000482ms)
+  'test failed'

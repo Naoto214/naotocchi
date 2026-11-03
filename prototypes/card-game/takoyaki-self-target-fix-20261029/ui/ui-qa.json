@@ -1,0 +1,33 @@
+{
+ "viewport": "390x844",
+ "cases": {
+  "hotseat-5": {
+   "version": "hotseat-5",
+   "choices": [
+    "たこやきやさんの能力を発動 → ほんかくさかなつり",
+    "たこやきやさんの能力を発動 → おべんとうばこ"
+   ],
+   "buttonsFound": 2,
+   "selfOffered": false,
+   "afterClick": {
+    "revision": 103,
+    "takoyakiLeftPrepared": true,
+    "log": [
+     "B：おべんとうばこを配置（時2）",
+     "B：たこやきやさんの能力を発動"
+    ]
+   }
+  },
+  "hotseat-4-old-save": {
+   "version": "hotseat-4",
+   "choices": [
+    "たこやきやさんの能力を発動 → たこやきやさん"
+   ],
+   "buttonsFound": 1,
+   "selfOffered": true
+  }
+ },
+ "horizontalOverflow": false,
+ "pageErrors": [],
+ "ok": true
+}

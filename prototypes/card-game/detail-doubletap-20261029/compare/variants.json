@@ -1,0 +1,268 @@
+[
+ {
+  "vp": "390x844",
+  "v": "current",
+  "diag": false,
+  "ok": true,
+  "a": 334,
+  "z": 501,
+  "canvas": [
+   501,
+   752
+  ],
+  "card": [
+   501,
+   752
+  ],
+  "back": 334,
+  "badge": "A・260ms",
+  "errs": []
+ },
+ {
+  "vp": "390x844",
+  "v": "current",
+  "diag": true,
+  "ok": true,
+  "a": 334,
+  "z": 501,
+  "canvas": [
+   501,
+   752
+  ],
+  "card": [
+   501,
+   752
+  ],
+  "back": 334,
+  "badge": "A・色・260ms",
+  "errs": []
+ },
+ {
+  "vp": "390x844",
+  "v": "clippath",
+  "diag": false,
+  "ok": true,
+  "a": 334,
+  "z": 501,
+  "canvas": [
+   501,
+   752
+  ],
+  "card": [
+   501,
+   752
+  ],
+  "back": 334,
+  "badge": "C・260ms",
+  "errs": []
+ },
+ {
+  "vp": "390x844",
+  "v": "layer",
+  "diag": false,
+  "ok": true,
+  "a": 334,
+  "z": 501,
+  "canvas": [
+   501,
+   752
+  ],
+  "card": [
+   501,
+   752
+  ],
+  "back": 334,
+  "badge": "D・260ms",
+  "errs": []
+ },
+ {
+  "vp": "390x844",
+  "v": "zoom",
+  "diag": false,
+  "ok": true,
+  "a": 334,
+  "z": 501,
+  "canvas": [
+   501,
+   752
+  ],
+  "card": [
+   501,
+   752
+  ],
+  "back": 334,
+  "badge": "E・260ms",
+  "errs": []
+ },
+ {
+  "vp": "390x844",
+  "v": "zoom",
+  "diag": true,
+  "ok": true,
+  "a": 334,
+  "z": 501,
+  "canvas": [
+   501,
+   752
+  ],
+  "card": [
+   501,
+   752
+  ],
+  "back": 334,
+  "badge": "E・色・260ms",
+  "errs": []
+ },
+ {
+  "vp": "390x844",
+  "v": "noanim",
+  "diag": false,
+  "ok": true,
+  "a": 334,
+  "z": 501,
+  "canvas": [
+   501,
+   752
+  ],
+  "card": [
+   501,
+   752
+  ],
+  "back": 334,
+  "badge": "F・0ms",
+  "errs": []
+ },
+ {
+  "vp": "844x390",
+  "v": "current",
+  "diag": false,
+  "ok": true,
+  "a": 233,
+  "z": 442,
+  "canvas": [
+   442,
+   663
+  ],
+  "card": [
+   442,
+   663
+  ],
+  "back": 233,
+  "badge": "A・260ms",
+  "errs": []
+ },
+ {
+  "vp": "844x390",
+  "v": "current",
+  "diag": true,
+  "ok": true,
+  "a": 233,
+  "z": 442,
+  "canvas": [
+   442,
+   663
+  ],
+  "card": [
+   442,
+   663
+  ],
+  "back": 233,
+  "badge": "A・色・260ms",
+  "errs": []
+ },
+ {
+  "vp": "844x390",
+  "v": "clippath",
+  "diag": false,
+  "ok": true,
+  "a": 233,
+  "z": 442,
+  "canvas": [
+   442,
+   663
+  ],
+  "card": [
+   442,
+   663
+  ],
+  "back": 233,
+  "badge": "C・260ms",
+  "errs": []
+ },
+ {
+  "vp": "844x390",
+  "v": "layer",
+  "diag": false,
+  "ok": true,
+  "a": 233,
+  "z": 442,
+  "canvas": [
+   442,
+   663
+  ],
+  "card": [
+   442,
+   663
+  ],
+  "back": 233,
+  "badge": "D・260ms",
+  "errs": []
+ },
+ {
+  "vp": "844x390",
+  "v": "zoom",
+  "diag": false,
+  "ok": true,
+  "a": 233,
+  "z": 442,
+  "canvas": [
+   442,
+   663
+  ],
+  "card": [
+   442,
+   663
+  ],
+  "back": 233,
+  "badge": "E・260ms",
+  "errs": []
+ },
+ {
+  "vp": "844x390",
+  "v": "zoom",
+  "diag": true,
+  "ok": true,
+  "a": 233,
+  "z": 442,
+  "canvas": [
+   442,
+   663
+  ],
+  "card": [
+   442,
+   663
+  ],
+  "back": 233,
+  "badge": "E・色・260ms",
+  "errs": []
+ },
+ {
+  "vp": "844x390",
+  "v": "noanim",
+  "diag": false,
+  "ok": true,
+  "a": 233,
+  "z": 442,
+  "canvas": [
+   442,
+   663
+  ],
+  "card": [
+   442,
+   663
+  ],
+  "back": 233,
+  "badge": "F・0ms",
+  "errs": []
+ }
+]

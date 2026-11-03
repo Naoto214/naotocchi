@@ -1,0 +1,1087 @@
+[
+  {
+    "step": 1,
+    "at": [
+      0,
+      7
+    ],
+    "level": 6,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 1,
+        "y": 7,
+        "level": 8,
+        "overflow": 4,
+        "fall": true
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 1
+      }
+    ],
+    "actors": [
+      {
+        "x": 1,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 1,
+        "y": 6,
+        "level": 4
+      },
+      {
+        "x": 2,
+        "y": 7,
+        "level": 4
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 2,
+    "at": [
+      1,
+      7
+    ],
+    "level": 8,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [
+      {
+        "type": "fall",
+        "id": "b",
+        "from": 6,
+        "to": 7,
+        "x": 1
+      },
+      {
+        "type": "merge",
+        "id": "a",
+        "x": 2,
+        "y": 7,
+        "level": 8,
+        "overflow": 4,
+        "fall": true
+      },
+      {
+        "type": "fall",
+        "id": "a",
+        "from": 6,
+        "to": 7,
+        "x": 2
+      }
+    ],
+    "actors": [
+      {
+        "x": 2,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 1,
+        "y": 7,
+        "level": 4
+      },
+      {
+        "x": 2,
+        "y": 6,
+        "level": 4
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 3,
+    "at": [
+      2,
+      7
+    ],
+    "level": 8,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "fall",
+        "id": "c",
+        "from": 6,
+        "to": 7,
+        "x": 2
+      }
+    ],
+    "actors": [
+      {
+        "x": 3,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 1,
+        "y": 7,
+        "level": 4
+      },
+      {
+        "x": 2,
+        "y": 7,
+        "level": 4
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 4,
+    "at": [
+      3,
+      7
+    ],
+    "level": 8,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [
+      {
+        "type": "split",
+        "id": "a",
+        "x": 4,
+        "y": 6,
+        "count": 3
+      }
+    ],
+    "actors": [
+      {
+        "x": 4,
+        "y": 6,
+        "level": 5
+      },
+      {
+        "x": 1,
+        "y": 7,
+        "level": 4
+      },
+      {
+        "x": 2,
+        "y": 7,
+        "level": 4
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 5,
+    "at": [
+      1,
+      7
+    ],
+    "level": 4,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "b",
+        "x": 2,
+        "y": 7,
+        "level": 8,
+        "overflow": 0,
+        "fall": true
+      },
+      {
+        "type": "fall",
+        "id": "b",
+        "from": 6,
+        "to": 7,
+        "x": 2
+      }
+    ],
+    "actors": [
+      {
+        "x": 4,
+        "y": 6,
+        "level": 5
+      },
+      {
+        "x": 2,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 6,
+    "at": [
+      2,
+      7
+    ],
+    "level": 8,
+    "d": [
+      1,
+      0
+    ],
+    "events": [],
+    "actors": [
+      {
+        "x": 4,
+        "y": 6,
+        "level": 5
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 7,
+    "at": [
+      5,
+      7
+    ],
+    "level": 1,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "child1",
+        "x": 6,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": false
+      }
+    ],
+    "actors": [
+      {
+        "x": 4,
+        "y": 6,
+        "level": 5
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 2
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 8,
+    "at": [
+      4,
+      6
+    ],
+    "level": 5,
+    "d": [
+      1,
+      1
+    ],
+    "events": [],
+    "actors": [
+      {
+        "x": 5,
+        "y": 7,
+        "level": 5
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 2
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 9,
+    "at": [
+      5,
+      7
+    ],
+    "level": 5,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [
+      {
+        "type": "split",
+        "id": "a",
+        "x": 6,
+        "y": 6,
+        "count": 1
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 6,
+        "level": 4
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 2
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 10,
+    "at": [
+      5,
+      7
+    ],
+    "level": 1,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "child4",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": false
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 6,
+        "level": 4
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "rescued": 0
+  },
+  {
+    "step": 11,
+    "at": [
+      6,
+      7
+    ],
+    "level": 3,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "rescue",
+        "id": "child4",
+        "x": 7,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 6,
+        "level": 4
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "level": 8
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "step": 12,
+    "at": [
+      3,
+      7
+    ],
+    "level": 8,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [
+      {
+        "type": "split",
+        "id": "b",
+        "x": 4,
+        "y": 6,
+        "count": 2
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 6,
+        "level": 4
+      },
+      {
+        "x": 4,
+        "y": 6,
+        "level": 6
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "step": 13,
+    "at": [
+      6,
+      6
+    ],
+    "level": 4,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [],
+    "actors": [
+      {
+        "x": 7,
+        "y": 5,
+        "level": 4
+      },
+      {
+        "x": 4,
+        "y": 6,
+        "level": 6
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "step": 14,
+    "at": [
+      7,
+      5
+    ],
+    "level": 4,
+    "d": [
+      -1,
+      -1
+    ],
+    "events": [],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 4
+      },
+      {
+        "x": 4,
+        "y": 6,
+        "level": 6
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "step": 15,
+    "at": [
+      4,
+      7
+    ],
+    "level": 1,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "child2",
+        "x": 5,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": false
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 4
+      },
+      {
+        "x": 4,
+        "y": 6,
+        "level": 6
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 2
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "step": 16,
+    "at": [
+      4,
+      6
+    ],
+    "level": 6,
+    "d": [
+      0,
+      1
+    ],
+    "events": [],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 4
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 6
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 2
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "step": 17,
+    "at": [
+      5,
+      7
+    ],
+    "level": 2,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "child2",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": false
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 4
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 6
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "rescued": 3
+  },
+  {
+    "step": 18,
+    "at": [
+      6,
+      7
+    ],
+    "level": 3,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "rescue",
+        "id": "child2",
+        "x": 7,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 4
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 6
+      }
+    ],
+    "rescued": 6
+  },
+  {
+    "step": 19,
+    "at": [
+      4,
+      7
+    ],
+    "level": 6,
+    "d": [
+      0,
+      -1
+    ],
+    "events": [
+      {
+        "type": "split",
+        "id": "b",
+        "x": 4,
+        "y": 6,
+        "count": 3
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 4
+      },
+      {
+        "x": 4,
+        "y": 6,
+        "level": 3
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 6
+  },
+  {
+    "step": 20,
+    "at": [
+      4,
+      6
+    ],
+    "level": 3,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 4
+      },
+      {
+        "x": 5,
+        "y": 5,
+        "level": 3
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 6
+  },
+  {
+    "step": 21,
+    "at": [
+      5,
+      5
+    ],
+    "level": 3,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "b",
+        "x": 6,
+        "y": 4,
+        "level": 7,
+        "overflow": 0,
+        "fall": false
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 7
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 1
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 6
+  },
+  {
+    "step": 22,
+    "at": [
+      4,
+      7
+    ],
+    "level": 1,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "child7",
+        "x": 5,
+        "y": 7,
+        "level": 2,
+        "overflow": 0,
+        "fall": false
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 7
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "level": 2
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 1
+      }
+    ],
+    "rescued": 6
+  },
+  {
+    "step": 23,
+    "at": [
+      5,
+      7
+    ],
+    "level": 2,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "merge",
+        "id": "child7",
+        "x": 6,
+        "y": 7,
+        "level": 3,
+        "overflow": 0,
+        "fall": false
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 7
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "rescued": 6
+  },
+  {
+    "step": 24,
+    "at": [
+      6,
+      7
+    ],
+    "level": 3,
+    "d": [
+      1,
+      0
+    ],
+    "events": [
+      {
+        "type": "rescue",
+        "id": "child7",
+        "x": 7,
+        "y": 7,
+        "level": 3
+      }
+    ],
+    "actors": [
+      {
+        "x": 6,
+        "y": 4,
+        "level": 7
+      }
+    ],
+    "rescued": 9
+  },
+  {
+    "step": 25,
+    "at": [
+      6,
+      4
+    ],
+    "level": 7,
+    "d": [
+      -1,
+      0
+    ],
+    "events": [],
+    "actors": [
+      {
+        "x": 5,
+        "y": 4,
+        "level": 7
+      }
+    ],
+    "rescued": 9
+  },
+  {
+    "step": 26,
+    "at": [
+      5,
+      4
+    ],
+    "level": 7,
+    "d": [
+      1,
+      -1
+    ],
+    "events": [
+      {
+        "type": "rescue",
+        "id": "b",
+        "x": 6,
+        "y": 3,
+        "level": 7
+      }
+    ],
+    "actors": [],
+    "rescued": 16
+  }
+]

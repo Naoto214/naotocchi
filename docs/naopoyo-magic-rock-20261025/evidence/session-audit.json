@@ -1,0 +1,1622 @@
+[
+  {
+    "number": 11,
+    "moves": 5,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 3,
+    "events": {
+      "fall": 5,
+      "merge": 1,
+      "rescue": 1
+    },
+    "ascents": []
+  },
+  {
+    "number": 12,
+    "moves": 5,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 10,
+    "events": {
+      "merge": 2,
+      "fall": 2,
+      "rescue": 2
+    },
+    "ascents": [
+      {
+        "step": 1,
+        "actor": {
+          "id": "c",
+          "x": 0,
+          "y": 7,
+          "level": 2,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 2,
+        "actor": {
+          "id": "c",
+          "x": 1,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 3,
+        "actor": {
+          "id": "b",
+          "x": 2,
+          "y": 6,
+          "level": 2,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  },
+  {
+    "number": 13,
+    "moves": 10,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 12,
+    "events": {
+      "phase": 1,
+      "fall": 1,
+      "rescue": 2
+    },
+    "ascents": [
+      {
+        "step": 1,
+        "actor": {
+          "id": "b",
+          "x": 0,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 2,
+        "actor": {
+          "id": "b",
+          "x": 1,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 6,
+        "actor": {
+          "id": "b",
+          "x": 3,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  },
+  {
+    "number": 14,
+    "moves": 11,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 12,
+    "events": {
+      "fall": 4,
+      "merge": 2,
+      "rescue": 2
+    },
+    "ascents": [
+      {
+        "step": 9,
+        "actor": {
+          "id": "a",
+          "x": 5,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  },
+  {
+    "number": 15,
+    "moves": 23,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 12,
+    "events": {
+      "merge": 7,
+      "fall": 10,
+      "split": 3,
+      "rescue": 2
+    },
+    "ascents": [
+      {
+        "step": 1,
+        "actor": {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 2,
+        "actor": {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 8,
+        "actor": {
+          "id": "child2",
+          "species": "dog",
+          "level": 6,
+          "x": 1,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 14,
+        "actor": {
+          "id": "child4",
+          "species": "dog",
+          "level": 2,
+          "x": 1,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 16,
+        "actor": {
+          "id": "child5",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 20,
+        "actor": {
+          "id": "child5",
+          "species": "dog",
+          "level": 2,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 21,
+        "actor": {
+          "id": "child2",
+          "species": "dog",
+          "level": 2,
+          "x": 7,
+          "y": 7
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 22,
+        "actor": {
+          "id": "child2",
+          "species": "dog",
+          "level": 4,
+          "x": 6,
+          "y": 6
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  },
+  {
+    "number": 16,
+    "moves": 25,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 13,
+    "events": {
+      "merge": 6,
+      "fall": 9,
+      "split": 1,
+      "rescue": 2
+    },
+    "ascents": [
+      {
+        "step": 1,
+        "actor": {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 4,
+        "actor": {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 11,
+        "actor": {
+          "id": "a",
+          "x": 5,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 12,
+        "actor": {
+          "id": "b",
+          "x": 6,
+          "y": 6,
+          "level": 5,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 16,
+        "actor": {
+          "id": "a",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 18,
+        "actor": {
+          "id": "a",
+          "x": 3,
+          "y": 6,
+          "level": 5,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 20,
+        "actor": {
+          "id": "a",
+          "x": 4,
+          "y": 5,
+          "level": 5,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  },
+  {
+    "number": 17,
+    "moves": 26,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 11,
+    "events": {
+      "merge": 11,
+      "fall": 16,
+      "split": 4,
+      "rescue": 2
+    },
+    "ascents": [
+      {
+        "step": 1,
+        "actor": {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 2,
+        "actor": {
+          "id": "a",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 7,
+        "actor": {
+          "id": "child2",
+          "species": "dog",
+          "level": 5,
+          "x": 1,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 11,
+        "actor": {
+          "id": "child2",
+          "species": "dog",
+          "level": 7,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 12,
+        "actor": {
+          "id": "child5",
+          "species": "dog",
+          "level": 3,
+          "x": 1,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 14,
+        "actor": {
+          "id": "child8",
+          "species": "dog",
+          "level": 2,
+          "x": 1,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 16,
+        "actor": {
+          "id": "child9",
+          "species": "dog",
+          "level": 1,
+          "x": 1,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 20,
+        "actor": {
+          "id": "child2",
+          "species": "dog",
+          "level": 8,
+          "x": 4,
+          "y": 7
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 21,
+        "actor": {
+          "id": "child9",
+          "species": "dog",
+          "level": 3,
+          "x": 3,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 22,
+        "actor": {
+          "id": "child9",
+          "species": "dog",
+          "level": 3,
+          "x": 4,
+          "y": 5
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  },
+  {
+    "number": 18,
+    "moves": 20,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 16,
+    "events": {
+      "merge": 18,
+      "fall": 15,
+      "phase": 2,
+      "split": 6,
+      "rescue": 4
+    },
+    "ascents": [
+      {
+        "step": 1,
+        "actor": {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 3,
+        "actor": {
+          "id": "a",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 7,
+        "actor": {
+          "id": "b",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 9,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 6,
+          "x": 4,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 11,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 3,
+          "x": 4,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 13,
+        "actor": {
+          "id": "b",
+          "x": 3,
+          "y": 6,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 18,
+        "actor": {
+          "id": "child12",
+          "species": "dog",
+          "level": 5,
+          "x": 4,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  },
+  {
+    "number": 19,
+    "moves": 62,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 16,
+    "events": {
+      "phase": 3,
+      "split": 9,
+      "merge": 23,
+      "fall": 41,
+      "rescue": 4
+    },
+    "ascents": [
+      {
+        "step": 1,
+        "actor": {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 5,
+        "actor": {
+          "id": "b",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 8,
+        "actor": {
+          "id": "child4",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 6
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 11,
+        "actor": {
+          "id": "a",
+          "x": 2,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 13,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 5,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 19,
+        "actor": {
+          "id": "a",
+          "x": 6,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 21,
+        "actor": {
+          "id": "child9",
+          "species": "dog",
+          "level": 3,
+          "x": 4,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 24,
+        "actor": {
+          "id": "child9",
+          "species": "dog",
+          "level": 3,
+          "x": 6,
+          "y": 6
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 26,
+        "actor": {
+          "id": "a",
+          "x": 6,
+          "y": 6,
+          "level": 4,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 27,
+        "actor": {
+          "id": "a",
+          "x": 5,
+          "y": 6,
+          "level": 5,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 29,
+        "actor": {
+          "id": "child12",
+          "species": "dog",
+          "level": 1,
+          "x": 3,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 32,
+        "actor": {
+          "id": "child14",
+          "species": "dog",
+          "level": 3,
+          "x": 4,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 36,
+        "actor": {
+          "id": "child12",
+          "species": "dog",
+          "level": 1,
+          "x": 4,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 37,
+        "actor": {
+          "id": "child14",
+          "species": "dog",
+          "level": 3,
+          "x": 6,
+          "y": 6
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 39,
+        "actor": {
+          "id": "child12",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 42,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 8,
+          "x": 4,
+          "y": 7
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 44,
+        "actor": {
+          "id": "child16",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 45,
+        "actor": {
+          "id": "child16",
+          "species": "dog",
+          "level": 1,
+          "x": 6,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 48,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 7,
+          "x": 4,
+          "y": 7
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 50,
+        "actor": {
+          "id": "child19",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 54,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 6,
+          "x": 4,
+          "y": 7
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 57,
+        "actor": {
+          "id": "child23",
+          "species": "dog",
+          "level": 2,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 58,
+        "actor": {
+          "id": "child23",
+          "species": "dog",
+          "level": 5,
+          "x": 6,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 61,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 5,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 62,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 5,
+          "x": 6,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  },
+  {
+    "number": 20,
+    "moves": 60,
+    "allRescued": true,
+    "perStepRestoreUndoDeterminism": true,
+    "retry": true,
+    "total": 16,
+    "events": {
+      "merge": 41,
+      "fall": 41,
+      "phase": 4,
+      "split": 17,
+      "rescue": 4
+    },
+    "ascents": [
+      {
+        "step": 1,
+        "actor": {
+          "id": "a",
+          "x": 0,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 3,
+        "actor": {
+          "id": "b",
+          "x": 1,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 7,
+        "actor": {
+          "id": "b",
+          "x": 3,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 9,
+        "actor": {
+          "id": "child2",
+          "species": "dog",
+          "level": 3,
+          "x": 4,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 11,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 12,
+        "actor": {
+          "id": "child11",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 13,
+        "actor": {
+          "id": "child2",
+          "species": "dog",
+          "level": 3,
+          "x": 5,
+          "y": 5
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 14,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 3,
+          "x": 4,
+          "y": 6
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 16,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 18,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 3,
+          "x": 5,
+          "y": 5
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 19,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 8,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 24,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 26,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 7,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 30,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 32,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 6,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 36,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 38,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 5,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 42,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 46,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 4,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 47,
+        "actor": {
+          "id": "child34",
+          "species": "dog",
+          "level": 1,
+          "x": 5,
+          "y": 7
+        },
+        "d": [
+          1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 52,
+        "actor": {
+          "id": "child1",
+          "species": "dog",
+          "level": 7,
+          "x": 7,
+          "y": 4
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      },
+      {
+        "step": 55,
+        "actor": {
+          "id": "b",
+          "x": 5,
+          "y": 7,
+          "level": 3,
+          "species": "dog"
+        },
+        "d": [
+          -1,
+          -1
+        ],
+        "departureSupport": true,
+        "arrivalSupport": true,
+        "cornerBlocked": false
+      }
+    ]
+  }
+]

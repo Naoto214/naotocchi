@@ -56,9 +56,9 @@ test('automatic dialog synchronizes modal inert before the next user action',asy
 test('all fifty quick solo wrappers and the mixed run complete without changing individuality',()=>{
  const h=born(),s=h.api.state(),before=JSON.stringify(s.individuality);assert.equal(h.api.QUICK_GAMES.length,50);
  for(const g of h.api.QUICK_GAMES){assert.equal(h.api.startQuickRun(g.id),true,g.id);h.api.finishMinigame(100);assert.equal(JSON.stringify(s.individuality),before,g.id);}
- assert.equal(s.minigameCount,50,'all fifty quick result handlers actually completed');
+ assert.equal(s.lifetime.minigamesPlayed,50,'all fifty quick result handlers actually completed');assert.equal(s.minigameCount,0,'Quick stays out of avgSkill (T9)');
  assert.equal(h.api.startQuickRun(),true);h.api.finishMinigame(100);
- assert.equal(s.minigameCount,51,'mixed quick result handler also completed');
+ assert.equal(s.lifetime.minigamesPlayed,51,'mixed quick result handler also completed');assert.equal(s.minigameCount,0);
  assert.equal(JSON.stringify(s.individuality),before);
 });
 test('registered achievement total is 92 and removed IDs cannot fill new heart slots',()=>{

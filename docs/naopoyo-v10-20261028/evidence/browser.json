@@ -1,0 +1,164 @@
+{
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "viewportMode": "real Chrome iframe CSS viewport; not iPhone Safari emulation",
+  "reproduction": {
+    "split": [
+      3
+    ],
+    "mergeLevels": [
+      6
+    ],
+    "previewMatches": true,
+    "final": [
+      [
+        4,
+        7,
+        8
+      ],
+      [
+        4,
+        6,
+        6
+      ],
+      [
+        5,
+        7,
+        1
+      ],
+      [
+        6,
+        7,
+        1
+      ]
+    ]
+  },
+  "viewports": [
+    {
+      "w": 320,
+      "h": 568,
+      "safeAreaEquivalent": false,
+      "horizontalOverflow": false,
+      "board": {
+        "x": 14,
+        "y": 143,
+        "width": 292,
+        "height": 292
+      },
+      "navBottom": 560,
+      "allControlsWithinHeight": true
+    },
+    {
+      "w": 375,
+      "h": 667,
+      "safeAreaEquivalent": false,
+      "horizontalOverflow": false,
+      "board": {
+        "x": 14,
+        "y": 170,
+        "width": 347,
+        "height": 347
+      },
+      "navBottom": 659,
+      "allControlsWithinHeight": true
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "safeAreaEquivalent": false,
+      "horizontalOverflow": false,
+      "board": {
+        "x": 14,
+        "y": 251,
+        "width": 362,
+        "height": 362
+      },
+      "navBottom": 836,
+      "allControlsWithinHeight": true
+    },
+    {
+      "w": 430,
+      "h": 932,
+      "safeAreaEquivalent": false,
+      "horizontalOverflow": false,
+      "board": {
+        "x": 14,
+        "y": 275,
+        "width": 402,
+        "height": 402
+      },
+      "navBottom": 924,
+      "allControlsWithinHeight": true
+    },
+    {
+      "w": 320,
+      "h": 480,
+      "safeAreaEquivalent": false,
+      "horizontalOverflow": false,
+      "board": {
+        "x": 14,
+        "y": 99,
+        "width": 292,
+        "height": 292
+      },
+      "navBottom": 472,
+      "allControlsWithinHeight": true
+    },
+    {
+      "w": 390,
+      "h": 650,
+      "safeAreaEquivalent": false,
+      "horizontalOverflow": false,
+      "board": {
+        "x": 14,
+        "y": 154,
+        "width": 362,
+        "height": 362
+      },
+      "navBottom": 642,
+      "allControlsWithinHeight": true
+    },
+    {
+      "w": 390,
+      "h": 750,
+      "safeAreaEquivalent": false,
+      "horizontalOverflow": false,
+      "board": {
+        "x": 14,
+        "y": 204,
+        "width": 362,
+        "height": 362
+      },
+      "navBottom": 742,
+      "allControlsWithinHeight": true
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "safeAreaEquivalent": true,
+      "horizontalOverflow": false,
+      "board": {
+        "x": 14,
+        "y": 257.5,
+        "width": 362,
+        "height": 362
+      },
+      "navBottom": 810,
+      "allControlsWithinHeight": true
+    }
+  ],
+  "browserEngine": {
+    "passed": true,
+    "moves": 416,
+    "previews": 65,
+    "stages": 10,
+    "reducedMotion": true,
+    "saveRestore": true
+  },
+  "directUI": {
+    "qaStageSelector11to20": true,
+    "nativeTwoCellHeldDragStage11": true,
+    "stage11FallsAndMergesTo3": true,
+    "undoRestoresAndPauses": true,
+    "realIPhoneSafari": false
+  }
+}

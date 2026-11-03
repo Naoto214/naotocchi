@@ -1,0 +1,3298 @@
+TAP version 13
+# Subtest: complete snapshot survives original changes and ignores used state
+ok 1 - complete snapshot survives original changes and ignores used state
+  ---
+  duration_ms: 1.552619
+  type: 'test'
+  ...
+# Subtest: limits independent and latest copy only
+ok 2 - limits independent and latest copy only
+  ---
+  duration_ms: 1.731151
+  type: 'test'
+  ...
+# Subtest: turn expiry and changed generation exclude copied text
+ok 3 - turn expiry and changed generation exclude copied text
+  ---
+  duration_ms: 0.987801
+  type: 'test'
+  ...
+# Subtest: copied trigger waits for a future event
+ok 4 - copied trigger waits for a future event
+  ---
+  duration_ms: 0.311838
+  type: 'test'
+  ...
+# Subtest: missing activation contract fails closed
+ok 5 - missing activation contract fails closed
+  ---
+  duration_ms: 0.508925
+  type: 'test'
+  ...
+# Subtest: departure without generation increment prevents both receipt and access
+ok 6 - departure without generation increment prevents both receipt and access
+  ---
+  duration_ms: 0.221004
+  type: 'test'
+  ...
+# Subtest: this-name scope follows copier while literal names remain intact
+ok 7 - this-name scope follows copier while literal names remain intact
+  ---
+  duration_ms: 0.290701
+  type: 'test'
+  ...
+# Subtest: 発動コストを使う7枚が、ルールブック第8章の説明の対象と一致する
+ok 8 - 発動コストを使う7枚が、ルールブック第8章の説明の対象と一致する
+  ---
+  duration_ms: 1.739565
+  type: 'test'
+  ...
+# Subtest: 発動コストを払えない時は、その発動を始められない（コストだけ払う状態にならない）
+ok 9 - 発動コストを払えない時は、その発動を始められない（コストだけ払う状態にならない）
+  ---
+  duration_ms: 6.105871
+  type: 'test'
+  ...
+# Subtest: approved soft design is global for every face, not a study opt-in
+ok 10 - approved soft design is global for every face, not a study opt-in
+  ---
+  duration_ms: 2.968275
+  type: 'test'
+  ...
+# Subtest: design audit permits shared layout but detects back styling, opt-in, lost rules and boundaries
+ok 11 - design audit permits shared layout but detects back styling, opt-in, lost rules and boundaries
+  ---
+  duration_ms: 6.406933
+  type: 'test'
+  ...
+# Subtest: cost ink cannot inherit a white heading color
+ok 12 - cost ink cannot inherit a white heading color
+  ---
+  duration_ms: 0.470685
+  type: 'test'
+  ...
+# Subtest: all 452 faces preserve formal colors, marks, and unique dedicated art at both resolutions
+ok 13 - all 452 faces preserve formal colors, marks, and unique dedicated art at both resolutions
+  ---
+  duration_ms: 617.236615
+  type: 'test'
+  ...
+# Subtest: hidden cards retain the blue-silver back without front content
+ok 14 - hidden cards retain the blue-silver back without front content
+  ---
+  duration_ms: 0.261673
+  type: 'test'
+  ...
+# Subtest: seven explicit source descriptors
+ok 15 - seven explicit source descriptors
+  ---
+  duration_ms: 0.940043
+  type: 'test'
+  ...
+# Subtest: actual transfer preserves physical identity and emits only attached
+ok 16 - actual transfer preserves physical identity and emits only attached
+  ---
+  duration_ms: 1.33551
+  type: 'test'
+  ...
+# Subtest: legality rejects main-only equipment on companion and same target
+ok 17 - legality rejects main-only equipment on companion and same target
+  ---
+  duration_ms: 0.474477
+  type: 'test'
+  ...
+# Subtest: leave-return generation invalidates equipment and destination
+ok 18 - leave-return generation invalidates equipment and destination
+  ---
+  duration_ms: 0.184923
+  type: 'test'
+  ...
+# Subtest: original attachment continuity invalidates changed target and changed attachedAt
+ok 19 - original attachment continuity invalidates changed target and changed attachedAt
+  ---
+  duration_ms: 0.271622
+  type: 'test'
+  ...
+# Subtest: captured original main binds even if source departed; replacement is never selected
+ok 20 - captured original main binds even if source departed; replacement is never selected
+  ---
+  duration_ms: 0.21342
+  type: 'test'
+  ...
+# Subtest: cake tests immediate old remaining equipment after transfer
+ok 21 - cake tests immediate old remaining equipment after transfer
+  ---
+  duration_ms: 0.220361
+  type: 'test'
+  ...
+# Subtest: push revalidates destination unequipped at resolution and no bonus after failed transfer
+ok 22 - push revalidates destination unequipped at resolution and no bonus after failed transfer
+  ---
+  duration_ms: 0.126381
+  type: 'test'
+  ...
+# Subtest: unknown op is unhandled
+ok 23 - unknown op is unhandled
+  ---
+  duration_ms: 2.005764
+  type: 'test'
+  ...
+# Subtest: module exposes complete ten-card descriptors
+ok 24 - module exposes complete ten-card descriptors
+  ---
+  duration_ms: 1.394081
+  type: 'test'
+  ...
+# Subtest: blackjack stops into hand but duplicate types force bottom ordering
+ok 25 - blackjack stops into hand but duplicate types force bottom ordering
+  ---
+  duration_ms: 1.836978
+  type: 'test'
+  ...
+# Subtest: voxel can skip items, stop or take and caps five reveals
+ok 26 - voxel can skip items, stop or take and caps five reveals
+  ---
+  duration_ms: 0.560541
+  type: 'test'
+  ...
+# Subtest: yacht swaps only candidates and caps swaps at two
+ok 27 - yacht swaps only candidates and caps swaps at two
+  ---
+  duration_ms: 0.442316
+  type: 'test'
+  ...
+# Subtest: road and roguelike give opponent the explicit public choice
+ok 28 - road and roguelike give opponent the explicit public choice
+  ---
+  duration_ms: 0.473819
+  type: 'test'
+  ...
+# Subtest: partial decks perform mandatory picks and preserve original remainder order choice
+ok 29 - partial decks perform mandatory picks and preserve original remainder order choice
+  ---
+  duration_ms: 0.503
+  type: 'test'
+  ...
+# Subtest: fruit slice discards at most two play cards and queues growth
+ok 30 - fruit slice discards at most two play cards and queues growth
+  ---
+  duration_ms: 0.45611
+  type: 'test'
+  ...
+# Subtest: snake reveals selected hand cards then opponent keeps one
+ok 31 - snake reveals selected hand cards then opponent keeps one
+  ---
+  duration_ms: 0.296612
+  type: 'test'
+  ...
+# Subtest: minesweeper respects face-up opponent target generation and printed cost
+ok 32 - minesweeper respects face-up opponent target generation and printed cost
+  ---
+  duration_ms: 0.517895
+  type: 'test'
+  ...
+# Subtest: fruit growth is queued before remaining-card ordering starts
+ok 33 - fruit growth is queued before remaining-card ordering starts
+  ---
+  duration_ms: 0.407879
+  type: 'test'
+  ...
+# Subtest: illustrated CPU boards preserve viewer orientation and hidden art through restore
+ok 34 - illustrated CPU boards preserve viewer orientation and hidden art through restore
+  ---
+  duration_ms: 30.395413
+  type: 'test'
+  ...
+# Subtest: illustrated history keeps CPU newest-first order and actual result text
+ok 35 - illustrated history keeps CPU newest-first order and actual result text
+  ---
+  duration_ms: 1.111605
+  type: 'test'
+  ...
+# Subtest: both unable: two official passes, no rule mutation, stop at normal action
+ok 36 - both unable: two official passes, no rule mutation, stop at normal action
+  ---
+  duration_ms: 19.822619
+  type: 'test'
+  ...
+# Subtest: A only can respond: stop before any pass
+ok 37 - A only can respond: stop before any pass
+  ---
+  duration_ms: 3.074918
+  type: 'test'
+  ...
+# Subtest: B only can respond: skip A and stop at B
+ok 38 - B only can respond: skip A and stop at B
+  ---
+  duration_ms: 5.403438
+  type: 'test'
+  ...
+# Subtest: both can respond: no pass, then explicit A pass retains B decision
+ok 39 - both can respond: no pass, then explicit A pass retains B decision
+  ---
+  duration_ms: 5.484983
+  type: 'test'
+  ...
+# Subtest: human A pass skips unable B and keeps A viewer without handoff
+ok 40 - human A pass skips unable B and keeps A viewer without handoff
+  ---
+  duration_ms: 13.30702
+  type: 'test'
+  ...
+# Subtest: egg return and birth choice skip passes, stop at trigger and mandatory selection
+ok 41 - egg return and birth choice skip passes, stop at trigger and mandatory selection
+  ---
+  duration_ms: 29.909808
+  type: 'test'
+  ...
+# Subtest: new post-chain trigger stops without choosing trigger or skip
+ok 42 - new post-chain trigger stops without choosing trigger or skip
+  ---
+  duration_ms: 8.481037
+  type: 'test'
+  ...
+# Subtest: restore resumes older unresolved passes hidden, reproduces official commands and history
+ok 43 - restore resumes older unresolved passes hidden, reproduces official commands and history
+  ---
+  duration_ms: 21.572125
+  type: 'test'
+  ...
+# Subtest: stale human click is rejected after automatic revisions and leaves save unchanged
+ok 44 - stale human click is rejected after automatic revisions and leaves save unchanged
+  ---
+  duration_ms: 5.324867
+  type: 'test'
+  ...
+# Subtest: unknown card or enumeration failure is a stop, never zero responses
+ok 45 - unknown card or enumeration failure is a stop, never zero responses
+  ---
+  duration_ms: 4.491377
+  type: 'test'
+  ...
+# Subtest: official unsupported handler rolls back only the failing automatic command
+ok 46 - official unsupported handler rolls back only the failing automatic command
+  ---
+  duration_ms: 4.673984
+  type: 'test'
+  ...
+# Subtest: transition limit preserves last good state; loop guard rejects same semantic state
+ok 47 - transition limit preserves last good state; loop guard rejects same semantic state
+  ---
+  duration_ms: 6.739155
+  type: 'test'
+  ...
+# Subtest: throwing transition cannot corrupt the input state
+ok 48 - throwing transition cannot corrupt the input state
+  ---
+  duration_ms: 1.988081
+  type: 'test'
+  ...
+# Subtest: unsupported selection contracts stop before mistaking suppressed candidates for no response
+ok 49 - unsupported selection contracts stop before mistaking suppressed candidates for no response
+  ---
+  duration_ms: 17.074918
+  type: 'test'
+  ...
+# Subtest: supported copied selection stays a human response; changed static capability stops
+ok 50 - supported copied selection stays a human response; changed static capability stops
+  ---
+  duration_ms: 4.151104
+  type: 'test'
+  ...
+# Subtest: B-only response is handed over once and concealed until B reveals
+ok 51 - B-only response is handed over once and concealed until B reveals
+  ---
+  duration_ms: 4.781031
+  type: 'test'
+  ...
+# Subtest: same full first-turn commands, fewer human passes and handoffs, exact B normal state
+ok 52 - same full first-turn commands, fewer human passes and handoffs, exact B normal state
+  ---
+  duration_ms: 128.861323
+  type: 'test'
+  ...
+# Subtest: enabled UI completes R10 with active play, preserves replay, hidden handoff and restore history
+ok 53 - enabled UI completes R10 with active play, preserves replay, hidden handoff and restore history
+  ---
+  duration_ms: 3150.874388
+  type: 'test'
+  ...
+# Subtest: legacy save keeps its official replay version through automatic response passes
+ok 54 - legacy save keeps its official replay version through automatic response passes
+  ---
+  duration_ms: 10.57653
+  type: 'test'
+  ...
+# Subtest: card stage shows the official card and actions only: no repeated name/text, related-rule link or separate guide
+ok 55 - card stage shows the official card and actions only: no repeated name/text, related-rule link or separate guide
+  ---
+  duration_ms: 6.782933
+  type: 'test'
+  ...
+# Subtest: egg exchange button: short main label plus the outcome note, and it carries the exact engine action
+ok 56 - egg exchange button: short main label plus the outcome note, and it carries the exact engine action
+  ---
+  duration_ms: 2.028049
+  type: 'test'
+  ...
+# Subtest: notes follow the real action: placement slot for plays, none for pass, payment vs target for activation picks
+ok 57 - notes follow the real action: placement slot for plays, none for pass, payment vs target for activation picks
+  ---
+  duration_ms: 0.368975
+  type: 'test'
+  ...
+# Subtest: catalog, read-only and hidden cards: no actions; hidden shows only the card back
+ok 58 - catalog, read-only and hidden cards: no actions; hidden shows only the card back
+  ---
+  duration_ms: 2.591643
+  type: 'test'
+  ...
+# Subtest: stage scale: portrait whole card when readable, else full width with scroll; landscape always whole; zoom fills the width, or goes 1.5× further when the card already fills it
+ok 59 - stage scale: portrait whole card when readable, else full width with scroll; landscape always whole; zoom fills the width, or goes 1.5× further when the card already fills it
+  ---
+  duration_ms: 0.422076
+  type: 'test'
+  ...
+# Subtest: turn status names the operator only when it differs from the turn owner
+ok 60 - turn status names the operator only when it differs from the turn owner
+  ---
+  duration_ms: 0.191194
+  type: 'test'
+  ...
+# Subtest: canonical catalog contains all452 current cards, including explicit vanilla
+ok 61 - canonical catalog contains all452 current cards, including explicit vanilla
+  ---
+  duration_ms: 3.478594
+  type: 'test'
+  ...
+# Subtest: every source is real, exact text is preserved, and content hashes match
+ok 62 - every source is real, exact text is preserved, and content hashes match
+  ---
+  duration_ms: 112.056615
+  type: 'test'
+  ...
+# Subtest: 95/96 current revisions and canonical names survive export
+ok 63 - 95/96 current revisions and canonical names survive export
+  ---
+  duration_ms: 0.286316
+  type: 'test'
+  ...
+# Subtest: regeneration is deterministic and read-only in check mode
+ok 64 - regeneration is deterministic and read-only in check mode
+  ---
+  duration_ms: 8438.36393
+  type: 'test'
+  ...
+# Subtest: trap negates a specific action link, leaves paid costs and discards both cards
+ok 65 - trap negates a specific action link, leaves paid costs and discards both cards
+  ---
+  duration_ms: 11.717627
+  type: 'test'
+  ...
+# Subtest: effect-applied triggers wait until all links resolve, and negated effects never trigger
+ok 66 - effect-applied triggers wait until all links resolve, and negated effects never trigger
+  ---
+  duration_ms: 7.315834
+  type: 'test'
+  ...
+# Subtest: retarget keeps the original effect target restrictions and changes one field reference
+ok 67 - retarget keeps the original effect target restrictions and changes one field reference
+  ---
+  duration_ms: 3.589156
+  type: 'test'
+  ...
+# Subtest: one round ability cannot be activated twice from pending events in one chain
+ok 68 - one round ability cannot be activated twice from pending events in one chain
+  ---
+  duration_ms: 5.646383
+  type: 'test'
+  ...
+# Subtest: reveal effects emit applied but an empty optional selection does not
+ok 69 - reveal effects emit applied but an empty optional selection does not
+  ---
+  duration_ms: 7.254288
+  type: 'test'
+  ...
+# Subtest: empty-deck deepsea still records the applied growth loss
+ok 70 - empty-deck deepsea still records the applied growth loss
+  ---
+  duration_ms: 1.543305
+  type: 'test'
+  ...
+# Subtest: 453 unique cards, egg first, 31 contiguous eight-stage families and 51 nine-pocket pages
+ok 71 - 453 unique cards, egg first, 31 contiguous eight-stage families and 51 nine-pocket pages
+  ---
+  duration_ms: 2.31887
+  type: 'test'
+  ...
+# Subtest: filters compose for name/effect/type/attribute/species/stage/rarity/favorites
+ok 72 - filters compose for name/effect/type/attribute/species/stage/rarity/favorites
+  ---
+  duration_ms: 1.45178
+  type: 'test'
+  ...
+# Subtest: preferences persist independently, merge latest fields, preserve corrupt data and reject failed saves
+ok 73 - preferences persist independently, merge latest fields, preserve corrupt data and reject failed saves
+  ---
+  duration_ms: 0.81952
+  type: 'test'
+  ...
+# Subtest: deck additions share original schema, reject egg/full/normal4/rare2 and roll back quota/conflicts
+ok 74 - deck additions share original schema, reject egg/full/normal4/rare2 and roll back quota/conflicts
+  ---
+  duration_ms: 3.742127
+  type: 'test'
+  ...
+# Subtest: deck creation works where secure-context randomUUID is unavailable
+ok 75 - deck creation works where secure-context randomUUID is unavailable
+  ---
+  duration_ms: 1.366741
+  type: 'test'
+  ...
+# Subtest: departure ability belongs to the departed incarnation and survives replacement
+ok 76 - departure ability belongs to the departed incarnation and survives replacement
+  ---
+  duration_ms: 14.65397
+  type: 'test'
+  ...
+# Subtest: next challenge reservation applies automatically before challenge trigger conditions
+ok 77 - next challenge reservation applies automatically before challenge trigger conditions
+  ---
+  duration_ms: 7.953463
+  type: 'test'
+  ...
+# Subtest: source departure does not cancel a next-win reservation; it fires once
+ok 78 - source departure does not cancel a next-win reservation; it fires once
+  ---
+  duration_ms: 5.644471
+  type: 'test'
+  ...
+# Subtest: Python oracle: 660 main payment/legality and 48 passive-stat cases
+ok 79 - Python oracle: 660 main payment/legality and 48 passive-stat cases
+  ---
+  duration_ms: 14.317181
+  type: 'test'
+  ...
+# Subtest: Python oracle: 9 hit/blow exact draw, bottom, growth outcomes
+ok 80 - Python oracle: 9 hit/blow exact draw, bottom, growth outcomes
+  ---
+  duration_ms: 15.176052
+  type: 'test'
+  ...
+# Subtest: coin, first date and end/start equipment choices remain atomic
+ok 81 - coin, first date and end/start equipment choices remain atomic
+  ---
+  duration_ms: 13.313666
+  type: 'test'
+  ...
+# Subtest: LIFO chain suspends for mandatory private choice; no response injection
+ok 82 - LIFO chain suspends for mandatory private choice; no response injection
+  ---
+  duration_ms: 5.66286
+  type: 'test'
+  ...
+# Subtest: reincarnated equipment target is not destroyed by an old link
+ok 83 - reincarnated equipment target is not destroyed by an old link
+  ---
+  duration_ms: 5.061618
+  type: 'test'
+  ...
+# Subtest: all card instances conserved, placement limits and insufficient time rejected
+ok 84 - all card instances conserved, placement limits and insufficient time rejected
+  ---
+  duration_ms: 2.328356
+  type: 'test'
+  ...
+# Subtest: 100 maintenance excludes current opposing turn and R10 uses final comparison
+ok 85 - 100 maintenance excludes current opposing turn and R10 uses final comparison
+  ---
+  duration_ms: 2.28332
+  type: 'test'
+  ...
+# Subtest: birth, cat return, full board reward, archery removal and marriage
+ok 86 - birth, cat return, full board reward, archery removal and marriage
+  ---
+  duration_ms: 16.685054
+  type: 'test'
+  ...
+# Subtest: bowtie starts after normal draw; empty decks do not lose or crash
+ok 87 - bowtie starts after normal draw; empty decks do not lose or crash
+  ---
+  duration_ms: 6.301088
+  type: 'test'
+  ...
+# Subtest: mandatory reductions and taxes sum before floor and consume at zero
+ok 88 - mandatory reductions and taxes sum before floor and consume at zero
+  ---
+  duration_ms: 4.196891
+  type: 'test'
+  ...
+# Subtest: optional beetle choice locks following time skip only when accepted
+ok 89 - optional beetle choice locks following time skip only when accepted
+  ---
+  duration_ms: 0.443408
+  type: 'test'
+  ...
+# Subtest: source generation and turn bind once usage
+ok 90 - source generation and turn bind once usage
+  ---
+  duration_ms: 0.738543
+  type: 'test'
+  ...
+# Subtest: frog existing world and hermit exact attachment target
+ok 91 - frog existing world and hermit exact attachment target
+  ---
+  duration_ms: 0.530904
+  type: 'test'
+  ...
+# Subtest: first action recognizes prior item/event/play but ignores worlds
+ok 92 - first action recognizes prior item/event/play but ignores worlds
+  ---
+  duration_ms: 0.564734
+  type: 'test'
+  ...
+# Subtest: all eight explicit descriptors and source-bound locks
+ok 93 - all eight explicit descriptors and source-bound locks
+  ---
+  duration_ms: 0.335523
+  type: 'test'
+  ...
+# Subtest: travel and home are separate source choices even when costs floor equally
+ok 94 - travel and home are separate source choices even when costs floor equally
+  ---
+  duration_ms: 0.496463
+  type: 'test'
+  ...
+# Subtest: dynamic selectors respect methods, types, partners and start serial
+ok 95 - dynamic selectors respect methods, types, partners and start serial
+  ---
+  duration_ms: 0.652245
+  type: 'test'
+  ...
+# Subtest: CPU commits three distinct-type costs exactly once and resolves draw
+ok 96 - CPU commits three distinct-type costs exactly once and resolves draw
+  ---
+  duration_ms: 37.93747
+  type: 'test'
+  ...
+# Subtest: CPU resolves dependent payment and recovery target without cancel loop
+ok 97 - CPU resolves dependent payment and recovery target without cancel loop
+  ---
+  duration_ms: 13.54893
+  type: 'test'
+  ...
+# Subtest: CPU handles multiple public targets, resolution selections and hidden search ordering
+ok 98 - CPU handles multiple public targets, resolution selections and hidden search ordering
+  ---
+  duration_ms: 18.331596
+  type: 'test'
+  ...
+# Subtest: opaque hidden trap candidates never carry identity-bearing values or targets
+ok 99 - opaque hidden trap candidates never carry identity-bearing values or targets
+  ---
+  duration_ms: 4.993294
+  type: 'test'
+  ...
+# Subtest: CPU action does not supersede the ongoing four-second notification batch
+ok 100 - CPU action does not supersede the ongoing four-second notification batch
+  ---
+  duration_ms: 17.620599
+  type: 'test'
+  ...
+# Subtest: root cause: legacy play cards no longer receive an empty truthy program
+ok 101 - root cause: legacy play cards no longer receive an empty truthy program
+  ---
+  duration_ms: 24.654425
+  type: 'test'
+  ...
+# Subtest: useful legacy plays are chosen over ending the turn
+ok 102 - useful legacy plays are chosen over ending the turn
+  ---
+  duration_ms: 20.583748
+  type: 'test'
+  ...
+# Subtest: meaningless or impossible legacy plays are not chosen
+ok 103 - meaningless or impossible legacy plays are not chosen
+  ---
+  duration_ms: 17.277622
+  type: 'test'
+  ...
+# Subtest: hit-blow declaration uses only own known cards, never hidden opponent or deck information
+ok 104 - hit-blow declaration uses only own known cards, never hidden opponent or deck information
+  ---
+  duration_ms: 9.593285
+  type: 'test'
+  ...
+# Subtest: chosen legacy play goes through the normal response window and chain resolution
+ok 105 - chosen legacy play goes through the normal response window and chain resolution
+  ---
+  duration_ms: 8.993799
+  type: 'test'
+  ...
+# Subtest: CPU games with the standard deck use legacy cards, finish, replay and restore for both seats and difficulties
+ok 106 - CPU games with the standard deck use legacy cards, finish, replay and restore for both seats and difficulties
+  ---
+  duration_ms: 6572.41602
+  type: 'test'
+  ...
+# Subtest: partner list is legal and holds six lovers of two kinds, three copies each
+ok 107 - partner list is legal and holds six lovers of two kinds, three copies each
+  ---
+  duration_ms: 3.222161
+  type: 'test'
+  ...
+# Subtest: the other six CPU decks are exactly the lists used before the change
+ok 108 - the other six CPU decks are exactly the lists used before the change
+  ---
+  duration_ms: 0.43087
+  type: 'test'
+  ...
+# Subtest: earlier partner list is kept as a version and still recognised
+ok 109 - earlier partner list is kept as a version and still recognised
+  ---
+  duration_ms: 0.619502
+  type: 'test'
+  ...
+# Subtest: new matches use the current list in every selection mode
+ok 110 - new matches use the current list in every selection mode
+  ---
+  duration_ms: 0.654399
+  type: 'test'
+  ...
+# Subtest: a match saved with the earlier partner list restores with its own 40 cards; other lists are rejected
+ok 111 - a match saved with the earlier partner list restores with its own 40 cards; other lists are rejected
+  ---
+  duration_ms: 12.165061
+  type: 'test'
+  ...
+# Subtest: beginner CPU plays the partner list to the end and the save restores
+ok 112 - beginner CPU plays the partner list to the end and the save restores
+  ---
+  duration_ms: 5480.184148
+  type: 'test'
+  ...
+# Subtest: intermediate CPU plays the partner list to the end and the save restores
+ok 113 - intermediate CPU plays the partner list to the end and the save restores
+  ---
+  duration_ms: 5817.038457
+  type: 'test'
+  ...
+# Subtest: a finished match played with the earlier partner list is recorded under the partner opponent with its own cards
+ok 114 - a finished match played with the earlier partner list is recorded under the partner opponent with its own cards
+  ---
+  duration_ms: 3546.521968
+  type: 'test'
+  ...
+# Subtest: 方針の版：現在は heuristic-2、既知の版は heuristic-1 と heuristic-2
+ok 115 - 方針の版：現在は heuristic-2、既知の版は heuristic-1 と heuristic-2
+  ---
+  duration_ms: 1.780473
+  type: 'test'
+  ...
+# Subtest: 新しいCPU対戦は heuristic-2 で保存される
+ok 116 - 新しいCPU対戦は heuristic-2 で保存される
+  ---
+  duration_ms: 6.061796
+  type: 'test'
+  ...
+# Subtest: heuristic-1 の途中保存は再開でき、続きも heuristic-1 で指す（再保存しても heuristic-1）
+ok 117 - heuristic-1 の途中保存は再開でき、続きも heuristic-1 で指す（再保存しても heuristic-1）
+  ---
+  duration_ms: 35945.974631
+  type: 'test'
+  ...
+# Subtest: 未知の方針の版は従来どおり拒否する
+ok 118 - 未知の方針の版は従来どおり拒否する
+  ---
+  duration_ms: 0.863091
+  type: 'test'
+  ...
+# Subtest: heuristic-1 のCPU同士の対戦は、実装前の main の保存と完全に一致する
+ok 119 - heuristic-1 のCPU同士の対戦は、実装前の main の保存と完全に一致する
+  ---
+  duration_ms: 11601.725633
+  type: 'test'
+  ...
+# Subtest: heuristic-2：初級だけの対戦は heuristic-1 と同一、中級を含む対戦も完走する
+ok 120 - heuristic-2：初級だけの対戦は heuristic-1 と同一、中級を含む対戦も完走する
+  ---
+  duration_ms: 9270.809587
+  type: 'test'
+  ...
+# Subtest: hidden hand, deck order, seed and trap identity do not change CPU observation or decision
+ok 121 - hidden hand, deck order, seed and trap identity do not change CPU observation or decision
+  ---
+  duration_ms: 16.160133
+  type: 'test'
+  ...
+# Subtest: CPU preserves affordable birth card during egg return and chooses birth before spending time
+ok 122 - CPU preserves affordable birth card during egg return and chooses birth before spending time
+  ---
+  duration_ms: 3.89429
+  type: 'test'
+  ...
+# Subtest: CPU avoids losing public-stat challenge and prefers higher winning parameter
+ok 123 - CPU avoids losing public-stat challenge and prefers higher winning parameter
+  ---
+  duration_ms: 2.612296
+  type: 'test'
+  ...
+# Subtest: all 452 definitions use the same bounded legal candidate interface
+ok 124 - all 452 definitions use the same bounded legal candidate interface
+  ---
+  duration_ms: 1126.253304
+  type: 'test'
+  ...
+# Subtest: policy rejects unknown difficulty and empty inventory instead of making up commands
+ok 125 - policy rejects unknown difficulty and empty inventory instead of making up commands
+  ---
+  duration_ms: 2.149176
+  type: 'test'
+  ...
+# Subtest: growth reduction values denial at cap and does not waste increases at100
+ok 126 - growth reduction values denial at cap and does not waste increases at100
+  ---
+  duration_ms: 1.920317
+  type: 'test'
+  ...
+# Subtest: removal selection prefers valuable opponent target and discards expendable own cards
+ok 127 - removal selection prefers valuable opponent target and discards expendable own cards
+  ---
+  duration_ms: 1.484848
+  type: 'test'
+  ...
+# Subtest: CPU and human both seats complete ten rounds using real commands and hidden opponent hand
+ok 128 - CPU and human both seats complete ten rounds using real commands and hidden opponent hand
+  ---
+  duration_ms: 2304.82555
+  type: 'test'
+  ...
+# Subtest: save during CPU choice resumes identically without duplicate and preserves history
+ok 129 - save during CPU choice resumes identically without duplicate and preserves history
+  ---
+  duration_ms: 3063.824165
+  type: 'test'
+  ...
+# Subtest: hidden background session cannot execute and resume retains human viewpoint
+ok 130 - hidden background session cannot execute and resume retains human viewpoint
+  ---
+  duration_ms: 1.403401
+  type: 'test'
+  ...
+# Subtest: old hotseat save loads as unchanged hotseat and bad CPU envelope is rejected
+ok 131 - old hotseat save loads as unchanged hotseat and bad CPU envelope is rejected
+  ---
+  duration_ms: 5.65606
+  type: 'test'
+  ...
+# Subtest: unknown policy command stops safely and persisted diagnostic does not restart on restore
+ok 132 - unknown policy command stops safely and persisted diagnostic does not restart on restore
+  ---
+  duration_ms: 3.542095
+  type: 'test'
+  ...
+# Subtest: scheduler cancels stale callbacks, pauses in background, and performs one committed step per tick
+ok 133 - scheduler cancels stale callbacks, pauses in background, and performs one committed step per tick
+  ---
+  duration_ms: 5.087518
+  type: 'test'
+  ...
+# Subtest: long-press hand gesture pauses CPU from pointerdown through release
+ok 134 - long-press hand gesture pauses CPU from pointerdown through release
+  ---
+  duration_ms: 4.677902
+  type: 'test'
+  ...
+# Subtest: repeated cancelled activation stops at a bounded safe boundary without silent pass
+ok 135 - repeated cancelled activation stops at a bounded safe boundary without silent pass
+  ---
+  duration_ms: 29.801389
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・ちからの勝負 では勝負の種目の能力値を選ぶ
+ok 136 - 中級 heuristic-2：スキージャンプ・ちからの勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 373.671727
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・ちえの勝負 では勝負の種目の能力値を選ぶ
+ok 137 - 中級 heuristic-2：スキージャンプ・ちえの勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 212.210187
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・同点（勝敗が変わる） では勝負の種目の能力値を選ぶ
+ok 138 - 中級 heuristic-2：スキージャンプ・同点（勝敗が変わる） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 187.361452
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：スキージャンプ・大差（勝敗が変わらない） では勝負の種目の能力値を選ぶ
+ok 139 - 中級 heuristic-2：スキージャンプ・大差（勝敗が変わらない） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 63.888996
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・相手のちからの勝負（連鎖中） では勝負の種目の能力値を選ぶ
+ok 140 - 中級 heuristic-2：かくとうバトル・相手のちからの勝負（連鎖中） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 793.93855
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・相手のちえの勝負（連鎖2段） では勝負の種目の能力値を選ぶ
+ok 141 - 中級 heuristic-2：かくとうバトル・相手のちえの勝負（連鎖2段） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 52.981139
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・同点（連鎖中） では勝負の種目の能力値を選ぶ
+ok 142 - 中級 heuristic-2：かくとうバトル・同点（連鎖中） では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 20.428543
+  type: 'test'
+  ...
+# Subtest: 中級 heuristic-2：かくとうバトル・自分の勝負 では勝負の種目の能力値を選ぶ
+ok 143 - 中級 heuristic-2：かくとうバトル・自分の勝負 では勝負の種目の能力値を選ぶ
+  ---
+  duration_ms: 63.623788
+  type: 'test'
+  ...
+# Subtest: heuristic-1（旧保存の続き）と初級は、実装前の main と同じ選択（全局面・20 seed）
+ok 144 - heuristic-1（旧保存の続き）と初級は、実装前の main と同じ選択（全局面・20 seed）
+  ---
+  duration_ms: 1399.123089
+  type: 'test'
+  ...
+# Subtest: 選択肢のない能力値カード（ビーチバレー）の評価は変えない（あそびずきカワウソの誘発など別の理由を残す）
+ok 145 - 選択肢のない能力値カード（ビーチバレー）の評価は変えない（あそびずきカワウソの誘発など別の理由を残す）
+  ---
+  duration_ms: 39.268698
+  type: 'test'
+  ...
+# Subtest: 勝負と無関係な候補の評価は変えない
+ok 146 - 勝負と無関係な候補の評価は変えない
+  ---
+  duration_ms: 1520.488576
+  type: 'test'
+  ...
+# Subtest: ほかの能力値選択（ペンギン⑥型）：ちえの勝負ではちえ、勝負の外では差の大きい能力値を優先
+ok 147 - ほかの能力値選択（ペンギン⑥型）：ちえの勝負ではちえ、勝負の外では差の大きい能力値を優先
+  ---
+  duration_ms: 0.62152
+  type: 'test'
+  ...
+# Subtest: time is use-it-or-lose-it in the own normal phase: a positive tutor beats ending the turn
+ok 148 - time is use-it-or-lose-it in the own normal phase: a positive tutor beats ending the turn
+  ---
+  duration_ms: 16.299935
+  type: 'test'
+  ...
+# Subtest: search with no matching card in the own deck is worthless and not played
+ok 149 - search with no matching card in the own deck is worthless and not played
+  ---
+  duration_ms: 4.25368
+  type: 'test'
+  ...
+# Subtest: search hit estimate follows the own remaining deck and never its order or the opponent
+ok 150 - search hit estimate follows the own remaining deck and never its order or the opponent
+  ---
+  duration_ms: 5.552653
+  type: 'test'
+  ...
+# Subtest: a paid action that would make a better action unaffordable is deferred
+ok 151 - a paid action that would make a better action unaffordable is deferred
+  ---
+  duration_ms: 4.369092
+  type: 'test'
+  ...
+# Subtest: time is reserved for a held reaction card, and own-turn response windows keep the old cost
+ok 152 - time is reserved for a held reaction card, and own-turn response windows keep the old cost
+  ---
+  duration_ms: 13.967777
+  type: 'test'
+  ...
+# Subtest: どうぶつしょうぎ: recovery is valued by the actual discarded target and chosen when useful
+ok 153 - どうぶつしょうぎ: recovery is valued by the actual discarded target and chosen when useful
+  ---
+  duration_ms: 4.729997
+  type: 'test'
+  ...
+# Subtest: unsupported search filters fall back to the previous flat estimate
+ok 154 - unsupported search filters fall back to the previous flat estimate
+  ---
+  duration_ms: 4.053264
+  type: 'test'
+  ...
+# Subtest: human B stays in front and keeps inspectable hand while CPU A operates
+ok 155 - human B stays in front and keeps inspectable hand while CPU A operates
+  ---
+  duration_ms: 9.144462
+  type: 'test'
+  ...
+# Subtest: CPU workflow has readable history while human actions are absent
+ok 156 - CPU workflow has readable history while human actions are absent
+  ---
+  duration_ms: 4.369262
+  type: 'test'
+  ...
+# Subtest: seven CPU strategy decks are legal, distinct and each has a main growth line
+ok 157 - seven CPU strategy decks are legal, distinct and each has a main growth line
+  ---
+  duration_ms: 1.479933
+  type: 'test'
+  ...
+# Subtest: deck selection: おまかせ is seeded, 指定 and 固定 pick known decks, マイデッキ keeps the old behaviour
+ok 158 - deck selection: おまかせ is seeded, 指定 and 固定 pick known decks, マイデッキ keeps the old behaviour
+  ---
+  duration_ms: 1.372438
+  type: 'test'
+  ...
+# Subtest: saved CPU match keeps the deck label, rejects a mismatched label and older saves still restore
+ok 159 - saved CPU match keeps the deck label, rejects a mismatched label and older saves still restore
+  ---
+  duration_ms: 8.370703
+  type: 'test'
+  ...
+# Subtest: CPU deck name stays hidden during play and appears with the result
+ok 160 - CPU deck name stays hidden during play and appears with the result
+  ---
+  duration_ms: 1841.466038
+  type: 'test'
+  ...
+# Subtest: intermediate declares a tied challenge only when an own modifier can win it
+ok 161 - intermediate declares a tied challenge only when an own modifier can win it
+  ---
+  duration_ms: 7.980209
+  type: 'test'
+  ...
+# Subtest: beginner profile uses the simpler evaluations and does not react on the opponent turn
+ok 162 - beginner profile uses the simpler evaluations and does not react on the opponent turn
+  ---
+  duration_ms: 3.084832
+  type: 'test'
+  ...
+# Subtest: historical design sources reject tampering and do not depend on live item arrays
+ok 163 - historical design sources reject tampering and do not depend on live item arrays
+  ---
+  duration_ms: 58.351207
+  type: 'test'
+  ...
+# Subtest: 正式本文は改善案B（時1・ドロー1・+5・このターンは維持）
+ok 164 - 正式本文は改善案B（時1・ドロー1・+5・このターンは維持）
+  ---
+  duration_ms: 1.820171
+  type: 'test'
+  ...
+# Subtest: 1段階だけのときおくり：1枚引いてそだち+5、予約は1回で消える
+ok 165 - 1段階だけのときおくり：1枚引いてそだち+5、予約は1回で消える
+  ---
+  duration_ms: 22.135063
+  type: 'test'
+  ...
+# Subtest: 2段階以上のときおくり：ドローだけ（+5なし）
+ok 166 - 2段階以上のときおくり：ドローだけ（+5なし）
+  ---
+  duration_ms: 16.660962
+  type: 'test'
+  ...
+# Subtest: 二重に発動しない：同じターンの2回目のときおくりでは何も起きない
+ok 167 - 二重に発動しない：同じターンの2回目のときおくりでは何も起きない
+  ---
+  duration_ms: 12.373425
+  type: 'test'
+  ...
+# Subtest: ときおくりしなければ発動せず、ターン終了で失効する
+ok 168 - ときおくりしなければ発動せず、ターン終了で失効する
+  ---
+  duration_ms: 9.263723
+  type: 'test'
+  ...
+# Subtest: へんしん（別の種族へ）は「ときおくり」ではないので発動しない
+ok 169 - へんしん（別の種族へ）は「ときおくり」ではないので発動しない
+  ---
+  duration_ms: 6.778254
+  type: 'test'
+  ...
+# Subtest: 予約は他のカードのプレイ・応答・連鎖では消費されない
+ok 170 - 予約は他のカードのプレイ・応答・連鎖では消費されない
+  ---
+  duration_ms: 10.443252
+  type: 'test'
+  ...
+# Subtest: 他のときおくり関連カード（しばいぬ）は変わらない
+ok 171 - 他のときおくり関連カード（しばいぬ）は変わらない
+  ---
+  duration_ms: 5.924329
+  type: 'test'
+  ...
+# Subtest: 新規対戦は最新の版（hotseat-4 以降）、旧版（hotseat-2・hotseat-3）を指定した対戦は旧効果のまま
+ok 172 - 新規対戦は最新の版（hotseat-4 以降）、旧版（hotseat-2・hotseat-3）を指定した対戦は旧効果のまま
+  ---
+  duration_ms: 21.464558
+  type: 'test'
+  ...
+# Subtest: 旧保存（hotseat-2、修正前エンジンで作成）は旧効果のまま完全に再生される
+ok 173 - 旧保存（hotseat-2、修正前エンジンで作成）は旧効果のまま完全に再生される
+  ---
+  duration_ms: 1490.448469
+  type: 'test'
+  ...
+# Subtest: 旧保存を新しい版として読ませると結果が変わる（版を区別する必要の確認）
+ok 174 - 旧保存を新しい版として読ませると結果が変わる（版を区別する必要の確認）
+  ---
+  duration_ms: 792.386526
+  type: 'test'
+  ...
+# Subtest: 旧保存の途中から復帰して続けても、旧効果で同じ結果になる
+ok 175 - 旧保存の途中から復帰して続けても、旧効果で同じ結果になる
+  ---
+  duration_ms: 1044.518963
+  type: 'test'
+  ...
+# Subtest: 旧保存はCPU対戦・記録の読込経路（restoreMatch）でも同じ版で復帰する
+ok 176 - 旧保存はCPU対戦・記録の読込経路（restoreMatch）でも同じ版で復帰する
+  ---
+  duration_ms: 4686.128748
+  type: 'test'
+  ...
+# Subtest: CPU：ときおくりできない時はぴょんぴょんジャンプを使わない（初級・中級）
+ok 177 - CPU：ときおくりできない時はぴょんぴょんジャンプを使わない（初級・中級）
+  ---
+  duration_ms: 5.115492
+  type: 'test'
+  ...
+# Subtest: CPU：ときおくりの分の時が残らない時は使わない
+ok 178 - CPU：ときおくりの分の時が残らない時は使わない
+  ---
+  duration_ms: 1.282726
+  type: 'test'
+  ...
+# Subtest: CPU：使った後も1段階のときおくりができる時は、ときおくりより先に使う
+ok 179 - CPU：使った後も1段階のときおくりができる時は、ときおくりより先に使う
+  ---
+  duration_ms: 1.057624
+  type: 'test'
+  ...
+# Subtest: CPU：ときおくりのコスト軽減（カブトムシ④）を考慮する
+ok 180 - CPU：ときおくりのコスト軽減（カブトムシ④）を考慮する
+  ---
+  duration_ms: 1.253269
+  type: 'test'
+  ...
+# Subtest: CPU：相手ターン・応答中は使わない
+ok 181 - CPU：相手ターン・応答中は使わない
+  ---
+  duration_ms: 2.604624
+  type: 'test'
+  ...
+# Subtest: CPU：予約中は1段階だけのときおくりに+5の価値を見込む
+ok 182 - CPU：予約中は1段階だけのときおくりに+5の価値を見込む
+  ---
+  duration_ms: 2.788395
+  type: 'test'
+  ...
+# Subtest: カタログ：変わったのはぴょんぴょんジャンプの本文と、同じ設計正本（85）の出典hashだけ
+ok 183 - カタログ：変わったのはぴょんぴょんジャンプの本文と、同じ設計正本（85）の出典hashだけ
+  ---
+  duration_ms: 2.466039
+  type: 'test'
+  ...
+# Subtest: 新しい版の保存：最後まで再生が一致し、予約が残る途中から復帰しても同じ結果になる
+ok 184 - 新しい版の保存：最後まで再生が一致し、予約が残る途中から復帰しても同じ結果になる
+  ---
+  duration_ms: 3001.528412
+  type: 'test'
+  ...
+# Subtest: CPU同士の対戦（初級・中級）：ぴょんぴょんジャンプを空振りで使わない
+ok 185 - CPU同士の対戦（初級・中級）：ぴょんぴょんジャンプを空振りで使わない
+  ---
+  duration_ms: 2372.412706
+  type: 'test'
+  ...
+# Subtest: human game engine exists
+ok 186 - human game engine exists
+  ---
+  duration_ms: 0.971718
+  type: 'test'
+  ...
+# Subtest: 40 cards, private projection, stale commands and immutable transitions
+ok 187 - 40 cards, private projection, stale commands and immutable transitions
+  ---
+  duration_ms: 4.883615
+  type: 'test'
+  ...
+# Subtest: save replay validates state, commands and restores exact decisions
+ok 188 - save replay validates state, commands and restores exact decisions
+  ---
+  duration_ms: 21.566256
+  type: 'test'
+  ...
+# Subtest: both human command seats complete R10 with legal cards, choices and chains
+ok 189 - both human command seats complete R10 with legal cards, choices and chains
+  ---
+  duration_ms: 338.818776
+  type: 'test'
+  ...
+# Subtest: projection preserves physical identity for hand selection
+ok 190 - projection preserves physical identity for hand selection
+  ---
+  duration_ms: 0.758386
+  type: 'test'
+  ...
+# Subtest: custom decks reject unsupported and copy limits; legacy saves remain exact
+ok 191 - custom decks reject unsupported and copy limits; legacy saves remain exact
+  ---
+  duration_ms: 5.731531
+  type: 'test'
+  ...
+# Subtest: higher main birth and time skip use stage/difference payments
+ok 192 - higher main birth and time skip use stage/difference payments
+  ---
+  duration_ms: 8.17795
+  type: 'test'
+  ...
+# Subtest: search requires private selection and explicit bottom ordering
+ok 193 - search requires private selection and explicit bottom ordering
+  ---
+  duration_ms: 16.46158
+  type: 'test'
+  ...
+# Subtest: stat changes apply, expire, and disappear after reincarnation
+ok 194 - stat changes apply, expire, and disappear after reincarnation
+  ---
+  duration_ms: 3.159629
+  type: 'test'
+  ...
+# Subtest: scheduled growth occurs after next own start and survives source departure
+ok 195 - scheduled growth occurs after next own start and survives source departure
+  ---
+  duration_ms: 10.382925
+  type: 'test'
+  ...
+# Subtest: facedown trap is not disclosed by board, targeting labels or action IDs
+ok 196 - facedown trap is not disclosed by board, targeting labels or action IDs
+  ---
+  duration_ms: 4.806351
+  type: 'test'
+  ...
+# Subtest: start trap activates once, consumes prepared source and allows response
+ok 197 - start trap activates once, consumes prepared source and allows response
+  ---
+  duration_ms: 8.550923
+  type: 'test'
+  ...
+# Subtest: replacement partner relationship loss and equipment cleanup apply centrally
+ok 198 - replacement partner relationship loss and equipment cleanup apply centrally
+  ---
+  duration_ms: 1.999193
+  type: 'test'
+  ...
+# Subtest: new custom decks complete R10 and replay exactly after choices
+ok 199 - new custom decks complete R10 and replay exactly after choices
+  ---
+  duration_ms: 807.192104
+  type: 'test'
+  ...
+# Subtest: search reveals only selected cards, never the inspected set
+ok 200 - search reveals only selected cards, never the inspected set
+  ---
+  duration_ms: 3.177152
+  type: 'test'
+  ...
+# Subtest: trap setup does not meet face-up play conditions
+ok 201 - trap setup does not meet face-up play conditions
+  ---
+  duration_ms: 1.51484
+  type: 'test'
+  ...
+# Subtest: companion effect enables beach volley only after successful resolution
+ok 202 - companion effect enables beach volley only after successful resolution
+  ---
+  duration_ms: 3.965288
+  type: 'test'
+  ...
+# Subtest: reversi lasts through challenge end but ends with turn
+ok 203 - reversi lasts through challenge end but ends with turn
+  ---
+  duration_ms: 3.224936
+  type: 'test'
+  ...
+# Subtest: explicit public searches reveal the inspected set
+ok 204 - explicit public searches reveal the inspected set
+  ---
+  duration_ms: 2.395142
+  type: 'test'
+  ...
+# Subtest: registered descriptors reference implemented predicates, targets and passive values
+ok 205 - registered descriptors reference implemented predicates, targets and passive values
+  ---
+  duration_ms: 115.596891
+  type: 'test'
+  ...
+# Subtest: activation hand cost is paid atomically before response and cannot be omitted
+ok 206 - activation hand cost is paid atomically before response and cannot be omitted
+  ---
+  duration_ms: 3.74405
+  type: 'test'
+  ...
+# Subtest: trigger cost requires both time and hand card at activation
+ok 207 - trigger cost requires both time and hand card at activation
+  ---
+  duration_ms: 1.372739
+  type: 'test'
+  ...
+# Subtest: automatic scheduled companion draws do not count as a new ability effect
+ok 208 - automatic scheduled companion draws do not count as a new ability effect
+  ---
+  duration_ms: 15.794413
+  type: 'test'
+  ...
+# Subtest: dex overrides earlier modifiers using printed stats; later modifier adds and expiry restores earlier modifier
+ok 209 - dex overrides earlier modifiers using printed stats; later modifier adds and expiry restores earlier modifier
+  ---
+  duration_ms: 22.712553
+  type: 'test'
+  ...
+# Subtest: dex with no eligible hand main creates no setter and preserves stats
+ok 210 - dex with no eligible hand main creates no setter and preserves stats
+  ---
+  duration_ms: 4.815911
+  type: 'test'
+  ...
+# Subtest: cake reattachment captures refs, preserves growth 80 and triggers receiving hermit
+ok 211 - cake reattachment captures refs, preserves growth 80 and triggers receiving hermit
+  ---
+  duration_ms: 11.760863
+  type: 'test'
+  ...
+# Subtest: push rejects main-only equipment and permits legal companion transfer with draw
+ok 212 - push rejects main-only equipment and permits legal companion transfer with draw
+  ---
+  duration_ms: 8.615966
+  type: 'test'
+  ...
+# Subtest: space prevents opponent decrease 5 with fully prevented draw 1
+ok 213 - space prevents opponent decrease 5 with fully prevented draw 1
+  ---
+  duration_ms: 3.098745
+  type: 'test'
+  ...
+# Subtest: space prevents opponent decrease 10 with fully prevented draw 0
+ok 214 - space prevents opponent decrease 10 with fully prevented draw 0
+  ---
+  duration_ms: 1.837777
+  type: 'test'
+  ...
+# Subtest: space does not prevent own effect decrease
+ok 215 - space does not prevent own effect decrease
+  ---
+  duration_ms: 1.668009
+  type: 'test'
+  ...
+# Subtest: drive protects opponent-effect main removal once even after play source leaves
+ok 216 - drive protects opponent-effect main removal once even after play source leaves
+  ---
+  duration_ms: 2.393331
+  type: 'test'
+  ...
+# Subtest: drive does not protect own removal and protection expires at end
+ok 217 - drive does not protect own removal and protection expires at end
+  ---
+  duration_ms: 6.741877
+  type: 'test'
+  ...
+# Subtest: street kick requires payment, cancellation is atomic, then paid kick applies +3
+ok 218 - street kick requires payment, cancellation is atomic, then paid kick applies +3
+  ---
+  duration_ms: 3.890668
+  type: 'test'
+  ...
+# Subtest: darts only offers payments with a same-cost opposing equipment target
+ok 219 - darts only offers payments with a same-cost opposing equipment target
+  ---
+  duration_ms: 4.420765
+  type: 'test'
+  ...
+# Subtest: solitaire requires same-species consecutive stages and draws only after all three move
+ok 220 - solitaire requires same-species consecutive stages and draws only after all three move
+  ---
+  duration_ms: 4.463913
+  type: 'test'
+  ...
+# Subtest: optional beetle discount locks only accepted time skip
+ok 221 - optional beetle discount locks only accepted time skip
+  ---
+  duration_ms: 3.849547
+  type: 'test'
+  ...
+# Subtest: monkey copies beetle08 active despite used source, preserving discard target and source-bound stat
+ok 222 - monkey copies beetle08 active despite used source, preserving discard target and source-bound stat
+  ---
+  duration_ms: 4.635798
+  type: 'test'
+  ...
+# Subtest: monkey copies woman03 reveal selection and self target without copying original used state
+ok 223 - monkey copies woman03 reveal selection and self target without copying original used state
+  ---
+  duration_ms: 7.327344
+  type: 'test'
+  ...
+# Subtest: ghost departed incarnation trigger resolves after replacement without moving replacement
+ok 224 - ghost departed incarnation trigger resolves after replacement without moving replacement
+  ---
+  duration_ms: 2.476726
+  type: 'test'
+  ...
+# Subtest: trigger payment selection retains the triggering card type through the prompt
+ok 225 - trigger payment selection retains the triggering card type through the prompt
+  ---
+  duration_ms: 2.159081
+  type: 'test'
+  ...
+# Subtest: copied this-name limit is separate from monkey acquisition and shared by the copied ability
+ok 226 - copied this-name limit is separate from monkey acquisition and shared by the copied ability
+  ---
+  duration_ms: 9.341921
+  type: 'test'
+  ...
+# Subtest: prepared protection automatically prevents a single move without an optional decline
+ok 227 - prepared protection automatically prevents a single move without an optional decline
+  ---
+  duration_ms: 0.596976
+  type: 'test'
+  ...
+# Subtest: one remaining prepared protection chooses which simultaneous target is protected
+ok 228 - one remaining prepared protection chooses which simultaneous target is protected
+  ---
+  duration_ms: 4.405918
+  type: 'test'
+  ...
+# Subtest: 正式本文・時1・しかけるは不変
+ok 229 - 正式本文・時1・しかけるは不変
+  ---
+  duration_ms: 3.602125
+  type: 'test'
+  ...
+# Subtest: 通常のセカイ変更での誘発で、かえる自身は対象の候補に出ない（ほかの準備枠の札は出る）
+ok 230 - 通常のセカイ変更での誘発で、かえる自身は対象の候補に出ない（ほかの準備枠の札は出る）
+  ---
+  duration_ms: 12.022593
+  type: 'test'
+  ...
+# Subtest: 伏せ札・装備のどちらも選べ、複数あればすべて選べる
+ok 231 - 伏せ札・装備のどちらも選べ、複数あればすべて選べる
+  ---
+  duration_ms: 3.484115
+  type: 'test'
+  ...
+# Subtest: 準備枠がかえるだけなら対象がなく、発動できない（見送りだけ）
+ok 232 - 準備枠がかえるだけなら対象がなく、発動できない（見送りだけ）
+  ---
+  duration_ms: 6.654076
+  type: 'test'
+  ...
+# Subtest: ほかの札を対象にした時：かえるは準備枠を離れ、このターン対象は相手の効果で手札に戻らない
+ok 233 - ほかの札を対象にした時：かえるは準備枠を離れ、このターン対象は相手の効果で手札に戻らない
+  ---
+  duration_ms: 19.569489
+  type: 'test'
+  ...
+# Subtest: 対象は発動時に確定し、連鎖に同じ対象で載る
+ok 234 - 対象は発動時に確定し、連鎖に同じ対象で載る
+  ---
+  duration_ms: 3.898451
+  type: 'test'
+  ...
+# Subtest: 共通の対象種別 ownPrepared（ほかのカードが使う）は変わらず、準備枠のすべての札を返す
+ok 235 - 共通の対象種別 ownPrepared（ほかのカードが使う）は変わらず、準備枠のすべての札を返す
+  ---
+  duration_ms: 0.913912
+  type: 'test'
+  ...
+# Subtest: たこやきやさんの修正（自分自身を対象にできない）はそのまま
+ok 236 - たこやきやさんの修正（自分自身を対象にできない）はそのまま
+  ---
+  duration_ms: 0.636571
+  type: 'test'
+  ...
+# Subtest: 新規対戦は最新の版（hotseat-6 以降）。旧版 hotseat-2〜5 を指定した対戦では、旧挙動（自分自身も選べる）のまま
+ok 237 - 新規対戦は最新の版（hotseat-6 以降）。旧版 hotseat-2〜5 を指定した対戦では、旧挙動（自分自身も選べる）のまま
+  ---
+  duration_ms: 9.615139
+  type: 'test'
+  ...
+# Subtest: 旧保存（hotseat-5、修正前エンジンで作成、かえる自身を対象にした操作を含む）は旧挙動のまま完全に再生される
+ok 238 - 旧保存（hotseat-5、修正前エンジンで作成、かえる自身を対象にした操作を含む）は旧挙動のまま完全に再生される
+  ---
+  duration_ms: 4262.648126
+  type: 'test'
+  ...
+# Subtest: 自分自身を対象にした旧保存を新しい版（hotseat-6）として読ませると拒否される（無条件に変換しない）。存在しない版も拒否
+ok 239 - 自分自身を対象にした旧保存を新しい版（hotseat-6）として読ませると拒否される（無条件に変換しない）。存在しない版も拒否
+  ---
+  duration_ms: 197.406956
+  type: 'test'
+  ...
+# Subtest: 旧保存の途中（かえるの誘発の直前）から復帰して続けても同じ結果
+ok 240 - 旧保存の途中（かえるの誘発の直前）から復帰して続けても同じ結果
+  ---
+  duration_ms: 525.186577
+  type: 'test'
+  ...
+# Subtest: すべての版で、たこやき・かえるの誘発はちょうど1つずつ有効（版を足した時の定義漏れを防ぐ）
+ok 241 - すべての版で、たこやき・かえるの誘発はちょうど1つずつ有効（版を足した時の定義漏れを防ぐ）
+  ---
+  duration_ms: 0.327397
+  type: 'test'
+  ...
+# Subtest: CPU（初級・中級）は新しい版でかえる自身を対象にせず、対戦は最後まで進み、保存→復帰も一致
+ok 242 - CPU（初級・中級）は新しい版でかえる自身を対象にせず、対戦は最後まで進み、保存→復帰も一致
+  ---
+  duration_ms: 2099.413893
+  type: 'test'
+  ...
+# Subtest: 452 release representative deck completes and replays every committed choice exactly
+ok 243 - 452 release representative deck completes and replays every committed choice exactly
+  ---
+  duration_ms: 1055.9537
+  type: 'test'
+  ...
+# Subtest: hotseat-1 途中保存：続きから復帰でき、操作列・seed は変わらない
+ok 244 - hotseat-1 途中保存：続きから復帰でき、操作列・seed は変わらない
+  ---
+  duration_ms: 366.989321
+  type: 'test'
+  ...
+# Subtest: hotseat-1 途中保存：復帰後に合法な操作ができ、再保存・再復帰できる
+ok 245 - hotseat-1 途中保存：復帰後に合法な操作ができ、再保存・再復帰できる
+  ---
+  duration_ms: 754.226589
+  type: 'test'
+  ...
+# Subtest: hotseat-1 決着済み保存：復帰でき、戦績には記録しない（二重計上もしない）
+ok 246 - hotseat-1 決着済み保存：復帰でき、戦績には記録しない（二重計上もしない）
+  ---
+  duration_ms: 1665.78822
+  type: 'test'
+  ...
+# Subtest: hotseat-1 の破損・改変は拒否する
+ok 247 - hotseat-1 の破損・改変は拒否する
+  ---
+  duration_ms: 27.813674
+  type: 'test'
+  ...
+# Subtest: hotseat-2：途中・決着済みとも従来どおり（デッキ不明の旧セーブとして戦績に接続）
+ok 248 - hotseat-2：途中・決着済みとも従来どおり（デッキ不明の旧セーブとして戦績に接続）
+  ---
+  duration_ms: 6901.491215
+  type: 'test'
+  ...
+# Subtest: hotseat-3・現行版：途中・決着済みとも保存と戦績が従来どおり、A/B 席別に集計し、二重計上しない
+ok 249 - hotseat-3・現行版：途中・決着済みとも保存と戦績が従来どおり、A/B 席別に集計し、二重計上しない
+  ---
+  duration_ms: 3802.484967
+  type: 'test'
+  ...
+# Subtest: CPU 初級・中級：保存・復帰で設定と戦績情報を保つ
+ok 250 - CPU 初級・中級：保存・復帰で設定と戦績情報を保つ
+  ---
+  duration_ms: 1533.732925
+  type: 'test'
+  ...
+# Subtest: 戦績の台帳（書き出し・読み込み・バックアップ）は hotseat-1 の復帰で変わらない
+ok 251 - 戦績の台帳（書き出し・読み込み・バックアップ）は hotseat-1 の復帰で変わらない
+  ---
+  duration_ms: 1274.076576
+  type: 'test'
+  ...
+# Subtest: hotseat-1 の表示：現行のカード面に必要な属性・姿だけを補い、ルール・本文・状態は変えない
+ok 252 - hotseat-1 の表示：現行のカード面に必要な属性・姿だけを補い、ルール・本文・状態は変えない
+  ---
+  duration_ms: 27.405
+  type: 'test'
+  ...
+# Subtest: jintori text, time and method match the immutable official source
+ok 253 - jintori text, time and method match the immutable official source
+  ---
+  duration_ms: 1.552617
+  type: 'test'
+  ...
+# Subtest: jintori can respond to own and opponent ordinary actions; fewer than seven is legal
+ok 254 - jintori can respond to own and opponent ordinary actions; fewer than seven is legal
+  ---
+  duration_ms: 16.886244
+  type: 'test'
+  ...
+# Subtest: a passed opportunity returns only after a new opposing link; same physical card cannot be reused
+ok 255 - a passed opportunity returns only after a new opposing link; same physical card cannot be reused
+  ---
+  duration_ms: 3.332202
+  type: 'test'
+  ...
+# Subtest: jintori counts the field at resolution, excludes egg and activation; 0/7/8/9 produce 0/10/10/15
+ok 256 - jintori counts the field at resolution, excludes egg and activation; 0/7/8/9 produce 0/10/10/15
+  ---
+  duration_ms: 6.838413
+  type: 'test'
+  ...
+# Subtest: one explicit pass completes an empty response with no duplicate decision in CPU and two-player modes
+ok 257 - one explicit pass completes an empty response with no duplicate decision in CPU and two-player modes
+  ---
+  duration_ms: 16.918566
+  type: 'test'
+  ...
+# Subtest: 15 searchable chapters retain canonical examples, glossary and exact official sources
+ok 258 - 15 searchable chapters retain canonical examples, glossary and exact official sources
+  ---
+  duration_ms: 10.317712
+  type: 'test'
+  ...
+# Subtest: all nine lessons execute canonical legal commands and validate every checkpoint
+ok 259 - all nine lessons execute canonical legal commands and validate every checkpoint
+  ---
+  duration_ms: 113.90575
+  type: 'test'
+  ...
+# Subtest: fixed lessons demonstrate cost, person limit, preparation, challenge and reverse chain
+ok 260 - fixed lessons demonstrate cost, person limit, preparation, challenge and reverse chain
+  ---
+  duration_ms: 31.4855
+  type: 'test'
+  ...
+# Subtest: progress is independently persisted, reconstructable and invalid data safe
+ok 261 - progress is independently persisted, reconstructable and invalid data safe
+  ---
+  duration_ms: 2.769103
+  type: 'test'
+  ...
+# Subtest: クモ：交際0→1・1→2・2→3では発動できる
+ok 262 - クモ：交際0→1・1→2・2→3では発動できる
+  ---
+  duration_ms: 25.436209
+  type: 'test'
+  ...
+# Subtest: クモ：3→結婚では発動しない（結婚のそだち+10はそのまま）
+ok 263 - クモ：3→結婚では発動しない（結婚のそだち+10はそのまま）
+  ---
+  duration_ms: 1.278572
+  type: 'test'
+  ...
+# Subtest: クモ：1ラウンドに1回は交際進行の間で維持される
+ok 264 - クモ：1ラウンドに1回は交際進行の間で維持される
+  ---
+  duration_ms: 3.205048
+  type: 'test'
+  ...
+# Subtest: 結婚した時に発動する他カード（にんぎょ）は維持される
+ok 265 - 結婚した時に発動する他カード（にんぎょ）は維持される
+  ---
+  duration_ms: 6.556383
+  type: 'test'
+  ...
+# Subtest: サソリ：表向きのあそび＋伏せてしかけたあいてむだけでは発動しない
+ok 266 - サソリ：表向きのあそび＋伏せてしかけたあいてむだけでは発動しない
+  ---
+  duration_ms: 8.903008
+  type: 'test'
+  ...
+# Subtest: サソリ：表向きのあそび＋表向きのあいてむでは発動できる
+ok 267 - サソリ：表向きのあそび＋表向きのあいてむでは発動できる
+  ---
+  duration_ms: 9.220934
+  type: 'test'
+  ...
+# Subtest: 伏せ札の非公開表示は変わらない
+ok 268 - 伏せ札の非公開表示は変わらない
+  ---
+  duration_ms: 16.041518
+  type: 'test'
+  ...
+# Subtest: タコ：今の装備先は移し先に出ず、タコ自身は適正な装備先なら選べる（処理は変更なし）
+ok 269 - タコ：今の装備先は移し先に出ず、タコ自身は適正な装備先なら選べる（処理は変更なし）
+  ---
+  duration_ms: 20.962878
+  type: 'test'
+  ...
+# Subtest: 新しい対戦は最新の版、保存しても版は保たれる。hotseat-3 の保存も読める
+ok 270 - 新しい対戦は最新の版、保存しても版は保たれる。hotseat-3 の保存も読める
+  ---
+  duration_ms: 0.927023
+  type: 'test'
+  ...
+# Subtest: 旧保存（hotseat-2）は修正前の動作のまま、最後まで同じ結果に復帰する
+ok 271 - 旧保存（hotseat-2）は修正前の動作のまま、最後まで同じ結果に復帰する
+  ---
+  duration_ms: 438.235671
+  type: 'test'
+  ...
+# Subtest: 旧保存の操作列を新ルール（hotseat-3・hotseat-4）で再生すると食い違う＝版の分離が必要
+ok 272 - 旧保存の操作列を新ルール（hotseat-3・hotseat-4）で再生すると食い違う＝版の分離が必要
+  ---
+  duration_ms: 702.047964
+  type: 'test'
+  ...
+# Subtest: 旧保存は修正前の分岐を実際に通っている
+ok 273 - 旧保存は修正前の分岐を実際に通っている
+  ---
+  duration_ms: 303.361702
+  type: 'test'
+  ...
+# Subtest: クモ・サソリ・タコの本文
+ok 274 - クモ・サソリ・タコの本文
+  ---
+  duration_ms: 0.18512
+  type: 'test'
+  ...
+# Subtest: 旧保存（hotseat-2）のCPU途中保存も復帰し、最後まで進む
+ok 275 - 旧保存（hotseat-2）のCPU途中保存も復帰し、最後まで進む
+  ---
+  duration_ms: 2421.524887
+  type: 'test'
+  ...
+# Subtest: 旧保存（hotseat-2）の決着済み対戦は戦績用にそのまま復帰する
+ok 276 - 旧保存（hotseat-2）の決着済み対戦は戦績用にそのまま復帰する
+  ---
+  duration_ms: 2498.634284
+  type: 'test'
+  ...
+# Subtest: クモ入りCPUデッキ（item）同士の新しい対戦は最新の版で最後まで進む
+ok 277 - クモ入りCPUデッキ（item）同士の新しい対戦は最新の版で最後まで進む
+  ---
+  duration_ms: 5616.876645
+  type: 'test'
+  ...
+# Subtest: main menu links to same-origin two-player CARD GAME without replacing existing games
+ok 278 - main menu links to same-origin two-player CARD GAME without replacing existing games
+  ---
+  duration_ms: 4.591121
+  type: 'test'
+  ...
+# Subtest: explicit main programs bind canonical main sources without fallback
+ok 279 - explicit main programs bind canonical main sources without fallback
+  ---
+  duration_ms: 9.508754
+  type: 'test'
+  ...
+# Subtest: birth ordering descriptors distinguish reorder from top/bottom choice
+ok 280 - birth ordering descriptors distinguish reorder from top/bottom choice
+  ---
+  duration_ms: 1.306408
+  type: 'test'
+  ...
+# Subtest: higher-stage challenge programs bind exact action-count predicates
+ok 281 - higher-stage challenge programs bind exact action-count predicates
+  ---
+  duration_ms: 0.63288
+  type: 'test'
+  ...
+# Subtest: cicada search includes complete species and stage bounds with mandatory selection
+ok 282 - cicada search includes complete species and stage bounds with mandatory selection
+  ---
+  duration_ms: 0.306504
+  type: 'test'
+  ...
+# Subtest: persistent-world and end-turn requirements remain explicit
+ok 283 - persistent-world and end-turn requirements remain explicit
+  ---
+  duration_ms: 0.426625
+  type: 'test'
+  ...
+# Subtest: new exact family descriptors retain timing, cost-free conditions and source clauses
+ok 284 - new exact family descriptors retain timing, cost-free conditions and source clauses
+  ---
+  duration_ms: 0.346651
+  type: 'test'
+  ...
+# Subtest: woman challenge modifier grants one bonus for either person and two for both
+ok 285 - woman challenge modifier grants one bonus for either person and two for both
+  ---
+  duration_ms: 0.303481
+  type: 'test'
+  ...
+# Subtest: world continuity draw captures the selected world instead of this main
+ok 286 - world continuity draw captures the selected world instead of this main
+  ---
+  duration_ms: 0.191252
+  type: 'test'
+  ...
+# Subtest: opponent action triggers preserve turn, ordinal and repeated method clauses
+ok 287 - opponent action triggers preserve turn, ordinal and repeated method clauses
+  ---
+  duration_ms: 0.821231
+  type: 'test'
+  ...
+# Subtest: face-up play families require earlier qualifying plays instead of raw totals
+ok 288 - face-up play families require earlier qualifying plays instead of raw totals
+  ---
+  duration_ms: 0.826677
+  type: 'test'
+  ...
+# Subtest: delayed programs schedule exact next-start or same-turn-end effects
+ok 289 - delayed programs schedule exact next-start or same-turn-end effects
+  ---
+  duration_ms: 0.407226
+  type: 'test'
+  ...
+# Subtest: butterfly recovery follows successful movement and hermit crab searches methods
+ok 290 - butterfly recovery follows successful movement and hermit crab searches methods
+  ---
+  duration_ms: 0.23232
+  type: 'test'
+  ...
+# Subtest: one-card activation costs remain separate from effect resolution
+ok 291 - one-card activation costs remain separate from effect resolution
+  ---
+  duration_ms: 0.266774
+  type: 'test'
+  ...
+# Subtest: numeric time costs are paid for the full canonical dragon triggers
+ok 292 - numeric time costs are paid for the full canonical dragon triggers
+  ---
+  duration_ms: 0.165315
+  type: 'test'
+  ...
+# Subtest: main observers watch any own companion placement with exact costs and targets
+ok 293 - main observers watch any own companion placement with exact costs and targets
+  ---
+  duration_ms: 0.217508
+  type: 'test'
+  ...
+# Subtest: multi-card main costs preserve exact counts, destination and distinctness
+ok 294 - multi-card main costs preserve exact counts, destination and distinctness
+  ---
+  duration_ms: 0.19557
+  type: 'test'
+  ...
+# Subtest: prepared-card costs apply before targeted recovery or removal
+ok 295 - prepared-card costs apply before targeted recovery or removal
+  ---
+  duration_ms: 0.186479
+  type: 'test'
+  ...
+# Subtest: god arrival returns two distinct non-main targets and retains its full activation costs
+ok 296 - god arrival returns two distinct non-main targets and retains its full activation costs
+  ---
+  duration_ms: 0.177921
+  type: 'test'
+  ...
+# Subtest: main result triggers preserve participant and result-specific canonical requirements
+ok 297 - main result triggers preserve participant and result-specific canonical requirements
+  ---
+  duration_ms: 0.348127
+  type: 'test'
+  ...
+# Subtest: plush losing challenge compares its actual result value and draws only after moving hand
+ok 298 - plush losing challenge compares its actual result value and draws only after moving hand
+  ---
+  duration_ms: 0.187121
+  type: 'test'
+  ...
+# Subtest: received challenge bonuses retain round limits and both-direction bonus shares one trigger
+ok 299 - received challenge bonuses retain round limits and both-direction bonus shares one trigger
+  ---
+  duration_ms: 0.250271
+  type: 'test'
+  ...
+# Subtest: phoenix challenge pays time for a computed-value deficit and printed-stat star target stays distinct
+ok 300 - phoenix challenge pays time for a computed-value deficit and printed-stat star target stays distinct
+  ---
+  duration_ms: 0.19407
+  type: 'test'
+  ...
+# Subtest: main move replacement scopes, costs and round limits match complete canonical clauses
+ok 301 - main move replacement scopes, costs and round limits match complete canonical clauses
+  ---
+  duration_ms: 0.236239
+  type: 'test'
+  ...
+# Subtest: filtered world and same-type discard payments preserve replacement conditions
+ok 302 - filtered world and same-type discard payments preserve replacement conditions
+  ---
+  duration_ms: 0.198351
+  type: 'test'
+  ...
+# Subtest: hand reveal and staged hand payment are costs while return choices remain targets
+ok 303 - hand reveal and staged hand payment are costs while return choices remain targets
+  ---
+  duration_ms: 0.212095
+  type: 'test'
+  ...
+# Subtest: normal world-change main abilities require normal hand placement and exact name checks
+ok 304 - normal world-change main abilities require normal hand placement and exact name checks
+  ---
+  duration_ms: 0.220057
+  type: 'test'
+  ...
+# Subtest: starfish retrieval checks face-up field type during resolution rather than silently narrowing targets
+ok 305 - starfish retrieval checks face-up field type during resolution rather than silently narrowing targets
+  ---
+  duration_ms: 1.74709
+  type: 'test'
+  ...
+# Subtest: coral applied-effect observers require abilities and earlier different support types
+ok 306 - coral applied-effect observers require abilities and earlier different support types
+  ---
+  duration_ms: 0.170894
+  type: 'test'
+  ...
+# Subtest: applied quick card and attached ability observers preserve source and cost contracts
+ok 307 - applied quick card and attached ability observers preserve source and cost contracts
+  ---
+  duration_ms: 0.311357
+  type: 'test'
+  ...
+# Subtest: trap applied history supplies opponent-turn passive and end draw exactly
+ok 308 - trap applied history supplies opponent-turn passive and end draw exactly
+  ---
+  duration_ms: 0.250178
+  type: 'test'
+  ...
+# Subtest: mushroom retrieval filters activation names and rechecks the same name at resolution
+ok 309 - mushroom retrieval filters activation names and rechecks the same name at resolution
+  ---
+  duration_ms: 0.213212
+  type: 'test'
+  ...
+# Subtest: clownfish picks its second recovery only during resolution after first return succeeds
+ok 310 - clownfish picks its second recovery only during resolution after first return succeeds
+  ---
+  duration_ms: 0.1455
+  type: 'test'
+  ...
+# Subtest: mushroom searches retain original inspected cards and exact remainder destinations
+ok 311 - mushroom searches retain original inspected cards and exact remainder destinations
+  ---
+  duration_ms: 0.180075
+  type: 'test'
+  ...
+# Subtest: man recovery bonus affects its source main and remembers target type instead of moving card stats
+ok 312 - man recovery bonus affects its source main and remembers target type instead of moving card stats
+  ---
+  duration_ms: 0.133264
+  type: 'test'
+  ...
+# Subtest: declared modal types bind activation constraints while card selections occur during resolution
+ok 313 - declared modal types bind activation constraints while card selections occur during resolution
+  ---
+  duration_ms: 0.209922
+  type: 'test'
+  ...
+# Subtest: migrates A/B independently, never changes legacy or match saves and persists names and selections
+ok 314 - migrates A/B independently, never changes legacy or match saves and persists names and selections
+  ---
+  duration_ms: 6.092853
+  type: 'test'
+  ...
+# Subtest: create clone edit delete and independent selection retain distinct identities
+ok 315 - create clone edit delete and independent selection retain distinct identities
+  ---
+  duration_ms: 1.249385
+  type: 'test'
+  ...
+# Subtest: copy limits and forty-card bound are enforced; invalid inputs never mutate
+ok 316 - copy limits and forty-card bound are enforced; invalid inputs never mutate
+  ---
+  duration_ms: 0.769332
+  type: 'test'
+  ...
+# Subtest: JSON roundtrip and old A/B import append without loss and reject malicious schema atomically
+ok 317 - JSON roundtrip and old A/B import append without loss and reject malicious schema atomically
+  ---
+  duration_ms: 1.934557
+  type: 'test'
+  ...
+# Subtest: bad existing data stays untouched; quota failures leave edits available for export
+ok 318 - bad existing data stays untouched; quota failures leave edits available for export
+  ---
+  duration_ms: 0.60596
+  type: 'test'
+  ...
+# Subtest: catalog filters cover all cards, attribute, species and stage in combination
+ok 319 - catalog filters cover all cards, attribute, species and stage in combination
+  ---
+  duration_ms: 1.439838
+  type: 'test'
+  ...
+# Subtest: selected arrays are independent from the library and valid for existing engine
+ok 320 - selected arrays are independent from the library and valid for existing engine
+  ---
+  duration_ms: 2.024655
+  type: 'test'
+  ...
+# Subtest: explicit restore can recover a full 20-deck backup with selected seats; default import never replaces
+ok 321 - explicit restore can recover a full 20-deck backup with selected seats; default import never replaces
+  ---
+  duration_ms: 1.14916
+  type: 'test'
+  ...
+# Subtest: stale writers fail even before a storage event and retain edits for export
+ok 322 - stale writers fail even before a storage event and retain edits for export
+  ---
+  duration_ms: 3.296895
+  type: 'test'
+  ...
+# Subtest: records save adapter exists
+ok 323 - records save adapter exists
+  ---
+  duration_ms: 0.903405
+  type: 'test'
+  ...
+# Subtest: new hotseat metadata preserves identity and deck snapshot; old saves get stable unknown metadata
+ok 324 - new hotseat metadata preserves identity and deck snapshot; old saves get stable unknown metadata
+  ---
+  duration_ms: 17.116459
+  type: 'test'
+  ...
+# Subtest: CPU settings remain intact and forged metadata is rejected before replacing current game
+ok 325 - CPU settings remain intact and forged metadata is rejected before replacing current game
+  ---
+  duration_ms: 13.345371
+  type: 'test'
+  ...
+# Subtest: record API is available
+ok 326 - record API is available
+  ---
+  duration_ms: 1.67466
+  type: 'test'
+  ...
+# Subtest: unfinished ignored; seat results and adoption vs committed play counted
+ok 327 - unfinished ignored; seat results and adoption vs committed play counted
+  ---
+  duration_ms: 5.865135
+  type: 'test'
+  ...
+# Subtest: draw denominator and hotseat A/B are separate from personal CPU
+ok 328 - draw denominator and hotseat A/B are separate from personal CPU
+  ---
+  duration_ms: 4.299559
+  type: 'test'
+  ...
+# Subtest: storage deduplicates and rejects conflicting imports atomically; snapshots survive rename
+ok 329 - storage deduplicates and rejects conflicting imports atomically; snapshots survive rename
+  ---
+  duration_ms: 5.215621
+  type: 'test'
+  ...
+# Subtest: corruption is preserved and explicit backup recovery only; quota failure retains exportable pending
+ok 330 - corruption is preserved and explicit backup recovery only; quota failure retains exportable pending
+  ---
+  duration_ms: 3.629259
+  type: 'test'
+  ...
+# Subtest: malformed numbers, unknown cards, result mismatch and oversized imports rejected
+ok 331 - malformed numbers, unknown cards, result mismatch and oversized imports rejected
+  ---
+  duration_ms: 0.858574
+  type: 'test'
+  ...
+# Subtest: seven CPU opponents and both difficulties are independent; every card remains initially visible
+ok 332 - seven CPU opponents and both difficulties are independent; every card remains initially visible
+  ---
+  duration_ms: 3.972408
+  type: 'test'
+  ...
+# Subtest: deck edits keep distinct historical configurations; importing stale copies never drops later records
+ok 333 - deck edits keep distinct historical configurations; importing stale copies never drops later records
+  ---
+  duration_ms: 1.848381
+  type: 'test'
+  ...
+# Subtest: two store instances merge latest completed matches rather than overwriting
+ok 334 - two store instances merge latest completed matches rather than overwriting
+  ---
+  duration_ms: 1.242953
+  type: 'test'
+  ...
+# Subtest: more than 200 matches retain cumulative statistics and import deduplication
+ok 335 - more than 200 matches retain cumulative statistics and import deduplication
+  ---
+  duration_ms: 74.121189
+  type: 'test'
+  ...
+# Subtest: real engine replay yields identical committed usage and results
+ok 336 - real engine replay yields identical committed usage and results
+  ---
+  duration_ms: 731.164119
+  type: 'test'
+  ...
+# Subtest: same match finished on separate tabs deduplicates despite different wall-clock finish times
+ok 337 - same match finished on separate tabs deduplicates despite different wall-clock finish times
+  ---
+  duration_ms: 0.996843
+  type: 'test'
+  ...
+# Subtest: capacity and newly corrupted storage keep a completed match exportable separately
+ok 338 - capacity and newly corrupted storage keep a completed match exportable separately
+  ---
+  duration_ms: 1304.868389
+  type: 'test'
+  ...
+# Subtest: life charm replacement is a private mandatory choice, consumes charm, preserves main
+ok 339 - life charm replacement is a private mandatory choice, consumes charm, preserves main
+  ---
+  duration_ms: 16.874856
+  type: 'test'
+  ...
+# Subtest: growth prevention consumes round limit, never prevents own costs
+ok 340 - growth prevention consumes round limit, never prevents own costs
+  ---
+  duration_ms: 7.235446
+  type: 'test'
+  ...
+# Subtest: one shared stat-prevention use allows choosing power or wisdom
+ok 341 - one shared stat-prevention use allows choosing power or wisdom
+  ---
+  duration_ms: 4.62276
+  type: 'test'
+  ...
+# Subtest: changed destination is checked against remaining replacement effects
+ok 342 - changed destination is checked against remaining replacement effects
+  ---
+  duration_ms: 4.535852
+  type: 'test'
+  ...
+# Subtest: challenge-end reservation runs after challenge stat expiry, including interrupted challenge
+ok 343 - challenge-end reservation runs after challenge stat expiry, including interrupted challenge
+  ---
+  duration_ms: 23.602087
+  type: 'test'
+  ...
+# Subtest: automatic jobs use turn owner first and allow each same-owner order choice
+ok 344 - automatic jobs use turn owner first and allow each same-owner order choice
+  ---
+  duration_ms: 6.403645
+  type: 'test'
+  ...
+# Subtest: a reservation created after challenge interruption cannot attach to the ended event
+ok 345 - a reservation created after challenge interruption cannot attach to the ended event
+  ---
+  duration_ms: 0.696567
+  type: 'test'
+  ...
+# Subtest: current rulings cover every chapter with precise source headings
+ok 346 - current rulings cover every chapter with precise source headings
+  ---
+  duration_ms: 3.260669
+  type: 'test'
+  ...
+# Subtest: search finds detailed rulings, respects chapter scope, normalizes width, and excludes obsolete policy
+ok 347 - search finds detailed rulings, respects chapter scope, normalizes width, and excludes obsolete policy
+  ---
+  duration_ms: 12.454162
+  type: 'test'
+  ...
+# Subtest: current collection policy and shared person placement are explicit and separate from relationship progress
+ok 348 - current collection policy and shared person placement are explicit and separate from relationship progress
+  ---
+  duration_ms: 0.750004
+  type: 'test'
+  ...
+# Subtest: detailed order and exceptions remain searchable in the appropriate chapters
+ok 349 - detailed order and exceptions remain searchable in the appropriate chapters
+  ---
+  duration_ms: 1.030867
+  type: 'test'
+  ...
+# Subtest: each provenance heading exists in its untouched source document
+ok 350 - each provenance heading exists in its untouched source document
+  ---
+  duration_ms: 27.615448
+  type: 'test'
+  ...
+# Subtest: multi-target selection commits only after both targets, captures generations
+ok 351 - multi-target selection commits only after both targets, captures generations
+  ---
+  duration_ms: 25.811685
+  type: 'test'
+  ...
+# Subtest: multi-hand cost keeps order and is paid exactly once before response
+ok 352 - multi-hand cost keeps order and is paid exactly once before response
+  ---
+  duration_ms: 11.789275
+  type: 'test'
+  ...
+# Subtest: cancel selection preserves cards and cost, stale/forged choice rejected
+ok 353 - cancel selection preserves cards and cost, stale/forged choice rejected
+  ---
+  duration_ms: 4.454148
+  type: 'test'
+  ...
+# Subtest: a field target that leaves for discard is not retrieved from a different zone
+ok 354 - a field target that leaves for discard is not retrieved from a different zone
+  ---
+  duration_ms: 3.185218
+  type: 'test'
+  ...
+# Subtest: removing a challenge participant ends comparison without crash or award
+ok 355 - removing a challenge participant ends comparison without crash or award
+  ---
+  duration_ms: 3.914834
+  type: 'test'
+  ...
+# Subtest: effect ordering is chosen after responses, not in target selection
+ok 356 - effect ordering is chosen after responses, not in target selection
+  ---
+  duration_ms: 9.444432
+  type: 'test'
+  ...
+# Subtest: resolution-time same-type selection uses the hand after responses
+ok 357 - resolution-time same-type selection uses the hand after responses
+  ---
+  duration_ms: 10.114705
+  type: 'test'
+  ...
+# Subtest: dependent cost and target selection rejects dead-end payment types
+ok 358 - dependent cost and target selection rejects dead-end payment types
+  ---
+  duration_ms: 7.714852
+  type: 'test'
+  ...
+# Subtest: search follow-up selects from the original inspected remainder
+ok 359 - search follow-up selects from the original inspected remainder
+  ---
+  duration_ms: 8.794252
+  type: 'test'
+  ...
+# Subtest: recovery target and source stat target remain separate through resolution choice
+ok 360 - recovery target and source stat target remain separate through resolution choice
+  ---
+  duration_ms: 9.302624
+  type: 'test'
+  ...
+# Subtest: five distinct types and unreachable prefixes
+ok 361 - five distinct types and unreachable prefixes
+  ---
+  duration_ms: 5.103303
+  type: 'test'
+  ...
+# Subtest: same type three, source excluded, metadata untouched
+ok 362 - same type three, source excluded, metadata untouched
+  ---
+  duration_ms: 2.402077
+  type: 'test'
+  ...
+# Subtest: optional count and order; unsupported spec fails closed
+ok 363 - optional count and order; unsupported spec fails closed
+  ---
+  duration_ms: 0.688357
+  type: 'test'
+  ...
+# Subtest: 40 physical cards use bounded existence checks
+ok 364 - 40 physical cards use bounded existence checks
+  ---
+  duration_ms: 348.882868
+  type: 'test'
+  ...
+# Subtest: prepared attachments and printed filters
+ok 365 - prepared attachments and printed filters
+  ---
+  duration_ms: 1.251174
+  type: 'test'
+  ...
+# Subtest: cross-selection types and canonical-name exclusions
+ok 366 - cross-selection types and canonical-name exclusions
+  ---
+  duration_ms: 0.735082
+  type: 'test'
+  ...
+# Subtest: 正式本文・時1・しかけるは不変
+ok 367 - 正式本文・時1・しかけるは不変
+  ---
+  duration_ms: 1.746498
+  type: 'test'
+  ...
+# Subtest: ターン終了時の誘発で、たこやき自身は対象の候補に出ない（ほかの準備枠の札は出る）
+ok 368 - ターン終了時の誘発で、たこやき自身は対象の候補に出ない（ほかの準備枠の札は出る）
+  ---
+  duration_ms: 10.918964
+  type: 'test'
+  ...
+# Subtest: 準備枠にほかの札が複数あれば、そのすべてを選べる（伏せ札・装備とも）
+ok 369 - 準備枠にほかの札が複数あれば、そのすべてを選べる（伏せ札・装備とも）
+  ---
+  duration_ms: 1.986289
+  type: 'test'
+  ...
+# Subtest: 準備枠がたこやきだけなら対象がなく、発動できない（見送りだけ）
+ok 370 - 準備枠がたこやきだけなら対象がなく、発動できない（見送りだけ）
+  ---
+  duration_ms: 4.732012
+  type: 'test'
+  ...
+# Subtest: ほかの札を対象にした時：発動でたこやきは発動領域→捨て札、次の自分のターン開始に対象が残っていれば1枚引き+5
+ok 371 - ほかの札を対象にした時：発動でたこやきは発動領域→捨て札、次の自分のターン開始に対象が残っていれば1枚引き+5
+  ---
+  duration_ms: 9.546119
+  type: 'test'
+  ...
+# Subtest: 対象が次の開始までに準備枠を離れたら（相手の効果で手札へ）、何も起きない
+ok 372 - 対象が次の開始までに準備枠を離れたら（相手の効果で手札へ）、何も起きない
+  ---
+  duration_ms: 12.660379
+  type: 'test'
+  ...
+# Subtest: 対象は発動時に確定し、発動の応答中に変わらない（応答後の解決でも同じ対象）
+ok 373 - 対象は発動時に確定し、発動の応答中に変わらない（応答後の解決でも同じ対象）
+  ---
+  duration_ms: 4.304997
+  type: 'test'
+  ...
+# Subtest: 共通の対象種別 ownPrepared（ほかのカードが使う）は変わらず、準備枠のすべての札を返す
+ok 374 - 共通の対象種別 ownPrepared（ほかのカードが使う）は変わらず、準備枠のすべての札を返す
+  ---
+  duration_ms: 0.509641
+  type: 'test'
+  ...
+# Subtest: 新規対戦は最新の版（hotseat-5 以降）。旧版 hotseat-2〜4 を指定した対戦では、旧挙動（自分自身も選べる）のまま
+ok 375 - 新規対戦は最新の版（hotseat-5 以降）。旧版 hotseat-2〜4 を指定した対戦では、旧挙動（自分自身も選べる）のまま
+  ---
+  duration_ms: 10.193052
+  type: 'test'
+  ...
+# Subtest: 旧保存（hotseat-4、修正前エンジンで作成、たこやき自身を対象にした操作を含む）は旧挙動のまま完全に再生される
+ok 376 - 旧保存（hotseat-4、修正前エンジンで作成、たこやき自身を対象にした操作を含む）は旧挙動のまま完全に再生される
+  ---
+  duration_ms: 4233.344783
+  type: 'test'
+  ...
+# Subtest: 自分自身を対象にした旧保存を新しい版（hotseat-5 以降）として読ませると拒否される（無条件に変換しない）
+ok 377 - 自分自身を対象にした旧保存を新しい版（hotseat-5 以降）として読ませると拒否される（無条件に変換しない）
+  ---
+  duration_ms: 196.762318
+  type: 'test'
+  ...
+# Subtest: 旧保存の途中（たこやき誘発の直前）から復帰して続けても同じ結果
+ok 378 - 旧保存の途中（たこやき誘発の直前）から復帰して続けても同じ結果
+  ---
+  duration_ms: 831.029412
+  type: 'test'
+  ...
+# Subtest: CPU（初級・中級）は新しい版でたこやき自身を対象にせず、対戦は最後まで進み、保存→復帰も一致
+ok 379 - CPU（初級・中級）は新しい版でたこやき自身を対象にせず、対戦は最後まで進み、保存→復帰も一致
+  ---
+  duration_ms: 3057.136094
+  type: 'test'
+  ...
+# Subtest: CPU対戦セッション（CpuSession）の保存→復帰も新しい版で一致
+ok 380 - CPU対戦セッション（CpuSession）の保存→復帰も新しい版で一致
+  ---
+  duration_ms: 2.900109
+  type: 'test'
+  ...
+# Subtest: ルナランダー：新本文で、時1・すぐつかう・ドロー1・+5は不変
+ok 381 - ルナランダー：新本文で、時1・すぐつかう・ドロー1・+5は不変
+  ---
+  duration_ms: 2.823023
+  type: 'test'
+  ...
+# Subtest: ルナランダー：残り時は支払い後の解決時に見る（3→2で得る、2→1で得ない。不一致でも使える）
+ok 382 - ルナランダー：残り時は支払い後の解決時に見る（3→2で得る、2→1で得ない。不一致でも使える）
+  ---
+  duration_ms: 18.367263
+  type: 'test'
+  ...
+# Subtest: ルナランダー：使った後、解決前の応答で残り時が変わったら、解決時の値で判定する
+ok 383 - ルナランダー：使った後、解決前の応答で残り時が変わったら、解決時の値で判定する
+  ---
+  duration_ms: 6.509754
+  type: 'test'
+  ...
+# Subtest: サブマリン3D：新本文で、時2・すぐつかうは不変
+ok 384 - サブマリン3D：新本文で、時2・すぐつかうは不変
+  ---
+  duration_ms: 0.215664
+  type: 'test'
+  ...
+# Subtest: サブマリン3D：選んだ数0/1/2は時2/3/4を払い、山札上3/5/7枚を見る（1枚まで加える）
+ok 385 - サブマリン3D：選んだ数0/1/2は時2/3/4を払い、山札上3/5/7枚を見る（1枚まで加える）
+  ---
+  duration_ms: 6.317637
+  type: 'test'
+  ...
+# Subtest: カタログ：変わったのは2枚の本文と、設計正本83・85の出典hashだけ（main eb97817d と同じ）
+ok 386 - カタログ：変わったのは2枚の本文と、設計正本83・85の出典hashだけ（main eb97817d と同じ）
+  ---
+  duration_ms: 2.830097
+  type: 'test'
+  ...
+# Subtest: キノコ⑧：へんしんで捨て札に置かれた時に誘発し、次の自分のターン終了までの予約を作る
+ok 387 - キノコ⑧：へんしんで捨て札に置かれた時に誘発し、次の自分のターン終了までの予約を作る
+  ---
+  duration_ms: 4.049987
+  type: 'test'
+  ...
+# Subtest: キノコ⑧：へんしん以外で捨て札に置かれた時（相手の除去）は誘発しない
+ok 388 - キノコ⑧：へんしん以外で捨て札に置かれた時（相手の除去）は誘発しない
+  ---
+  duration_ms: 6.514048
+  type: 'test'
+  ...
+# Subtest: キノコ⑧：裏向きでしかけても引かず、表向きのメイン以外＋捨て札に同名で1回だけ1枚引く
+ok 389 - キノコ⑧：裏向きでしかけても引かず、表向きのメイン以外＋捨て札に同名で1回だけ1枚引く
+  ---
+  duration_ms: 8.60446
+  type: 'test'
+  ...
+# Subtest: キノコ⑧：捨て札に同名がなければ引かず予約は残り、次の自分のターン終了で失効する
+ok 390 - キノコ⑧：捨て札に同名がなければ引かず予約は残り、次の自分のターン終了で失効する
+  ---
+  duration_ms: 14.338939
+  type: 'test'
+  ...
+# Subtest: サクラ⑥：選べるのは自分の準備枠のカードだけで、伏せたカードの名前は相手に見えない
+ok 391 - サクラ⑥：選べるのは自分の準備枠のカードだけで、伏せたカードの名前は相手に見えない
+  ---
+  duration_ms: 8.162213
+  type: 'test'
+  ...
+# Subtest: サクラ⑥：選んだ伏せ札が準備枠→発動領域へ移って発動し、効果が適用されたら+5を1回だけ
+ok 392 - サクラ⑥：選んだ伏せ札が準備枠→発動領域へ移って発動し、効果が適用されたら+5を1回だけ
+  ---
+  duration_ms: 13.122817
+  type: 'test'
+  ...
+# Subtest: サクラ⑥：選ばなかった伏せ札の発動では+5にならず、予約はこのターン終了で失効する
+ok 393 - サクラ⑥：選ばなかった伏せ札の発動では+5にならず、予約はこのターン終了で失効する
+  ---
+  duration_ms: 12.693819
+  type: 'test'
+  ...
+# Subtest: サボテンさん：相手の効果で手札に戻るのを、防ぐか選べる（使わなければ戻る）
+ok 394 - サボテンさん：相手の効果で手札に戻るのを、防ぐか選べる（使わなければ戻る）
+  ---
+  duration_ms: 6.368036
+  type: 'test'
+  ...
+# Subtest: サボテンさん：1ラウンドに1回。同じターンの2回目は防げず、次のラウンドでは再び防げる
+ok 395 - サボテンさん：1ラウンドに1回。同じターンの2回目は防げず、次のラウンドでは再び防げる
+  ---
+  duration_ms: 23.659475
+  type: 'test'
+  ...
+# Subtest: サボテンさん：同じラウンドの相手ターン（応答で戻された時）も、使用済みなら防げない
+ok 396 - サボテンさん：同じラウンドの相手ターン（応答で戻された時）も、使用済みなら防げない
+  ---
+  duration_ms: 12.161552
+  type: 'test'
+  ...
+# Subtest: サボテンさん：みにつけられている間は防げない（ほかの置換だけが残る）
+ok 397 - サボテンさん：みにつけられている間は防げない（ほかの置換だけが残る）
+  ---
+  duration_ms: 7.125391
+  type: 'test'
+  ...
+# Subtest: サンゴ⑦：なかま・こいびと・セカイがそろう時、相手の効果で捨て札になるメイン以外を置換する
+ok 398 - サンゴ⑦：なかま・こいびと・セカイがそろう時、相手の効果で捨て札になるメイン以外を置換する
+  ---
+  duration_ms: 15.605418
+  type: 'test'
+  ...
+# Subtest: サンゴ⑦：3種類のどれかが欠ければ置換しない／メイン自身は守らない
+ok 399 - サンゴ⑦：3種類のどれかが欠ければ置換しない／メイン自身は守らない
+  ---
+  duration_ms: 23.049062
+  type: 'test'
+  ...
+# Subtest: サンゴ⑦：1ラウンドに1回（同じラウンドの次の除去は置換しない）
+ok 400 - サンゴ⑦：1ラウンドに1回（同じラウンドの次の除去は置換しない）
+  ---
+  duration_ms: 26.731219
+  type: 'test'
+  ...
+# Subtest: おばけ⑤：支払い（準備枠1枚を山札の一番下）は発動時に行い、伏せ札の名前は相手に見えない
+ok 401 - おばけ⑤：支払い（準備枠1枚を山札の一番下）は発動時に行い、伏せ札の名前は相手に見えない
+  ---
+  duration_ms: 5.432048
+  type: 'test'
+  ...
+# Subtest: おばけ⑤：次に相手からちょうせんされた時、そのちょうせんだけ相手の能力値-2（1回で消える）
+ok 402 - おばけ⑤：次に相手からちょうせんされた時、そのちょうせんだけ相手の能力値-2（1回で消える）
+  ---
+  duration_ms: 12.856882
+  type: 'test'
+  ...
+# Subtest: おばけ⑤：自分からのちょうせんでは使わず、相手がちょうせんしなければ次の自分のターン開始で失効
+ok 403 - おばけ⑤：自分からのちょうせんでは使わず、相手がちょうせんしなければ次の自分のターン開始で失効
+  ---
+  duration_ms: 13.933232
+  type: 'test'
+  ...
+# Subtest: おばけ⑦：支払いに選べるのは捨て札のメインだけ（なければ発動できない）、支払いは山札の一番下
+ok 404 - おばけ⑦：支払いに選べるのは捨て札のメインだけ（なければ発動できない）、支払いは山札の一番下
+  ---
+  duration_ms: 5.725097
+  type: 'test'
+  ...
+# Subtest: おばけ⑦：次になかまを出した時に山札上2枚から1枚を手札へ（1回だけ）、相手が人物を出しても消費しない
+ok 405 - おばけ⑦：次になかまを出した時に山札上2枚から1枚を手札へ（1回だけ）、相手が人物を出しても消費しない
+  ---
+  duration_ms: 16.687562
+  type: 'test'
+  ...
+# Subtest: おばけ⑦：人物を出さなければ次の自分のターン終了で失効する
+ok 406 - おばけ⑦：人物を出さなければ次の自分のターン終了で失効する
+  ---
+  duration_ms: 14.089465
+  type: 'test'
+  ...
+# Subtest: 保存→復帰：予約が残っている途中から復帰しても予約が残り、最後まで同じ結果（キノコ⑧・サクラ⑥・おばけ⑤・おばけ⑦）
+ok 407 - 保存→復帰：予約が残っている途中から復帰しても予約が残り、最後まで同じ結果（キノコ⑧・サクラ⑥・おばけ⑤・おばけ⑦）
+  ---
+  duration_ms: 4547.777075
+  type: 'test'
+  ...
+# Subtest: all nine lessons contain human game commands; CPU alone operates seat B
+ok 408 - all nine lessons contain human game commands; CPU alone operates seat B
+  ---
+  duration_ms: 81.945501
+  type: 'test'
+  ...
+# Subtest: resume reconstructs mixed CPU and human steps deterministically
+ok 409 - resume reconstructs mixed CPU and human steps deterministically
+  ---
+  duration_ms: 61.351681
+  type: 'test'
+  ...
+# Subtest: all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art
+ok 410 - all 452 canonical cards use distinct dedicated thumbnails and high resolution detail art
+  ---
+  duration_ms: 37.059189
+  type: 'test'
+  ...
+# Subtest: hidden identity is never read, embedded or requested by art rendering
+ok 411 - hidden identity is never read, embedded or requested by art rendering
+  ---
+  duration_ms: 0.428634
+  type: 'test'
+  ...
+# Subtest: safe hand, both boards, discard and activation use shared dedicated thumbnails
+ok 412 - safe hand, both boards, discard and activation use shared dedicated thumbnails
+  ---
+  duration_ms: 9.439982
+  type: 'test'
+  ...
+# Subtest: private draws appear as images only in the owner result notice and history
+ok 413 - private draws appear as images only in the owner result notice and history
+  ---
+  duration_ms: 2.891352
+  type: 'test'
+  ...
+# Subtest: all card faces apply the approved fourteen classifications and approved SVG geometry
+ok 414 - all card faces apply the approved fourteen classifications and approved SVG geometry
+  ---
+  duration_ms: 9.355062
+  type: 'test'
+  ...
+# Subtest: image errors clear request attributes and preserve the existing card box
+ok 415 - image errors clear request attributes and preserve the existing card box
+  ---
+  duration_ms: 1.112482
+  type: 'test'
+  ...
+# Subtest: approved long-copy exceptions apply only to full detail faces
+ok 416 - approved long-copy exceptions apply only to full detail faces
+  ---
+  duration_ms: 0.69141
+  type: 'test'
+  ...
+# Subtest: response picker only enables engine candidate sources, including discard and board
+ok 417 - response picker only enables engine candidate sources, including discard and board
+  ---
+  duration_ms: 34.951959
+  type: 'test'
+  ...
+# Subtest: automatic UI is concise, has explicit pass, and public history stays collapsed
+ok 418 - automatic UI is concise, has explicit pass, and public history stays collapsed
+  ---
+  duration_ms: 18.530075
+  type: 'test'
+  ...
+# Subtest: normal inspection and mandatory choices remain available
+ok 419 - normal inspection and mandatory choices remain available
+  ---
+  duration_ms: 1.151307
+  type: 'test'
+  ...
+# Subtest: deck browsing is count/back only and has no state-changing controls
+ok 420 - deck browsing is count/back only and has no state-changing controls
+  ---
+  duration_ms: 6.215948
+  type: 'test'
+  ...
+# Subtest: discard uses actual array order and read-only expansion even during response
+ok 421 - discard uses actual array order and read-only expansion even during response
+  ---
+  duration_ms: 1.56555
+  type: 'test'
+  ...
+# Subtest: activation lists next resolution first, exact sources and a suspended resolving effect
+ok 422 - activation lists next resolution first, exact sources and a suspended resolving effect
+  ---
+  duration_ms: 2.520411
+  type: 'test'
+  ...
+# Subtest: board cards use browsing independently of response legality; hidden cards render back only
+ok 423 - board cards use browsing independently of response legality; hidden cards render back only
+  ---
+  duration_ms: 1.624462
+  type: 'test'
+  ...
+# Subtest: read-only detail never selects a target or spends; explicit action link uses exact candidates
+ok 424 - read-only detail never selects a target or spends; explicit action link uses exact candidates
+  ---
+  duration_ms: 1.21092
+  type: 'test'
+  ...
+# Subtest: all management zones are buttons and resolved activation is history-only
+ok 425 - all management zones are buttons and resolved activation is history-only
+  ---
+  duration_ms: 1.339589
+  type: 'test'
+  ...
+# Subtest: real chain sources remain browsable after leaving hand and resolving choice stays visible
+ok 426 - real chain sources remain browsable after leaving hand and resolving choice stays visible
+  ---
+  duration_ms: 16.179215
+  type: 'test'
+  ...
+# Subtest: engine-projected face-down preparation stays private to its owner while browsing
+ok 427 - engine-projected face-down preparation stays private to its owner while browsing
+  ---
+  duration_ms: 1.406273
+  type: 'test'
+  ...
+# Subtest: irreversible replacement payments require confirmation although they are choose actions
+ok 428 - irreversible replacement payments require confirmation although they are choose actions
+  ---
+  duration_ms: 1.057607
+  type: 'test'
+  ...
+# Subtest: engine-paid reaction requires confirmation even when its label has no cost token
+ok 429 - engine-paid reaction requires confirmation even when its label has no cost token
+  ---
+  duration_ms: 13.060238
+  type: 'test'
+  ...
+# Subtest: automatic last pick confirms accumulated payment names and survives hide without leaking
+ok 430 - automatic last pick confirms accumulated payment names and survives hide without leaking
+  ---
+  duration_ms: 20.917626
+  type: 'test'
+  ...
+# Subtest: selection presentation redacts identities of opponents face-down targets
+ok 431 - selection presentation redacts identities of opponents face-down targets
+  ---
+  duration_ms: 2.246667
+  type: 'test'
+  ...
+# Subtest: CPU refresh leaves the visible notice and its ancestor continuously connected
+ok 432 - CPU refresh leaves the visible notice and its ancestor continuously connected
+  ---
+  duration_ms: 3.325583
+  type: 'test'
+  ...
+# Subtest: initial render attaches the feedback host once
+ok 433 - initial render attaches the feedback host once
+  ---
+  duration_ms: 0.305552
+  type: 'test'
+  ...
+# Subtest: finished or hidden CPU view keeps human A/B upright without granting a private viewer
+ok 434 - finished or hidden CPU view keeps human A/B upright without granting a private viewer
+  ---
+  duration_ms: 4.572843
+  type: 'test'
+  ...
+# Subtest: both human seats reverse opponent positions only, preserving slot IDs and card taps
+ok 435 - both human seats reverse opponent positions only, preserving slot IDs and card taps
+  ---
+  duration_ms: 5.527089
+  type: 'test'
+  ...
+# Subtest: opponent management faces the human in either orientation without rotating content
+ok 436 - opponent management faces the human in either orientation without rotating content
+  ---
+  duration_ms: 2.507432
+  type: 'test'
+  ...
+# Subtest: notification frame has no opacity entrance animation to restart between results
+ok 437 - notification frame has no opacity entrance animation to restart between results
+  ---
+  duration_ms: 0.712905
+  type: 'test'
+  ...
+# Subtest: egg is a tappable state card only in the empty main slot, in both orientations
+ok 438 - egg is a tappable state card only in the empty main slot, in both orientations
+  ---
+  duration_ms: 8.663663
+  type: 'test'
+  ...
+# Subtest: egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions
+ok 439 - egg detail distinguishes normal draw, extra draw, mandatory return and birth without actions
+  ---
+  duration_ms: 0.516848
+  type: 'test'
+  ...
+# Subtest: real opening return and birth switch the top card and replay preserves the same display
+ok 440 - real opening return and birth switch the top card and replay preserves the same display
+  ---
+  duration_ms: 47.291416
+  type: 'test'
+  ...
+# Subtest: real dragon removal exposes opponent egg and retains the engine discard destination
+ok 441 - real dragon removal exposes opponent egg and retains the engine discard destination
+  ---
+  duration_ms: 16.78454
+  type: 'test'
+  ...
+# Subtest: seven declarations require an explicit native choice, with no default main action
+ok 442 - seven declarations require an explicit native choice, with no default main action
+  ---
+  duration_ms: 20.286915
+  type: 'test'
+  ...
+# Subtest: each declaration survives confirmation, command, chain and exact hit/miss resolution
+ok 443 - each declaration survives confirmation, command, chain and exact hit/miss resolution
+  ---
+  duration_ms: 106.60314
+  type: 'test'
+  ...
+# Subtest: CPU observes and chooses from the seven legal declarations without seeing deck order
+ok 444 - CPU observes and chooses from the seven legal declarations without seeing deck order
+  ---
+  duration_ms: 47.816212
+  type: 'test'
+  ...
+# Subtest: only the turn owner field is marked, independent of human seat and response actor
+ok 445 - only the turn owner field is marked, independent of human seat and response actor
+  ---
+  duration_ms: 13.159622
+  type: 'test'
+  ...
+# Subtest: field glow lasts 400ms once per turn, never per response, rerender, restore or reduced motion
+ok 446 - field glow lasts 400ms once per turn, never per response, rerender, restore or reduced motion
+  ---
+  duration_ms: 0.726534
+  type: 'test'
+  ...
+# Subtest: egg history distinguishes normal and extra draws, return order and actual net hand count
+ok 447 - egg history distinguishes normal and extra draws, return order and actual net hand count
+  ---
+  duration_ms: 26.863176
+  type: 'test'
+  ...
+# Subtest: CPU session commits each declaration using the same command and resolution as human play
+ok 448 - CPU session commits each declaration using the same command and resolution as human play
+  ---
+  duration_ms: 181.8168
+  type: 'test'
+  ...
+# Subtest: normal main draws one; egg deck exhaustion follows possible parts, never a return-first redraw
+ok 449 - normal main draws one; egg deck exhaustion follows possible parts, never a return-first redraw
+  ---
+  duration_ms: 27.500576
+  type: 'test'
+  ...
+# Subtest: draw annotations do not alter four-second notice content or reveal card identities
+ok 450 - draw annotations do not alter four-second notice content or reveal card identities
+  ---
+  duration_ms: 2.022908
+  type: 'test'
+  ...
+# Subtest: egg return history records the committed return even when a reservation immediately redraws it
+ok 451 - egg return history records the committed return even when a reservation immediately redraws it
+  ---
+  duration_ms: 4.622813
+  type: 'test'
+  ...
+# Subtest: selected mandatory card offers only its own engine choice, never another card action
+ok 452 - selected mandatory card offers only its own engine choice, never another card action
+  ---
+  duration_ms: 8.69722
+  type: 'test'
+  ...
+# Subtest: court keeps actor-relative seats and current operations with chain collapsed
+ok 453 - court keeps actor-relative seats and current operations with chain collapsed
+  ---
+  duration_ms: 58.854975
+  type: 'test'
+  ...
+# Subtest: response workflow exposes engine responses/pass and mandatory workflow cannot skip
+ok 454 - response workflow exposes engine responses/pass and mandatory workflow cannot skip
+  ---
+  duration_ms: 2.710279
+  type: 'test'
+  ...
+# Subtest: long press reorder commits display order only; pan/cancel never commits or opens card
+ok 455 - long press reorder commits display order only; pan/cancel never commits or opens card
+  ---
+  duration_ms: 2.243003
+  type: 'test'
+  ...
+# Subtest: invalid reordered IDs cannot add cards, lose duplicates or alter original hand
+ok 456 - invalid reordered IDs cannot add cards, lose duplicates or alter original hand
+  ---
+  duration_ms: 0.282993
+  type: 'test'
+  ...
+# Subtest: old response taps cannot execute after a state transition in CPU or hotseat
+ok 457 - old response taps cannot execute after a state transition in CPU or hotseat
+  ---
+  duration_ms: 53.144367
+  type: 'test'
+  ...
+# Subtest: a gesture cannot be replayed, retargeted, or survive a render
+ok 458 - a gesture cannot be replayed, retargeted, or survive a render
+  ---
+  duration_ms: 1.630801
+  type: 'test'
+  ...
+# Subtest: restore to the same revision, hide, and fresh accessibility activation
+ok 459 - restore to the same revision, hide, and fresh accessibility activation
+  ---
+  duration_ms: 1.98166
+  type: 'test'
+  ...
+# Subtest: held keyboard and browser multi-click cannot end a newly displayed turn
+ok 460 - held keyboard and browser multi-click cannot end a newly displayed turn
+  ---
+  duration_ms: 1.203262
+  type: 'test'
+  ...
+# Subtest: response and end-turn have distinct permanent slots and labels
+ok 461 - response and end-turn have distinct permanent slots and labels
+  ---
+  duration_ms: 8.57181
+  type: 'test'
+  ...
+# Subtest: capture listener blocks stale and retargeted DOM events before the action handler
+ok 462 - capture listener blocks stale and retargeted DOM events before the action handler
+  ---
+  duration_ms: 0.597524
+  type: 'test'
+  ...
+# Subtest: held Enter is cancelled before native click and a pre-render select gesture is refused
+ok 463 - held Enter is cancelled before native click and a pre-render select gesture is refused
+  ---
+  duration_ms: 0.4951
+  type: 'test'
+  ...
+# Subtest: either main opens exact legal challenge choices in both seats and match modes
+ok 464 - either main opens exact legal challenge choices in both seats and match modes
+  ---
+  duration_ms: 63.386469
+  type: 'test'
+  ...
+# Subtest: own partner opens the existing costed relationship action and commits once
+ok 465 - own partner opens the existing costed relationship action and commits once
+  ---
+  duration_ms: 26.395307
+  type: 'test'
+  ...
+# Subtest: no shortcuts for absent candidates, wrong cards, nonacting viewer or hidden cards
+ok 466 - no shortcuts for absent candidates, wrong cards, nonacting viewer or hidden cards
+  ---
+  duration_ms: 5.016707
+  type: 'test'
+  ...
+# Subtest: mandatory choices still route only their exact choice card and browsing stays read-only
+ok 467 - mandatory choices still route only their exact choice card and browsing stays read-only
+  ---
+  duration_ms: 2.042708
+  type: 'test'
+  ...
+# Subtest: removed egg parking leaves both management columns aligned with the grid
+ok 468 - removed egg parking leaves both management columns aligned with the grid
+  ---
+  duration_ms: 1.184311
+  type: 'test'
+  ...
+# Subtest: cost badge uses bold high contrast numerals without changing any of 452 values
+ok 469 - cost badge uses bold high contrast numerals without changing any of 452 values
+  ---
+  duration_ms: 15.305401
+  type: 'test'
+  ...
+# Subtest: hand ordering is seat-local, instance-based, persistent and never changes engine save
+ok 470 - hand ordering is seat-local, instance-based, persistent and never changes engine save
+  ---
+  duration_ms: 14.650559
+  type: 'test'
+  ...
+# Subtest: whole detail card fits Safari reduced viewports and portrait after rotation
+ok 471 - whole detail card fits Safari reduced viewports and portrait after rotation
+  ---
+  duration_ms: 0.992849
+  type: 'test'
+  ...
+# Subtest: mandatory choices work inside card detail; hidden detail exposes no choices or identities
+ok 472 - mandatory choices work inside card detail; hidden detail exposes no choices or identities
+  ---
+  duration_ms: 4.178348
+  type: 'test'
+  ...
+# Subtest: action hints mirror engine destinations and only expose safe choice card IDs
+ok 473 - action hints mirror engine destinations and only expose safe choice card IDs
+  ---
+  duration_ms: 14.156671
+  type: 'test'
+  ...
+# Subtest: hand presentation highlights selected instance and exposes accessible reorder controls only in reorder mode
+ok 474 - hand presentation highlights selected instance and exposes accessible reorder controls only in reorder mode
+  ---
+  duration_ms: 5.509347
+  type: 'test'
+  ...
+# Subtest: all 452 details keep current full text in the independent readable column
+ok 475 - all 452 details keep current full text in the independent readable column
+  ---
+  duration_ms: 22.476132
+  type: 'test'
+  ...
+# Subtest: UI session completes a match and renders/restores the finished public result
+ok 476 - UI session completes a match and renders/restores the finished public result
+  ---
+  duration_ms: 427.755783
+  type: 'test'
+  ...
+# Subtest: history retains the whole match and restore reproduces it beyond forty results
+ok 477 - history retains the whole match and restore reproduces it beyond forty results
+  ---
+  duration_ms: 1488.258542
+  type: 'test'
+  ...
+# Subtest: trace-only operations enter history without generating extra result notices
+ok 478 - trace-only operations enter history without generating extra result notices
+  ---
+  duration_ms: 1.018998
+  type: 'test'
+  ...
+# Subtest: history renders an event once, omits mass pass diagnostics, and escapes text
+ok 479 - history renders an event once, omits mass pass diagnostics, and escapes text
+  ---
+  duration_ms: 0.389663
+  type: 'test'
+  ...
+# Subtest: private identities stay out of public and opposing history projections
+ok 480 - private identities stay out of public and opposing history projections
+  ---
+  duration_ms: 0.710876
+  type: 'test'
+  ...
+# Subtest: history renders newest first without mutating chronological journal and survives replay
+ok 481 - history renders newest first without mutating chronological journal and survives replay
+  ---
+  duration_ms: 31.387734
+  type: 'test'
+  ...
+# Subtest: turn ownership and response operator stay distinct for either human seat and hotseat
+ok 482 - turn ownership and response operator stay distinct for either human seat and hotseat
+  ---
+  duration_ms: 8.817001
+  type: 'test'
+  ...
+# Subtest: marriage derives from actual transition and reports capped growth, payment, public couple, operator
+ok 483 - marriage derives from actual transition and reports capped growth, payment, public couple, operator
+  ---
+  duration_ms: 5.437295
+  type: 'test'
+  ...
+# Subtest: birth and main growth emphasize the actual card and stats, ordinary effects stay ordinary
+ok 484 - birth and main growth emphasize the actual card and stats, ordinary effects stay ordinary
+  ---
+  duration_ms: 4.21292
+  type: 'test'
+  ...
+# Subtest: history labels the command owner and turn before a turn boundary, no repeated pass-only rows
+ok 485 - history labels the command owner and turn before a turn boundary, no repeated pass-only rows
+  ---
+  duration_ms: 1.824817
+  type: 'test'
+  ...
+# Subtest: finished result is public and explicitly states the actual outcome
+ok 486 - finished result is public and explicitly states the actual outcome
+  ---
+  duration_ms: 2.006321
+  type: 'test'
+  ...
+# Subtest: turn motion only occurs on a real turn change, never on response/render/restore
+ok 487 - turn motion only occurs on a real turn change, never on response/render/restore
+  ---
+  duration_ms: 2.023134
+  type: 'test'
+  ...
+# Subtest: burst of important events stays in order without timer multiplication
+ok 488 - burst of important events stays in order without timer multiplication
+  ---
+  duration_ms: 1.685771
+  type: 'test'
+  ...
+# Subtest: new human input preserves pending important results but hide clears them
+ok 489 - new human input preserves pending important results but hide clears them
+  ---
+  duration_ms: 0.71029
+  type: 'test'
+  ...
+# Subtest: R1 hand tap → egg bottom → both response passes → hand tap birth costs exactly time1
+ok 490 - R1 hand tap → egg bottom → both response passes → hand tap birth costs exactly time1
+  ---
+  duration_ms: 29.332016
+  type: 'test'
+  ...
+# Subtest: compact notice separates notification from card choices and opens the complete fallback
+ok 491 - compact notice separates notification from card choices and opens the complete fallback
+  ---
+  duration_ms: 1.81569
+  type: 'test'
+  ...
+# Subtest: non-card mandatory choices remain reachable; singleton choices still require a tap
+ok 492 - non-card mandatory choices remain reachable; singleton choices still require a tap
+  ---
+  duration_ms: 1.927563
+  type: 'test'
+  ...
+# Subtest: every catalog card renders current text; main-only fields never leak into other categories
+ok 493 - every catalog card renders current text; main-only fields never leak into other categories
+  ---
+  duration_ms: 11.086113
+  type: 'test'
+  ...
+# Subtest: hidden cards never look up or embed supplied private identity
+ok 494 - hidden cards never look up or embed supplied private identity
+  ---
+  duration_ms: 0.420837
+  type: 'test'
+  ...
+# Subtest: board has nine ordered slots, shared preparation, management order and only the visible top state card
+ok 495 - board has nine ordered slots, shared preparation, management order and only the visible top state card
+  ---
+  duration_ms: 4.161327
+  type: 'test'
+  ...
+# Subtest: null viewer has no private hand or controls, and acting player is the large board
+ok 496 - null viewer has no private hand or controls, and acting player is the large board
+  ---
+  duration_ms: 1.676718
+  type: 'test'
+  ...
+# Subtest: confirmation protects payment/target/final selection without interrupting pass or incremental choices
+ok 497 - confirmation protects payment/target/final selection without interrupting pass or incremental choices
+  ---
+  duration_ms: 0.342824
+  type: 'test'
+  ...
+# Subtest: card names and text are escaped, never interpreted as markup
+ok 498 - card names and text are escaped, never interpreted as markup
+  ---
+  duration_ms: 0.193374
+  type: 'test'
+  ...
+# Subtest: dedicated compact guidance names current operator and phase; closing result cannot remove guidance
+ok 499 - dedicated compact guidance names current operator and phase; closing result cannot remove guidance
+  ---
+  duration_ms: 10.646477
+  type: 'test'
+  ...
+# Subtest: compact card markup keeps shared signature, omits full-copy and tiny stat labels across all 452 definitions
+ok 500 - compact card markup keeps shared signature, omits full-copy and tiny stat labels across all 452 definitions
+  ---
+  duration_ms: 18.005964
+  type: 'test'
+  ...
+# Subtest: result overlay is outside flow and anchored to the opponent grid cell without a spacer
+ok 501 - result overlay is outside flow and anchored to the opponent grid cell without a spacer
+  ---
+  duration_ms: 1.189937
+  type: 'test'
+  ...
+# Subtest: a board card needed for current choice opens exact action detail directly; other cards remain browsing-only
+ok 502 - a board card needed for current choice opens exact action detail directly; other cards remain browsing-only
+  ---
+  duration_ms: 2.194751
+  type: 'test'
+  ...
+# Subtest: portrait board uses its allocated row and results wrap within available width
+ok 503 - portrait board uses its allocated row and results wrap within available width
+  ---
+  duration_ms: 0.775659
+  type: 'test'
+  ...
+# Subtest: every official card keeps NAOTOCCHI and independent rarity in full, detail and compact views
+ok 504 - every official card keeps NAOTOCCHI and independent rarity in full, detail and compact views
+  ---
+  duration_ms: 35.868416
+  type: 'test'
+  ...
+# Subtest: normal→rare and rare→normal change only rarity UI; art, name, numbers and signature stay identical
+ok 505 - normal→rare and rare→normal change only rarity UI; art, name, numbers and signature stay identical
+  ---
+  duration_ms: 6.223597
+  type: 'test'
+  ...
+# Subtest: hidden cards reveal no rarity or signature
+ok 506 - hidden cards reveal no rarity or signature
+  ---
+  duration_ms: 0.324103
+  type: 'test'
+  ...
+# Subtest: egg choice names the move and remains pinned until its response window ends
+ok 507 - egg choice names the move and remains pinned until its response window ends
+  ---
+  duration_ms: 31.4535
+  type: 'test'
+  ...
+# Subtest: one legal choice is a direct button; no automatic selection or intermediate card picker
+ok 508 - one legal choice is a direct button; no automatic selection or intermediate card picker
+  ---
+  duration_ms: 3.903506
+  type: 'test'
+  ...
+# Subtest: birth effect survives trigger, response, hand-bottom choice and restore
+ok 509 - birth effect survives trigger, response, hand-bottom choice and restore
+  ---
+  duration_ms: 20.10643
+  type: 'test'
+  ...
+# Subtest: card detail exposes pass directly and only selected card actions during response
+ok 510 - card detail exposes pass directly and only selected card actions during response
+  ---
+  duration_ms: 1.617192
+  type: 'test'
+  ...
+# Subtest: board has separate persistent opponent own and operation regions; handoff has no effect/private DOM
+ok 511 - board has separate persistent opponent own and operation regions; handoff has no effect/private DOM
+  ---
+  duration_ms: 2.215532
+  type: 'test'
+  ...
+# Subtest: chain focus follows the latest public effect, then resolving choice; handoff reveals no opponent hand
+ok 512 - chain focus follows the latest public effect, then resolving choice; handoff reveals no opponent hand
+  ---
+  duration_ms: 14.435142
+  type: 'test'
+  ...
+# Subtest: activation target explains its declared destination without claiming it has already moved
+ok 513 - activation target explains its declared destination without claiming it has already moved
+  ---
+  duration_ms: 2.901364
+  type: 'test'
+  ...
+# Subtest: hand responses use the hand only; off-hand legal sources keep a reachable shortcut
+ok 514 - hand responses use the hand only; off-hand legal sources keep a reachable shortcut
+  ---
+  duration_ms: 18.04203
+  type: 'test'
+  ...
+# Subtest: CPU read-only inspection does not highlight cards that cannot respond
+ok 515 - CPU read-only inspection does not highlight cards that cannot respond
+  ---
+  duration_ms: 9.685906
+  type: 'test'
+  ...
+# Subtest: CPU bursts and automatic-pass history keep the active notice and one four-second timer
+ok 516 - CPU bursts and automatic-pass history keep the active notice and one four-second timer
+  ---
+  duration_ms: 2.81096
+  type: 'test'
+  ...
+# Subtest: re-render after collapse keeps the result reopen control available
+ok 517 - re-render after collapse keeps the result reopen control available
+  ---
+  duration_ms: 0.522894
+  type: 'test'
+  ...
+# Subtest: same batch plays in revision order without waiting for a game action or duplicating on render
+ok 518 - same batch plays in revision order without waiting for a game action or duplicating on render
+  ---
+  duration_ms: 0.572088
+  type: 'test'
+  ...
+# Subtest: background/handoff drops queued private notices and stale callbacks cannot resurrect them
+ok 519 - background/handoff drops queued private notices and stale callbacks cannot resurrect them
+  ---
+  duration_ms: 0.359241
+  type: 'test'
+  ...
+# Subtest: restore history stays in history; a new command replaces outdated pending notices
+ok 520 - restore history stays in history; a new command replaces outdated pending notices
+  ---
+  duration_ms: 0.484343
+  type: 'test'
+  ...
+# Subtest: notices use four-second timers; manual collapse and replay preserve order without game input
+ok 521 - notices use four-second timers; manual collapse and replay preserve order without game input
+  ---
+  duration_ms: 0.390354
+  type: 'test'
+  ...
+# Subtest: replay icon and retained private payload are erased on handoff/background/reset
+ok 522 - replay icon and retained private payload are erased on handoff/background/reset
+  ---
+  duration_ms: 0.304417
+  type: 'test'
+  ...
+# Subtest: default browser timers retain Window receiver for schedule and cancellation
+ok 523 - default browser timers retain Window receiver for schedule and cancellation
+  ---
+  duration_ms: 0.473006
+  type: 'test'
+  ...
+# Subtest: initial cards are a snapshot, egg return and birth draw have exact private identities
+ok 524 - initial cards are a snapshot, egg return and birth draw have exact private identities
+  ---
+  duration_ms: 56.469283
+  type: 'test'
+  ...
+# Subtest: growth, time, birth and current stats use exact committed values
+ok 525 - growth, time, birth and current stats use exact committed values
+  ---
+  duration_ms: 19.22263
+  type: 'test'
+  ...
+# Subtest: automatic chain results preserve command order and actual LIFO log without attributing net changes
+ok 526 - automatic chain results preserve command order and actual LIFO log without attributing net changes
+  ---
+  duration_ms: 6.010375
+  type: 'test'
+  ...
+# Subtest: restore reconstructs result history, starts concealed and stale clicks add no results
+ok 527 - restore reconstructs result history, starts concealed and stale clicks add no results
+  ---
+  duration_ms: 14.95726
+  type: 'test'
+  ...
+# Subtest: B draw remains hidden through handoff and appears only after B reveal
+ok 528 - B draw remains hidden through handoff and appears only after B reveal
+  ---
+  duration_ms: 11.148837
+  type: 'test'
+  ...
+# Subtest: result notice has only a presentation close control, shows draw art and preserves full history
+ok 529 - result notice has only a presentation close control, shows draw art and preserves full history
+  ---
+  duration_ms: 15.019174
+  type: 'test'
+  ...
+# Subtest: same-command negation is reported from actual history after links leave the chain
+ok 530 - same-command negation is reported from actual history after links leave the chain
+  ---
+  duration_ms: 5.936014
+  type: 'test'
+  ...
+# Subtest: prevention displays its recorded outcome without claiming prevented loss happened
+ok 531 - prevention displays its recorded outcome without claiming prevented loss happened
+  ---
+  duration_ms: 3.925587
+  type: 'test'
+  ...
+# Subtest: consecutive growth events retain individual actual amounts rather than one net total
+ok 532 - consecutive growth events retain individual actual amounts rather than one net total
+  ---
+  duration_ms: 2.925241
+  type: 'test'
+  ...
+# Subtest: actual power and wisdom reductions after prevention match engine stats
+ok 533 - actual power and wisdom reductions after prevention match engine stats
+  ---
+  duration_ms: 2.718183
+  type: 'test'
+  ...
+# Subtest: result capture is read-only, same-source time skip and discarded card are reported
+ok 534 - result capture is read-only, same-source time skip and discarded card are reported
+  ---
+  duration_ms: 1.603612
+  type: 'test'
+  ...
+# Subtest: restore suppresses old transient notifications, preserving history and future results
+ok 535 - restore suppresses old transient notifications, preserving history and future results
+  ---
+  duration_ms: 12.735842
+  type: 'test'
+  ...
+# Subtest: natural first turn result evidence preserves automation and private projections
+ok 536 - natural first turn result evidence preserves automation and private projections
+  ---
+  duration_ms: 19.866821
+  type: 'test'
+  ...
+# Subtest: handoff erases private projection on response actor change, and saved restore starts hidden
+ok 537 - handoff erases private projection on response actor change, and saved restore starts hidden
+  ---
+  duration_ms: 215.372975
+  type: 'test'
+  ...
+# Subtest: a queued second click and action from a hidden seat cannot mutate the saved game
+ok 538 - a queued second click and action from a hidden seat cannot mutate the saved game
+  ---
+  duration_ms: 2.052528
+  type: 'test'
+  ...
+# Subtest: round baby uses the approved two semantic lines in every face size
+ok 539 - round baby uses the approved two semantic lines in every face size
+  ---
+  duration_ms: 2.15112
+  type: 'test'
+  ...
+# Subtest: all main titles retain exact text with one or two non-orphan lines and a uniform font token
+ok 540 - all main titles retain exact text with one or two non-orphan lines and a uniform font token
+  ---
+  duration_ms: 6.991769
+  type: 'test'
+  ...
+# Subtest: normal end-turn action is never relabelled as a response pass
+ok 541 - normal end-turn action is never relabelled as a response pass
+  ---
+  duration_ms: 19.13794
+  type: 'test'
+  ...
+# Subtest: empty-chain response after birth resolution cannot claim normal action
+ok 542 - empty-chain response after birth resolution cannot claim normal action
+  ---
+  duration_ms: 9.484151
+  type: 'test'
+  ...
+# Subtest: opening handoff states owner, response reason, no response and exact pass destination
+ok 543 - opening handoff states owner, response reason, no response and exact pass destination
+  ---
+  duration_ms: 6.686204
+  type: 'test'
+  ...
+# Subtest: full first turn trace: egg, exact responses, birth effect, end boundary and B start
+ok 544 - full first turn trace: egg, exact responses, birth effect, end boundary and B start
+  ---
+  duration_ms: 175.964499
+  type: 'test'
+  ...
+# Subtest: opening quick card requires chain passes then start-window passes without starting B turn
+ok 545 - opening quick card requires chain passes then start-window passes without starting B turn
+  ---
+  duration_ms: 5.626917
+  type: 'test'
+  ...
+# Subtest: hidden mandatory choice is labelled as selection without revealing private choice content
+ok 546 - hidden mandatory choice is labelled as selection without revealing private choice content
+  ---
+  duration_ms: 0.650368
+  type: 'test'
+  ...
+# Subtest: new response link resets passes; LIFO resolution choice cannot offer a pass
+ok 547 - new response link resets passes; LIFO resolution choice cannot offer a pass
+  ---
+  duration_ms: 10.512205
+  type: 'test'
+  ...
+# Subtest: aborted challenge pass does not promise a comparison that the engine will skip
+ok 548 - aborted challenge pass does not promise a comparison that the engine will skip
+  ---
+  duration_ms: 1.646517
+  type: 'test'
+  ...
+1..548
+# tests 548
+# suites 0
+# pass 548
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 65424.670825

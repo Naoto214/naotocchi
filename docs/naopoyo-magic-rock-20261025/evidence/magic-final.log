@@ -1,0 +1,34 @@
+✔ magic rock number is large and centered in its actual cell (4.924773ms)
+✔ contact progress migrates without board/Undo or writes to old key (6.511962ms)
+✔ phase glow is transient, reduced motion clears it, Undo restores board (8.342929ms)
+✔ rock8 horizontal and gravity passage/support level1 (9.457305ms)
+✔ rock and mismatched magic rock share ascent level1 (0.610662ms)
+✔ rock8 horizontal and gravity passage/support level2 (8.689689ms)
+✔ rock and mismatched magic rock share ascent level2 (0.810686ms)
+✔ rock8 horizontal and gravity passage/support level3 (0.646392ms)
+✔ rock and mismatched magic rock share ascent level3 (0.350106ms)
+✔ rock8 horizontal and gravity passage/support level4 (0.28101ms)
+✔ rock and mismatched magic rock share ascent level4 (15.897363ms)
+✔ rock8 horizontal and gravity passage/support level5 (3.016326ms)
+✔ rock and mismatched magic rock share ascent level5 (0.410356ms)
+✔ rock8 horizontal and gravity passage/support level6 (0.347157ms)
+✔ rock and mismatched magic rock share ascent level6 (0.160467ms)
+✔ rock8 horizontal and gravity passage/support level7 (0.27279ms)
+✔ rock and mismatched magic rock share ascent level7 (4.318416ms)
+✔ rock8 horizontal and gravity passage/support level8 (4.466698ms)
+✔ rock and mismatched magic rock share ascent level8 (0.261809ms)
+✔ corner uses moving number and legacy contact remains unchanged (0.506116ms)
+✔ reverse exchange has its own corner number (0.524315ms)
+✔ split level1 cannot escape a parent8-only rock corner (0.529586ms)
+✔ restore rejects old terrain rules and invalid rock occupants (0.254428ms)
+✔ merge overflow and external split cannot change rock qualification (5.238601ms)
+✔ all eight entry directions use the same rock qualification (1.551587ms)
+✔ stage19 reported level3 climb is blocked in old corner and legal through redesigned opening (6.705995ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 621.937181

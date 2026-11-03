@@ -1,0 +1,13 @@
+{
+  "bytes": 213462184,
+  "file_count": 4053,
+  "static_references": 1680,
+  "dynamic_references": 2954,
+  "source_head": "40b7f49b04ffdd8b9426d0d19c80f078d0802ca7",
+  "allowlist_sha256": "7f329c0e478f6be71864a0539a73526c2451545bcc5a39031bea5db17635a8b4",
+  "max_bytes": 350000000,
+  "tar": {
+    "bytes": 216576000,
+    "sha256": "7d60e0f92590ee1d428321528ed7f9e5814252d41c8119da9779b84785b5a518"
+  }
+}

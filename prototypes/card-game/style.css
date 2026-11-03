@@ -230,3 +230,111 @@ dialog{color:#f9f1d9;background:#18392f;border:1px solid #c8ac6b;border-radius:1
 /* CPU strategy deck selection (welcome screen) */
 .cpu-deck-guide{margin:.25rem 0 .5rem;font-size:.9rem;line-height:1.5;opacity:.85}
 .cpu-deck-reveal{font-weight:600}
+
+/* Card detail in play (#card-dialog), adopted from PR #467 (improved A).
+   The ability text is never boxed in its own scroller: the whole detail scrolls once.
+   Actions stay in a band pinned to the bottom. Portrait puts name/kind/cost/rarity beside the art;
+   landscape lays choices side by side. Comparison material: detail-ui-ab-20261028/. */
+#card-dialog.card-detail .effect-scroll{flex:none;min-height:0;max-height:none;overflow:visible;padding:4px 2px}
+#card-dialog.card-detail .detail-copy>*{flex:none}
+#card-dialog.card-detail .detail-command{position:sticky;bottom:0;z-index:2;min-height:0;gap:4px;padding:6px 0 0;background:#18392f;border-top:1px solid #c8ac6b80;box-shadow:0 -10px 12px -6px #0b2620;max-height:max(132px,calc(var(--ui-vh,100dvh) - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - var(--detail-card-height,180px) - 150px))}
+#card-dialog.card-detail .detail-command:has(.choice-guide){min-height:0}
+#card-dialog.card-detail .detail-command h3{line-height:1.3}
+#card-dialog.card-detail .detail-command .choice-guide{line-height:1.4}
+#card-dialog.card-detail .detail-command:has([data-declaration]){position:static;max-height:none;box-shadow:none}
+#card-dialog.card-detail .detail-actions{flex:0 1 auto;min-height:44px;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#card-dialog.card-detail .detail-pass{display:grid;gap:8px;margin-top:4px}
+#card-dialog.card-detail .detail-command .actions button{padding:6px 10px;line-height:1.35}
+#card-dialog.card-detail .detail-command .action-destination{display:inline;margin:0 0 0 .6em;opacity:.85;white-space:nowrap}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .detail-layout{display:grid;grid-template-columns:var(--detail-card-width,180px) minmax(0,1fr);grid-template-rows:auto auto auto 1fr;align-items:start;align-content:start;column-gap:12px;row-gap:8px;min-height:0;height:100%;overflow-y:auto;overscroll-behavior:contain;margin:0}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .detail-image{grid-column:1;grid-row:1/span 2;margin:0}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .detail-copy{display:contents}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .detail-summary{grid-column:2;grid-row:1;min-width:0}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .detail-summary p{display:block;font-size:12px;line-height:1.45;margin:2px 0}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .detail-summary p+p::before{content:none}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .learning-related{grid-column:2;grid-row:2;align-self:end;min-height:44px;margin:0;padding:6px 8px;font-size:12px}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .detail-copy>:not(.detail-summary):not(.learning-related):not(.detail-command){grid-column:1/-1}
+:root[data-detail-orientation=portrait] #card-dialog.card-detail .detail-command{grid-column:1/-1;grid-row:4;align-self:end}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .detail-copy{position:relative;overflow-y:auto;gap:5px}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .detail-summary{padding-right:124px;min-height:44px}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .learning-related{position:absolute;top:0;right:0;width:116px;min-height:44px;margin:0;padding:4px 6px;font-size:12px}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .detail-command{margin-top:auto;max-height:calc(var(--ui-vh,100dvh)*.55)}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .detail-actions{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .detail-summary p{display:inline;font-size:11px;line-height:1.5;margin:0}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .detail-summary p+p::before{content:" · "}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .detail-summary h2{margin-bottom:2px}
+
+/* Card detail in play: the official card, large, then only the actions (card stage, after PR #467).
+   The card is a 320 × 480 canvas scaled by --stage-scale (set by fitStageCard). One scroll at most: the stage. */
+#card-dialog.card-detail .card-stage{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px;min-height:0;height:100%}
+#card-dialog.card-detail .stage-scroll{min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:center;padding:2px 0 4px}
+#card-dialog.card-detail .stage-card{flex:none;position:relative;margin:auto;width:calc(320px * var(--stage-scale,.6));height:calc(480px * var(--stage-scale,.6));border-radius:4%;cursor:default;-webkit-tap-highlight-color:transparent;touch-action:pan-x pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#card-dialog.card-detail .stage-card[data-zoomable]{cursor:zoom-in}
+#card-dialog.card-detail[data-stage-zoom="1"] .stage-card{cursor:zoom-out}
+/* Shown only when tapping the card really changes its size. */
+#card-dialog.card-detail .stage-zoom{flex:none;min-height:44px;margin:0 0 0 auto;padding:4px 10px;font-size:12px}
+#card-dialog.card-detail .stage-card:focus-visible{outline:2px solid #ffdf88;outline-offset:3px}
+#card-dialog.card-detail .stage-card-canvas{width:320px;height:480px;transform:scale(var(--stage-scale,.6));transform-origin:top left}
+#card-dialog.card-detail .stage-card-canvas>.card-face,#card-dialog.card-detail .stage-card-canvas>.card-back{width:320px;height:480px}
+#card-dialog.card-detail .stage-band{min-height:0;max-height:calc(var(--ui-vh,100dvh) * .46);overflow-y:auto;overscroll-behavior:contain;padding-top:8px;border-top:1px solid #c8ac6b80}
+#card-dialog.card-detail .stage-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#card-dialog.card-detail .stage-actions button{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-height:48px;padding:7px 12px;line-height:1.3;text-align:left}
+#card-dialog.card-detail .stage-actions .action-main{font-size:15px;font-weight:600}
+#card-dialog.card-detail .stage-actions .action-note{font-size:11.5px;font-weight:400;opacity:.88}
+#card-dialog.card-detail .stage-note{margin:4px 2px 2px;font-size:12px;line-height:1.5;color:#e4dfc1}
+#card-dialog.card-detail .stage-band[data-more]::after{content:"▼ ほかの選択肢があります";position:sticky;bottom:0;display:block;padding:12px 0 2px;background:linear-gradient(#18392f00,#18392f 55%);color:#e4cf93;font-size:11px;text-align:center;pointer-events:none}
+/* Landscape: card on the left of the stage, actions in a column on the right. */
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .card-stage{grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,1fr) clamp(240px,44%,420px);gap:12px}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-actions button{min-height:44px;padding:5px 10px}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-actions .action-main{font-size:14px}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-band{max-height:none;padding-top:0;border-top:0;border-left:1px solid #c8ac6b80;padding-left:12px;align-self:stretch}
+
+/* Landscape board: the whole table fits the screen without vertical scrolling (portrait is unchanged).
+   Both boards fill the height they are given; the three slot rows share it and each card fits its slot. */
+@media(orientation:landscape){
+ .battle-area .board-shell{overflow:hidden;display:flex}
+ .battle-area .player-board{height:100%;max-height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:4px 5px}
+ .battle-area .player-heading{min-height:20px}
+ .battle-area .board-layout{min-height:0;height:100%}
+ .battle-area .board-field{min-height:0;display:flex;flex-direction:column}
+ .battle-area .slots{flex:1;min-height:0;grid-template-rows:repeat(3,minmax(0,1fr));gap:3px}
+ .battle-area .slot{aspect-ratio:auto;height:auto;min-height:0;grid-template-rows:10px minmax(0,1fr)}
+ .battle-area .slot>small{line-height:10px}
+ .battle-area .management{min-height:0;height:100%;gap:3px}
+ .battle-area .board-metrics{min-height:16px;padding-top:2px}
+ .battle-area .slot-content{container-type:size}
+ .battle-area .slot-content .card-tap{width:min(100cqw,66.6667cqh);height:min(100cqh,150cqw);aspect-ratio:2/3}
+ /* Opponent cards keep their small name under the card: the card takes the rest of the slot height. */
+ .battle-area .opponent .slot:not([data-slot="1"]) .slot-content .card-tap{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;aspect-ratio:auto;overflow:hidden}
+ .battle-area .opponent .slot:not([data-slot="1"]) .card-tap>.card-face,.battle-area .opponent .slot:not([data-slot="1"]) .card-tap>.card-back,.battle-area .opponent .slot:not([data-slot="1"]) .card-tap>.egg-card{flex:1 1 auto;min-height:0;width:auto;height:auto;max-width:100%;aspect-ratio:2/3}
+ .battle-area .opponent .board-card-name{flex:none;max-width:100%;line-height:10px}
+ /* Pile cells shrink with the board: drop the small deck icon, then tighten the label, so the count is never cut. */
+ .battle-area .management>[data-zone]{container-type:size;line-height:1.1}
+}
+@container (max-height:60px){.battle-area .management>[data-zone]>.card-back{display:none}}
+@container (max-height:40px){.battle-area .management>[data-zone]>span{font-size:7px;line-height:1}.battle-area .management>[data-zone]>b{line-height:1}}
+/* Landscape card detail: the whole card fits the full height on the left; status, close and actions share the right column. */
+:root[data-detail-orientation=landscape] #card-dialog.card-detail:has(>.card-stage){grid-template-columns:minmax(0,1fr) clamp(240px,44%,420px);grid-template-rows:44px minmax(0,1fr);column-gap:12px;row-gap:8px}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail:has(>.card-stage)>.detail-toolbar{grid-column:2;grid-row:1}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail>.card-stage{display:contents}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-scroll{grid-column:1;grid-row:1/span 2}
+:root[data-detail-orientation=landscape] #card-dialog.card-detail .stage-band{grid-column:2;grid-row:2;border-left:0;padding-left:0;min-height:0}
+/* なおとっち（育成画面）へもどる：開始画面ヘッダー右上と ☰ メニュー内 */
+a.home-return{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid #738a75;border-radius:9px;background:#24483d;color:#fff9e5;text-decoration:none;white-space:nowrap;font-size:14px;flex:none;-webkit-tap-highlight-color:transparent}
+a.home-return:focus-visible,#menu-home:focus-visible{outline:2px solid #edd49a;outline-offset:2px}
+body>header h1{margin:0;min-width:0}
+.menu-home-confirm h3{margin:4px 0 8px;color:#edd49a}.menu-home-confirm p{margin:0 0 12px;line-height:1.6}.menu-home-warn{color:#ffd6c2}
+.menu-home-actions{display:flex;flex-wrap:wrap;gap:10px}.menu-home-actions button{flex:1 1 auto;white-space:nowrap}
+@media(max-width:360px){body>header h1{font-size:1.05rem}a.home-return{padding:10px 10px;font-size:13px}}
+/* ☰ 対戦メニューの「もどる」：表記は「〇〇へもどる」にそろえ、折り返さない。
+   幅が足りるとき（横画面など）は2列、足りないとき（縦画面）は1列に積む。なおとっち本編へは枠の色を変えて別扱い */
+.menu-leave{margin-top:14px;padding-top:12px;border-top:1px solid #718c6b66}.menu-leave h3{margin:0 0 8px;font-size:13px;letter-spacing:.12em;color:#d5c9a2}
+.menu-leave-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:8px}.menu-leave-grid button{min-width:0;min-height:48px;padding:10px 14px;line-height:1.35;white-space:nowrap}
+.menu-leave-grid #menu-home{border-color:#c8ac6b;background:#2d4a33}.menu-leave-grid #menu-continue{grid-column:1/-1}
+.resume-note{margin:12px 0 0;padding:10px 12px;border:1px solid #c8ac6b;border-radius:10px;background:#2d4a33;color:#f9f1d9;font-size:14px;line-height:1.6}
+
+/* V20: display controls remain available in both orientations and zoom states. */
+#card-dialog.card-detail .stage-zoom,.life-clock-toolbar .inspection-control{min-height:44px;min-width:72px;padding:6px 10px;font-size:13px;white-space:nowrap;flex:none}
+#card-dialog.card-detail .detail-toolbar{flex-wrap:wrap}
+#card-dialog.card-detail .detail-toolbar>span{min-width:0;flex:1}
+#card-dialog.card-detail .stage-scroll{align-items:flex-start;overflow:auto}

@@ -268,7 +268,7 @@ export function mount({stages = defaultStages, qa = false} = {}) {
       const fresh=progress.clear(q.stage.id),next=stages.find(s=>s.id===progress.next(q.stage.id));
       const endingKey=q.stage.id+':ending',seen=progress.data.read.includes(endingKey);
       progress.read(endingKey);
-      show(`<div class="victory-star">★</div><h2>${next?'みんな、おかえり。':'第1章 クリア！'}</h2>${seen?'':`<p>${q.stage.ending}</p>`}${fresh?'<p class="unlock">✧ 新しい星の道が開きました</p>':''}${next?'<button class="primary" id="nextStage">次の星の道へ →</button>':'<p>第2章「風の森」は、これからのお楽しみ。</p><button class="primary" id="chapterMap">星の道をふりかえる</button>'}`);
+      show(`<div class="victory-star">★</div><h2>${next?'みんな、おかえり。':'第1章 クリア！'}</h2>${seen?'':`<p>${q.stage.ending}</p>`}${fresh?'<p class="unlock">✧ 新しい星の道が開きました</p>':''}${next?'<button class="primary" id="nextStage">次の星の道へ →</button>':'<p><a class="primary" href="../naopoyo-chapter2/index.html">第2章「こもれびの森」へ →</a></p><button class="primary" id="chapterMap">星の道をふりかえる</button>'}`);
       if(next)$("nextStage").onclick=()=>choose(next.id);
       else $("chapterMap").onclick=selectScreen;
     }

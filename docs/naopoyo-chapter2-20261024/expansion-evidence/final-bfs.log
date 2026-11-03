@@ -1,0 +1,14 @@
+14: 11 accepted moves, all rescued; shortest=true
+15: 15 accepted moves, all rescued; shortest=true
+16: 15 accepted moves, all rescued; shortest=false
+17: 16 accepted moves, all rescued; shortest=true
+18: 33 accepted moves, all rescued; shortest=false
+19: 30 accepted moves, all rescued; shortest=false
+20: 26 accepted moves, all rescued; shortest=false
+14 {"status":"solved","visited":628,"expanded":557,"edges":3600,"depth":11,"shortestProven":true,"elapsedMs":32,"method":"bfs"}
+15 {"status":"solved","visited":86514,"expanded":67001,"edges":1184003,"depth":15,"shortestProven":true,"elapsedMs":8197,"method":"bfs"}
+16 {"status":"limit","visited":257814,"expanded":147395,"edges":3406963,"shortestProven":false,"elapsedMs":30000,"method":"bfs"}
+17 {"status":"solved","visited":40322,"expanded":37605,"edges":695964,"depth":16,"shortestProven":true,"elapsedMs":4497,"method":"bfs"}
+18 {"status":"limit","visited":343824,"expanded":203689,"edges":3641742,"shortestProven":false,"elapsedMs":30000,"method":"bfs"}
+19 {"status":"limit","visited":387297,"expanded":148236,"edges":3157030,"shortestProven":false,"elapsedMs":30000,"method":"bfs"}
+20 {"status":"solved","visited":138217,"expanded":117351,"edges":1482633,"depth":26,"shortestProven":true,"elapsedMs":7749,"method":"bfs"}

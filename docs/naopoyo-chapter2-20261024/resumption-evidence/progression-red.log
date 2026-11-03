@@ -1,0 +1,61 @@
+✔ normal chapter 10 → 11 → 12 → 13 and replay never relocks (16.097575ms)
+✔ read-only chapter-one completion seeds trial; all writes are isolated (11.325221ms)
+✔ QA unlocks only 11–20 and never modifies normal progress (0.539785ms)
+✔ unknown future save is preserved and corruption backup stays in pilot namespace (7.767848ms)
+✔ future board slot and outer board copy survive normal autosave (0.450274ms)
+✔ damaged board slot is preserved before writing a replacement (0.466417ms)
+✖ completed old Pilot unlocks new 14 from whole-save without replaying 13 (8.343737ms)
+✖ completed old Pilot unlocks new 14 from append-only-marker without replaying 13 (0.557101ms)
+✔ uncleared final Pilot stage does not unlock 14 (4.553391ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 7
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 339.887769
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/progress.test.mjs:31:57
+✖ completed old Pilot unlocks new 14 from whole-save without replaying 13 (8.343737ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(p.allowed(next))
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8a0f80e61b95/naotocchi/prototypes/naopoyo-chapter2/tests/progress.test.mjs:35:39)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/progress.test.mjs:31:57
+✖ completed old Pilot unlocks new 14 from append-only-marker without replaying 13 (0.557101ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(p.allowed(next))
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/8a0f80e61b95/naotocchi/prototypes/naopoyo-chapter2/tests/progress.test.mjs:35:39)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

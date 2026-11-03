@@ -1,0 +1,40 @@
+✔ one-step prediction shows settled body and children without mutating its source (4.453034ms)
+✔ illegal moves, non-splitting moves and level-one spike passage have no preview (0.341445ms)
+✔ slow approach previews BEFORE committing and cancel removes all transient state (3.07742ms)
+✔ retry, restore, actor switch and invalid pointer clear predictions (2.244444ms)
+✔ fast continuous drag remains identical with preview calculations enabled (1.947295ms)
+✔ relative drag after gravity previews from the logical actor, not the pointer row (0.907729ms)
+✔ all shipped witness split/merge/overflow/rescue/gate outcomes use exact engine results (28.435652ms)
+✖ approach follows the existing chamfered pointer entry, including oblique approaches (2.651191ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 151.429866
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:49:1
+✖ approach follows the existing chamfered pointer entry, including oblique approaches (2.651191ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      1,
+  +   1
+  -   0
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/09f806090700/naotocchi/prototypes/naopoyo-chapter2/tests/split-preview.test.mjs:53:69)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 1, 1 ],
+    expected: [ 1, 0 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,24 @@
+{
+  "base": "abed89099d2b548863ab9b7b219891382b43dbda",
+  "implementationHead": "403379e2116225cc2654ae9096f9715715c1ad00",
+  "implementationTree": "e494398442981e70a5e4df967903826059683edc",
+  "changedFiles": [
+    "docs/naopoyo-gate-v7-20261026/PLAN.md",
+    "docs/naopoyo-gate-v7-20261026/REVIEW.md",
+    "prototypes/naopoyo-chapter2/app.mjs",
+    "prototypes/naopoyo-chapter2/build-preview.mjs",
+    "prototypes/naopoyo-chapter2/gate-art.mjs",
+    "prototypes/naopoyo-chapter2/gate-effects.mjs",
+    "prototypes/naopoyo-chapter2/index.html",
+    "prototypes/naopoyo-chapter2/qa.html",
+    "prototypes/naopoyo-chapter2/render.mjs",
+    "prototypes/naopoyo-chapter2/tests/gate-presentation.test.mjs",
+    "prototypes/naopoyo-chapter2/tests/magic-rock-visual.test.mjs"
+  ],
+  "version": 7,
+  "publishedFiles": 67,
+  "protectedRuntimeAndData": "unchanged",
+  "stage19Moves": 62,
+  "stage20Moves": 60,
+  "stage19And20ShortestProven": false
+}

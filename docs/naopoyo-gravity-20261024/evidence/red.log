@@ -1,0 +1,835 @@
+✖ stage 1: unsupported upper spike is not a foothold (4.3837ms)
+✔ stage 1: rock diagonal step and destination-only corner crossing (0.383396ms)
+✖ stage 1: unrelated side rock cannot grant diagonal air ascent (0.427021ms)
+✔ stage 1: airborne departure cannot ascend even onto a ledge (0.163932ms)
+✖ stage 2: unsupported upper spike is not a foothold (0.654726ms)
+✔ stage 2: rock diagonal step and destination-only corner crossing (0.124464ms)
+✖ stage 2: unrelated side rock cannot grant diagonal air ascent (0.190522ms)
+✔ stage 2: airborne departure cannot ascend even onto a ledge (0.091835ms)
+✖ stage 3: unsupported upper spike is not a foothold (1.61261ms)
+✔ stage 3: rock diagonal step and destination-only corner crossing (0.336847ms)
+✖ stage 3: unrelated side rock cannot grant diagonal air ascent (0.202078ms)
+✔ stage 3: airborne departure cannot ascend even onto a ledge (0.076473ms)
+✖ stage 4: unsupported upper spike is not a foothold (0.539917ms)
+✔ stage 4: rock diagonal step and destination-only corner crossing (0.227375ms)
+✖ stage 4: unrelated side rock cannot grant diagonal air ascent (0.224792ms)
+✔ stage 4: airborne departure cannot ascend even onto a ledge (0.069313ms)
+✖ stage 5: unsupported upper spike is not a foothold (0.538355ms)
+✔ stage 5: rock diagonal step and destination-only corner crossing (0.109923ms)
+✖ stage 5: unrelated side rock cannot grant diagonal air ascent (0.15541ms)
+✔ stage 5: airborne departure cannot ascend even onto a ledge (0.125085ms)
+✖ stage 6: unsupported upper spike is not a foothold (0.527549ms)
+✔ stage 6: rock diagonal step and destination-only corner crossing (0.079007ms)
+✖ stage 6: unrelated side rock cannot grant diagonal air ascent (0.141259ms)
+✔ stage 6: airborne departure cannot ascend even onto a ledge (0.059898ms)
+✖ stage 7: unsupported upper spike is not a foothold (0.46778ms)
+✔ stage 7: rock diagonal step and destination-only corner crossing (0.079047ms)
+✖ stage 7: unrelated side rock cannot grant diagonal air ascent (0.114829ms)
+✔ stage 7: airborne departure cannot ascend even onto a ledge (0.056794ms)
+✖ stage 8: unsupported upper spike is not a foothold (0.305631ms)
+✔ stage 8: rock diagonal step and destination-only corner crossing (0.068241ms)
+✖ stage 8: unrelated side rock cannot grant diagonal air ascent (0.904115ms)
+✔ stage 8: airborne departure cannot ascend even onto a ledge (0.063043ms)
+✖ spike occupant and fragments fall during same event (3.600525ms)
+✖ initial unsupported spike occupant falls without triggering a new entry (0.183761ms)
+✔ 8 on 1..7 is legal ascent followed by automatic merge/overflow; 8 on 8 stays (0.31834ms)
+✖ rule version cannot be injected or omitted in saved state (0.473359ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 17
+ℹ fail 19
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 120.612926
+
+✖ failing tests:
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:6:2
+✖ stage 1: unsupported upper spike is not a foothold (4.3837ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   children: [],
+  +   events: [],
+  +   falls: [],
+  +   id: 'a',
+  +   merged: 0,
+  +   ok: true,
+  +   overflow: 0,
+  +   rescued: 0,
+  +   split: 0,
+  +   splitBlocked: 'minimum'
+  -   ok: false,
+  -   reason: 'foothold'
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { ok: true, id: 'a', merged: 0, overflow: 0, split: 0, children: [], rescued: 0, falls: [], splitBlocked: 'minimum', events: [] },
+    expected: { ok: false, reason: 'foothold' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:13:2
+✖ stage 1: unrelated side rock cannot grant diagonal air ascent (0.427021ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:14:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:6:2
+✖ stage 2: unsupported upper spike is not a foothold (0.654726ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   children: [
+  +     {
+  +       id: 'child1',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 2,
+  +       y: 7
+  +     }
+  +   ],
+  +   events: [
+  +     {
+  +       count: 1,
+  +       id: 'a',
+  +       type: 'split',
+  +       x: 2,
+  +       y: 6
+  +     }
+  +   ],
+  +   falls: [],
+  +   id: 'a',
+  +   merged: 0,
+  +   ok: true,
+  +   overflow: 0,
+  +   rescued: 0,
+  +   split: 1,
+  +   splitBlocked: null
+  -   ok: false,
+  -   reason: 'foothold'
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { ok: true, id: 'a', merged: 0, overflow: 0, split: 1, children: [ [Object] ], rescued: 0, falls: [], splitBlocked: null, events: [ [Object] ] },
+    expected: { ok: false, reason: 'foothold' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:13:2
+✖ stage 2: unrelated side rock cannot grant diagonal air ascent (0.190522ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:14:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:6:2
+✖ stage 3: unsupported upper spike is not a foothold (1.61261ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   children: [
+  +     {
+  +       id: 'child1',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 2,
+  +       y: 7
+  +     },
+  +     {
+  +       id: 'child2',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 1,
+  +       y: 6
+  +     }
+  +   ],
+  +   events: [
+  +     {
+  +       count: 2,
+  +       id: 'a',
+  +       type: 'split',
+  +       x: 2,
+  +       y: 6
+  +     }
+  +   ],
+  +   falls: [],
+  +   id: 'a',
+  +   merged: 0,
+  +   ok: true,
+  +   overflow: 0,
+  +   rescued: 0,
+  +   split: 2,
+  +   splitBlocked: null
+  -   ok: false,
+  -   reason: 'foothold'
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { ok: true, id: 'a', merged: 0, overflow: 0, split: 2, children: [ [Object], [Object] ], rescued: 0, falls: [], splitBlocked: null, events: [ [Object] ] },
+    expected: { ok: false, reason: 'foothold' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:13:2
+✖ stage 3: unrelated side rock cannot grant diagonal air ascent (0.202078ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:14:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:6:2
+✖ stage 4: unsupported upper spike is not a foothold (0.539917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   children: [
+  +     {
+  +       id: 'child1',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 2,
+  +       y: 7
+  +     },
+  +     {
+  +       id: 'child2',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 1,
+  +       y: 6
+  +     },
+  +     {
+  +       id: 'child3',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 3,
+  +       y: 6
+  +     }
+  +   ],
+  +   events: [
+  +     {
+  +       count: 3,
+  +       id: 'a',
+  +       type: 'split',
+  +       x: 2,
+  +       y: 6
+  +     },
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   falls: [
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   id: 'a',
+  +   merged: 0,
+  +   ok: true,
+  +   overflow: 0,
+  +   rescued: 0,
+  +   split: 3,
+  +   splitBlocked: null
+  -   ok: false,
+  -   reason: 'foothold'
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { ok: true, id: 'a', merged: 0, overflow: 0, split: 3, children: [ [Object], [Object], [Object] ], rescued: 0, falls: [ [Object] ], splitBlocked: null, events: [ [Object], [Object] ] },
+    expected: { ok: false, reason: 'foothold' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:13:2
+✖ stage 4: unrelated side rock cannot grant diagonal air ascent (0.224792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:14:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:6:2
+✖ stage 5: unsupported upper spike is not a foothold (0.538355ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   children: [
+  +     {
+  +       id: 'child1',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 2,
+  +       y: 7
+  +     },
+  +     {
+  +       id: 'child2',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 1,
+  +       y: 6
+  +     },
+  +     {
+  +       id: 'child3',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 3,
+  +       y: 6
+  +     }
+  +   ],
+  +   events: [
+  +     {
+  +       count: 3,
+  +       id: 'a',
+  +       type: 'split',
+  +       x: 2,
+  +       y: 6
+  +     },
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   falls: [
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   id: 'a',
+  +   merged: 0,
+  +   ok: true,
+  +   overflow: 0,
+  +   rescued: 0,
+  +   split: 3,
+  +   splitBlocked: null
+  -   ok: false,
+  -   reason: 'foothold'
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { ok: true, id: 'a', merged: 0, overflow: 0, split: 3, children: [ [Object], [Object], [Object] ], rescued: 0, falls: [ [Object] ], splitBlocked: null, events: [ [Object], [Object] ] },
+    expected: { ok: false, reason: 'foothold' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:13:2
+✖ stage 5: unrelated side rock cannot grant diagonal air ascent (0.15541ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:14:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:6:2
+✖ stage 6: unsupported upper spike is not a foothold (0.527549ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   children: [
+  +     {
+  +       id: 'child1',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 2,
+  +       y: 7
+  +     },
+  +     {
+  +       id: 'child2',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 1,
+  +       y: 6
+  +     },
+  +     {
+  +       id: 'child3',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 3,
+  +       y: 6
+  +     }
+  +   ],
+  +   events: [
+  +     {
+  +       count: 3,
+  +       id: 'a',
+  +       type: 'split',
+  +       x: 2,
+  +       y: 6
+  +     },
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   falls: [
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   id: 'a',
+  +   merged: 0,
+  +   ok: true,
+  +   overflow: 0,
+  +   rescued: 0,
+  +   split: 3,
+  +   splitBlocked: null
+  -   ok: false,
+  -   reason: 'foothold'
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { ok: true, id: 'a', merged: 0, overflow: 0, split: 3, children: [ [Object], [Object], [Object] ], rescued: 0, falls: [ [Object] ], splitBlocked: null, events: [ [Object], [Object] ] },
+    expected: { ok: false, reason: 'foothold' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:13:2
+✖ stage 6: unrelated side rock cannot grant diagonal air ascent (0.141259ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:14:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:6:2
+✖ stage 7: unsupported upper spike is not a foothold (0.46778ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   children: [
+  +     {
+  +       id: 'child1',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 2,
+  +       y: 7
+  +     },
+  +     {
+  +       id: 'child2',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 1,
+  +       y: 6
+  +     },
+  +     {
+  +       id: 'child3',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 3,
+  +       y: 6
+  +     }
+  +   ],
+  +   events: [
+  +     {
+  +       count: 3,
+  +       id: 'a',
+  +       type: 'split',
+  +       x: 2,
+  +       y: 6
+  +     },
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   falls: [
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   id: 'a',
+  +   merged: 0,
+  +   ok: true,
+  +   overflow: 0,
+  +   rescued: 0,
+  +   split: 3,
+  +   splitBlocked: null
+  -   ok: false,
+  -   reason: 'foothold'
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { ok: true, id: 'a', merged: 0, overflow: 0, split: 3, children: [ [Object], [Object], [Object] ], rescued: 0, falls: [ [Object] ], splitBlocked: null, events: [ [Object], [Object] ] },
+    expected: { ok: false, reason: 'foothold' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:13:2
+✖ stage 7: unrelated side rock cannot grant diagonal air ascent (0.114829ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:14:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:6:2
+✖ stage 8: unsupported upper spike is not a foothold (0.305631ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   children: [
+  +     {
+  +       id: 'child1',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 2,
+  +       y: 7
+  +     },
+  +     {
+  +       id: 'child2',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 1,
+  +       y: 6
+  +     },
+  +     {
+  +       id: 'child3',
+  +       level: 1,
+  +       species: 'dog',
+  +       x: 3,
+  +       y: 6
+  +     }
+  +   ],
+  +   events: [
+  +     {
+  +       count: 3,
+  +       id: 'a',
+  +       type: 'split',
+  +       x: 2,
+  +       y: 6
+  +     },
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   falls: [
+  +     {
+  +       from: 6,
+  +       id: 'child3',
+  +       to: 7,
+  +       type: 'fall',
+  +       x: 3
+  +     }
+  +   ],
+  +   id: 'a',
+  +   merged: 0,
+  +   ok: true,
+  +   overflow: 0,
+  +   rescued: 0,
+  +   split: 3,
+  +   splitBlocked: null
+  -   ok: false,
+  -   reason: 'foothold'
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:8:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { ok: true, id: 'a', merged: 0, overflow: 0, split: 3, children: [ [Object], [Object], [Object] ], rescued: 0, falls: [ [Object] ], splitBlocked: null, events: [ [Object], [Object] ] },
+    expected: { ok: false, reason: 'foothold' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:13:2
+✖ stage 8: unrelated side rock cannot grant diagonal air ascent (0.904115ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'foothold'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:14:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'foothold',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:20:1
+✖ spike occupant and fragments fall during same event (3.600525ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(s.actors.every(a=>a.y!==4||a.x===2))
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:22:73)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:24:1
+✖ initial unsupported spike occupant falls without triggering a new entry (0.183761ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 7
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:25:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 7,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:34:1
+✖ rule version cannot be injected or omitted in saved state (0.473359ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/4d9661873d5c/naotocchi/prototypes/naopoyo-chapter2/tests/gravity-rules.test.mjs:35:107)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,18 @@
+{
+ "rerun": 12,
+ "identical_save_and_seat_metrics": 12,
+ "matches": [
+  "BP:natural:partner:challenge+S:-:001:B:X-first",
+  "BP:natural:partner:item+S:-:001:B:X-first",
+  "BP:natural:balance:challenge+S:-:001:B:X-first",
+  "BP:natural:balance:item+S:-:001:B:X-first",
+  "BP:natural:partner:challenge+S:-:001:C:X-first",
+  "BP:natural:partner:item+S:-:001:C:X-first",
+  "BP:natural:balance:challenge+S:-:001:C:X-first",
+  "BP:natural:balance:item+S:-:001:C:X-first",
+  "BP:natural:partner:challenge+S:-:001:C2:X-first",
+  "BP:natural:partner:item+S:-:001:C2:X-first",
+  "BP:natural:balance:challenge+S:-:001:C2:X-first",
+  "BP:natural:balance:item+S:-:001:C2:X-first"
+ ]
+}
