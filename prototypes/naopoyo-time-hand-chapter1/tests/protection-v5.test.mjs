@@ -7,9 +7,10 @@ test('V4 input, physics, app control flow and shared motion/painter/timing sourc
  let source=fs.readFileSync(new URL(file,root));
  // Normalize only the explicitly approved sign-help UI changes; keep the original protected hash.
  if(file==='app.mjs'){
+  source=Buffer.from(source.toString().replace(" const help=$('gravity-help');help.style.left=(bounds.left+8)+'px';help.style.top=(bounds.bottom-cell-14)+'px';help.style.width=Math.max(1,Math.min(300,bounds.width-16))+'px';help.style.setProperty('--tail-left',Math.max(12,cell/2-14)+'px');\n",''));
   source=Buffer.from(source.toString().replace("let gravityHelpOpen=false;\n",""));
   source=Buffer.from(source.toString().replace("mode='play';gravityHelpOpen=false;progress.index=i;","mode='play';progress.index=i;"));
-  source=Buffer.from(source.toString().replace("$('gravity').hidden=!!q.state.gravity&&!gravityHelpOpen;",""));
+  source=Buffer.from(source.toString().replace("$('gravity').hidden=!!q.state.gravity;$('gravity-help').hidden=!q.state.gravity||!gravityHelpOpen||isDemo;",""));
   source=Buffer.from(source.toString().replace("let pointer=null,signTap=null;\nconst onSign=p=>p.x>=0&&p.x<1&&p.y>=7&&p.y<8;","let pointer=null;"));
   source=Buffer.from(source.toString().replace("const id=pointer;pointer=null;signTap=null;","const id=pointer;pointer=null;"));
   source=Buffer.from(source.toString().replace("if(!hit&&current().state.gravity&&onSign(p)){pointer=e.pointerId;signTap={x:e.clientX,y:e.clientY,moved:false};canvas.setPointerCapture(pointer);return;}",""));

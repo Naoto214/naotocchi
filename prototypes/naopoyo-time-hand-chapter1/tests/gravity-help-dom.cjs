@@ -10,7 +10,7 @@ const {JSDOM}=require(process.env.NAOPOYO_JSDOM||'jsdom');const fs=require('node
  global.Image=class{set src(v){queueMicrotask(()=>this.onload())}};
  w.HTMLDialogElement.prototype.showModal=function(){this.open=true};w.HTMLDialogElement.prototype.close=function(){this.open=false};
  const ctx=new Proxy({font:'12px system-ui',createRadialGradient:()=>({addColorStop(){}}),createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>k in o?o[k]:(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
- w.HTMLCanvasElement.prototype.getContext=()=>ctx;w.HTMLElement.prototype.getBoundingClientRect=()=>({x:0,y:0,left:0,top:0,width:320,height:320});
+ w.HTMLCanvasElement.prototype.getContext=()=>ctx;w.HTMLElement.prototype.getBoundingClientRect=()=>({x:0,y:0,left:0,top:0,width:320,height:320,bottom:320});
  w.HTMLCanvasElement.prototype.setPointerCapture=()=>{};
  const load=f=>import(pathToFileURL(path.join(dir,f)));
  const {ChapterProgress}=await load('progress.mjs'),{ChapterSession,STORAGE_KEY}=await load('session.mjs'),{solutions}=await load('solutions.mjs'),{stages}=await load('stages.mjs');
@@ -51,14 +51,15 @@ const {JSDOM}=require(process.env.NAOPOYO_JSDOM||'jsdom');const fs=require('node
  for(let i=0;i<10;i++){
   $('select').click();document.querySelector(`[data-stage="${i}"]`).click();$('retry').click();
   const live=new ChapterSession(i);
-  assert.equal($('gravity').hidden,!!live.state.gravity);
+  assert.equal($('gravity').hidden,!!live.state.gravity);assert.equal($('gravity-help').hidden,true);
   if(live.state.gravity){
+   assert.match($('gravity-help').textContent,/この部屋には重力があります。/);assert.match($('gravity-help').textContent,/足元に支えがないと、キャラクターは下へ落ちます。/);
    const before=localStorage.getItem(STORAGE_KEY),moves=$('moves').textContent;
-   tap(0,7);assert.equal($('gravity').hidden,false);tap(0,7);assert.equal($('gravity').hidden,true);
+   tap(0,7);assert.equal($('gravity-help').hidden,false);assert.equal($('gravity').hidden,true);tap(0,7);assert.equal($('gravity-help').hidden,true);assert.equal($('gravity').hidden,true);
    const e={pointerId:91,isPrimary:true,clientX:20,clientY:300,preventDefault(){}};
    board.onpointerdown(e);board.onpointercancel(e);board.onpointerup(e);assert.equal($('gravity').hidden,true);
    board.onpointerdown(e);board.onpointermove({...e,clientX:60});board.onpointerup(e);assert.equal($('gravity').hidden,true);
-   tap(0,7);w.dispatchEvent(new w.Event('resize'));assert.equal($('gravity').hidden,false);tap(0,7);
+   tap(0,7);w.dispatchEvent(new w.Event('resize'));assert.equal($('gravity-help').hidden,false);assert.equal($('gravity').hidden,true);tap(0,7);
    assert.equal($('moves').textContent,moves);assert.equal(localStorage.getItem(STORAGE_KEY),before);
   }
   for(const step of solutions[i])move(live,step);

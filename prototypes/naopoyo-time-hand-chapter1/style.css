@@ -38,3 +38,9 @@ main{grid-template-rows:44px auto minmax(0,1fr) 22px 46px}
 /* Gravity marker inside A8, resting on the board floor; no input or collision. */
 .gravity-sign{position:fixed;transform-origin:top left;box-sizing:border-box;width:40px;height:40px;pointer-events:none;user-select:none;opacity:0}
 .gravity-sign[hidden]{display:none}
+
+/* The sign explains gravity in a readable speech bubble without resizing the board. */
+.gravity-help{position:fixed;z-index:5;box-sizing:border-box;margin:0;padding:14px 16px;border:2px solid #99734c;border-radius:16px;background:#fff6df;color:#392d24;box-shadow:0 5px 18px #0005;font:400 16px/1.65 system-ui,sans-serif;letter-spacing:0;text-align:left;transform:translateY(-100%);pointer-events:none;overflow-wrap:anywhere}
+.gravity-help[hidden]{display:none}
+.gravity-help::after{content:"";position:absolute;left:var(--tail-left,12px);bottom:-8px;width:12px;height:12px;background:#fff6df;border-right:2px solid #99734c;border-bottom:2px solid #99734c;transform:rotate(45deg)}
+.gravity-help strong{white-space:nowrap;font-weight:750;color:#814021}.gravity-help small{display:block;margin-top:8px;color:#706051;font-size:11px;line-height:1.5}
