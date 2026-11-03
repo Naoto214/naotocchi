@@ -233,9 +233,10 @@
   const scaleX=Math.max(.02,(paneWidth-gap*2-e.side*2*bodyScaleLimit)/Math.max(1,e.right-e.left));
   let scaleY=Math.max(.02,(paneHeight-gap*2-(e.above+e.below)*bodyScaleLimit)/Math.max(1,e.bottom-e.top));
   let topInk=e.top*scaleY-e.above*bodyScaleLimit;
-  if(e.vertical?.length){
+  const vertical=e.fitVertical||e.vertical;
+  if(vertical?.length){
    // The farther actor is smaller: reserve its real depth, not the nearest size.
-   const span=k=>{let lo=Infinity,hi=-Infinity;for(const [y,up,down]of e.vertical){lo=Math.min(lo,y*k-up*bodyScaleLimit);hi=Math.max(hi,y*k+down*bodyScaleLimit);}return {lo,hi};};
+   const span=k=>{let lo=Infinity,hi=-Infinity;for(const [y,up,down]of vertical){lo=Math.min(lo,y*k-up*bodyScaleLimit);hi=Math.max(hi,y*k+down*bodyScaleLimit);}return {lo,hi};};
    let low=scaleY,high=Math.max(low,(paneHeight-gap*2)/Math.max(1,e.bottom-e.top));
    for(let i=0;i<32;i++){const mid=(low+high)/2,b=span(mid);if(b.hi-b.lo<=paneHeight-gap*2)low=mid;else high=mid;}
    scaleY=low;topInk=span(scaleY).lo;
@@ -252,7 +253,7 @@
   return {scale,scaleX:scale,scaleY:scale,bodyScale:residentScale(count)*Math.min(1,scale*2.2),
    inset:(art.left-frameLeft)/scale,pad,scrollTop,viewWidth:paneWidth/scale,viewHeight:paneHeight/scale,art};
  }
- let presentation=null;
+ let presentation=null,fixedScrollTop=null;
  function unscalePoint(p,t=presentation){return t?{x:t.x+(p.x-t.x)/(t.scaleX||t.scale),y:t.y+(p.y-t.y)/(t.scaleY||t.scale)}:p;}
  function presentationRect(e){
   const r=e.getBoundingClientRect();
@@ -264,7 +265,7 @@
  root.NaotocchiHomeViewport={revealDelta,layout,layoutV9,layoutV10,layoutV12,layoutV14,fitV12Text,landscapeOverview,portraitFit,residentScale,portraitPresentation,landscapePresentation,presentationRect,unscalePoint,residentPresentation:()=>presentation?.bodyScale?presentation:null};
  const doc=root.document,device=doc?.getElementById('device'),frame=device?.querySelector?.('.screen-frame');
  if(!frame||!['8','9','10','11','12'].includes(doc.body.dataset.homeViewportVersion))return;
- const v14=doc.body.dataset.homeDisplayVersion==='14',v13=v14||doc.body.dataset.homeDisplayVersion==='13';
+ const v15=doc.body.dataset.homeDisplayVersion==='15',v14=v15||doc.body.dataset.homeDisplayVersion==='14',v13=v14||doc.body.dataset.homeDisplayVersion==='13';
  const v12=doc.body.dataset.homeViewportVersion==='12',v11=v12||doc.body.dataset.homeViewportVersion==='11',v10=v11||doc.body.dataset.homeViewportVersion==='10',v9=v10||doc.body.dataset.homeViewportVersion==='9';
  const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
  if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
@@ -277,7 +278,7 @@
   if(!saved.has(e))saved.set(e,new Map());const previous=saved.get(e);
   for(const [k,v]of Object.entries(props)){if(!previous.has(k))previous.set(k,[e.style.getPropertyValue(k),e.style.getPropertyPriority(k)]);e.style.setProperty(k,String(v),'important');}
  }
- function restore(){presentation=null;delete doc.body.dataset.homeTinyOverview;delete doc.body.dataset.homePortraitScale;for(const [e,props]of saved)for(const [k,[v,p]]of props){if(v)e.style.setProperty(k,v,p);else e.style.removeProperty(k);}saved.clear();[...markers].reverse().forEach(e=>e.remove());markers=[];navigation?.remove();navigation=null;delete doc.body.dataset.homeViewportV8;active=false;}
+ function restore(){presentation=null;fixedScrollTop=null;delete doc.body.dataset.homeTinyOverview;delete doc.body.dataset.homePortraitScale;for(const [e,props]of saved)for(const [k,[v,p]]of props){if(v)e.style.setProperty(k,v,p);else e.style.removeProperty(k);}saved.clear();[...markers].reverse().forEach(e=>e.remove());markers=[];navigation?.remove();navigation=null;delete doc.body.dataset.homeViewportV8;active=false;}
  function reserve(e){const marker=doc.createElement('div');marker.style.cssText='flex:0 0 '+rect(e).height+'px;height:'+rect(e).height+'px;pointer-events:none';e.before(marker);markers.push(marker);}
  function movePresentation(e,parent){
   if(!e||e.parentNode===parent)return;
@@ -367,7 +368,7 @@
    style(frame,{overflow:'hidden','clip-path':'inset(0)','touch-action':'none'});
    if(meters)style(meters,{overflow:'hidden'});
    style(notice,{height:p.noticeHeight+'px','min-height':p.noticeHeight+'px','max-height':p.noticeHeight+'px',overflow:'visible','align-items':'flex-start'});
-   style(dock,{top:p.commentTop+'px',height:p.commentHeight+'px','min-height':p.commentHeight+'px','max-height':p.commentHeight+'px',overflow:'visible','justify-content':'flex-end'});
+   style(dock,{top:p.commentTop+'px',height:p.commentHeight+'px','min-height':p.commentHeight+'px','max-height':p.commentHeight+'px',overflow:'visible','justify-content':v15&&!landscape?'flex-start':'flex-end'});
    if(v13&&stage.__homeResidentEnvelope){
     if(landscape){const nativeWidth=Math.max(320,(p.nativeFrameWidth??p.frameWidth)*(rect(stage).height+96)/p.frameHeight);style(screen,{width:nativeWidth+'px','min-width':nativeWidth+'px'});}
     const nativeWidth=rect(screen).width,nativeHeight=Math.max(screen.scrollHeight,rect(screen).height),stageTop=rect(stage).top-rect(screen).top,stageHeight=rect(stage).height;
@@ -423,7 +424,7 @@
    const vw=viewport?.width||root.innerWidth,vh=viewport?.height||root.innerHeight,ot=viewport?.offsetTop||0;
    // Background coverage is independent of the resident-safe presentation.
    style(doc.body,{'--home-backdrop-width':(landscape?fr.left+p.frameWidth:vw)+'px','--home-backdrop-top':ot+'px','--home-backdrop-height':vh+'px'});
-   if(v14&&invite?.dataset.companionId==='snail'&&!invite.classList.contains('hidden')){
+   if(v14&&invite&&(v15||invite.dataset.companionId==='snail')&&!invite.classList.contains('hidden')){
     // Keep the original card outside the transformed resident pane; the full
     // transparent surface still intercepts input while existing modal guards run.
     movePresentation(invite,device);
@@ -432,6 +433,7 @@
    if(v13&&root.CustomEvent)stage.dispatchEvent(new root.CustomEvent('home-presentation'));
    style(dock,{'--v12-choice-x':(vw/2)+'px','--v12-choice-y':(ot+vh/2)+'px','--v12-choice-width':Math.min(360,vw-32)+'px','--v12-choice-height':Math.max(44,vh-32)+'px'});
   }
+  if(v15&&presentation){fixedScrollTop=frame.scrollTop;presentation.scrollTop=fixedScrollTop;}
   root.requestAnimationFrame(()=>root.requestAnimationFrame(()=>{if(active){reveal(selected(),true);if(v11 || v10&&!landscape){followKey=selected()?.dataset.dioramaActor||'';followUntil=Infinity;}}}));
  }
  function schedule(){if(pending)return;pending=true;root.requestAnimationFrame(apply);}
@@ -447,7 +449,12 @@
  doc.addEventListener('pointercancel',()=>{dragging=false;followKey='';},{passive:true});
  frame.addEventListener('wheel',()=>{followKey='';},{passive:true});
  function resumeCamera(){if(!v11)return;resumeAt=Date.now()+900;}
- frame.addEventListener('scroll',()=>{if(v11&&!followKey)resumeCamera();},{passive:true});
+ // overflow:hidden still permits focus/scrollIntoView to move this container.
+ // Keep the fixed camera authoritative; text/card scrollers remain independent.
+ frame.addEventListener('scroll',()=>{
+  if(v15&&active&&fixedScrollTop!==null){frame.scrollTop=fixedScrollTop;frame.scrollLeft=0;}
+  else if(v11&&!followKey)resumeCamera();
+ },{passive:true,capture:true});
  doc.addEventListener('pointercancel',resumeCamera,{passive:true});
  frame.addEventListener('wheel',resumeCamera,{passive:true});
  doc.addEventListener('pointerup',()=>{if(v11){resumeAt=Date.now()+200;followUntil=Infinity;}},{passive:true});

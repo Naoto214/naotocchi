@@ -281,3 +281,17 @@ body[data-home-viewport-version="12"][data-home-viewport-v8="true"] #speechSlot 
 /* V14 snail invitation: keep the modal hit surface, remove only its dark paint. */
 body[data-home-production="true"][data-home-display-version="14"] #companionInviteOverlay[data-companion-id="snail"]{background:transparent}
 body[data-home-production="true"][data-home-display-version="14"] #companionInviteOverlay[data-companion-id="snail"]>.companion-invite-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
+
+/* V15: retain the invitation's hit surface and card, remove only its dim paint. */
+body[data-home-production="true"][data-home-display-version="15"] #companionInviteOverlay{background:transparent}
+body[data-home-production="true"][data-home-display-version="15"] #companionInviteOverlay>.companion-invite-card{max-height:100%;overflow-y:auto;overscroll-behavior:contain}
+@media(orientation:portrait){
+ body[data-home-production="true"][data-home-display-version="15"][data-home-viewport-v8="true"] #speechSlot #homeCommentDock{justify-content:flex-start!important}
+}
+@media(orientation:landscape){
+ html:has(body[data-home-display-version="15"] #device[data-home-fixed="true"]),
+ body[data-home-display-version="15"]:has(#device[data-home-fixed="true"]){background:#fff}
+ body[data-home-display-version="15"] #device[data-home-fixed="true"]{background:transparent;color:#17343d}
+ body[data-home-display-version="15"] #device[data-home-fixed="true"] :is(.device-header,#homeInformation,#homeEventSlot,#homeCommentDock,.home-meters,#careActions){color:#17343d;text-shadow:none}
+ body[data-home-display-version="15"] #device[data-home-fixed="true"] :is(.bar-label,.bar-value,#careActions button,.device-header button){color:#17343d;text-shadow:none}
+}

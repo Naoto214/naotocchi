@@ -1,6 +1,11 @@
 /* Lightweight Home adapter. Existing code owns attendance, art and all care. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.NaotocchiHomeDiorama=api;})(typeof window!=='undefined'?window:null,function(){
   'use strict';
+  function residentPaintExtent(actor,height,foot,boxes,fallback){
+    if(!boxes?.length||boxes.some(b=>!Number.isFinite(b.y+b.height)||b.height<=0))return fallback;
+    return {up:Math.max((actor.extent?.top||actor.h)+12,actor.h*1.08+(actor.w||0)*.12,...boxes.map(b=>foot-(b.y-3)*height/104)),
+      down:Math.max(8,actor.extent?.bottom||0,...boxes.map(b=>(b.y+b.height+3)*height/104-foot))};
+  }
   function residentInkBand({x,y,top,bottom,up,down},navigation){
     // Continuous drag endpoints can lie anywhere in the original 8px grid cell.
     return [Math.max(top,y-8),y,Math.min(bottom,y+8)].map(y=>{const depth=navigation?.depthScale?.({x,y})||1;return [y,up*depth+5,down*depth+3];});
@@ -314,8 +319,8 @@
     }
     let residentEnvelopeKey='';
     function publishResidentEnvelope(){
-      if(!['13','14'].includes(doc.body?.dataset.homeDisplayVersion))return;
-      const depthAware=doc.body.dataset.homeDisplayVersion==='14',vertical=new Map();
+      if(!['13','14','15'].includes(doc.body?.dataset.homeDisplayVersion))return;
+      const v15=doc.body.dataset.homeDisplayVersion==='15',depthAware=v15||doc.body.dataset.homeDisplayVersion==='14',vertical=new Map(),fitVertical=new Map();
       const key=JSON.stringify([scene.width,scene.height,world?.stats().projectionRevision,...[...rows.values()].map(r=>[r.key,r.asset,r.w,r.h,r.extent])]);
       if(key===residentEnvelopeKey)return;residentEnvelopeKey=key;
       let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity,above=0,below=0,side=0;
@@ -328,6 +333,19 @@
           up=Math.max(up,foot-(2+Number(m[1]))*h/104);down=Math.max(down,(46+Number(m[1]))*h/104-foot);
           wide=Math.max(wide,h*.55);
         }
+        let paint={up,down};
+        if(v15&&a.kind==='pet'&&doc.createElement){
+          // Measure the approved SVG paths, including their existing translations.
+          // Keep this independent of the currently visible expression and model bounds.
+          const probe=doc.createElement('div');probe.style.cssText='position:absolute;visibility:hidden;pointer-events:none';
+          const boxes=[];let measurable=true;stage.appendChild(probe);
+          try{for(const kind of Object.keys(accentCenters)){
+            const html=env.NaotocchiPetExpression?.accentFor?.(row.asset,kind)||'';if(!html)continue;
+            probe.innerHTML=html;const svg=probe.querySelector?.('svg');if(!svg?.getBBox){measurable=false;break;}
+            const b=svg.getBBox();boxes.push({y:b.y,height:b.height});
+          }}catch(_){measurable=false;}finally{probe.remove();}
+          paint=residentPaintExtent(row,h,foot,measurable?boxes:null,paint);
+        }
         let maxDepth=1;
         // Read the existing navigation grid, without making a new walkable region.
         for(let y=b.top;y<=b.bottom+.001;y+=Math.min(8,Math.max(1,b.bottom-y))) {
@@ -336,6 +354,9 @@
               left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);
               const depth=scene.navigation?.depthScale?.({x,y})||1;
               maxDepth=Math.max(maxDepth,depth);
+              if(v15)for(const [sy,sup,sdown]of residentInkBand({x,y,top:b.top,bottom:b.bottom,up:paint.up,down:paint.down},scene.navigation)){
+                const ink=fitVertical.get(sy)||[0,0];fitVertical.set(sy,[Math.max(ink[0],sup),Math.max(ink[1],sdown)]);
+              }
               if(depthAware)for(const [sy,sup,sdown]of residentInkBand({x,y,top:b.top,bottom:b.bottom,up,down},scene.navigation)){
                 const ink=vertical.get(sy)||[0,0];vertical.set(sy,[Math.max(ink[0],sup),Math.max(ink[1],sdown)]);top=Math.min(top,sy);bottom=Math.max(bottom,sy);
               }
@@ -346,6 +367,7 @@
       }
       if(!Number.isFinite(left))return;
       const value={left,right,top,bottom,above,below,side,width:scene.width,height:scene.height,count:rows.size};
+      if(v15)value.fitVertical=[...fitVertical].sort((a,b)=>a[0]-b[0]).map(([y,ink])=>[y,...ink]);
       if(depthAware)value.vertical=[...vertical].sort((a,b)=>a[0]-b[0]).map(([y,ink])=>[y,...ink]);
       if(JSON.stringify(value)===JSON.stringify(stage.__homeResidentEnvelope))return;
       stage.__homeResidentEnvelope=value;
@@ -509,6 +531,6 @@
     doc.addEventListener('visibilitychange',visibility);media?.addEventListener?.('change',preference);
     return {model,update,sync,interrupt,prepareNewborn(){newbornPending=true;},overview:()=>overview,replayGuide(){guideWalk=null;guide.replay();showGuide();},dismissGuide(){guideWalk=null;guide.dismiss();showGuide();},destroy(){placeHomeSlots(false);dead=true;stop();clearWorld();clearGesture();for(const row of rows.values())restore(row);rows.clear();for(const [n,fn]of Object.entries(listeners))stage.removeEventListener(n,fn);doc.removeEventListener('visibilitychange',visibility);media?.removeEventListener?.('change',preference);view.remove();selectedLabel.remove();art.remove();overlay.remove();hint.remove();clearStage();}};
   }
-  return {residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
+  return {residentPaintExtent,residentInkBand,noticeChunks,textLayout,homeText,homeWarnings,sceneFor,createGestureGuide,createController,facingScale,crowdScale,scaleLayout,layoutTerrainCast,sleepAccentShift,effectPosition,effectTrajectory,placeActorEffects,speechPlacement,speechTail,placeGroundProps};
 });
 

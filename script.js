@@ -12945,7 +12945,7 @@
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
     el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
       && !el.screenNormal.classList.contains('hidden') && (!suppressFrontFx || (
-        document.body.dataset.homeDisplayVersion==='14' && companionInviteOpen && pendingCompanionId==='snail'
+        (document.body.dataset.homeDisplayVersion==='15' || document.body.dataset.homeDisplayVersion==='14' && pendingCompanionId==='snail') && companionInviteOpen
         && !gameActive && !hasTransformChoice && !lifeCardVisible && !activeOverlay && !dateOpen && !duelOpen
         && !pendingItemScene && !itemSceneRecord && !grandGoalPending && !dexDetail && !meguruActive && !individualityDialogOpen)));
     renderWorldScene(suppressFrontFx);
