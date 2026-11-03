@@ -1,0 +1,3 @@
+.v4-candidates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.v4-candidates .choice{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 4px;min-width:0;font-size:13px}.v4-candidates .portrait{width:70px;height:70px;max-width:100%;object-fit:contain}.v4-candidates span{overflow-wrap:anywhere}.follower{pointer-events:none}.active-party image{filter:drop-shadow(0 0 2px #fff)}.legend{grid-template-columns:1fr}.legend span{white-space:normal}.relation-row small{display:block}@media(min-width:600px){.legend{grid-template-columns:1fr 1fr}}
+.game-head .tag:before{content:'V4 · '}
+html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
