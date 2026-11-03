@@ -44,6 +44,7 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/transform-new-badge-browser.cjs
       - run: node tests/sticker-background-browser.cjs
       - run: node tests/boot-rescue-browser.cjs
       - run: node tests/back-navigation-browser.cjs

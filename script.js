@@ -13976,7 +13976,7 @@
       el.pickerHint.textContent = 'へんしんする姿を1つ選んでね。決めるまで使わない';
       el.pickerGrid.className = 'theme-grid';
       const options = item.picker === 'transform-ticket' ? ticketTransformOptions : state.transformOptions;
-      html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge(), line)].label}</button>`).join('');
+      html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge(), line)].label}${transformNewBadge(line)}</button>`).join('');
     } else if (item.picker === 'dex' || item.picker === 'dex-form') {
       el.pickerGrid.className = 'theme-grid';
       el.pickerHint.textContent = '図鑑の枠を1つ選んでね。？？？は選んだあとに登録され、5分だけその姿になります。決めるまで使いません。';
@@ -14974,6 +14974,11 @@
     return line === SECRET_LINE && !state.discoveredStages.some((e) => e.startsWith(`${SECRET_LINE}:`));
   }
 
+  function transformNewBadge(line) {
+    const key = canonicalDexKey(`${line}:${stageForAge(currentAge(), line)}`);
+    return knownDexKeys().has(key) ? '' : '<span class="transform-new-badge" aria-label="未発見">NEW</span>';
+  }
+
   function renderTransformChoices() {
     // RH-8: 知らない しゅぞく(未来の save など)は えがかない(save には のこる)
     const options = (state.transformOptions || []).filter((line) => SPECIES[line] || isHiddenTransformLine(line));
@@ -14984,6 +14989,7 @@
             <button class="transform-choice-btn mystery" data-line="${line}">
               <span class="transform-choice-emoji">🕯️</span>
               <span>？？？</span>
+              ${transformNewBadge(line)}
             </button>
           `;
         }
@@ -14992,6 +14998,7 @@
           <button class="transform-choice-btn" data-line="${line}">
             <span class="transform-choice-emoji">${stageVisualHTML(stage, 'thumb')}</span>
             <span>${stage.label}</span>
+            ${transformNewBadge(line)}
           </button>
         `;
       })

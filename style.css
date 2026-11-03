@@ -1997,6 +1997,23 @@ body.region-deepsea .season-fx-item {
   cursor: pointer;
 }
 
+/* Inline badge keeps names, images and the whole choice tap target unobstructed. */
+.transform-new-badge {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 2px 4px;
+  padding: 2px 5px;
+  border-radius: 6px;
+  background: #fff0b3;
+  color: #694300;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
 .transform-choice-btn:active {
   transform: scale(0.95);
 }
